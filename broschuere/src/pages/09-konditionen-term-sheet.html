@@ -8,28 +8,28 @@
     /* Zweites Register 2.4 (klein, neben 2.1) */
     .page[data-page="09"] .p09-reg24 { right: calc(var(--m-outer) + 15mm + 1mm); width: 10mm; height: 8mm; padding-bottom: 1.4mm; }
     /* Diagramm */
-    .page[data-page="09"] .p09-chart .chart__head { display: flex; align-items: baseline; gap: 2.4mm; }
+    .page[data-page="09"] .p09-chart .chart__head { position: relative; display: flex; align-items: baseline; gap: 2.4mm; }
     .page[data-page="09"] .p09-chart .chart__title { font-size: var(--fs-h3); }
     .page[data-page="09"] .p09-chart .chart__sub { margin-top: 0; }
-    .page[data-page="09"] .p09-chart .chart__head { position: relative; }
     .page[data-page="09"] .p09-zone { position: absolute; left: 92.5mm; bottom: .2mm; }
-    .page[data-page="09"] .p09-chart .chart__svg { margin-top: 2.2mm; }
-    .page[data-page="09"] .p09-chart .chart__note { margin-top: 1.8mm; line-height: 1.3; color: var(--fg-2); }
+    .page[data-page="09"] .p09-chart .chart__svg { margin-top: 1.8mm; }
+    .page[data-page="09"] .p09-chart .chart__note { margin-top: 1.6mm; line-height: 1.27; color: var(--fg-2); }
+    .page[data-page="09"] .p09-tl text { font-variant-numeric: lining-nums proportional-nums; }
     .page[data-page="09"] .p09-tl .p09-stop { stroke: var(--signal-fill); stroke-width: .6; }
     .page[data-page="09"] .p09-tl .p09-brk { stroke-dasharray: .9 .6; }
     .page[data-page="09"] .p09-tl .p09-vkb { fill: var(--signal-text); }
     .page[data-page="09"] .p09-tl .p09-hatch-bg { fill: var(--surface); }
     .page[data-page="09"] .p09-tl .p09-hatch-line { stroke: var(--loan); stroke-width: .42; }
     .page[data-page="09"] .p09-tl .p09-hatch-frame { fill: none; stroke: var(--loan); stroke-width: .3; }
-    .page[data-page="09"] .p09-tl .p09-break { fill: none; stroke: var(--surface-2); stroke-width: .45; }
     .page[data-page="09"] .p09-tl .p09-onbs { fill: var(--on-bs); }
-    .page[data-page="09"] .p09-tl .p09-mark { fill: var(--bs-21); }
+    /* Ratenleisten: Neubau primär (Papierfläche, Tintenkontur), Änderung/Ersterwerb sekundär (nur Kontur) */
     .page[data-page="09"] .p09-tl .p09-bar { fill: none; stroke: var(--fg-3); stroke-width: .22; }
     .page[data-page="09"] .p09-tl .p09-bar--big { fill: var(--surface); stroke: var(--fg); stroke-width: .4; }
     .page[data-page="09"] .p09-tl .p09-pre { font-weight: 500; }
     .page[data-page="09"] .p09-tl .p09-vkb-cap { stroke: var(--signal-fill); stroke-width: .5; }
     /* Term Sheet */
-    .page[data-page="09"] .p09-ts .table { font-size: var(--fs-micro); line-height: 1.22; }
+    /* Texttabelle ohne Zahlenspalten: proportionale Ziffern (Inter-tnum macht den Bindestrich 41 % breiter: „öffentlich - rechtlich“) */
+    .page[data-page="09"] .p09-ts .table { font-size: var(--fs-micro); line-height: 1.22; font-variant-numeric: lining-nums proportional-nums; }
     .page[data-page="09"] .p09-ts .table th[scope="row"] { width: 28mm; padding-top: 1mm; padding-bottom: .75mm; line-height: 1.22; -webkit-hyphens: none; hyphens: none; }
     .page[data-page="09"] .p09-ts .table td { padding-top: .8mm; padding-bottom: .8mm; color: var(--fg); text-wrap: pretty; }
     .page[data-page="09"] .p09-ts .table td b { font-weight: 650; }
@@ -60,82 +60,81 @@
       <p class="chart__sub">schematisch</p>
       <p class="label p09-zone">Jahre ab Bezugsfertigkeit</p>
     </figcaption>
-    <svg class="chart__svg p09-tl" viewBox="0 0 174 50.15" width="174mm" height="50.15mm" role="img" aria-label="Schematischer Zeitstrahl zu Darlehen und Bindung in Programmteil 2.1: Vor der Förderentscheidung kein Vorhabenbeginn, z. B. Bauvertrag, sonst keine Förderung. In der Bauphase Auszahlung in Raten, je Rate Darlehen und Zuschuss: Neubau bis zu 30 Prozent bei Baubeginn, bis zu 30 Prozent bei Rohbau, bis zu 30 Prozent bei Innenputz und 10 Prozent bei Fertigstellung, Schlussbescheinigung und Belegung; Änderung oder Erweiterung bis zu 30 Prozent bei Baubeginn, 60 Prozent bei Kostennachweis und 10 Prozent bei Abschluss, Schlussbescheinigung und Belegung; Ersterwerb 90 Prozent bei Kaufpreisfälligkeit und 10 Prozent bei Umschreibung und Belegung. Ab Auszahlungsbeginn 0 Prozent Zins bis Ende des 35. Jahres nach Bezugsfertigkeit, ab Jahr 36 bis zu 3 Prozentpunkte über dem Basiszinssatz, höchstens marktüblich; Verwaltungskostenbeitrag 0,5 Prozent pro Jahr ab Auszahlungsbeginn bis zur Rückzahlung. Tilgungsbeginn variabel um die Bezugsfertigkeit. Belegungs- und Mietbindung 35 Jahre ab Bezugsfertigkeit, frühestes Bindungsende nach freiwilliger Volltilgung im Jahr 20. Laufzeitende spätestens nach 42 Jahren.">
+    <svg class="chart__svg p09-tl" viewBox="0 0 174 51.56" width="174mm" height="51.56mm" role="img" aria-label="Schematischer Zeitstrahl zu Darlehen und Bindung in Programmteil 2.1: Vor der Förderentscheidung kein Vorhabenbeginn, z. B. Bauvertrag, sonst keine Förderung. In der Bauphase Auszahlung in Raten, je Rate Darlehen und Zuschuss: Neubau bis zu 30 Prozent bei Baubeginn, bis zu 30 Prozent bei Rohbau, bis zu 30 Prozent bei Innenputz und 10 Prozent bei Fertigstellung, Schlussbescheinigung und Belegung; Änderung oder Erweiterung bis zu 30 Prozent bei Baubeginn, 60 Prozent bei Kostennachweis und 10 Prozent bei Abschluss, Schlussbescheinigung und Belegung; Ersterwerb 90 Prozent bei Kaufpreisfälligkeit und 10 Prozent bei Umschreibung und Belegung. Ab Auszahlungsbeginn 0 Prozent Zins bis Ende des 35. Jahres nach Bezugsfertigkeit, ab Jahr 36 bis zu 3 Prozentpunkte über dem Basiszinssatz, höchstens marktüblich; Verwaltungskostenbeitrag 0,5 Prozent pro Jahr ab Auszahlungsbeginn bis zur Rückzahlung. Tilgungsbeginn variabel, von der späten Bauphase bis nach der Bezugsfertigkeit. Belegungs- und Mietbindung 35 Jahre ab Bezugsfertigkeit, frühestes Bindungsende nach freiwilliger Volltilgung im Jahr 20. Laufzeitende spätestens nach 42 Jahren. Beim Ersterwerb zählen Laufzeit und Bindung ab Eigentumsübergang.">
 <defs><pattern id="p09-schraffur" patternUnits="userSpaceOnUse" width="1.4" height="1.4" patternTransform="rotate(45)"><rect class="p09-hatch-bg" width="1.4" height="1.4"/><line class="p09-hatch-line" x1="0" y1="0" x2="0" y2="1.4"/></pattern></defs>
-<rect class="c-surface-2" x="0" y="11.25" width="91" height="38.9"/>
-<text class="t-caps" x="4.6" y="48.85">Bauphase</text>
-<line class="p09-stop" x1="2" y1="3.5" x2="2" y2="50.15"/>
-<path class="c-signal" d="M1.38 -0.1h1.24l.88 .88v1.24l-.88 .88h-1.24l-.88 -.88v-1.24z"/>
+<rect class="c-surface-2" x="0" y="11.25" width="91" height="40.31"/>
+<text class="t-caps" x="4.6" y="14.58">Bauphase</text>
+<line class="p09-stop" x1="2" y1="3.5" x2="2" y2="51.56"/>
+<path class="c-signal" d="M1.38 0h1.24l.88 .88v1.24l-.88 .88h-1.24l-.88 -.88v-1.24z"/>
 <text class="t-b" x="4.6" y="2.9">Förderentscheidung</text>
 <text class="t-b t-signal" x="37.2" y="2.9">Vorher kein Vorhabenbeginn</text>
 <text class="t-ax" x="4.6" y="6.2">z. B. Bauvertrag; sonst keine Förderung (→ S. 19)</text>
-<line class="tl-stem" x1="24.8" y1="10.5" x2="24.8" y2="14.75"/>
-<text class="t-b" x="26" y="9.5">Auszahlungsbeginn</text>
-<path class="brk p09-brk" d="M70 11.7v-1.2H95.19v1.2"/>
-<text class="t-b t-mid" x="82.6" y="9.5">Tilgungsbeginn (variabel)</text>
+<line class="tl-stem" x1="25.6" y1="10.5" x2="25.6" y2="14.75"/>
+<text class="t-b" x="26.8" y="9.5">Auszahlungsbeginn</text>
+<path class="brk p09-brk" d="M70 11.7v-1.2H93.86v1.2"/>
+<text class="t-b t-mid" x="81.93" y="9.5">Tilgungsbeginn (variabel)</text>
 <line class="tl-stem" x1="171" y1="3.9" x2="171" y2="11.7"/>
 <text class="t-b t-end" x="171.3" y="2.9">Laufzeitende, spätestens</text>
-<text class="t-ax t-end" x="169.6" y="6.2"><tspan class="t-b">ab Jahr 36:</tspan> bis zu 3 Prozentpunkte über Basiszinssatz,</text>
-<text class="t-ax t-end" x="169.6" y="9.5">höchstens marktüblich</text>
+<text class="t-ax t-end" x="169.6" y="6.2"><tspan class="t-b">ab Jahr 36:</tspan> bis zu 3 Prozentpunkte</text>
+<text class="t-ax t-end" x="169.6" y="9.5">über Basiszinssatz (höchstens marktüblich)</text>
 <line class="lead-line" x1="158.07" y1="10.6" x2="158.07" y2="14.75"/>
-<line class="line-signal" x1="24.8" y1="12.6" x2="95.9" y2="12.6"/>
-<line class="line-signal" x1="153.9" y1="12.6" x2="171" y2="12.6"/>
+<line class="line-signal" x1="25.6" y1="12.6" x2="95.9" y2="12.6"/>
+<line class="line-signal" x1="153.3" y1="12.6" x2="171" y2="12.6"/>
 <line class="p09-vkb-cap" x1="171" y1="11.7" x2="171" y2="13.5"/>
 <text class="t-b p09-vkb" x="97.1" y="13.7">Verwaltungskostenbeitrag 0,5 % p. a.</text>
-<rect class="c-loan" x="24.8" y="14.75" width="132.87" height="5.2"/>
+<rect class="c-loan" x="25.6" y="14.75" width="132.07" height="5.2"/>
 <rect fill="url(#p09-schraffur)" x="157.67" y="14.75" width="13.33" height="5.2"/>
 <rect class="p09-hatch-frame" x="157.67" y="14.75" width="13.33" height="5.2"/>
-<text class="t-val" x="26.8" y="18.5">0 % Zins ab Auszahlung bis Ende des 35. Jahres</text>
-<rect class="c-bs-21" x="91" y="21.05" width="66.67" height="5.8"/>
-<text class="t-val p09-onbs" x="93" y="25.1">Belegungs- und Mietbindung 35 Jahre</text>
-<line class="tl-axis" x1="91" y1="28.25" x2="171" y2="28.25"/>
-<line class="tl-tick" x1="91" y1="28.25" x2="91" y2="29.35"/>
-<text class="t-b" x="91.1" y="32.05">0</text>
-<line class="tl-tick" x1="110.05" y1="28.25" x2="110.05" y2="29.35"/>
-<text class="t-b t-mid" x="110.05" y="32.05">10</text>
-<line class="tl-tick" x1="129.1" y1="28.25" x2="129.1" y2="29.35"/>
-<text class="t-b t-mid" x="129.1" y="32.05">20</text>
-<line class="tl-tick" x1="157.67" y1="28.25" x2="157.67" y2="29.35"/>
-<text class="t-b t-mid" x="157.67" y="32.05">35</text>
-<line class="tl-tick" x1="171" y1="28.25" x2="171" y2="29.35"/>
-<text class="t-b t-end" x="171.3" y="32.05">42</text>
-<circle class="tl-pin tl-pin--key" cx="91" cy="28.25" r="0.95"/>
-<path class="p09-mark" d="M129.1 27l1.25 1.7h-2.5z"/>
-<line class="tl-stem" x1="129.1" y1="32.95" x2="129.1" y2="38.95"/>
-<text class="t-b" x="130.3" y="35.55">frühestes Bindungsende</text>
-<text class="t-b" x="130.3" y="38.85">nach freiwilliger Volltilgung</text>
-<line class="tl-stem" x1="171" y1="19.95" x2="171" y2="28.25"/>
-<circle class="tl-pin tl-pin--done" cx="171" cy="28.25" r="1"/>
-<text class="t-b" x="4.6" y="25.4">Neubau</text>
-<rect class="p09-bar p09-bar--big" x="23.4" y="21.25" width="19.26" height="6.1"/>
-<text class="t-b t-mid p09-in" x="33.03" y="23.9"><tspan class="p09-pre">bis zu </tspan>30 %</text>
-<text class="t-ax t-mid p09-in" x="33.03" y="26.6">Baubeginn</text>
-<rect class="p09-bar p09-bar--big" x="43.26" y="21.25" width="19.26" height="6.1"/>
-<text class="t-b t-mid p09-in" x="52.89" y="23.9"><tspan class="p09-pre">bis zu </tspan>30 %</text>
-<text class="t-ax t-mid p09-in" x="52.89" y="26.6">Rohbau</text>
-<rect class="p09-bar p09-bar--big" x="63.12" y="21.25" width="19.26" height="6.1"/>
-<text class="t-b t-mid p09-in" x="72.75" y="23.9"><tspan class="p09-pre">bis zu </tspan>30 %</text>
-<text class="t-ax t-mid p09-in" x="72.75" y="26.6">Innenputz</text>
-<rect class="p09-bar p09-bar--big" x="82.98" y="21.25" width="6.42" height="6.1"/>
-<text class="t-ax t-end" x="89.4" y="30.2"><tspan class="t-b">10 %</tspan> Fertigstellung, Schlussbescheinigung, Belegung</text>
-<text class="t-b" x="4.6" y="33.65">Änderung/</text>
-<text class="t-b" x="4.6" y="36.75">Erweiterung</text>
-<rect class="p09-bar p09-bar--small" x="23.4" y="31.05" width="19.44" height="6.1"/>
-<text class="t-b t-mid p09-in" x="33.12" y="33.7"><tspan class="p09-pre">bis zu </tspan>30 %</text>
-<text class="t-ax t-mid p09-in" x="33.12" y="36.4">Baubeginn</text>
-<rect class="p09-bar p09-bar--small" x="43.44" y="31.05" width="38.88" height="6.1"/>
-<text class="t-b t-mid p09-in" x="62.88" y="33.7">60 %</text>
-<text class="t-ax t-mid p09-in" x="62.88" y="36.4">Kostennachweis</text>
-<rect class="p09-bar p09-bar--small" x="82.92" y="31.05" width="6.48" height="6.1"/>
-<text class="t-ax t-end" x="89.4" y="40"><tspan class="t-b">10 %</tspan> Abschluss, Schlussbescheinigung, Belegung</text>
-<text class="t-b" x="4.6" y="45">Ersterwerb</text>
-<rect class="p09-bar p09-bar--small" x="23.4" y="40.85" width="58.86" height="6.1"/>
-<text class="t-b t-mid p09-in" x="52.83" y="43.5">90 %</text>
-<text class="t-ax t-mid p09-in" x="52.83" y="46.2">Kaufpreisfälligkeit</text>
-<rect class="p09-bar p09-bar--small" x="82.86" y="40.85" width="6.54" height="6.1"/>
-<text class="t-ax t-end" x="89.4" y="49.8"><tspan class="t-b">10 %</tspan> Umschreibung, Belegung</text>
-<text class="t-ax" x="92.5" y="43.4"><tspan class="t-b">Ersterwerb:</tspan> Laufzeit und Bindung</text>
-<text class="t-ax" x="92.5" y="45.95">ab Eigentumsübergang.</text>
+<text class="t-val" x="27.6" y="18.53">0 % Zins ab Auszahlung bis Ende des 35. Jahres</text>
+<rect class="c-bs-21" x="91" y="21.05" width="66.67" height="5.2"/>
+<text class="t-val p09-onbs" x="93" y="24.83">Belegungs- und Mietbindung 35 Jahre</text>
+<line class="tl-axis" x1="91" y1="27.65" x2="171" y2="27.65"/>
+<line class="tl-tick" x1="91" y1="27.65" x2="91" y2="28.75"/>
+<text class="t-b" x="91.1" y="31.45">0</text>
+<line class="tl-tick" x1="110.05" y1="27.65" x2="110.05" y2="28.75"/>
+<text class="t-b t-mid" x="110.05" y="31.45">10</text>
+<line class="tl-tick" x1="129.1" y1="27.65" x2="129.1" y2="28.75"/>
+<text class="t-b t-mid" x="129.1" y="31.45">20</text>
+<line class="tl-tick" x1="157.67" y1="27.65" x2="157.67" y2="28.75"/>
+<text class="t-b t-mid" x="157.67" y="31.45">35</text>
+<line class="tl-tick" x1="171" y1="27.65" x2="171" y2="28.75"/>
+<text class="t-b t-end" x="171.3" y="31.45">42</text>
+<circle class="tl-pin tl-pin--key" cx="91" cy="27.65" r=".95"/>
+<circle class="tl-pin" cx="129.1" cy="27.65" r=".85"/>
+<line class="tl-stem" x1="129.1" y1="32.35" x2="129.1" y2="38.35"/>
+<text class="t-b" x="130.3" y="34.95">frühestes Bindungsende</text>
+<text class="t-b" x="130.3" y="38.25">nach freiwilliger Volltilgung</text>
+<line class="tl-stem" x1="171" y1="19.95" x2="171" y2="27.65"/>
+<circle class="tl-pin tl-pin--done" cx="171" cy="27.65" r="1"/>
+<rect class="p09-bar p09-bar--big" x="25.6" y="21.05" width="18.66" height="6.98"/>
+<text class="t-b t-mid" x="34.93" y="23.93"><tspan class="p09-pre">bis zu </tspan>30 %</text>
+<text class="t-ax t-mid" x="34.93" y="26.71">Baubeginn</text>
+<rect class="p09-bar p09-bar--big" x="44.86" y="21.05" width="18.66" height="6.98"/>
+<text class="t-b t-mid" x="54.19" y="23.93"><tspan class="p09-pre">bis zu </tspan>30 %</text>
+<text class="t-ax t-mid" x="54.19" y="26.71">Rohbau</text>
+<rect class="p09-bar p09-bar--big" x="64.12" y="21.05" width="18.66" height="6.98"/>
+<text class="t-b t-mid" x="73.45" y="23.93"><tspan class="p09-pre">bis zu </tspan>30 %</text>
+<text class="t-ax t-mid" x="73.45" y="26.71">Innenputz</text>
+<rect class="p09-bar p09-bar--big" x="83.38" y="21.05" width="6.42" height="6.98"/>
+<text class="t-b" x="4.6" y="23.93">Neubau</text>
+<text class="t-ax t-end" x="89.8" y="30.81"><tspan class="t-b">10 %</tspan> Fertigstellung, Schlussbescheinigung, Belegung</text>
+<rect class="p09-bar" x="25.6" y="32.43" width="18.66" height="6.98"/>
+<text class="t-b t-mid" x="34.93" y="35.31"><tspan class="p09-pre">bis zu </tspan>30 %</text>
+<text class="t-ax t-mid" x="34.93" y="38.09">Baubeginn</text>
+<rect class="p09-bar" x="44.86" y="32.43" width="37.92" height="6.98"/>
+<text class="t-b t-mid" x="63.82" y="35.31">60 %</text>
+<text class="t-ax t-mid" x="63.82" y="38.09">Kostennachweis</text>
+<rect class="p09-bar" x="83.38" y="32.43" width="6.42" height="6.98"/>
+<text class="t-b" x="4.6" y="35.31">Änderung/</text>
+<text class="t-b" x="4.6" y="38.51">Erweiterung</text>
+<text class="t-ax t-end" x="89.8" y="42.19"><tspan class="t-b">10 %</tspan> Abschluss, Schlussbescheinigung, Belegung</text>
+<rect class="p09-bar" x="25.6" y="43.81" width="57.18" height="4.2"/>
+<text class="t-ax t-mid" x="54.19" y="46.69"><tspan class="t-b">90 %</tspan> Kaufpreisfälligkeit</text>
+<rect class="p09-bar" x="83.38" y="43.81" width="6.42" height="4.2"/>
+<text class="t-b" x="4.6" y="46.69">Ersterwerb</text>
+<text class="t-ax t-end" x="89.8" y="50.79"><tspan class="t-b">10 %</tspan> Umschreibung, Belegung</text>
+<text class="t-ax" x="92.5" y="46.69"><tspan class="t-b">Ersterwerb:</tspan> Laufzeit und Bindung</text>
+<text class="t-ax" x="92.5" y="49.94">ab Eigentumsübergang.</text>
 </svg>
     <p class="chart__note"><b>Baubeginn:</b> unverzüglich, spätestens 4&nbsp;Monate nach Bekanntgabe der Förderentscheidung (Abweichung in begründeten Fällen). <b>Tilgungsbeginn (variabel):</b> Monatserster nach Vollauszahlung, meist nach Bezugsfertigkeit; spätestens 2&nbsp;Jahre nach dem auf die Bekanntgabe folgenden Monat, ggf. schon in der Bauphase.</p>
   </figure>
@@ -166,9 +165,9 @@
       <p class="callout__body">Zinsfrei heißt nicht kostenfrei: Verwaltungskostenbeitrag und Bearbeitungsentgelte gehören als feste Kosten in Ihren Finanzplan (Beispielwerte →&nbsp;S.&nbsp;10).</p>
     </aside>
     <ol class="l-span-8 footnotes">
-      <li>Laut NBank-Produktinformation 2.1 (Stand 31.08.2026), z.&nbsp;B. Bürgschaft; bei reinen Objektgesellschaften immer. Vorgehen sollen nur Kapitalmarktdarlehen zu erststelligen Marktbedingungen mit mind. 1&nbsp;% Tilgung zzgl. ersparter Zinsen; deren Grundschuld nicht neu belegen (Ausnahmen möglich). Andere Rangfolge durch die NBank möglich. Inseln: mit der NBank klären.</li>
+      <li>Laut NBank-Produktinformation 2.1 (Stand 31.08.2026), z.&nbsp;B. Bürgschaft; bei reinen Objektgesellschaften immer. Vorgehen sollen nur Kapitalmarktdarlehen zu erststelligen Marktbedingungen mit mind.&nbsp;1&nbsp;% Tilgung zzgl. ersparter Zinsen; deren Grundschuld nicht neu belegen (Ausnahmen möglich). Andere Rangfolge durch die NBank möglich. Inseln: mit der NBank klären.</li>
       <li>Versicherung: Brand ab Baubeginn, Sturm ab Bezugsfertigkeit, gleitender Neuwert, bis zur Rückzahlung. Weitere Entgelte: Entgeltkatalog der NBank.</li>
-      <li>2.4: Darlehenskonditionen, Auszahlung, Exit entsprechend; Quoten, Eigenmittel, Kostengrenze, Mieten abweichend (→&nbsp;S.&nbsp;13). RL Nr. 1.2, 4.2, 5.3–5.5, 8.3–8.5, 11.5, 11.10, 12.1–12.4, 12.7.</li>
+      <li>2.4: Darlehenskonditionen, Auszahlung, Exit entsprechend; Quoten, Eigenmittel, Kostengrenze, Mieten abweichend (→&nbsp;S.&nbsp;13). RL Nr.&nbsp;1.2, 4.2, <span class="u-nowrap">5.3–5.5</span>, <span class="u-nowrap">8.3–8.5</span>, 11.5, 11.10, <span class="u-nowrap">12.1–12.4</span>, 12.7.</li>
     </ol>
   </div>
 

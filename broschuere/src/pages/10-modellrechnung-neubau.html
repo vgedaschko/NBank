@@ -14,14 +14,14 @@
     .page[data-page="10"] .p10-head .h1 { margin-top: 2.6mm; }
     .page[data-page="10"] .p10-head .lead { margin-top: 2.6mm; font-size: 9.6pt; line-height: 1.38; }
     .page[data-page="10"] .p10-quote { display: grid; grid-template-columns: minmax(0, 1fr) 60mm; column-gap: 4mm; align-items: end; margin-top: 3.2mm; padding: 2.2mm 0 0 8mm; }
-    .page[data-page="10"] .p10-quote::before { font-size: 44pt; top: -4.4mm; left: -.4mm; }
+    .page[data-page="10"] .p10-quote::before { font-size: 44pt; top: -6.4mm; left: -.4mm; }
     .page[data-page="10"] .p10-quote .quote__text { font-size: 10.5pt; line-height: 1.3; }
     .page[data-page="10"] .p10-quote .quote__by { margin-top: 0; gap: 0; line-height: 1.25; border-left: var(--hair) solid var(--rule); padding-left: 2.6mm; letter-spacing: -.004em; }
     .page[data-page="10"] .p10-quote .quote__name { font-size: var(--fs-micro); line-height: 1.25; }
     .page[data-page="10"] .p10-aside { display: flex; flex-direction: column; }
-    .page[data-page="10"] .p10-disclaim { font-size: var(--fs-micro); line-height: 1.23; color: var(--fg-2); }
+    /* Stempeltext: ≥ 2 mm Luft unter der Außenlinie des schrägen Stempels */
+    .page[data-page="10"] .p10-disclaim { margin-bottom: 2mm; padding-top: .6mm; font-size: var(--fs-micro); line-height: 1.23; color: var(--fg-2); }
     .page[data-page="10"] .p10-aside .bullets__title { margin-top: auto; padding-top: 1.9mm; padding-bottom: 1.3mm; }
-    .page[data-page="10"] .p10-disclaim { margin-bottom: 1.9mm; }
 
     /* Rechenblatt: gemeinsamer Kopf für Liste und Tabellen (wie .bullets__title) */
     .page[data-page="10"] .bullets__title { padding: 2.4mm 0 1.5mm; }
@@ -35,15 +35,18 @@
     .page[data-page="10"] .p10-sheet th, .page[data-page="10"] .p10-sheet td { line-height: var(--p10-lh); padding-top: .85mm; padding-bottom: .9mm; }
     .page[data-page="10"] .p10-sheet td.num { border-left: var(--hair) solid var(--rule); padding-left: 1.6mm; font-weight: 500; }
     .page[data-page="10"] .p10-sheet .sw { width: 2.4mm; height: 2.4mm; margin-right: 1.3mm; vertical-align: -.1mm; }
+    /* Inter-tnum setzt auch Bindestriche auf Ziffernbreite („KfW - EH - 40“) – Textzellen proportional */
+    .page[data-page="10"] .p10-sheet td:not(.num) { font-variant-numeric: lining-nums proportional-nums; }
 
     /* 2 · Rechenweg (Zeilennummern im Kopfstreifen, Summenstriche über 2 und 5) | Turm */
     .page[data-page="10"] .p10-calc col.p10-c-no { width: 5.4mm; }
-    .page[data-page="10"] .p10-calc td { -webkit-hyphens: none; hyphens: none; }
+    .page[data-page="10"] .p10-sheet td { -webkit-hyphens: none; hyphens: none; }
     .page[data-page="10"] .p10-calc col.p10-c-val { width: 18.5mm; }
     .page[data-page="10"] .p10-calc tbody th { background: var(--surface-2); padding-left: 0; padding-right: 0; text-align: center; font-weight: 650; color: var(--fg-3); font-variant-numeric: tabular-nums; }
     .page[data-page="10"] .p10-calc tbody td:nth-child(2), .page[data-page="10"] .p10-calc thead th:nth-child(2) { padding-left: 2mm; }
     .page[data-page="10"] .p10-calc tr.p10-sum > * { border-top: var(--rule-w) solid var(--rule-strong); }
     .page[data-page="10"] .p10-calc tr.p10-sum td { font-weight: 650; }
+    .page[data-page="10"] .p10-calc .p10-paren { font-weight: 400; color: var(--fg-2); }
     .page[data-page="10"] .p10-calc tr.is-key td { background: var(--surface-2); }
     .page[data-page="10"] .p10-calc tr.is-key td.num { color: var(--accent-text); }
     .page[data-page="10"] .p10-tower { display: flex; flex-direction: column; }
@@ -80,7 +83,7 @@
     .page[data-page="10"] .p10-sens .chart__note { margin-top: 1.3mm; line-height: 1.27; }
     .page[data-page="10"] .p10-res { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 3.4mm; align-items: end; margin-top: 2.4mm; border-top: var(--hair) solid var(--rule); padding-top: 2mm; }
     .page[data-page="10"] .p10-res__pre { grid-column: 1; margin-bottom: 1mm; font: 650 var(--fs-micro)/1.1 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
-    .page[data-page="10"] .p10-res__num { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0; font-weight: 340; font-size: var(--fs-fig-m); line-height: .86; letter-spacing: -.03em; white-space: nowrap; color: var(--fg); font-variant-numeric: lining-nums; }
+    .page[data-page="10"] .p10-res__num { grid-column: 1; font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0; font-weight: 340; font-size: var(--fs-fig-m); line-height: .86; letter-spacing: -.03em; white-space: nowrap; color: var(--fg); font-variant-numeric: lining-nums; }
     .page[data-page="10"] .p10-res__num small { font-size: .5em; font-weight: 400; letter-spacing: 0; color: var(--accent-text); margin-left: .14em; }
     .page[data-page="10"] .p10-res__txt { grid-column: 2; grid-row: 1 / span 2; font-size: var(--fs-micro); line-height: var(--p10-lh); color: var(--fg-2); }
 
@@ -110,7 +113,7 @@
       <p class="p10-disclaim">Höchstwerte ohne Rechtsanspruch, im Rahmen verfügbarer Mittel; Überkompensationsprüfung vorbehalten.</p>
       <h2 class="bullets__title">Annahmen</h2>
       <ul class="bullets p10-ann">
-        <li><b>20 Neubauwohnungen</b>, zusammen 1.400&nbsp;m² Wohnfläche, angemessen für 1–4 Personen<span class="fn">1</span></li>
+        <li><b>20 Neubauwohnungen</b><span class="fn">1</span>, zusammen 1.400&nbsp;m² Wohnfläche, angemessen für 1–4 Personen</li>
         <li><b>alle Einkommensgruppe A</b>; Mietenstufe IV–VII, angespannter Wohnungsmarkt laut Verordnung: Bedarf gilt als gegeben</li>
         <li><b>Herstellungskosten</b> (Kostengruppen 200–700 nach DIN&nbsp;276) 4.500&nbsp;€ je m² Wohnfläche; <b>Grundstück</b> 700.000&nbsp;€ (Annahme: unter Bodenrichtwert&nbsp;×&nbsp;Fläche)</li>
       </ul>
@@ -125,7 +128,7 @@
         <thead><tr><th scope="col" aria-label="Zeile"></th><th scope="col">Rechenweg</th><th scope="col" class="num">€</th></tr></thead>
         <tbody>
           <tr><th scope="row">1</th><td>Herstellungskosten, voll zuwendungsfähig: unter ihrer Grenze (Ausgangswert 5.000&nbsp;€ ×&nbsp;1.400&nbsp;m² = 7.000.000&nbsp;€)</td><td class="num">6.300.000</td></tr>
-          <tr class="p10-sum"><th scope="row">2</th><td>+ Grundstück = zuwendungsfähige Kosten = Gesamtkosten (Annahme: keine weiteren Kosten)</td><td class="num">7.000.000</td></tr>
+          <tr class="p10-sum"><th scope="row">2</th><td>+ Grundstück = zuwendungsfähige Kosten = Gesamtkosten <span class="p10-paren">(Annahme: keine weiteren Kosten)</span></td><td class="num">7.000.000</td></tr>
           <tr><th scope="row">3</th><td><i class="sw sw--loan"></i>Darlehen, bis zu 40&nbsp;%</td><td class="num">2.800.000</td></tr>
           <tr><th scope="row">4</th><td><i class="sw sw--grant"></i>Zuschuss, bis zu 40&nbsp;%, nur mit dem Darlehen</td><td class="num">2.800.000</td></tr>
           <tr class="p10-sum is-key"><th scope="row">5</th><td>Förderung, bis zu 80&nbsp;%</td><td class="num">5.600.000</td></tr>
@@ -137,28 +140,28 @@
       <figcaption class="chart__head"><h2 class="chart__title">Finanzierung 7,0&nbsp;Mio.&nbsp;€ (Höchstwerte)</h2></figcaption>
       <svg class="chart__svg" viewBox="0 0 54.67 37.7" width="54.67mm" height="37.7mm" role="img" aria-label="Finanzierung von 7,0 Millionen Euro, Höchstwerte: Zuschuss bis zu 2,8 Millionen Euro (bis zu 40 Prozent), Darlehen bis zu 2,8 Millionen Euro (bis zu 40 Prozent), zusammen Förderung bis zu 80 Prozent; Eigenmittel mindestens 1,4 Millionen Euro (mindestens 20 Prozent).">
         <defs><pattern id="schraffur-10-1" patternUnits="userSpaceOnUse" width="1.6" height="1.6" patternTransform="rotate(45)"><rect class="c-equity" width="1.6" height="1.6"/><line class="c-equity-line" x1="0" y1="0" x2="0" y2="1.6"/></pattern></defs>
-        <!-- 5 mm je Mio. €: oben Zuschuss, Mitte Darlehen, unten Eigenmittel (wie das Haus auf dem Titel) -->
-        <rect class="c-grant" x="21" y="0.5" width="14" height="14"/>
-        <rect class="c-loan" x="21" y="14.5" width="14" height="14"/>
-        <rect x="21" y="28.5" width="14" height="7" fill="url(#schraffur-10-1)"/>
-        <rect class="c-equity-frame" x="21" y="28.5" width="14" height="7"/>
-        <line class="sep-line" x1="21" y1="14.5" x2="35" y2="14.5"/>
-        <line class="sep-line" x1="21" y1="28.5" x2="35" y2="28.5"/>
-        <text class="t-val t-mid" x="28" y="6.6"><tspan x="28" font-weight="500">bis zu</tspan><tspan x="28" dy="3.6">40 %</tspan></text>
-        <text class="t-val t-mid" x="28" y="20.6"><tspan x="28" font-weight="500">bis zu</tspan><tspan x="28" dy="3.6">40 %</tspan></text>
-        <text class="t-val-ink t-mid" x="28" y="31.5"><tspan x="28" font-weight="500">mind.</tspan><tspan x="28" dy="3.2">20 %</tspan></text>
-        <text class="t-b t-end" x="19" y="5.3">Zuschuss</text>
-        <text class="t-num t-end" x="19" y="11.7">2,8<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text>
-        <text class="t-b t-end" x="19" y="19.1">Darlehen</text>
-        <text class="t-num t-end" x="19" y="25.7">2,8<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text>
-        <text class="t-b t-end" x="19" y="32.0">Eigenmittel</text>
-        <text class="t-num t-end" x="19" y="37.5">1,4<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text>
-        <path class="brk" d="M36.4 0.5 H38 V28.5 H36.4"/>
-        <line class="brk" x1="38" y1="14.5" x2="39.4" y2="14.5"/>
-        <text class="t-b" x="40.6" y="9.4">Förderung</text>
-        <text class="t-ax" x="40.6" y="13.4">bis zu</text>
-        <text class="t-num t-acc" x="40.6" y="20.4">80 %</text>
-        <text class="t-ax" x="40.6" y="24.4">5,6 Mio. €</text>
+        <!-- 5 mm je Mio. € (Turm 13,5 mm breit, Text bleibt in der Spaltenbreite 54,67 mm): oben Zuschuss, Mitte Darlehen, unten Eigenmittel (wie das Haus auf dem Titel) -->
+        <rect class="c-grant" x="20.2" y="0.5" width="13.5" height="14"/>
+        <rect class="c-loan" x="20.2" y="14.5" width="13.5" height="14"/>
+        <rect x="20.2" y="28.5" width="13.5" height="7" fill="url(#schraffur-10-1)"/>
+        <rect class="c-equity-frame" x="20.2" y="28.5" width="13.5" height="7"/>
+        <line class="sep-line" x1="20.2" y1="14.5" x2="33.7" y2="14.5"/>
+        <line class="sep-line" x1="20.2" y1="28.5" x2="33.7" y2="28.5"/>
+        <text class="t-val t-mid" x="26.95" y="6.6"><tspan x="26.95" font-weight="500">bis zu</tspan><tspan x="26.95" dy="3.6">40 %</tspan></text>
+        <text class="t-val t-mid" x="26.95" y="20.6"><tspan x="26.95" font-weight="500">bis zu</tspan><tspan x="26.95" dy="3.6">40 %</tspan></text>
+        <text class="t-val-ink t-mid" x="26.95" y="31.7"><tspan x="26.95" font-weight="500">mind.</tspan><tspan x="26.95" dy="3.0">20 %</tspan></text>
+        <text class="t-b t-end" x="18.6" y="5.3">Zuschuss</text>
+        <text class="t-num t-end" x="18.6" y="11.7">2,8<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text>
+        <text class="t-b t-end" x="18.6" y="19.1">Darlehen</text>
+        <text class="t-num t-end" x="18.6" y="25.7">2,8<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text>
+        <text class="t-b t-end" x="18.6" y="32.0">Eigenmittel</text>
+        <text class="t-num t-end" x="18.6" y="37.5">1,4<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text>
+        <path class="brk" d="M35.1 0.5 H36.7 V28.5 H35.1"/>
+        <line class="brk" x1="36.7" y1="14.5" x2="38.1" y2="14.5"/>
+        <text class="t-b" x="39.3" y="9.4">Förderung</text>
+        <text class="t-ax" x="39.3" y="13.4">bis zu</text>
+        <text class="t-num t-acc" x="39.3" y="20.4">80 %</text>
+        <text class="t-ax" x="39.3" y="24.4">5,6 Mio. €</text>
       </svg>
     </figure>
   </div>
@@ -215,7 +218,7 @@
       <p class="chart__sub">Grenze 5.000&nbsp;€ = Ausgangswert 01.07.2026; eigene Berechnung</p>
       <div class="p10-res">
         <p class="p10-res__pre">bis zu</p>
-        <p class="p10-res__num" style="grid-column:1">77,2<small>%</small></p>
+        <p class="p10-res__num">77,2<small>%</small></p>
         <p class="p10-res__txt">effektive Förderquote auf die Gesamtkosten, gerundet</p>
       </div>
     </figcaption>

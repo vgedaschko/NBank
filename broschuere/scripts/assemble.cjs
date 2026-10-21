@@ -142,6 +142,9 @@ const NOHY_CLASSES = new Set([
   'kicker', 'label', 'callout__label', 'term__label', 'kf__pre', 'bullets__title', 'contact__label', 'seal__pre',
   'titleblock__label', 'audience__label', 'steps__head-label', 'page__section', 'u-nohyphens', 'u-url',
   'stamp', 'stampline', 'cover__rl', 'lead', 'caveat', 'chapter-no__label', 'badge__pre',
+  // PGN-Designsystem: Plakatzeile, Leistungen, Referenzen, Bauzeitenplan, Planzeichen, Schriftfeld
+  'claim', 'service__title', 'service__phase', 'reference__name', 'bzp__title', 'keyplan', 'photo__tag', 'kote', 'axis-no',
+  'values__word', 'offer-box__title', 'plan-legend__title', 'cover__kpi-pre', 'titleblock__value', 'page__running',
 ]);
 const HY_CLASSES = new Set(['u-hyphens', 'u-justify']);
 const VOID_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr']);

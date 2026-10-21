@@ -1,67 +1,76 @@
-# Designsystem „Editorial Premium“ – Komponentenkatalog
+# PGN-Designsystem „Planwerk“ – Komponentenkatalog
 
-Broschüre **Mietwohnraumförderung Niedersachsen 2026** (RL Mietwohnraum 2026), DIN A4 hoch, 20 Seiten.
-Basis ist der Siegerentwurf A (Petrol · Terrakotta · Sand, Fraunces + Inter). Übernommen aus den anderen Entwürfen:
-Modellrechnung, Schriftfeld, Warnband im Ablauf, Baustein-Piktogramme und Förderart-Chips, Höchstwert-Hinweis (aus B);
-Zitat-Baustein, zweispaltiger Warnkasten „Gilt als Beginn / Gilt nicht als Beginn“, hervorgehobene Spalte A, Zielgruppen-Zeile,
-Stand- und Haftungszeile, Fördertatbestände als Icon-Reihe (aus C).
+Broschüre **Mietwohnraumförderung Niedersachsen 2026** (RL Mietwohnraum 2026), Herausgeber **Planungsgemeinschaft Nord GmbH**
+(PGN Architekten und Ingenieure, Rotenburg (Wümme)). DIN A4 hoch, 24 Seiten, Rückendrahtheftung: U1 Titel · U2 Editorial/Inhalt ·
+20 Innenseiten · U3 Impressum · U4 Rückseite.
+
+**Leitidee:** Die Broschüre ist ein **Planwerk**. Die Gestaltung kommt aus dem Handwerk eines Generalplaners: Planrahmen,
+Schriftfeld mit Blattnummer, Achskreise, Maßketten mit 45°-Architektenstrich, Höhenkoten, Schnittlinie, Maßstabsleiste,
+Nordpfeil, Axonometrie. Rot ist **der eine Akzent** (Zuschuss, Maßkette, Marke, Bewilligung); alles andere steht in
+Fast-Schwarz, Anthrazit und warmem Grau auf weißem Papier. Typografie wie auf pgn-architekten.de: Montserrat 900 in
+Versalien, Signaturwort in Montserrat 800 kursiv in PGN-Rot, Fließtext in Work Sans.
+
+Basis ist der Siegerentwurf **A „Bauplan“**. Übernommen aus der Jury:
+
+| Herkunft | Übernahme | Umsetzung |
+|---|---|---|
+| A | Planrahmen, Schriftfeld, Maßketten-Diagramm, Achskreise, Höhenkoten, Schnittlinie A–A, Maßstabsleiste als Achse, Bauzeitenplan nach HOAI mit Bewilligungslinie, Planlegende, Axonometrie, „Rotpause“ auf U4 | U1/U4, `.chart__svg`, `.bzp`, `.plan-legend`, `.cutline`, `.kote`, `.axis-no` |
+| A korrigiert | Titelfeld im Planrahmen geschlossen; Rotpause mit Wandstärken (Poché), Fenster nie auf Trennwandachsen, Bemaßung frei von der Rahmenlinie; keine dekorativen Achskreise im Seitenkopf | `sig-grundriss.svg`, `.cover__stamp` |
+| A → Brauerstraße | Axonometrie nach der Kubatur des NBank-geförderten Projekts Brauerstraße (Walmdach, Kopfbau, Balkone, PV); 80-%-Marke auf der 30,00-m-Kette, 20 % Rest | `sig-axo-brauerstrasse.svg` |
+| B | Fernwirkung: Kennzahlfeld U1 auf PGN-Rotverlauf mit weißer 80; Plakatzeilen („PLANEN. FÖRDERN. *BAUEN.*“); große Programmnummer „2.1“; Daumenregister am Außenrand (links gespiegelt); Höchstmieten in Montserrat 800 mit Tabellenziffern; Bauzeitenplan Rot = förderspezifisch / Fast-Schwarz = Planen und Bauen; Horizont U1 = U4 | `.cover__kpi`, `.claim`, `.chapter-no`, `.bs-register`, `.table--figures`, `--horizon` |
+| C | Vektor-Punktraster der Brauerstraße in PGN-Rot; Duplex-Banner mit Achskreisen; Höhenkoten „±0 = Bewilligung“; Mini-Plankopf statt 14-mm-Schriftfeld auf Innenseiten; kundenzentrierte Schriftfeldtexte; Light/Black-Kontrast als zweite Stimme | `sig-raster-brauerstrasse.svg`, `.photo__axes`, `.steps--kote`, `.page__foot`, `.h1 .light` |
+| Jury 3 | Druckregeln (rote Linien ≥ 0,25 mm, rote Schrift ≥ 9 pt/≥ 600, kein Negativtext < 9 pt aus Verläufen), Massendaten-Tabellenstufe, leichte Diagrammvariante (Balken 6–7 mm), kein vollflächiger Papierton, Schraffur nur mit Beschriftung | Abschnitte 0, 1, 6 |
+| bewusst nicht | Schiefer-Darlehen aus C (außerhalb CI) · riesige freistehende „80“ ohne Architekturkontext aus B (Rabattplakat-Risiko) · Grün (#26772B gehört der PGN Projektgesellschaft) | – |
 
 | Datei | Inhalt |
 |---|---|
-| `src/styles.css` | Tokens, Seitenrahmen, Typografie, Layout-Utilities, alle Komponenten |
-| `src/assets/*.svg` | Titelillustration, Haus-Diagramm, Piktogramme, UI-Icons, Dekor (inline einbetten) |
-| `src/.preview-specimen.html` | Specimen: 4 Seiten mit allen Block-Komponenten und allen 5 Diagrammtypen (funktionierende Beispiele zum Kopieren) |
-| `src/.preview-varianten.html` | Titel (`.page--cover`), dunkle Seite, Zusatzkomponenten, Asset-Bogen, Rückseite (`.page--back`) |
-
-Vorschau rendern (aus `broschuere/`):
+| `src/styles.css` | Tokens, Seitenrahmen, Typografie, Layout-Utilities, alle Komponenten, Umschlag |
+| `src/fonts/fonts.css` | Montserrat + Work Sans (latin, latin-ext, normal + italic) + PGN-Symbol-Teilmenge; Fraunces/Inter (v1, ungenutzt) |
+| `src/assets/pgn/` | Logos, Signaturen (`sig-*.svg`), Punktraster, Duplex-Fotos (`img/`), QR-Code, Werte-Icons |
+| `scripts/pgn-signatures.cjs` | erzeugt `sig-*.svg` (Axonometrie, Grundriss, Planzeichen) |
+| `scripts/pgn-images.py` | erzeugt Duplex-JPGs und das Vektor-Punktraster aus `ref/*.jpg` (Pillow) |
+| `scripts/specimen.cjs` | baut `src/.preview-specimen.html` (nicht versioniert): U1, Fachseite 2.1, PGN-Leistungen, Über PGN, Komponenten I–III, U4 – zugleich Bauplan (`foerdermix()`, `bzp()`) |
 
 ```bash
-NODE_PATH=/opt/node22/lib/node_modules node scripts/render.cjs --in src/.preview-specimen.html --pdf dist/qa/specimen.pdf --png dist/qa/specimen --dpi 60
+# Specimen bauen und rendern (aus broschuere/)
+node scripts/specimen.cjs
+NODE_PATH=/opt/node22/lib/node_modules node scripts/render.cjs --in src/.preview-specimen.html \
+  --pdf dist/qa/specimen.pdf --png dist/qa/specimen --dpi 70 --no-print
+# Druck-PDF mit 3 mm Beschnitt zum Prüfen der randabfallenden Flächen
+NODE_PATH=/opt/node22/lib/node_modules node scripts/render.cjs --in src/.preview-specimen.html \
+  --pdf dist/qa/specimen.pdf --print-pdf dist/qa/specimen-druck.pdf
 ```
 
 ---
 
 ## 0 · Grundregeln (verbindlich)
 
-1. **Farben nur über Tokens** (`var(--…)`). Komponenten nutzen ausschließlich die *semantischen* Tokens (`--fg`, `--surface-2`, `--accent-text` …), nie Palettenwerte. Dann funktionieren sie automatisch auf hellen, sandfarbenen und dunklen Flächen.
-2. **Schriften nur aus `fonts/fonts.css`**: Fraunces Variable (Display, Zahlen) und Inter Variable (Text, Labels, Tabellen, Diagramme). Keine weiteren Familien. **Pfeile und Symbole `→ ↔ ≤ ≥ ≈ ✓ ✗` immer als echtes Zeichen** tippen: Sie kommen aus einer eingebetteten Inter-Teilmenge (`inter-arrows-symbols`, für Inter *und* Fraunces, aufrecht und kursiv registriert). Keine Inline-SVG-Pfeile, keine Ersatz-Spans. Andere Symbole (⚠ ↳ ★ …) gibt es nicht → `.mark`, `.icon`.
-   **Im PDF statische Instanzen:** `scripts/render.cjs` ersetzt beim Rendern jede genutzte Kombination aus Familie, Stil, `wght`, `opsz` (und bei Fraunces `SOFT`/`WONK`) durch eine statische Instanz aus `src/fonts/static/` (Familien „FI …“, Liste `instances.json`). Fehlt eine Instanz, meldet der Lauf `FONT: … fehlen` und schreibt `needed.json`; dann `python3 scripts/fonts-static.py` (fontTools + brotli) ausführen und neu rendern. Ergebnis: CID-TrueType (Identity-H) statt Type 3. Kein `paint-order`/`stroke` auf Text (Halo) – Skia setzt gestrichenen Text wieder als Type 3.
-   **Eindeutige Fontnamen:** `fonts-static.py` benennt jede Instanz und Unicode-Teilmenge eigens (nameID 1/2/4/6, z. B. PostScript `Inter-in-w650-o14-latin`, `Fraunces-fn-w400-o144-s40-k0-latin`, `Inter-arrows-w400-o14`; nameID 16/17/25 entfallen) – sonst hießen alle Schnitte „Inter-Regular“ bzw. „Fraunces-9ptBlack“. `render.cjs` vergibt zusätzlich je Fontprogramm ein eigenes Subset-Präfix (6 Buchstaben aus dem MD5 des FontFile2; Chrome nummeriert sonst je Seite neu „AAAAAA+ …“). Prüfung: Jeder BaseFont-Name entspricht genau einer Fontdatei (`pdffonts` + MD5 über FontFile2). Nach Änderungen an der Namensgebung `src/fonts/static/*.woff2` löschen, dann `python3 scripts/fonts-static.py` (Instanzen werden sonst übersprungen).
-3. **Mindestschrift 8,5 pt** – auch in SVG (dort `3px` bei 1 Einheit = 1 mm). **8,5 pt (`--fs-micro`) nur für Fundstellen, Fußnoten, Bildunterschriften/Diagrammnotizen, Achsen- und Versal-Labels, Kurzmarken, Badges und Nachschlage-Register** (Gemeindeverzeichnis S. 7, Term Sheet S. 9). **Modultext 9 pt / 1,36** (`--fs-module`, `--lh-module`): Listen (`.bullets`, Checklisten), `.facts__text`, `.callout__body` (auch `--s`, `--inline`, `--calc`), Kachel- und Kennzahltexte, Schritttexte, Tabellenzellen (`.table--compact`, `--matrix`). Auf sehr dichten Seiten darf der Durchschuss bis 1,27 sinken, die Größe nicht. Ziel: höchstens rund 420 Wörter je Innenseite – zuerst Dubletten streichen (Aussage mit Verweis „→ S. N“ auf die Seite, wo sie vollständig steht), nie Bedingungen. Fußnotenziffern (`.fn`) haben ebenfalls 8,5 pt und sind **immer Inter 650 aufrecht**. Sie stehen **nur im Fließtext, in Tabellenzellen und Bildunterschriften** – nie an `h1`–`h4`, `.kicker`, `.label` oder Diagrammtiteln (s. 6.13).
-4. **Silbentrennung** setzt `scripts/assemble.cjs` (weiche Trennstriche). CSS: `hyphens: manual` für Fließtext, Blocksatz mit `.u-justify` möglich.
-   - **Ausnahmeliste** `HYPH_EXCEPTIONS` in `assemble.cjs`: feste Trennfugen statt Automaten-Trennung (Überkompensations-prüfung, Hilfe-stellung, Bau-abnahme, Energiebedarfs-ausweis, Wohnungsmarkt-beobachtung, Vorhaben-beginn, Wohnraum-förder-stelle, Pflege-grad, Entwicklungs-konzept, Gemeinschafts-unterkünfte, Subventions-erheblich, Energie-effizienz, Bearbeitungs-entgelt, Finanzierungs-entscheidung, Antrags-eingang, Grundbuch-lasten-frei, Bedarfs-abschätzung, Bemessungs-grenze, Kosten-gruppe, Zuwendungs-fähig, Eigentums-wohnung, Städte-baulich …; ungetrennt: „vorzeitigem/-en/-er“, Einkommen, zulassen, Maßnahme(n), Bindungsende, Förderberatung). Ein Strich markiert die einzige erlaubte Trennstelle; Flexionsendungen (-s, -es, -en, -n, -e) werden mitgefunden, andere Formen (-er, -em) brauchen einen eigenen Schlüssel. Neue sinnentstellende Trennungen (mitten im Kompositionsglied: „Pfle-gegrad“, „Bemes-sungsgrenze“) dort ergänzen, nicht im Partial – und danach den Gesamtlauf prüfen: Eine Ausnahme verschiebt den Umbruch, auf vollen Seiten kann das eine Zeile kosten (OVERFLOW) oder an anderer Stelle eine neue schlechte Trennung erzeugen. „Mie-tenstufe“ und „Mietver-trag“ bleiben deshalb vorerst automatisch getrennt (S. 3/7/13/16 voll).
-   - **Geschützte Leerzeichen** setzt `assemble.cjs` vor der Trennung automatisch (`NBSP_RULES`): Zahl + %/€/m²/Mio./Mrd./Euro, §/§§/Nr./S./Abs./DIN/max./mind./inkl./ca./rd. + Zahl, „Mio. €“, „p. a.“, „z. B.“, „u. a.“, „d. h.“, „i. d. R.“, Rechtszitate „§ 7 Abs. 3“, „§ 4 Satz 2“, „Abs. 3 Satz 1“, „RL Nr. 11.4“ und „je m²“. Im Partial dafür kein `&nbsp;` nötig (schadet aber nicht). Den harten Bindestrich in **„DVO-NWoFG“** schützt keine Regel: Zitate immer als `<span class="u-nowrap">§&nbsp;4 DVO-NWoFG</span>` setzen (auch in Fundstellen); Bereiche wie „I–III/IV–VII“ in schmalen Spalten ebenso.
-   - **Vorspann** (`.lead`) ohne automatische Trennung (`lead` in `NOHY_CLASSES`, CSS `hyphens: manual; text-wrap: pretty`); wo nötig nur von Hand an Kompositionsfugen trennen (`Wohnraum&shy;förderstelle`).
-   - **Kein Trennrest allein in der letzten Zeile** („zulas-|sen.“): `text-wrap: pretty` gilt für `p, li, dd, td, th`, greift aber nicht zuverlässig. `render.cjs` meldet verbliebene Fälle als **`LASTLINE`-Zeilen (= Fehler, wie OVERFLOW)**: letzte Zeile eines Blocks (nächster Nicht-Inline-Vorfahr; Blöcke aus nur einem Wort zählen nicht) besteht nur aus dem Rest eines weich getrennten Wortes. Abhilfe: Wort in `HYPH_EXCEPTIONS` ungetrennt, sonst das letzte Wort im Partial in `.u-nohyphens` (S. 8 „×&nbsp;Wohnfläche“) oder Satz umstellen.
-   - `text-wrap: pretty` meidet in Chrome Trennstellen und braucht dafür gelegentlich eine Zeile **mehr** als der gierige Umbruch. Wird eine volle Seite dadurch zu lang, den einzelnen Block seitenlokal auf `text-wrap: wrap` setzen (S. 12 `.p12-eh40`).
-   - `render.cjs` entfernt vor dem PDF alle **ungenutzten** weichen Trennstriche (Textlayer, Suche, Copy & Paste) und prüft den Umbruch dabei gegen; Absätze, deren Satz sich ändern würde, behalten ihre Trennstellen.
-   Überschriften, Titel, Zahlen **und Versal-Labels** (`.kicker`, `.label`, `.callout__label`, `.term__label`, `.kf__pre`, `.bullets__title`, `.contact__label`, `.stamp`, `.stampline`, `.cover__rl`, `.caveat`, `thead th`, Zeilenköpfe in `.table--terms` …) trennen **nie** (`hyphens: none` ist voreingestellt). `assemble.cjs` setzt in diesen Elementen (und in `h1`–`h4`, `thead`, `.deck`, `.lead`, `.u-url`, `.u-nohyphens`) auch **keine** weichen Trennstriche – sonst stünden sie im PDF-Textlayer („EDI­TO­RIAL“). Die Klassenliste in `assemble.cjs` (`NOHY_CLASSES`) muss eine Teilmenge der `hyphens: none`-Selektoren bleiben. Passt ein einzelnes Wort nicht in die Spalte, `.u-hyphens` auf die Überschrift setzen; einzelne Wörter im Fließtext mit `.u-nohyphens` von der Trennung ausnehmen.
-   E-Mail-Adressen, URLs und Telefonnummern immer als Link mit `.u-url` (keine Trennung, kein Umbruch): `<a class="u-url" href="https://www.nbank.de">nbank.de</a>`, `href="mailto:…"`, `href="tel:+49511300319333"`. `a` erbt Farbe und Schrift, die Optik ändert sich nicht; Chrome erzeugt Link-Annotationen (mit Tagging auch Link-Tags). Die Alternativbeschreibung je Annotation (`/Contents`, PDF/UA-1 7.18.5) setzt `render.cjs` aus dem Link: `aria-label` oder Text inkl. `.u-sr` (ohne `aria-hidden`); „→ S. 15“ → „Verweis auf Seite 15“, `tel:` → „Telefon …“, `mailto:` → „E-Mail an …“, Web → „Website …“. Links ohne Text (z. B. QR-Code) brauchen ein `aria-label`; Links nie in `role="img"` oder `aria-hidden` (Vorprüfung `PDFUA:`).
-5. **Keine negativen Ränder an Grid-/Flex-Kindern.** Chromium berechnet sie im Druck anders als am Bildschirm – der Overflow-Check sieht es nicht, das PDF schon (gemessen: +7 mm pro Ablaufzeile). Polster gehört in die Zelle, nicht als Minus-Rand an den Nachbarn.
-6. **Randabfallend** (Titelbild, Register-Reiter, Farbstreifen, Dekor) bekommt `data-bleed` – das Render-Skript nimmt diese Elemente vom Overflow-Check aus. Text bleibt ≥ 5 mm vom Endformat (`--safe`).
-7. **Förderquoten immer mit „bis zu“**, Eigenmittel mit „mind.“/„mindestens“. Modellrechnungen tragen immer die **Stempelzeile** `.stampline` („Modellrechnung – fiktives Beispiel, keine Förderzusage“) als erste Zeile des Moduls (s. 6.12).
-9. **Standard-Vorbehalt** (Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch · verfügbare Haushaltsmittel) steht **ausformuliert nur im Lesehinweis S. 2 und im Impressum S. 20**. Programmspezifische Fälle bleiben im Text (S. 12 Kombination, S. 16 „Kombinierbar mit“). Sonst genau eine Kurzmarke `.caveat` direkt unter dem Hauptdiagramm bzw. Kachelraster der Seite (s. 6.13). Keine Einschränkung entfällt.
-10. **Fortschreibung der Bemessungsgrenze** ausformuliert nur im Hinweis-Kasten S. 8, als Termin im Zeitstrahl S. 15 und als Link „Immer aktuell“ S. 20; überall sonst „Fortschreibung → S. 8“.
-11. **Kalkulationsnotiz höchstens einmal je Doppelseite**, immer als unterstes Modul der Außenspalte (gerade Seite links, ungerade rechts) in voller Spaltenbreite (s. 6.3). Wiederholte Aussagen werden durch einen Seitenverweis-Chip `.pageref` ersetzt.
-12. **Querverweise** immer „→ S. N“ und als Link: `<a class="u-nowrap" href="#seite-NN">→&nbsp;S.&nbsp;NN</a>`; jede `section.page` trägt `id="seite-NN"`. Schreibweisen: „RL Nr. 5.4.4“ (nie „Nr.“ allein, nie „§ RL“), „Leistungsphase 6 HOAI“, „auch bei Wiedervermietung“, „in den Jahren 1–3“ (Achsen-/Spaltenlabels „Jahr 1–3“ dürfen bleiben), Datum „01.04./01.10.“ bzw. „jeweils zum 01.04. und 01.10.“, „Stand 08/2026“, Schrägstrich-Paare ohne Leerzeichen („4.800/5.000 €“), Bereiche mit Halbgeviert („6,50–9,00 €“), Zahlwörter im Fließtext („bis zwei Jahre nach Fertigstellung“, „ab drei Wohnungen“, „in drei Jahren“, „sieben Inselgemeinden“). Titel amtlich und in „…“: Arbeitshilfe „Kosten-Finanzierungsaufteilung“, Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“.
-13. **Barrierefreiheit im PDF** (getaggt, s. 9): jedes `<figure>` ohne eigene Rolle bekommt `role="group"` (sonst /Figure ohne Alt), Diagramm-SVGs `role="img"` + vollständiges `aria-label`; `.page__foot`, `.bs-register` und `.bs-strip` tragen `aria-hidden="true"` (Artefakte); englische Begriffe im Fließtext mit `<span lang="en">` („Housing First“, „Term Sheet“).
-   **Artefakte:** Chrome taggt nur Inhalte mit Strukturbezug; `render.cjs` (`markArtifacts()` in `finishPdf`) umschließt danach jeden Mal-Lauf außerhalb von Marked Content – Seitengrund, Flächen, Linien, aria-hidden-Text (Fußzeile, Register-Reiter, Farbleisten, Zier-Anführungszeichen, Deko-Pfeile) – mit `/Artifact BMC … EMC` (PDF/UA-1, Matterhorn 01-005). Folge: Was vorgelesen werden soll, darf nicht `aria-hidden` sein; Deko immer `aria-hidden`.
-   **Kein bedeutungstragender Generated Content** (`::before { content: "…" }` fehlt im Tag-Baum): Fußnotenziffern (`.footnotes__no`) und das Wort „Vordruck“ (`.badge__pre`) setzt `assemble.cjs` als echten Text ein (s. 6.13, 6.5). `::before/::after` nur für Striche, Punkte, Marker.
-14. **Vorhabenbeginn-Regel** („Erst Bewilligung, dann Vertrag/Baubeginn“) ausformuliert nur im **Antragsweg S. 19** (Bernstein-Band + Ampel „Darf ich das vor der Bewilligung?“) und als Prüfpunkt im **Grundcheck S. 4**. S. 5: einzeiliges `.gate` „Erst Bewilligung, dann Vertrag oder Spatenstich → S. 19“ am Fuß des Baums; S. 14 und S. 16: programmspezifische Stopp-Zeile (Stopp-Icon in Bernstein + fetter Satz im Faktenmodul, kein Kasten); S. 9: Marke im Zeitstrahl. Kein weiterer Achtung-Kasten zu diesem Thema.
-15. **Fundstellen-Abstand:** Zwischen letztem Modul und Fundstellenblock mindestens 4 mm (global: `.page > :has(+ .footnotes) { margin-bottom: 4mm }`, die Fußnoten sitzen mit `.l-bottom` am Fuß). Passt eine Seite dann nicht, Inhalt entlasten – nicht den Abstand drücken.
-8. Seitenspezifisches CSS nur im `<style>` der eigenen `<section>` mit Präfix `.page[data-page="NN"]`; dort keine neuen Hex-Farben.
+1. **Farben nur über Tokens** (`var(--…)`). Komponenten nutzen ausschließlich die *semantischen* Tokens (`--fg`, `--text`, `--surface-2`, `--accent-text` …). Dann funktionieren sie auf Weiß, Papier, Anthrazit und Rot. **Kein Grün** (#26772B ist die Farbe der PGN Projektgesellschaft Nord GmbH; das Modul „Schlüsselfertig“ steht in Anthrazit).
+2. **Schriften nur aus `fonts/fonts.css`**: Montserrat Variable (Überschriften, Zahlen, Labels, Diagrammwerte) und Work Sans Variable (Fließtext, Modultext, Tabellentext, Diagrammbeschriftung). **Pfeile und Symbole `→ ↔ ≤ ≥ ≈ ✓ ✗ ‰` immer als echtes Zeichen** tippen, ebenso schmale geschützte Leerzeichen (U+202F, U+2009) und den geschützten Bindestrich (U+2011): Montserrat und Work Sans haben diese Zeichen nicht; sie kommen aus der Teilmenge `pgn-symbols-wght-normal.woff2` (InterVariable, opsz fest 14, Achse wght), die für beide Familien in normal und italic registriert ist. `€ „ “ ‚ ‘ – — § ½ ² ·` haben beide Familien selbst.
+   **Im PDF statische Instanzen:** `scripts/render.cjs` ersetzt jede genutzte Kombination aus Familie, Stil und `wght` durch eine statische Instanz aus `src/fonts/static/` (Familien „FI mn-w900“, „FI wi-w400“ …, Liste `instances.json`; Symbolteilmenge je Gewicht `sym-wNNN.woff2`). Fehlt eine Instanz, meldet der Lauf `FONT: … fehlen` und schreibt `needed.json`; dann `python3 scripts/fonts-static.py` (Python mit fontTools + brotli) und neu rendern. Ziel: „Statische Schriften: N/N Textstellen zugeordnet“ und in `pdffonts` **nur CID TrueType**. Kein `stroke`/`paint-order` auf Text (Skia setzt gestrichenen Text als Type 3; `.t-halo` nicht verwenden).
+3. **Mindestschrift 8,5 pt** – auch in SVG (`3px` bei 1 Einheit = 1 mm). 8,5 pt (`--fs-micro`) nur für Fundstellen, Bildunterschriften, Achsen, Versal-Labels, Schriftfeld-Bezeichnungen, Badges. **Modultext 9 pt / 1,38** (`--fs-module`). **Fließtext 9,75 pt / 1,47** (Work Sans). Vorspann 11 pt.
+4. **Druckregeln (Offset, PGN-Rot aus drei Druckfarben):** rote Linien ≥ 0,25 mm (`--rule-red-min`), rote Schrift ≥ 9 pt und ≥ 600 (`--fs-label-accent`: alle roten Versal-Labels 9 pt), kein Negativtext unter 9 pt aus Verläufen (weiß auf Rot: ≥ 9 pt, ≥ 600; Fließtext auf Rot nur ≥ 10 pt). PGN-Rot nach Möglichkeit als Sonderfarbe anlegen (bei PGN/Agentur „klar“ erfragen). **Kein vollflächiger Papierton** auf Innenseiten (`#F4F3F2` druckt als 4-%-Fläche wolkig) – Papier nur für Kästen, Bänder, die Blatt-Zelle und höchstens die Mittel-Doppelseite (`.page--accent`); für ein getöntes Heft Naturpapier statt Fläche.
+5. **Silbentrennung** setzt `scripts/assemble.cjs` (weiche Trennstriche, `HYPH_EXCEPTIONS`, `NBSP_RULES` – unverändert aus v1, s. README). Überschriften, Titel, Zahlen und Versal-Labels bekommen **keine** automatischen Trennstriche (`NOHY_CLASSES`, ergänzt um `claim`, `service__title`, `reference__name`, `bzp__title`, `keyplan`, `kote`, `axis-no`, `titleblock__value`, `page__running` …). Überschriften stehen auf `hyphens: manual`: **Montserrat-Versalien sind breit – lange Komposita in H1/Claim immer von Hand an der Fuge trennen** (`Mietwohnraum&shy;förderung`, `Modernisierungs&shy;anträge`). Faustregel H1 25 pt: ≈ 6,8 mm je Versal → 14 Zeichen auf 8 Spalten (≈ 99 mm), 19 Zeichen auf 12 Spalten.
+6. **Keine negativen Ränder an Grid-/Flex-Kindern** (Chromium-Druck rechnet sie anders). Ausnahme: die rote Titellinie der H1 hängt per `::before` 5,75 mm links neben dem Satzspiegel – das ist ein absolut positioniertes Pseudo-Element, kein Rand.
+7. **Randabfallend** (Daumenregister, Umschlagverlauf, Grundriss U4) bekommt `data-bleed`. Verläufe laufen nur über `.cover__art` in den Beschnitt (`render.cjs` verlängert dort `left/top/width/height` und die viewBox ganzseitiger SVGs); Vollton-Flächen mit `data-bleed` verlängert der Druck-Lauf per Schatten. Text ≥ 5 mm vom Endformat.
+8. **Förderquoten mit „bis zu“** nur in Headline, Kennzahl, Tabellen- und Diagrammkopf („Höchstsätze“); Eigenmittel „mind.“. Vorbehalte, Fundstellen und Haftung stehen einmal im Impressum (U3) – siehe `content/REDAKTIONSREGELN.md` (Hinweis-Diät). Genau zwei Achtung-Kästen im Heft (Vorhabenbeginn, Frist 31.12.2026).
+9. **Querverweise** „→ S. N“ als Link `<a class="pageref" href="#seite-NN">→&nbsp;S.&nbsp;N</a>`; jede `section.page` trägt `id="seite-NN"`.
+10. **Barrierefreiheit im PDF** (getaggt): `<figure>` ohne eigene Rolle → `role="group"`; Diagramm-SVGs `role="img"` + vollständiges `aria-label`; Signaturen, Planrahmen, Fuß, Register, Achskreis-Überlagerung `aria-hidden="true"` (Artefakte); Fotos mit `alt`; englische Begriffe `<span lang="en">`. Kein bedeutungstragender Generated Content (`::before` nur für Striche, Marker, Dreiecke; Ausnahme Zitatzeichen „ “ und das Label „Blatt“ im Artefakt-Fuß).
+11. **Seitenspezifisches CSS** nur im `<style>` der eigenen `<section>` mit Präfix `.page[data-page="NN"]`; dort keine neuen Hex-Farben.
+12. **Ein dominantes Element je Seite** (Kennzahl, Diagramm, Tabelle oder Prozess), höchstens drei Module daneben; Weißraum ist Gestaltungsmittel.
 
 ### Klassen-Namenskonvention
 
 | Präfix / Muster | Bedeutung | Beispiele |
 |---|---|---|
-| `block`, `block__element`, `block--modifier` | BEM für Komponenten | `.kf`, `.kf__num`, `.kf--hero`, `.callout--frist` |
-| `page`, `page__*`, `page--*` | Seitenrahmen und -varianten | `.page__foot`, `.page--accent` |
-| `l-*` | Layout (Raster, Stapel, Position) | `.l-grid`, `.l-span-7`, `.l-stack--m`, `.l-bottom` |
-| `u-*` | Utilities (Abstand, Satz, Sichtbarkeit) | `.u-mt-6`, `.u-justify`, `.u-hyphens`, `.u-sr` |
-| `bs-21` … `bs-26` | Baustein-Farbe eines Fördergegenstands; setzt `--bs`/`--bs-tint` für alles darin | `<section class="page bs-24">` |
-| `on-dark`, `on-light`, `on-sand` | Theme-Scope für einen Teilbereich | `<div class="on-dark">` |
-| SVG: `c-*` Flächen, `t-*` Text, `tl-*` Zeitstrahl, `fl-*` Ablauf, `ill-*` Illustration, `pict-*` Piktogramm-Teile | nur innerhalb von SVG | `.c-loan`, `.t-val`, `.tl-pin--signal` |
+| `block`, `block__element`, `block--modifier` | BEM für Komponenten | `.kf__num`, `.callout--frist`, `.service__phase` |
+| `page`, `page__*`, `page--*` | Seitenrahmen und -varianten | `.page__foot`, `.page--u1`, `.page--opener` |
+| `l-*` / `u-*` | Layout / Utilities | `.l-grid`, `.l-span-7`, `.l-indent`, `.u-mt-6`, `.u-caps` |
+| `bs-21` … `bs-26` | Programmteil; setzt `--bs`, `--bs-tint`, `--bs-i` (Lage des Daumenregisters) | `<section class="page bs-24">` |
+| `on-light`, `on-paper` (= `on-sand`), `on-dark`, `on-red` | Theme-Scope | `<aside class="offer-box offer-box--dark on-dark">` |
+| SVG: `c-*` Flächen, `t-*` Text, `dim-*` Maßkette, `axb-*` Achskreis, `sb-*` Maßstabsleiste, `tl-*` Zeitstrahl, `fl-*` Ablauf, `ill-*` Illustration v1, `pict-*` Piktogramm, `sig-*` Signatur (eigene `<style>` je Datei) | nur innerhalb von SVG | `.c-grant`, `.dim-tick`, `.axb-c` |
+
+Die **Klassen-API der v1 bleibt vollständig erhalten** (alle Selektoren, die `src/pages/01–20` nutzen, existieren weiter; sie sehen nur anders aus). Rückwärts-Aliase: `--sand-300`, `--sand-500`, `--petrol-900`, `--color-*`, `--baustein-*`.
 
 ---
 
@@ -69,137 +78,163 @@ NODE_PATH=/opt/node22/lib/node_modules node scripts/render.cjs --in src/.preview
 
 ### 1.1 Farben (Palette → Semantik)
 
-| Semantisches Token | hell (Standard) | dunkel (`.page--dark/--cover/--back`, `.on-dark`, `.kf--hero`, `.contact--dark`) | Einsatz |
+| Token | Wert | Rolle | Kontrast |
 |---|---|---|---|
-| `--surface` | Papier `#FAF6EF` | Petrol 900 `#0E2A33` | Seitengrund |
-| `--surface-2` | Sand 100 `#F0E6D3` | Petrol 800 | Bänder, Kästen, hervorgehobene Spalte |
-| `--surface-3` | Sand 200 | Petrol 700 | Schraffur-Grund, Raster |
-| `--fg` / `--fg-2` / `--fg-3` | Tinte / 6,8:1 / 5,9:1 | Papier / 9,4:1 / 6,3:1 | Text 1/2/3 |
-| `--rule` / `--rule-strong` | Sand 400 / Tinte | Petrol-Linie / Papier | Haarlinie / Modul-Linie (1,2 pt) |
-| `--accent` / `--accent-text` / `--accent-soft` | Terrakotta 600 / 700 (5,9:1) / 100 | Terrakotta 300 / 300 / Petrol 800 | Akzent, Kicker, Querverweise · Achtung-Kasten |
-| `--loan` · `--grant` · `--equity` | Petrol 600 · Terrakotta 600 · Sand 300 | Petrol 400 · Terrakotta 300 · Petrol 700 | **Datenfarben** Darlehen · Zuschuss · Eigenmittel |
-| `--on-data` | Weiß (5,0:1 / 4,8:1) | Tinte | Text in Datenbalken |
-| `--signal-fill` / `--signal-soft` / `--signal-text` | Bernstein `#E6A532` / 100 / 800 (7:1) | Bernstein / Petrol 800 / Bernstein | **nur** Stopp, Frist, Warnband |
-| `--tip` / `--tip-soft` / `--tip-text` | Petrol 600 / 100 / 700 | Petrol 400 / 800 / 300 | Tipp-Kasten |
-| `--ok` / `--no` | Petrol 600 / Terrakotta 700 | Petrol 400 / Terrakotta 300 | `.mark--yes/--no` |
-| `--old` | Sand 400 | Sand 400 | Datenreihe „bisher / altes Recht“ (SVG `c-old`, HTML `.sw--old`) |
+| `--pgn-red` | #B71E3F | Akzent, Zuschuss, Maßketten, Marke | Weiß darauf 6,4:1; auf Weiß 6,4:1, auf Papier 5,8:1 |
+| `--pgn-red-deep` | #8B2939 | Verlaufsende, Signal (Frist, Bewilligung, Warnband), Seitenverweis-Text | Weiß darauf 8,5:1 |
+| `--grad-red` | 160°, #B71E3F → #8B2939 | rote Flächen (U4, Kennzahlfeld U1, Hero-Kachel, Werte, Phase „nach Bewilligung“) | – |
+| `--pgn-red-300` | #E8A3B1 | Akzent als Text auf Anthrazit | 5,4:1 auf #3C3C3B |
+| `--pgn-red-100` / `-50` | #F7E3E7 / #FBF1F3 | Hauch: Seitenverweis-Chip, Achtung-Kasten, ±0-Zeile | Grau #626160 darauf ≥ 5,0:1 |
+| `--ink` | #202020 | Überschriften, Zahlen, Darlehen (Poché), Rahmen | 16,3:1 |
+| `--anthracite` | #3C3C3B | Fließtext (`--text`), Linien, `--grad-dark` | 11,0:1; 10,0:1 auf Papier |
+| `--grey-600` | #626160 | Sekundärtext `--fg-3` (aus CI-#757474 abgedunkelt) | 6,2:1 Weiß · 5,6:1 Papier · 5,0:1 #E9E7E4 |
+| `--grey-500` / `--grey-450` | #757474 / #868686 | CI-Grau / Logo-Grau: nur Linien, Logo | – |
+| `--grey-300` / `-200` / `-150` / `-100` | #B4B0AB / #CFCCC8 / #DCD8D3 / #E9E7E4 | Planraster · Haarlinien · Eigenmittel-Fläche · Fläche 3 | – |
+| `--paper` | #F4F3F2 | Kästen, Bänder, Blatt-Zelle (`--surface-2`) | Anthrazit darauf 10,0:1 |
 
-`.page--accent` / `.on-sand`: Seitengrund Sand 100, Kästen werden Papier (Umkehr), Linien Sand 500.
-`.on-light` (helle Insel auf dunkler Seite, z. B. Plakette oder Kontaktkachel auf Titel/Rückseite) setzt neben den Tokens auch `color: var(--fg)` – Text erbt dort nicht mehr die Papierfarbe der dunklen Seite.
-Plan-Aliasse (aus `plan.json`): `--color-primary`, `--color-accent`, `--color-loan`, `--color-grant`, `--color-equity`, `--signal`, `--baustein-21` … `--baustein-26`.
+Semantische Tokens je Theme (Komponenten nutzen nur diese):
 
-**Farbregeln:** Terrakotta ist Akzent *und* Datenfarbe „Zuschuss“ – deshalb Warnungen/Fristen nie terrakotta, sondern Bernstein (`--signal-*`). Bernstein nie für Daten oder Deko – nur für Förderentscheidung/Vorhabenbeginn (Stopp), Stichtag und Fristen. Dafür: ausgelaufene Bindungen, Ring-Rest und „bisher“ in `--old` (`c-old`, S. 3); Kostenlinien in `--fg-2` gestrichelt mit Label (S. 9); Werte „über der Grenze“ als Eigenmittel-Schraffur mit `--rule-strong`-Kontur (S. 10). Petrol-Grün-Töne der Bausteine nie für Datenreihen „Darlehen/Zuschuss“.
-
-### 1.2 Baustein-Register (6 Fördergegenstände)
-
-| Klasse | Token | Ton | Fördergegenstand | Förderart-Chip |
+| Token | hell (`:root`, `.on-light`) | Papier (`.page--accent`, `.on-paper`) | Anthrazit (`.page--dark`, `.on-dark`) | Rot (`.page--u4`, `.page--back`, `.on-red`, `.kf--hero`, `.cover__kpi`) |
 |---|---|---|---|---|
-| `.bs-21` | `--bs-21` `#1A6470` | Petrol | 2.1 Mietwohnungen in Mehrfamilienhäusern | Darlehen + Zuschuss |
-| `.bs-22` | `--bs-22` `#2F6A4A` | Tanne | 2.2 Energetisch hochwertiger Neubau (EH 40) | Zuschuss |
-| `.bs-23` | `--bs-23` `#85601A` | Ocker | 2.3 Klimagerechte Modernisierung | Zuschuss |
-| `.bs-24` | `--bs-24` `#2A4F9A` | Nordsee | 2.4 Ostfriesische Inseln | Darlehen + Zuschuss |
-| `.bs-25` | `--bs-25` `#6A4A8A` | Heide | 2.5 Erwerb von Belegungs- und Mietbindungen | Festbetrag (Zuschuss) |
-| `.bs-26` | `--bs-26` `#8E3349` | Bordeaux | 2.6 Verlängerung auslaufender Bindungen | Zinsverbilligung |
+| `--surface` / `-2` / `-3` | Weiß / Papier / #E9E7E4 | Papier / Weiß / #E9E7E4 | #3C3C3B / #4A4948 / #575655 | Rot / Dunkelrot / #A3233F |
+| `--fg` / `--text` / `--fg-2` / `--fg-3` | #202020 / #3C3C3B / #3C3C3B / #626160 | wie hell | Weiß / #EDEBE8 / #E2DFDB / #B4B0AB | Weiß / Weiß / #F7E3E7 / #F7E3E7 |
+| `--rule` / `--rule-strong` | #CFCCC8 / #202020 | wie hell | #5E5D5C / Weiß | #D47E91 / Weiß |
+| `--accent` / `--accent-text` | Rot / Rot | Rot / Rot | Rot / #E8A3B1 | Weiß / Weiß |
+| `--loan` / `--grant` / `--equity` | #202020 / Rot / #DCD8D3 | wie hell | Papier / #E36A82 / #5E5D5C | #202020 / Weiß / #D47E91 |
+| `--signal-fill` / `--signal-text` | Dunkelrot / Dunkelrot | wie hell | Dunkelrot / #E8A3B1 | – |
+| `--ok` / `--no` | #202020 / Rot | wie hell | Weiß / #E8A3B1 | Weiß / Weiß |
+| `--sig-*` (Signaturen) | Tinte, Anthrazit, Rot, Raster #B4B0AB, Klinker #D58E9D | Flächen Papier | invertiert | Grundriss weiß |
 
-Weiß auf allen Baustein-Farben ≥ 5,7:1. Baustein-Farben erscheinen **immer zusammen mit der Nummer 2.1–2.6** (graustufenfest). `-tint`-Varianten für Flächen.
+WCAG geprüft (alle Textpaare ≥ 4,5:1): Text 11,0 · fg-3 auf Weiß/Papier/Fläche 3/Hauch 6,2/5,6/5,0/5,0 · Rot auf Weiß/Papier 6,4/5,8 · Weiß auf Rot/Dunkelrot 6,4/8,5 · Hauch auf Rot 5,2 · Anthrazit-Theme Text/fg-3/Akzent 9,3/5,1/5,4. Logo-Grau #868686 (3,6:1) nur im Logo.
 
-### 1.3 Typografie
+### 1.2 Programmteile 2.1–2.6 (`--bs-21` … `--bs-26`)
 
-| Token | Wert | Rolle |
+| Programmteil | Token | Wert | Weiß darauf | Tint |
+|---|---|---|---|---|
+| 2.1 Mietwohnungen in MFH | `--bs-21` | #B71E3F PGN-Rot | 6,4:1 | #F7E3E7 |
+| 2.2 Energetisch hochwertig (EH 40) | `--bs-22` | #3A62A6 Blau | 6,0:1 | #E4EAF4 |
+| 2.3 Klimagerechte Modernisierung | `--bs-23` | #A0581A Ocker | 5,4:1 | #F4E7DB |
+| 2.4 Ostfriesische Inseln | `--bs-24` | #0A5372 Nordsee | 8,4:1 | #DFEBF0 |
+| 2.5 Erwerb von Bindungen | `--bs-25` | #9A52AE Heide | 5,0:1 | #F1E6F4 |
+| 2.6 Verlängerung von Bindungen | `--bs-26` | #3C3C3B Anthrazit | 11,0:1 | #E9E7E4 |
+
+Validiert mit `dataviz/scripts/validate_palette.js` (Reihenfolge 2.1 → 2.6, benachbarte Paare): **CVD ΔE ≥ 10,9** (Ziel 8), **Normalsicht ΔE ≥ 22,2** (Boden 15), alle ≥ 3:1 gegen Weiß. 2.4 (L 0,42) und 2.6 (unbunt) liegen bewusst außerhalb des Kategorienbands: zulässig, weil **die Nummer immer mitsteht** (zweite Kodierung – Register, Schlüsselplan, Chip, Kapitelnummer). Programmfarben nie als einzige Kodierung in Datenmarken.
+
+### 1.3 Diagrammfarben (fest, im ganzen Heft gleich)
+
+| Reihe | Token / Klasse | Kodierung | Prüfung |
+|---|---|---|---|
+| Zuschuss | `--grant` · `c-grant` · `sw--grant` | PGN-Rot, beginnt an der Grundlinie | – |
+| Darlehen | `--loan` · `c-loan` · `sw--loan` | #202020 (Poché = geschnittenes Bauteil) | Zuschuss ↔ Darlehen: CVD ΔE 16,8, Normalsicht 32,3 |
+| Eigenmittel (mind.) | `--equity` + Schraffur · `sw--equity` | #DCD8D3 mit 45°-Schraffur #8E8A85, **immer beschriftet** | 1,4:1 gegen Weiß → Relief: Schraffur + Beschriftung + Rahmen `c-equity-frame` |
+| Zuschlag (+5/+10 Pp.) | `dim-line--acc` gestrichelt · `sw--cap` | rote gestrichelte Kappe über der 80-%-Achse | – |
+| Miete/Ertrag | `c-ink` · `sw--ink` | Fast-Schwarz (nie `c-loan` daneben) | – |
+| bisher / altes Recht | `--old` · `c-old` · `sw--old` | #B4B0AB | – |
+| Einkommensgruppen A/B/C | `seq-6/-4/-2` · `.grp-chip--a/b/c` · `.axis-no` | warmes Grau dunkel → hell; im Diagramm Achskreis mit Buchstabe | Text auf Stufe 1–3 #202020 (≥ 7,3:1), auf 4–6 weiß (≥ 4,8:1) |
+| Heatmap | `seq-1` … `seq-6` | eine Tonleiter, Werte stehen immer in der Zelle | – |
+| Signal (Bewilligung, Stichtag) | `--signal-fill` · `c-signal` · `tl-pin--signal` | Dunkelrot, immer mit Label | – |
+
+Darlehen in Anthrazit #3C3C3B fällt durch (CVD ΔE 5,7 gegen Rot) – deshalb #202020. Rot nie für Rahmen, Achsen oder Maßketten **im Diagramm** (Maßketten dort Anthrazit `dim-line`/`dim-tick`); Rot bleibt Zuschuss + 80-%-Achse.
+
+### 1.4 Typografie
+
+| Token | Wert | Schrift | Einsatz |
+|---|---|---|---|
+| `--fs-cover` | 30 pt | Montserrat 900 Versalien, lh .97 | Titelzeile U1 (2–3 Zeilen) |
+| `--fs-h1` / `--fs-h1-s` / `.h1--xl` | 25 / 20 / 34 pt | Montserrat 900 Versalien, lh 1,04, Laufweite −0,005 em | Seitentitel / dichte Seiten / Kapitelauftakt |
+| `--fs-h2` | 13 pt | Montserrat 900 Versalien | Abschnittstitel |
+| Diagramm-/Modulkopf (`.chart__title`, `.fig-head__title`) | 10 pt | Montserrat 800 Versalien, +0,07 em | Planlegenden-Titel |
+| `--fs-h3` | 10,5 pt | Montserrat 700, gemischt | Fragen, Begriffe, Programmtitel |
+| Modultitel (`.callout__title`, `.step__title`, `.service__title`) | 9,75 pt | Montserrat 800 Versalien, +0,04 em | – |
+| `--fs-deck` | 10,5 pt | Montserrat 300 Versalien, +0,03 em; Kennwert `b` 800 Rot | Unterzeile unter H1 |
+| `--fs-lead` | 11 pt / 1,45 | Work Sans 400, max. 132 mm (≈ 65–70 Zeichen) | Vorspann |
+| `--fs-body` | 9,75 pt / 1,47 | Work Sans 400, `b` 600 | Fließtext |
+| `--fs-module` | 9 pt / 1,38 | Work Sans | Listen, Kästen, Kacheln, Tabellenzellen |
+| `--fs-micro` | 8,5 pt | Work Sans 500 / Montserrat 700 Versalien (+0,1 em) | Labels, Achsen, Fundstellen |
+| `--fs-label-accent` | 9 pt | Montserrat 700 Versalien, rot | Kicker und alle roten Labels (Druckregel) |
+| `--fs-fig-hero` / `-xl` / `-l` / `-m` / `-s` | 84 / 46 / 28 / 21 / 17 pt | Montserrat 800–900, Tabellenziffern | Hero-Zahl / große / Kachel / kleine Kachel / Tabellen-Kernwerte |
+
+Zahlen immer Montserrat mit `tabular-nums` (Kachel, Tabelle `.num`, Diagrammwerte `t-val`, Blattnummer). Einheiten (`kf__unit`) halb so groß in Rot. Signaturwort (`em` in `.h1`, `.claim`, `.cover__title`) = Montserrat 800 kursiv Rot. Zweite Stimme `.light` = Montserrat 300 Versalien.
+
+### 1.5 Raster und Satzspiegel
+
+| Token | Wert | |
 |---|---|---|
-| `--font-display` | Fraunces Variable | Headlines, Lead, Zahlen, Zitate |
-| `--font-text` | Inter Variable | Fließtext, Labels, Tabellen, Diagramme |
-| `--fs-cover` | 64 pt | Titel |
-| `--fs-h1` / `--fs-h1-s` | 40 / 32 pt | Seitentitel |
-| `--fs-h2` / `--fs-h3` | 19 / 12,5 pt | Zwischentitel / Modultitel |
-| `--fs-lead` | 13 pt (`.lead--s` 11,5 pt) | Vorspann (Fraunces) |
-| `--fs-body` / `--fs-small` / `--fs-micro` | 9,5 / 9 / **8,5 pt (Minimum)** | Fließtext / Kacheln, Tabellen / Labels, Fußnoten |
-| `--fs-module` / `--lh-module` | = `--fs-small` (9 pt) / 1,36 | **Modultext**: Listen, Kästen, Kacheln, Faktenspalten, Tabellenzellen (Ausnahme Term Sheet S. 9) |
-| `--fs-fig-hero` / `-xl` / `-l` / `-m` / `-s` | 150 / 60 / 42 / 30 / 20 pt | Kennzahlen |
+| Seite | 210 × 297 mm | `@page { size: 210mm 297mm; margin: 0 }`, `print-color-adjust: exact` |
+| `--m-inner` / `--m-outer` | 15 / 15 mm | Satzspiegel 180 mm |
+| `--m-top` / `--m-bottom` | 14 / 24 mm | Inhalt endet 273 mm (5 mm über dem Plankopf) |
+| `--gutter` / `--col` | 5 / 10,42 mm | 12 Spalten |
+| `--plan` | 5 mm | Planraster (Rechenblatt, Kalkulationsnotiz) |
+| `--foot-y` / `--foot-h` | 9 / 9,5 mm | Mini-Plankopf |
+| `--frame-inset` | 8 mm | Planrahmen (Umschlag, Kapitelauftakt) |
+| `--horizon` | 196 mm | Oberkante Schriftfeld U1 = U4 |
+| `--rule-hang` | 5,75 mm | rote Titellinie links neben dem Satzspiegel |
 
-Fraunces: `"WONK" 0` überall; Gewicht ≥ 350 unter 24 pt (Druck auf Naturpapier), leichte Schnitte (250–340) nur ≥ 30 pt. Deshalb stehen `.step__no` (20/26 pt) und SVG `.t-num-l` (25,5 pt) auf 360.
-Display-Überschriften: Laufweite −0,016 em, **Wortabstand +0,06 em** (Fix für „Aufeinen Blick“).
-
-### 1.4 Raster und Satzspiegel
-
-| Token | Wert |
-|---|---|
-| Seite | 210 × 297 mm, `@page { margin: 0 }` |
-| `--m-top` / `--m-bottom` | 14 mm / 22 mm (Inhalt endet bei 275 mm, ≥ 6 mm über der Fußlinie) |
-| `--m-inner` / `--m-outer` | 18 mm / 18 mm (Rückendrahtheftung, symmetrisch) |
-| Satzspiegel | 174 × 261 mm, 12 Spalten à 9,92 mm, Steg `--gutter` 5 mm |
-| `--foot-y` | Fußzeile 10 mm über Endformat |
-| `--safe` | Text ≥ 5 mm vom Endformat |
-| Abstände | `--sp-1 … --sp-16` = 1, 2, 3, 4, 5, 6, 8, 10, 12, 16 mm |
-| Linien | `--hair` 0,5 pt · `--rule-w` 0,8 pt · `--rule-heavy` 1,2 pt (Modul-Beginn) |
-
-Spaltenbreiten: `l-span-3` 39,8 mm · `-4` 54,7 mm · `-5` 69,6 mm · `-6` 84,5 mm · `-7` 99,4 mm · `-8` 114,3 mm · `-9` 129,2 mm · `-12` 174 mm.
+Spaltenbreiten: 3 Sp. 41,25 · 4 Sp. 56,7 · 5 Sp. 72,1 · 6 Sp. 87,5 · 7 Sp. 102,9 · 8 Sp. 118,3 · 9 Sp. 133,8 · 12 Sp. 180 mm.
+Linien: `--hair` 0,2 mm · `--rule-w` 0,3 mm · `--rule-heavy` 0,5 mm (Modulkopf) · `--rule-accent` 0,75 mm (rote Titellinie) · `--rule-red-min` 0,25 mm. Abstände `--sp-1 … --sp-16` (1–16 mm).
 
 ---
 
 ## 2 · Seitenrahmen
 
 ```html
-<section class="page bs-21" data-page="08">
-  <div class="bs-register" data-bleed>2.1</div>                       <!-- nur Programmseiten -->
-  <header class="page__header"><span class="page__section"><b>04</b>Finanzierung</span><span>RL Nr. 2.1, 5</span></header>
-
-  … Inhalt (Seite ist eine Flex-Spalte; .l-bottom schiebt ein Modul an den Fuß) …
-
-  <footer class="page__foot">
-    <span class="page__folio">8</span>
-    <span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Finanzierung</b></span><span>Stand: 21.10.2026</span></span>
-  </footer>
+<section class="page bs-21" data-page="08" id="seite-08">
+  <div class="bs-register" data-bleed aria-hidden="true">2.1</div>          <!-- nur Programmseiten: Daumenregister -->
+  <header class="page__header">
+    <span class="page__section"><b>2.1</b>Finanzierung</span>               <!-- Rubrik links (b = rotes Kürzel, optional) -->
+    <div class="keyplan" role="img" aria-label="Programmteil 2.1 von sechs Programmteilen">
+      <span class="keyplan__label">Programmteil</span>
+      <ol class="keyplan__list"><li class="bs-21 is-on">2.1</li><li class="bs-22">2.2</li><li class="bs-23">2.3</li>
+        <li class="bs-24">2.4</li><li class="bs-25">2.5</li><li class="bs-26">2.6</li></ol>
+    </div>
+  </header>
+  … Inhalt (Flex-Spalte; .l-bottom schiebt ein Modul an den Fuß) …
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">8</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Finanzierung · Programmteil 2.1</b></span><span>Stand: 21.10.2026</span></span></footer>
 </section>
 ```
 
-- `data-page="NN"` ist Pflicht. Gerade Nummern (endet auf 0/2/4/6/8) = linke Seite: Seitenzahl und Register-Reiter wandern automatisch nach außen links. Ohne Nummer: `.page--left` / `.page--right`.
-- `.page__header` ist optional (Kapitelmarke: Kapitelnummer in Terrakotta + Kapitelname; rechts RL-Fundstelle). Er sitzt im Fluss, 8 mm Abstand zum Inhalt.
-- `.page__foot` (Kolumnentitel + Seitenzahl) auf allen Innenseiten; nicht auf Titel und Rückseite. Immer `<footer class="page__foot" aria-hidden="true">` (Artefakt im getaggten PDF).
-- Varianten: `.page--cover` (Titel, dunkel, ohne Polster), `.page--dark` (dunkle Innenseite), `.page--accent` (Sandseite: die Mittel-Doppelseite 10|11 „Rechnen“; Kästen werden automatisch Papier), `.page--back` (Rückseite, dunkel, ohne Fuß).
-- **Rhythmus:** Jede Doppelseite hat ein dominantes Hauptelement (S. 8 Fördermix, S. 10 Finanzierungshaus als Reprise des Titelhauses – 20 Fenster = 20 Wohnungen, Geschosse 40/40/20 –, S. 11 Spiegeldiagramm).
-- `.bs-register`: 15 × 12 mm Reiter an der Oberkante, außen bündig mit dem Satzspiegel, Farbe aus `bs-2x` der Seite; immer mit `data-bleed aria-hidden="true"`.
-- **Master-Opener der Programmseiten** (S. 8, 12, 13, 14, 16, 17), ein Muster für alle sechs:
+- **Mini-Plankopf** (`.page__foot`, Markup wie v1): 9,5 mm hoch, 0,3-mm-Oberlinie, Zellen: *Blatt NN* (Papier, Montserrat 900 12 pt, Label „Blatt“ per CSS) · PGN-Wortmarke (`assets/pgn/logo-mark-rot.svg`) · Projekt (Zeile 1) / Rubrik in Versalien (Zeile 2) · Stand. Gerade Seiten (`data-page` endet auf 0/2/4/6/8 oder `.page--left`): Blatt links außen; ungerade: rechts außen. Das volle Schriftfeld bleibt Umschlag und Kapitelauftakten vorbehalten.
+- **Daumenregister** `.bs-register`: 10 × 21 mm am Außenrand, Lage nach Programmteil (`top: 52 mm + Index × 25 mm`, 2.1 oben … 2.6 unten), Programmfarbe, Nummer Montserrat 800 9 pt weiß. Gerade Seiten links gespiegelt. Immer `data-bleed aria-hidden="true"`.
+- **Schlüsselplan** `.keyplan`: im Seitenkopf rechts; jedes Feld mit Farbkante, aktives Feld gefüllt. Steht auf allen Programmseiten (S. 8, 12, 13, 14, 16, 17) und darf auf Übersichten (Navigator) ohne `is-on` stehen.
+- **Varianten:** `.page--u1` / `.page--u4` (Umschlag, ohne Polster, s. 7) · `.page--opener` (Kapitelauftakt im Planrahmen `.planframe--soft`, Fuß 4 mm über der Rahmenlinie) · `.page--accent` (Papierseite, nur Mittel-Doppelseite) · `.page--dark` (Anthrazit-Verlauf) · `.page--back` (v1-Rückseite, jetzt Rot) · `.page--cover` (v1-Titel, jetzt hell).
+- **Planrahmen** `<div class="planframe" aria-hidden="true"></div>`: 8 mm vom Endformat, 0,35 mm Fast-Schwarz, Falzmarken bei 105/210 mm; `--soft` = Haarlinie Logo-Grau. Auf Rot weiß.
+- **Master-Opener der Programmseiten** (S. 8, 12, 13, 14, 16, 17):
 
 ```html
 <header class="program-head program-head--master">
-  <div class="program-head__no">                              <!-- 4 Spalten außen: gerade Seite links, ungerade rechts -->
-    <p class="chapter-no">02<small>Programmteil</small></p>    <!-- Ziffer = Kürzel der RL-Nummer, kein Laufzähler („von 06“ entfällt) -->
-    <p class="tags"><span class="tag"><i class="sw sw--grant"></i>Zuschuss</span></p>
+  <div class="program-head__no">                               <!-- 3 Spalten außen: gerade Seite links, ungerade rechts -->
+    <p class="chapter-no">2.1<small>Programmteil</small></p>   <!-- Montserrat 900 60 pt in --bs -->
+    <p class="tags"><span class="tag"><i class="sw sw--grant"></i><i class="sw sw--loan"></i>Zuschuss + Darlehen</span></p>
   </div>
-  <div class="program-head__main">                            <!-- 8 Spalten (l-span-8), feste Breite -->
-    <p class="kicker">Programmteil 2.2 · EH-40-Neubau</p>     <!-- ohne Vorstrich -->
-    <h1 class="h1 h1--s">…</h1>
-    <p class="deck">Bis zu <b>…</b> …</p>                      <!-- Fraunces, ≤ 2 Zeilen, Kernzahlen in Akzent -->
-    <p class="program-head__subject">Gegenstandssatz …</p>    <!-- Inter 9,5 pt, fg-2, ≤ 3 Zeilen -->
+  <div class="program-head__main">                             <!-- 9 Spalten -->
+    <p class="kicker">Neubau · Änderung · Ersterwerb</p>      <!-- ohne Vorstrich, ohne „Programmteil 2.1“ (steht außen) -->
+    <h1 class="h1">Bis zu <em>80&nbsp;%</em> Förder&shy;quote</h1>
+    <p class="deck">Aus Darlehen und Zuschuss – in <b>allen drei</b> Einkommensgruppen</p>
+    <p class="program-head__subject">Gegenstandssatz (Work Sans 9,75 pt, ≤ 4 Zeilen) …</p>
   </div>
 </header>
 ```
-  Abstände: Kicker → H1 2,4 mm, H1 → Deck 2,6 mm, Deck → Gegenstand 1,8 mm; danach `u-mt-4`. Ziffer und Chip stehen außen bündig. Zusatzelemente (z. B. Inselkette S. 13) dürfen unter dem Gegenstandssatz in `__main` stehen. Der ältere Kopf `<div class="l-grid program-head">` bleibt nur für Specimen-Seiten.
 
 ---
 
 ## 3 · Typografie-Bausteine
 
 ```html
-<div class="title-block title-block--split">                <!-- --split: 7 + 5 Spalten; --split-6: 6 + 6 -->
-  <div class="title-block__main">
-    <p class="kicker">Die Förderung in Zahlen</p>            <!-- Versalien, Terrakotta, 7-mm-Strich davor -->
-    <h1 class="h1">Auf einen Blick</h1>                      <!-- .h1--s 32 pt, .h1--xl 52 pt; <em> = kursiv Terrakotta -->
-  </div>
-  <p class="lead">Seit dem 1. Juli 2026 gilt …</p>           <!-- .lead--s 11,5 pt -->
-</div>
-
-<h2 class="h2">Zwischentitel</h2>   <h3 class="h3">Modultitel</h3>   <p class="label">Versal-Label</p> <p class="label label--accent">…</p>
-<div class="prose text-cols-2 u-justify"><p class="dropcap">Fließtext …<span class="fn">1</span></p><p>…</p></div>
-<p class="small">Kleintext 9 pt</p>   <p class="footnote">Fußnotentext 8,5 pt</p>
-<span class="ref">RL Nr. 5.3.3</span>                         <!-- Quellenmarke ohne Präfix: die Richtlinie hat Nummern, keine Paragrafen (kein „§ RL“) -->
-<p class="deck">Bis zu <b>50 %</b> der zuwendungsfähigen Kosten …</p>   <!-- Unterzeile unter der H1: Fraunces 11 pt, b = Akzent + nowrap -->
-<p class="deck deck--s">Läuft Ihre Belegungs- und Mietbindung … aus, …</p>   <!-- ganzer Satz: 10,5 pt, fg-2, b ohne nowrap -->
-<span class="pageref">→&nbsp;S.&nbsp;8–11</span>                <!-- Seitenverweis-Chip (Akzent-Hauch, Pfeil als Zeichen) -->
+<p class="kicker">Mit PGN</p>                                   <!-- Montserrat 700 9 pt Versalien +0,16 em, Rot, 7-mm-Strich -->
+<p class="kicker kicker--ink">…</p>  <p class="kicker kicker--plain">…</p>   <!-- Tinte mit rotem Strich / ohne Strich -->
+<h1 class="h1">So begleiten wir Ihr Förder&shy;projekt</h1>    <!-- 900 Versalien; rote 0,75-mm-Linie hängt links (.h1--norule ohne) -->
+<h1 class="h1"><span class="light">Mietwohnungen in</span>Mehrfamilienhäusern</h1>  <!-- zweite Stimme 300 -->
+<h1 class="h1">Bis zu <em>80&nbsp;%</em> Förderquote</h1>       <!-- em = 800 kursiv Rot (Signaturwort) -->
+<p class="deck">Ein Ansprechpartner für <b>alles</b></p>        <!-- 300 Versalien; .deck--s = ganzer Satz in Work Sans 10,5 pt -->
+<p class="lead">Den Antrag stellen Sie bei …</p>               <!-- Work Sans 11 pt, max. 132 mm; .lead--s 10,25 pt -->
+<p class="claim">Planen. Fördern. <em>Bauen.</em></p>           <!-- Plakatzeile 22 pt; --s 13 pt, --l 31 pt, --rule mit roter Linie -->
+<h2 class="h2">Zuschläge und Sonderformen</h2>  <h3 class="h3">Wann gilt ein Vorhaben als begonnen?</h3>
+<p class="label">Versal-Label</p>  <p class="label label--accent">Rotes Label (9 pt)</p>
+<div class="prose"><p class="dropcap">Fließtext …</p></div>     <!-- Initiale Montserrat 900 Rot über drei Zeilen; nur einmal (Editorial) -->
+<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>        <!-- Seitenverweis-Chip: Hauch + Dunkelrot -->
 ```
 
-Regeln: Pro Seite genau ein `.h1`. Kicker ≤ 6 Wörter. Lead ≤ 35 Wörter, ungetrennt (`.lead`: `hyphens: manual`, `text-wrap: pretty`; Trennung nur von Hand an Kompositionsfugen). Die Initiale `.dropcap` ist auf genau drei Zeilen Fließtext (9,5 pt / 1,45) abgestimmt (50 pt, Zeilenhöhe .74). Blocksatz nur ab 70 mm Spaltenbreite (`.text-cols-2` erst ab `l-span-8`), sonst Flattersatz. `.dropcap` nur einmal pro Heft (Editorial).
+Titelblock mit Vorspann rechts: `.title-block.title-block--split` (7 + 5 Spalten) bzw. `--split-6`. Regeln: genau ein `.h1` je Seite; Kicker ≤ 6 Wörter; Deck ≤ 1 Zeile (≤ 2 auf Programmseiten); Lead ≤ 45 Wörter / 4 Zeilen; Plakatzeile ≤ 3 Wörter, nur auf Kapitelöffnern, PGN-Seiten und dem Umschlag.
 
 ---
 
@@ -207,19 +242,13 @@ Regeln: Pro Seite genau ein `.h1`. Kicker ≤ 6 Wörter. Lead ≤ 35 Wörter, un
 
 ```html
 <div class="l-grid"> <div class="l-span-7">…</div> <div class="l-span-5">…</div> </div>   <!-- 12er-Raster; --row-gap per style -->
-<div class="l-grid l-grid--stretch">…</div>       <!-- Kacheln gleich hoch -->
-<div class="l-cols l-cols--3">…</div>             <!-- gleich breite Spalten (2/3/4/6) -->
-<div class="l-stack l-stack--m">…</div>           <!-- vertikaler Abstand zwischen Kindern (xs/s/m/l/xl = 1/2/4/6/10 mm) -->
-<div class="l-sidebar">Hauptspalte · Marginalie (4 Spalten)</div>   <!-- .l-sidebar--left: Marginalie links (3 Spalten) -->
-<div class="module">…</div>                       <!-- Modul beginnt mit 1,2-pt-Linie (Markenzeichen von A) -->
-<div class="band">…</div>                         <!-- Sandband mit Haarlinie oben -->
-<div class="… l-bottom">…</div>                   <!-- Modul an den Fuß des Satzspiegels -->
+<div class="l-cols l-cols--3">…</div>   <div class="l-stack l-stack--m">…</div>   <div class="l-sidebar">…</div>
+<p class="chart__note l-indent">…</p>                           <!-- Einzugsachse 3 Spalten + Steg ≈ 46 mm (Notizen unter Diagrammen) -->
+<div class="module">…</div>                                     <!-- Modulkopf: 0,5-mm-Linie Fast-Schwarz -->
+<div class="module module--hair">…</div>  <div class="band">…</div>  <div class="… l-bottom">…</div>
 ```
 
-Weitere Utilities: `.u-justify`, `.u-hyphens`, `.u-nohyphens` (Wort/Bereich nicht trennen), `.u-url`, `.u-nowrap`, `.u-tnum`, `.u-accent`, `.u-muted`, `.u-strong`, `.u-sr` (nur Screenreader), `.u-avoid-break`, `.u-mt-0 … .u-mt-12`.
-`.u-sr` blendet per `clip-path: inset(50%)` aus und nutzt bewusst kein `overflow: hidden` (render.cjs würde sonst „schneidet Inhalt ab“ melden); taugt auch für `<caption>`/`<thead>`, die nur für Screenreader gedacht sind. Keine seitenlokalen Kopien (`.pNN-sr`) mehr anlegen.
-
-Abstände zwischen Modulen: `u-mt-5` (eng) · `u-mt-6` (Standard) · `u-mt-8` (nach Seitentitel) · `u-mt-10` (Kapitelwechsel). Keine eigenen Pixelwerte.
+Utilities wie v1: `.u-mt-0 … .u-mt-12`, `.u-nowrap`, `.u-tnum`, `.u-accent`, `.u-muted`, `.u-strong`, `.u-caps` (Montserrat 700 Versalien), `.u-sr`, `.u-hyphens`, `.u-nohyphens`, `.u-justify`, `.u-url`, `.u-avoid-break`. Abstände zwischen Modulen: `u-mt-5` eng · `u-mt-6` Standard · `u-mt-8` nach Seitentitel · `u-mt-10/12` Kapitelwechsel.
 
 ---
 
@@ -227,18 +256,18 @@ Abstände zwischen Modulen: `u-mt-5` (eng) · `u-mt-6` (Standard) · `u-mt-8` (n
 
 | JSON-Block | Komponente | Varianten |
 |---|---|---|
-| `key_figures` | `.key-figures` + `.kf` | `.kf--hero`, `.kf--band`, `.kf--s/--xl/--accent/--bs`, Raster `--2/--4`, `.kf__sub`, Vorsatz in `.kf__top`, `.seal` |
-| `table` | `.table` | `--figures`, `--compact`, `--terms`, `--compare`, `--matrix`, `--heat`; `.num`, `.is-hl`, `.is-total`, `.is-key`, `.is-group-end`, `.bs-row` |
-| `callout` | `.callout--hinweis/--achtung/--tipp/--frist` | `--s` (kompakt), `--inline` (Label im Textfluss), `__split` (zweispaltig), `.gate` (Warnband), `--side`, `--plain` |
-| `quote` | `.quote` | `--l` (Pull-Quote), `--band` (Zitatband) |
-| `steps` | `.steps` | `--lanes` (Sie/Förderstelle/NBank), `--h` (waagerecht), `.steps__gate`, `.ratebar` |
-| `chart` | `figure.chart` + Inline-SVG | stacked-bar, bar, grid/heatmap, timeline, compare (+ Ablauf `fl-*`, Ring) |
-| `faq` | `dl.faq` | `--2col` |
-| `checklist` | `ul.checklist` | Kästchen, Status (`.mark--yes/--no/--warn`), `--cols`, `--open-end` |
-| `contact` | `address.contact` | `--dark`, `--plain`, `__tel--xl` |
-| `bullets` | `ul.bullets` | `--ruled`, `--check`, `--dash`, `--num`, `--compact`, `--body`; Titel `.bullets__title`; Seitenleiste `.facts` |
+| `key_figures` | `.key-figures` + `.kf` | `--hero` (Rotverlauf), `--band` (Papier), `--s/--xl/--accent/--bs`, Raster `--2/--4`, `.seal` |
+| `table` | `.table` | `--figures` (Kernwerte 17 pt), `--compact`, `--terms` (Eckdaten), `--compare`, `--matrix`, `--heat` |
+| `callout` | `.callout--hinweis/--achtung/--tipp/--frist/--calc`, `.plan-legend`, `.gate` | `--s`, `--inline`, `--side`, `--plain`, `__split` |
+| `quote` | `.quote` | `--l`, `--band` |
+| `steps` | `.steps` | `--kote` (Höhenkoten, ±0 = Bewilligung), `--lanes`, `--h`, `.ratebar` |
+| `chart` | `figure.chart` + Inline-SVG | Maßketten-Balken (Fördermix), Säulen, Heatmap, Zeitstrahl, Spiegel, Ablauf, Ring |
+| `faq` · `checklist` · `contact` · `bullets` | wie v1 | – |
+| **`services`** (neu) | `.services` + `.service`, `.bzp` (Bauzeitenplan), `.lph-scale`, `.offer-box` | `--2col`, `--band` (Prozessband), `.offer-box--dark` |
+| **`references`** (neu) | `.references` + `.reference`, `.reference--feature` | `.photo` (Duplex), `.reference__units`, `.reference__facts` |
+| Umschlag | `.page--u1` / `.page--u4` | s. 7 |
 
-Feldzuordnung (typisch): `value/unit/prefix/label/text/ref` → `kf__num/kf__unit/kf__pre/kf__label/kf__text/ref`; `title/subtitle/note/source` → `chart__title/chart__sub/chart__note/source`; `variant` des Callouts → Modifikator; `who` im Schritt → Bahnen-Marker; `form` → `.badge--form`; `deadline` → `.badge--frist`.
+Feldzuordnung `services`: `title/body/phase` → `.service__title/.service__text/.service__phase`; als Gantt: `phase` → `--from/--to` (LPH 1–9), förderspezifisch → `.bzp__bar--foerder`. `references`: `name/place/client/units/note/image` → `.reference__name/.reference__place (+ client)/.reference__units/.reference__facts/.photo__img`.
 
 ---
 
@@ -247,460 +276,294 @@ Feldzuordnung (typisch): `value/unit/prefix/label/text/ref` → `kf__num/kf__uni
 ### 6.1 Kennzahlen (`key_figures`)
 
 ```html
-<div class="key-figures">                       <!-- 3 Kacheln je Reihe; --4 = 4 je Reihe; --2 = 2 je Reihe -->
-  <article class="kf kf--hero">                 <!-- dunkle Leitkachel, volle Breite, 150 pt -->
-    <div class="kf__top"><span class="kf__idx">01</span><span class="ref">RL Nr. 5.3.3</span></div>
+<div class="key-figures">
+  <div class="kf kf--hero">                                   <!-- PGN-Rotverlauf, volle Breite, Zahl 84 pt 900 weiß -->
+    <p class="kf__top"><span class="kf__idx">01</span><span>Programmteil 2.1</span></p>
     <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">80<span class="kf__unit">%</span></span></p>
-    <div class="kf__side">
-      <h2 class="kf__label">Förderquote aus Darlehen und Zuschuss</h2>
-      <p class="kf__text">in % der zuwendungsfähigen Kosten, Programmteil 2.1 – in jeder Einkommensgruppe:</p>
-      <table class="kf__mix">
-        <tr><th>A</th><td><i class="sw sw--loan"></i><b>40 %</b> Darlehen</td><td><i class="sw sw--grant"></i><b>40 %</b> Zuschuss</td></tr>
-      </table>
-    </div>
-  </article>
-
-  <article class="kf">
-    <div class="kf__top"><span class="kf__idx">02</span><span class="ref">RL Nr. 5.3.4, 12.7</span></div>
-    <p class="kf__fig"><span class="kf__pre">Darlehenszins</span><span class="kf__num">0<span class="kf__unit">%</span></span></p>
-    <h3 class="kf__label">bis Ende des 35. Jahres</h3>
-    <p class="kf__text">nach Bezugsfertigkeit. Dazu 0,5 % Verwaltungskostenbeitrag p. a. …</p>
-  </article>
-
-  <article class="kf kf--band">                 <!-- Sandband, volle Breite: Erklärung links, Werte rechts -->
-    <div><div class="kf__top" style="justify-content:flex-start"><span class="kf__idx">05</span><b class="kf__label u-mt-0">Bemessungsgrenzen je m² Wohnfläche</b></div>
-      <p class="kf__text">… Ausgangswerte, fortgeschrieben zum 1. April und 1. Oktober; aktuelle Werte auf nbank.de.</p></div>
-    <div class="kf__values">
-      <div class="kf__value"><p class="kf__num">4.800<span class="kf__unit">€</span></p><small>Mietenstufe I–III</small></div>
-      <div class="kf__value"><p class="kf__num">5.000<span class="kf__unit">€</span></p><small>Mietenstufe IV–VII</small></div>
-    </div>
-  </article>
+    <div class="kf__side"><p class="kf__label">Förderquote aus Darlehen und Zuschuss</p><p class="kf__text">…</p></div>
+  </div>
+  <div class="kf"><p class="kf__top"><span class="kf__idx">02</span><span>Zins</span></p>
+    <p class="kf__fig"><span class="kf__num">0<span class="kf__unit">%</span></span></p>
+    <p class="kf__label">Zins bis Ende Jahr 35</p><p class="kf__text">Verwaltungskostenbeitrag 0,5&nbsp;% p.&nbsp;a.</p></div>
+  <div class="kf kf--accent"> … <span class="kf__sub">je m² Wohnfläche, Mietenstufe I–III</span> … </div>   <!-- Zahl in Rot -->
 </div>
-
-<div class="seal"><span class="seal__pre">bis zu</span><span class="seal__num">80<span class="seal__unit">%</span></span><span class="seal__text">Förderquote, Programmteil 2.1</span></div>
-<!-- .seal--filled = Terrakotta-Fläche; .seals = Reihe; Größe über --seal-size (Standard 34 mm) -->
+<div class="seal"><span class="seal__pre">bis zu</span><span class="seal__num">80<span class="seal__unit">%</span></span><span class="seal__text">…</span></div>  <!-- Achskreis; --filled = Rotverlauf -->
 ```
 
-Dichte Raster (z. B. 4 × 2 auf S. 3): Der Vorsatz darf in die Kopfzeile wandern – `<div class="kf__top"><span class="bs-badge bs-21"><b class="bs-badge__no">2.1</b></span><span class="kf__pre">bis zu</span></div>`. Das Badge steht im DOM **vor** `kf__pre` und wird per `order` nach rechts gesetzt (mehrere Badges in `.kf__badges`), damit der PDF-Text „bis zu 80 %“ lautet. Lange Einheiten (€/m² Wohnfläche und Monat) als `.kf__sub` direkt unter der Zahl.
-
-Regeln: `kf__pre` steht **immer** über der Zahl (Höhe reserviert, auch leer) – „bis zu“, „mind.“, „rund“, „Festbetrag“, „Darlehenszins“. Einheit immer in `kf__unit` (Abstand automatisch, nie Leerzeichen davor tippen). Jede Kachel mit RL-Fundstelle in `kf__top`. Kostenhinweise (Verwaltungskostenbeitrag, Bearbeitungsentgelt) direkt in `kf__text`, keine Sternchen. Höchstens eine Hero-Kachel pro Seite. Zahlen > 6 Zeichen (z. B. „90.000“) nur in 3er- oder 2er-Raster.
+Regeln: Kachelkopf 0,3-mm-Linie; Zahl Montserrat 800 28 pt (Tabellenziffern); Einheit halb so groß in Rot; `kf__pre` rot 9 pt. Höchstens eine Hero-Kachel je Seite. Zahlen > 6 Zeichen (4.800/5.000, 90.000) nur in 2er-/3er-Raster oder `kf--s`. In der Kopfzeile darf ein Programm-Badge stehen (`.bs-badge`, DOM vor `kf__pre`, per `order` rechts).
 
 ### 6.2 Tabellen (`table`)
 
 ```html
-<figure class="module">
-  <figcaption class="fig-head"><h2 class="fig-head__title">Höchstmieten</h2><p class="fig-head__sub">Nettokaltmiete je m² Wohnfläche und Monat, Jahr 1–3 ab Mietbindung</p></figcaption>
-  <table class="table table--figures">
-    <thead><tr><th>Mietenstufe</th><th class="num is-hl">Gruppe<span class="big">A</span></th><th class="num">Gruppe<span class="big">B</span></th><th class="num">Gruppe<span class="big">C</span></th></tr></thead>
-    <tbody>
-      <tr><th scope="row">I–III</th><td class="num is-hl">6,50<span class="unit">€</span></td><td class="num">7,90<span class="unit">€</span></td><td class="num">8,70<span class="unit">€</span></td></tr>
-    </tbody>
-  </table>
-  <p class="source u-mt-2">Ab KfW-EH-40-Niveau bis zu 0,30 € mehr. <b>RL Nr. 5.4.4</b></p>
-</figure>
+<table class="table table--figures">                          <!-- Höchstmieten: Kernwerte Montserrat 800 17 pt -->
+  <thead><tr><th scope="col">Mietenstufe</th><th class="num" scope="col"><span class="axis-no axis-no--s">A</span></th>…</tr></thead>
+  <tbody><tr><th scope="row">I–III</th><td class="num">6,50</td><td class="num">7,90</td><td class="num">8,70</td></tr></tbody>
+</table>
+<table class="table table--terms"><tbody><tr><th scope="row">Bindung</th><td>35 Jahre Belegungs- und Mietbindung</td></tr></tbody></table>
 ```
 
-| Variante | Einsatz |
-|---|---|
-| `.table` | Standard 9 pt, Haarlinien, Kopf mit 0,8-pt-Linie, Abschluss 0,8 pt |
-| `.table--figures` | wenige große Werte (Fraunces 20 pt, Gewicht 380) – Höchstmieten, Fördersätze |
-| `.table--compact` | Modultext 9 pt / 1,36, dichte Tabellen (Rechenweg, Vergleich, Unterlagen); engere Zellpolster |
-| `.table--terms` | Term Sheet: `th scope="row"` als Versal-Label (30 %) + Text |
-| `.table--compare` | bisher → neu: `.col-old` (grau), `.table__arrow` („→“), `.col-new` (fett) |
-| `.table--matrix` + `tr.bs-row.bs-2x` | Übersicht der Programmteile mit Baustein-Kante |
-| `.table--heat` + `td.seq-1…6` | Heatmap als Tabelle (Prozent groß, Höchstbetrag in `<small>`) |
+Kopf: Montserrat 700 8,5 pt Versalien, 0,3-mm-Linie Fast-Schwarz; Zeilen Haarlinien; Abschluss 0,3 mm. **Massendaten-Stufe:** `.num` = Montserrat 600 9 pt, Tabellenziffern, rechtsbündig (Einkommensgrenzen, Kalkulation). **Kernwerte** `.table--figures`: höchstens 6–8 Werte je Seite. Gruppenköpfe A/B/C als Achskreise. Weitere Zellklassen wie v1 (`.unit`, `.is-hl`, `.is-total`, `.is-key`, `.is-group-end`, `.bs-row`, `.table__arrow`). Höchstens 8 Zeilen × 5 Spalten.
 
-Zellen: `.num` = rechtsbündig + `tabular-nums` (für **alle** Zahlenspalten inkl. Kopf), `.unit` = kleine Einheit hinter dem Wert, `.is-hl` = Regelfall/Spalte A sandfarben, `tr.is-total` = Summenzeile, `tr.is-key` = hervorgehobene Zeile, `.muted` = Nebeninfo.
-Ziffern: Die Tabelle setzt **proportionale** Ziffern, nur `.num` ist tabellarisch. (Inter-`tnum` macht auch Bindestriche ziffernbreit: „KfW - EH - 40“, „öffentlich - rechtlich“.)
-Gruppentrenner (0,8 pt): `tr.is-group-end` bzw. `th.is-group-end` an der **oberen** Zelle setzen. Im Druck runden Haarlinie und 0,8 pt beide auf 1 px; bei `border-collapse` gewinnt sonst die Haarlinie der oberen Zelle gegen ein `border-top` darunter.
-Mischgrößen in einer Zeile (Inter-Label 8,5 pt neben Fraunces-Wert): `vertical-align: baseline` greift im Chromium-PDF bei Tabellenzellen **nicht** (Bildschirm-DOM misst korrekt, PDF setzt oben bündig). Stattdessen `vertical-align: top` und das kleinere Label per `padding-top` auf die Grundlinie schieben (Inter 8,5 pt neben Fraunces 11 pt, beide Zeilenhöhe 1, 0,5 mm Polster: 1,24 mm).
-`.table__arrow` enthält das Zeichen „→“ (kein Icon); im Kopf ebenfalls Akzentfarbe.
-Regeln: höchstens 8 Zeilen × 5 Spalten; Zellen ≤ 8 Wörter; Einheiten in den Kopf, wenn für die Spalte gleich; Quellenzeile `.source` direkt darunter; nie Tabellen als Bild.
-
-### 6.3 Hinweise (`callout`) und Warnband
+### 6.3 Hinweise, Planlegende, Warnband
 
 ```html
-<aside class="callout callout--hinweis"><p class="callout__label"><!-- assets/ui-hinweis.svg -->Hinweis</p><p class="callout__body">…</p></aside>
-<aside class="callout callout--tipp"><p class="callout__label"><!-- ui-tipp.svg -->Tipp</p><p class="callout__body">…</p></aside>
-<aside class="callout callout--frist"><p class="callout__label"><!-- ui-frist.svg -->Frist</p><p class="callout__date">31.12.2026</p><p class="callout__body">…</p></aside>
+<aside class="callout callout--hinweis"><p class="callout__label"><svg class="icon">…</svg>Hinweis</p><p class="callout__title">Bemessungsgrenze</p><p class="callout__body">…</p></aside>
+<aside class="callout callout--achtung">…Erst Bewilligung, dann Vertrag…</aside>   <!-- Hauch + 0,5-mm-Rotlinie; genau 2× im Heft -->
+<aside class="callout callout--frist"><p class="callout__label">…Frist</p><p class="callout__date">31.12.2026</p><p class="callout__body">…</p></aside>
+<aside class="callout callout--calc"><p class="callout__label"><svg class="icon">…rechner…</svg>Kalkulationsnotiz</p><p class="callout__body">…</p></aside>  <!-- 5-mm-Planraster -->
 
-<aside class="callout callout--achtung">
-  <p class="callout__label"><!-- ui-achtung.svg -->Achtung</p>
-  <h3 class="callout__title">Vor der Bewilligung nicht beginnen</h3>
-  <div class="callout__split">
-    <div class="callout__col"><p class="callout__col-title"><i class="mark mark--no"></i>Gilt als Beginn</p>
-      <ul class="bullets bullets--dash bullets--compact"><li>Liefer-, Leistungs-, Kauf- oder Werkvertrag</li><li>Baubeginn, erster Spatenstich</li></ul></div>
-    <div class="callout__col"><p class="callout__col-title"><i class="mark mark--yes"></i>Gilt nicht als Beginn</p>
-      <ul class="bullets bullets--dash bullets--compact"><li>Grundstückskauf, Planung bis Leistungsphase 6 HOAI</li><li>Baugrunduntersuchung</li></ul></div>
-  </div>
-</aside>
+<dl class="plan-legend"><p class="plan-legend__title">Planlegende</p>
+  <div class="plan-legend__item"><span class="plan-legend__sym"><svg>…</svg></span><div><dt>35 Jahre Bindung</dt><dd>Belegungs- und Mietbindung ab Bezugsfertigkeit.</dd></div></div>
+  <p class="offer">Wir rechnen Ihr Projekt mit Ihnen durch. → Blatt 20</p>   <!-- höchstens ein Angebotssatz je Fachseite -->
+</dl>
 
-<p class="gate"><!-- ui-stopp.svg --><span><b>Erst nach der Förderentscheidung beginnen.</b> Begonnene Vorhaben werden nicht gefördert.</span></p>
+<p class="gate"><svg class="icon">…stopp…</svg><span><b>±0 Bewilligung</b> – erst danach Verträge und Baubeginn</span></p>
 ```
 
-| Variante | Farbe | Wofür |
+| Variante | Aussehen | Wofür |
 |---|---|---|
-| `--hinweis` | Sand, Tinte-Linie | Ergänzung, Verweis auf nbank.de, Fortschreibung |
-| `--achtung` | Terrakotta-Hauch, Terrakotta-Linie | Förderausschluss, Vorhabenbeginn, Nicht-Kumulierbarkeit |
-| `--tipp` | Petrol-Hauch, Petrol-Linie | Praxisrat (als Rat gekennzeichnet, kein Rechtsanspruch) |
-| `--frist` | Bernstein-Hauch, 2,4-pt-Bernsteinlinie, Datum groß | Stichtage (31.12.2026 Wahlrecht), Fristen |
-| `.gate` | Bernsteinband, quer | Stopp-Linie im Ablauf, max. 1 pro Seite |
+| `--hinweis` | Papier, 0,3-mm-Linie Tinte, Label grau | Ergänzung, Ausgangswerte |
+| `--achtung` | Rot-Hauch, 0,5-mm-Rotlinie, Label rot 9 pt | nur Vorhabenbeginn (S. 19, Kurzverweis S. 4/5) |
+| `--frist` | Papier, 0,9-mm-Dunkelrotlinie, Datum Montserrat 900 21 pt | nur Frist 31.12.2026 (S. 14/15) |
+| `--tipp` | Papier, Anthrazitlinie | Praxisrat |
+| `--calc` | Weiß mit 5-mm-Planraster, Rechner-Icon rot | höchstens drei Kalkulationsnotizen im Heft |
+| `.plan-legend` | gebündelte Hinweise: Symbol rot, Titel 800 Versalien, 2–3 Zeilen | statt mehrerer Kästen – die Hinweis-Diät-Form |
+| `.gate` | Dunkelrotband, weiß, Titel 800 Versalien | „±0 Bewilligung“ im Ablauf, max. 1 je Seite |
 
-Regeln: Label immer mit Icon (`assets/ui-*.svg`, Klasse `icon`); Body ≤ 45 Wörter (`l-span-4`) bzw. ≤ 70 Wörter (`l-span-6` und breiter). Höchstens 2 Callouts pro Seite plus ein `.gate`. `--side` setzt die Linie links (für Marginalspalten), `--plain` ohne Fläche.
-
-| Zusatz | Wirkung | Einsatz |
-|---|---|---|
-| `.callout--s` | Polster 3,2/4,4/3,6 mm, Titel 11,5 pt, Body 9 pt / 1,36 (Modultext) | schmale Kästen (`l-span-4/-5`) auf dichten Programmseiten (S. 12–14, 16) |
-| `.callout--inline` | Label (Icon + Versal) im Textfluss vor dem Body, Polster 2,2/2,4 mm | Bänder über die volle Satzspiegelbreite (Kalkulationsnotiz S. 9) |
-| `.callout--calc` | Kalkulationsnotiz: Tipp-Farben, Polster 2,8/4/3,2 mm, Icon 3,8 mm, Body 9 pt / 1,36 | **die** Kalkulationsnotiz der Doppelseite (Regel 0.11) |
-| `.callout--calc.calc--figure` | Option mit Rechengrafik: `.calc__grid` (Text links, Grafik rechts, unten bündig), Inline-SVG `.calc__fig` (1 Einheit = 1 mm, ≤ 32 mm breit, Datenfarben wie im Heft) | S. 16 (Miete + Zuschuss = bis zu 9,50 €) |
-| `.icon--signal` | Icon in Bernstein | Stopp-Icon (`ui-stopp`) für **alle** „Erst Bewilligung, dann …“-Warnungen (S. 5, 14, 16, 19); (!) bleibt für die übrigen Achtung-Kästen |
-
-**Kalkulationsnotiz:** `callout callout--tipp callout--calc`, Label „Kalkulationsnotiz“, Icon **`ui-rechner`** (nicht `ui-tipp`), kein zusätzlicher Titel. **Höchstens eine je Doppelseite**, immer das unterste Modul der Außenspalte in voller Spaltenbreite (Stand: S. 9, 11, 13, 15, 16, 18; die Doppelseiten 2|3, 4|5 und 6|7 haben keine – S. 7 führt den Satz als fetten Einstieg der Mietpfad-Bildunterschrift –, S. 9 als volles Band `.callout--inline` am Seitenende). Doppelte Aussagen ersetzt ein Seitenverweis-Chip:
+### 6.4 Zitat
 
 ```html
-<a class="pageref" href="#seite-18">Standort prüfen →&nbsp;S.&nbsp;18</a>
+<blockquote class="quote"><div class="quote__text"><p>Kostensicherheit ist kein Schlagwort, sondern ein wichtiges Versprechen.</p></div>
+  <p class="quote__by"><span class="quote__name">PGN · Über uns</span><span class="quote__src">pgn-architekten.de</span></p></blockquote>
 ```
-Offen (Redaktionsentscheidung): `.callout--achtung` ist Terrakotta = Datenfarbe „Zuschuss“; Regel 1.1 („Warnungen nie terrakotta“) gilt bisher nur für Fristen/Stopp. Bis zur Entscheidung bleibt `--achtung` Terrakotta, der Stopp-Marker darin wird Bernstein (`.icon--signal`).
-
-### 6.4 Zitat (`quote`)
-
-```html
-<figure class="quote">                                     <!-- --l: Pull-Quote 20 pt; --band: Zitatband mit Namensspalte rechts -->
-  <blockquote class="quote__text"><p>So öffnet sich eine Tür für all jene, die bisher knapp durchs Raster gefallen sind.</p></blockquote>
-  <figcaption class="quote__by"><span class="quote__name">Michael Kiesewetter</span><span>Vorstandsvorsitzender der NBank</span><span class="quote__src">MW-Presseinformation vom 03.07.2026</span></figcaption>
-</figure>
-```
-
-Regeln: **Nur wörtliche Zitate aus der Faktenbasis** (Feld `quote` in `factbase.json`, IDs G3-01, G3-02, G3-04, G3-05, G3-07 bis G3-10), Kürzungen nur an Satzgrenzen. Anführungszeichen setzt CSS („ als großes Terrakotta-Zeichen, das unten auf der Grundlinie der ersten Zitatzeile hängt – nicht auf Versalhöhe, sonst liest es sich als englisches ”; “ am Ende) – im Text keine Anführungszeichen tippen. Seitenoverrides des `top`-Werts nach der Formel im CSS-Kommentar von `.quote::before`. Name und Funktion im Nachweis immer untereinander (eigene Zeilen). Namen exakt: „Grant Hendrik Tonne, Niedersächsischer Minister für Wirtschaft, Verkehr und Bauen“ bzw. „Wirtschafts- und Bauminister“; „Michael Kiesewetter, Vorstandsvorsitzender der NBank“. Quelle mit Datum immer in `quote__src`. Höchstens ein Zitat pro Doppelseite; ≤ 40 Wörter (`--band`/`--l` ≤ 25 Wörter).
+Rote 0,75-mm-Linie links statt Zier-Anführungszeichen; „ und “ setzt CSS (nicht tippen). Montserrat 500 kursiv 12,5 pt (`--l` 17 pt). Nur wörtliche Zitate mit Quelle; höchstens zwei im Heft (Redaktionsregeln).
 
 ### 6.5 Ablauf (`steps`)
 
 ```html
-<div class="steps steps--lanes">                           <!-- --lanes per style anpassbar: style="--lanes:2" -->
-  <div class="steps__head">
-    <span class="steps__head-label">Schritt<span class="lane-legend"><span><i class="mk mk--lead"></i>ist am Zug</span><span><i class="mk mk--inv"></i>ist beteiligt</span></span></span>
-    <span class="lane-h">Sie<small>Antrag</small></span>
-    <span class="lane-h lane-h--hl">Förderstelle<small>Kommune</small></span>
-    <span class="lane-h">NBank<small>Bewilligung</small></span>
-  </div>
-  <ol>
-    <li class="step">
-      <span class="step__no">02</span>
-      <div><h3 class="step__title">Förderentscheidung</h3>
-        <p class="step__text">Die NBank soll innerhalb von drei Monaten entscheiden: <b>Fördervertrag</b> bei Darlehen, <b>Bescheid</b> bei reinem Zuschuss.</p>
-        <p class="step__meta"><span class="badge badge--form">1011</span><span class="badge badge--frist">Soll ≤ 3 Monate</span></p></div>
-      <span class="lane"><i class="mk mk--inv"></i></span><span class="lane lane--hl"></span><span class="lane"><i class="mk mk--lead"></i></span>
-    </li>
-    <li class="steps__gate"><p class="gate"><!-- ui-stopp.svg --><span><b>Erst nach der Förderentscheidung beginnen.</b> Begonnene Vorhaben werden nicht gefördert.</span></p></li>
-    <li class="step">… <div class="ratebar" role="img" aria-label="Auszahlung Neubau: …">
-        <span class="ratebar__seg" style="--v:30"><b>bis zu 30 %</b>Baubeginn</span><span class="ratebar__seg" style="--v:30"><b>bis zu 30 %</b>Rohbau</span>
-        <span class="ratebar__seg" style="--v:30"><b>bis zu 30 %</b>Innenputz</span>
-        <span class="ratebar__seg ratebar__seg--final ratebar__seg--end" style="--v:10"><span class="ratebar__lab"><b>10 %</b>Fertigstellung</span></span>
-      </div> …</li>
-  </ol>
-</div>
-
-<ol class="steps steps--h" style="--n:3">                  <!-- waagerecht, 3–5 Schritte, Pfeil zwischen den Schritten (Polster rechts 2,4 mm, letzter Schritt 0) -->
-  <li class="step"><span class="step__no">01</span><h3 class="step__title">Prolongationsangebot</h3><p class="step__text">…</p></li>
+<ol class="steps steps--kote">                                <!-- Höhenkoten: −2 Vorgespräch, −1 Antrag, ±0 Bewilligung, +1 Bau -->
+  <li class="step"><span class="step__no">−1</span><div><p class="step__title">Antrag</p><p class="step__text">…</p></div></li>
+  <li class="step is-gate"><span class="step__no">±0</span><div><p class="step__title">Bewilligung</p><p class="step__text">Erst jetzt Verträge schließen und bauen.</p></div></li>
 </ol>
-
-<ol class="steps"><li class="step"><span class="step__no">01</span><div><h3 class="step__title">…</h3><p class="step__text">…</p></div></li></ol>   <!-- einfache Liste -->
 ```
-
-Regeln: Marker unterscheiden sich in **Form** (voll/hohl), nicht nur Farbe; die Förderstellen-Bahn ist getönt (`lane--hl`). Jede Zeile mindestens einen `mk--lead`. Das `.gate` steht genau zwischen „Förderentscheidung“ und dem ersten Schritt, der einen Vertrag/Baubeginn bedeutet. `.ratebar`: Segmente proportional (`--v` in %), Beschriftung unter dem Balken mit Meilenstein; letztes schmales Segment mit `--end`. Vordrucke als `.badge--form` (nur Nummer – das Wort „Vordruck“ fügt `assemble.cjs` als `<span class="badge__pre">Vordruck&nbsp;</span>` ein, kein `::before`), Fristen als `.badge--frist`. Schritttext ≤ 3 Zeilen (≈ 170 Zeichen) in der Bahnen-Variante.
+Weitere Varianten wie v1: `.steps--lanes` (Sie · Förderstelle · NBank, Marker voll/hohl), `.steps--h` (waagerecht, roter Winkel zwischen den Schritten), `.ratebar` (Auszahlungsraten). Schrittnummern sonst Montserrat 900 20 pt Rot.
 
 ### 6.6 Diagramme (`chart`)
 
 ```html
-<figure class="chart module">                              <!-- .chart--s: kleiner Titel für Drittel-/Viertelspalten -->
+<figure class="chart module" role="group" aria-labelledby="mix-h">
   <figcaption class="chart__head">
-    <h2 class="chart__title">So setzt sich die Finanzierung zusammen</h2>
-    <p class="chart__sub">Höchstsätze in % der zuwendungsfähigen Kosten</p>
-    <ul class="legend"><li><i class="sw sw--loan"></i>Förderdarlehen bis zu</li><li><i class="sw sw--grant"></i>Zuschuss bis zu</li><li><i class="sw sw--equity"></i>Eigenmittel mindestens</li></ul>
+    <h2 class="chart__title" id="mix-h">Fördermix je Einkommensgruppe</h2>          <!-- volle Zeile -->
+    <p class="chart__sub">Höchstsätze in % der zuwendungsfähigen Kosten</p>           <!-- Spalte 1 -->
+    <ul class="legend"><li><i class="sw sw--grant"></i>Zuschuss</li><li><i class="sw sw--loan"></i>Darlehen</li><li><i class="sw sw--equity"></i>Eigenmittel, mind.</li></ul>
   </figcaption>
-  <svg class="chart__svg" viewBox="0 0 174 52" width="174mm" height="52mm" role="img" aria-label="Vollständige Datenaussage in einem Satz …">
-    …
-  </svg>
-  <p class="chart__note"><b>Den Zuschuss gibt es nur zusammen mit dem Darlehen.</b> …</p>
-  <p class="source">Quelle: RL Nr. 5.3.3 · eigene Berechnung</p>
+  <svg class="chart__svg" viewBox="0 0 180 61" width="180mm" height="61mm" role="img" aria-label="Vollständige Datenaussage …">…</svg>
+  <p class="chart__note">Gestrichelt: mit Zuschlag bis 85 bzw. 90 %. … <a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a></p>
 </figure>
 ```
 
-**SVG-Konventionen**
+**Maßketten-Balken (Fördermix, Signatur des Hefts)** – Bauplan: `scripts/specimen.cjs`, Funktion `foerdermix()`:
+- Zeilen je Gruppe 14,5 mm, Balken 6–7 mm (leichte Variante; nie 14 mm-Blöcke), Gruppe als Achskreis (`axb-c` + `axb-t`, r 4,1 mm) mit zweizeiliger Beschreibung.
+- Reihenfolge **Zuschuss ab der Grundlinie** (rot) · Darlehen (#202020) · Eigenmittel (Schraffur `pattern` mit `c-equity`/`c-equity-line`, Rahmen `c-equity-frame`); 0,7-mm-Fuge (`sep-line`).
+- Über jedem Balken eine **Maßkette in Anthrazit** (`dim-line` 0,22, `dim-tick` 0,45 als 45°-Strich, Hilfslinien 0,12) mit den Werten (Montserrat 700, `t-val-ink`, Zuschusswert `t-acc`).
+- **80-%-Achse** rot Strichpunkt (`cap-line`, 0,25 mm) mit rotem Achskreis „80“ und Label „Förderung bis zu 80 % – in jeder Gruppe“; Zuschläge als rote gestrichelte Kappe 80 → 85 → 90.
+- **Maßstabsleiste als x-Achse** (`sb-b`/`sb-w`, 1,3 mm hoch, Labels 0–100 `t-ax`).
+- Namen im Balken nur in der ersten Zeile („Zuschuss“, „Darlehen“, `t-val t-s` weiß).
 
-- **1 SVG-Einheit = 1 mm**: `viewBox`-Breite = `width` in mm (z. B. `viewBox="0 0 84.5 50" width="84.5mm" height="50mm"`). Nur dann stimmen die Schriftgrade. Breite = Spaltenbreite (Tabelle in 1.4).
-- Text-Klassen: `t-b` fett/Tinte · `t-s` 8,5 pt (z. B. `t-val t-s` in schmalen Segmenten) · `t-m` 9,2 pt · `t-l` 12 pt · `t-val` Wert im Balken (`--on-data`) · `t-val-ink` Wert außerhalb · `t-cat` Fraunces-Gruppenbuchstabe · `t-num` / `t-num-l` Fraunces-Zahl 18 / 25,5 pt · `t-ax` Achse · `t-caps` Versal-Label · `t-acc` · `t-signal` · `t-bs` · `t-end` / `t-mid` (Ausrichtung) · `t-on-seq` / `t-on-seq-light` (auf Heatmap) · `t-tnum` (Tabellenziffern). **Kein `stroke` auf SVG-Text, Skia → Type 3:** `t-halo` (Papier-Kontur) nicht mehr verwenden (nirgends mehr im Einsatz; die Regel `.chart__svg .t-halo` in styles.css kann entfallen). Labels über Gitterlinien stattdessen mit einer Fläche freistellen: `<rect>` in `--surface` direkt nach der Gitterlinie und vor den Kurven (Beispiel S. 12, `.p12-halo`).
-- Ziffern im SVG sind **proportional** (sonst sperren Bindestriche: „KfW-EH-40-Niveau“); tabellarisch nur `t-ax` und `t-tnum`, wo Ziffern untereinander fluchten müssen.
-- Zahl–Einheit in SVG-Labels: schmales geschütztes Leerzeichen U+202F (`15 % 1.080 €` in 21-mm-Säulen); im HTML-Fließtext normales `&nbsp;`. Nicht bei Fraunces-Zahlen (U+202F ist dort breiter).
-- Flächen: `c-loan` · `c-grant` · `c-equity` (+ Schraffur) · `c-accent` · `c-signal` · `c-ink` (Miete/Ertrag) · `c-muted` · `c-surface(-2)` · `c-old` (bisher, Token `--old`) · `c-bs` / `c-bs-21…26` · `c-seq-1…6`. Passende HTML-Swatches: `.sw--loan/--grant/--equity/--ink/--old/--signal/--bs`.
-- Linien: `ax` (Achse 0,3) · `gridline` (0,18) · `tick` · `lead-line` (Führungslinie) · `brk` (Klammer) · `dash` · `cap-line` (Deckel/Kappung, gestrichelt) · `line-loan/-grant/-ink/-bs/-signal` · `sep-line`.
-- Eigenmittel-Schraffur: Pattern aus `assets/deko-schraffur.svg` **mit eindeutiger ID je Diagramm** (`schraffur-08-1`), dann `fill="url(#schraffur-08-1)"` + Rahmen `class="c-equity-frame"`.
-- Jedes Diagramm: `role="img"` + `aria-label` mit allen Werten in einem Satz.
+**SVG-Konventionen:** 1 SVG-Einheit = 1 mm (`viewBox`-Breite = `width` in mm). Beschriftung Work Sans (`text` 3px = 8,5 pt, `t-m` 9,2 pt, `t-l` 12 pt), Werte Montserrat (`t-val`, `t-val-ink`, `t-num` 18 pt, `t-num-l` 25,5 pt, `t-cat` 7px, `axb-t` 5px – alle mit Tabellenziffern). `t-acc` = Rot 700. Kein `stroke` auf Text. Zahl–Einheit im SVG mit U+202F (aus der Symbolteilmenge).
 
-**Diagrammtypen** (funktionierende Beispiele: `src/.preview-specimen.html`, Seiten 03 und 05)
+**Diagramm-Regeln:** (1) Farben je Reihe fest (1.3). (2) Direkt beschriften; Legende im Kopf nur ergänzend. (3) Höchstwerte im Kopf („Höchstsätze“, „bis zu“). (4) Proportionen exakt, Balken ab 0, keine 3D-Effekte. (5) Zahlenformat deutsch. (6) Modellrechnungen tragen den Stempel `.stamp` „Modellrechnung“ (einmal je Rechnung). (7) Nie Größen unterschiedlicher Einheit an einer gemeinsamen Grundlinie – getrennte, gleich ausgerichtete Diagramme. (8) Rot im Diagramm nur für Zuschuss, 80-%-Achse und Zuschlag. (9) Programmfarben nur mit Nummer. (10) Diagrammtitel ≤ 6 Wörter (Versalien!), Untertitel ≤ 12, Notiz ≤ 30 Wörter / 1–2 Zeilen.
 
-| Typ | Aufbau | Beispiel |
-|---|---|---|
-| **stacked-bar** | Label-Spalte links (Gruppenbuchstabe `t-cat` + zwei Zeilen), Balken 7 mm hoch, Zeilen 11 mm, 0,6 mm Fuge zwischen Segmenten, Werte zentriert im Segment, Klammern (`brk`) über „Förderung bis zu 80 %“ / „mind. 20 %“, Achse 0–100 % unten | Finanzierung A/B/C (2.1) |
-| **bar** (Säulen/Balken) | Werte direkt über/an den Balken, dünne `gridline`s statt Achsenzahlen, Kategorie + Zusatzwert unter der Basislinie | Bindungserwerb 60 m² (2.5), Marktvergleich Miete |
-| **grid / heatmap** | Zellen mit 0,6 mm Fuge, sequenzielle Petrol-Skala `c-seq-1…6` (dunkler = höher), Wert groß + Höchstbetrag klein, Text ab Stufe 4 weiß | Klassensprung × Gruppe (2.3) |
-| **timeline** | Achse `tl-axis`, Monats-`tl-tick`, Pins: `tl-pin--key` (In-Kraft), `--signal` (Stichtag, größer, Text `t-signal`), `--draft` (gestrichelt, Entwurf), `--done` (Ende); Labels abwechselnd oben/unten; lange Spannen mit Achsenbruch (`//`) | Stichtage 2026–2031 |
-| **compare** | gespiegelte Säulen: oben Zuschuss (`c-grant`), unten Jahresmiete (`c-ink` – nicht `c-loan`, sonst verwechselbar mit Darlehen), Kategorie in der Mitte; Reihenname mit „bis zu“ und Einheit als Legende im Kopf (`.legend--stack`, Einheit in Klammern) | Szenarien A/B/C/Mix |
-| Ablauf/Entscheidung (Zusatz) | `fl-box`, `fl-box--hl`, `fl-box--bs`, `fl-diamond`, `fl-edge` + `fl-arrow` (Pfeilspitze als Polygon, keine `<marker>`), `fl-yes`/`fl-no` | Navigator |
-| Ring (Zusatz) | `ring-bg` + `ring-val` (`stroke-dasharray`, Akzent); `ring-val--fg` = Segment in Tinte, `ring-bg--old` = Grundring „bisher“ (`--old`, nie Bernstein); Segmentfuge `sep-line` | Anteil 28 %, Bedarfslage 306/96 |
+### 6.7 FAQ, Checkliste, Kontakt, Aufzählung
 
-**Diagramm-Regeln**
+Markup wie v1 (`dl.faq`, `ul.checklist`, `address.contact`, `ul.bullets`); neu: FAQ-Nummern Montserrat 900 rot, Frage Montserrat 700 10 pt; Aufzählungsmarker **eckig** (1,4 mm Rot); `.bullets--num` mit „01“; `.contact__name` Montserrat 800 Versalien, `.contact__tel` Montserrat 800 17 pt (`--l` 22, `--xl` 28 pt); `.contact--dark` Anthrazitverlauf.
 
-1. **Farben je Datenreihe sind fest:** Darlehen = `--loan` (Petrol), Zuschuss = `--grant` (Terrakotta), Eigenmittel = `--equity` (Sand, schraffiert), Miete/Ertrag = `--fg` (`c-ink`, `.sw--ink`), Bestand/bisher = `--old` (`c-old`, Sand 400), Signal/Stichtag = Bernstein, Programmteile = Baustein-Farbe + Nummer, Einkommensgruppen A/B/C = Petrol-Skala `seq-6/-4/-2` (A dunkelste, `.grp-chip`). Dieselbe Größe hat im ganzen Heft dieselbe Farbe.
-2. **Direkt beschriften, keine Legenden-Suche:** Werte stehen im oder am Balken, Kategorien direkt an der Achse. Eine Legende (`.legend`) nur ergänzend im Kopf und nur, wenn sie die „bis zu“/„mindestens“-Aussage trägt. Kopf-Varianten: `.chart__head--inline` (Titel und Legende in einer Zeile, spart ≈ 5 mm), `.chart__head--stack` (Titel einzeilig, Legende linksbündig darunter – für `l-span-7` ohne Untertitel), Legende untereinander mit `.legend--stack`.
-3. **Höchstwerte kennzeichnen:** „bis zu“ in Klammer, Legende oder Untertitel; Eigenmittel „mind.“.
-4. **Wahrheitsgetreue Proportionen:** Längen exakt aus den Daten; Balken beginnen bei 0; keine 3D-Effekte, keine dekorativen Pseudo-Diagramme. Achsenbruch nur sichtbar markiert.
-5. **Zahlenformat deutsch:** 80 %, 4.800 €, 0,5 %, 2,80 Mio. €, Tausenderpunkt, Dezimalkomma, Leerzeichen vor % und €.
-6. Modellrechnungen und eigene Berechnungen im Untertitel oder in der `.chart__note` kennzeichnen („Modellrechnung“, „eigene Berechnung“); Quelle/RL-Nummer in `.source`.
-7. Textgrößen in SVG nie unter `3px` (8,5 pt); Diagrammtitel ≤ 8 Wörter, Untertitel ≤ 15, Notiz ≤ 45, Labels ≤ 4 Wörter.
-
-### 6.7 Häufige Fragen (`faq`)
+### 6.8 Badges, Chips, Schlüsselplan, Programmnummer
 
 ```html
-<dl class="faq">                                           <!-- .faq--2col für zwei Spalten -->
-  <div class="faq__item"><dt class="faq__q">Gibt es den Zuschuss auch ohne Darlehen?</dt>
-    <dd class="faq__a">In 2.1 nicht: Der Zuschuss ist an das Darlehen gebunden. Reine Zuschüsse gibt es in 2.2 und 2.3.</dd></div>
-</dl>
+<span class="badge badge--form"><span class="badge__pre">Vordruck&nbsp;</span>1011</span>  <span class="badge badge--frist">Soll ≤ 3 Monate</span>
+<span class="tag"><i class="sw sw--grant"></i>Zuschuss</span>   <span class="bs-badge bs-24"><b class="bs-badge__no">2.4</b>Inseln</span>
+<span class="grp-chip grp-chip--l grp-chip--a">A</span>   <!-- Einkommensgruppe: Kreis, Stufe 6/4/2 -->
+<p class="chapter-no">2.4<small>Programmteil</small></p>       <!-- Programmnummer groß in --bs -->
 ```
-Nummerierung (01, 02 …) setzt CSS. Frage ≤ 12 Wörter, Antwort ≤ 45 Wörter, Antwort beginnt mit der Antwort („Ja.“, „Nein:“, „Die NBank.“).
 
-### 6.8 Checkliste (`checklist`)
+### 6.9 Modellrechnung, Rechenblatt, Stempel
+
+`.stamp` (doppelte Kontur, 0,25 mm + Haarlinie, Montserrat 800 9 pt Rot), `.stampline`, `.model` (Papier, `model__value` Montserrat 800 16 pt), `.formula` (**5-mm-Planraster**, Operatoren `+ =` Montserrat 900 Rot, Ergebniszeile 0,3 mm). Markup wie v1.
+
+### 6.10 Planzeichen
 
 ```html
-<ul class="checklist">                                     <!-- .checklist--cols: zweispaltig -->
-  <li class="checklist__item"><span class="checklist__box"></span><span>Förderantrag <span class="badge badge--form">1011</span><span class="checklist__note">bei der Wohnraumförderstelle einreichen</span></span></li>
-  <li class="checklist__item"><i class="mark mark--warn"></i><span>Bei 2.3: Energiebedarfsausweis mit Ausgangsklasse</span></li>
-</ul>
+<span class="axis-no">A</span>  <span class="axis-no axis-no--accent">80</span>  <span class="axis-no axis-no--s">B</span>   <!-- Achskreis -->
+<span class="kote">±0,00 Bewilligung</span>                                                               <!-- Höhenkote: rotes Dreieck -->
+<div class="dim" role="img" aria-label="80 Prozent Förderung, 20 Prozent Eigenmittel">                     <!-- Maßkette (HTML) -->
+  <span class="dim__seg dim__seg--acc" style="--w:80"><b>80&nbsp;%</b>&nbsp;Förderung</span><span class="dim__seg dim__seg--muted" style="--w:20">20&nbsp;%</span></div>
+<div class="cutline" aria-hidden="true"><span>A</span><span>A</span></div>                                   <!-- Schnittlinie A–A als Abschnittstrenner -->
+<span class="north"><!-- assets/pgn/sig-nordpfeil.svg inline --></span>
 ```
-Kästchen (`checklist__box`) sind druckbar zum Ankreuzen. Status-Varianten mit `.mark--yes` (✓, Petrol), `.mark--no` (✕, Terrakotta), `.mark--warn` (!, Bernstein) – Form + Farbe, graustufenfest. Eintrag ≤ 12 Wörter, ≤ 12 Einträge pro Spalte.
-Linien: Unter einem `.bullets__title` entfällt die obere Linie des ersten Eintrags automatisch (keine Doppellinie). Folgt direkt eine Fußnoten- oder Modullinie, `.checklist--open-end` setzen (letzter Eintrag ohne Unterlinie).
+Einsatz sparsam und mit Bedeutung: Achskreise für Gruppen/Phasen/Achsen, Koten für Stufen relativ zur Bewilligung, Maßkette für Anteile, Schnittlinie höchstens einmal je Seite zwischen Inhalt und PGN-Teil.
 
-### 6.9 Kontakt (`contact`)
+### 6.11 Fotos und Punktraster
 
 ```html
-<address class="contact contact--dark">                    <!-- Standard: Sandkasten; --dark: Petrol; --plain: ohne Fläche -->
-  <p class="contact__label">Wir beraten Sie gern</p>
-  <p class="contact__name">Förderberatung Wohnraumförderung</p>   <!-- optional -->
-  <p class="contact__tel">0511 30031-9333</p>                    <!-- __tel--xl auf der Rückseite -->
-  <p class="contact__lines">Mo–Fr 08:00–17:00 Uhr<br><b class="u-url">wohnraumfoerderung@nbank.de</b></p>
-</address>
+<figure class="photo photo--marks" role="group" style="--photo-h:44mm;--photo-pos:62% 55%;--cap-h:7mm">
+  <img class="photo__img" src="assets/pgn/img/brauerstrasse-duplex.jpg" alt="…">
+  <span class="photo__tag">Referenz</span>
+  <figcaption class="photo__caption"><b>Ansicht</b><span>Visualisierung, Brauerstraße 4</span></figcaption>
+</figure>
+<figure class="photo" role="group" style="--axes-pad:14mm;--cap-h:7mm">                       <!-- Banner mit Achskreisen -->
+  <div class="raster" aria-hidden="true"><!-- assets/pgn/sig-raster-brauerstrasse.svg inline --></div>
+  <div class="photo__axes" aria-hidden="true"><span><b>1</b></span>…<span><b>5</b></span></div>
+  <figcaption class="photo__caption"><b>Punktraster</b><span>…</span></figcaption>
+</figure>
 ```
-Daten nur aus der Faktenbasis (F322–F324). Telefonnummer nie umbrechen (ist `nowrap`, Wortabstand +0,12 em, damit „0511 30031-9333“ nicht zusammenläuft). Größen: Standard 19 pt, `.contact__tel--l` 26 pt / 360 (Kachel ab `l-span-5`), `.contact__tel--xl` 34 pt. Helle Kachel auf dunkler Seite: `.contact.on-light`. E-Mail in `<b class="u-url">` (im Kontakt 8,5 pt, passt ab `l-span-4`); mit Name und E-Mail besser `l-span-5`.
 
-### 6.10 Aufzählung (`bullets`)
-
-```html
-<h3 class="bullets__title">Gefördert wird</h3>             <!-- Versal-Titel mit 1,2-pt-Linie -->
-<ul class="bullets bullets--ruled"><li><b>Neubau</b></li><li><b>Änderung, Erweiterung,</b> z. B. Aufstockung</li></ul>
-<!-- --check (Haken), --dash (Strich), --num (Fraunces-Ziffern), --compact (enger), --body (9,5 pt Tinte) -->
-```
-≤ 7 Punkte, je ≤ 15 Wörter; Schlüsselwort fett am Anfang. Fußnotenziffer im `.bullets__title` mit Icon (Flex-Container) steht per `align-self` oben – kein Wrapper-Span nötig.
-
-**Faktenspalte** (gestapelte Textmodule in einer Seitenleiste neben Diagrammen, S. 14, 16):
+### 6.12 PGN-Leistungen (`services`)
 
 ```html
-<div class="l-span-5 facts">
-  <section class="facts__mod"><h3 class="label label--accent">Was gefördert wird</h3><p class="facts__text"><b>…</b> …</p></section>   <!-- erstes Modul: 1,2-pt-Linie -->
-  <section class="facts__mod"><h3 class="label label--accent">Bindung und Miete</h3><ul class="bullets"><li>…</li></ul></section>       <!-- weitere: Haarlinie -->
-  <aside class="callout callout--frist callout--s">…</aside>
-</div>
-```
-Module 3,2 mm Abstand, Text und Bullets 9 pt / 1,36 (Modultext).
-
-### 6.11 Fördergegenstände: Badges, Chips, Register
-
-```html
-<span class="bs-badge bs-24"><b class="bs-badge__no">2.4</b>Ostfriesische Inseln</span>   <!-- --l größer -->
-<span class="tag"><i class="sw sw--loan"></i><i class="sw sw--grant"></i>Darlehen + Zuschuss</span>
-<span class="tag"><i class="sw sw--grant"></i>Zuschuss</span>
-<span class="tag"><i class="sw sw--grant-o"></i>Festbetrag</span>
-<span class="tag"><i class="sw sw--loan-o"></i>Zinsverbilligung</span>
-<div class="tags">…mehrere .tag/.bs-badge…</div>
-<div class="bs-stripes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>   <!-- sechs Farbstreifen -->
-
-<ul class="programs">                                      <!-- 3 × 2 Übersicht; --compact = kleinere Schrift/Piktogramme -->
-  <li class="program bs-21"><!-- assets/pikto-neubau-mfh.svg --><span class="program__no">2.1</span>
-    <p class="program__title">Mietwohnungen in Mehrfamilienhäusern</p>
-    <p class="program__meta"><span class="tag"><i class="sw sw--loan"></i><i class="sw sw--grant"></i>Darlehen + Zuschuss</span><span class="program__page">S. 8</span></p></li>
-</ul>
-
-<p class="chapter-no">01<small>Programmteil</small></p>    <!-- Programmnummer groß, Farbe = Baustein; Label „Programmteil“ (kein „von 06“: die Ziffern folgen den RL-Nummern, nicht der Seitenfolge) -->
-
-<div class="paths">                                        <!-- Fördertatbestände als Icon-Reihe; --n per style -->
-  <div class="path"><!-- pikto-neubau-mfh.svg --><div><p class="path__title">Neubau</p><p class="path__text">Mehrfamilienhaus ab drei Wohneinheiten</p></div></div>
-  <div class="path"><!-- pikto-weg-aufstockung.svg -->…Änderung und Erweiterung…</div>
-  <div class="path"><!-- pikto-weg-ersterwerb.svg -->…Ersterwerb…</div>
-</div>
-```
-Badge-Farben **nur** für die Zuordnung zu einem Programmteil – nie für Daten. `bs-2x` an der `<section>` färbt Register, Kapitelnummer, `kf--bs`, Piktogramm-Akzente automatisch. Die Ziffer im `.bs-badge` bleibt weiß, auch in Komponenten, die `b` einfärben (`.bullets b`, `.kf__text b`).
-
-```html
-<span class="grp-chip grp-chip--a">A</span>   <!-- Einkommensgruppe: A = seq-6, B = seq-4, C = seq-2 (hell, dunkle Schrift); 4 mm / 9 pt, --l 5,2 mm / 11 pt -->
-<span class="badge badge--s badge--form">1011</span>   <!-- --s: kleineres Polster für 8,5/9-pt-Fließtext; Gruppen „(1005a bzw. 1006a, …)“ mit .u-nowrap zusammenhalten -->
-<div class="bs-strip" data-bleed aria-hidden="true">   <!-- Register-Leiste am Fuß von Titel und Rückseite (Artefakt) -->
-  <ol class="bs-strip__nos" aria-label="Programmteile 2.1 bis 2.6"><li class="bs-21">2.1</li>…<li class="bs-26">2.6</li></ol>
-  <div class="bs-stripes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-</div>
-```
-Nummern der `.bs-strip` stehen auf dunklen Seiten in `--bs-tint`, auf hellen in `--bs`.
-
-### 6.12 Modellrechnung, Rechenblatt, Stempel
-
-```html
-<section class="model" aria-label="Modellrechnung">
-  <div class="model__head"><div><p class="stamp">Modellrechnung</p><h3 class="model__title">1 Mio. € zuwendungsfähige Kosten, Gruppe A</h3></div>
-    <p class="model__note">Annahme, keine Förderzusage. Höchstsätze; Überkompensationsprüfung vorbehalten.</p></div>
-  <div class="model__grid" style="--n:3">
-    <div class="model__item"><p class="model__label"><i class="sw sw--loan"></i>Darlehen</p><p class="model__value">400.000<small>€</small></p><span class="model__pre">bis zu 40 %</span></div>
-    <div class="model__item"><p class="model__label"><i class="sw sw--grant"></i>Zuschuss</p><p class="model__value">400.000<small>€</small></p><span class="model__pre">bis zu 40 %</span></div>
-    <div class="model__item"><p class="model__label"><i class="sw sw--equity"></i>Eigenmittel</p><p class="model__value">200.000<small>€</small></p><span class="model__pre">mindestens 20 %</span></div>
+<figure class="bzp module" role="group" aria-labelledby="bzp-h">
+  <figcaption class="chart__head"><h2 class="chart__title" id="bzp-h">Förderweg und Leistungsphasen</h2><p class="chart__sub">nach HOAI</p>
+    <ul class="legend"><li><i class="sw sw--grant"></i>förderspezifisch</li><li><i class="sw sw--loan"></i>Planen und Bauen</li><li><i class="sw sw--loan-o"></i>nach der Bewilligung</li></ul></figcaption>
+  <div class="bzp__grid u-mt-3">
+    <div class="bzp__head"><span class="bzp__label" style="border:0"><span class="label">Leistung</span></span>
+      <div class="bzp__phases bzp__phases--top"><span style="grid-column:1 / span 6">Vor der Bewilligung<small>Planung bis LPH 6 ist kein Vorhabenbeginn</small></span><span class="is-after" style="grid-column:7 / span 3">Nach der Bewilligung<small>Vergabe, Bau, Nachweis</small></span></div></div>
+    <div class="bzp__head"><span class="bzp__label">…Leistungsphase HOAI…</span><div class="bzp__phases"><span class="bzp__lph"><b>1</b></span>…<span class="bzp__lph"><b>9</b></span></div></div>
+    <div class="bzp__row"><div class="bzp__label"><span class="bzp__title"><em>01</em>Förder-Check</span><small>Programmteil, Standort, Rechnung</small></div>
+      <div class="bzp__track"><i class="bzp__bar bzp__bar--foerder" style="--from:1;--to:1"></i></div></div>
+    <div class="bzp__row">… <i class="bzp__bar" style="--from:2;--to:3"></i><i class="bzp__bar bzp__bar--line" style="--from:4;--to:8"></i> …</div>
+    <div class="bzp__row">… <i class="bzp__bar bzp__bar--foerder" style="--from:3;--to:4"></i><i class="bzp__ms" style="--at:4"></i><span class="bzp__ms-t" style="--at:4">Antrag</span> …</div>
+    <i class="bzp__gate" style="--at:6" aria-hidden="true"><span>±0 Bewilligung</span></i>
   </div>
-  <dl class="model__rows">
-    <div class="model__row"><dt>Bearbeitungsentgelte, einmalig</dt><dd>7.000 €</dd></div>
-    <div class="model__row model__row--total"><dt>Verwaltungskostenbeitrag p. a., bis zu</dt><dd>2.000 €</dd></div>
-  </dl>
-  <p class="model__calc"><b>Rechenweg:</b> 1 % von 400.000 € + 0,75 % von 400.000 € = 7.000 €; 0,5 % p. a. auf das Restkapital, sinkt mit der Tilgung. RL Nr. 12.7</p>
-</section>
+  <ul class="bzp__legend"><li><b>LPH</b> 1 Grundlagen · 2 Vorplanung · … · 9 Objektbetreuung</li></ul>
+</figure>
 
-<div class="formula">                                      <!-- --wide: Grenze rechts in eigener Spalte (ab l-span-8) -->
-  <div class="formula__row"><span class="formula__op"></span><span class="formula__term">Herstellungskosten (KG 200–700)</span><span class="formula__limit">bis Bemessungsgrenze × m²</span></div>
-  <div class="formula__row"><span class="formula__op">+</span><span class="formula__term">Grundstückskosten (KG 100)</span><span class="formula__limit">bis Bodenrichtwert × Fläche</span></div>
-  <div class="formula__row formula__row--result"><span class="formula__op">=</span><span class="formula__term">zuwendungsfähige Kosten</span><span class="formula__limit">RL Nr. 5.3.2</span></div>
-</div>
-```
-Jede Zahl der Modellrechnung muss nachrechenbar sein (Rechenweg in `model__calc`); Annahmen im Titel oder als „Annahme: …“ am Diagramm; Stempel immer sichtbar.
-
-**Stempelzeile** (eine Komponente für alle Modellrechnungen, Muster S. 13):
-
-```html
-<p class="stampline"><span class="stamp">Modellrechnung</span><span>– fiktives Beispiel, keine Förderzusage</span></p>
-```
-Immer die **erste Zeile des Modellrechnungs-Moduls** (über dem Titel: S. 7, 11, 16, 17; in der Randspalte der Titelzone: S. 10; rechts neben dem Titel im Diagrammkopf, wenn die Zeile dort Platz hat: S. 13). 8,5 pt, `--fg-2`, ohne Drehung, ohne absolute Positionierung, nie im `h2`. Flex-Zeile: Der Zusatz ist **unteilbar** (`white-space: nowrap`) – passt er nicht neben den Stempel, rückt er geschlossen darunter, nie „– fiktives | Beispiel …“.
-In Spalten **unter 70 mm** von vornherein die gestapelte Variante (S. 10 Randspalte, S. 17 Modellkasten), Zusatz ohne Gedankenstrich:
-```html
-<p class="stampline stampline--stack"><span class="stamp">Modellrechnung</span><span>fiktives Beispiel, keine Förderzusage</span></p>
-```
-Kicker der Modellrechnungsseite wiederholt „Modellrechnung“ nicht (S. 10: „Programmteil 2.1 · Neubau“). Der Satz „Annahme, keine Förderzusage“ steht damit an der Stempelzeile und wird im Text nicht wiederholt. Achtung: Die Doppelkontur (`outline-offset` 0,7 mm) ragt ≈ 0,8 mm über die Box hinaus.
-
-### 6.13 Fußnoten, Quellen, Hinweise, Begriffe
-
-```html
-<p>… bis zu 80 % der zuwendungsfähigen Kosten.<span class="fn">1</span></p>
-<ol class="footnotes footnotes--2col l-bottom">              <!-- ein System für alle Seiten: volle Satzspiegelbreite, Haarlinie darüber -->
-  <li class="footnotes__src"><b>Fundstellen:</b> RL Nr. 5.3.2, 5.3.3; NBank-Produktinformation …</li>   <!-- seitenweite Quellen: ziffernlos, zuerst -->
-  <li>Zuwendungsfähig sind … (RL Nr. 5.3.2).</li>               <!-- nummeriert ab 1 -->
+<ol class="services services--2col">                              <!-- Textvariante; --band = sieben Stationen nebeneinander (Quadrat-Marken) -->
+  <li class="service"><span class="service__no">01</span><div><span class="service__phase">Vor dem Vorgespräch</span>
+    <p class="service__title">Förder-Check und Machbarkeit</p><p class="service__text">…≤ 30 Wörter…</p></div></li>
 </ol>
-<p class="caveat">Höchstwerte&nbsp;· Überkompensationsprüfung&nbsp;· kein&nbsp;Rechtsanspruch <a href="#seite-02">→&nbsp;S.&nbsp;2</a></p>   <!-- Kurzmarke, direkt unter dem Hauptdiagramm/Kachelraster -->
-<p class="source"><b>Quelle:</b> RL Mietwohnraum 2026, Nr. 5.3.3 · eigene Berechnung</p>
-<p class="stand"><b>Stand: 21.10.2026.</b> Maßgeblich sind die RL Mietwohnraum 2026 (Nds. MBl. 2026 Nr. 319) und die Förderentscheidung.</p>
-<p class="note"><b>Alle Förderwerte sind Höchstwerte („bis zu“).</b> Maßgeblich ist die Förderentscheidung der NBank.</p>
-<aside class="term"><p class="term__label">Begriff</p><h4 class="term__word">Verwaltungskostenbeitrag</h4><p class="term__text">0,5 % pro Jahr auf das jeweilige Restkapital …</p></aside>
-<ol class="toc"><li class="toc__item"><span class="toc__no">01</span><span class="toc__title">Die Zahlen zuerst</span><span class="toc__page">3</span></li></ol>
+<div class="lph-scale" role="img" aria-label="Leistungsphasen 1 bis 9, Bewilligung zwischen 6 und 7"><ol class="lph-scale__list"><li><b>1</b>Grundlagen</li>…</ol><span class="lph-scale__gate" style="--at:6"><span>±0 Bewilligung</span></span></div>
+<aside class="offer-box offer-box--dark on-dark"><p class="offer-box__title">Schlüsselfertig</p><p class="offer-box__text">…</p></aside>   <!-- Anthrazit, kein Grün -->
+<aside class="offer-box"><p class="offer-box__title">Für Kommunen</p><p class="offer-box__text">…</p></aside>
 ```
-Fußnotenziffern sind **echter Text**: `assemble.cjs` stellt jedem nummerierten `<li>` einer `.footnotes`-Liste `<span class="footnotes__no">N</span>` voran (N zählt je Liste ab 1, `.footnotes__src` zählt nicht) – im Partial nur `<li>Text</li>` schreiben. Kein `counter()`/`::before` (fehlt im Tag-Baum; vorgelesen würde „…2025).1“ ohne zugehörige Fußnote). Vor dem Block mindestens 4 mm Luft (Regel 15).
-Fußnoten: **ein System** `.footnotes.footnotes--2col.l-bottom` auf allen Seiten, nie in einer Seitenspalte, kein Run-in. Höchstens 4 Zeilen je Spalte, **nur Quellen und RL-Nummern** – Erläuterungen gehören in den Text (Bullets, Diagrammnotiz, Detailblock). Seitenweite Fundstellen stehen als erste, ziffernlose Zeile `.footnotes__src` („Fundstellen: RL Nr. …“); nummerierte Fußnoten (≤ 3) nur, wo eine Aussage eine eigene Quelle braucht. Ziffern nur im Fließtext, in Tabellenzellen und Bildunterschriften. `.note` (Höchstwert-Hinweis) auf der Kennzahlen- und der Übersichtsseite. `.stand` auf der Rückseite (und optional am Ende von Kapiteln).
+Gantt: Rot nur für förderspezifische Leistungen (Förder-Check, Antragsunterlagen, Nachweis), Fast-Schwarz für Planen und Bauen, dünne Linie für laufende Kostenverfolgung, Kontur für Leistungen nach der Bewilligung, Raute = Meilenstein. Titel einzeilig (≤ 24 Zeichen bei `--label-w: 64mm`), Beschreibung einzeilig (≤ 38 Zeichen) → 10,6 mm je Zeile.
 
-`.caveat` (Kurzmarke Standard-Vorbehalt): Inter 8,5 pt / 500, `--fg-3`, Link „→ S. 2“ in Akzent; genau einmal je Seite, fest direkt unter dem Hauptdiagramm bzw. dem Kachelraster (S. 1, 3, 4, 5, 8, 10–17); ausformuliert nur S. 2 (Lesehinweis) und S. 20 (Impressum). Auf den Modellrechnungsseiten zusätzlich die Stempelzeile.
-
-| Zusatz | Wirkung |
-|---|---|
-| `.footnotes--2col` | zwei Spalten (`column-count`, `orphans/widows: 1`); nummerierte Fußnoten sind monolithisch (`inline-block`), die Fundstellen-Zeile darf von Spalte 1 in Spalte 2 laufen |
-| `.footnotes__src` | ziffernlose Fundstellen-Zeile; steht sie allein, läuft sie über die volle Breite; folgen ihr zwei oder mehr nummerierte Fußnoten, ebenfalls volle Breite und die Fußnoten zweispaltig darunter (S. 18) |
-| `.imprint` | nie trennen; Absätze mit 1,2 mm Abstand; Spalten über `l-grid` mit ganzen Absätzen, nicht `column-count` (Fundstellen würden zerrissen) |
-
-### 6.14 Titel und Rückseite
+### 6.13 Referenzen (`references`)
 
 ```html
-<section class="page page--cover" data-page="01">
-  <div class="cover__art" data-bleed><!-- assets/titel-illustration.svg (viewBox = ganze Seite) --></div>
-  <div class="cover__top">
-    <div class="cover__mast"><span><b>Investitions- und Förderbank Niedersachsen – NBank</b></span><span>Stand: Oktober 2026</span></div>
-    <p class="kicker cover__kicker">RL Mietwohnraum 2026 · in Kraft seit 1. Juli 2026</p>
-    <h1 class="cover__title">Wohnraum,<br>der sich<br><em>rechnet.</em></h1>
-    <p class="cover__deck"><strong>Mietwohnraumförderung Niedersachsen 2026:</strong> Konditionen, Kennzahlen und Modellrechnungen.</p>
-    <p class="audience cover__audience"><span class="audience__label">Für</span><span class="audience__item">Wohnungsunternehmen</span><span class="audience__item">Genossenschaften</span>…</p>
-  </div>
-  <div class="cover__band" data-bleed>
-    <ol class="cover__programs"><li class="cover__program bs-21"><b>2.1</b>Mietwohnungen in Mehrfamilienhäusern</li>…</ol>
-    <div class="titleblock">                                <!-- „Schriftfeld“: Grundlage · Antrag · Bewilligung -->
-      <div class="titleblock__cell"><p class="titleblock__label">Grundlage</p><p class="titleblock__value">RdErl. d. MW v. 25.06.2026, Nds. MBl. 2026 Nr. 319</p></div>
-      <div class="titleblock__cell"><p class="titleblock__label">Antrag</p><p class="titleblock__value">Wohnraumförderstelle Ihrer Kommune</p></div>
-      <div class="titleblock__cell"><p class="titleblock__label">Bewilligung</p><p class="titleblock__value">Investitions- und Förderbank Niedersachsen – NBank</p></div>
-    </div>
-    <div class="bs-stripes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-  </div>
-</section>
+<article class="reference reference--feature" aria-labelledby="ref-h">  <!-- Hauptreferenz: Bild 100 mm + Datenspalte -->
+  <figure class="photo photo--marks" role="group" style="--photo-h:44mm;--cap-h:7mm">…</figure>
+  <div><p class="kicker kicker--plain">Mit NBank-Förderung</p>
+    <p class="reference__units">19 <small>Wohnungen<br>barrierefrei, mit Aufzug</small></p>
+    <h2 class="reference__name" id="ref-h">Brauerstraße, Rotenburg (Wümme)</h2>
+    <dl class="reference__facts"><dt>Vorhaben</dt><dd>Neubau eines Mehrfamilienhauses</dd><dt>Status</dt><dd>entsteht aktuell; wird durch die Förderung der NBank unterstützt</dd></dl></div>
+</article>
+<div class="references" style="--n:3">
+  <article class="reference"><figure class="photo" role="group" style="--photo-h:30mm"><img class="photo__img" src="assets/pgn/img/porstweg-duplex.jpg" alt="…"></figure>
+    <p class="reference__units">29 <small>Wohnungen</small></p><h3 class="reference__name u-mt-2">Porstweg</h3><p class="reference__place">Rotenburg (Wümme) · für die …</p></article>
+</div>
 ```
-Die Titelillustration enthält die Beschriftung (`<g class="ill-labels">`: bis zu 40 % Zuschuss / bis zu 40 % Darlehen / mind. 20 % Eigenmittel, Text im SVG 8,8 pt). Ausblenden mit `class="ill-labels-off"` am Container. Sie ist auf einen dreizeiligen Titel und einen zweizeiligen Deck abgestimmt: Labels beginnen bei 155 mm, das Haus steht rechts ab 128 mm. **Kein Logo, keine CI-Nachahmung**, Herausgeberzeile nur als Text.
+**Fakten nur aus `recherche/pgn-facts.md`**, Status wörtlich („entsteht aktuell“, „wird durch die Förderung der NBank unterstützt“ – nie „umgesetzt“; Schreibweise „NBank“, nicht „N-Bank“, daher Paraphrase). Bauherr nur, wo er im Text der Projektseite steht.
 
-Rückseite: `.page--back`, darin `.h1` mit `<em>`, `contact--plain` + `contact__tel--xl`, `.checklist`, `assets/haus-diagramm.svg` (Klammer zum Titel, Breite über Container z. B. `.back__art`), `.stand`, `.imprint`, `.bs-strip` (Nummern + Streifen) absolut am Fuß mit `data-bleed` – wie auf dem Titel.
-Helle Plakette auf dem dunklen Titel: `.seal` mit `.on-light` und `background: var(--surface)` (S. 1) – Text und Tokens kommen aus dem hellen Scope, die Ziffer bleibt lesbar.
+### 6.14 PGN-Werte, Logo
+
+```html
+<ul class="values" aria-label="Für Sie denken wir an">
+  <li class="values__item"><img src="assets/pgn/verantwortung-white.svg" alt=""><span class="values__word">Verantwortung.</span></li> …
+</ul>
+<img class="logo logo--m" src="assets/pgn/logo-rot.svg" alt="PGN – Architekten, Stadtplaner, Ingenieure">
+```
+Logo: `logo-rot.svg` auf Weiß/Papier (Standard, ≥ 34 mm breit, Schutzzone = Höhe des „P“); `logo-negativ.svg` (weiß mit Unterzeile, abgeleitet) bzw. `logo-weiss.svg` (nur Wortmarke) auf Rot/Anthrazit – Freigabe bei PGN offen, auf dem Umschlag deshalb Logo rot auf weißem Schriftfeld; `logo-mark-rot.svg` nur als Wortmarke im Plankopf (11,5 mm); `logo-mono.svg` (currentColor) für Einfarbdruck. Logo-SVGs sind reine Pfade (als `<img>` vektoriell im PDF). Kein Logo von NBank oder Land.
 
 ---
 
-## 7 · Assets (`src/assets/`)
+## 7 · Umschlag (U1, U4)
 
-Alle SVGs sind **inline-tauglich**: ohne XML-Prolog, ohne IDs (Ausnahme: `deko-schraffur.svg`, ID beim Einbetten umbenennen), Farben über `currentColor` und CSS-Klassen aus `styles.css`. Einbetten: Datei-Inhalt direkt ins HTML kopieren; Größe/Farbe über Klassen.
+Aufgeklappt ist der Umschlag **ein Planblatt**: Planrahmen 8 mm, Schriftfelder auf U1 und U4 mit derselben Oberkante (`--horizon` 196 mm), Blattnummern „U1“/„U4“.
 
-| Datei | Inhalt | Einsatz / Steuerung |
+**U1 (`.page--u1`)**: Kopfleiste (`.cover__head`: Kicker „Planungsgrundlagen für den geförderten Mietwohnungsbau“ + Zelle Ausgabe) · Axonometrie `sig-axo-brauerstrasse.svg` **inline** in `.cover__drawing` (190 × 165 mm) · `.cover__caption` rechts über dem Schriftfeld · `.cover__stamp` mit drei Zeilen: `.cover__row--top` (Für · Planinhalt · Stand · Blatt U1) / `.cover__row--main` (Kicker, `.cover__title` mit rotem Signaturwort, `.cover__deck` | `.cover__kpi` auf Rotverlauf: „Bis zu“, 80 % in Montserrat 900 64 pt weiß, Label, Maßkette 80/20) / `.cover__row--foot` (Logo rot · Herausgeber · Grundlage). Textmengen: Titel ≤ 5 Wörter / 2–3 Zeilen bei 30 pt; Deck ≤ 25 Wörter; Schriftfeld-Werte ≤ 8 Wörter (8,5 pt Montserrat 600).
+
+**U4 (`.page--u4`)**: `.cover__art` (`data-bleed`, Rotverlauf) mit `sig-grundriss.svg` **inline** (ganzseitig 210 × 297, weiße Linien, Poché-Wände) · `.planframe` · `.back__claim` (Kicker + `.claim` 34 pt: „Aus Ihrer guten Idee –“ als `.light`, „machen wir den *besten Plan.*“) · `.back__stamp` weiß: Logo + Beschreibung | Kontakt (`address.back__contact`, Links `.u-url`) | QR (`qr-pgn-architekten.svg` inline, Ziel www.pgn-architekten.de, Ruhezone 4 Module) / Förder-Check-Einladung (`.back__invite-cell`, ein Satz) / Projekt + Blatt U4.
+
+Druck: Nur `.cover__art` läuft in den Beschnitt; Planrahmen und Schriftfelder bleiben im Endformat. Weißer Text auf dem Verlauf ≥ 9 pt (Kicker 9 pt 700, Claim 34 pt).
+
+---
+
+## 8 · Assets (`src/assets/pgn/`)
+
+| Datei | Inhalt | Einsatz |
 |---|---|---|
-| `titel-illustration.svg` | Haus = gestapeltes Balkendiagramm: 2 Geschosse Eigenmittel (schraffiert), 4 Darlehen, 4 Zuschuss – das oberste Zuschuss-Geschoss mit Gründach und PV schwebt noch am Kran; Isometrie, viewBox = Seite 210 × 297 | nur Titel, in `.cover__art`; Farben `ill-*` (passen sich Hell/Dunkel an) |
-| `haus-diagramm.svg` | dasselbe Haus kompakt, ohne Beschriftung, enge viewBox | Rückseite, Kapitelöffner; Breite über Container, Höhe automatisch |
-| `pikto-neubau-mfh.svg` · `pikto-eh40-neubau.svg` · `pikto-modernisierung.svg` · `pikto-inseln.svg` · `pikto-bindungserwerb.svg` · `pikto-bindungsverlaengerung.svg` | sechs Fördergegenstände, feine Petrol-Linien-Isometrie, gemeinsame viewBox (gleiche Gebäudegröße) | Klasse `pict` (+ `pict--s/m/l/xl` = 9/14/20/28 mm); Linie = `color`, Akzent = `--pict-accent` (Standard: `--bs` bzw. `--accent`) |
-| `pikto-weg-aufstockung.svg` · `pikto-weg-ersterwerb.svg` | Fördertatbestände Änderung/Erweiterung, Ersterwerb (Neubau = `pikto-neubau-mfh`) | `.paths` |
-| `zielgruppe-*.svg` (5) | Wohnungsunternehmen, Genossenschaften, Investoren, Projektentwicklung, Kommunen | Zielgruppen-Kacheln (Editorial) |
-| `ui-*.svg` (16) | hinweis, achtung, stopp, tipp, frist, kalender, check, kreuz, ausrufe, pfeil, dokument, telefon, mail, web, standort, rechner | Klasse `icon` (+ `icon--s/m/l`), Linie 1,6 im 24er-Raster |
-| `deko-isoraster.svg` | Isometrie-Raster (Linien auf viewBox zugeschnitten) | Flächenmuster hinter Titel/Kapitelöffnern; Container mit `position`, `data-bleed`, Farbe über `color` |
-| `deko-dachlinie.svg` | Silhouette einer Straßenzeile als Linien-Trenner | volle Satzspiegelbreite, z. B. vor Impressum |
-| `deko-schraffur.svg` | `<pattern>` für Eigenmittel | ID eindeutig machen (`schraffur-NN-n`) |
+| `logo-rot.svg` · `logo-weiss.svg` · `logo-gruen.svg` | Originale der Website (grün nicht verwenden) | s. 6.14 |
+| `logo-negativ.svg` · `logo-mono.svg` · `logo-mark-rot.svg` | abgeleitet: weiß mit Unterzeile, currentColor, Wortmarke rot | Rot/Anthrazit · Einfarbdruck · Plankopf |
+| `sig-axo-brauerstrasse.svg` | Axonometrie Brauerstraße (Walmdach, Kopfbau, Balkone, PV, Klinker), Maßketten mit 80-%-Marke, Achskreise 1–6/A–C, Koten, Nordpfeil, Maßstab | U1, Kapitelauftakt; **inline** |
+| `sig-grundriss.svg` | Regelgeschoss „Rotpause“ (Poché, Achsen, Bemaßung, WE 1–8, Nordpfeil), ganzseitig | U4 in `.cover__art`; **inline**; Farbe über `color` |
+| `sig-raster-brauerstrasse.svg` | Vektor-Punktraster 180 × 68 mm (currentColor, ≈ 17.000 Punkte in 8 Stufen) | `.raster` auf Kapitelauftakt/Über PGN |
+| `sig-nordpfeil.svg` · `sig-kote.svg` · `sig-schnitt.svg` · `sig-massstab.svg` · `sig-achskreis.svg` | Einzelzeichen (auch für InDesign) | inline oder als Vorlage |
+| `img/*-duplex.jpg` · `img/*-duplex-rot.jpg` | Duplex #202020 → #F4F3F2 bzw. Dreiton Rot (Brauerstraße, Porstweg, Dehnenweg, Burgsiedlung, Bahnhofstraße) | Referenzen ≤ 120 mm, rot nur Kapitelauftakt |
+| `qr-pgn-architekten.svg` | QR-Code (Fehlerkorrektur M) für www.pgn-architekten.de | U4 |
+| `*-white.svg` (4) | Werte-Icons der Website | `.values` |
+| `ref/*.jpg` | Originale 1800 × 740 px (Bildrechte bei PGN klären, MANIFEST.md) | nur über `pgn-images.py` |
 
-Generatoren (Isometrie, Diagramme) liegen nicht im Repo; die SVGs sind fertig.
+Signaturen mit Text **immer inline** einbetten (Inhalt der Datei ohne Kommentar in das HTML kopieren): Als `<img>` fehlen die Webfonts und `render.cjs` kann den Text keiner statischen Instanz zuordnen. Die Dateien tragen ihr eigenes, auf die id beschränktes `<style>` mit Token-Rückfallwerten. Neu erzeugen: `node scripts/pgn-signatures.cjs`, `python3 scripts/pgn-images.py`. v1-Assets (`assets/*.svg`: Piktogramme, UI-Icons, Haus-Diagramm) bleiben gültig und übernehmen die PGN-Farben über die Klassen `pict-*`, `icon`, `ill-*`.
 
 ---
 
-## 8 · Textmengen je Layout-Typ (Richtwerte für A4, gemessen am Specimen)
+## 9 · Bildeinsatz
 
-Satzspiegel 174 × 261 mm. Gemessene Modulhöhen: Titelblock 26–40 mm · Hero-Kachel 64 mm · Kennzahlen-Reihe (3 Kacheln) 46–58 mm · Kennzahlen-Band 22 mm · gestapeltes Balkendiagramm mit Kopf und Notiz 80–87 mm · Zeitstrahl 52–58 mm · Drittel-Diagramm 65–72 mm · Höchstmieten-Tabelle (2 Zeilen) 60 mm · Ablaufschritt mit Bahnen 24–28 mm (mit Ratenleiste 42 mm) · Callout (Drittel) 30–38 mm · Zitatband 30 mm · Modellrechnung 50–60 mm · Fußnoten 8 mm je Zeilenpaar. Fließtext 9,5 pt: 4,9 mm Zeilenhöhe; ≈ 50 Zeichen je Zeile in `l-span-6`, ≈ 34 Zeichen in `l-span-4`.
+- Website-Bilder sind höchstens 1800 × 740 px: **Duplex bis 120 mm Breite** (≥ 380 ppi), Banner bis 180 mm (≥ 254 ppi) nur als Punktraster oder rot-Duplex auf Kapitelauftakten. Nie randabfallend, nie farbig-original (Klinker-Orange und blauer Himmel kämpfen mit PGN-Rot).
+- Großformatig nur **Vektor-Punktraster** (kein vorgerastertes Pixelbild → kein Moiré, einfärbbar).
+- Jedes Foto mit Bildunterschrift `.photo__caption` („Ansicht“, „Visualisierung …“), Referenzbilder mit `.photo__tag`. Beschnittmarken `photo--marks` nur an einem Bild je Seite.
+- Bildrechte und Credits vor dem Druck bei PGN erfragen; Hi-Res-Originale (`…-5120.jpg`) anfordern.
 
-| Layout-Typ | Wörter gesamt | Struktur und Grenzen |
+---
+
+## 10 · Textmengen je Layout-Typ (gemessen am Specimen)
+
+Satzspiegel 180 × 259 mm (14 → 273 mm). Gemessen: Programmkopf (Nummer + Kicker + H1 + Deck + Gegenstand 4 Zeilen) 51 mm · Titelblock split 34 mm · Fördermix-Diagramm mit Kopf und Notiz 89 mm · Bauzeitenplan 7 Zeilen 133 mm · Rechenblatt 3 Zeilen 33 mm · Hero-Kachel 46 mm · Kachelreihe 42 mm · Höchstmieten 2 Zeilen 29 mm · Callout-Reihe (3 × 4 Sp.) 42 mm · Planlegende 2 Einträge 46 mm · Höhenkoten-Ablauf 4 Schritte 78 mm · Referenzreihe (3) 60 mm · Hauptreferenz 65 mm · Punktraster-Banner 74 mm · Werte-Reihe 27 mm. Fließtext 9,75 pt: 5,1 mm Zeilenhöhe, ≈ 56 Zeichen in `l-span-6`; Modultext 9 pt: 4,4 mm, ≈ 60 Zeichen in `l-span-6`.
+
+| Layout-Typ (plan.json) | Wörter | Struktur |
 |---|---|---|
-| **cover** | ≤ 90 | Kicker ≤ 8 Wörter · Titel ≤ 5 Wörter / 3 Zeilen · Deck ≤ 20 Wörter / 2 Zeilen · Zielgruppen-Zeile · 6 Programmteile (≤ 5 Wörter) · Schriftfeld 3 Zellen à ≤ 10 Wörter. Keine Fließtexte. |
-| **editorial** | 240–290 | Titelblock + Editorial 100–150 Wörter (2 Spalten, Blocksatz, Initiale) + 1 Zitat ≤ 40 Wörter + Inhaltsverzeichnis/Linienplan + ≤ 4 Zielgruppen-Kacheln à ≤ 25 Wörter |
-| **key-figures** | 200–240 | Lead ≤ 25 Wörter · 1 Hero + 6 Kacheln (oder 8 im 4er-Raster mit `kf--s`) · je Kachel: Label ≤ 6 Wörter, Text ≤ 20 Wörter (≤ 4 Zeilen) · 1 Band · `.note` |
-| **overview-matrix** | 220–260 | `.table--matrix` mit 6 Zeilen (2.1–2.6) × ≤ 5 Spalten, Zellen ≤ 6 Wörter, oder `.programs` 3 × 2 (Titel + Chip + Seitenverweis ≤ 12 Wörter) · Lead ≤ 30 Wörter · `.note` |
-| **program-detail** | 250–280 | Register + Kapitelnummer · Titel ≤ 6 Wörter · Lead ≤ 35 Wörter · Chips · `.paths` (3 × ≤ 10 Wörter) · 1 Diagramm · 2 Bullet-Spalten à ≤ 5 Punkte **oder** 1 Tabelle · 1 Callout **oder** Modellrechnung · Fußnoten ≤ 3 |
-| **chart-focus** | 220–280 | Titelblock · 1 Hauptdiagramm (60–110 mm) + max. 2 Nebendiagramme (Drittel) · Notizen ≤ 45 Wörter je Diagramm · Stempel „Modellrechnung“ bei Rechenbeispielen · Rechenweg-Tabelle ≤ 8 Zeilen |
-| **table-focus** | 240–285 | Titelblock · 1 Haupttabelle ≤ 8 Zeilen × 5 Spalten (oder 2 Tabellen ≤ 5 Zeilen) · Marginalie (`.term`/`.l-sidebar`) ≤ 60 Wörter · Quellenzeile |
-| **process** | 250–285 | Titelblock · `.steps--lanes` mit ≤ 7 Schritten (Text ≤ 3 Zeilen; bei 8 Schritten ≤ 2 Zeilen) + 1 `.gate` · darunter 1 Callout `__split` + `.contact` **oder** Ampel-Tabelle (`.table` mit `.mark`) |
-| **faq** | 250–290 | Titelblock · 6–8 Fragen (`.faq--2col`), je Frage ≤ 12, Antwort ≤ 45 Wörter · optional 1 Kontakt- oder Tipp-Kasten |
-| **back-cover** | ≤ 270 | Headline ≤ 10 Wörter · 2–3 Kontakte · Checkliste ≤ 10 Einträge · weitere Programme ≤ 30 Wörter · `.stand` · Impressum ≤ 50 Wörter · `.bs-stripes` |
+| cover (U1) | ≤ 40 | s. 7 |
+| editorial (U2) | 180–210 | Titelblock, Editorial 2 Spalten mit Initiale, Inhaltsverzeichnis, Unterschrift |
+| key-figures | 160–190 | Hero + 6 Kacheln (Label ≤ 6, Text ≤ 15 Wörter) |
+| program-detail | **200–240** | Programmkopf · 1 dominantes Diagramm/Tabelle (≤ 75 mm) · 2 Module (Rechenblatt, Zuschläge/Planlegende) · kein Hinweiskasten. Specimen S. 8: 188 Wörter füllen die Seite mit einem 89-mm-Diagramm; ab 240 Wörtern Diagramm auf 70 mm verdichten oder ein Modul streichen |
+| term-sheet | 200–230 | Zeitstrahl ≤ 50 mm + `.table--terms` ≤ 12 Zeilen (Modultext ≥ 9 pt) |
+| chart-focus (Mittel-Doppelseite) | 200–240 | Hauptdiagramm 80–110 mm + Rechenweg-Tabelle ≤ 8 Zeilen + 1 Kalkulationsnotiz |
+| table-focus / chart-table | 200–240 | Haupttabelle ≤ 8 Zeilen + Marginalie ≤ 60 Wörter |
+| table-checklist / decision-tree / timeline / infographic | 180–220 | wie v1, ein dominantes Element |
+| process (Antragsweg) | 200–230 | Höhenkoten-Ablauf ≤ 7 Schritte (≤ 2 Zeilen) + 1 Achtung-Kasten |
+| services | 180–240 | Bauzeitenplan 7 Zeilen + 2 Ergänzungsmodule (Specimen: 175 Wörter) |
+| service-checklist | 220–250 | Checkliste 2 Spalten + Kontakte + Verfahrensdetails |
+| about-references | 150–200 | Auftakt mit Raster-Banner + Hauptreferenz + 3 Referenzen oder Werte |
+| imprint (U3) | ≤ 200 | zentraler Rechtshinweis, Quellen, Impressum |
+| back-cover (U4) | ≤ 45 | s. 7 |
 
-Weitere Typen aus `plan.json`: **table-checklist** = table-focus (Tabelle oben ≤ 6 Zeilen) + Checkliste ≤ 8 Einträge; **decision-tree** = chart-focus mit SVG `fl-*` (≤ 5 Entscheidungsrauten, 6 Ziel-Kacheln `fl-box--bs` mit Nummer; Seitenverweis über der Ziffer, sobald darüber Platz ist); **chart-table** = Diagramm (≤ 90 mm) + Tabelle ≤ 6 Zeilen; **term-sheet** = Zeitstrahl (≤ 50 mm) + `.table--terms` ≤ 12 Zeilen; **timeline** = Zeitstrahl volle Breite + Vergleichstabelle ≤ 5 Zeilen + Checkliste; **infographic** = chart-focus mit nummerierter Leiter (`.bullets--num`/`.steps`) und Ring.
-
-Obergrenze für Innenseiten: **rund 420 Wörter** (Term Sheet S. 9 ausgenommen), davon der Großteil in Modultext 9 pt.
-Passt etwas nicht: zuerst Redundanz streichen (Vorbehalt → Kurzmarke, Fortschreibung → S. 8, Vorhabenbeginn → S. 19, Konditionen 2.1 → S. 9, Kosten des Modellhauses → S. 11, doppelte Kalkulationsnotiz → Chip), dann Modul verkleinern (`kf--s`, `.chart--s`, `.table--compact`) – nie Zahlen, Bedingungen oder Quellen streichen (Fußnoten-Erläuterungen wandern in den Text), nie unter 8,5 pt gehen, nie Abstände unter die Token-Werte drücken.
+Harte Obergrenze Fachseite 280 Wörter (Redaktionsregeln). Passt etwas nicht: zuerst Doppelungen streichen, dann Modul verkleinern (`kf--s`, `.table--compact`, Diagramm niedriger), nie unter 8,5 pt, nie Abstände unter die Tokens.
 
 ---
 
-## 9 · QA vor Abgabe einer Seite
+## 11 · Kalibrierung mit den v1-Partials (Stand 21.10.2026)
 
-- Render-Skript ohne `OVERFLOW`- und `LASTLINE`-Zeilen; PDF-Seitenzahl = Anzahl `.page`.
-- PNG ansehen: nichts klebt an Linien (≥ 2 mm), Module enden ≥ 6 mm über der Fußlinie, keine Hurenkinder/Schusterjungen in Kacheln.
-- Mindestens 4 mm Luft zwischen letzter Textzeile/Kastenkante und Fundstellenlinie.
-- Kein Umbruch in Rechtszitaten („§ 7 | Abs. 3“, „RL | Nr.“, „DVO- | NWoFG“) und Stempelzeilen.
-- PDF/UA-Grundlagen: keine Mal-Operatoren außerhalb von Marked Content (Lauf meldet „Artefakte: … markiert“); Fußnotenziffern und „Vordruck“ im Textlayer und getaggt; jeder BaseFont-Name genau ein Fontprogramm; jede Link-Annotation mit `/Contents` (Lauf meldet „Link-Namen (/Contents): N/N“). **PDF/UA-Kennung** (`pdfuaid:part 1` im XMP, nur Bildschirm-PDF) setzt `render.cjs` nur, wenn die Vorprüfung nichts findet – sonst Zeilen `PDFUA:` (Link ohne Namen, Link in `role="img"`/`aria-hidden`, Sprung der Überschriftenebene, z. B. h1 → h3) und „Kennung NICHT gesetzt“. Abnahme extern mit veraPDF (PDF/UA-1) oder PAC 2024.
-- Nur Fraunces und Inter im PDF, **nur CID TrueType, kein Type 3** (`pdffonts dist/…pdf`; Ursache für Type 3 wäre eine fehlende statische Instanz – Lauf meldet `FONT:` – oder gestrichener Text).
-- `pdfinfo`: `Tagged: yes`, Seitenzahl = Anzahl `.page`; Lesezeichen je Seite „S. N · Titel“ (aus der `h1`, ohne Fußnotenziffern und Trennstriche), `h2` als Unterpunkte; Metadaten (Titel, Autor NBank, Thema, Stichwörter, Sprache de-DE, XMP) setzt `render.cjs` per pdf-lib.
-- Textlayer prüfen: `pdftotext` liefert Versal-Labels ohne weiche Trennstriche („EDITORIAL“, „STICHTAG“, „MODELLRECHNUNG“), keine ungenutzten U+00AD, Pfeile als echte Zeichen.
-- Inter-Teilmenge ohne `cv05`/`ss02`: „l“ und „I“ sind gleich (WoFlV, BGBl.) – nicht per CSS lösbar.
-- Kein Text < 8,5 pt (auch SVG), kein Text < 5 mm vom Endformat.
-- Alle Quoten „bis zu“, Zuschuss 2.1 „nur zusammen mit dem Darlehen“, Kosten (0,5 % p. a., 1 % / 0,75 %) bei der Kennzahl, Bemessungsgrenzen als Ausgangswerte mit Fortschreibungshinweis.
-- Diagramme: Proportionen aus Daten, direkt beschriftet, `aria-label` vollständig.
+Die Partials `src/pages/01–20` stammen aus der NBank-Fassung (Dichte bis 414 Wörter/Seite) und werden seitenweise neu gesetzt. Mit dem PGN-System gerendert (`dist/qa/all.pdf`, 2.055/2.055 Textstellen statisch, nur CID-Schriften) laufen über das Satzspiegelende (273 mm):
 
-**Druckvorstufe:** Beim Gesamtlauf (`--in src/index.html`) erzeugt `render.cjs` neben dem Bildschirm-PDF (A4, ohne Beschnitt) ein **Druck-PDF** `dist/…-Druck-3mm-Beschnitt.pdf` (Abschalten: `--no-print`, Pfad: `--print-pdf`): Bogen 216 × 303 mm (auf 1/100 Zoll aufgerundet), jede Seite in einem Bogen-Rahmen in Seitenfarbe, `[data-bleed]`-Flächen (Titelbild, Register, Streifen) um 3 mm über das Endformat verlängert; TrimBox = 210 × 297 mm, BleedBox/CropBox = Bogen. Offen bleibt die Konvertierung nach PDF/X-4 durch die Druckerei mit dem ICC-Profil des Papiers (Naturpapier z. B. PSO Uncoated v3 FOGRA52; Proof der feinen Fraunces-Haarstriche und des Sand-Bands), RGB-Tokens → CMYK.
+| Seite | Überlauf | Ursache / beim Neusatz |
+|---|---|---|
+| 2 Editorial | +3,4 mm | 326 Wörter → 210 |
+| 5 Navigator | +2,7 mm | Fundstellenblock entfällt (Hinweis-Diät) |
+| 7 Mieten | +6,1 mm | 395 Wörter → 230 |
+| 8 Programmteil 2.1 | +3,8 mm | 401 Wörter → 240; neuer Aufbau wie Specimen |
+| 15 Stichtag | +12,2 mm; H1 „Modernisierungsanträge“ 17,5 mm zu breit | 362 Wörter → 220; `&shy;` in der H1 |
+| 18 Standort | +2,6 mm; H1 8,5 mm zu breit | 414 Wörter → 230; H1 umbrechen |
+| 19 Antragsweg | +7,0 mm; H1 „Verwendungsnachweis“ 14 mm zu breit | 353 Wörter → 210; `&shy;` |
+
+Weitere Einzelbefunde: S. 3 Kennzahl „4.800/5.000“ 7,7 mm breiter als die Kachel (→ `kf--s` oder zwei Werte), S. 4 Eckbeschriftung `p04-corner` 11,1 mm (seitenlokales CSS). Alle übrigen Seiten passen. Titel (S. 1) und Rückseite (S. 20) der v1 werden durch U1/U4 ersetzt.
+
+---
+
+## 12 · QA vor Abgabe einer Seite
+
+- `render.cjs` ohne `OVERFLOW`, `LASTLINE`, `PDFUA`, `FEHLER`, `FONT`; „Statische Schriften: N/N“; `pdffonts` nur CID TrueType (Montserrat-…, WorkSans-…, PGNSymbols-…).
+- PNG ansehen: H1 ohne Überstand, nichts klebt an Linien (≥ 2 mm), Module enden ≥ 5 mm über dem Plankopf.
+- Rot zählen: je Seite höchstens Kicker, Titellinie, Signaturwort, Zuschuss und ein Akzentmodul.
+- Druckregeln (0.4), WCAG (1.1), Mindestschrift 8,5 pt auch in SVG.
+- Fakten: PGN nur aus `recherche/pgn-facts.md`, Förderinhalte aus `content/pages/*.json`.
+- Druck-PDF: randabfallende Flächen (Register, U4-Verlauf) im Beschnitt prüfen (`--print-pdf`).

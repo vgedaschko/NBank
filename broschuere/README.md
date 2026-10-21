@@ -122,18 +122,22 @@ Zusätzlich muss die Ausgabe `.page-Elemente: 20, PDF-Seiten: 20` lauten. Die ex
 
 ## Logo und CI
 
-- **Farben:** Die Palette steht zentral in `:root` von `src/styles.css` (Petrol, Terrakotta, Sand, Amber, Baustein-Farben
-  `--bs-21` … `--bs-26`). Die semantischen Tokens (`--color-primary`, `--color-accent`, `--color-loan`, `--color-grant`,
-  `--color-equity`, `--signal`, `--baustein-21` … `--baustein-26`) verweisen darauf. Für die NBank-CI nur die Palettenwerte
-  ersetzen. Komponenten und Seiten-CSS nutzen ausschließlich Tokens und übernehmen die Änderung automatisch. Kontraste danach prüfen,
-  vor allem bei weißer Schrift auf `--color-primary` (S. 1 und S. 20).
-- **Schriften:** `--font-display` und `--font-text` stehen in `src/styles.css`. Bei anderen Familien müssen außerdem
-  `src/fonts/fonts.css`, `scripts/fonts-static.py` und die Schriftzuordnung in `scripts/render.cjs` angepasst werden.
-  Diese ist auf Fraunces und Inter ausgelegt, sonst bettet Chromium variable Fonts als Type 3 ein.
-- **Logo:** Das Logo als SVG in `src/assets/` ablegen und auf S. 1 (Fuß neben der Herausgeberzeile) und S. 20 (Impressum) einsetzen.
-  Danach den Gesamtlauf auf `OVERFLOW` prüfen.
+Die PGN-Fassung nutzt das Designsystem **„Planwerk“** (Details und Komponentenkatalog: `DESIGN.md`).
+
+- **Farben:** PGN-Rot #B71E3F (Verlauf 160° nach #8B2939), Fast-Schwarz #202020, Anthrazit #3C3C3B, warmes Hellgrau #F4F3F2,
+  Grau #626160 (Text) bzw. #757474/#868686 (Linien). Kein Grün (#26772B gehört der PGN Projektgesellschaft). Alle Werte stehen
+  als Tokens in `:root` von `src/styles.css`; Komponenten nutzen nur die semantischen Tokens. Programmteile 2.1–2.6:
+  `--bs-21` … `--bs-26` (validiert, immer mit Nummer). CMYK-/Pantone-Werte für PGN-Rot bei PGN bzw. der Agentur erfragen.
+- **Schriften:** Montserrat (Überschriften, Zahlen, Labels) und Work Sans (Text), selbst gehostet in `src/fonts/` (SIL OFL);
+  Pfeile, ≤ ≥ ≈ ✓ ✗ ‰ und schmale Leerzeichen aus der Teilmenge `pgn-symbols-wght-normal.woff2`. Für das PDF ersetzt
+  `scripts/render.cjs` die variablen Schriften durch statische Instanzen (`scripts/fonts-static.py`, Familien in `FAMILIES`
+  bzw. `FAMS`) – sonst Type 3.
+- **Logo:** `src/assets/pgn/logo-rot.svg` (Standard), `logo-negativ.svg`/`logo-weiss.svg` für Rot (Freigabe offen),
+  `logo-mark-rot.svg` im Plankopf. Kein Logo von NBank oder Land.
+- **Signaturen und Bilder:** `node scripts/pgn-signatures.cjs` (Axonometrie, Grundriss, Planzeichen),
+  `python3 scripts/pgn-images.py` (Duplex-Fotos, Vektor-Punktraster); Specimen: `node scripts/specimen.cjs`.
 - **Metadaten:** Titel, Autor, Thema und Stichwörter des PDFs kommen aus `<title>` und `<meta name="author|description|keywords">`
-  in `src/template.html`.
+  in `src/template.html` (Vorgaben in `render.cjs`: Autor/Erzeuger Planungsgemeinschaft Nord GmbH).
 
 ## Offene fachliche Punkte (vor Druckfreigabe klären)
 

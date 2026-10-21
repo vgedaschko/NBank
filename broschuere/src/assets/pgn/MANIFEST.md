@@ -80,3 +80,23 @@ Hochformat bedeutet: ein Ausschnitt im A4-Verhältnis von 523 × 740 px. Die Aus
 | https://www.pgn-architekten.de/images/slider/empfang_big.jpg | 1800 × 740 | Empfang des PGN-Büros, Parkett, Bewegungsunschärfe | Bürofoto |
 | https://www.pgn-architekten.de/images/slider/bonnie_big.jpg | 1800 × 740 | Bürohund auf Parkett vor Klinkermustern, roter PGN-Zollstock | Markenmotiv mit Augenzwinkern |
 | https://www.pgn-architekten.de/images/layout/bg-leistungen-red.jpg · …-green.jpg | 1764 × 700 | Hellgraue Fläche mit rot bzw. grün facettiertem Low-Poly-Eckornament | Gestaltungselement der Website |
+
+---
+
+## D. Abgeleitete Assets des Designsystems „Planwerk“ (Stand 21.10.2026)
+
+Erzeugt aus den Dateien in A und B; Einsatzregeln in `DESIGN.md` (Abschnitte 6.11–6.14, 7, 8). Keine neuen Bildrechte –
+für Fotos gelten die Vorbehalte aus B.
+
+| Datei | Herkunft | Inhalt / Hinweis |
+|---|---|---|
+| logo-negativ.svg | logo-rot.svg, Füllungen weiß | Wortmarke + Unterzeile weiß für Rot/Anthrazit. **Freigabe durch PGN offen** (wie logo-weiss.svg). |
+| logo-mono.svg | logo-rot.svg, Füllung currentColor | Einfarbdruck; nur inline verwenden. |
+| logo-mark-rot.svg | logo-weiss.svg, Füllung #B71E3F | Wortmarke ohne Unterzeile, Plankopf der Innenseiten (11,5 mm). |
+| sig-axo-brauerstrasse.svg | `scripts/pgn-signatures.cjs` | Axonometrie nach der Kubatur Brauerstraße (eigene Zeichnung, Schema; kein Planstand von PGN). |
+| sig-grundriss.svg | `scripts/pgn-signatures.cjs` | Schematisches Regelgeschoss für U4 („Rotpause“), kein Projektgrundriss. |
+| sig-nordpfeil.svg, sig-kote.svg, sig-schnitt.svg, sig-massstab.svg, sig-achskreis.svg | `scripts/pgn-signatures.cjs` | Planzeichen. |
+| sig-raster-brauerstrasse.svg | `scripts/pgn-images.py` aus ref-01 | Vektor-Punktraster (Ausschnitt x 300–1760, y 110–660 px), currentColor. |
+| img/{brauerstrasse,porstweg,dehnenweg,burgsiedlung,bahnhofstrasse}-duplex.jpg | `scripts/pgn-images.py` aus ref-01/07/04/03/02 | Graustufen-Duplex #202020 → #F4F3F2, 1800 × 740 px. |
+| img/*-duplex-rot.jpg | dto. | Dreiton Rot, nur Kapitelauftakt. |
+| qr-pgn-architekten.svg | python-qrcode | QR-Code für https://www.pgn-architekten.de (Fehlerkorrektur M, Ruhezone 4 Module), reine Vektorflächen. |

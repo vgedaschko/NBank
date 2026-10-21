@@ -6,21 +6,12 @@
   "kicker": "Programmteil 2.1 · Neubau, Änderung, Ersterwerb",
   "headline": "Bis zu 80 % Förderquote",
   "subline": "Aus Darlehen und Zuschuss – in allen drei Einkommensgruppen",
-  "lead": "Für gebundene Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen (im Einzelfall Reihen- oder Doppelhaus) und in gemeinschaftlichen Wohnformen. Den Zuschuss gibt es nur zusammen mit dem Darlehen.",
+  "lead": "Für gebundene Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen und in gemeinschaftlichen Wohnformen. Drei Wege: Neubau, Änderung und Erweiterung – Dachausbau, Aufstockung, Anbau, Umnutzung – sowie der Ersterwerb unvermieteter Wohnungen bis zwei Jahre nach Fertigstellung, höchstens zum Marktwert. Den Zuschuss gibt es nur zusammen mit dem Darlehen.",
   "blocks": [
-    {
-      "type": "bullets",
-      "heading": "Drei Wege",
-      "items": [
-        "**Neubau**",
-        "**Änderung und Erweiterung:** Dachgeschossausbau, Aufstockung, Anbau, Umnutzung bisher nicht zum Wohnen genutzter Räume",
-        "**Ersterwerb** bis zwei Jahre nach Fertigstellung: unvermietet, ungebunden, Kaufpreis höchstens Marktwert"
-      ]
-    },
     {
       "type": "chart",
       "chart": "stacked-bar",
-      "title": "Fördermix, bis zu, in % der zuwendungsfähigen Kosten",
+      "title": "Fördermix, Höchstsätze in % der zuwendungsfähigen Kosten",
       "data": {
         "unit": "%",
         "categories": [
@@ -60,131 +51,96 @@
         "grant_uplift": [
           {
             "name": "Modellprojekt",
-            "value": "bis zu +5 Prozentpunkte",
-            "grant_A": "bis zu 45 %",
-            "grant_B": "bis zu 25 %",
-            "grant_C": "bis zu 15 %",
-            "total": "bis zu 85 %"
+            "value": "+5 Prozentpunkte",
+            "grant_A": "45 %",
+            "grant_B": "25 %",
+            "grant_C": "15 %",
+            "total": "85 %"
           },
           {
             "name": "Housing First",
-            "value": "bis zu +10 Prozentpunkte",
-            "grant_A": "bis zu 50 %",
-            "grant_B": "bis zu 30 %",
-            "grant_C": "bis zu 20 %",
-            "total": "bis zu 90 %"
+            "value": "+10 Prozentpunkte",
+            "grant_A": "50 %",
+            "grant_B": "30 %",
+            "grant_C": "20 %",
+            "total": "90 %"
           }
         ]
       },
-      "note": "Bindung 35 Jahre. Zuschläge in allen Gruppen (Werte: eigene Addition); ob beide addierbar sind, regelt die RL nicht; Vordruck 1011 nennt als Gesamtförderung höchstens 85 % bzw. 90 % – mit der NBank klären. Konditionen → S. 9."
+      "note": "Bindung 35 Jahre · Konditionen → S. 9"
     },
     {
       "type": "text",
-      "heading": "Zuwendungsfähige Kosten",
-      "body": "Herstellungskosten (Kostengruppen 200–700 nach DIN 276), höchstens Bemessungsgrenze × Wohnfläche\n\n+ Grundstückskosten (Kostengruppe 100), grundsätzlich höchstens Bodenrichtwert bei Antragstellung × Grundstücksfläche\n\nErsterwerb: Kaufpreis + Erwerbskosten. Nur Kosten des geförderten Wohnraums."
-    },
-    {
-      "type": "callout",
-      "variant": "hinweis",
-      "title": "Bemessungsgrenze: Stand prüfen",
-      "body": "Ausgangswerte 4.800 € (Mietenstufe I–III) und 5.000 € (IV–VII) je m² Wohnfläche, nicht beim Ersterwerb. Fortschreibung jeweils zum 01.04. und 01.10. nach LSN-Baupreisen, nach oben oder unten; der neue Wert wird auf volle 10 € aufgerundet. Bis 21.10.2026 keine fortgeschriebenen Werte auf nbank.de auffindbar."
-    },
-    {
-      "type": "text",
-      "heading": "Eigenmittel",
-      "body": "Mindestens 20 % der zuwendungsfähigen Kosten, auch als Eigenleistung; mit Zuschlag ggf. weniger (mit der NBank abstimmen). Mindestens die Hälfte soll Geld oder das nicht fremdfinanzierte, grundbuchlastenfreie Baugrundstück sein (→ S. 4)."
+      "role_hint": "rechenblatt",
+      "heading": "Was zählt",
+      "body": "Herstellungskosten (Kostengruppen 200–700 nach DIN 276), höchstens Bemessungsgrenze × Wohnfläche\n\n+ Grundstückskosten (Kostengruppe 100), höchstens Bodenrichtwert × Grundstücksfläche\n\n= zuwendungsfähige Kosten. Beim Ersterwerb: Kaufpreis + Erwerbskosten.\n\n**Bemessungsgrenze:** 4.800 € je m² Wohnfläche in Mietenstufe I–III, 5.000 € in IV–VII, fortgeschrieben zum 01.04. und 01.10. Ausgangswerte; aktueller Wert auf nbank.de.\n\n**Eigenmittel:** mindestens 20 %, mit Zuschlag entsprechend weniger. Mindestens die Hälfte soll Geld oder lastenfreies Grundstück sein."
     },
     {
       "type": "bullets",
-      "heading": "Housing First: Zuschuss bis zu +10 Prozentpunkte, ohne Anspruch",
+      "role_hint": "drei-spalten",
+      "heading": "Zuschläge und Sonderformen",
+      "illustrations": [
+        "tuer-schluessel",
+        "modulbau",
+        "cluster-grundriss"
+      ],
       "items": [
-        "bedingungsloses Wohnangebot für wohnungslose Menschen, deren Wohnungslosigkeit mit sozialen Schwierigkeiten verknüpft ist, die sie nicht aus eigener Kraft überwinden können; einzelne Wohnungen bis ganze Gebäude",
-        "verbindliche Zusammenarbeit mit Leistungserbringern nach §§ 67 ff. SGB XII, die dem Landesrahmenvertrag (LRV) beigetreten sind – während der gesamten Bindung auf Anforderung nachzuweisen; Unterstützung freiwillig",
-        "Zwischenvermietung an gemeinnützige Träger mit NBank-Zustimmung"
-      ]
-    },
-    {
-      "type": "bullets",
-      "heading": "Modellprojekt: Zuschuss bis zu +5 Prozentpunkte, ohne Anspruch",
-      "items": [
-        "neue Konzepte, z. B. seriell oder modular, flexible Grundrisse, weniger Wohnfläche je Kopf",
-        "positive Prognose, dass Dritte das Konzept aufgreifen",
-        "Daten liefern, Öffentlichkeit informieren"
-      ]
-    },
-    {
-      "type": "bullets",
-      "heading": "Gemeinschaftliche Wohnformen",
-      "items": [
-        "Cluster-Wohnung, WG oder Wohngruppe; höchstens 40 m² je Person inklusive Gemeinschaftsflächen (Soll)",
-        "auch in 2.2, 2.3 und 2.4 förderfähig, Zuschläge nur in 2.1"
+        "**Housing First · Zuschuss bis zu +10 Prozentpunkte** – Gruppe A: 50 %, zusammen 90 %. Bedingungsloses Wohnangebot für wohnungslose Menschen in sozialen Schwierigkeiten, in verbindlicher Zusammenarbeit mit Leistungserbringern nach §§ 67 ff. SGB XII. Zwischenvermietung an gemeinnützige Träger ist mit Zustimmung der NBank möglich.",
+        "**Modellprojekt · Zuschuss bis zu +5 Prozentpunkte** – neue Konzepte wie serielles oder modulares Bauen, flexible Grundrisse, weniger Wohnfläche je Kopf, die andere aufgreifen können.",
+        "**Gemeinschaftliche Wohnformen** – Cluster-Wohnung, Wohngemeinschaft oder Wohngruppe mit höchstens 40 m² je Person, Gemeinschaftsflächen eingerechnet."
       ]
     },
     {
       "type": "text",
-      "heading": "Kombinierbar mit",
-      "body": "Neubau und Ersterwerb bis 12 Monate nach Bauabnahme: KfW 298 oder 296, je Wohnung nur eines, zusammen höchstens die förderfähigen Kosten nach KfW; EH-55-Stufe nur bei KfW-Antragseingang bis 31.12.2026 und verfügbaren Bundesmitteln. Änderung und Erweiterung: mit der KfW klären. Nicht mit 2.2."
+      "role_hint": "band",
+      "heading": "Kombinierbar",
+      "body": "Neubau und Ersterwerb bis zwölf Monate nach Bauabnahme: mit KfW 298 oder 296, je Wohnung eines. Effizienzhaus 55 nur bei KfW-Antrag bis 31.12.2026. Nicht mit 2.2."
     }
   ],
-  "sources": "Fundstellen: RL Nr. 1.5, 2.1, 5.1–5.4, 6.3.4, 11.4, 11.9, 12.7; NBank-Vordruck 1011; KfW-Merkblätter 296 und 297/298.",
   "footnotes": [],
   "fact_ids": [
     "F044",
     "F045",
     "F046",
     "F047",
-    "F048",
-    "F104",
+    "F092",
     "F103",
+    "F104",
     "F105",
+    "F106",
+    "F107",
+    "F108",
     "F109",
-    "F129",
+    "F212",
+    "F052",
     "F097",
     "F098",
+    "F099",
+    "F100",
     "F101",
     "F102",
-    "F052",
+    "G1-01",
+    "G1-23",
     "F094",
     "F095",
+    "F110",
+    "F112",
     "F072",
     "F073",
-    "F074",
     "F075",
-    "F077",
     "F229",
     "F068",
-    "F069",
     "F070",
-    "F071",
-    "F110",
-    "F111",
-    "F112",
     "F065",
     "F066",
-    "F020",
-    "F014",
-    "F139",
-    "G1-01",
-    "G1-04",
-    "G1-23",
     "G2-01",
+    "G2-03",
+    "G2-04",
     "G2-05",
     "G2-07",
     "G2-13",
-    "F092",
-    "F093",
-    "F099",
-    "F113",
-    "F114",
-    "F212",
-    "F276",
-    "F131",
-    "F242",
-    "G1-02",
-    "G1-25",
-    "G2-03",
-    "G2-04"
+    "F139",
+    "F242"
   ],
-  "visual_idea": "Oberes Drittel: drei gestapelte 100-%-Balken A/B/C (--color-loan / --color-grant / --color-equity) mit gestrichelter Zuschlagskappe auf dem Zuschuss und daneben Stufenbalken „Zuschuss A: bis zu 40 % → 45 % → 50 %“ (Gesamt 80 → 85 → 90 %). Formelbox „Zuwendungsfähige Kosten“ im Rechenblatt-Look (Zeilen mit + und Summenstrich), daneben Hinweis „Bemessungsgrenze: Stand prüfen“ in der Marginalspalte (Begriff selbst ist auf S. 3 erklärt). Unteres Drittel: illustrierter Dreierstreifen – offene Tür mit Schlüssel (Housing First), Cluster-Grundriss mit Gemeinschaftsküche (gemeinschaftliche Wohnformen), modulare Bauteile (Modellprojekt) – je mit den drei Kurzbedingungen. „Kombinierbar mit“ als schmale Zeile, Kalkulationsnotiz am Fuß. Baustein-Register 2.1 (--baustein-21) am Seitenrand.",
-  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2"
+  "visual_idea": "Baustein-Register 2.1 (--baustein-21, eckig, mit Nummer) am Seitenrand. Kopf: Kicker in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Work Sans; Lead zweispaltig über der Grafik. Dominant im oberen Drittel: drei gestapelte 100-%-Säulen A, B, C in den Finanzierungsfarben (--color-loan, --color-grant, --color-equity), Prozentwerte in Montserrat Black mit tabellarischen Ziffern in den Segmenten, Diagrammkopf „Höchstsätze“; auf dem Zuschusssegment eine gestrichelte Zuschlagskappe mit Kurzlabel „+5 / +10 Prozentpunkte“, ohne eigene Legende. Fußzeile der Grafik „Bindung 35 Jahre · Konditionen → S. 9“ als Seitenchip. Mitte: Rechenblatt-Box „Was zählt“ auf #F4F3F2, keine Rundungen – drei Rechenzeilen mit Plus- und Summenstrich, Ziffern tabellarisch; rechts daneben Bemessungsgrenze und Eigenmittel als zwei kurze Absätze, die Ausgangswerte 4.800/5.000 € in PGN-Rot. Unteres Drittel: drei gleich breite Spalten, je eine Linienillustration in Anthrazit (1 pt, eckig) über dem Kurztext – Tür mit Schlüssel (Housing First), modulare Bauteile (Modellprojekt), Cluster-Grundriss mit Gemeinschaftsküche (gemeinschaftliche Wohnformen); Spaltenköpfe in Montserrat 600 Versalien. Ganz unten „Kombinierbar“ als schmales Band über die volle Breite. Kein Hinweis-Kasten, keine Fußnote, keine Quellenzeile, keine Kurzmarke."
 }

@@ -1,0 +1,114 @@
+{
+  "no": 23,
+  "slug": "impressum-hinweise",
+  "layout_type": "imprint",
+  "running_title": "Impressum",
+  "footer": "kein Kolumnentitel, keine Seitenzahl (U3); running_title nur als Seitenname",
+  "kicker": "",
+  "headline": "Impressum und Hinweise",
+  "lead": "",
+  "blocks": [
+    {
+      "type": "contact",
+      "role_hint": "impressum",
+      "items": [
+        {
+          "label": "Herausgeber",
+          "value": "Planungsgemeinschaft Nord GmbH (PGN Architekten und Ingenieure)\nGroße Straße 49, 27356 Rotenburg (Wümme)"
+        },
+        {
+          "label": "Kontakt",
+          "value": "Telefon (+49) 4261 9293-0 · Telefax (+49) 4261 9293-90\ninfo@pgn-architekten.de · www.pgn-architekten.de"
+        },
+        {
+          "label": "Vertreten durch",
+          "value": "Norbert Behrens, Dipl.-Ing. Architekt"
+        },
+        {
+          "label": "Geschäftsführung",
+          "value": "Norbert Behrens, Stephan Müller, Nils Neumann, Matthias Mock (Stand 21.10.2026)"
+        },
+        {
+          "label": "Registergericht",
+          "value": "Amtsgericht Walsrode, HRB 70348"
+        },
+        {
+          "label": "USt-IdNr.",
+          "value": "DE 116 324 794"
+        },
+        {
+          "label": "Verantwortlich für den Inhalt",
+          "value": "[PGN: Name bestätigen]"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "role_hint": "rolle-der-stellen",
+      "body": "Bewilligungsstelle ist die Investitions- und Förderbank Niedersachsen – NBank, Antragsstelle die kommunale Wohnraumförderstelle am Bauort; NBank und Land Niedersachsen sind nicht Herausgeber dieser Broschüre."
+    },
+    {
+      "type": "callout",
+      "variant": "rechtshinweis",
+      "role_hint": "zentraler-rechtshinweis",
+      "title": "Hinweis",
+      "body": "Alle Angaben ohne Gewähr, Stand 21.10.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind fiktive Beispiele, keine Förderzusage."
+    },
+    {
+      "type": "text",
+      "heading": "Rechtsgrundlage",
+      "body": "RL Mietwohnraum 2026, RdErl. d. MW v. 25.06.2026, Nds. MBl. 2026 Nr. 319, in Kraft seit 01.07.2026 (bis 31.12.2031); ergänzend NWoFG, DVO-NWoFG und WoGV (Mietenstufen)."
+    },
+    {
+      "type": "text",
+      "heading": "Quellen",
+      "body": "**Zitate:** Grant Hendrik Tonne und Michael Kiesewetter, Pressemitteilung MW vom 03.07.2026. **Marktzahlen:** NBank-Wohnungsmarktbericht 2025 (S. 3, 7); NBank-Pressemitteilung zur Wohnungsmarktbeobachtung vom 05.12.2025 (S. 2); Landesregierung, Pressemitteilung vom 25.11.2025 (57 Kommunen, S. 18); NBank-Landkarte Wohnraumförderung, Abruf 21.10.2026 (S. 18)."
+    },
+    {
+      "type": "text",
+      "role_hint": "kleinangaben",
+      "body": "**Bildnachweis:** Abbildungen: PGN [Platzhalter] · Diagramme und Illustrationen: eigene\n\n**Druck:** [Platzhalter] · **Stand:** 21.10.2026"
+    },
+    {
+      "type": "logo",
+      "variant": "rot",
+      "role_hint": "fuss"
+    }
+  ],
+  "footnotes": [],
+  "fact_ids": [
+    "F001",
+    "F002",
+    "F004",
+    "F008",
+    "F016",
+    "F129",
+    "F024",
+    "F219",
+    "F245",
+    "F246",
+    "F260",
+    "F290",
+    "F293",
+    "G3-01",
+    "G3-02",
+    "F306",
+    "F310",
+    "F311",
+    "F319",
+    "F089",
+    "G2-25"
+  ],
+  "pgn_sources": [
+    "pgn-facts.md §1 Impressum: „Planungsgemeinschaft Nord GmbH“, „Große Straße 49, 27356 Rotenburg (Wümme)“, Telefon „(+49) 4261 9293-0“, Telefax „(+49) 4261 9293-90“, info@pgn-architekten.de, www.pgn-architekten.de, „HRB 70348“, „Registergericht: Amtsgericht Walsrode“, USt-IdNr. „DE 116 324 794“",
+    "pgn-facts.md §2 „Vertreten durch: Norbert Behrens - Dipl.-Ing. Architekt“ (Impressum); Geschäftsführung laut Team-Seite: Norbert Behrens, Stephan Müller, Nils Neumann, Matthias Mock"
+  ],
+  "open_points": [
+    "INTERN, nicht drucken: Das Website-Impressum nennt nur Norbert Behrens als Vertreter, die Team-Seite vier Geschäftsführer – vor Druck mit PGN abstimmen.",
+    "INTERN, nicht drucken: Laut Presse (Kreiszeitung vom 21.09.2026, auf der PGN-Website verlinkt) wechselt die Geschäftsführung zum 01.01.2027 [UNSICHER] – Impressum vor dem Druck mit PGN prüfen; „Stand 21.10.2026“ an der Geschäftsführung deshalb bewusst gesetzt.",
+    "INTERN, nicht drucken: „Verantwortlich für den Inhalt“ – das Website-Impressum nennt Thomas Schlobohm als redaktionell verantwortlich (für die Website); Namen für die Broschüre von PGN bestätigen lassen.",
+    "INTERN, nicht drucken: Bild-Credits und Nutzungsrechte bei PGN erfragen. Die Referenzbilder S. 22 sind Visualisierungen, ggf. von externen Büros; die Website hat keinen Bildnachweis. Daher „Abbildungen“ statt „Fotos“; Platzhalter durch die bestätigte Credit-Zeile ersetzen.",
+    "INTERN, nicht drucken: Druckerei mit Anschrift eintragen; Impressumsangaben für Druckwerke nach Niedersächsischem Pressegesetz vor dem Druck prüfen."
+  ],
+  "visual_idea": "Ruhige U3 auf #F4F3F2, ohne Kolumnentitel und Seitenzahl. Headline „Impressum und Hinweise“ in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links. Impressumsangaben zweispaltig als Label-Wert-Liste: Labels in Montserrat 600 Versalien (Anthrazit #3C3C3B), Werte in Work Sans, feine Haarlinien zwischen den Zeilen; Platzhalter in eckigen Klammern bis zur Freigabe sichtbar in PGN-Rot. Darunter der Satz zur Rolle der Stellen in Work Sans. Der zentrale Rechtshinweis als einziger gerahmter Hinweis der Broschüre: weiße Fläche, senkrechte rote 2-pt-Linie links, Titel „Hinweis“ in Montserrat 600 Versalien, Text in Work Sans 9,5 pt; kein Warn-Icon, kein Verlauf. Rechtsgrundlage, Quellen, Bildnachweis, Druck und Stand als ruhige Kleinangaben in Work Sans (mind. 8,5 pt), Zwischentitel in Montserrat 600 Versalien. Kein NBank- oder Landeslogo. Am Fuß klein das PGN-Logo (logo-rot.svg), linksbündig auf der Satzspiegelkante."
+}

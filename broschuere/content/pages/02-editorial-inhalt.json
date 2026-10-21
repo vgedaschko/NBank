@@ -5,179 +5,107 @@
   "running_title": "Einstieg",
   "kicker": "Editorial",
   "headline": "Damit sich Investieren wieder rechnet",
-  "lead": "Die Bauwerkskosten haben sich in 25 Jahren mehr als verdoppelt, die Zinsen lagen Ende 2025 bei 3–4 %, die Baugenehmigungen sind seit 2021 um über 50 % gesunken (NBank-Wohnungsmarktbeobachtung, Dezember 2025).",
+  "lead": "Die Bauwerkskosten haben sich in 25 Jahren mehr als verdoppelt, die Zinsen lagen Ende 2025 bei 3–4 %, die Baugenehmigungen sind seit 2021 um mehr als die Hälfte gesunken – so die Wohnungsmarktbeobachtung der NBank.",
   "blocks": [
     {
       "type": "text",
-      "body": "Seit 01.07.2026 gilt die RL Mietwohnraum 2026 (bis 31.12.2031). Laut Ministerium ist die neu aufgestellte Wohnraumförderung übersichtlicher strukturiert und deutlich stärker auf Zuschüsse ausgerichtet – statt wie bisher überwiegend auf Tilgungsnachlässe.\n\nDieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertragsseite, Modellrechnung, Antragsweg** – nachrechenbar."
+      "body": "Seit dem 01.07.2026 gilt die RL Mietwohnraum 2026, befristet bis zum 31.12.2031. Das Land hat die Förderung übersichtlicher aufgestellt und deutlich stärker auf Zuschüsse statt auf Tilgungsnachlässe ausgerichtet.\n\nSeit 1981 planen wir von Rotenburg (Wümme) aus Bauprojekte in ganz Norddeutschland – auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren und Kommunen. Dieses Heft liest die neue Richtlinie mit dem Blick des Planers: Was gilt, was rechnet sich, wann darf es losgehen. Das Herzstück ist **„Ihre Rechnung“ auf S. 10–11** – vom Finanzierungsaufbau bis zum laufenden Überschuss.",
+      "signature": "Ihre PGN – Architekten. Stadtplaner. Ingenieure."
     },
     {
       "type": "quote",
       "text": "Bezahlbarer Wohnraum entsteht nur, wenn Investitionen wieder wirtschaftlich möglich sind. Genau hier setzen wir an: Wir vereinfachen die Förderung, erhöhen die Zuschussanteile und schaffen verlässliche Rahmenbedingungen für Kommunen, Wohnungsunternehmen, Genossenschaften und private Bauherren.",
       "name": "Grant Hendrik Tonne",
       "role": "Niedersächsischer Wirtschafts- und Bauminister",
-      "source": "MW-Presseinformation vom 03.07.2026 (Auszug)"
+      "source": "Pressemitteilung MW vom 03.07.2026"
     },
     {
       "type": "bullets",
       "heading": "Ihr Einstieg",
+      "role_hint": "einstiegs-kacheln",
       "items": [
-        "**Wohnungsunternehmen und Genossenschaften:** antragsberechtigt; genossenschaftlich überlassener Wohnraum gilt als Mietwohnraum. → S. 8–11",
-        "**Private Investorinnen und Investoren:** antragsberechtigt; Personengesellschaften ohne eigene Rechtspersönlichkeit vorab mit der NBank klären. → S. 9–11",
-        "**Projektentwicklung:** selbst bauen und beantragen – oder bis zwei Jahre nach Fertigstellung verkaufen; dann beantragt die Käuferseite den Ersterwerb. Kaufvertrag erst nach Bewilligung oder mit eindeutigem, folgenlosem Rücktrittsrecht bei Absage. → S. 8",
-        "**Kommunen:** selbst antragsberechtigt. Legen Sie geförderten Mietwohnraum in entsprechender Anzahl per Bebauungsplan, städtebaulichem Vertrag oder Baulandmodell fest, gilt der Bedarf als gegeben; damit oder mit einem Wohnraumversorgungskonzept kann die NBank auch die Gruppen B und C zulassen. → S. 18"
+        "**Wohnungsunternehmen und Genossenschaften:** Auch genossenschaftlich überlassener Wohnraum zählt als Mietwohnraum. → S. 8–11",
+        "**Investorinnen und Investoren:** Konditionen, Finanzierung und laufender Überschuss auf drei Seiten. → S. 9–11",
+        "**Projektentwicklung:** Verkauf als geförderter Ersterwerb bis zwei Jahre nach Fertigstellung; Kaufvertrag erst nach der Bewilligung. → S. 8",
+        "**Kommunen:** selbst antragsberechtigt; eine Festlegung im Bebauungsplan, städtebaulichen Vertrag oder Baulandmodell belegt den Bedarf. → S. 18"
       ]
     },
     {
       "type": "toc",
       "title": "Inhalt",
       "data": {
-        "variant": "spalten",
-        "note": "Waagerechtes Inhaltsverzeichnis in vier Spalten; Kapitelnamen wie in den Kolumnentiteln; S. 2 (diese Seite) wird nicht aufgeführt. Programmteil-Seiten mit Baustein-Chip 2.1–2.6, Stichtag-Seite mit Signalpunkt.",
-        "columns": [
-          [
-            {
-              "id": "ueberblick",
-              "label": "Überblick",
-              "stops": [
-                {
-                  "page": 3,
-                  "label": "Kennzahlen"
-                },
-                {
-                  "page": 4,
-                  "label": "Grundcheck"
-                },
-                {
-                  "page": 5,
-                  "label": "Navigator"
-                }
-              ]
-            },
-            {
-              "id": "ertrag",
-              "label": "Ertragsseite",
-              "stops": [
-                {
-                  "page": 6,
-                  "label": "Mieterkreis"
-                },
-                {
-                  "page": 7,
-                  "label": "Mieten"
-                }
-              ]
-            }
-          ],
-          [
-            {
-              "id": "finanzierung",
-              "label": "Finanzierung",
-              "stops": [
-                {
-                  "page": 8,
-                  "label": "Neubau, Änderung, Ersterwerb",
-                  "baustein": "2.1",
-                  "token": "--baustein-21"
-                },
-                {
-                  "page": 9,
-                  "label": "Term Sheet"
-                },
-                {
-                  "page": 10,
-                  "label": "Modellrechnung"
-                },
-                {
-                  "page": 11,
-                  "label": "Szenarien"
-                }
-              ]
-            }
-          ],
-          [
-            {
-              "id": "neubau",
-              "label": "Neubau",
-              "stops": [
-                {
-                  "page": 12,
-                  "label": "EH-40-Neubau",
-                  "baustein": "2.2",
-                  "token": "--baustein-22"
-                },
-                {
-                  "page": 13,
-                  "label": "Ostfriesische Inseln",
-                  "baustein": "2.4",
-                  "token": "--baustein-24"
-                }
-              ]
-            },
-            {
-              "id": "bestand",
-              "label": "Bestand",
-              "stops": [
-                {
-                  "page": 14,
-                  "label": "Modernisierung",
-                  "baustein": "2.3",
-                  "token": "--baustein-23"
-                },
-                {
-                  "page": 15,
-                  "label": "Stichtag 31.12.2026",
-                  "token": "--signal"
-                },
-                {
-                  "page": 16,
-                  "label": "Bindungserwerb",
-                  "baustein": "2.5",
-                  "token": "--baustein-25"
-                },
-                {
-                  "page": 17,
-                  "label": "Bindungsverlängerung",
-                  "baustein": "2.6",
-                  "token": "--baustein-26"
-                }
-              ]
-            }
-          ],
-          [
-            {
-              "id": "umsetzung",
-              "label": "Umsetzung",
-              "stops": [
-                {
-                  "page": 18,
-                  "label": "Standort, Kommune"
-                },
-                {
-                  "page": 19,
-                  "label": "Antragsweg"
-                },
-                {
-                  "page": 20,
-                  "label": "Kontakt"
-                }
-              ]
-            }
-          ]
+        "variant": "linienplan",
+        "note": "Inhalt als Linienplan: sieben Kapitel-Linien, Haltestellen als Quadrate; S. 2 (diese Seite) und die Umschlagseiten U1/U4 werden nicht aufgeführt. Programmteil-Stationen mit Baustein-Chip 2.1–2.6, Stichtag-Station in Signalfarbe, Kapitel „PGN“ in PGN-Rot.",
+        "lines": [
+          {
+            "id": "ueberblick",
+            "label": "Überblick",
+            "stops": [
+              { "page": 3, "label": "Kennzahlen" },
+              { "page": 4, "label": "Neu und Grundcheck" },
+              { "page": 5, "label": "Navigator" }
+            ]
+          },
+          {
+            "id": "ertrag",
+            "label": "Ertragsseite",
+            "stops": [
+              { "page": 6, "label": "Mieterkreis" },
+              { "page": 7, "label": "Mieten" }
+            ]
+          },
+          {
+            "id": "finanzierung",
+            "label": "Finanzierung",
+            "stops": [
+              { "page": 8, "label": "Neubau, Änderung, Ersterwerb", "baustein": "2.1", "token": "--baustein-21" },
+              { "page": 9, "label": "Term Sheet" },
+              { "page": 10, "label": "Ihre Rechnung: Finanzierung" },
+              { "page": 11, "label": "Ihre Rechnung: Wirtschaftlichkeit" }
+            ]
+          },
+          {
+            "id": "neubau",
+            "label": "Neubau",
+            "stops": [
+              { "page": 12, "label": "EH-40-Neubau", "baustein": "2.2", "token": "--baustein-22" },
+              { "page": 13, "label": "Ostfriesische Inseln", "baustein": "2.4", "token": "--baustein-24" }
+            ]
+          },
+          {
+            "id": "bestand",
+            "label": "Bestand",
+            "stops": [
+              { "page": 14, "label": "Modernisierung", "baustein": "2.3", "token": "--baustein-23" },
+              { "page": 15, "label": "Stichtag 31.12.2026", "token": "--signal" },
+              { "page": 16, "label": "Bindungserwerb", "baustein": "2.5", "token": "--baustein-25" },
+              { "page": 17, "label": "Bindungsverlängerung", "baustein": "2.6", "token": "--baustein-26" }
+            ]
+          },
+          {
+            "id": "umsetzung",
+            "label": "Umsetzung",
+            "stops": [
+              { "page": 18, "label": "Standort und Kommune" },
+              { "page": 19, "label": "Antragsweg" },
+              { "page": 20, "label": "So begleiten wir Ihr Förderprojekt" },
+              { "page": 21, "label": "Unterlagen, Kontakte, Verfahrensdetails" }
+            ]
+          },
+          {
+            "id": "pgn",
+            "label": "PGN",
+            "token": "--color-accent",
+            "stops": [
+              { "page": 22, "label": "Über PGN" },
+              { "page": 23, "label": "Impressum und Hinweise" }
+            ]
+          }
         ]
       }
-    },
-    {
-      "type": "callout",
-      "variant": "hinweis",
-      "title": "Lesehinweis",
-      "body": "Förderquoten und -beträge: Höchstwerte („bis zu“; Bindungserwerb: Festbetrag). Eigenmittel: Mindestwerte. Entgelte: feste Sätze. Jede Bewilligung wird auf Überkompensation geprüft: kein unangemessen hoher Gewinn (EU-Beihilferecht). Kein Rechtsanspruch; Förderung im Rahmen der verfügbaren Haushaltsmittel. Stand: 21.10.2026."
     }
   ],
-  "sources": "Fundstellen: RL Nr. 1.3, 1.6, 2.1–2.6, 3, 4.2, 5.2.1, 5.3.2.4, 5.3.7, 5.4.3, 9.3, 11.10, 12.3.2, 12.7, 13.1; § 2 Abs. 5 NWoFG; § 4 Abs. 1 DVO-NWoFG",
-  "footnotes": [
-    "NBank-Presseinformation zur Wohnungsmarktbeobachtung 2025 (05.12.2025); MW-Presseinformation „Niedersachsen stellt soziale Wohnraumförderung neu auf“ (03.07.2026, aktualisiert 09.07.2026)"
-  ],
+  "footnotes": [],
   "fact_ids": [
     "F310",
     "F009",
@@ -189,21 +117,15 @@
     "F252",
     "G4-18",
     "F044",
-    "F104",
-    "F079",
-    "F040",
-    "F003",
-    "F006",
-    "F024",
-    "F097",
     "F255",
-    "F256",
-    "F258",
-    "F029",
-    "F094",
-    "F194",
-    "F276",
-    "G3-20"
+    "F079",
+    "F003"
   ],
-  "visual_idea": "Linke Spalte: Editorial (lead + text) und darunter das Zitat mit übergroßen typografischen Anführungszeichen in --color-accent, kein Porträtfoto. Rechte Spalte (bildbestimmend): Inhaltsverzeichnis als Linienplan nach U-Bahn-Art – fünf farbige Linien (= Kapitel) mit Seitenzahlen als Haltestellen; Programmteil-Haltestellen als größere Kreise in --baustein-21 … --baustein-26 MIT eingeschriebener Nummer 2.1–2.6 (graustufenfest); Stichtag-Haltestelle in --signal. Unten über die volle Breite vier Zielgruppen-Kacheln (bullets) mit Piktogrammen (Wohnblock, verschränkte Hände, Diagramm, Rathaus); der fett gesetzte Vorsatz ist die Kachelüberschrift, der Pfeil-Tag „→ S. …“ wird als Seitenverweis-Chip gesetzt. Lesehinweis als schmale Fußleiste über den Quellen."
+  "pgn_sources": [
+    "pgn-facts.md §1 Arbeitsgebiet („Von Rotenburg (Wümme) aus … Bauprojekte in ganz Norddeutschland“)",
+    "pgn-facts.md §3 Claim „100% Kundenfokus. Seit 1981.“",
+    "pgn-facts.md §6/§8 Kundengruppen (Kommunen, Investoren, Wohnungsbauunternehmen, Wohnungsbaugenossenschaften)",
+    "pgn-facts.md §1/§5 Seitentitel „Architekten. Stadtplaner. Ingenieure.“"
+  ],
+  "visual_idea": "Zweispaltig, ruhig, viel Weißraum. Kopf: Kicker „Editorial“ in Montserrat 600 Versalien in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links. Linke Spalte: Lead in Montserrat 600, darunter das Editorial in Work Sans; Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ als Zeile in Montserrat 600 Versalien mit feiner roter Linie davor, kein Personenname, kein Porträt. Darunter das Tonne-Zitat mit übergroßen, eckig gesetzten Anführungszeichen in PGN-Rot, Attribution klein in Anthrazit (Name, Funktion, „Pressemitteilung MW vom 03.07.2026“). Rechte Spalte, bildbestimmend (das dominante Element der Seite): Inhalt als Linienplan – sieben senkrechte Kapitel-Linien in Anthrazit, Haltestellen als Quadrate ohne Rundungen, Seitenzahl in Montserrat Black; Programmteil-Stationen tragen den Baustein-Chip 2.1–2.6 in den Baustein-Farben (Ziffer eingeschrieben, graustufenfest), die Stichtag-Station S. 15 in Signalfarbe, die Kapitel-Linie „PGN“ (S. 22–23) in PGN-Rot; „Ihre Rechnung“ S. 10–11 als Doppelhaltestelle leicht hervorgehoben. Unten über die volle Breite vier Einstiegs-Kacheln auf #F4F3F2, je ein Linienicon (Wohnblock, Diagramm, Kran, Rathaus), fett gesetzter Vorsatz als Kachelkopf, Seitenverweis als eckiger Chip in PGN-Rot. Keine Kästen, keine Fußnoten, keine Quellenzeile."
 }

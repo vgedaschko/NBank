@@ -1,0 +1,172 @@
+{
+  "no": 21,
+  "slug": "unterlagen-kontakte",
+  "layout_type": "service-checklist",
+  "running_title": "Umsetzung · Unterlagen und Kontakte",
+  "kicker": "Service",
+  "headline": "Unterlagen, Kontakte und Verfahrensdetails",
+  "lead": "",
+  "blocks": [
+    {
+      "type": "contact",
+      "role_hint": "kontaktband",
+      "items": [
+        {
+          "label": "Hier beginnt Ihr Antrag",
+          "name": "Wohnraumförderstelle am Bauort",
+          "value": "Landkreis, Stadt oder Gemeinde: Antrag, Formulare, Vorabklärung"
+        },
+        {
+          "label": "Förderberatung",
+          "name": "NBank-Förderberatung Wohnraumförderung",
+          "phone": "0511 30031-9333",
+          "value": "Mo–Fr 08:00–17:00 Uhr · wohnraumfoerderung@nbank.de · Beratungsstellen Hannover, Braunschweig, Lüneburg, Oldenburg, Osnabrück"
+        },
+        {
+          "label": "Immer aktuell",
+          "name": "nbank.de",
+          "value": "Förderstellen-Verzeichnis, Bemessungsgrenzen, Bedarfskarte, Vordrucke, Arbeitshilfen, Entgeltkatalog, Bauschild-Vorgaben"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "heading": "Unterlagen bereitlegen (Auszug)",
+      "items": [
+        "**Antrag:** 1011 (2.1–2.4) · 1011a + 1012 je Wohnung (2.5) · 1011b (2.6)",
+        "**Privatpersonen:** Selbstauskunft 3076, vollständige SCHUFA-Auskunft, Identifizierung nach GwG",
+        "**Unternehmen:** Jahresabschlüsse (zwei Jahre), BWA (max. drei Monate), Handels- und Transparenzregisterauszug",
+        "Grundbuchauszug, Lageplan, Bauzeichnungen, Baubeschreibung 1021",
+        "Wohnflächenberechnung (WoFlV), umbauter Raum (DIN 277), Kosten-Finanzierungsaufteilung",
+        "**Bei 2.3:** Energiebedarfsausweis mit Ausgangsklasse"
+      ]
+    },
+    {
+      "type": "faq",
+      "role_hint": "dominant",
+      "heading": "Verfahrensdetails und Sonderfälle",
+      "groups": [
+        {
+          "title": "Vor der Bewilligung",
+          "chip": "aus S. 4/19",
+          "from_pages": [4, 19],
+          "items": [
+            {
+              "q": "Antragsberechtigt",
+              "a": "Auch rechtsfähige Baugemeinschaften; beim Ersterwerb die Käuferseite."
+            },
+            {
+              "q": "Kein Mehrfamilienhaus?",
+              "a": "Gemeinschaftliche Wohnformen; im Einzelfall Reihen- oder Doppelhausbauform. Je neuem Gebäude mindestens zwei gebundene Wohnungen; keine Eigentumswohnungen zur Vermietung."
+            },
+            {
+              "q": "Grundstück und Eigenmittel",
+              "a": "Erbbaurecht: mindestens 60 Jahre Restlaufzeit. Eigenmittel: Eigenleistung zählt, mindestens die Hälfte Geld oder lastenfreies Grundstück (2.3: Geld)."
+            },
+            {
+              "q": "Vertrag mit Rücktrittsrecht?",
+              "a": "Kein Vorhabenbeginn, wenn es für den Fall ohne Förderung eindeutig und folgenlos ist (Einzelfallprüfung)."
+            },
+            {
+              "q": "Vorzeitig beginnen?",
+              "a": "Antrag frühestens mit dem Förderantrag; beginnen erst nach Zulassung, auf eigenes Risiko."
+            }
+          ]
+        },
+        {
+          "title": "Finanzierung und Sicherheiten",
+          "chip": "aus S. 9",
+          "from_pages": [9],
+          "items": [
+            {
+              "q": "Rang und Sicherheiten",
+              "a": "Grundschuld direkt nach Kapitalmarktmitteln; davor nur Darlehen mit mindestens 1 % Tilgung zzgl. ersparter Zinsen, ohne Revalutierung. Reine Objektgesellschaften: immer weitere Sicherheiten."
+            },
+            {
+              "q": "Tilgungsbeginn",
+              "a": "Nach Vollauszahlung, spätestens zwei Jahre nach dem Folgemonat der Bekanntgabe; Aufschub bis fünf Jahre bei vorübergehendem Fehlbetrag möglich."
+            },
+            {
+              "q": "Auszahlung",
+              "a": "Änderung/Erweiterung 30/60/10 %, Ersterwerb 90/10 %; Darlehen erst nach rangrichtiger Sicherung oder Notarbestätigung. Bearbeitungsentgelt auch bei Verzicht vor Auszahlung voll fällig."
+            },
+            {
+              "q": "Vorzeitig zurückzahlen?",
+              "a": "Bindung endet nach dem zehnten Kalenderjahr nach Volltilgung, frühestens 20 Jahre nach Bindungsbeginn."
+            }
+          ]
+        },
+        {
+          "title": "Bauen und Vergabe",
+          "chip": "aus S. 19",
+          "from_pages": [19],
+          "items": [
+            {
+              "q": "Vergabe",
+              "a": "Mindestens drei Unternehmen zur Angebotsabgabe auffordern, Verfahren dokumentieren; Direktauftrag bis 25.000 € netto. Generalunternehmer/-übernehmer nur mit ihrer schriftlichen Zustimmung zur Prüfung; Kommunen zusätzlich Vergaberecht."
+            },
+            {
+              "q": "Anzeigen",
+              "a": "Baubeginnanzeige erst nach Baubeginn, für Unternehmen subventionserheblich. Ersterwerb: ohne Baubeginn- und Fertigstellungsanzeige."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "footnotes": [],
+  "fact_ids": [
+    "F322",
+    "F323",
+    "F324",
+    "F325",
+    "F326",
+    "F089",
+    "F098",
+    "F101",
+    "F247",
+    "F280",
+    "F281",
+    "F282",
+    "F283",
+    "G1-30",
+    "F170",
+    "F251",
+    "F252",
+    "F047",
+    "F048",
+    "F092",
+    "F093",
+    "F090",
+    "F095",
+    "F156",
+    "F174",
+    "F255",
+    "F258",
+    "F259",
+    "F243",
+    "F118",
+    "F119",
+    "F120",
+    "F115",
+    "F117",
+    "G1-14",
+    "F122",
+    "F123",
+    "F124",
+    "F268",
+    "F276",
+    "F223",
+    "F126",
+    "F127",
+    "F270",
+    "F271"
+  ],
+  "open_points": [
+    "Stand-Hinweis entfällt im Druck (vorher: „Grundlage: NBank-Checklisten vom 20.07.2025 (vor der RL 2026) und 22.09.2026 (2.5). Nachforderungen sind möglich.“) – gehört in den Anhang von copy.md; dort deckt Nr. 12 die Frage bereits ab, Seitenverweis von S. 20 auf S. 21 ändern.",
+    "Gestrichen (Priorität 2, kein Platz): Versicherung (Brand ab Baubeginn, Sturm ab Bezugsfertigkeit, gleitender Neuwert, bis zur Rückzahlung); Zinsfestschreibung für die Restlaufzeit ab Jahr 36; Bauschild mit Förderhinweis (nur als „Vorgaben zum Bauschild“ auf nbank.de erhalten); frei finanzierte Wohnungen im selben Haus (möglich, nicht gefördert, getrennte Teilberechnung).",
+    "Gestrichen laut Plan: „Weitere Programme“ (RL Junges Wohnen 2026, RL Wohneigentum 2026); Impressum → S. 23.",
+    "Checkliste bewusst verkürzt gegenüber v1: Selbstauskunft, SCHUFA und GwG-Identifizierung verlangt die NBank-Checkliste auch für Gesellschafterinnen und Gesellschafter (sofern vorhanden); GwG-Vordrucke 1005a/1006a und Postident sowie die Ertrags-, Finanz- und Liquiditätsplanung für Unternehmen stehen nicht mehr im Heft (Auszug)."
+  ],
+  "visual_idea": "Gegenstück zu S. 20 auf der Doppelseite 20|21 „Mit PGN zur Bewilligung“, Register in PGN-Rot #B71E3F, eckig. Kopf: Kicker „Service“ als Versal-Label in Montserrat 600 in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links; kein Lead. Oben als Band über die volle Satzbreite auf #F4F3F2 die drei Kontakte, getrennt durch feine senkrechte Haarlinien in Anthrazit: (1) Label „Hier beginnt Ihr Antrag“ in PGN-Rot, darunter „Wohnraumförderstelle am Bauort“ in Montserrat 700 Versalien; (2) NBank-Förderberatung mit der Telefonnummer 0511 30031-9333 groß in Montserrat Black in PGN-Rot, darunter Zeiten, E-Mail und Beratungsstellen in Work Sans; (3) „Immer aktuell: nbank.de“ als kurze Liste mit Pfeilzeichen. Optional ein kleiner QR-Code zur NBank-Programmseite (Ziel wie S. 18) am rechten Bandende. Darunter zweispaltig. Links (ca. 40 %) die Ankreuzliste mit echten eckigen Quadraten in Anthrazit-Kontur; Vordrucknummern (1011, 1011a, 1012, 1011b, 3076, 1021) als kleine eckige Badges, Programmteil-Angaben (2.1–2.4, 2.5, 2.6, 2.3) als Baustein-Chips in den Baustein-Farben mit Ziffer. Rechts (ca. 60 %, dominantes Element) die Verfahrensdetails als kompakte FAQ in drei Gruppen: Gruppenköpfe in Montserrat 600 Versalien mit eckigem Seitenverweis-Chip „aus S. 4/19“, „aus S. 9“, „aus S. 19“ (Kontur PGN-Rot), Stichfragen in Work Sans Bold, Antworten in Work Sans, feine Haarlinien zwischen den Einträgen, keine Nummerierung. Fließtext nicht unter 9 pt. Kein Kasten, kein Achtung-Signal (der Vorhabenbeginn-Kasten steht auf S. 19), keine Fußnote, keine Quellen- oder Stand-Zeile, keine Rundungen."
+}

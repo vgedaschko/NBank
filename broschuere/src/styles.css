@@ -1,15 +1,24 @@
 /* =============================================================================
-   Mietwohnraumförderung Niedersachsen 2026 · Designsystem „Editorial Premium“
-   Basis: Prototyp A (Petrol · Terrakotta · Sand, Fraunces + Inter)
+   Mietwohnraumförderung Niedersachsen 2026 · PGN-Designsystem „Planwerk“
+   Herausgeber: Planungsgemeinschaft Nord GmbH (PGN Architekten und Ingenieure)
+   Basis: Siegerentwurf A „Bauplan“ (Planrahmen, Schriftfeld, Maßketten, Achskreise,
+   Höhenkoten, Axonometrie) + Übernahmen aus B (Plakatzeilen, Daumenregister,
+   große Tabellenziffern, Rot/Schwarz im Bauzeitenplan) und C (Punktraster,
+   Duplex-Banner mit Achskreisen, Höhenkoten „±0 = Bewilligung“, Mini-Plankopf).
    Komponentenkatalog mit HTML-Snippets: DESIGN.md
 
    Regeln
    - Farben NUR über Tokens (Abschnitt 1). Neue Farben zuerst als Token anlegen.
-   - Schriften NUR aus fonts/fonts.css (Fraunces Variable, Inter Variable).
+     Kein Grün: #26772B gehört der PGN Projektgesellschaft Nord GmbH.
+   - Schriften NUR aus fonts/fonts.css: Montserrat (Überschriften, Zahlen, Labels,
+     Versalien typisch) und Work Sans (Fließtext, Tabellentext).
    - Mindestschrift 8,5 pt (auch in SVG: 1 SVG-Einheit = 1 mm, 3px = 8,5 pt).
+   - Druck: rote Linien ≥ 0,25 mm, rote Schrift ≥ 9 pt und ≥ 600, kein Negativtext
+     unter 9 pt aus Verläufen; Fotos nur als Duplex (≤ 120 mm) oder Vektor-Punktraster.
    - Silbentrennung: weiche Trennstriche aus scripts/assemble.cjs → hyphens: manual.
    - Klassen: BEM (block__element--modifier), Layout „l-“, Utilities „u-“,
-     Baustein-Farbe „bs-21“ … „bs-26“, Theme-Scopes „on-dark“, „on-light“, „on-sand“.
+     Programmteil-Farbe „bs-21“ … „bs-26“, Theme-Scopes „on-light“, „on-paper“
+     (= „on-sand“), „on-dark“, „on-red“.
    ============================================================================= */
 
 @page { size: 210mm 297mm; margin: 0; }
@@ -18,111 +27,110 @@
    1 · TOKENS
    ----------------------------------------------------------------------------- */
 :root {
-  /* 1.1 Basispalette (Rohwerte – nur hier Hex-Codes) */
-  --petrol-950: #0A2027;
-  --petrol-900: #0E2A33;
-  --petrol-800: #143B47;
-  --petrol-700: #1B4F5E;
-  --petrol-600: #00799A;
-  --petrol-400: #3FA3BF;
-  --petrol-300: #9DBFC1;
-  --petrol-200: #C6DADB;
-  --petrol-100: #E3EDEC;
-
-  --terra-800: #7A3322;
-  --terra-700: #9F4228;   /* Akzent als Text auf Papier 5,9:1, auf Sand 5,2:1 */
-  --terra-600: #B9532F;   /* Datenfarbe „Zuschuss“, Akzentflächen */
-  --terra-300: #E39A78;   /* Akzent auf Petrol 6,5:1 */
-  --terra-100: #F6E3D8;
-
-  --sand-50:  #FAF6EF;    /* Papier */
-  --sand-100: #F0E6D3;    /* Bänder, Kästen (gegenüber Papier deutlich abgesetzt) */
-  --sand-200: #E6DAC2;
-  --sand-300: #DCCDB0;    /* Datenfarbe „Eigenmittel“ (+ Schraffur) */
-  --sand-400: #CDBFA6;    /* Haarlinien */
-  --sand-500: #B3A283;
-  --sand-grid: #EDE3D0;   /* Rechenblatt-Raster */
-
-  --amber-500: #E6A532;   /* Signal: Fristen, Stopp, Warnband – nur dafür */
-  --amber-100: #FBEBC4;
-  --amber-800: #704500;   /* Signal als Text auf Papier 7:1 */
-
-  --slate-700: #3E5258;   /* Text 2: 6,8:1 auf Papier, 6,2:1 auf Sand-200 */
-  --slate-600: #526266;   /* Text 3: 5,9:1 auf Papier, 5,1:1 auf Sand-100 */
-  --mist-200:  #BFD0D1;   /* Text 2 auf Petrol 9,4:1 */
-  --mist-300:  #AEBFC0;   /* Text 3 auf Petrol-800 6,3:1 */
-  --petrol-rule: #34535C; /* Haarlinie auf Petrol */
-  --petrol-grid: #163944;
-  --lamp: #EFD6A6;        /* Fensterlicht in Illustrationen */
+  /* 1.1 PGN-Basispalette (Rohwerte – nur hier Hex-Codes). Quelle: recherche/pgn-ci.md */
+  --pgn-red: #B71E3F;        /* PGN-Rot: Akzent, Zuschuss, Maßketten. Weiß darauf 6,4:1; auf Weiß 6,4:1 */
+  --pgn-red-deep: #8B2939;   /* Verlaufsende, Signal (Frist, Bewilligung). Weiß darauf 8,5:1 */
+  --pgn-red-300: #E8A3B1;    /* Akzent als Text auf Anthrazit 5,4:1 / auf #202020 8,0:1 */
+  --pgn-red-200: #EFC3CC;
+  --pgn-red-100: #F7E3E7;    /* Hauch: Achtung-Fläche, Seitenverweis-Chip (Rot darauf 5,2:1) */
+  --pgn-red-50:  #FBF1F3;
+  --ink: #202020;            /* Fast-Schwarz: Überschriften, Poché, Darlehen (16,3:1) */
+  --anthracite: #3C3C3B;     /* Anthrazit: Fließtext, Linien (11,0:1; auf Papier 10,0:1) */
+  --grey-700: #575655;
+  --grey-600: #626160;       /* Sekundärtext: 6,1:1 auf Weiß, 5,5:1 auf Papier, ≥ 4,9:1 auf Hauchflächen */
+  --grey-500: #757474;       /* CI-Grau: nur Linien/Zier und Text ≥ 9 pt auf Weiß (4,7:1) */
+  --grey-450: #868686;       /* Logo-Grau: nur Linien, nie Text */
+  --grey-300: #B4B0AB;       /* Planraster, Achsen; Text auf Anthrazit 5,1:1 */
+  --grey-200: #CFCCC8;       /* weiche Haarlinien */
+  --grey-150: #DCD8D3;       /* Datenfläche „Eigenmittel“ (+ Schraffur) */
+  --grey-100: #E9E7E4;       /* Fläche 3 */
+  --paper: #F4F3F2;          /* warmes Hellgrau: Flächen, Schriftfeld-Blatt (Anthrazit darauf 10,0:1) */
+  --grid-5mm: #ECEAE7;       /* Planraster im Rechenblatt */
   --white: #FFFFFF;
-  --preview-bg: #7D8486;  /* nur Bildschirmvorschau */
+  --preview-bg: #8F8D8A;     /* nur Bildschirmvorschau */
   --preview-shadow: rgba(0, 0, 0, .25);
 
-  /* 1.2 Baustein-Register: sechs Fördergegenstände (immer zusammen mit Nummer 2.1–2.6) */
-  --bs-21: #1A6470;  --bs-21-tint: #DCEAEB;  /* 2.1 Mietwohnungen in MFH        · Petrol   */
-  --bs-22: #2F6A4A;  --bs-22-tint: #DDEADF;  /* 2.2 Energetisch hochwertig EH 40 · Tanne    */
-  --bs-23: #85601A;  --bs-23-tint: #F1E6CF;  /* 2.3 Klimagerechte Modernisierung · Ocker    */
-  --bs-24: #2A4F9A;  --bs-24-tint: #DFE5F3;  /* 2.4 Ostfriesische Inseln         · Nordsee  */
-  --bs-25: #6A4A8A;  --bs-25-tint: #E8E1F0;  /* 2.5 Erwerb von Bindungen         · Heide    */
-  --bs-26: #8E3349;  --bs-26-tint: #F2DEE3;  /* 2.6 Verlängerung von Bindungen   · Bordeaux */
-  --on-bs: var(--white);                      /* Weiß auf allen Baustein-Farben ≥ 5,7:1 */
+  --grad-red: linear-gradient(160deg, var(--pgn-red) 0%, var(--pgn-red-deep) 100%);
+  --grad-dark: linear-gradient(160deg, var(--anthracite) 0%, var(--ink) 100%);
 
-  /* 1.3 Sequenzielle Skala (Heatmap, Petrol hell → dunkel); Text ab Stufe 4 weiß */
-  --seq-1: #E3EDEC;
-  --seq-2: #C6DADB;
-  --seq-3: #93BEC6;
-  --seq-4: #2F7F93;
-  --seq-5: #1B5F72;
-  --seq-6: #0E3A46;
+  /* 1.2 Programmteile 2.1–2.6 (Register, Schlüsselplan, Chips; immer zusammen mit der Nummer).
+     Validiert (dataviz/validate_palette.js, Reihenfolge 2.1→2.6, benachbarte Paare): CVD ΔE ≥ 10,9 (Ziel 8),
+     Normalsicht ΔE ≥ 22,2 (Boden 15); Weiß auf allen sechs ≥ 5,0:1. 2.4 (L 0,42) und 2.6 (Anthrazit, unbunt)
+     liegen bewusst außerhalb des Kategorienbands – zulässig, weil die Nummer immer mitsteht (zweite Kodierung). */
+  --bs-21: #B71E3F;  --bs-21-tint: #F7E3E7;  /* 2.1 Mietwohnungen in Mehrfamilienhäusern · PGN-Rot      */
+  --bs-22: #3A62A6;  --bs-22-tint: #E4EAF4;  /* 2.2 Energetisch hochwertiger Neubau (EH 40) · Blau     */
+  --bs-23: #A0581A;  --bs-23-tint: #F4E7DB;  /* 2.3 Klimagerechte Modernisierung · Ocker               */
+  --bs-24: #0A5372;  --bs-24-tint: #DFEBF0;  /* 2.4 Ostfriesische Inseln · Nordsee                     */
+  --bs-25: #9A52AE;  --bs-25-tint: #F1E6F4;  /* 2.5 Erwerb von Bindungen · Heide                       */
+  --bs-26: #3C3C3B;  --bs-26-tint: #E9E7E4;  /* 2.6 Verlängerung von Bindungen · Anthrazit             */
+  --on-bs: var(--white);
+
+  /* 1.3 Sequenzielle Skala (Heatmap, Einkommensgruppen): warmes Grau hell → dunkel, einfarbig und
+     graustufenfest; Text #202020 auf 1–3 (≥ 7,3:1), Weiß auf 4–6 (≥ 4,8:1). Werte stehen immer in der Zelle. */
+  --seq-1: #EFEDEA;
+  --seq-2: #D8D4CF;
+  --seq-3: #B3ADA6;
+  --seq-4: #77716B;
+  --seq-5: #4A4642;
+  --seq-6: #2A2826;
 
   /* 1.4 Typografie */
-  --font-display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
-  --font-text: 'Inter Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Montserrat Variable', 'Montserrat', 'Arial', sans-serif;
+  --font-text: 'Work Sans Variable', 'Work Sans', 'Arial', sans-serif;
 
-  --fs-cover: 64pt;
-  --fs-h1: 40pt;
-  --fs-h1-s: 32pt;
-  --fs-h2: 19pt;
-  --fs-h3: 12.5pt;
-  --fs-h4: 10pt;
-  --fs-lead: 13pt;
-  --fs-body: 9.5pt;
+  --fs-cover: 30pt;          /* Titelzeile U1, Montserrat 900 Versalien */
+  --fs-h1: 25pt;             /* Seitentitel, Montserrat 900 Versalien */
+  --fs-h1-s: 20pt;
+  --fs-h2: 13pt;             /* Abschnittstitel, Montserrat 900 Versalien */
+  --fs-h3: 10.5pt;           /* Modultitel, Montserrat 700, gemischt */
+  --fs-h4: 8.5pt;            /* Versal-Label */
+  --fs-deck: 11.5pt;         /* Unterzeile unter H1: Montserrat 300 Versalien, Kennwert 800 Rot */
+  --fs-lead: 11pt;           /* Vorspann: Work Sans */
+  --fs-body: 9.75pt;         /* Fließtext: Work Sans 400 */
   --fs-small: 9pt;
-  --fs-micro: 8.5pt;        /* Minimum – nur Fundstellen, Fußnoten, Bildunterschriften, Achsen, Versal-Labels */
+  --fs-micro: 8.5pt;         /* Minimum – Fundstellen, Fußnoten, Bildunterschriften, Achsen, Versal-Labels */
   --fs-module: var(--fs-small);   /* Modultext: Listen, Kästen, Kacheln, Tabellenzellen (9 pt) */
-  --fs-fig-hero: 150pt;
-  --fs-fig-xl: 60pt;
-  --fs-fig-l: 42pt;
-  --fs-fig-m: 30pt;
-  --fs-fig-s: 20pt;
+  --fs-label-accent: 9pt;    /* rote Versal-Labels (Druckregel: rote Schrift ≥ 9 pt) */
+  --fs-fig-hero: 92pt;
+  --fs-fig-xl: 46pt;
+  --fs-fig-l: 30pt;
+  --fs-fig-m: 21pt;
+  --fs-fig-s: 17pt;          /* Tabellenziffern Höchstmieten (Montserrat 800) */
 
-  --lh-display: .96;
-  --lh-head: 1.1;
-  --lh-lead: 1.38;
-  --lh-body: 1.45;
+  --lh-display: .92;
+  --lh-head: 1.04;
+  --lh-lead: 1.45;
+  --lh-body: 1.47;
   --lh-small: 1.4;
-  --lh-module: 1.36;        /* Zeilenabstand Modultext 9 pt */
-  --track-caps: .1em;
+  --lh-module: 1.38;
+  --track-caps: .1em;        /* Versal-Labels */
+  --track-kicker: .16em;
+  --track-head: -.005em;     /* Montserrat 900 Versalien */
 
   /* SVG-Schriftgrade (nur in SVGs mit 1 Einheit = 1 mm) */
-  --svg-fs-s: 3px;          /*  8,5 pt */
-  --svg-fs-m: 3.25px;       /*  9,2 pt */
-  --svg-fs-l: 4.2px;        /* 12 pt   */
-  --svg-fs-xl: 6.4px;       /* 18 pt   */
-  --svg-fs-xxl: 9px;        /* 25,5 pt */
+  --svg-fs-s: 3px;           /*  8,5 pt */
+  --svg-fs-m: 3.25px;        /*  9,2 pt */
+  --svg-fs-l: 4.2px;         /* 12 pt   */
+  --svg-fs-xl: 6.4px;        /* 18 pt   */
+  --svg-fs-xxl: 9px;         /* 25,5 pt */
 
-  /* 1.5 Raster & Satzspiegel */
+  /* 1.5 Raster & Satzspiegel: 5-mm-Planraster, 12 Spalten im Satzspiegel 180 mm */
   --page-w: 210mm;
   --page-h: 297mm;
   --m-top: 14mm;
-  --m-bottom: 22mm;         /* Inhalt endet 22 mm über Endformat, ≥ 6 mm über der Fußlinie */
-  --m-inner: 18mm;
-  --m-outer: 18mm;
+  --m-bottom: 24mm;          /* Inhalt endet 24 mm über Endformat, 5 mm über dem Mini-Plankopf */
+  --m-inner: 15mm;
+  --m-outer: 15mm;
   --gutter: 5mm;
-  --content-w: 174mm;       /* 210 − 2 × 18 */
-  --col: 9.9167mm;          /* (174 − 11 × 5) / 12 */
-  --foot-y: 10mm;           /* Unterkante Fußzeile über Endformat (Text ≥ 5 mm Sicherheitsabstand) */
-  --safe: 5mm;              /* Mindestabstand Text ↔ Endformat */
+  --content-w: 180mm;        /* 210 − 2 × 15 */
+  --col: 10.4167mm;          /* (180 − 11 × 5) / 12 */
+  --plan: 5mm;               /* Planraster */
+  --foot-y: 9mm;             /* Unterkante Mini-Plankopf über Endformat */
+  --foot-h: 9.5mm;
+  --frame-inset: 8mm;        /* Planrahmen auf Umschlag und Kapitelauftakt */
+  --horizon: 196mm;          /* Oberkante Schriftfeld U1 = U4 („Horizont“ über den aufgeklappten Umschlag) */
+  --safe: 5mm;
+  --rule-hang: 5.75mm;       /* rote Titellinie hängt links neben dem Satzspiegel */
 
   /* 1.6 Abstände */
   --sp-1: 1mm;
@@ -136,117 +144,183 @@
   --sp-12: 12mm;
   --sp-16: 16mm;
 
-  /* 1.7 Linien */
-  --hair: .5pt;
-  --rule-w: .8pt;
-  --rule-heavy: 1.2pt;
+  /* 1.7 Linien (Planzeichen: Haarlinie – Linie – kräftige Linie – Akzent) */
+  --hair: .2mm;              /* 0,57 pt */
+  --rule-w: .3mm;            /* 0,85 pt */
+  --rule-heavy: .5mm;        /* 1,4 pt – Modulkopf */
+  --rule-accent: .75mm;      /* rote Titellinie */
+  --rule-red-min: .25mm;     /* Druckregel: rote Linien nie dünner */
 
   /* 1.8 Aliasse aus dem Redaktionsplan (plan.json) */
-  --color-primary: var(--petrol-900);
-  --color-accent: var(--terra-600);
-  --color-loan: var(--petrol-600);
-  --color-grant: var(--terra-600);
-  --color-equity: var(--sand-300);
-  --signal: var(--amber-500);
+  --color-primary: var(--pgn-red);
+  --color-accent: var(--pgn-red);
+  --color-loan: var(--ink);
+  --color-grant: var(--pgn-red);
+  --color-equity: var(--grey-150);
+  --signal: var(--pgn-red-deep);
   --baustein-21: var(--bs-21);
   --baustein-22: var(--bs-22);
   --baustein-23: var(--bs-23);
   --baustein-24: var(--bs-24);
   --baustein-25: var(--bs-25);
   --baustein-26: var(--bs-26);
+  /* Rückwärtskompatibilität (v1-Paletten-Namen in Partials) */
+  --sand-300: var(--grey-150);
+  --sand-500: var(--grey-450);
+  --petrol-900: var(--ink);
 }
 
-/* 1.9 Semantische Tokens – hell (Standard). Komponenten nutzen NUR diese. */
+/* 1.9 Semantische Tokens – hell (Standard, weißes Papier). Komponenten nutzen NUR diese. */
 :root,
 .on-light,
 .cover__band {
-  --surface: var(--sand-50);
-  --surface-2: var(--sand-100);
-  --surface-3: var(--sand-200);
-  --surface-inverse: var(--petrol-900);
-  --fg: var(--petrol-900);
-  --fg-2: var(--slate-700);
-  --fg-3: var(--slate-600);
-  --rule: var(--sand-400);
-  --rule-strong: var(--petrol-900);
-  --grid-line: var(--sand-grid);
-  --accent: var(--terra-600);
-  --accent-text: var(--terra-700);
-  --accent-soft: var(--terra-100);
-  --tip: var(--petrol-600);
-  --tip-text: var(--petrol-700);
-  --tip-soft: var(--petrol-100);
-  --signal-fill: var(--amber-500);
-  --signal-soft: var(--amber-100);
-  --signal-text: var(--amber-800);
-  --on-signal: var(--petrol-900);
-  --loan: var(--petrol-600);
-  --grant: var(--terra-600);
-  --equity: var(--sand-300);
-  --equity-line: var(--sand-500);
+  --surface: var(--white);
+  --surface-2: var(--paper);
+  --surface-3: var(--grey-100);
+  --surface-inverse: var(--ink);
+  --fg: var(--ink);                 /* Überschriften, Zahlen, Hervorhebung */
+  --text: var(--anthracite);        /* Fließtext */
+  --fg-2: var(--anthracite);
+  --fg-3: var(--grey-600);
+  --rule: var(--grey-200);
+  --rule-strong: var(--ink);
+  --grid-line: var(--grid-5mm);
+  --accent: var(--pgn-red);         /* Flächen, Linien, Marker */
+  --accent-text: var(--pgn-red);    /* rote Schrift (≥ 9 pt, ≥ 600) */
+  --accent-deep: var(--pgn-red-deep);
+  --accent-soft: var(--pgn-red-100);
+  --accent-fill: var(--grad-red);   /* rote Fläche (Verlauf 160°) */
+  --tip: var(--anthracite);
+  --tip-text: var(--anthracite);
+  --tip-soft: var(--paper);
+  --signal-fill: var(--pgn-red-deep);
+  --signal-soft: var(--pgn-red-100);
+  --signal-text: var(--pgn-red-deep);
+  --on-signal: var(--white);
+  --loan: var(--ink);               /* Darlehen = Poché (geschnittenes Bauteil) */
+  --grant: var(--pgn-red);          /* Zuschuss = PGN-Rot */
+  --equity: var(--grey-150);        /* Eigenmittel = Schraffur auf Hellgrau */
+  --equity-line: #8E8A85;
   --on-data: var(--white);
-  --old: var(--sand-400);   /* Datenreihe „bisher / altes Recht“ (SVG .c-old, HTML .sw--old); auf allen Flächen gleich */
-  --ok: var(--petrol-600);
-  --no: var(--terra-700);
+  --old: var(--grey-300);           /* „bisher / altes Recht“ */
+  --ok: var(--ink);
+  --no: var(--pgn-red);
   --on-mark: var(--white);
+  /* Signaturen (Planzeichnungen, assets/pgn/sig-*.svg) */
+  --sig-ink: var(--ink);
+  --sig-line: var(--anthracite);
+  --sig-accent: var(--pgn-red);
+  --sig-grid: var(--grey-300);
+  --sig-soft: #A8A49F;
+  --sig-face: var(--white);
+  --sig-face-2: #F1EFEC;
+  --sig-face-3: #E6E3DF;
+  --sig-face-4: #D5D1CC;
+  --sig-paper: var(--paper);
+  --sig-glass: #FBFAF9;
+  --sig-dark: #57534F;
+  --sig-brick: #D58E9D;
+  --sig-plan: var(--white);
 }
 
-.on-light, .cover__band { color: var(--fg); }   /* helle Insel auf dunkler Seite erbt sonst Papier-Textfarbe */
+.on-light, .cover__band { color: var(--text); }
 
-/* 1.10 Dunkel: Titel, Rückseite, dunkle Seiten und Kacheln */
-.page--dark,
-.page--cover,
-.page--back,
-.on-dark,
-.kf--hero,
-.contact--dark {
-  --surface: var(--petrol-900);
-  --surface-2: var(--petrol-800);
-  --surface-3: var(--petrol-700);
-  --surface-inverse: var(--sand-50);
-  --fg: var(--sand-50);
-  --fg-2: var(--mist-200);
-  --fg-3: var(--mist-300);
-  --rule: var(--petrol-rule);
-  --rule-strong: var(--sand-50);
-  --grid-line: var(--petrol-grid);
-  --accent: var(--terra-300);
-  --accent-text: var(--terra-300);
-  --accent-soft: var(--petrol-800);
-  --tip: var(--petrol-400);
-  --tip-text: var(--petrol-300);
-  --tip-soft: var(--petrol-800);
-  --signal-soft: var(--petrol-800);
-  --signal-text: var(--amber-500);
-  --loan: var(--petrol-400);
-  --grant: var(--terra-300);
-  --equity: var(--petrol-700);
-  --equity-line: var(--petrol-300);
-  --on-data: var(--petrol-900);
-  --ok: var(--petrol-400);
-  --no: var(--terra-300);
-  --on-mark: var(--petrol-900);
-  color: var(--fg);
-}
-
-/* 1.11 Sand: Akzentseiten (z. B. Mittel-Doppelseite) und Sand-Flächen */
+/* 1.10 Papier: Akzentseiten (Mittel-Doppelseite) und Papierflächen. Ganze Seiten nur sparsam (Offset: Flächenton
+   wird leicht wolkig – besser Naturpapier); Kästen darin werden weiß. */
 .page--accent,
-.on-sand {
-  --surface: var(--sand-100);
-  --surface-2: var(--sand-50);
-  --surface-3: var(--sand-200);
-  --rule: var(--sand-500);
-  --grid-line: var(--sand-200);
-  --accent-soft: var(--terra-100);
+.on-sand,
+.on-paper {
+  --surface: var(--paper);
+  --surface-2: var(--white);
+  --surface-3: var(--grey-100);
+  --rule: var(--grey-200);
+  --grid-line: var(--grey-100);
+  --sig-face: var(--paper);
 }
 
-/* 1.12 Baustein-Modifikatoren: setzen --bs / --bs-tint für jede Komponente */
-.bs-21 { --bs: var(--bs-21); --bs-tint: var(--bs-21-tint); }
-.bs-22 { --bs: var(--bs-22); --bs-tint: var(--bs-22-tint); }
-.bs-23 { --bs: var(--bs-23); --bs-tint: var(--bs-23-tint); }
-.bs-24 { --bs: var(--bs-24); --bs-tint: var(--bs-24-tint); }
-.bs-25 { --bs: var(--bs-25); --bs-tint: var(--bs-25-tint); }
-.bs-26 { --bs: var(--bs-26); --bs-tint: var(--bs-26-tint); }
+/* 1.11 Anthrazit: dunkle Seiten, Kacheln, Kontaktflächen (Verlauf 160° #3C3C3B → #202020) */
+.page--dark,
+.on-dark,
+.contact--dark {
+  --surface: var(--anthracite);
+  --surface-2: #4A4948;
+  --surface-3: #575655;
+  --surface-inverse: var(--white);
+  --fg: var(--white);
+  --text: #EDEBE8;
+  --fg-2: #E2DFDB;
+  --fg-3: var(--grey-300);
+  --rule: #5E5D5C;
+  --rule-strong: var(--white);
+  --grid-line: #474645;
+  --accent: var(--pgn-red);
+  --accent-text: var(--pgn-red-300);
+  --accent-soft: #4A4948;
+  --accent-fill: var(--grad-red);
+  --tip: var(--grey-300);
+  --tip-text: var(--grey-300);
+  --tip-soft: #4A4948;
+  --signal-soft: #4A4948;
+  --signal-text: var(--pgn-red-300);
+  --loan: var(--paper);
+  --grant: #E36A82;
+  --equity: #5E5D5C;
+  --equity-line: var(--grey-300);
+  --on-data: var(--ink);
+  --ok: var(--white);
+  --no: var(--pgn-red-300);
+  --on-mark: var(--ink);
+  --sig-ink: var(--white);
+  --sig-line: #E2DFDB;
+  --sig-accent: var(--pgn-red-300);
+  --sig-grid: #6E6D6C;
+  --sig-face: var(--anthracite);
+  --sig-face-2: #4A4948;
+  color: var(--text);
+}
+
+/* 1.12 PGN-Rot: Rückseite, Hero-Kachel, Kennzahlfeld U1, gefüllte Plakette (Verlauf 160° #B71E3F → #8B2939).
+   Text weiß (≥ 6,4:1); Negativtext aus dem Verlauf nur ≥ 9 pt und ≥ 600. */
+.page--back,
+.page--u4,
+.on-red,
+.kf--hero,
+.seal--filled,
+.cover__kpi {
+  --surface: var(--pgn-red);
+  --surface-2: var(--pgn-red-deep);
+  --surface-3: #A3233F;
+  --surface-inverse: var(--white);
+  --fg: var(--white);
+  --text: var(--white);
+  --fg-2: var(--pgn-red-100);
+  --fg-3: var(--pgn-red-100);
+  --rule: #D47E91;
+  --rule-strong: var(--white);
+  --grid-line: #C2405D;
+  --accent: var(--white);
+  --accent-text: var(--white);
+  --accent-soft: var(--pgn-red-deep);
+  --accent-fill: var(--white);
+  --loan: var(--ink);
+  --grant: var(--white);
+  --equity: #D47E91;
+  --equity-line: var(--pgn-red-100);
+  --on-data: var(--pgn-red);
+  --ok: var(--white);
+  --no: var(--white);
+  --on-mark: var(--pgn-red);
+  --sig-plan: var(--white);
+  color: var(--text);
+}
+
+/* 1.13 Programmteil-Modifikatoren: setzen --bs / --bs-tint / --bs-i (Daumenregister) für alles darin */
+.bs-21 { --bs: var(--bs-21); --bs-tint: var(--bs-21-tint); --bs-i: 0; }
+.bs-22 { --bs: var(--bs-22); --bs-tint: var(--bs-22-tint); --bs-i: 1; }
+.bs-23 { --bs: var(--bs-23); --bs-tint: var(--bs-23-tint); --bs-i: 2; }
+.bs-24 { --bs: var(--bs-24); --bs-tint: var(--bs-24-tint); --bs-i: 3; }
+.bs-25 { --bs: var(--bs-25); --bs-tint: var(--bs-25-tint); --bs-i: 4; }
+.bs-26 { --bs: var(--bs-26); --bs-tint: var(--bs-26-tint); --bs-i: 5; }
 
 /* -----------------------------------------------------------------------------
    2 · BASIS
@@ -259,7 +333,7 @@ body {
   font-family: var(--font-text);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
-  color: var(--fg);
+  color: var(--text);
   background: var(--surface);
   font-kerning: normal;
   font-feature-settings: "kern", "liga", "calt";
@@ -272,24 +346,24 @@ body {
 }
 h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dd, figure, blockquote, table, address { margin: 0; padding: 0; }
 h1, h2, h3, h4, h5, h6 { font-weight: inherit; font-size: inherit; text-wrap: balance; }
-/* Überschriften und Titel nie trennen (weiche Trennstriche werden ignoriert); bei Bedarf .u-hyphens */
+/* Überschriften und Titel nie automatisch trennen; von Hand gesetzte &shy; greifen (Montserrat-Versalien sind breit:
+   „MIETWOHNRAUM&shy;FÖRDERUNG“). Bei Bedarf .u-hyphens */
 h1, h2, h3, h4, .h1, .h2, .h3, .display, .cover__title, .chapter-no, .kf__label, .chart__title, .fig-head__title,
-.step__title, .faq__q, .callout__title, .program__title, .model__title, .contact__name, .term__word, .path__title { -webkit-hyphens: none; hyphens: none; }
-/* Versal-Labels ebenfalls nie trennen (STICH-TAG) – assemble.cjs setzt dort auch keine weichen Trennstriche */
+.step__title, .faq__q, .callout__title, .program__title, .model__title, .contact__name, .term__word, .path__title,
+.claim, .service__title, .reference__name, .bzp__title { -webkit-hyphens: manual; hyphens: manual; }
+/* Versal-Labels nie trennen – assemble.cjs setzt dort auch keine weichen Trennstriche */
 .kicker, .label, .h4, .callout__label, .term__label, .kf__pre, .bullets__title, .contact__label, .seal__pre, .titleblock__label,
 .audience__label, .steps__head-label, .page__section, .stamp, .stampline, .cover__rl, .caveat, .chapter-no__label,
-.table thead th, .table--terms th[scope="row"] { -webkit-hyphens: none; hyphens: none; }
-/* Vorspann: keine automatische Trennung (assemble.cjs setzt dort keine weichen Trennstriche), Zeilen ausgleichen.
-   hyphens: manual, damit ein von Hand gesetztes &shy; an einer Kompositionsfuge greift (Wohnraum&shy;förderstelle). */
+.table thead th, .table--terms th[scope="row"], .keyplan, .service__phase, .photo__tag, .kote, .axis-no, .dim,
+.reference__units small, .lph-scale, .values__word { -webkit-hyphens: none; hyphens: none; }
 .lead { -webkit-hyphens: manual; hyphens: manual; text-wrap: pretty; }
 .u-hyphens { -webkit-hyphens: manual !important; hyphens: manual !important; }
-/* Kein Wort und kein Trennrest allein in der letzten Zeile – auch in Tabellenzellen. Greift nicht immer
-   (render.cjs meldet verbliebene Fälle als LASTLINE; Abhilfe: HYPH_EXCEPTIONS in assemble.cjs). */
 p, li, dd, td, th { text-wrap: pretty; }
 ul, ol { list-style: none; }
-b, strong { font-weight: 650; }
+b, strong { font-weight: 600; }
 a { color: inherit; text-decoration: none; }
 svg { overflow: visible; }
+img { display: block; max-width: 100%; }
 table { border-collapse: collapse; border-spacing: 0; }
 abbr { text-decoration: none; }
 
@@ -307,7 +381,7 @@ abbr { text-decoration: none; }
   flex-direction: column;
   padding: var(--m-top) var(--m-outer) var(--m-bottom) var(--m-inner);
   background: var(--surface);
-  color: var(--fg);
+  color: var(--text);
 }
 .page:last-child { break-after: auto; page-break-after: auto; }
 .page > * { flex: none; }
@@ -315,100 +389,140 @@ abbr { text-decoration: none; }
 /* Varianten */
 .page--cover { padding: 0; }
 .page--back { padding-bottom: var(--m-top); }
-.page--dark, .page--back, .page--cover { background: var(--surface); }
+.page--dark { background: var(--grad-dark); }
+.page--back { background: var(--grad-red); }
 .page--accent { background: var(--surface); }
+.page--opener { padding-top: calc(var(--frame-inset) + 10mm); }       /* Kapitelauftakt im Planrahmen */
+.page--u1, .page--u4 { padding: 0; }
 
-/* Optionaler Seitenkopf (Kapitelmarke) */
+/* Planrahmen (Umschlag, Kapitelauftakt): 8 mm vom Endformat, 0,35 mm Fast-Schwarz */
+.planframe { position: absolute; inset: var(--frame-inset); border: .35mm solid var(--rule-strong); pointer-events: none; }
+.planframe--soft { border-width: var(--hair); border-color: var(--grey-450); }
+.on-red .planframe, .page--u4 .planframe { border-color: rgba(255, 255, 255, .85); }
+/* Falzmarken links am Rahmen (Planblatt) */
+.planframe::before, .planframe::after { content: ""; position: absolute; left: calc(-1 * var(--frame-inset)); width: 4mm; border-top: var(--hair) solid var(--rule-strong); }
+.planframe::before { top: calc(105mm - var(--frame-inset)); }
+.planframe::after { top: calc(210mm - var(--frame-inset)); }
+
+/* Optionaler Seitenkopf: Rubrik links, Schlüsselplan rechts */
 .page__header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: var(--sp-4);
-  padding-bottom: 2.4mm;
+  min-height: 7mm;
+  padding-bottom: 2mm;
   border-bottom: var(--hair) solid var(--rule);
-  margin-bottom: var(--sp-8);
+  margin-bottom: var(--sp-6);
   font: 500 var(--fs-micro)/1.2 var(--font-text);
   color: var(--fg-3);
 }
-.page__section { font-weight: 650; letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
-.page__section b { color: var(--accent-text); margin-right: 1.6mm; }
+.page__section { font: 700 var(--fs-micro)/1.2 var(--font-display); letter-spacing: var(--track-kicker); text-transform: uppercase; color: var(--fg); }
+.page__section b { color: var(--accent-text); margin-right: 1.6mm; font-weight: 800; font-size: var(--fs-label-accent); }
 
-/* Fuß: Seitenzahl (außen) + Kolumnentitel */
+/* Fuß = Mini-Plankopf: [Blatt NN] [PGN] [Projekt · Rubrik] [Stand] – außen die Blattnummer, daneben die Wortmarke.
+   Markup unverändert: <footer class="page__foot"><span class="page__folio">8</span><span class="page__running">
+   <span>Titel<span class="sep">·</span><b>Rubrik</b></span><span>Stand: 21.10.2026</span></span></footer> */
 .page__foot {
   position: absolute;
   left: var(--m-inner);
   right: var(--m-outer);
   bottom: var(--foot-y);
+  height: var(--foot-h);
   display: flex;
-  flex-direction: row-reverse;            /* rechte (ungerade) Seite: Seitenzahl rechts außen */
-  align-items: baseline;
-  gap: var(--sp-5);
-  border-top: var(--hair) solid var(--rule);
-  padding-top: 2.4mm;
-  font: 500 var(--fs-micro)/1 var(--font-text);
+  align-items: stretch;
+  border-top: var(--rule-w) solid var(--rule-strong);
+  border-bottom: var(--hair) solid var(--rule);
+  font: 500 var(--fs-micro)/1.15 var(--font-text);
   color: var(--fg-3);
 }
-.page__folio {
+.page__foot::before {                                   /* PGN-Wortmarke (Vektor, assets/pgn/logo-mark-rot.svg) */
+  content: "";
+  order: 2;
   flex: none;
-  min-width: 6mm;
-  font-family: var(--font-display);
-  font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0;
-  font-weight: 450;
-  font-size: 11pt;
-  line-height: 1;
+  width: 19mm;
+  background: url("assets/pgn/logo-mark-rot.svg") center / 11.5mm auto no-repeat;
+  border-left: var(--hair) solid var(--rule);
+  border-right: var(--hair) solid var(--rule);
+}
+.page__folio {
+  order: 3;
+  flex: none;
+  min-width: 17mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3mm;
+  background: var(--surface-2);
+  font: 900 12pt/1 var(--font-display);
   color: var(--fg);
   text-align: right;
   font-variant-numeric: lining-nums tabular-nums;
 }
+.page__folio::before { content: "Blatt"; display: block; margin-bottom: .6mm; font: 500 var(--fs-micro)/1 var(--font-text); color: var(--fg-3); }
 .page__running {
+  order: 1;
   flex: 1;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--sp-4);
+  align-items: center;
+  gap: 0;
   min-width: 0;
   white-space: nowrap;
 }
-.page__running b { font-weight: 650; color: var(--fg); }
-.page__running .sep { color: var(--rule); margin: 0 1.2mm; }
-/* linke (gerade) Seiten: data-page endet auf 0/2/4/6/8 oder .page--left */
-.page--left .page__foot,
-.page[data-page$="0"] .page__foot,
-.page[data-page$="2"] .page__foot,
-.page[data-page$="4"] .page__foot,
-.page[data-page$="6"] .page__foot,
-.page[data-page$="8"] .page__foot { flex-direction: row; }
-.page--left .page__folio,
-.page[data-page$="0"] .page__folio,
-.page[data-page$="2"] .page__folio,
-.page[data-page$="4"] .page__folio,
-.page[data-page$="6"] .page__folio,
-.page[data-page$="8"] .page__folio { text-align: left; }
-.page--right .page__foot { flex-direction: row-reverse; }
+.page__running > span { display: flex; align-items: center; height: 100%; padding: 0 3mm; }
+.page__running > span:first-child { flex: 1; min-width: 0; flex-direction: column; align-items: flex-start; justify-content: center; gap: .7mm; padding-left: 0; overflow: hidden; }   /* Projekt (Zeile 1) · Rubrik (Zeile 2) */
+.page__running > span + span { border-left: var(--hair) solid var(--rule); }
+.page__running b { font: 700 var(--fs-micro)/1 var(--font-display); letter-spacing: .06em; text-transform: uppercase; color: var(--fg); }
+.page__running .sep { display: none; }
+/* linke (gerade) Seiten: Blattnummer links außen */
+.page--left .page__foot .page__folio,
+.page[data-page$="0"] .page__foot .page__folio,
+.page[data-page$="2"] .page__foot .page__folio,
+.page[data-page$="4"] .page__foot .page__folio,
+.page[data-page$="6"] .page__foot .page__folio,
+.page[data-page$="8"] .page__foot .page__folio { order: 1; text-align: left; }
+.page--left .page__foot .page__running,
+.page[data-page$="0"] .page__foot .page__running,
+.page[data-page$="2"] .page__foot .page__running,
+.page[data-page$="4"] .page__foot .page__running,
+.page[data-page$="6"] .page__foot .page__running,
+.page[data-page$="8"] .page__foot .page__running { order: 3; }
+.page--left .page__running > span:first-child,
+.page[data-page$="0"] .page__running > span:first-child,
+.page[data-page$="2"] .page__running > span:first-child,
+.page[data-page$="4"] .page__running > span:first-child,
+.page[data-page$="6"] .page__running > span:first-child,
+.page[data-page$="8"] .page__running > span:first-child { padding-left: 3mm; }
+.page--right .page__foot .page__folio { order: 3; text-align: right; }
+.page--right .page__foot .page__running { order: 1; }
+/* Nordpfeil am Blatt („Nord“), klein */
+.page__folio::after { content: none; }
 
-/* Baustein-Register: Reiter an der Oberkante, außen (randabfallend) */
+/* Daumenregister: Reiter am Außenrand in der Programmfarbe, Lage nach Programmteil (2.1 oben … 2.6 unten),
+   randabfallend (data-bleed). Gerade Seiten links, ungerade rechts. */
 .bs-register {
   position: absolute;
-  top: 0;
-  right: var(--m-outer);
-  width: 15mm;
-  height: 12mm;
+  top: calc(52mm + var(--bs-i, 0) * 25mm);
+  right: 0;
+  width: 10mm;
+  height: 21mm;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  padding-bottom: 1.8mm;
+  padding-left: 1mm;
   background: var(--bs, var(--accent));
   color: var(--on-bs);
-  font: 700 var(--fs-micro)/1 var(--font-text);
-  letter-spacing: .04em;
+  font: 800 var(--fs-label-accent)/1 var(--font-display);
+  letter-spacing: .02em;
   font-variant-numeric: tabular-nums;
+  writing-mode: horizontal-tb;
 }
 .page--left .bs-register,
 .page[data-page$="0"] .bs-register,
 .page[data-page$="2"] .bs-register,
 .page[data-page$="4"] .bs-register,
 .page[data-page$="6"] .bs-register,
-.page[data-page$="8"] .bs-register { right: auto; left: var(--m-outer); }
+.page[data-page$="8"] .bs-register { right: auto; left: 0; padding-left: 0; padding-right: 1mm; }
 
 /* Randabfallende Flächen (vom Overflow-Check ausgenommen: Attribut data-bleed setzen) */
 .l-bleed-x { margin-left: calc(-1 * var(--m-inner)); margin-right: calc(-1 * var(--m-outer)); padding-left: var(--m-inner); padding-right: var(--m-outer); }
@@ -419,117 +533,116 @@ abbr { text-decoration: none; }
 .kicker {
   display: flex;
   align-items: center;
-  gap: 2.5mm;
-  font: 650 var(--fs-micro)/1.2 var(--font-text);
-  letter-spacing: .12em;
+  gap: 2.6mm;
+  font: 700 var(--fs-label-accent)/1.2 var(--font-display);
+  letter-spacing: var(--track-kicker);
   text-transform: uppercase;
   color: var(--accent-text);
 }
-.kicker::before { content: ""; flex: none; width: 7mm; height: var(--rule-heavy); background: currentColor; }
+.kicker::before { content: ""; flex: none; width: 7mm; height: .6mm; background: currentColor; }
 .kicker--plain::before { display: none; }
+.kicker--ink { color: var(--fg); }
+.kicker--ink::before { background: var(--accent); }
 
+/* H1: Montserrat 900 Versalien, rote Titellinie hängt links neben dem Satzspiegel (PGN-Seitentitel) */
 .display,
 .h1 {
+  position: relative;
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0;
-  font-weight: 340;
+  font-weight: 900;
   font-size: var(--fs-h1);
-  line-height: 1;
-  letter-spacing: -.016em;
-  word-spacing: .06em;               /* gleicht die negative Laufweite in den Wortabständen aus */
+  line-height: var(--lh-head);
+  letter-spacing: var(--track-head);
+  text-transform: uppercase;
   color: var(--fg);
 }
-.h1 em, .display em {
-  font-style: italic;
-  font-weight: 320;
-  font-variation-settings: "opsz" 144, "SOFT" 70, "WONK" 1;
-  color: var(--accent-text);
-}
+.h1::before { content: ""; position: absolute; left: calc(-1 * var(--rule-hang)); top: .06em; bottom: .02em; width: var(--rule-accent); background: var(--accent); }
+.h1--norule::before { display: none; }
+.h1 em, .display em { font-style: italic; font-weight: 800; color: var(--accent-text); }
+.h1 .light, .display .light { display: block; font-weight: 300; font-size: .62em; line-height: 1.2; letter-spacing: .05em; color: var(--fg-2); }  /* „zweite Stimme“ */
 .h1--s { font-size: var(--fs-h1-s); }
-.h1--xl { font-size: 52pt; line-height: .96; }
+.h1--xl { font-size: 34pt; line-height: 1; }
 .kicker + .h1, .kicker + .display { margin-top: 4mm; }
 
 .h2 {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 48, "SOFT" 30, "WONK" 0;
-  font-weight: 420;
+  font-weight: 900;
   font-size: var(--fs-h2);
   line-height: 1.12;
-  letter-spacing: -.008em;
-  word-spacing: .03em;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--fg);
 }
+.h2 em { font-style: italic; font-weight: 800; color: var(--accent-text); }
 .h3 {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 24, "SOFT" 30, "WONK" 0;
-  font-weight: 500;
+  font-weight: 700;
   font-size: var(--fs-h3);
-  line-height: 1.16;
-  letter-spacing: -.004em;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--fg);
 }
 .h4, .label {
-  font: 650 var(--fs-micro)/1.25 var(--font-text);
+  font: 700 var(--fs-micro)/1.25 var(--font-display);
   letter-spacing: var(--track-caps);
   text-transform: uppercase;
   color: var(--fg-3);
 }
-.label--accent { color: var(--accent-text); }
+.label--accent { color: var(--accent-text); font-size: var(--fs-label-accent); }
 .lead {
-  font-family: var(--font-display);
-  font-variation-settings: "opsz" 24, "SOFT" 30, "WONK" 0;
-  font-weight: 370;
+  font-family: var(--font-text);
+  font-weight: 400;
   font-size: var(--fs-lead);
   line-height: var(--lh-lead);
   color: var(--fg-2);
+  max-width: 132mm;                 /* ≈ 65–70 Zeichen */
 }
-.lead strong, .lead b { font-weight: 520; color: var(--fg); }
-.lead--s { font-size: 11.5pt; }
-/* Unterzeile direkt unter der H1 (Programmseiten): Fraunces 11 pt, Kennwerte fett in Akzent */
+.lead strong, .lead b { font-weight: 600; color: var(--fg); }
+.lead--s { font-size: 10.25pt; }
+/* Unterzeile direkt unter der H1: Montserrat 300 Versalien, Kennwerte 800 in Rot */
 .deck {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0;
-  font-weight: 400;
-  font-size: 11pt;
+  font-weight: 300;
+  font-size: var(--fs-deck);
   line-height: 1.32;
-  letter-spacing: -.004em;
-  color: var(--fg);
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  color: var(--fg-2);
   -webkit-hyphens: none;
   hyphens: none;
   text-wrap: balance;
 }
-.deck b, .deck strong { font-weight: 560; color: var(--accent-text); white-space: nowrap; }
-.deck--s { font-size: 10.5pt; line-height: 1.36; color: var(--fg-2); text-wrap: pretty; }   /* ganzer Satz statt Zeile */
-.deck--s b, .deck--s strong { white-space: normal; }
-.h1 + .deck { margin-top: 3.4mm; }
-/* Kopf der Programmseiten (2.1–2.6): Kapitelnummer außen, Kicker/Titel/Unterzeile daneben */
+.deck b, .deck strong { font-weight: 800; color: var(--accent-text); white-space: nowrap; letter-spacing: .02em; }
+.deck--s { font-family: var(--font-text); font-weight: 400; font-size: 10.5pt; line-height: 1.42; letter-spacing: 0; text-transform: none; color: var(--fg-2); text-wrap: pretty; }
+.deck--s b, .deck--s strong { font-weight: 600; white-space: normal; letter-spacing: 0; }
+.h1 + .deck { margin-top: 3mm; }
+/* Kopf der Programmseiten (2.1–2.6): Nummer außen, Kicker/Titel/Unterzeile daneben */
 .program-head { align-items: start; }
-.program-head .kicker + .h1 { margin-top: 2.4mm; }
-/* Master-Opener (S. 8, 12, 13, 14, 16, 17): außen Ziffer + Label „Programmteil“ + Förderart-Chip (4 Spalten),
-   innen Kicker / H1 / Deck (Fraunces, ≤ 2 Zeilen, Kernzahlen in Akzent) / Gegenstandssatz (Inter 9,5 pt, ≤ 3 Zeilen)
-   in fester Breite (8 Spalten). Gerade Seiten: Ziffer links, ungerade: rechts. */
+.program-head .kicker + .h1 { margin-top: 3mm; }
 .program-head--master { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start; }
-.program-head--master > .program-head__no { grid-column: 9 / span 4; grid-row: 1; }
-.program-head--master > .program-head__main { grid-column: 1 / span 8; grid-row: 1; }
+.program-head--master > .program-head__no { grid-column: 10 / span 3; grid-row: 1; }
+.program-head--master > .program-head__main { grid-column: 1 / span 9; grid-row: 1; }
 .page--left .program-head--master > .program-head__no,
 .page[data-page$="0"] .program-head--master > .program-head__no,
 .page[data-page$="2"] .program-head--master > .program-head__no,
 .page[data-page$="4"] .program-head--master > .program-head__no,
 .page[data-page$="6"] .program-head--master > .program-head__no,
-.page[data-page$="8"] .program-head--master > .program-head__no { grid-column: 1 / span 4; }
+.page[data-page$="8"] .program-head--master > .program-head__no { grid-column: 1 / span 3; }
 .page--left .program-head--master > .program-head__main,
 .page[data-page$="0"] .program-head--master > .program-head__main,
 .page[data-page$="2"] .program-head--master > .program-head__main,
 .page[data-page$="4"] .program-head--master > .program-head__main,
 .page[data-page$="6"] .program-head--master > .program-head__main,
-.page[data-page$="8"] .program-head--master > .program-head__main { grid-column: 5 / span 8; }
+.page[data-page$="8"] .program-head--master > .program-head__main { grid-column: 4 / span 9; }
 .program-head__no { display: flex; flex-direction: column; align-items: flex-end; }
 .page--left .program-head__no,
 .page[data-page$="0"] .program-head__no, .page[data-page$="2"] .program-head__no, .page[data-page$="4"] .program-head__no,
 .page[data-page$="6"] .program-head__no, .page[data-page$="8"] .program-head__no { align-items: flex-start; }
 .program-head__no .tags { margin-top: 2.6mm; }
-.program-head__main .kicker::before { display: none; }   /* ohne Vorstrich: die Ziffer außen markiert den Einstieg; Kicker bleibt einzeilig */
-.program-head__main .kicker + .h1 { margin-top: 2.4mm; }
+.program-head__main .kicker::before { display: none; }
+.program-head__main .kicker + .h1 { margin-top: 3mm; }
 .program-head__main .h1 + .deck { margin-top: 2.6mm; }
-.program-head__subject { margin-top: 1.8mm; font-size: var(--fs-body); line-height: 1.4; color: var(--fg-2); }
+.program-head__subject { margin-top: 2.4mm; font-size: var(--fs-body); line-height: 1.45; color: var(--fg-2); }
 .program-head__subject b { color: var(--fg); }
 .body, .prose p { font-size: var(--fs-body); line-height: var(--lh-body); }
 .prose p + p { margin-top: 2.4mm; }
@@ -542,13 +655,28 @@ abbr { text-decoration: none; }
 .dropcap::first-letter {
   float: left;
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
-  font-weight: 340;
-  font-size: 50pt;                 /* deckt genau drei Zeilen Fließtext (9,5 pt / 1,45) */
-  line-height: .74;
-  margin: .6mm 1.8mm 0 -.4mm;
+  font-weight: 900;
+  font-size: 41pt;                 /* deckt genau drei Zeilen Fließtext (9,75 pt / 1,47) */
+  line-height: .78;
+  margin: .9mm 2mm 0 -.3mm;
   color: var(--accent-text);
 }
+
+/* Plakatzeile (PGN-Webmuster „VORAUS*denken*“): Montserrat 900 Versalien, Signaturwort 800 kursiv in Rot */
+.claim {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 22pt;
+  line-height: 1.02;
+  letter-spacing: var(--track-head);
+  text-transform: uppercase;
+  color: var(--fg);
+}
+.claim em { font-style: italic; font-weight: 800; color: var(--accent-text); }
+.claim .light { display: block; font-weight: 300; font-size: .62em; line-height: 1.25; letter-spacing: .05em; color: var(--fg-2); }
+.claim--s { font-size: 13pt; line-height: 1.18; }
+.claim--l { font-size: 31pt; }
+.claim--rule { border-left: var(--rule-accent) solid var(--accent); padding-left: 5mm; }
 
 /* Titelblock einer Seite: Kicker + H1 (+ Lead) */
 .title-block { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: 4mm; align-items: end; }
@@ -558,40 +686,32 @@ abbr { text-decoration: none; }
 .title-block--split-6 > .title-block__main { grid-column: 1 / span 6; }
 .title-block--split-6 > .lead { grid-column: 7 / span 6; padding-bottom: 1mm; }
 
-/* RL-Verweis, Quellen, Fußnoten. .ref ohne vorangestelltes Zeichen: Die Richtlinie hat Nummern, keine Paragrafen („RL Nr. 5.3.3“) */
+/* RL-Verweis, Quellen, Fußnoten */
 .ref { font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-3); white-space: nowrap; }
-/* Seitenverweis-Chip „→ S. 8–11“ (Pfeil als Zeichen, Inter-Symbolteilmenge aus fonts.css) */
-.pageref { display: inline-block; flex: none; padding: .6mm 1.3mm .5mm .9mm; background: var(--accent-soft); font: 650 var(--fs-micro)/1.15 var(--font-text); color: var(--accent-text); white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* Seitenverweis „→ Blatt 20“ / „→ S. 8“ (Pfeil als Zeichen aus der PGN-Symbolteilmenge) */
+.pageref { display: inline-block; flex: none; padding: .7mm 1.4mm .6mm 1mm; background: var(--accent-soft); font: 700 var(--fs-label-accent)/1.15 var(--font-display); color: var(--accent-deep, var(--accent-text)); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .source { font-size: var(--fs-micro); line-height: var(--lh-small); color: var(--fg-3); }
-.source b, .source__label { font-weight: 650; color: var(--fg-2); }
-/* Fußnotenziffer: immer Inter 650 aufrecht, nur im Fließtext, in Tabellenzellen und Bildunterschriften –
-   nie an h1–h4, .kicker, .label (seitenweite Fundstellen stehen ziffernlos als erste Fußnotenzeile, .footnotes__src) */
-.fn { font-family: var(--font-text); font-style: normal; font-variation-settings: normal; font-size: var(--fs-micro); line-height: 0; vertical-align: .42em; font-weight: 650; letter-spacing: 0; text-transform: none; color: var(--accent-text); margin-left: .05em; font-variant-numeric: tabular-nums; }
-/* Seitenfuß: ein System für alle Seiten – .footnotes.footnotes--2col.l-bottom über die volle Satzspiegelbreite,
-   Haarlinie darüber, höchstens 4 Zeilen je Spalte, nur Quellen und RL-Nummern */
-/* Fußnotenziffer als echter Text (<span class="footnotes__no">N</span>, setzt scripts/assemble.cjs) – kein ::before/counter:
-   Generated Content fehlt im Tag-Baum des PDFs, die Zuordnung Fließtext-Ziffer → Fußnote ginge beim Vorlesen verloren */
+.source b, .source__label { font-weight: 600; color: var(--fg-2); }
+.fn { font-family: var(--font-text); font-style: normal; font-variation-settings: normal; font-size: var(--fs-micro); line-height: 0; vertical-align: .42em; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--accent-text); margin-left: .05em; font-variant-numeric: tabular-nums; }
 .footnotes { font-size: var(--fs-micro); line-height: var(--lh-small); color: var(--fg-3); border-top: var(--hair) solid var(--rule); padding-top: 2mm; }
 .footnotes > li { position: relative; padding-left: 4mm; }
 .footnotes > li + li { margin-top: .8mm; }
 .footnotes > li::before { content: none; }
-.footnotes__no { position: absolute; left: 0; font-weight: 650; color: var(--accent-text); font-variant-numeric: tabular-nums; }
-.footnotes > .footnotes__src { padding-left: 0; }          /* ziffernlose Zeile „Fundstellen: RL Nr. …“ */
-.footnotes__src b { font-weight: 650; color: var(--fg-2); }
-.footnotes--2col { column-count: 2; column-gap: var(--gutter); orphans: 1; widows: 1; }   /* zwei Spalten, Fußnote nie geteilt */
+.footnotes__no { position: absolute; left: 0; font-weight: 700; color: var(--accent-text); font-variant-numeric: tabular-nums; }
+.footnotes > .footnotes__src { padding-left: 0; }
+.footnotes__src b { font-weight: 600; color: var(--fg-2); }
+.footnotes--2col { column-count: 2; column-gap: var(--gutter); orphans: 1; widows: 1; }
 .footnotes--2col > li { break-inside: avoid; }
-.footnotes--2col > li:not(.footnotes__src) { display: inline-block; width: 100%; vertical-align: top; }   /* monolithisch: Chromium teilt sonst trotz avoid */
-.footnotes--2col > .footnotes__src { break-inside: auto; }                 /* Fundstellen laufen von Spalte 1 in Spalte 2 … */
-.footnotes--2col > .footnotes__src:only-child { column-span: all; }          /* … stehen sie allein, über die volle Breite */
-.footnotes--2col > .footnotes__src:first-child:nth-last-child(n+3) { column-span: all; margin-bottom: .8mm; }   /* … und bei zwei und mehr nummerierten Fußnoten: Fundstellen voll breit, Fußnoten zweispaltig darunter */
+.footnotes--2col > li:not(.footnotes__src) { display: inline-block; width: 100%; vertical-align: top; }
+.footnotes--2col > .footnotes__src { break-inside: auto; }
+.footnotes--2col > .footnotes__src:only-child { column-span: all; }
+.footnotes--2col > .footnotes__src:first-child:nth-last-child(n+3) { column-span: all; margin-bottom: .8mm; }
 .stand { font-size: var(--fs-micro); line-height: var(--lh-small); color: var(--fg-3); border-top: var(--hair) solid var(--rule); padding-top: 2mm; }
 .stand b { color: var(--fg-2); }
-.note { border-left: 2pt solid var(--accent); padding: .4mm 0 .6mm 3.2mm; font-size: var(--fs-small); line-height: var(--lh-small); color: var(--fg-2); }
+.note { border-left: var(--rule-accent) solid var(--accent); padding: .4mm 0 .6mm 3.4mm; font-size: var(--fs-small); line-height: var(--lh-small); color: var(--fg-2); }
 .note b { color: var(--fg); }
-/* Standard-Vorbehalt als Kurzmarke: feste Position direkt unter dem Hauptdiagramm bzw. dem Kachelraster.
-   Vollständig nur im Lesehinweis (S. 2) und im Impressum (S. 20); programmspezifische Fälle bleiben ausformuliert. */
 .caveat { margin-top: 2mm; font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-3); text-wrap: balance; }
-.caveat a { color: var(--accent-text); font-weight: 650; white-space: nowrap; }
+.caveat a { color: var(--accent-text); font-weight: 700; white-space: nowrap; }
 
 /* -----------------------------------------------------------------------------
    5 · LAYOUT-UTILITIES
@@ -616,15 +736,15 @@ abbr { text-decoration: none; }
 .l-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--row-gap, var(--sp-2)); }
 .l-between { display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-4); }
 .l-fill { flex: 1 1 auto; min-height: 0; }
-.l-bottom { margin-top: auto !important; }      /* Modul an den Fuß des Satzspiegels schieben */
-/* Fundstellenblock: mindestens 4 mm Luft zum letzten Modul (sonst klebt die letzte Zeile an der Haarlinie) –
-   Rand am Vorgänger, weil margin-top der Fußnoten auf auto steht; auch für ein unteres Modul (.l-bottom) davor */
+.l-bottom { margin-top: auto !important; }
 .page > :has(+ .footnotes) { margin-bottom: var(--sp-4); }
 .l-sidebar { display: grid; grid-template-columns: minmax(0, 1fr) calc(4 * var(--col) + 3 * var(--gutter)); column-gap: var(--gutter); align-items: start; }
 .l-sidebar--left { grid-template-columns: calc(3 * var(--col) + 2 * var(--gutter)) minmax(0, 1fr); }
+.l-indent { padding-left: calc(3 * var(--col) + 3 * var(--gutter)); }   /* Einzugsachse ≈ 46 mm für Leads/Notizen */
+/* Modulkopf: 0,5-mm-Linie Fast-Schwarz (Planlegende); --hair: Haarlinie */
 .module { border-top: var(--rule-heavy) solid var(--rule-strong); padding-top: 3mm; }
 .module--hair { border-top: var(--hair) solid var(--rule); padding-top: 2.6mm; }
-.band { background: var(--surface-2); padding: 4.4mm 6mm 4.8mm; border-top: var(--hair) solid var(--rule); }
+.band { background: var(--surface-2); padding: 4.4mm 6mm 4.8mm; border-top: var(--rule-w) solid var(--rule-strong); }
 .u-mt-0 { margin-top: 0 !important; } .u-mt-1 { margin-top: var(--sp-1); } .u-mt-2 { margin-top: var(--sp-2); }
 .u-mt-3 { margin-top: var(--sp-3); } .u-mt-4 { margin-top: var(--sp-4); } .u-mt-5 { margin-top: var(--sp-5); }
 .u-mt-6 { margin-top: var(--sp-6); } .u-mt-8 { margin-top: var(--sp-8); } .u-mt-10 { margin-top: var(--sp-10); }
@@ -633,11 +753,10 @@ abbr { text-decoration: none; }
 .u-tnum { font-variant-numeric: tabular-nums lining-nums; }
 .u-accent { color: var(--accent-text); }
 .u-muted { color: var(--fg-3); }
-.u-strong { color: var(--fg); font-weight: 650; }
-/* Nur Screenreader. Kein overflow: hidden (render.cjs meldet sonst „schneidet Inhalt ab“): clip-path blendet aus,
-   overflow-x: hidden hält nowrap-Text aus dem Seitenüberlauf heraus (overflow-y wird dadurch auto, nicht hidden). */
+.u-strong { color: var(--fg); font-weight: 600; }
+.u-caps { font-family: var(--font-display); font-weight: 700; letter-spacing: var(--track-caps); text-transform: uppercase; }
 .u-sr { position: absolute; width: 1px; height: 1px; margin: 0; padding: 0; border: 0; overflow-x: hidden; clip-path: inset(50%); white-space: nowrap; }
-.u-nohyphens { -webkit-hyphens: none !important; hyphens: none !important; }   /* Gegenstück zu .u-hyphens: Wort/Bereich nicht trennen */
+.u-nohyphens { -webkit-hyphens: none !important; hyphens: none !important; }
 .u-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 .u-avoid-break { break-inside: avoid; }
 
@@ -645,16 +764,17 @@ abbr { text-decoration: none; }
    6 · KOMPONENTEN
    ----------------------------------------------------------------------------- */
 
-/* 6.1 Abbildungskopf (für table, chart, model) ------------------------------- */
+/* 6.1 Abbildungskopf (für table, chart, model): Planlegende – Versaltitel 800 + Unterzeile ------- */
 .fig-head__title, .chart__title {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0;
-  font-weight: 450;
-  font-size: 15pt;
-  line-height: 1.15;
-  letter-spacing: -.01em;
+  font-weight: 800;
+  font-size: 10pt;
+  line-height: 1.2;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--fg);
 }
-.fig-head__sub, .chart__sub { font-size: var(--fs-small); line-height: var(--lh-small); color: var(--fg-2); margin-top: 1.2mm; }
+.fig-head__sub, .chart__sub { font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-3); margin-top: .8mm; }
 .fig-head + * { margin-top: 3mm; }
 
 /* 6.2 key_figures ------------------------------------------------------------ */
@@ -665,80 +785,77 @@ abbr { text-decoration: none; }
 .key-figures > .kf--wide { grid-column: span 8; }
 .key-figures > .kf--full, .key-figures > .kf--hero, .key-figures > .kf--band { grid-column: 1 / -1; }
 
-.kf { position: relative; display: flex; flex-direction: column; min-width: 0; border-top: var(--rule-heavy) solid var(--rule-strong); padding-top: 2.6mm; }
+.kf { position: relative; display: flex; flex-direction: column; min-width: 0; border-top: var(--rule-w) solid var(--rule-strong); padding-top: 2.4mm; }
 .kf__top { display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-2); font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-3); }
-.kf__idx { font-weight: 650; letter-spacing: var(--track-caps); color: var(--fg); }
-.kf__fig { display: flex; flex-direction: column; margin-top: 3.6mm; }
-.kf__pre { min-height: 1.1em; margin-bottom: 1.2mm; font: 650 var(--fs-micro)/1.1 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
+.kf__idx { font: 800 var(--fs-micro)/1.2 var(--font-display); letter-spacing: var(--track-caps); color: var(--fg); }
+.kf__fig { display: flex; flex-direction: column; margin-top: 3.4mm; }
+.kf__pre { min-height: 1.1em; margin-bottom: 1.2mm; font: 700 var(--fs-label-accent)/1.1 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
 .kf__num {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0;
-  font-weight: 320;
+  font-weight: 800;
   font-size: var(--fs-fig-l);
-  line-height: .86;
-  letter-spacing: -.03em;
+  line-height: .9;
+  letter-spacing: -.02em;
   white-space: nowrap;
-  font-variant-numeric: lining-nums;
+  font-variant-numeric: lining-nums tabular-nums;
   color: var(--fg);
 }
-.kf__unit { font-size: .5em; font-weight: 400; letter-spacing: 0; margin-left: .14em; color: var(--accent-text); }
-.kf__label { margin-top: 3.4mm; font: 650 9.5pt/1.3 var(--font-text); color: var(--fg); }
+.kf__unit { font-size: .52em; font-weight: 700; letter-spacing: 0; margin-left: .12em; color: var(--accent-text); }
+.kf__label { margin-top: 3mm; font: 700 9.5pt/1.3 var(--font-display); color: var(--fg); }
 .kf__text { margin-top: 1.2mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
 .kf__text b { color: var(--fg); }
 .kf__foot { margin-top: auto; padding-top: 2mm; }
-.kf__sub { display: block; margin-top: 1.2mm; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--accent-text); }   /* lange Einheit unter der Zahl (€/m² Wohnfläche) */
-/* Vorsatz in der Kopfzeile (dichte Raster, spart ≈ 5 mm je Reihe). Programmteil-Badge steht im DOM VOR kf__pre und
-   wird per order nach rechts gesetzt: Lesereihenfolge im PDF bleibt „bis zu 80 %“ statt „bis zu 2.1 80 %“ */
+.kf__sub { display: block; margin-top: 1.2mm; font: 600 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-3); }
 .kf__top .kf__pre { margin: 0; min-height: 0; }
 .kf__top > .bs-badge, .kf__top > .kf__badges { order: 2; }
 .kf__badges { display: inline-flex; gap: .8mm; margin-left: auto; }
-.kf--s .kf__num { font-size: var(--fs-fig-m); font-weight: 360; }
+.kf--s .kf__num { font-size: var(--fs-fig-m); }
 .kf--xl .kf__num { font-size: var(--fs-fig-xl); }
 .kf--accent .kf__num { color: var(--accent-text); }
-.kf--bs { border-top-color: var(--bs); }
+.kf--bs { border-top-color: var(--bs); border-top-width: var(--rule-heavy); }
 .kf--bs .kf__idx { color: var(--bs); }
 
-/* Hero-Kachel (dunkel) */
+/* Hero-Kachel (PGN-Rot, Verlauf) */
 .kf--hero {
   display: grid;
-  grid-template-columns: 80mm minmax(0, 1fr);
+  grid-template-columns: 82mm minmax(0, 1fr);
   grid-template-rows: auto 1fr;
   column-gap: 7mm;
-  background: var(--surface);
+  background: var(--grad-red);
   border-top: 0;
   padding: 5.5mm 7mm 6mm;
 }
 .kf--hero .kf__top { grid-column: 1 / -1; }
 .kf--hero .kf__fig { align-self: end; margin-top: 4mm; }
-.kf--hero .kf__num { font-size: var(--fs-fig-hero); line-height: .74; letter-spacing: -.05em; margin-left: -1.2mm; font-weight: 300; }
-.kf--hero .kf__unit { font-size: .44em; }
+.kf--hero .kf__num { font-size: var(--fs-fig-hero); font-weight: 900; line-height: .76; letter-spacing: -.04em; margin-left: -1mm; }
+.kf--hero .kf__unit { font-size: .44em; font-weight: 800; }
 .kf__side { align-self: end; border-left: var(--hair) solid var(--rule); padding-left: 7mm; }
-.kf__side .kf__label { margin-top: 0; font-family: var(--font-display); font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0; font-weight: 430; font-size: 14pt; line-height: 1.15; letter-spacing: -.01em; }
+.kf__side .kf__label { margin-top: 0; font: 900 12pt/1.15 var(--font-display); text-transform: uppercase; }
 .kf__side .kf__text { max-width: 70mm; }
 .kf__mix { width: 100%; margin-top: 3.2mm; font-variant-numeric: tabular-nums lining-nums; }
 .kf__mix th, .kf__mix td { padding: 1mm 0; border-top: var(--hair) solid var(--rule); font: 500 var(--fs-small)/1.2 var(--font-text); color: var(--fg-2); text-align: left; }
-.kf__mix th { width: 8mm; font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 450; font-size: 11pt; line-height: 1.1; color: var(--fg); }
-.kf__mix td b { color: var(--fg); font-weight: 650; }
-.kf__mix .sw { width: 2.4mm; height: 2.4mm; border-radius: 50%; margin-right: 1.4mm; vertical-align: 0; }
+.kf__mix th { width: 8mm; font: 800 11pt/1.1 var(--font-display); color: var(--fg); }
+.kf__mix td b { color: var(--fg); font-weight: 700; }
+.kf__mix .sw { width: 2.4mm; height: 2.4mm; margin-right: 1.4mm; vertical-align: 0; }
 
-/* Band-Kachel (Sand, waagerecht: Erklärung links, Werte rechts) */
+/* Band-Kachel (Papier, waagerecht: Erklärung links, Werte rechts) */
 .kf--band {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   column-gap: 6mm;
   align-items: center;
   background: var(--surface-2);
-  border-top: var(--hair) solid var(--rule);
+  border-top: var(--rule-w) solid var(--rule-strong);
   padding: 4.2mm 6mm 4.4mm;
 }
 .kf--band .kf__label { margin-top: 0; }
 .kf__values { display: flex; gap: 0; }
 .kf__value { border-left: var(--hair) solid var(--rule); padding: 0 5mm; min-width: 34mm; }
 .kf__value:last-child { padding-right: 0; }
-.kf__value .kf__num { font-size: 26pt; line-height: 1; font-weight: 360; }
+.kf__value .kf__num { font-size: 22pt; line-height: 1; }
 .kf__value small { display: block; margin-top: 1.2mm; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); }
 
-/* Kennzahl-Plakette (rund) */
+/* Kennzahl-Plakette: Achskreis */
 .seal {
   width: var(--seal-size, 34mm);
   aspect-ratio: 1;
@@ -751,11 +868,11 @@ abbr { text-decoration: none; }
   text-align: center;
   padding: 3.6mm;
 }
-.seal__pre { font: 650 var(--fs-micro)/1.1 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
-.seal__num { margin-top: 1mm; font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0; font-weight: 340; font-size: 30pt; line-height: .9; letter-spacing: -.03em; white-space: nowrap; }
+.seal__pre { font: 700 var(--fs-micro)/1.1 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
+.seal__num { margin-top: 1mm; font: 800 26pt/.9 var(--font-display); letter-spacing: -.02em; white-space: nowrap; color: var(--fg); }
 .seal__unit { font-size: .52em; color: var(--accent-text); margin-left: .1em; }
 .seal__text { margin-top: 1.6mm; font: 500 var(--fs-micro)/1.25 var(--font-text); color: var(--fg-2); max-width: 26mm; }
-.seal--filled { background: var(--accent); border-color: var(--accent); --fg: var(--white); --fg-2: var(--white); --accent-text: var(--white); color: var(--white); }
+.seal--filled { background: var(--grad-red); border-color: transparent; color: var(--white); }
 .seals { display: flex; flex-wrap: wrap; gap: var(--sp-4); }
 
 /* 6.3 table ------------------------------------------------------------------ */
@@ -763,8 +880,8 @@ abbr { text-decoration: none; }
   width: 100%;
   font-size: var(--fs-small);
   line-height: 1.35;
-  font-variant-numeric: lining-nums proportional-nums;   /* Tabellenziffern nur in .num: Inter-tnum macht sonst Bindestriche breit („KfW - EH - 40“) */
-  color: var(--fg);
+  font-variant-numeric: lining-nums proportional-nums;
+  color: var(--fg-2);
 }
 .table th, .table td { padding: 1.7mm 2.4mm 1.7mm 0; text-align: left; vertical-align: top; border-bottom: var(--hair) solid var(--rule); }
 .table tr > :last-child { padding-right: 0; }
@@ -773,103 +890,121 @@ abbr { text-decoration: none; }
   padding-top: 0;
   padding-bottom: 1.6mm;
   border-bottom: var(--rule-w) solid var(--rule-strong);
-  font: 650 var(--fs-micro)/1.25 var(--font-text);
-  letter-spacing: .06em;
+  font: 700 var(--fs-micro)/1.25 var(--font-display);
+  letter-spacing: .07em;
   text-transform: uppercase;
   color: var(--fg-3);
 }
-.table thead th .sub { display: block; text-transform: none; letter-spacing: 0; font-weight: 500; }
-.table thead th .big { font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 450; font-size: 13pt; letter-spacing: 0; text-transform: none; color: var(--fg); margin-left: .8mm; }
-.table tbody th { font-weight: 650; color: var(--fg); }
+.table thead th .sub { display: block; font-family: var(--font-text); text-transform: none; letter-spacing: 0; font-weight: 500; }
+.table thead th .big { font: 800 12pt/1 var(--font-display); letter-spacing: 0; text-transform: none; color: var(--fg); margin-left: .8mm; }
+.table tbody th { font-weight: 600; color: var(--fg); }
 .table tbody tr:last-child > * { border-bottom: var(--rule-w) solid var(--rule-strong); }
-.table .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums lining-nums; }
-.table .unit { font-size: .78em; font-weight: 500; color: var(--fg-3); margin-left: .18em; }
+/* Massendaten-Stufe: Ziffern Montserrat 600 mit Tabellenziffern, 9 pt */
+.table .num { text-align: right; white-space: nowrap; font-family: var(--font-display); font-weight: 600; font-variant-numeric: tabular-nums lining-nums; color: var(--fg); }
+.table .unit { font-family: var(--font-text); font-size: .82em; font-weight: 500; color: var(--fg-3); margin-left: .18em; }
 .table .muted { color: var(--fg-3); }
 .table .is-hl { background: var(--surface-2); padding-left: 2.4mm; padding-right: 2.4mm; }
 .table thead .is-hl { color: var(--fg); }
-.table tr.is-total > * { font-weight: 700; border-top: var(--rule-w) solid var(--rule-strong); }
+.table tr.is-total > * { font-weight: 700; color: var(--fg); border-top: var(--rule-w) solid var(--rule-strong); }
 .table tr.is-key > * { background: var(--surface-2); }
-/* Gruppentrenner (0,8 pt) immer an der OBEREN Zelle setzen: im Druck runden Haarlinie und 0,8 pt beide auf 1 px,
-   bei border-collapse gewinnt sonst die Haarlinie der oberen Zelle gegen ein border-top darunter */
 .table tr.is-group-end > *, .table .is-group-end { border-bottom: var(--rule-w) solid var(--rule-strong); }
+/* Kernwerte (höchstens 6–8 je Seite): Montserrat 800, 17 pt, Tabellenziffern */
 .table--figures tbody td.num {
-  font-family: var(--font-display);
-  font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0;
-  font-weight: 380;                                   /* ≥ 350 unter 24 pt (Druck auf Naturpapier) */
+  font-weight: 800;
   font-size: var(--fs-fig-s);
   line-height: 1;
   letter-spacing: -.01em;
-  padding-top: 2.2mm;
-  padding-bottom: 2.2mm;
+  padding-top: 2.4mm;
+  padding-bottom: 2.4mm;
 }
-.table--figures tbody th { vertical-align: middle; }
-.table--figures .unit { font-family: var(--font-text); font-size: 8.5pt; letter-spacing: 0; }
+.table--figures tbody th { vertical-align: middle; font-family: var(--font-display); font-weight: 700; }
+.table--figures .unit { font-size: 8.5pt; letter-spacing: 0; }
 .table--compact { font-size: var(--fs-module); line-height: var(--lh-module); }
 .table--compact th, .table--compact td { padding-top: 1.2mm; padding-bottom: 1.2mm; }
-.table--terms th[scope="row"] { width: 30%; font: 650 var(--fs-micro)/1.35 var(--font-text); letter-spacing: .06em; text-transform: uppercase; color: var(--fg-3); padding-top: 2mm; }
-.table--terms td { padding-top: 1.8mm; padding-bottom: 1.8mm; }
+/* Eckdaten als Definitionstabelle: Bezeichnung in Versalien, Wert */
+.table--terms th[scope="row"] { width: 30%; font: 700 var(--fs-micro)/1.35 var(--font-display); letter-spacing: .07em; text-transform: uppercase; color: var(--fg-3); padding-top: 2mm; }
+.table--terms td { padding-top: 1.8mm; padding-bottom: 1.8mm; color: var(--fg); }
 .table--compare .col-old { color: var(--fg-3); }
 .table--compare .col-new { color: var(--fg); font-weight: 600; }
 .table--compare thead .col-new { color: var(--accent-text); }
-.table__arrow, .table thead .table__arrow { width: 5mm; padding-right: 1mm !important; color: var(--accent-text); font-weight: 650; text-align: center !important; }   /* Pfeil „→“ als Zeichen (Inter-Symbolteilmenge) */
+.table__arrow, .table thead .table__arrow { width: 5mm; padding-right: 1mm !important; color: var(--accent-text); font-weight: 700; text-align: center !important; }
 .table--matrix td { font-size: var(--fs-module); }
-.table--heat td { text-align: center; font-weight: 650; padding-left: 1mm; padding-right: 1mm; }
-.table--heat td small { display: block; font-weight: 500; font-size: 8.5pt; }
-.seq-1 { background: var(--seq-1); color: var(--petrol-900); }
-.seq-2 { background: var(--seq-2); color: var(--petrol-900); }
-.seq-3 { background: var(--seq-3); color: var(--petrol-900); }
+.table--heat td { text-align: center; font-family: var(--font-display); font-weight: 700; padding-left: 1mm; padding-right: 1mm; }
+.table--heat td small { display: block; font-family: var(--font-text); font-weight: 500; font-size: 8.5pt; }
+.seq-1 { background: var(--seq-1); color: var(--ink); }
+.seq-2 { background: var(--seq-2); color: var(--ink); }
+.seq-3 { background: var(--seq-3); color: var(--ink); }
 .seq-4 { background: var(--seq-4); color: var(--white); }
 .seq-5 { background: var(--seq-5); color: var(--white); }
 .seq-6 { background: var(--seq-6); color: var(--white); }
 .bs-row > :first-child { border-left: 1.2mm solid var(--bs); padding-left: 2.4mm; }
 
-/* 6.4 callout (hinweis / achtung / tipp / frist) + Warnband ------------------ */
+/* 6.4 callout = Planlegende (Symbol, Versaltitel, 2–3 Zeilen) + Warnband ------ */
 .callout {
   --c-bg: var(--surface-2);
   --c-rule: var(--rule-strong);
   --c-label: var(--fg-3);
+  --c-rule-w: var(--rule-w);
   background: var(--c-bg);
-  border-top: var(--rule-heavy) solid var(--c-rule);
-  padding: 4mm 5mm 4.6mm;
+  border-top: var(--c-rule-w) solid var(--c-rule);
+  padding: 3.8mm 4.6mm 4.2mm;
   break-inside: avoid;
 }
-.callout__label { display: flex; align-items: center; gap: 1.6mm; font: 650 var(--fs-micro)/1.2 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--c-label); }
+.callout__label { display: flex; align-items: center; gap: 1.6mm; font: 700 var(--fs-micro)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--c-label); }
 .callout__label .icon { width: 4.2mm; height: 4.2mm; }
-.callout__title { margin-top: 1.6mm; font-family: var(--font-display); font-variation-settings: "opsz" 24, "SOFT" 30, "WONK" 0; font-weight: 500; font-size: var(--fs-h3); line-height: 1.16; color: var(--fg); }
-.callout__body { margin-top: 1.6mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg); }
+.callout__title { margin-top: 1.6mm; font: 800 9.75pt/1.22 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--fg); }
+.callout__body { margin-top: 1.4mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+.callout__body b { color: var(--fg); }
 .callout__body + .callout__body { margin-top: 1.2mm; }
-.callout__date { margin-top: 1.4mm; font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 380; font-size: 22pt; line-height: 1; letter-spacing: -.015em; color: var(--fg); font-variant-numeric: lining-nums tabular-nums; }
+.callout__date { margin-top: 1.4mm; font: 900 21pt/1 var(--font-display); letter-spacing: -.01em; color: var(--signal-text); font-variant-numeric: lining-nums tabular-nums; }
 .callout--hinweis { --c-bg: var(--surface-2); --c-rule: var(--rule-strong); --c-label: var(--fg-3); }
-.callout--achtung { --c-bg: var(--accent-soft); --c-rule: var(--accent-text); --c-label: var(--accent-text); }
+.callout--achtung { --c-bg: var(--pgn-red-50); --c-rule: var(--accent); --c-label: var(--accent-text); --c-rule-w: var(--rule-heavy); }
+.callout--achtung .callout__label { font-size: var(--fs-label-accent); }
 .callout--tipp { --c-bg: var(--tip-soft); --c-rule: var(--tip); --c-label: var(--tip-text); }
-.callout--frist { --c-bg: var(--signal-soft); --c-rule: var(--signal-fill); --c-label: var(--signal-text); border-top-width: 2.4pt; }
+.callout--frist { --c-bg: var(--surface-2); --c-rule: var(--signal-fill); --c-label: var(--signal-text); --c-rule-w: .9mm; }
+.callout--frist .callout__label { font-size: var(--fs-label-accent); }
 .callout--plain { --c-bg: transparent; padding-left: 0; padding-right: 0; }
-.callout--side { border-top: 0; border-left: var(--rule-heavy) solid var(--c-rule); }
-/* kompakt für l-span-4/-5 auf dichten Programmseiten: kleinere Polster, Modultext bleibt 9 pt */
-.callout--s { padding: 3.2mm 4.4mm 3.6mm; }
-.callout--s .callout__title { margin-top: 1.2mm; font-size: 11.5pt; }
+.callout--side { border-top: 0; border-left: var(--rule-accent) solid var(--c-rule); }
+.callout--s { padding: 3mm 4mm 3.4mm; }
+.callout--s .callout__title { margin-top: 1.2mm; font-size: 9pt; }
 .callout--s .callout__body { margin-top: 1.2mm; font-size: var(--fs-module); line-height: var(--lh-module); }
-/* Label (Icon + Versal) im Textfluss statt in eigener Zeile: schmale Bänder, spart eine Zeile */
-.callout--inline { padding: 2.2mm 2.6mm 2.4mm; font-size: var(--fs-module); line-height: var(--lh-module); }
+.callout--inline { padding: 2.2mm 2.8mm 2.4mm; font-size: var(--fs-module); line-height: var(--lh-module); }
 .callout--inline .callout__label { display: inline-flex; gap: 1.3mm; vertical-align: -.5mm; margin-right: 1.6mm; }
 .callout--inline .callout__label .icon { width: 3.6mm; height: 3.6mm; }
 .callout--inline .callout__body { display: inline; margin-top: 0; font-size: inherit; line-height: inherit; }
-/* Kalkulationsnotiz: höchstens eine je Doppelseite, immer unterstes Modul der Außenspalte (gerade Seite links,
-   ungerade rechts) in voller Spaltenbreite; überall dieselben Innenabstände. Icon ui-rechner, Label „Kalkulationsnotiz“. */
-.callout--calc { --c-bg: var(--tip-soft); --c-rule: var(--tip); --c-label: var(--tip-text); padding: 2.8mm 4mm 3.2mm; }
-.callout--calc .callout__label .icon { width: 3.8mm; height: 3.8mm; }
+/* Kalkulationsnotiz: Rechenblatt (Planraster) */
+.callout--calc {
+  --c-bg: var(--surface);
+  --c-rule: var(--rule-strong);
+  --c-label: var(--fg);
+  background-color: var(--surface);
+  background-image: linear-gradient(var(--grid-line) .2mm, transparent .2mm), linear-gradient(90deg, var(--grid-line) .2mm, transparent .2mm);
+  background-size: var(--plan) var(--plan);
+  box-shadow: inset 0 0 0 var(--hair) var(--rule);
+  padding: 2.8mm 4mm 3.2mm;
+}
+.callout--calc .callout__label .icon { width: 3.8mm; height: 3.8mm; color: var(--accent); }
 .callout--calc .callout__body { margin-top: 1.2mm; font-size: var(--fs-module); line-height: var(--lh-module); }
-.callout--calc.callout--inline { padding: 2.2mm 4mm 2.4mm; line-height: var(--lh-module); }                 /* Label im Textfluss (volle Satzspiegelbreite, S. 9, 19) */
-/* Option .calc--figure (S. 16): Text links, kleine Rechengrafik rechts (Inline-SVG, 1 Einheit = 1 mm, ≤ 32 mm breit),
-   unten bündig – z. B. Mini-Balken „Miete + Zuschuss = Ertrag je m²“ */
+.callout--calc.callout--inline { padding: 2.2mm 4mm 2.4mm; line-height: var(--lh-module); }
 .calc--figure .calc__grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 4.6mm; align-items: end; margin-top: 1.6mm; }
 .calc--figure .calc__grid .callout__body { margin-top: 0; }
 .calc--figure .calc__fig { display: block; margin-top: 0; }
 .callout__split { display: grid; grid-template-columns: 1fr 1fr; column-gap: 5mm; margin-top: 3mm; }
 .callout__col { border-top: var(--hair) solid var(--rule); padding-top: 2mm; }
-.callout__col-title { display: flex; align-items: center; gap: 1.8mm; font: 650 var(--fs-small)/1.25 var(--font-text); color: var(--fg); }
+.callout__col-title { display: flex; align-items: center; gap: 1.8mm; font: 700 var(--fs-small)/1.25 var(--font-display); color: var(--fg); }
 .callout__col .bullets { margin-top: 1.2mm; }
 .callout__col .bullets > li { font-size: var(--fs-module); }
+
+/* Planlegende: gebündelte Hinweise (Symbol links, Versaltitel, 2–3 Zeilen) */
+.plan-legend { border-top: var(--rule-w) solid var(--rule-strong); }
+.plan-legend__title { padding: 2.4mm 0 1mm; font: 800 10pt/1.2 var(--font-display); letter-spacing: .07em; text-transform: uppercase; color: var(--fg); }
+.plan-legend__item { display: grid; grid-template-columns: 8mm minmax(0, 1fr); padding: 2.2mm 0 2.4mm; border-bottom: var(--hair) solid var(--rule); }
+.plan-legend__item:last-child { border-bottom: 0; }
+.plan-legend__sym { width: 6mm; height: 6mm; margin-top: .3mm; color: var(--accent); }
+.plan-legend__sym .icon, .plan-legend__sym svg { width: 6mm; height: 6mm; }
+.plan-legend dt { font: 800 9pt/1.22 var(--font-display); letter-spacing: .05em; text-transform: uppercase; color: var(--fg); }
+.plan-legend dd { margin-top: .6mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+.offer { margin-top: 2.4mm; font: 700 var(--fs-label-accent)/1.35 var(--font-display); color: var(--accent-text); }
 
 /* Markierungen ja / nein / Achtung (graustufenfest: Form statt nur Farbe) */
 .mark { position: relative; display: inline-block; flex: none; width: 3.8mm; height: 3.8mm; border-radius: 50%; vertical-align: -.7mm; }
@@ -878,99 +1013,87 @@ abbr { text-decoration: none; }
 .mark--no { background: var(--no); }
 .mark--no::before, .mark--no::after { content: ""; position: absolute; left: .85mm; top: 1.71mm; width: 2.1mm; height: .4mm; background: var(--on-mark); transform: rotate(45deg); }
 .mark--no::after { transform: rotate(-45deg); }
-.mark--warn { background: var(--signal-fill); }
-.mark--warn::before { content: ""; position: absolute; left: 1.7mm; top: .65mm; width: .42mm; height: 1.55mm; background: var(--on-signal); }
-.mark--warn::after { content: ""; position: absolute; left: 1.7mm; top: 2.55mm; width: .42mm; height: .45mm; background: var(--on-signal); }
+.mark--warn { background: var(--signal-fill); border-radius: 0; transform: rotate(45deg) scale(.86); }
+.mark--warn::before { content: ""; position: absolute; left: 1.7mm; top: .65mm; width: .42mm; height: 1.55mm; background: var(--on-signal); transform: rotate(-45deg); transform-origin: 50% 110%; }
+.mark--warn::after { content: ""; position: absolute; left: 2.25mm; top: 2.35mm; width: .45mm; height: .45mm; background: var(--on-signal); }
 
-/* Warnband / Gate: quer über einen Ablauf („Erst nach der Förderentscheidung beginnen“) */
+/* Warnband / Bewilligungsmarke: quer über einen Ablauf („Erst Bewilligung, dann Vertrag“) */
 .gate {
   display: flex;
   align-items: center;
   gap: 3mm;
   background: var(--signal-fill);
   color: var(--on-signal);
-  padding: 2.3mm 4mm 2.4mm;
+  padding: 2.4mm 4mm 2.5mm;
   font: 500 var(--fs-small)/1.3 var(--font-text);
 }
-.gate b { font-weight: 700; }
+.gate b { font: 800 var(--fs-small)/1.3 var(--font-display); letter-spacing: .06em; text-transform: uppercase; }
 .gate .icon { width: 5mm; height: 5mm; color: var(--on-signal); }
 
 /* 6.5 quote ------------------------------------------------------------------ */
-.quote { position: relative; padding: 4mm 0 0 10mm; border-top: var(--hair) solid var(--rule); break-inside: avoid; }
+.quote { position: relative; padding: 4mm 0 0 11mm; border-top: var(--hair) solid var(--rule); break-inside: avoid; }
 .quote::before {
-  /* „ hängt unter der Grundlinie der ersten Zitatzeile (Oberkante der Glyphe 0,8 mm darunter) – sonst liest es sich als ” .
-     Rechnung: Glyphen-Oberkante = top + 0,7485 × Schriftgröße (Fraunces, Zeilenhöhe 1); seitenlokale Größen entsprechend. */
   content: "\201E";
   position: absolute;
-  left: -.6mm;
-  top: -6.7mm;
-  font-family: var(--font-display);
-  font-variation-settings: "opsz" 144, "SOFT" 60, "WONK" 0;
-  font-weight: 400;
-  font-size: 64pt;
-  line-height: 1;
+  left: -.4mm;
+  top: -9.6mm;
+  font: 900 60pt/1 var(--font-display);
   color: var(--accent);
 }
 .quote__text {
   font-family: var(--font-display);
   font-style: italic;
-  font-variation-settings: "opsz" 36, "SOFT" 60, "WONK" 0;
-  font-weight: 370;
-  font-size: 15pt;
-  line-height: 1.32;
+  font-weight: 500;
+  font-size: 12.5pt;
+  line-height: 1.38;
   letter-spacing: -.004em;
   color: var(--fg);
 }
 .quote__text > p:last-child::after { content: "\201C"; }
 .quote__by { display: flex; flex-direction: column; gap: .4mm; margin-top: 3.2mm; font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-2); }
-.quote__name { font: 650 var(--fs-small)/1.3 var(--font-text); color: var(--fg); }
+.quote__name { font: 800 var(--fs-micro)/1.3 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
 .quote__src { color: var(--fg-3); }
-.quote--l .quote__text { font-size: 20pt; line-height: 1.26; font-variation-settings: "opsz" 72, "SOFT" 60, "WONK" 0; font-weight: 340; }
-.quote--l { padding-left: 14mm; }
-.quote--l::before { font-size: 92pt; top: -12.5mm; }
-.quote--band {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 56mm;
-  column-gap: 8mm;
-  align-items: end;
-  border-bottom: var(--hair) solid var(--rule);
-  padding-bottom: 4mm;
-}
+.quote--l .quote__text { font-size: 17pt; line-height: 1.28; font-weight: 400; }
+.quote--l { padding-left: 15mm; }
+.quote--l::before { font-size: 88pt; top: -15mm; }
+.quote--band { display: grid; grid-template-columns: minmax(0, 1fr) 56mm; column-gap: 8mm; align-items: end; border-bottom: var(--hair) solid var(--rule); padding-bottom: 4mm; }
 .quote--band .quote__by { margin-top: 0; border-left: var(--hair) solid var(--rule); padding-left: 4mm; }
 
 /* 6.6 steps ------------------------------------------------------------------ */
 .steps { --lanes: 3; --lane-w: 18mm; --no-w: 13mm; }
 .step { display: grid; grid-template-columns: var(--no-w) minmax(0, 1fr); column-gap: 4mm; padding: 2.8mm 0 3.2mm; border-bottom: var(--hair) solid var(--rule); break-inside: avoid; }
-.steps > .step:first-child { border-top: var(--rule-heavy) solid var(--rule-strong); }
-.step__no { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 60, "WONK" 0; font-weight: 360; font-size: 26pt; line-height: .8; letter-spacing: -.03em; color: var(--accent); font-variant-numeric: lining-nums; }
-.step__title { font-family: var(--font-display); font-variation-settings: "opsz" 24, "SOFT" 30, "WONK" 0; font-weight: 500; font-size: var(--fs-h3); line-height: 1.12; color: var(--fg); }
+.steps > .step:first-child { border-top: var(--rule-w) solid var(--rule-strong); }
+.step__no { font: 900 20pt/.85 var(--font-display); letter-spacing: -.02em; color: var(--accent-text); font-variant-numeric: lining-nums tabular-nums; }
+.step__title { font: 800 9.75pt/1.2 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--fg); }
 .step__text { margin-top: 1.2mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
 .step__text b { color: var(--fg); }
 .step__meta { display: flex; flex-wrap: wrap; gap: 1.4mm; margin-top: 1.8mm; }
 .step__who { margin-top: 1.4mm; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-3); }
 .step__who b { color: var(--fg); }
+/* Höhenkoten statt Nummern (Antragsweg: ±0 = Bewilligung) */
+.steps--kote { --no-w: 16mm; }
+.steps--kote .step__no { font: 700 9pt/1.2 var(--font-display); letter-spacing: .02em; color: var(--fg); padding-top: .4mm; }
+.steps--kote .step__no::before { content: ""; display: inline-block; width: 0; height: 0; margin-right: 1.4mm; border: solid transparent; border-width: 2.1mm 1.25mm 0; border-top-color: var(--accent); vertical-align: -.2mm; }
+.steps--kote .step.is-gate { background: var(--accent-soft); border-top: var(--rule-w) solid var(--accent); }
+.steps--kote .step.is-gate .step__no, .steps--kote .step.is-gate .step__title { color: var(--accent-deep, var(--accent-text)); }
 
 /* Bahnen-Variante (Sie · Förderstelle · NBank) */
 .steps--lanes .step,
 .steps__head { grid-template-columns: var(--no-w) minmax(0, 1fr) repeat(var(--lanes), var(--lane-w)); column-gap: 3.5mm; }
 .steps--lanes > .step:first-of-type { border-top: 0; }
-.steps__head { display: grid; align-items: end; border-bottom: var(--rule-heavy) solid var(--rule-strong); }
+.steps__head { display: grid; align-items: end; border-bottom: var(--rule-w) solid var(--rule-strong); }
 .steps__head > * { padding-bottom: 2mm; }
-/* Bahnen: keine negativen Ränder (Chromium-Druck rechnet sie anders) – Polster sitzt auf den Inhaltszellen */
 .steps--lanes .step { padding-top: 0; padding-bottom: 0; }
 .steps--lanes .step > :not(.lane) { padding-top: 2.8mm; padding-bottom: 3.2mm; }
-.steps__head-label { grid-column: 1 / span 2; display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; font: 650 var(--fs-micro)/1.2 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
-.lane-h { text-align: center; white-space: nowrap; font: 650 var(--fs-micro)/1.2 var(--font-text); color: var(--fg); }
-.lane-h small { display: block; margin-top: .6mm; font-weight: 500; font-size: var(--fs-micro); color: var(--fg-3); }
-.lane {
-  position: relative;
-  background: linear-gradient(var(--rule), var(--rule)) center / var(--hair) 100% no-repeat;
-}
+.steps__head-label { grid-column: 1 / span 2; display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; font: 700 var(--fs-micro)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
+.lane-h { text-align: center; white-space: nowrap; font: 700 var(--fs-micro)/1.2 var(--font-display); color: var(--fg); }
+.lane-h small { display: block; margin-top: .6mm; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-3); }
+.lane { position: relative; background: linear-gradient(var(--rule), var(--rule)) center / var(--hair) 100% no-repeat; }
 .lane--hl, .lane-h--hl { background-color: var(--surface-2); }
 .lane-h--hl { align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 1.4mm; }
 .mk { position: absolute; left: 50%; top: 8mm; transform: translate(-50%, -50%); border-radius: 50%; z-index: 1; }
 .mk--lead { width: 4.4mm; height: 4.4mm; background: var(--accent); box-shadow: 0 0 0 .8mm var(--surface); }
-.mk--inv { width: 2.6mm; height: 2.6mm; border: .9pt solid var(--loan); background: var(--surface); }
+.mk--inv { width: 2.8mm; height: 2.8mm; border: .3mm solid var(--fg); background: var(--surface); }
 .lane--hl .mk--lead { box-shadow: 0 0 0 .8mm var(--surface-2); }
 .lane--hl .mk--inv { background: var(--surface-2); }
 .lane-legend { display: inline-flex; gap: 4mm; font: 500 var(--fs-micro)/1 var(--font-text); letter-spacing: 0; text-transform: none; color: var(--fg-3); }
@@ -980,19 +1103,19 @@ abbr { text-decoration: none; }
 .steps__gate .gate { width: 100%; }
 
 /* Waagerechte Variante (3–5 Schritte in einer Reihe) */
-.steps--h { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); column-gap: var(--gutter); border-top: var(--rule-heavy) solid var(--rule-strong); }
-.steps--h > .step { display: block; border: 0; padding: 3mm 2.4mm 0 0; position: relative; }   /* Pfeil sitzt nur auf Kopfhöhe */
+.steps--h { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); column-gap: var(--gutter); border-top: var(--rule-w) solid var(--rule-strong); }
+.steps--h > .step { display: block; border: 0; padding: 3mm 2.4mm 0 0; position: relative; }
 .steps--h > .step:first-child { border-top: 0; }
 .steps--h > .step:last-child { padding-right: 0; }
-.steps--h > .step:not(:last-child)::after { content: ""; position: absolute; right: .6mm; top: 5.6mm; width: 3.4mm; height: 3.4mm; border: solid var(--accent); border-width: var(--rule-heavy) var(--rule-heavy) 0 0; transform: rotate(45deg); }
-.steps--h .step__no { font-size: 20pt; font-weight: 360; }
+.steps--h > .step:not(:last-child)::after { content: ""; position: absolute; right: .6mm; top: 5.2mm; width: 3mm; height: 3mm; border: solid var(--accent); border-width: var(--rule-red-min) var(--rule-red-min) 0 0; transform: rotate(45deg); }
+.steps--h .step__no { font-size: 17pt; }
 .steps--h .step__title { margin-top: 2mm; }
 
 /* Auszahlungsraten-Leiste (beschriftete Segmente) */
 .ratebar { --n: 4; position: relative; display: flex; gap: .6mm; min-height: 11.5mm; margin-top: 2.4mm; }
 .ratebar__seg { position: relative; flex: 0 0 calc((100% - (var(--n) - 1) * .6mm) * var(--v) / 100); padding-top: 3.4mm; font: 500 var(--fs-micro)/1.25 var(--font-text); color: var(--fg-2); }
 .ratebar__seg::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2.4mm; background: var(--loan); }
-.ratebar__seg b { display: block; font-weight: 650; color: var(--fg); white-space: nowrap; }
+.ratebar__seg b { display: block; font: 700 var(--fs-micro)/1.25 var(--font-display); color: var(--fg); white-space: nowrap; }
 .ratebar__seg--final::before { background: var(--accent); }
 .ratebar__seg--end .ratebar__lab { position: absolute; right: 0; top: 3.4mm; text-align: right; white-space: nowrap; }
 
@@ -1002,56 +1125,56 @@ abbr { text-decoration: none; }
 .chart__head > .chart__title, .chart__head > div { grid-column: 1 / -1; }
 .chart__head > .chart__sub { grid-column: 1; }
 .chart__head > .legend { grid-column: 2; justify-content: flex-end; margin-top: 1.2mm; }
-.chart__head--inline > .chart__title { grid-column: 1; }                  /* Titel und Legende in einer Zeile (spart ≈ 5 mm) */
+.chart__head--inline > .chart__title { grid-column: 1; }
 .chart__head--inline > .legend { grid-column: 2; margin-top: 0; }
-.chart__head--stack { display: block; }                                   /* Titel einzeilig, Legende linksbündig darunter */
+.chart__head--stack { display: block; }
 .chart__head--stack > .legend { justify-content: flex-start; margin-top: 1.6mm; }
-.chart--s .chart__title { font-size: var(--fs-h3); line-height: 1.16; }
+.chart--s .chart__title { font-size: 9.5pt; }
 .chart__svg { display: block; max-width: 100%; height: auto; margin-top: 3.6mm; overflow: visible; }
 .chart__note { margin-top: 2.6mm; font-size: var(--fs-micro); line-height: 1.45; color: var(--fg-3); }
 .chart__note b { color: var(--fg); }
 .legend { display: flex; flex-wrap: wrap; gap: 1.4mm 4.5mm; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); }
 .legend li { display: inline-flex; align-items: center; gap: 1.6mm; white-space: nowrap; }
-.legend--stack { flex-direction: column; align-items: flex-start; gap: .9mm; }   /* lange Reihennamen untereinander */
-.sw { display: inline-block; flex: none; width: 3.2mm; height: 3.2mm; vertical-align: -.5mm; }
+.legend--stack { flex-direction: column; align-items: flex-start; gap: .9mm; }
+.sw { display: inline-block; flex: none; width: 4.6mm; height: 3mm; vertical-align: -.4mm; }
 .sw--loan { background: var(--loan); }
 .sw--grant { background: var(--grant); }
-.sw--equity { background: repeating-linear-gradient(45deg, var(--equity) 0 .7mm, var(--surface-3) .7mm 1.3mm); box-shadow: inset 0 0 0 .3pt var(--equity-line); }
-.sw--loan-o { box-shadow: inset 0 0 0 .9pt var(--loan); }
-.sw--grant-o { box-shadow: inset 0 0 0 .9pt var(--grant); }
+.sw--equity { background: repeating-linear-gradient(-45deg, var(--equity-line) 0 .25mm, var(--equity) .25mm 1.1mm); box-shadow: inset 0 0 0 .2mm var(--equity-line); }
+.sw--loan-o { box-shadow: inset 0 0 0 .3mm var(--loan); }
+.sw--grant-o { box-shadow: inset 0 0 0 .3mm var(--grant); }
 .sw--signal { background: var(--signal-fill); }
 .sw--bs { background: var(--bs); }
 .sw--muted { background: var(--surface-3); }
-.sw--ink { background: var(--fg); }       /* Datenreihe Miete/Ertrag (SVG c-ink) */
-.sw--old { background: var(--old); }      /* bisher / altes Recht (SVG c-old) */
+.sw--ink { background: var(--fg); }
+.sw--old { background: var(--old); }
 
-/* SVG-Text */
+/* SVG-Text: Beschriftung Work Sans, Werte Montserrat */
 .chart__svg text { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 500; fill: var(--fg-2); font-variant-numeric: lining-nums proportional-nums; }
-.chart__svg .t-ax, .chart__svg .t-tnum { font-variant-numeric: lining-nums tabular-nums; }   /* nur wo Ziffern untereinander fluchten müssen */
-.chart__svg .t-b { font-weight: 650; fill: var(--fg); }
+.chart__svg .t-ax, .chart__svg .t-tnum { font-variant-numeric: lining-nums tabular-nums; }
+.chart__svg .t-b { font-weight: 600; fill: var(--fg); }
 .chart__svg .t-m { font-size: var(--svg-fs-m); }
 .chart__svg .t-l { font-size: var(--svg-fs-l); }
-.chart__svg .t-val { font-size: var(--svg-fs-m); font-weight: 650; fill: var(--on-data); }
-.chart__svg .t-val-ink { font-size: var(--svg-fs-m); font-weight: 650; fill: var(--fg); }
-.chart__svg .t-cat { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0; font-weight: 380; font-size: 8.4px; fill: var(--fg); }
-.chart__svg .t-num { font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 400; font-size: var(--svg-fs-xl); fill: var(--fg); letter-spacing: -.1px; }
-.chart__svg .t-num-l { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0; font-weight: 360; font-size: var(--svg-fs-xxl); fill: var(--fg); letter-spacing: -.3px; }
+.chart__svg .t-val { font-family: var(--font-display); font-size: var(--svg-fs-m); font-weight: 700; fill: var(--on-data); font-variant-numeric: tabular-nums; }
+.chart__svg .t-val-ink { font-family: var(--font-display); font-size: var(--svg-fs-m); font-weight: 700; fill: var(--fg); font-variant-numeric: tabular-nums; }
+.chart__svg .t-cat { font-family: var(--font-display); font-weight: 800; font-size: 7px; fill: var(--fg); }
+.chart__svg .t-num { font-family: var(--font-display); font-weight: 800; font-size: var(--svg-fs-xl); fill: var(--fg); letter-spacing: -.1px; font-variant-numeric: tabular-nums; }
+.chart__svg .t-num-l { font-family: var(--font-display); font-weight: 800; font-size: var(--svg-fs-xxl); fill: var(--fg); letter-spacing: -.3px; font-variant-numeric: tabular-nums; }
 .chart__svg .t-ax { fill: var(--fg-3); }
-.chart__svg .t-caps { font-weight: 650; letter-spacing: .3px; text-transform: uppercase; fill: var(--fg-3); }
-.chart__svg .t-acc { fill: var(--accent-text); }
-.chart__svg .t-signal { fill: var(--signal-text); }
+.chart__svg .t-caps { font-family: var(--font-display); font-weight: 700; letter-spacing: .3px; text-transform: uppercase; fill: var(--fg-3); }
+.chart__svg .t-acc { fill: var(--accent-text); font-weight: 700; }
+.chart__svg .t-signal { fill: var(--signal-text); font-weight: 700; }
 .chart__svg .t-bs { fill: var(--bs); }
 .chart__svg .t-on-bs, .chart__svg .t-on-dark { fill: var(--on-bs); }
 .chart__svg .t-end { text-anchor: end; }
 .chart__svg .t-mid { text-anchor: middle; }
 .chart__svg .t-it { font-style: italic; }
-.chart__svg .t-s { font-size: var(--svg-fs-s); }                     /* 8,5 pt, z. B. t-val t-s in schmalen Segmenten */
-.chart__svg .t-halo { paint-order: stroke; stroke: var(--surface); stroke-width: .9px; stroke-linejoin: round; }   /* freistellen über Linien/Flächen */
+.chart__svg .t-s { font-size: var(--svg-fs-s); }
+.chart__svg .t-halo { paint-order: stroke; stroke: var(--surface); stroke-width: .9px; stroke-linejoin: round; }
 /* SVG-Flächen */
 .c-loan { fill: var(--loan); }
 .c-grant { fill: var(--grant); }
 .c-equity { fill: var(--equity); }
-.c-equity-line { stroke: var(--equity-line); stroke-width: .3; }
+.c-equity-line { stroke: var(--equity-line); stroke-width: .32; }
 .c-equity-frame { fill: none; stroke: var(--equity-line); stroke-width: .2; }
 .c-accent { fill: var(--accent); }
 .c-signal { fill: var(--signal-fill); }
@@ -1067,28 +1190,35 @@ abbr { text-decoration: none; }
 .c-seq-1 { fill: var(--seq-1); } .c-seq-2 { fill: var(--seq-2); } .c-seq-3 { fill: var(--seq-3); }
 .c-seq-4 { fill: var(--seq-4); } .c-seq-5 { fill: var(--seq-5); } .c-seq-6 { fill: var(--seq-6); }
 .chart__svg .t-on-seq { fill: var(--white); }
-.chart__svg .t-on-seq-light { fill: var(--petrol-900); }
-/* SVG-Linien */
+.chart__svg .t-on-seq-light { fill: var(--ink); }
+/* SVG-Linien (Maßketten, Achsen) */
 .ax { stroke: var(--fg); stroke-width: .3; fill: none; }
 .gridline { stroke: var(--rule); stroke-width: .18; fill: none; }
 .tick { stroke: var(--fg-3); stroke-width: .2; }
 .lead-line { stroke: var(--fg-3); stroke-width: .2; fill: none; }
 .brk { stroke: var(--fg); stroke-width: .28; fill: none; }
 .dash { stroke-dasharray: 1 .8; }
-.cap-line { stroke: var(--accent); stroke-width: .35; stroke-dasharray: 1.2 .8; fill: none; }
+.cap-line { stroke: var(--accent); stroke-width: var(--rule-red-min); stroke-dasharray: 4 1 .6 1; fill: none; }   /* 80-%-Achse: Strichpunkt */
 .line-loan { stroke: var(--loan); stroke-width: .6; fill: none; }
 .line-grant { stroke: var(--grant); stroke-width: .6; fill: none; }
 .line-ink { stroke: var(--fg); stroke-width: .45; fill: none; }
 .line-bs { stroke: var(--bs); stroke-width: .6; fill: none; }
 .line-signal { stroke: var(--signal-fill); stroke-width: .8; fill: none; }
-.sep-line { stroke: var(--surface); stroke-width: .6; }
+.sep-line { stroke: var(--surface); stroke-width: .7; }
+.dim-line { stroke: var(--fg-2); stroke-width: .22; fill: none; }            /* Maßkette im Diagramm: Anthrazit */
+.dim-tick { stroke: var(--fg-2); stroke-width: .45; fill: none; }            /* 45°-Architektenstrich */
+.dim-line--acc { stroke: var(--accent); stroke-width: var(--rule-red-min); }
+.dim-tick--acc { stroke: var(--accent); }
+.axb-c { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }      /* Achskreis im Diagramm */
+.chart__svg .axb-t { font-family: var(--font-display); font-weight: 800; font-size: 5px; fill: var(--fg); }
+.sb-b { fill: var(--fg); } .sb-w { fill: var(--surface); stroke: var(--fg); stroke-width: .2; }   /* Maßstabsleiste als Achse */
 /* Zeitstrahl */
 .tl-axis { stroke: var(--fg); stroke-width: .35; fill: none; }
 .tl-tick { stroke: var(--fg-3); stroke-width: .2; }
 .tl-pin { fill: var(--surface); stroke: var(--fg); stroke-width: .35; }
 .tl-pin--done { fill: var(--fg); }
 .tl-pin--key { fill: var(--accent); stroke: var(--accent); }
-.tl-pin--signal { fill: var(--signal-fill); stroke: var(--fg); stroke-width: .3; }
+.tl-pin--signal { fill: var(--signal-fill); stroke: var(--signal-fill); stroke-width: .3; }
 .tl-pin--draft { fill: var(--surface); stroke: var(--fg-3); stroke-dasharray: .6 .5; }
 .tl-band { fill: var(--loan); }
 .tl-band--grant { fill: var(--grant); }
@@ -1103,99 +1233,97 @@ abbr { text-decoration: none; }
 .fl-diamond { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }
 .fl-edge { fill: none; stroke: var(--fg-2); stroke-width: .3; }
 .fl-arrow { fill: var(--fg-2); }
-.chart__svg .fl-yes { font-weight: 650; fill: var(--ok); }
-.chart__svg .fl-no { font-weight: 650; fill: var(--no); }
+.chart__svg .fl-yes { font-weight: 700; fill: var(--ok); }
+.chart__svg .fl-no { font-weight: 700; fill: var(--no); }
 /* Ring */
 .ring-bg { fill: none; stroke: var(--surface-3); }
 .ring-val { fill: none; stroke: var(--accent); stroke-linecap: butt; }
-.ring-val--fg { stroke: var(--fg); }               /* zweites Segment / Primärwert (Tinte) */
-.ring-bg--old { stroke: var(--old); }             /* Grundring als Datenreihe „bisher“ (z. B. ausgelaufene Bindungen = 100 %) */
+.ring-val--fg { stroke: var(--fg); }
+.ring-bg--old { stroke: var(--old); }
 
 /* 6.8 faq -------------------------------------------------------------------- */
 .faq { counter-reset: faq; }
-.faq__item { position: relative; padding: 2.8mm 0 3mm 8mm; border-top: var(--hair) solid var(--rule); break-inside: avoid; counter-increment: faq; }
-.faq__item::before { content: counter(faq, decimal-leading-zero); position: absolute; left: 0; top: 3.3mm; font: 650 var(--fs-micro)/1 var(--font-text); letter-spacing: .04em; color: var(--accent-text); font-variant-numeric: tabular-nums; }
-.faq__q { font-family: var(--font-display); font-variation-settings: "opsz" 24, "SOFT" 30, "WONK" 0; font-weight: 500; font-size: 11pt; line-height: 1.2; color: var(--fg); }
+.faq__item { position: relative; padding: 2.8mm 0 3mm 9mm; border-top: var(--hair) solid var(--rule); break-inside: avoid; counter-increment: faq; }
+.faq__item::before { content: counter(faq, decimal-leading-zero); position: absolute; left: 0; top: 3.1mm; font: 900 var(--fs-label-accent)/1 var(--font-display); color: var(--accent-text); font-variant-numeric: tabular-nums; }
+.faq__q { font: 700 10pt/1.25 var(--font-display); color: var(--fg); }
 .faq__a { margin-top: 1.2mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
 .faq__a b { color: var(--fg); }
 .faq--2col { column-count: 2; column-gap: var(--gutter); }
 .faq > .faq__item:last-child { border-bottom: var(--hair) solid var(--rule); }
 
 /* 6.9 checklist -------------------------------------------------------------- */
-.checklist__item { display: grid; grid-template-columns: 5.6mm minmax(0, 1fr); column-gap: 1.6mm; padding: 1.7mm 0 1.8mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-small); line-height: 1.38; color: var(--fg); break-inside: avoid; }
+.checklist__item { display: grid; grid-template-columns: 5.6mm minmax(0, 1fr); column-gap: 1.6mm; padding: 1.7mm 0 1.8mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-small); line-height: 1.38; color: var(--fg-2); break-inside: avoid; }
 .checklist > .checklist__item:first-child { border-top: var(--hair) solid var(--rule); }
-.checklist__box { width: 3.8mm; height: 3.8mm; margin-top: .2mm; border: .9pt solid var(--fg); background: var(--surface); }
+.checklist__box { width: 3.8mm; height: 3.8mm; margin-top: .2mm; border: .3mm solid var(--fg); background: var(--surface); }
 .checklist__item .mark { margin-top: .2mm; }
 .checklist__note { display: block; margin-top: .4mm; font-size: var(--fs-micro); color: var(--fg-3); }
 .checklist__item .badge { margin-left: 1mm; vertical-align: .2mm; }
 .checklist--cols { column-count: 2; column-gap: var(--gutter); }
-.bullets__title + .checklist > .checklist__item:first-child { border-top: 0; }   /* keine Doppellinie unter dem Titel */
-.checklist--open-end > .checklist__item:last-child { border-bottom: 0; }         /* folgt eine Fußnoten-/Modullinie */
+.bullets__title + .checklist > .checklist__item:first-child { border-top: 0; }
+.checklist--open-end > .checklist__item:last-child { border-bottom: 0; }
 .checklist--cols > .checklist__item:first-child { border-top: 0; }
 
 /* 6.10 contact --------------------------------------------------------------- */
-.contact { display: block; font-style: normal; background: var(--surface-2); border-top: var(--rule-heavy) solid var(--rule-strong); padding: 4.6mm 5mm 5mm; color: var(--fg); }
-.contact--dark { background: var(--surface); border-top-color: var(--surface); }
+.contact { display: block; font-style: normal; background: var(--surface-2); border-top: var(--rule-w) solid var(--rule-strong); padding: 4.6mm 5mm 5mm; color: var(--fg-2); }
+.contact--dark { background: var(--grad-dark); border-top-color: transparent; }
 .contact--plain { background: transparent; padding-left: 0; padding-right: 0; }
-.contact__label { font: 650 var(--fs-micro)/1.2 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
-.contact__name { margin-top: 1.6mm; font-family: var(--font-display); font-variation-settings: "opsz" 24, "SOFT" 30, "WONK" 0; font-weight: 500; font-size: var(--fs-h3); line-height: 1.16; }
-.contact__tel { margin-top: 2.4mm; font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0; font-weight: 380; font-size: 19pt; line-height: 1.05; letter-spacing: -.015em; word-spacing: .12em; white-space: nowrap; font-variant-numeric: lining-nums; }
-.contact__tel--l { font-size: 26pt; font-weight: 360; }   /* Kachel ab l-span-5 */
-.contact__tel--xl { font-size: 34pt; font-weight: 330; }
+.contact__label { font: 700 var(--fs-label-accent)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
+.contact__name { margin-top: 1.6mm; font: 800 10.5pt/1.2 var(--font-display); letter-spacing: .03em; text-transform: uppercase; color: var(--fg); }
+.contact__tel { margin-top: 2.4mm; font: 800 17pt/1.05 var(--font-display); letter-spacing: -.01em; word-spacing: .08em; white-space: nowrap; color: var(--fg); font-variant-numeric: lining-nums tabular-nums; }
+.contact__tel--l { font-size: 22pt; }
+.contact__tel--xl { font-size: 28pt; }
 .contact__lines { margin-top: 2mm; font-size: var(--fs-small); line-height: 1.45; color: var(--fg-2); }
 .contact__lines b { color: var(--fg); font-weight: 600; }
 .contact__lines b, .u-url, a { -webkit-hyphens: none; hyphens: none; }
 .u-url { white-space: nowrap; }
-.contact__lines .u-url { font-size: var(--fs-micro); }   /* E-Mail passt so auch in l-span-4 */
+.contact__lines .u-url { font-size: var(--fs-micro); }
 .contact__row { display: flex; align-items: baseline; gap: 2mm; }
 .contact__row .icon { width: 3.6mm; height: 3.6mm; color: var(--accent-text); transform: translateY(.6mm); }
 
 /* 6.11 bullets --------------------------------------------------------------- */
 .bullets > li { position: relative; padding-left: 4mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
 .bullets > li + li { margin-top: 1.2mm; }
-.bullets > li::before { content: ""; position: absolute; left: 0; top: .52em; width: 1.5mm; height: 1.5mm; border-radius: 50%; background: var(--accent); }
+.bullets > li::before { content: ""; position: absolute; left: 0; top: .5em; width: 1.4mm; height: 1.4mm; background: var(--accent); }   /* eckig, PGN */
 .bullets > li b { color: var(--fg); }
-.bullets--body > li { font-size: var(--fs-body); color: var(--fg); }
+.bullets--body > li { font-size: var(--fs-body); line-height: var(--lh-body); }
 .bullets--ruled > li { padding: 1.6mm 0 1.7mm 4mm; border-bottom: var(--hair) solid var(--rule); }
 .bullets--ruled > li + li { margin-top: 0; }
-.bullets--ruled > li::before { top: calc(1.6mm + .52em); }
+.bullets--ruled > li::before { top: calc(1.6mm + .5em); }
 .bullets--check > li { padding-left: 5mm; }
-.bullets--check > li::before { width: 1.1mm; height: 2.1mm; border-radius: 0; background: none; border: solid var(--ok); border-width: 0 .45mm .45mm 0; transform: rotate(45deg); top: .28em; left: .8mm; }
+.bullets--check > li::before { width: 1.1mm; height: 2.1mm; background: none; border: solid var(--ok); border-width: 0 .45mm .45mm 0; transform: rotate(45deg); top: .28em; left: .8mm; }
 .bullets--ruled.bullets--check > li::before { top: calc(1.6mm + .28em); }
-.bullets--dash > li::before { width: 2.2mm; height: var(--rule-heavy); border-radius: 0; top: .68em; background: var(--fg-3); }
+.bullets--dash > li::before { width: 2.2mm; height: .35mm; top: .68em; background: var(--fg-3); }
 .bullets--num { counter-reset: bl; }
-.bullets--num > li { padding-left: 6mm; counter-increment: bl; }
-.bullets--num > li::before { content: counter(bl); width: auto; height: auto; background: none; border-radius: 0; top: 0; font-family: var(--font-display); font-weight: 450; font-size: 10.5pt; line-height: 1.25; color: var(--accent-text); }
+.bullets--num > li { padding-left: 6.4mm; counter-increment: bl; }
+.bullets--num > li::before { content: counter(bl, decimal-leading-zero); width: auto; height: auto; background: none; top: 0; font: 900 var(--fs-label-accent)/1.5 var(--font-display); color: var(--accent-text); }
 .bullets--compact > li + li { margin-top: .6mm; }
-.bullets__title { padding: 3mm 0 2mm; border-top: var(--rule-heavy) solid var(--rule-strong); border-bottom: var(--hair) solid var(--rule); font: 650 var(--fs-micro)/1.2 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
+.bullets__title { padding: 2.6mm 0 2mm; border-top: var(--rule-w) solid var(--rule-strong); border-bottom: var(--hair) solid var(--rule); font: 800 var(--fs-label-accent)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
 .bullets__title + .bullets--ruled > li:first-child { padding-top: 1.8mm; }
 
-/* Faktenspalte: gestapelte Textmodule in einer Seitenleiste (l-span-4/-5) neben Diagrammen */
+/* Faktenspalte */
 .facts { display: flex; flex-direction: column; }
 .facts > * + * { margin-top: 3.2mm; }
 .facts__mod { border-top: var(--hair) solid var(--rule); padding-top: 2.4mm; }
-.facts > .facts__mod:first-child { border-top: var(--rule-heavy) solid var(--rule-strong); padding-top: 3mm; }   /* bündig mit der Modul-Linie der Abbildungen */
+.facts > .facts__mod:first-child { border-top: var(--rule-heavy) solid var(--rule-strong); padding-top: 3mm; }
 .facts__mod > .label + * { margin-top: 1.4mm; }
 .facts__text { font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
 .facts__text b { color: var(--fg); }
 .facts .bullets > li { font-size: var(--fs-module); line-height: var(--lh-module); }
 .facts .bullets > li + li { margin-top: .8mm; }
 
-/* 6.12 Badges, Tags, Baustein-Kennzeichnung ----------------------------------- */
-.badge { display: inline-flex; align-items: center; gap: 1mm; padding: .85mm 1.5mm .75mm; border: .6pt solid var(--rule-strong); font: 650 var(--fs-micro)/1 var(--font-text); letter-spacing: .03em; color: var(--fg); white-space: nowrap; font-variant-numeric: tabular-nums; }
-/* „Vordruck“ als echter Text (<span class="badge__pre">Vordruck&nbsp;</span>, setzt scripts/assemble.cjs) statt ::before –
-   sonst liest der Screenreader nur „1011“. Das geschützte Leerzeichen ersetzt den Flex-Abstand (Textlayer „Vordruck 1011“). */
+/* 6.12 Badges, Tags, Programmteil-Kennzeichnung ------------------------------- */
+.badge { display: inline-flex; align-items: center; gap: 1mm; padding: .85mm 1.5mm .75mm; border: var(--hair) solid var(--rule-strong); font: 700 var(--fs-micro)/1 var(--font-display); letter-spacing: .03em; color: var(--fg); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .badge--form { gap: 0; }
-.badge__pre { font-weight: 500; color: var(--fg-3); letter-spacing: 0; -webkit-hyphens: none; hyphens: none; }
+.badge__pre { font-family: var(--font-text); font-weight: 500; color: var(--fg-3); letter-spacing: 0; -webkit-hyphens: none; hyphens: none; }
 .badge--frist { background: var(--signal-fill); border-color: var(--signal-fill); color: var(--on-signal); }
 .badge--accent { border-color: var(--accent-text); color: var(--accent-text); }
 .badge--solid { background: var(--fg); border-color: var(--fg); color: var(--surface); }
 .badge--quiet { border-color: var(--rule); color: var(--fg-2); }
-.badge.badge--s { padding: .4mm 1mm .3mm; vertical-align: .1mm; }   /* im 8,5/9-pt-Fließtext, ohne die Zeile zu erhöhen; Gruppen mit .u-nowrap zusammenhalten */
+.badge.badge--s { padding: .4mm 1mm .3mm; vertical-align: .1mm; }
 
 .bs-badge { display: inline-flex; align-items: center; gap: 1.8mm; font: 600 var(--fs-micro)/1.2 var(--font-text); color: var(--fg); }
-.bs-badge__no { flex: none; padding: 1mm 1.4mm .9mm; background: var(--bs); color: var(--on-bs); font-weight: 700; letter-spacing: .02em; line-height: 1; font-variant-numeric: tabular-nums; }
-.bs-badge .bs-badge__no { color: var(--on-bs); }   /* bleibt weiß, auch in Komponenten, die b einfärben (.bullets b, .kf__text b …) */
+.bs-badge__no { flex: none; padding: 1mm 1.4mm .9mm; background: var(--bs); color: var(--on-bs); font: 800 var(--fs-micro)/1 var(--font-display); letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+.bs-badge .bs-badge__no { color: var(--on-bs); }
 .bs-badge--l .bs-badge__no { padding: 1.6mm 2.2mm 1.5mm; font-size: 10pt; }
 .bs-badge--l { font-size: var(--fs-small); }
 .bs-stripes { display: flex; height: 3mm; }
@@ -1204,40 +1332,46 @@ abbr { text-decoration: none; }
 .bs-stripes > i:nth-child(3) { background: var(--bs-23); } .bs-stripes > i:nth-child(4) { background: var(--bs-24); }
 .bs-stripes > i:nth-child(5) { background: var(--bs-25); } .bs-stripes > i:nth-child(6) { background: var(--bs-26); }
 
-/* Register-Leiste am Fuß (Titel, Rückseite): Nummern 2.1–2.6 über den sechs Farbstreifen, randabfallend (data-bleed) */
 .bs-strip { position: absolute; left: 0; right: 0; bottom: 0; }
-.bs-strip__nos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); padding-bottom: 2.4mm; font: 700 var(--fs-micro)/1 var(--font-text); letter-spacing: .04em; text-align: center; font-variant-numeric: tabular-nums; }
+.bs-strip__nos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); padding-bottom: 2.4mm; font: 800 var(--fs-micro)/1 var(--font-display); letter-spacing: .04em; text-align: center; font-variant-numeric: tabular-nums; }
 .bs-strip__nos > li { color: var(--bs); }
-.page--cover .bs-strip__nos > li, .page--back .bs-strip__nos > li, .page--dark .bs-strip__nos > li, .on-dark .bs-strip__nos > li { color: var(--bs-tint); }
+.page--cover .bs-strip__nos > li, .page--back .bs-strip__nos > li, .page--dark .bs-strip__nos > li, .on-dark .bs-strip__nos > li, .on-red .bs-strip__nos > li { color: var(--fg); }
 
-/* Gruppen-Chip A/B/C (Einkommensgruppen): A = dunkelste, B = mittlere, C = hellste Stufe der Petrol-Skala */
-.grp-chip { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 4mm; height: 4mm; font: normal 450 9pt/1 var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; letter-spacing: 0; text-transform: none; }
-.grp-chip--l { width: 5.2mm; height: 5.2mm; font-size: 11pt; }
+/* Schlüsselplan 2.1–2.6: sechs Felder mit Farbkante, aktives Feld gefüllt */
+.keyplan { display: inline-flex; align-items: center; gap: 1.4mm; font: 500 var(--fs-micro)/1 var(--font-text); color: var(--fg-3); }
+.keyplan__label { margin-right: 1mm; }
+.keyplan__list { display: inline-flex; gap: 1.2mm; }
+.keyplan__list > li { position: relative; width: 9.5mm; height: 6.2mm; border: var(--hair) solid var(--rule-strong); font: 700 var(--fs-micro)/5.8mm var(--font-display); text-align: center; color: var(--fg); font-variant-numeric: tabular-nums; }
+.keyplan__list > li::before { content: ""; position: absolute; left: -.2mm; right: -.2mm; top: -.2mm; height: 1.1mm; background: var(--bs); }
+.keyplan__list > li.is-on { background: var(--bs); border-color: var(--bs); color: var(--on-bs); font-weight: 800; }
+
+/* Einkommensgruppen A/B/C als Achskreise (Füllung = sequenzielle Stufe, A dunkel → C hell) */
+.grp-chip { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 4.4mm; height: 4.4mm; border-radius: 50%; font: normal 800 8.5pt/1 var(--font-display); letter-spacing: 0; text-transform: none; }
+.grp-chip--l { width: 6.4mm; height: 6.4mm; font-size: 10.5pt; }
 .grp-chip--a { background: var(--seq-6); color: var(--white); }
 .grp-chip--b { background: var(--seq-4); color: var(--white); }
-.grp-chip--c { background: var(--seq-2); color: var(--petrol-900); }
+.grp-chip--c { background: var(--seq-2); color: var(--ink); }
 
-.tag { display: inline-flex; align-items: center; gap: 1.2mm; padding: 1mm 1.6mm .9mm; background: var(--surface-2); font: 600 var(--fs-micro)/1 var(--font-text); color: var(--fg-2); white-space: nowrap; }
-.tag .sw { width: 2.4mm; height: 2.4mm; vertical-align: 0; }
-.tag .sw + .sw { margin-left: -.8mm; }
+.tag { display: inline-flex; align-items: center; gap: 1.2mm; padding: 1mm 1.6mm .9mm; background: var(--surface-2); font: 700 var(--fs-micro)/1 var(--font-display); color: var(--fg-2); white-space: nowrap; }
+.tag .sw { width: 3mm; height: 2.4mm; vertical-align: 0; }
+.tag .sw + .sw { margin-left: -.6mm; }
 .tags { display: flex; flex-wrap: wrap; gap: 1.4mm; }
 
-/* Fördergegenstände-Übersicht (Piktogramm + Nummer + Titel + Förderart) */
+/* Fördergegenstände-Übersicht */
 .programs { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--sp-5); }
-.program { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 3mm; border-top: 2pt solid var(--bs); padding-top: 2.6mm; }
-.program .pict { grid-row: 1 / span 3; --pict-size: 16mm; transform: translate(-2mm, -2mm); color: var(--fg); }   /* Versatz per transform, nicht per Minus-Rand (Grundregel 5) */
-.program__no { font: 700 var(--fs-micro)/1 var(--font-text); color: var(--bs); letter-spacing: .04em; }
-.program__title { margin-top: 1mm; font-family: var(--font-display); font-variation-settings: "opsz" 24, "SOFT" 30, "WONK" 0; font-weight: 500; font-size: 10.5pt; line-height: 1.18; }
+.program { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 3mm; border-top: var(--rule-heavy) solid var(--bs); padding-top: 2.6mm; }
+.program .pict { grid-row: 1 / span 3; --pict-size: 16mm; transform: translate(-2mm, -2mm); color: var(--fg); }
+.program__no { font: 900 var(--fs-label-accent)/1 var(--font-display); color: var(--bs); letter-spacing: .04em; }
+.program__title { margin-top: 1mm; font: 700 9.75pt/1.22 var(--font-display); color: var(--fg); }
 .program__meta { margin-top: 1.6mm; display: flex; flex-wrap: wrap; gap: 1.2mm; align-items: center; }
 .programs--compact { row-gap: var(--sp-4); }
 .programs--compact .program .pict { --pict-size: 14mm; }
-.programs--compact .program__title { font-size: 9.5pt; }
+.programs--compact .program__title { font-size: 9pt; }
 .program__page { font: 600 var(--fs-micro)/1 var(--font-text); color: var(--fg-3); }
 
-/* Programmnummer groß (Kürzel der RL-Nummer 2.x, kein Laufzähler) mit Label „Programmteil“ (.chapter-no__label) */
-.chapter-no { text-align: right; font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 70, "WONK" 0; font-weight: 250; font-size: 108pt; line-height: .76; letter-spacing: -.045em; color: var(--bs, var(--accent)); }
-.chapter-no small, .chapter-no__label { display: block; margin-top: 3.4mm; font: 650 var(--fs-micro)/1.3 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
-/* außen bündig: linke (gerade) Seiten links, rechte Seiten rechts; manuell mit --start / --end */
+/* Programmnummer groß: „2.1“-Kürzel (Montserrat 900) in der Programmfarbe */
+.chapter-no { text-align: right; font: 900 60pt/.8 var(--font-display); letter-spacing: -.04em; color: var(--bs, var(--accent)); font-variant-numeric: lining-nums; }
+.chapter-no small, .chapter-no__label { display: block; margin-top: 3.4mm; font: 700 var(--fs-micro)/1.3 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
 .page--left .chapter-no,
 .page[data-page$="0"] .chapter-no,
 .page[data-page$="2"] .chapter-no,
@@ -1252,133 +1386,346 @@ abbr { text-decoration: none; }
 .path { display: flex; gap: 2.4mm; align-items: flex-start; border-top: var(--hair) solid var(--rule); padding-top: 2.2mm; }
 .path .pict { flex: none; --pict-size: 13mm; transform: translate(-1.5mm, -1.5mm); color: var(--fg); }
 .path .icon { flex: none; width: 7mm; height: 7mm; color: var(--fg); }
-.path__title { font: 650 var(--fs-small)/1.25 var(--font-text); color: var(--fg); }
+.path__title { font: 700 var(--fs-small)/1.25 var(--font-display); color: var(--fg); }
 .path__text { margin-top: .6mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
 
 /* 6.13 Modellrechnung, Rechenblatt, Stempel ---------------------------------- */
-.stamp { display: inline-flex; align-items: center; gap: 1.4mm; padding: 1.1mm 1.8mm 1mm; border: var(--rule-w) solid currentColor; outline: .4pt solid currentColor; outline-offset: .7mm; font: 700 var(--fs-micro)/1 var(--font-text); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-text); white-space: nowrap; }
-/* Stempelzeile: immer erste Zeile eines Modellrechnungs-Moduls (Diagramm, Kasten, Tabelle) – Stempel + Zusatz,
-   ohne Drehung, ohne absolute Positionierung. Die Doppelkontur ragt 0,8 mm über die Box: .7 mm Einzug links */
-/* Flex-Zeile: Der Zusatz ist unteilbar – passt er nicht neben den Stempel, rückt er geschlossen darunter (nie „– fiktives |
-   Beispiel …“). In Spalten unter 70 mm von vornherein .stampline--stack: Stempel als Block, Zusatz ohne Strich darunter. */
+.stamp { display: inline-flex; align-items: center; gap: 1.4mm; padding: 1.1mm 1.8mm 1mm; border: var(--rule-red-min) solid currentColor; outline: var(--hair) solid currentColor; outline-offset: .7mm; font: 800 var(--fs-label-accent)/1 var(--font-display); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-text); white-space: nowrap; }
 .stampline { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2mm 2.2mm; padding: .8mm 0 .4mm .8mm; font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-2); }
 .stampline > span:not(.stamp) { display: inline-block; white-space: nowrap; }
 .stampline--stack { flex-direction: column; align-items: flex-start; gap: 1.8mm; }
 .stampline + * { margin-top: 2.6mm; }
-.model { background: var(--surface-2); border-top: var(--rule-heavy) solid var(--rule-strong); padding: 4.4mm 5.5mm 4.8mm; break-inside: avoid; }
+.model { background: var(--surface-2); border-top: var(--rule-w) solid var(--rule-strong); padding: 4.4mm 5.5mm 4.8mm; break-inside: avoid; }
 .model__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 5mm; }
-.model__title { margin-top: 2.6mm; font-family: var(--font-display); font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0; font-weight: 450; font-size: 13pt; line-height: 1.18; }
+.model__title { margin-top: 2.6mm; font: 800 10pt/1.2 var(--font-display); letter-spacing: .06em; text-transform: uppercase; color: var(--fg); }
 .model__note { margin-top: 1mm; font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-3); }
 .model__grid { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); column-gap: 5mm; margin-top: 3.4mm; }
 .model__item { border-top: var(--hair) solid var(--rule); padding-top: 2mm; }
-.model__label { display: flex; align-items: center; gap: 1.4mm; font: 650 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); }
-.model__value { margin-top: 1.4mm; font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 400; font-size: 17pt; line-height: 1; letter-spacing: -.015em; white-space: nowrap; font-variant-numeric: lining-nums tabular-nums; color: var(--fg); }
-.model__value small { font-size: .5em; color: var(--accent-text); margin-left: .12em; font-weight: 450; letter-spacing: 0; }
+.model__label { display: flex; align-items: center; gap: 1.4mm; font: 700 var(--fs-micro)/1.2 var(--font-display); color: var(--fg-2); }
+.model__value { margin-top: 1.4mm; font: 800 16pt/1 var(--font-display); letter-spacing: -.01em; white-space: nowrap; font-variant-numeric: lining-nums tabular-nums; color: var(--fg); }
+.model__value small { font-size: .52em; color: var(--accent-text); margin-left: .12em; font-weight: 700; letter-spacing: 0; }
 .model__pre { display: block; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-3); margin-top: .6mm; }
 .model__rows { margin-top: 3mm; border-top: var(--hair) solid var(--rule); }
 .model__row { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; padding: 1.4mm 0; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-small); }
-.model__row dd { font-weight: 650; white-space: nowrap; font-variant-numeric: tabular-nums lining-nums; }
-.model__row--total { border-bottom: var(--rule-w) solid var(--rule-strong); font-weight: 650; }
+.model__row dd { font-family: var(--font-display); font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums lining-nums; color: var(--fg); }
+.model__row--total { border-bottom: var(--rule-w) solid var(--rule-strong); font-weight: 600; color: var(--fg); }
 .model__calc { margin-top: 2.6mm; font-size: var(--fs-micro); line-height: 1.45; color: var(--fg-3); }
 .model__calc b { color: var(--fg-2); }
 
+/* Rechenblatt im 5-mm-Planraster */
 .formula {
   border: var(--hair) solid var(--rule);
   background-color: var(--surface);
-  background-image: linear-gradient(var(--grid-line) .25mm, transparent .25mm), linear-gradient(90deg, var(--grid-line) .25mm, transparent .25mm);
-  background-size: 4mm 4mm;
+  background-image: linear-gradient(var(--grid-line) .2mm, transparent .2mm), linear-gradient(90deg, var(--grid-line) .2mm, transparent .2mm);
+  background-size: var(--plan) var(--plan);
   padding: 3.4mm 4.4mm 3.6mm;
 }
-.formula__row { display: grid; grid-template-columns: 6mm minmax(0, 1fr); column-gap: 2mm; align-items: baseline; padding: 1.2mm 0; font-size: var(--fs-small); line-height: 1.35; }
-.formula__op { font-family: var(--font-display); font-weight: 500; font-size: 13pt; line-height: 1; text-align: center; color: var(--accent-text); }
+.formula__row { display: grid; grid-template-columns: 6mm minmax(0, 1fr); column-gap: 2mm; align-items: baseline; padding: 1.2mm 0; font-size: var(--fs-small); line-height: 1.35; color: var(--fg-2); }
+.formula__op { font: 900 13pt/1 var(--font-display); text-align: center; color: var(--accent-text); }
 .formula__term { color: var(--fg); }
 .formula__limit { grid-column: 2; font-size: var(--fs-micro); color: var(--fg-3); }
 .formula--wide .formula__row { grid-template-columns: 6mm minmax(0, 1.2fr) minmax(0, 1fr); }
 .formula--wide .formula__limit { grid-column: 3; text-align: right; }
-.formula__row--result { border-top: var(--rule-w) solid var(--rule-strong); margin-top: .8mm; padding-top: 1.8mm; font-weight: 650; }
+.formula__row--result { border-top: var(--rule-w) solid var(--rule-strong); margin-top: .8mm; padding-top: 1.8mm; font-weight: 600; }
 
 /* 6.14 Begriff (Marginalie) ---------------------------------------------------- */
-.term { border-left: var(--rule-heavy) solid var(--accent); padding: .4mm 0 .6mm 3.4mm; }
-.term__label { font: 650 var(--fs-micro)/1.2 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
-.term__word { margin-top: 1mm; font-family: var(--font-display); font-variation-settings: "opsz" 24, "SOFT" 30, "WONK" 0; font-weight: 500; font-size: 11pt; line-height: 1.2; color: var(--fg); }
+.term { border-left: var(--rule-accent) solid var(--accent); padding: .4mm 0 .6mm 3.4mm; }
+.term__label { font: 700 var(--fs-label-accent)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
+.term__word { margin-top: 1mm; font: 700 10.5pt/1.22 var(--font-display); color: var(--fg); }
 .term__text { margin-top: 1mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
 
 /* 6.15 Inhaltsverzeichnis ---------------------------------------------------- */
-.toc__item { display: grid; grid-template-columns: 9mm minmax(0, 1fr) auto; column-gap: 2mm; align-items: baseline; padding: 1.6mm 0; border-bottom: var(--hair) solid var(--rule); }
-.toc__no { font: 650 var(--fs-micro)/1 var(--font-text); color: var(--accent-text); font-variant-numeric: tabular-nums; }
+.toc__item { display: grid; grid-template-columns: 10mm minmax(0, 1fr) auto; column-gap: 2mm; align-items: baseline; padding: 1.6mm 0; border-bottom: var(--hair) solid var(--rule); }
+.toc__no { font: 800 var(--fs-label-accent)/1 var(--font-display); color: var(--accent-text); font-variant-numeric: tabular-nums; }
 .toc__title { font-size: var(--fs-small); color: var(--fg); }
-.toc__page { font-family: var(--font-display); font-weight: 450; font-size: 11pt; color: var(--fg); font-variant-numeric: lining-nums tabular-nums; }
+.toc__page { font: 800 10pt/1 var(--font-display); color: var(--fg); font-variant-numeric: lining-nums tabular-nums; }
 
 /* 6.16 Zielgruppen-Zeile, Schriftfeld, Impressum ------------------------------ */
 .audience { display: flex; flex-wrap: wrap; align-items: baseline; gap: 1mm 0; font: 500 var(--fs-micro)/1.35 var(--font-text); color: var(--fg-2); }
-.audience__label { font-weight: 650; letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); margin-right: 3mm; }
-.audience__item + .audience__item::before { content: ""; display: inline-block; width: 1mm; height: 1mm; border-radius: 50%; background: var(--rule-strong); opacity: .55; margin: 0 2.2mm .45mm; }
-.titleblock { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); border-top: var(--hair) solid var(--rule); }
-.titleblock__cell { padding: 2mm 4mm 0 0; }
-.titleblock__cell + .titleblock__cell { border-left: var(--hair) solid var(--rule); padding-left: 4mm; }
-.titleblock__label { font: 650 var(--fs-micro)/1.2 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
-.titleblock__value { margin-top: .8mm; font: 500 var(--fs-micro)/1.35 var(--font-text); color: var(--fg); }
+.audience__label { font: 700 var(--fs-label-accent)/1.35 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); margin-right: 3mm; }
+.audience__item + .audience__item::before { content: ""; display: inline-block; width: 1mm; height: 1mm; background: var(--accent); margin: 0 2.2mm .45mm; }
+/* Schriftfeld (Plankopf): Zellen mit Bezeichnung + Wert, Haarlinien; --frame geschlossen (Umschlag, Kapitelauftakt) */
+.titleblock { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); border-top: var(--rule-w) solid var(--rule-strong); }
+.titleblock--frame { border: var(--rule-w) solid var(--rule-strong); }
+.titleblock__cell { padding: 1.9mm 3mm 2mm 0; min-width: 0; }
+.titleblock__cell + .titleblock__cell { border-left: var(--hair) solid var(--rule-strong); padding-left: 3mm; }
+.titleblock--frame .titleblock__cell { padding-left: 3mm; }
+.titleblock__cell--blatt { background: var(--surface-2); }
+.titleblock__cell--blatt .titleblock__value { font: 900 13pt/1.05 var(--font-display); }
+.titleblock__cell--fill { background: var(--surface-2); }
+.titleblock__label { font: 500 var(--fs-micro)/1.2 var(--font-text); letter-spacing: 0; text-transform: none; color: var(--fg-3); }
+.titleblock__value { margin-top: .7mm; font: 600 var(--fs-small)/1.3 var(--font-display); color: var(--fg); }
+.titleblock__value .u-url { font: inherit; }
 .imprint { font-size: var(--fs-micro); line-height: 1.45; color: var(--fg-2); -webkit-hyphens: none; hyphens: none; }
-.imprint p + p { margin-top: 1.2mm; }   /* Spalten über l-grid mit ganzen Absätzen, nicht column-count (Fundstellen würden geteilt) */
+.imprint p + p { margin-top: 1.2mm; }
 .imprint b { color: var(--fg); }
 
+/* 6.17 Planzeichen: Achskreis, Höhenkote, Maßkette, Schnittlinie, Nordpfeil ---- */
+.axis-no { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 6.2mm; height: 6.2mm; border: .3mm solid var(--rule-strong); border-radius: 50%; background: var(--surface); font: 800 9pt/1 var(--font-display); color: var(--fg); font-variant-numeric: tabular-nums; }
+.axis-no--s { width: 5mm; height: 5mm; font-size: 8.5pt; border-width: var(--hair); }
+.axis-no--l { width: 9mm; height: 9mm; font-size: 12pt; }
+.axis-no--accent { border-color: var(--accent); color: var(--accent-text); border-width: .35mm; }
+.axis-no--filled { background: var(--accent); border-color: var(--accent); color: var(--white); }
+/* Höhenkote: rotes Dreieck + Wert (Montserrat 700) */
+.kote { display: inline-flex; align-items: center; gap: 1.4mm; font: 700 9pt/1 var(--font-display); color: var(--fg); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.kote::before { content: ""; flex: none; width: 0; height: 0; border: solid transparent; border-width: 2.2mm 1.3mm 0; border-top-color: var(--accent); }
+.kote--line { display: flex; border-bottom: var(--hair) solid var(--rule-strong); padding-bottom: .8mm; }
+/* Maßkette (HTML): Segmente mit 45°-Strichen, Wert über der Linie. style="--w: 80" = Anteil in % */
+.dim { position: relative; display: flex; align-items: flex-end; height: 7mm; font: 700 var(--fs-micro)/1 var(--font-display); color: var(--fg); }
+.dim__seg { position: relative; flex: 0 0 calc(var(--w) * 1%); height: 100%; display: flex; align-items: flex-start; justify-content: center; border-bottom: var(--rule-red-min) solid var(--dim-c, var(--fg-2)); padding-top: .4mm; white-space: nowrap; }
+.dim__seg::before, .dim__seg:last-child::after { content: ""; position: absolute; bottom: -1.3mm; left: -1.25mm; width: 2.5mm; height: 2.5mm; background: linear-gradient(135deg, transparent calc(50% - .24mm), var(--dim-c, var(--fg-2)) calc(50% - .24mm), var(--dim-c, var(--fg-2)) calc(50% + .24mm), transparent calc(50% + .24mm)); }
+.dim__seg:last-child::after { left: auto; right: -1.25mm; }
+.dim__seg b { font-weight: 800; }
+.dim__seg--acc { --dim-c: var(--accent); color: var(--accent-text); }
+.dim__seg--muted { color: var(--fg-3); }
+.dim--on-red .dim__seg { --dim-c: var(--white); color: var(--white); }
+/* Schnittlinie A–A als Trenner zwischen Abschnitten (Strichpunkt, Buchstaben, rote Pfeile) */
+.cutline { position: relative; height: 8mm; margin: 2mm 0; }
+.cutline::before { content: ""; position: absolute; left: 4mm; right: 4mm; top: 4.6mm; height: var(--hair); background: repeating-linear-gradient(90deg, var(--fg) 0 6mm, transparent 6mm 7.2mm, var(--fg) 7.2mm 7.8mm, transparent 7.8mm 9mm); }
+.cutline > span { position: absolute; top: 0; width: 8mm; text-align: center; font: 800 9pt/1 var(--font-display); color: var(--fg); }
+.cutline > span::after { content: ""; position: absolute; left: 2.2mm; top: 5.6mm; width: 0; height: 0; border: solid transparent; border-width: 0 1.8mm 2.4mm; border-bottom-color: var(--accent); }
+.cutline > span:first-child { left: 0; }
+.cutline > span:last-child { right: 0; }
+.cutline > span::before { content: ""; position: absolute; left: 0; top: 4.2mm; width: 8mm; height: .8mm; background: var(--fg); }
+.north { display: inline-block; width: 8mm; height: 10mm; flex: none; color: var(--fg); }
+
+/* 6.18 Fotos: Duplex (≤ 120 mm, assets/pgn/img/*-duplex.jpg), Banner (≤ 180 mm), Beschnittmarken, Achskreise */
+.photo { position: relative; }
+.photo__img { display: block; width: 100%; height: var(--photo-h, auto); object-fit: cover; object-position: var(--photo-pos, 50% 50%); }
+.photo--marks::after {
+  content: "";
+  position: absolute;
+  left: -1.6mm; right: -1.6mm; top: -1.6mm;
+  height: calc(100% - var(--cap-h, 0mm) + 3.2mm);
+  pointer-events: none;
+  --mc: var(--accent);
+  background:
+    linear-gradient(var(--mc), var(--mc)) left top / 3mm .35mm no-repeat,
+    linear-gradient(var(--mc), var(--mc)) left top / .35mm 3mm no-repeat,
+    linear-gradient(var(--mc), var(--mc)) right top / 3mm .35mm no-repeat,
+    linear-gradient(var(--mc), var(--mc)) right top / .35mm 3mm no-repeat,
+    linear-gradient(var(--mc), var(--mc)) left bottom / 3mm .35mm no-repeat,
+    linear-gradient(var(--mc), var(--mc)) left bottom / .35mm 3mm no-repeat,
+    linear-gradient(var(--mc), var(--mc)) right bottom / 3mm .35mm no-repeat,
+    linear-gradient(var(--mc), var(--mc)) right bottom / .35mm 3mm no-repeat;
+}
+.photo__tag { position: absolute; left: 0; top: 0; padding: 1.4mm 2.6mm 1.3mm; background: var(--accent); color: var(--white); font: 800 var(--fs-label-accent)/1 var(--font-display); letter-spacing: .14em; text-transform: uppercase; }
+.photo__caption { display: flex; gap: 2.4mm; align-items: baseline; margin-top: 2.2mm; font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-3); }
+.photo__caption b { flex: none; font: 800 var(--fs-micro)/1.35 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); border-bottom: .4mm solid var(--fg); }
+/* Achskreise mit Strichpunkt-Achsen über einem Banner */
+.photo__axes { position: absolute; left: 0; right: 0; top: -9mm; bottom: 0; pointer-events: none; display: flex; justify-content: space-between; padding: 0 var(--axes-pad, 6mm); }
+.photo__axes > span { position: relative; width: 6.2mm; display: flex; flex-direction: column; align-items: center; }
+.photo__axes > span > b { display: flex; align-items: center; justify-content: center; width: 6.2mm; height: 6.2mm; border: .3mm solid var(--fg); border-radius: 50%; background: var(--surface); font: 800 8.5pt/1 var(--font-display); color: var(--fg); }
+.photo__axes > span::after { content: ""; flex: 1; width: var(--hair); background: repeating-linear-gradient(180deg, var(--fg) 0 5mm, transparent 5mm 6.2mm, var(--fg) 6.2mm 6.8mm, transparent 6.8mm 8mm); opacity: .55; }
+/* Vektor-Punktraster (assets/pgn/sig-raster-*.svg inline, currentColor) */
+.raster { display: block; color: var(--accent); }
+.raster svg { display: block; width: 100%; height: auto; }
+.raster--ink { color: var(--fg); }
+
+/* 6.19 PGN-Leistungen (Block-Typ services): Stationen entlang des Förderwegs --- */
+.services { counter-reset: svc; border-top: var(--rule-w) solid var(--rule-strong); }
+.service { display: grid; grid-template-columns: 12mm minmax(0, 1fr); column-gap: 3mm; padding: 2.6mm 0 2.8mm; border-bottom: var(--hair) solid var(--rule); break-inside: avoid; }
+.service__no { font: 900 15pt/.95 var(--font-display); letter-spacing: -.01em; color: var(--accent-text); font-variant-numeric: tabular-nums; }
+.service__phase { display: block; font: 700 var(--fs-label-accent)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
+.service__title { margin-top: .6mm; font: 800 9.75pt/1.22 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--fg); }
+.service__text { margin-top: 1mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+.service__text b { color: var(--fg); }
+.services--2col { display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--gutter); }
+/* Prozessband: sieben Stationen nebeneinander, Quadrat-Marken wie die Stationen im Antragsweg */
+.services--band { display: grid; grid-template-columns: repeat(var(--n, 7), minmax(0, 1fr)); column-gap: 2.4mm; border-top: 0; }
+.services--band .service { display: block; padding: 0; border-bottom: 0; }
+.services--band .service__no { display: flex; align-items: center; justify-content: center; width: 7mm; height: 7mm; border: .3mm solid var(--fg); background: var(--surface); font-size: 9pt; color: var(--fg); margin-bottom: 2mm; }
+.services--band .service:first-child .service__no, .services--band .service.is-foerder .service__no { background: var(--accent); border-color: var(--accent); color: var(--white); }
+.services--band .service__title { font-size: 8.5pt; letter-spacing: .03em; }
+/* Ergänzungsmodul (Schlüsselfertig, Für Kommunen): Anthrazit bzw. Papier – kein Grün */
+.offer-box { padding: 3.6mm 4.4mm 4mm; background: var(--surface-2); border-top: var(--rule-w) solid var(--rule-strong); }
+.offer-box--dark { background: var(--grad-dark); border-top: 0; }
+.offer-box__title { font: 800 9.75pt/1.22 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--fg); }
+.offer-box__text { margin-top: 1.2mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+
+/* HOAI-Skala LPH 1–9 mit Bewilligungsmarke zwischen LPH 6 und 7 (±0) */
+.lph-scale { position: relative; padding-top: 7mm; }
+.lph-scale__list { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); border-bottom: var(--rule-w) solid var(--rule-strong); }
+.lph-scale__list > li { display: flex; flex-direction: column; align-items: center; gap: 1mm; padding-bottom: 1.6mm; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-3); text-align: center; }
+.lph-scale__list > li > b { display: flex; align-items: center; justify-content: center; width: 6mm; height: 6mm; border: var(--hair) solid var(--rule-strong); border-radius: 50%; background: var(--surface); font: 800 8.5pt/1 var(--font-display); color: var(--fg); }
+.lph-scale__gate { position: absolute; top: 0; bottom: -2.6mm; left: calc(var(--at, 6) / 9 * 100%); width: .45mm; margin-left: -.22mm; background: var(--signal-fill); }
+.lph-scale__gate > span { position: absolute; left: 50%; top: 0; transform: translateX(-50%); padding: .8mm 2.2mm .7mm; background: var(--signal-fill); color: var(--on-signal); font: 800 var(--fs-label-accent)/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+
+/* Bauzeitenplan nach HOAI (Gantt): Rot = förderspezifisch, Fast-Schwarz = Planen und Bauen, Bewilligung = ±0 */
+.bzp { --label-w: 58mm; --n: 9; position: relative; }
+.bzp__grid { position: relative; }
+.bzp__head, .bzp__row { display: grid; grid-template-columns: var(--label-w) minmax(0, 1fr); }
+.bzp__phases { grid-column: 2; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); }
+.bzp__phases--top > span { padding: 1.4mm 2.4mm; font: 800 var(--fs-micro)/1.15 var(--font-display); letter-spacing: .06em; text-transform: uppercase; color: var(--fg); background: var(--surface-2); }
+.bzp__phases--top > span small { display: block; font: 500 var(--fs-micro)/1.2 var(--font-text); letter-spacing: 0; text-transform: none; color: var(--fg-3); }
+.bzp__phases--top > .is-after { background: var(--grad-red); color: var(--white); }
+.bzp__phases--top > .is-after small { color: var(--pgn-red-100); }
+.bzp__lph { display: flex; justify-content: center; align-items: center; height: 9mm; border-bottom: var(--rule-w) solid var(--rule-strong); }
+.bzp__lph > b { display: flex; align-items: center; justify-content: center; width: 5.6mm; height: 5.6mm; border: var(--hair) solid var(--rule-strong); border-radius: 50%; background: var(--surface); font: 800 8.5pt/1 var(--font-display); color: var(--fg); }
+.bzp__label { padding: 1.3mm 2mm 1.2mm 0; border-bottom: var(--hair) solid var(--rule); }
+.bzp__title { display: block; font: 800 9pt/1.2 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--fg); }
+.bzp__title em { font-style: normal; color: var(--accent-text); margin-right: 1.6mm; }
+.bzp__label small { display: block; margin-top: .3mm; font: 400 var(--fs-micro)/1.25 var(--font-text); color: var(--fg-3); }
+.bzp__track { position: relative; border-bottom: var(--hair) solid var(--rule); background: repeating-linear-gradient(90deg, transparent 0 calc(100% / var(--n) - var(--hair)), var(--rule) calc(100% / var(--n) - var(--hair)) calc(100% / var(--n))); }
+.bzp__bar { position: absolute; top: 50%; height: 3.2mm; margin-top: -1.6mm; left: calc((var(--from) - 1) / var(--n) * 100%); width: calc((var(--to) - var(--from) + 1) / var(--n) * 100%); background: var(--loan); }
+.bzp__bar--foerder { background: var(--accent); }
+.bzp__bar--line { height: 0; margin-top: 0; border-top: .35mm solid var(--fg-2); background: none; }
+.bzp__bar--outline { background: var(--surface); box-shadow: inset 0 0 0 .35mm var(--loan); }
+.bzp__ms { position: absolute; top: 50%; left: calc(var(--at) / var(--n) * 100%); width: 3.2mm; height: 3.2mm; margin: -1.6mm 0 0 -1.6mm; background: var(--surface); border: .45mm solid var(--fg); transform: rotate(45deg); }
+.bzp__ms-t { position: absolute; top: 50%; left: calc(var(--at) / var(--n) * 100% + 3mm); transform: translateY(-50%); font: 700 var(--fs-micro)/1 var(--font-display); color: var(--fg); white-space: nowrap; }
+.bzp__gate { position: absolute; top: 0; bottom: -7mm; left: calc(var(--label-w) + (100% - var(--label-w)) * var(--at, 6) / var(--n)); width: .45mm; margin-left: -.22mm; background: var(--signal-fill); }
+.bzp__gate > span { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); padding: .9mm 2.4mm .8mm; background: var(--signal-fill); color: var(--on-signal); font: 800 var(--fs-label-accent)/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+.bzp__legend { display: flex; flex-wrap: wrap; gap: 1.4mm 5mm; margin-top: 8.6mm; font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-3); }
+.bzp__legend li { display: inline-flex; align-items: center; gap: 1.6mm; }
+.bzp__legend b { font: 700 var(--fs-micro)/1.3 var(--font-display); color: var(--fg-2); }
+
+/* 6.20 Referenzen (Block-Typ references) ------------------------------------- */
+.references { display: grid; grid-template-columns: repeat(var(--n, 2), minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--sp-6); }
+.reference { display: flex; flex-direction: column; min-width: 0; }
+.reference .photo { margin-bottom: 2.4mm; }
+.reference__name { font: 800 10pt/1.2 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--fg); }
+.reference__place { margin-top: .4mm; font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-3); }
+.reference__facts { display: grid; grid-template-columns: 19mm minmax(0, 1fr); margin-top: 1.8mm; border-top: var(--hair) solid var(--rule); }
+.reference__facts dt, .reference__facts dd { padding: 1mm 0; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-micro); line-height: 1.35; }
+.reference__facts dt { color: var(--fg-3); }
+.reference__facts dd { color: var(--fg); }
+.reference__facts .is-acc { color: var(--accent-text); font-weight: 700; font-size: var(--fs-label-accent); }
+.reference__units { display: flex; align-items: baseline; gap: 2mm; font: 900 30pt/.9 var(--font-display); letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }
+.reference__units small { font: 800 var(--fs-label-accent)/1.15 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-2); }
+/* Hauptreferenz: Bild 100 mm + Datenspalte; große Zahl als Anker */
+.reference--feature { display: grid; grid-template-columns: 100mm minmax(0, 1fr); column-gap: 8mm; }
+.reference--feature .photo { margin-bottom: 0; }
+.reference--feature .reference__units { margin: 1mm 0 2.4mm; }
+.reference--feature .reference__name { font-size: 11pt; }
+
+/* 6.21 PGN-Werte (vier Wörter mit Icon auf Rot) ------------------------------ */
+.values { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--grad-red); }
+.values__item { display: flex; flex-direction: column; align-items: center; gap: 2.4mm; padding: 4.4mm 2mm 4mm; text-align: center; }
+.values__item + .values__item { box-shadow: inset var(--hair) 0 0 rgba(255, 255, 255, .7); }
+.values__item img { width: 13mm; height: 13mm; }
+.values__word { font: 800 var(--fs-label-accent)/1.1 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: var(--white); }
+
+/* 6.22 Logo ------------------------------------------------------------------ */
+.logo { display: block; height: auto; }
+.logo--s { width: 34mm; }
+.logo--m { width: 50mm; }
+.logo--l { width: 62mm; }
+.logo--mark { width: 18mm; }
+
 /* -----------------------------------------------------------------------------
-   7 · TITEL- UND RÜCKSEITE
+   7 · UMSCHLAG: U1 (Titel) und U4 (Rückseite) – aufgeklappt ein Planblatt,
+   Oberkante Schriftfeld auf beiden Seiten bei --horizon
    ----------------------------------------------------------------------------- */
 .cover__art { position: absolute; left: 0; top: 0; width: 210mm; height: 297mm; }
-.cover__top { position: absolute; left: var(--m-inner); right: var(--m-outer); top: 13mm; }
-.cover__mast { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; padding-bottom: 2.6mm; border-bottom: var(--hair) solid var(--rule); font: 500 var(--fs-micro)/1.2 var(--font-text); letter-spacing: .03em; color: var(--fg-2); }
-.cover__mast b { color: var(--fg); font-weight: 650; }
-.cover__kicker { margin-top: 11mm; }
+.cover__art > svg { display: block; width: 210mm; height: 297mm; }
+/* Kopfleiste U1: Rubrik + Ausgabe */
+.cover__head { position: absolute; left: var(--frame-inset); right: var(--frame-inset); top: var(--frame-inset); height: 13mm; display: flex; align-items: stretch; border-bottom: var(--hair) solid var(--rule-strong); }
+.cover__head .kicker { flex: 1; padding-left: 6mm; color: var(--fg); letter-spacing: .13em; white-space: nowrap; }
+.cover__head .kicker::before { background: var(--accent); }
+.cover__head .titleblock__cell { min-width: 36mm; border-left: var(--hair) solid var(--rule-strong); padding: 2mm 4mm 0; }
+.cover__drawing { position: absolute; left: 10mm; right: 10mm; top: 27mm; }
+.cover__drawing svg { display: block; width: 190mm; height: auto; }
+.cover__caption { position: absolute; left: 14mm; top: calc(var(--horizon) - 11mm); display: flex; align-items: baseline; gap: 3mm; font-size: var(--fs-micro); color: var(--fg-3); }
+.cover__caption b { font: 800 var(--fs-micro)/1.3 var(--font-display); letter-spacing: .12em; text-transform: uppercase; color: var(--fg); border-bottom: .5mm solid var(--fg); padding-bottom: .4mm; }
+/* Schriftfeld U1: Zeile 1 Für/Planinhalt/Stand/Blatt · Zeile 2 Titel + Kennzahlfeld · Zeile 3 Absender */
+.cover__stamp { position: absolute; left: var(--frame-inset); right: var(--frame-inset); top: var(--horizon); bottom: var(--frame-inset); display: grid; grid-template-rows: 14mm minmax(0, 1fr) 18mm; border-top: .35mm solid var(--rule-strong); background: var(--surface); }
+.cover__row { display: grid; border-bottom: var(--hair) solid var(--rule-strong); }
+.cover__row:last-child { border-bottom: 0; }
+.cover__row > * { border-left: var(--hair) solid var(--rule-strong); }
+.cover__row > :first-child { border-left: 0; }
+.cover__row--top { grid-template-columns: minmax(0, 1fr) 54mm 24mm 22mm; }
+.cover__row--main { grid-template-columns: minmax(0, 1fr) 56mm; }
+.cover__row--foot { grid-template-columns: 64mm minmax(0, 1fr) 46mm; }
+.cover__row .titleblock__cell { padding: 1.7mm 3mm 0; }
+.cover__row .titleblock__value { font-size: var(--fs-micro); line-height: 1.28; }
+.cover__row .titleblock__cell--blatt .titleblock__value { font-size: 13pt; }
+.cover__main { padding: 4.4mm 4mm 0 6mm; }
+.cover__kicker { margin: 0; }
 .cover__title {
-  margin-top: 5mm;
+  position: relative;
+  margin-top: 3.4mm;
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
-  font-weight: 330;
+  font-weight: 900;
   font-size: var(--fs-cover);
-  line-height: .95;
-  letter-spacing: -.028em;
-  word-spacing: .07em;
+  line-height: .97;
+  letter-spacing: -.012em;
+  text-transform: uppercase;
   color: var(--fg);
 }
-.cover__title em { font-style: italic; font-weight: 300; font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1; color: var(--accent-text); letter-spacing: -.02em; }
-.cover__deck { margin-top: 6mm; max-width: 104mm; font-family: var(--font-display); font-variation-settings: "opsz" 24, "SOFT" 30, "WONK" 0; font-weight: 370; font-size: 12.5pt; line-height: 1.38; color: var(--fg-2); }
-.cover__deck strong { color: var(--fg); font-weight: 520; }
+.cover__title::before { content: ""; position: absolute; left: -6mm; top: .04em; bottom: .02em; width: .9mm; background: var(--accent); }
+.cover__title em { font-style: italic; font-weight: 800; color: var(--accent-text); }
+.cover__deck { margin-top: 3mm; max-width: 118mm; font: 400 9.5pt/1.4 var(--font-text); color: var(--fg-2); }
+.cover__deck strong { color: var(--fg); font-weight: 600; }
+.cover__kpi { position: relative; display: flex; flex-direction: column; padding: 4.4mm 5mm 4.6mm; background: var(--grad-red); }
+.cover__kpi-pre { font: 800 10pt/1 var(--font-display); letter-spacing: .14em; text-transform: uppercase; color: var(--white); }
+.cover__kpi-num { margin: 1.6mm 0 0 -1mm; font: 900 64pt/.84 var(--font-display); letter-spacing: -.035em; color: var(--white); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cover__kpi-num small { font-size: .5em; letter-spacing: 0; margin-left: .06em; }
+.cover__kpi-text { margin-top: auto; font: 600 9pt/1.3 var(--font-display); color: var(--white); }
+.cover__kpi .dim { margin-top: 2.6mm; height: 5mm; }
+.cover__logo { display: flex; align-items: center; padding: 0 5mm; }
+.cover__logo .logo { width: 56mm; }
+/* Legacy-Klassen der v1-Titelseite (bleiben definiert) */
+.cover__top { position: absolute; left: var(--m-inner); right: var(--m-outer); top: 13mm; }
+.cover__mast { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; padding-bottom: 2.6mm; border-bottom: var(--hair) solid var(--rule); font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); }
+.cover__mast b { color: var(--fg); font-weight: 600; }
+.cover__rl { font: 700 var(--fs-micro)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
 .cover__audience { margin-top: 5mm; max-width: 108mm; }
-.cover__band { position: absolute; left: 0; right: 0; bottom: 0; background: var(--surface-2); color: var(--fg); padding: 5mm var(--m-outer) 11mm var(--m-inner); }
+.cover__band { position: absolute; left: 0; right: 0; bottom: 0; background: var(--surface-2); color: var(--text); padding: 5mm var(--m-outer) 11mm var(--m-inner); }
 .cover__band .bs-stripes { position: absolute; left: 0; right: 0; bottom: 0; }
 .cover__programs { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); column-gap: 3mm; }
-.cover__program { border-top: 2pt solid var(--bs); padding-top: 1.6mm; font: 500 var(--fs-micro)/1.25 var(--font-text); color: var(--fg); }
-.cover__program b { display: block; font-weight: 700; color: var(--bs); margin-bottom: .6mm; }
+.cover__program { border-top: var(--rule-heavy) solid var(--bs); padding-top: 1.6mm; font: 500 var(--fs-micro)/1.25 var(--font-text); color: var(--fg); }
+.cover__program b { display: block; font: 800 var(--fs-micro)/1.25 var(--font-display); color: var(--bs); margin-bottom: .6mm; }
 .cover__band .titleblock { margin-top: 4mm; }
 
+/* U4 „Rotpause“: Verlauf + Grundriss (in .cover__art, randabfallend), Claim, Schriftfeld weiß */
+.page--u4 .cover__art { background: var(--grad-red); color: var(--white); }
+.back__claim { position: absolute; left: 20mm; right: 20mm; top: calc(var(--horizon) - 58mm); color: var(--white); }
+.back__claim .kicker { color: var(--white); }
+.back__claim .kicker::before { background: var(--white); }
+.back__claim .claim { margin-top: 4mm; color: var(--white); border-left: .9mm solid var(--white); padding-left: 5mm; font-size: 30pt; }
+.back__claim .claim .light { color: var(--white); font-size: .6em; }
+.back__claim .claim em { color: var(--white); }
+.back__stamp { position: absolute; left: var(--frame-inset); right: var(--frame-inset); top: var(--horizon); bottom: var(--frame-inset); display: grid; grid-template-columns: 70mm minmax(0, 1fr) 42mm; grid-template-rows: minmax(0, 1fr) 14.5mm; background: var(--white); border-top: .35mm solid var(--ink); --fg: var(--ink); --fg-2: var(--anthracite); --fg-3: var(--grey-600); --rule-strong: var(--ink); --surface-2: var(--paper); --accent-text: var(--pgn-red); color: var(--anthracite); }
+.back__stamp > * { border-left: var(--hair) solid var(--ink); border-bottom: var(--hair) solid var(--ink); }
+.back__stamp > :first-child, .back__stamp > .is-row2:first-of-type { border-left: 0; }
+.back__stamp .is-first { border-left: 0; }
+.back__stamp .is-row2 { border-bottom: 0; }
+.back__logo { display: flex; flex-direction: column; justify-content: center; padding: 0 6mm; }
+.back__logo .logo { width: 56mm; }
+.back__logo p { margin-top: 3mm; font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-3); }
+.back__contact { padding: 3mm 4mm 0; font: 500 var(--fs-small)/1.5 var(--font-text); color: var(--fg-2); }
+.back__contact b { font: 700 var(--fs-small)/1.5 var(--font-display); color: var(--fg); }
+.back__contact a.u-url { color: var(--accent-text); font-weight: 700; font-family: var(--font-display); }
+.back__qr { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6mm; background: var(--paper); padding: 2mm; }
+.back__qr svg, .back__qr img { width: 26mm; height: 26mm; background: var(--white); }
+.back__qr span { font-size: var(--fs-micro); color: var(--fg-3); }
 .back__art { width: 64mm; }
 
 /* -----------------------------------------------------------------------------
    8 · ILLUSTRATION, PIKTOGRAMME, ICONS, DEKOR
    ----------------------------------------------------------------------------- */
-/* Titelillustration / Haus-Diagramm (assets/titel-illustration.svg, haus-diagramm.svg) */
+/* Haus-Diagramm / Titelillustration v1 (assets/haus-diagramm.svg, titel-illustration.svg): PGN-Werte */
 .ill { display: block; }
 .ill--house { width: 100%; height: auto; }
-.ill-eq-f { fill: var(--sand-200); }
-.ill-eq-s { fill: var(--sand-400); }
-.ill-loan-f { fill: var(--petrol-600); }
-.ill-loan-s { fill: var(--petrol-700); }
-.ill-grant-f { fill: var(--terra-600); }
-.ill-grant-s { fill: var(--terra-800); }
-.ill-hatch { stroke: var(--sand-400); stroke-width: .16; }
-.ill-win { fill: var(--petrol-950); fill-opacity: .5; }
-.ill-win--eq { fill: var(--petrol-800); fill-opacity: .6; }
-.ill-win--grant { fill: var(--petrol-950); fill-opacity: .42; }
-.ill-win-lit { fill: var(--lamp); }
-.ill-door { fill: var(--petrol-800); }
-.ill-edge { fill: none; stroke: var(--petrol-950); stroke-opacity: .18; stroke-width: .12; }
+.ill-eq-f { fill: var(--grey-100); }
+.ill-eq-s { fill: var(--grey-200); }
+.ill-loan-f { fill: var(--anthracite); }
+.ill-loan-s { fill: var(--ink); }
+.ill-grant-f { fill: var(--pgn-red); }
+.ill-grant-s { fill: var(--pgn-red-deep); }
+.ill-hatch { stroke: var(--grey-300); stroke-width: .16; }
+.ill-win { fill: var(--ink); fill-opacity: .45; }
+.ill-win--eq { fill: var(--anthracite); fill-opacity: .55; }
+.ill-win--grant { fill: var(--ink); fill-opacity: .38; }
+.ill-win-lit { fill: var(--paper); }
+.ill-door { fill: var(--anthracite); }
+.ill-edge { fill: none; stroke: var(--ink); stroke-opacity: .2; stroke-width: .12; }
 .ill-edge--series { stroke-opacity: .7; stroke-width: .26; }
-.ill-edge--strong { stroke-opacity: .7; stroke-width: .3; }
-.ill-roof { fill: var(--sand-100); }
-.ill-roof--green { fill: var(--petrol-300); }
-.ill-parapet { fill: none; stroke: var(--sand-500); stroke-width: .18; }
-.ill-pv { fill: var(--petrol-800); stroke: var(--petrol-400); stroke-width: .12; }
+.ill-edge--strong { stroke-opacity: .75; stroke-width: .3; }
+.ill-roof { fill: var(--paper); }
+.ill-roof--green { fill: var(--grey-200); }
+.ill-parapet { fill: none; stroke: var(--grey-450); stroke-width: .18; }
+.ill-pv { fill: var(--anthracite); stroke: var(--grey-300); stroke-width: .12; }
 .ill-crane-l { stroke: var(--fg-3); stroke-width: .3; fill: none; }
 .ill-crane-l--thin { stroke-width: .15; }
 .ill-crane-weight { fill: var(--fg-3); }
@@ -1390,23 +1737,23 @@ abbr { text-decoration: none; }
 .ill-ctx-f, .ill-ctx-s, .ill-ctx-t { fill: var(--surface); stroke: var(--surface-3); stroke-width: .2; }
 .ill-ctx-s { fill: var(--surface-2); }
 .ill-ctx-line { fill: none; stroke: var(--surface-3); stroke-width: .14; }
-.ill-tree-crown { fill: var(--loan); fill-opacity: .7; }
-.ill-tree-crown--hi { fill: var(--surface-inverse); fill-opacity: .12; }
+.ill-tree-crown { fill: var(--grey-300); fill-opacity: .7; }
+.ill-tree-crown--hi { fill: var(--surface-inverse); fill-opacity: .1; }
 .ill-tree-trunk { stroke: var(--fg-3); stroke-width: .3; }
 .ill-brk { fill: none; stroke: var(--fg-2); stroke-width: .25; }
 .ill-lead { fill: none; stroke: var(--fg-3); stroke-width: .2; }
 .ill-dot { fill: var(--fg); }
 .ill-key { stroke: none; }
-.ill-lab-pre { font: 650 3px var(--font-text); letter-spacing: .32px; text-transform: uppercase; fill: var(--accent-text); }
-.ill-lab-num { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0; font-weight: 330; font-size: 9.6px; letter-spacing: -.3px; fill: var(--fg); }
-.ill-lab-unit { font-size: 5px; font-weight: 400; fill: var(--accent-text); letter-spacing: 0; }
+.ill-lab-pre { font: 700 3px var(--font-display); letter-spacing: .32px; text-transform: uppercase; fill: var(--accent-text); }
+.ill-lab-num { font-family: var(--font-display); font-weight: 800; font-size: 8.4px; letter-spacing: -.2px; fill: var(--fg); }
+.ill-lab-unit { font-size: 4.6px; font-weight: 700; fill: var(--accent-text); letter-spacing: 0; }
 .ill-lab-txt { font: 500 3.1px var(--font-text); fill: var(--fg-2); }
 .ill-labels-off .ill-labels { display: none; }
 
 /* Piktogramme (assets/pikto-*.svg): Linie = currentColor, Akzent = --pict-accent */
 .pict { display: block; width: var(--pict-size, 14mm); height: var(--pict-size, 14mm); flex: none; color: var(--pict-color, var(--fg)); --pict-accent: var(--bs, var(--accent)); }
 .pict .pict-face { fill: var(--pict-face, none); }
-.pict .pict-shade { fill: currentColor; fill-opacity: .14; }
+.pict .pict-shade { fill: currentColor; fill-opacity: .12; }
 .pict .pict-win { fill: currentColor; }
 .pict .pict-acc { fill: var(--pict-accent); }
 .pict .pict-acc--shade { fill-opacity: .72; }
@@ -1424,7 +1771,7 @@ abbr { text-decoration: none; }
 .icon--m { width: 5mm; height: 5mm; }
 .icon--l { width: 8mm; height: 8mm; }
 .icon .ui-acc { fill: var(--accent); }
-.icon--signal { color: var(--signal-fill); }   /* Stopp-Marker „Erst Bewilligung, dann …“ in Bernstein */
+.icon--signal { color: var(--signal-fill); }
 
 /* Dekor (assets/deko-*.svg) */
 .deko { display: block; color: var(--rule); }

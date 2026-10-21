@@ -1,18 +1,23 @@
 #!/usr/bin/env python3
-"""Erzeugt statische Instanzen der variablen Schriften (Fraunces, Inter) für das PDF.
+"""Erzeugt statische Instanzen der variablen Schriften für das PDF (PGN: Montserrat, Work Sans; v1: Fraunces, Inter).
 
 Hintergrund: Chromium/Skia bettet variable Fonts (woff2-variations) immer als Type 3 ein – ohne Hinting, mit
 „Bad bounding box“-Meldungen in Poppler und im Druckerei-Preflight oft abgelehnt. Statische Instanzen werden als
 CID-TrueType (Identity-H) eingebettet.
 
 Ablauf:
-  1. scripts/render.cjs ermittelt alle im Satz verwendeten Kombinationen (Familie, Stil, wght, opsz, SOFT, WONK)
-     und schreibt fehlende nach src/fonts/static/needed.json.
-  2. Dieses Skript instanziiert jede Kombination aus den Fontsource-Dateien in src/fonts/files/ (latin, latin-ext,
-     Pfeil-/Symbol-Teilmenge) und schreibt src/fonts/static/*.woff2 sowie instances.json (Zuordnung + @font-face-CSS).
-  Jede Datei bekommt eigene Namen (nameID 1/4/6, z. B. PostScript „Inter-in-w650-o14-latin“, „Inter-arrows-w400-o14“),
-  damit im PDF jeder BaseFont-Name genau einem Fontprogramm entspricht. Vorhandene Dateien werden übersprungen –
-  nach Änderungen an der Namensgebung src/fonts/static/*.woff2 löschen und das Skript neu laufen lassen.
+  1. scripts/render.cjs ermittelt alle im Satz verwendeten Kombinationen (Familie, Stil und die Achsen der Familie:
+     Montserrat/Work Sans nur wght, Inter wght+opsz, Fraunces wght+opsz+SOFT+WONK) und schreibt fehlende nach
+     src/fonts/static/needed.json.
+  2. Dieses Skript instanziiert jede Kombination aus den Fontsource-Dateien in src/fonts/files/ (latin, latin-ext und
+     die Symbol-Teilmenge der Familie, siehe FAMILIES) und schreibt src/fonts/static/*.woff2 sowie instances.json
+     (Zuordnung + @font-face-CSS). Kursiv kommt aus eigener Datei (Fontsource *-italic.woff2), nicht aus einer Achse.
+  Jede Datei bekommt eigene Namen (nameID 1/4/6, z. B. PostScript „Montserrat-mn-w900-latin“, „PGNSymbols-w400“,
+  „Inter-arrows-w400-o14“), damit im PDF jeder BaseFont-Name genau einem Fontprogramm entspricht. Vorhandene Dateien
+  werden übersprungen – nach Änderungen an der Namensgebung src/fonts/static/*.woff2 löschen und neu laufen lassen.
+
+  Neue Familie: Eintrag in FAMILIES (Präfix, Achsen, Dateien je Stil, Symbol-Teilmenge) und in FAMS in
+  scripts/render.cjs (Achsen); die @font-face-Regeln in src/fonts/fonts.css liefern die unicode-range je Datei.
   3. render.cjs ordnet beim nächsten Lauf jeder Textstelle ihre Instanz zu (Familie „FI …“, feste Gewichte, ohne
      font-variation-settings). Der Satz bleibt identisch; render.cjs meldet die Layout-Abweichung.
 
@@ -28,13 +33,24 @@ FILES = os.path.join(ROOT, 'src', 'fonts', 'files')
 OUT = os.path.join(ROOT, 'src', 'fonts', 'static')
 FONTS_CSS = os.path.join(ROOT, 'src', 'fonts', 'fonts.css')
 
-SOURCES = {
-    ('Fraunces', 'normal'): ['fraunces-latin-full-normal.woff2', 'fraunces-latin-ext-full-normal.woff2'],
-    ('Fraunces', 'italic'): ['fraunces-latin-full-italic.woff2', 'fraunces-latin-ext-full-italic.woff2'],
-    ('Inter', 'normal'): ['inter-latin-opsz-normal.woff2', 'inter-latin-ext-opsz-normal.woff2'],
-    ('Inter', 'italic'): ['inter-latin-opsz-italic.woff2', 'inter-latin-ext-opsz-italic.woff2'],
+ARROWS = 'inter-arrows-symbols-wght-normal.woff2'   # v1: Pfeile/Symbole für Inter und Fraunces (Achsen wght + opsz)
+SYMBOLS = 'pgn-symbols-wght-normal.woff2'           # PGN: Pfeile, ≤ ≥ ≈ ✓ ✗ ‰, schmale Leerzeichen (nur Achse wght)
+
+# Familie → Präfix (Dateinamen/Familiennamen der Instanzen), Achsen (Reihenfolge = Tag), Quelldateien je Stil, Symbole
+FAMILIES = {
+    'Montserrat': {'prefix': 'm', 'axes': ['wght'], 'symbols': SYMBOLS, 'files': {
+        'normal': ['montserrat-latin-wght-normal.woff2', 'montserrat-latin-ext-wght-normal.woff2'],
+        'italic': ['montserrat-latin-wght-italic.woff2', 'montserrat-latin-ext-wght-italic.woff2']}},
+    'Work Sans': {'prefix': 'w', 'axes': ['wght'], 'symbols': SYMBOLS, 'files': {
+        'normal': ['work-sans-latin-wght-normal.woff2', 'work-sans-latin-ext-wght-normal.woff2'],
+        'italic': ['work-sans-latin-wght-italic.woff2', 'work-sans-latin-ext-wght-italic.woff2']}},
+    'Fraunces': {'prefix': 'f', 'axes': ['wght', 'opsz', 'SOFT', 'WONK'], 'symbols': ARROWS, 'files': {
+        'normal': ['fraunces-latin-full-normal.woff2', 'fraunces-latin-ext-full-normal.woff2'],
+        'italic': ['fraunces-latin-full-italic.woff2', 'fraunces-latin-ext-full-italic.woff2']}},
+    'Inter': {'prefix': 'i', 'axes': ['wght', 'opsz'], 'symbols': ARROWS, 'files': {
+        'normal': ['inter-latin-opsz-normal.woff2', 'inter-latin-ext-opsz-normal.woff2'],
+        'italic': ['inter-latin-opsz-italic.woff2', 'inter-latin-ext-opsz-italic.woff2']}},
 }
-ARROWS = 'inter-arrows-symbols-wght-normal.woff2'   # Pfeile/Symbole für Inter und Fraunces (aufrecht und kursiv)
 
 
 def unicode_ranges():
@@ -66,7 +82,7 @@ def set_names(font, family, style, ps):
     name.setName(f'{ps};static', 3, 3, 1, 0x409)
     name.setName(family if sub == 'Regular' else f'{family} {sub}', 4, 3, 1, 0x409)
     name.setName(ps, 6, 3, 1, 0x409)
-    if 'CFF ' in font:                                   # (Inter/Fraunces sind glyf-Fonts; nur zur Sicherheit)
+    if 'CFF ' in font:                                   # (alle Quellen sind glyf-Fonts; nur zur Sicherheit)
         font['CFF '].cff.fontNames = [ps]
 
 
@@ -99,26 +115,37 @@ def main():
     faces, css = [], ['/* Statische Instanzen (scripts/fonts-static.py) – von render.cjs fürs PDF zugeordnet. SIL OFL 1.1 */']
     for key in sorted(tuples):
         t = tuples[key]
-        fam, style, wght, opsz = t['fam'], t['style'], t['wght'], t['opsz']
-        axes = {'wght': wght, 'opsz': opsz}
-        tag = f"{fam[0].lower()}{'i' if style == 'italic' else 'n'}-w{wght}-o{fmt(opsz)}"
-        if fam == 'Fraunces':
+        fam, style, wght = t['fam'], t['style'], t['wght']
+        cfg = FAMILIES[fam]
+        axes = {'wght': wght}
+        tag = f"{cfg['prefix']}{'i' if style == 'italic' else 'n'}-w{wght}"
+        if 'opsz' in cfg['axes']:
+            axes['opsz'] = t['opsz']
+            tag += f"-o{fmt(t['opsz'])}"
+        if 'SOFT' in cfg['axes']:
             axes.update({'SOFT': t.get('SOFT', 0), 'WONK': t.get('WONK', 1)})
             tag += f"-s{fmt(axes['SOFT'])}-k{fmt(axes['WONK'])}"
         family = f'FI {tag}'
-        srcs = [(n, ur[n]) for n in SOURCES[(fam, style)]] + [(ARROWS, ur[ARROWS])]
+        sym = cfg['symbols']
+        srcs = [(n, ur[n]) for n in cfg['files'][style]] + [(sym, ur[sym])]
         for src_name, rng in srcs:
-            subset = 'arrows' if src_name == ARROWS else ('latin-ext' if 'latin-ext' in src_name else 'latin')
-            # Pfeil-Teilmenge ist Inter (opsz 14–32): Chromium wendet dort dieselben Achswerte an (opsz geklemmt)
-            src_axes = {'wght': wght, 'opsz': max(14, min(32, opsz))} if src_name == ARROWS else axes
             if src_name == ARROWS:
-                # Pfeil-Teilmenge: eine Datei je wght/opsz, von Inter und Fraunces gemeinsam genutzt (immer aufrecht)
+                # v1-Pfeil-Teilmenge ist Inter (opsz 14–32): Chromium wendet dort dieselben Achswerte an (opsz geklemmt);
+                # eine Datei je wght/opsz, von Inter und Fraunces gemeinsam genutzt (immer aufrecht)
+                src_axes = {'wght': wght, 'opsz': max(14, min(32, t.get('opsz') or 14))}
                 atag = f"w{wght}-o{fmt(src_axes['opsz'])}"
                 out_name = f"arrows-{atag}.woff2"
                 ps, fam_name, fstyle = f"Inter-arrows-{atag}", f"Inter arrows {atag}", 'normal'
+            elif src_name == SYMBOLS:
+                # PGN-Symbol-Teilmenge: nur Achse wght, eine Datei je Gewicht für Montserrat und Work Sans (immer aufrecht)
+                src_axes = {'wght': wght}
+                out_name = f"sym-w{wght}.woff2"
+                ps, fam_name, fstyle = f"PGNSymbols-w{wght}", f"PGN Symbols w{wght}", 'normal'
             else:
+                src_axes = axes
+                subset = 'latin-ext' if 'latin-ext' in src_name else 'latin'
                 out_name = f"{tag}-{subset}.woff2"
-                ps, fam_name, fstyle = f"{fam}-{tag}-{subset}", f"{fam} {tag} {subset}", style
+                ps, fam_name, fstyle = f"{fam.replace(' ', '')}-{tag}-{subset}", f"{fam} {tag} {subset}", style
             ps = ps.replace('_', 'p')                  # opsz 10.5 → „o10_5“ → „o10p5“ (PostScript-Namen: nur [A-Za-z0-9-])
             instance(src_name, src_axes, out_name, fam_name.replace('_', 'p'), fstyle, ps)
             css.append(f"@font-face{{font-family:'{family}';font-style:{style};font-weight:{wght};font-display:block;"

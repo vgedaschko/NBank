@@ -1,6 +1,146 @@
-/* Self-hosted variable fonts (SIL Open Font License 1.1) – via Fontsource. Subsets: latin, latin-ext. */
+/* =============================================================================
+   Schriften (selbst gehostet, SIL Open Font License 1.1, Lizenzen in fonts/licenses)
 
-/* fraunces-latin-ext-full-normal */
+   PGN-System (ab Oktober 2026):
+   - 'Montserrat Variable'  Überschriften, Zahlen, Labels  (wght 100–900, normal + italic)
+   - 'Work Sans Variable'   Fließtext, Tabellentext        (wght 100–900, normal + italic)
+   Teilmengen latin + latin-ext (Fontsource). Montserrat und Work Sans enthalten keine Pfeile, kein ≤ ≥ ≈ ✓ ✗,
+   kein ‰, keine schmalen Leerzeichen (U+2007, U+202F) und keinen geschützten Bindestrich (U+2011): Diese Zeichen
+   kommen aus der Teilmenge 'pgn-symbols-wght-normal.woff2' (aus InterVariable v4.1, rsms/inter, SIL OFL 1.1;
+   opsz auf 14 fixiert, nur Achse wght). Sie ist für beide Familien in normal und italic registriert, damit kein
+   Zeichen auf eine Systemschrift zurückfällt.
+
+   PDF: scripts/render.cjs ersetzt die variablen Schriften durch statische Instanzen (scripts/fonts-static.py),
+   sonst bettet Chromium Type-3-Schriften ein. Die unicode-range-Angaben hier steuern auch die Instanzen.
+
+   Fraunces/Inter: Schriften der NBank-Fassung v1 – bleiben registriert, werden im PGN-System nicht verwendet.
+   ============================================================================= */
+
+/* montserrat-latin-ext-wght-normal */
+@font-face {
+  font-family: 'Montserrat Variable';
+  font-style: normal;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(./files/montserrat-latin-ext-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* montserrat-latin-wght-normal */
+@font-face {
+  font-family: 'Montserrat Variable';
+  font-style: normal;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(./files/montserrat-latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* montserrat: Pfeile, Symbole, Sonderzeichen (normal, aufrechte Glyphen) */
+@font-face {
+  font-family: 'Montserrat Variable';
+  font-style: normal;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(./files/pgn-symbols-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+2000-2008,U+200A,U+2010-2012,U+2015,U+202F,U+2030,U+2190-21FF,U+2248,U+2264-2265,U+26A0,U+2713-2717;
+}
+
+/* montserrat-latin-ext-wght-italic */
+@font-face {
+  font-family: 'Montserrat Variable';
+  font-style: italic;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(./files/montserrat-latin-ext-wght-italic.woff2) format('woff2-variations');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* montserrat-latin-wght-italic */
+@font-face {
+  font-family: 'Montserrat Variable';
+  font-style: italic;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(./files/montserrat-latin-wght-italic.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* montserrat: Pfeile, Symbole, Sonderzeichen (italic, aufrechte Glyphen) */
+@font-face {
+  font-family: 'Montserrat Variable';
+  font-style: italic;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(./files/pgn-symbols-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+2000-2008,U+200A,U+2010-2012,U+2015,U+202F,U+2030,U+2190-21FF,U+2248,U+2264-2265,U+26A0,U+2713-2717;
+}
+
+/* work-sans-latin-ext-wght-normal */
+@font-face {
+  font-family: 'Work Sans Variable';
+  font-style: normal;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(./files/work-sans-latin-ext-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* work-sans-latin-wght-normal */
+@font-face {
+  font-family: 'Work Sans Variable';
+  font-style: normal;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(./files/work-sans-latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* work-sans: Pfeile, Symbole, Sonderzeichen (normal, aufrechte Glyphen) */
+@font-face {
+  font-family: 'Work Sans Variable';
+  font-style: normal;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(./files/pgn-symbols-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+2000-2008,U+200A,U+2010-2012,U+2015,U+202F,U+2030,U+2190-21FF,U+2248,U+2264-2265,U+26A0,U+2713-2717;
+}
+
+/* work-sans-latin-ext-wght-italic */
+@font-face {
+  font-family: 'Work Sans Variable';
+  font-style: italic;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(./files/work-sans-latin-ext-wght-italic.woff2) format('woff2-variations');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+/* work-sans-latin-wght-italic */
+@font-face {
+  font-family: 'Work Sans Variable';
+  font-style: italic;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(./files/work-sans-latin-wght-italic.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* work-sans: Pfeile, Symbole, Sonderzeichen (italic, aufrechte Glyphen) */
+@font-face {
+  font-family: 'Work Sans Variable';
+  font-style: italic;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(./files/pgn-symbols-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+2000-2008,U+200A,U+2010-2012,U+2015,U+202F,U+2030,U+2190-21FF,U+2248,U+2264-2265,U+26A0,U+2713-2717;
+}
+
+
+/* ---------------------------------------------------------------------------
+   Legacy (NBank-Fassung v1, nicht mehr im Satz verwendet)
+   --------------------------------------------------------------------------- */
+
 @font-face {
   font-family: 'Fraunces Variable';
   font-style: normal;
@@ -10,7 +150,6 @@
   unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
 }
 
-/* fraunces-latin-full-normal */
 @font-face {
   font-family: 'Fraunces Variable';
   font-style: normal;
@@ -20,7 +159,6 @@
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
-/* fraunces-latin-ext-full-italic */
 @font-face {
   font-family: 'Fraunces Variable';
   font-style: italic;
@@ -30,7 +168,6 @@
   unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
 }
 
-/* fraunces-latin-full-italic */
 @font-face {
   font-family: 'Fraunces Variable';
   font-style: italic;
@@ -40,7 +177,6 @@
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
-/* inter-latin-ext-opsz-normal */
 @font-face {
   font-family: 'Inter Variable';
   font-style: normal;
@@ -50,7 +186,6 @@
   unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
 }
 
-/* inter-latin-opsz-normal */
 @font-face {
   font-family: 'Inter Variable';
   font-style: normal;
@@ -60,7 +195,6 @@
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
-/* inter-latin-ext-opsz-italic */
 @font-face {
   font-family: 'Inter Variable';
   font-style: italic;
@@ -70,7 +204,6 @@
   unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
 }
 
-/* inter-latin-opsz-italic */
 @font-face {
   font-family: 'Inter Variable';
   font-style: italic;
@@ -80,113 +213,6 @@
   unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
-/* source-serif-4-latin-ext-opsz-normal */
-@font-face {
-  font-family: 'Source Serif 4 Variable';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 200 900;
-  src: url(./files/source-serif-4-latin-ext-opsz-normal.woff2) format('woff2-variations');
-  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;
-}
-
-/* source-serif-4-latin-opsz-normal */
-@font-face {
-  font-family: 'Source Serif 4 Variable';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 200 900;
-  src: url(./files/source-serif-4-latin-opsz-normal.woff2) format('woff2-variations');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
-}
-
-/* source-serif-4-latin-ext-opsz-italic */
-@font-face {
-  font-family: 'Source Serif 4 Variable';
-  font-style: italic;
-  font-display: swap;
-  font-weight: 200 900;
-  src: url(./files/source-serif-4-latin-ext-opsz-italic.woff2) format('woff2-variations');
-  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;
-}
-
-/* source-serif-4-latin-opsz-italic */
-@font-face {
-  font-family: 'Source Serif 4 Variable';
-  font-style: italic;
-  font-display: swap;
-  font-weight: 200 900;
-  src: url(./files/source-serif-4-latin-opsz-italic.woff2) format('woff2-variations');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
-}
-
-/* bricolage-grotesque-latin-ext-opsz-normal */
-@font-face {
-  font-family: 'Bricolage Grotesque Variable';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 200 800;
-  src: url(./files/bricolage-grotesque-latin-ext-opsz-normal.woff2) format('woff2-variations');
-  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
-}
-
-/* bricolage-grotesque-latin-opsz-normal */
-@font-face {
-  font-family: 'Bricolage Grotesque Variable';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 200 800;
-  src: url(./files/bricolage-grotesque-latin-opsz-normal.woff2) format('woff2-variations');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
-}
-
-/* instrument-sans-latin-ext-standard-normal */
-@font-face {
-  font-family: 'Instrument Sans Variable';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400 700;
-  font-stretch: 75% 100%;
-  src: url(./files/instrument-sans-latin-ext-standard-normal.woff2) format('woff2-variations');
-  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
-}
-
-/* instrument-sans-latin-standard-normal */
-@font-face {
-  font-family: 'Instrument Sans Variable';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400 700;
-  font-stretch: 75% 100%;
-  src: url(./files/instrument-sans-latin-standard-normal.woff2) format('woff2-variations');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
-}
-
-/* instrument-sans-latin-ext-standard-italic */
-@font-face {
-  font-family: 'Instrument Sans Variable';
-  font-style: italic;
-  font-display: swap;
-  font-weight: 400 700;
-  font-stretch: 75% 100%;
-  src: url(./files/instrument-sans-latin-ext-standard-italic.woff2) format('woff2-variations');
-  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
-}
-
-/* instrument-sans-latin-standard-italic */
-@font-face {
-  font-family: 'Instrument Sans Variable';
-  font-style: italic;
-  font-display: swap;
-  font-weight: 400 700;
-  font-stretch: 75% 100%;
-  src: url(./files/instrument-sans-latin-standard-italic.woff2) format('woff2-variations');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
-}
-
-/* Pfeile und Symbole (→ ↔ ≤ ≥ ≈ ✓ ✗): nicht in den Fontsource-Subsets latin/latin-ext enthalten.
-   Teilmenge aus InterVariable v4.1 (rsms/inter, SIL OFL 1.1). Auch für Fraunces registriert,
-   damit Pfeile in Serifentext nicht auf eine Systemschrift zurückfallen. */
 @font-face {
   font-family: 'Inter Variable';
   font-style: normal;
@@ -205,7 +231,6 @@
   unicode-range: U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;
 }
 
-/* Kursive Kontexte (em, Zitat): dieselbe Teilmenge, sonst fiele der Pfeil dort auf eine Systemschrift zurück */
 @font-face {
   font-family: 'Inter Variable';
   font-style: italic;

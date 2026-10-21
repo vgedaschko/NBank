@@ -6,69 +6,71 @@
   "kicker": "Stichtag 31.12.2026",
   "headline": "Wahlrecht für Modernisierungsanträge",
   "subline": "Altes Recht oder RL 2026: einmalige Wahl mit dem Antrag",
-  "lead": "Geht Ihr Antrag auf „Modernisierung von Mietwohnungen in Mehrfamilienhäusern“ bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie das alte Recht wählen. Alle übrigen Mietwohnraum-Vorhaben: nur RL 2026.",
   "blocks": [
+    {
+      "type": "callout",
+      "variant": "achtung",
+      "role_hint": "frist",
+      "title": "Frist 31.12.2026",
+      "body": "Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie mit dem Antrag verbindlich das alte Recht wählen. Neubau, Ersterwerb und alle übrigen Vorhaben: nur RL 2026."
+    },
     {
       "type": "chart",
       "chart": "timeline",
-      "title": "Stichtage 2026 bis 2031",
+      "role_hint": "dominant",
+      "title": "Stichtage Juni 2026 bis Dezember 2031",
       "data": {
         "range": {
           "from": "2026-06",
-          "to": "2031-12"
+          "to": "2031-12",
+          "break_between": [
+            "2027",
+            "2031"
+          ]
+        },
+        "today": {
+          "date": "21.10.2026",
+          "label": "heute"
         },
         "events": [
           {
             "date": "30.06.2026",
             "label": "Erlasse 2024 außer Kraft",
-            "detail": "Teilfortgeltung nur für Modernisierungsanträge mit Eingang bis 31.12.2026 und Wahl des alten Rechts",
-            "style": "normal"
+            "style": "past"
           },
           {
             "date": "01.07.2026",
             "label": "RL Mietwohnraum 2026 in Kraft",
-            "style": "normal"
-          },
-          {
-            "date": "01.10.2026",
-            "label": "Fortschreibung der Bemessungsgrenzen",
-            "detail": "erster Stichtag laut eigener Ableitung; Stand der Werte → S. 8",
-            "style": "normal"
+            "style": "past"
           },
           {
             "date": "31.12.2026",
             "label": "Wahlrecht Modernisierung",
-            "detail": "Eingang bei der Wohnraumförderstelle",
+            "detail": "Antragseingang bei der Wohnraumförderstelle",
             "style": "signal",
             "token": "--signal"
           },
           {
             "date": "31.12.2026",
-            "label": "Neubau: KfW-Stufe EH 55 (298) endet",
-            "detail": "letzter Antragseingang bei der KfW, unter Bundesmittelvorbehalt; gilt nicht für Modernisierung",
+            "label": "KfW-Stufe EH 55 (298) endet",
+            "detail": "nur Neubau",
             "style": "normal"
-          },
-          {
-            "date": "01.01.2027",
-            "label": "Neue Mietenstufen geplant",
-            "detail": "Entwurf, nicht beschlossen; Folgen mit der NBank klären",
-            "style": "dashed"
           },
           {
             "date": "01.01.2027",
             "label": "Neue Rechennorm für Energiebedarfsausweise",
-            "detail": "beschlossen, DIN/TS 18599:2025-10; Klassengrenzen unverändert; Klassensprung (2.3): Folgen mit der NBank klären",
+            "detail": "Klassengrenzen unverändert",
             "style": "normal"
           },
           {
-            "date": "01.04.2027",
-            "label": "Nächste Fortschreibung",
-            "detail": "danach jeweils zum 01.04. und 01.10.",
-            "style": "normal"
+            "date": "2027",
+            "label": "Neue Mietenstufen geplant",
+            "detail": "Entwurf",
+            "style": "dashed"
           },
           {
             "date": "31.12.2031",
-            "label": "RL Mietwohnraum 2026 außer Kraft",
+            "label": "RL Mietwohnraum 2026 läuft aus",
             "style": "normal"
           }
         ]
@@ -78,66 +80,53 @@
       "type": "bullets",
       "heading": "So funktioniert die Wahl",
       "items": [
-        "Wahl ausdrücklich mit dem Antrag: **bindend, nachträglich nicht änderbar**; altes Recht gilt dann bis Verfahrensende",
-        "ohne Wahl gilt die RL 2026",
-        "kein Mischen, soweit dieselbe Maßnahme nach einer der Richtlinien 2026 gefördert wird"
+        "Sie wählen ausdrücklich mit dem Antrag – **bindend, nachträglich nicht änderbar**. Das alte Recht gilt dann bis zum Abschluss des Verfahrens.",
+        "Ohne Wahl gilt die RL 2026.",
+        "Kein Mischen: Wird dieselbe Maßnahme nach einer Richtlinie 2026 gefördert, ist das alte Recht ausgeschlossen."
       ]
     },
     {
       "type": "table",
-      "caption": "Im Vergleich",
+      "caption": "Altes Recht und RL 2026 im Vergleich",
       "columns": [
         "",
-        "Altes Recht (Eingang bis 31.12.2026)",
-        "RL 2026, Programmteil 2.3"
+        "Altes Recht",
+        "RL 2026 · Programmteil 2.3"
       ],
       "rows": [
         [
           "Instrument",
-          "anfangs zinsloses Darlehen bis zu 75 % der Kosten, max. zwei Drittel eines vergleichbaren Neubaus; 30 % Tilgungsnachlass nur bei geringen Einkommen",
-          "Zuschuss je nach Klassensprung und Einkommensgruppe bis zu 10–40 %, höchstens 9.000–31.000 € je gebundener Wohnung"
+          "anfangs zinsloses Darlehen bis zu 75 % der Kosten, max. zwei Drittel eines vergleichbaren Neubaus; 30 % Tilgungsnachlass bei geringen Einkommen",
+          "Zuschuss 10–40 %, höchstens 9.000–31.000 € je gebundener Wohnung"
         ],
         [
           "Zins und Kosten",
-          "0 % in den Jahren 1–35 (geringe Einkommen) bzw. 1–30 (mittlere Einkommen), danach marktüblich; 0,5 % p. a. Verwaltungskostenbeitrag",
-          "kein Darlehen; Bearbeitungsentgelt 0,75 %"
+          "0 % in Jahr 1–35 (geringe) bzw. 1–30 (mittlere Einkommen), danach marktüblich; 0,5 % Verwaltungskostenbeitrag p. a.",
+          "kein Darlehen; 0,75 % Bearbeitungsentgelt"
         ],
         [
           "Barrierefreiheit",
-          "+5.000 € Zuschuss je barrierefrei nutzbarer Wohnung (DIN 18040-2)",
-          "kein Extra-Zuschuss, Teil der Gesamtmaßnahme"
+          "+5.000 € Zuschuss je barrierefreier Wohnung",
+          "Teil der Gesamtmaßnahme, kein Extra-Zuschuss"
         ],
         [
           "Höhere Einkommen",
-          "mittlere Einkommen (DVO-NWoFG): nur energetisch, ohne Tilgungsnachlass",
-          "Einkommensgruppen B und C mit eigenen, niedrigeren Sätzen"
-        ],
-        [
-          "Gebäude",
-          "fertiggestellt vor 01.02.2002",
-          "fertiggestellt vor 08.12.2004; mind. 2 Klassen besser"
+          "mittlere Einkommen: nur energetisch, ohne Tilgungsnachlass",
+          "Gruppen B und C mit niedrigeren Sätzen"
         ]
-      ],
-      "note": "Altes Recht laut NBank, verkürzt."
+      ]
     },
     {
       "type": "checklist",
       "heading": "Vier Prüffragen",
       "items": [
-        "Fertigstellung zwischen 01.02.2002 und 07.12.2004? Dann nur RL 2026 (eigene Ableitung).",
-        "Zwei Effizienzklassen erreichbar (Pflicht in RL 2026)? Ausnahme: eine Klasse mit NBank-Zulassung (→ S. 14).",
-        "Darlehen mit Tilgungsnachlass oder Zuschuss: Was passt zur Finanzierung?",
+        "Fertiggestellt zwischen 01.02.2002 und 07.12.2004? Dann nur RL 2026: Das alte Recht verlangt Fertigstellung vor dem 01.02.2002.",
+        "Zwei Effizienzklassen erreichbar? Die RL 2026 verlangt sie, ausnahmsweise genügt eine (→ S. 14).",
+        "Darlehen mit Tilgungsnachlass oder Zuschuss – was passt zu Ihrer Finanzierung?",
         "Antrag bis 31.12.2026 bei der Wohnraumförderstelle – mit ausdrücklicher Wahl?"
       ]
-    },
-    {
-      "type": "callout",
-      "variant": "tipp",
-      "title": "Kalkulationsnotiz",
-      "body": "Beide Wege mit Ihren Kosten durchrechnen."
     }
   ],
-  "sources": "Fundstellen: RL Nr. 5.3.2.2, 7.2.1, 13.1–13.3; NBank-Programmseite „Modernisierung von Mietwohnungen in Mehrfamilienhäusern“; KfW-Merkblatt 297/298; BGBl. 2026 I Nr. 226 (GModG-Änderung ab 01.01.2027); BR-Drs. 474/26 (Entwurf).",
   "footnotes": [],
   "fact_ids": [
     "F284",
@@ -151,22 +140,18 @@
     "G1-22",
     "F148",
     "F154",
+    "F155",
     "F157",
     "F158",
     "F279",
     "F002",
-    "G1-02",
-    "G1-04",
-    "F101",
+    "G2-03",
     "G2-04",
     "G2-05",
     "F236",
     "F260",
     "G3-15",
-    "G3-16",
-    "G2-03",
-    "F155"
+    "G3-16"
   ],
-  "visual_idea": "Baustein-Register 2.3 (--baustein-23, mit Nummer) am Seitenrand, da Bestandsdoppelseite 14|15. Oberes Drittel: horizontaler Zeitstrahl Juni 2026 bis Dezember 2031 (zwischen 2027 und 2031 gestaucht, Bruchsymbol) mit Meilenstein-Pins; der 31.12.2026 als großer Pin in --signal „Wahlrecht Modernisierung“ mit Kalender-Icon (ui-frist.svg); darunter klein und neutral (nicht --signal) „Neubau: KfW-Stufe EH 55 endet – nicht für Modernisierung“; am 01.01.2027 zwei Pins: gestrichelt „Neue Mietenstufen (Entwurf)“, durchgezogen „Neue Rechennorm Energiebedarfsausweise“ (beschlossen – nicht als Entwurf darstellen); vergangene Termine (30.06., 01.07., 01.10.2026) in gedämpftem Ton, „heute: 21.10.2026“ als feiner Strich. Kein tagesgenauer Countdown. Mitte links: Weichen-Piktogramm „Altes Recht | RL 2026“ über den Wahlrecht-Bullets; der fett gesetzte Satz „bindend, nachträglich nicht änderbar“ mit --signal-Unterstrich. Zweispaltige Vergleichstabelle mit Zeilenköpfen links, Spalte „Altes Recht“ in Grau, Spalte RL 2026 in --baustein-23. Prüffragen als druckbare Ankreuzkästchen (ui-check.svg). Kalkulationsnotiz mit Rechensymbol am Fuß.",
-  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2"
+  "visual_idea": "Baustein-Register 2.3 (--baustein-23, eckig, mit Nummer) am Seitenrand – Bestandsdoppelseite 14|15. Kopf im PGN-CI: Kicker als Versal-Label, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat SemiBold; keine Rundungen. Direkt unter dem Kopf, prominent über die volle Satzbreite: der Frist-Kasten (einer von zwei Achtung-Kästen im Heft) mit 1,5-pt-Kontur in --signal, Kalender-Icon (ui-frist.svg) links, Titel „Frist 31.12.2026“ als Versal-Label, Text in Work Sans. Dominant im oberen Drittel: horizontale Zeitleiste Juni 2026 bis Dezember 2031 in Anthrazit, zwischen 2027 und 2031 gestaucht mit Bruchsymbol; vergangene Termine (30.06., 01.07.2026) gedämpft in #757474, „heute 21.10.2026“ als feiner Strich; der 31.12.2026 „Wahlrecht Modernisierung“ als großer Pin in --signal mit Datum in Montserrat Black; am selben Tag darunter klein und neutral „KfW-Stufe EH 55 endet · nur Neubau“; 01.01.2027 durchgezogen „Neue Rechennorm“ (beschlossen), „Neue Mietenstufen geplant“ gestrichelt (Entwurf); 31.12.2031 als Endmarke. Kein tagesgenauer Countdown. Unteres Drittel: links „So funktioniert die Wahl“ als schlanke Liste mit Weichen-Piktogramm „Altes Recht | RL 2026“, „bindend, nachträglich nicht änderbar“ fett mit --signal-Unterstrich; rechts die Vergleichstabelle mit Zeilenköpfen links, Spalte „Altes Recht“ in Grau, Spalte RL 2026 mit Kopf in --baustein-23, Zellen auf #F4F3F2, Ziffern tabellarisch. Darunter die vier Prüffragen als druckbare eckige Ankreuzkästchen (ui-check.svg) über die volle Breite. Keine Kalkulationsnotiz, kein Stempel, keine Fußnote, keine Quellenzeile; Modulzeile fluchtend mit S. 14."
 }

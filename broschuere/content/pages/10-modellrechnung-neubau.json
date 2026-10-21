@@ -2,73 +2,24 @@
   "no": 10,
   "slug": "modellrechnung-neubau",
   "layout_type": "chart-focus",
-  "running_title": "Finanzierung · Modellrechnung",
-  "kicker": "Programmteil 2.1 · Neubau",
+  "page_variant": "accent",
+  "running_title": "Ihre Rechnung · Finanzierung",
+  "kicker": "Ihre Rechnung · Finanzierung",
   "headline": "20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung",
-  "lead": "Basisfall: Herstellungskosten von 4.500 € je m² Wohnfläche, 10 % unter dem Ausgangswert der Bemessungsgrenze (5.000 €). Die Rechnung trägt, solange die fortgeschriebene Grenze nicht unter 4.500 € sinkt.",
+  "lead_heading": "Das Modellhaus",
+  "lead": "20 Neubauwohnungen (2 × 50, 6 × 60, 8 × 75, 4 × 85 m²), zusammen 1.400 m² Wohnfläche – die angemessenen Höchstgrößen für ein bis vier Personen –, alle für Einkommensgruppe A. Der Standort liegt in Mietenstufe IV–VII mit angespanntem Wohnungsmarkt per Verordnung – der Bedarf gilt als gegeben. Herstellungskosten 4.500 € je m², 10 % unter dem Ausgangswert der Bemessungsgrenze von 5.000 €: Die Rechnung trägt, solange die fortgeschriebene Grenze nicht unter 4.500 € sinkt. Grundstück 700.000 €, innerhalb des Bodenrichtwerts.",
   "blocks": [
     {
       "type": "callout",
-      "variant": "hinweis",
+      "variant": "stempel",
       "role_hint": "stempel",
       "title": "Modellrechnung – fiktives Beispiel, keine Förderzusage",
-      "body": "",
-      "stampline": "Modellrechnung – fiktives Beispiel, keine Förderzusage"
-    },
-    {
-      "type": "bullets",
-      "heading": "Annahmen",
-      "items": [
-        "20 Neubauwohnungen (2 × 50, 6 × 60, 8 × 75, 4 × 85 m²), zusammen 1.400 m² Wohnfläche, angemessen für 1–4 Personen",
-        "alle für Einkommensgruppe A; Mietenstufe IV–VII, angespannter Wohnungsmarkt laut Verordnung: Bedarf gilt als gegeben",
-        "Herstellungskosten (Kostengruppen 200–700 nach DIN 276) 4.500 € je m² Wohnfläche; Grundstück 700.000 € (Annahme: unter Bodenrichtwert × Fläche)"
-      ]
-    },
-    {
-      "type": "table",
-      "caption": "Rechenweg",
-      "columns": [
-        "",
-        "Position",
-        "€"
-      ],
-      "rows": [
-        [
-          "1",
-          "Herstellungskosten, voll zuwendungsfähig: unter ihrer Grenze (Ausgangswert 5.000 € × 1.400 m² = 7.000.000 €)",
-          "6.300.000"
-        ],
-        [
-          "2",
-          "+ Grundstück = zuwendungsfähige Kosten = Gesamtkosten (Annahme: keine weiteren Kosten)",
-          "7.000.000"
-        ],
-        [
-          "3",
-          "Darlehen, bis zu 40 %",
-          "2.800.000"
-        ],
-        [
-          "4",
-          "Zuschuss, bis zu 40 %, nur mit dem Darlehen",
-          "2.800.000"
-        ],
-        [
-          "5",
-          "Förderung, bis zu 80 %",
-          "5.600.000"
-        ],
-        [
-          "6",
-          "Eigenmittel, mind. 20 %; davon sollen mind. 700.000 € Geld oder lastenfreies Grundstück sein",
-          "1.400.000"
-        ]
-      ]
+      "body": ""
     },
     {
       "type": "chart",
       "chart": "stacked-bar",
-      "title": "Finanzierung 7,0 Mio. € (Höchstwerte)",
+      "title": "Finanzierung 7,0 Mio. €, Höchstsätze",
       "data": {
         "unit": "Mio. €",
         "total": {
@@ -80,14 +31,14 @@
             "name": "Darlehen",
             "value": 2.8,
             "display": "2,8",
-            "share": "bis zu 40 %",
+            "share": "40 %",
             "token": "--color-loan"
           },
           {
             "name": "Zuschuss",
             "value": 2.8,
             "display": "2,8",
-            "share": "bis zu 40 %",
+            "share": "40 %",
             "token": "--color-grant"
           },
           {
@@ -98,7 +49,7 @@
             "token": "--color-equity"
           }
         ],
-        "form": "Haus (Reprise Titel): 5 Geschosse à 20 %, 20 Fenster = 20 Wohnungen; 1 Fenster = 1 Wohnung; Etiketten rechts wie auf dem Titel (Klammer je Segment), äußere Klammer über Zuschuss und Darlehen = Förderung",
+        "form": "Haus: 5 Geschosse à 20 %, 20 Fenster = 20 Wohnungen; Klammer je Segment rechts, äußere Klammer über Darlehen und Zuschuss = Förderung",
         "bracket": {
           "name": "Förderung",
           "value": 5.6,
@@ -112,38 +63,71 @@
       }
     },
     {
+      "type": "table",
+      "role_hint": "rechenweg",
+      "caption": "Rechenweg mit Höchstsätzen",
+      "columns": [
+        "",
+        "Position",
+        "€"
+      ],
+      "rows": [
+        [
+          "1",
+          "Herstellungskosten (Kostengruppen 200–700), 1.400 m² × 4.500 €",
+          "6.300.000"
+        ],
+        [
+          "2",
+          "+ Grundstück = Gesamtkosten, voll zuwendungsfähig",
+          "7.000.000"
+        ],
+        [
+          "3",
+          "Darlehen, 40 %",
+          "2.800.000"
+        ],
+        [
+          "4",
+          "Zuschuss, 40 %",
+          "2.800.000"
+        ],
+        [
+          "5",
+          "Förderung, 80 %",
+          "5.600.000"
+        ],
+        [
+          "6",
+          "Eigenmittel, 20 %; davon mindestens 700.000 € Geld oder lastenfreies Grundstück",
+          "1.400.000"
+        ]
+      ]
+    },
+    {
       "type": "key_figures",
       "items": [
         {
-          "value": "Ø bis zu 140.000",
+          "prefix": "Ø bis zu",
+          "value": "140.000",
           "unit": "€",
-          "label": "Zuschuss je Wohnung im Modell",
-          "note": "Ø über 20 Wohnungen, nach Wohnfläche aufgeteilt 100.000–170.000 €; plus Darlehen in gleicher Höhe"
+          "label": "Zuschuss je Wohnung",
+          "note": "plus Darlehen in gleicher Höhe"
         },
         {
-          "value": "bis zu 4.000",
-          "unit": "€/m²",
-          "label": "Förderung je m² Wohnfläche im Modell"
-        },
-        {
-          "value": "bis zu 4",
+          "prefix": "bis zu",
+          "value": "4",
           "unit": "€",
           "label": "Förderung je 1 € Mindest-Eigenmittel",
-          "note": "davon 2 € rückzahlbares, anfänglich zinsloses Darlehen"
+          "note": "davon 2 € Darlehen"
         }
       ]
     },
     {
-      "type": "text",
-      "body": "Bearbeitungsentgelte, Verwaltungskostenbeitrag und Höchstmiete dieses Hauses: Spalte A im Vergleich → S. 11.",
-      "note": "Ersetzt die frühere Kostentabelle (Dublette zu S. 11, Spalte A: Bearbeitungsentgelte 49.000 €, Verwaltungskostenbeitrag 14.000 € p. a., Höchstmiete 114.240 € p. a.; Zins 0 % → S. 9; EH-40-Aufschlag → S. 7)."
-    },
-    {
       "type": "chart",
-      "chart": "bar",
+      "chart": "waterfall",
       "title": "Sensitivität: Herstellungskosten 5.200 € je m²",
       "data": {
-        "kind": "stacked-total + waterfall",
         "unit": "Mio. €",
         "steps": [
           {
@@ -156,76 +140,66 @@
                 "label": "zuwendungsfähig",
                 "value": 7.7,
                 "display": "7,70",
-                "token": "--fg",
-                "label_position": "im Balken"
+                "token": "--fg"
               },
               {
-                "label": "über der Grenze, nicht zuwendungsfähig",
+                "label": "über der Grenze",
                 "value": 0.28,
                 "display": "0,28",
                 "token": "--color-equity",
-                "style": "hatch-outline",
-                "label_position": "unter dem Segment"
+                "style": "hatched"
               }
             ]
           },
           {
-            "label": "Förderung, bis zu 80 %",
+            "label": "Förderung, bis zu 80 % von 7,70",
             "value": 6.16,
             "display": "6,16"
+          },
+          {
+            "label": "Mindest-Eigenmittel + Kosten über der Grenze",
+            "value": 1.82,
+            "display": "1,54 + 0,28"
           }
         ],
         "result": {
           "value": 77.2,
-          "display": "bis zu 77,2 %",
-          "label": "effektive Förderquote auf die Gesamtkosten, gerundet"
-        },
-        "equity": {
-          "display": "1,54 + 0,28 Mio. €",
-          "label": "Mindest-Eigenmittel + Restfinanzierung"
+          "display": "77,2 %",
+          "label": "Förderquote auf die Gesamtkosten"
         }
-      },
-      "note": "Die bis zu 80 % beziehen sich nur auf die zuwendungsfähigen Kosten – jeder Euro über der Bemessungsgrenze senkt die effektive Förderquote. Maßgeblich sind die Verhältnisse bei Bewilligung (RL Nr. 1.5); Fortschreibung → S. 8.",
-      "subtitle": "Grenze 5.000 € = Ausgangswert 01.07.2026; eigene Berechnung"
+      }
     },
     {
-      "type": "quote",
-      "text": "Wir sollten nicht teuer bauen, um anschließend teuer zu fördern.",
-      "name": "Michael Kiesewetter",
-      "role": "Vorstandsvorsitzender der NBank",
-      "source": "NBank-Presseinformation vom 01.10.2026"
+      "type": "callout",
+      "variant": "tipp",
+      "role_hint": "kalkulationsnotiz",
+      "title": "Kalkulationsnotiz",
+      "body": "Die 80 % gelten nur bis zur Bemessungsgrenze – jeden Euro darüber finanzieren Sie selbst."
+    },
+    {
+      "type": "text",
+      "role_hint": "ueberleitung",
+      "body": "Was davon im Betrieb bleibt: rechts →"
     }
   ],
-  "sources": "Fundstellen: RL Nr. 1.3, 1.5, 5.1.1, 5.2.1, 5.2.6, 5.3.2–5.3.4, 5.3.7, 5.4.4, 12.7; eigene Berechnung.",
   "footnotes": [],
   "fact_ids": [
     "F053",
     "F079",
+    "F080",
+    "F084",
+    "F052",
     "F097",
     "F098",
+    "F100",
     "F101",
     "F102",
+    "G1-23",
     "F105",
     "F106",
     "F109",
     "F094",
-    "F095",
-    "F113",
-    "F276",
-    "F277",
-    "F278",
-    "F279",
-    "F217",
-    "F218",
-    "F129",
-    "G1-14",
-    "F052",
-    "G3-09",
-    "F006",
-    "G1-02",
-    "G1-04"
+    "F095"
   ],
-  "visual_idea": "Obere Hälfte 8 + 4: links Kicker, Titel und Vorspann (Basisfall), rechts als Seitenspalte die Stempelzeile „Modellrechnung – fiktives Beispiel, keine Förderzusage“ (globale .stampline, ohne Drehung, im Satzspiegel) und darunter das Kiesewetter-Zitat als Motto. Darunter links der nummerierte Rechenweg 1–6 im Spreadsheet-Look (Zeilennummern im grauen Kopfstreifen, Summenstriche über Zeile 2 und 5, Beträge rechtsbündig mit tabellarischen Ziffern) mit Kostenverweis → S. 11 als Tabellennotiz; in der Seitenspalte daneben „Annahmen“. Untere Hälfte 5 + 7: links die drei Kennzahlen gestapelt (Ø bis zu 140.000 € · bis zu 4.000 €/m² · bis zu 4 € je 1 € Mindest-Eigenmittel), rechts als Hauptelement der Seite die Finanzierung 7,0 Mio. € als Haus (Reprise Titel: 5 Geschosse à 20 %, 20 Fenster = 20 Wohnungen) mit Zuschuss 2,8 (--color-grant), Darlehen 2,8 (--color-loan), Eigenmittel 1,4 Mio. € (--color-equity, Schraffur); Etiketten rechts wie auf dem Titel (Klammer, Farbfeld, „Name · Anteil“, darunter der Betrag), äußere Klammer über Zuschuss und Darlehen „Förderung 5,6 Mio. € · bis zu 80 %“; Kurzvorbehalt (.caveat) direkt unter dem Haus. Keine eigene Kostentabelle (Spalte A im Vergleich → S. 11). Band „Sensitivität“ (5 + 7): links Titel und großes Ergebnis „bis zu 77,2 %“, rechts Gesamtkosten 7,98 Mio. € als ein gestapelter Balken (7,70 zuwendungsfähig in Tinte, Beschriftung im Balken | 0,28 über der Grenze, nicht zuwendungsfähig als Eigenmittel-Schraffur mit Kontur, Beschriftung darunter), darunter Förderung 6,16 und Mindest-Eigenmittel + Restfinanzierung 1,54 + 0,28 Mio. € (die 0,28 senkrecht unter dem Grenz-Segment, gestrichelt verbunden), mit Notiz. Fundstellen im Fußnotenblock am Seitenfuß. Baustein-Register 2.1 (--baustein-21).",
-  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2",
-  "page_variant": "accent"
+  "visual_idea": "Akzentseite, linke Hälfte der Doppelseite „Ihre Rechnung“. Kopf: Kicker in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, die Zahlen 7,0 und 5,6 in PGN-Rot. Oben rechts im Satzspiegel die Stempelzeile „Modellrechnung – fiktives Beispiel, keine Förderzusage“ ohne Drehung, eckige Kontur in Anthrazit – die einzige Vollversion im Heft. Darunter „Das Modellhaus“ als Vorspann mit Label in Montserrat 600 Versalien. Dominant, rechte Seitenhälfte: das Haus-Diagramm – 5 Geschosse à 20 %, 20 Fenster = 20 Wohnungen, Segmente in den Finanzierungsfarben (--color-loan, --color-grant, --color-equity mit Schraffur), rechts Klammern je Segment mit „Name · Anteil“ und Betrag, äußere Klammer über Darlehen und Zuschuss „Förderung 5,6 Mio. € · bis zu 80 %“ in PGN-Rot. Links daneben der Rechenweg 1–6 im Spreadsheet-Look: Zeilennummern im #F4F3F2-Kopfstreifen, Summenstriche über Zeile 2 und 5, Beträge rechtsbündig mit tabellarischen Ziffern. Unteres Band: zwei Kennzahlen in Montserrat Black (Ø 140.000 € · 4 €), daneben die Sensitivität als kleines Wasserfall-Modul – Gesamtkosten 7,98 als ein Balken mit schraffiertem Segment „über der Grenze“ 0,28, dann Förderung 6,16 und Eigenmittel 1,54 + 0,28; Ergebnis „77,2 %“ groß in PGN-Rot. Kalkulationsnotiz als ein Satz mit kleinem Rechen-Icon ohne Kasten direkt unter der Sensitivität; Überleitung „Was davon im Betrieb bleibt: rechts →“ am Seitenfuß zum Bund hin. Kein Zitat, keine Fußnote, keine Quellenzeile, keine Kurzmarke. Produktion: 10|11 liegen nicht auf einem Druckbogen (physische Heftmitte ist 12|13) – kein Element zwingend über den Bund führen; falls doch, Crossover-Toleranz einplanen."
 }

@@ -1,0 +1,171 @@
+{
+  "no": 20,
+  "slug": "pgn-leistungen",
+  "layout_type": "services",
+  "running_title": "Umsetzung · Mit PGN",
+  "kicker": "Mit PGN",
+  "headline": "So begleiten wir Ihr Förderprojekt",
+  "subline": "Ein Ansprechpartner für alles – von der ersten Idee bis zum Verwendungsnachweis.",
+  "lead": "Den Antrag stellen Sie bei der Wohnraumförderstelle, die NBank entscheidet. Wir achten darauf, dass Planung, Kosten und Unterlagen den Förderregeln entsprechen und kein Vertrag zu früh kommt.",
+  "blocks": [
+    {
+      "type": "services",
+      "role_hint": "dominant",
+      "items": [
+        {
+          "n": 1,
+          "icon": "lupe",
+          "title": "Förder-Check und Machbarkeit",
+          "phase": "Vor dem Vorgespräch",
+          "body": "Wir prüfen mit Ihnen Programmteil, Standort, Bedarf und Mieterkreis – und rechnen, ob die Miete Finanzierung und Bewirtschaftung trägt (→ S. 11)."
+        },
+        {
+          "n": 2,
+          "icon": "grundriss",
+          "title": "Planung nach Förderregeln",
+          "phase": "Leistungsphasen 1–4",
+          "body": "Angemessene Wohnflächen (50/60/75/85 m² für 1–4 Personen), Freisitze bis ein Zehntel davon, Rollstuhlwohnungen nach DIN 18040-2 „R“ mit Flächenzuschlag, auf Wunsch EH 40 – alles aus einem Haus."
+        },
+        {
+          "n": 3,
+          "icon": "rechner",
+          "title": "Kosten im Griff",
+          "phase": "Leistungsphasen 2–3, dann laufend",
+          "body": "Wir halten die Herstellungskosten (Kostengruppen 200–700 nach DIN 276) unter der Bemessungsgrenze – darüber gibt es keine Förderung (→ S. 10)."
+        },
+        {
+          "n": 4,
+          "icon": "ordner",
+          "title": "Antragsunterlagen",
+          "phase": "Antrag",
+          "body": "Lageplan, Bauzeichnungen, Wohnflächen nach WoFlV, umbauter Raum nach DIN 277, Baubeschreibung und Kostenaufteilung erstellen wir – und begleiten Sie zum Vorgespräch."
+        },
+        {
+          "n": 5,
+          "icon": "handschlag",
+          "title": "Ausschreibung und Vergabe",
+          "phase": "Leistungsphasen 5–7",
+          "body": "Sie beauftragen uns gestuft: bis Leistungsphase 6 vor, ab 7 nach der Bewilligung. Dann fordern wir mindestens drei Unternehmen zum Angebot auf und dokumentieren die Vergabe."
+        },
+        {
+          "n": 6,
+          "icon": "kran",
+          "title": "Bauleitung",
+          "phase": "Leistungsphase 8",
+          "body": "Termine und Kosten im Blick, Baufortschritt dokumentiert, auch per Drohne – passend zu den Auszahlungsraten nach Baubeginn, Rohbau, Innenputz."
+        },
+        {
+          "n": 7,
+          "icon": "haken",
+          "title": "Fertigstellung und Nachweis",
+          "phase": "Leistungsphasen 8–9",
+          "body": "Wir bereiten die Fertigstellungsanzeige samt Bescheinigung der Bauleitung vor, ebenso den Verwendungsnachweis, fällig binnen sechs Monaten."
+        }
+      ],
+      "scale": {
+        "kind": "hoai",
+        "phases": [
+          {
+            "n": 1,
+            "label": "Grundlagen"
+          },
+          {
+            "n": 2,
+            "label": "Vorplanung"
+          },
+          {
+            "n": 3,
+            "label": "Entwurf"
+          },
+          {
+            "n": 4,
+            "label": "Genehmigung"
+          },
+          {
+            "n": 5,
+            "label": "Ausführungsplanung"
+          },
+          {
+            "n": 6,
+            "label": "Vorbereitung der Vergabe"
+          },
+          {
+            "n": 7,
+            "label": "Mitwirkung bei der Vergabe"
+          },
+          {
+            "n": 8,
+            "label": "Objektüberwachung"
+          },
+          {
+            "n": 9,
+            "label": "Objektbetreuung"
+          }
+        ],
+        "marker": {
+          "between": [
+            6,
+            7
+          ],
+          "label": "Bewilligung",
+          "left": "vorab beauftragen",
+          "right": "erst danach beauftragen"
+        }
+      }
+    },
+    {
+      "type": "text",
+      "role_hint": "modul-gruen",
+      "heading": "Schlüsselfertig",
+      "body": "Die PGN Projektgesellschaft Nord GmbH baut als Generalübernehmer schlüsselfertig – förderfähig, wenn sie vorab schriftlich der Prüfung von Kalkulation, Nachunternehmervergabe und Abrechnung zustimmt."
+    },
+    {
+      "type": "text",
+      "role_hint": "modul-flaeche",
+      "heading": "Für Kommunen",
+      "body": "Bauleitplanung aus unserer Stadtplanung: Legt der Bebauungsplan geförderten Mietwohnraum in entsprechender Anzahl fest, gilt der Bedarf als gegeben (→ S. 18)."
+    }
+  ],
+  "footnotes": [],
+  "fact_ids": [
+    "F003",
+    "F053",
+    "F062",
+    "F064",
+    "F079",
+    "F085",
+    "F097",
+    "F098",
+    "F121",
+    "F126",
+    "F127",
+    "F254",
+    "F255",
+    "F256",
+    "F257",
+    "F260",
+    "F261",
+    "F271",
+    "F272",
+    "F274",
+    "F282",
+    "G1-27",
+    "G1-30"
+  ],
+  "pgn_sources": [
+    "pgn-facts.md §5 Claim „Ihre PGN-Generalplaner: Ein Ansprechpartner für alles“ (/leistungen/generalplanung)",
+    "pgn-facts.md §5 „Alles aus einem Haus …“ und §6 Generalplanung „in allen Leistungsphasen sämtlicher Fachbereiche“",
+    "pgn-facts.md §6 Architektur, Tragwerksplanung (HOAI § 49, Wärme- und Schallschutznachweise), Haustechnik LPH 1–9",
+    "pgn-facts.md §6 Projektcontrolling „Mit der Finanzierung im Hinterkopf …“; §5 Kostensicherheit „Wir planen Kosten ein, wir setzen Termine und halten sie ein.“",
+    "pgn-facts.md §6/§9 Drohnenbilder „für die Baustellendokumentation“; §2 Felix Räke, Prokurist Bauleitung",
+    "pgn-facts.md §1/§6 PGN Projektgesellschaft Nord GmbH: „Im Rahmen eines Generalübernehmervertrages bieten wir Ihnen die schlüsselfertige Erstellung von Wohn- und Gewerbebauten an. Planungs- und Ingenieurleistungen inklusive.“",
+    "pgn-facts.md §6 Stadt- & Landschaftsplanung: Bauleitplanung, Städtebauliche Rahmenpläne, „Für Kommunen, Städte und privat Bauende“"
+  ],
+  "open_points": [
+    "PGN: „Förder-Check“ ist als Leistungsname auf der Website nicht belegt (auch keine „Fördermittelberatung“) – Bezeichnung und Inhalt (Prüfung Programmteil, Standort, Mieterkreis, Tragfähigkeitsrechnung) von PGN freigeben lassen (S. 20, S. 24).",
+    "PGN: Bestätigen, dass Planungsverträge für geförderte Projekte gestuft geschlossen werden (LPH 1–6 vor, ab LPH 7 nach der Bewilligung).",
+    "PGN Projektgesellschaft Nord GmbH: Erteilt sie als Generalübernehmer die schriftliche Prüfzustimmung (Kalkulation, Nachunternehmervergabe, Abrechnung)? Wenn ja, Satz ergänzen: „Diese Zustimmung geben wir.“",
+    "PGN: Teamfoto slider/planung_big.jpg – Nutzungsrecht und Einverständnis der abgebildeten Personen."
+  ],
+  "visual_idea": "Doppelseite 20|21 „Mit PGN zur Bewilligung“, Register in PGN-Rot #B71E3F, eckig. Kopf im PGN-CI: Kicker „Mit PGN“ als Versal-Label in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat 600 Versalien (Website-Claim), Lead in Work Sans. Dominantes Element über die volle Breite: Prozessband mit sieben Stationen, quadratische Stationsmarken (Ziffer in Montserrat Black, weiß auf PGN-Rot) in Größe und Abstand deckungsgleich mit der Swimlane auf S. 19, verbunden durch eine 1-pt-Linie in Anthrazit; je Station Linienicon in Anthrazit (Lupe, Grundriss, Rechner, Ordner, Handschlag, Kran, Haken), Phasen-Label in Montserrat 600 Versalien in PGN-Rot, Titel in Montserrat 700 Versalien, Text in Work Sans. Bezug zu S. 19: Station 1 vor dem Vorgespräch, 4 bis zum Antrag, 6 und 7 parallel zu Bauen, Auszahlung, Fertigstellung, Verwendungsnachweis. Direkt darunter das Bildmotiv der Seite: dünne HOAI-Skala LPH 1–9 (neun gleich breite Felder auf #F4F3F2, Ziffer und Kurzname), rote senkrechte 2-pt-Marke „Bewilligung“ zwischen LPH 6 und 7; links davon klein „vorab beauftragen“, rechts „erst danach beauftragen“ – die Stationen 2–7 sind über feine Lote ihren Leistungsphasen zugeordnet, Station 5 überspannt die Marke. Untere Zeile zwei Module nebeneinander: „Schlüsselfertig“ als einzige grüne Fläche der Seite (#26772B, weiße Schrift, Kopfzeile „PGN Projektgesellschaft Nord GmbH“ klein, optional logo-gruen.svg auf weißem Streifen) und „Für Kommunen“ auf #F4F3F2 mit senkrechter 2-pt-Linie in Anthrazit links (Leistungs-Panel-Muster der Website). Optional kleines Teamfoto (slider/planung_big.jpg, noch nicht geladen, Rechte klären) im Kopf rechts; kein Baustellenfoto Eichenweg (PGN-Rolle unbelegt). Kein Achtung-Kasten, keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile, keine Superlative."
+}

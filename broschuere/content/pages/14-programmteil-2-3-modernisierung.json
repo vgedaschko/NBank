@@ -6,72 +6,44 @@
   "kicker": "Programmteil 2.3 · Klimagerechte Modernisierung",
   "headline": "Zuschuss nach Klassensprung",
   "subline": "Bis zu 40 % der Modernisierungskosten, höchstens 31.000 € je gebundener Wohnung (Einkommensgruppe A, ab 5 Klassen)",
-  "lead": "Reiner Zuschuss, kein Bedarfsnachweis: Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen, fertiggestellt vor dem 08.12.2004.",
+  "lead": "Reiner Zuschuss, kein Bedarfsnachweis: für Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen, fertiggestellt vor dem 08.12.2004.",
   "blocks": [
-    {
-      "type": "text",
-      "heading": "Was gefördert wird",
-      "body": "Gesamtmaßnahmen statt Einzelmaßnahmen. Darin auch förderfähig: Barrierefreiheit (angelehnt an DIN 18040-2), besserer Gebrauchswert, Bleileitungstausch, unmittelbar zugehörige Instandsetzung."
-    },
     {
       "type": "chart",
       "chart": "grid",
-      "title": "Effizienzklassen: Endenergiebedarf, kWh je m² Gebäudenutzfläche und Jahr",
+      "role_hint": "modul",
+      "title": "Energieeffizienzklassen: Endenergiebedarf in kWh je m² Gebäudenutzfläche und Jahr",
       "data": {
         "kind": "efficiency-scale",
         "classes": [
-          {
-            "class": "A+",
-            "limit": "≤ 30"
-          },
-          {
-            "class": "A",
-            "limit": "≤ 50"
-          },
-          {
-            "class": "B",
-            "limit": "≤ 75"
-          },
-          {
-            "class": "C",
-            "limit": "≤ 100"
-          },
-          {
-            "class": "D",
-            "limit": "≤ 130"
-          },
-          {
-            "class": "E",
-            "limit": "≤ 160"
-          },
-          {
-            "class": "F",
-            "limit": "≤ 200"
-          },
-          {
-            "class": "G",
-            "limit": "≤ 250"
-          },
-          {
-            "class": "H",
-            "limit": "> 250"
-          }
+          { "class": "A+", "limit": "≤ 30" },
+          { "class": "A", "limit": "≤ 50" },
+          { "class": "B", "limit": "≤ 75" },
+          { "class": "C", "limit": "≤ 100" },
+          { "class": "D", "limit": "≤ 130" },
+          { "class": "E", "limit": "≤ 160" },
+          { "class": "F", "limit": "≤ 200" },
+          { "class": "G", "limit": "≤ 250" },
+          { "class": "H", "limit": "> 250" }
         ],
         "jump": {
           "from": "G",
           "to": "D",
           "label": "3 Klassen"
         },
-        "rule": "Voraussetzung: mindestens 2 Klassen besser – Energiebedarfsausweis vor Bewilligung (Ausgangsklasse) und mit der Fertigstellungsanzeige (erreichte Klasse)"
+        "rule": "Mindestens 2 Klassen besser – belegt per Energiebedarfsausweis vor der Bewilligung und mit der Fertigstellungsanzeige."
       },
-      "note": "Ausnahme, etwa beim Baudenkmal: Sind 2 Klassen nicht oder nur unverhältnismäßig aufwendig erreichbar, kann die NBank 1 Klasse zulassen; sie zählt dann wie 2 Klassen."
+      "note": "Sind 2 Klassen nicht oder nur unverhältnismäßig aufwendig erreichbar, etwa beim Baudenkmal, kann die NBank 1 Klasse zulassen; sie zählt dann wie 2. Gefördert wird die Gesamtmaßnahme – samt Barrierefreiheit, besserem Gebrauchswert, Bleileitungstausch und zugehöriger Instandsetzung."
     },
     {
       "type": "chart",
       "chart": "grid",
-      "title": "Zuschuss je gebundener Wohnung: Satz bis zu, Höchstbetrag",
+      "role_hint": "dominant",
+      "title": "Zuschuss je gebundener Wohnung, Höchstsätze",
+      "subtitle": "in % der Modernisierungskosten · Kostengruppen 300–700 nach DIN 276",
       "data": {
         "kind": "heatmap",
+        "token": "--baustein-23",
         "columns": [
           "A",
           "B",
@@ -85,110 +57,60 @@
         ],
         "cells": [
           [
-            {
-              "pct": 25,
-              "max": 25000,
-              "from": 100000
-            },
-            {
-              "pct": 20,
-              "max": 17000,
-              "from": 85000
-            },
-            {
-              "pct": 10,
-              "max": 9000,
-              "from": 90000
-            }
+            { "pct": 25, "max": 25000, "from": 100000 },
+            { "pct": 20, "max": 17000, "from": 85000 },
+            { "pct": 10, "max": 9000, "from": 90000 }
           ],
           [
-            {
-              "pct": 30,
-              "max": 27000,
-              "from": 90000
-            },
-            {
-              "pct": 25,
-              "max": 19000,
-              "from": 76000
-            },
-            {
-              "pct": 15,
-              "max": 11000,
-              "from": 73334
-            }
+            { "pct": 30, "max": 27000, "from": 90000 },
+            { "pct": 25, "max": 19000, "from": 76000 },
+            { "pct": 15, "max": 11000, "from": 73334 }
           ],
           [
-            {
-              "pct": 35,
-              "max": 29000,
-              "from": 82858
-            },
-            {
-              "pct": 30,
-              "max": 21000,
-              "from": 70000
-            },
-            {
-              "pct": 20,
-              "max": 13000,
-              "from": 65000
-            }
+            { "pct": 35, "max": 29000, "from": 82858 },
+            { "pct": 30, "max": 21000, "from": 70000 },
+            { "pct": 20, "max": 13000, "from": 65000 }
           ],
           [
-            {
-              "pct": 40,
-              "max": 31000,
-              "from": 77500
-            },
-            {
-              "pct": 35,
-              "max": 23000,
-              "from": 65715
-            },
-            {
-              "pct": 25,
-              "max": 15000,
-              "from": 60000
-            }
+            { "pct": 40, "max": 31000, "from": 77500 },
+            { "pct": 35, "max": 23000, "from": 65715 },
+            { "pct": 25, "max": 15000, "from": 60000 }
           ]
         ],
         "format": {
-          "pct": "{v} %",
+          "pct": "bis zu {v} %",
           "max": "max. {v} €",
           "from": "ab {v} €"
-        }
-      },
-      "note": "Kostengruppen 300–700 nach DIN 276. „ab … €“: Höchstbetrag greift ab diesen Kosten je Wohnung (eigene Berechnung). Gebäudekosten: RL ohne Verteilungsschlüssel, NBank-Arbeitshilfe nach Wohnfläche."
+        },
+        "legend": "je Zelle: Satz · Höchstbetrag · ab … € Kosten je Wohnung greift der Höchstbetrag"
+      }
     },
     {
       "type": "bullets",
       "heading": "Bindung und Miete",
       "items": [
-        "25 Jahre ab Abschluss; bei Mieterwechsel nur an WBS-Haushalte",
-        "vermietet: +10 Jahre, außer bei WBS-Nachweis; dann Vertrag unverzüglich an Höchstmiete und Erhöhungsregeln anpassen",
-        "im Grundbuch gesichert, grundsätzlich per beschränkter persönlicher Dienstbarkeit (Verzicht in begründeten Fällen möglich)",
-        "Höchstmieten wie in 2.1 (→ S. 7): 6,50–9,00 € je m², ab KfW-EH-40-Niveau bis zu +0,30 €; bei Verlängerung Erhöhungssperre ab erster WBS-Belegung"
+        "25 Jahre ab Abschluss der Maßnahme, im Grundbuch per Dienstbarkeit gesichert; bei Mieterwechsel nur an Haushalte mit WBS",
+        "bereits vermietete Wohnungen: +10 Jahre, außer mit WBS-Nachweis – dann den laufenden Vertrag unverzüglich an Höchstmiete und Erhöhungsregeln anpassen",
+        "Höchstmieten wie in 2.1 (→ S. 7): 6,50–9,00 € je m², ab EH-40-Niveau bis zu +0,30 €; drei Jahre fest, bei verlängerter Bindung ab der ersten WBS-Belegung"
       ]
     },
     {
       "type": "text",
-      "heading": "Ablauf und Eigenmittel",
-      "body": "**Erst Bewilligung, dann Aufträge** (→ S. 19). Auszahlung: bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abschluss; 0,75 % Bearbeitungsentgelt. Eigenmittel mind. 20 % der zuwendungsfähigen Kosten, mindestens die Hälfte möglichst als Geld."
-    },
-    {
-      "type": "text",
-      "heading": "Kombinierbar mit",
-      "body": "BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen, nur eines (3 Jahre Sperrfrist). Die BEG kürzt, bis öffentliche Mittel höchstens 60 % derselben Kosten decken (BEG EM, Kommunen: 90 %); NBank-Zuschuss zählt mit (eigene Ableitung)."
+      "heading": "Ablauf und Kombination",
+      "body": "Auszahlung in drei Raten: bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abschluss. Bearbeitungsentgelt 0,75 %. Eigenmittel mindestens 20 % der zuwendungsfähigen Kosten, davon soll mindestens die Hälfte Geld sein.\n\nKombinierbar mit BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen, nur eines. Dort gilt deren Kumulierungsgrenze: öffentliche Mittel höchstens 60 % derselben Kosten (BEG Einzelmaßnahmen für Kommunen: 90 %)."
     },
     {
       "type": "text",
       "variant": "frist-line",
       "title": "Eingang bis 31.12.2026:",
-      "body": "altes Recht verbindlich wählbar; maßgeblich ist die Wohnraumförderstelle (→ S. 15)."
+      "body": "altes Recht wählbar → S. 15"
+    },
+    {
+      "type": "text",
+      "role_hint": "pgn-angebot",
+      "body": "Die energetische Gesamtmaßnahme planen wir mit Ihnen – Gebäudehülle und Haustechnik aus einem Haus."
     }
   ],
-  "sources": "Fundstellen: RL Nr. 1.5, 2.3, 4.2, 7.1–7.5, 11.4, 11.5, 12.7.3, 13.3; Anlage 10 GModG (vormals GEG; ab 01.01.2027 neue Rechennorm, Klassengrenzen unverändert → S. 15); NBank-Produktinformation Modernisierung (Stand 10.07.2026); NBank-Arbeitshilfe „Kosten-Finanzierungsaufteilung“ (Stand 08/2026); KfW-Merkblatt 261; Förderrichtlinie BEG EM.",
   "footnotes": [],
   "fact_ids": [
     "F148",
@@ -206,6 +128,7 @@
     "F162",
     "F163",
     "F164",
+    "F165",
     "F166",
     "F167",
     "F169",
@@ -213,25 +136,22 @@
     "F171",
     "F244",
     "F279",
-    "G3-12",
-    "G3-13",
-    "G3-14",
-    "G3-18",
-    "G3-19",
+    "F286",
     "G1-36",
     "G2-09",
     "G2-10",
     "G2-12",
     "G2-13",
     "G2-25",
-    "F286",
-    "F165",
-    "F255",
-    "F256",
-    "G1-37",
-    "G3-15",
-    "G3-16"
+    "G3-12",
+    "G3-13",
+    "G3-14",
+    "G3-18",
+    "G3-19"
   ],
-  "visual_idea": "Baustein-Register 2.3 (--baustein-23, immer mit Nummer) am Seitenrand. Badge „reiner Zuschuss · kein Bedarfsnachweis“ neben der Headline. Oben farbige Energieeffizienz-Skala A+ bis H als Pfeilband (grün bis rot, zusätzlich mit Buchstaben, graustufenfest) mit Grenzwerten unter jedem Segment; Achsenbeschriftung „kWh je m² Gebäudenutzfläche und Jahr“ (nicht Wohnfläche); Beispiel-Sprungpfeil G → D mit Label „3 Klassen“; Regelzeile mit den zwei Energiebedarfsausweisen (vor Bewilligung / mit Fertigstellungsanzeige). Darunter 4 × 3-Heatmap (Zeilen: Klassensprung, Spalten: Einkommensgruppe A/B/C): Prozentsatz groß mit „bis zu“, „max. … €“ mittel, Kappungspunkt „ab … €“ klein (eigene Berechnung); Tonwert steigt mit dem Satz (--baustein-23 in Abstufungen); Zeile „ab 5 Klassen“ als Endstufe markieren (keine weitere Steigerung). Bindung und Miete als Liste, „Ablauf und Eigenmittel“ daneben – dort „Erst Bewilligung, dann Aufträge“ mit kleinem Stopp-Marker (ui-stopp.svg). Stichtag-Pin „Eingang bis 31.12.2026?“ in --signal mit Kalender-Icon (ui-frist.svg). „Kombinierbar mit“ als schmale Zeile, Kalkulationsnotiz mit Rechensymbol am Fuß.",
-  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2"
+  "pgn_refs": [
+    "pgn-facts.md · Leistungen · Haustechnik: „…bei energetischen Sanierungen von Geschosswohnungsbauten aus älteren Generationen.“ (https://www.pgn-architekten.de/leistungen/haustechnik)",
+    "pgn-facts.md · Gliederung Startseite: Generalplanung mit Architektur und Haustechnik (https://www.pgn-architekten.de/)"
+  ],
+  "visual_idea": "Baustein-Register 2.3 (--baustein-23, eckig, mit Nummer) am Seitenrand. Kopf im PGN-CI wie S. 12/13: Kicker als Versal-Label in --baustein-23, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat SemiBold, Lead in Work Sans; keine Rundungen. Oben, schmal über die volle Satzbreite: Effizienzskala A+ bis H als eckiges Pfeilband grün bis rot, jedes Segment zusätzlich mit Buchstaben (graustufenfest), Grenzwerte klein darunter, Achsenlabel „kWh je m² Gebäudenutzfläche und Jahr“; Sprungpfeil G → D mit Label „3 Klassen“, Regelzeile direkt darunter, Ausnahme und Gesamtmaßnahme als zweizeilige Bildunterschrift. Dominant im mittleren Drittel: die 4 × 3-Heatmap (Zeilen 2 / 3 / 4 / ab 5 Klassen, Spalten A | B | C), Tonwert in --baustein-23 steigt mit dem Satz; je Zelle „bis zu … %“ groß in Montserrat Black mit tabellarischen Ziffern, „max. … €“ mittel, „ab … €“ klein in #757474; Kopfzeile „Höchstsätze · Kostengruppen 300–700 nach DIN 276“ als Versal-Label, Zelllegende einzeilig unter der Tabelle; Zeile „ab 5 Klassen“ als Endstufe mit feiner Abschlusslinie. Unteres Drittel zweispaltig, fluchtend mit der Modulzeile auf S. 15: „Bindung und Miete“ als schlanke Liste, „Ablauf und Kombination“ als kurzer Text. Darunter die Frist-Zeile als schmale Linie in Signalfarbe mit Kalender-Icon (ui-frist.svg) – kein Kasten, der Frist-Kasten steht auf S. 15. Am Fuß rechtsbündig der Angebotssatz klein in Work Sans SemiBold, PGN-Rot #B71E3F. Kein Stempel, keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile."
 }

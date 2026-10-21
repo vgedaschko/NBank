@@ -10,6 +10,7 @@
 //   1. Seite laden, Druckmedien emulieren, Schriften abwarten.
 //   2. Statische Schriftinstanzen zuordnen (src/fonts/static/instances.json, erzeugt von scripts/fonts-static.py):
 //      Chromium/Skia bettet variable Fonts immer als Type 3 ein; statische Instanzen werden als CID-TrueType eingebettet.
+//      Familien und Achsen: FAMS in browserFontTuples() (Montserrat, Work Sans: wght; Inter: wght+opsz; Fraunces: +SOFT/WONK).
 //      Fehlt eine Instanz, wird sie gemeldet (FONT:) und in src/fonts/static/needed.json nachgetragen.
 //   3. Ungenutzte weiche Trennstriche (U+00AD) entfernen: Nur dort, wo tatsächlich umbrochen wird, bleibt einer stehen.
 //      Der Umbruch ändert sich dadurch nicht (wird geprüft).
@@ -56,10 +57,10 @@ const neededFile = path.join(staticDir, 'needed.json');
 // Vorgaben für die PDF-Metadaten; author, subject (= meta description) und keywords werden von den <meta>-Angaben
 // in src/template.html überschrieben, der Titel kommt aus <title>.
 const META = {
-  author: 'Investitions- und Förderbank Niedersachsen – NBank',
+  author: 'Planungsgemeinschaft Nord GmbH',
   subject: 'Konditionen und Modellrechnungen zur RL Mietwohnraum 2026',
-  keywords: ['Mietwohnraumförderung', 'Niedersachsen', 'RL Mietwohnraum 2026', 'NBank', 'Sozialer Wohnungsbau'],
-  creator: 'NBank',
+  keywords: ['Mietwohnraumförderung', 'Niedersachsen', 'RL Mietwohnraum 2026', 'Sozialer Wohnungsbau', 'PGN'],
+  creator: 'Planungsgemeinschaft Nord GmbH',
   lang: 'de-DE',
 };
 
@@ -70,16 +71,24 @@ const BLEED_MM = 3;
    Im Browser: Schrift-Tupel bestimmen (Familie, Stil, Gewicht, opsz, SOFT, WONK)
    --------------------------------------------------------------------------------------------- */
 function browserFontTuples() {
-  const AX = { Inter: { opsz: [14, 32] }, Fraunces: { opsz: [9, 144] } };
+  // Familien mit statischen Instanzen (scripts/fonts-static.py, FAMILIES) und ihre Achsen außer wght:
+  // opsz = [min, max] → Chromium setzt opsz automatisch = Schriftgröße in px (font-optical-sizing: auto), geklemmt;
+  // soft → Fraunces-Achsen SOFT/WONK aus font-variation-settings. Montserrat und Work Sans haben nur wght
+  // (Kursiv = eigene Datei, font-style: italic).
+  const FAMS = {
+    Montserrat: {},
+    'Work Sans': {},
+    Inter: { opsz: [14, 32] },
+    Fraunces: { opsz: [9, 144], soft: true },
+  };
   const famOf = (ff) => {
     const first = ff.split(',')[0].trim().replace(/^["']|["']$/g, '');
-    if (first.startsWith('Fraunces')) return 'Fraunces';
-    if (first.startsWith('Inter')) return 'Inter';
-    return null;
+    return Object.keys(FAMS).find((f) => first.startsWith(f)) || null;
   };
   const tupleOf = (cs) => {
     const fam = famOf(cs.fontFamily);
     if (!fam) return null;
+    const ax = FAMS[fam];
     const fvs = {};
     if (cs.fontVariationSettings && cs.fontVariationSettings !== 'normal') {
       cs.fontVariationSettings.split(',').forEach((p) => {
@@ -87,15 +96,17 @@ function browserFontTuples() {
         if (m) fvs[m[1]] = Number(m[2]);
       });
     }
-    let opsz = fvs.opsz;
-    if (opsz === undefined) {
-      opsz = cs.fontOpticalSizing === 'none' ? (fam === 'Inter' ? 14 : 144) : parseFloat(cs.fontSize);
+    const t = { fam, style: cs.fontStyle === 'italic' ? 'italic' : 'normal', wght: Math.round(Number(fvs.wght ?? cs.fontWeight)) };
+    if (ax.opsz) {
+      let opsz = fvs.opsz;
+      if (opsz === undefined) {
+        opsz = cs.fontOpticalSizing === 'none' ? (fam === 'Inter' ? 14 : 144) : parseFloat(cs.fontSize);
+      }
+      const [lo, hi] = ax.opsz;
+      t.opsz = Math.round(Math.min(hi, Math.max(lo, opsz)) * 100) / 100;
     }
-    const [lo, hi] = AX[fam].opsz;
-    opsz = Math.round(Math.min(hi, Math.max(lo, opsz)) * 100) / 100;
-    const t = { fam, style: cs.fontStyle === 'italic' ? 'italic' : 'normal', wght: Math.round(Number(cs.fontWeight)), opsz };
-    if (fam === 'Fraunces') { t.SOFT = fvs.SOFT ?? 0; t.WONK = fvs.WONK ?? 1; }   // Achsen-Standard Fraunces: SOFT 0, WONK 1
-    t.key = [t.fam, t.style, t.wght, t.opsz, t.SOFT ?? '', t.WONK ?? ''].join('|');
+    if (ax.soft) { t.SOFT = fvs.SOFT ?? 0; t.WONK = fvs.WONK ?? 1; }   // Achsen-Standard Fraunces: SOFT 0, WONK 1
+    t.key = [t.fam, t.style, t.wght, t.opsz ?? '', t.SOFT ?? '', t.WONK ?? ''].join('|');
     return t;
   };
   const hasOwnText = (el) => [...el.childNodes].some((n) => n.nodeType === 3 && n.nodeValue.trim());

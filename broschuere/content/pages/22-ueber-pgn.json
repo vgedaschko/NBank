@@ -1,0 +1,102 @@
+{
+  "no": 22,
+  "slug": "ueber-pgn",
+  "layout_type": "about-references",
+  "running_title": "PGN · Über uns",
+  "kicker": "Über PGN",
+  "headline": "Ihre Generalplaner aus dem Norden. Seit 1981.",
+  "lead": "Von Rotenburg (Wümme) aus planen wir private, gewerbliche und kommunale Bauprojekte in ganz Norddeutschland – Architektinnen und Architekten, Stadtplanerinnen und Stadtplaner, Ingenieurinnen und Ingenieure unter einem Dach. 2026 feiern wir 45 Jahre PGN.",
+  "blocks": [
+    {
+      "type": "bullets",
+      "role_hint": "werte-reihe",
+      "heading": "Für Sie denken wir an:",
+      "items": [
+        "Verantwortung.",
+        "Kostensicherheit.",
+        "Innovation.",
+        "Vertrauen."
+      ],
+      "icons": [
+        "verantwortung-white.svg",
+        "kostensicherheit-white.svg",
+        "innovation-white.svg",
+        "vertrauen-white.svg"
+      ]
+    },
+    {
+      "type": "text",
+      "heading": "Alles aus einem Haus",
+      "body": "Generalplanung, Architektur, Tragwerksplanung, Haustechnik sowie Stadt- und Landschaftsplanung greifen bei uns ineinander. Über die **PGN Projektgesellschaft Nord GmbH** entwickeln wir Projekte und bauen als Generalübernehmer schlüsselfertig. Im Projektcontrolling planen wir mit der Finanzierung im Hinterkopf; 3D-Druck und AR machen Entwürfe greifbar, Drohnenbilder dokumentieren den Baufortschritt. Zu unseren Kundinnen und Kunden zählen Wohnungsbauunternehmen und Wohnungsbaugenossenschaften, Investorinnen und Investoren, öffentliche Bauträger und Kommunen."
+    },
+    {
+      "type": "references",
+      "role_hint": "dominant",
+      "heading": "Wohnungsbau-Referenzen",
+      "items": [
+        {
+          "name": "Brauerstraße",
+          "place": "Rotenburg (Wümme)",
+          "client": null,
+          "units": "19 Wohnungen",
+          "note": "Neubau, alle Wohnungen barrierefrei mit Aufzug, ca. 50–61 m²; Luft-Wasser-Wärmepumpe, PV; mit Förderung der NBank",
+          "image": "ref-01-brauerstrasse-rotenburg.jpg"
+        },
+        {
+          "name": "Porstweg",
+          "place": "Rotenburg (Wümme)",
+          "client": "Wohnungsbau-Genossenschaft Rotenburg (Wümme) eG",
+          "units": "29 Wohnungen",
+          "note": "drei Wohnhäuser, 50–95 m², Gemeinschaftsraum",
+          "image": "ref-07-porstweg-rotenburg.jpg"
+        },
+        {
+          "name": "Dehnenweg",
+          "place": "Hohenhameln",
+          "client": "kwg Kreiswohnbaugesellschaft Hildesheim mbH",
+          "units": "15 barrierefreie Wohnungen",
+          "note": "43–63 m², Aufzug",
+          "image": "ref-04-dehnenweg-hohenhameln.jpg"
+        },
+        {
+          "name": "Burgsiedlung",
+          "place": "Stade",
+          "client": "IDB mbH & Co. Stade-Altes Land KG",
+          "units": "40 barrierefreie Wohnungen",
+          "note": "vier Stadthäuser, Aufzug in jedem Gebäude",
+          "image": "ref-03-burgsiedlung-stade.jpg"
+        },
+        {
+          "name": "Wohnen im Lindenhof",
+          "place": "Gifhorn",
+          "client": null,
+          "units": "93 Mietwohnungen",
+          "note": "Quartier mit 15 Gebäuden, fertiggestellt Frühjahr 2018",
+          "image": "ref-11-wohnen-im-lindenhof-gifhorn.jpg"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "role_hint": "fusszeile",
+      "body": "Weitere Projekte: pgn-architekten.de"
+    }
+  ],
+  "footnotes": [],
+  "fact_ids": [],
+  "pgn_sources": [
+    "pgn-facts.md §5 H1 Startseite „PGN: Ihre Generalplaner aus dem Norden mit Sitz in Rotenburg (Wümme)“ + §3 Claim „100% Kundenfokus. Seit 1981.“ (Wortlaut „Seit 1981“, nicht „gegründet“)",
+    "pgn-facts.md §1 Arbeitsgebiet „Von Rotenburg (Wümme) aus übernehmen wir private, gewerbliche und kommunale Bauprojekte in ganz Norddeutschland.“; §4 „mit unserem Team aus Architekten, Stadtplanern und Ingenieuren“",
+    "pgn-facts.md §3 Jubiläum „45 Jahre PGN“ (Feier am 18.09.2026)",
+    "pgn-facts.md §5 Werte „Für Sie denken wir an:“ – Verantwortung., Kostensicherheit., Innovation., Vertrauen. (nur Wörter, keine Erläuterungen)",
+    "pgn-facts.md §5 „Alles aus einem Haus. … greifen … wie Zahnräder ineinander“; §6 Gliederung Startseite (Generalplanung, Architektur, Tragwerksplanung, Haustechnik, Stadt- & Landschaftsplanung; Projektentwicklung, Projektcontrolling; 3D-Druck, Drohnenbilder, AR)",
+    "pgn-facts.md §6 Projektentwicklung: „Im Rahmen eines Generalübernehmervertrages bieten wir Ihnen die schlüsselfertige Erstellung von Wohn- und Gewerbebauten an.“; Projektcontrolling: „Mit der Finanzierung im Hinterkopf …“; 3D-Druck „für die räumliche Vorstellungskraft“, AR für Entwürfe, „die noch nicht real existieren“, Drohnenbilder „für die Baustellendokumentation“",
+    "pgn-facts.md §6/§8 Kundengruppen: „Wohnungsbauunternehmen und Wohnungsbaugenossenschaften, genauso wie öffentliche Bauträger“ (/karriere) und „Kommunen, Investoren“ (/leistungen/generalplanung)",
+    "pgn-facts.md §7a Referenzen Brauerstraße, Porstweg, Dehnenweg, Burgsiedlung, Wohnen im Lindenhof; §8 einzige Förderaussage „Die Umsetzung wird durch die Förderung der N-Bank unterstützt.“ (Brauerstraße) – als Paraphrase mit korrekter Schreibweise „NBank“"
+  ],
+  "open_points": [
+    "PGN: Alle fünf Referenzabbildungen sind Visualisierungen (MANIFEST), keine Fotos; Urheber und Nutzungsrechte bestätigen, hochaufgelöste Originale anfordern.",
+    "PGN: Freigabe der Referenzauswahl und der Auftraggeber-Nennung (Wohnungsbau-Genossenschaft Rotenburg (Wümme) eG, kwg Hildesheim, IDB Stade-Altes Land) sowie der Förderangabe Brauerstraße."
+  ],
+  "visual_idea": "Doppelseite 22|23 „Über PGN | Impressum“. Kopf: Kicker „Über PGN“ als Versal-Label in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Lead in Work Sans. Darunter Kopfband über die volle Breite im roten Verlauf 160° #B71E3F → #8B2939 mit der Werte-Viererreihe wie auf der PGN-Startseite: Zeile „Für Sie denken wir an:“ klein in Montserrat 600 Versalien, weiß; vier weiße Linienicons (src/assets/pgn/*-white.svg) zentriert über den Wort-Labels in Montserrat 700 Versalien, weiß, getrennt durch weiße 1-px-Trennlinien; keine Erläuterungstexte. Darunter Text „Alles aus einem Haus“ in einer schmalen linken Spalte (Zwischentitel in Montserrat 700 Versalien); der Firmenname „PGN Projektgesellschaft Nord GmbH“ als einzige grüne Auszeichnung der Seite (#26772B, fett) – sonst kein Grün. Dominantes Element: Referenzraster rechts bzw. darunter – ein großes Bild Brauerstraße (Panorama-Ausschnitt), daneben bzw. darunter vier kleine Bilder im 4:3-Ausschnitt aus den 1800 × 740-px-Panoramen (src/assets/pgn/ref/), keine Rundungen, keine Schatten. Bildunterschriften: Projektname in Montserrat 700 Versalien, darunter Ort · Auftraggeber (falls genannt) · Wohnungen in Work Sans, dann die Notiz; Wohnungszahl in PGN-Rot. Alle Abbildungen sind Visualisierungen – kleines Label „Visualisierung“ in der Bildecke. Fußzeile „Weitere Projekte: pgn-architekten.de“ rechtsbündig mit Pfeilzeichen. Kein Kasten, keine Fußnote, keine Mitarbeiterzahl, keine Superlative."
+}

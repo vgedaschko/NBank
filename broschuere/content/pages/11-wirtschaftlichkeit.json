@@ -1,0 +1,215 @@
+{
+  "no": 11,
+  "slug": "wirtschaftlichkeit",
+  "layout_type": "chart-focus",
+  "running_title": "Ihre Rechnung · Wirtschaftlichkeit",
+  "kicker": "Ihre Rechnung · Wirtschaftlichkeit · Modellrechnung",
+  "headline": "Mehr Miete, mehr Darlehen: Was bleibt im Jahr?",
+  "lead": "Dasselbe Haus wie links, immer bis zu 80 % Förderung, nur anders gemischt: Von A nach C wird Zuschuss zu Darlehen – und die Höchstmiete steigt. B und C gibt es nur, wenn die NBank sie in der Förderentscheidung zulässt; im Modell ist die Voraussetzung erfüllt (angespannter Wohnungsmarkt per Verordnung).",
+  "blocks": [
+    {
+      "type": "chart",
+      "chart": "stacked-bar",
+      "title": "Finanzierung in Mio. €",
+      "subtitle": "Gesamtkosten je 7,0 Mio. € · Höchstwerte",
+      "data": {
+        "unit": "Mio. €",
+        "categories": [
+          "A",
+          "B",
+          "C"
+        ],
+        "series": [
+          {
+            "name": "Darlehen",
+            "token": "--color-loan",
+            "values": [
+              2.8,
+              4.2,
+              4.9
+            ],
+            "labels": [
+              "2,8",
+              "4,2",
+              "4,9"
+            ]
+          },
+          {
+            "name": "Zuschuss",
+            "token": "--color-grant",
+            "values": [
+              2.8,
+              1.4,
+              0.7
+            ],
+            "labels": [
+              "2,8",
+              "1,4",
+              "0,7"
+            ]
+          },
+          {
+            "name": "Eigenmittel, mind.",
+            "token": "--color-equity",
+            "values": [
+              1.4,
+              1.4,
+              1.4
+            ],
+            "labels": [
+              "1,4",
+              "1,4",
+              "1,4"
+            ]
+          }
+        ],
+        "totals": {
+          "label": "Förderung, bis zu 80 %",
+          "values": [
+            5.6,
+            5.6,
+            5.6
+          ],
+          "labels": [
+            "5,6",
+            "5,6",
+            "5,6"
+          ]
+        },
+        "alignment": "Säulen A | B | C exakt über den Spalten A | B | C der Jahresrechnung; eigene Grundlinie, keine gemeinsame Achse mit der Tabelle"
+      }
+    },
+    {
+      "type": "table",
+      "role_hint": "dominant",
+      "caption": "Jahresrechnung Jahre 1–3, in € p. a.",
+      "columns": [
+        "",
+        "Position",
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        [
+          "1",
+          "Höchstmiete nettokalt (1.400 m² × 6,80 | 8,20 | 9,00 € × 12)",
+          "114.240",
+          "137.760",
+          "151.200"
+        ],
+        [
+          "2",
+          "− Mietausfallwagnis [PGN-Rechnung: … % der Miete]",
+          "[PGN-Rechnung]",
+          "[PGN-Rechnung]",
+          "[PGN-Rechnung]"
+        ],
+        [
+          "3",
+          "− nicht umlagefähige Bewirtschaftungskosten [PGN-Rechnung: … € je Wohnung p. a.]",
+          "[PGN-Rechnung]",
+          "[PGN-Rechnung]",
+          "[PGN-Rechnung]"
+        ],
+        [
+          "4",
+          "− Instandhaltung [PGN-Rechnung: … € je m² p. a.]",
+          "[PGN-Rechnung]",
+          "[PGN-Rechnung]",
+          "[PGN-Rechnung]"
+        ],
+        [
+          "5",
+          "= Überschuss vor Kapitaldienst",
+          "[PGN-Rechnung]",
+          "[PGN-Rechnung]",
+          "[PGN-Rechnung]"
+        ],
+        [
+          "6",
+          "− Verwaltungskostenbeitrag, 0,5 % des Darlehens (bei Vollauszahlung)",
+          "14.000",
+          "21.000",
+          "24.500"
+        ],
+        [
+          "7",
+          "− Zins NBank-Darlehen, 0 % bis Ende Jahr 35",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "8",
+          "− Tilgung [PGN-Rechnung: Tilgungssatz … %] auf 2,8 | 4,2 | 4,9 Mio. € Darlehen",
+          "[PGN-Rechnung]",
+          "[PGN-Rechnung]",
+          "[PGN-Rechnung]"
+        ],
+        [
+          "9",
+          "= Zahlungsüberschuss p. a.",
+          "[PGN-Rechnung]",
+          "[PGN-Rechnung]",
+          "[PGN-Rechnung]"
+        ]
+      ],
+      "result_row": "9",
+      "subtotal_rows": [
+        "5"
+      ],
+      "placeholder": "[PGN-Rechnung]",
+      "aside_row": [
+        "",
+        "Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte (1 % des Darlehens + 0,75 % des Zuschusses)",
+        "49.000",
+        "52.500",
+        "54.250"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "tipp",
+      "role_hint": "kalkulationsnotiz",
+      "title": "Kalkulationsnotiz",
+      "figure": {
+        "value": "1,26 %",
+        "label": "Tilgung auf die Mehrschuld, ab der C gegenüber A keinen Vorteil mehr bringt"
+      },
+      "equation": "2,1 Mio. € × 1,26 % = 26.460 €",
+      "body": "C bringt gegenüber A 36.960 € mehr Jahresmiete, aber 2,1 Mio. € mehr Darlehen und 10.500 € mehr Verwaltungskostenbeitrag: 26.460 € Spielraum vor Tilgung. Bei 1,26 % Tilgung auf die Mehrschuld ist der Vorteil aufgezehrt. Für B: 23.520 − 7.000 = 16.520 € Spielraum, Schwelle 1,18 % auf 1,4 Mio. €. Das Mietausfallwagnis auf die Mehrmiete senkt beide Schwellen."
+    },
+    {
+      "type": "text",
+      "heading": "So lesen Sie die Rechnung",
+      "body": "Bewirtschaftung und Instandhaltung sind in A, B und C gleich – sie verschieben das Niveau, nicht den Vergleich. Betrachtet sind die Jahre 1–3 mit festen Höchstmieten. Die Rechnung zeigt Liquidität, keine Rendite. Mischungen aus A, B und C liegen dazwischen. Den Tilgungssatz legt die NBank fest; entstünde vorübergehend ein Fehlbetrag, kann sie den Tilgungsbeginn um bis zu fünf Jahre verschieben.\n\nWir rechnen Ihr Projekt mit Ihnen durch – mit Ihren Kosten und Ihrem Standort."
+    }
+  ],
+  "footnotes": [],
+  "fact_ids": [
+    "F105",
+    "F106",
+    "F107",
+    "F108",
+    "F109",
+    "F112",
+    "F113",
+    "F115",
+    "F116",
+    "F215",
+    "F217",
+    "F276",
+    "F277",
+    "F278",
+    "F279",
+    "F094",
+    "F024",
+    "F040",
+    "G2-31",
+    "G2-20",
+    "G1-29"
+  ],
+  "visual_idea": "Akzentseite im Rhythmus der Doppelseite „Ihre Rechnung“ (S. 10 Finanzierungsaufbau | S. 11 Wirtschaftlichkeit), Fläche #F4F3F2. Kopf wie S. 10: Kicker als Versal-Label in PGN-Rot #B71E3F, darin „Modellrechnung“ als kurzer Stempel (kein zweiter Stempel, keine Vollversion), Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Lead in Work Sans. Baustein-Register 2.1 (--baustein-21) mit Nummer am Seitenrand. Oben das kleine Finanzierungsdiagramm „Finanzierung in Mio. €“: drei gestapelte Säulen Darlehen (--color-loan), Zuschuss (--color-grant), Eigenmittel (--color-equity, schraffiert „mind.“), Werte in den Segmenten, Klammer „Förderung, bis zu 80 % · 5,6“ je Säule; Titel und Farbschlüssel stehen über der Positionsspalte der Tabelle, die Säulen exakt über den Tabellenspalten A | B | C. Darunter, durch Weißraum und eine feine Anthrazit-Linie getrennt, als dominantes Element die Jahresrechnung als Wasserfall-Tabelle (€ p. a.) – zwei getrennte, gleich ausgerichtete Elemente mit identischer Spaltenfolge A | B | C, nie eine gemeinsame Grundlinie (Mio. € und € p. a. nicht an einer Achse). Zeilennummern 1–9 im grauen Kopfstreifen, Rechenzeichen (−, =) vor den Positionen, Summenstriche über den Zeilen 5 und 9, Beträge rechtsbündig mit tabellarischen Ziffern in Anthrazit. Platzhalterzellen sichtbar als graue Felder (#F4F3F2 auf Weiß bzw. Weiß auf der Akzentfläche, gestrichelte Kontur #757474) mit „[PGN-Rechnung]“, damit Lücken in der Korrektur auffallen. Ergebniszeile 9 in PGN-Rot-Verlauf (160° nach #8B2939) hinterlegt, Schrift weiß. Bearbeitungsentgelte als abgesetzte Zeile unter der Tabelle (kleiner, ohne Zeilennummer, nicht Teil der Summenlogik). Unteres Drittel zweispaltig: links die Kalkulationsnotiz ohne Kasten – Rechen-Icon, großer Wert „1,26 %“ in PGN-Rot (Montserrat Black), daneben die Rechenzeile „2,1 Mio. € × 1,26 % = 26.460 €“ in tabellarischen Ziffern, darunter der Notiztext; rechts „So lesen Sie die Rechnung“, Angebotssatz als letzte Zeile in Work Sans Bold. Kein Achtung-Kasten, keine Fußnote, keine Quellenzeile. Produktion: 10|11 liegen nicht auf einem Druckbogen (physische Heftmitte ist 12|13) – kein Element zwingend über den Bund führen; falls doch, Crossover-Toleranz einplanen. Kopf, Kicker-Grundlinie und Oberkante des Hauptelements auf gleicher Höhe wie S. 10, damit die Doppelseite auch ohne Crossover als Einheit liest.",
+  "page_variant": "accent"
+}

@@ -77,3 +77,9 @@ Investment-Memo noch nicht eingelöst.* Daraus folgt:
    Zeitstrahl auf das Wesentliche (Bauphase/Auszahlung, Zinsphase 0 % bis Ende Jahr 35, Bindung 35 Jahre, Laufzeit 42 Jahre).
    Sonderfälle und Verfahrensdetails von S. 4, 9 und 19 auf S. 21 („Unterlagen, Kontakte & Verfahrensdetails“) verschieben.
 3. **Absender eindeutig PGN** (siehe Abschnitt 1) – Titel, Impressum, PDF-Metadaten.
+
+## 7. Entscheidungen des Kunden
+
+- **Impressum/Geschäftsführung:** Es bleibt der Stand vom 21.10.2026 (Geschäftsführung laut Impressum der PGN-Website:
+  Norbert Behrens, Stephan Müller, Nils Neumann, Matthias Mock). Die Broschüre wird 2026 veröffentlicht. In `copy.md`,
+  Anhang B, nur noch als Hinweis: „Bei Veröffentlichung ab 01.01.2027 Geschäftsführung aktualisieren.“

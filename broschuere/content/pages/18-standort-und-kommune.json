@@ -40,7 +40,7 @@
             "rank": 5,
             "icon": "stufenpfeil",
             "label": "Mietenstufe IV–VII",
-            "detail": "derzeit 29 Gemeinden (IV–VI) inkl. 7 Inselgemeinden; ab 2027 Änderung geplant"
+            "detail": "derzeit 29 Gemeinden (IV–VI) inkl. sieben Inselgemeinden; ab 2027 Änderung geplant"
           },
           {
             "rank": 6,
@@ -49,7 +49,7 @@
             "detail": "in B-Plan, städtebaulichem Vertrag oder Baulandmodell"
           }
         ],
-        "footer": "Vorrang zählt nur bei knappen Mitteln. Im selben Rang sollen bei sonst gleichen Voraussetzungen kostengünstigere Vorhaben gleicher Güte vorgehen, dann Hilfskriterien."
+        "footer": "Vorrang zählt nur bei knappen Mitteln. Im selben Rang sollen bei sonst gleichen Voraussetzungen kostengünstigere Vorhaben gleicher Güte vorgehen, dann Hilfskriterien wie Barrierefreiheit, Familien mit Kindern, besondere Bedarfsgruppen, Klimaziele; ggf. Punktesystem."
       }
     },
     {
@@ -72,15 +72,17 @@
           }
         ],
         "qr": {
-          "placeholder": true
+          "url": "https://nbank.de/F%C3%B6rderprogramme/Aktuelle-F%C3%B6rderprogramme/Mietwohnungen-in-Mehrfamilienh%C3%A4usern-(Allgemeine-Mietwohnraumf%C3%B6rderung).html",
+          "target": "Landkarte Wohnraumförderung auf der NBank-Programmseite „Mietwohnungen in Mehrfamilienhäusern“ (F089)",
+          "position": "Ringmitte"
         }
       },
-      "note": "Ohne 26 gemeindefreie Gebiete; Abruf 21.10.2026, maßgeblich ist die aktuelle Karte. In beiden Fällen: einfache Bedarfsbestätigung zum Bauort."
+      "note": "Ohne 26 gemeindefreie Gebiete; Abruf 21.10.2026, maßgeblich ist die aktuelle Karte (QR-Code in der Ringmitte). In beiden Fällen: einfache Bedarfsbestätigung zum Bauort."
     },
     {
       "type": "text",
       "heading": "Bedarf widerlegt?",
-      "body": "Überall sonst vermutet die Richtlinie Bedarf. Hat die NBank das widerlegt, belegen Sie ihn gesondert – z. B. mit **Wohnraumversorgungskonzept** (kommunales Planungsinstrument, in der Regel mit Bestandsaufnahme, Bedarfsabschätzung, Zielen, Handlungsempfehlungen, Maßnahmen), Analysen lokaler Marktakteure, Befragungen samt Wartelisten oder Daten der kommunalen Wohnungsmarktbeobachtung. Ob das reicht, entscheidet die NBank."
+      "body": "Überall sonst vermutet die Richtlinie Bedarf. Hat die NBank das widerlegt, belegen Sie ihn gesondert – z. B. mit **Wohnraumversorgungskonzept** (kommunales Planungsinstrument, in der Regel mit Bestandsaufnahme, Bedarfsabschätzung, Zielen, Handlungsempfehlungen, Maßnahmen), Analysen lokaler Marktakteure, Befragungen samt Wartelisten oder Daten der kommunalen Wohnungsmarktbeobachtung (vollständige Liste: RL Nr. 5.2.1). Ob das reicht, entscheidet die NBank."
     },
     {
       "type": "chart",
@@ -92,17 +94,17 @@
           {
             "icon": "konzept",
             "title": "Konzept oder Festlegung",
-            "body": "belegt den Bedarf; die NBank kann dann auch Gruppe B (bis +40 %) und C (bis +60 %) zulassen, nicht bei 2.5"
+            "body": "belegt den Bedarf; die NBank kann dann auch Gruppe B (bis +40 %) und C (bis +60 %) zulassen (weitere Fälle → S. 6), nicht bei 2.5"
           },
           {
             "icon": "verordnung",
             "title": "Verordnung § 7 Abs. 3 NWoFG",
-            "body": "Bedarfsgebiet; auf Verlangen der zuständigen Stelle (Landkreis, kreisfreie Stadt) nur an von ihr Benannte vermieten – sie nennt mindestens drei Wohnberechtigte zur Auswahl"
+            "body": "Bedarfsgebiet; auf Verlangen der zuständigen Stelle (Landkreis, kreisfreie Stadt) nur an von ihr Benannte vermieten – sie nennt mindestens drei Wohnberechtigte zur Auswahl; Ausnahmen per Verordnung möglich"
           },
           {
             "icon": "stellungnahme",
             "title": "Stellungnahme",
-            "body": "Bedarfsbestätigung und Standortangaben der Förderstelle; Anhörung der Gemeinde, sofern sie nicht selbst Förderstelle ist"
+            "body": "Bedarfsbestätigung und Standortangaben der Förderstelle; Anhörung der Gemeinde (Mehrfamilienhäuser), sofern sie nicht selbst Förderstelle ist"
           },
           {
             "icon": "bauherrin",
@@ -116,9 +118,9 @@
       "type": "bullets",
       "heading": "Vermietung",
       "items": [
-        "Wohnberechtigungsschein (WBS) grundsätzlich bei jeder Überlassung",
-        "Kein berechtigter Haushalt trotz Vermarktung? Befristete Freistellung von der Belegungsbindung beantragen, in der Regel höchstens 5 Jahre, einmal verlängerbar; Mietbindung bleibt.",
-        "Ausgleich dafür, z. B. Geld (in der Regel 0,50 € je m² Wohnfläche und Monat, nicht auf die Miete umlegbar) oder Ersatzwohnungen"
+        "WBS grundsätzlich bei jeder Überlassung",
+        "Kein berechtigter Haushalt trotz Vermarktung? Befristete Freistellung von der Belegungsbindung beantragen, in der Regel spätestens 4 Wochen vor Freiwerden oder Bezugsfertigkeit und für höchstens 5 Jahre; einmal verlängerbar; Mietbindung bleibt.",
+        "Ausgleich dafür, z. B. Geld (in der Regel 0,50 € je m² Wohnfläche und Monat, nicht auf die Miete umlegbar), Ersatzwohnungen oder gleichrangig sonstiger Ausgleich"
       ]
     },
     {
@@ -128,10 +130,10 @@
       "body": "Klären Sie den Standort zuerst mit der Wohnraumförderstelle: Er entscheidet über Förderfähigkeit, Vorrang und Mieterkreis."
     }
   ],
+  "sources": "Fundstellen: RL Nr. 1.5, 5.2.1, 5.5.1, 6.2, 8.2.1, 9.2, 10.2, 11.2, 12.1.2; NBank-Landkarte, Abruf 21.10.2026.",
   "footnotes": [
-    "Bedarf: RL Nr. 5.2.1, 6.2, 8.2.1, 9.2, 10.2. Vorrang: Nr. 11.2 (im selben Rang bei sonst gleichen Voraussetzungen zuerst kostengünstigere Vorhaben gleicher Güte, dann u. a. Barrierefreiheit, Familien mit Kindern, besondere Bedarfsgruppen, Klimaziele; ggf. Punktesystem der NBank). Stellungnahme: Nr. 5.5.1 (nur Mehrfamilienhäuser), 12.1.2. Wohnraumversorgungskonzept: Nr. 1.5; vollständige Liste der Belege: Nr. 5.2.1.",
-    "B und C: § 4 Abs. 1 DVO-NWoFG – auch bei VO nach § 7 Abs. 3 NWoFG, angespanntem Markt oder Wohnraum für Ältere, Menschen mit Behinderungen oder Pflegebedürftige; Zulassung in der Förderentscheidung (RL Nr. 12.3.2). § 7 Abs. 3 NWoFG (Ausnahmen vom Benennungsrecht per Verordnung möglich); VV NWoFG 2026 Nr. 6 und 9 (Freistellungsantrag soll spätestens 4 Wochen vor Freiwerden oder Bezugsfertigkeit gestellt werden; gleichrangig auch sonstiger Ausgleich).",
-    "Angespannter Markt: NMiSchuV (Fassung ab 04.12.2025), AWohnV (§ 201a BauGB), VO nach § 250 BauGB. Mietenstufen: WoGV-Anlage (ab 01.01.2023) i. V. m. § 12 Abs. 4a WoGG; Entwurf ab 2027: BR-Drs. 474/26. NBank-Landkarte Wohnraumförderung, Abruf 21.10.2026."
+    "Angespannter Markt: NMiSchuV (ab 04.12.2025), AWohnV, § 250 BauGB. Mietenstufen: WoGV-Anlage, § 12 Abs. 4a WoGG; Entwurf ab 2027: BR-Drs. 474/26.",
+    "Gruppen B und C: § 4 Abs. 1 DVO-NWoFG, RL Nr. 12.3.2. Benennungsrecht: § 7 Abs. 3 NWoFG. Freistellung und Ausgleich: VV NWoFG 2026 Nr. 6 und 9."
   ],
   "fact_ids": [
     "F078",
@@ -169,5 +171,5 @@
     "F023",
     "F236"
   ],
-  "visual_idea": "Doppelseite 18|19 „Umsetzung“, kein Baustein-Register (programmübergreifend), stattdessen Register in --color-primary. Links nummerierte Vorrang-Leiter mit sechs Stufen (Rang 1 oben, breiteste Stufe), Icons Schloss, Paragraf, Barett, Welle, Stufenpfeil, Bauplan; Rangnummer groß, damit graustufenfest; Titel „Bedarf erfüllt – Vorrang in dieser Reihenfolge“, Fußzeile der Leiter klein. Rechts Ring „Bedarfslage laut NBank-Karte“: 306 (--color-primary) und 96 (--color-accent) mit Direktbeschriftung; Notiz mit „ohne 26 gemeindefreie Gebiete“ und Abrufdatum sichtbar unter dem Ring; kein Landkarten-Nachbau, QR-Platzhalter zur „Landkarte Wohnraumförderung“ auf der NBank-Programmseite „Mietwohnungen in Mehrfamilienhäusern“. Darunter Textblock „Bedarf widerlegt?“ (erklärt die widerlegbare Bedarfsvermutung, Begriff Wohnraumversorgungskonzept fett im Text). Untere Hälfte: „Werkzeugkasten der Kommune“ als vier Protokollkarten nebeneinander (Icons Dokument, Paragraf, Sprechblase, Kran). „Vermietung“ als schmale Spalte mit WBS-Icon. Kein Zitat auf dieser Seite."
+  "visual_idea": "Doppelseite 18|19 „Umsetzung“, kein Baustein-Register (programmübergreifend), stattdessen Register in --color-primary. Links nummerierte Vorrang-Leiter mit sechs Stufen (Rang 1 oben, breiteste Stufe), Icons Schloss, Paragraf, Barett, Welle, Stufenpfeil, Bauplan; Rangnummer groß, damit graustufenfest; Titel „Bedarf erfüllt – Vorrang in dieser Reihenfolge“, Fußzeile der Leiter klein. Rechts Ring „Bedarfslage laut NBank-Karte“: 306 (--color-primary) und 96 (--color-accent) mit Direktbeschriftung; Notiz mit „ohne 26 gemeindefreie Gebiete“ und Abrufdatum sichtbar unter dem Ring; kein Landkarten-Nachbau, im Ringloch echter QR-Code zur „Landkarte Wohnraumförderung“ auf der NBank-Programmseite „Mietwohnungen in Mehrfamilienhäusern“. Darunter Textblock „Bedarf widerlegt?“ (erklärt die widerlegbare Bedarfsvermutung, Begriff Wohnraumversorgungskonzept fett im Text). Untere Hälfte: „Werkzeugkasten der Kommune“ als vier Protokollkarten nebeneinander (Icons Dokument, Paragraf, Sprechblase, Kran). „Vermietung“ als schmale Spalte mit WBS-Icon. Kein Zitat auf dieser Seite."
 }

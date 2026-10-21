@@ -5,7 +5,7 @@
   "running_title": "Umsetzung · Antragsweg",
   "kicker": "Antragsweg",
   "headline": "Vom Vorgespräch bis zum Verwendungsnachweis",
-  "lead": "Sie beantragen bei der Wohnraumförderstelle am Bauort, die NBank entscheidet. Bis zur Bewilligung gilt: planen bis Leistungsphase 6 HOAI ja, Bau-, Liefer- oder Werkverträge nein – außer bei zugelassenem vorzeitigem Vorhabenbeginn.",
+  "lead": "Sie beantragen bei der Wohnraumförderstelle am Bauort, die NBank entscheidet – in acht Schritten.",
   "blocks": [
     {
       "type": "chart",
@@ -32,7 +32,7 @@
             "n": 2,
             "lane": "Sie",
             "title": "Antrag",
-            "body": "bei der Wohnraumförderstelle; vorzeitigen Vorhabenbeginn frühestens mit dem vollständigen Antrag beantragen",
+            "body": "bei der Wohnraumförderstelle",
             "badges": [
               "1011 · 2.1–2.4",
               "1011a + 1012 · 2.5",
@@ -57,7 +57,7 @@
             "lane": "Sie",
             "title": "Bauen",
             "warn": true,
-            "body": "Baubeginnanzeige erst nach Beginn (für Unternehmen subventionserheblich) · mind. 3 Angebote anfordern · Generalunternehmen nur mit Prüfzustimmung",
+            "body": "Baubeginnanzeige erst nach Beginn, an NBank und Wohnraumförderstelle (für Unternehmen subventionserheblich) · mind. 3 Angebote anfordern; Direktauftrag bis 25.000 € ohne USt · Generalunternehmer/-übernehmer nur mit schriftlicher Prüfzustimmung · Kommunen u. a.: zusätzlich Vergaberecht · Bauschild mit Förderhinweis",
             "badges": [
               "4001"
             ],
@@ -76,7 +76,7 @@
               "Sie"
             ],
             "title": "Fertigstellung",
-            "body": "Fertigstellungsanzeige; Überlassung nur mit Wohnberechtigungsschein (WBS); letzte 10 % nach Schlussbescheinigung und Belegung",
+            "body": "Fertigstellungsanzeige; Überlassung nur mit WBS; letzte 10 % nach Schlussbescheinigung und Belegung",
             "badges": [
               "4005"
             ]
@@ -85,12 +85,12 @@
             "n": 8,
             "lane": "Sie",
             "title": "Verwendungsnachweis",
-            "body": "an die Wohnraumförderstelle, einfacher Nachweis genügt. Die Bindungen laufen schon ab Bezugsfertigkeit.",
+            "body": "an die Wohnraumförderstelle, einfacher Nachweis genügt. Die Bindungen laufen schon ab Bezugsfertigkeit, beim Ersterwerb ab Eigentumsübergang, bei 2.3 ab Abschluss der Maßnahmen.",
             "deadline": "≤ 6 Monate nach Erfüllung des Zuwendungszwecks"
           }
         ]
       },
-      "note": "Stationen 5–7: Bauvorhaben 2.1–2.4 (Ersterwerb ohne Baubeginnanzeige). Abläufe für 2.5 und 2.6 → S. 16 und 17."
+      "note": "Stationen 5–7: Bauvorhaben 2.1–2.4 (Ersterwerb: ohne Baubeginn- und Fertigstellungsanzeige, letzte 10 % nach Eigentumsumschreibung und Belegung). Abläufe für 2.5 und 2.6 → S. 16 und 17."
     },
     {
       "type": "callout",
@@ -143,18 +143,11 @@
           }
         ]
       }
-    },
-    {
-      "type": "callout",
-      "variant": "tipp",
-      "title": "Kalkulationsnotiz",
-      "body": "Planen Sie für die Entscheidung die Soll-Frist von drei Monaten ein – nach der Bekanntgabe bleiben höchstens vier Monate bis zum Baubeginn."
     }
   ],
+  "sources": "Fundstellen: RL Nr. 4.2, 5.4.1, 5.4.2, 5.4.7, 5.4.8, 5.5.1–5.5.8, 7.4.1, 7.4.2, 9.2, 10.5, 11.10, 11.11, 12.1.2, 12.2, 12.3.1, 12.4, 12.5; Anlagen 1 und 2 (Vordrucke 4001, 4005); VV NWoFG 2026 Nr. 6.",
   "footnotes": [
-    "¹ Laut NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (Stand 27.07.2026) – über den Wortlaut der RL hinaus. Vorhabenbeginn nach RL Nr. 4.2: grundsätzlich der Abschluss eines dem Vorhaben zuzurechnenden Liefer-, Leistungs-, Kauf- oder Werkvertrags; bei 2.5 schon Mietvertrag oder Überlassung (Nr. 9.2).",
-    "Bauen: Baubeginnanzeige (Vordruck 4001) an NBank und Wohnraumförderstelle; Direktauftrag bei voraussichtlichem Auftragswert bis 25.000 € ohne USt möglich (Wirtschaftlichkeit beachten); Generalunternehmen und Generalübernahme nur mit schriftlicher Zustimmung zur Prüfung durch NBank und Landesrechnungshof; Kommunen: Vergaberecht zusätzlich; Bauschild mit Förderhinweis (Nr. 11.11); Fristabweichung in begründeten Fällen. Bindungen laufen ab Bezugsfertigkeit, beim Ersterwerb ab Eigentumsübergang, bei 2.3 ab Abschluss der Maßnahmen (Nr. 5.4.1/5.4.2, 7.4.1).",
-    "RL Nr. 4.2, 5.4.7, 5.4.8, 5.5.1–5.5.8, 9.2, 10.5, 11.10, 11.11, 12.1.2, 12.2, 12.3.1, 12.4, 12.5; Anlagen 1 und 2 (Vordrucke 4001, 4005); VV NWoFG 2026 Nr. 6."
+    "Laut NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (27.07.2026), über RL Nr. 4.2 hinaus."
   ],
   "fact_ids": [
     "F260",
@@ -189,7 +182,9 @@
     "F193",
     "F212",
     "F213",
-    "F129"
+    "F129",
+    "F123",
+    "F163"
   ],
   "visual_idea": "Doppelseite 18|19 „Umsetzung“, Register in --color-primary. Obere Seitenhälfte: Swimlane mit drei horizontalen Bahnen (Sie · Wohnraumförderstelle · NBank), acht nummerierte Stationen als Kreise, verbunden durch eine Linie, die zwischen den Bahnen wechselt; Stationen mit „with“ als Klammer über zwei Bahnen. Vordrucknummern als Badges an den Stationen 2, 5, 7. Fristmarken als kleine Kalender-Fähnchen: „Ziel: ≤ 3 Monate (kein Anspruch)“ (4), „Baubeginn unverzüglich, ≤ 4 Monate“ (5), „≤ 6 Monate“ (8). Station 5 mit Warn-Icon in --signal (keine ⚠-Zeichen im Fließtext), Stichpunkte unter der Bahn. Stationen 5–7 dezent als „Bauvorhaben 2.1–2.4“ klammern; Notiz unter der Swimlane. Untere Hälfte: dreispaltige Ampel-Tabelle „Darf ich das vor der Bewilligung?“ mit Kopfsymbolen ✓ / ! / ✕ zusätzlich zur Farbe (graustufenfest: ✓ hell, ! mittel, ✕ dunkel gerastert) und Tätigkeits-Icons (Grundstück, Plan, Bohrer, Vertrag, Spaten, Schlüssel); grüne und rote Spaltenköpfe definieren zugleich den Begriff „Vorhabenbeginn“. Hochzeichen ¹ an NBank-Merkblatt-Punkten, Fußnote erklärt sie. Stopp-Marker (ui-stopp.svg) „Erst Bewilligung, dann Vertrag“ im Kopf der roten Spalte, verbunden mit der Achtung-Box."
 }

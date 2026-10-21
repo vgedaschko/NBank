@@ -12,7 +12,8 @@
       "variant": "hinweis",
       "role_hint": "stempel",
       "title": "Modellrechnung – fiktives Beispiel, keine Förderzusage",
-      "body": "Höchstwerte; Überkompensationsprüfung vorbehalten."
+      "body": "",
+      "stampline": "Modellrechnung – fiktives Beispiel, keine Förderzusage"
     },
     {
       "type": "chart",
@@ -165,7 +166,8 @@
           "18.375"
         ]
       ],
-      "note": "Mix: 10 Wohnungen A (700 m²), je 5 B und C (je 350 m²); Kosten nach Wohnflächenanteil (Hilfestellung der NBank-Arbeitshilfe, keine RL-Regel); Annahme: Höchstmiete wird erzielt. Variante Housing First in den zehn A-Wohnungen (ohne Anspruch): Zuschuss bis zu 50 % = 1.750.000 € statt 1.400.000 €, dort zusammen bis zu 90 %; Voraussetzung: Zusammenarbeit nach §§ 67 ff. SGB XII (→ S. 8); Eigenmittel mit der NBank abstimmen."
+      "note": "Mix: zehn Wohnungen A (700 m²), je fünf B und C (je 350 m²); Kosten nach Wohnflächenanteil (Hilfestellung der NBank-Arbeitshilfe, keine RL-Regel); Annahme: Höchstmiete wird erzielt.",
+      "variant_housing_first": "Variante Housing First in den zehn Wohnungen A (ohne Anspruch): Zuschuss bis zu 50 % = 1.750.000 € statt 1.400.000 €, dort zusammen bis zu 90 %; Voraussetzungen und Eigenmittel → S. 8."
     },
     {
       "type": "text",
@@ -176,7 +178,7 @@
       "type": "callout",
       "variant": "achtung",
       "title": "B und C nur mit Zulassung",
-      "body": "Nur wenn die NBank höhere Einkommen in der Förderentscheidung zulässt (§ 4 DVO-NWoFG) – kein Wahlrecht. Im Modell ist eine Voraussetzung erfüllt: angespannter Wohnungsmarkt per Verordnung. Alle Voraussetzungen → S. 6 und 18."
+      "body": "Zulassung durch die NBank in der Förderentscheidung (§ 4 DVO-NWoFG), kein Wahlrecht. Im Modell erfüllt: angespannter Wohnungsmarkt per Verordnung. Alle Voraussetzungen → S. 6 und 18."
     },
     {
       "type": "callout",
@@ -185,9 +187,8 @@
       "body": "Wo B und C zugelassen sind, ist die Einkommensgruppe auch eine Finanzierungsentscheidung – rechnen Sie den Mix."
     }
   ],
-  "footnotes": [
-    "Eigene Berechnung. RL Nr. 1.6, 5.1.6, 5.2.3, 5.2.5, 5.3.3, 5.4.4, 11.10, 12.3.2, 12.7; § 4 DVO-NWoFG; NBank-Vordruck 1011; Arbeitshilfe „Kosten-Finanzierungsaufteilung“ (Stand 08/26)."
-  ],
+  "sources": "Fundstellen: RL Nr. 1.6, 5.1.6, 5.2.3, 5.2.5, 5.3.3, 5.4.4, 11.10, 12.3.2, 12.7; § 4 DVO-NWoFG; NBank-Vordruck 1011; NBank-Arbeitshilfe „Kosten-Finanzierungsaufteilung“ (Stand 08/2026); eigene Berechnung.",
+  "footnotes": [],
   "fact_ids": [
     "F105",
     "F106",
@@ -221,5 +222,7 @@
     "F074",
     "F079"
   ],
-  "visual_idea": "Stempel „Modellrechnung“ oben rechts (erster Callout). Szenario-Board in vier Spalten A | B | C | Mix mit gespiegelten Balken an einer gemeinsamen Nulllinie: nach oben Zuschuss in Mio. € (2,8 / 1,4 / 0,7 / 1,925, --color-grant), nach unten Höchstmiete Jahr 1–3 in Tsd. € (114 / 138 / 151 / 129, --color-primary). Mix-Spalte oben als Dreifarb-Segment der Gruppen A/B/C (mit Buchstaben und Wohnflächenanteil beschriftet, nicht als Zuschussanteil) und gestricheltem Aufsatz „Housing First (Annahme) +0,35 Mio. €“. Geschwungener Verbindungspfeil A ↔ C mit Label „−2,1 Mio. € ↔ +36.960 € p. a.“, darunter Chart-Notiz zum Euro-für-Euro-Tausch Zuschuss → Darlehen. Darunter die vollständige Vergleichstabelle, Zeile „Förderung, bis zu 80 %“ farbig hinterlegt, Ziffern tabellarisch. Tabellennotiz mit Mix-Aufteilung und Housing-First-Variante. Unteres Drittel zweispaltig: links „So lesen Sie den Vergleich“ (mit Absätzen Rendite-Check und frei finanzierte Wohnungen), rechts der Achtung-Kasten „B und C nur mit Zulassung“ (l-span-6). Nur zwei Callouts plus Stempel. Kalkulationsnotiz am Fuß. Baustein-Register 2.1 (--baustein-21) mit Nummer."
+  "visual_idea": "Stempel „Modellrechnung“ oben rechts (erster Callout). Szenario-Board in vier Spalten A | B | C | Mix mit gespiegelten Balken an einer gemeinsamen Nulllinie: nach oben Zuschuss in Mio. € (2,8 / 1,4 / 0,7 / 1,925, --color-grant), nach unten Höchstmiete Jahr 1–3 in Tsd. € (114 / 138 / 151 / 129, --color-primary). Mix-Spalte oben als Dreifarb-Segment der Gruppen A/B/C (mit Buchstaben und Wohnflächenanteil beschriftet, nicht als Zuschussanteil) und gestricheltem Aufsatz „Housing First (Annahme) +0,35 Mio. €“. Geschwungener Verbindungspfeil A ↔ C mit Label „−2,1 Mio. € ↔ +36.960 € p. a.“, darunter Chart-Notiz zum Euro-für-Euro-Tausch Zuschuss → Darlehen. Darunter die vollständige Vergleichstabelle, Zeile „Förderung, bis zu 80 %“ farbig hinterlegt, Ziffern tabellarisch. Tabellennotiz mit Mix-Aufteilung und Housing-First-Variante. Unteres Drittel zweispaltig: links „So lesen Sie den Vergleich“ (mit Absätzen Rendite-Check und frei finanzierte Wohnungen), rechts der Achtung-Kasten „B und C nur mit Zulassung“ (l-span-6). Nur zwei Callouts plus Stempel. Kalkulationsnotiz am Fuß. Baustein-Register 2.1 (--baustein-21) mit Nummer.",
+  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2",
+  "page_variant": "accent"
 }

@@ -29,127 +29,141 @@
       ]
     },
     {
-      "type": "chart",
-      "chart": "timeline",
+      "type": "toc",
       "title": "Inhalt",
       "data": {
-        "variant": "linienplan",
-        "lines": [
-          {
-            "id": "ueberblick",
-            "label": "Überblick",
-            "stops": [
-              {
-                "page": 3,
-                "label": "Kennzahlen"
-              },
-              {
-                "page": 4,
-                "label": "Grundcheck"
-              },
-              {
-                "page": 5,
-                "label": "Navigator"
-              }
-            ]
-          },
-          {
-            "id": "ertrag",
-            "label": "Ertragsseite",
-            "stops": [
-              {
-                "page": 6,
-                "label": "Mieterkreis"
-              },
-              {
-                "page": 7,
-                "label": "Mieten"
-              }
-            ]
-          },
-          {
-            "id": "finanzierung",
-            "label": "Finanzierung",
-            "stops": [
-              {
-                "page": 8,
-                "label": "Neubau, Änderung, Ersterwerb",
-                "baustein": "2.1",
-                "token": "--baustein-21"
-              },
-              {
-                "page": 9,
-                "label": "Term Sheet"
-              },
-              {
-                "page": 10,
-                "label": "Modellrechnung"
-              },
-              {
-                "page": 11,
-                "label": "Szenarien"
-              }
-            ]
-          },
-          {
-            "id": "pfade",
-            "label": "Neubau und Bestand",
-            "stops": [
-              {
-                "page": 12,
-                "label": "EH-40-Neubau",
-                "baustein": "2.2",
-                "token": "--baustein-22"
-              },
-              {
-                "page": 13,
-                "label": "Ostfriesische Inseln",
-                "baustein": "2.4",
-                "token": "--baustein-24"
-              },
-              {
-                "page": 14,
-                "label": "Modernisierung",
-                "baustein": "2.3",
-                "token": "--baustein-23"
-              },
-              {
-                "page": 15,
-                "label": "Stichtag 31.12.2026",
-                "token": "--signal"
-              },
-              {
-                "page": 16,
-                "label": "Bindungserwerb",
-                "baustein": "2.5",
-                "token": "--baustein-25"
-              },
-              {
-                "page": 17,
-                "label": "Bindungsverlängerung",
-                "baustein": "2.6",
-                "token": "--baustein-26"
-              }
-            ]
-          },
-          {
-            "id": "umsetzung",
-            "label": "Umsetzung",
-            "stops": [
-              {
-                "page": 18,
-                "label": "Standort, Kommune"
-              },
-              {
-                "page": 19,
-                "label": "Antragsweg"
-              },
-              {
-                "page": 20,
-                "label": "Kontakt"
-              }
-            ]
-          }
+        "variant": "spalten",
+        "note": "Waagerechtes Inhaltsverzeichnis in vier Spalten; Kapitelnamen wie in den Kolumnentiteln; S. 2 (diese Seite) wird nicht aufgeführt. Programmteil-Seiten mit Baustein-Chip 2.1–2.6, Stichtag-Seite mit Signalpunkt.",
+        "columns": [
+          [
+            {
+              "id": "ueberblick",
+              "label": "Überblick",
+              "stops": [
+                {
+                  "page": 3,
+                  "label": "Kennzahlen"
+                },
+                {
+                  "page": 4,
+                  "label": "Grundcheck"
+                },
+                {
+                  "page": 5,
+                  "label": "Navigator"
+                }
+              ]
+            },
+            {
+              "id": "ertrag",
+              "label": "Ertragsseite",
+              "stops": [
+                {
+                  "page": 6,
+                  "label": "Mieterkreis"
+                },
+                {
+                  "page": 7,
+                  "label": "Mieten"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "id": "finanzierung",
+              "label": "Finanzierung",
+              "stops": [
+                {
+                  "page": 8,
+                  "label": "Neubau, Änderung, Ersterwerb",
+                  "baustein": "2.1",
+                  "token": "--baustein-21"
+                },
+                {
+                  "page": 9,
+                  "label": "Term Sheet"
+                },
+                {
+                  "page": 10,
+                  "label": "Modellrechnung"
+                },
+                {
+                  "page": 11,
+                  "label": "Szenarien"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "id": "neubau",
+              "label": "Neubau",
+              "stops": [
+                {
+                  "page": 12,
+                  "label": "EH-40-Neubau",
+                  "baustein": "2.2",
+                  "token": "--baustein-22"
+                },
+                {
+                  "page": 13,
+                  "label": "Ostfriesische Inseln",
+                  "baustein": "2.4",
+                  "token": "--baustein-24"
+                }
+              ]
+            },
+            {
+              "id": "bestand",
+              "label": "Bestand",
+              "stops": [
+                {
+                  "page": 14,
+                  "label": "Modernisierung",
+                  "baustein": "2.3",
+                  "token": "--baustein-23"
+                },
+                {
+                  "page": 15,
+                  "label": "Stichtag 31.12.2026",
+                  "token": "--signal"
+                },
+                {
+                  "page": 16,
+                  "label": "Bindungserwerb",
+                  "baustein": "2.5",
+                  "token": "--baustein-25"
+                },
+                {
+                  "page": 17,
+                  "label": "Bindungsverlängerung",
+                  "baustein": "2.6",
+                  "token": "--baustein-26"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "id": "umsetzung",
+              "label": "Umsetzung",
+              "stops": [
+                {
+                  "page": 18,
+                  "label": "Standort, Kommune"
+                },
+                {
+                  "page": 19,
+                  "label": "Antragsweg"
+                },
+                {
+                  "page": 20,
+                  "label": "Kontakt"
+                }
+              ]
+            }
+          ]
         ]
       }
     },
@@ -157,12 +171,12 @@
       "type": "callout",
       "variant": "hinweis",
       "title": "Lesehinweis",
-      "body": "Förderquoten und -beträge: Höchstwerte („bis zu“; Bindungserwerb: Festbetrag). Eigenmittel: Mindestwerte. Entgelte: feste Sätze. Jede Bewilligung wird auf Überkompensation geprüft: kein unangemessen hoher Gewinn (EU-Beihilferecht). Kein Rechtsanspruch. Stand: 21.10.2026."
+      "body": "Förderquoten und -beträge: Höchstwerte („bis zu“; Bindungserwerb: Festbetrag). Eigenmittel: Mindestwerte. Entgelte: feste Sätze. Jede Bewilligung wird auf Überkompensation geprüft: kein unangemessen hoher Gewinn (EU-Beihilferecht). Kein Rechtsanspruch; Förderung im Rahmen der verfügbaren Haushaltsmittel. Stand: 21.10.2026."
     }
   ],
+  "sources": "Fundstellen: RL Nr. 1.3, 1.6, 2.1–2.6, 3, 4.2, 5.2.1, 5.3.2.4, 5.3.7, 5.4.3, 9.3, 11.10, 12.3.2, 12.7, 13.1; § 2 Abs. 5 NWoFG; § 4 Abs. 1 DVO-NWoFG",
   "footnotes": [
-    "NBank-Presseinformation zur Wohnungsmarktbeobachtung 2025 (05.12.2025); MW-Presseinformation „Niedersachsen stellt soziale Wohnraumförderung neu auf“ (03.07.2026, aktualisiert 09.07.2026)",
-    "RL Nr. 1.3, 1.6, 2.1–2.6, 3, 4.2, 5.2.1, 5.3.2.4, 5.3.7, 5.4.3, 9.3, 11.10, 12.3.2, 12.7, 13.1; § 2 Abs. 5 NWoFG; § 4 Abs. 1 DVO-NWoFG"
+    "NBank-Presseinformation zur Wohnungsmarktbeobachtung 2025 (05.12.2025); MW-Presseinformation „Niedersachsen stellt soziale Wohnraumförderung neu auf“ (03.07.2026, aktualisiert 09.07.2026)"
   ],
   "fact_ids": [
     "F310",

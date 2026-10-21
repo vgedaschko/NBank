@@ -108,13 +108,14 @@
           }
         ]
       },
-      "note": "Gültig seit 01.03.2025. Je weitere Person ab der dritten und zusätzlich je Kind (§ 32 Abs. 1–5 EStG): A +3.750 €, B +5.250 €, C +6.000 €. B und C: eigene Berechnung (× 1,4 bzw. × 1,6)."
+      "note": "Gültig seit 01.03.2025. Je weitere Person ab der dritten und zusätzlich je Kind (§ 32 Abs. 1–5 EStG): A +3.750 €, B +5.250 €, C +6.000 €. B und C: eigene Berechnung (× 1,4 bzw. × 1,6).",
+      "ref": "Gruppe und Fördermix → S. 11"
     },
     {
       "type": "callout",
       "variant": "achtung",
       "title": "B und C nur mit Zulassung",
-      "body": "Die NBank muss höhere Einkommen in der Förderentscheidung zulassen.\n\n**Bis +60 %** in Gebieten mit kommunalem Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach § 7 Abs. 3 NWoFG oder per Verordnung bestimmtem angespanntem Wohnungsmarkt – oder für Wohnraum, der Älteren, Menschen mit Behinderungen oder hilfe- bzw. pflegebedürftigen Personen vorbehalten ist.\n\n**Sonst** nur ab 12 zusammenhängenden Wohnungen: bis +20 % für höchstens die Hälfte der Wohnungen. Folgen für Fördersätze und Mieten mit der NBank klären."
+      "body": "Zulassung in der Förderentscheidung der NBank:\n\n| Zulässig | Voraussetzung (eine genügt) |\n|---|---|\n| **bis +60 %** | Gebiet mit kommunalem Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach § 7 Abs. 3 NWoFG oder per Verordnung bestimmtem angespanntem Wohnungsmarkt – **oder** Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- bzw. Pflegebedürftigen vorbehalten ist |\n| **bis +20 %** | **Sonst** nur ab 12 zusammenhängenden Wohnungen, für höchstens die Hälfte der Wohnungen |\n\nFolgen für Fördersätze und Mieten mit der NBank klären."
     },
     {
       "type": "text",
@@ -164,17 +165,10 @@
       "name": "Michael Kiesewetter",
       "role": "Vorstandsvorsitzender der NBank",
       "source": "MW-Presseinformation vom 03.07.2026"
-    },
-    {
-      "type": "callout",
-      "variant": "tipp",
-      "title": "Kalkulationsnotiz",
-      "body": "Die Gruppe bestimmt Fördermix und Höchstmiete zugleich (→ S. 11)."
     }
   ],
-  "footnotes": [
-    "§ 3 Abs. 2, §§ 7–8 NWoFG; §§ 2–4 DVO-NWoFG; RL Nr. 1.5, 1.6, 5.1.1, 12.3.2; Zuschläge B/C: eigene Berechnung."
-  ],
+  "sources": "Fundstellen: § 3 Abs. 2, §§ 7–8 NWoFG; §§ 2–4 DVO-NWoFG; RL Nr. 1.5, 1.6, 5.1.1, 12.3.2",
+  "footnotes": [],
   "fact_ids": [
     "F021",
     "F022",

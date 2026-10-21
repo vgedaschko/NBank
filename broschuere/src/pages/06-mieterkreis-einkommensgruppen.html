@@ -1,35 +1,39 @@
-<section class="page" data-page="06">
+<section class="page" data-page="06" id="seite-06">
   <style>
     /* Seite 06 · Mieterkreis (seitenspezifisch, Farben nur über Tokens) */
     .page[data-page="06"] .p06-title > .title-block__main { grid-column: 1 / span 8; }
     .page[data-page="06"] .p06-title > .lead { grid-column: 9 / span 4; }
-    .page[data-page="06"] .p06-title .h1 .fn { vertical-align: 1.7em; margin-left: .6mm; font-style: normal; }
 
     /* Einkommensleiter (Inline-SVG, 1 Einheit = 1 mm) */
-    .page[data-page="06"] .p06-chart { position: relative; margin-top: var(--sp-5); }
+    .page[data-page="06"] .p06-chart { position: relative; margin-top: var(--sp-4); }
     .page[data-page="06"] .p06-ad { fill: var(--fg); }
     .page[data-page="06"] .p06-ch { fill: var(--accent); }
-    .page[data-page="06"] .p06-svg .t-val,
-    .page[data-page="06"] .p06-svg .t-val-ink { font-size: var(--svg-fs-s); }
-    /* Kalkulationsnotiz hängt an der Modul-Linie im freien Feld oben rechts (Spalte 9–12, nur neben Zeile 1) */
-    .page[data-page="06"] .p06-tipp { position: absolute; top: 0; right: 0; width: calc(4 * var(--col) + 3 * var(--gutter)); border-top: 0; padding: 3mm 4mm 3mm; }
-    .page[data-page="06"] .p06-tipp .callout__label .icon { width: 3.8mm; height: 3.8mm; }
-    .page[data-page="06"] .p06-tipp .callout__body { margin-top: 1mm; font-size: var(--fs-micro); line-height: 1.36; }
-    /* Legende A/B/C im Kopf (Spalte 1–8, links neben der Kalkulationsnotiz) */
-    .page[data-page="06"] .p06-chart .chart__head > .p06-legend { grid-column: 1 / -1; justify-content: flex-start; max-width: calc(8 * var(--col) + 7 * var(--gutter)); margin-top: 2mm; gap: 1.4mm 4mm; }
+    /* Seitenverweis-Chip im freien Feld oben rechts (statt der Kalkulationsnotiz, Dublette S. 11) */
+    .page[data-page="06"] .p06-ref { position: absolute; top: 3mm; right: 0; }
+    /* Legende A/B/C im Kopf (Spalte 1–8) */
+    .page[data-page="06"] .p06-chart .p06-legend { max-width: calc(8 * var(--col) + 7 * var(--gutter)); margin-top: 2mm; gap: 1.4mm 4mm; }
     .page[data-page="06"] .p06-svg { margin-top: var(--sp-3); }
-    .page[data-page="06"] .p06-chip { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 4mm; height: 4mm; font: normal 450 9pt/1 var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; }
 
     /* Mittelteil 7 | 5 */
-    .page[data-page="06"] .p06-mid { margin-top: var(--sp-4); --row-gap: 0; }
+    .page[data-page="06"] .p06-mid { margin-top: var(--sp-3); --row-gap: 0; }
     .page[data-page="06"] .p06-col > * + * { margin-top: var(--sp-4); }
     .page[data-page="06"] .p06-col--side > * + * { margin-top: 3.5mm; }
 
-    /* Zitat in der Spalte: etwas schmalerer Einzug, Quelle als Fließzeile */
-    .page[data-page="06"] .p06-achtung + .p06-quote { margin-top: 7mm; }
+    /* Achtung-Box: Minitabelle Zulässig | Voraussetzung (§ 4 Abs. 1/2 DVO-NWoFG) */
+    .page[data-page="06"] .p06-zu { margin-top: 2mm; table-layout: fixed; }
+    .page[data-page="06"] .p06-zu tbody tr:first-child > * { border-top: var(--rule-w) solid var(--rule-strong); }
+    .page[data-page="06"] .p06-zu th[scope="row"] { width: 16mm; }
+    .page[data-page="06"] .p06-zu th[scope="row"], .page[data-page="06"] .p06-zu td { padding-top: 1.5mm; padding-bottom: 1.6mm; }
+    .page[data-page="06"] .p06-zu td { line-height: 1.36; }
+    .page[data-page="06"] .p06-zu__pre { display: block; font: 500 var(--fs-micro)/1.15 var(--font-text); color: var(--fg-3); }
+    .page[data-page="06"] .p06-zu__pct { display: block; margin-top: .4mm; font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 400; font-size: 15pt; line-height: 1; letter-spacing: -.01em; white-space: nowrap; color: var(--fg); }
+    .page[data-page="06"] .p06-zu__after { margin-top: 1.6mm; }
+
+    /* Zitat in der Spalte: etwas schmalerer Einzug; Name, Funktion, Quelle untereinander (wie S. 2 und 10) */
+    .page[data-page="06"] .p06-achtung + .p06-quote { margin-top: 4mm; }
     .page[data-page="06"] .p06-quote { padding-left: 8mm; }
+    .page[data-page="06"] .p06-quote .quote__text { font-size: 12.5pt; }
     .page[data-page="06"] .p06-quote .quote__text p { text-wrap: wrap; }
-    .page[data-page="06"] .p06-quote .quote__by { flex-direction: row; flex-wrap: wrap; gap: .4mm 2.4mm; align-items: baseline; }
 
     /* Begriff */
     .page[data-page="06"] .p06-term { padding-top: 0; }
@@ -55,25 +59,22 @@
   <div class="title-block title-block--split p06-title">
     <div class="title-block__main">
       <p class="kicker">Ertragsseite</p>
-      <h1 class="h1 h1--s">Ihr Mieterkreis:<br><em>drei Einkommensgruppen</em><span class="fn">1</span></h1>
+      <h1 class="h1 h1--s">Ihr Mieterkreis:<br><em>drei Einkommensgruppen</em></h1>
     </div>
     <p class="lead p06-lead">Grundsatz ist Gruppe A. Die Gruppen B und C öffnen den Mieterkreis für höhere Einkommen.</p>
   </div>
 
-  <figure class="chart module p06-chart">
-    <figcaption class="chart__head">
+  <figure class="chart module p06-chart" role="group">
+    <figcaption class="chart__head chart__head--stack">
       <h2 class="chart__title">Obergrenze Gesamtjahreseinkommen in&nbsp;€</h2>
       <ul class="legend p06-legend" aria-label="Einkommensgruppen">
-        <li><i class="p06-chip seq-6">A</i>bis zur Einkommensgrenze</li>
-        <li><i class="p06-chip seq-4">B</i>bis 40&nbsp;% darüber</li>
-        <li><i class="p06-chip seq-2">C</i>bis 60&nbsp;% darüber</li>
+        <li><i class="grp-chip grp-chip--a">A</i>bis zur Einkommensgrenze</li>
+        <li><i class="grp-chip grp-chip--b">B</i>bis 40&nbsp;% darüber</li>
+        <li><i class="grp-chip grp-chip--c">C</i>bis 60&nbsp;% darüber</li>
       </ul>
     </figcaption>
-    <aside class="callout callout--tipp p06-tipp">
-      <p class="callout__label"><svg class="icon icon--rechner" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.8" width="14" height="18.4" rx="1"/><path d="M8 6.4h8v3.4H8z"/><path d="M8.4 13.4h.01M12 13.4h.01M15.6 13.4h.01M8.4 17.2h.01M12 17.2h.01M15.6 17.2h.01" stroke-width="2"/></svg>Kalkulationsnotiz</p>
-      <p class="callout__body">Die Gruppe bestimmt Fördermix und Höchstmiete zugleich (→&nbsp;S.&nbsp;11).</p>
-    </aside>
-    <svg class="chart__svg p06-svg" viewBox="0 0 174 40.8" width="174mm" height="40.8mm" role="img" aria-label="Obergrenze des Gesamtjahreseinkommens in Euro je Haushalt, jeweils für Gruppe A (bis zur Einkommensgrenze), B (bis 40 % darüber) und C (bis 60 % darüber): 1 Person: 21.250 / 29.750 / 34.000; 2 Erwachsene: 28.750 / 40.250 / 46.000; 1 erwachsene Person + 1 Kind: 32.500 / 45.500 / 52.000; 2 Erwachsene + 1 Kind: 36.250 / 50.750 / 58.000; 2 Erwachsene + 2 Kinder: 43.750 / 61.250 / 70.000; 2 Erwachsene + 3 Kinder: 51.250 / 71.750 / 82.000."><text class="t-b" x="0" y="4.49">1 Person</text><circle class="p06-ad" cx="36.8" cy="1.98" r=".72"/><rect class="p06-ad" x="35.9" y="2.98" width="1.8" height="2.42" rx=".72"/><rect class="c-seq-6" x="39.5" y="0.9" width="31.45" height="5"/><rect class="c-seq-4" x="70.95" y="0.9" width="12.58" height="5"/><rect class="c-seq-2" x="83.53" y="0.9" width="6.29" height="5"/><line class="sep-line" x1="70.95" y1="0.9" x2="70.95" y2="5.9"/><line class="sep-line" x1="83.53" y1="0.9" x2="83.53" y2="5.9"/><text class="t-val t-end" x="69.95" y="4.48">21.250</text><text class="t-val t-end" x="82.53" y="4.48">29.750</text><text class="t-val-ink" x="90.77" y="4.48">34.000</text><text class="t-b" x="0" y="11.29">2 Erwachsene</text><circle class="p06-ad" cx="34.5" cy="8.78" r=".72"/><rect class="p06-ad" x="33.6" y="9.78" width="1.8" height="2.42" rx=".72"/><circle class="p06-ad" cx="36.8" cy="8.78" r=".72"/><rect class="p06-ad" x="35.9" y="9.78" width="1.8" height="2.42" rx=".72"/><rect class="c-seq-6" x="39.5" y="7.7" width="42.55" height="5"/><rect class="c-seq-4" x="82.05" y="7.7" width="17.02" height="5"/><rect class="c-seq-2" x="99.07" y="7.7" width="8.51" height="5"/><line class="sep-line" x1="82.05" y1="7.7" x2="82.05" y2="12.7"/><line class="sep-line" x1="99.07" y1="7.7" x2="99.07" y2="12.7"/><text class="t-val t-end" x="81.05" y="11.28">28.750</text><text class="t-val t-end" x="98.07" y="11.28">40.250</text><text class="t-val-ink" x="108.53" y="11.28">46.000</text><text class="t-b" x="0" y="16.66">1 erwachsene Person</text><text x="0" y="19.52">+ 1 Kind</text><circle class="p06-ad" cx="34.95" cy="15.58" r=".72"/><rect class="p06-ad" x="34.05" y="16.58" width="1.8" height="2.42" rx=".72"/><circle class="p06-ch" cx="37.03" cy="16.5" r=".56"/><rect class="p06-ch" x="36.35" y="17.28" width="1.35" height="1.72" rx=".56"/><rect class="c-seq-6" x="39.5" y="14.5" width="48.1" height="5"/><rect class="c-seq-4" x="87.6" y="14.5" width="19.24" height="5"/><rect class="c-seq-2" x="106.84" y="14.5" width="9.62" height="5"/><line class="sep-line" x1="87.6" y1="14.5" x2="87.6" y2="19.5"/><line class="sep-line" x1="106.84" y1="14.5" x2="106.84" y2="19.5"/><text class="t-val t-end" x="86.6" y="18.08">32.500</text><text class="t-val t-end" x="105.84" y="18.08">45.500</text><text class="t-val-ink" x="117.41" y="18.08">52.000</text><text class="t-b" x="0" y="23.46">2 Erwachsene</text><text x="0" y="26.31">+ 1 Kind</text><circle class="p06-ad" cx="32.65" cy="22.38" r=".72"/><rect class="p06-ad" x="31.75" y="23.38" width="1.8" height="2.42" rx=".72"/><circle class="p06-ad" cx="34.95" cy="22.38" r=".72"/><rect class="p06-ad" x="34.05" y="23.38" width="1.8" height="2.42" rx=".72"/><circle class="p06-ch" cx="37.03" cy="23.3" r=".56"/><rect class="p06-ch" x="36.35" y="24.08" width="1.35" height="1.72" rx=".56"/><rect class="c-seq-6" x="39.5" y="21.3" width="53.65" height="5"/><rect class="c-seq-4" x="93.15" y="21.3" width="21.46" height="5"/><rect class="c-seq-2" x="114.61" y="21.3" width="10.73" height="5"/><line class="sep-line" x1="93.15" y1="21.3" x2="93.15" y2="26.3"/><line class="sep-line" x1="114.61" y1="21.3" x2="114.61" y2="26.3"/><text class="t-val t-end" x="92.15" y="24.88">36.250</text><text class="t-val t-end" x="113.61" y="24.88">50.750</text><text class="t-val-ink" x="126.29" y="24.88">58.000</text><text class="t-b" x="0" y="30.26">2 Erwachsene</text><text x="0" y="33.11">+ 2 Kinder</text><circle class="p06-ad" cx="30.8" cy="29.18" r=".72"/><rect class="p06-ad" x="29.9" y="30.18" width="1.8" height="2.42" rx=".72"/><circle class="p06-ad" cx="33.1" cy="29.18" r=".72"/><rect class="p06-ad" x="32.2" y="30.18" width="1.8" height="2.42" rx=".72"/><circle class="p06-ch" cx="35.17" cy="30.1" r=".56"/><rect class="p06-ch" x="34.5" y="30.88" width="1.35" height="1.72" rx=".56"/><circle class="p06-ch" cx="37.03" cy="30.1" r=".56"/><rect class="p06-ch" x="36.35" y="30.88" width="1.35" height="1.72" rx=".56"/><rect class="c-seq-6" x="39.5" y="28.1" width="64.75" height="5"/><rect class="c-seq-4" x="104.25" y="28.1" width="25.9" height="5"/><rect class="c-seq-2" x="130.15" y="28.1" width="12.95" height="5"/><line class="sep-line" x1="104.25" y1="28.1" x2="104.25" y2="33.1"/><line class="sep-line" x1="130.15" y1="28.1" x2="130.15" y2="33.1"/><text class="t-val t-end" x="103.25" y="31.68">43.750</text><text class="t-val t-end" x="129.15" y="31.68">61.250</text><text class="t-val-ink" x="144.05" y="31.68">70.000</text><text class="t-b" x="0" y="37.06">2 Erwachsene</text><text x="0" y="39.91">+ 3 Kinder</text><circle class="p06-ad" cx="28.95" cy="35.98" r=".72"/><rect class="p06-ad" x="28.05" y="36.98" width="1.8" height="2.42" rx=".72"/><circle class="p06-ad" cx="31.25" cy="35.98" r=".72"/><rect class="p06-ad" x="30.35" y="36.98" width="1.8" height="2.42" rx=".72"/><circle class="p06-ch" cx="33.33" cy="36.9" r=".56"/><rect class="p06-ch" x="32.65" y="37.68" width="1.35" height="1.72" rx=".56"/><circle class="p06-ch" cx="35.18" cy="36.9" r=".56"/><rect class="p06-ch" x="34.5" y="37.68" width="1.35" height="1.72" rx=".56"/><circle class="p06-ch" cx="37.03" cy="36.9" r=".56"/><rect class="p06-ch" x="36.35" y="37.68" width="1.35" height="1.72" rx=".56"/><rect class="c-seq-6" x="39.5" y="34.9" width="75.85" height="5"/><rect class="c-seq-4" x="115.35" y="34.9" width="30.34" height="5"/><rect class="c-seq-2" x="145.69" y="34.9" width="15.17" height="5"/><line class="sep-line" x1="115.35" y1="34.9" x2="115.35" y2="39.9"/><line class="sep-line" x1="145.69" y1="34.9" x2="145.69" y2="39.9"/><text class="t-val t-end" x="114.35" y="38.48">51.250</text><text class="t-val t-end" x="144.69" y="38.48">71.750</text><text class="t-val-ink" x="161.81" y="38.48">82.000</text><line class="ax" x1="39.5" y1="0" x2="39.5" y2="40.8"/></svg>
+    <a class="pageref p06-ref" href="#seite-11">Gruppe und Fördermix →&nbsp;S.&nbsp;11</a>
+    <svg class="chart__svg p06-svg" viewBox="0 0 174 40.8" width="174mm" height="40.8mm" role="img" aria-label="Obergrenze des Gesamtjahreseinkommens in Euro je Haushalt, jeweils für Gruppe A (bis zur Einkommensgrenze), B (bis 40 % darüber) und C (bis 60 % darüber): 1 Person: 21.250 / 29.750 / 34.000; 2 Erwachsene: 28.750 / 40.250 / 46.000; 1 erwachsene Person + 1 Kind: 32.500 / 45.500 / 52.000; 2 Erwachsene + 1 Kind: 36.250 / 50.750 / 58.000; 2 Erwachsene + 2 Kinder: 43.750 / 61.250 / 70.000; 2 Erwachsene + 3 Kinder: 51.250 / 71.750 / 82.000."><text class="t-b" x="0" y="4.49">1 Person</text><circle class="p06-ad" cx="36.8" cy="1.98" r=".72"/><rect class="p06-ad" x="35.9" y="2.98" width="1.8" height="2.42" rx=".72"/><rect class="c-seq-6" x="39.5" y="0.9" width="31.45" height="5"/><rect class="c-seq-4" x="70.95" y="0.9" width="12.58" height="5"/><rect class="c-seq-2" x="83.53" y="0.9" width="6.29" height="5"/><line class="sep-line" x1="70.95" y1="0.9" x2="70.95" y2="5.9"/><line class="sep-line" x1="83.53" y1="0.9" x2="83.53" y2="5.9"/><text class="t-val t-s t-end" x="69.95" y="4.48">21.250</text><text class="t-val t-s t-end" x="82.53" y="4.48">29.750</text><text class="t-val-ink t-s" x="90.77" y="4.48">34.000</text><text class="t-b" x="0" y="11.29">2 Erwachsene</text><circle class="p06-ad" cx="34.5" cy="8.78" r=".72"/><rect class="p06-ad" x="33.6" y="9.78" width="1.8" height="2.42" rx=".72"/><circle class="p06-ad" cx="36.8" cy="8.78" r=".72"/><rect class="p06-ad" x="35.9" y="9.78" width="1.8" height="2.42" rx=".72"/><rect class="c-seq-6" x="39.5" y="7.7" width="42.55" height="5"/><rect class="c-seq-4" x="82.05" y="7.7" width="17.02" height="5"/><rect class="c-seq-2" x="99.07" y="7.7" width="8.51" height="5"/><line class="sep-line" x1="82.05" y1="7.7" x2="82.05" y2="12.7"/><line class="sep-line" x1="99.07" y1="7.7" x2="99.07" y2="12.7"/><text class="t-val t-s t-end" x="81.05" y="11.28">28.750</text><text class="t-val t-s t-end" x="98.07" y="11.28">40.250</text><text class="t-val-ink t-s" x="108.53" y="11.28">46.000</text><text class="t-b" x="0" y="16.66">1 erwachsene Person</text><text x="0" y="19.52">+ 1 Kind</text><circle class="p06-ad" cx="34.95" cy="15.58" r=".72"/><rect class="p06-ad" x="34.05" y="16.58" width="1.8" height="2.42" rx=".72"/><circle class="p06-ch" cx="37.03" cy="16.5" r=".56"/><rect class="p06-ch" x="36.35" y="17.28" width="1.35" height="1.72" rx=".56"/><rect class="c-seq-6" x="39.5" y="14.5" width="48.1" height="5"/><rect class="c-seq-4" x="87.6" y="14.5" width="19.24" height="5"/><rect class="c-seq-2" x="106.84" y="14.5" width="9.62" height="5"/><line class="sep-line" x1="87.6" y1="14.5" x2="87.6" y2="19.5"/><line class="sep-line" x1="106.84" y1="14.5" x2="106.84" y2="19.5"/><text class="t-val t-s t-end" x="86.6" y="18.08">32.500</text><text class="t-val t-s t-end" x="105.84" y="18.08">45.500</text><text class="t-val-ink t-s" x="117.41" y="18.08">52.000</text><text class="t-b" x="0" y="23.46">2 Erwachsene</text><text x="0" y="26.31">+ 1 Kind</text><circle class="p06-ad" cx="32.65" cy="22.38" r=".72"/><rect class="p06-ad" x="31.75" y="23.38" width="1.8" height="2.42" rx=".72"/><circle class="p06-ad" cx="34.95" cy="22.38" r=".72"/><rect class="p06-ad" x="34.05" y="23.38" width="1.8" height="2.42" rx=".72"/><circle class="p06-ch" cx="37.03" cy="23.3" r=".56"/><rect class="p06-ch" x="36.35" y="24.08" width="1.35" height="1.72" rx=".56"/><rect class="c-seq-6" x="39.5" y="21.3" width="53.65" height="5"/><rect class="c-seq-4" x="93.15" y="21.3" width="21.46" height="5"/><rect class="c-seq-2" x="114.61" y="21.3" width="10.73" height="5"/><line class="sep-line" x1="93.15" y1="21.3" x2="93.15" y2="26.3"/><line class="sep-line" x1="114.61" y1="21.3" x2="114.61" y2="26.3"/><text class="t-val t-s t-end" x="92.15" y="24.88">36.250</text><text class="t-val t-s t-end" x="113.61" y="24.88">50.750</text><text class="t-val-ink t-s" x="126.29" y="24.88">58.000</text><text class="t-b" x="0" y="30.26">2 Erwachsene</text><text x="0" y="33.11">+ 2 Kinder</text><circle class="p06-ad" cx="30.8" cy="29.18" r=".72"/><rect class="p06-ad" x="29.9" y="30.18" width="1.8" height="2.42" rx=".72"/><circle class="p06-ad" cx="33.1" cy="29.18" r=".72"/><rect class="p06-ad" x="32.2" y="30.18" width="1.8" height="2.42" rx=".72"/><circle class="p06-ch" cx="35.17" cy="30.1" r=".56"/><rect class="p06-ch" x="34.5" y="30.88" width="1.35" height="1.72" rx=".56"/><circle class="p06-ch" cx="37.03" cy="30.1" r=".56"/><rect class="p06-ch" x="36.35" y="30.88" width="1.35" height="1.72" rx=".56"/><rect class="c-seq-6" x="39.5" y="28.1" width="64.75" height="5"/><rect class="c-seq-4" x="104.25" y="28.1" width="25.9" height="5"/><rect class="c-seq-2" x="130.15" y="28.1" width="12.95" height="5"/><line class="sep-line" x1="104.25" y1="28.1" x2="104.25" y2="33.1"/><line class="sep-line" x1="130.15" y1="28.1" x2="130.15" y2="33.1"/><text class="t-val t-s t-end" x="103.25" y="31.68">43.750</text><text class="t-val t-s t-end" x="129.15" y="31.68">61.250</text><text class="t-val-ink t-s" x="144.05" y="31.68">70.000</text><text class="t-b" x="0" y="37.06">2 Erwachsene</text><text x="0" y="39.91">+ 3 Kinder</text><circle class="p06-ad" cx="28.95" cy="35.98" r=".72"/><rect class="p06-ad" x="28.05" y="36.98" width="1.8" height="2.42" rx=".72"/><circle class="p06-ad" cx="31.25" cy="35.98" r=".72"/><rect class="p06-ad" x="30.35" y="36.98" width="1.8" height="2.42" rx=".72"/><circle class="p06-ch" cx="33.33" cy="36.9" r=".56"/><rect class="p06-ch" x="32.65" y="37.68" width="1.35" height="1.72" rx=".56"/><circle class="p06-ch" cx="35.18" cy="36.9" r=".56"/><rect class="p06-ch" x="34.5" y="37.68" width="1.35" height="1.72" rx=".56"/><circle class="p06-ch" cx="37.03" cy="36.9" r=".56"/><rect class="p06-ch" x="36.35" y="37.68" width="1.35" height="1.72" rx=".56"/><rect class="c-seq-6" x="39.5" y="34.9" width="75.85" height="5"/><rect class="c-seq-4" x="115.35" y="34.9" width="30.34" height="5"/><rect class="c-seq-2" x="145.69" y="34.9" width="15.17" height="5"/><line class="sep-line" x1="115.35" y1="34.9" x2="115.35" y2="39.9"/><line class="sep-line" x1="145.69" y1="34.9" x2="145.69" y2="39.9"/><text class="t-val t-s t-end" x="114.35" y="38.48">51.250</text><text class="t-val t-s t-end" x="144.69" y="38.48">71.750</text><text class="t-val-ink t-s" x="161.81" y="38.48">82.000</text><line class="ax" x1="39.5" y1="0" x2="39.5" y2="40.8"/></svg>
     <p class="chart__note"><b>Gültig seit 01.03.2025.</b> Je weitere Person ab der dritten und zusätzlich je Kind (§&nbsp;32 Abs.&nbsp;1–5&nbsp;EStG): A&nbsp;+3.750&nbsp;€, B&nbsp;+5.250&nbsp;€, C&nbsp;+6.000&nbsp;€. B und C: eigene Berechnung (×&nbsp;1,4 bzw. ×&nbsp;1,6).</p>
   </figure>
 
@@ -82,11 +83,22 @@
       <aside class="callout callout--achtung p06-achtung">
         <p class="callout__label"><svg class="icon icon--achtung" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z"/><path d="M12 7.2v6.2"/><circle cx="12" cy="16.6" r=".95" fill="currentColor" stroke="none"/></svg>Achtung</p>
         <h3 class="callout__title">B und C nur mit Zulassung</h3>
-        <p class="callout__body">Die NBank muss höhere Einkommen in der <span class="u-nowrap">Förderentscheidung zulassen.</span></p>
-        <p class="callout__body"><b>Bis&nbsp;+60&nbsp;%</b> in Gebieten mit kommunalem Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach §&nbsp;7 Abs.&nbsp;3&nbsp;NWoFG oder per Verordnung bestimmtem angespanntem Wohnungsmarkt&nbsp;– oder für Wohnraum, der Älteren, Menschen mit Behinderungen oder hilfe- bzw. pflegebedürftigen Personen vorbehalten ist.</p>
-        <p class="callout__body"><b>Sonst</b> nur ab 12&nbsp;zusammenhängenden Wohnungen: bis&nbsp;+20&nbsp;% für höchstens die Hälfte der Wohnungen. Folgen für Fördersätze und Mieten mit der NBank klären.</p>
+        <p class="callout__body p06-zu__intro">Zulassung in der Förderentscheidung der NBank:</p>
+        <table class="table table--compact p06-zu">
+          <tbody>
+            <tr>
+              <th scope="row"><span class="p06-zu__pre">bis</span><span class="p06-zu__pct">+60&nbsp;%</span></th>
+              <td>Gebiet mit kommunalem Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach §&nbsp;7 Abs.&nbsp;3&nbsp;NWoFG oder per Verordnung bestimmtem angespanntem Wohnungsmarkt&nbsp;– <b>oder</b> Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- bzw. Pflegebedürftigen vorbehalten ist</td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="p06-zu__pre">bis</span><span class="p06-zu__pct">+20&nbsp;%</span></th>
+              <td><b>Sonst</b> nur ab 12&nbsp;zusammenhängenden Wohnungen, für höchstens die Hälfte der Wohnungen</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="callout__body p06-zu__after">Folgen für Fördersätze und Mieten mit der NBank klären.</p>
       </aside>
-      <figure class="quote p06-quote">
+      <figure class="quote p06-quote" role="group">
         <blockquote class="quote__text"><p>[…] Umso wichtiger ist es, dass die neuen Richtlinien den Kreis der Berechtigten spürbar erweitern. So öffnet sich eine Tür für all jene, die bisher knapp durchs Raster gefallen sind.</p></blockquote>
         <figcaption class="quote__by"><span class="quote__name">Michael Kiesewetter</span><span>Vorstandsvorsitzender der NBank</span><span class="quote__src">MW-Presseinformation vom 03.07.2026</span></figcaption>
       </figure>
@@ -95,9 +107,9 @@
       <aside class="term p06-term">
         <p class="term__label">Begriff</p>
         <h3 class="term__word">Gesamtjahreseinkommen</h3>
-        <p class="term__text">Nicht das Brutto, sondern das erwartete Einkommen aller Haushaltsmitglieder in den 12 Monaten nach Antragstellung – abzüglich je 10&nbsp;% für Steuern, Kranken-/Pflege- und Rentenversicherung, soweit gezahlt (höchstens 30&nbsp;%), sowie Freibeträgen (z.&nbsp;B. 4.000&nbsp;€ je Person mit GdB ab 50&nbsp;oder Pflegegrad 2–5) und Unterhaltsaufwendungen.</p>
+        <p class="term__text">Nicht das Brutto, sondern das erwartete Einkommen aller Haushaltsmitglieder in den 12&nbsp;Monaten nach Antragstellung – abzüglich je 10&nbsp;% für Steuern, Kranken-/Pflege- und Rentenversicherung, soweit gezahlt (höchstens 30&nbsp;%), sowie Freibeträgen (z.&nbsp;B. 4.000&nbsp;€ je Person mit GdB ab 50&nbsp;oder Pflegegrad 2–5) und Unterhaltsaufwendungen.</p>
       </aside>
-      <figure class="p06-wf">
+      <figure class="p06-wf" role="group">
         <figcaption class="p06-wf__cap"><h3 class="p06-wf__title">Angemessene Wohnfläche für die Förderung</h3></figcaption>
         <table class="table table--figures p06-wf__table">
           <thead><tr><th scope="row">Personen</th><th scope="col" class="num">1</th><th scope="col" class="num">2</th><th scope="col" class="num">3</th><th scope="col" class="num">4</th><th scope="col" class="num">je weitere</th></tr></thead>
@@ -112,11 +124,11 @@
     </div>
   </div>
 
-  <ol class="footnotes p06-fn l-bottom">
-    <li>§&nbsp;3 Abs.&nbsp;2, §§&nbsp;7–8&nbsp;NWoFG; §§&nbsp;2–4 DVO-NWoFG; RL Nr.&nbsp;1.5, 1.6, 5.1.1, 12.3.2; Zuschläge B/C: eigene Berechnung.</li>
+  <ol class="footnotes footnotes--2col p06-fn l-bottom">
+    <li class="footnotes__src"><b>Fundstellen:</b> §&nbsp;3 Abs.&nbsp;2, §§&nbsp;7–8&nbsp;NWoFG; <span class="u-nowrap">§§&nbsp;2–4 DVO-NWoFG</span>; RL Nr.&nbsp;1.5, 1.6, 5.1.1, 12.3.2</li>
   </ol>
 
-  <footer class="page__foot">
+  <footer class="page__foot" aria-hidden="true">
     <span class="page__folio">6</span>
     <span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Ertragsseite · Mieterkreis</b></span><span>Stand: 21.10.2026</span></span>
   </footer>

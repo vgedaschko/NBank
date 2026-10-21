@@ -1,44 +1,29 @@
-<section class="page bs-25" data-page="16">
+<section class="page bs-25" data-page="16" id="seite-16">
   <style>
-    /* Titelzone (wie S. 12/14): Kapitelnummer außen, Titel, Unterzeile, Vorspann */
-    .page[data-page="16"] .p16-title { align-items: start; }
-    .page[data-page="16"] .p16-title .chapter-no { text-align: left; }
-    .page[data-page="16"] .p16-title .h1 { margin-top: 2.4mm; }
-    .page[data-page="16"] .p16-deck {
-      margin-top: 3.4mm;
-      font-family: var(--font-display);
-      font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0;
-      font-weight: 400;
-      font-size: 11pt;
-      line-height: 1.32;
-      letter-spacing: -.004em;
-      -webkit-hyphens: none; hyphens: none;
-      text-wrap: balance;
-      color: var(--fg);
-    }
-    .page[data-page="16"] .p16-deck b { font-weight: 560; color: var(--accent-text); white-space: nowrap; }
-    .page[data-page="16"] .p16-intro { display: grid; grid-template-columns: calc(4 * var(--col) + 3 * var(--gutter)) minmax(0, 1fr); column-gap: var(--gutter); margin-top: 3.4mm; }
-    .page[data-page="16"] .p16-deck { margin-top: 0; }
-    .page[data-page="16"] .p16-leadtext { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
+    /* Titelzone: Master-Opener (.program-head--master, styles.css) */
 
     /* Säulendiagramm mit Stempel-Ecke und Datenzeilen */
-    .page[data-page="16"] .p16-plot { position: relative; margin-top: 3mm; }
+    .page[data-page="16"] .p16-plot { position: relative; margin-top: 2mm; }
     .page[data-page="16"] .p16-plot .chart__svg { margin-top: 0; }
     .page[data-page="16"] .p16-annot { position: absolute; left: 0; top: .6mm; width: 62mm; }
-    .page[data-page="16"] .p16-annot .stamp { margin-left: .7mm; }
-    .page[data-page="16"] .p16-annot__dis { margin-top: 1.7mm; font-size: var(--fs-micro); line-height: 1.38; color: var(--fg-2); white-space: nowrap; }
-    .page[data-page="16"] .p16-annot__ass { margin-top: 1.4mm; width: 44mm; font-size: var(--fs-micro); line-height: 1.38; color: var(--fg-3); }
+    .page[data-page="16"] .p16-annot__ass + .p16-annot__ass { margin-top: 1.2mm; }
+    .page[data-page="16"] .p16-annot__ass { width: 44mm; font-size: var(--fs-micro); line-height: 1.38; color: var(--fg-3); }
     .page[data-page="16"] .chart__svg .p16-v { font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 400; font-size: 5.2px; letter-spacing: -.08px; fill: var(--fg); }
     .page[data-page="16"] .chart__svg .p16-u { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 500; letter-spacing: 0; fill: var(--accent-text); }
-    .page[data-page="16"] .p16-rows { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: var(--fs-micro); line-height: 1.3; font-variant-numeric: tabular-nums lining-nums; }
+    .page[data-page="16"] .p16-rows { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: var(--fs-module); line-height: 1.3; font-variant-numeric: tabular-nums lining-nums; }
     .page[data-page="16"] .p16-rows col.p16-rows__lab { width: 32.6mm; }
-    .page[data-page="16"] .p16-rows th { padding: 1.1mm 1.2mm 1.1mm 0; text-align: left; vertical-align: middle; font-weight: 500; color: var(--fg-2); }
+    .page[data-page="16"] .p16-rows th { padding: 1.1mm 1.2mm 1.1mm 0; text-align: left; vertical-align: middle; font-size: var(--fs-micro); font-weight: 500; color: var(--fg-2); }   /* Zeilenköpfe = Achsenbeschriftung des Diagramms */
     .page[data-page="16"] .p16-rows td { padding: 1.1mm 0; text-align: center; vertical-align: middle; color: var(--fg-2); white-space: nowrap; }
     .page[data-page="16"] .p16-rows tr + tr > * { border-top: var(--hair) solid var(--rule); }
     .page[data-page="16"] .p16-rows tr:last-child > * { border-bottom: var(--rule-w) solid var(--rule-strong); }
     .page[data-page="16"] .p16-rows td.p16-rows__step { padding: 1mm 0 0; vertical-align: bottom; }
     .page[data-page="16"] .p16-rows th.p16-rows__steplab { vertical-align: bottom; padding-bottom: 0; }
     .page[data-page="16"] .p16-rows .chart__svg { margin-top: 0; }
+    /* Stopp-Zeile (programmspezifisch, wie S. 14) statt Achtung-Kasten – voller Text S. 19 */
+    .page[data-page="16"] .p16-stop { margin-top: 2mm; }
+    .page[data-page="16"] .facts > * + * { margin-top: 2.6mm; }
+    .page[data-page="16"] .p16-stop .icon { width: 3.8mm; height: 3.8mm; margin-right: 1.2mm; vertical-align: -.95mm; }
+    .page[data-page="16"] .p16-stop b { color: var(--fg); }
     .page[data-page="16"] .p16-step { fill: var(--accent-soft); }
     .page[data-page="16"] .p16-step-line { fill: none; stroke: var(--grant); stroke-width: .45; stroke-linejoin: miter; }
 
@@ -49,62 +34,41 @@
     .page[data-page="16"] .p16-coin-ring { fill: none; stroke: var(--on-data); stroke-width: .22; opacity: .75; }
     .page[data-page="16"] .chart__svg .p16-coin-sym { font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 500; font-size: 3.6px; fill: var(--on-data); }
     .page[data-page="16"] .chart__svg .p16-pay { font-weight: 650; fill: var(--accent-text); }
-    .page[data-page="16"] .p16-tl .chart__note { text-wrap: balance; }
 
-    /* Kalkulationsnotiz mit Rechenbalken */
-    .page[data-page="16"] .p16-tipp { padding: 3.2mm 5mm 3.6mm; }
-    .page[data-page="16"] .p16-tipp__grid { display: grid; grid-template-columns: minmax(0, 1fr) 31mm; column-gap: 4.6mm; align-items: end; margin-top: 2.2mm; }
-    .page[data-page="16"] .p16-tipp .p16-eq { margin-top: 0; }
+    /* Kalkulationsnotiz mit Rechenbalken: globale Option .callout--calc.calc--figure */
     .page[data-page="16"] .chart__svg .p16-eq-val { font-weight: 650; fill: var(--on-data); }
     .page[data-page="16"] .chart__svg .p16-eq-res { font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 450; font-size: 4.6px; letter-spacing: -.05px; fill: var(--fg); }
-    .page[data-page="16"] .p16-tipp .callout__body { margin-top: 0; font-size: var(--fs-micro); line-height: 1.4; }
 
-    /* Faktenspalte (wie S. 14): erstes Modul mit Modul-Linie, weitere mit Haarlinie */
-    .page[data-page="16"] .p16-side { display: flex; flex-direction: column; }
-    .page[data-page="16"] .p16-side > * + * { margin-top: 3.4mm; }
-    .page[data-page="16"] .p16-mod { border-top: var(--hair) solid var(--rule); padding-top: 2.4mm; }
-    .page[data-page="16"] .p16-mod--first { border-top: var(--rule-heavy) solid var(--rule-strong); padding-top: 3mm; }
-    .page[data-page="16"] .p16-mod > .label + * { margin-top: 1.6mm; }
-    .page[data-page="16"] .p16-side .bullets > li { font-size: var(--fs-micro); line-height: 1.38; }
-    .page[data-page="16"] .p16-side .bullets > li + li { margin-top: .9mm; }
-    .page[data-page="16"] .p16-text { font-size: var(--fs-micro); line-height: 1.38; color: var(--fg-2); }
-    .page[data-page="16"] .p16-text b { color: var(--fg); }
-    .page[data-page="16"] .p16-side .callout { padding: 3.2mm 4.4mm 3.6mm; }
-    .page[data-page="16"] .p16-side .callout__label .icon { color: var(--signal-fill); }
-    .page[data-page="16"] .p16-side .callout__title { margin-top: 1.4mm; font-size: 11.5pt; }
-    .page[data-page="16"] .p16-side .callout__body { margin-top: 1.2mm; font-size: var(--fs-micro); line-height: 1.38; }
-    .page[data-page="16"] .p16-text .bs-badge { vertical-align: .1mm; }
-    .page[data-page="16"] .p16-text .bs-badge__no { padding: .6mm 1.1mm .5mm; color: var(--on-bs); }
+    /* Faktenspalte (wie S. 14): globale Komponenten .facts und .callout--s; Inline-Badge kleiner */
+    .page[data-page="16"] .facts__text .bs-badge { vertical-align: .1mm; }
+    .page[data-page="16"] .facts__text .bs-badge__no { padding: .6mm 1.1mm .5mm; }
   </style>
 
-  <div class="bs-register" data-bleed>2.5</div>
+  <div class="bs-register" data-bleed aria-hidden="true">2.5</div>
 
-  <div class="l-grid p16-title">
-    <div class="l-span-3">
-      <p class="chapter-no">05<small>von 06</small></p>
-      <p class="tags u-mt-4"><span class="tag"><i class="sw sw--grant-o"></i>Festbetrag</span></p>
+  <header class="program-head program-head--master p16-title">
+    <div class="program-head__no">
+      <p class="chapter-no">05<small>Programmteil</small></p>
+      <p class="tags"><span class="tag"><i class="sw sw--grant-o"></i>Festbetrag</span></p>
     </div>
-    <div class="l-span-9">
+    <div class="program-head__main">
       <p class="kicker">Programmteil 2.5 · Belegungsbindungen erwerben</p>
       <h1 class="h1 h1--s"><em>Festbetrag</em> für freie Bestandswohnungen</h1>
-      <div class="p16-intro">
-        <p class="p16-deck">Zuschuss <b>2,00–3,00 €</b> <span class="u-nowrap">je m²</span> Wohnfläche und Monat der Bindung, <b>5–20 Jahre</b></p>
-        <p class="p16-leadtext">Sie binden eine freie Bestandswohnung für Haushalte der Einkommensgruppe A und erhalten einen nicht rückzahlbaren <span class="u-nowrap">Festbetrag –</span> ohne Bau und Darlehen.<span class="fn">1</span></p>
-      </div>
+      <p class="deck">Zuschuss <b>2,00–3,00 €</b> <span class="u-nowrap">je m²</span> Wohnfläche und Monat der Bindung, <b>5–20 Jahre</b></p>
+      <p class="program-head__subject">Sie binden eine freie Bestandswohnung für Haushalte der Einkommensgruppe A und erhalten einen nicht rückzahlbaren <span class="u-nowrap">Festbetrag –</span> ohne Bau und Darlehen.</p>
     </div>
-  </div>
-
-  <div class="l-grid u-mt-5 p16-body">
+  </header>
+  <div class="l-grid u-mt-4 p16-body">
     <div class="l-span-7 p16-left">
-      <figure class="chart module p16-bars">
+      <figure class="chart module p16-bars" role="group">
+        <p class="stampline"><span class="stamp">Modellrechnung</span><span>– fiktives Beispiel, keine Förderzusage</span></p>
         <figcaption class="chart__head"><h2 class="chart__title">Zuschuss für eine 60-m²-Wohnung</h2></figcaption>
         <div class="p16-plot">
           <div class="p16-annot">
-            <p class="stamp">Modellrechnung</p>
-            <p class="p16-annot__dis">– fiktives Beispiel, keine Förderzusage</p>
-            <p class="p16-annot__ass">Annahme: 60 m², angemessen für einen Zwei-Personen-Haushalt (Nr. 5.1.1)</p>
+            <p class="p16-annot__ass">Annahme: 60 m², angemessen für einen Zwei-Personen-Haushalt (RL Nr. 5.1.1)</p>
+            <p class="p16-annot__ass">Eigene Berechnung: 60 m² × Satz × 12 × Jahre</p>
           </div>
-          <svg class="chart__svg p16-bars__svg" viewBox="0 0 99.4 42.6" width="99.4mm" height="42.6mm" role="img" aria-label="Modellrechnung, Zuschuss für eine 60-Quadratmeter-Wohnung nach Bindungsdauer: 5 Jahre 7.200 Euro, 10 Jahre 18.000 Euro, 15 Jahre 32.400 Euro, 20 Jahre 43.200 Euro."><rect class="c-grant" x="35.45" y="31.6" width="11" height="5"/><text class="p16-v t-mid" x="40.95" y="30">7.200<tspan class="p16-u" dx=".7">€</tspan></text><text class="t-b t-m t-mid" x="40.95" y="41.3">5 Jahre</text><rect class="c-grant" x="52.15" y="24.1" width="11" height="12.5"/><text class="p16-v t-mid" x="57.65" y="22.5">18.000<tspan class="p16-u" dx=".7">€</tspan></text><text class="t-b t-m t-mid" x="57.65" y="41.3">10 Jahre</text><rect class="c-grant" x="68.85" y="14.1" width="11" height="22.5"/><text class="p16-v t-mid" x="74.35" y="12.5">32.400<tspan class="p16-u" dx=".7">€</tspan></text><text class="t-b t-m t-mid" x="74.35" y="41.3">15 Jahre</text><rect class="c-grant" x="85.55" y="6.6" width="11" height="30"/><text class="p16-v t-end" x="99.4" y="5">43.200<tspan class="p16-u" dx=".7">€</tspan></text><text class="t-b t-m t-mid" x="91.05" y="41.3">20 Jahre</text><line class="ax" x1="0" y1="36.6" x2="99.4" y2="36.6"/></svg>
+          <svg class="chart__svg p16-bars__svg" viewBox="0 0 99.4 36.6" width="99.4mm" height="36.6mm" role="img" aria-label="Modellrechnung, Zuschuss für eine 60-Quadratmeter-Wohnung nach Bindungsdauer: 5 Jahre 7.200 Euro, 10 Jahre 18.000 Euro, 15 Jahre 32.400 Euro, 20 Jahre 43.200 Euro."><rect class="c-grant" x="35.45" y="26.6" width="11" height="4"/><text class="p16-v t-mid" x="40.95" y="25">7.200<tspan class="p16-u" dx=".7">€</tspan></text><text class="t-b t-m t-mid" x="40.95" y="35.3">5 Jahre</text><rect class="c-grant" x="52.15" y="20.6" width="11" height="10"/><text class="p16-v t-mid" x="57.65" y="19">18.000<tspan class="p16-u" dx=".7">€</tspan></text><text class="t-b t-m t-mid" x="57.65" y="35.3">10 Jahre</text><rect class="c-grant" x="68.85" y="12.6" width="11" height="18"/><text class="p16-v t-mid" x="74.35" y="11">32.400<tspan class="p16-u" dx=".7">€</tspan></text><text class="t-b t-m t-mid" x="74.35" y="35.3">15 Jahre</text><rect class="c-grant" x="85.55" y="6.6" width="11" height="24"/><text class="p16-v t-end" x="99.4" y="5">43.200<tspan class="p16-u" dx=".7">€</tspan></text><text class="t-b t-m t-mid" x="91.05" y="35.3">20 Jahre</text><line class="ax" x1="0" y1="30.6" x2="99.4" y2="30.6"/></svg>
         </div>
         <table class="p16-rows">
           <colgroup><col class="p16-rows__lab"><col><col><col><col></colgroup>
@@ -113,26 +77,27 @@
             <tr><th scope="row">davon Bearbeitungsentgelt 0,75 %</th><td>54 €</td><td>135 €</td><td>243 €</td><td>324 €</td></tr>
           </tbody>
         </table>
-        <p class="chart__note">Eigene Berechnung: 60 m² × Satz × 12 × Jahre. Zwischenlaufzeiten mit der NBank klären; Überkompensationsprüfung vorbehalten.</p>
+        <p class="chart__note">Zwischenlaufzeiten mit der NBank klären.</p>
+        <p class="caveat">Höchstwerte&nbsp;· Überkompensationsprüfung&nbsp;· kein&nbsp;Rechtsanspruch <a href="#seite-02">→&nbsp;S.&nbsp;2</a></p>
       </figure>
 
-      <figure class="chart chart--s module u-mt-5 p16-tl">
+      <figure class="chart chart--s module u-mt-3 p16-tl" role="group">
         <figcaption class="chart__head"><h2 class="chart__title">Auszahlung in zwei Hälften</h2></figcaption>
         <svg class="chart__svg p16-tl__svg" viewBox="0 0 99.4 24.3" width="99.4mm" height="24.3mm" role="img" aria-label="Zeitstrahl der Auszahlung: Bewilligung, also Förderentscheidung; Erstbelegung: Bindungsbeginn und 1. Rate 50 Prozent, abzüglich Entgelt; Halbzeit der Bindung: 2. Rate 50 Prozent; Bindungsende nach 5 bis 20 Jahren."><line class="tl-axis p16-wait" x1="1.4" y1="9.4" x2="36.5" y2="9.4"/><rect class="p16-band" x="36.5" y="8.6" width="61.4" height="1.6"/><circle class="tl-pin" cx="1.4" cy="9.4" r="1.3"/><circle class="tl-pin tl-pin--done" cx="97.9" cy="9.4" r="1.3"/><circle class="p16-coin" cx="36.5" cy="9.4" r="3"/><circle class="p16-coin-ring" cx="36.5" cy="9.4" r="2.3"/><text class="p16-coin-sym t-mid" x="36.5" y="10.7">€</text><circle class="p16-coin" cx="67.2" cy="9.4" r="3"/><circle class="p16-coin-ring" cx="67.2" cy="9.4" r="2.3"/><text class="p16-coin-sym t-mid" x="67.2" y="10.7">€</text><text class="t-b" x="0" y="3.2">Bewilligung</text><text class="t-b" x="33.5" y="3.2">Erstbelegung</text><text class="t-b t-mid" x="67.2" y="3.2">Halbzeit</text><text class="t-b t-end" x="99.2" y="3.2">Bindungsende</text><text x="0" y="16.4">Förderentscheidung</text><text x="33.5" y="16.4">Bindungsbeginn</text><text class="p16-pay" x="33.5" y="19.85">1. Rate 50 %,</text><text x="33.5" y="23.3">abzüglich Entgelt</text><text class="p16-pay t-mid" x="67.2" y="16.4">2. Rate</text><text class="p16-pay t-mid" x="67.2" y="19.85">50 %</text><text class="t-end" x="99" y="16.4">nach 5 bis</text><text class="t-end" x="99" y="19.85">20 Jahren</text></svg>
-        <p class="chart__note"><b>Modellwohnung 60 m², 20 Jahre:</b> <span class="u-nowrap">21.276 € nach Erstbelegung</span> <span class="u-nowrap">(21.600 € abzüglich 324 € Bearbeitungsentgelt)</span> und <span class="u-nowrap">21.600 € nach 10 Jahren</span></p>
+        <p class="chart__note"><b>Modellwohnung 60 m², 20 Jahre:</b> 21.276 € nach Erstbelegung (21.600 € abzüglich 324 € Entgelt) und 21.600 € nach 10 Jahren</p>
       </figure>
 
-      <aside class="callout callout--tipp u-mt-5 p16-tipp">
+      <aside class="callout callout--tipp callout--calc calc--figure u-mt-3 p16-tipp">
         <p class="callout__label"><svg class="icon icon--rechner" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.8" width="14" height="18.4" rx="1"/><path d="M8 6.4h8v3.4H8z"/><path d="M8.4 13.4h.01M12 13.4h.01M15.6 13.4h.01M8.4 17.2h.01M12 17.2h.01M15.6 17.2h.01" stroke-width="2"/></svg>Kalkulationsnotiz</p>
-        <div class="p16-tipp__grid">
-          <p class="callout__body"><b>Modellrechnung:</b> bis zu 9,50 € je m² und Monat in Jahr 1–3 (Mietenstufe <span class="u-nowrap">I–III</span>, <span class="u-nowrap">15–20 Jahre</span> Bindung) aus höchstens 6,50 € Miete plus 3,00 € Zuschuss – unverzinst, vor Entgelt; Zuschuss in zwei Raten.</p>
-          <svg class="chart__svg p16-eq" viewBox="0 0 31 26" width="31mm" height="26mm" role="img" aria-label="Modellrechnung Jahr 1 bis 3, Mietenstufe I bis III, 15 bis 20 Jahre Bindung: höchstens 6,50 Euro Miete plus 3,00 Euro Zuschuss ergibt bis zu 9,50 Euro je Quadratmeter und Monat."><text class="t-caps t-acc" x="0" y="4.8">bis zu</text><text class="p16-eq-res" x="12.6" y="4.8">9,50<tspan class="p16-u" dx=".7">€</tspan></text><rect class="c-grant" x="0" y="7" width="12.4" height="5.75"/><rect class="c-ink" x="0" y="13.35" width="12.4" height="12.45"/><text class="p16-eq-val t-mid" x="6.2" y="10.92">3,00 €</text><text class="p16-eq-val t-mid" x="6.2" y="20.62">6,50 €</text><text class="t-b" x="14.6" y="10.92">Zuschuss</text><text class="t-b" x="14.6" y="18.87">Miete</text><text class="t-ax" x="14.6" y="22.37">höchstens</text></svg>
+        <div class="calc__grid">
+          <p class="callout__body"><b>Modellrechnung:</b> bis zu 9,50 € je m² und Monat in den Jahren 1–3 (Mietenstufe <span class="u-nowrap">I–III</span>, <span class="u-nowrap">15–20 Jahre</span> Bindung) aus höchstens 6,50 € Miete plus 3,00 € Zuschuss – unverzinst, vor Entgelt; Zuschuss in zwei Raten.</p>
+          <svg class="chart__svg calc__fig p16-eq" viewBox="0 0 31 26" width="31mm" height="26mm" role="img" aria-label="Modellrechnung Jahr 1 bis 3, Mietenstufe I bis III, 15 bis 20 Jahre Bindung: höchstens 6,50 Euro Miete plus 3,00 Euro Zuschuss ergibt bis zu 9,50 Euro je Quadratmeter und Monat."><text class="t-caps t-acc" x="0" y="4.8">bis zu</text><text class="p16-eq-res" x="12.6" y="4.8">9,50<tspan class="p16-u" dx=".7">€</tspan></text><rect class="c-grant" x="0" y="7" width="12.4" height="5.75"/><rect class="c-ink" x="0" y="13.35" width="12.4" height="12.45"/><text class="p16-eq-val t-mid" x="6.2" y="10.92">3,00 €</text><text class="p16-eq-val t-mid" x="6.2" y="20.62">6,50 €</text><text class="t-b" x="14.6" y="10.92">Zuschuss</text><text class="t-b" x="14.6" y="18.87">Miete</text><text class="t-ax" x="14.6" y="22.37">höchstens</text></svg>
         </div>
       </aside>
     </div>
 
-    <div class="l-span-5 p16-side">
-      <section class="p16-mod p16-mod--first">
+    <div class="l-span-5 facts">
+      <section class="facts__mod">
         <h3 class="label label--accent">Miete und Bindung</h3>
         <ul class="bullets">
           <li><b>Bindung ab erster Belegung</b> durch einen WBS-Haushalt</li>
@@ -140,29 +105,25 @@
           <li><b>danach höchstens <span class="u-nowrap">+6,15 %</span></b> in drei Jahren; keine Staffel- oder Indexmiete</li>
         </ul>
       </section>
-      <section class="p16-mod">
+      <section class="facts__mod">
         <h3 class="label label--accent">Wer und welche Wohnung</h3>
         <ul class="bullets">
           <li><b>Wirtschaftlich Berechtigte</b> mit dauerhafter Verfügung: Eigentum, Erbbaurecht oder vergleichbares Nutzungsrecht</li>
-          <li><b>Wohnung frei, ungebunden,</b> abgeschlossen, gut erhalten, angemessen groß, dauerhaft vermietbar; Mindestausstattung nach Nr. 9.1 (u. a. Heizung, Bad, Küchenanschluss); Besichtigung durch die Wohnraumförderstelle</li>
+          <li><b>Wohnung frei, ungebunden,</b> abgeschlossen, gut erhalten, angemessen groß, dauerhaft vermietbar; Mindestausstattung nach RL Nr. 9.1 (u. a. Heizung, Bad, Küchenanschluss); Besichtigung durch die Wohnraumförderstelle</li>
           <li><b>insbesondere für besondere Bedarfsgruppen,</b> etwa wohnungslose oder davon bedrohte Menschen, Frauen aus Frauenhäusern, Haftentlassene: dann <b>nur an sie vermieten</b>; Nachweis per wohnungsbezogenem WBS eines volljährigen Haushaltsmitglieds</li>
         </ul>
+        <p class="facts__text p16-stop"><span class="u-nowrap"><svg class="icon icon--stopp icon--signal" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="ui-fill" d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd" stroke="none"/></svg><b>Erst Bewilligung, dann Mietvertrag:</b></span> Mietvertrag oder Überlassung an einen WBS-Haushalt vor der Bewilligung gilt als Vorhabenbeginn – keine Förderung; vorsorglich vorher kein Mietangebot (<a class="u-nowrap" href="#seite-19">→&nbsp;S.&nbsp;19</a>).</p>
       </section>
-      <aside class="callout callout--achtung">
-        <p class="callout__label"><svg class="icon icon--stopp" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="ui-fill" d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd" stroke="none"/></svg>Achtung</p>
-        <h3 class="callout__title">Erst Bewilligung, dann Vertrag</h3>
-        <p class="callout__body">Mietvertrag oder Überlassung an einen WBS-Haushalt vor der Bewilligung gilt als Vorhabenbeginn: keine Förderung. Vorsorglich vorher kein Mietangebot.</p>
-      </aside>
-      <section class="p16-mod">
+      <section class="facts__mod">
         <h3 class="label label--accent">Kombinierbar mit</h3>
-        <p class="p16-text">Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überkompensation (mit der NBank klären). Bindungen direkt im Anschluss an auslaufende fördert die NBank hier nicht; planmäßig auslaufende Landesbindungen mit laufendem NBank-Darlehen: <span class="bs-badge bs-26"><b class="bs-badge__no">2.6</b></span> (→ S. 17).</p>
+        <p class="facts__text">Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überkompensation (mit der NBank klären). Eine Bindung, die direkt an eine auslaufende Bindung anschließt, fördert die NBank in 2.5 nicht; planmäßig auslaufende Landesbindungen mit laufendem NBank-Darlehen: <span class="bs-badge bs-26"><b class="bs-badge__no">2.6</b></span> (<a class="u-nowrap" href="#seite-17">→&nbsp;S.&nbsp;17</a>).</p>
       </section>
     </div>
   </div>
 
-  <ol class="footnotes l-bottom">
-    <li>RL Nr. 1.5, 2.5, 3, 4.2, 5.1.1, 5.3.7, 5.4.4, 5.4.5, 9.1–9.5, 11.4, 12.7.3; NBank-Produktinformation und Checkliste „Erwerb von Belegungs- und Mietbindungen“ (Stand 22.09.2026; Unterlagen → S. 20).</li>
+  <ol class="footnotes footnotes--2col l-bottom">
+    <li class="footnotes__src"><b>Fundstellen:</b> RL Nr. 1.5, 2.5, 3, 4.2, 5.1.1, 5.3.7, 5.4.4, 5.4.5, 9.1–9.5, 11.4, 12.7.3; NBank-Produktinformation und Checkliste „Erwerb von Belegungs- und Mietbindungen“ (Stand 22.09.2026; Unterlagen <a class="u-nowrap" href="#seite-20">→&nbsp;S.&nbsp;20</a>).</li>
   </ol>
 
-  <footer class="page__foot"><span class="page__folio">16</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Bestand · Programmteil 2.5</b></span><span>Stand: 21.10.2026</span></span></footer>
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">16</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Bestand · Programmteil 2.5</b></span><span>Stand: 21.10.2026</span></span></footer>
 </section>

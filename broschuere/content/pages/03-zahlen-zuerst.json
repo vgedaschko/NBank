@@ -13,43 +13,50 @@
           "value": "bis zu 80",
           "unit": "%",
           "label": "Förderquote",
-          "note": "Darlehen und Zuschuss in % der zuwendungsfähigen Kosten, Programmteil 2.1, in allen Einkommensgruppen"
+          "note": "Darlehen + Zuschuss, alle Einkommensgruppen; mehr bei Modellprojekten und Housing First → S. 8",
+          "rl": "RL Nr. 5.3.3"
         },
         {
           "value": "bis zu 40",
           "unit": "%",
           "label": "Zuschuss",
-          "note": "Einkommensgruppe A; B bis zu 20 %, C bis zu 10 %; nur mit Darlehen"
+          "note": "Einkommensgruppe A; B bis zu 20 %, C bis zu 10 % (B/C nur mit Zulassung → S. 6); nur mit Darlehen",
+          "rl": "RL Nr. 5.3.3.2, 12.3.2"
         },
         {
           "value": "0",
           "unit": "%",
           "label": "Zins bis Ende des 35. Jahres",
-          "note": "Darlehen 2.1/2.4, gezählt ab Bezugsfertigkeit; zzgl. 0,5 % Verwaltungskostenbeitrag p. a. auf das Restkapital, einmalig 1 % Bearbeitungsentgelt (Zuschuss: 0,75 %)"
+          "note": "nach Bezugsfertigkeit; zzgl. 0,5 % Verwaltungskostenbeitrag p. a. und einmaliger Entgelte → S. 9",
+          "rl": "RL Nr. 5.3.4, 12.7"
         },
         {
-          "value": "4.800 / 5.000",
+          "value": "Ausgangswerte 4.800/5.000",
           "unit": "€/m² Wohnfläche",
           "label": "Bemessungsgrenze",
-          "note": "Herstellungskosten, Neubau und Änderung/Erweiterung (2.1), Mietenstufe I–III/IV–VII; Ausgangswerte, Fortschreibung 1.4./1.10. – bis 21.10.2026 keine neuen Werte auf nbank.de"
+          "note": "Herstellungskosten, Mietenstufe I–III/IV–VII; Fortschreibung → S. 8; Inseln: 1,5 × I–III → S. 13",
+          "rl": "RL Nr. 5.3.2.2, 8.3.1"
         },
         {
           "value": "bis zu 90.000",
           "unit": "€",
-          "label": "Zuschuss je Wohnung",
-          "note": "KfW-Effizienzhaus-40-Neubau, Einkommensgruppe A, zugleich max. 50 % der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar"
+          "label": "Zuschuss je Wohnung im EH-40-Neubau",
+          "note": "Einkommensgruppe A; max. 50 % der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar",
+          "rl": "RL Nr. 6.3.3, 6.3.4"
         },
         {
           "value": "bis zu 31.000",
           "unit": "€",
           "label": "Modernisierungszuschuss je gebundener Wohnung",
-          "note": "bei Verbesserung um 5 oder mehr Energieeffizienzklassen, Einkommensgruppe A, zugleich max. 40 % der Modernisierungskosten"
+          "note": "ab 5 Effizienzklassen besser, Einkommensgruppe A; max. 40 % der Kosten; Fertigstellung vor 08.12.2004",
+          "rl": "RL Nr. 2.3, 7.3.3"
         },
         {
-          "value": "3,00",
+          "value": "Festbetrag 3,00",
           "unit": "€/m² Wohnfläche und Monat",
-          "label": "Zuschuss Bindungserwerb (Festbetrag)",
-          "note": "15–20 Jahre Bindung; ab 5 J. 2,00 €, ab 10 J. 2,50 €; nur Einkommensgruppe A"
+          "label": "Zuschuss Bindungserwerb",
+          "note": "15–20 Jahre Bindung; ab 5 Jahren 2,00 €, ab 10 Jahren 2,50 €; nur Einkommensgruppe A",
+          "rl": "RL Nr. 2.5, 9.3"
         }
       ]
     },
@@ -57,7 +64,8 @@
       "type": "callout",
       "variant": "hinweis",
       "title": "Begriff",
-      "body": "**Zuwendungsfähige Kosten:** Bezugsgröße der Förderquote – in 2.1: Herstellungskosten bis zur Bemessungsgrenze plus Grundstückskosten bis Bodenrichtwert (Ersterwerb: Kaufpreis und Erwerbskosten)."
+      "body": "**Zuwendungsfähige Kosten:** Bezugsgröße der Förderquote – in 2.1: Herstellungskosten bis zur Bemessungsgrenze plus Grundstückskosten bis Bodenrichtwert (Ersterwerb: Kaufpreis und Erwerbskosten).",
+      "rl": "RL Nr. 5.3.2"
     },
     {
       "type": "chart",
@@ -77,7 +85,7 @@
               "label": "Wohnungen mit ausgelaufener Bindung",
               "value": 58024,
               "display": "58.024",
-              "token": "--signal"
+              "token": "--old"
             },
             {
               "label": "neu geförderte Wohnungen",
@@ -91,26 +99,22 @@
           "value": 28,
           "display": "28 %",
           "label": "kompensiert"
-        }
+        },
+        "ref": "Wo Bedarf gilt → S. 18"
       }
     },
     {
       "type": "callout",
       "variant": "frist",
-      "title": "Stichtag Modernisierung",
-      "body": "Nur Modernisierungsanträge, die bis 31.12.2026 bei der Wohnraumförderstelle eingehen, können mit dem Antrag verbindlich das bisherige Recht wählen (S. 15)."
-    },
-    {
-      "type": "callout",
-      "variant": "tipp",
-      "title": "Kalkulationsnotiz",
-      "body": "Der Bedarf ist regional verschieden: Standort und Projektrechnung zusammen prüfen."
+      "title": "Und ein Stichtag",
+      "body": "Nur Modernisierungsanträge, die bis dahin bei der Wohnraumförderstelle eingehen, können mit dem Antrag verbindlich das bisherige Recht wählen → S. 15",
+      "date": "31.12.2026",
+      "rl": "RL Nr. 13.3"
     }
   ],
+  "sources": "RL-Fundstellen je Kachel in der Kopfzeile (items[].rl); Begriff RL Nr. 5.3.2; Stichtag RL Nr. 13.3.",
   "footnotes": [
-    "Förderquoten und Förderbeträge sind Höchstwerte; beim Bindungserwerb gibt es einen Festbetrag. Jede Bewilligung wird auf Überkompensation geprüft (RL Nr. 5.3.7, 11.10). Entgelte sind feste Sätze (RL Nr. 12.7), Eigenmittelquoten Mindestwerte.",
-    "Fundstellen der Kacheln (RL Nr.): Förderquote 2.1, 5.3.3 (Zuschläge für Modellprojekte und Housing First: 5.3.3.3, S. 8) · Zuschuss 5.3.3.2 · Zins 5.3.4, 8.3, 12.7 – ab dem 36. Jahr nach Bezugsfertigkeit bis zu 3 Prozentpunkte über dem Basiszinssatz nach § 247 BGB, höchstens marktüblich · Bemessungsgrenze 5.3.2.2 – erster Fortschreibungsstichtag laut eigener Ableitung 01.10.2026; Ersterwerb: Kaufpreis nebst Erwerbskosten (5.3.2.1); Ostfriesische Inseln: 1,5-Fache des Werts für Mietenstufe I–III (8.3.1) · EH-40-Neubau 2.2, 6.3.3, 6.3.4 · Modernisierung 2.3, 7.3.3, nur Gebäude, die vor dem 08.12.2004 fertiggestellt wurden · Bindungserwerb 2.5, 9.3, Höhe begrenzt nach 5.3.7 · Einkommensgruppen B und C nur, wenn die NBank dies in der Förderentscheidung zulässt (1.6, 12.3.2; S. 6) · Stichtag 13.3.",
-    "Marktband: NBank-Wohnungsmarktbericht 2025 (Bericht: „rund 16.052“ neu geförderte Wohnungen, hier gerundet). Fördervolumen 2026: rund 380 Mio. € Bundes- und Landesmittel für die gesamte Wohnraumförderung, nicht allein für diese Richtlinie (MW-Presseinformation vom 03.07.2026)."
+    "NBank-Wohnungsmarktbericht 2025; neu geförderte Wohnungen dort „rund 16.052“, hier gerundet."
   ],
   "fact_ids": [
     "F010",
@@ -142,10 +146,10 @@
     "F306",
     "F307",
     "F309",
-    "F294",
     "F286",
     "F285",
     "G3-20"
   ],
-  "visual_idea": "KPI-Raster 4 × 2: sieben Kennzahl-Kacheln plus der Begriff-Callout als achte Zelle (hellere Fläche, Marginal-Typo, Kopf „Begriff“). Große Ziffern in der Display-Schrift, „bis zu“ als kleiner Vorsatz (steht im value), Einheit kleiner daneben, Erklärzeile (label) halbfett, note in 8,5 pt. Kosten- und Ausgangswert-Hinweise bleiben IN der Kachel; die Fundstellen stehen gesammelt in der zweiten Fußnote (keine RL-Nummern in den Kacheln). Baustein-Streifen links an den Kacheln, jeweils mit Nummer: 1–2 --baustein-21 (2.1); 3 --baustein-21 und --baustein-24 (2.1/2.4, zweigeteilter Streifen); 4 --baustein-21 (2.1); 5 --baustein-22 (2.2); 6 --baustein-23 (2.3); 7 --baustein-25 (2.5). Kein Lead – die Kacheln sind der Einstieg. Darunter dunkles Marktband (chart compare), schlank: Hero-Zahl 50.495 links groß, rechts Balkenpaar 58.024 (--signal) gegen rund 16.000 (--color-primary) mit Ring „28 % kompensiert“; kein Trendpfeil, keine Zusatzzahlen. Stichtag-Callout als schmales Signalband (--signal) am Seitenfuß, Kalkulationsnotiz als wiederkehrendes Element mit Rechensymbol. Drei Fußnoten in 8,5 pt."
+  "visual_idea": "KPI-Raster 4 × 2: sieben Kennzahl-Kacheln plus der Stichtag als achte Zelle, als Zusatz abgesetzt (Signalfläche, Kopf „Und ein Stichtag“). Jede Kachel: Kopfzeile mit RL-Fundstelle (8,5 pt, links) und Programmteil-Badge (rechts; Kachel 3 zweigeteilt 2.1/2.4), Vorsatz („bis zu“, „Ausgangswerte“, „Festbetrag“) über der Zahl, große Ziffern in der Display-Schrift, Einheit kleiner daneben, Erklärzeile (label) halbfett, note in 8,5 pt, höchstens 4 Zeilen; Kostenhinweise bleiben IN der Kachel. Begriff „Zuwendungsfähige Kosten“ rechts neben der Headline (RL Nr. 5.3.2). Kein Lead – die Kacheln sind der Einstieg. Darunter dunkles Marktband über die volle Breite: Hero-Zahl 50.495 links groß, rechts Balkenpaar 58.024 (--old) gegen rund 16.000 (--fg) mit Ring „28 % kompensiert“; Seitenverweis-Chip „Wo Bedarf gilt → S. 18“ im Bandkopf; kein Trendpfeil, keine Zusatzzahlen. Eine Quellenfußnote (Marktband), eine Zeile.",
+  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2"
 }

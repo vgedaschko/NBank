@@ -64,7 +64,7 @@
         },
         "rule": "Voraussetzung: mindestens 2 Klassen besser – Energiebedarfsausweis vor Bewilligung (Ausgangsklasse) und mit der Fertigstellungsanzeige (erreichte Klasse)"
       },
-      "note": "Ausnahme, etwa beim Baudenkmal: Sind 2 Klassen nicht oder nur unverhältnismäßig aufwendig erreichbar, kann die NBank 1 Klasse zulassen; sie zählt wie 2. Rechennorm ab 2027 → S. 15."
+      "note": "Ausnahme, etwa beim Baudenkmal: Sind 2 Klassen nicht oder nur unverhältnismäßig aufwendig erreichbar, kann die NBank 1 Klasse zulassen; sie zählt dann wie 2 Klassen."
     },
     {
       "type": "chart",
@@ -159,7 +159,7 @@
           "from": "ab {v} €"
         }
       },
-      "note": "KG 300–700; Überkompensationsprüfung vorbehalten. „ab … €“: Höchstbetrag greift ab diesen Kosten je Wohnung (eigene Berechnung). Gebäudekosten: RL ohne Verteilungsschlüssel, NBank-Arbeitshilfe nach Wohnfläche."
+      "note": "Kostengruppen 300–700 nach DIN 276. „ab … €“: Höchstbetrag greift ab diesen Kosten je Wohnung (eigene Berechnung). Gebäudekosten: RL ohne Verteilungsschlüssel, NBank-Arbeitshilfe nach Wohnfläche."
     },
     {
       "type": "bullets",
@@ -167,7 +167,7 @@
       "items": [
         "25 Jahre ab Abschluss; bei Mieterwechsel nur an WBS-Haushalte",
         "vermietet: +10 Jahre, außer bei WBS-Nachweis; dann Vertrag unverzüglich an Höchstmiete und Erhöhungsregeln anpassen",
-        "Höchstmieten wie in 2.1 (→ S. 7): 6,50 bis 9,00 € je m²; bei Verlängerung Erhöhungssperre ab erster WBS-Belegung"
+        "Höchstmieten wie in 2.1 (→ S. 7): 6,50–9,00 € je m², ab KfW-EH-40-Niveau bis zu +0,30 €; bei Verlängerung Erhöhungssperre ab erster WBS-Belegung"
       ]
     },
     {
@@ -181,21 +181,14 @@
       "body": "BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen, nur eines (3 Jahre Sperrfrist). Die BEG kürzt, bis öffentliche Mittel höchstens 60 % derselben Kosten decken (BEG EM, Kommunen: 90 %); NBank-Zuschuss zählt mit (eigene Ableitung)."
     },
     {
-      "type": "callout",
-      "variant": "frist",
-      "title": "Eingang bis 31.12.2026?",
-      "body": "Maßgeblich ist die Wohnraumförderstelle. Dann ist das alte Recht verbindlich wählbar (→ S. 15)."
-    },
-    {
-      "type": "callout",
-      "variant": "tipp",
-      "title": "Kalkulationsnotiz",
-      "body": "Jede Zusatzklasse bis zur fünften hebt Fördersatz und Höchstbetrag: Klassensprung planen."
+      "type": "text",
+      "variant": "frist-line",
+      "title": "Eingang bis 31.12.2026:",
+      "body": "altes Recht verbindlich wählbar; maßgeblich ist die Wohnraumförderstelle (→ S. 15)."
     }
   ],
-  "footnotes": [
-    "RL Nr. 1.5, 2.3, 4.2, 7.1–7.5, 11.4, 11.5, 12.7.3, 13.3; Anlage 10 GModG (vormals GEG; Klassengrenzen auch ab 01.01.2027 unverändert); NBank-Produktinformation Modernisierung (Stand 10.07.2026); NBank-Arbeitshilfe Kosten- und Finanzierungsaufteilung; KfW-Merkblatt 261; Förderrichtlinie BEG EM."
-  ],
+  "sources": "Fundstellen: RL Nr. 1.5, 2.3, 4.2, 7.1–7.5, 11.4, 11.5, 12.7.3, 13.3; Anlage 10 GModG (vormals GEG; ab 01.01.2027 neue Rechennorm, Klassengrenzen unverändert → S. 15); NBank-Produktinformation Modernisierung (Stand 10.07.2026); NBank-Arbeitshilfe „Kosten-Finanzierungsaufteilung“ (Stand 08/2026); KfW-Merkblatt 261; Förderrichtlinie BEG EM.",
+  "footnotes": [],
   "fact_ids": [
     "F148",
     "F149",
@@ -238,5 +231,6 @@
     "G3-15",
     "G3-16"
   ],
-  "visual_idea": "Baustein-Register 2.3 (--baustein-23, immer mit Nummer) am Seitenrand. Badge „reiner Zuschuss · kein Bedarfsnachweis“ neben der Headline. Oben farbige Energieeffizienz-Skala A+ bis H als Pfeilband (grün bis rot, zusätzlich mit Buchstaben, graustufenfest) mit Grenzwerten unter jedem Segment; Achsenbeschriftung „kWh je m² Gebäudenutzfläche und Jahr“ (nicht Wohnfläche); Beispiel-Sprungpfeil G → D mit Label „3 Klassen“; Regelzeile mit den zwei Energiebedarfsausweisen (vor Bewilligung / mit Fertigstellungsanzeige). Darunter 4 × 3-Heatmap (Zeilen: Klassensprung, Spalten: Einkommensgruppe A/B/C): Prozentsatz groß mit „bis zu“, „max. … €“ mittel, Kappungspunkt „ab … €“ klein (eigene Berechnung); Tonwert steigt mit dem Satz (--baustein-23 in Abstufungen); Zeile „ab 5 Klassen“ als Endstufe markieren (keine weitere Steigerung). Bindung und Miete als Liste, „Ablauf und Eigenmittel“ daneben – dort „Erst Bewilligung, dann Aufträge“ mit kleinem Stopp-Marker (ui-stopp.svg). Stichtag-Pin „Eingang bis 31.12.2026?“ in --signal mit Kalender-Icon (ui-frist.svg). „Kombinierbar mit“ als schmale Zeile, Kalkulationsnotiz mit Rechensymbol am Fuß."
+  "visual_idea": "Baustein-Register 2.3 (--baustein-23, immer mit Nummer) am Seitenrand. Badge „reiner Zuschuss · kein Bedarfsnachweis“ neben der Headline. Oben farbige Energieeffizienz-Skala A+ bis H als Pfeilband (grün bis rot, zusätzlich mit Buchstaben, graustufenfest) mit Grenzwerten unter jedem Segment; Achsenbeschriftung „kWh je m² Gebäudenutzfläche und Jahr“ (nicht Wohnfläche); Beispiel-Sprungpfeil G → D mit Label „3 Klassen“; Regelzeile mit den zwei Energiebedarfsausweisen (vor Bewilligung / mit Fertigstellungsanzeige). Darunter 4 × 3-Heatmap (Zeilen: Klassensprung, Spalten: Einkommensgruppe A/B/C): Prozentsatz groß mit „bis zu“, „max. … €“ mittel, Kappungspunkt „ab … €“ klein (eigene Berechnung); Tonwert steigt mit dem Satz (--baustein-23 in Abstufungen); Zeile „ab 5 Klassen“ als Endstufe markieren (keine weitere Steigerung). Bindung und Miete als Liste, „Ablauf und Eigenmittel“ daneben – dort „Erst Bewilligung, dann Aufträge“ mit kleinem Stopp-Marker (ui-stopp.svg). Stichtag-Pin „Eingang bis 31.12.2026?“ in --signal mit Kalender-Icon (ui-frist.svg). „Kombinierbar mit“ als schmale Zeile, Kalkulationsnotiz mit Rechensymbol am Fuß.",
+  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2"
 }

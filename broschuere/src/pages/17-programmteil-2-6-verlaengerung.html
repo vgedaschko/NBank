@@ -1,33 +1,21 @@
-<section class="page bs-26" data-page="17">
+<section class="page bs-26" data-page="17" id="seite-17">
   <style>
-    /* Titelzone (wie S. 13): Titel links, Kapitelnummer außen rechts */
-    .page[data-page="17"] .p17-title { align-items: start; }
-    .page[data-page="17"] .p17-title .h1 { margin-top: 2.4mm; }
-    .page[data-page="17"] .p17-deck {
-      margin-top: 3.4mm;
-      font-family: var(--font-display);
-      font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0;
-      font-weight: 400;
-      font-size: 10.5pt;
-      line-height: 1.36;
-      letter-spacing: -.004em;
-      color: var(--fg-2);
-    }
-    .page[data-page="17"] .p17-deck b { font-weight: 560; color: var(--accent-text); }
-    .page[data-page="17"] .p17-chap { position: relative; }
-    .page[data-page="17"] .p17-chap .chapter-no { text-align: right; }
-    .page[data-page="17"] .p17-chap .tags { justify-content: flex-end; margin-top: 2.6mm; }
+    /* Titelzone: Master-Opener (.program-head--master, styles.css) */
 
     /* Kennzahlen */
     .page[data-page="17"] .p17-kf > .kf:first-child { grid-column: span 6; }
     .page[data-page="17"] .p17-kf > .kf { grid-column: span 3; }
-    .page[data-page="17"] .p17-kf .kf__fig { margin-top: 2.8mm; }
-    .page[data-page="17"] .p17-kf .kf__label { margin-top: 2.6mm; }
-    .page[data-page="17"] .p17-kf .kf__text { font-size: var(--fs-micro); line-height: 1.4; }
-    .page[data-page="17"] .p17-kf .p17-kf__main { display: grid; grid-template-columns: max-content minmax(0, 1fr); grid-template-rows: auto 1fr; column-gap: 8mm; }
+    .page[data-page="17"] .p17-kf .kf__fig { margin-top: 2mm; }
+    .page[data-page="17"] .p17-kf .kf__label { margin-top: 1.8mm; }
+    .page[data-page="17"] .p17-kf .kf__text { font-size: var(--fs-module); line-height: var(--lh-module); }
+    /* Leitkachel: Zahl und Label bilden gemeinsam die h2 („Bis zu 100 % der Restschuld zu 0 % Zins“, auch als Lesezeichen);
+       die h2 ist ein Subgrid über Zeile 2–4, der Erläuterungstext steht außerhalb der Überschrift in Spalte 2, Zeile 3 */
+    .page[data-page="17"] .p17-kf .p17-kf__main { display: grid; grid-template-columns: max-content minmax(0, 1fr); grid-template-rows: auto auto auto 1fr; column-gap: 8mm; }
     .page[data-page="17"] .p17-kf__main .kf__top { grid-column: 1 / -1; }
-    .page[data-page="17"] .p17-kf__main .kf__side { margin-top: 2.8mm; padding-top: 4.6mm; border-left: 0; padding-left: 0; align-self: start; }
-    .page[data-page="17"] .p17-kf__main .kf__side .kf__label { margin-top: 0; font: 650 9.5pt/1.3 var(--font-text); letter-spacing: 0; }
+    .page[data-page="17"] .p17-kf__head { grid-column: 1 / -1; grid-row: 2 / -1; display: grid; grid-template-columns: subgrid; grid-template-rows: subgrid; }
+    .page[data-page="17"] .p17-kf__head .kf__fig { grid-column: 1; grid-row: 1 / -1; }
+    .page[data-page="17"] .p17-kf .p17-kf__head .kf__label { grid-column: 2; grid-row: 1; margin-top: 7.4mm; }
+    .page[data-page="17"] .p17-kf__main > .kf__text { grid-column: 2; grid-row: 3; }
 
     /* Zeitstrahl: Titel sitzt im freien Feld oben links */
     .page[data-page="17"] .p17-plot { position: relative; }
@@ -44,78 +32,75 @@
 
     /* Ablauf in vier Schritten (Leiste unter dem Zeitstrahl) */
     /* gleich breite Spalten = 4 × l-span-3: Schritt 3 und 4 fluchten mit Kachel 02/03 und der rechten Spalte unten */
-    .page[data-page="17"] .p17-steps { margin-top: 3.4mm; border-top-width: var(--hair); border-top-color: var(--rule); }
-    .page[data-page="17"] .p17-steps > .step { padding: 2.4mm 2.4mm 0 0; }
-    .page[data-page="17"] .p17-steps > .step:last-child { padding-right: 0; }
-    .page[data-page="17"] .p17-steps > .step:not(:last-child)::after { right: .6mm; top: 4.2mm; width: 2.6mm; height: 2.6mm; }
+    .page[data-page="17"] .p17-steps { margin-top: 2.6mm; border-top-width: var(--hair); border-top-color: var(--rule); }
+    .page[data-page="17"] .p17-steps > .step { padding-top: 2mm; }
+    .page[data-page="17"] .p17-steps > .step:not(:last-child)::after { top: 3.8mm; width: 2.6mm; height: 2.6mm; }
     .page[data-page="17"] .p17-step__head { display: flex; align-items: baseline; gap: 1.8mm; }
-    .page[data-page="17"] .p17-steps .step__no { font-size: 20pt; font-weight: 360; }
     .page[data-page="17"] .p17-steps .step__title { margin-top: 0; font-size: 11pt; }
-    .page[data-page="17"] .p17-steps .step__text { margin-top: 1.2mm; font-size: var(--fs-micro); line-height: 1.38; }
-    .page[data-page="17"] .p17-who { margin-right: 1.4mm; font-weight: 650; letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
+    .page[data-page="17"] .p17-steps .step__text { margin-top: 1.2mm; font-size: var(--fs-module); line-height: var(--lh-module); }
+    .page[data-page="17"] .p17-who { margin-right: .6mm; font-weight: 650; letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
     .page[data-page="17"] .p17-who--nbank { color: var(--bs); }
 
     /* Voraussetzungen */
-    .page[data-page="17"] .p17-req .bullets { margin-top: 2.2mm; }
-    .page[data-page="17"] .p17-req .bullets > li { font-size: var(--fs-micro); line-height: 1.4; }
-    .page[data-page="17"] .p17-req .bullets > li + li { margin-top: 1.5mm; }
+    .page[data-page="17"] .p17-req .bullets { margin-top: 1.8mm; }
+    .page[data-page="17"] .p17-req .bullets > li { font-size: var(--fs-module); line-height: var(--lh-module); }
+    .page[data-page="17"] .p17-req .bullets > li + li { margin-top: .9mm; }
     .page[data-page="17"] .p17-req .p17-no { padding-left: 5mm; }
     .page[data-page="17"] .p17-req .p17-no::before { display: none; }
     .page[data-page="17"] .p17-req .p17-no .mark { position: absolute; left: 0; top: .1em; width: 3.4mm; height: 3.4mm; }
     .page[data-page="17"] .p17-req .p17-no .mark--no::before,
     .page[data-page="17"] .p17-req .p17-no .mark--no::after { left: .7mm; top: 1.5mm; width: 2mm; }
 
-    /* Modellrechnung + Kalkulationsnotiz */
-    .page[data-page="17"] .p17-side > * + * { margin-top: 3mm; }
-    .page[data-page="17"] .p17-model { position: relative; padding: 4.8mm 5mm 4mm; }
-    .page[data-page="17"] .p17-model .stamp { position: absolute; right: 5mm; top: 0; transform: translateY(-50%); background: var(--surface-2); }
+    /* Modellrechnung: Stempelzeile (globale .stampline) als erste Zeile des Kastens */
+    .page[data-page="17"] .p17-model { padding: 3.6mm 5mm 4mm; }
+    .page[data-page="17"] .p17-xref { margin-top: 2.6mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="17"] .p17-xref a { color: var(--accent-text); font-weight: 650; }
+    .page[data-page="17"] .p17-model .stampline { padding-left: 0; }
     .page[data-page="17"] .p17-model .callout__title { margin-top: 0; font-size: 11.5pt; }
-    .page[data-page="17"] .p17-model .callout__body { font-size: var(--fs-micro); line-height: 1.42; }
-    .page[data-page="17"] .p17-tipp { padding: 3.2mm 5mm 3.6mm; }
-    .page[data-page="17"] .p17-tipp .callout__body { margin-top: 1.2mm; }
+    .page[data-page="17"] .p17-model .callout__body { font-size: var(--fs-module); line-height: var(--lh-module); }
   </style>
 
-  <div class="bs-register" data-bleed>2.6</div>
+  <div class="bs-register" data-bleed aria-hidden="true">2.6</div>
 
-  <div class="l-grid p17-title">
-    <div class="l-span-9">
-      <p class="kicker">Programmteil 2.6 · Auslaufende Bindungen verlängern</p>
-      <h1 class="h1 h1--s">Bindung verlängern,<br><em>Zins auf 0&nbsp;%</em></h1>
-      <p class="p17-deck">Läuft Ihre Belegungs- und Mietbindung planmäßig aus, das NBank-Darlehen aber weiter, kann der Zins für <b>bis zu 100&nbsp;%</b> der Restschuld <b>längstens 20&nbsp;Jahre</b> auf <b>0&nbsp;%</b> sinken. Im Gegenzug verlängert sich die Bindung.<span class="fn">1</span></p>
-    </div>
-    <div class="l-span-3 p17-chap">
-      <p class="chapter-no">06<small>von 06</small></p>
+  <header class="program-head program-head--master p17-title">
+    <div class="program-head__no">
+      <p class="chapter-no">06<small>Programmteil</small></p>
       <p class="tags"><span class="tag"><i class="sw sw--loan-o"></i>Zinsverbilligung</span></p>
     </div>
-  </div>
+    <div class="program-head__main">
+      <p class="kicker">Programmteil 2.6 · Auslaufende Bindungen verlängern</p>
+      <h1 class="h1 h1--s">Bindung verlängern,<br><em>Zins auf 0&nbsp;%</em></h1>
+      <p class="deck">Zinsverbilligung für <b>bis zu 100&nbsp;%</b> der Restschuld, <span class="u-nowrap"><b>längstens 20&nbsp;Jahre</b></span></p>
+      <p class="program-head__subject">Läuft Ihre Belegungs- und Mietbindung planmäßig aus, das NBank-Darlehen aber weiter, kann der Zins auf 0&nbsp;% sinken. Im Gegenzug verlängert sich die Bindung.</p>
+    </div>
+  </header>
 
-  <div class="key-figures p17-kf u-mt-5">
+  <div class="key-figures p17-kf u-mt-4">
     <article class="kf kf--bs p17-kf__main">
-      <div class="kf__top"><span class="kf__idx">01</span><span class="ref">RL Nr. 10.3</span></div>
-      <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">100<span class="kf__unit">%</span></span></p>
-      <div class="kf__side">
-        <h2 class="kf__label">der Restschuld zu 0&nbsp;% Zins</h2>
-        <p class="kf__text">nicht rückzahlbarer Zuschuss, laut NBank mit Ihren Raten verrechnet; Tilgung und Verwaltungskostenbeitrag laufen weiter, kein neues&nbsp;Darlehen</p>
-      </div>
+      <div class="kf__top"><span class="kf__idx">01</span><span class="ref">RL Nr.&nbsp;10.3</span></div>
+      <h2 class="p17-kf__head"><span class="kf__fig"><span class="kf__pre">Bis zu</span> <span class="kf__num">100<span class="u-sr">&nbsp;</span><span class="kf__unit">%</span></span></span> <span class="kf__label">der Restschuld zu 0&nbsp;% Zins</span></h2>
+      <p class="kf__text">nicht rückzahlbarer Zuschuss, laut NBank mit Ihren Raten verrechnet; Tilgung und Verwaltungskostenbeitrag laufen weiter, kein neues&nbsp;Darlehen</p>
     </article>
     <article class="kf kf--bs kf--s">
-      <div class="kf__top"><span class="kf__idx">02</span><span class="ref">RL Nr. 10.3</span></div>
+      <div class="kf__top"><span class="kf__idx">02</span><span class="ref">RL Nr.&nbsp;10.3</span></div>
       <p class="kf__fig"><span class="kf__pre">längstens</span><span class="kf__num">20<span class="kf__unit">Jahre</span></span></p>
       <h2 class="kf__label">Zinsverbilligung</h2>
       <p class="kf__text">solange das Darlehen noch läuft</p>
     </article>
     <article class="kf kf--bs kf--s">
-      <div class="kf__top"><span class="kf__idx">03</span><span class="ref">RL Nr. 12.7.3</span></div>
+      <div class="kf__top"><span class="kf__idx">03</span><span class="ref">RL Nr.&nbsp;12.7.3</span></div>
       <p class="kf__fig"><span class="kf__pre">einmalig</span><span class="kf__num">0,75<span class="kf__unit">%</span></span></p>
       <h2 class="kf__label">Bearbeitungsentgelt</h2>
-      <p class="kf__text">auf den bewilligten Zuschuss (= Zinsverbilligung)</p>
+      <p class="kf__text">auf den bewilligten Zuschuss (=&nbsp;Zinsverbilligung)</p>
     </article>
   </div>
 
-  <figure class="chart module u-mt-5 p17-tl">
+  <p class="caveat">Höchstwerte&nbsp;· Überkompensationsprüfung&nbsp;· kein&nbsp;Rechtsanspruch <a href="#seite-02">→&nbsp;S.&nbsp;2</a></p>
+
+  <figure class="chart module u-mt-3 p17-tl" role="group">
     <div class="p17-plot">
       <figcaption class="chart__head"><h2 class="chart__title">Ablauf und Mietpfad</h2></figcaption>
-      <svg class="chart__svg" viewBox="0 0 174 41.4" width="174mm" height="41.4mm" role="img" aria-label="Schema des Ablaufs, nicht maßstäblich: In der Regel 24 Wochen vor Ablauf der Zinsfreistellung (T) kommt das Prolongationsangebot. Ab T sind bis zu 100 Prozent der Restschuld zu 0 Prozent verzinst, die Bindung verlängert sich bis zum Bindungsende: Monatsende der letzten Darlehensrate, spätestens 20 Jahre nach ursprünglichem Bindungsende. Mietpfad: in Jahr 1 bis 3 der verlängerten Mietbindung ist die Nettokaltmiete eingefroren, auch bei Wiedervermietung; danach höchstens plus 6,15 Prozent in 3 Jahren, Betriebskosten ausgenommen, auch bei Neuvermietung, keine Staffel- oder Indexmiete.">
+      <svg class="chart__svg" viewBox="0 0 174 41.4" width="174mm" height="41.4mm" role="img" aria-label="Schema des Ablaufs, nicht maßstäblich: In der Regel 24 Wochen vor Ablauf der Zinsfreistellung (T) kommt das Prolongationsangebot. Ab T sind bis zu 100 Prozent der Restschuld zu 0 Prozent verzinst, die Bindung verlängert sich bis zum Bindungsende: Monatsende der letzten Darlehensrate, spätestens 20 Jahre nach ursprünglichem Bindungsende. Mietpfad: in den Jahren 1 bis 3 der verlängerten Mietbindung ist die Nettokaltmiete eingefroren, auch bei Wiedervermietung; danach höchstens plus 6,15 Prozent in drei Jahren, Betriebskosten ausgenommen, auch bei Wiedervermietung, keine Staffel- oder Indexmiete.">
         <!-- Band: Zinsverbilligung und verlängerte Bindung -->
         <rect class="tl-band--bs" x="44" y="13.2" width="128" height="9"/>
         <text class="t-val t-on-bs" x="48.4" y="18.85">bis zu 100 % der Restschuld zu <tspan class="p17-zero">0 %</tspan> · Bindung verlängert</text>
@@ -149,47 +134,43 @@
         <path class="p17-lock-arc" d="M46.3 31.2 V30.4 A0.65 0.65 0 0 1 47.6 30.4 V31.2"/>
         <text class="t-b t-m" x="49.6" y="33.4">Nettokaltmiete eingefroren</text>
         <text x="49.6" y="36.9">auch bei Wiedervermietung</text>
-        <text class="t-m p17-cap" x="104.4" y="33.4">höchstens +6,15 % in 3 Jahren</text>
-        <text x="104.4" y="36.9">Betriebskosten ausgenommen; auch bei</text>
-        <text x="104.4" y="40.4">Neuvermietung; keine Staffel- oder Indexmiete</text>
+        <text class="t-m p17-cap t-end" x="174" y="33.4">höchstens +6,15 % in drei Jahren</text>
+        <text class="t-end" x="174" y="36.9">Betriebskosten ausgenommen; auch bei</text>
+        <text class="t-end" x="174" y="40.4">Wiedervermietung; keine Staffel- oder Indexmiete</text>
       </svg>
     </div>
     <ol class="steps steps--h p17-steps" style="--n:4">
-      <li class="step"><h3 class="p17-step__head"><span class="step__no">01</span><span class="step__title">Angebot</span></h3><p class="step__text"><span class="p17-who p17-who--nbank">NBank</span><wbr><span class="u-nowrap">mit <span class="badge badge--form">1011b</span></span></p></li>
-      <li class="step"><h3 class="p17-step__head"><span class="step__no">02</span><span class="step__title">Antrag</span></h3><p class="step__text"><span class="p17-who">Sie</span>erst danach, bei der Wohnraumförderstelle</p></li>
-      <li class="step"><h3 class="p17-step__head"><span class="step__no">03</span><span class="step__title">Annahme</span></h3><p class="step__text"><span class="p17-who">Sie</span>Angebot direkt <span class="u-nowrap">an die NBank</span></p></li>
-      <li class="step"><h3 class="p17-step__head"><span class="step__no">04</span><span class="step__title">Entscheidung</span></h3><p class="step__text"><span class="p17-who p17-who--nbank">NBank</span>prüft u.&nbsp;a. Bedarf und Überkompensation</p></li>
+      <li class="step"><h3 class="p17-step__head"><span class="step__no">01</span> <span class="step__title">Angebot</span></h3><p class="step__text"><span class="p17-who p17-who--nbank">NBank</span> <span class="u-nowrap">mit <span class="badge badge--form">1011b</span></span></p></li>
+      <li class="step"><h3 class="p17-step__head"><span class="step__no">02</span> <span class="step__title">Antrag</span></h3><p class="step__text"><span class="p17-who">Sie</span> erst danach, bei der Wohnraumförderstelle</p></li>
+      <li class="step"><h3 class="p17-step__head"><span class="step__no">03</span> <span class="step__title">Annahme</span></h3><p class="step__text"><span class="p17-who">Sie</span> Angebot direkt <span class="u-nowrap">an die NBank</span></p></li>
+      <li class="step"><h3 class="p17-step__head"><span class="step__no">04</span> <span class="step__title">Entscheidung</span></h3><p class="step__text"><span class="p17-who p17-who--nbank">NBank</span> prüft Bedarf, <span class="u-nohyphens">Überkompensation</span> u.&nbsp;a.</p></li>
     </ol>
-    <p class="chart__note">Schema, nicht maßstäblich; maßgeblich sind Prolongationsangebot und Förderentscheidung. Höchstmieten nach Nr. 5.4.4 gelten hier nicht.</p>
+    <p class="chart__note">Schema, nicht maßstäblich; maßgeblich sind Prolongationsangebot und Förderentscheidung. Höchstmieten nach RL Nr. 5.4.4 gelten hier nicht. Kombination und Abgrenzung zu 2.5 <a class="u-nowrap" href="#seite-16">→&nbsp;S.&nbsp;16</a>.</p>
   </figure>
 
-  <div class="l-grid u-mt-5">
-    <section class="l-span-6 p17-req">
+  <div class="l-grid u-mt-3">
+    <section class="l-span-7 p17-req">
       <h3 class="bullets__title">Voraussetzungen</h3>
       <ul class="bullets bullets--check">
         <li><b>Eigentümerinnen und Eigentümer,</b> die das noch laufende NBank-Darlehen schulden</li>
         <li><b>früher mit Landesmitteln gefördert</b> (§&nbsp;22 NWoFG), Bindung läuft planmäßig aus</li>
         <li><b>abgeschlossen, dauerhaft bewohnbar, gut erhalten,</b> Mindestausstattung, angemessene Größe</li>
-        <li><b>Bedarf besteht weiter</b> (→ S.&nbsp;18)</li>
+        <li><b>Bedarf besteht weiter</b> (<a class="u-nowrap" href="#seite-18">→&nbsp;S.&nbsp;18</a>)</li>
         <li class="p17-no"><i class="mark mark--no" aria-hidden="true"></i>laut NBank <b>nicht förderfähig:</b> ausgelaufene Bindungen, Wohnraum ohne niedersächsische Landesbindung</li>
       </ul>
     </section>
-    <div class="l-span-6 p17-side">
+    <div class="l-span-5 p17-side">
     <aside class="callout callout--hinweis p17-model">
-      <p class="stamp">Modellrechnung</p>
+      <p class="stampline stampline--stack"><span class="stamp">Modellrechnung</span><span>fiktives Beispiel, keine Förderzusage</span></p>
       <h3 class="callout__title">500.000&nbsp;€ Restschuld, 100&nbsp;% verbilligt</h3>
-      <p class="callout__body"><b>Annahme, keine Förderzusage.</b> Jeder entfallende Prozentpunkt Zins spart im ersten Jahr bis zu 5.000&nbsp;€ (1&nbsp;% × 500.000&nbsp;€), danach weniger. Einmalig: 0,75&nbsp;% Bearbeitungsentgelt auf den Zuschuss.</p>
-    </aside>
-    <aside class="callout callout--tipp p17-tipp">
-      <p class="callout__label"><svg class="icon icon--rechner" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.8" width="14" height="18.4" rx="1"/><path d="M8 6.4h8v3.4H8z"/><path d="M8.4 13.4h.01M12 13.4h.01M15.6 13.4h.01M8.4 17.2h.01M12 17.2h.01M15.6 17.2h.01" stroke-width="2"/></svg>Kalkulationsnotiz</p>
-      <p class="callout__body">Wer verlängert, tauscht Zinslast gegen planbare Bindung – ohne neues Darlehen.</p>
+      <p class="callout__body">Jeder entfallende Prozentpunkt Zins spart im ersten Jahr bis zu 5.000&nbsp;€ (1&nbsp;% × 500.000&nbsp;€), danach weniger.</p>
     </aside>
     </div>
   </div>
 
-  <ol class="footnotes l-bottom">
-    <li>RL Nr. 2.6, 3, 5.1.1, 5.2.1, 5.3.7, 5.4.4, 5.4.5, 9.1, 10.1–10.5, 12.7.3; §&nbsp;22 Abs.&nbsp;1 Satz&nbsp;1 NWoFG; NBank-Programmseite <span class="u-nowrap">und -Produktinformation</span> „Verlängerung auslaufender Belegungs- und Mietbindungen“ (Stand 01.07.2026). Kombination mit anderen Förderungen und Abgrenzung zu 2.5: → S.&nbsp;16.</li>
+  <ol class="footnotes footnotes--2col l-bottom">
+    <li class="footnotes__src"><b>Fundstellen:</b> RL Nr. 2.6, 3, 5.1.1, 5.2.1, 5.3.7, 5.4.4, 5.4.5, 9.1, 10.1–10.5, 12.7.3; §&nbsp;22 Abs.&nbsp;1 Satz&nbsp;1 NWoFG; NBank-Programmseite <span class="u-nowrap">und -Produktinformation</span> „Verlängerung auslaufender Belegungs- und Mietbindungen“ (Stand 01.07.2026).</li>
   </ol>
 
-  <footer class="page__foot"><span class="page__folio">17</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Bestand · Programmteil 2.6</b></span><span>Stand: 21.10.2026</span></span></footer>
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">17</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Bestand · Programmteil 2.6</b></span><span>Stand: 21.10.2026</span></span></footer>
 </section>

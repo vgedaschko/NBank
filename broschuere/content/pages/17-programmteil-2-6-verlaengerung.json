@@ -5,7 +5,8 @@
   "running_title": "Bestand · Programmteil 2.6",
   "kicker": "Programmteil 2.6 · Auslaufende Bindungen verlängern",
   "headline": "Bindung verlängern, Zins auf 0 %",
-  "lead": "Läuft Ihre Belegungs- und Mietbindung planmäßig aus, das NBank-Darlehen aber weiter, kann der Zins für bis zu 100 % der Restschuld längstens 20 Jahre auf 0 % sinken. Im Gegenzug verlängert sich die Bindung.",
+  "subline": "Zinsverbilligung für bis zu 100 % der Restschuld, längstens 20 Jahre",
+  "lead": "Läuft Ihre Belegungs- und Mietbindung planmäßig aus, das NBank-Darlehen aber weiter, kann der Zins auf 0 % sinken. Im Gegenzug verlängert sich die Bindung.",
   "blocks": [
     {
       "type": "key_figures",
@@ -69,12 +70,12 @@
           },
           {
             "phase": "danach",
-            "label": "höchstens +6,15 % in 3 Jahren",
-            "detail": "Betriebskosten ausgenommen; auch bei Neuvermietung; keine Staffel- oder Indexmiete"
+            "label": "höchstens +6,15 % in drei Jahren",
+            "detail": "Betriebskosten ausgenommen; auch bei Wiedervermietung; keine Staffel- oder Indexmiete"
           }
         ]
       },
-      "note": "Schema, nicht maßstäblich; maßgeblich sind Prolongationsangebot und Förderentscheidung. Höchstmieten nach Nr. 5.4.4 gelten hier nicht."
+      "note": "Schema, nicht maßstäblich; maßgeblich sind Prolongationsangebot und Förderentscheidung. Höchstmieten nach RL Nr. 5.4.4 gelten hier nicht. Kombination und Abgrenzung zu 2.5 → S. 16."
     },
     {
       "type": "steps",
@@ -96,7 +97,7 @@
         },
         {
           "title": "Entscheidung",
-          "body": "prüft u. a. Bedarf und Überkompensation",
+          "body": "prüft Bedarf, Überkompensation u. a.",
           "who": "NBank"
         }
       ]
@@ -117,18 +118,12 @@
       "variant": "hinweis",
       "role_hint": "stempel",
       "title": "Modellrechnung: 500.000 € Restschuld, 100 % verbilligt",
-      "body": "Annahme, keine Förderzusage. Jeder entfallende Prozentpunkt Zins spart im ersten Jahr bis zu 5.000 € (1 % × 500.000 €), danach weniger. Einmalig: 0,75 % Bearbeitungsentgelt auf den Zuschuss."
-    },
-    {
-      "type": "callout",
-      "variant": "tipp",
-      "title": "Kalkulationsnotiz",
-      "body": "Wer verlängert, tauscht Zinslast gegen planbare Bindung – ohne neues Darlehen."
+      "body": "Jeder entfallende Prozentpunkt Zins spart im ersten Jahr bis zu 5.000 € (1 % × 500.000 €), danach weniger.",
+      "stampline": "Modellrechnung – fiktives Beispiel, keine Förderzusage"
     }
   ],
-  "footnotes": [
-    "RL Nr. 2.6, 3, 5.1.1, 5.2.1, 5.3.7, 5.4.4, 5.4.5, 9.1, 10.1–10.5, 12.7.3; § 22 Abs. 1 Satz 1 NWoFG; NBank-Programmseite und -Produktinformation „Verlängerung auslaufender Belegungs- und Mietbindungen“ (Stand 01.07.2026). Kombination mit anderen Förderungen und Abgrenzung zu 2.5: → S. 16."
-  ],
+  "sources": "Fundstellen: RL Nr. 2.6, 3, 5.1.1, 5.2.1, 5.3.7, 5.4.4, 5.4.5, 9.1, 10.1–10.5, 12.7.3; § 22 Abs. 1 Satz 1 NWoFG; NBank-Programmseite und -Produktinformation „Verlängerung auslaufender Belegungs- und Mietbindungen“ (Stand 01.07.2026).",
+  "footnotes": [],
   "fact_ids": [
     "F204",
     "F205",
@@ -145,5 +140,6 @@
     "F129",
     "F203"
   ],
-  "visual_idea": "Baustein-Register 2.6 (--baustein-26, immer mit Nummer) am Seitenrand, Doppelseite 16|17. Oben drei Kennzahl-Kacheln (bis zu 100 % · 20 Jahre · 0,75 %), „bis zu“ als kleiner Vorsatz über der Ziffer; die Notiz der ersten Kachel erklärt die Zinsverbilligung als verrechneten Zuschuss. Darunter horizontaler Zeitstrahl (Schema, nicht maßstäblich): Marker „T − 24 Wochen: Prolongationsangebot“ (Brief-Icon, Badge 1011b) → Marker „T: Ablauf der Zinsfreistellung“ → farbiges Band in --baustein-26 „bis zu 100 % der Restschuld zu 0 % · Bindung verlängert“ bis zum Endmarker „Bindungsende“ mit Detailzeile (Monatsende der letzten Darlehensrate, spätestens 20 Jahre nach ursprünglichem Bindungsende). T nicht als ursprüngliches Bindungsende beschriften. Unter dem Band schmaler Mietpfad als Stufenlinie: drei Jahre flach („Nettokaltmiete eingefroren“, Schloss-Icon), danach leichter Anstieg „höchstens +6,15 % in 3 Jahren“ mit Detailzeile. Darunter vierstufiger Prozessstreifen mit Akteurs-Labels (NBank → Sie an die Wohnraumförderstelle → Sie an die NBank → NBank entscheidet) und Pfeilen. Voraussetzungs-Bullets links (letzter Punkt „nicht förderfähig“ mit Stopp-Marker), rechts daneben die Modellrechnung als kleine Rechenkachel mit Stempel „Modellrechnung“ und dem Satz „Annahme, keine Förderzusage“."
+  "visual_idea": "Baustein-Register 2.6 (--baustein-26, immer mit Nummer) am Seitenrand, Doppelseite 16|17. Oben drei Kennzahl-Kacheln (bis zu 100 % · 20 Jahre · 0,75 %), „bis zu“ als kleiner Vorsatz über der Ziffer; die Notiz der ersten Kachel erklärt die Zinsverbilligung als verrechneten Zuschuss. Darunter horizontaler Zeitstrahl (Schema, nicht maßstäblich): Marker „T − 24 Wochen: Prolongationsangebot“ (Brief-Icon, Badge 1011b) → Marker „T: Ablauf der Zinsfreistellung“ → farbiges Band in --baustein-26 „bis zu 100 % der Restschuld zu 0 % · Bindung verlängert“ bis zum Endmarker „Bindungsende“ mit Detailzeile (Monatsende der letzten Darlehensrate, spätestens 20 Jahre nach ursprünglichem Bindungsende). T nicht als ursprüngliches Bindungsende beschriften. Unter dem Band schmaler Mietpfad als Stufenlinie: drei Jahre flach („Nettokaltmiete eingefroren“, Schloss-Icon), danach leichter Anstieg „höchstens +6,15 % in 3 Jahren“ mit Detailzeile. Darunter vierstufiger Prozessstreifen mit Akteurs-Labels (NBank → Sie an die Wohnraumförderstelle → Sie an die NBank → NBank entscheidet) und Pfeilen. Voraussetzungs-Bullets links (letzter Punkt „nicht förderfähig“ mit Stopp-Marker), rechts daneben die Modellrechnung als kleine Rechenkachel mit Stempel „Modellrechnung“ und dem Satz „Annahme, keine Förderzusage“.",
+  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2"
 }

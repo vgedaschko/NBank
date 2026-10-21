@@ -1,12 +1,16 @@
-<section class="page page--back" data-page="20">
+<section class="page page--back" data-page="20" id="seite-20">
   <style>
     /* ── Zone 1: Aufruf (links) und zwei Kontaktkacheln (rechts) ─────────── */
     .page[data-page="20"] .p20-top { align-items: stretch; }
     .page[data-page="20"] .p20-title { display: flex; flex-direction: column; }
     .page[data-page="20"] .p20-h1 { line-height: .98; }
-    .page[data-page="20"] .p20-intro { display: grid; grid-template-columns: minmax(0, 1fr) calc(2 * var(--col) + var(--gutter)); column-gap: var(--gutter); align-items: end; margin-top: auto; padding-top: var(--sp-5); }
-    .page[data-page="20"] .p20-lead { font-size: 11pt; }   /* 11,5 pt (lead--s) ergibt eine Trennleiter über drei Zeilen; 11 pt bricht sauber mit einer Trennung */
+    /* Haus als Bildanker und Klammer zum Titel: 29,5 mm breit → rund 47,7 mm hoch (viewBox 49,8 × 80,6) */
+    .page[data-page="20"] .p20-intro { --p20-house-w: 29.5mm; display: grid; grid-template-columns: minmax(0, 1fr) var(--p20-house-w); column-gap: var(--gutter); align-items: end; margin-top: auto; padding-top: var(--sp-5); }
+    .page[data-page="20"] .p20-lead { font-size: 11pt; }   /* etwas kleiner als lead--s: Zeilen neben dem Haus, ungetrennt (.lead) */
     .page[data-page="20"] .p20-house__svg { display: block; width: 100%; height: auto; }
+    /* Druck: keine Linie unter 0,25 pt. Maßstab hier ≈ 1,67 pt je SVG-Einheit → .18 ≈ 0,30 pt.
+       Die kräftigen Geschosskanten (--series, --strong) behalten ihre Stärke; die Titelseite bleibt unberührt. */
+    .page[data-page="20"] .p20-house__svg :is(.ill-crane-l--thin, .ill-cable, .ill-hatch, .ill-pv, .ill-edge:not(.ill-edge--series, .ill-edge--strong)) { stroke-width: .18; }
 
     .page[data-page="20"] .p20-contacts { display: flex; flex-direction: column; gap: var(--sp-2); }
     .page[data-page="20"] .p20-contact { padding: 3mm 4.4mm 3.4mm; }
@@ -17,23 +21,21 @@
     .page[data-page="20"] .p20-contact .contact__name { margin-top: 1.2mm; }
     .page[data-page="20"] .p20-contact .contact__lines { margin-top: 1.2mm; }
     .page[data-page="20"] .p20-contact--start .contact__lines { -webkit-hyphens: none; hyphens: none; }
-    .page[data-page="20"] .p20-tel { font-size: 26pt; font-weight: 360; word-spacing: .12em; margin-top: 1.4mm; }
+    .page[data-page="20"] .p20-tel { margin-top: 1.4mm; }
     .page[data-page="20"] .p20-sites { margin-top: 1.6mm; padding-top: 1.3mm; border-top: var(--hair) solid var(--rule); font-size: var(--fs-micro); line-height: 1.38; color: var(--fg-2); -webkit-hyphens: none; hyphens: none; text-wrap: balance; }
     .page[data-page="20"] .p20-sites b { color: var(--fg); font-weight: 600; }
 
     /* ── Zone 2: Checkliste links, nbank.de + weitere Programme rechts ──── */
-    .page[data-page="20"] .p20-mid { margin-top: var(--sp-5); margin-bottom: var(--sp-5); }
-    .page[data-page="20"] .p20-check .checklist__item { font-size: var(--fs-micro); line-height: 1.36; padding: 1.1mm 0 1.2mm; }
+    .page[data-page="20"] .p20-mid { margin-top: var(--sp-4); margin-bottom: var(--sp-4); }
+    .page[data-page="20"] .p20-check .checklist__item { font-size: var(--fs-module); line-height: 1.3; padding: .9mm 0 1mm; }
     .page[data-page="20"] .p20-check .checklist__box { margin-top: 0; }
-    .page[data-page="20"] .p20-check > .checklist__item:first-child { border-top: 0; }
-    .page[data-page="20"] .p20-nohy { -webkit-hyphens: none; hyphens: none; }
-    .page[data-page="20"] .p20-check .badge { padding: .4mm 1mm .3mm; margin-left: 0; vertical-align: .1mm; }
+    .page[data-page="20"] .p20-check .badge { margin-left: 0; }
     .page[data-page="20"] .p20-basis { margin-top: var(--sp-2); border-top: 0; padding-top: 0; }
 
     .page[data-page="20"] .p20-web { position: relative; }
-    .page[data-page="20"] .p20-links > li { display: grid; grid-template-columns: 4.6mm minmax(0, 1fr); padding: 1.2mm 0 1.3mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-micro); line-height: 1.36; color: var(--fg-2); }
+    .page[data-page="20"] .p20-links > li { display: grid; grid-template-columns: 4.6mm minmax(0, 1fr); padding: 1mm 0 1.1mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-module); line-height: 1.36; color: var(--fg-2); }
     .page[data-page="20"] .p20-links > li b { color: var(--fg); font-weight: 600; }
-    .page[data-page="20"] .p20-links .icon { width: 3.4mm; height: 3.4mm; margin-top: .15mm; color: var(--accent-text); }
+    .page[data-page="20"] .p20-links .p20-arrow { font-weight: 600; color: var(--accent-text); }   /* Pfeil als Zeichen wie im übrigen Heft */
     /* QR-Code im Fach rechts unten neben den drei kurzen Einträgen */
     .page[data-page="20"] .p20-links > li.p20-slot { margin-right: 19mm; }
     .page[data-page="20"] .p20-qr { position: absolute; right: 0; bottom: 2.6mm; width: 16mm; height: 16mm; }
@@ -41,21 +43,17 @@
     .page[data-page="20"] .p20-qr__bg { fill: var(--surface); }
     .page[data-page="20"] .p20-qr__mod { fill: var(--fg); }
 
-    .page[data-page="20"] .p20-more { margin-top: var(--sp-5); }
-    .page[data-page="20"] .p20-prog { display: grid; grid-template-columns: 4.6mm minmax(0, 1fr); padding: 1.6mm 0 1.7mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-micro); line-height: 1.36; color: var(--fg-2); -webkit-hyphens: none; hyphens: none; }
+    .page[data-page="20"] .p20-more { margin-top: var(--sp-4); }
+    .page[data-page="20"] .p20-prog { display: grid; grid-template-columns: 4.6mm minmax(0, 1fr); padding: 1.6mm 0 1.7mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-module); line-height: 1.36; color: var(--fg-2); -webkit-hyphens: none; hyphens: none; }
     .page[data-page="20"] .p20-prog::before { content: ""; width: 1.2mm; height: 100%; background: var(--accent); }
     .page[data-page="20"] .p20-prog b { display: block; margin-bottom: .4mm; font-family: var(--font-display); font-variation-settings: "opsz" 24, "SOFT" 30, "WONK" 0; font-weight: 500; font-size: 10.5pt; line-height: 1.15; color: var(--fg); -webkit-hyphens: none; hyphens: none; }
 
     /* ── Zone 3: Impressum + Quellen ───────────────────────────────────── */
     .page[data-page="20"] .p20-colophon { border-top: var(--hair) solid var(--rule); padding-top: 2.4mm; }
-    .page[data-page="20"] .p20-imprint { margin-top: 1.4mm; --row-gap: 0; line-height: 1.4; -webkit-hyphens: none; hyphens: none; }
-    .page[data-page="20"] .p20-imprint p + p { margin-top: 1.2mm; }
+    .page[data-page="20"] .p20-imprint { margin-top: 1.4mm; --row-gap: 0; line-height: 1.4; }
     .page[data-page="20"] .p20-sources { margin-top: 2.2mm; padding-top: 1.8mm; border-top: var(--hair) solid var(--rule); line-height: 1.4; }
 
     /* ── Register: Programmnummern + sechs Farbstreifen (wie Titel) ─────── */
-    .page[data-page="20"] .p20-register { position: absolute; left: 0; right: 0; bottom: 0; }
-    .page[data-page="20"] .p20-register__nos { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); padding-bottom: 2.4mm; font: 700 var(--fs-micro)/1 var(--font-text); letter-spacing: .04em; text-align: center; font-variant-numeric: tabular-nums; }
-    .page[data-page="20"] .p20-register__nos li { color: var(--bs-tint); }
   </style>
 
   <div class="l-grid p20-top">
@@ -72,12 +70,12 @@
       <address class="contact on-light p20-contact p20-contact--start">
         <p class="contact__label"><svg class="icon icon--standort" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.2s6.6-6.4 6.6-11.4a6.6 6.6 0 0 0-13.2 0c0 5 6.6 11.4 6.6 11.4z"/><circle cx="12" cy="9.8" r="2.4"/></svg>Antrag und Vorabklärung</p>
         <p class="contact__name">Kommunale Wohnraumförderstelle am Bauort</p>
-        <p class="contact__lines">(Landkreis, Stadt, Gemeinde) – Formulare, Beratung, Antrag. Verzeichnis auf <b class="u-url">nbank.de</b></p>
+        <p class="contact__lines">(Landkreis, Stadt, Gemeinde) – Formulare, Beratung, Antrag. Verzeichnis auf <a class="u-url" href="https://www.nbank.de"><b>nbank.de</b></a></p>
       </address>
       <address class="contact p20-contact">
         <p class="contact__label"><svg class="icon icon--telefon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.4h3l1.6 4.2-2 1.4a11 11 0 0 0 5.8 5.8l1.4-2 4.2 1.6v3a2 2 0 0 1-2 2A15.6 15.6 0 0 1 4.6 5.4a2 2 0 0 1 2-2z"/></svg>NBank-Förderberatung Wohnraumförderung</p>
-        <p class="contact__tel p20-tel">0511 30031-9333</p>
-        <p class="contact__lines">Mo–Fr 08:00–17:00 Uhr<br><b class="u-url">wohnraumfoerderung@nbank.de</b></p>
+        <p class="contact__tel contact__tel--l p20-tel"><a href="tel:+49511300319333">0511 30031-9333</a></p>
+        <p class="contact__lines">Mo–Fr 08:00–17:00 Uhr<br><a class="u-url" href="mailto:wohnraumfoerderung@nbank.de"><b>wohnraumfoerderung@nbank.de</b></a></p>
         <p class="p20-sites"><b>Beratungsstellen</b> in Hannover, Braunschweig, Lüneburg, Oldenburg, Osnabrück</p>
       </address>
     </div>
@@ -87,26 +85,26 @@
     <section class="l-span-7 p20-docs" aria-label="Unterlagen bereitlegen">
       <h2 class="bullets__title">Unterlagen bereitlegen (Auszug)</h2>
       <ul class="checklist p20-check">
-        <li class="checklist__item"><span class="checklist__box"></span><span><b>Antrag:</b> <span class="badge badge--form">1011</span>&nbsp;(2.1–2.4) · <span class="badge">1011a</span> + <span class="badge">1012</span> je Wohnung&nbsp;(2.5) · <span class="badge">1011b</span>&nbsp;(2.6)</span></li>
-        <li class="checklist__item"><span class="checklist__box"></span><span><b>Natürliche Personen,</b> ggf. auch Gesellschafterinnen und Gesellschafter: Selbstauskunft&nbsp;<span class="badge">3076</span>, aktuelle und vollständige Schufa-Auskunft, Identifizierung nach GwG <span class="u-nowrap">(<span class="badge">1005a</span> bzw. <span class="badge">1006a</span>, Post-Ident)</span></span></li>
-        <li class="checklist__item"><span class="checklist__box"></span><span class="p20-nohy"><b>Unternehmen:</b> Jahresabschlüsse der letzten zwei Jahre, BWA höchstens drei Monate alt, Handels- und Transparenzregisterauszug</span></li>
+        <li class="checklist__item"><span class="checklist__box"></span><span><b>Antrag:</b> <span class="badge badge--s badge--form">1011</span>&nbsp;(2.1–2.4) · <span class="badge badge--s">1011a</span> + <span class="badge badge--s">1012</span> je Wohnung&nbsp;(2.5) · <span class="badge badge--s">1011b</span>&nbsp;(2.6)</span></li>
+        <li class="checklist__item"><span class="checklist__box"></span><span><b>Natürliche Personen,</b> ggf. auch Gesellschafterinnen und Gesellschafter: Selbstauskunft&nbsp;<span class="badge badge--s">3076</span>, aktuelle und vollständige SCHUFA-Auskunft, Identifizierung nach GwG <span class="u-nowrap">(<span class="badge badge--s">1005a</span> bzw. <span class="badge badge--s">1006a</span>, Postident)</span></span></li>
+        <li class="checklist__item"><span class="checklist__box"></span><span class="u-nohyphens"><b>Unternehmen:</b> Jahresabschlüsse der letzten zwei Jahre, BWA höchstens drei Monate alt, Handels- und Transparenzregisterauszug</span></li>
         <li class="checklist__item"><span class="checklist__box"></span><span>Grundbuchauszug, Lageplan, Bauzeichnungen</span></li>
         <li class="checklist__item"><span class="checklist__box"></span><span>Wohnflächenberechnung (WoFlV), umbauter Raum (DIN&nbsp;277)</span></li>
-        <li class="checklist__item"><span class="checklist__box"></span><span>Baubeschreibung&nbsp;<span class="badge">1021</span>, Kosten-Finanzierungsaufteilung (Excel-Vorlage, Stand&nbsp;08/26)</span></li>
+        <li class="checklist__item"><span class="checklist__box"></span><span>Baubeschreibung&nbsp;<span class="badge badge--s">1021</span>, Arbeitshilfe „Kosten-Finanzierungsaufteilung“ (Excel-Vorlage, Stand&nbsp;08/2026)</span></li>
         <li class="checklist__item"><span class="checklist__box"></span><span><b>bei 2.3:</b> Energiebedarfsausweis mit Ausgangsklasse (ab 2027: Energieausweis auf Grundlage energetischer Bilanzierung)</span></li>
       </ul>
-      <p class="stand p20-basis"><b>Grundlage:</b> NBank-Checklisten vom 20.07.2025 (vor der RL 2026 erstellt) und 22.09.2026 (Bindungserwerb) sowie die Programmseite. Welche Unterlagen Sie brauchen, klärt die Wohnraumförderstelle; Nachforderungen sind möglich.</p>
+      <p class="stand p20-basis"><b>Grundlage:</b> NBank-Checklisten vom 20.07.2025 (vor der RL&nbsp;2026) und 22.09.2026 (2.5). Nachforderungen sind möglich.</p>
     </section>
 
     <div class="l-span-5 p20-side">
       <section class="p20-web" aria-label="Immer aktuell auf nbank.de">
-        <h2 class="bullets__title">Immer aktuell auf <span class="u-url">nbank.de</span></h2>
+        <h2 class="bullets__title">Immer aktuell auf <a class="u-url" href="https://www.nbank.de">nbank.de</a></h2>
         <ul class="p20-links">
-          <li><svg class="icon icon--pfeil" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 12h16M14.2 6.6l5.4 5.4-5.4 5.4"/></svg><span><b>Bemessungsgrenzen</b> für die Herstellungskosten (Ausgangswerte 4.800/5.000&nbsp;€ je&nbsp;m² Wohnfläche, Mietenstufe I–III/IV–VII; Fortschreibung zum 1.4. und 1.10.)</span></li>
-          <li><svg class="icon icon--pfeil" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 12h16M14.2 6.6l5.4 5.4-5.4 5.4"/></svg><span><b>Landkarte Wohnraumförderung</b> (Bedarf)</span></li>
-          <li><svg class="icon icon--pfeil" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 12h16M14.2 6.6l5.4 5.4-5.4 5.4"/></svg><span><b>Vordrucke und Arbeitshilfen</b></span></li>
-          <li class="p20-slot"><svg class="icon icon--pfeil" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 12h16M14.2 6.6l5.4 5.4-5.4 5.4"/></svg><span><b>Entgeltkatalog</b> für sonstige Entgelte</span></li>
-          <li class="p20-slot"><svg class="icon icon--pfeil" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 12h16M14.2 6.6l5.4 5.4-5.4 5.4"/></svg><span><b>Kennzeichnung</b> auf dem Bauschild</span></li>
+          <li><span class="p20-arrow" aria-hidden="true">→</span><span><b>Bemessungsgrenzen</b> für die Herstellungskosten (Ausgangswerte 4.800/5.000&nbsp;€ je&nbsp;m² Wohnfläche, Mietenstufe <span class="u-nowrap">I–III/IV–VII</span>; Fortschreibung jeweils zum 01.04. und 01.10.)</span></li>
+          <li><span class="p20-arrow" aria-hidden="true">→</span><span><b>Landkarte Wohnraumförderung</b> (Bedarf)</span></li>
+          <li><span class="p20-arrow" aria-hidden="true">→</span><span><b>Vordrucke und Arbeitshilfen</b></span></li>
+          <li class="p20-slot"><span class="p20-arrow" aria-hidden="true">→</span><span><b>Entgeltkatalog</b> für sonstige Entgelte</span></li>
+          <li class="p20-slot"><span class="p20-arrow" aria-hidden="true">→</span><span><b>Kennzeichnung</b> auf dem Bauschild</span></li>
         </ul>
         <div class="on-light p20-qr"><svg viewBox="-4 -4 33 33" role="img" aria-label="QR-Code zu https://www.nbank.de"><rect class="p20-qr__bg" x="-4" y="-4" width="33" height="33"/><path class="p20-qr__mod" d="M0 0h7v1h-7zM9 0h1v1h-1zM14 0h1v1h-1zM16 0h1v1h-1zM18 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h1v1h-1zM12 1h3v1h-3zM16 1h1v1h-1zM18 1h1v1h-1zM24 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM9 2h2v1h-2zM13 2h2v1h-2zM16 2h1v1h-1zM18 2h1v1h-1zM20 2h3v1h-3zM24 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM11 3h5v1h-5zM18 3h1v1h-1zM20 3h3v1h-3zM24 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM10 4h1v1h-1zM13 4h2v1h-2zM18 4h1v1h-1zM20 4h3v1h-3zM24 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM10 5h2v1h-2zM14 5h1v1h-1zM18 5h1v1h-1zM24 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h7v1h-7zM8 7h3v1h-3zM15 7h2v1h-2zM1 8h2v1h-2zM6 8h1v1h-1zM11 8h2v1h-2zM16 8h1v1h-1zM18 8h2v1h-2zM21 8h1v1h-1zM2 9h2v1h-2zM7 9h1v1h-1zM9 9h2v1h-2zM12 9h1v1h-1zM15 9h5v1h-5zM21 9h1v1h-1zM23 9h2v1h-2zM2 10h1v1h-1zM5 10h3v1h-3zM10 10h4v1h-4zM15 10h1v1h-1zM18 10h1v1h-1zM21 10h2v1h-2zM24 10h1v1h-1zM1 11h1v1h-1zM4 11h2v1h-2zM8 11h1v1h-1zM10 11h1v1h-1zM12 11h1v1h-1zM14 11h1v1h-1zM17 11h3v1h-3zM21 11h1v1h-1zM2 12h5v1h-5zM8 12h1v1h-1zM10 12h1v1h-1zM13 12h4v1h-4zM18 12h1v1h-1zM24 12h1v1h-1zM1 13h1v1h-1zM7 13h3v1h-3zM11 13h3v1h-3zM15 13h5v1h-5zM23 13h2v1h-2zM0 14h4v1h-4zM6 14h2v1h-2zM9 14h1v1h-1zM11 14h1v1h-1zM13 14h4v1h-4zM18 14h1v1h-1zM21 14h2v1h-2zM24 14h1v1h-1zM2 15h1v1h-1zM4 15h1v1h-1zM7 15h5v1h-5zM14 15h2v1h-2zM17 15h5v1h-5zM0 16h7v1h-7zM9 16h3v1h-3zM14 16h7v1h-7zM23 16h1v1h-1zM8 17h3v1h-3zM12 17h2v1h-2zM16 17h1v1h-1zM20 17h1v1h-1zM24 17h1v1h-1zM0 18h7v1h-7zM10 18h1v1h-1zM12 18h3v1h-3zM16 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM24 18h1v1h-1zM0 19h1v1h-1zM6 19h1v1h-1zM9 19h1v1h-1zM11 19h1v1h-1zM13 19h1v1h-1zM15 19h2v1h-2zM20 19h1v1h-1zM0 20h1v1h-1zM2 20h3v1h-3zM6 20h1v1h-1zM10 20h4v1h-4zM15 20h6v1h-6zM24 20h1v1h-1zM0 21h1v1h-1zM2 21h3v1h-3zM6 21h1v1h-1zM9 21h2v1h-2zM13 21h2v1h-2zM16 21h1v1h-1zM20 21h1v1h-1zM22 21h2v1h-2zM0 22h1v1h-1zM2 22h3v1h-3zM6 22h1v1h-1zM8 22h2v1h-2zM12 22h1v1h-1zM14 22h1v1h-1zM17 22h1v1h-1zM19 22h3v1h-3zM23 22h2v1h-2zM0 23h1v1h-1zM6 23h1v1h-1zM8 23h4v1h-4zM14 23h1v1h-1zM16 23h5v1h-5zM0 24h7v1h-7zM13 24h2v1h-2zM16 24h2v1h-2zM21 24h1v1h-1zM24 24h1v1h-1z"/></svg></div>
       </section>
@@ -128,14 +126,14 @@
       </div>
       <div class="l-span-7">
         <p><b>Hinweise:</b> Kein Rechtsanspruch; Bewilligung im Rahmen der verfügbaren Haushaltsmittel. Fördersätze sind Höchstwerte (Überkompensationsprüfung vorbehalten); maßgeblich sind Richtlinie und Förderentscheidung. Modellrechnungen sind fiktiv.</p>
-        <p><b>Datenschutz:</b> <span class="u-url">datenschutz@nbank.de</span><br><b>Bildnachweis:</b> eigene Illustrationen</p>
+        <p><b>Datenschutz:</b> <a class="u-url" href="mailto:datenschutz@nbank.de">datenschutz@nbank.de</a><br><b>Bildnachweis:</b> eigene Illustrationen</p>
       </div>
     </div>
-    <p class="source p20-sources"><b>Quellen:</b> RL&nbsp;Nr.&nbsp;1.3, 5.2.1, 5.3.2.2, 5.3.7, 10.5, 11.11, 12.1.2, 12.7.4, 13.1; NBank-Seiten „Fokus Wohnraumförderung“ und Beratungsstellen; NBank-Checklisten (Stand 20.07.2025 bzw. 22.09.2026); Bemessungsgrenzen: erster Fortschreibungsstichtag laut eigener Ableitung 01.10.2026, bis 21.10.2026 keine fortgeschriebenen Werte auf nbank.de auffindbar; <span class="u-nowrap">BR-Drs. 474/26</span> (Entwurf neue Mietenstufen ab 01.01.2027); BGBl.&nbsp;2026&nbsp;I Nr.&nbsp;226 (Energieausweis ab 2027).</p>
+    <p class="source p20-sources"><b>Quellen:</b> RL&nbsp;Nr.&nbsp;1.3, 5.2.1, 5.3.2.2, 5.3.7, 10.5, 11.11, 12.1.2, 12.7.4, 13.1; NBank: Programmseite, „Fokus Wohnraumförderung“, Beratungsstellen; <span class="u-nowrap">BR-Drs. 474/26</span> (Entwurf Mietenstufen ab 2027); BGBl.&nbsp;2026&nbsp;I Nr.&nbsp;226 (Energieausweis ab 2027).</p>
   </footer>
 
-  <div class="p20-register" data-bleed>
-    <ol class="p20-register__nos" aria-label="Programmteile 2.1 bis 2.6"><li class="bs-21">2.1</li><li class="bs-22">2.2</li><li class="bs-23">2.3</li><li class="bs-24">2.4</li><li class="bs-25">2.5</li><li class="bs-26">2.6</li></ol>
+  <div class="bs-strip" data-bleed aria-hidden="true">
+    <ol class="bs-strip__nos" aria-label="Programmteile 2.1 bis 2.6"><li class="bs-21">2.1</li><li class="bs-22">2.2</li><li class="bs-23">2.3</li><li class="bs-24">2.4</li><li class="bs-25">2.5</li><li class="bs-26">2.6</li></ol>
     <div class="bs-stripes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
 </section>

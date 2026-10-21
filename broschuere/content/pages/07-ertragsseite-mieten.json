@@ -9,7 +9,7 @@
   "blocks": [
     {
       "type": "table",
-      "caption": "Höchstmiete in Jahr 1–3 der Mietbindung, nettokalt, € je m² und Monat",
+      "caption": "Höchstmiete in den Jahren 1–3 der Mietbindung, nettokalt, € je m² und Monat",
       "columns": [
         "Programmteil",
         "Mietenstufe",
@@ -80,7 +80,7 @@
     {
       "type": "chart",
       "chart": "bar",
-      "title": "Modellrechnung: Höchstmiete Gruppe A, Programmteil 2.1, Mietenstufe IV–VII",
+      "title": "Modellrechnung: Mietpfad 2.1 · Gruppe A · Mietenstufe IV–VII",
       "data": {
         "kind": "step",
         "unit": "€ je m²",
@@ -102,7 +102,8 @@
           }
         ]
       },
-      "note": "Eigene Berechnung: volle Erhöhung um 6,15 % zum frühestmöglichen Zeitpunkt, auf volle Cent abgerundet; nach BGB (§§ 558–559b) kann weniger zulässig sein. Betriebskosten ausgenommen; gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete."
+      "note": "Eigene Berechnung: volle Erhöhung um 6,15 % zum frühestmöglichen Zeitpunkt, auf volle Cent abgerundet; nach BGB (§§ 558–559b) kann weniger zulässig sein. Betriebskosten ausgenommen; gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete.",
+      "stampline": "Modellrechnung – fiktives Beispiel, keine Förderzusage"
     },
     {
       "type": "chart",
@@ -129,13 +130,13 @@
         ],
         "source": "NBank-Wohnungsmarktbericht 2025"
       },
-      "note": "Marktwerte landesweit, nicht nach Mietenstufen. Die NBank prüft bei der Bewilligung, dass keine Überkompensation entsteht (→ S. 11)."
+      "note": "NBank-Wohnungsmarktbericht 2025, landesweit, nicht nach Mietenstufen. Überkompensation prüft die NBank (→ S. 11)."
     },
     {
       "type": "callout",
       "variant": "hinweis",
       "title": "Begriff: Mietenstufe",
-      "body": "Sie bestimmt Höchstmiete und Bemessungsgrenze; ab Stufe IV gilt zudem der Bedarf als gegeben. Stand 21.10.2026 (WoGV-Anlage):\n\n**VI** Buchholz i. d. Nordheide, Neu Wulmstorf\n\n**V** Hannover, Buxtehude, Seevetal, die sieben Inselgemeinden\n\n**IV** Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg\n\n**I–III** übrige Festlandgemeinden. Stufe VII gibt es in Niedersachsen nicht. Neue Stufen ab 2027 sind erst Entwurf – vor dem Antrag prüfen."
+      "body": "Sie bestimmt Höchstmiete und Bemessungsgrenze; ab Stufe IV gilt zudem der Bedarf als gegeben. Zuordnung laut WoGV-Anlage:\n\n**VI** Buchholz i. d. Nordheide, Neu Wulmstorf\n\n**V** Hannover, Buxtehude, Seevetal, die sieben Inselgemeinden\n\n**IV** Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg\n\n**I–III** übrige Festlandgemeinden\n\nStufe VII gibt es in Niedersachsen nicht. Neue Stufen ab 2027 sind erst Entwurf – vor dem Antrag prüfen."
     },
     {
       "type": "bullets",
@@ -153,7 +154,7 @@
         "Zuschläge für Ausstattung, Keller, Energie- und Wärmeeinrichtungen",
         "Entgelte für zwingende Zusatzleistungen",
         "Kosten für Bezugsfertigkeit oder laufende Instandhaltung entgegen BGB auf die Mieterseite abwälzen",
-        "Zwischenvermietung – Ausnahmen: gewerblich im Einzelfall (Zwischenmietpartei übernimmt alle Pflichten, Sie haften mit); Housing First (2.1) mit NBank-Zustimmung"
+        "Zwischenvermietung – Ausnahmen: gewerblich im Einzelfall (Zwischenmietpartei übernimmt alle Pflichten, Sie haften mit); Housing First → S. 8"
       ]
     },
     {
@@ -169,9 +170,9 @@
       "body": "Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete."
     }
   ],
+  "sources": "Fundstellen: RL Nr. 1.2, 5.2.1, 5.3.2.2, 5.4.4–5.4.5, 6.4.1, 7.4.3, 8.3.1, 8.4, 9.4.1, 10.4.2, 11.6–11.10; §§ 7, 9, 14 NWoFG; VV NWoFG Nr. 6; WoGV-Anlage; NBank-Wohnungsmarktbericht 2025.",
   "footnotes": [
-    "RL Nr. 1.2, 5.2.1, 5.3.2.2, 5.4.4–5.4.5, 6.4.1, 7.4.3, 8.3.1, 8.4, 9.4.1, 10.4.2, 11.6–11.10; §§ 7, 9, 14 NWoFG; VV NWoFG Nr. 6; WoGV-Anlage; NBank-Wohnungsmarktbericht 2025.",
-    "Inseln (Mietenstufe V): In 2.4 gelten eigene Höchstmieten und das 1,5-Fache der Bemessungsgrenze für Mietenstufe I–III; welche Mietenstufe in 2.2 und 2.3 auf den Inseln maßgeblich ist, mit der NBank klären."
+    "Inseln (Mietenstufe V): Welche Stufe in 2.2 und 2.3 dort gilt, mit der NBank klären; 2.4 mit eigenen Werten → S. 13."
   ],
   "fact_ids": [
     "F214",

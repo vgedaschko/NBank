@@ -52,9 +52,10 @@
           ]
         },
         "stamp": "Modellrechnung – fiktives Beispiel, keine Förderzusage",
-        "assumption": "Annahme: 60 m², angemessen für einen Zwei-Personen-Haushalt (Nr. 5.1.1)"
+        "assumption": "Annahme: 60 m², angemessen für einen Zwei-Personen-Haushalt (RL Nr. 5.1.1)",
+        "formula": "Eigene Berechnung: 60 m² × Satz × 12 × Jahre"
       },
-      "note": "Eigene Berechnung: 60 m² × Satz × 12 × Jahre. Zwischenlaufzeiten mit der NBank klären; Überkompensationsprüfung vorbehalten."
+      "note": "Zwischenlaufzeiten mit der NBank klären."
     },
     {
       "type": "chart",
@@ -79,7 +80,7 @@
             "label": "nach 5 bis 20 Jahren"
           }
         ],
-        "example": "Modellwohnung 60 m², 20 Jahre: 21.276 € nach Erstbelegung (21.600 € abzüglich 324 € Bearbeitungsentgelt) und 21.600 € nach 10 Jahren"
+        "example": "Modellwohnung 60 m², 20 Jahre: 21.276 € nach Erstbelegung (21.600 € abzüglich 324 € Entgelt) und 21.600 € nach 10 Jahren"
       }
     },
     {
@@ -96,31 +97,31 @@
       "heading": "Wer und welche Wohnung",
       "items": [
         "Wirtschaftlich Berechtigte mit dauerhafter Verfügung: Eigentum, Erbbaurecht oder vergleichbares Nutzungsrecht",
-        "Wohnung frei, ungebunden, abgeschlossen, gut erhalten, angemessen groß, dauerhaft vermietbar; Mindestausstattung nach Nr. 9.1 (u. a. Heizung, Bad, Küchenanschluss); Besichtigung durch die Wohnraumförderstelle",
+        "Wohnung frei, ungebunden, abgeschlossen, gut erhalten, angemessen groß, dauerhaft vermietbar; Mindestausstattung nach RL Nr. 9.1 (u. a. Heizung, Bad, Küchenanschluss); Besichtigung durch die Wohnraumförderstelle",
         "insbesondere für besondere Bedarfsgruppen, etwa wohnungslose oder davon bedrohte Menschen, Frauen aus Frauenhäusern, Haftentlassene: dann **nur an sie vermieten**; Nachweis per wohnungsbezogenem WBS eines volljährigen Haushaltsmitglieds"
       ]
     },
     {
-      "type": "callout",
-      "variant": "achtung",
-      "title": "Erst Bewilligung, dann Vertrag",
-      "body": "Mietvertrag oder Überlassung an einen WBS-Haushalt vor der Bewilligung gilt als Vorhabenbeginn: keine Förderung. Vorsorglich vorher kein Mietangebot."
+      "type": "text",
+      "variant": "stop-line",
+      "title": "Erst Bewilligung, dann Mietvertrag:",
+      "body": "Mietvertrag oder Überlassung an einen WBS-Haushalt vor der Bewilligung gilt als Vorhabenbeginn – keine Förderung; vorsorglich vorher kein Mietangebot (→ S. 19)."
     },
     {
       "type": "text",
       "heading": "Kombinierbar mit",
-      "body": "Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überkompensation (mit der NBank klären). Bindungen direkt im Anschluss an auslaufende fördert die NBank hier nicht; planmäßig auslaufende Landesbindungen mit laufendem NBank-Darlehen: 2.6 (→ S. 17)."
+      "body": "Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überkompensation (mit der NBank klären). Eine Bindung, die direkt an eine auslaufende Bindung anschließt, fördert die NBank in 2.5 nicht; planmäßig auslaufende Landesbindungen mit laufendem NBank-Darlehen: 2.6 (→ S. 17)."
     },
     {
       "type": "callout",
       "variant": "tipp",
       "title": "Kalkulationsnotiz",
-      "body": "Modellrechnung: bis zu 9,50 € je m² und Monat in Jahr 1–3 (Mietenstufe I–III, 15–20 Jahre Bindung) aus höchstens 6,50 € Miete plus 3,00 € Zuschuss – unverzinst, vor Entgelt; Zuschuss in zwei Raten."
+      "body": "Modellrechnung: bis zu 9,50 € je m² und Monat in den Jahren 1–3 (Mietenstufe I–III, 15–20 Jahre Bindung) aus höchstens 6,50 € Miete plus 3,00 € Zuschuss – unverzinst, vor Entgelt; Zuschuss in zwei Raten.",
+      "variant_option": "calc--figure (Rechengrafik: höchstens 6,50 € Miete + 3,00 € Zuschuss = bis zu 9,50 €)"
     }
   ],
-  "footnotes": [
-    "RL Nr. 1.5, 2.5, 3, 4.2, 5.1.1, 5.3.7, 5.4.4, 5.4.5, 9.1–9.5, 11.4, 12.7.3; NBank-Produktinformation und Checkliste „Erwerb von Belegungs- und Mietbindungen“ (Stand 22.09.2026; Unterlagen → S. 20)."
-  ],
+  "sources": "Fundstellen: RL Nr. 1.5, 2.5, 3, 4.2, 5.1.1, 5.3.7, 5.4.4, 5.4.5, 9.1–9.5, 11.4, 12.7.3; NBank-Produktinformation und Checkliste „Erwerb von Belegungs- und Mietbindungen“ (Stand 22.09.2026; Unterlagen → S. 20).",
+  "footnotes": [],
   "fact_ids": [
     "F189",
     "F190",
@@ -143,5 +144,6 @@
     "F204",
     "F255"
   ],
-  "visual_idea": "Baustein-Register 2.5 (--baustein-25, immer mit Nummer) am Seitenrand. Oben Säulendiagramm „Zuschuss für eine 60-m²-Wohnung“ (7.200 / 18.000 / 32.400 / 43.200 €, Säulen in --color-grant) mit überlagerter Stufenlinie des Satzes (2,00 / 2,50 / 3,00 / 3,00 €, eigene Achse rechts); Bearbeitungsentgelt als kleiner Wert unter jeder Säule; Annahmezeile „60 m², Zwei-Personen-Haushalt“; Stempel „Modellrechnung – fiktives Beispiel, keine Förderzusage“ schräg in der Ecke. Darunter schmaler Zeitstrahl mit vier Marken, die zwei Auszahlungsmarken (Erstbelegung, Halbzeit) als gefüllte Münz-Icons, Beispielzeile mit Netto-Betrag der ersten Rate klein darunter. Warnbox mit --signal-Rahmen und Stopp-Marker (ui-stopp.svg) „Erst Bewilligung, dann Vertrag“, gut sichtbar neben den Wohnungs-Kriterien; „nur an sie vermieten“ in den Bedarfsgruppen fett. „Kombinierbar mit“ als schmale Zeile. Kalkulationsnotiz mit Rechensymbol am Fuß, darin die Rechnung als kleine Gleichung „höchstens 6,50 € Miete + 3,00 € Zuschuss = bis zu 9,50 €“ (zweigeteilter Balken: Miete --color-primary, Zuschuss --color-grant) mit Vermerk „Modellrechnung“. Kein Kennzahl-Badge mit 9,50 € (Verwechslungsgefahr mit der Inselmiete)."
+  "visual_idea": "Baustein-Register 2.5 (--baustein-25, immer mit Nummer) am Seitenrand. Oben Säulendiagramm „Zuschuss für eine 60-m²-Wohnung“ (7.200 / 18.000 / 32.400 / 43.200 €, Säulen in --color-grant) mit überlagerter Stufenlinie des Satzes (2,00 / 2,50 / 3,00 / 3,00 €, eigene Achse rechts); Bearbeitungsentgelt als kleiner Wert unter jeder Säule; Annahmezeile „60 m², Zwei-Personen-Haushalt“; Stempel „Modellrechnung – fiktives Beispiel, keine Förderzusage“ schräg in der Ecke. Darunter schmaler Zeitstrahl mit vier Marken, die zwei Auszahlungsmarken (Erstbelegung, Halbzeit) als gefüllte Münz-Icons, Beispielzeile mit Netto-Betrag der ersten Rate klein darunter. Warnbox mit --signal-Rahmen und Stopp-Marker (ui-stopp.svg) „Erst Bewilligung, dann Vertrag“, gut sichtbar neben den Wohnungs-Kriterien; „nur an sie vermieten“ in den Bedarfsgruppen fett. „Kombinierbar mit“ als schmale Zeile. Kalkulationsnotiz mit Rechensymbol am Fuß, darin die Rechnung als kleine Gleichung „höchstens 6,50 € Miete + 3,00 € Zuschuss = bis zu 9,50 €“ (zweigeteilter Balken: Miete --color-primary, Zuschuss --color-grant) mit Vermerk „Modellrechnung“. Kein Kennzahl-Badge mit 9,50 € (Verwechslungsgefahr mit der Inselmiete).",
+  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2"
 }

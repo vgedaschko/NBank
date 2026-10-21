@@ -16,7 +16,7 @@
         "branches": [
           {
             "branch": "A",
-            "label": "Wohnraum im Mehrfamilienhaus neu schaffen oder bis 2 Jahre nach Fertigstellung erstmals erwerben",
+            "label": "Wohnraum im Mehrfamilienhaus neu schaffen oder bis zwei Jahre nach Fertigstellung erstmals erwerben",
             "questions": [
               {
                 "q": "Auf Borkum, Norderney, Juist, Wangerooge, Baltrum, Langeoog oder Spiekeroog?",
@@ -118,7 +118,7 @@
             "token": "--baustein-22",
             "name": "Energetisch hochwertiger Neubau",
             "instrument": "nur Zuschuss",
-            "max": "A 50 · B 40 · C 30 %, max. 90.000 / 75.000 / 60.000 € je Wohnung",
+            "max": "A 50 · B 40 · C 30 %, max. 90.000/75.000/60.000 € je Wohnung",
             "binding": "35 Jahre",
             "equity": "mind. 20 %",
             "page": "S. 12"
@@ -141,7 +141,7 @@
             "name": "Klimagerechte Modernisierung",
             "instrument": "Zuschuss je gebundener Wohnung",
             "max": "10–40 %, höchstens 9.000–31.000 €",
-            "binding": "25 Jahre ab Abschluss; vermietete Wohnungen +10, außer Wohnberechtigung nachgewiesen",
+            "binding": "25 Jahre ab Abschluss; vermietete Wohnungen +10 Jahre, außer bei WBS-Nachweis",
             "equity": "mind. 20 %",
             "page": "S. 14"
           },
@@ -150,8 +150,9 @@
             "branch": "C",
             "token": "--baustein-25",
             "name": "Belegungsbindungen erwerben",
-            "instrument": "Zuschuss als Festbetrag",
-            "max": "2,00–3,00 € je m² und Monat",
+            "instrument": "Zuschuss",
+            "max_label": "Festbetrag",
+            "max": "2,00–3,00 € je m² und Monat, nach Bindungsdauer gestaffelt",
             "binding": "5–20 Jahre",
             "equity": null,
             "page": "S. 16"
@@ -162,20 +163,22 @@
             "token": "--baustein-26",
             "name": "Auslaufende Bindungen verlängern",
             "instrument": "Zuschuss zur Zinsverbilligung",
-            "max": "0 % Zins auf bis zu 100 % der Restschuld, längstens 20 Jahre; Tilgung und Verwaltungskostenbeitrag laufen weiter",
+            "max_label": "Zins",
+            "max": "0 % auf bis zu 100 % der Restschuld, längstens 20 Jahre; Tilgung und Verwaltungskostenbeitrag laufen weiter",
             "binding": "+ bis zu 20 Jahre",
             "equity": null,
             "page": "S. 17"
           }
         ]
       },
-      "note": "Höchstwerte ohne Rechtsanspruch, Überkompensationsprüfung vorbehalten. Kosten: Darlehen 0,5 % Verwaltungskostenbeitrag p. a. und einmalig 1 % Bearbeitungsentgelt, Zuschüsse einmalig 0,75 % (→ S. 9). 2.4: Darlehen und Zuschuss zusammen, eigene Berechnung."
+      "note": "Kachel 2.4: 90 % und 100 % sind jeweils Darlehen und Zuschuss zusammen (eigene Berechnung)."
     },
     {
       "type": "callout",
-      "variant": "achtung",
+      "variant": "gate",
       "title": "Erst Bewilligung, dann Vertrag oder Spatenstich",
-      "body": "Kein Liefer-, Leistungs-, Werk- oder Kaufvertrag (Grundstückskauf ausgenommen) und kein Baubeginn vor der Bewilligung – sonst keine Förderung, außer bei zugelassenem vorzeitigem Beginn. Bei 2.5 schaden schon Mietvertrag oder Überlassung. → S. 19"
+      "body": "→ S. 19",
+      "note": "Einzeiliges Bernstein-Gate am Fuß des Baums; die vollständige Regel (Vertragsarten, Grundstückserwerb, 2.5: Mietvertrag/Überlassung, Ausnahmen) steht im Grundcheck S. 4 und im Antragsweg S. 19."
     },
     {
       "type": "bullets",
@@ -183,7 +186,7 @@
       "items": [
         "Ferienwohnungen, Ferien- und Wochenendhäuser",
         "Heime nach § 2 Abs. 2–4 NuWG",
-        "stationäre oder quasi-stationäre Versorgung (SGB IX/XI)",
+        "stationäre oder quasistationäre Versorgung (SGB IX/XI)",
         "Wohnraum gekoppelt an Pflege- oder Betreuungsvertrag",
         "Gemeinschaftsunterkünfte",
         "frei finanzierte Wohnungen ohne Bindung",
@@ -192,9 +195,8 @@
       ]
     }
   ],
-  "footnotes": [
-    "RL Nr. 1.5, 2.1–2.7, 4.2, 5.2.5, 5.2.6, 5.3, 6–10, 12.1.2, 12.7, 13.3; NBank-Vordrucke 1011, 1011a, 1011b, 1012; NBank-Merkblatt Vorzeitiger Vorhabenbeginn; NBank-Produktinformation Verlängerung."
-  ],
+  "sources": "Fundstellen: RL Nr. 1.5, 2.1–2.7, 4.2, 5.2.5, 5.2.6, 5.3, 6–10, 12.1.2, 12.7, 13.3; NBank-Vordrucke 1011, 1011a, 1011b, 1012; NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“; NBank-Produktinformation Verlängerung.",
+  "footnotes": [],
   "fact_ids": [
     "F003",
     "F044",
@@ -248,5 +250,6 @@
     "G1-24",
     "G3-19"
   ],
-  "visual_idea": "Ganzseitiges Flussdiagramm: Startknoten = Blocktitel „Was haben Sie vor?“, vier Äste A–D mit Rauten (Ja/Nein) und ruhigen Linien; „weiter“ führt zur nächsten Raute, Nein-Ausgänge ohne Ziel (null) nicht zeichnen. Jeder Ast endet in einer Ziel-Kachel in der jeweiligen Baustein-Farbe (--baustein-21 … --baustein-26), immer groß mit Nummer 2.1–2.6 (graustufenfest), Förderart-Icon (Darlehen/Zuschuss/Festbetrag/Zins) und Seitenzahl. Kachelfelder: Instrument · Bis zu · Bindung · Eigenmittel (bei 2.5 und 2.6 Feld Eigenmittel weglassen). Hinweis-Pins als kleine Sprechblasen an 2.2, 2.3, 2.4 und 2.6. Stopp-Marker in --signal mit Titelzeile als Schild. „Nicht förderfähig“ als schmale Fußleiste mit durchgestrichenen Piktogrammen."
+  "visual_idea": "Ganzseitiges Flussdiagramm: Startknoten = Blocktitel „Was haben Sie vor?“, vier Äste A–D mit Rauten (Ja/Nein) und ruhigen Linien; „weiter“ führt zur nächsten Raute, Nein-Ausgänge ohne Ziel (null) nicht zeichnen. Jeder Ast endet in einer Ziel-Kachel in der jeweiligen Baustein-Farbe (--baustein-21 … --baustein-26), immer groß mit Nummer 2.1–2.6 (graustufenfest), Förderart-Icon (Darlehen/Zuschuss/Festbetrag/Zins) und Seitenzahl. Kachelfelder: Instrument · Bis zu · Bindung · Eigenmittel (Feldetikett „Bis zu“ bei 2.5 als „Festbetrag“, bei 2.6 als „Zins“ – Feld max_label; bei 2.5 und 2.6 Feld Eigenmittel weglassen). Hinweis-Pins als kleine Sprechblasen an 2.2, 2.3, 2.4 und 2.6. Stopp-Marker in --signal mit Titelzeile als Schild. „Nicht förderfähig“ als schmale Fußleiste mit durchgestrichenen Piktogrammen.",
+  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2"
 }

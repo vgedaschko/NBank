@@ -9,44 +9,13 @@
   "lead": "Für den Neubau ab KfW-Effizienzhaus-40-Niveau: kein Darlehen, also kein Verwaltungskostenbeitrag. Es gilt der niedrigere Wert aus Prozentsatz und Höchstbetrag je Wohnung.",
   "blocks": [
     {
-      "type": "table",
-      "caption": "Zuschuss je Einkommensgruppe",
-      "columns": [
-        "Einkommensgruppe",
-        "bis zu",
-        "höchstens je Wohnung",
-        "Höchstbetrag greift ab Kosten je Wohnung"
-      ],
-      "rows": [
-        [
-          "A",
-          "50 %",
-          "90.000 €",
-          "180.000 €"
-        ],
-        [
-          "B",
-          "40 %",
-          "75.000 €",
-          "187.500 €"
-        ],
-        [
-          "C",
-          "30 %",
-          "60.000 €",
-          "200.000 €"
-        ]
-      ],
-      "note": "In % der zuwendungsfähigen Herstellungs- und Grundstückskosten; Überkompensationsprüfung vorbehalten; letzte Spalte eigene Berechnung. B und C nur mit Zulassung der NBank (§ 4 DVO-NWoFG, → S. 6). Ob Bemessungsgrenze und Bodenrichtwert-Deckel gelten, regelt Nr. 6.3.2 nicht – mit der NBank klären. Bearbeitungsentgelt 0,75 % (675 € bei 90.000 €)."
-    },
-    {
       "type": "chart",
       "chart": "bar",
       "title": "Zuschuss je Wohnung nach Kosten je Wohnung",
       "data": {
         "kind": "capped-lines",
         "x": {
-          "label": "zuwendungsfähige Kosten je Wohnung",
+          "label": "zuwendungsfähige Herstellungs- und Grundstückskosten je Wohnung",
           "unit": "€",
           "from": 0,
           "to": 400000,
@@ -87,9 +56,26 @@
         "marker": {
           "x": 350000,
           "label": "Modell S. 10"
-        }
+        },
+        "direct_labels": "rechts je Linie: Gruppe · bis zu Satz · Höchstbetrag (keine Legende)"
       },
-      "note": "Modell S. 10, vereinfacht (350.000 € je Wohnung, Annahme EH 40): 2.2 bis zu 1,8 Mio. € Zuschuss, 2.1 bis zu 2,8 Mio. € – dort nur mit 2,8 Mio. € Darlehen. Mehr Zuschuss als 2.1 bringt 2.2 bis 225.000 € (A), 375.000 € (B) bzw. 600.000 € (C) Kosten je Wohnung; eigene Berechnung."
+      "note": "Knickpunkte eigene Berechnung. B und C nur mit NBank-Zulassung (§ 4 DVO-NWoFG, → S. 6). Ob Bemessungsgrenze und Bodenrichtwert-Deckel gelten, regelt RL Nr. 6.3.2 nicht – mit der NBank klären.\n\nModell (→ S. 10), vereinfacht (350.000 € je Wohnung, Annahme EH 40): 2.2 bis zu 1,8 Mio. € Zuschuss, 2.1 bis zu 2,8 Mio. € – dort nur mit 2,8 Mio. € Darlehen. 2.2 bringt mehr Zuschuss als 2.1, solange die zuwendungsfähigen Kosten je Wohnung unter 225.000 € (A), 375.000 € (B) bzw. 600.000 € (C) liegen; eigene Berechnung."
+    },
+    {
+      "type": "callout",
+      "variant": "achtung",
+      "title": "Kombination: nicht mit 2.1",
+      "body": "Keine Kumulierung mit Darlehen oder Zuschuss aus 2.1 (RL Nr. 6.3.4), laut NBank auch nicht mit Förderdarlehen anderer Fördersegmente der RL. Offen: 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen – mit der NBank klären."
+    },
+    {
+      "type": "bullets",
+      "heading": "Spielregeln",
+      "items": [
+        "Höchstmiete nettokalt Jahr 1–3: 6,80–9,30 € je m² nach Gruppe und Mietenstufe, EH-40-Aufschlag enthalten (Tabelle → S. 7); danach höchstens +6,15 % in drei Jahren",
+        "Bindung 35 Jahre ab Bezugsfertigkeit, grundsätzlich per beschränkter persönlicher Dienstbarkeit gesichert (Verzicht in begründeten Fällen möglich)",
+        "Auszahlung in 4 Raten (→ S. 9); Bearbeitungsentgelt 0,75 % (675 € bei 90.000 €)",
+        "Mit KfW kombiniert: Die NBank stimmt sich vor der Bewilligung mit der KfW ab; das Überkompensationsverbot gilt (RL Nr. 11.4, 11.10). KfW 298 (Kommunen: 498): Die Stufe „Klimafreundliches Wohngebäude“ verlangt neben EH 40 Lebenszyklus-Anforderungen (befristete EH-55-Stufe → S. 8). Alle Förderungen zusammen höchstens die förderfähigen KfW-Kosten ohne Grundstück"
+      ]
     },
     {
       "type": "bullets",
@@ -97,36 +83,14 @@
       "items": [
         "nur Neubau – keine Änderung, Erweiterung oder Ersterwerb",
         "gemeinschaftliche Wohnformen möglich; keine Zuschläge für Housing First oder Modellprojekte",
-        "wie 2.1: Bedarf, gesichertes Grundstück, mind. 2 gebundene Wohnungen je Neubau, Eigenmittel mind. 20 % (→ S. 4)"
+        "wie 2.1: Bedarf, gesichertes Grundstück, mind. 2 gebundene Wohnungen je Neubau, Eigenmittel mind. 20 % (→ S. 4)",
+        "EH-40-Nachweis mit der Fertigstellungsanzeige: Sachverständige mit Energieausweis-Berechtigung oder Energieeffizienz-Expertenliste; bei KfW-Mitfinanzierung genügt die KfW-Bescheinigung",
+        "Brand- und Sturmversicherung bis Bindungsende"
       ]
-    },
-    {
-      "type": "bullets",
-      "heading": "Spielregeln",
-      "items": [
-        "Höchstmiete nettokalt Jahr 1–3 (A/B/C): Mietenstufe I–III 6,80/8,20/9,00 €, IV–VII 7,10/8,50/9,30 € – EH-40-Aufschlag enthalten; danach höchstens 6,15 % in 3 Jahren",
-        "Bindung 35 Jahre ab Bezugsfertigkeit, grundsätzlich per beschränkter persönlicher Dienstbarkeit gesichert",
-        "Brand- und Sturmversicherung bis Bindungsende",
-        "Auszahlung in 4 Raten (→ S. 9)",
-        "EH-40-Nachweis mit der Fertigstellungsanzeige: Sachverständige mit Energieausweis-Berechtigung oder Energieeffizienz-Expertenliste; bei KfW-Mitfinanzierung genügt die KfW-Bescheinigung"
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "achtung",
-      "title": "Kombination: nicht mit 2.1",
-      "body": "Keine Kumulierung mit Darlehen oder Zuschuss aus 2.1 (RL Nr. 6.3.4), laut NBank auch nicht mit Förderdarlehen anderer Fördersegmente der RL. Offen: 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen – mit der NBank klären.\n\n**KfW 298** (Kommunen: 498): Die Stufe „Klimafreundliches Wohngebäude“ verlangt neben EH 40 Lebenszyklus-Anforderungen (befristete EH-55-Stufe → S. 8). Alle Förderungen zusammen höchstens die förderfähigen KfW-Kosten ohne Grundstück."
-    },
-    {
-      "type": "callout",
-      "variant": "tipp",
-      "title": "Kalkulationsnotiz",
-      "body": "Ohne NBank-Darlehen entfallen Tilgung und Verwaltungskostenbeitrag – den Rest finanzieren Sie über Eigenmittel und Kapitalmarkt."
     }
   ],
-  "footnotes": [
-    "RL Nr. 1.6, 2.2, 5.3.7, 6.1–6.5, 11.4, 11.5, 12.3.2, 12.7.3; § 4 DVO-NWoFG; NBank-Produktinformation EH-40-Neubau (Stand 10.07.2026); KfW-Merkblatt 297/298 (KFN „Klimafreundlicher Neubau – Wohngebäude“). Auf die Dienstbarkeit kann in begründeten Fällen verzichtet werden (RL Nr. 11.5). Bei Kombination stimmt sich die NBank vor der Bewilligung mit der KfW ab; das Überkompensationsverbot gilt (RL Nr. 11.4, 11.10)."
-  ],
+  "sources": "Fundstellen: RL Nr. 1.6, 2.2, 5.3.7, 6.1–6.5, 11.4, 11.5, 12.3.2, 12.7.3; § 4 DVO-NWoFG; NBank-Produktinformation EH-40-Neubau (Stand 10.07.2026); KfW-Merkblatt 297/298 (KFN „Klimafreundlicher Neubau – Wohngebäude“).",
+  "footnotes": [],
   "fact_ids": [
     "F130",
     "F131",
@@ -164,5 +128,6 @@
     "G2-31",
     "G2-05"
   ],
-  "visual_idea": "Baustein-Register 2.2 (--baustein-22) mit Nummer am Seitenrand. Oben das Kappungsdiagramm: x-Achse zuwendungsfähige Kosten je Wohnung 0–400.000 €, y-Achse Zuschuss je Wohnung; drei Linien A/B/C steigen bis 180.000 / 187.500 / 200.000 € und laufen dann flach bei 90.000 / 75.000 / 60.000 € (Knickpunkte beschriftet, Linien direkt mit A/B/C etikettiert und über Strichart graustufenfest), senkrechte gestrichelte Markierung bei 350.000 € „Modell S. 10“; der Vergleich 2.1/2.2 steht nur als Notizzeile unter dem Diagramm (kein eigenes Balkenpaar). Daneben Badges „kein Darlehen · kein Verwaltungskostenbeitrag“. Darunter die kompakte Zuschusstabelle (Kopf „Einkommensgruppe“, Zeile A hervorgehoben). Unteres Drittel: zwei Listen „Gegenstand, Voraussetzungen“ und „Spielregeln“, daneben der Achtung-Kasten „Kombination: nicht mit 2.1“ (l-span-6, mit KfW-Absatz), Kalkulationsnotiz am Fuß. Nur 1 Diagramm, 1 Tabelle, 2 Callouts."
+  "visual_idea": "Baustein-Register 2.2 (--baustein-22) mit Nummer am Seitenrand. Hauptelement: das Kappungsdiagramm über die volle Satzbreite (174 mm) – x-Achse zuwendungsfähige Herstellungs- und Grundstückskosten je Wohnung 0–400.000 €, y-Achse Zuschuss je Wohnung; drei Linien A/B/C steigen bis 180.000 / 187.500 / 200.000 € und laufen dann flach bei 90.000 / 75.000 / 60.000 € (Knickpunkte beschriftet, Linien über Strichart graustufenfest, rechts direkt beschriftet mit Gruppe · bis zu Satz · Höchstbetrag, keine Legende), senkrechte gestrichelte Markierung bei 350.000 € „Modell S. 10“. Keine Tabelle: Sätze, Höchstbeträge und Knickpunkte stehen nur im Diagramm. Darunter in einer Zeile: Bildunterschrift (7 Spalten: Knickpunkte, B/C-Zulassung, Deckel offen; Vergleich 2.1/2.2 als Notiz, kein eigenes Balkenpaar; Kurzmarke) und der Achtung-Kasten „Kombination: nicht mit 2.1“ (5 Spalten, nur Kumulierungssperre). Unteres Drittel: „Spielregeln“ (7 Spalten, KfW 298 in der Regel „Mit KfW kombiniert“) und „Gegenstand, Voraussetzungen“ (5 Spalten) – fluchtet mit Bildunterschrift | Achtung, Reihenfolge wie S. 13. Nur 1 Diagramm, 1 Callout.",
+  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2"
 }

@@ -31,8 +31,8 @@
           },
           {
             "date": "01.10.2026",
-            "label": "1. Fortschreibung Bemessungsgrenzen",
-            "detail": "erster Stichtag laut eigener Ableitung; bis 21.10.2026 keine fortgeschriebenen Werte auf nbank.de auffindbar",
+            "label": "Fortschreibung der Bemessungsgrenzen",
+            "detail": "erster Stichtag laut eigener Ableitung; Stand der Werte → S. 8",
             "style": "normal"
           },
           {
@@ -45,25 +45,25 @@
           {
             "date": "31.12.2026",
             "label": "Neubau: KfW-Stufe EH 55 (298) endet",
-            "detail": "letzter Antragseingang bei der KfW, Bundesmittelvorbehalt – gilt nicht für Modernisierung",
+            "detail": "letzter Antragseingang bei der KfW, unter Bundesmittelvorbehalt; gilt nicht für Modernisierung",
             "style": "normal"
           },
           {
             "date": "01.01.2027",
             "label": "Neue Mietenstufen geplant",
-            "detail": "Entwurf, nicht beschlossen – Folgen mit der NBank klären",
+            "detail": "Entwurf, nicht beschlossen; Folgen mit der NBank klären",
             "style": "dashed"
           },
           {
             "date": "01.01.2027",
             "label": "Neue Rechennorm für Energiebedarfsausweise",
-            "detail": "beschlossen (BGBl. 2026 I Nr. 226), DIN/TS 18599:2025-10; Klassengrenzen unverändert – Folgen für den Klassensprung (2.3) mit der NBank klären",
+            "detail": "beschlossen, DIN/TS 18599:2025-10; Klassengrenzen unverändert; Klassensprung (2.3): Folgen mit der NBank klären",
             "style": "normal"
           },
           {
             "date": "01.04.2027",
             "label": "Nächste Fortschreibung",
-            "detail": "danach je 1.4. und 1.10.",
+            "detail": "danach jeweils zum 01.04. und 01.10.",
             "style": "normal"
           },
           {
@@ -76,7 +76,7 @@
     },
     {
       "type": "bullets",
-      "heading": "So funktioniert das Wahlrecht",
+      "heading": "So funktioniert die Wahl",
       "items": [
         "Wahl ausdrücklich mit dem Antrag: **bindend, nachträglich nicht änderbar**; altes Recht gilt dann bis Verfahrensende",
         "ohne Wahl gilt die RL 2026",
@@ -85,7 +85,7 @@
     },
     {
       "type": "table",
-      "caption": "Zwei Wege im Vergleich",
+      "caption": "Im Vergleich",
       "columns": [
         "",
         "Altes Recht (Eingang bis 31.12.2026)",
@@ -99,7 +99,7 @@
         ],
         [
           "Zins und Kosten",
-          "0 % in Jahr 1–35 (geringe) bzw. 1–30 (mittlere Einkommen), danach marktüblich; 0,5 % p. a. Verwaltungskostenbeitrag",
+          "0 % in den Jahren 1–35 (geringe Einkommen) bzw. 1–30 (mittlere Einkommen), danach marktüblich; 0,5 % p. a. Verwaltungskostenbeitrag",
           "kein Darlehen; Bearbeitungsentgelt 0,75 %"
         ],
         [
@@ -118,14 +118,14 @@
           "fertiggestellt vor 08.12.2004; mind. 2 Klassen besser"
         ]
       ],
-      "note": "Altes Recht laut NBank, verkürzt; Überkompensationsprüfung vorbehalten."
+      "note": "Altes Recht laut NBank, verkürzt."
     },
     {
       "type": "checklist",
       "heading": "Vier Prüffragen",
       "items": [
         "Fertigstellung zwischen 01.02.2002 und 07.12.2004? Dann nur RL 2026 (eigene Ableitung).",
-        "Zwei Effizienzklassen erreichbar (Pflicht in RL 2026)? Bei unverhältnismäßigem Aufwand, etwa beim Baudenkmal, kann die NBank eine Klasse zulassen.",
+        "Zwei Effizienzklassen erreichbar (Pflicht in RL 2026)? Ausnahme: eine Klasse mit NBank-Zulassung (→ S. 14).",
         "Darlehen mit Tilgungsnachlass oder Zuschuss: Was passt zur Finanzierung?",
         "Antrag bis 31.12.2026 bei der Wohnraumförderstelle – mit ausdrücklicher Wahl?"
       ]
@@ -134,12 +134,11 @@
       "type": "callout",
       "variant": "tipp",
       "title": "Kalkulationsnotiz",
-      "body": "Beide Wege durchrechnen – die Wahl ist endgültig."
+      "body": "Beide Wege durchrechnen."
     }
   ],
-  "footnotes": [
-    "RL Nr. 5.3.2.2, 7.2.1, 13.1–13.3; NBank-Programmseite „Modernisierung von Mietwohnungen in Mehrfamilienhäusern“; KfW-Merkblatt 297/298; BGBl. 2026 I Nr. 226 (GModG-Änderung ab 01.01.2027); BR-Drs. 474/26 (Entwurf). Stand: 21.10.2026."
-  ],
+  "sources": "Fundstellen: RL Nr. 5.3.2.2, 7.2.1, 13.1–13.3; NBank-Programmseite „Modernisierung von Mietwohnungen in Mehrfamilienhäusern“; KfW-Merkblatt 297/298; BGBl. 2026 I Nr. 226 (GModG-Änderung ab 01.01.2027); BR-Drs. 474/26 (Entwurf).",
+  "footnotes": [],
   "fact_ids": [
     "F284",
     "F285",
@@ -168,5 +167,6 @@
     "G2-03",
     "F155"
   ],
-  "visual_idea": "Baustein-Register 2.3 (--baustein-23, mit Nummer) am Seitenrand, da Bestandsdoppelseite 14|15. Oberes Drittel: horizontaler Zeitstrahl Juni 2026 bis Dezember 2031 (zwischen 2027 und 2031 gestaucht, Bruchsymbol) mit Meilenstein-Pins; der 31.12.2026 als großer Pin in --signal „Wahlrecht Modernisierung“ mit Kalender-Icon (ui-frist.svg); darunter klein und neutral (nicht --signal) „Neubau: KfW-Stufe EH 55 endet – nicht für Modernisierung“; am 01.01.2027 zwei Pins: gestrichelt „Neue Mietenstufen (Entwurf)“, durchgezogen „Neue Rechennorm Energiebedarfsausweise“ (beschlossen – nicht als Entwurf darstellen); vergangene Termine (30.06., 01.07., 01.10.2026) in gedämpftem Ton, „heute: 21.10.2026“ als feiner Strich. Kein tagesgenauer Countdown. Mitte links: Weichen-Piktogramm „Altes Recht | RL 2026“ über den Wahlrecht-Bullets; der fett gesetzte Satz „bindend, nachträglich nicht änderbar“ mit --signal-Unterstrich. Zweispaltige Vergleichstabelle mit Zeilenköpfen links, Spalte „Altes Recht“ in Grau, Spalte RL 2026 in --baustein-23. Prüffragen als druckbare Ankreuzkästchen (ui-check.svg). Kalkulationsnotiz mit Rechensymbol am Fuß."
+  "visual_idea": "Baustein-Register 2.3 (--baustein-23, mit Nummer) am Seitenrand, da Bestandsdoppelseite 14|15. Oberes Drittel: horizontaler Zeitstrahl Juni 2026 bis Dezember 2031 (zwischen 2027 und 2031 gestaucht, Bruchsymbol) mit Meilenstein-Pins; der 31.12.2026 als großer Pin in --signal „Wahlrecht Modernisierung“ mit Kalender-Icon (ui-frist.svg); darunter klein und neutral (nicht --signal) „Neubau: KfW-Stufe EH 55 endet – nicht für Modernisierung“; am 01.01.2027 zwei Pins: gestrichelt „Neue Mietenstufen (Entwurf)“, durchgezogen „Neue Rechennorm Energiebedarfsausweise“ (beschlossen – nicht als Entwurf darstellen); vergangene Termine (30.06., 01.07., 01.10.2026) in gedämpftem Ton, „heute: 21.10.2026“ als feiner Strich. Kein tagesgenauer Countdown. Mitte links: Weichen-Piktogramm „Altes Recht | RL 2026“ über den Wahlrecht-Bullets; der fett gesetzte Satz „bindend, nachträglich nicht änderbar“ mit --signal-Unterstrich. Zweispaltige Vergleichstabelle mit Zeilenköpfen links, Spalte „Altes Recht“ in Grau, Spalte RL 2026 in --baustein-23. Prüffragen als druckbare Ankreuzkästchen (ui-check.svg). Kalkulationsnotiz mit Rechensymbol am Fuß.",
+  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2"
 }

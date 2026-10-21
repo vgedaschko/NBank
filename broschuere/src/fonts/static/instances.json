@@ -1,0 +1,579 @@
+{
+ "faces": [
+  {
+   "key": "Fraunces|italic|300|144|80|1",
+   "family": "FI fi-w300-o144-s80-k1"
+  },
+  {
+   "key": "Fraunces|italic|320|144|70|1",
+   "family": "FI fi-w320-o144-s70-k1"
+  },
+  {
+   "key": "Fraunces|italic|370|36|60|0",
+   "family": "FI fi-w370-o36-s60-k0"
+  },
+  {
+   "key": "Fraunces|normal|250|144|70|0",
+   "family": "FI fn-w250-o144-s70-k0"
+  },
+  {
+   "key": "Fraunces|normal|300|144|40|0",
+   "family": "FI fn-w300-o144-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|320|144|40|0",
+   "family": "FI fn-w320-o144-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|330|144|40|0",
+   "family": "FI fn-w330-o144-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|330|144|50|0",
+   "family": "FI fn-w330-o144-s50-k0"
+  },
+  {
+   "key": "Fraunces|normal|340|144|40|0",
+   "family": "FI fn-w340-o144-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|340|144|50|0",
+   "family": "FI fn-w340-o144-s50-k0"
+  },
+  {
+   "key": "Fraunces|normal|350|144|40|0",
+   "family": "FI fn-w350-o144-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|360|144|40|0",
+   "family": "FI fn-w360-o144-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|360|144|60|0",
+   "family": "FI fn-w360-o144-s60-k0"
+  },
+  {
+   "key": "Fraunces|normal|370|144|40|0",
+   "family": "FI fn-w370-o144-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|370|24|30|0",
+   "family": "FI fn-w370-o24-s30-k0"
+  },
+  {
+   "key": "Fraunces|normal|380|144|50|0",
+   "family": "FI fn-w380-o144-s50-k0"
+  },
+  {
+   "key": "Fraunces|normal|380|72|40|0",
+   "family": "FI fn-w380-o72-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|400|144|40|0",
+   "family": "FI fn-w400-o144-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|400|144|60|0",
+   "family": "FI fn-w400-o144-s60-k0"
+  },
+  {
+   "key": "Fraunces|normal|400|36|30|0",
+   "family": "FI fn-w400-o36-s30-k0"
+  },
+  {
+   "key": "Fraunces|normal|400|72|40|0",
+   "family": "FI fn-w400-o72-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|420|48|30|0",
+   "family": "FI fn-w420-o48-s30-k0"
+  },
+  {
+   "key": "Fraunces|normal|420|72|40|0",
+   "family": "FI fn-w420-o72-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|430|72|40|0",
+   "family": "FI fn-w430-o72-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|450|36|30|0",
+   "family": "FI fn-w450-o36-s30-k0"
+  },
+  {
+   "key": "Fraunces|normal|450|72|40|0",
+   "family": "FI fn-w450-o72-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|480|36|30|0",
+   "family": "FI fn-w480-o36-s30-k0"
+  },
+  {
+   "key": "Fraunces|normal|500|16|0|1",
+   "family": "FI fn-w500-o16-s0-k1"
+  },
+  {
+   "key": "Fraunces|normal|500|24|30|0",
+   "family": "FI fn-w500-o24-s30-k0"
+  },
+  {
+   "key": "Fraunces|normal|500|36|30|0",
+   "family": "FI fn-w500-o36-s30-k0"
+  },
+  {
+   "key": "Fraunces|normal|500|72|40|0",
+   "family": "FI fn-w500-o72-s40-k0"
+  },
+  {
+   "key": "Fraunces|normal|520|24|30|0",
+   "family": "FI fn-w520-o24-s30-k0"
+  },
+  {
+   "key": "Fraunces|normal|560|36|30|0",
+   "family": "FI fn-w560-o36-s30-k0"
+  },
+  {
+   "key": "Inter|normal|400|14||",
+   "family": "FI in-w400-o14"
+  },
+  {
+   "key": "Inter|normal|400|16||",
+   "family": "FI in-w400-o16"
+  },
+  {
+   "key": "Inter|normal|400|20||",
+   "family": "FI in-w400-o20"
+  },
+  {
+   "key": "Inter|normal|450|14||",
+   "family": "FI in-w450-o14"
+  },
+  {
+   "key": "Inter|normal|480|14||",
+   "family": "FI in-w480-o14"
+  },
+  {
+   "key": "Inter|normal|500|14||",
+   "family": "FI in-w500-o14"
+  },
+  {
+   "key": "Inter|normal|500|32||",
+   "family": "FI in-w500-o32"
+  },
+  {
+   "key": "Inter|normal|560|14||",
+   "family": "FI in-w560-o14"
+  },
+  {
+   "key": "Inter|normal|580|14||",
+   "family": "FI in-w580-o14"
+  },
+  {
+   "key": "Inter|normal|600|14||",
+   "family": "FI in-w600-o14"
+  },
+  {
+   "key": "Inter|normal|600|32||",
+   "family": "FI in-w600-o32"
+  },
+  {
+   "key": "Inter|normal|650|14||",
+   "family": "FI in-w650-o14"
+  },
+  {
+   "key": "Inter|normal|700|14||",
+   "family": "FI in-w700-o14"
+  }
+ ],
+ "tuples": [
+  {
+   "key": "Fraunces|italic|300|144|80|1",
+   "fam": "Fraunces",
+   "style": "italic",
+   "wght": 300,
+   "opsz": 144,
+   "SOFT": 80,
+   "WONK": 1
+  },
+  {
+   "key": "Fraunces|italic|320|144|70|1",
+   "fam": "Fraunces",
+   "style": "italic",
+   "wght": 320,
+   "opsz": 144,
+   "SOFT": 70,
+   "WONK": 1
+  },
+  {
+   "key": "Fraunces|italic|370|36|60|0",
+   "fam": "Fraunces",
+   "style": "italic",
+   "wght": 370,
+   "opsz": 36,
+   "SOFT": 60,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|250|144|70|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 250,
+   "opsz": 144,
+   "SOFT": 70,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|300|144|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 300,
+   "opsz": 144,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|320|144|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 320,
+   "opsz": 144,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|330|144|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 330,
+   "opsz": 144,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|330|144|50|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 330,
+   "opsz": 144,
+   "SOFT": 50,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|340|144|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 340,
+   "opsz": 144,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|340|144|50|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 340,
+   "opsz": 144,
+   "SOFT": 50,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|350|144|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 350,
+   "opsz": 144,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|360|144|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 360,
+   "opsz": 144,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|360|144|60|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 360,
+   "opsz": 144,
+   "SOFT": 60,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|370|144|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 370,
+   "opsz": 144,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|370|24|30|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 370,
+   "opsz": 24,
+   "SOFT": 30,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|380|144|50|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 380,
+   "opsz": 144,
+   "SOFT": 50,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|380|72|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 380,
+   "opsz": 72,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|400|144|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 400,
+   "opsz": 144,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|400|144|60|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 400,
+   "opsz": 144,
+   "SOFT": 60,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|400|36|30|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 400,
+   "opsz": 36,
+   "SOFT": 30,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|400|72|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 400,
+   "opsz": 72,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|420|48|30|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 420,
+   "opsz": 48,
+   "SOFT": 30,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|420|72|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 420,
+   "opsz": 72,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|430|72|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 430,
+   "opsz": 72,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|450|36|30|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 450,
+   "opsz": 36,
+   "SOFT": 30,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|450|72|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 450,
+   "opsz": 72,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|480|36|30|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 480,
+   "opsz": 36,
+   "SOFT": 30,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|500|16|0|1",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 500,
+   "opsz": 16,
+   "SOFT": 0,
+   "WONK": 1
+  },
+  {
+   "key": "Fraunces|normal|500|24|30|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 500,
+   "opsz": 24,
+   "SOFT": 30,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|500|36|30|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 500,
+   "opsz": 36,
+   "SOFT": 30,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|500|72|40|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 500,
+   "opsz": 72,
+   "SOFT": 40,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|520|24|30|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 520,
+   "opsz": 24,
+   "SOFT": 30,
+   "WONK": 0
+  },
+  {
+   "key": "Fraunces|normal|560|36|30|0",
+   "fam": "Fraunces",
+   "style": "normal",
+   "wght": 560,
+   "opsz": 36,
+   "SOFT": 30,
+   "WONK": 0
+  },
+  {
+   "key": "Inter|normal|400|14||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 400,
+   "opsz": 14
+  },
+  {
+   "key": "Inter|normal|400|16||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 400,
+   "opsz": 16
+  },
+  {
+   "key": "Inter|normal|400|20||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 400,
+   "opsz": 20
+  },
+  {
+   "key": "Inter|normal|450|14||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 450,
+   "opsz": 14
+  },
+  {
+   "key": "Inter|normal|480|14||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 480,
+   "opsz": 14
+  },
+  {
+   "key": "Inter|normal|500|14||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 500,
+   "opsz": 14
+  },
+  {
+   "key": "Inter|normal|500|32||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 500,
+   "opsz": 32
+  },
+  {
+   "key": "Inter|normal|560|14||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 560,
+   "opsz": 14
+  },
+  {
+   "key": "Inter|normal|580|14||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 580,
+   "opsz": 14
+  },
+  {
+   "key": "Inter|normal|600|14||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 600,
+   "opsz": 14
+  },
+  {
+   "key": "Inter|normal|600|32||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 600,
+   "opsz": 32
+  },
+  {
+   "key": "Inter|normal|650|14||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 650,
+   "opsz": 14
+  },
+  {
+   "key": "Inter|normal|700|14||",
+   "fam": "Inter",
+   "style": "normal",
+   "wght": 700,
+   "opsz": 14
+  }
+ ],
+ "css": "/* Statische Instanzen (scripts/fonts-static.py) – von render.cjs fürs PDF zugeordnet. SIL OFL 1.1 */\n@font-face{font-family:'FI fi-w300-o144-s80-k1';font-style:italic;font-weight:300;font-display:block;src:url(./fi-w300-o144-s80-k1-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fi-w300-o144-s80-k1';font-style:italic;font-weight:300;font-display:block;src:url(./fi-w300-o144-s80-k1-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fi-w300-o144-s80-k1';font-style:italic;font-weight:300;font-display:block;src:url(./arrows-w300-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fi-w320-o144-s70-k1';font-style:italic;font-weight:320;font-display:block;src:url(./fi-w320-o144-s70-k1-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fi-w320-o144-s70-k1';font-style:italic;font-weight:320;font-display:block;src:url(./fi-w320-o144-s70-k1-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fi-w320-o144-s70-k1';font-style:italic;font-weight:320;font-display:block;src:url(./arrows-w320-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fi-w370-o36-s60-k0';font-style:italic;font-weight:370;font-display:block;src:url(./fi-w370-o36-s60-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fi-w370-o36-s60-k0';font-style:italic;font-weight:370;font-display:block;src:url(./fi-w370-o36-s60-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fi-w370-o36-s60-k0';font-style:italic;font-weight:370;font-display:block;src:url(./arrows-w370-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w250-o144-s70-k0';font-style:normal;font-weight:250;font-display:block;src:url(./fn-w250-o144-s70-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w250-o144-s70-k0';font-style:normal;font-weight:250;font-display:block;src:url(./fn-w250-o144-s70-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w250-o144-s70-k0';font-style:normal;font-weight:250;font-display:block;src:url(./arrows-w250-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w300-o144-s40-k0';font-style:normal;font-weight:300;font-display:block;src:url(./fn-w300-o144-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w300-o144-s40-k0';font-style:normal;font-weight:300;font-display:block;src:url(./fn-w300-o144-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w300-o144-s40-k0';font-style:normal;font-weight:300;font-display:block;src:url(./arrows-w300-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w320-o144-s40-k0';font-style:normal;font-weight:320;font-display:block;src:url(./fn-w320-o144-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w320-o144-s40-k0';font-style:normal;font-weight:320;font-display:block;src:url(./fn-w320-o144-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w320-o144-s40-k0';font-style:normal;font-weight:320;font-display:block;src:url(./arrows-w320-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w330-o144-s40-k0';font-style:normal;font-weight:330;font-display:block;src:url(./fn-w330-o144-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w330-o144-s40-k0';font-style:normal;font-weight:330;font-display:block;src:url(./fn-w330-o144-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w330-o144-s40-k0';font-style:normal;font-weight:330;font-display:block;src:url(./arrows-w330-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w330-o144-s50-k0';font-style:normal;font-weight:330;font-display:block;src:url(./fn-w330-o144-s50-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w330-o144-s50-k0';font-style:normal;font-weight:330;font-display:block;src:url(./fn-w330-o144-s50-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w330-o144-s50-k0';font-style:normal;font-weight:330;font-display:block;src:url(./arrows-w330-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w340-o144-s40-k0';font-style:normal;font-weight:340;font-display:block;src:url(./fn-w340-o144-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w340-o144-s40-k0';font-style:normal;font-weight:340;font-display:block;src:url(./fn-w340-o144-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w340-o144-s40-k0';font-style:normal;font-weight:340;font-display:block;src:url(./arrows-w340-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w340-o144-s50-k0';font-style:normal;font-weight:340;font-display:block;src:url(./fn-w340-o144-s50-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w340-o144-s50-k0';font-style:normal;font-weight:340;font-display:block;src:url(./fn-w340-o144-s50-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w340-o144-s50-k0';font-style:normal;font-weight:340;font-display:block;src:url(./arrows-w340-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w350-o144-s40-k0';font-style:normal;font-weight:350;font-display:block;src:url(./fn-w350-o144-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w350-o144-s40-k0';font-style:normal;font-weight:350;font-display:block;src:url(./fn-w350-o144-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w350-o144-s40-k0';font-style:normal;font-weight:350;font-display:block;src:url(./arrows-w350-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w360-o144-s40-k0';font-style:normal;font-weight:360;font-display:block;src:url(./fn-w360-o144-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w360-o144-s40-k0';font-style:normal;font-weight:360;font-display:block;src:url(./fn-w360-o144-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w360-o144-s40-k0';font-style:normal;font-weight:360;font-display:block;src:url(./arrows-w360-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w360-o144-s60-k0';font-style:normal;font-weight:360;font-display:block;src:url(./fn-w360-o144-s60-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w360-o144-s60-k0';font-style:normal;font-weight:360;font-display:block;src:url(./fn-w360-o144-s60-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w360-o144-s60-k0';font-style:normal;font-weight:360;font-display:block;src:url(./arrows-w360-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w370-o144-s40-k0';font-style:normal;font-weight:370;font-display:block;src:url(./fn-w370-o144-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w370-o144-s40-k0';font-style:normal;font-weight:370;font-display:block;src:url(./fn-w370-o144-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w370-o144-s40-k0';font-style:normal;font-weight:370;font-display:block;src:url(./arrows-w370-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w370-o24-s30-k0';font-style:normal;font-weight:370;font-display:block;src:url(./fn-w370-o24-s30-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w370-o24-s30-k0';font-style:normal;font-weight:370;font-display:block;src:url(./fn-w370-o24-s30-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w370-o24-s30-k0';font-style:normal;font-weight:370;font-display:block;src:url(./arrows-w370-o24.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w380-o144-s50-k0';font-style:normal;font-weight:380;font-display:block;src:url(./fn-w380-o144-s50-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w380-o144-s50-k0';font-style:normal;font-weight:380;font-display:block;src:url(./fn-w380-o144-s50-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w380-o144-s50-k0';font-style:normal;font-weight:380;font-display:block;src:url(./arrows-w380-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w380-o72-s40-k0';font-style:normal;font-weight:380;font-display:block;src:url(./fn-w380-o72-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w380-o72-s40-k0';font-style:normal;font-weight:380;font-display:block;src:url(./fn-w380-o72-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w380-o72-s40-k0';font-style:normal;font-weight:380;font-display:block;src:url(./arrows-w380-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w400-o144-s40-k0';font-style:normal;font-weight:400;font-display:block;src:url(./fn-w400-o144-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w400-o144-s40-k0';font-style:normal;font-weight:400;font-display:block;src:url(./fn-w400-o144-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w400-o144-s40-k0';font-style:normal;font-weight:400;font-display:block;src:url(./arrows-w400-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w400-o144-s60-k0';font-style:normal;font-weight:400;font-display:block;src:url(./fn-w400-o144-s60-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w400-o144-s60-k0';font-style:normal;font-weight:400;font-display:block;src:url(./fn-w400-o144-s60-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w400-o144-s60-k0';font-style:normal;font-weight:400;font-display:block;src:url(./arrows-w400-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w400-o36-s30-k0';font-style:normal;font-weight:400;font-display:block;src:url(./fn-w400-o36-s30-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w400-o36-s30-k0';font-style:normal;font-weight:400;font-display:block;src:url(./fn-w400-o36-s30-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w400-o36-s30-k0';font-style:normal;font-weight:400;font-display:block;src:url(./arrows-w400-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w400-o72-s40-k0';font-style:normal;font-weight:400;font-display:block;src:url(./fn-w400-o72-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w400-o72-s40-k0';font-style:normal;font-weight:400;font-display:block;src:url(./fn-w400-o72-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w400-o72-s40-k0';font-style:normal;font-weight:400;font-display:block;src:url(./arrows-w400-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w420-o48-s30-k0';font-style:normal;font-weight:420;font-display:block;src:url(./fn-w420-o48-s30-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w420-o48-s30-k0';font-style:normal;font-weight:420;font-display:block;src:url(./fn-w420-o48-s30-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w420-o48-s30-k0';font-style:normal;font-weight:420;font-display:block;src:url(./arrows-w420-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w420-o72-s40-k0';font-style:normal;font-weight:420;font-display:block;src:url(./fn-w420-o72-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w420-o72-s40-k0';font-style:normal;font-weight:420;font-display:block;src:url(./fn-w420-o72-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w420-o72-s40-k0';font-style:normal;font-weight:420;font-display:block;src:url(./arrows-w420-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w430-o72-s40-k0';font-style:normal;font-weight:430;font-display:block;src:url(./fn-w430-o72-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w430-o72-s40-k0';font-style:normal;font-weight:430;font-display:block;src:url(./fn-w430-o72-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w430-o72-s40-k0';font-style:normal;font-weight:430;font-display:block;src:url(./arrows-w430-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w450-o36-s30-k0';font-style:normal;font-weight:450;font-display:block;src:url(./fn-w450-o36-s30-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w450-o36-s30-k0';font-style:normal;font-weight:450;font-display:block;src:url(./fn-w450-o36-s30-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w450-o36-s30-k0';font-style:normal;font-weight:450;font-display:block;src:url(./arrows-w450-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w450-o72-s40-k0';font-style:normal;font-weight:450;font-display:block;src:url(./fn-w450-o72-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w450-o72-s40-k0';font-style:normal;font-weight:450;font-display:block;src:url(./fn-w450-o72-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w450-o72-s40-k0';font-style:normal;font-weight:450;font-display:block;src:url(./arrows-w450-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w480-o36-s30-k0';font-style:normal;font-weight:480;font-display:block;src:url(./fn-w480-o36-s30-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w480-o36-s30-k0';font-style:normal;font-weight:480;font-display:block;src:url(./fn-w480-o36-s30-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w480-o36-s30-k0';font-style:normal;font-weight:480;font-display:block;src:url(./arrows-w480-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w500-o16-s0-k1';font-style:normal;font-weight:500;font-display:block;src:url(./fn-w500-o16-s0-k1-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w500-o16-s0-k1';font-style:normal;font-weight:500;font-display:block;src:url(./fn-w500-o16-s0-k1-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w500-o16-s0-k1';font-style:normal;font-weight:500;font-display:block;src:url(./arrows-w500-o16.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w500-o24-s30-k0';font-style:normal;font-weight:500;font-display:block;src:url(./fn-w500-o24-s30-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w500-o24-s30-k0';font-style:normal;font-weight:500;font-display:block;src:url(./fn-w500-o24-s30-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w500-o24-s30-k0';font-style:normal;font-weight:500;font-display:block;src:url(./arrows-w500-o24.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w500-o36-s30-k0';font-style:normal;font-weight:500;font-display:block;src:url(./fn-w500-o36-s30-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w500-o36-s30-k0';font-style:normal;font-weight:500;font-display:block;src:url(./fn-w500-o36-s30-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w500-o36-s30-k0';font-style:normal;font-weight:500;font-display:block;src:url(./arrows-w500-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w500-o72-s40-k0';font-style:normal;font-weight:500;font-display:block;src:url(./fn-w500-o72-s40-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w500-o72-s40-k0';font-style:normal;font-weight:500;font-display:block;src:url(./fn-w500-o72-s40-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w500-o72-s40-k0';font-style:normal;font-weight:500;font-display:block;src:url(./arrows-w500-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w520-o24-s30-k0';font-style:normal;font-weight:520;font-display:block;src:url(./fn-w520-o24-s30-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w520-o24-s30-k0';font-style:normal;font-weight:520;font-display:block;src:url(./fn-w520-o24-s30-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w520-o24-s30-k0';font-style:normal;font-weight:520;font-display:block;src:url(./arrows-w520-o24.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI fn-w560-o36-s30-k0';font-style:normal;font-weight:560;font-display:block;src:url(./fn-w560-o36-s30-k0-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI fn-w560-o36-s30-k0';font-style:normal;font-weight:560;font-display:block;src:url(./fn-w560-o36-s30-k0-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI fn-w560-o36-s30-k0';font-style:normal;font-weight:560;font-display:block;src:url(./arrows-w560-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w400-o14';font-style:normal;font-weight:400;font-display:block;src:url(./in-w400-o14-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w400-o14';font-style:normal;font-weight:400;font-display:block;src:url(./in-w400-o14-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w400-o14';font-style:normal;font-weight:400;font-display:block;src:url(./arrows-w400-o14.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w400-o16';font-style:normal;font-weight:400;font-display:block;src:url(./in-w400-o16-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w400-o16';font-style:normal;font-weight:400;font-display:block;src:url(./in-w400-o16-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w400-o16';font-style:normal;font-weight:400;font-display:block;src:url(./arrows-w400-o16.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w400-o20';font-style:normal;font-weight:400;font-display:block;src:url(./in-w400-o20-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w400-o20';font-style:normal;font-weight:400;font-display:block;src:url(./in-w400-o20-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w400-o20';font-style:normal;font-weight:400;font-display:block;src:url(./arrows-w400-o20.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w450-o14';font-style:normal;font-weight:450;font-display:block;src:url(./in-w450-o14-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w450-o14';font-style:normal;font-weight:450;font-display:block;src:url(./in-w450-o14-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w450-o14';font-style:normal;font-weight:450;font-display:block;src:url(./arrows-w450-o14.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w480-o14';font-style:normal;font-weight:480;font-display:block;src:url(./in-w480-o14-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w480-o14';font-style:normal;font-weight:480;font-display:block;src:url(./in-w480-o14-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w480-o14';font-style:normal;font-weight:480;font-display:block;src:url(./arrows-w480-o14.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w500-o14';font-style:normal;font-weight:500;font-display:block;src:url(./in-w500-o14-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w500-o14';font-style:normal;font-weight:500;font-display:block;src:url(./in-w500-o14-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w500-o14';font-style:normal;font-weight:500;font-display:block;src:url(./arrows-w500-o14.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w500-o32';font-style:normal;font-weight:500;font-display:block;src:url(./in-w500-o32-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w500-o32';font-style:normal;font-weight:500;font-display:block;src:url(./in-w500-o32-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w500-o32';font-style:normal;font-weight:500;font-display:block;src:url(./arrows-w500-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w560-o14';font-style:normal;font-weight:560;font-display:block;src:url(./in-w560-o14-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w560-o14';font-style:normal;font-weight:560;font-display:block;src:url(./in-w560-o14-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w560-o14';font-style:normal;font-weight:560;font-display:block;src:url(./arrows-w560-o14.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w580-o14';font-style:normal;font-weight:580;font-display:block;src:url(./in-w580-o14-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w580-o14';font-style:normal;font-weight:580;font-display:block;src:url(./in-w580-o14-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w580-o14';font-style:normal;font-weight:580;font-display:block;src:url(./arrows-w580-o14.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w600-o14';font-style:normal;font-weight:600;font-display:block;src:url(./in-w600-o14-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w600-o14';font-style:normal;font-weight:600;font-display:block;src:url(./in-w600-o14-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w600-o14';font-style:normal;font-weight:600;font-display:block;src:url(./arrows-w600-o14.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w600-o32';font-style:normal;font-weight:600;font-display:block;src:url(./in-w600-o32-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w600-o32';font-style:normal;font-weight:600;font-display:block;src:url(./in-w600-o32-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w600-o32';font-style:normal;font-weight:600;font-display:block;src:url(./arrows-w600-o32.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w650-o14';font-style:normal;font-weight:650;font-display:block;src:url(./in-w650-o14-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w650-o14';font-style:normal;font-weight:650;font-display:block;src:url(./in-w650-o14-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w650-o14';font-style:normal;font-weight:650;font-display:block;src:url(./arrows-w650-o14.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}\n@font-face{font-family:'FI in-w700-o14';font-style:normal;font-weight:700;font-display:block;src:url(./in-w700-o14-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}\n@font-face{font-family:'FI in-w700-o14';font-style:normal;font-weight:700;font-display:block;src:url(./in-w700-o14-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}\n@font-face{font-family:'FI in-w700-o14';font-style:normal;font-weight:700;font-display:block;src:url(./arrows-w700-o14.woff2) format('woff2');unicode-range:U+2190-21FF,U+2264-2265,U+2248,U+2713-2717;}"
+}

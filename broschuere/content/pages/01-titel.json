@@ -27,12 +27,13 @@
           "value": "0",
           "unit": "%",
           "label": "Zins bis Ende des 35. Jahres",
-          "note": "Darlehen 2.1/2.4, gezählt ab Bezugsfertigkeit; zzgl. 0,5 % Verwaltungskostenbeitrag p. a. auf das Restkapital, einmalig 1 % Bearbeitungsentgelt (Zuschuss: 0,75 %)"
+          "note": "Darlehen 2.1/2.4, gezählt ab Bezugsfertigkeit; zzgl. 0,5 % p. a. Verwaltungskostenbeitrag und einmaliger Entgelte"
         },
         {
           "value": "6",
           "unit": "",
-          "label": "Programmteile"
+          "label": "Programmteile",
+          "note": "Neubau, EH 40, Modernisierung, Inseln, Bindungserwerb, Verlängerung"
         }
       ]
     },
@@ -41,10 +42,8 @@
       "body": "Investitions- und Förderbank Niedersachsen – NBank\n\nStand: 21.10.2026"
     }
   ],
-  "footnotes": [
-    "Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum (RL Mietwohnraum 2026), RdErl. d. Niedersächsischen Ministeriums für Wirtschaft, Verkehr und Bauen (MW) vom 25.06.2026, Nds. MBl. 2026 Nr. 319.",
-    "Förderquoten: Höchstwerte in Programmteil 2.1; Zuschlag für Modellprojekte und Housing First möglich (RL Nr. 5.3.3.3). Jede Förderung wird auf Überkompensation geprüft (RL Nr. 5.3.7); kein Rechtsanspruch (RL Nr. 1.3). Zins und Entgelte: RL Nr. 5.3.4, 8.3, 12.7."
-  ],
+  "sources": "Fundstellen (RL Nr.): Förderquote und Zuschuss 5.3.3 · Vorbehalte 1.3, 5.3.7 · Zuschläge möglich 5.3.3.3 → S. 8 · Zins und Entgelte 5.3.4, 8.3, 12.7 → S. 9",
+  "footnotes": [],
   "fact_ids": [
     "F001",
     "F002",
@@ -55,11 +54,13 @@
     "F105",
     "F106",
     "F109",
+    "F110",
     "F113",
     "F175",
     "F276",
     "G3-11",
     "F290"
   ],
-  "visual_idea": "Typografisch dominantes Titelblatt: sehr große Headline in der Display-Schrift, Akzentfarbe (--color-accent) nur auf „rechnen kann“. Darunter isometrisches Mehrfamilienhaus, dessen Geschosse ein gestapeltes Balkendiagramm sind: Darlehen bis zu 40 % (--color-loan), Zuschuss bis zu 40 % (--color-grant), Eigenmittel mind. 20 % (--color-equity). PFLICHTBESCHRIFTUNG am Motiv: Geschosse direkt beschriftet mit „Darlehen bis zu 40 %“, „Zuschuss bis zu 40 %“, „Eigenmittel mind. 20 %“ (graustufenfest), dazu eine Zeile am Sockel: „Beispiel Einkommensgruppe A · Programmteil 2.1 · in % der zuwendungsfähigen Kosten (Höchstwerte)“ – das Haus darf nicht als allgemeine Finanzierungsstruktur lesbar sein. Programmzeile (lead) klein in Kapitälchen unter der Subline; die vollständige Fundstelle (Erlass, Nds. MBl.) steht in der ersten Fußnote. Vier runde Kennzahl-Plaketten; „bis zu“ steht bewusst im value und wird als kleiner Vorsatz über der Ziffer gesetzt; die Kostenzeile (note) der 0-%-Plakette steht dreizeilig IM Badge (Badge ggf. etwas größer), keine Sternchen; Plakette „6 Programmteile“ ohne Unterzeile. Herausgeberzeile als reiner Text am Fuß, darunter „Stand: 21.10.2026“; Fußnote in 8,5 pt. Sechs schmale Farbstreifen --baustein-21 … --baustein-26 mit Ziffern 2.1–2.6 als Register-Vorschau am unteren Rand. Kein Logo, keine CI-Nachahmung. Haus-Motiv kehrt verkleinert auf S. 20 wieder."
+  "visual_idea": "Typografisch dominantes Titelblatt: sehr große Headline in der Display-Schrift, Akzentfarbe (--color-accent) nur auf „rechnen kann“. Darunter isometrisches Mehrfamilienhaus, dessen Geschosse ein gestapeltes Balkendiagramm sind: Darlehen bis zu 40 % (--color-loan), Zuschuss bis zu 40 % (--color-grant), Eigenmittel mind. 20 % (--color-equity). Maßstäblich: 1 Geschoss = 10 %, also 4 : 4 : 2 Geschosse und Klammern 2 : 2 : 1 entlang der Fassade; der Kran hebt nur die Dachplatte, die nicht zum Diagramm gehört. PFLICHTBESCHRIFTUNG am Motiv: Geschosse direkt beschriftet mit „Darlehen bis zu 40 %“, „Zuschuss bis zu 40 %“, „Eigenmittel mind. 20 %“ (graustufenfest), dazu am Sockel: „Beispiel Einkommensgruppe A · Programmteil 2.1 · in % der zuwendungsfähigen Kosten (Höchstwerte) · 1 Geschoss = 10 %“ – das Haus darf nicht als allgemeine Finanzierungsstruktur lesbar sein. Programmzeile (lead) klein in Kapitälchen unter der Subline; die vollständige Fundstelle (Erlass, Nds. MBl.) steht im Impressum S. 20, am Fuß nur eine ziffernlose Fundstellen-Zeile (sources), keine Fußnotenziffern. Vier runde Kennzahl-Plaketten; „bis zu“ steht bewusst im value und wird als kleiner Vorsatz über der Ziffer gesetzt; die Kostenzeile (note) der 0-%-Plakette steht neben der Plakette (höchstens vier Zeilen), keine Sternchen; Plakette „6 Programmteile“ mit Unterzeile der sechs Programmteile in Registerfolge 2.1–2.6. Herausgeberzeile als reiner Text am Fuß, darunter „Stand: 21.10.2026“; Fundstellen-Zeile in 8,5 pt. Sechs schmale Farbstreifen --baustein-21 … --baustein-26 mit Ziffern 2.1–2.6 als Register-Vorschau am unteren Rand. Kein Logo, keine CI-Nachahmung. Haus-Motiv kehrt verkleinert auf S. 20 wieder.",
+  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2"
 }

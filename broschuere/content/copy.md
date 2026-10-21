@@ -6,10 +6,12 @@ Diese Fassung gibt den vollständigen Text aller 20 Seiten wieder – inklusive 
 
 - **Kicker** (Dachzeile) steht kursiv über der Headline, der **Lead** (Vorspann) fett darunter.
 - „Grafik (…)“ = Daten und Beschriftungen eines Diagramms; die Gestaltung folgt im Layout.
-- Zitatkästen: **[Hinweis] / [Achtung] / [Tipp] / [Frist] / [Stempel]**; **[Kalkulationsnotiz]** = wiederkehrendes Element mit einem Satz zur Projektrechnung.
+- Zitatkästen: **[Hinweis] / [Achtung] / [Tipp] / [Frist] / [Stempel]**; **[Kalkulationsnotiz]** = ein Satz zur Projektrechnung, höchstens einmal je Doppelseite.
+- *Stempelzeile* = „Modellrechnung – fiktives Beispiel, keine Förderzusage“ als erste Zeile jeder Modellrechnung; *Kurzmarke* = „Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2“ unter dem Hauptdiagramm bzw. Kachelraster (ausformuliert im Lesehinweis S. 2 und im Impressum S. 20).
+- Fußnoten: zuerst die ziffernlose Zeile „Fundstellen: …“, dann nummerierte Fußnoten (nur Quellen).
 - „eigene Berechnung“ / „eigene Ableitung“ kennzeichnet Rechenbeispiele und Auslegungen der Redaktion; „mit der NBank klären“ markiert offene Punkte (gesammelt am Ende).
 
-**Inhalt:** [S. 1](#seite-1) Wohnraum, der sich rechnen kann. · [S. 2](#seite-2) Damit sich Investieren wieder rechnet · [S. 3](#seite-3) Die Förderung in sieben Zahlen · [S. 4](#seite-4) Was 2026 neu ist – passt Ihr Projekt? · [S. 5](#seite-5) Vom Vorhaben zum passenden Programmteil · [S. 6](#seite-6) Ihr Mieterkreis: drei Einkommensgruppen · [S. 7](#seite-7) Mieten: gedeckelt, aber planbar · [S. 8](#seite-8) Bis zu 80 % Förderquote · [S. 9](#seite-9) Konditionen auf einem Blatt · [S. 10](#seite-10) 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung · [S. 11](#seite-11) Mehr Zuschuss oder mehr Miete? · [S. 12](#seite-12) Reiner Zuschuss statt Darlehen · [S. 13](#seite-13) Höhere Kostengrenze, 10 % Eigenmittel · [S. 14](#seite-14) Zuschuss nach Klassensprung · [S. 15](#seite-15) Wahlrecht für Modernisierungsanträge · [S. 16](#seite-16) Festbetrag für freie Bestandswohnungen · [S. 17](#seite-17) Bindung verlängern, Zins auf 0 % · [S. 18](#seite-18) Wo Bedarf gilt – und was Kommunen tun können · [S. 19](#seite-19) Vom Vorgespräch bis zum Verwendungsnachweis · [S. 20](#seite-20) Rechnen Sie Ihr Projekt durch – bevor Sie beginnen.
+**Inhalt:** [S. 1](#seite-1) Wohnraum, der sich rechnen kann. · [S. 2](#seite-2) Damit sich Investieren wieder rechnet · [S. 3](#seite-3) Die Förderung in sieben Zahlen · [S. 4](#seite-4) Was 2026 neu ist · [S. 5](#seite-5) Vom Vorhaben zum passenden Programmteil · [S. 6](#seite-6) Ihr Mieterkreis: drei Einkommensgruppen · [S. 7](#seite-7) Mieten: gedeckelt, aber planbar · [S. 8](#seite-8) Bis zu 80 % Förderquote · [S. 9](#seite-9) Konditionen auf einem Blatt · [S. 10](#seite-10) 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung · [S. 11](#seite-11) Mehr Zuschuss oder mehr Miete? · [S. 12](#seite-12) Reiner Zuschuss statt Darlehen · [S. 13](#seite-13) Höhere Kostengrenze, 10 % Eigenmittel · [S. 14](#seite-14) Zuschuss nach Klassensprung · [S. 15](#seite-15) Wahlrecht für Modernisierungsanträge · [S. 16](#seite-16) Festbetrag für freie Bestandswohnungen · [S. 17](#seite-17) Bindung verlängern, Zins auf 0 % · [S. 18](#seite-18) Wo Bedarf gilt – und was Kommunen tun können · [S. 19](#seite-19) Vom Vorgespräch bis zum Verwendungsnachweis · [S. 20](#seite-20) Rechnen Sie Ihr Projekt durch – bevor Sie beginnen.
 
 ---
 
@@ -32,17 +34,18 @@ Diese Fassung gibt den vollständigen Text aller 20 Seiten wieder – inklusive 
 |---|---|---|
 | **bis zu 80 %** | Förderquote | Darlehen und Zuschuss in % der zuwendungsfähigen Kosten, Programmteil 2.1 |
 | **bis zu 40 %** | Zuschuss | Einkommensgruppe A, Programmteil 2.1, nur mit Darlehen |
-| **0 %** | Zins bis Ende des 35. Jahres | Darlehen 2.1/2.4, gezählt ab Bezugsfertigkeit; zzgl. 0,5 % Verwaltungskostenbeitrag p. a. auf das Restkapital, einmalig 1 % Bearbeitungsentgelt (Zuschuss: 0,75 %) |
-| **6** | Programmteile |   |
+| **0 %** | Zins bis Ende des 35. Jahres | Darlehen 2.1/2.4, gezählt ab Bezugsfertigkeit; zzgl. 0,5 % p. a. Verwaltungskostenbeitrag und einmaliger Entgelte |
+| **6** | Programmteile | Neubau, EH 40, Modernisierung, Inseln, Bindungserwerb, Verlängerung |
 
 Investitions- und Förderbank Niedersachsen – NBank
 
 Stand: 21.10.2026
 
+*Kurzmarke unter dem Hauptdiagramm bzw. Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
+
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum (RL Mietwohnraum 2026), RdErl. d. Niedersächsischen Ministeriums für Wirtschaft, Verkehr und Bauen (MW) vom 25.06.2026, Nds. MBl. 2026 Nr. 319.</sub>  
-<sub>2. Förderquoten: Höchstwerte in Programmteil 2.1; Zuschlag für Modellprojekte und Housing First möglich (RL Nr. 5.3.3.3). Jede Förderung wird auf Überkompensation geprüft (RL Nr. 5.3.7); kein Rechtsanspruch (RL Nr. 1.3). Zins und Entgelte: RL Nr. 5.3.4, 8.3, 12.7.</sub>  
+<sub>Fundstellen (RL Nr.): Förderquote und Zuschuss 5.3.3 · Vorbehalte 1.3, 5.3.7 · Zuschläge möglich 5.3.3.3 → S. 8 · Zins und Entgelte 5.3.4, 8.3, 12.7 → S. 9</sub>  
 
 ---
 
@@ -72,22 +75,25 @@ Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertrags
 - **Projektentwicklung:** selbst bauen und beantragen – oder bis zwei Jahre nach Fertigstellung verkaufen; dann beantragt die Käuferseite den Ersterwerb. Kaufvertrag erst nach Bewilligung oder mit Rücktrittsrecht bei Ablehnung. → S. 8
 - **Kommunen:** selbst antragsberechtigt. Legen Sie geförderten Mietwohnraum in entsprechender Anzahl per Bebauungsplan, städtebaulichem Vertrag oder Baulandmodell fest, gilt der Bedarf als gegeben; damit oder mit einem Wohnraumversorgungskonzept kann die NBank auch Gruppen B und C zulassen. → S. 18
 
-**Grafik (timeline): Inhalt**
+### Inhalt
+
+<sub>Verzeichnis in vier Spalten (Kapitel wie in den Kolumnentiteln); S. 2 ist diese Seite und wird nicht aufgeführt. [2.x] = Baustein-Chip des Programmteils.</sub>
 
 - **Überblick:** S. 3 Kennzahlen · S. 4 Grundcheck · S. 5 Navigator
 - **Ertragsseite:** S. 6 Mieterkreis · S. 7 Mieten
 - **Finanzierung:** S. 8 Neubau, Änderung, Ersterwerb [2.1] · S. 9 Term Sheet · S. 10 Modellrechnung · S. 11 Szenarien
-- **Neubau und Bestand:** S. 12 EH-40-Neubau [2.2] · S. 13 Ostfriesische Inseln [2.4] · S. 14 Modernisierung [2.3] · S. 15 Stichtag 31.12.2026 · S. 16 Bindungserwerb [2.5] · S. 17 Bindungsverlängerung [2.6]
+- **Neubau:** S. 12 EH-40-Neubau [2.2] · S. 13 Ostfriesische Inseln [2.4]
+- **Bestand:** S. 14 Modernisierung [2.3] · S. 15 Stichtag 31.12.2026 · S. 16 Bindungserwerb [2.5] · S. 17 Bindungsverlängerung [2.6]
 - **Umsetzung:** S. 18 Standort, Kommune · S. 19 Antragsweg · S. 20 Kontakt
 
 > **[Hinweis] Lesehinweis**
 >
-> Förderquoten und -beträge: Höchstwerte („bis zu“; Bindungserwerb: Festbetrag). Eigenmittel: Mindestwerte. Entgelte: feste Sätze. Jede Bewilligung wird auf Überkompensation geprüft: kein unangemessen hoher Gewinn (EU-Beihilferecht). Kein Rechtsanspruch. Stand: 21.10.2026.
+> Förderquoten und -beträge: Höchstwerte („bis zu“; Bindungserwerb: Festbetrag). Eigenmittel: Mindestwerte. Entgelte: feste Sätze. Jede Bewilligung wird auf Überkompensation geprüft: kein unangemessen hoher Gewinn (EU-Beihilferecht). Kein Rechtsanspruch; Förderung im Rahmen der verfügbaren Haushaltsmittel. Stand: 21.10.2026.
 
 <sub>**Fußnoten und Quellen**</sub>
 
+<sub>Fundstellen: RL Nr. 1.3, 1.6, 2.1–2.6, 3, 4.2, 5.2.1, 5.3.2.4, 5.3.7, 5.4.3, 9.3, 11.10, 12.3.2, 12.7, 13.1; § 2 Abs. 5 NWoFG; § 4 Abs. 1 DVO-NWoFG</sub>  
 <sub>1. NBank-Presseinformation zur Wohnungsmarktbeobachtung 2025 (05.12.2025); MW-Presseinformation „Niedersachsen stellt soziale Wohnraumförderung neu auf“ (03.07.2026, aktualisiert 09.07.2026)</sub>  
-<sub>2. RL Nr. 1.3, 1.6, 2.1–2.6, 3, 4.2, 5.2.1, 5.3.2.4, 5.3.7, 5.4.3, 9.3, 11.10, 12.3.2, 12.7, 13.1; § 2 Abs. 5 NWoFG; § 4 Abs. 1 DVO-NWoFG</sub>  
 
 ---
 
@@ -102,37 +108,35 @@ Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertrags
 
 **Kennzahlen**
 
-| Wert | Kennzahl | Unterzeile |
-|---|---|---|
-| **bis zu 80 %** | Förderquote | Darlehen und Zuschuss in % der zuwendungsfähigen Kosten, Programmteil 2.1, in allen Einkommensgruppen |
-| **bis zu 40 %** | Zuschuss | Einkommensgruppe A; B bis zu 20 %, C bis zu 10 %; nur mit Darlehen |
-| **0 %** | Zins bis Ende des 35. Jahres | Darlehen 2.1/2.4, gezählt ab Bezugsfertigkeit; zzgl. 0,5 % Verwaltungskostenbeitrag p. a. auf das Restkapital, einmalig 1 % Bearbeitungsentgelt (Zuschuss: 0,75 %) |
-| **4.800 / 5.000 €/m² Wohnfläche** | Bemessungsgrenze | Herstellungskosten, Neubau und Änderung/Erweiterung (2.1), Mietenstufe I–III/IV–VII; Ausgangswerte, Fortschreibung 1.4./1.10. – bis 21.10.2026 keine neuen Werte auf nbank.de |
-| **bis zu 90.000 €** | Zuschuss je Wohnung | KfW-Effizienzhaus-40-Neubau, Einkommensgruppe A, zugleich max. 50 % der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar |
-| **bis zu 31.000 €** | Modernisierungszuschuss je gebundener Wohnung | bei Verbesserung um 5 oder mehr Energieeffizienzklassen, Einkommensgruppe A, zugleich max. 40 % der Modernisierungskosten |
-| **3,00 €/m² Wohnfläche und Monat** | Zuschuss Bindungserwerb (Festbetrag) | 15–20 Jahre Bindung; ab 5 J. 2,00 €, ab 10 J. 2,50 €; nur Einkommensgruppe A |
+| Wert | Kennzahl | Unterzeile | Fundstelle |
+|---|---|---|---|
+| **bis zu 80 %** | Förderquote | Darlehen + Zuschuss, alle Einkommensgruppen; mehr bei Modellprojekten und Housing First → S. 8 | RL Nr. 5.3.3 |
+| **bis zu 40 %** | Zuschuss | Einkommensgruppe A; B bis zu 20 %, C bis zu 10 % (B/C nur mit Zulassung → S. 6); nur mit Darlehen | RL Nr. 5.3.3.2, 12.3.2 |
+| **0 %** | Zins bis Ende des 35. Jahres | nach Bezugsfertigkeit; zzgl. 0,5 % Verwaltungskostenbeitrag p. a. und einmaliger Entgelte → S. 9 | RL Nr. 5.3.4, 12.7 |
+| **Ausgangswerte 4.800/5.000 €/m² Wohnfläche** | Bemessungsgrenze | Herstellungskosten, Mietenstufe I–III/IV–VII; Fortschreibung → S. 8; Inseln: 1,5 × I–III → S. 13 | RL Nr. 5.3.2.2, 8.3.1 |
+| **bis zu 90.000 €** | Zuschuss je Wohnung im EH-40-Neubau | Einkommensgruppe A; max. 50 % der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar | RL Nr. 6.3.3, 6.3.4 |
+| **bis zu 31.000 €** | Modernisierungszuschuss je gebundener Wohnung | ab 5 Effizienzklassen besser, Einkommensgruppe A; max. 40 % der Kosten; Fertigstellung vor 08.12.2004 | RL Nr. 2.3, 7.3.3 |
+| **Festbetrag 3,00 €/m² Wohnfläche und Monat** | Zuschuss Bindungserwerb | 15–20 Jahre Bindung; ab 5 Jahren 2,00 €, ab 10 Jahren 2,50 €; nur Einkommensgruppe A | RL Nr. 2.5, 9.3 |
 
-> **[Hinweis] Begriff**
+> **[Frist] Und ein Stichtag** (RL Nr. 13.3)
+>
+> **31.12.2026** – Nur Modernisierungsanträge, die bis dahin bei der Wohnraumförderstelle eingehen, können mit dem Antrag verbindlich das bisherige Recht wählen → S. 15
+
+> **[Hinweis] Begriff** (RL Nr. 5.3.2)
 >
 > **Zuwendungsfähige Kosten:** Bezugsgröße der Förderquote – in 2.1: Herstellungskosten bis zur Bemessungsgrenze plus Grundstückskosten bis Bodenrichtwert (Ersterwerb: Kaufpreis und Erwerbskosten).
 
-**Grafik (compare): Markt in Niedersachsen**
+*Kurzmarke unter dem Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
+
+**Grafik (compare): Markt in Niedersachsen** · Seitenverweis: Wo Bedarf gilt → S. 18
 
 - **50.495** Sozialwohnungen 2024 (ggü. 2015 nahezu halbiert)
 - Zeitraum 31.12.2015–31.12.2024: 58.024 Wohnungen mit ausgelaufener Bindung gegenüber rund 16.000 neu geförderte Wohnungen
 - Ring: 28 % kompensiert
 
-> **[Frist] Stichtag Modernisierung**
->
-> Nur Modernisierungsanträge, die bis 31.12.2026 bei der Wohnraumförderstelle eingehen, können mit dem Antrag verbindlich das bisherige Recht wählen (S. 15).
-
-> **[Kalkulationsnotiz]** Der Bedarf ist regional verschieden: Standort und Projektrechnung zusammen prüfen.
-
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. Förderquoten und Förderbeträge sind Höchstwerte; beim Bindungserwerb gibt es einen Festbetrag. Jede Bewilligung wird auf Überkompensation geprüft (RL Nr. 5.3.7, 11.10). Entgelte sind feste Sätze (RL Nr. 12.7), Eigenmittelquoten Mindestwerte.</sub>  
-<sub>2. Fundstellen der Kacheln (RL Nr.): Förderquote 2.1, 5.3.3 (Zuschläge für Modellprojekte und Housing First: 5.3.3.3, S. 8) · Zuschuss 5.3.3.2 · Zins 5.3.4, 8.3, 12.7 – ab dem 36. Jahr nach Bezugsfertigkeit bis zu 3 Prozentpunkte über dem Basiszinssatz nach § 247 BGB, höchstens marktüblich · Bemessungsgrenze 5.3.2.2 – erster Fortschreibungsstichtag laut eigener Ableitung 01.10.2026; Ersterwerb: Kaufpreis nebst Erwerbskosten (5.3.2.1); Ostfriesische Inseln: 1,5-Fache des Werts für Mietenstufe I–III (8.3.1) · EH-40-Neubau 2.2, 6.3.3, 6.3.4 · Modernisierung 2.3, 7.3.3, nur Gebäude, die vor dem 08.12.2004 fertiggestellt wurden · Bindungserwerb 2.5, 9.3, Höhe begrenzt nach 5.3.7 · Einkommensgruppen B und C nur, wenn die NBank dies in der Förderentscheidung zulässt (1.6, 12.3.2; S. 6) · Stichtag 13.3.</sub>  
-<sub>3. Marktband: NBank-Wohnungsmarktbericht 2025 (Bericht: „rund 16.052“ neu geförderte Wohnungen, hier gerundet). Fördervolumen 2026: rund 380 Mio. € Bundes- und Landesmittel für die gesamte Wohnraumförderung, nicht allein für diese Richtlinie (MW-Presseinformation vom 03.07.2026).</sub>  
+<sub>1. NBank-Wohnungsmarktbericht 2025; neu geförderte Wohnungen dort „rund 16.052“, hier gerundet.</sub>  
 
 ---
 
@@ -143,24 +147,28 @@ Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertrags
 
 *Orientierung*
 
-### Was 2026 neu ist – passt Ihr Projekt?
+### Was 2026 neu ist
 
 **Tabelle: Programmteil 2.1 im Vergleich**
 
 |   | bis 30.06.2026 | seit 01.07.2026 |
 |---|---|---|
 | Instrument | zinsloses Darlehen bis zu 75 % der Gesamtkosten; Tilgungsnachlass 30 % des Darlehens (nur geringe Einkommen) | Darlehen + Zuschuss bis zu 80 % der zuwendungsfähigen Kosten |
-| Bemessung je m² | 5.330/5.550 € Gesamtkosten (Neubau inkl. Grundstück) | 4.800/5.000 € Herstellungskosten (Ausgangswerte ab 01.07.2026; aktuell: nbank.de), Grundstück separat bis Bodenrichtwert |
-| Mieterkreis; Höchstmiete nettokalt je m², Jahre 1–3 | geringe, mittlere Einkommen; 6,30/6,60 € (geringe) | A, B, C (B/C nur mit NBank-Zulassung); A: 6,50/6,80 € |
+| Bemessung je m² | 5.330/5.550 € Gesamtkosten (Neubau inkl. Grundstück) | 4.800/5.000 € Herstellungskosten (Ausgangswerte ab 01.07.2026, Fortschreibung → S. 8), Grundstück separat bis Bodenrichtwert |
+| Mieterkreis und Höchstmiete (nettokalt je m², Jahre 1–3) | geringe, mittlere Einkommen; 6,30/6,60 € (geringe) | A, B, C (B/C nur mit NBank-Zulassung); A: 6,50/6,80 € |
 
-*Notiz:* Nicht 1:1 vergleichbar; Paarwerte: Mietenstufe I–III/IV–VII. Bisheriges Recht nur noch für Modernisierungsanträge mit Eingang bei der Wohnraumförderstelle bis 31.12.2026 und verbindlicher Wahl im Antrag (S. 15); Neubau, Ersterwerb: nur RL 2026.
+*Lesehinweis zur Tabelle:* Nicht 1:1 vergleichbar · Paarwerte: Mietenstufe I–III/IV–VII
 
-### Grundcheck: Passt mein Projekt?
+> **[Frist] Stichtag**
+>
+> Bisheriges Recht nur noch für Modernisierungsanträge mit Eingang bei der Wohnraumförderstelle bis 31.12.2026 und verbindlicher Wahl im Antrag (→ S. 15). Neubau, Ersterwerb: nur RL 2026.
+
+### Grundcheck: Passt Ihr Projekt?
 
 - [ ] **Antragsberechtigt?** Natürliche und juristische Personen (auch Kommunen), Genossenschaften und andere Personenvereinigungen mit eigener Rechtspersönlichkeit, rechtsfähige Baugemeinschaften (Ersterwerb: Käuferseite); Gesamtfinanzierung gesichert (Miete deckt Kosten dauerhaft). [alle]
-- [ ] **Noch nicht begonnen?** Vor der Bewilligung kein Baubeginn, keine Liefer-, Leistungs-, Kauf- oder Werkverträge; bei 2.5 kein Mietvertrag, keine Überlassung. Erlaubt: Grundstückskauf, Planung bis HOAI-Leistungsphase 6; Rücktrittsklauseln, vorzeitiger Beginn: S. 19. [alle]
-- [ ] **Mehrfamilienhaus ab 3 Wohnungen?** Ausnahmen: gemeinschaftliche Wohnformen, im Einzelfall Reihen-/Doppelhaus. 2.1/2.2/2.4: je neuem Gebäude mind. 2 gebundene Wohnungen, keine Eigentumswohnungen zur Vermietung; 2.3: fertiggestellt vor 08.12.2004. [2.1–2.4]
-- [ ] **Bedarf am Standort?** In sechs Gebietsarten gegeben, sonst NBank-Karte prüfen (S. 18). [2.1, 2.2, 2.6]
+- [ ] **Noch nicht begonnen?** Vor der Bewilligung kein Baubeginn, keine Liefer-, Leistungs-, Kauf- oder Werkverträge; bei 2.5 kein Mietvertrag, keine Überlassung. Erlaubt: Grundstückskauf, Planung bis Leistungsphase 6 HOAI; Rücktrittsklauseln, vorzeitiger Beginn → S. 19. [alle]
+- [ ] **Mehrfamilienhaus ab drei Wohnungen?** Ausnahmen: gemeinschaftliche Wohnformen, im Einzelfall Reihen-/Doppelhaus. 2.1/2.2/2.4: je neuem Gebäude mind. 2 gebundene Wohnungen, keine Eigentumswohnungen zur Vermietung; 2.3: fertiggestellt vor 08.12.2004. [2.1–2.4]
+- [ ] **Bedarf am Standort?** In sechs Gebietsarten gegeben, sonst NBank-Karte prüfen → S. 18. [2.1, 2.2, 2.6]
 - [ ] **Eigenmittel?** Mind. 20 % der zuwendungsfähigen Kosten (Inseln: 10 % der zuwendungsfähigen Herstellungskosten; Modellprojekte, Housing First: ggf. weniger), davon soll mind. die Hälfte Geld oder lastenfreies Grundstück sein (2.3: Geld). [2.1–2.4]
 - [ ] **Grundstück gesichert?** Eigentum oder Erbbaurecht (mind. 60 Jahre Restlaufzeit); gesicherter Erwerb genügt. [2.1, 2.2, 2.4]
 
@@ -168,12 +176,12 @@ Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertrags
 >
 > Erst die Wohnraumförderstelle fragen; es gibt Ausnahmen.
 
-> **[Kalkulationsnotiz]** In 2.1 fließt der Zuschuss anteilig mit jeder Darlehensrate.
+*Kurzmarke unter dem Hauptdiagramm bzw. Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. Quoten: Höchstwerte, vorbehaltlich Überkompensationsprüfung (RL Nr. 5.3.7). RL Nr. 1.5, 1.6, 2.3, 3, 4.1, 4.2, 5.1.4, 5.2.1–5.2.6, 5.3.2, 5.3.3, 5.4.4, 5.5.3, 5.5.6, 6.2, 7.2.2, 8.2.1, 8.2.2, 9.2, 10.2, 12.3.2, 13.2, 13.3; § 4 DVO-NWoFG</sub>  
-<sub>2. Bisher: NBank-Produktinformation „Allgemeine Mietwohnraumförderung“ (Stand 01.04.2026). Baubeginn als Vorhabenbeginn: NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (Stand 27.07.2026). Tilgung und Auszahlungsraten: S. 9.</sub>  
+<sub>Fundstellen: RL Nr. 1.5, 1.6, 2.3, 3, 4.1, 4.2, 5.1.4, 5.2.1–5.2.6, 5.3.2, 5.3.3, 5.4.4, 5.5.3, 5.5.6, 6.2, 7.2.2, 8.2.1, 8.2.2, 9.2, 10.2, 12.3.2, 13.2, 13.3; § 4 DVO-NWoFG</sub>  
+<sub>1. Bisher: NBank-Produktinformation „Allgemeine Mietwohnraumförderung“ (Stand 01.04.2026). Baubeginn als Vorhabenbeginn: NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (Stand 27.07.2026). Tilgung und Auszahlungsraten → S. 9.</sub>  
 
 ---
 
@@ -190,7 +198,7 @@ Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertrags
 
 **Grafik (grid): Was haben Sie vor?**
 
-- **Ast A – Wohnraum im Mehrfamilienhaus neu schaffen oder bis 2 Jahre nach Fertigstellung erstmals erwerben**
+- **Ast A – Wohnraum im Mehrfamilienhaus neu schaffen oder bis zwei Jahre nach Fertigstellung erstmals erwerben**
   - Auf Borkum, Norderney, Juist, Wangerooge, Baltrum, Langeoog oder Spiekeroog? → Ja: **2.4**; Nein: nächste Frage
   - Neubau ab KfW-EH-40-Niveau, nur Zuschuss gewünscht? → Ja: **2.2**; Nein: **2.1**
   - Hinweis an 2.4: EH-40-Neubau auf den Inseln: Abgrenzung zu 2.2 mit der NBank klären
@@ -206,35 +214,35 @@ Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertrags
 
 **Grafik (grid): Ihre Ziel-Kachel**
 
-| Programmteil | Instrument | Bis zu | Bindung | Eigenmittel | Seite |
+| Programmteil | Instrument | Bis zu (2.5: Festbetrag · 2.6: Zins) | Bindung | Eigenmittel | Seite |
 |---|---|---|---|---|---|
 | **2.1** Neubau, Änderung und Erweiterung, Ersterwerb | Darlehen + Zuschuss (Zuschuss nur mit Darlehen) | A 40 + 40 % · B 60 + 20 % · C 70 + 10 % | 35 Jahre | mind. 20 % | S. 8 |
-| **2.2** Energetisch hochwertiger Neubau | nur Zuschuss | A 50 · B 40 · C 30 %, max. 90.000 / 75.000 / 60.000 € je Wohnung | 35 Jahre | mind. 20 % | S. 12 |
+| **2.2** Energetisch hochwertiger Neubau | nur Zuschuss | A 50 · B 40 · C 30 %, max. 90.000/75.000/60.000 € je Wohnung | 35 Jahre | mind. 20 % | S. 12 |
 | **2.4** Ostfriesische Inseln | Darlehen + Zuschuss | 90 % der zuwendungsfähigen Herstellungskosten (max. 1,5 × Bemessungsgrenze I–III) + 100 % der Grundstückskosten bis Bodenrichtwert | 35 Jahre | mind. 10 % der zuwendungsfähigen Herstellungskosten | S. 13 |
-| **2.3** Klimagerechte Modernisierung | Zuschuss je gebundener Wohnung | 10–40 %, höchstens 9.000–31.000 € | 25 Jahre ab Abschluss; vermietete Wohnungen +10, außer Wohnberechtigung nachgewiesen | mind. 20 % | S. 14 |
-| **2.5** Belegungsbindungen erwerben | Zuschuss als Festbetrag | 2,00–3,00 € je m² und Monat | 5–20 Jahre | – | S. 16 |
-| **2.6** Auslaufende Bindungen verlängern | Zuschuss zur Zinsverbilligung | 0 % Zins auf bis zu 100 % der Restschuld, längstens 20 Jahre; Tilgung und Verwaltungskostenbeitrag laufen weiter | + bis zu 20 Jahre | – | S. 17 |
+| **2.3** Klimagerechte Modernisierung | Zuschuss je gebundener Wohnung | 10–40 %, höchstens 9.000–31.000 € | 25 Jahre ab Abschluss; vermietete Wohnungen +10 Jahre, außer bei WBS-Nachweis | mind. 20 % | S. 14 |
+| **2.5** Belegungsbindungen erwerben | Zuschuss | Festbetrag: 2,00–3,00 € je m² und Monat, nach Bindungsdauer gestaffelt | 5–20 Jahre | – | S. 16 |
+| **2.6** Auslaufende Bindungen verlängern | Zuschuss zur Zinsverbilligung | Zins: 0 % auf bis zu 100 % der Restschuld, längstens 20 Jahre; Tilgung und Verwaltungskostenbeitrag laufen weiter | + bis zu 20 Jahre | – | S. 17 |
 
-*Notiz:* Höchstwerte ohne Rechtsanspruch, Überkompensationsprüfung vorbehalten. Kosten: Darlehen 0,5 % Verwaltungskostenbeitrag p. a. und einmalig 1 % Bearbeitungsentgelt, Zuschüsse einmalig 0,75 % (→ S. 9). 2.4: Darlehen und Zuschuss zusammen, eigene Berechnung.
+*Notiz:* Kachel 2.4: 90 % und 100 % sind jeweils Darlehen und Zuschuss zusammen (eigene Berechnung).
 
-> **[Achtung] Erst Bewilligung, dann Vertrag oder Spatenstich**
->
-> Kein Liefer-, Leistungs-, Werk- oder Kaufvertrag (Grundstückskauf ausgenommen) und kein Baubeginn vor der Bewilligung – sonst keine Förderung, außer bei zugelassenem vorzeitigem Beginn. Bei 2.5 schaden schon Mietvertrag oder Überlassung. → S. 19
+*Stopp-Band am Fuß des Baums:* **Erst Bewilligung, dann Vertrag oder Spatenstich → S. 19** (die vollständige Regel – Vertragsarten, Grundstückserwerb, bei 2.5 Mietvertrag und Überlassung, Ausnahmen – steht im Grundcheck S. 4 und im Antragsweg S. 19)
 
 ### Nicht förderfähig
 
 - Ferienwohnungen, Ferien- und Wochenendhäuser
 - Heime nach § 2 Abs. 2–4 NuWG
-- stationäre oder quasi-stationäre Versorgung (SGB IX/XI)
+- stationäre oder quasistationäre Versorgung (SGB IX/XI)
 - Wohnraum gekoppelt an Pflege- oder Betreuungsvertrag
 - Gemeinschaftsunterkünfte
 - frei finanzierte Wohnungen ohne Bindung
 - Eigentumswohnungen zur Vermietung (WEG)
 - Standorte außerhalb Niedersachsens
 
+*Kurzmarke unter dem Hauptdiagramm bzw. Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
+
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. RL Nr. 1.5, 2.1–2.7, 4.2, 5.2.5, 5.2.6, 5.3, 6–10, 12.1.2, 12.7, 13.3; NBank-Vordrucke 1011, 1011a, 1011b, 1012; NBank-Merkblatt Vorzeitiger Vorhabenbeginn; NBank-Produktinformation Verlängerung.</sub>  
+<sub>Fundstellen: RL Nr. 1.5, 2.1–2.7, 4.2, 5.2.5, 5.2.6, 5.3, 6–10, 12.1.2, 12.7, 13.3; NBank-Vordrucke 1011, 1011a, 1011b, 1012; NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“; NBank-Produktinformation Verlängerung.</sub>  
 
 ---
 
@@ -249,7 +257,7 @@ Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertrags
 
 **Grundsatz ist Gruppe A. Die Gruppen B und C öffnen den Mieterkreis für höhere Einkommen.**
 
-**Grafik (bar): Obergrenze Gesamtjahreseinkommen in €**
+**Grafik (bar): Obergrenze Gesamtjahreseinkommen in €** – *Verweis: Gruppe und Fördermix → S. 11*
 
 | Haushalt | A (bis zur Einkommensgrenze) | B (bis 40 % darüber) | C (bis 60 % darüber) |
 |---|---|---|---|
@@ -264,11 +272,14 @@ Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertrags
 
 > **[Achtung] B und C nur mit Zulassung**
 >
-> Die NBank muss höhere Einkommen in der Förderentscheidung zulassen.
+> Zulassung in der Förderentscheidung der NBank:
 >
-> **Bis +60 %** in Gebieten mit kommunalem Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach § 7 Abs. 3 NWoFG oder per Verordnung bestimmtem angespanntem Wohnungsmarkt – oder für Wohnraum, der Älteren, Menschen mit Behinderungen oder hilfe- bzw. pflegebedürftigen Personen vorbehalten ist.
+> | Zulässig | Voraussetzung (eine genügt) |
+> |---|---|
+> | **bis +60 %** | Gebiet mit kommunalem Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach § 7 Abs. 3 NWoFG oder per Verordnung bestimmtem angespanntem Wohnungsmarkt – **oder** Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- bzw. Pflegebedürftigen vorbehalten ist |
+> | **bis +20 %** | **Sonst** nur ab 12 zusammenhängenden Wohnungen, für höchstens die Hälfte der Wohnungen |
 >
-> **Sonst** nur ab 12 zusammenhängenden Wohnungen: bis +20 % für höchstens die Hälfte der Wohnungen. Folgen für Fördersätze und Mieten mit der NBank klären.
+> Folgen für Fördersätze und Mieten mit der NBank klären.
 
 ### Nachweis per WBS
 
@@ -294,11 +305,9 @@ Haushalte belegen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) der zuständ
 >
 > — Michael Kiesewetter, Vorstandsvorsitzender der NBank · MW-Presseinformation vom 03.07.2026
 
-> **[Kalkulationsnotiz]** Die Gruppe bestimmt Fördermix und Höchstmiete zugleich (→ S. 11).
-
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. § 3 Abs. 2, §§ 7–8 NWoFG; §§ 2–4 DVO-NWoFG; RL Nr. 1.5, 1.6, 5.1.1, 12.3.2; Zuschläge B/C: eigene Berechnung.</sub>  
+<sub>Fundstellen: § 3 Abs. 2, §§ 7–8 NWoFG; §§ 2–4 DVO-NWoFG; RL Nr. 1.5, 1.6, 5.1.1, 12.3.2</sub>  
 
 ---
 
@@ -313,7 +322,7 @@ Haushalte belegen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) der zuständ
 
 **Was Sie verlangen dürfen, bestimmen Programmteil, Einkommensgruppe und Mietenstufe – drei Jahre fest, danach nach festen Regeln.**
 
-**Tabelle: Höchstmiete in Jahr 1–3 der Mietbindung, nettokalt, € je m² und Monat**
+**Tabelle: Höchstmiete in den Jahren 1–3 der Mietbindung, nettokalt, € je m² und Monat**
 
 | Programmteil | Mietenstufe | A | B | C |
 |---|---|---|---|---|
@@ -328,7 +337,9 @@ Haushalte belegen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) der zuständ
 
 *Notiz:* Ab KfW-EH-40-Niveau bis zu +0,30 € je m² (2.1, 2.3, 2.5); in 2.2 enthalten; für 2.4 mit der NBank klären. Sonderfall 2.3 bei verlängerter Bindung → S. 14.
 
-**Grafik (bar): Modellrechnung: Höchstmiete Gruppe A, Programmteil 2.1, Mietenstufe IV–VII**
+*Stempelzeile:* Modellrechnung – fiktives Beispiel, keine Förderzusage
+
+**Grafik (bar): Modellrechnung: Mietpfad 2.1 · Gruppe A · Mietenstufe IV–VII**
 
 | Zeitraum | € je m² |
 |---|---|
@@ -348,11 +359,11 @@ Haushalte belegen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) der zuständ
 
 Quelle: NBank-Wohnungsmarktbericht 2025
 
-*Notiz:* Marktwerte landesweit, nicht nach Mietenstufen. Die NBank prüft bei der Bewilligung, dass keine Überkompensation entsteht (→ S. 11).
+*Notiz:* NBank-Wohnungsmarktbericht 2025, landesweit, nicht nach Mietenstufen. Überkompensation prüft die NBank (→ S. 11).
 
 > **[Hinweis] Begriff: Mietenstufe**
 >
-> Sie bestimmt Höchstmiete und Bemessungsgrenze; ab Stufe IV gilt zudem der Bedarf als gegeben. Stand 21.10.2026 (WoGV-Anlage):
+> Sie bestimmt Höchstmiete und Bemessungsgrenze; ab Stufe IV gilt zudem der Bedarf als gegeben. Zuordnung laut WoGV-Anlage:
 >
 > **VI** Buchholz i. d. Nordheide, Neu Wulmstorf
 >
@@ -360,7 +371,9 @@ Quelle: NBank-Wohnungsmarktbericht 2025
 >
 > **IV** Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg
 >
-> **I–III** übrige Festlandgemeinden. Stufe VII gibt es in Niedersachsen nicht. Neue Stufen ab 2027 sind erst Entwurf – vor dem Antrag prüfen.
+> **I–III** übrige Festlandgemeinden
+>
+> Stufe VII gibt es in Niedersachsen nicht. Neue Stufen ab 2027 sind erst Entwurf – vor dem Antrag prüfen.
 
 ### So vermieten Sie
 
@@ -373,7 +386,7 @@ Quelle: NBank-Wohnungsmarktbericht 2025
 - Zuschläge für Ausstattung, Keller, Energie- und Wärmeeinrichtungen
 - Entgelte für zwingende Zusatzleistungen
 - Kosten für Bezugsfertigkeit oder laufende Instandhaltung entgegen BGB auf die Mieterseite abwälzen
-- Zwischenvermietung – Ausnahmen: gewerblich im Einzelfall (Zwischenmietpartei übernimmt alle Pflichten, Sie haften mit); Housing First (2.1) mit NBank-Zustimmung
+- Zwischenvermietung – Ausnahmen: gewerblich im Einzelfall (Zwischenmietpartei übernimmt alle Pflichten, Sie haften mit); Housing First → S. 8
 
 > **[Achtung] Verstöße kosten**
 >
@@ -383,8 +396,8 @@ Quelle: NBank-Wohnungsmarktbericht 2025
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. RL Nr. 1.2, 5.2.1, 5.3.2.2, 5.4.4–5.4.5, 6.4.1, 7.4.3, 8.3.1, 8.4, 9.4.1, 10.4.2, 11.6–11.10; §§ 7, 9, 14 NWoFG; VV NWoFG Nr. 6; WoGV-Anlage; NBank-Wohnungsmarktbericht 2025.</sub>  
-<sub>2. Inseln (Mietenstufe V): In 2.4 gelten eigene Höchstmieten und das 1,5-Fache der Bemessungsgrenze für Mietenstufe I–III; welche Mietenstufe in 2.2 und 2.3 auf den Inseln maßgeblich ist, mit der NBank klären.</sub>  
+<sub>Fundstellen: RL Nr. 1.2, 5.2.1, 5.3.2.2, 5.4.4–5.4.5, 6.4.1, 7.4.3, 8.3.1, 8.4, 9.4.1, 10.4.2, 11.6–11.10; §§ 7, 9, 14 NWoFG; VV NWoFG Nr. 6; WoGV-Anlage; NBank-Wohnungsmarktbericht 2025.</sub>  
+<sub>1. Inseln (Mietenstufe V): Welche Stufe in 2.2 und 2.3 dort gilt, mit der NBank klären; 2.4 mit eigenen Werten → S. 13.</sub>  
 
 ---
 
@@ -405,7 +418,7 @@ Quelle: NBank-Wohnungsmarktbericht 2025
 
 - **Neubau**
 - **Änderung und Erweiterung:** Dachgeschossausbau, Aufstockung, Anbau, Umnutzung bisher nicht zum Wohnen genutzter Räume
-- **Ersterwerb** bis 2 Jahre nach Fertigstellung: unvermietet, ungebunden, Kaufpreis höchstens Marktwert
+- **Ersterwerb** bis zwei Jahre nach Fertigstellung: unvermietet, ungebunden, Kaufpreis höchstens Marktwert
 
 **Grafik (stacked-bar): Fördermix, bis zu, in % der zuwendungsfähigen Kosten**
 
@@ -419,7 +432,7 @@ Zuschläge (Einkommensgruppe A):
 - Modellprojekt: bis zu +5 Prozentpunkte → Zuschuss bis zu 45 %, zusammen bis zu 85 %
 - Housing First: bis zu +10 Prozentpunkte → Zuschuss bis zu 50 %, zusammen bis zu 90 %
 
-*Notiz:* Höchstwerte ohne Anspruch, Überkompensationsprüfung vorbehalten; Bindung 35 Jahre. Zuschläge in allen Gruppen (Zuschuss B bis zu 25/30 %, C bis zu 15/20 %); ob beide addierbar sind, regelt die RL nicht – mit der NBank klären. Darlehenskonditionen und Kosten → S. 9.
+*Notiz:* Bindung 35 Jahre. Zuschläge in allen Gruppen (Werte: eigene Addition); ob beide addierbar sind, regelt die RL nicht; Vordruck 1011 nennt als Gesamtförderung höchstens 85 % bzw. 90 % – mit der NBank klären. Konditionen → S. 9.
 
 ### Zuwendungsfähige Kosten
 
@@ -431,16 +444,16 @@ Ersterwerb: Kaufpreis + Erwerbskosten. Nur Kosten des geförderten Wohnraums.
 
 > **[Hinweis] Bemessungsgrenze: Stand prüfen**
 >
-> Ausgangswerte 4.800 € (Mietenstufe I–III) und 5.000 € (IV–VII) je m² Wohnfläche, nicht beim Ersterwerb. Fortschreibung zum 1.4. und 1.10. nach LSN-Baupreisen, nach oben oder unten; der neue Wert wird auf volle 10 € aufgerundet. Bis 21.10.2026 keine fortgeschriebenen Werte auf nbank.de auffindbar.
+> Ausgangswerte 4.800 € (Mietenstufe I–III) und 5.000 € (IV–VII) je m² Wohnfläche, nicht beim Ersterwerb. Fortschreibung jeweils zum 01.04. und 01.10. nach LSN-Baupreisen, nach oben oder unten; der neue Wert wird auf volle 10 € aufgerundet. Bis 21.10.2026 keine fortgeschriebenen Werte auf nbank.de auffindbar.
 
 ### Eigenmittel
 
-Mindestens 20 % der zuwendungsfähigen Kosten, auch als Eigenleistung; mit Zuschlag ggf. entsprechend weniger (mit der NBank abstimmen). Mindestens die Hälfte soll Geld oder das nicht fremdfinanzierte, grundbuchlastenfreie Baugrundstück sein. Weitere Voraussetzungen → S. 4.
+Mindestens 20 % der zuwendungsfähigen Kosten, auch als Eigenleistung; mit Zuschlag ggf. weniger (mit der NBank abstimmen). Mindestens die Hälfte soll Geld oder das nicht fremdfinanzierte, grundbuchlastenfreie Baugrundstück sein (→ S. 4).
 
 ### Housing First: Zuschuss bis zu +10 Prozentpunkte, ohne Anspruch
 
-- bedingungsloses Wohnangebot für wohnungslose Menschen in sozialen Schwierigkeiten; einzelne Wohnungen bis ganze Gebäude
-- verbindliche Zusammenarbeit mit Leistungserbringern nach §§ 67 ff. SGB XII; Unterstützung freiwillig
+- bedingungsloses Wohnangebot für wohnungslose Menschen, deren Wohnungslosigkeit mit sozialen Schwierigkeiten verknüpft ist, die sie nicht aus eigener Kraft überwinden können; einzelne Wohnungen bis ganze Gebäude
+- verbindliche Zusammenarbeit mit Leistungserbringern nach §§ 67 ff. SGB XII, die dem Landesrahmenvertrag (LRV) beigetreten sind – während der gesamten Bindung auf Anforderung nachzuweisen; Unterstützung freiwillig
 - Zwischenvermietung an gemeinnützige Träger mit NBank-Zustimmung
 
 ### Modellprojekt: Zuschuss bis zu +5 Prozentpunkte, ohne Anspruch
@@ -458,12 +471,11 @@ Mindestens 20 % der zuwendungsfähigen Kosten, auch als Eigenleistung; mit Zusch
 
 Neubau und Ersterwerb bis 12 Monate nach Bauabnahme: KfW 298 oder 296, je Wohnung nur eines, zusammen höchstens die förderfähigen Kosten nach KfW; EH-55-Stufe nur bei KfW-Antragseingang bis 31.12.2026 und verfügbaren Bundesmitteln. Änderung und Erweiterung: mit der KfW klären. Nicht mit 2.2.
 
-> **[Kalkulationsnotiz]** Zuschläge gibt es nur auf den Zuschuss und ohne Anspruch – rechnen Sie Ihr Projekt zuerst ohne sie (Effekt der Kostengrenze → S. 10).
+*Kurzmarke unter dem Hauptdiagramm bzw. Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. RL Nr. 1.5, 2.1, 5.1–5.4, 6.3.4, 11.4, 11.9, 12.7; NBank-Vordruck 1011; KfW-Merkblätter 296 und 297/298; Zuschläge B/C: eigene Addition. Vordruck 1011 nennt als Gesamtförderung höchstens 85 % (Modellprojekt) bzw. 90 % (Housing First) – das spricht eher gegen eine Addition beider Zuschläge. Die NBank stimmt sich vor der Bewilligung mit anderen Fördergebern ab (RL Nr. 11.4).</sub>  
-<sub>2. Housing First (RL Nr. 5.1.6, 5.2.3, 5.4.11, 11.9): für Menschen, deren Wohnungslosigkeit mit sozialen Schwierigkeiten verknüpft ist, die sie nicht aus eigener Kraft überwinden können; Leistungserbringer müssen dem Landesrahmenvertrag (LRV) beigetreten sein; die Zusammenarbeit ist während der gesamten Bindung auf Anforderung nachzuweisen.</sub>  
+<sub>Fundstellen: RL Nr. 1.5, 2.1, 5.1–5.4, 6.3.4, 11.4, 11.9, 12.7; NBank-Vordruck 1011; KfW-Merkblätter 296 und 297/298.</sub>  
 
 ---
 
@@ -476,23 +488,21 @@ Neubau und Ersterwerb bis 12 Monate nach Bauabnahme: KfW 298 oder 296, je Wohnun
 
 ### Konditionen auf einem Blatt
 
-**0 % Zins bis Ende des 35. Jahres nach Bezugsfertigkeit – zzgl. 0,5 % Verwaltungskostenbeitrag p. a. und einmalig 1 % bzw. 0,75 % Bearbeitungsentgelt. Höchstens 42 Jahre Laufzeit, Darlehen und Zuschuss in einem Fördervertrag.**
-
 **Grafik (timeline): Zeitstrahl Darlehen und Bindung** – *schematisch*
 
-- Bauphase ab Förderentscheidung; Marke: Vorher kein Vorhabenbeginn – z. B. Bauvertrag; sonst keine Förderung (→ S. 19)
+- Bauphase ab Förderentscheidung; Marke: Vorher kein Vorhabenbeginn, z. B. Bauvertrag – sonst keine Förderung (→ S. 19)
 - Baubeginn: unverzüglich, spätestens 4 Monate nach Bekanntgabe der Förderentscheidung (Abweichung in begründeten Fällen)
 - Auszahlungsbeginn
 - Auszahlung Neubau: bis zu 30 % (Baubeginn) / bis zu 30 % (Rohbau) / bis zu 30 % (Innenputz) / 10 % (Fertigstellung, Schlussbescheinigung, Belegung)
 - Auszahlung Änderung/Erweiterung: bis zu 30 % (Baubeginn) / 60 % (Kostennachweis) / 10 % (Abschluss, Schlussbescheinigung, Belegung)
 - Auszahlung Ersterwerb: 90 % (Kaufpreisfälligkeit) / 10 % (Umschreibung, Belegung)
 - Band: 0 % Zins ab Auszahlung bis Ende des 35. Jahres
-- Band: ab Jahr 36: bis zu 3 Prozentpunkte über Basiszinssatz (höchstens marktüblich)
+- Band: ab Jahr 36: bis zu 3 Prozentpunkte über dem Basiszinssatz (höchstens marktüblich)
 - Band: Belegungs- und Mietbindung 35 Jahre
 - Linie: Verwaltungskostenbeitrag 0,5 % p. a. (ab Auszahlungsbeginn bis Rückzahlung)
 - Marke (Bauphase bis nach Bezugsfertigkeit): Tilgungsbeginn (variabel) – Monatserster nach Vollauszahlung, meist nach Bezugsfertigkeit; spätestens 2 Jahre nach dem auf die Bekanntgabe folgenden Monat, ggf. schon in der Bauphase
 - Marke (20): frühestes Bindungsende nach freiwilliger Volltilgung
-- Marke (42): Laufzeitende, spätestens
+- Marke (42): Laufzeitende: spätestens nach 42 Jahren
 - Achse: Jahre ab Bezugsfertigkeit, 0 bis 42
 
 *Notiz:* Ersterwerb: Laufzeit und Bindung ab Eigentumsübergang.
@@ -507,19 +517,19 @@ Neubau und Ersterwerb bis 12 Monate nach Bauabnahme: KfW 298 oder 296, je Wohnun
 | Zins | 0 % bis Ende des 35. Jahres nach Bezugsfertigkeit; danach bis zu 3 Prozentpunkte über dem Basiszinssatz nach § 247 BGB, höchstens marktüblich; Festschreibung für die Restlaufzeit möglich |
 | Tilgung | Satz legt die NBank fest; läuft schon in der Nullzinsphase; Aufschub bis 5 Jahre bei vorübergehendem Fehlbetrag möglich, ohne Anspruch |
 | Kosten, laufend | Verwaltungskostenbeitrag 0,5 % p. a. auf das Darlehens-Restkapital, ab Auszahlungsbeginn, auch in der Nullzinsphase |
-| Kosten, einmalig | Bearbeitungsentgelt 1 % des bewilligten Darlehens (mit der 1. Rate verrechnet), 0,75 % des bewilligten Zuschusses (mit dessen Auszahlung verrechnet); voll fällig auch bei Verzicht, Widerruf, Rücknahme vor Auszahlung |
-| Sicherheiten | nachrangige Grundschuld direkt nach den Kapitalmarktmitteln, je nach Bonität weitere¹ |
+| Kosten, einmalig | Bearbeitungsentgelt 1 % des bewilligten Darlehens (mit der 1. Rate verrechnet), 0,75 % des bewilligten Zuschusses (mit dessen Auszahlung verrechnet); voll fällig auch bei Verzicht, Widerruf, Rücknahme vor Auszahlung; sonstige Entgelte: Entgeltkatalog der NBank |
+| Sicherheiten | nachrangige Grundschuld direkt nach den Kapitalmarktmitteln; vorgehen sollen nur Kapitalmarktdarlehen zu erststelligen Marktbedingungen mit mind. 1 % Tilgung zzgl. ersparter Zinsen; deren Grundschuld darf nach Rückzahlung nicht neu belegt werden (keine Revalutierung; Ausnahmen und andere Rangfolge möglich); je nach Bonität weitere, z. B. Bürgschaft, bei reinen Objektgesellschaften immer |
+| Versicherung | Brand ab Baubeginn, Sturm ab Bezugsfertigkeit, jeweils gleitender Neuwert, bis zur Rückzahlung |
 | Auszahlung | je Rate Darlehen und Zuschuss anteilig und zeitgleich; Darlehen erst nach rangrichtiger Sicherung oder Notarbestätigung; Eigenmittel grundsätzlich vorrangig einsetzen |
 | Exit | freiwillige Volltilgung: Zuschussanteil für die Restbindung zurück; Bindung endet nach Ablauf des 10. Kalenderjahres nach Rückzahlung, frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende |
+| Inseln (2.4) | Darlehenskonditionen, Auszahlung, Exit entsprechend; Sicherheiten mit der NBank klären; Quoten, Eigenmittel, Kostengrenze, Mieten abweichend (→ S. 13) |
 | Beihilferecht | Ausgleich für eine Dienstleistung von allgemeinem wirtschaftlichem Interesse (DAWI); Überkompensationsprüfung (→ S. 11) |
 
-> **[Kalkulationsnotiz]** Zinsfrei heißt nicht kostenfrei: Verwaltungskostenbeitrag und Bearbeitungsentgelte gehören als feste Kosten in Ihren Finanzplan (Beispielwerte → S. 10).
+> **[Kalkulationsnotiz]** Zinsfrei heißt nicht kostenfrei: Verwaltungskostenbeitrag und Bearbeitungsentgelte gehören als feste Kosten in Ihren Finanzplan (Beispielwerte → S. 11).
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. Laut NBank-Produktinformation 2.1 (Stand 31.08.2026), z. B. Bürgschaft; bei reinen Objektgesellschaften immer. Vorgehen sollen nur Kapitalmarktdarlehen zu erststelligen Marktbedingungen mit mind. 1 % Tilgung zzgl. ersparter Zinsen; deren Grundschuld nicht neu belegen (Ausnahmen möglich). Andere Rangfolge durch die NBank möglich. Inseln: mit der NBank klären.</sub>  
-<sub>2. Versicherung: Brand ab Baubeginn, Sturm ab Bezugsfertigkeit, gleitender Neuwert, bis zur Rückzahlung. Weitere Entgelte: Entgeltkatalog der NBank.</sub>  
-<sub>3. 2.4: Darlehenskonditionen, Auszahlung, Exit entsprechend; Quoten, Eigenmittel, Kostengrenze, Mieten abweichend (→ S. 13). RL Nr. 1.2, 4.2, 5.3–5.5, 8.3–8.5, 11.5, 11.10, 12.1–12.4, 12.7.</sub>  
+<sub>Fundstellen: RL Nr. 1.2, 4.2, 5.3–5.5, 8.3–8.5, 11.5, 11.10, 12.1–12.4, 12.7; NBank-Produktinformation 2.1 (Stand 31.08.2026).</sub>  
 
 ---
 
@@ -528,20 +538,18 @@ Neubau und Ersterwerb bis 12 Monate nach Bauabnahme: KfW 298 oder 296, je Wohnun
 
 <sub>Layout: chart-focus · Kolumnentitel: Finanzierung · Modellrechnung</sub>
 
-*Modellrechnung · Programmteil 2.1*
+*Programmteil 2.1 · Neubau*
 
 ### 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung
 
 **Basisfall: Herstellungskosten von 4.500 € je m² Wohnfläche, 10 % unter dem Ausgangswert der Bemessungsgrenze (5.000 €). Die Rechnung trägt, solange die fortgeschriebene Grenze nicht unter 4.500 € sinkt.**
 
-> **[Stempel] Modellrechnung – fiktives Beispiel, keine Förderzusage**
->
-> Höchstwerte ohne Rechtsanspruch, im Rahmen verfügbarer Mittel; Überkompensationsprüfung vorbehalten.
+*Stempelzeile:* Modellrechnung – fiktives Beispiel, keine Förderzusage
 
 ### Annahmen
 
-- 20 Neubauwohnungen, zusammen 1.400 m² Wohnfläche, angemessen für 1–4 Personen
-- alle Einkommensgruppe A; Mietenstufe IV–VII, angespannter Wohnungsmarkt laut Verordnung: Bedarf gilt als gegeben
+- 20 Neubauwohnungen (2 × 50, 6 × 60, 8 × 75, 4 × 85 m²), zusammen 1.400 m² Wohnfläche, angemessen für 1–4 Personen
+- alle für Einkommensgruppe A; Mietenstufe IV–VII, angespannter Wohnungsmarkt laut Verordnung: Bedarf gilt als gegeben
 - Herstellungskosten (Kostengruppen 200–700 nach DIN 276) 4.500 € je m² Wohnfläche; Grundstück 700.000 € (Annahme: unter Bodenrichtwert × Fläche)
 
 **Tabelle: Rechenweg**
@@ -555,32 +563,23 @@ Neubau und Ersterwerb bis 12 Monate nach Bauabnahme: KfW 298 oder 296, je Wohnun
 | 5 | Förderung, bis zu 80 % | 5.600.000 |
 | 6 | Eigenmittel, mind. 20 %; davon sollen mind. 700.000 € Geld oder lastenfreies Grundstück sein | 1.400.000 |
 
-**Grafik (stacked-bar): Finanzierung 7,0 Mio. € (Höchstwerte)**
+**Grafik (stacked-bar): Finanzierung 7,0 Mio. € (Höchstwerte)** – *als Haus: 5 Geschosse à 20 %, 20 Fenster = 20 Wohnungen (1 Fenster = 1 Wohnung)*
 
 Gesamt: 7,0 Mio. €
 - Darlehen: 2,8 Mio. € (bis zu 40 %)
 - Zuschuss: 2,8 Mio. € (bis zu 40 %)
 - Eigenmittel: 1,4 Mio. € (mind. 20 %)
+- Klammer über Zuschuss und Darlehen: Förderung 5,6 Mio. € (bis zu 80 %)
 
 **Kennzahlen**
 
 | Wert | Kennzahl | Unterzeile |
 |---|---|---|
 | **Ø bis zu 140.000 €** | Zuschuss je Wohnung im Modell | Ø über 20 Wohnungen, nach Wohnfläche aufgeteilt 100.000–170.000 €; plus Darlehen in gleicher Höhe |
-| **bis zu 4.000 € je m²** | Förderung je m² Wohnfläche im Modell |   |
+| **bis zu 4.000 €/m²** | Förderung je m² Wohnfläche im Modell |   |
 | **bis zu 4 €** | Förderung je 1 € Mindest-Eigenmittel | davon 2 € rückzahlbares, anfänglich zinsloses Darlehen |
 
-**Tabelle: Kosten der Förderung und Mietertrag**
-
-| Position | € |
-|---|---|
-| Bearbeitungsentgelte, einmalig, verrechnet: 1 % des Darlehens + 0,75 % des Zuschusses | 28.000 + 21.000 |
-| Verwaltungskostenbeitrag 0,5 % p. a., Darlehen voll ausgezahlt; sinkt mit der Tilgung | 14.000 p. a. |
-| Zins bis Ende des 35. Jahres | 0 |
-| Höchstmiete nettokalt Jahr 1–3: 1.400 m² × 6,80 € × 12 | bis zu 114.240 p. a. |
-| nur bei mind. KfW-EH-40-Niveau: höchstens 7,10 € (Aufschlag bis zu 0,30 €) | bis zu 119.280 p. a. |
-
-*Notiz:* Ohne Tilgung (Satz legt die NBank fest), Bewirtschaftung, Kapitalmarktkonditionen, Steuern.
+Bearbeitungsentgelte, Verwaltungskostenbeitrag und Höchstmiete dieses Hauses: Spalte A im Vergleich → S. 11.
 
 **Grafik (bar): Sensitivität: Herstellungskosten 5.200 € je m²** – *Grenze 5.000 € = Ausgangswert 01.07.2026; eigene Berechnung*
 
@@ -589,19 +588,19 @@ Gesamt: 7,0 Mio. €
 - zuwendungsfähig: 7,70 Mio. €
 - Förderung, bis zu 80 %: 6,16 Mio. €
 - **bis zu 77,2 %** effektive Förderquote auf die Gesamtkosten, gerundet
-- Eigenmittel mind. + Restfinanzierung: 1,54 + 0,28 Mio. €
+- Mindest-Eigenmittel + Restfinanzierung: 1,54 + 0,28 Mio. €
 
-*Notiz:* Die Fortschreibung zum 1.4./1.10. kann die Grenze heben oder senken; maßgeblich sind die Verhältnisse bei Bewilligung (RL Nr. 1.5), aktueller Wert auf nbank.de.
+*Notiz:* Die bis zu 80 % beziehen sich nur auf die zuwendungsfähigen Kosten – jeder Euro über der Bemessungsgrenze senkt die effektive Förderquote. Maßgeblich sind die Verhältnisse bei Bewilligung (RL Nr. 1.5); Fortschreibung → S. 8.
 
 > *„Wir sollten nicht teuer bauen, um anschließend teuer zu fördern.“*
 >
 > — Michael Kiesewetter, Vorstandsvorsitzender der NBank · NBank-Presseinformation vom 01.10.2026
 
-> **[Kalkulationsnotiz]** Die bis zu 80 % beziehen sich nur auf die zuwendungsfähigen Kosten – jeder Euro über der Bemessungsgrenze senkt Ihre effektive Förderquote.
+*Kurzmarke unter dem Hauptdiagramm bzw. Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. Wohnungsmix: 2 × 50, 6 × 60, 8 × 75, 4 × 85 m². RL Nr. 1.3, 1.5, 5.1.1, 5.2.1, 5.2.6, 5.3.2–5.3.4, 5.3.7, 5.4.4, 12.7; eigene Berechnung.</sub>  
+<sub>Fundstellen: RL Nr. 1.3, 1.5, 5.1.1, 5.2.1, 5.2.6, 5.3.2–5.3.4, 5.3.7, 5.4.4, 12.7; eigene Berechnung.</sub>  
 
 ---
 
@@ -616,9 +615,7 @@ Gesamt: 7,0 Mio. €
 
 **Dasselbe Haus wie auf S. 10: ohne Zuschläge immer bis zu 80 % Förderung, nur anders zusammengesetzt.**
 
-> **[Stempel] Modellrechnung – fiktives Beispiel, keine Förderzusage**
->
-> Höchstwerte; Überkompensationsprüfung vorbehalten.
+*Stempelzeile:* Modellrechnung – fiktives Beispiel, keine Förderzusage
 
 **Grafik (compare): Zuschuss gegen Miete**
 
@@ -648,7 +645,9 @@ Verbindungen: A → C: −2,1 Mio. € ↔ +36.960 € p. a. · A → B: −1,4 
 | Bearbeitungsentgelte, einmalig | 49.000 | 52.500 | 54.250 | 51.187,50 |
 | Verwaltungskostenbeitrag p. a., Darlehen voll ausgezahlt | 14.000 | 21.000 | 24.500 | 18.375 |
 
-*Notiz:* Mix: 10 Wohnungen A (700 m²), je 5 B und C (je 350 m²); Kosten nach Wohnflächenanteil (Hilfestellung der NBank-Arbeitshilfe, keine RL-Regel); Annahme: Höchstmiete wird erzielt. Variante Housing First in den zehn A-Wohnungen (ohne Anspruch): Zuschuss bis zu 50 % = 1.750.000 € statt 1.400.000 €, dort zusammen bis zu 90 %; Voraussetzung: Zusammenarbeit nach §§ 67 ff. SGB XII (→ S. 8); Eigenmittel mit der NBank abstimmen.
+*Notiz:* Mix: zehn Wohnungen A (700 m²), je fünf B und C (je 350 m²); Kosten nach Wohnflächenanteil (Hilfestellung der NBank-Arbeitshilfe, keine RL-Regel); Annahme: Höchstmiete wird erzielt.
+
+*Variante:* Variante Housing First in den zehn Wohnungen A (ohne Anspruch): Zuschuss bis zu 50 % = 1.750.000 € statt 1.400.000 €, dort zusammen bis zu 90 %; Voraussetzungen und Eigenmittel → S. 8.
 
 ### So lesen Sie den Vergleich
 
@@ -660,13 +659,15 @@ Jeder Schritt von A Richtung C tauscht Zuschuss gegen anfänglich zinsloses, rü
 
 > **[Achtung] B und C nur mit Zulassung**
 >
-> Nur wenn die NBank höhere Einkommen in der Förderentscheidung zulässt (§ 4 DVO-NWoFG) – kein Wahlrecht. Im Modell ist eine Voraussetzung erfüllt: angespannter Wohnungsmarkt per Verordnung. Alle Voraussetzungen → S. 6 und 18.
+> Zulassung durch die NBank in der Förderentscheidung (§ 4 DVO-NWoFG), kein Wahlrecht. Im Modell erfüllt: angespannter Wohnungsmarkt per Verordnung. Alle Voraussetzungen → S. 6 und 18.
 
 > **[Kalkulationsnotiz]** Wo B und C zugelassen sind, ist die Einkommensgruppe auch eine Finanzierungsentscheidung – rechnen Sie den Mix.
 
+*Kurzmarke unter dem Hauptdiagramm bzw. Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
+
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. Eigene Berechnung. RL Nr. 1.6, 5.1.6, 5.2.3, 5.2.5, 5.3.3, 5.4.4, 11.10, 12.3.2, 12.7; § 4 DVO-NWoFG; NBank-Vordruck 1011; Arbeitshilfe „Kosten-Finanzierungsaufteilung“ (Stand 08/26).</sub>  
+<sub>Fundstellen: RL Nr. 1.6, 5.1.6, 5.2.3, 5.2.5, 5.3.3, 5.4.4, 11.10, 12.3.2, 12.7; § 4 DVO-NWoFG; NBank-Vordruck 1011; NBank-Arbeitshilfe „Kosten-Finanzierungsaufteilung“ (Stand 08/2026); eigene Berechnung.</sub>  
 
 ---
 
@@ -683,16 +684,6 @@ Jeder Schritt von A Richtung C tauscht Zuschuss gegen anfänglich zinsloses, rü
 
 **Für den Neubau ab KfW-Effizienzhaus-40-Niveau: kein Darlehen, also kein Verwaltungskostenbeitrag. Es gilt der niedrigere Wert aus Prozentsatz und Höchstbetrag je Wohnung.**
 
-**Tabelle: Zuschuss je Einkommensgruppe**
-
-| Einkommensgruppe | bis zu | höchstens je Wohnung | Höchstbetrag greift ab Kosten je Wohnung |
-|---|---|---|---|
-| A | 50 % | 90.000 € | 180.000 € |
-| B | 40 % | 75.000 € | 187.500 € |
-| C | 30 % | 60.000 € | 200.000 € |
-
-*Notiz:* In % der zuwendungsfähigen Herstellungs- und Grundstückskosten; Überkompensationsprüfung vorbehalten; letzte Spalte eigene Berechnung. B und C nur mit Zulassung der NBank (§ 4 DVO-NWoFG, → S. 6). Ob Bemessungsgrenze und Bodenrichtwert-Deckel gelten, regelt Nr. 6.3.2 nicht – mit der NBank klären. Bearbeitungsentgelt 0,75 % (675 € bei 90.000 €).
-
 **Grafik (bar): Zuschuss je Wohnung nach Kosten je Wohnung**
 
 | Gruppe | Satz bis zu | Höchstbetrag | Knick bei Kosten je Wohnung |
@@ -701,35 +692,38 @@ Jeder Schritt von A Richtung C tauscht Zuschuss gegen anfänglich zinsloses, rü
 | B | 40 % | 75.000 € | 187.500 € |
 | C | 30 % | 60.000 € | 200.000 € |
 
-Markierung bei 350.000 €: Modell S. 10
+- Beschriftung rechts je Linie: Gruppe · bis zu Satz · Höchstbetrag (A · bis zu 50 % · 90.000 € usw.)
+- Marke (350.000 €): Modell S. 10
+- Achse: zuwendungsfähige Herstellungs- und Grundstückskosten je Wohnung in €, 0 bis 400.000
 
-*Notiz:* Modell S. 10, vereinfacht (350.000 € je Wohnung, Annahme EH 40): 2.2 bis zu 1,8 Mio. € Zuschuss, 2.1 bis zu 2,8 Mio. € – dort nur mit 2,8 Mio. € Darlehen. Mehr Zuschuss als 2.1 bringt 2.2 bis 225.000 € (A), 375.000 € (B) bzw. 600.000 € (C) Kosten je Wohnung; eigene Berechnung.
+*Notiz:* Knickpunkte eigene Berechnung. B und C nur mit NBank-Zulassung (§ 4 DVO-NWoFG, → S. 6). Ob Bemessungsgrenze und Bodenrichtwert-Deckel gelten, regelt RL Nr. 6.3.2 nicht – mit der NBank klären.
+
+*Notiz:* Modell (→ S. 10), vereinfacht (350.000 € je Wohnung, Annahme EH 40): 2.2 bis zu 1,8 Mio. € Zuschuss, 2.1 bis zu 2,8 Mio. € – dort nur mit 2,8 Mio. € Darlehen. 2.2 bringt mehr Zuschuss als 2.1, solange die zuwendungsfähigen Kosten je Wohnung unter 225.000 € (A), 375.000 € (B) bzw. 600.000 € (C) liegen; eigene Berechnung.
+
+*Kurzmarke unter dem Hauptdiagramm:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
+
+> **[Achtung] Kombination: nicht mit 2.1**
+>
+> Keine Kumulierung mit Darlehen oder Zuschuss aus 2.1 (RL Nr. 6.3.4), laut NBank auch nicht mit Förderdarlehen anderer Fördersegmente der RL. Offen: 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen – mit der NBank klären.
+
+### Spielregeln
+
+- Höchstmiete nettokalt Jahr 1–3: 6,80–9,30 € je m² nach Gruppe und Mietenstufe, EH-40-Aufschlag enthalten (Tabelle → S. 7); danach höchstens +6,15 % in drei Jahren
+- Bindung 35 Jahre ab Bezugsfertigkeit, grundsätzlich per beschränkter persönlicher Dienstbarkeit gesichert (Verzicht in begründeten Fällen möglich)
+- Auszahlung in 4 Raten (→ S. 9); Bearbeitungsentgelt 0,75 % (675 € bei 90.000 €)
+- Mit KfW kombiniert: Die NBank stimmt sich vor der Bewilligung mit der KfW ab; das Überkompensationsverbot gilt (RL Nr. 11.4, 11.10). KfW 298 (Kommunen: 498): Die Stufe „Klimafreundliches Wohngebäude“ verlangt neben EH 40 Lebenszyklus-Anforderungen (befristete EH-55-Stufe → S. 8). Alle Förderungen zusammen höchstens die förderfähigen KfW-Kosten ohne Grundstück
 
 ### Gegenstand, Voraussetzungen
 
 - nur Neubau – keine Änderung, Erweiterung oder Ersterwerb
 - gemeinschaftliche Wohnformen möglich; keine Zuschläge für Housing First oder Modellprojekte
 - wie 2.1: Bedarf, gesichertes Grundstück, mind. 2 gebundene Wohnungen je Neubau, Eigenmittel mind. 20 % (→ S. 4)
-
-### Spielregeln
-
-- Höchstmiete nettokalt Jahr 1–3 (A/B/C): Mietenstufe I–III 6,80/8,20/9,00 €, IV–VII 7,10/8,50/9,30 € – EH-40-Aufschlag enthalten; danach höchstens 6,15 % in 3 Jahren
-- Bindung 35 Jahre ab Bezugsfertigkeit, grundsätzlich per beschränkter persönlicher Dienstbarkeit gesichert
-- Brand- und Sturmversicherung bis Bindungsende
-- Auszahlung in 4 Raten (→ S. 9)
 - EH-40-Nachweis mit der Fertigstellungsanzeige: Sachverständige mit Energieausweis-Berechtigung oder Energieeffizienz-Expertenliste; bei KfW-Mitfinanzierung genügt die KfW-Bescheinigung
-
-> **[Achtung] Kombination: nicht mit 2.1**
->
-> Keine Kumulierung mit Darlehen oder Zuschuss aus 2.1 (RL Nr. 6.3.4), laut NBank auch nicht mit Förderdarlehen anderer Fördersegmente der RL. Offen: 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen – mit der NBank klären.
->
-> **KfW 298** (Kommunen: 498): Die Stufe „Klimafreundliches Wohngebäude“ verlangt neben EH 40 Lebenszyklus-Anforderungen (befristete EH-55-Stufe → S. 8). Alle Förderungen zusammen höchstens die förderfähigen KfW-Kosten ohne Grundstück.
-
-> **[Kalkulationsnotiz]** Ohne NBank-Darlehen entfallen Tilgung und Verwaltungskostenbeitrag – den Rest finanzieren Sie über Eigenmittel und Kapitalmarkt.
+- Brand- und Sturmversicherung bis Bindungsende
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. RL Nr. 1.6, 2.2, 5.3.7, 6.1–6.5, 11.4, 11.5, 12.3.2, 12.7.3; § 4 DVO-NWoFG; NBank-Produktinformation EH-40-Neubau (Stand 10.07.2026); KfW-Merkblatt 297/298 (KFN „Klimafreundlicher Neubau – Wohngebäude“). Auf die Dienstbarkeit kann in begründeten Fällen verzichtet werden (RL Nr. 11.5). Bei Kombination stimmt sich die NBank vor der Bewilligung mit der KfW ab; das Überkompensationsverbot gilt (RL Nr. 11.4, 11.10).</sub>  
+<sub>Fundstellen: RL Nr. 1.6, 2.2, 5.3.7, 6.1–6.5, 11.4, 11.5, 12.3.2, 12.7.3; § 4 DVO-NWoFG; NBank-Produktinformation EH-40-Neubau (Stand 10.07.2026); KfW-Merkblatt 297/298 (KFN „Klimafreundlicher Neubau – Wohngebäude“).</sub>  
 
 ---
 
@@ -752,9 +746,11 @@ Borkum – Juist – Norderney – Baltrum – Langeoog – Spiekeroog – Wange
 
 *Notiz:* Kein Bedarfsnachweis nötig.
 
+*Stempelzeile:* Modellrechnung – fiktives Beispiel, keine Förderzusage
+
 **Grafik (stacked-bar): Finanzierung je m² Wohnfläche**
 
-*Modellrechnung – fiktives Beispiel, keine Förderzusage* · Annahme: zuwendungsfähige Herstellungskosten ≥ 7.200 €/m² Wohnfläche (Ausgangswert)
+*Modellrechnung – fiktives Beispiel, keine Förderzusage* · Annahme: Herstellungskosten ab 7.200 € je m² Wohnfläche; zuwendungsfähig höchstens 7.200 € (Deckel, Ausgangswert)
 
 |   | A | B | C |
 |---|---|---|---|
@@ -764,9 +760,9 @@ Borkum – Juist – Norderney – Baltrum – Langeoog – Spiekeroog – Wange
 | Förderung zusammen, bis zu | 6.480 € (90 %) | 6.480 € (90 %) | 6.480 € (90 %) |
 
 - Deckel 1,5 × 4.800 € = 7.200 €/m² (Ausgangswert, Stand 21.10.2026)
-- Grundstück, alle Einkommensgruppen: Darlehen bis zu 70 % + Zuschuss bis zu 30 % – Bezug: % der Grundstückskosten (grundsätzlich höchstens Bodenrichtwert × Grundstücksfläche)
+- Grundstück, alle Einkommensgruppen: Darlehen bis zu 70 % + Zuschuss bis zu 30 % – Bezug: in % der Grundstückskosten (grundsätzlich höchstens Bodenrichtwert × Grundstücksfläche)
 
-*Notiz:* Eigene Berechnung, Überkompensationsprüfung vorbehalten. Deckel: 1,5-Faches der Bemessungsgrenze für Mietenstufe I–III, unabhängig von der Inselmietenstufe; Fortschreibung 1.4./1.10.: Wert auf nbank.de prüfen. Kosten darüber: nicht zuwendungsfähig. Ersterwerb: Bemessung mit der NBank klären.
+*Notiz:* Eigene Berechnung. Deckel: 1,5-Faches der Bemessungsgrenze für Mietenstufe I–III, unabhängig von der Inselmietenstufe; Fortschreibung → S. 8. Kosten darüber: nicht zuwendungsfähig. Ersterwerb: Bemessung mit der NBank klären.
 
 **Kennzahlen**
 
@@ -776,18 +772,15 @@ Borkum – Juist – Norderney – Baltrum – Langeoog – Spiekeroog – Wange
 | **höchstens 11,50 €** | Einkommensgruppe B |   |
 | **höchstens 12,50 €** | Einkommensgruppe C |   |
 
-Nettokaltmiete je m² und Monat, erste drei Jahre der Mietbindung, alle Gruppen, unabhängig von der Mietenstufe; danach höchstens +6,15 % in drei Jahren, keine Staffel- oder Indexmiete. EH-40-Aufschlag? Mit der NBank klären.
+Nettokaltmiete je m² und Monat, erste drei Jahre der Mietbindung, je Gruppe, unabhängig von der Mietenstufe; danach höchstens +6,15 % in drei Jahren, keine Staffel- oder Indexmiete. EH-40-Aufschlag? Mit der NBank klären.
 
 ### Eigenmittel
 
-Mindestens 10 % der zuwendungsfähigen Herstellungskosten (2.1: 20 % aller zuwendungsfähigen Kosten), mindestens die Hälfte möglichst als Geld oder lastenfreies Grundstück.
+Mindestens 10 % der zuwendungsfähigen Herstellungskosten, mindestens die Hälfte möglichst als Geld oder lastenfreies Grundstück.
 
-### Darlehen wie in 2.1 (→ S. 9)
+### Darlehen wie in 2.1
 
-- Zuschuss nur mit Darlehen
-- 0 % Zins bis Ende des 35. Jahres nach Bezugsfertigkeit, zzgl. 0,5 % Verwaltungskostenbeitrag p. a. auf das Restkapital
-- Bearbeitungsentgelt 1 % (Darlehen), 0,75 % (Zuschuss)
-- Belegungs- und Mietbindung 35 Jahre ab Bezugsfertigkeit (Ersterwerb: Eigentumsübergang)
+**Zuschuss nur mit Darlehen.** Zins, Verwaltungskostenbeitrag, Bearbeitungsentgelte und **35 Jahre** Belegungs- und Mietbindung wie in 2.1 → S. 9; Ersterwerb: Bindung ab Eigentumsübergang.
 
 ### Voraussetzungen
 
@@ -797,13 +790,15 @@ Mindestens 10 % der zuwendungsfähigen Herstellungskosten (2.1: 20 % aller zuwen
 
 ### Kombinierbar mit
 
-Neubau und Ersterwerb: grundsätzlich KfW 298 oder 296, je Wohnung nur eines, zusammen höchstens die förderfähigen KfW-Kosten; weitere Bedingungen → S. 8. Kommunen selbst: KfW 498.
+Neubau und Ersterwerb: KfW 298 oder 296 wie in 2.1 → S. 8. Kommunen selbst: KfW 498.
 
 > **[Kalkulationsnotiz]** Wenig Eigenmittel heißt viel Darlehen: Tilgung und Verwaltungskostenbeitrag fest einplanen.
 
+*Kurzmarke unter dem Hauptdiagramm bzw. Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
+
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. RL Nr. 2.4, 2.7, 5.2.4, 5.2.5, 5.3–5.5, 8.1–8.5, 12.7; NBank-Produktinformation Ostfriesische Inseln (Stand 28.07.2026); Bemessungsgrenze: bis 21.10.2026 keine fortgeschriebenen Werte auf nbank.de auffindbar; KfW-Merkblätter 296, 297/298.</sub>  
+<sub>Fundstellen: RL Nr. 2.4, 2.7, 5.2.4, 5.2.5, 5.3–5.5, 8.1–8.5, 12.7; NBank-Produktinformation Ostfriesische Inseln (Stand 28.07.2026); Bemessungsgrenze: Fortschreibung → S. 8; KfW-Merkblätter 296, 297/298.</sub>  
 
 ---
 
@@ -832,7 +827,7 @@ Gesamtmaßnahmen statt Einzelmaßnahmen. Darin auch förderfähig: Barrierefreih
 
 Beispiel: G → D = 3 Klassen. Voraussetzung: mindestens 2 Klassen besser – Energiebedarfsausweis vor Bewilligung (Ausgangsklasse) und mit der Fertigstellungsanzeige (erreichte Klasse)
 
-*Notiz:* Ausnahme, etwa beim Baudenkmal: Sind 2 Klassen nicht oder nur unverhältnismäßig aufwendig erreichbar, kann die NBank 1 Klasse zulassen; sie zählt wie 2. Rechennorm ab 2027 → S. 15.
+*Notiz:* Ausnahme, etwa beim Baudenkmal: Sind 2 Klassen nicht oder nur unverhältnismäßig aufwendig erreichbar, kann die NBank 1 Klasse zulassen; sie zählt dann wie 2 Klassen.
 
 **Grafik (grid): Zuschuss je gebundener Wohnung: Satz bis zu, Höchstbetrag**
 
@@ -843,13 +838,13 @@ Beispiel: G → D = 3 Klassen. Voraussetzung: mindestens 2 Klassen besser – En
 | 4 Klassen | bis zu 35 % · max. 29.000 € · ab 82.858 € | bis zu 30 % · max. 21.000 € · ab 70.000 € | bis zu 20 % · max. 13.000 € · ab 65.000 € |
 | ab 5 Klassen | bis zu 40 % · max. 31.000 € · ab 77.500 € | bis zu 35 % · max. 23.000 € · ab 65.715 € | bis zu 25 % · max. 15.000 € · ab 60.000 € |
 
-*Notiz:* KG 300–700; Überkompensationsprüfung vorbehalten. „ab … €“: Höchstbetrag greift ab diesen Kosten je Wohnung (eigene Berechnung). Gebäudekosten: RL ohne Verteilungsschlüssel, NBank-Arbeitshilfe nach Wohnfläche.
+*Notiz:* Kostengruppen 300–700 nach DIN 276. „ab … €“: Höchstbetrag greift ab diesen Kosten je Wohnung (eigene Berechnung). Gebäudekosten: RL ohne Verteilungsschlüssel, NBank-Arbeitshilfe nach Wohnfläche.
 
 ### Bindung und Miete
 
 - 25 Jahre ab Abschluss; bei Mieterwechsel nur an WBS-Haushalte
 - vermietet: +10 Jahre, außer bei WBS-Nachweis; dann Vertrag unverzüglich an Höchstmiete und Erhöhungsregeln anpassen
-- Höchstmieten wie in 2.1 (→ S. 7): 6,50 bis 9,00 € je m²; bei Verlängerung Erhöhungssperre ab erster WBS-Belegung
+- Höchstmieten wie in 2.1 (→ S. 7): 6,50–9,00 € je m², ab KfW-EH-40-Niveau bis zu +0,30 €; bei Verlängerung Erhöhungssperre ab erster WBS-Belegung
 
 ### Ablauf und Eigenmittel
 
@@ -859,15 +854,13 @@ Beispiel: G → D = 3 Klassen. Voraussetzung: mindestens 2 Klassen besser – En
 
 BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen, nur eines (3 Jahre Sperrfrist). Die BEG kürzt, bis öffentliche Mittel höchstens 60 % derselben Kosten decken (BEG EM, Kommunen: 90 %); NBank-Zuschuss zählt mit (eigene Ableitung).
 
-> **[Frist] Eingang bis 31.12.2026?**
->
-> Maßgeblich ist die Wohnraumförderstelle. Dann ist das alte Recht verbindlich wählbar (→ S. 15).
+*Frist-Zeile (im Modul „Ablauf und Eigenmittel“):* **Eingang bis 31.12.2026:** altes Recht verbindlich wählbar; maßgeblich ist die Wohnraumförderstelle (→ S. 15).
 
-> **[Kalkulationsnotiz]** Jede Zusatzklasse bis zur fünften hebt Fördersatz und Höchstbetrag: Klassensprung planen.
+*Kurzmarke unter dem Hauptdiagramm bzw. Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. RL Nr. 1.5, 2.3, 4.2, 7.1–7.5, 11.4, 11.5, 12.7.3, 13.3; Anlage 10 GModG (vormals GEG; Klassengrenzen auch ab 01.01.2027 unverändert); NBank-Produktinformation Modernisierung (Stand 10.07.2026); NBank-Arbeitshilfe Kosten- und Finanzierungsaufteilung; KfW-Merkblatt 261; Förderrichtlinie BEG EM.</sub>  
+<sub>Fundstellen: RL Nr. 1.5, 2.3, 4.2, 7.1–7.5, 11.4, 11.5, 12.7.3, 13.3; Anlage 10 GModG (vormals GEG; ab 01.01.2027 neue Rechennorm, Klassengrenzen unverändert → S. 15); NBank-Produktinformation Modernisierung (Stand 10.07.2026); NBank-Arbeitshilfe „Kosten-Finanzierungsaufteilung“ (Stand 08/2026); KfW-Merkblatt 261; Förderrichtlinie BEG EM.</sub>  
 
 ---
 
@@ -890,44 +883,46 @@ BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen, nur eines (3 Jahre Sperrfr
 |---|---|---|
 | 30.06.2026 | Erlasse 2024 außer Kraft | Teilfortgeltung nur für Modernisierungsanträge mit Eingang bis 31.12.2026 und Wahl des alten Rechts |
 | 01.07.2026 | RL Mietwohnraum 2026 in Kraft |   |
-| 01.10.2026 | 1. Fortschreibung Bemessungsgrenzen | erster Stichtag laut eigener Ableitung; bis 21.10.2026 keine fortgeschriebenen Werte auf nbank.de auffindbar |
+| 01.10.2026 | Fortschreibung der Bemessungsgrenzen | erster Stichtag laut eigener Ableitung; Stand der Werte → S. 8 |
 | 31.12.2026 | Wahlrecht Modernisierung | Eingang bei der Wohnraumförderstelle |
-| 31.12.2026 | Neubau: KfW-Stufe EH 55 (298) endet | letzter Antragseingang bei der KfW, Bundesmittelvorbehalt – gilt nicht für Modernisierung |
-| 01.01.2027 | Neue Mietenstufen geplant | Entwurf, nicht beschlossen – Folgen mit der NBank klären |
-| 01.01.2027 | Neue Rechennorm für Energiebedarfsausweise | beschlossen (BGBl. 2026 I Nr. 226), DIN/TS 18599:2025-10; Klassengrenzen unverändert – Folgen für den Klassensprung (2.3) mit der NBank klären |
-| 01.04.2027 | Nächste Fortschreibung | danach je 1.4. und 1.10. |
+| 31.12.2026 | Neubau: KfW-Stufe EH 55 (298) endet | letzter Antragseingang bei der KfW, unter Bundesmittelvorbehalt; gilt nicht für Modernisierung |
+| 01.01.2027 | Neue Mietenstufen geplant | Entwurf, nicht beschlossen; Folgen mit der NBank klären |
+| 01.01.2027 | Neue Rechennorm für Energiebedarfsausweise | beschlossen, DIN/TS 18599:2025-10; Klassengrenzen unverändert; Klassensprung (2.3): Folgen mit der NBank klären |
+| 01.04.2027 | Nächste Fortschreibung | danach jeweils zum 01.04. und 01.10. |
 | 31.12.2031 | RL Mietwohnraum 2026 außer Kraft |   |
 
-### So funktioniert das Wahlrecht
+### So funktioniert die Wahl
 
 - Wahl ausdrücklich mit dem Antrag: **bindend, nachträglich nicht änderbar**; altes Recht gilt dann bis Verfahrensende
 - ohne Wahl gilt die RL 2026
 - kein Mischen, soweit dieselbe Maßnahme nach einer der Richtlinien 2026 gefördert wird
 
-**Tabelle: Zwei Wege im Vergleich**
+**Tabelle: Im Vergleich**
 
 |   | Altes Recht (Eingang bis 31.12.2026) | RL 2026, Programmteil 2.3 |
 |---|---|---|
 | Instrument | anfangs zinsloses Darlehen bis zu 75 % der Kosten, max. zwei Drittel eines vergleichbaren Neubaus; 30 % Tilgungsnachlass nur bei geringen Einkommen | Zuschuss je nach Klassensprung und Einkommensgruppe bis zu 10–40 %, höchstens 9.000–31.000 € je gebundener Wohnung |
-| Zins und Kosten | 0 % in Jahr 1–35 (geringe) bzw. 1–30 (mittlere Einkommen), danach marktüblich; 0,5 % p. a. Verwaltungskostenbeitrag | kein Darlehen; Bearbeitungsentgelt 0,75 % |
+| Zins und Kosten | 0 % in den Jahren 1–35 (geringe Einkommen) bzw. 1–30 (mittlere Einkommen), danach marktüblich; 0,5 % p. a. Verwaltungskostenbeitrag | kein Darlehen; Bearbeitungsentgelt 0,75 % |
 | Barrierefreiheit | +5.000 € Zuschuss je barrierefrei nutzbarer Wohnung (DIN 18040-2) | kein Extra-Zuschuss, Teil der Gesamtmaßnahme |
 | Höhere Einkommen | mittlere Einkommen (DVO-NWoFG): nur energetisch, ohne Tilgungsnachlass | Einkommensgruppen B und C mit eigenen, niedrigeren Sätzen |
 | Gebäude | fertiggestellt vor 01.02.2002 | fertiggestellt vor 08.12.2004; mind. 2 Klassen besser |
 
-*Notiz:* Altes Recht laut NBank, verkürzt; Überkompensationsprüfung vorbehalten.
+*Notiz:* Altes Recht laut NBank, verkürzt.
 
 ### Vier Prüffragen
 
 - [ ] Fertigstellung zwischen 01.02.2002 und 07.12.2004? Dann nur RL 2026 (eigene Ableitung).
-- [ ] Zwei Effizienzklassen erreichbar (Pflicht in RL 2026)? Bei unverhältnismäßigem Aufwand, etwa beim Baudenkmal, kann die NBank eine Klasse zulassen.
+- [ ] Zwei Effizienzklassen erreichbar (Pflicht in RL 2026)? Ausnahme: eine Klasse mit NBank-Zulassung (→ S. 14).
 - [ ] Darlehen mit Tilgungsnachlass oder Zuschuss: Was passt zur Finanzierung?
 - [ ] Antrag bis 31.12.2026 bei der Wohnraumförderstelle – mit ausdrücklicher Wahl?
 
-> **[Kalkulationsnotiz]** Beide Wege durchrechnen – die Wahl ist endgültig.
+> **[Kalkulationsnotiz]** Beide Wege durchrechnen.
+
+*Kurzmarke unter dem Hauptdiagramm bzw. Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. RL Nr. 5.3.2.2, 7.2.1, 13.1–13.3; NBank-Programmseite „Modernisierung von Mietwohnungen in Mehrfamilienhäusern“; KfW-Merkblatt 297/298; BGBl. 2026 I Nr. 226 (GModG-Änderung ab 01.01.2027); BR-Drs. 474/26 (Entwurf). Stand: 21.10.2026.</sub>  
+<sub>Fundstellen: RL Nr. 5.3.2.2, 7.2.1, 13.1–13.3; NBank-Programmseite „Modernisierung von Mietwohnungen in Mehrfamilienhäusern“; KfW-Merkblatt 297/298; BGBl. 2026 I Nr. 226 (GModG-Änderung ab 01.01.2027); BR-Drs. 474/26 (Entwurf).</sub>  
 
 ---
 
@@ -946,7 +941,9 @@ BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen, nur eines (3 Jahre Sperrfr
 
 **Grafik (bar): Zuschuss für eine 60-m²-Wohnung**
 
-*Modellrechnung – fiktives Beispiel, keine Förderzusage* · Annahme: 60 m², angemessen für einen Zwei-Personen-Haushalt (Nr. 5.1.1)
+*Stempelzeile:* Modellrechnung – fiktives Beispiel, keine Förderzusage
+
+Annahme: 60 m², angemessen für einen Zwei-Personen-Haushalt (RL Nr. 5.1.1) · Eigene Berechnung: 60 m² × Satz × 12 × Jahre
 
 | Bindung | Zuschuss | Satz je m² und Monat | davon Bearbeitungsentgelt 0,75 % |
 |---|---|---|---|
@@ -955,7 +952,7 @@ BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen, nur eines (3 Jahre Sperrfr
 | 15 Jahre | 32.400 € | 3,00 € | 243 € |
 | 20 Jahre | 43.200 € | 3,00 € | 324 € |
 
-*Notiz:* Eigene Berechnung: 60 m² × Satz × 12 × Jahre. Zwischenlaufzeiten mit der NBank klären; Überkompensationsprüfung vorbehalten.
+*Notiz:* Zwischenlaufzeiten mit der NBank klären.
 
 **Grafik (timeline): Auszahlung in zwei Hälften**
 
@@ -964,7 +961,7 @@ BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen, nur eines (3 Jahre Sperrfr
 - Halbzeit: 2. Rate 50 %
 - Bindungsende: nach 5 bis 20 Jahren
 
-Beispiel: Modellwohnung 60 m², 20 Jahre: 21.276 € nach Erstbelegung (21.600 € abzüglich 324 € Bearbeitungsentgelt) und 21.600 € nach 10 Jahren
+Beispiel: Modellwohnung 60 m², 20 Jahre: 21.276 € nach Erstbelegung (21.600 € abzüglich 324 € Entgelt) und 21.600 € nach 10 Jahren
 
 ### Miete und Bindung
 
@@ -975,22 +972,22 @@ Beispiel: Modellwohnung 60 m², 20 Jahre: 21.276 € nach Erstbelegung (21.600 �
 ### Wer und welche Wohnung
 
 - Wirtschaftlich Berechtigte mit dauerhafter Verfügung: Eigentum, Erbbaurecht oder vergleichbares Nutzungsrecht
-- Wohnung frei, ungebunden, abgeschlossen, gut erhalten, angemessen groß, dauerhaft vermietbar; Mindestausstattung nach Nr. 9.1 (u. a. Heizung, Bad, Küchenanschluss); Besichtigung durch die Wohnraumförderstelle
+- Wohnung frei, ungebunden, abgeschlossen, gut erhalten, angemessen groß, dauerhaft vermietbar; Mindestausstattung nach RL Nr. 9.1 (u. a. Heizung, Bad, Küchenanschluss); Besichtigung durch die Wohnraumförderstelle
 - insbesondere für besondere Bedarfsgruppen, etwa wohnungslose oder davon bedrohte Menschen, Frauen aus Frauenhäusern, Haftentlassene: dann **nur an sie vermieten**; Nachweis per wohnungsbezogenem WBS eines volljährigen Haushaltsmitglieds
 
-> **[Achtung] Erst Bewilligung, dann Vertrag**
->
-> Mietvertrag oder Überlassung an einen WBS-Haushalt vor der Bewilligung gilt als Vorhabenbeginn: keine Förderung. Vorsorglich vorher kein Mietangebot.
+*Stopp-Zeile (im Modul „Wer und welche Wohnung“):* **Erst Bewilligung, dann Mietvertrag:** Mietvertrag oder Überlassung an einen WBS-Haushalt vor der Bewilligung gilt als Vorhabenbeginn – keine Förderung; vorsorglich vorher kein Mietangebot (→ S. 19).
 
 ### Kombinierbar mit
 
-Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überkompensation (mit der NBank klären). Bindungen direkt im Anschluss an auslaufende fördert die NBank hier nicht; planmäßig auslaufende Landesbindungen mit laufendem NBank-Darlehen: 2.6 (→ S. 17).
+Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überkompensation (mit der NBank klären). Eine Bindung, die direkt an eine auslaufende Bindung anschließt, fördert die NBank in 2.5 nicht; planmäßig auslaufende Landesbindungen mit laufendem NBank-Darlehen: 2.6 (→ S. 17).
 
-> **[Kalkulationsnotiz]** Modellrechnung: bis zu 9,50 € je m² und Monat in Jahr 1–3 (Mietenstufe I–III, 15–20 Jahre Bindung) aus höchstens 6,50 € Miete plus 3,00 € Zuschuss – unverzinst, vor Entgelt; Zuschuss in zwei Raten.
+> **[Kalkulationsnotiz]** Modellrechnung: bis zu 9,50 € je m² und Monat in den Jahren 1–3 (Mietenstufe I–III, 15–20 Jahre Bindung) aus höchstens 6,50 € Miete plus 3,00 € Zuschuss – unverzinst, vor Entgelt; Zuschuss in zwei Raten. *(mit Rechengrafik: höchstens 6,50 € Miete + 3,00 € Zuschuss = bis zu 9,50 €)*
+
+*Kurzmarke unter dem Hauptdiagramm bzw. Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. RL Nr. 1.5, 2.5, 3, 4.2, 5.1.1, 5.3.7, 5.4.4, 5.4.5, 9.1–9.5, 11.4, 12.7.3; NBank-Produktinformation und Checkliste „Erwerb von Belegungs- und Mietbindungen“ (Stand 22.09.2026; Unterlagen → S. 20).</sub>  
+<sub>Fundstellen: RL Nr. 1.5, 2.5, 3, 4.2, 5.1.1, 5.3.7, 5.4.4, 5.4.5, 9.1–9.5, 11.4, 12.7.3; NBank-Produktinformation und Checkliste „Erwerb von Belegungs- und Mietbindungen“ (Stand 22.09.2026; Unterlagen → S. 20).</sub>  
 
 ---
 
@@ -1003,7 +1000,9 @@ Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überko
 
 ### Bindung verlängern, Zins auf 0 %
 
-**Läuft Ihre Belegungs- und Mietbindung planmäßig aus, das NBank-Darlehen aber weiter, kann der Zins für bis zu 100 % der Restschuld längstens 20 Jahre auf 0 % sinken. Im Gegenzug verlängert sich die Bindung.**
+*Zinsverbilligung für bis zu 100 % der Restschuld, längstens 20 Jahre*
+
+**Läuft Ihre Belegungs- und Mietbindung planmäßig aus, das NBank-Darlehen aber weiter, kann der Zins auf 0 % sinken. Im Gegenzug verlängert sich die Bindung.**
 
 **Kennzahlen**
 
@@ -1019,14 +1018,14 @@ Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überko
 - T: Ablauf der Zinsfreistellung
 - Ende: Bindungsende (Monatsende der letzten Darlehensrate, spätestens 20 Jahre nach ursprünglichem Bindungsende)
 - Band T bis Ende: bis zu 100 % der Restschuld zu 0 % · Bindung verlängert
-- Mietpfad: Jahr 1–3 der verlängerten Mietbindung: Nettokaltmiete eingefroren (auch bei Wiedervermietung) → danach: höchstens +6,15 % in 3 Jahren (Betriebskosten ausgenommen; auch bei Neuvermietung; keine Staffel- oder Indexmiete)
+- Mietpfad: Jahr 1–3 der verlängerten Mietbindung: Nettokaltmiete eingefroren (auch bei Wiedervermietung) → danach: höchstens +6,15 % in drei Jahren (Betriebskosten ausgenommen; auch bei Wiedervermietung; keine Staffel- oder Indexmiete)
 
-*Notiz:* Schema, nicht maßstäblich; maßgeblich sind Prolongationsangebot und Förderentscheidung. Höchstmieten nach Nr. 5.4.4 gelten hier nicht.
+*Notiz:* Schema, nicht maßstäblich; maßgeblich sind Prolongationsangebot und Förderentscheidung. Höchstmieten nach RL Nr. 5.4.4 gelten hier nicht. Kombination und Abgrenzung zu 2.5 → S. 16.
 
 1. **Angebot** (NBank): mit Vordruck 1011b
 2. **Antrag** (Sie): erst danach, bei der Wohnraumförderstelle
 3. **Annahme** (Sie): Angebot direkt an die NBank
-4. **Entscheidung** (NBank): prüft u. a. Bedarf und Überkompensation
+4. **Entscheidung** (NBank): prüft Bedarf, Überkompensation u. a.
 
 ### Voraussetzungen
 
@@ -1038,13 +1037,15 @@ Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überko
 
 > **[Stempel] Modellrechnung: 500.000 € Restschuld, 100 % verbilligt**
 >
-> Annahme, keine Förderzusage. Jeder entfallende Prozentpunkt Zins spart im ersten Jahr bis zu 5.000 € (1 % × 500.000 €), danach weniger. Einmalig: 0,75 % Bearbeitungsentgelt auf den Zuschuss.
+> *Stempelzeile:* Modellrechnung – fiktives Beispiel, keine Förderzusage
+>
+> Jeder entfallende Prozentpunkt Zins spart im ersten Jahr bis zu 5.000 € (1 % × 500.000 €), danach weniger.
 
-> **[Kalkulationsnotiz]** Wer verlängert, tauscht Zinslast gegen planbare Bindung – ohne neues Darlehen.
+*Kurzmarke unter dem Hauptdiagramm bzw. Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. RL Nr. 2.6, 3, 5.1.1, 5.2.1, 5.3.7, 5.4.4, 5.4.5, 9.1, 10.1–10.5, 12.7.3; § 22 Abs. 1 Satz 1 NWoFG; NBank-Programmseite und -Produktinformation „Verlängerung auslaufender Belegungs- und Mietbindungen“ (Stand 01.07.2026). Kombination mit anderen Förderungen und Abgrenzung zu 2.5: → S. 16.</sub>  
+<sub>Fundstellen: RL Nr. 2.6, 3, 5.1.1, 5.2.1, 5.3.7, 5.4.4, 5.4.5, 9.1, 10.1–10.5, 12.7.3; § 22 Abs. 1 Satz 1 NWoFG; NBank-Programmseite und -Produktinformation „Verlängerung auslaufender Belegungs- und Mietbindungen“ (Stand 01.07.2026).</sub>  
 
 ---
 
@@ -1065,44 +1066,44 @@ Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überko
 2. **Erhöhter Wohnungsbedarf** – Verordnung nach § 7 Abs. 3 NWoFG
 3. **Hochschulstandort**
 4. **Ostfriesische Inseln**
-5. **Mietenstufe IV–VII** – derzeit 29 Gemeinden (IV–VI) inkl. 7 Inselgemeinden; ab 2027 Änderung geplant
+5. **Mietenstufe IV–VII** – derzeit 29 Gemeinden (IV–VI) inkl. sieben Inselgemeinden; ab 2027 Änderung geplant
 6. **Kommunale Festlegung** – in B-Plan, städtebaulichem Vertrag oder Baulandmodell
 
-Vorrang zählt nur bei knappen Mitteln. Im selben Rang sollen bei sonst gleichen Voraussetzungen kostengünstigere Vorhaben gleicher Güte vorgehen, dann Hilfskriterien.
+Vorrang zählt nur bei knappen Mitteln. Im selben Rang sollen bei sonst gleichen Voraussetzungen kostengünstigere Vorhaben gleicher Güte vorgehen, dann Hilfskriterien wie Barrierefreiheit, Familien mit Kindern, besondere Bedarfsgruppen, Klimaziele; ggf. Punktesystem.
 
 **Grafik (ring): Bedarfslage laut NBank-Karte**
 
 Einheit: Einheits- und Samtgemeinden
 - 306 – Bedarf ist gegeben
 - 96 – Bedarf ist gesondert nachzuweisen
-- [QR-Code-Platzhalter: Landkarte Wohnraumförderung]
+- [QR-Code in der Ringmitte: Landkarte Wohnraumförderung auf der NBank-Programmseite „Mietwohnungen in Mehrfamilienhäusern“ – https://nbank.de/F%C3%B6rderprogramme/Aktuelle-F%C3%B6rderprogramme/Mietwohnungen-in-Mehrfamilienh%C3%A4usern-(Allgemeine-Mietwohnraumf%C3%B6rderung).html]
 
-*Notiz:* Ohne 26 gemeindefreie Gebiete; Abruf 21.10.2026, maßgeblich ist die aktuelle Karte. In beiden Fällen: einfache Bedarfsbestätigung zum Bauort.
+*Notiz:* Ohne 26 gemeindefreie Gebiete; Abruf 21.10.2026, maßgeblich ist die aktuelle Karte (QR-Code in der Ringmitte). In beiden Fällen: einfache Bedarfsbestätigung zum Bauort.
 
 ### Bedarf widerlegt?
 
-Überall sonst vermutet die Richtlinie Bedarf. Hat die NBank das widerlegt, belegen Sie ihn gesondert – z. B. mit **Wohnraumversorgungskonzept** (kommunales Planungsinstrument, in der Regel mit Bestandsaufnahme, Bedarfsabschätzung, Zielen, Handlungsempfehlungen, Maßnahmen), Analysen lokaler Marktakteure, Befragungen samt Wartelisten oder Daten der kommunalen Wohnungsmarktbeobachtung. Ob das reicht, entscheidet die NBank.
+Überall sonst vermutet die Richtlinie Bedarf. Hat die NBank das widerlegt, belegen Sie ihn gesondert – z. B. mit **Wohnraumversorgungskonzept** (kommunales Planungsinstrument, in der Regel mit Bestandsaufnahme, Bedarfsabschätzung, Zielen, Handlungsempfehlungen, Maßnahmen), Analysen lokaler Marktakteure, Befragungen samt Wartelisten oder Daten der kommunalen Wohnungsmarktbeobachtung (vollständige Liste: RL Nr. 5.2.1). Ob das reicht, entscheidet die NBank.
 
 **Grafik (grid): Werkzeugkasten der Kommune**
 
-- **Konzept oder Festlegung:** belegt den Bedarf; die NBank kann dann auch Gruppe B (bis +40 %) und C (bis +60 %) zulassen, nicht bei 2.5
-- **Verordnung § 7 Abs. 3 NWoFG:** Bedarfsgebiet; auf Verlangen der zuständigen Stelle (Landkreis, kreisfreie Stadt) nur an von ihr Benannte vermieten – sie nennt mindestens drei Wohnberechtigte zur Auswahl
-- **Stellungnahme:** Bedarfsbestätigung und Standortangaben der Förderstelle; Anhörung der Gemeinde, sofern sie nicht selbst Förderstelle ist
+- **Konzept oder Festlegung:** belegt den Bedarf; die NBank kann dann auch Gruppe B (bis +40 %) und C (bis +60 %) zulassen (weitere Fälle → S. 6), nicht bei 2.5
+- **Verordnung § 7 Abs. 3 NWoFG:** Bedarfsgebiet; auf Verlangen der zuständigen Stelle (Landkreis, kreisfreie Stadt) nur an von ihr Benannte vermieten – sie nennt mindestens drei Wohnberechtigte zur Auswahl; Ausnahmen per Verordnung möglich
+- **Stellungnahme:** Bedarfsbestätigung und Standortangaben der Förderstelle; Anhörung der Gemeinde (Mehrfamilienhäuser), sofern sie nicht selbst Förderstelle ist
 - **Kommune als Bauherrin:** selbst antragsberechtigt; Vergaberecht gilt zusätzlich
 
 ### Vermietung
 
-- Wohnberechtigungsschein (WBS) grundsätzlich bei jeder Überlassung
-- Kein berechtigter Haushalt trotz Vermarktung? Befristete Freistellung von der Belegungsbindung beantragen, in der Regel höchstens 5 Jahre, einmal verlängerbar; Mietbindung bleibt.
-- Ausgleich dafür, z. B. Geld (in der Regel 0,50 € je m² Wohnfläche und Monat, nicht auf die Miete umlegbar) oder Ersatzwohnungen
+- WBS grundsätzlich bei jeder Überlassung
+- Kein berechtigter Haushalt trotz Vermarktung? Befristete Freistellung von der Belegungsbindung beantragen, in der Regel spätestens 4 Wochen vor Freiwerden oder Bezugsfertigkeit und für höchstens 5 Jahre; einmal verlängerbar; Mietbindung bleibt.
+- Ausgleich dafür, z. B. Geld (in der Regel 0,50 € je m² Wohnfläche und Monat, nicht auf die Miete umlegbar), Ersatzwohnungen oder gleichrangig sonstiger Ausgleich
 
 > **[Kalkulationsnotiz]** Klären Sie den Standort zuerst mit der Wohnraumförderstelle: Er entscheidet über Förderfähigkeit, Vorrang und Mieterkreis.
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. Bedarf: RL Nr. 5.2.1, 6.2, 8.2.1, 9.2, 10.2. Vorrang: Nr. 11.2 (im selben Rang bei sonst gleichen Voraussetzungen zuerst kostengünstigere Vorhaben gleicher Güte, dann u. a. Barrierefreiheit, Familien mit Kindern, besondere Bedarfsgruppen, Klimaziele; ggf. Punktesystem der NBank). Stellungnahme: Nr. 5.5.1 (nur Mehrfamilienhäuser), 12.1.2. Wohnraumversorgungskonzept: Nr. 1.5; vollständige Liste der Belege: Nr. 5.2.1.</sub>  
-<sub>2. B und C: § 4 Abs. 1 DVO-NWoFG – auch bei VO nach § 7 Abs. 3 NWoFG, angespanntem Markt oder Wohnraum für Ältere, Menschen mit Behinderungen oder Pflegebedürftige; Zulassung in der Förderentscheidung (RL Nr. 12.3.2). § 7 Abs. 3 NWoFG (Ausnahmen vom Benennungsrecht per Verordnung möglich); VV NWoFG 2026 Nr. 6 und 9 (Freistellungsantrag soll spätestens 4 Wochen vor Freiwerden oder Bezugsfertigkeit gestellt werden; gleichrangig auch sonstiger Ausgleich).</sub>  
-<sub>3. Angespannter Markt: NMiSchuV (Fassung ab 04.12.2025), AWohnV (§ 201a BauGB), VO nach § 250 BauGB. Mietenstufen: WoGV-Anlage (ab 01.01.2023) i. V. m. § 12 Abs. 4a WoGG; Entwurf ab 2027: BR-Drs. 474/26. NBank-Landkarte Wohnraumförderung, Abruf 21.10.2026.</sub>  
+<sub>Fundstellen: RL Nr. 1.5, 5.2.1, 5.5.1, 6.2, 8.2.1, 9.2, 10.2, 11.2, 12.1.2; NBank-Landkarte, Abruf 21.10.2026.</sub>  
+<sub>1. Angespannter Markt: NMiSchuV (ab 04.12.2025), AWohnV, § 250 BauGB. Mietenstufen: WoGV-Anlage, § 12 Abs. 4a WoGG; Entwurf ab 2027: BR-Drs. 474/26.</sub>  
+<sub>2. Gruppen B und C: § 4 Abs. 1 DVO-NWoFG, RL Nr. 12.3.2. Benennungsrecht: § 7 Abs. 3 NWoFG. Freistellung und Ausgleich: VV NWoFG 2026 Nr. 6 und 9.</sub>  
 
 ---
 
@@ -1115,22 +1116,22 @@ Einheit: Einheits- und Samtgemeinden
 
 ### Vom Vorgespräch bis zum Verwendungsnachweis
 
-**Sie beantragen bei der Wohnraumförderstelle am Bauort, die NBank entscheidet. Bis zur Bewilligung gilt: planen bis Leistungsphase 6 HOAI ja, Bau-, Liefer- oder Werkverträge nein – außer bei zugelassenem vorzeitigem Vorhabenbeginn.**
+**Sie beantragen bei der Wohnraumförderstelle am Bauort, die NBank entscheidet – in acht Schritten.**
 
 **Grafik (timeline): Acht Schritte, drei Beteiligte**
 
 Bahnen: Sie · Wohnraumförderstelle · NBank
 
 1. **Vorgespräch** (Wohnraumförderstelle + Sie): Nachweise und Unterlagen vorab klären; NBank-Förderberatung zusätzlich
-2. **Antrag** (Sie): bei der Wohnraumförderstelle; vorzeitigen Vorhabenbeginn frühestens mit dem vollständigen Antrag beantragen · Vordrucke: 1011 · 2.1–2.4; 1011a + 1012 · 2.5; 1011b · 2.6 nach Prolongationsangebot
+2. **Antrag** (Sie): bei der Wohnraumförderstelle · Vordrucke: 1011 · 2.1–2.4; 1011a + 1012 · 2.5; 1011b · 2.6 nach Prolongationsangebot
 3. **Stellungnahme** (Wohnraumförderstelle): Bedarfsbestätigung, ggf. Anhörung der Gemeinde, Weiterleitung
 4. **Entscheidung** (NBank): Voraussetzungen, Bonität, keine Überkompensation (Beihilferecht); Fördervertrag, bei reinem Zuschuss Bescheid · Frist: Ziel: ≤ 3 Monate (kein Anspruch)
-5. **Bauen** (Sie): Baubeginnanzeige erst nach Beginn (für Unternehmen subventionserheblich) · mind. 3 Angebote anfordern · Generalunternehmen nur mit Prüfzustimmung · Vordrucke: 4001 · Frist: Baubeginn unverzüglich, ≤ 4 Monate nach Bekanntgabe der Förderentscheidung · ⚠
+5. **Bauen** (Sie): Baubeginnanzeige erst nach Beginn, an NBank und Wohnraumförderstelle (für Unternehmen subventionserheblich) · mind. 3 Angebote anfordern; Direktauftrag bis 25.000 € ohne USt · Generalunternehmer/-übernehmer nur mit schriftlicher Prüfzustimmung · Kommunen u. a.: zusätzlich Vergaberecht · Bauschild mit Förderhinweis · Vordrucke: 4001 · Frist: Baubeginn unverzüglich, ≤ 4 Monate nach Bekanntgabe der Förderentscheidung · ⚠
 6. **Auszahlung** (NBank): Teilraten auf Anforderung (→ S. 9); Darlehen erst nach Grundschuld an vereinbarter Rangstelle oder Notarbestätigung
-7. **Fertigstellung** (Wohnraumförderstelle + Sie): Fertigstellungsanzeige; Überlassung nur mit Wohnberechtigungsschein (WBS); letzte 10 % nach Schlussbescheinigung und Belegung · Vordrucke: 4005
-8. **Verwendungsnachweis** (Sie): an die Wohnraumförderstelle, einfacher Nachweis genügt. Die Bindungen laufen schon ab Bezugsfertigkeit. · Frist: ≤ 6 Monate nach Erfüllung des Zuwendungszwecks
+7. **Fertigstellung** (Wohnraumförderstelle + Sie): Fertigstellungsanzeige; Überlassung nur mit WBS; letzte 10 % nach Schlussbescheinigung und Belegung · Vordrucke: 4005
+8. **Verwendungsnachweis** (Sie): an die Wohnraumförderstelle, einfacher Nachweis genügt. Die Bindungen laufen schon ab Bezugsfertigkeit, beim Ersterwerb ab Eigentumsübergang, bei 2.3 ab Abschluss der Maßnahmen. · Frist: ≤ 6 Monate nach Erfüllung des Zuwendungszwecks
 
-*Notiz:* Stationen 5–7: Bauvorhaben 2.1–2.4 (Ersterwerb ohne Baubeginnanzeige). Abläufe für 2.5 und 2.6 → S. 16 und 17.
+*Notiz:* Stationen 5–7: Bauvorhaben 2.1–2.4 (Ersterwerb: ohne Baubeginn- und Fertigstellungsanzeige, letzte 10 % nach Eigentumsumschreibung und Belegung). Abläufe für 2.5 und 2.6 → S. 16 und 17.
 
 > **[Achtung] Erst Bewilligung, dann Vertrag**
 >
@@ -1155,13 +1156,10 @@ Bahnen: Sie · Wohnraumförderstelle · NBank
   - erster Spatenstich¹
   - bei 2.5: Mietvertrag oder Überlassung der Wohnung
 
-> **[Kalkulationsnotiz]** Planen Sie für die Entscheidung die Soll-Frist von drei Monaten ein – nach der Bekanntgabe bleiben höchstens vier Monate bis zum Baubeginn.
-
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. ¹ Laut NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (Stand 27.07.2026) – über den Wortlaut der RL hinaus. Vorhabenbeginn nach RL Nr. 4.2: grundsätzlich der Abschluss eines dem Vorhaben zuzurechnenden Liefer-, Leistungs-, Kauf- oder Werkvertrags; bei 2.5 schon Mietvertrag oder Überlassung (Nr. 9.2).</sub>  
-<sub>2. Bauen: Baubeginnanzeige (Vordruck 4001) an NBank und Wohnraumförderstelle; Direktauftrag bei voraussichtlichem Auftragswert bis 25.000 € ohne USt möglich (Wirtschaftlichkeit beachten); Generalunternehmen und Generalübernahme nur mit schriftlicher Zustimmung zur Prüfung durch NBank und Landesrechnungshof; Kommunen: Vergaberecht zusätzlich; Bauschild mit Förderhinweis (Nr. 11.11); Fristabweichung in begründeten Fällen. Bindungen laufen ab Bezugsfertigkeit, beim Ersterwerb ab Eigentumsübergang, bei 2.3 ab Abschluss der Maßnahmen (Nr. 5.4.1/5.4.2, 7.4.1).</sub>  
-<sub>3. RL Nr. 4.2, 5.4.7, 5.4.8, 5.5.1–5.5.8, 9.2, 10.5, 11.10, 11.11, 12.1.2, 12.2, 12.3.1, 12.4, 12.5; Anlagen 1 und 2 (Vordrucke 4001, 4005); VV NWoFG 2026 Nr. 6.</sub>  
+<sub>Fundstellen: RL Nr. 4.2, 5.4.1, 5.4.2, 5.4.7, 5.4.8, 5.5.1–5.5.8, 7.4.1, 7.4.2, 9.2, 10.5, 11.10, 11.11, 12.1.2, 12.2, 12.3.1, 12.4, 12.5; Anlagen 1 und 2 (Vordrucke 4001, 4005); VV NWoFG 2026 Nr. 6.</sub>  
+<sub>1. Laut NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (27.07.2026), über RL Nr. 4.2 hinaus.</sub>  
 
 ---
 
@@ -1181,7 +1179,7 @@ Bahnen: Sie · Wohnraumförderstelle · NBank
 
 ### Immer aktuell auf nbank.de
 
-- Bemessungsgrenzen für die Herstellungskosten (Ausgangswerte 4.800/5.000 € je m² Wohnfläche, Mietenstufe I–III/IV–VII; Fortschreibung zum 1.4. und 1.10.)
+- Bemessungsgrenzen für die Herstellungskosten (Ausgangswerte 4.800/5.000 € je m² Wohnfläche, Mietenstufe I–III/IV–VII; Fortschreibung jeweils zum 01.04. und 01.10.)
 - Landkarte Wohnraumförderung (Bedarf)
 - Vordrucke und Arbeitshilfen
 - Entgeltkatalog für sonstige Entgelte
@@ -1190,14 +1188,14 @@ Bahnen: Sie · Wohnraumförderstelle · NBank
 ### Unterlagen bereitlegen (Auszug)
 
 - [ ] Antrag: Vordruck 1011 (2.1–2.4) · 1011a + 1012 je Wohnung (2.5) · 1011b (2.6)
-- [ ] Natürliche Personen, ggf. auch Gesellschafterinnen und Gesellschafter: Selbstauskunft 3076, aktuelle und vollständige Schufa-Auskunft, Identifizierung nach GwG (1005a bzw. 1006a, Post-Ident)
+- [ ] Natürliche Personen, ggf. auch Gesellschafterinnen und Gesellschafter: Selbstauskunft 3076, aktuelle und vollständige SCHUFA-Auskunft, Identifizierung nach GwG (1005a bzw. 1006a, Postident)
 - [ ] Unternehmen: Jahresabschlüsse der letzten zwei Jahre, BWA höchstens drei Monate alt, Handels- und Transparenzregisterauszug
 - [ ] Grundbuchauszug, Lageplan, Bauzeichnungen
 - [ ] Wohnflächenberechnung (WoFlV), umbauter Raum (DIN 277)
-- [ ] Baubeschreibung 1021, Kosten-Finanzierungsaufteilung (Excel-Vorlage, Stand 08/26)
+- [ ] Baubeschreibung 1021, Arbeitshilfe „Kosten-Finanzierungsaufteilung“ (Excel-Vorlage, Stand 08/2026)
 - [ ] bei 2.3: Energiebedarfsausweis mit Ausgangsklasse (ab 2027: Energieausweis auf Grundlage energetischer Bilanzierung)
 
-Grundlage: NBank-Checklisten vom 20.07.2025 (vor der RL 2026 erstellt) und 22.09.2026 (Bindungserwerb) sowie die Programmseite. Welche Unterlagen Sie brauchen, klärt die Wohnraumförderstelle; Nachforderungen sind möglich.
+Grundlage: NBank-Checklisten vom 20.07.2025 (vor der RL 2026) und 22.09.2026 (2.5). Nachforderungen sind möglich.
 
 ### Weitere Programme
 
@@ -1215,7 +1213,7 @@ Grundlage: NBank-Checklisten vom 20.07.2025 (vor der RL 2026 erstellt) und 22.09
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>1. RL Nr. 1.3, 5.2.1, 5.3.2.2, 5.3.7, 10.5, 11.11, 12.1.2, 12.7.4, 13.1; NBank-Seiten „Fokus Wohnraumförderung“ und Beratungsstellen; NBank-Checklisten (Stand 20.07.2025 bzw. 22.09.2026); Bemessungsgrenzen: erster Fortschreibungsstichtag laut eigener Ableitung 01.10.2026, bis 21.10.2026 keine fortgeschriebenen Werte auf nbank.de auffindbar; BR-Drs. 474/26 (Entwurf neue Mietenstufen ab 01.01.2027); BGBl. 2026 I Nr. 226 (Energieausweis ab 2027).</sub>  
+<sub>Quellen: RL Nr. 1.3, 5.2.1, 5.3.2.2, 5.3.7, 10.5, 11.11, 12.1.2, 12.7.4, 13.1; NBank: Programmseite, „Fokus Wohnraumförderung“, Beratungsstellen; BR-Drs. 474/26 (Entwurf Mietenstufen ab 2027); BGBl. 2026 I Nr. 226 (Energieausweis ab 2027).</sub>  
 
 ---
 

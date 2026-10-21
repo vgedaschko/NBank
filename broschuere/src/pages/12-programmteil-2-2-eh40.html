@@ -1,27 +1,6 @@
-<section class="page bs-22" data-page="12">
+<section class="page bs-22" data-page="12" id="seite-12">
   <style>
-    /* Titelzone: Kapitelnummer außen (linke Seite), Titel + Vorspann rechts */
-    .page[data-page="12"] .p12-title { align-items: start; }
-    .page[data-page="12"] .p12-title .chapter-no { text-align: left; }
-    .page[data-page="12"] .p12-title .h1 { margin-top: 2.4mm; }
-    .page[data-page="12"] .p12-intro { display: grid; grid-template-columns: calc(4 * var(--col) + 3 * var(--gutter)) minmax(0, 1fr); column-gap: var(--gutter); margin-top: 3.4mm; }
-    .page[data-page="12"] .p12-deck {
-      font-family: var(--font-display);
-      font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0;
-      font-weight: 400;
-      font-size: 11pt;
-      line-height: 1.32;
-      -webkit-hyphens: none; hyphens: none;
-      text-wrap: balance;
-      letter-spacing: -.004em;
-      color: var(--fg);
-    }
-    .page[data-page="12"] .p12-deck b { font-weight: 560; color: var(--accent-text); white-space: nowrap; }
-    .page[data-page="12"] .p12-leadtext { font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
-    /* Diagramm */
-    .page[data-page="12"] .chart__head { display: block; }
-    .page[data-page="12"] .chart__head > .legend { justify-content: flex-start; margin-top: 1.6mm; }
-    .page[data-page="12"] .p12-tabtitle { font-size: var(--fs-h3); line-height: 1.16; }
+    /* Diagramm über die volle Satzbreite (Hauptelement); Linien graustufenfest über Strichart, direkt beschriftet (Gruppe · Satz · Höchstbetrag) */
     .page[data-page="12"] .p12-l { fill: none; stroke: var(--grant); stroke-linejoin: round; }
     .page[data-page="12"] .p12-l--a { stroke-width: .8; }
     .page[data-page="12"] .p12-l--b { stroke-width: .55; stroke-dasharray: 1.8 .9; }
@@ -30,121 +9,81 @@
     .page[data-page="12"] .p12-marker { stroke: var(--fg); stroke-width: .25; stroke-dasharray: .8 .7; }
     .page[data-page="12"] .p12-kink { fill: var(--surface); stroke: var(--grant); stroke-width: .4; }
     .page[data-page="12"] .p12-dot { fill: var(--fg); }
-    .page[data-page="12"] .chart__svg .p12-halo { paint-order: stroke; stroke: var(--surface); stroke-width: .9px; stroke-linejoin: round; }
     .page[data-page="12"] .chart__svg .p12-cat { font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 450; font-size: 4.8px; fill: var(--fg); }
-    .page[data-page="12"] .p12-key { display: block; flex: none; width: 6mm; height: 2mm; overflow: visible; }
-    /* Tabelle: Ausrichtung wie im Seiten-JSON (Zeilen A/B/C, Zeile A hervorgehoben; letzte Spalte = eigene Berechnung).
-       Lange Spaltenköpfe ohne Versalien; der Kopf der Gruppenspalte steht als Vorkopf in der ersten Kopfzeile. */
-    .page[data-page="12"] .p12-table { table-layout: fixed; }
-    .page[data-page="12"] .p12-table .p12-c1 { width: 10mm; }
-    .page[data-page="12"] .p12-table .p12-c2 { width: 12.5mm; }
-    .page[data-page="12"] .p12-table .p12-c3 { width: 21mm; }
-    .page[data-page="12"] .p12-table thead th { text-transform: none; letter-spacing: 0; font-weight: 600; white-space: normal; }
-    .page[data-page="12"] .p12-table thead th:nth-child(2) { white-space: nowrap; }
-    .page[data-page="12"] .p12-table .p12-stub { position: relative; }
-    .page[data-page="12"] .p12-table .p12-stub > span { position: absolute; top: 0; left: 1.6mm; white-space: nowrap; }
-    .page[data-page="12"] .p12-table tr > :first-child { padding-left: 1.6mm; }
-    .page[data-page="12"] .p12-table tr > :last-child { padding-right: 1.6mm; }
-    .page[data-page="12"] .p12-table tbody th, .page[data-page="12"] .p12-table tbody td { vertical-align: baseline; padding-top: 1.3mm; padding-bottom: 1.3mm; }
-    .page[data-page="12"] .p12-table tbody th { font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 450; font-size: 15pt; line-height: 1; }
-    .page[data-page="12"] .p12-table tbody td { font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 400; font-size: 13pt; line-height: 1; letter-spacing: -.01em; }
-    .page[data-page="12"] .p12-table tbody td .unit { font-family: var(--font-text); font-size: 8.5pt; letter-spacing: 0; }
-    /* Untere Zone */
-    .page[data-page="12"] .p12-low .bullets > li { font-size: var(--fs-micro); line-height: 1.36; }
+    .page[data-page="12"] .chart__svg .p12-rate { font-size: var(--svg-fs-m); fill: var(--fg-2); }
+    /* Bildunterschrift (7 Spalten) und Achtung-Kasten (5 Spalten) teilen sich die Zeile unter dem Diagramm:
+       Subgrid, damit die Zeile mit dem höheren der beiden Module wächst */
+    .page[data-page="12"] .p12-figs { row-gap: 0; }
+    .page[data-page="12"] .p12-fig { grid-row: 1 / span 3; display: grid; grid-template-columns: subgrid; grid-template-rows: subgrid; }
+    .page[data-page="12"] .p12-fig > .chart__head, .page[data-page="12"] .p12-fig > .chart__svg { grid-column: 1 / -1; }
+    .page[data-page="12"] .p12-cap { grid-column: 1 / span 7; }
+    .page[data-page="12"] .p12-fig > .chart__svg { margin-top: 3mm; }
+    .page[data-page="12"] .p12-cap > .chart__note + .chart__note { margin-top: 1.4mm; }
+    .page[data-page="12"] .p12-ach { grid-column: 8 / span 5; grid-row: 3; margin-top: 2.6mm; }
+    /* Untere Zone: Spielregeln (7) | Gegenstand, Voraussetzungen (5) – fluchtet mit Bildunterschrift | Achtung (wie S. 13: Regeln vor Voraussetzungen) */
     .page[data-page="12"] .p12-low .bullets > li + li { margin-top: 1mm; }
-    .page[data-page="12"] .p12-low .bullets__title { display: flex; align-items: flex-end; min-height: calc(2 * 1.2em + 5mm + 1.7pt); }
     .page[data-page="12"] .p12-low .bullets__title + .bullets { margin-top: 2mm; }
-    .page[data-page="12"] .p12-low .callout__body { font-size: var(--fs-micro); line-height: 1.38; }
-    .page[data-page="12"] .p12-low .callout__title { font-size: 11.5pt; }
-    .page[data-page="12"] .p12-low .callout { padding-left: 4mm; padding-right: 4mm; }
-    .page[data-page="12"] .p12-low > .callout { align-self: stretch; }
-    .page[data-page="12"] .p12-low .p12-col { display: flex; flex-direction: column; align-self: stretch; }
-    .page[data-page="12"] .p12-low .p12-col > .callout { flex: 1 0 auto; }
-    .page[data-page="12"] .p12-tab .fig-head + * { margin-top: 2.4mm; }
   </style>
 
-  <div class="bs-register" data-bleed>2.2</div>
+  <div class="bs-register" data-bleed aria-hidden="true">2.2</div>
 
-  <div class="l-grid p12-title">
-    <div class="l-span-3">
-      <p class="chapter-no">02<small>von 06</small></p>
-      <p class="tags u-mt-4"><span class="tag"><i class="sw sw--grant"></i>Zuschuss</span></p>
+  <header class="program-head program-head--master p12-title">
+    <div class="program-head__no">
+      <p class="chapter-no">02<small>Programmteil</small></p>
+      <p class="tags"><span class="tag"><i class="sw sw--grant"></i>Zuschuss</span></p>
     </div>
-    <div class="l-span-9">
+    <div class="program-head__main">
       <p class="kicker">Programmteil 2.2 · Energetisch hochwertiger Neubau</p>
       <h1 class="h1 h1--s">Reiner <em>Zuschuss</em> statt Darlehen</h1>
-      <div class="p12-intro">
-        <p class="p12-deck">Bis zu <b>50 %</b> der zuwendungsfähigen Kosten, höchstens <b>90.000 €</b> je Wohnung (Einkommensgruppe A)</p>
-        <p class="p12-leadtext">Für den Neubau ab KfW-Effizienzhaus-40-Niveau: kein Darlehen, also kein Verwaltungskostenbeitrag. Es gilt der niedrigere Wert aus Prozentsatz und Höchstbetrag je Wohnung.<span class="fn">1</span></p>
-      </div>
+      <p class="deck">Bis zu <b>50 %</b> der zuwendungsfähigen Kosten, höchstens <b>90.000 €</b> je Wohnung (Einkommensgruppe A)</p>
+      <p class="program-head__subject">Für den Neubau ab KfW-Effizienzhaus-40-Niveau: kein Darlehen, also kein Verwaltungskostenbeitrag. Es gilt der niedrigere Wert aus Prozentsatz und Höchstbetrag je Wohnung.</p>
     </div>
-  </div>
+  </header>
 
-  <div class="l-grid u-mt-5 p12-figs">
-    <figure class="l-span-7 chart chart--s module">
+  <div class="l-grid u-mt-4 p12-figs">
+    <figure class="l-span-12 chart module p12-fig" role="group">
       <figcaption class="chart__head">
         <h2 class="chart__title">Zuschuss je Wohnung nach Kosten je Wohnung</h2>
-        <ul class="legend">
-          <li><svg class="p12-key" viewBox="0 0 6 2" aria-hidden="true"><line class="p12-l p12-l--a" x1="0" y1="1" x2="6" y2="1"/></svg>A · bis zu 50 %</li>
-          <li><svg class="p12-key" viewBox="0 0 6 2" aria-hidden="true"><line class="p12-l p12-l--b" x1="0" y1="1" x2="6" y2="1"/></svg>B · bis zu 40 %</li>
-          <li><svg class="p12-key" viewBox="0 0 6 2" aria-hidden="true"><line class="p12-l p12-l--c" x1=".3" y1="1" x2="6" y2="1"/></svg>C · bis zu 30 %</li>
-        </ul>
       </figcaption>
-      <svg class="chart__svg" viewBox="0 0 99.4 44" width="99.4mm" height="44mm" role="img" aria-label="Zuschuss je Wohnung nach zuwendungsfähigen Kosten je Wohnung: Gruppe A bis zu 50 Prozent, höchstens 90.000 Euro, der Höchstbetrag greift ab 180.000 Euro Kosten; Gruppe B bis zu 40 Prozent, höchstens 75.000 Euro ab 187.500 Euro; Gruppe C bis zu 30 Prozent, höchstens 60.000 Euro ab 200.000 Euro. Markierung bei 350.000 Euro Kosten je Wohnung (Modell Seite 10): dort greift in allen Gruppen der Höchstbetrag."><path class="p12-area" d="M0 34.6 L34.83 10.3 L77.4 10.3 L77.4 34.6 Z"/><line class="gridline" x1="0" y1="21.1" x2="77.4" y2="21.1"/><text class="t-ax" x="0" y="24.4">50.000</text><line class="gridline" x1="0" y1="7.6" x2="77.4" y2="7.6"/><text class="t-ax" x="0" y="10.9">100.000</text><text class="t-caps" x="0" y="4">Zuschuss je Wohnung in €</text><line class="p12-marker" x1="67.73" y1="5" x2="67.73" y2="34.6"/><text class="t-b t-mid" x="67.73" y="4">Modell S. 10</text><line class="ax" x1="0" y1="34.6" x2="77.4" y2="34.6"/><line class="tick" x1="0" y1="34.6" x2="0" y2="35.7"/><text class="t-ax" x="0" y="38.9">0</text><line class="tick" x1="19.35" y1="34.6" x2="19.35" y2="35.7"/><text class="t-ax t-mid" x="19.35" y="38.9">100.000</text><line class="tick" x1="38.7" y1="34.6" x2="38.7" y2="35.7"/><text class="t-ax t-mid" x="38.7" y="38.9">200.000</text><line class="tick" x1="58.05" y1="34.6" x2="58.05" y2="35.7"/><text class="t-ax t-mid" x="58.05" y="38.9">300.000</text><line class="tick" x1="77.4" y1="34.6" x2="77.4" y2="35.7"/><text class="t-ax t-mid" x="77.4" y="38.9">400.000 €</text><text class="t-caps" x="0" y="43.4">zuwendungsfähige Kosten je Wohnung in €</text><polyline class="p12-l p12-l--a" points="0,34.6 34.83,10.3 77.4,10.3"/><polyline class="p12-l p12-l--b" points="0,34.6 36.28,14.35 77.4,14.35"/><polyline class="p12-l p12-l--c" points="0,34.6 38.7,18.4 77.4,18.4"/><circle class="p12-kink" cx="34.83" cy="10.3" r=".8"/><circle class="p12-dot" cx="67.73" cy="10.3" r=".85"/><circle class="p12-kink" cx="36.28" cy="14.35" r=".8"/><circle class="p12-dot" cx="67.73" cy="14.35" r=".85"/><circle class="p12-kink" cx="38.7" cy="18.4" r=".8"/><circle class="p12-dot" cx="67.73" cy="18.4" r=".85"/><text class="t-ax p12-halo" x="36.33" y="9.5">ab <tspan class="t-b">180.000 €</tspan></text><text class="t-ax" x="37.78" y="13.55">ab <tspan class="t-b">187.500 €</tspan></text><text class="t-ax" x="40.2" y="17.6">ab <tspan class="t-b">200.000 €</tspan></text><text class="p12-cat" x="79" y="11.8">A</text><text class="t-val-ink t-end" x="99.4" y="11.4">90.000 €</text><text class="p12-cat" x="79" y="15.85">B</text><text class="t-val-ink t-end" x="99.4" y="15.45">75.000 €</text><text class="p12-cat" x="79" y="19.9">C</text><text class="t-val-ink t-end" x="99.4" y="19.5">60.000 €</text></svg>
-      <p class="chart__note">Modell S. 10, vereinfacht (350.000 € je Wohnung, Annahme EH 40): <b>2.2 bis zu 1,8 Mio. € Zuschuss, 2.1 bis zu 2,8 Mio. € – dort nur mit 2,8 Mio. € Darlehen.</b> Mehr Zuschuss als 2.1 bringt 2.2 bis 225.000 € (A), 375.000 € (B) bzw. 600.000 € (C) Kosten je Wohnung; eigene&nbsp;Berechnung.</p>
+      <svg class="chart__svg" viewBox="0 0 174 36.6" width="174mm" height="36.6mm" role="img" aria-label="Zuschuss je Wohnung nach zuwendungsfähigen Kosten je Wohnung: Gruppe A bis zu 50 Prozent, höchstens 90.000 Euro, der Höchstbetrag greift ab 180.000 Euro Kosten; Gruppe B bis zu 40 Prozent, höchstens 75.000 Euro ab 187.500 Euro; Gruppe C bis zu 30 Prozent, höchstens 60.000 Euro ab 200.000 Euro. Markierung bei 350.000 Euro Kosten je Wohnung (Modell Seite 10): dort greift in allen Gruppen der Höchstbetrag."><path class="p12-area" d="M0 27.2 L57.6 3.8 L128 3.8 L128 27.2 Z"/><line class="gridline" x1="0" y1="14.2" x2="128" y2="14.2"/><text class="t-ax" x="0" y="17.5">50.000 €</text><line class="gridline" x1="0" y1="1.2" x2="128" y2="1.2"/><text class="t-ax" x="0" y="4.5">100.000 €</text><line class="p12-marker" x1="112" y1="1.2" x2="112" y2="27.2"/><line class="ax" x1="0" y1="27.2" x2="128" y2="27.2"/><line class="tick" x1="0" y1="27.2" x2="0" y2="28.3"/><text class="t-ax" x="0" y="31.5">0</text><line class="tick" x1="32" y1="27.2" x2="32" y2="28.3"/><text class="t-ax t-mid" x="32" y="31.5">100.000</text><line class="tick" x1="64" y1="27.2" x2="64" y2="28.3"/><text class="t-ax t-mid" x="64" y="31.5">200.000</text><line class="tick" x1="96" y1="27.2" x2="96" y2="28.3"/><text class="t-ax t-mid" x="96" y="31.5">300.000</text><line class="tick" x1="128" y1="27.2" x2="128" y2="28.3"/><text class="t-ax t-mid" x="128" y="31.5">400.000 €</text><text class="t-caps" x="0" y="36">zuwendungsfähige Herstellungs- und Grundstückskosten je Wohnung in €</text><polyline class="p12-l p12-l--a" points="0,27.2 57.6,3.8 128,3.8"/><polyline class="p12-l p12-l--b" points="0,27.2 60,7.7 128,7.7"/><polyline class="p12-l p12-l--c" points="0,27.2 64,11.6 128,11.6"/><circle class="p12-kink" cx="57.6" cy="3.8" r=".8"/><circle class="p12-dot" cx="112" cy="3.8" r=".85"/><circle class="p12-kink" cx="60" cy="7.7" r=".8"/><circle class="p12-dot" cx="112" cy="7.7" r=".85"/><circle class="p12-kink" cx="64" cy="11.6" r=".8"/><circle class="p12-dot" cx="112" cy="11.6" r=".85"/><text class="t-ax t-halo" x="59.1" y="3">ab <tspan class="t-b">180.000 €</tspan></text><text class="t-ax" x="61.5" y="6.9">ab <tspan class="t-b">187.500 €</tspan></text><text class="t-ax" x="65.5" y="10.8">ab <tspan class="t-b">200.000 €</tspan></text><text class="t-b t-end" x="110.4" y="20.5">Modell S. 10</text><text class="p12-cat" x="130" y="5.3">A</text><text class="p12-rate" x="134.4" y="4.9">bis zu 50 %</text><text class="t-val-ink t-end" x="174" y="4.9">90.000 €</text><text class="p12-cat" x="130" y="9.2">B</text><text class="p12-rate" x="134.4" y="8.8">bis zu 40 %</text><text class="t-val-ink t-end" x="174" y="8.8">75.000 €</text><text class="p12-cat" x="130" y="13.1">C</text><text class="p12-rate" x="134.4" y="12.7">bis zu 30 %</text><text class="t-val-ink t-end" x="174" y="12.7">60.000 €</text></svg>
+      <div class="p12-cap">
+        <p class="chart__note">Knickpunkte eigene Berechnung. B und C nur mit NBank-Zulassung (<span class="u-nowrap">§ 4 DVO-NWoFG</span>, <a class="u-nowrap" href="#seite-06">→&nbsp;S.&nbsp;6</a>). Ob Bemessungsgrenze und Bodenrichtwert-Deckel gelten, regelt RL Nr. 6.3.2 nicht – mit der NBank klären.</p>
+        <p class="chart__note">Modell (<a class="u-nowrap" href="#seite-10">→&nbsp;S.&nbsp;10</a>), vereinfacht (350.000 € je Wohnung, Annahme EH 40): <b>2.2 bis zu 1,8 Mio. € Zuschuss, 2.1 bis zu 2,8 Mio. € – dort nur mit 2,8 Mio. € Darlehen.</b> 2.2 bringt mehr Zuschuss als 2.1, solange die zuwendungsfähigen Kosten je Wohnung unter 225.000 € (A), 375.000 € (B) bzw. 600.000 € (C) liegen; eigene&nbsp;Berechnung.</p>
+        <p class="caveat">Höchstwerte&nbsp;· Überkompensationsprüfung&nbsp;· kein&nbsp;Rechtsanspruch <a href="#seite-02">→&nbsp;S.&nbsp;2</a></p>
+      </div>
     </figure>
-
-    <figure class="l-span-5 module p12-tab">
-      <figcaption class="fig-head"><h2 class="fig-head__title p12-tabtitle">Zuschuss je Einkommensgruppe</h2></figcaption>
-      <table class="table p12-table">
-        <colgroup><col class="p12-c1"><col class="p12-c2"><col class="p12-c3"><col></colgroup>
-        <thead>
-          <tr><th class="p12-stub" scope="col"><span>Einkommensgruppe</span></th><th class="num" scope="col">bis zu</th><th class="num" scope="col">höchstens je&nbsp;Wohnung</th><th class="num" scope="col">Höchstbetrag greift ab Kosten je Wohnung</th></tr>
-        </thead>
-        <tbody>
-          <tr class="is-key"><th scope="row">A</th><td class="num">50<span class="unit">%</span></td><td class="num">90.000<span class="unit">€</span></td><td class="num">180.000<span class="unit">€</span></td></tr>
-          <tr><th scope="row">B</th><td class="num">40<span class="unit">%</span></td><td class="num">75.000<span class="unit">€</span></td><td class="num">187.500<span class="unit">€</span></td></tr>
-          <tr><th scope="row">C</th><td class="num">30<span class="unit">%</span></td><td class="num">60.000<span class="unit">€</span></td><td class="num">200.000<span class="unit">€</span></td></tr>
-        </tbody>
-      </table>
-      <p class="source u-mt-2">In % der zuwendungsfähigen Herstellungs- und Grundstückskosten; Überkompensationsprüfung vorbehalten; letzte Spalte eigene Berechnung. B und C nur mit Zulassung der NBank (§ 4 DVO-NWoFG, → S. 6). Ob Bemessungsgrenze und Bodenrichtwert-Deckel gelten, regelt Nr. 6.3.2 nicht – mit der NBank klären. Bearbeitungsentgelt 0,75 % (675 € bei 90.000 €).</p>
-    </figure>
-  </div>
-
-  <div class="l-grid u-mt-5 p12-low">
-    <div class="l-span-4 p12-col">
-      <h3 class="bullets__title">Gegenstand, Voraussetzungen</h3>
-      <ul class="bullets">
-        <li><b>nur Neubau</b> – keine Änderung, Erweiterung oder Ersterwerb</li>
-        <li><b>gemeinschaftliche Wohnformen</b> möglich; keine Zuschläge für Housing First oder Modellprojekte</li>
-        <li><b>wie 2.1:</b> Bedarf, gesichertes Grundstück, mind. 2 gebundene Wohnungen je Neubau, Eigenmittel mind. 20 % (→ S. 4)</li>
-      </ul>
-      <aside class="callout callout--tipp u-mt-5">
-        <p class="callout__label"><svg class="icon icon--tipp" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17.2h6M9.6 20.2h4.8"/><path d="M12 3.2a6.2 6.2 0 0 0-3.6 11.3c.5.4.7.9.7 1.5v1.2h5.8V16c0-.6.3-1.1.7-1.5A6.2 6.2 0 0 0 12 3.2z"/></svg>Kalkulationsnotiz</p>
-        <p class="callout__body">Ohne NBank-Darlehen entfallen Tilgung und Verwaltungskostenbeitrag – den Rest finanzieren Sie über Eigenmittel und Kapitalmarkt.</p>
-      </aside>
-    </div>
-    <div class="l-span-4">
-      <h3 class="bullets__title">Spielregeln</h3>
-      <ul class="bullets">
-        <li><b>Höchstmiete</b> nettokalt Jahr 1–3 (A/B/C): Mietenstufe I–III <span class="u-nowrap">6,80/8,20/9,00 €</span>, IV–VII <span class="u-nowrap">7,10/8,50/9,30 €</span> – EH-40-Aufschlag enthalten; danach höchstens 6,15 % in 3 Jahren</li>
-        <li><b>Bindung 35 Jahre</b> ab Bezugsfertigkeit, grundsätzlich per beschränkter persönlicher Dienstbarkeit gesichert</li>
-        <li><b>Brand- und Sturmversicherung</b> bis Bindungsende</li>
-        <li><b>Auszahlung in 4 Raten</b> (→ S. 9)</li>
-        <li><b>EH-40-Nachweis</b> mit der Fertigstellungsanzeige: Sachverständige mit Energieausweis-Berechtigung oder Energieeffizienz-Expertenliste; bei KfW-Mitfinanzierung genügt die KfW-Bescheinigung</li>
-      </ul>
-    </div>
-    <aside class="l-span-4 callout callout--achtung">
+    <aside class="callout callout--achtung callout--s p12-ach">
       <p class="callout__label"><svg class="icon icon--achtung" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z"/><path d="M12 7.2v6.2"/><circle cx="12" cy="16.6" r=".95" fill="currentColor" stroke="none"/></svg>Achtung</p>
       <h3 class="callout__title">Kombination: nicht mit 2.1</h3>
-      <p class="callout__body">Keine Kumulierung mit Darlehen oder Zuschuss aus 2.1 (RL Nr. 6.3.4), laut NBank auch nicht mit Förderdarlehen anderer Fördersegmente der RL. Offen: 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen – mit der NBank klären.</p>
-      <p class="callout__body"><b>KfW 298</b> (Kommunen: 498): Die Stufe „Klimafreundliches Wohngebäude“ verlangt neben EH 40 Lebenszyklus-Anforderungen (befristete EH-55-Stufe → S. 8). Alle Förderungen zusammen höchstens die förderfähigen KfW-Kosten ohne Grundstück.</p>
+      <p class="callout__body">Keine Kumulierung mit Darlehen oder Zuschuss aus 2.1 (RL Nr. 6.3.4), laut NBank auch nicht mit Förderdarlehen anderer Fördersegmente der RL. Offen: 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen – mit der NBank klären.</p>
     </aside>
   </div>
 
-  <ol class="footnotes l-bottom">
-    <li>RL Nr. 1.6, 2.2, 5.3.7, 6.1–6.5, 11.4, 11.5, 12.3.2, 12.7.3; § 4 DVO-NWoFG; NBank-Produktinformation EH-40-Neubau (Stand 10.07.2026); KfW-Merkblatt 297/298 (KFN „Klimafreundlicher Neubau – Wohngebäude“). Auf die Dienstbarkeit kann in begründeten Fällen verzichtet werden (RL Nr. 11.5). Bei Kombination stimmt sich die NBank vor der Bewilligung mit der KfW ab; das Überkompensationsverbot gilt (RL Nr. 11.4, 11.10).</li>
+  <div class="l-grid u-mt-4 p12-low">
+    <div class="l-span-7">
+      <h3 class="bullets__title">Spielregeln</h3>
+      <ul class="bullets">
+        <li><b>Höchstmiete</b> nettokalt Jahr 1–3: <span class="u-nowrap">6,80–9,30 €</span> je m² nach Gruppe und Mietenstufe, EH-40-Aufschlag enthalten (Tabelle <a class="u-nowrap" href="#seite-07">→&nbsp;S.&nbsp;7</a>); danach höchstens +6,15 % in drei Jahren</li>
+        <li><b>Bindung 35 Jahre</b> ab Bezugsfertigkeit, grundsätzlich per beschränkter persönlicher Dienstbarkeit gesichert (Verzicht in begründeten Fällen möglich)</li>
+        <li><b>Auszahlung in 4 Raten</b> (<a class="u-nowrap" href="#seite-09">→&nbsp;S.&nbsp;9</a>); <b>Bearbeitungsentgelt</b> 0,75 % (675 € bei 90.000 €)</li>
+        <li><b>Mit KfW kombiniert:</b> Die NBank stimmt sich vor der Bewilligung mit der KfW ab; das Überkompensationsverbot gilt (RL Nr. 11.4, 11.10). KfW 298 (Kommunen: 498): Die Stufe „Klimafreundliches Wohngebäude“ verlangt neben EH 40 Lebenszyklus-Anforderungen (befristete EH-55-Stufe <a class="u-nowrap" href="#seite-08">→&nbsp;S.&nbsp;8</a>). Alle Förderungen zusammen höchstens die förderfähigen KfW-Kosten ohne Grundstück</li>
+      </ul>
+    </div>
+    <div class="l-span-5">
+      <h3 class="bullets__title">Gegenstand, Voraussetzungen</h3>
+      <ul class="bullets">
+        <li><b>nur Neubau</b> – keine Änderung, Erweiterung oder Ersterwerb</li>
+        <li><b>gemeinschaftliche Wohnformen</b> möglich; keine Zuschläge für <span lang="en">Housing First</span> oder Modellprojekte</li>
+        <li><b>wie 2.1:</b> Bedarf, gesichertes Grundstück, mind. 2 gebundene Wohnungen je Neubau, Eigenmittel mind. 20 % (<a class="u-nowrap" href="#seite-04">→&nbsp;S.&nbsp;4</a>)</li>
+        <li><b>EH-40-Nachweis</b> mit der Fertigstellungsanzeige: Sachverständige mit Energieausweis-Berechtigung oder Energieeffizienz-Expertenliste; bei KfW-Mitfinanzierung genügt die KfW-Bescheinigung</li>
+        <li><b>Brand- und Sturmversicherung</b> bis Bindungsende</li>
+      </ul>
+    </div>
+  </div>
+
+  <ol class="footnotes footnotes--2col l-bottom">
+    <li class="footnotes__src"><b>Fundstellen:</b> RL Nr. 1.6, 2.2, 5.3.7, 6.1–6.5, 11.4, 11.5, 12.3.2, 12.7.3; <span class="u-nowrap">§ 4 DVO-NWoFG</span>; NBank-Produktinformation EH-40-Neubau (Stand 10.07.2026); KfW-Merkblatt 297/298 (KFN „Klimafreundlicher Neubau – Wohngebäude“).</li>
   </ol>
 
-  <footer class="page__foot"><span class="page__folio">12</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Neubau · Programmteil 2.2</b></span><span>Stand: 21.10.2026</span></span></footer>
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">12</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Neubau · Programmteil 2.2</b></span><span>Stand: 21.10.2026</span></span></footer>
 </section>

@@ -4,7 +4,7 @@
   "layout_type": "table-checklist",
   "running_title": "Überblick · Neu und Grundcheck",
   "kicker": "Orientierung",
-  "headline": "Was 2026 neu ist – passt Ihr Projekt?",
+  "headline": "Was 2026 neu ist",
   "blocks": [
     {
       "type": "table",
@@ -23,24 +23,30 @@
         [
           "Bemessung je m²",
           "5.330/5.550 € Gesamtkosten (Neubau inkl. Grundstück)",
-          "4.800/5.000 € Herstellungskosten (Ausgangswerte ab 01.07.2026; aktuell: nbank.de), Grundstück separat bis Bodenrichtwert"
+          "4.800/5.000 € Herstellungskosten (Ausgangswerte ab 01.07.2026, Fortschreibung → S. 8), Grundstück separat bis Bodenrichtwert"
         ],
         [
-          "Mieterkreis; Höchstmiete nettokalt je m², Jahre 1–3",
+          "Mieterkreis und Höchstmiete (nettokalt je m², Jahre 1–3)",
           "geringe, mittlere Einkommen; 6,30/6,60 € (geringe)",
           "A, B, C (B/C nur mit NBank-Zulassung); A: 6,50/6,80 €"
         ]
       ],
-      "note": "Nicht 1:1 vergleichbar; Paarwerte: Mietenstufe I–III/IV–VII. Bisheriges Recht nur noch für Modernisierungsanträge mit Eingang bei der Wohnraumförderstelle bis 31.12.2026 und verbindlicher Wahl im Antrag (S. 15); Neubau, Ersterwerb: nur RL 2026."
+      "note": "Nicht 1:1 vergleichbar · Paarwerte: Mietenstufe I–III/IV–VII"
+    },
+    {
+      "type": "callout",
+      "variant": "frist",
+      "title": "Stichtag",
+      "body": "Bisheriges Recht nur noch für Modernisierungsanträge mit Eingang bei der Wohnraumförderstelle bis 31.12.2026 und verbindlicher Wahl im Antrag (→ S. 15). Neubau, Ersterwerb: nur RL 2026."
     },
     {
       "type": "checklist",
-      "heading": "Grundcheck: Passt mein Projekt?",
+      "heading": "Grundcheck: Passt Ihr Projekt?",
       "items": [
         "**Antragsberechtigt?** Natürliche und juristische Personen (auch Kommunen), Genossenschaften und andere Personenvereinigungen mit eigener Rechtspersönlichkeit, rechtsfähige Baugemeinschaften (Ersterwerb: Käuferseite); Gesamtfinanzierung gesichert (Miete deckt Kosten dauerhaft). [alle]",
-        "**Noch nicht begonnen?** Vor der Bewilligung kein Baubeginn, keine Liefer-, Leistungs-, Kauf- oder Werkverträge; bei 2.5 kein Mietvertrag, keine Überlassung. Erlaubt: Grundstückskauf, Planung bis HOAI-Leistungsphase 6; Rücktrittsklauseln, vorzeitiger Beginn: S. 19. [alle]",
-        "**Mehrfamilienhaus ab 3 Wohnungen?** Ausnahmen: gemeinschaftliche Wohnformen, im Einzelfall Reihen-/Doppelhaus. 2.1/2.2/2.4: je neuem Gebäude mind. 2 gebundene Wohnungen, keine Eigentumswohnungen zur Vermietung; 2.3: fertiggestellt vor 08.12.2004. [2.1–2.4]",
-        "**Bedarf am Standort?** In sechs Gebietsarten gegeben, sonst NBank-Karte prüfen (S. 18). [2.1, 2.2, 2.6]",
+        "**Noch nicht begonnen?** Vor der Bewilligung kein Baubeginn, keine Liefer-, Leistungs-, Kauf- oder Werkverträge; bei 2.5 kein Mietvertrag, keine Überlassung. Erlaubt: Grundstückskauf, Planung bis Leistungsphase 6 HOAI; Rücktrittsklauseln, vorzeitiger Beginn → S. 19. [alle]",
+        "**Mehrfamilienhaus ab drei Wohnungen?** Ausnahmen: gemeinschaftliche Wohnformen, im Einzelfall Reihen-/Doppelhaus. 2.1/2.2/2.4: je neuem Gebäude mind. 2 gebundene Wohnungen, keine Eigentumswohnungen zur Vermietung; 2.3: fertiggestellt vor 08.12.2004. [2.1–2.4]",
+        "**Bedarf am Standort?** In sechs Gebietsarten gegeben, sonst NBank-Karte prüfen → S. 18. [2.1, 2.2, 2.6]",
         "**Eigenmittel?** Mind. 20 % der zuwendungsfähigen Kosten (Inseln: 10 % der zuwendungsfähigen Herstellungskosten; Modellprojekte, Housing First: ggf. weniger), davon soll mind. die Hälfte Geld oder lastenfreies Grundstück sein (2.3: Geld). [2.1–2.4]",
         "**Grundstück gesichert?** Eigentum oder Erbbaurecht (mind. 60 Jahre Restlaufzeit); gesicherter Erwerb genügt. [2.1, 2.2, 2.4]"
       ]
@@ -50,17 +56,11 @@
       "variant": "achtung",
       "title": "Einmal Nein?",
       "body": "Erst die Wohnraumförderstelle fragen; es gibt Ausnahmen."
-    },
-    {
-      "type": "callout",
-      "variant": "tipp",
-      "title": "Kalkulationsnotiz",
-      "body": "In 2.1 fließt der Zuschuss anteilig mit jeder Darlehensrate."
     }
   ],
+  "sources": "Fundstellen: RL Nr. 1.5, 1.6, 2.3, 3, 4.1, 4.2, 5.1.4, 5.2.1–5.2.6, 5.3.2, 5.3.3, 5.4.4, 5.5.3, 5.5.6, 6.2, 7.2.2, 8.2.1, 8.2.2, 9.2, 10.2, 12.3.2, 13.2, 13.3; § 4 DVO-NWoFG",
   "footnotes": [
-    "Quoten: Höchstwerte, vorbehaltlich Überkompensationsprüfung (RL Nr. 5.3.7). RL Nr. 1.5, 1.6, 2.3, 3, 4.1, 4.2, 5.1.4, 5.2.1–5.2.6, 5.3.2, 5.3.3, 5.4.4, 5.5.3, 5.5.6, 6.2, 7.2.2, 8.2.1, 8.2.2, 9.2, 10.2, 12.3.2, 13.2, 13.3; § 4 DVO-NWoFG",
-    "Bisher: NBank-Produktinformation „Allgemeine Mietwohnraumförderung“ (Stand 01.04.2026). Baubeginn als Vorhabenbeginn: NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (Stand 27.07.2026). Tilgung und Auszahlungsraten: S. 9."
+    "Bisher: NBank-Produktinformation „Allgemeine Mietwohnraumförderung“ (Stand 01.04.2026). Baubeginn als Vorhabenbeginn: NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (Stand 27.07.2026). Tilgung und Auszahlungsraten → S. 9."
   ],
   "fact_ids": [
     "F015",
@@ -104,5 +104,6 @@
     "F121",
     "F124"
   ],
-  "visual_idea": "Obere Hälfte: schlanke Vorher/Nachher-Tabelle mit drei Zeilen, Spalte „bis 30.06.2026“ in Grau, Spalte „seit 01.07.2026“ in --color-accent, dazwischen feine Pfeile; Zeilenmarker links in --baustein-21 mit Nummer 2.1. Tabellennote klein darunter, „Nicht 1:1 vergleichbar“ als kleines Warn-Label vorangestellt; der Wahlrecht-Satz der Note in --signal hervorgehoben (Modernisierung, Stichtag 31.12.2026). Kein Lead – die Headline führt direkt in die Tabelle. Untere Hälfte: Grundcheck als druckbare Ankreuzliste mit sechs leeren Kästchen; die Klammer-Tags am Zeilenende ([alle], [2.1–2.4] usw.) als farbige Baustein-Chips mit Nummer setzen, nicht als Klammertext drucken. Ampelpunkt am Callout „Einmal Nein?“: grün = weiter, gelb = erst mit der Wohnraumförderstelle sprechen (kein rotes „Stopp“). Kalkulationsnotiz am Seitenfuß. Kein Zeitachsen-Vergleich Tilgungsnachlass/Zuschuss."
+  "visual_idea": "Kopf: einzeilige H1, rechts auf ihrer Grundlinie der Lesehinweis zur Tabelle („Nicht 1:1 vergleichbar“ als kleines Label, dahinter „Paarwerte: Mietenstufe I–III/IV–VII“); kein Seitenverweis-Chip, keine Kalkulationsnotiz auf dieser Seite (Auszahlung je Rate → S. 9 über Fußnote 1). Obere Hälfte: schlanke Vorher/Nachher-Tabelle mit drei Zeilen, Spalte „bis 30.06.2026“ in Grau, Spalte „seit 01.07.2026“ in --color-accent, dazwischen feine Pfeile; Zeilenmarker links in --baustein-21 mit Nummer 2.1. Direkt unter der Tabelle der Stichtag-Satz als Frist-Band (Bernstein, Uhr-Icon, Label „Stichtag“ im Textfluss) über die volle Satzspiegelbreite, darunter die Kurzmarke. Kein Lead – die Headline führt direkt in die Tabelle. Untere Hälfte: Grundcheck als druckbare Ankreuzliste mit sechs leeren Kästchen; die Klammer-Tags am Zeilenende ([alle], [2.1–2.4] usw.) als farbige Baustein-Chips mit Nummer setzen, nicht als Klammertext drucken. Ampelpunkt am Callout „Einmal Nein?“: grün = weiter, gelb = erst mit der Wohnraumförderstelle sprechen (kein rotes „Stopp“). Kein Zeitachsen-Vergleich Tilgungsnachlass/Zuschuss.",
+  "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2"
 }

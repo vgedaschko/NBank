@@ -5,7 +5,7 @@
   "running_title": "Orientierung · Navigator",
   "kicker": "Der Navigator",
   "headline": "Vom Vorhaben zum passenden Programmteil",
-  "lead": "Vier Ausgangslagen, sechs Programmteile. Antrag über die Wohnraumförderstelle, Bewilligung durch die NBank.",
+  "lead": "Vier Ausgangslagen führen zu sechs Programmteilen. Den Antrag stellen Sie bei Ihrer kommunalen Wohnraumförderstelle, die NBank bewilligt.",
   "blocks": [
     {
       "type": "chart",
@@ -32,7 +32,7 @@
             "pins": [
               {
                 "at": "2.2",
-                "text": "Nicht mit 2.1 kumulierbar"
+                "text": "Nicht mit 2.1 kombinierbar"
               }
             ]
           },
@@ -41,7 +41,7 @@
             "label": "Bestand klimagerecht modernisieren",
             "questions": [
               {
-                "q": "Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt, danach mindestens zwei Energieeffizienzklassen besser (ausnahmsweise eine)?",
+                "q": "Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt und nach der Modernisierung mindestens zwei Energieeffizienzklassen besser (ausnahmsweise eine, wenn die NBank das zulässt)?",
                 "yes": "2.3",
                 "no": null
               }
@@ -49,7 +49,7 @@
             "pins": [
               {
                 "at": "2.3",
-                "text": "Wahlrecht bis 31.12.2026 → S. 15"
+                "text": "Antragseingang bis 31.12.2026: Wahl altes/neues Recht → S. 15"
               }
             ]
           },
@@ -69,7 +69,7 @@
             "label": "Auslaufende Landesbindung verlängern",
             "questions": [
               {
-                "q": "Bindung aus Landesförderung läuft planmäßig aus, NBank-Darlehen läuft noch?",
+                "q": "Bindung aus Landesförderung nach altem Recht läuft planmäßig aus, NBank-Darlehen läuft noch?",
                 "yes": "2.6",
                 "no": null
               }
@@ -87,7 +87,7 @@
     {
       "type": "chart",
       "chart": "grid",
-      "title": "Ihre Ziel-Kachel",
+      "title": "Die sechs Programmteile auf einen Blick",
       "data": {
         "kind": "target-tiles",
         "fields": {
@@ -103,7 +103,7 @@
             "token": "--baustein-21",
             "name": "Neubau, Änderung und Erweiterung, Ersterwerb",
             "instrument": "Darlehen + Zuschuss (Zuschuss nur mit Darlehen)",
-            "max": "A 40 + 40 % · B 60 + 20 % · C 70 + 10 %",
+            "max": "zusammen 80 %: A 40 + 40 · B 60 + 20 · C 70 + 10 %",
             "binding": "35 Jahre",
             "equity": "mind. 20 %",
             "page": "S. 8"
@@ -125,7 +125,7 @@
             "token": "--baustein-24",
             "name": "Ostfriesische Inseln",
             "instrument": "Darlehen + Zuschuss",
-            "max": "zusammen 90 % der zuwendungsfähigen Herstellungskosten (max. 1,5 × Bemessungsgrenze I–III) + 100 % der Grundstückskosten bis Bodenrichtwert",
+            "max": "zusammen 90 % der Herstellungskosten + 100 % der Grundstückskosten",
             "binding": "35 Jahre",
             "equity": "mind. 10 % der zuwendungsfähigen Herstellungskosten",
             "page": "S. 13"
@@ -137,7 +137,7 @@
             "name": "Klimagerechte Modernisierung",
             "instrument": "Zuschuss je gebundener Wohnung",
             "max": "10–40 %, höchstens 9.000–31.000 €",
-            "binding": "25 Jahre ab Abschluss; vermietete Wohnungen +10 Jahre, außer bei WBS-Nachweis",
+            "binding": "25 Jahre; vermietete Wohnungen ohne WBS-Nachweis 35 Jahre",
             "equity": "mind. 20 %",
             "page": "S. 14"
           },
@@ -160,7 +160,7 @@
             "name": "Auslaufende Bindungen verlängern",
             "instrument": "Zuschuss zur Zinsverbilligung",
             "max_label": "Zins",
-            "max": "0 % auf bis zu 100 % der Restschuld, längstens 20 Jahre; Tilgung und Verwaltungskostenbeitrag laufen weiter",
+            "max": "0 % auf bis zu 100 % der Restschuld, längstens 20 Jahre",
             "binding": "+ bis zu 20 Jahre",
             "equity": null,
             "page": "S. 17"
@@ -169,19 +169,13 @@
       }
     },
     {
-      "type": "callout",
-      "variant": "gate",
-      "title": "Erst Bewilligung, dann Vertrag oder Spatenstich",
-      "body": "→ S. 19"
-    },
-    {
       "type": "bullets",
       "variant": "wordlist",
       "heading": "Nicht förderfähig",
       "items": [
-        "Ferienwohnungen und Wochenendhäuser",
-        "Heime",
-        "stationäre Versorgung",
+        "Ferienwohnungen, Ferien- und Wochenendhäuser",
+        "Heime im Sinne des NuWG",
+        "Wohnraum für stationäre oder quasistationäre Versorgung",
         "an Pflege- oder Betreuungsvertrag gekoppelter Wohnraum",
         "Gemeinschaftsunterkünfte",
         "Wohnungen ohne Bindung",
@@ -228,7 +222,6 @@
     "F276",
     "F285",
     "F286",
-    "F255",
     "F237",
     "F239",
     "F240",
@@ -236,5 +229,5 @@
     "F093",
     "G1-24"
   ],
-  "visual_idea": "Dominant: ganzseitiges Flussdiagramm im PGN-CI. Startknoten = Blocktitel „Was haben Sie vor?“ in Montserrat Black, Versalien, mit senkrechter roter 2-pt-Linie links. Vier Äste A–D als Versal-Etiketten, eckige Rauten (keine Rundungen) mit Ja/Nein, ruhige 0,75-pt-Linien in Anthrazit #3C3C3B; „weiter“ führt zur nächsten Raute, Nein-Ausgänge ohne Ziel (null) nicht zeichnen. Jeder Ast endet in einer eckigen Ziel-Kachel in der Baustein-Farbe (--baustein-21 … --baustein-26) mit großer Nummer 2.1–2.6 (graustufenfest), Förderart-Icon (Darlehen/Zuschuss/Festbetrag/Zins) und Seitenzahl; Kachelfelder Instrument · Bis zu · Bindung · Eigenmittel (Feldetikett „Bis zu“ bei 2.5 als „Festbetrag“, bei 2.6 als „Zins“; dort kein Feld Eigenmittel). Nur drei Pins als kleine eckige Fähnchen an 2.2, 2.3 und 2.6, keine weiteren Notizen, keine Kurzmarke. Am Fuß des Baums der Achtung-Einzeiler als schmales Band über die Satzspiegelbreite: eine Zeile, Signalkontur, Stopp-Icon, Seitenverweis-Chip „S. 19“. Darunter „Nicht förderfähig“ als graue Wortleiste auf #F4F3F2: Versal-Label links, Begriffe in einer Zeile mit Mittelpunkten getrennt, ohne Piktogramme."
+  "visual_idea": "Dominant: ganzseitiges Flussdiagramm im PGN-CI. Startknoten = Blocktitel „Was haben Sie vor?“ in Montserrat Black, Versalien, mit senkrechter roter 2-pt-Linie links. Vier Äste A–D als Versal-Etiketten, eckige Rauten (keine Rundungen) mit Ja/Nein, ruhige 0,75-pt-Linien in Anthrazit #3C3C3B; „weiter“ führt zur nächsten Raute, Nein-Ausgänge ohne Ziel (null) nicht zeichnen. Jeder Ast endet in einer eckigen Ziel-Kachel (Kachelreihe unter dem Titel „Die sechs Programmteile auf einen Blick“) in der Baustein-Farbe (--baustein-21 … --baustein-26) mit großer Nummer 2.1–2.6 (graustufenfest), Förderart-Icon (Darlehen/Zuschuss/Festbetrag/Zins) und Seitenzahl; Kachelfelder Instrument · Bis zu · Bindung · Eigenmittel (Feldetikett „Bis zu“ bei 2.5 als „Festbetrag“, bei 2.6 als „Zins“; dort kein Feld Eigenmittel). Nur drei Pins als kleine eckige Fähnchen an 2.2, 2.3 und 2.6, keine weiteren Notizen, keine Kurzmarke, kein Achtung-Band (der Kurzverweis Vorhabenbeginn steht nur auf S. 4). Unter dem Baum folgt direkt „Nicht förderfähig“ als graue Wortleiste auf #F4F3F2: Versal-Label links, Begriffe in einer Zeile mit Mittelpunkten getrennt, ohne Piktogramme."
 }

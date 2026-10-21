@@ -5,7 +5,7 @@
   "running_title": "Ertragsseite · Mieterkreis",
   "kicker": "Ertragsseite",
   "headline": "Ihr Mieterkreis: drei Einkommensgruppen",
-  "lead": "Grundsatz ist Gruppe A. B (bis 40 % über der Einkommensgrenze) und C (bis 60 % darüber) gibt es nur, wenn die NBank sie in der Förderentscheidung zulässt.",
+  "lead": "Grundsatz ist Gruppe A. B und C bringen höhere Mieten, aber weniger Zuschuss – und es gibt sie nur, wenn die NBank sie in der Förderentscheidung zulässt.",
   "blocks": [
     {
       "type": "chart",
@@ -123,15 +123,15 @@
           }
         ],
         "admission": {
-          "heading": "B und C zulassen",
+          "heading": "Wann B und C möglich sind",
           "rows": [
             {
               "label": "bis +60 %",
-              "text": "in Gebieten mit Wohnraumversorgungs- oder Entwicklungskonzept, kommunaler Festlegung, Verordnung nach § 7 Abs. 3 NWoFG oder angespanntem Wohnungsmarkt – oder für Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- und Pflegebedürftigen vorbehalten ist"
+              "text": "in Gebieten mit kommunalem Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, mit kommunaler Festlegung von gefördertem Wohnraum (Bebauungsplan, städtebaulicher Vertrag, Baulandmodell), mit Gemeindeverordnung zu erhöhtem Wohnungsbedarf oder mit per Verordnung bestimmtem angespanntem Wohnungsmarkt – oder für Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- und Pflegebedürftigen vorbehalten ist"
             },
             {
-              "label": "sonst bis +20 %",
-              "text": "erst ab 12 zusammenhängenden Wohnungen, für höchstens die Hälfte"
+              "label": "sonst nur bis +20 %",
+              "text": "also nur ein Teil von B, kein C – und nur ab 12 zusammenhängenden Wohnungen, für höchstens die Hälfte davon"
             }
           ]
         }
@@ -141,7 +141,7 @@
     {
       "type": "text",
       "heading": "Nachweis",
-      "body": "Mieterinnen und Mieter weisen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) nach. Ihn stellt die zuständige Stelle aus, etwa der Landkreis; er gilt ein Jahr und legt auch die angemessene Wohnungsgröße fest.\n\nMaßgeblich ist das Gesamtjahreseinkommen: nicht das Brutto, sondern das erwartete Einkommen aller Haushaltsmitglieder in den zwölf Monaten nach Antragstellung. Davon gehen je 10 % für Steuern, Kranken-/Pflege- und Rentenversicherung ab, soweit gezahlt, außerdem Freibeträge und Unterhaltszahlungen."
+      "body": "Mieterinnen und Mieter weisen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) nach. Ihn stellt die Kommune aus, meist Landkreis oder Stadt; der allgemeine WBS gilt ein Jahr und legt auch die angemessene Wohnungsgröße fest.\n\nDie Grenzen in der Grafik meinen nicht das Brutto. Ausgangspunkt ist das in den zwölf Monaten ab Antragstellung erwartete Einkommen aller Haushaltsmitglieder. Davon gehen je 10 % ab, wenn Steuern, Kranken-/Pflege- oder Rentenbeiträge gezahlt werden, dazu Freibeträge und Unterhalt. Das Bruttoeinkommen kann daher deutlich höher liegen."
     },
     {
       "type": "table",
@@ -172,11 +172,11 @@
           "+10"
         ]
       ],
-      "note": "Rollstuhlgerecht nach DIN 18040-2 „R“: +12 m², mit Freisitz +15 m². Wohnungen sollen mindestens 30 m² groß sein."
+      "note": "Rollstuhlgerecht nach DIN 18040-2 „R“: +12 m², mit Freisitz stattdessen +15 m². Wohnungen sollen mindestens 30 m² groß sein."
     },
     {
       "type": "quote",
-      "text": "[…] Umso wichtiger ist es, dass die neuen Richtlinien den Kreis der Berechtigten spürbar erweitern. So öffnet sich eine Tür für all jene, die bisher knapp durchs Raster gefallen sind.",
+      "text": "Der Mangel an bezahlbarem Wohnraum ist längst in der Mitte unserer Gesellschaft angekommen – er betrifft nicht mehr nur wenige, sondern viele. Umso wichtiger ist es, dass die neuen Richtlinien den Kreis der Berechtigten spürbar erweitern. So öffnet sich eine Tür für all jene, die bisher knapp durchs Raster gefallen sind.",
       "name": "Michael Kiesewetter",
       "role": "Vorstandsvorsitzender der NBank",
       "source": "Pressemitteilung MW vom 03.07.2026"
@@ -207,5 +207,5 @@
     "F062",
     "G3-02"
   ],
-  "visual_idea": "Dominant: „Einkommensleiter“ über die volle Satzspiegelbreite – je Haushaltstyp ein eckiges Piktogramm (Erwachsene/Kinder) und drei horizontale Balken in abgestuften Tonwerten A/B/C (A am dunkelsten) mit den exakten Endwerten; die Beschriftung ist zugleich die Tabelle. Siebte Zeile „je weitere Person …“ als Zuschlagszeile ohne Balken, nur mit den drei Plus-Werten. Kopfzeile der Grafik in Versal-Label: „Einkommensgrenzen seit 01.03.2025 · B = Grenze + 40 %, C = + 60 %“; Legende A/B/C als eckige Buchstaben-Chips. Direkt unter der Leiter, als Teil der Grafik, die zwei Zulassungszeilen als schmale Legende auf #F4F3F2 (Label „bis +60 %“ / „sonst bis +20 %“ in PGN-Rot #B71E3F, Text in Anthrazit) – kein Achtung-Kasten, keine Signalfarbe. Seitenverweis-Chip „S. 11“ oben rechts an der Grafik. Darunter drei Module: Marginalspalte mit „Nachweis“ (WBS und Gesamtjahreseinkommen, Mini-Grafik „Brutto → minus 3 × 10 % → minus Freibeträge“) und der kleinen Tabelle „Angemessene Wohnfläche“; daneben das Kiesewetter-Zitat als typografische Atempause mit großen roten Anführungszeichen, Name und Funktion untereinander, Quelle darunter. Keine Fußnoten, keine Kalkulationsnotiz."
+  "visual_idea": "Dominant: „Einkommensleiter“ über die volle Satzspiegelbreite – je Haushaltstyp ein eckiges Piktogramm (Erwachsene/Kinder) und drei horizontale Balken in abgestuften Tonwerten A/B/C (A am dunkelsten) mit den exakten Endwerten; die Beschriftung ist zugleich die Tabelle. Siebte Zeile „je weitere Person …“ als Zuschlagszeile ohne Balken, nur mit den drei Plus-Werten. Kopfzeile der Grafik in Versal-Label: „Einkommensgrenzen seit 01.03.2025 · B = Grenze + 40 %, C = + 60 %“; Legende A/B/C als eckige Buchstaben-Chips. Direkt unter der Leiter, als Teil der Grafik, die zwei Zulassungszeilen als schmale Legende auf #F4F3F2 (Überschrift „Wann B und C möglich sind“; Label „bis +60 %“ / „sonst nur bis +20 %“ in PGN-Rot #B71E3F, Text in Anthrazit) – kein Achtung-Kasten, keine Signalfarbe. Seitenverweis-Chip „S. 11“ oben rechts an der Grafik. Darunter drei Module: Marginalspalte mit „Nachweis“ (WBS und Gesamtjahreseinkommen, Mini-Grafik „erwartetes Einkommen → minus bis zu 3 × 10 % → minus Freibeträge und Unterhalt = Wert für die Grenze“) und der kleinen Tabelle „Angemessene Wohnfläche“; daneben das Kiesewetter-Zitat als typografische Atempause mit großen roten Anführungszeichen, Name und Funktion untereinander, Quelle darunter. Keine Fußnoten, keine Kalkulationsnotiz."
 }

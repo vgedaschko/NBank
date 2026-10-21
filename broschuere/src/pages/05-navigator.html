@@ -1,0 +1,205 @@
+<section class="page" data-page="05">
+  <style>
+    /* Seite 05 · Navigator (seitenspezifisch, Farben nur über Tokens).
+       Baum (SVG, 1 Einheit = 1 mm) und Ziel-Kacheln teilen dieselbe Oberkante; Kachel-Lagen/-Höhen sind mm-genau auf die Ja-Pfeile
+       gerechnet (--ny = Pfeilhöhe in der Kachel, Ziffer sitzt dort). overflow: hidden an der Kachel lässt render.cjs Überlauf melden. */
+    .page[data-page="05"] .p05-body { display: grid; column-gap: 0; align-items: stretch; margin-top: var(--sp-5); }
+    .page[data-page="05"] .p05-col { display: flex; flex-direction: column; min-width: 0; }
+    .page[data-page="05"] .p05-tree, .page[data-page="05"] .p05-tiles { position: relative; }
+    .page[data-page="05"] .p05-svg { display: block; margin-top: 0; }
+    .page[data-page="05"] .p05-root-title { position: absolute; left: 4.2mm; top: 0; }
+    .page[data-page="05"] .p05-tile { position: absolute; left: 0; right: 0; display: flex; overflow: hidden; }
+    .page[data-page="05"] .p05-tile__body { flex: 1 1 auto; min-width: 0; background: var(--bs-tint); padding: 1.7mm 2.4mm 1.9mm; font-size: var(--fs-micro); line-height: 1.3; }
+    .page[data-page="05"] .p05-tile__body > .p05-spec, .page[data-page="05"] .p05-tile__body > .p05-pin { display: inline; }
+    .page[data-page="05"] .p05-pin { padding: .25mm .9mm .35mm .6mm; border-radius: .6mm; background: var(--surface); -webkit-box-decoration-break: clone; box-decoration-break: clone; font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg); }
+    .page[data-page="05"] .p05-pin .icon { width: 2.8mm; height: 2.8mm; margin-right: .7mm; vertical-align: -.55mm; color: var(--fg-2); }
+    .page[data-page="05"] .p05-pin--frist { background: var(--signal-soft); }
+    .page[data-page="05"] .p05-pin--frist .icon { color: var(--signal-text); }
+    .page[data-page="05"] .p05-note { position: absolute; left: 0; right: 0; margin-top: 0; }
+    .page[data-page="05"] .p05-stop { flex: 1 1 auto; margin-right: 3mm; }
+    .page[data-page="05"] .p05-trunk { fill: none; stroke: var(--fg); stroke-width: .5; }
+    .page[data-page="05"] .p05-root { fill: var(--fg); }
+    .page[data-page="05"] .p05-rail { stroke: var(--fg); stroke-width: .35; }
+    .page[data-page="05"] .p05-edge { stroke-width: .3; }
+    .page[data-page="05"] .p05-branch { fill: var(--accent); }
+    .page[data-page="05"] .chart__svg .p05-branch-l { font-weight: 700; font-size: var(--svg-fs-m); fill: var(--on-bs); }
+    .page[data-page="05"] .chart__svg .p05-q { fill: var(--fg-2); }
+    .page[data-page="05"] .p05-tile__no { flex: none; width: 11mm; margin: 0; background: var(--bs); color: var(--on-bs); display: flex; flex-direction: column; align-items: center; padding-top: calc(var(--ny, 5mm) - 3.05mm); }
+    .page[data-page="05"] .p05-tile__no b { font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 430; font-size: 17pt; line-height: 1; letter-spacing: -.03em; font-variant-numeric: lining-nums; }
+    .page[data-page="05"] .p05-tile__no span { margin-top: .9mm; font: 650 var(--fs-micro)/1 var(--font-text); white-space: nowrap; }
+    .page[data-page="05"] .p05-spec { font-size: var(--fs-micro); line-height: 1.32; color: var(--fg); }
+    .page[data-page="05"] .p05-spec .p05-f, .page[data-page="05"] .p05-spec dt, .page[data-page="05"] .p05-spec dd { display: inline; }
+    .page[data-page="05"] .p05-spec dd { margin: 0 .6mm 0 0; }
+    .page[data-page="05"] .p05-f--max dd { font-weight: 580; }
+    .page[data-page="05"] .p05-spec .sw { width: 2.4mm; height: 2.4mm; vertical-align: -.25mm; }
+    .page[data-page="05"] .p05-spec .sw + .sw { margin-left: -.8mm; }
+    .page[data-page="05"] .p05-spec dd .sw:last-of-type { margin-right: 1mm; }
+    .page[data-page="05"] .p05-spec dt { font-weight: 600; color: var(--fg-3); margin-right: .8mm; white-space: nowrap; }
+    .page[data-page="05"] .p05-sr { position: absolute; width: 1px; height: 1px; clip-path: inset(50%); white-space: nowrap; }
+    .page[data-page="05"] .p05-f--instr dd { font-weight: 600; }
+    .page[data-page="05"] .p05-tile--low .p05-tile__no { justify-content: flex-end; padding-top: 0; padding-bottom: calc(var(--nb) - 2.95mm); }
+    .page[data-page="05"] .p05-tile--low .p05-tile__no span { order: -1; margin: 0 0 .9mm; }
+    .page[data-page="05"] .p05-trunk-tip { fill: var(--fg); }
+    .page[data-page="05"] .p05-nf { margin-top: auto; border-top: var(--rule-heavy) solid var(--rule-strong); padding-top: 2.6mm; font-size: var(--fs-micro); line-height: 1.5; }
+    .page[data-page="05"] .p05-nf__title, .page[data-page="05"] .p05-nf__list, .page[data-page="05"] .p05-nf__list li { display: inline; }
+    .page[data-page="05"] .p05-nf__title { margin-right: 1.6mm; font-weight: 650; letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); white-space: nowrap; }
+    .page[data-page="05"] .p05-nf__title .icon { width: 2.9mm; height: 2.9mm; margin-right: 1mm; vertical-align: -.45mm; stroke-width: 2.6; color: var(--no); }
+    .page[data-page="05"] .p05-nf__list { color: var(--fg); }
+    .page[data-page="05"] .p05-nf__list li + li::before { content: ""; display: inline-block; width: 1.1mm; height: 1.1mm; margin: 0 1.9mm .45mm 1.5mm; border-radius: 50%; background: var(--no); }
+    .page[data-page="05"] .p05-sym { font-family: var(--font-text); font-weight: 500; }
+    .page[data-page="05"] .p05-tiles { margin-bottom: 4mm; }
+    .page[data-page="05"] .chart__svg text { font-variant-numeric: lining-nums proportional-nums; }
+    .page[data-page="05"] .p05-body { grid-template-columns: 72mm minmax(0, 1fr); }
+    /* Fußnotenziffer an der Headline wie auf S. 04 (Druckbogen 04|05): hochgestellt, Inter, Abstand zum kursiven „l“ */
+    .page[data-page="05"] .p05-title .h1 .fn { font-family: var(--font-text); font-variation-settings: normal; font-style: normal; font-weight: 650; letter-spacing: .02em; vertical-align: 1.75em; margin-left: 1.4mm; }
+  </style>
+
+  <div class="title-block title-block--split p05-title">
+    <div class="title-block__main">
+      <p class="kicker">Der Navigator</p>
+      <h1 class="h1 h1--s">Vom Vorhaben zum <br><em>passenden Programmteil</em><span class="fn">1</span></h1>
+    </div>
+    <p class="lead lead--s">Vier Ausgangslagen, sechs Programmteile. Für alle gilt: Antrag über die kommunale Wohnraumförderstelle, Bewilligung durch die NBank (Vordrucke <span class="p05-sym">→</span> S. 19).</p>
+  </div>
+
+  <div class="module p05-body">
+    <div class="p05-col">
+      <figure class="chart p05-tree" style="height:148.83mm">
+        <figcaption><h2 class="chart__title p05-root-title">Was haben Sie vor?</h2></figcaption>
+        <svg class="chart__svg p05-svg" viewBox="0 0 72 148.83" width="72mm" height="148.83mm" role="img" aria-label="Entscheidungsbaum „Was haben Sie vor?“ mit vier Ausgangslagen. A – Wohnraum im Mehrfamilienhaus neu schaffen oder bis 2 Jahre nach Fertigstellung erstmals erwerben: Auf Borkum, Norderney, Juist, Wangerooge, Baltrum, Langeoog oder Spiekeroog? Ja: 2.4 Ostfriesische Inseln; Nein: weiter. Neubau ab KfW-EH-40-Niveau, nur Zuschuss gewünscht? Ja: 2.2 Energetisch hochwertiger Neubau; Nein: 2.1 Neubau, Änderung und Erweiterung, Ersterwerb. B – Bestand klimagerecht modernisieren: Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt, danach mind. 2 Energieeffizienzklassen besser (ausnahmsweise 1 Klasse, mit NBank-Zulassung)? Ja: 2.3 Klimagerechte Modernisierung. C – Bestandswohnung für Gruppe A binden: Frei, ungebunden, vor der Bewilligung weder vermietet noch überlassen? Ja: 2.5 Belegungsbindungen erwerben. D – Auslaufende Landesbindung verlängern: Bindung aus Landesförderung (altes Recht) läuft planmäßig aus, NBank-Darlehen valutiert noch? Ja: 2.6 Auslaufende Bindungen verlängern.">
+          <path class="p05-trunk" d="M1.3 3.4V146.83"/>
+          <circle class="p05-root" cx="1.3" cy="3.4" r="1.3"/>
+          <path class="p05-trunk-tip" d="M1.3 148.83l-1.2 -2.2h2.4z"/>
+          <path class="p05-trunk" d="M1.3 10.7H3.3"/>
+          <path class="fl-edge p05-rail" d="M5.6 13V61.85"/>
+          <circle class="p05-branch" cx="5.6" cy="10.7" r="2.3"/>
+          <text x="5.6" y="11.8" class="p05-branch-l t-mid">A</text>
+          <text x="9.8" y="11.8" class="t-b p05-label">Wohnraum im Mehrfamilienhaus neu</text>
+          <text x="9.8" y="15.45" class="t-b p05-label">schaffen oder bis 2 Jahre nach</text>
+          <text x="9.8" y="19.1" class="t-b p05-label">Fertigstellung erstmals erwerben</text>
+          <text x="9.8" y="23.6" class="p05-q">Auf Borkum, Norderney, Juist,</text>
+          <text x="9.8" y="27.25" class="p05-q">Wangerooge, Baltrum, Langeoog</text>
+          <text x="9.8" y="30.9" class="p05-q">oder Spiekeroog?</text>
+          <path class="fl-diamond" d="M5.6 33.1l2.2 2.2l-2.2 2.2l-2.2 -2.2z"/>
+          <path class="fl-edge p05-edge" d="M7.8 35.3H8.1M13.65 35.3H38.92M69.84 35.3H70"/>
+          <path class="fl-arrow" d="M72 35.3l-2 -1v2z"/>
+          <text x="9" y="36.4" class="fl-yes">Ja</text>
+          <text x="68.8" y="36.4" class="t-b t-end p05-name">Ostfriesische Inseln</text>
+          <text x="7.2" y="40.8" class="fl-no">Nein</text>
+          <text x="9.8" y="44.4" class="p05-q">Neubau ab KfW-EH-40-Niveau,</text>
+          <text x="9.8" y="48.05" class="p05-q">nur Zuschuss gewünscht?</text>
+          <path class="fl-diamond" d="M5.6 50.25l2.2 2.2l-2.2 2.2l-2.2 -2.2z"/>
+          <path class="fl-edge p05-edge" d="M7.8 52.45H8.1M13.65 52.45H18.03M69.84 52.45H70"/>
+          <path class="fl-arrow" d="M72 52.45l-2 -1v2z"/>
+          <text x="9" y="53.55" class="fl-yes">Ja</text>
+          <text x="68.8" y="53.55" class="t-b t-end p05-name">Energetisch hochwertiger Neubau</text>
+          <text x="7.2" y="57.95" class="fl-no">Nein</text>
+          <path class="fl-edge p05-edge" d="M5.6 61.85q0 1.4 1.4 1.4H33.99M69.8 63.25H70"/>
+          <path class="fl-arrow" d="M72 63.25l-2 -1v2z"/>
+          <text x="68.8" y="64.35" class="t-b t-end p05-name">Neubau, Änderung und</text>
+          <text x="68.8" y="68" class="t-b t-end p05-name">Erweiterung, Ersterwerb</text>
+          <path class="p05-trunk" d="M1.3 73H3.3"/>
+          <path class="fl-edge p05-rail" d="M5.6 75.3V95.4"/>
+          <circle class="p05-branch" cx="5.6" cy="73" r="2.3"/>
+          <text x="5.6" y="74.1" class="p05-branch-l t-mid">B</text>
+          <text x="9.8" y="74.1" class="t-b p05-label">Bestand klimagerecht modernisieren</text>
+          <text x="9.8" y="78.6" class="p05-q">Mehrfamilienhaus vor dem 08.12.2004</text>
+          <text x="9.8" y="82.25" class="p05-q">fertiggestellt, danach mind.</text>
+          <text x="9.8" y="85.9" class="p05-q">2 Energieeffizienzklassen besser</text>
+          <text x="9.8" y="89.55" class="p05-q">(ausnahmsweise 1 Klasse, mit</text>
+          <text x="9.8" y="93.2" class="p05-q">NBank-Zulassung)?</text>
+          <path class="fl-diamond" d="M5.6 95.4l2.2 2.2l-2.2 2.2l-2.2 -2.2z"/>
+          <path class="fl-edge p05-edge" d="M7.8 97.6H8.1M13.65 97.6H22.74M69.81 97.6H70"/>
+          <path class="fl-arrow" d="M72 97.6l-2 -1v2z"/>
+          <text x="9" y="98.7" class="fl-yes">Ja</text>
+          <text x="68.8" y="98.7" class="t-b t-end p05-name">Klimagerechte Modernisierung</text>
+          <path class="p05-trunk" d="M1.3 104H3.3"/>
+          <path class="fl-edge p05-rail" d="M5.6 106.3V115.45"/>
+          <circle class="p05-branch" cx="5.6" cy="104" r="2.3"/>
+          <text x="5.6" y="105.1" class="p05-branch-l t-mid">C</text>
+          <text x="9.8" y="105.1" class="t-b p05-label">Bestandswohnung für Gruppe A binden</text>
+          <text x="9.8" y="109.6" class="p05-q">Frei, ungebunden, vor der Bewilligung</text>
+          <text x="9.8" y="113.25" class="p05-q">weder vermietet noch überlassen?</text>
+          <path class="fl-diamond" d="M5.6 115.45l2.2 2.2l-2.2 2.2l-2.2 -2.2z"/>
+          <path class="fl-edge p05-edge" d="M7.8 117.65H8.1M13.65 117.65H21.98M69.84 117.65H70"/>
+          <path class="fl-arrow" d="M72 117.65l-2 -1v2z"/>
+          <text x="9" y="118.75" class="fl-yes">Ja</text>
+          <text x="68.8" y="118.75" class="t-b t-end p05-name">Belegungsbindungen erwerben</text>
+          <path class="p05-trunk" d="M1.3 124.05H3.3"/>
+          <path class="fl-edge p05-rail" d="M5.6 126.35V139.15"/>
+          <circle class="p05-branch" cx="5.6" cy="124.05" r="2.3"/>
+          <text x="5.6" y="125.15" class="p05-branch-l t-mid">D</text>
+          <text x="9.8" y="125.15" class="t-b p05-label">Auslaufende Landesbindung verlängern</text>
+          <text x="9.8" y="129.65" class="p05-q">Bindung aus Landesförderung</text>
+          <text x="9.8" y="133.3" class="p05-q">(altes Recht) läuft planmäßig aus,</text>
+          <text x="9.8" y="136.95" class="p05-q">NBank-Darlehen valutiert noch?</text>
+          <path class="fl-diamond" d="M5.6 139.15l2.2 2.2l-2.2 2.2l-2.2 -2.2z"/>
+          <path class="fl-edge p05-edge" d="M7.8 141.35H8.1M13.65 141.35H16.28M69.85 141.35H70"/>
+          <path class="fl-arrow" d="M72 141.35l-2 -1v2z"/>
+          <text x="9" y="142.45" class="fl-yes">Ja</text>
+          <text x="68.8" y="142.45" class="t-b t-end p05-name">Auslaufende Bindungen verlängern</text>
+        </svg>
+      </figure>
+      <aside class="callout callout--achtung p05-stop">
+        <p class="callout__label"><svg class="icon icon--achtung" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z"/><path d="M12 7.2v6.2"/><circle cx="12" cy="16.6" r=".95" fill="currentColor" stroke="none"/></svg>Achtung</p>
+        <h3 class="callout__title">Erst Bewilligung, dann Vertrag oder Spatenstich</h3>
+        <p class="callout__body">Kein Liefer-, Leistungs-, Werk- oder Kaufvertrag (Grundstückskauf ausgenommen) und kein Baubeginn vor der Bewilligung – sonst keine Förderung, außer bei zugelassenem vorzeitigem Beginn. Bei 2.5 schaden schon Mietvertrag oder Überlassung. → S. 19</p>
+      </aside>
+    </div>
+    <div class="p05-col">
+      <figure class="chart p05-tiles" style="height:168.81mm">
+        <figcaption><h2 class="chart__title p05-tiles-title">Ihre Ziel-Kachel</h2></figcaption>
+        <article class="p05-tile bs-24 p05-tile--low" data-tile="2.4" aria-label="2.4 Ostfriesische Inseln" style="top:8.49mm;height:31.92mm;--ny:26.81mm;--nb:5.1mm">
+          <p class="p05-tile__no"><b>2.4</b><span>S. 13</span></p>
+          <div class="p05-tile__body">
+            <dl class="p05-spec"><div class="p05-f p05-f--instr"><dt class="p05-sr">Instrument</dt><dd><i class="sw sw--loan"></i><i class="sw sw--grant"></i>Darlehen + Zuschuss</dd></div> <div class="p05-f p05-f--max"><dt>Bis zu</dt><dd>90 % der zuwendungsfähigen Herstellungskosten (max. 1,5 × Bemessungsgrenze I⁠–⁠III) + 100 % der Grundstückskosten bis Bodenrichtwert</dd></div> <div class="p05-f"><dt>Bindung</dt><dd>35 Jahre</dd></div> <div class="p05-f"><dt>Eigenmittel</dt><dd>mind. 10 % der zuwendungsfähigen Herstellungskosten</dd></div></dl> <p class="p05-pin"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 10.6v6.2"/><circle cx="12" cy="7.4" r=".9" fill="currentColor" stroke="none"/></svg><span>EH-40-Neubau auf den Inseln: Abgrenzung zu 2.2 mit der NBank klären</span></p>
+          </div>
+        </article>
+        <article class="p05-tile bs-22 p05-tile--low" data-tile="2.2" aria-label="2.2 Energetisch hochwertiger Neubau" style="top:42mm;height:15.35mm;--ny:10.45mm;--nb:4.9mm">
+          <p class="p05-tile__no"><b>2.2</b><span>S. 12</span></p>
+          <div class="p05-tile__body">
+            <dl class="p05-spec"><div class="p05-f p05-f--instr"><dt class="p05-sr">Instrument</dt><dd><i class="sw sw--grant"></i>nur Zuschuss</dd></div> <div class="p05-f p05-f--max"><dt>Bis zu</dt><dd>A 50 · B 40 · C 30 %, max. 90.000 / 75.000 / 60.000 € je Wohnung</dd></div> <div class="p05-f"><dt>Bindung</dt><dd>35 Jahre</dd></div> <div class="p05-f"><dt>Eigenmittel</dt><dd>mind. 20 %</dd></div></dl> <p class="p05-pin"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 10.6v6.2"/><circle cx="12" cy="7.4" r=".9" fill="currentColor" stroke="none"/></svg><span>Nicht mit 2.1 kumulierbar</span></p>
+          </div>
+        </article>
+        <article class="p05-tile bs-21" data-tile="2.1" aria-label="2.1 Neubau, Änderung und Erweiterung, Ersterwerb" style="top:58.95mm;height:15.35mm;--ny:4.3mm;--nb:11.05mm">
+          <p class="p05-tile__no"><b>2.1</b><span>S. 8</span></p>
+          <div class="p05-tile__body">
+            <dl class="p05-spec"><div class="p05-f p05-f--instr"><dt class="p05-sr">Instrument</dt><dd><i class="sw sw--loan"></i><i class="sw sw--grant"></i>Darlehen + Zuschuss (Zuschuss nur mit Darlehen)</dd></div> <div class="p05-f p05-f--max"><dt>Bis zu</dt><dd>A 40 + 40 % · B 60 + 20 % · C 70 + 10 %</dd></div> <div class="p05-f"><dt>Bindung</dt><dd>35 Jahre</dd></div> <div class="p05-f"><dt>Eigenmittel</dt><dd>mind. 20 %</dd></div></dl>
+          </div>
+        </article>
+        <article class="p05-tile bs-23 p05-tile--low" data-tile="2.3" aria-label="2.3 Klimagerechte Modernisierung" style="top:77.3mm;height:29.25mm;--ny:20.3mm;--nb:8.95mm">
+          <p class="p05-tile__no"><b>2.3</b><span>S. 14</span></p>
+          <div class="p05-tile__body">
+            <dl class="p05-spec"><div class="p05-f p05-f--instr"><dt class="p05-sr">Instrument</dt><dd><i class="sw sw--grant"></i>Zuschuss je gebundener Wohnung</dd></div> <div class="p05-f p05-f--max"><dt>Bis zu</dt><dd>10⁠–⁠40 %, höchstens 9.000⁠–⁠31.000 €</dd></div> <div class="p05-f"><dt>Bindung</dt><dd>25 Jahre ab Abschluss; vermietete Wohnungen +10, außer Wohnberechtigung nachgewiesen</dd></div> <div class="p05-f"><dt>Eigenmittel</dt><dd>mind. 20 %</dd></div></dl> <p class="p05-pin p05-pin--frist"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.8" r="8.2"/><path d="M12 8.2v4.8l3.2 2"/><path d="M9.2 2.6h5.6"/></svg><span>Eingang bei der Wohnraumförderstelle bis 31.12.2026: Wahlrecht altes/neues Recht → S. 15</span></p>
+          </div>
+        </article>
+        <article class="p05-tile bs-25 p05-tile--low" data-tile="2.5" aria-label="2.5 Belegungsbindungen erwerben" style="top:109.55mm;height:13mm;--ny:8.1mm;--nb:4.9mm">
+          <p class="p05-tile__no"><b>2.5</b><span>S. 16</span></p>
+          <div class="p05-tile__body">
+            <dl class="p05-spec"><div class="p05-f p05-f--instr"><dt class="p05-sr">Instrument</dt><dd><i class="sw sw--grant-o"></i>Zuschuss als Festbetrag</dd></div> <div class="p05-f p05-f--max"><dt>Bis zu</dt><dd>2,00⁠–⁠3,00 € je m² und Monat</dd></div> <div class="p05-f"><dt>Bindung</dt><dd>5⁠–⁠20 Jahre</dd></div></dl>
+          </div>
+        </article>
+        <article class="p05-tile bs-26 p05-tile--low" data-tile="2.6" aria-label="2.6 Auslaufende Bindungen verlängern" style="top:125.55mm;height:23.28mm;--ny:15.8mm;--nb:7.48mm">
+          <p class="p05-tile__no"><b>2.6</b><span>S. 17</span></p>
+          <div class="p05-tile__body">
+            <dl class="p05-spec"><div class="p05-f p05-f--instr"><dt class="p05-sr">Instrument</dt><dd><i class="sw sw--loan-o"></i>Zuschuss zur Zinsverbilligung</dd></div> <div class="p05-f p05-f--max"><dt>Bis zu</dt><dd>0 % Zins auf bis zu 100 % der Restschuld, längstens 20 Jahre; Tilgung und Verwaltungskostenbeitrag laufen weiter</dd></div> <div class="p05-f"><dt>Bindung</dt><dd>+ bis zu 20 Jahre</dd></div></dl> <p class="p05-pin"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 10.6v6.2"/><circle cx="12" cy="7.4" r=".9" fill="currentColor" stroke="none"/></svg><span>Antrag erst nach Prolongationsangebot der NBank; schon ausgelaufen: keine Förderung</span></p>
+          </div>
+        </article>
+        <p class="chart__note p05-note" style="top:151.43mm">Höchstwerte ohne Rechtsanspruch, Überkompensationsprüfung vorbehalten. Kosten: Darlehen 0,5 % Verwaltungskostenbeitrag p. a. und einmalig 1 % Bearbeitungsentgelt, Zuschüsse einmalig 0,75 % (→ S. 9). 2.4: Darlehen und Zuschuss zusammen, eigene Berechnung.</p>
+      </figure>
+      <section class="p05-nf" aria-labelledby="p05-nf-title">
+        <h3 class="p05-nf__title" id="p05-nf-title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>Nicht förderfähig</h3>
+        <ul class="p05-nf__list"><li>Ferienwohnungen, Ferien- und Wochenendhäuser</li> <li>Heime nach § 2 Abs. 2⁠–⁠4 NuWG</li> <li>stationäre oder quasi-stationäre Versorgung (SGB IX/XI)</li> <li>Wohnraum gekoppelt an Pflege- oder Betreuungsvertrag</li> <li>Gemeinschaftsunterkünfte</li> <li>frei finanzierte Wohnungen ohne Bindung</li> <li>Eigentumswohnungen zur Vermietung (WEG)</li> <li>Standorte außerhalb Niedersachsens</li></ul>
+      </section>
+    </div>
+  </div>
+
+  <ol class="footnotes p05-fn l-bottom">
+    <li>RL Nr. 1.5, 2.1⁠–⁠2.7, 4.2, 5.2.5, 5.2.6, 5.3, 6⁠–⁠10, 12.1.2, 12.7, 13.3; NBank-Vordrucke 1011, 1011a, 1011b, 1012; NBank-Merkblatt Vorzeitiger Vorhabenbeginn; NBank-Produktinformation Verlängerung.</li>
+  </ol>
+
+  <footer class="page__foot">
+    <span class="page__folio">5</span>
+    <span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Überblick · Navigator</b></span><span>Stand: 21.10.2026</span></span>
+  </footer>
+</section>

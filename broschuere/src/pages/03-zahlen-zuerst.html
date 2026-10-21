@@ -1,0 +1,161 @@
+<section class="page" data-page="03">
+  <style>
+    /* Seite 03 · Kennzahlen (seitenspezifisch, Farben nur über Tokens) */
+    .page[data-page="03"] .p03-title { align-items: end; }
+    .page[data-page="03"] .p03-title .h1 { line-height: .94; }
+    .page[data-page="03"] .p03-title .h1 .fn { vertical-align: 2.3em; margin-left: .8mm; font-family: var(--font-text); font-style: normal; letter-spacing: .02em; }
+    .page[data-page="03"] .p03-title > .p03-term { grid-column: 8 / span 5; margin-bottom: 0; padding-bottom: .3mm; }
+
+    /* Kennzahlen-Raster 4 × 2: Vorsatz („bis zu“) und Programmteil in einer Kopfzeile */
+    .page[data-page="03"] .p03-kf { margin-top: var(--sp-5); grid-template-columns: minmax(0, 35fr) minmax(0, 41.5fr) minmax(0, 39fr) minmax(0, 43.5fr); row-gap: var(--sp-5); }
+    .page[data-page="03"] .p03-kf > .kf, .page[data-page="03"] .p03-kf > .callout { grid-column: auto; }
+    .page[data-page="03"] .kf { border-top-width: 2pt; padding-top: 2mm; }
+    .page[data-page="03"] .kf__top { align-items: center; min-height: 4mm; }
+    .page[data-page="03"] .kf__text.p03-wrap { text-wrap: wrap; }
+    .page[data-page="03"] .p03-kf--split { border-image: linear-gradient(90deg, var(--bs-21) 0 50%, var(--bs-24) 50% 100%) 1; }
+    .page[data-page="03"] .kf__top .kf__pre { margin: 0; min-height: 0; }
+    .page[data-page="03"] .kf__top .bs-badge__no { padding: .8mm 1.2mm .7mm; }
+    .page[data-page="03"] .kf__badges { display: inline-flex; gap: .8mm; margin-left: auto; }
+    .page[data-page="03"] .kf__top > .bs-badge, .page[data-page="03"] .kf__top > .kf__badges { order: 2; }
+    .page[data-page="03"] .kf__fig { margin-top: 2mm; }
+    .page[data-page="03"] .kf__num { font-size: var(--fs-fig-m); font-weight: 340; }
+    .page[data-page="03"] .kf__num--pair { font-size: 24pt; font-weight: 350; letter-spacing: -.025em; }
+    .page[data-page="03"] .kf__sub { display: block; margin-top: 1.2mm; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--accent-text); }
+    .page[data-page="03"] .kf__label { margin-top: 2.2mm; font-size: var(--fs-small); line-height: 1.28; }
+    .page[data-page="03"] .kf__text { margin-top: .8mm; font-size: var(--fs-micro); line-height: 1.4; text-wrap: pretty; }
+
+    /* Stichtag als achte Zelle */
+    .page[data-page="03"] .p03-frist { padding: 2.6mm 3.8mm 3.4mm; border-top-width: 2pt; }
+    .page[data-page="03"] .p03-frist .callout__label { display: block; -webkit-hyphens: none; hyphens: none; }
+    .page[data-page="03"] .p03-frist .callout__label .icon { margin-right: 1.4mm; vertical-align: -1.1mm; }
+    .page[data-page="03"] .p03-frist .callout__date { margin-top: 2.2mm; font-size: var(--fs-fig-s); }
+    .page[data-page="03"] .p03-frist .callout__body { margin-top: 1.6mm; font-size: var(--fs-micro); line-height: 1.4; }
+
+    /* Marktband (dunkel) + Kalkulationsnotiz */
+    .page[data-page="03"] .p03-market { margin-top: var(--sp-5); display: grid; grid-template-columns: minmax(0, 1fr) calc(4 * var(--col) + 3 * var(--gutter)); background: var(--surface); }
+    .page[data-page="03"] .p03-mkt { padding: 4mm 6mm 4.4mm 5mm; display: grid; grid-template-columns: 40mm minmax(0, 1fr); column-gap: 5mm; row-gap: 2.6mm; align-items: end; }
+    .page[data-page="03"] .p03-mkt__head { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
+    .page[data-page="03"] .p03-mkt__head > * { flex: none; text-wrap: nowrap; }
+    .page[data-page="03"] .p03-mkt .chart__title { font-size: 12pt; }
+    .page[data-page="03"] .p03-mkt .chart__title .fn { font-family: var(--font-text); }
+    .page[data-page="03"] .p03-mkt__period { font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); font-variant-numeric: tabular-nums lining-nums; }
+    .page[data-page="03"] .p03-mkt__num { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0; font-weight: 300; font-size: var(--fs-fig-l); line-height: .86; letter-spacing: -.03em; color: var(--fg); font-variant-numeric: lining-nums; }
+    .page[data-page="03"] .p03-mkt__label { margin-top: 2.2mm; font: 650 var(--fs-small)/1.28 var(--font-text); color: var(--fg); }
+    .page[data-page="03"] .p03-mkt__note { margin-top: .4mm; font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-2); }
+    .page[data-page="03"] .p03-mkt .chart__svg { margin-top: 0; }
+    .page[data-page="03"] .p03-bar-new { fill: var(--fg); }
+    .page[data-page="03"] .p03-ring-track { fill: none; stroke: var(--signal-fill); }
+    .page[data-page="03"] .p03-ring-val { fill: none; stroke: var(--fg); }
+    .page[data-page="03"] .chart__svg .p03-ring-num { font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 400; font-size: 4.2px; fill: var(--fg); }
+    .page[data-page="03"] .p03-tipp { padding: 4mm 5mm 4.4mm; }
+
+    .page[data-page="03"] .p03-fn { margin-top: var(--sp-5); column-count: 2; column-gap: var(--gutter); line-height: 1.32; }
+  </style>
+
+  <div class="title-block title-block--split p03-title">
+    <div class="title-block__main">
+      <p class="kicker">Kennzahlen</p>
+      <h1 class="h1">Die Förderung in <em>sieben Zahlen</em><span class="fn">1,2</span></h1>
+    </div>
+    <aside class="term p03-term">
+      <p class="term__label">Begriff</p>
+      <h4 class="term__word">Zuwendungsfähige Kosten</h4>
+      <p class="term__text">Bezugsgröße der Förderquote – in 2.1: Herstellungskosten bis zur Bemessungsgrenze plus Grundstückskosten bis Bodenrichtwert (Ersterwerb: Kaufpreis und Erwerbskosten).</p>
+    </aside>
+  </div>
+
+  <div class="key-figures p03-kf">
+    <article class="kf kf--bs bs-21">
+      <div class="kf__top"><span class="bs-badge bs-21"><b class="bs-badge__no">2.1</b></span><span class="kf__pre">bis zu</span></div>
+      <p class="kf__fig"><span class="kf__num">80<span class="kf__unit">%</span></span></p>
+      <h3 class="kf__label">Förderquote</h3>
+      <p class="kf__text">Darlehen und Zuschuss in % der zuwendungsfähigen Kosten, Programmteil 2.1, in allen Einkommensgruppen</p>
+    </article>
+
+    <article class="kf kf--bs bs-21">
+      <div class="kf__top"><span class="bs-badge bs-21"><b class="bs-badge__no">2.1</b></span><span class="kf__pre">bis zu</span></div>
+      <p class="kf__fig"><span class="kf__num">40<span class="kf__unit">%</span></span></p>
+      <h3 class="kf__label">Zuschuss</h3>
+      <p class="kf__text">Einkommensgruppe&nbsp;A; B&nbsp;bis&nbsp;zu&nbsp;20&nbsp;%, C&nbsp;bis&nbsp;zu&nbsp;10&nbsp;%; nur mit Darlehen</p>
+    </article>
+
+    <article class="kf kf--bs bs-21 p03-kf--split">
+      <div class="kf__top"><span class="kf__badges"><span class="bs-badge bs-21"><b class="bs-badge__no">2.1</b></span><span class="bs-badge bs-24"><b class="bs-badge__no">2.4</b></span></span><span class="kf__pre"></span></div>
+      <p class="kf__fig"><span class="kf__num">0<span class="kf__unit">%</span></span></p>
+      <h3 class="kf__label">Zins bis Ende des 35.&nbsp;Jahres</h3>
+      <p class="kf__text">Darlehen 2.1/2.4, gezählt ab Bezugsfertigkeit; zzgl.&nbsp;0,5&nbsp;% Verwaltungskostenbeitrag p.&nbsp;a. auf das Restkapital, einmalig 1&nbsp;% Bearbeitungsentgelt (Zuschuss: 0,75&nbsp;%)</p>
+    </article>
+
+    <article class="kf kf--bs bs-21">
+      <div class="kf__top"><span class="bs-badge bs-21"><b class="bs-badge__no">2.1</b></span><span class="kf__pre"></span></div>
+      <p class="kf__fig"><span class="kf__num kf__num--pair">4.800 / 5.000</span><span class="kf__sub">€/m² Wohnfläche</span></p>
+      <h3 class="kf__label">Bemessungsgrenze</h3>
+      <p class="kf__text p03-wrap">Herstellungskosten, Neubau und Änderung/Erweiterung (2.1), Mietenstufe&nbsp;I–III/IV–VII; Ausgangswerte, Fortschreibung 1.4./1.10.&nbsp;– bis&nbsp;21.10.2026 keine neuen Werte auf&nbsp;<span class="u-url">nbank.de</span></p>
+    </article>
+
+    <article class="kf kf--bs bs-22">
+      <div class="kf__top"><span class="bs-badge bs-22"><b class="bs-badge__no">2.2</b></span><span class="kf__pre">bis zu</span></div>
+      <p class="kf__fig"><span class="kf__num">90.000<span class="kf__unit">€</span></span></p>
+      <h3 class="kf__label">Zuschuss je Wohnung</h3>
+      <p class="kf__text">KfW-Effizienzhaus-40-Neubau, Einkommensgruppe&nbsp;A, zugleich max. 50&nbsp;% der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar</p>
+    </article>
+
+    <article class="kf kf--bs bs-23">
+      <div class="kf__top"><span class="bs-badge bs-23"><b class="bs-badge__no">2.3</b></span><span class="kf__pre">bis zu</span></div>
+      <p class="kf__fig"><span class="kf__num">31.000<span class="kf__unit">€</span></span></p>
+      <h3 class="kf__label u-hyphens">Modernisierungszuschuss je gebundener Wohnung</h3>
+      <p class="kf__text">bei Verbesserung um 5&nbsp;oder mehr Energieeffizienzklassen, Einkommensgruppe&nbsp;A, zugleich max.&nbsp;40&nbsp;% der Modernisierungskosten</p>
+    </article>
+
+    <article class="kf kf--bs bs-25">
+      <div class="kf__top"><span class="bs-badge bs-25"><b class="bs-badge__no">2.5</b></span><span class="kf__pre"></span></div>
+      <p class="kf__fig"><span class="kf__num">3,00<span class="kf__unit">€/m²</span></span><span class="kf__sub">Wohnfläche und Monat</span></p>
+      <h3 class="kf__label">Zuschuss Bindungserwerb (Festbetrag)</h3>
+      <p class="kf__text">15–20&nbsp;Jahre Bindung; ab&nbsp;5&nbsp;J.&nbsp;2,00&nbsp;€, ab&nbsp;10&nbsp;J.&nbsp;2,50&nbsp;€; <span class="u-nowrap">nur Einkommensgruppe&nbsp;A</span></p>
+    </article>
+
+    <aside class="callout callout--frist p03-frist">
+      <p class="callout__label"><svg class="icon icon--frist" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.8" r="8.2"/><path d="M12 8.2v4.8l3.2 2"/><path d="M9.2 2.6h5.6"/></svg>Stichtag Modernisierung</p>
+      <p class="callout__date">31.12.2026</p>
+      <p class="callout__body">Nur Modernisierungsanträge, die bis 31.12.2026 bei der Wohnraumförderstelle eingehen, können mit dem Antrag verbindlich das bisherige Recht wählen (S.&nbsp;15).</p>
+    </aside>
+  </div>
+
+  <div class="p03-market on-dark">
+    <figure class="chart p03-mkt">
+      <figcaption class="p03-mkt__head"><h2 class="chart__title">Markt in Niedersachsen<span class="fn">3</span></h2><p class="p03-mkt__period">31.12.2015–31.12.2024 · Wohnungen</p></figcaption>
+      <div class="p03-mkt__hero">
+        <p class="p03-mkt__num">50.495</p>
+        <p class="p03-mkt__label">Sozialwohnungen 2024</p>
+        <p class="p03-mkt__note">ggü. 2015 nahezu halbiert</p>
+      </div>
+      <svg class="chart__svg" viewBox="0 0 63.3 24" width="63.3mm" height="24mm" role="img" aria-label="31.12.2015 bis 31.12.2024 in Niedersachsen: 58.024 Wohnungen mit ausgelaufener Bindung, rund 16.000 neu geförderte Wohnungen; damit sind 28 Prozent kompensiert.">
+        <text x="0" y="3">Wohnungen mit ausgelaufener Bindung</text>
+        <rect class="c-signal" x="0" y="4.4" width="45.0" height="5"/>
+        <text class="t-val t-end" x="43.8" y="7.95">58.024</text>
+        <text x="0" y="14.4">neu geförderte Wohnungen</text>
+        <rect class="p03-bar-new" x="0" y="15.8" width="12.45" height="5"/>
+        <text class="t-val-ink" x="14.05" y="19.35">rund 16.000</text>
+        <circle class="p03-ring-track" cx="55.6" cy="12.2" r="6.4" stroke-width="1.9"/>
+        <circle class="p03-ring-val" cx="55.6" cy="12.2" r="6.4" stroke-width="1.9" pathLength="100" stroke-dasharray="28 72" transform="rotate(-90 55.6 12.2)"/>
+        <text class="p03-ring-num t-mid" x="55.6" y="13.75">28 %</text>
+        <text class="t-mid" x="55.6" y="23.2">kompensiert</text>
+      </svg>
+    </figure>
+    <aside class="callout callout--tipp p03-tipp">
+      <p class="callout__label"><svg class="icon icon--rechner" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.8" width="14" height="18.4" rx="1"/><path d="M8 6.4h8v3.4H8z"/><path d="M8.4 13.4h.01M12 13.4h.01M15.6 13.4h.01M8.4 17.2h.01M12 17.2h.01M15.6 17.2h.01" stroke-width="2"/></svg>Kalkulationsnotiz</p>
+      <p class="callout__body">Der Bedarf ist regional verschieden: Standort und Projektrechnung zusammen prüfen.</p>
+    </aside>
+  </div>
+
+  <ol class="footnotes p03-fn l-bottom">
+    <li>Förderquoten und Förderbeträge sind Höchstwerte; beim Bindungserwerb gibt es einen Festbetrag. Jede Bewilligung wird auf Überkompensation geprüft (RL&nbsp;Nr.&nbsp;5.3.7, 11.10). Entgelte sind feste Sätze (RL&nbsp;Nr.&nbsp;12.7), Eigenmittelquoten Mindestwerte.</li>
+    <li>Fundstellen der Kacheln (RL&nbsp;Nr.): Förderquote 2.1, 5.3.3 (Zuschläge für Modellprojekte und Housing First: 5.3.3.3, S.&nbsp;8) · Zuschuss 5.3.3.2 · Zins 5.3.4, 8.3, 12.7 – ab dem 36.&nbsp;Jahr nach Bezugsfertigkeit bis zu 3&nbsp;Prozentpunkte über dem Basiszinssatz nach §&nbsp;247&nbsp;BGB, höchstens marktüblich · Bemessungsgrenze 5.3.2.2 – erster Fortschreibungsstichtag laut eigener Ableitung 01.10.2026; Ersterwerb: Kaufpreis nebst Erwerbskosten (5.3.2.1); Ostfriesische Inseln: 1,5-Fache des Werts für Mietenstufe&nbsp;I–III (8.3.1) · EH-40-Neubau 2.2, 6.3.3, 6.3.4 · Modernisierung 2.3, 7.3.3, nur Gebäude, die vor dem 08.12.2004 fertiggestellt wurden · Bindungserwerb 2.5, 9.3, Höhe begrenzt nach 5.3.7 · Einkommensgruppen B und&nbsp;C nur, wenn die NBank dies in der Förderentscheidung zulässt (1.6, 12.3.2; S.&nbsp;6) · Stichtag&nbsp;13.3.</li>
+    <li>Marktband: NBank-Wohnungsmarktbericht 2025 (Bericht: „rund 16.052“ neu geförderte Wohnungen, hier gerundet). Fördervolumen 2026: rund 380&nbsp;Mio.&nbsp;€ Bundes- und Landesmittel für die gesamte Wohnraumförderung, nicht allein für diese Richtlinie (MW-Presseinformation vom 03.07.2026).</li>
+  </ol>
+
+  <footer class="page__foot">
+    <span class="page__folio">3</span>
+    <span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Überblick · Kennzahlen</b></span><span>Stand: 21.10.2026</span></span>
+  </footer>
+</section>

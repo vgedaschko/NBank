@@ -1,0 +1,169 @@
+<section class="page" data-page="04">
+  <style>
+    /* Seite 04 · Neu und Grundcheck (seitenspezifisch, Farben nur über Tokens) */
+
+    /* Titel + Kalkulationsnotiz ------------------------------------------------ */
+    .page[data-page="04"] .p04-title > .title-block__main { grid-column: 1 / span 8; }
+    .page[data-page="04"] .p04-title > .p04-tipp { grid-column: 9 / span 4; align-self: stretch; display: flex; flex-direction: column; }
+    .page[data-page="04"] .p04-tipp .callout__body { margin-top: auto; padding-top: 1.6mm; }
+
+    /* Fußnotenziffern an Display-Zeilen: auf Versalhöhe heben, in Inter setzen (Fraunces opsz 144 wäre bei 8,5 pt haarfein; wie S. 03) */
+    .page[data-page="04"] .p04-title .h1 .fn,
+    .page[data-page="04"] .p04-date .fn { font-family: var(--font-text); font-variation-settings: normal; font-style: normal; font-weight: 650; letter-spacing: .02em; }
+    .page[data-page="04"] .p04-title .h1 .fn { vertical-align: 1.75em; margin-left: 1.4mm; }
+    .page[data-page="04"] .p04-date .fn { vertical-align: .85em; margin-left: .4mm; }
+
+    /* Vergleichstabelle bisher → neu ---------------------------------------- */
+    .page[data-page="04"] .p04-cmp { margin-top: var(--sp-8); }
+    .page[data-page="04"] .p04-table { table-layout: fixed; font-size: var(--fs-micro); line-height: 1.38; }
+    .page[data-page="04"] .p04-table .p04-c-label { width: 36mm; }
+    .page[data-page="04"] .p04-table .p04-c-old { width: 61.5mm; }
+    .page[data-page="04"] .p04-table .p04-c-arrow { width: 5mm; }
+    .page[data-page="04"] .p04-table thead th { vertical-align: bottom; text-transform: none; letter-spacing: 0; padding-bottom: 2mm; }
+    .page[data-page="04"] .p04-table thead .p04-corner { border-left: 1.2mm solid var(--bs); padding-left: 2.4mm; padding-bottom: 1.3mm; }
+    .page[data-page="04"] .p04-corner .fig-head__title { display: block; font-size: 11pt; line-height: 1.16; color: var(--fg); }
+    .page[data-page="04"] .p04-corner .fig-head__title b { font-weight: 560; color: var(--bs); }
+    .page[data-page="04"] .p04-when { display: block; font: 650 var(--fs-micro)/1.2 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; }
+    .page[data-page="04"] .p04-date { display: block; margin-top: .8mm; font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 400; font-size: 18pt; line-height: 1; letter-spacing: -.015em; font-variant-numeric: lining-nums tabular-nums; }
+    .page[data-page="04"] .p04-table thead .col-old { color: var(--fg-3); }
+    .page[data-page="04"] .p04-table thead .col-new { color: var(--accent-text); }
+    .page[data-page="04"] .p04-table tbody th { font: 650 var(--fs-small)/1.3 var(--font-text); color: var(--fg); }
+    .page[data-page="04"] .p04-table tbody th small { display: block; margin-top: .4mm; font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-2); }
+    .page[data-page="04"] .p04-table tbody th small b { font-weight: 650; color: var(--fg); }
+    .page[data-page="04"] .p04-table td.col-old { color: var(--fg-2); }
+    .page[data-page="04"] .p04-table td.col-new { color: var(--fg); font-weight: 500; }
+    .page[data-page="04"] .p04-table tbody td, .page[data-page="04"] .p04-table tbody th { padding-top: 1.7mm; padding-bottom: 1.8mm; }
+    .page[data-page="04"] .p04-fig { font-family: var(--font-display); font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0; font-weight: 480; font-size: 10.5pt; line-height: 1; letter-spacing: -.005em; white-space: nowrap; }
+    .page[data-page="04"] .col-old .p04-fig { color: var(--fg-2); }
+    .page[data-page="04"] .col-new .p04-fig { color: var(--accent-text); }
+    .page[data-page="04"] .p04-table .table__arrow { padding-left: 0; padding-right: 0 !important; vertical-align: top; }
+    .page[data-page="04"] .p04-table tbody .table__arrow { padding-top: 1.3mm; }
+    .page[data-page="04"] .p04-table .table__arrow .icon { width: 4.2mm; height: 4.2mm; color: var(--accent-text); }
+    .page[data-page="04"] .p04-table thead .table__arrow { vertical-align: bottom; padding-bottom: 2.4mm; }
+    .page[data-page="04"] .p04-table thead .table__arrow .icon { width: 5mm; height: 5mm; }
+
+    /* Tabellennote */
+    .page[data-page="04"] .p04-note { margin-top: var(--sp-2); font-size: var(--fs-micro); line-height: 1.5; color: var(--fg-2); }
+    .page[data-page="04"] .p04-note__wahl { margin-top: .6mm; }
+    .page[data-page="04"] .p04-note .badge { margin-right: 1.4mm; padding: .6mm 1.4mm .5mm; vertical-align: .2mm; }
+    .page[data-page="04"] .p04-wahl { background: var(--signal-soft); color: var(--fg); padding: .3mm .8mm; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .page[data-page="04"] .p04-wahl b { color: var(--signal-text); }
+
+    /* Grundcheck ----------------------------------------------------------- */
+    .page[data-page="04"] .p04-check { margin-top: var(--sp-6); }
+    .page[data-page="04"] .p04-check__head { display: grid; grid-template-columns: minmax(0, 1fr) calc(5 * var(--col) + 4 * var(--gutter)); column-gap: var(--gutter); align-items: end; }
+    .page[data-page="04"] .p04-nein { display: grid; grid-template-columns: 3.8mm minmax(0, 1fr); column-gap: 2mm; padding: 0; background: none; border-top: 0; }
+    .page[data-page="04"] .p04-nein .mark { margin-top: .5mm; }
+    .page[data-page="04"] .p04-nein .callout__title { margin-top: 0; font-size: 11pt; line-height: 1.2; }
+    .page[data-page="04"] .p04-nein .callout__body { grid-column: 2; margin-top: .6mm; color: var(--fg-2); }
+    .page[data-page="04"] .p04-list { margin-top: var(--sp-3); }
+    .page[data-page="04"] .p04-list .checklist__item { padding: 1.7mm 0 1.8mm; }
+    /* letzte Zeile ohne eigene Linie: die Fußnotenlinie schließt die Liste (sonst zwei Haarlinien im Abstand von 4 mm) */
+    .page[data-page="04"] .p04-list > .checklist__item:last-child { border-bottom: 0; }
+    /* Baustein-Matrix steht im DOM direkt nach der Prüffrage -> rechts oben in jeder Zeile, alle sechs Matrizen bilden eine bündige Spalte; Höhe < Zeilenhöhe (4,38 mm), sonst wird Zeile 2 mit eingezogen */
+    .page[data-page="04"] .p04-bs { float: right; display: flex; gap: .35mm; margin: .15mm 0 0 3mm; }
+    .page[data-page="04"] .p04-bs > i { display: block; width: 5mm; height: 4.1mm; font: 650 var(--fs-micro)/4.1mm var(--font-text); font-style: normal; text-align: center; letter-spacing: -.01em; font-variant-numeric: proportional-nums lining-nums; background: var(--bs); color: var(--on-bs); }
+    .page[data-page="04"] .p04-bs > i.is-off { background: transparent; box-shadow: inset 0 0 0 var(--hair) var(--rule); }
+
+    /* Fußnoten */
+    .page[data-page="04"] .p04-fn { column-count: 2; column-gap: var(--gutter); }
+    .page[data-page="04"] .p04-fn > li { break-inside: avoid; }
+  </style>
+
+  <div class="title-block p04-title">
+    <div class="title-block__main">
+      <p class="kicker">Orientierung</p>
+      <h1 class="h1 h1--s">Was 2026 neu ist –<br><em>passt Ihr Projekt?</em><span class="fn">1</span></h1>
+    </div>
+    <aside class="callout callout--tipp p04-tipp">
+      <p class="callout__label"><svg class="icon icon--rechner" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.8" width="14" height="18.4" rx="1"/><path d="M8 6.4h8v3.4H8z"/><path d="M8.4 13.4h.01M12 13.4h.01M15.6 13.4h.01M8.4 17.2h.01M12 17.2h.01M15.6 17.2h.01" stroke-width="2"/></svg>Kalkulationsnotiz</p>
+      <p class="callout__body">In 2.1 fließt der Zuschuss anteilig mit jeder Darlehensrate.<span class="fn">2</span></p>
+    </aside>
+  </div>
+
+  <figure class="module p04-cmp">
+    <table class="table table--compare p04-table" aria-labelledby="p04-cmp-cap">
+      <colgroup><col class="p04-c-label"><col class="p04-c-old"><col class="p04-c-arrow"><col class="p04-c-new"></colgroup>
+      <thead>
+        <tr class="bs-21">
+          <th scope="col" class="p04-corner"><span class="fig-head__title" id="p04-cmp-cap"><span class="u-nowrap">Programmteil <b>2.1</b></span> im Vergleich</span></th>
+          <th scope="col" class="col-old"><span class="p04-when">bis</span> <span class="p04-date">30.06.2026<span class="fn">2</span></span></th>
+          <th class="table__arrow" aria-hidden="true"><svg class="icon icon--pfeil" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 12h16M14.2 6.6l5.4 5.4-5.4 5.4"/></svg></th>
+          <th scope="col" class="col-new is-hl"><span class="p04-when">seit</span> <span class="p04-date">01.07.2026</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bs-row bs-21">
+          <th scope="row">Instrument</th>
+          <td class="col-old">zinsloses Darlehen bis zu <b class="p04-fig">75&nbsp;%</b> der Gesamtkosten; Tilgungsnachlass 30&nbsp;% des Darlehens (nur geringe Einkommen)</td>
+          <td class="table__arrow" aria-hidden="true"><svg class="icon icon--pfeil" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 12h16M14.2 6.6l5.4 5.4-5.4 5.4"/></svg></td>
+          <td class="col-new is-hl">Darlehen + Zuschuss bis zu <b class="p04-fig">80&nbsp;%</b> der zuwendungsfähigen Kosten</td>
+        </tr>
+        <tr class="bs-row bs-21">
+          <th scope="row">Bemessung je m²</th>
+          <td class="col-old"><b class="p04-fig">5.330/5.550&nbsp;€</b> Gesamtkosten (Neubau inkl. Grundstück)</td>
+          <td class="table__arrow" aria-hidden="true"><svg class="icon icon--pfeil" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 12h16M14.2 6.6l5.4 5.4-5.4 5.4"/></svg></td>
+          <td class="col-new is-hl"><b class="p04-fig">4.800/5.000&nbsp;€</b> Herstellungskosten (Ausgangswerte ab 01.07.2026; aktuell: <span class="u-url">nbank.de</span>), Grundstück separat bis Bodenrichtwert</td>
+        </tr>
+        <tr class="bs-row bs-21">
+          <th scope="row">Mieterkreis; <small><b>Höchstmiete</b> nettokalt je m², <span class="u-nowrap">Jahre 1–3</span></small></th>
+          <td class="col-old">geringe, mittlere Einkommen;<br><b class="p04-fig">6,30/6,60&nbsp;€</b> (geringe)</td>
+          <td class="table__arrow" aria-hidden="true"><svg class="icon icon--pfeil" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.6 12h16M14.2 6.6l5.4 5.4-5.4 5.4"/></svg></td>
+          <td class="col-new is-hl">A, B, C (B/C nur mit NBank-Zulassung);<br>A:&nbsp;<b class="p04-fig">6,50/6,80&nbsp;€</b></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="p04-note">
+      <p class="p04-note__nc"><span class="badge">Nicht 1:1 vergleichbar</span>Paarwerte: Mietenstufe I–III/IV–VII.</p>
+      <p class="p04-note__wahl"><span class="p04-wahl">Bisheriges Recht nur noch für Modernisierungsanträge mit Eingang bei der Wohnraumförderstelle bis <b>31.12.2026</b> und verbindlicher Wahl im Antrag (S.&nbsp;15);</span> Neubau, Ersterwerb: nur RL 2026.</p>
+    </div>
+  </figure>
+
+  <section class="module p04-check" aria-labelledby="p04-check-title">
+    <div class="p04-check__head">
+      <h2 class="h2" id="p04-check-title">Grundcheck:<br>Passt mein Projekt?</h2>
+      <aside class="callout callout--achtung p04-nein">
+        <i class="mark mark--warn" aria-hidden="true"></i>
+        <h3 class="callout__title">Einmal Nein?</h3>
+        <p class="callout__body">Erst die Wohnraumförderstelle fragen; es gibt Ausnahmen.</p>
+      </aside>
+    </div>
+
+    <ul class="checklist p04-list">
+      <li class="checklist__item">
+        <span class="checklist__box"></span>
+        <p class="p04-item__text"><b>Antragsberechtigt?</b><span class="p04-bs" role="img" aria-label="gilt für: alle"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="bs-25">2.5</i><i class="bs-26">2.6</i></span> Natürliche und juristische Personen (auch Kommunen), Genossenschaften und andere Personenvereinigungen mit eigener Rechtspersönlichkeit, rechtsfähige Baugemeinschaften (Ersterwerb: Käuferseite); Gesamtfinanzierung gesichert (Miete deckt Kosten dauerhaft).</p>
+      </li>
+      <li class="checklist__item">
+        <span class="checklist__box"></span>
+        <p class="p04-item__text"><b>Noch nicht begonnen?</b><span class="p04-bs" role="img" aria-label="gilt für: alle"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="bs-25">2.5</i><i class="bs-26">2.6</i></span> Vor der Bewilligung kein Baubeginn<span class="fn">2</span>, keine Liefer-, Leistungs-, Kauf- oder Werkverträge; bei 2.5 kein Mietvertrag, keine Überlassung. Erlaubt: Grundstückskauf, Planung bis HOAI-Leistungsphase&nbsp;6; Rücktrittsklauseln, vorzeitiger Beginn: S.&nbsp;19.</p>
+      </li>
+      <li class="checklist__item">
+        <span class="checklist__box"></span>
+        <p class="p04-item__text"><b>Mehrfamilienhaus ab 3 Wohnungen?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1–2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off"></i><i class="is-off"></i></span> Ausnahmen: gemeinschaftliche Wohnformen, im Einzelfall Reihen-/Doppelhaus. 2.1/2.2/2.4: je neuem Gebäude mind. 2 gebundene Wohnungen, keine Eigentumswohnungen zur Vermietung; 2.3: fertiggestellt vor 08.12.2004.</p>
+      </li>
+      <li class="checklist__item">
+        <span class="checklist__box"></span>
+        <p class="p04-item__text"><b>Bedarf am Standort?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1, 2.2, 2.6"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off"></i><i class="is-off"></i><i class="is-off"></i><i class="bs-26">2.6</i></span> In sechs Gebietsarten gegeben, sonst NBank-Karte prüfen (S.&nbsp;18).</p>
+      </li>
+      <li class="checklist__item">
+        <span class="checklist__box"></span>
+        <p class="p04-item__text"><b>Eigenmittel?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1–2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off"></i><i class="is-off"></i></span> Mind. 20&nbsp;% der zuwendungsfähigen Kosten (Inseln: 10&nbsp;% der zuwendungsfähigen Herstellungskosten; Modellprojekte, Housing First: ggf. weniger), davon soll mind. die Hälfte Geld oder lastenfreies Grundstück sein (2.3: Geld).</p>
+      </li>
+      <li class="checklist__item">
+        <span class="checklist__box"></span>
+        <p class="p04-item__text"><b>Grundstück gesichert?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1, 2.2, 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off"></i><i class="bs-24">2.4</i><i class="is-off"></i><i class="is-off"></i></span> Eigentum oder Erbbaurecht (mind. 60&nbsp;Jahre Restlaufzeit); gesicherter Erwerb genügt.</p>
+      </li>
+    </ul>
+  </section>
+
+  <ol class="footnotes p04-fn l-bottom">
+    <li>Quoten: Höchstwerte, vorbehaltlich Überkompensationsprüfung (RL Nr. 5.3.7). RL Nr. 1.5, 1.6, 2.3, 3, 4.1, 4.2, 5.1.4, 5.2.1–5.2.6, 5.3.2, 5.3.3, 5.4.4, 5.5.3, 5.5.6, 6.2, 7.2.2, 8.2.1, 8.2.2, 9.2, 10.2, 12.3.2, 13.2, 13.3; §&nbsp;4&nbsp;DVO-NWoFG</li>
+    <li>Bisher: NBank-Produktinformation „Allgemeine Mietwohnraumförderung“ (Stand 01.04.2026). Baubeginn als Vorhabenbeginn: NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (Stand 27.07.2026). Tilgung und Auszahlungsraten: S.&nbsp;9.</li>
+  </ol>
+
+  <footer class="page__foot">
+    <span class="page__folio">4</span>
+    <span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Überblick · Neu und Grundcheck</b></span><span>Stand: 21.10.2026</span></span>
+  </footer>
+</section>

@@ -53,9 +53,11 @@ const staticDir = path.join(root, 'src', 'fonts', 'static');
 const instancesFile = path.join(staticDir, 'instances.json');
 const neededFile = path.join(staticDir, 'needed.json');
 
+// Vorgaben für die PDF-Metadaten; author, subject (= meta description) und keywords werden von den <meta>-Angaben
+// in src/template.html überschrieben, der Titel kommt aus <title>.
 const META = {
   author: 'Investitions- und Förderbank Niedersachsen – NBank',
-  subject: 'Wohnraum, der sich rechnen kann. Konditionen und Modellrechnungen zur RL Mietwohnraum 2026',
+  subject: 'Konditionen und Modellrechnungen zur RL Mietwohnraum 2026',
   keywords: ['Mietwohnraumförderung', 'Niedersachsen', 'RL Mietwohnraum 2026', 'NBank', 'Sozialer Wohnungsbau'],
   creator: 'NBank',
   lang: 'de-DE',
@@ -397,6 +399,13 @@ function browserFontTuples() {
     });
   });
   const docTitle = await page.title();
+  // Metadaten aus dem Template (src/template.html: <meta name="author|description|keywords">) haben Vorrang vor META
+  const pageMeta = await page.evaluate(() => {
+    const m = (n) => ((document.querySelector(`meta[name="${n}"]`) || {}).content || '').trim();
+    const kw = m('keywords').split(',').map((k) => k.trim()).filter(Boolean);
+    return { author: m('author'), subject: m('description'), keywords: kw.length ? kw : null };
+  });
+  Object.entries(pageMeta).forEach(([k, v]) => { if (v && v.length) META[k] = v; });
 
   fs.mkdirSync(path.dirname(pdfOut), { recursive: true });
   await page.pdf({ path: pdfOut, preferCSSPageSize: true, printBackground: true, tagged: true, outline: false });
@@ -511,7 +520,7 @@ async function finishPdf(file, { outline, docTitle, offset, print, links = [], p
   doc.setTitle(title, { showInWindowTitleBar: true });
   doc.setAuthor(META.author);
   doc.setSubject(META.subject);
-  doc.setKeywords(META.keywords);
+  doc.setKeywords([META.keywords.join(', ')]);   // pdf-lib verbindet Einträge mit Leerzeichen – Mehrwort-Stichwörter durch Komma trennen
   doc.setCreator(META.creator);
   doc.setLanguage(META.lang);
   const created = doc.getCreationDate() || new Date();

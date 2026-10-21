@@ -14,11 +14,15 @@
     .page[data-page="19"] .p19-head .legend { column-gap: 3.5mm; }
 
     /* Swimlane: zwei Phasen à vier Stationen. Jede Karte hängt an der Bahn ihres Akteurs;
-       der Titel steht im Bahnband über der Linie, der Text darunter. Bahnabstand 4,6 mm. */
+       der Titel steht im Bahnband über der Linie, der Text darunter. Bahnabstand 4,6 mm.
+       Kopfspalte 19,5 mm links vor beiden Zeilen: Bahnnamen rechtsbündig auf ihrer Bahnlinie (x 0–17,6 im SVG),
+       Stationen ab x = 19,5. Breiten so verteilt, dass Zeile 1 kürzer wird (Entscheidung 52 mm: Frist einzeilig)
+       und die zusätzliche Zeile in „Bauen“ (Zeile 2, ab 50,3 mm 11 Zeilen) auffängt. Mindestbreiten: Titel
+       Vorgespräch 25, Stellungnahme 28,9, Fertigstellung 27, Verwendungsnachweis 41,4; „Notarbestätigung“ 26,1. */
     .page[data-page="19"] .p19-lg { width: 3.4mm; height: 3.4mm; overflow: visible; }
-    .page[data-page="19"] .p19-row { position: relative; display: grid; column-gap: 5mm; }
-    .page[data-page="19"] .p19-row--1 { grid-template-columns: 26mm 55mm 31mm 47mm; margin-top: 2mm; }
-    .page[data-page="19"] .p19-row--2 { grid-template-columns: 56mm 36mm 29.5mm 42mm; column-gap: 3.5mm; }
+    .page[data-page="19"] .p19-row { position: relative; display: grid; column-gap: 3.1mm; padding-left: 19.5mm; }
+    .page[data-page="19"] .p19-row--1 { grid-template-columns: 25mm 39.3mm 28.9mm 52mm; margin-top: 2mm; }
+    .page[data-page="19"] .p19-row--2 { grid-template-columns: 50.5mm 26.2mm 27mm 41.5mm; }
     .page[data-page="19"] .p19-svg { position: absolute; left: 0; top: 0; width: 174mm; height: 18mm; overflow: visible; }
     .page[data-page="19"] .p19-st { position: relative; min-width: 0; }
     .page[data-page="19"] .p19-row--1 .p19-st--w { padding-top: 4.6mm; }
@@ -50,9 +54,10 @@
     .page[data-page="19"] .p19-st .bullets > li + li { margin-top: .5mm; }
     .page[data-page="19"] .p19-forms { margin-top: 1.3mm; font: 500 var(--fs-module)/1.3 var(--font-text); color: var(--fg-2); }
     .page[data-page="19"] .p19-forms > li + li { margin-top: .55mm; }
-    /* Vordruckliste: Badge · Programmteil; Folgezeilen stehen bündig unter dem Programmteil */
-    .page[data-page="19"] .p19-forms > li { display: flex; align-items: baseline; column-gap: 1.1mm; }
-    .page[data-page="19"] .p19-forms > li > .badge { flex: none; }
+    /* Vordruckliste: Badge · Programmteil im Zeilenfluss; eine Folgezeile rückt 2,4 mm ein (unter dem Programmteil
+       wäre die Spalte für „Prolongationsangebot“ zu schmal und das Wort bliebe als Trennrest allein stehen) */
+    .page[data-page="19"] .p19-forms > li { padding-left: 2.4mm; text-indent: -2.4mm; }
+    .page[data-page="19"] .p19-forms > li > .badge { text-indent: 0; }
     .page[data-page="19"] .p19-frist { display: flex; align-items: flex-start; gap: 1mm; margin-top: 1.3mm; font: 650 var(--fs-micro)/1.28 var(--font-text); color: var(--signal-text); }
     .page[data-page="19"] .p19-frist .icon { width: 3.3mm; height: 3.3mm; margin-top: -.15mm; }
 
@@ -65,8 +70,10 @@
     .page[data-page="19"] .p19-end { fill: var(--fg); }
     .page[data-page="19"] .p19-svg text { font-family: var(--font-text); font-size: 3px; font-weight: 500; fill: var(--fg-3); }
     .page[data-page="19"] .p19-svg .p19-no { font-weight: 650; fill: var(--on-data); font-variant-numeric: tabular-nums; }
-    /* Bahnbeschriftung in beiden Zeilen, gemischte Schreibung (8,5 pt = 3 mm), rechtsbündig über der Bahnlinie */
+    /* Kopfspalte: Bahnname in gemischter Schreibung (8,5 pt = 3 mm; „FÖRDERSTELLE“ in Versalien wäre 26,5 mm breit
+       und passte nicht in 20 mm), rechtsbündig über seiner Bahnlinie; Kopf-Linie 0–17,6 in --fg-3, Bahnen ab x = 19,5 in --rule */
     .page[data-page="19"] .p19-svg .p19-lane-t { font-weight: 650; fill: var(--fg-3); }
+    .page[data-page="19"] .p19-head-rail { stroke: var(--fg-3); stroke-width: .25; fill: none; }
     .page[data-page="19"] .p19-svg .p19-brk-t { font-weight: 650; letter-spacing: .2px; text-transform: uppercase; fill: var(--fg-3); }
     .page[data-page="19"] .p19-brk { stroke: var(--fg-3); stroke-width: .25; fill: none; }
 
@@ -125,21 +132,23 @@
 
   <figure class="chart p19-lane" role="group" aria-labelledby="p19-lane-title">
 
-    <!-- Phase 1: Stationen 1–4 · Bahnlinien y = 4,6 (Sie) · 9,2 (Wohnraumförderstelle) · 13,8 (NBank) -->
+    <!-- Phase 1: Stationen 1–4 · Bahnlinien y = 4,6 (Sie) · 9,2 (Wohnraumförderstelle) · 13,8 (NBank)
+         Kopfspalte x 0–17,6 (Bahnnamen), Stationsspalten ab x = 19,5: 19,5 · 47,6 · 90 · 122; Wechsel in der Stegmitte -->
     <div class="p19-row p19-row--1">
       <svg class="p19-svg" viewBox="0 0 174 18" role="img" aria-label="Bahnen Sie, Wohnraumförderstelle, NBank. Schritt 1 Vorgespräch: Wohnraumförderstelle am Zug, Sie beteiligt. Schritt 2 Antrag: Sie. Schritt 3 Stellungnahme: Wohnraumförderstelle. Schritt 4 Entscheidung: NBank.">
-        <path class="p19-rail" d="M0 4.6H174M124.5 9.2H174"/>
-        <path class="p19-path" d="M1.9 9.2H28.5V4.6H88.5V9.2H124.5V13.8H172.2"/>
+        <path class="p19-head-rail" d="M0 4.6H17.6M0 9.2H17.6M0 13.8H17.6"/>
+        <path class="p19-rail" d="M19.5 4.6H174M120.45 9.2H174"/>
+        <path class="p19-path" d="M21.4 9.2H46.05V4.6H88.45V9.2H120.45V13.8H172.2"/>
         <path class="p19-end" d="M171.8 12.9L174 13.8L171.8 14.7Z"/>
-        <path class="p19-with" d="M1.9 5.8V7.3"/>
-        <circle class="p19-inv" cx="1.9" cy="4.6" r="1.2"/>
-        <circle class="p19-dot" cx="1.9" cy="9.2" r="1.85"/><text class="p19-no" x="1.9" y="10.29" text-anchor="middle">1</text>
-        <circle class="p19-dot" cx="32.9" cy="4.6" r="1.85"/><text class="p19-no" x="32.9" y="5.69" text-anchor="middle">2</text>
-        <circle class="p19-dot" cx="92.9" cy="9.2" r="1.85"/><text class="p19-no" x="92.9" y="10.29" text-anchor="middle">3</text>
-        <circle class="p19-dot" cx="128.9" cy="13.8" r="1.85"/><text class="p19-no" x="128.9" y="14.89" text-anchor="middle">4</text>
-        <text class="p19-lane-t" x="171" y="3.5" text-anchor="end">Sie</text>
-        <text class="p19-lane-t" x="171" y="8.1" text-anchor="end">Wohnraumförderstelle</text>
-        <text class="p19-lane-t" x="171" y="12.7" text-anchor="end">NBank</text>
+        <path class="p19-with" d="M21.4 5.8V7.3"/>
+        <circle class="p19-inv" cx="21.4" cy="4.6" r="1.2"/>
+        <circle class="p19-dot" cx="21.4" cy="9.2" r="1.85"/><text class="p19-no" x="21.4" y="10.29" text-anchor="middle">1</text>
+        <circle class="p19-dot" cx="49.5" cy="4.6" r="1.85"/><text class="p19-no" x="49.5" y="5.69" text-anchor="middle">2</text>
+        <circle class="p19-dot" cx="91.9" cy="9.2" r="1.85"/><text class="p19-no" x="91.9" y="10.29" text-anchor="middle">3</text>
+        <circle class="p19-dot" cx="123.9" cy="13.8" r="1.85"/><text class="p19-no" x="123.9" y="14.89" text-anchor="middle">4</text>
+        <text class="p19-lane-t" x="17.6" y="3.5" text-anchor="end">Sie</text>
+        <text class="p19-lane-t" x="17.6" y="8.1" text-anchor="end">Förderstelle</text>
+        <text class="p19-lane-t" x="17.6" y="12.7" text-anchor="end">NBank</text>
       </svg>
 
       <article class="p19-st p19-st--w">
@@ -148,7 +157,7 @@
       </article>
       <article class="p19-st p19-st--s">
         <h3 class="p19-st__title">Antrag</h3>
-        <p class="p19-st__text">bei der Wohnraumförderstelle</p>
+        <p class="p19-st__text">bei der <span class="u-nohyphens">Wohnraumförderstelle</span></p>
         <ul class="p19-forms">
           <li><span class="badge badge--s badge--form">1011</span> <span>·</span> <span>2.1–2.4</span></li>
           <li><span class="badge badge--s">1011a + 1012</span> <span>·</span> <span>2.5</span></li>
@@ -170,23 +179,25 @@
       <p class="gate p19-gate"><svg class="icon icon--stopp" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="ui-fill" d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd" stroke="none"/></svg><b>Erst Bewilligung, dann Vertrag</b><span class="p19-gate__body">Ein Vertrag zu früh kostet die ganze Förderung: Begonnene Vorhaben werden nicht gefördert.</span></p>
     </div>
 
-    <!-- Phase 2: Stationen 5–8 · Klammer oben, Bahnlinien y = 7,8 · 12,4 · 17,0 · Bahnbeschriftung im freien Feld vor Station 7 -->
+    <!-- Phase 2: Stationen 5–8 · Klammer oben, Bahnlinien y = 7,8 · 12,4 · 17,0
+         Kopfspalte x 0–17,6 (Bahnnamen), Stationsspalten ab x = 19,5: 19,5 · 73,1 · 102,4 · 132,5; Wechsel in der Stegmitte -->
     <div class="p19-row p19-row--2">
       <svg class="p19-svg" viewBox="0 0 174 18" role="img" aria-label="Bahnen Sie, Wohnraumförderstelle, NBank. Schritt 5 Bauen: Sie am Zug. Schritt 6 Auszahlung: NBank. Schritt 7 Fertigstellung: Wohnraumförderstelle am Zug, Sie beteiligt. Schritt 8 Verwendungsnachweis: Sie. Schritte 5 bis 7 betreffen Bauvorhaben 2.1 bis 2.4.">
-        <path class="p19-brk" d="M0 2.1V.9H44M84.5 .9H128.5V2.1"/>
-        <text class="p19-brk-t" x="64.25" y="1.95" text-anchor="middle">Bauvorhaben 2.1–2.4</text>
-        <path class="p19-rail" d="M57.75 7.8H130.25M57.75 12.4H97.25"/>
-        <path class="p19-path" d="M1.9 7.8H57.75V17H97.25V12.4H130.25V7.8H174"/>
-        <path class="p19-with" d="M100.9 9V10.5"/>
-        <circle class="p19-inv" cx="100.9" cy="7.8" r="1.2"/>
-        <circle class="p19-dot" cx="1.9" cy="7.8" r="1.85"/><text class="p19-no" x="1.9" y="8.89" text-anchor="middle">5</text>
-        <circle class="p19-dot" cx="61.4" cy="17" r="1.85"/><text class="p19-no" x="61.4" y="18.09" text-anchor="middle">6</text>
-        <circle class="p19-dot" cx="100.9" cy="12.4" r="1.85"/><text class="p19-no" x="100.9" y="13.49" text-anchor="middle">7</text>
-        <circle class="p19-dot" cx="133.9" cy="7.8" r="1.85"/><text class="p19-no" x="133.9" y="8.89" text-anchor="middle">8</text>
-        <rect class="p19-end" x="173.6" y="6.2" width=".4" height="3.2"/>
-        <text class="p19-lane-t" x="96" y="6.7" text-anchor="end">Sie</text>
-        <text class="p19-lane-t" x="96" y="11.3" text-anchor="end">Wohnraumförderstelle</text>
-        <text class="p19-lane-t" x="96" y="15.9" text-anchor="end">NBank</text>
+        <path class="p19-brk" d="M19.5 2.1V.9H54.2M94.7 .9H129.4V2.1"/>
+        <text class="p19-brk-t" x="74.45" y="1.95" text-anchor="middle">Bauvorhaben 2.1–2.4</text>
+        <path class="p19-head-rail" d="M0 7.8H17.6M0 12.4H17.6M0 17H17.6"/>
+        <path class="p19-rail" d="M71.55 7.8H130.95M71.55 12.4H100.85"/>
+        <path class="p19-path" d="M21.4 7.8H71.55V17H100.85V12.4H130.95V7.8H174"/>
+        <path class="p19-with" d="M104.3 9V10.5"/>
+        <circle class="p19-inv" cx="104.3" cy="7.8" r="1.2"/>
+        <circle class="p19-dot" cx="21.4" cy="7.8" r="1.85"/><text class="p19-no" x="21.4" y="8.89" text-anchor="middle">5</text>
+        <circle class="p19-dot" cx="75" cy="17" r="1.85"/><text class="p19-no" x="75" y="18.09" text-anchor="middle">6</text>
+        <circle class="p19-dot" cx="104.3" cy="12.4" r="1.85"/><text class="p19-no" x="104.3" y="13.49" text-anchor="middle">7</text>
+        <circle class="p19-dot" cx="134.4" cy="7.8" r="1.85"/><text class="p19-no" x="134.4" y="8.89" text-anchor="middle">8</text>
+        <rect class="p19-end" x="173.6" y="6.9" width=".4" height="1.8"/>
+        <text class="p19-lane-t" x="17.6" y="6.7" text-anchor="end">Sie</text>
+        <text class="p19-lane-t" x="17.6" y="11.3" text-anchor="end">Förderstelle</text>
+        <text class="p19-lane-t" x="17.6" y="15.9" text-anchor="end">NBank</text>
       </svg>
 
       <article class="p19-st p19-st--s">

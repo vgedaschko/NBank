@@ -18,6 +18,11 @@
           "Wohnraumförderstelle",
           "NBank"
         ],
+        "lane_labels": [
+          "Sie",
+          "Förderstelle",
+          "NBank"
+        ],
         "stations": [
           {
             "n": 1,

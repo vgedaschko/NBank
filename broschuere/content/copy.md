@@ -842,6 +842,7 @@ Beispiel: G → D = 3 Klassen. Voraussetzung: mindestens 2 Klassen besser – En
 
 - 25 Jahre ab Abschluss; bei Mieterwechsel nur an WBS-Haushalte
 - vermietet: +10 Jahre, außer bei WBS-Nachweis; dann Vertrag unverzüglich an Höchstmiete und Erhöhungsregeln anpassen
+- im Grundbuch gesichert, grundsätzlich per beschränkter persönlicher Dienstbarkeit (Verzicht in begründeten Fällen möglich)
 - Höchstmieten wie in 2.1 (→ S. 7): 6,50–9,00 € je m², ab KfW-EH-40-Niveau bis zu +0,30 €; bei Verlängerung Erhöhungssperre ab erster WBS-Belegung
 
 ### Ablauf und Eigenmittel
@@ -963,7 +964,7 @@ Beispiel: Modellwohnung 60 m², 20 Jahre: 21.276 € nach Erstbelegung (21.600 �
 
 ### Miete und Bindung
 
-- Bindung ab erster Belegung durch einen WBS-Haushalt
+- Bindung ab erster WBS-Belegung, grundsätzlich per beschränkter persönlicher Dienstbarkeit im Grundbuch gesichert (Verzicht in begründeten Fällen möglich)
 - Miete Jahr 1–3 höchstens 6,50 € (Mietenstufe I–III) bzw. 6,80 € (IV–VII) je m², bei KfW-EH-40-Niveau bis zu +0,30 €
 - danach höchstens +6,15 % in drei Jahren; keine Staffel- oder Indexmiete
 
@@ -985,7 +986,7 @@ Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überko
 
 <sub>**Fußnoten und Quellen**</sub>
 
-<sub>Fundstellen: RL Nr. 1.5, 2.5, 3, 4.2, 5.1.1, 5.3.7, 5.4.4, 5.4.5, 9.1–9.5, 11.4, 12.7.3; NBank-Produktinformation und Checkliste „Erwerb von Belegungs- und Mietbindungen“ (Stand 22.09.2026; Unterlagen → S. 20).</sub>  
+<sub>Fundstellen: RL Nr. 1.5, 2.5, 3, 4.2, 5.1.1, 5.3.7, 5.4.4, 5.4.5, 9.1–9.5, 11.4, 11.5, 12.7.3; NBank-Produktinformation und Checkliste „Erwerb von Belegungs- und Mietbindungen“ (Stand 22.09.2026; Unterlagen → S. 20).</sub>  
 
 ---
 
@@ -1118,7 +1119,7 @@ Einheit: Einheits- und Samtgemeinden
 
 **Grafik (timeline): Acht Schritte, drei Beteiligte**
 
-Bahnen: Sie · Wohnraumförderstelle · NBank
+Bahnen (Kopfspalte links vor beiden Zeilen): Sie · Förderstelle (= Wohnraumförderstelle) · NBank
 
 1. **Vorgespräch** (Wohnraumförderstelle + Sie): Nachweise und Unterlagen vorab klären; zusätzlich NBank-Förderberatung
 2. **Antrag** (Sie): bei der Wohnraumförderstelle · Vordrucke: 1011 · 2.1–2.4; 1011a + 1012 · 2.5; 1011b · 2.6 nach Prolongationsangebot

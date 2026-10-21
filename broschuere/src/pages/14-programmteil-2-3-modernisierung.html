@@ -40,7 +40,11 @@
     .page[data-page="14"] .chart__svg .p14-pre { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 600; letter-spacing: 0; }
     .page[data-page="14"] .chart__svg .p14-from { font-weight: 450; }
 
-    /* Faktenspalte rechts: globale Komponente .facts */
+    /* Faktenspalte rechts: globale Komponente .facts, seitenlokal verdichtet (Seite voll; Grundbuch-Punkt RL Nr. 11.5):
+       Modulabstand wie S. 16, Zeilenabstand wie S. 13 */
+    .page[data-page="14"] .facts > * + * { margin-top: 2.6mm; }
+    .page[data-page="14"] .facts__mod + .facts__mod { padding-top: 2mm; }
+    .page[data-page="14"] .facts :is(.facts__text, .bullets > li) { line-height: 1.32; }
     .page[data-page="14"] .p14-stop { white-space: nowrap; }
     .page[data-page="14"] .p14-stop b { font-size: var(--fs-small); color: var(--fg); }
     .page[data-page="14"] .p14-stop .icon { width: 3.8mm; height: 3.8mm; margin-right: 1.2mm; vertical-align: -.95mm; }
@@ -91,7 +95,7 @@
         <ul class="bullets">
           <li><b>25 Jahre ab Abschluss</b>; bei Mieterwechsel nur an WBS-Haushalte</li>
           <li><b>vermietet: +10 Jahre</b>, außer bei WBS-Nachweis; dann Vertrag unverzüglich an Höchstmiete und Erhöhungsregeln anpassen</li>
-          <li><b>Grundbuch:</b> Bindung grundsätzlich per beschränkter persönlicher Dienstbarkeit gesichert (Verzicht in begründeten Fällen möglich)</li>
+          <li><b>im Grundbuch gesichert</b>, grundsätzlich per beschränkter persönlicher Dienstbarkeit (Verzicht in begründeten Fällen möglich)</li>
           <li><b>Höchstmieten wie in 2.1</b> (<a class="u-nowrap" href="#seite-07">→&nbsp;S.&nbsp;7</a>): <span class="u-nowrap">6,50–9,00 € je m²</span>, ab <span class="u-nowrap">KfW-EH-40-Niveau</span> bis zu <span class="u-nowrap">+0,30 €</span>; bei Verlängerung Erhöhungssperre ab erster WBS-Belegung</li>
         </ul>
       </section>

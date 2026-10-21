@@ -22,6 +22,8 @@
     /* Stopp-Zeile (programmspezifisch, wie S. 14) statt Achtung-Kasten – voller Text S. 19 */
     .page[data-page="16"] .p16-stop { margin-top: 2mm; }
     .page[data-page="16"] .facts > * + * { margin-top: 2.6mm; }
+    /* dichte Seite: Durchschuss der Faktenspalte 1,28 statt 1,36 (DESIGN.md: bis 1,27 zulässig, Größe bleibt 9 pt) */
+    .page[data-page="16"] .facts .bullets > li, .page[data-page="16"] .facts .facts__text { line-height: 1.28; }
     .page[data-page="16"] .p16-stop .icon { width: 3.8mm; height: 3.8mm; margin-right: 1.2mm; vertical-align: -.95mm; }
     .page[data-page="16"] .p16-stop b { color: var(--fg); }
     .page[data-page="16"] .p16-step { fill: var(--accent-soft); }
@@ -100,7 +102,7 @@
       <section class="facts__mod">
         <h3 class="label label--accent">Miete und Bindung</h3>
         <ul class="bullets">
-          <li><b>Bindung ab erster Belegung</b> durch einen WBS-Haushalt</li>
+          <li><b>Bindung ab erster WBS-Belegung,</b> grundsätzlich per beschränkter persönlicher Dienstbarkeit im Grundbuch gesichert (Verzicht in begründeten Fällen möglich)</li>
           <li><b>Miete Jahr 1–3 höchstens</b> <span class="u-nowrap">6,50 €</span> (Mietenstufe I–III) bzw. <span class="u-nowrap">6,80 €</span> (IV–VII) je m², bei <span class="u-nowrap">KfW-EH-40-Niveau</span> bis zu <span class="u-nowrap">+0,30 €</span></li>
           <li><b>danach höchstens <span class="u-nowrap">+6,15 %</span></b> in drei Jahren; keine Staffel- oder Indexmiete</li>
         </ul>
@@ -122,7 +124,7 @@
   </div>
 
   <ol class="footnotes footnotes--2col l-bottom">
-    <li class="footnotes__src"><b>Fundstellen:</b> RL Nr. 1.5, 2.5, 3, 4.2, 5.1.1, 5.3.7, 5.4.4, 5.4.5, 9.1–9.5, 11.4, 12.7.3; NBank-Produktinformation und Checkliste „Erwerb von Belegungs- und Mietbindungen“ (Stand 22.09.2026; Unterlagen <a class="u-nowrap" href="#seite-20">→&nbsp;S.&nbsp;20</a>).</li>
+    <li class="footnotes__src"><b>Fundstellen:</b> RL Nr. 1.5, 2.5, 3, 4.2, 5.1.1, 5.3.7, 5.4.4, 5.4.5, 9.1–9.5, 11.4, 11.5, 12.7.3; NBank-Produktinformation und Checkliste „Erwerb von Belegungs- und Mietbindungen“ (Stand 22.09.2026; Unterlagen <a class="u-nowrap" href="#seite-20">→&nbsp;S.&nbsp;20</a>).</li>
   </ol>
 
   <footer class="page__foot" aria-hidden="true"><span class="page__folio">16</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Bestand · Programmteil 2.5</b></span><span>Stand: 21.10.2026</span></span></footer>

@@ -1,0 +1,12 @@
+{
+  "name": "broschuere-mietwohnraumfoerderung-2026",
+  "private": true,
+  "description": "Informationsbroschüre zur Mietwohnraumförderung Niedersachsen 2026 (HTML → PDF)",
+  "scripts": {
+    "build": "node scripts/render.cjs",
+    "preview": "node scripts/render.cjs --png dist/preview --dpi 72"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}

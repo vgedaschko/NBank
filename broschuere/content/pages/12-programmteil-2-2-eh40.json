@@ -1,0 +1,229 @@
+{
+  "no": 12,
+  "slug": "programmteil-2-2-eh40",
+  "layout_type": "program-detail",
+  "running_title": "Neubau · Programmteil 2.2",
+  "kicker": "Programmteil 2.2",
+  "headline": "Energetisch hochwertiger Neubau – reiner Zuschuss",
+  "subline": "Bis zu 90.000 € je Wohnung, ohne Darlehen",
+  "lead": "Neubau ab KfW-Effizienzhaus-40-Niveau: kein Darlehen, kein Verwaltungskostenbeitrag. Es begrenzt der Höchstbetrag je Wohnung, nicht der Prozentsatz.",
+  "blocks": [
+    {
+      "type": "table",
+      "caption": "Zuschuss je Einkommensgruppe",
+      "columns": [
+        "Gruppe",
+        "bis zu",
+        "höchstens je Wohnung",
+        "Höchstbetrag greift ab Kosten je Wohnung"
+      ],
+      "rows": [
+        [
+          "A",
+          "50 %",
+          "90.000 €",
+          "180.000 €"
+        ],
+        [
+          "B",
+          "40 %",
+          "75.000 €",
+          "187.500 €"
+        ],
+        [
+          "C",
+          "30 %",
+          "60.000 €",
+          "200.000 €"
+        ]
+      ],
+      "note": "In % der zuwendungsfähigen Herstellungs- und Grundstückskosten, Überkompensationsprüfung vorbehalten; letzte Spalte eigene Berechnung. Bearbeitungsentgelt 0,75 % (675 € bei 90.000 €)."
+    },
+    {
+      "type": "chart",
+      "chart": "bar",
+      "title": "Zuschuss je Wohnung nach Kosten je Wohnung",
+      "data": {
+        "kind": "capped-lines",
+        "x": {
+          "label": "zuwendungsfähige Kosten je Wohnung",
+          "unit": "€",
+          "from": 0,
+          "to": 400000,
+          "ticks": [
+            0,
+            100000,
+            200000,
+            300000,
+            400000
+          ]
+        },
+        "y": {
+          "label": "Zuschuss je Wohnung",
+          "unit": "€",
+          "from": 0,
+          "to": 100000
+        },
+        "series": [
+          {
+            "name": "A",
+            "rate": 0.5,
+            "cap": 90000,
+            "kink_at": 180000
+          },
+          {
+            "name": "B",
+            "rate": 0.4,
+            "cap": 75000,
+            "kink_at": 187500
+          },
+          {
+            "name": "C",
+            "rate": 0.3,
+            "cap": 60000,
+            "kink_at": 200000
+          }
+        ],
+        "marker": {
+          "x": 350000,
+          "label": "Modell S. 10"
+        }
+      }
+    },
+    {
+      "type": "chart",
+      "chart": "compare",
+      "title": "2.1 oder 2.2? Modell S. 10 (vereinfacht)",
+      "data": {
+        "kind": "stacked-pair",
+        "unit": "Mio. €",
+        "bars": [
+          {
+            "id": "2.1",
+            "token": "--baustein-21",
+            "segments": [
+              {
+                "name": "Zuschuss",
+                "value": 2.8,
+                "display": "2,8",
+                "token": "--color-grant"
+              },
+              {
+                "name": "Darlehen",
+                "value": 2.8,
+                "display": "2,8",
+                "token": "--color-loan"
+              },
+              {
+                "name": "Eigenmittel",
+                "value": 1.4,
+                "display": "1,4",
+                "token": "--color-equity"
+              }
+            ]
+          },
+          {
+            "id": "2.2",
+            "token": "--baustein-22",
+            "segments": [
+              {
+                "name": "Zuschuss 20 × 90.000 €",
+                "value": 1.8,
+                "display": "1,8",
+                "token": "--color-grant"
+              },
+              {
+                "name": "Restfinanzierung",
+                "value": 3.8,
+                "display": "3,8",
+                "style": "outline"
+              },
+              {
+                "name": "Eigenmittel",
+                "value": 1.4,
+                "display": "1,4",
+                "token": "--color-equity"
+              }
+            ]
+          }
+        ]
+      },
+      "note": "2.2 bringt mehr Zuschuss als 2.1 bis 225.000 € (A), 375.000 € (B), 600.000 € (C) Kosten je Wohnung; eigene Berechnung."
+    },
+    {
+      "type": "bullets",
+      "heading": "Gegenstand, Voraussetzungen",
+      "items": [
+        "nur Neubau – keine Änderung, Erweiterung oder Ersterwerb",
+        "gemeinschaftliche Wohnformen möglich; keine Zuschläge für Housing First oder Modellprojekte",
+        "wie 2.1: Bedarf, Grundstück, mind. 2 gebundene Wohnungen je neuem Gebäude, Eigenmittel mind. 20 % (→ S. 4)"
+      ]
+    },
+    {
+      "type": "bullets",
+      "heading": "Spielregeln",
+      "items": [
+        "Miete Jahr 1–3 je m² (A/B/C): Mietenstufe I–III 6,80 / 8,20 / 9,00 €, IV–VII 7,10 / 8,50 / 9,30 €, EH-40-Aufschlag enthalten",
+        "Bindung 35 Jahre, gesichert per beschränkter persönlicher Dienstbarkeit",
+        "Brand- und Sturmversicherung bis Bindungsende",
+        "Auszahlung in 4 Raten (→ S. 9)",
+        "EH-40-Nachweis mit der Fertigstellungsanzeige (Energieausweis-Berechtigte oder Effizienz-Expertenliste; bei KfW-Mitfinanzierung deren Bescheinigung)"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "achtung",
+      "title": "Nicht mit 2.1 kumulierbar",
+      "body": "Offen in der RL, mit der NBank klären: 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen? Gelten die Kostendeckel aus 2.1?"
+    },
+    {
+      "type": "text",
+      "heading": "Kombinierbar mit",
+      "body": "KfW 298, solange alle Förderungen die förderfähigen KfW-Kosten nicht übersteigen. EH 40 allein reicht aber nicht für die KFN-Stufe „Klimafreundliches Wohngebäude“ (zusätzlich Lebenszyklus-Anforderungen)."
+    },
+    {
+      "type": "callout",
+      "variant": "tipp",
+      "title": "Kalkulationsnotiz",
+      "body": "2.2 lohnt, wenn Sie auf Darlehenspflichten verzichten wollen – rechnen Sie den Höchstbetrag je Wohnung, nicht den Prozentsatz."
+    }
+  ],
+  "footnotes": [
+    "RL Nr. 2.2, 5.3.7, 6.1–6.5, 11.4, 11.5, 12.7.3; NBank-Produktinformation EH-40-Neubau (Stand 10.07.2026); KfW-Merkblatt 297/298."
+  ],
+  "fact_ids": [
+    "F130",
+    "F131",
+    "F132",
+    "F133",
+    "F134",
+    "F135",
+    "F136",
+    "F137",
+    "F138",
+    "F139",
+    "F140",
+    "F141",
+    "F142",
+    "F143",
+    "F144",
+    "F145",
+    "F146",
+    "F147",
+    "F244",
+    "F279",
+    "F129",
+    "G1-33",
+    "G1-34",
+    "G2-14",
+    "G2-01",
+    "G2-03",
+    "G2-04",
+    "G2-06",
+    "F218",
+    "F242",
+    "F105",
+    "F106"
+  ],
+  "visual_idea": "Baustein-Register 2.2 (--baustein-22) mit Nummer am Seitenrand. Oben das Kappungsdiagramm: x-Achse zuwendungsfähige Kosten je Wohnung 0–400.000 €, y-Achse Zuschuss je Wohnung; drei Linien A/B/C steigen bis 180.000 / 187.500 / 200.000 € und laufen dann flach bei 90.000 / 75.000 / 60.000 € (Knickpunkte beschriftet, Linien direkt mit A/B/C etikettiert und über Strichart graustufenfest), senkrechte gestrichelte Markierung bei 350.000 € „Modell S. 10“. Daneben Badges „kein Darlehen · kein Verwaltungskostenbeitrag“ und Warnsymbol „nicht mit 2.1 kumulierbar“ (--signal). Darunter kompakte Zuschusstabelle und ein kleines Balkenpaar 2.1 vs. 2.2 (je 7,0 Mio. €; Segmente Zuschuss/Darlehen bzw. Restfinanzierung als Kontur/Eigenmittel), gekennzeichnet „vereinfacht“. Unteres Drittel: zwei Listen „Gegenstand, Voraussetzungen“ und „Spielregeln“, „Kombinierbar mit“ als schmale Zeile, Kalkulationsnotiz am Fuß."
+}

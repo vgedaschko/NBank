@@ -1,0 +1,98 @@
+{
+  "no": 20,
+  "slug": "kontakt-unterlagen-impressum",
+  "layout_type": "back-cover",
+  "running_title": "Kontakt · Unterlagen · Impressum",
+  "kicker": "Ihr nächster Schritt",
+  "headline": "Rechnen Sie Ihr Projekt durch – bevor Sie beginnen.",
+  "lead": "Starten Sie bei der Wohnraumförderstelle am Bauort. Dort stellen Sie den Antrag und klären vorab, welche Nachweise Sie brauchen.",
+  "blocks": [
+    {
+      "type": "contact",
+      "items": [
+        {
+          "label": "Antrag und Vorabklärung",
+          "value": "Kommunale Wohnraumförderstelle am Bauort (Landkreis, Stadt, Gemeinde) – Formulare, Beratung, Antrag. Verzeichnis auf nbank.de"
+        },
+        {
+          "label": "Förderberatung Wohnraumförderung",
+          "value": "0511 30031-9333 · Mo–Fr 08:00–17:00 Uhr · wohnraumfoerderung@nbank.de"
+        },
+        {
+          "label": "Beratungsstellen",
+          "value": "Hannover, Braunschweig, Lüneburg, Oldenburg, Osnabrück · beratung@nbank.de"
+        },
+        {
+          "label": "Anschrift",
+          "value": "Günther-Wagner-Allee 12–16, 30177 Hannover · info@nbank.de · www.nbank.de"
+        }
+      ]
+    },
+    {
+      "type": "bullets",
+      "heading": "Immer aktuell auf nbank.de",
+      "items": [
+        "fortgeschriebene Bemessungsgrenzen",
+        "Bedarfskarte",
+        "Vordrucke und Arbeitshilfen",
+        "Entgeltkatalog",
+        "Kennzeichnung auf dem Bauschild"
+      ]
+    },
+    {
+      "type": "checklist",
+      "heading": "Unterlagen bereitlegen (Auszug)",
+      "items": [
+        "Antrag: Vordruck 1011 · 1011a + 1012 je Wohnung (2.5) · 1011b (2.6)",
+        "Personen: Selbstauskunft 3076, Schufa-Auskunft, Identifizierung nach GwG (1005a bzw. 1006a)",
+        "Unternehmen: Jahresabschlüsse der letzten zwei Jahre, BWA höchstens drei Monate alt, Handels- und Transparenzregisterauszug",
+        "Grundbuchauszug, Lageplan, Bauzeichnungen",
+        "Wohnflächenberechnung (WoFlV), umbauter Raum (DIN 277)",
+        "Baubeschreibung 1021, Kosten-Finanzierungsaufteilung (08/26)",
+        "bei 2.3: Energiebedarfsausweis mit Ausgangsklasse"
+      ]
+    },
+    {
+      "type": "text",
+      "body": "Stand der NBank-Checklisten: 20.07.2025, Bindungserwerb 22.09.2026. Aktuelle Fassung bei der Wohnraumförderstelle oder auf nbank.de; Nachforderungen möglich."
+    },
+    {
+      "type": "text",
+      "heading": "Weitere Programme",
+      "body": "**RL Junges Wohnen 2026:** Wohnheimplätze für Studierende und Auszubildende. **RL Wohneigentum 2026:** selbst genutztes Wohneigentum."
+    },
+    {
+      "type": "text",
+      "heading": "Impressum",
+      "role_hint": "impressum",
+      "body": "**Herausgeber:** Investitions- und Förderbank Niedersachsen – NBank, Günther-Wagner-Allee 12–16, 30177 Hannover\n\n**Rechtsgrundlage:** Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum (RL Mietwohnraum 2026), RdErl. d. MW v. 25.06.2026, Nds. MBl. 2026 Nr. 319, gültig 01.07.2026 bis 31.12.2031. **Stand:** 21.10.2026\n\n**Hinweise:** Kein Rechtsanspruch; die NBank entscheidet nach pflichtgemäßem Ermessen im Rahmen der verfügbaren Mittel. Maßgeblich sind Richtlinie und Förderentscheidung. Alle Fördersätze sind Höchstwerte. Modellrechnungen sind fiktiv. Die Bemessungsgrenzen von 4.800 und 5.000 € je m² sind Ausgangswerte. Mietenstufen nach WoGV in der jeweils geltenden Fassung; Neufassung ab 01.01.2027 geplant (Entwurf).\n\n**Datenschutz:** datenschutz@nbank.de · **Bildnachweis:** eigene Illustrationen"
+    }
+  ],
+  "footnotes": [],
+  "fact_ids": [
+    "F322",
+    "F323",
+    "F324",
+    "F325",
+    "F326",
+    "F089",
+    "F098",
+    "F282",
+    "F283",
+    "F281",
+    "F210",
+    "G1-30",
+    "F170",
+    "F329",
+    "F330",
+    "F333",
+    "F001",
+    "F002",
+    "F006",
+    "F008",
+    "F129",
+    "F219",
+    "F236"
+  ],
+  "visual_idea": "Ruhige Rückseite, Fläche in --color-primary (Text invertiert, Kontrast prüfen). Oben die CTA-Headline in der Display-Schrift. Große Kontaktkachel mit der Telefonnummer 0511 30031-9333 als Display-Ziffer, Zeiten und E-Mail darunter; Wohnraumförderstelle als erste, gleich große Kachel („hier beginnt Ihr Antrag“). QR-Code-Platzhalter zur NBank-Programmseite. „Immer aktuell auf nbank.de“ als kurze Liste mit Pfeil-Icons. Unterlagen-Checkliste mit echten Ankreuzkästchen; Vordrucknummern (1011, 1011a, 1012, 1011b, 3076, 1005a/1006a, 1021) als Badges. Stand-Zeile direkt unter der Checkliste. Weitere Programme als zwei schmale Verweis-Kacheln. Impressum in gut lesbarer Kleinschrift (mind. 8,5 pt) am Fuß. Verkleinertes Haus-Balkendiagramm vom Titel (Darlehen/Zuschuss/Eigenmittel in --color-loan/--color-grant/--color-equity) und die sechs Baustein-Farbstreifen --baustein-21 … --baustein-26 mit Ziffern als Klammer. Kein Logo, Herausgeberzeile als Text."
+}

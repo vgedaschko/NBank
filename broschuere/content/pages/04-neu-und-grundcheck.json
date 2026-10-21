@@ -1,0 +1,122 @@
+{
+  "no": 4,
+  "slug": "neu-und-grundcheck",
+  "layout_type": "table-checklist",
+  "running_title": "Überblick",
+  "kicker": "Orientierung",
+  "headline": "Was 2026 neu ist – und ob Ihr Projekt passt",
+  "lead": "Seit 01.07.2026 gelten drei eigenständige Richtlinien: Mietwohnraum, Junges Wohnen, Wohneigentum. Laut Ministerium bleibt die Systematik im Kern – mit deutlich mehr Zuschuss.",
+  "blocks": [
+    {
+      "type": "table",
+      "caption": "Programmteil 2.1 im Vergleich",
+      "columns": [
+        "",
+        "bis 30.06.2026",
+        "seit 01.07.2026"
+      ],
+      "rows": [
+        [
+          "Instrument",
+          "zinsloses Darlehen bis 75 %, 30 % Tilgungsnachlass nur bei geringen Einkommen",
+          "Darlehen + Zuschuss bis zu 80 %"
+        ],
+        [
+          "Bemessung je m²",
+          "5.330 / 5.550 € Gesamtkosten inkl. Grundstück",
+          "4.800 / 5.000 € Herstellungskosten (Ausgangswerte), Grundstück separat bis Bodenrichtwert"
+        ],
+        [
+          "Eigenanteil",
+          "Eigenleistung 25 %",
+          "Eigenmittel mind. 20 %"
+        ],
+        [
+          "Mieterkreis, Anfangsmiete je m²",
+          "geringe, mittlere Einkommen; 6,30 / 6,60 € (geringe)",
+          "A, B (bis +40 %), C (bis +60 %); A: 6,50 / 6,80 €"
+        ],
+        [
+          "Tilgung",
+          "mind. 1,25 % p. a., Aufschub bis 3 Jahre",
+          "legt die NBank fest, Aufschub bis 5 Jahre"
+        ],
+        [
+          "Fortschreibung Bemessungsgrenze",
+          "Vorquartal (Destatis)",
+          "Vorjahresquartal (LSN), 1.4./1.10."
+        ]
+      ],
+      "note": "Nicht 1:1 vergleichbar; Paarwerte: Mietenstufe I–III / IV–VII. Neu auch: Housing First ausdrücklich (S. 8), Modernisierung nach Klassensprung (S. 14); Altrecht nur per Wahlrecht (S. 15)."
+    },
+    {
+      "type": "checklist",
+      "heading": "Grundcheck: Passt mein Projekt?",
+      "items": [
+        "**Antragsberechtigt?** Natürliche und juristische Personen, Genossenschaften, Baugemeinschaften, Kommunen; zuverlässig, leistungsfähig, Gesamtfinanzierung gesichert: Die erzielbare Miete deckt Finanzierung und Bewirtschaftung dauerhaft. [alle]",
+        "**Noch nicht begonnen?** Vor Bewilligung keine Liefer-, Leistungs-, Kauf- oder Werkverträge; Grundstückskauf und Planung bis HOAI-Leistungsphase 6 unschädlich (S. 19). [alle]",
+        "**Mehrfamilienhaus ab 3 Wohnungen?** Je neuem Gebäude mind. 2 gebundene Wohnungen, keine Eigentumswohnungen zur Vermietung; 2.3: fertiggestellt vor 08.12.2004. [2.1–2.4]",
+        "**Bedarf am Standort?** In sechs Gebietsarten gegeben, sonst NBank-Karte prüfen (S. 18). [2.1, 2.2, 2.6]",
+        "**Eigenmittel?** Mind. 20 % der zuwendungsfähigen Kosten (Inseln: 10 % der Herstellungskosten); davon sollen mind. 50 % Geld oder lastenfreies Grundstück sein (2.3: Geld). [2.1–2.4]",
+        "**Grundstück gesichert?** Eigentum oder Erbbaurecht (mind. 60 Jahre Restlaufzeit); gesicherter Erwerb genügt. [2.1, 2.2, 2.4]"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "achtung",
+      "title": "Einmal Nein?",
+      "body": "Stopp – oder vorab die Wohnraumförderstelle fragen."
+    },
+    {
+      "type": "callout",
+      "variant": "tipp",
+      "title": "Kalkulationsnotiz",
+      "body": "Der Zuschuss fließt anteilig mit jeder Darlehensrate – schon in der Bauphase."
+    }
+  ],
+  "footnotes": [
+    "Quoten: Höchstwerte, vorbehaltlich Überkompensationsprüfung (RL Nr. 5.3.7). RL Nr. 3, 4.1, 4.2, 5.2.1–5.2.6, 5.3.2, 5.3.5, 5.4.4, 5.5.3, 5.5.6, 7.2.2, 8.2, 13.2, 13.3",
+    "Bisher: NBank-Produktinformation „Allgemeine Mietwohnraumförderung“ (Stand 01.04.2026); WFB 2024 Nr. 17; Wohnraumförderprogramm (RdErl. v. 23.04.2024) Nr. 5.1.4; Auszahlung in der Bauphase laut NBank-Presseinformation vom 01.10.2026"
+  ],
+  "fact_ids": [
+    "F015",
+    "F009",
+    "G3-11",
+    "F124",
+    "F121",
+    "F018",
+    "F284",
+    "F285",
+    "G1-13",
+    "G1-12",
+    "G1-20",
+    "F116",
+    "F117",
+    "F012",
+    "F215",
+    "F014",
+    "F013",
+    "F252",
+    "F253",
+    "F254",
+    "F255",
+    "F256",
+    "F047",
+    "F092",
+    "F093",
+    "F148",
+    "F078",
+    "F079",
+    "G2-25",
+    "F094",
+    "F095",
+    "F156",
+    "F174",
+    "F090",
+    "F091",
+    "F098",
+    "F097",
+    "F286"
+  ],
+  "visual_idea": "Obere Hälfte: schlanke Vorher/Nachher-Tabelle, Spalte „Bisher“ in Grau, Spalte „RL 2026“ in --color-accent, dazwischen feine Pfeile; Zeilenmarker links in --baustein-21 mit Nummer 2.1. Tabellennote klein darunter, „Nicht 1:1 vergleichbar“ als kleines Warn-Label vorangestellt. Untere Hälfte: Grundcheck als druckbare Ankreuzliste mit sechs leeren Kästchen; die Klammer-Tags am Zeilenende ([alle], [2.1–2.4] usw.) als farbige Baustein-Chips mit Nummer setzen, nicht als Klammertext drucken. Ampelpunkt am Callout „Einmal Nein?“: grün = weiter, rot = Stopp oder Beratung. Kalkulationsnotiz am Seitenfuß. Kein Zeitachsen-Vergleich Tilgungsnachlass/Zuschuss."
+}

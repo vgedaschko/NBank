@@ -1,0 +1,184 @@
+{
+  "no": 16,
+  "slug": "programmteil-2-5-bindungserwerb",
+  "layout_type": "program-detail",
+  "running_title": "Bindungen im Bestand · Programmteil 2.5",
+  "kicker": "Programmteil 2.5 · Belegungsbindungen erwerben",
+  "headline": "Festbetrag für freie Bestandswohnungen",
+  "subline": "2,00 bis 3,00 € je m² und Monat, 5 bis 20 Jahre Bindung",
+  "lead": "Sie binden eine freie Bestandswohnung für Haushalte der Einkommensgruppe A, das Land zahlt einen Festbetrag je m² und Monat der Bindung. Kein Bau, kein Darlehen.",
+  "blocks": [
+    {
+      "type": "chart",
+      "chart": "bar",
+      "title": "Zuschuss für eine 60-m²-Wohnung",
+      "data": {
+        "unit": "€",
+        "token": "--color-grant",
+        "categories": [
+          "5 Jahre",
+          "10 Jahre",
+          "15 Jahre",
+          "20 Jahre"
+        ],
+        "values": [
+          7200,
+          18000,
+          32400,
+          43200
+        ],
+        "rate_line": {
+          "label": "Satz je m² und Monat",
+          "values": [
+            2.0,
+            2.5,
+            3.0,
+            3.0
+          ],
+          "labels": [
+            "2,00 €",
+            "2,50 €",
+            "3,00 €",
+            "3,00 €"
+          ]
+        },
+        "fee": {
+          "label": "davon Bearbeitungsentgelt 0,75 %",
+          "values": [
+            54,
+            135,
+            243,
+            324
+          ]
+        },
+        "stamp": "Modellrechnung – fiktives Beispiel, keine Förderzusage"
+      },
+      "note": "Eigene Berechnung: 60 m² × Satz × 12 × Jahre. Zwischenlaufzeiten mit der NBank klären; Überkompensationsprüfung vorbehalten."
+    },
+    {
+      "type": "chart",
+      "chart": "timeline",
+      "title": "Auszahlung in zwei Hälften",
+      "data": {
+        "events": [
+          {
+            "at": "Bewilligung",
+            "label": "Förderentscheidung"
+          },
+          {
+            "at": "Erstbelegung",
+            "label": "Bindungsbeginn · 1. Rate 50 %, abzüglich Entgelt"
+          },
+          {
+            "at": "Halbzeit",
+            "label": "2. Rate 50 %"
+          },
+          {
+            "at": "Bindungsende",
+            "label": "nach 5 bis 20 Jahren"
+          }
+        ],
+        "example": "20 Jahre: je 21.600 € nach Erstbelegung und nach 10 Jahren"
+      }
+    },
+    {
+      "type": "bullets",
+      "heading": "Miete und Bindung",
+      "items": [
+        "Bindung ab der ersten Belegung mit einem WBS-Haushalt",
+        "Miete Jahr 1–3 max. 6,50 € (Mietenstufe I–III) bzw. 6,80 € (IV–VII) je m², bei EH-40-Niveau bis zu +0,30 €",
+        "danach max. +6,15 % in drei Jahren; keine Staffel- oder Indexmiete"
+      ]
+    },
+    {
+      "type": "key_figures",
+      "items": [
+        {
+          "value": "9,50",
+          "unit": "€",
+          "label": "Mietenstufe I–III",
+          "note": "6,50 € Miete + 3,00 € Festbetrag"
+        },
+        {
+          "value": "9,80",
+          "unit": "€",
+          "label": "Mietenstufe IV–VII",
+          "note": "6,80 € Miete + 3,00 € Festbetrag"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "body": "Je m² und Monat, Jahr 1–3, bei 15 bis 20 Jahren Bindung – rechnerisch, unverzinst (eigene Berechnung)."
+    },
+    {
+      "type": "bullets",
+      "heading": "Wer und welche Wohnung",
+      "items": [
+        "Eigentümerinnen und Eigentümer, Erbbauberechtigte oder vergleichbar langfristig Nutzungsberechtigte",
+        "Wohnung frei, ungebunden, abgeschlossen, gut erhalten, angemessen groß; Heizung, Bad mit Wanne oder Dusche und WC, Küchenanschluss",
+        "insbesondere für besondere Bedarfsgruppen, etwa wohnungslose Menschen, Frauen aus Frauenhäusern, Haftentlassene: dann genügt ein volljähriges Haushaltsmitglied mit wohnungsbezogenem WBS"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "achtung",
+      "title": "Erst Bewilligung, dann Vertrag",
+      "body": "Ein Mietvertrag oder die Überlassung an einen wohnberechtigten Haushalt vor der Bewilligung gilt als Vorhabenbeginn: keine Förderung. Unsere Empfehlung: vorher auch kein Mietangebot abgeben."
+    },
+    {
+      "type": "text",
+      "heading": "Kombinierbar mit",
+      "body": "Weitere Förderungen für denselben Zweck: grundsätzlich zulässig, Einzelfall mit der NBank klären. Anschlussbindungen an auslaufende Bindungen sind ausgeschlossen – für auslaufende Landesbindungen mit laufendem NBank-Darlehen gibt es 2.6 (→ S. 17)."
+    },
+    {
+      "type": "checklist",
+      "heading": "Unterlagen",
+      "items": [
+        "Vordruck 1011a",
+        "Vordruck 1012 je Wohnung",
+        "Wohnflächenberechnung",
+        "aktueller Grundbuchauszug je Wohnung",
+        "ggf. Vollmacht und Gesellschaftsunterlagen"
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Die günstigste neue Wohnung kann manchmal eine sein, für die wir gar kein neues Gebäude errichten müssen.",
+      "name": "Michael Kiesewetter",
+      "role": "Vorstandsvorsitzender der NBank",
+      "source": "NBank-Presseinformation vom 01.10.2026"
+    },
+    {
+      "type": "callout",
+      "variant": "tipp",
+      "title": "Kalkulationsnotiz",
+      "body": "Eine freie Wohnung wird zur planbaren Einnahme – Festbetrag plus gebundene Miete."
+    }
+  ],
+  "footnotes": [
+    "RL Nr. 1.5, 2.5, 3, 5.1.1, 5.3.7, 5.4.4, 5.4.5, 9.1–9.5, 11.4; NBank-Produktinformation und Checkliste „Erwerb von Belegungs- und Mietbindungen“."
+  ],
+  "fact_ids": [
+    "F189",
+    "F190",
+    "F191",
+    "F192",
+    "F193",
+    "F194",
+    "F195",
+    "F196",
+    "F197",
+    "F198",
+    "F199",
+    "F200",
+    "F202",
+    "F203",
+    "F283",
+    "F042",
+    "F242",
+    "G3-10",
+    "F004"
+  ],
+  "visual_idea": "Baustein-Register 2.5 (--baustein-25, immer mit Nummer) am Seitenrand. Oben Säulendiagramm „Zuschuss für eine 60-m²-Wohnung“ (7.200 / 18.000 / 32.400 / 43.200 €, Säulen in --color-grant) mit überlagerter Stufenlinie des Satzes (2,00 / 2,50 / 3,00 / 3,00 €, eigene Achse rechts); Bearbeitungsentgelt als kleiner Wert unter jeder Säule; Stempel „Modellrechnung – fiktives Beispiel, keine Förderzusage“ schräg in der Ecke. Darunter schmaler Zeitstrahl mit vier Marken, die zwei Auszahlungsmarken (Erstbelegung, Halbzeit) als gefüllte Münz-Icons, Beispielzeile klein darunter. Zwei Kennzahl-Kacheln 9,50 / 9,80 € als Gleichung „Miete + Festbetrag“ mit zweigeteiltem Balken (Miete --color-primary, Festbetrag --color-grant), Erklärzeile direkt darunter. Warnbox mit --signal-Rahmen und Stopp-Marker (ui-stopp.svg) „Erst Bewilligung, dann Vertrag“, gut sichtbar neben den Wohnungs-Kriterien. Zitat in der Marginalspalte mit Name, Funktion, Quelle. Unterlagen als Ankreuzliste (ui-dokument.svg). „Kombinierbar mit“ als schmale Zeile, Kalkulationsnotiz mit Rechensymbol am Fuß."
+}

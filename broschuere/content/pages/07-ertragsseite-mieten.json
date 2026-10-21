@@ -1,0 +1,190 @@
+{
+  "no": 7,
+  "slug": "ertragsseite-mieten",
+  "layout_type": "table-focus",
+  "running_title": "Ertragsseite · Mieten",
+  "kicker": "Ertragsseite",
+  "headline": "Höchstmieten, Mietpfad, Mietenstufe",
+  "lead": "Gedeckelt, aber planbar: drei Jahre fest, danach Erhöhungen nach klaren Regeln.",
+  "blocks": [
+    {
+      "type": "table",
+      "caption": "Höchstmiete in Jahr 1–3 der Mietbindung, nettokalt, € je m² und Monat",
+      "columns": [
+        "Programmteil",
+        "Mietenstufe",
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        [
+          "2.1 · 2.3 · 2.5 (nur A)",
+          "I–III",
+          "6,50",
+          "7,90",
+          "8,70"
+        ],
+        [
+          "",
+          "IV–VII",
+          "6,80",
+          "8,20",
+          "9,00"
+        ],
+        [
+          "2.2",
+          "I–III",
+          "6,80",
+          "8,20",
+          "9,00"
+        ],
+        [
+          "",
+          "IV–VII",
+          "7,10",
+          "8,50",
+          "9,30"
+        ],
+        [
+          "2.4",
+          "alle",
+          "9,50",
+          "11,50",
+          "12,50"
+        ],
+        [
+          "2.6",
+          "alle",
+          "bisherige Miete, 3 Jahre eingefroren",
+          "",
+          ""
+        ]
+      ],
+      "note": "Ab KfW-EH-40-Niveau bis zu +0,30 € (2.1, 2.3, 2.5); in 2.2 enthalten; für 2.4 mit der NBank klären."
+    },
+    {
+      "type": "chart",
+      "chart": "bar",
+      "title": "Mietpfad, Modell A, Mietenstufe IV–VII",
+      "data": {
+        "kind": "step",
+        "unit": "€ je m²",
+        "points": [
+          {
+            "period": "Jahr 1–3",
+            "value": 6.8,
+            "label": "6,80"
+          },
+          {
+            "period": "ab Jahr 4",
+            "value": 7.21,
+            "label": "max. 7,21"
+          },
+          {
+            "period": "ab Jahr 7",
+            "value": 7.65,
+            "label": "max. 7,65"
+          }
+        ]
+      },
+      "note": "Eigene Berechnung, auf volle Cent abgerundet; die BGB-Voraussetzungen (§§ 558–559b) gelten zusätzlich. Höchstens +6,15 % innerhalb von drei Jahren, Betriebskosten ausgenommen, auch bei Wiedervermietung. Keine Staffel- oder Indexmiete."
+    },
+    {
+      "type": "chart",
+      "chart": "bar",
+      "title": "Abstand zum Markt, € je m² nettokalt",
+      "data": {
+        "orientation": "horizontal",
+        "bars": [
+          {
+            "label": "Gefördert (A, Mietenstufe IV–VII)",
+            "value": 6.8,
+            "value_label": "6,80"
+          },
+          {
+            "label": "Angebotsmiete Niedersachsen 2024, Mittel",
+            "value": 9.0,
+            "value_label": "9,00"
+          },
+          {
+            "label": "Neubau 2024, Median",
+            "value": 11.22,
+            "value_label": "11,22"
+          }
+        ],
+        "source": "NBank-Wohnungsmarktbericht 2025"
+      },
+      "note": "Rechtlich ist die Förderung ein DAWI-Ausgleich für diese Leistung; die NBank prüft auf Überkompensation (→ S. 11)."
+    },
+    {
+      "type": "callout",
+      "variant": "hinweis",
+      "title": "Begriff: Mietenstufe",
+      "body": "Sie bestimmt Höchstmiete und Bemessungsgrenze. Stand 21.10.2026, WoGV-Anlage in der jeweils geltenden Fassung:\n\n**VI** Buchholz i. d. Nordheide, Neu Wulmstorf\n\n**V** Hannover, Buxtehude, Seevetal, die sieben Inselgemeinden\n\n**IV** Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg\n\n**I–III** übrige Festlandgemeinden. Stufe VII gibt es in Niedersachsen nicht; neue Stufen ab 2027 sind erst Entwurf."
+    },
+    {
+      "type": "bullets",
+      "heading": "So vermieten Sie",
+      "items": [
+        "unbefristeter Mietvertrag, bezugsfertige Übergabe",
+        "Stellplätze separat vermietbar, aber nicht an die Wohnung gekoppelt"
+      ]
+    },
+    {
+      "type": "bullets",
+      "heading": "Nicht zulässig",
+      "items": [
+        "Zuschläge für Ausstattung, Keller, Energie- und Wärmeeinrichtungen",
+        "Entgelte für zwingende Zusatzleistungen",
+        "Zwischenvermietung – Ausnahmen: gewerblich im begründeten Einzelfall, Housing First mit NBank-Zustimmung"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "achtung",
+      "title": "Verstöße kosten",
+      "body": "Vermietung ohne WBS oder zu überhöhter Miete: Es drohen Geldleistungen bis 5 € je m² und Monat und ein Bußgeld bis 10.000 €. Bei Fehlbelegung kann die Kündigung angeordnet werden."
+    },
+    {
+      "type": "callout",
+      "variant": "tipp",
+      "title": "Kalkulationsnotiz",
+      "body": "Die Miete ist gedeckelt, aber nach festen Regeln fortschreibbar – das macht den Cashflow über die gesamte Bindung modellierbar."
+    }
+  ],
+  "footnotes": [
+    "RL Nr. 5.4.4–5.4.5, 6.4.1, 7.4.3, 8.4, 9.4.1, 10.4.2, 11.7–11.9; §§ 7, 9, 14 NWoFG; WoGV-Anlage."
+  ],
+  "fact_ids": [
+    "F214",
+    "F215",
+    "F216",
+    "F217",
+    "F218",
+    "F141",
+    "F184",
+    "F199",
+    "F209",
+    "F220",
+    "F221",
+    "F222",
+    "F219",
+    "G2-16",
+    "G2-17",
+    "G2-18",
+    "F233",
+    "F235",
+    "F236",
+    "F311",
+    "F245",
+    "F225",
+    "F226",
+    "F227",
+    "F228",
+    "F229",
+    "G2-38",
+    "G4-11"
+  ],
+  "visual_idea": "Heatmap-Tabelle der Höchstmieten: Zeilenmarker in den Baustein-Farben (2.1/2.3/2.5 je eigener Chip, 2.2, 2.4, 2.6 – immer mit Nummer), Zellen in einer ruhigen Tonwertskala nach Miethöhe; Zeile 2.6 als Text über die Spalten A–C. Kleines Treppendiagramm Mietpfad (6,80 → 7,21 → 7,65 als „höchstens“-Linie, gestrichelt). Marktvergleich als drei horizontale Balken 6,80 / 9,00 / 11,22 € mit Quellenlabel. Mietenstufen-Gemeindeindex kompakt in der Marginalspalte (Stufe als Chip, Gemeinden als Fließtext). Spielregeln als zwei kurze Listen: „So vermieten Sie“ mit ✓-Icons, „Nicht zulässig“ mit ✕-Icons. Leere Programmteil-Zellen = Fortsetzung der Zeile darüber (Zellen verbinden). Sanktionen in --signal."
+}

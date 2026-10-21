@@ -1,0 +1,203 @@
+{
+  "no": 6,
+  "slug": "mieterkreis-einkommensgruppen",
+  "layout_type": "chart-table",
+  "running_title": "Ertragsseite · Mieterkreis",
+  "kicker": "Ertragsseite",
+  "headline": "Ihr Mieterkreis: drei Einkommensgruppen",
+  "lead": "Für wen Sie bauen, bestimmt Fördermix und Anfangsmiete zugleich. Grundsatz ist Gruppe A.",
+  "blocks": [
+    {
+      "type": "chart",
+      "chart": "bar",
+      "title": "Obergrenze Gesamtjahreseinkommen in €",
+      "data": {
+        "orientation": "horizontal",
+        "series": [
+          {
+            "name": "A",
+            "label": "bis zur Einkommensgrenze"
+          },
+          {
+            "name": "B",
+            "label": "bis 40 % darüber"
+          },
+          {
+            "name": "C",
+            "label": "bis 60 % darüber"
+          }
+        ],
+        "rows": [
+          {
+            "household": "1 Person",
+            "values": [
+              21250,
+              29750,
+              34000
+            ],
+            "labels": [
+              "21.250",
+              "29.750",
+              "34.000"
+            ]
+          },
+          {
+            "household": "2 Erwachsene",
+            "values": [
+              28750,
+              40250,
+              46000
+            ],
+            "labels": [
+              "28.750",
+              "40.250",
+              "46.000"
+            ]
+          },
+          {
+            "household": "1 Erwachsener + 1 Kind",
+            "values": [
+              32500,
+              45500,
+              52000
+            ],
+            "labels": [
+              "32.500",
+              "45.500",
+              "52.000"
+            ]
+          },
+          {
+            "household": "2 Erwachsene + 1 Kind",
+            "values": [
+              36250,
+              50750,
+              58000
+            ],
+            "labels": [
+              "36.250",
+              "50.750",
+              "58.000"
+            ]
+          },
+          {
+            "household": "2 Erwachsene + 2 Kinder",
+            "values": [
+              43750,
+              61250,
+              70000
+            ],
+            "labels": [
+              "43.750",
+              "61.250",
+              "70.000"
+            ]
+          },
+          {
+            "household": "2 Erwachsene + 3 Kinder",
+            "values": [
+              51250,
+              71750,
+              82000
+            ],
+            "labels": [
+              "51.250",
+              "71.750",
+              "82.000"
+            ]
+          }
+        ]
+      },
+      "note": "Gültig seit 01.03.2025; je weitere Person +3.750 €, je Kind zusätzlich +3.750 €. B und C: eigene Berechnung (× 1,4 bzw. × 1,6)."
+    },
+    {
+      "type": "callout",
+      "variant": "achtung",
+      "title": "B und C nur mit Zulassung",
+      "body": "Höhere Einkommen muss die NBank in der Förderentscheidung zulassen.\n\n**Bis +60 %** in Gebieten mit Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach § 7 Abs. 3 NWoFG oder angespanntem Wohnungsmarkt – oder für Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- und Pflegebedürftigen vorbehalten ist.\n\n**Sonst** nur ab 12 zusammenhängenden Wohnungen: bis +20 % für höchstens die Hälfte. Folgen für Fördersätze und Mieten mit der NBank klären."
+    },
+    {
+      "type": "text",
+      "heading": "Nachweis per WBS",
+      "body": "Haushalte belegen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) der zuständigen Stelle, etwa des Landkreises oder der kreisfreien Stadt; der allgemeine WBS gilt ein Jahr. Unsere Ableitung: A-Haushalte dürfen auch B- und C-Wohnungen beziehen – zur B- bzw. C-Miete. Bindungserwerb (2.5): nur Gruppe A."
+    },
+    {
+      "type": "callout",
+      "variant": "hinweis",
+      "title": "Begriff: Gesamtjahreseinkommen",
+      "body": "Nicht das Brutto: erwartetes Einkommen aller Haushaltsmitglieder in den nächsten 12 Monaten, abzüglich je 10 % für Steuern, Kranken-/Pflege- und Rentenversicherung, soweit gezahlt (höchstens 30 %), und abzüglich Freibeträgen, z. B. 4.000 € je Person mit GdB ab 50 oder Pflegegrad 2–5."
+    },
+    {
+      "type": "table",
+      "caption": "Angemessene Wohnfläche",
+      "columns": [
+        "Personen",
+        "bis m²"
+      ],
+      "rows": [
+        [
+          "1",
+          "50"
+        ],
+        [
+          "2",
+          "60"
+        ],
+        [
+          "3",
+          "75"
+        ],
+        [
+          "4",
+          "85"
+        ],
+        [
+          "je weitere",
+          "+10"
+        ]
+      ],
+      "note": "Rollstuhlgerecht +12 m², mit Freisitz +15 m²."
+    },
+    {
+      "type": "quote",
+      "text": "Umso wichtiger ist es, dass die neuen Richtlinien den Kreis der Berechtigten spürbar erweitern. So öffnet sich eine Tür für all jene, die bisher knapp durchs Raster gefallen sind.",
+      "name": "Michael Kiesewetter",
+      "role": "Vorstandsvorsitzender der NBank",
+      "source": "MW-Presseinformation vom 03.07.2026"
+    },
+    {
+      "type": "callout",
+      "variant": "tipp",
+      "title": "Kalkulationsnotiz",
+      "body": "Wo B und C zugelassen sind, bestimmt die Gruppe Zuschuss, Darlehen und Anfangsmiete zugleich (→ S. 11)."
+    }
+  ],
+  "footnotes": [
+    "§ 3 Abs. 2, §§ 7–8 NWoFG; §§ 2–4 DVO-NWoFG; RL Nr. 1.5, 1.6, 5.1.1, 12.3.2."
+  ],
+  "fact_ids": [
+    "F021",
+    "F022",
+    "F023",
+    "F024",
+    "F025",
+    "F026",
+    "F027",
+    "F028",
+    "F029",
+    "F037",
+    "F038",
+    "F039",
+    "F040",
+    "F041",
+    "G2-28",
+    "G2-29",
+    "G2-31",
+    "G2-32",
+    "F189",
+    "F053",
+    "F062",
+    "G3-02"
+  ],
+  "visual_idea": "„Einkommensleiter“: je Haushaltstyp ein Piktogramm (Erwachsene/Kinder) und drei horizontale Balken in abgestuften Tönen A/B/C mit den exakten Endwerten – die Beschriftung ist zugleich die Tabelle, keine zweite Tabelle nötig. Legende A/B/C als große Buchstaben-Chips mit ihrer Definition oben. Kasten „B und C nur mit Zulassung“ mit --signal-Kontur. Marginalspalte: „Begriff: Gesamtjahreseinkommen“ mit Mini-Grafik „Brutto ≠ Gesamtjahreseinkommen“ (drei 10-%-Chips, ein Freibetrag-Chip), darunter die kleine Tabelle „Angemessene Wohnfläche“. Zitat als typografische Atempause; Kalkulationsnotiz als wiederkehrendes Element am Seitenfuß."
+}

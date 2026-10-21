@@ -1,0 +1,175 @@
+{
+  "no": 3,
+  "slug": "zahlen-zuerst",
+  "layout_type": "key-figures",
+  "running_title": "Überblick",
+  "kicker": "Kennzahlen",
+  "headline": "Die Zahlen zuerst",
+  "blocks": [
+    {
+      "type": "key_figures",
+      "items": [
+        {
+          "value": "bis zu 80",
+          "unit": "%",
+          "label": "Förderquote",
+          "note": "Darlehen + Zuschuss in % der zuwendungsfähigen Kosten: A 40 + 40, B 60 + 20, C 70 + 10; Zuschläge → S. 8 · Nr. 2.1"
+        },
+        {
+          "value": "bis zu 40",
+          "unit": "%",
+          "label": "Zuschuss",
+          "note": "Gruppe A; B bis 20 %, C bis 10 %; nur mit Darlehen · Nr. 2.1"
+        },
+        {
+          "value": "0",
+          "unit": "%",
+          "label": "Zins bis Ende Jahr 35",
+          "note": "zzgl. 0,5 % Verwaltungskostenbeitrag p. a. aufs Restkapital; einmalig 1 % (Darlehen) bzw. 0,75 % (Zuschuss) Bearbeitungsentgelt · Nr. 5.3.4, 12.7"
+        },
+        {
+          "value": "4.800 / 5.000",
+          "unit": "€ je m²",
+          "label": "Bemessungsgrenze",
+          "note": "Herstellungskosten, Mietenstufe I–III / IV–VII; Ausgangswerte, Fortschreibung 1.4./1.10., aktuell: nbank.de · Nr. 5.3.2.2"
+        },
+        {
+          "value": "bis zu 90.000",
+          "unit": "€",
+          "label": "Zuschuss je Wohnung",
+          "note": "EH-40-Neubau, Gruppe A, reiner Zuschuss · Nr. 2.2"
+        },
+        {
+          "value": "bis zu 31.000",
+          "unit": "€",
+          "label": "Zuschuss je Wohnung",
+          "note": "Modernisierung um mind. 5 Effizienzklassen, Gruppe A · Nr. 2.3"
+        },
+        {
+          "value": "3,00",
+          "unit": "€ je m²/Monat",
+          "label": "Festbetrag Bindungserwerb",
+          "note": "15–20 Jahre Bindung, Gruppe A · Nr. 2.5"
+        },
+        {
+          "value": "3",
+          "unit": "",
+          "label": "Einkommensgruppen",
+          "note": "A bis Einkommensgrenze, B bis +40 %, C bis +60 %; B/C nach Zulassung · Nr. 1.5"
+        }
+      ]
+    },
+    {
+      "type": "chart",
+      "chart": "compare",
+      "title": "Der Markt in Zahlen",
+      "data": {
+        "hero": {
+          "value": "50.495",
+          "label": "Sozialwohnungen 2024",
+          "note": "ggü. 2015 nahezu halbiert"
+        },
+        "bars": {
+          "period": "31.12.2015–31.12.2024",
+          "unit": "Wohnungen",
+          "items": [
+            {
+              "label": "ausgelaufene Bindungen",
+              "value": 58024,
+              "display": "58.024",
+              "token": "--signal"
+            },
+            {
+              "label": "neu gefördert",
+              "value": 16052,
+              "display": "rund 16.052",
+              "token": "--color-primary"
+            }
+          ]
+        },
+        "ring": {
+          "value": 28,
+          "display": "28 %",
+          "label": "kompensiert"
+        },
+        "trend": {
+          "label": "Ø Neuförderung p. a.",
+          "from": {
+            "period": "2015–2020",
+            "value": 1250,
+            "display": "1.250"
+          },
+          "to": {
+            "period": "2021–2024",
+            "value": 2400,
+            "display": "rund 2.400"
+          }
+        },
+        "facts": [
+          {
+            "value": "rund 181.000",
+            "label": "neue MFH-Wohnungen bis 2045 nötig"
+          },
+          {
+            "value": "−23,1 %",
+            "label": "Fertigstellungen 2025 ggü. 2024, Geschosswohnungsbau (alle: −20,3 %)"
+          }
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "body": "2026 rund 380 Mio. € Bundes- und Landesmittel für die gesamte Wohnraumförderung · RL bis 31.12.2031 · Entscheidung binnen drei Monaten (Soll-Vorgabe)."
+    },
+    {
+      "type": "callout",
+      "variant": "hinweis",
+      "title": "Begriff: Bemessungsgrenze",
+      "body": "Höchstsatz anrechenbarer Herstellungskosten je m² Wohnfläche."
+    },
+    {
+      "type": "callout",
+      "variant": "frist",
+      "title": "Stichtag Modernisierung",
+      "body": "Wahlrecht für Altrecht nur bei Antragseingang bis 31.12.2026 → S. 15"
+    },
+    {
+      "type": "callout",
+      "variant": "tipp",
+      "title": "Kalkulationsnotiz",
+      "body": "Die Nachfrage ist strukturell, die Förderung setzt auf Zuschuss – jetzt entscheidet die Projektrechnung."
+    }
+  ],
+  "footnotes": [
+    "Alle Quoten und Beträge sind Höchstwerte; jede Bewilligung wird auf Überkompensation geprüft (RL Nr. 5.3.7, 11.10).",
+    "RL Nr. 1.5, 1.6, 5.3.2.2, 5.3.3, 5.3.4, 6.3.3, 7.3.3, 9.3, 12.2.2, 12.7, 13.1, 13.3; MW-Presseinformation vom 03.07.2026; Marktband: NBank-Wohnungsmarktbericht 2025, LSN-Pressemitteilung Nr. 053 vom 02.06.2026"
+  ],
+  "fact_ids": [
+    "F010",
+    "F105",
+    "F109",
+    "F113",
+    "F276",
+    "F098",
+    "G1-01",
+    "F136",
+    "F133",
+    "F162",
+    "F194",
+    "F197",
+    "F021",
+    "F022",
+    "F023",
+    "F029",
+    "F306",
+    "F307",
+    "F309",
+    "F313",
+    "F294",
+    "F002",
+    "F266",
+    "F286",
+    "G3-20"
+  ],
+  "visual_idea": "KPI-Raster 4 × 2: große Ziffern in der Display-Schrift, „bis zu“ als kleiner Vorsatz (steht im value), Einheit kleiner daneben, Erklärzeile (label) halbfett, note in 8,5 pt; die RL-Nummer am Ende der note („· Nr. …“) in Kapitälchen am Kachelfuß. Kosten- und Ausgangswert-Hinweise bleiben IN der Kachel. Baustein-Streifen links an den Kacheln: 1–2 --baustein-21 (2.1), 5 --baustein-22 (2.2), 6 --baustein-23 (2.3), 7 --baustein-25 (2.5), jeweils mit Nummer. Kein Lead – die Kacheln sind der Einstieg. Darunter dunkles Marktband (chart compare): Hero-Zahl 50.495 links groß, Mitte Balkenpaar 58.024 (--signal) gegen rund 16.052 (--color-primary) mit Ring „28 % kompensiert“, rechts kleiner Pfeil 1.250 → rund 2.400, darunter die zwei Zusatzzahlen. Rahmen-Zeile als schmale Leiste unter dem Band. Begriff-Callout in die Marginalspalte neben Kachel 4. Stichtag-Callout als schmales Signalband (--signal) am Seitenfuß, Kalkulationsnotiz als wiederkehrendes Element mit Rechensymbol."
+}

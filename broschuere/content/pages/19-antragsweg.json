@@ -1,0 +1,194 @@
+{
+  "no": 19,
+  "slug": "antragsweg",
+  "layout_type": "process",
+  "running_title": "Umsetzung · Antragsweg",
+  "kicker": "Vom Projekt zur Bewilligung",
+  "headline": "Der Antragsweg",
+  "lead": "Sie beantragen bei der Wohnraumförderstelle am Bauort, die NBank entscheidet. Bis zur Bewilligung gilt: planen ja, Bau- und Lieferverträge nein.",
+  "blocks": [
+    {
+      "type": "chart",
+      "chart": "timeline",
+      "title": "Antragsweg",
+      "data": {
+        "kind": "swimlane",
+        "lanes": [
+          "Sie",
+          "Wohnraumförderstelle",
+          "NBank"
+        ],
+        "stations": [
+          {
+            "n": 1,
+            "lane": "Wohnraumförderstelle",
+            "with": [
+              "Sie"
+            ],
+            "title": "Vorgespräch",
+            "body": "Nachweise und Unterlagen vorab klären; NBank-Förderberatung zusätzlich"
+          },
+          {
+            "n": 2,
+            "lane": "Sie",
+            "title": "Antrag",
+            "body": "bei der Wohnraumförderstelle; optional zugleich vorzeitigen Vorhabenbeginn beantragen",
+            "badges": [
+              "1011 · 2.1–2.4",
+              "1011a + 1012 · 2.5",
+              "1011b · 2.6"
+            ]
+          },
+          {
+            "n": 3,
+            "lane": "Wohnraumförderstelle",
+            "title": "Stellungnahme",
+            "body": "Bedarfsbestätigung, Anhörung der Gemeinde, Weiterleitung"
+          },
+          {
+            "n": 4,
+            "lane": "NBank",
+            "title": "Entscheidung",
+            "body": "Voraussetzungen, Bonität, Überkompensation; Fördervertrag, bei reinem Zuschuss Bescheid",
+            "deadline": "soll ≤ 3 Monate"
+          },
+          {
+            "n": 5,
+            "lane": "Sie",
+            "title": "Bauen",
+            "warn": true,
+            "body": "Baubeginnanzeige erst nach tatsächlichem Baubeginn, subventionserheblich (§ 264 StGB) ⚠ · mind. drei Angebote anfordern und dokumentieren, Direktauftrag bis 25.000 € netto ⚠ · Generalunternehmer nur mit schriftlicher Prüfzustimmung ⚠ · Bauschild mit Förderhinweis",
+            "badges": [
+              "4001"
+            ],
+            "deadline": "Baubeginn ≤ 4 Monate nach Bekanntgabe"
+          },
+          {
+            "n": 6,
+            "lane": "NBank",
+            "title": "Auszahlung",
+            "body": "in Raten nach Baufortschritt (→ S. 9); Darlehen erst nach rangrichtiger Sicherung"
+          },
+          {
+            "n": 7,
+            "lane": "Wohnraumförderstelle",
+            "with": [
+              "Sie"
+            ],
+            "title": "Fertigstellung",
+            "body": "Fertigstellungsanzeige, Schlussbescheinigung; WBS bei jeder Überlassung; letzte 10 % nach Belegung",
+            "badges": [
+              "4005"
+            ]
+          },
+          {
+            "n": 8,
+            "lane": "Sie",
+            "title": "Verwendungsnachweis",
+            "body": "danach Bindungsphase",
+            "deadline": "≤ 6 Monate nach Erfüllung des Zwecks"
+          }
+        ]
+      }
+    },
+    {
+      "type": "callout",
+      "variant": "achtung",
+      "role_hint": "stopp",
+      "title": "Erst Bewilligung, dann Vertrag",
+      "body": "Begonnene Vorhaben werden nicht gefördert."
+    },
+    {
+      "type": "chart",
+      "chart": "grid",
+      "title": "Darf ich das vor der Bewilligung?",
+      "data": {
+        "kind": "ampel",
+        "columns": [
+          {
+            "signal": "gruen",
+            "symbol": "✓",
+            "title": "Erlaubt",
+            "items": [
+              "Grundstück kaufen, Erbbaurecht bestellen",
+              "Planung bis einschließlich Leistungsphase 6 HOAI",
+              "Baugrunduntersuchung",
+              "Grundstück herrichten",
+              "nicht bindende Reservierung (Kauf)"
+            ]
+          },
+          {
+            "signal": "gelb",
+            "symbol": "!",
+            "title": "Genau prüfen",
+            "items": [
+              "Vertrag mit eindeutigem, folgenlosem Rücktrittsrecht oder Bedingung für den Fall der Nichtförderung – Einzelfallprüfung",
+              "vorzeitiger Vorhabenbeginn: Antrag frühestens mit dem Förderantrag, Beginn erst nach Zulassung, eigenes Risiko, kein Anspruch"
+            ]
+          },
+          {
+            "signal": "rot",
+            "symbol": "✕",
+            "title": "Förderschädlich",
+            "stop": true,
+            "items": [
+              "Bau-, Werk-, Liefer- oder Leistungsvertrag",
+              "bindender Kaufvertrag beim Ersterwerb",
+              "Beauftragung ab Leistungsphase 7 HOAI (NBank)",
+              "erster Spatenstich (NBank)",
+              "bei 2.5: Mietvertrag oder Überlassung; vorsorglich kein Mietangebot (Empfehlung)"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "callout",
+      "variant": "hinweis",
+      "title": "Begriff: Vorhabenbeginn",
+      "body": "Grundsätzlich der erste bindende Vertrag fürs Vorhaben; laut NBank auch der erste Spatenstich."
+    },
+    {
+      "type": "callout",
+      "variant": "tipp",
+      "title": "Kalkulationsnotiz",
+      "body": "Ein Vertrag zu früh kostet die ganze Förderung – erst die Bewilligung, dann die Unterschrift."
+    }
+  ],
+  "footnotes": [
+    "RL Nr. 4.2, 5.4.7, 5.4.8, 5.5.1–5.5.8, 9.2, 10.5, 11.10, 11.11, 12.1.2, 12.2, 12.3.1, 12.4, 12.5; Anlagen 1 und 2 (Vordrucke 4001, 4005); VV NWoFG 2026 Nr. 6; NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (Stand 27.07.2026)."
+  ],
+  "fact_ids": [
+    "F260",
+    "F261",
+    "F262",
+    "F263",
+    "F265",
+    "F266",
+    "F267",
+    "F281",
+    "F283",
+    "F210",
+    "F259",
+    "F325",
+    "F323",
+    "F125",
+    "F126",
+    "F127",
+    "F270",
+    "F247",
+    "F124",
+    "F268",
+    "F271",
+    "F273",
+    "F274",
+    "G2-36",
+    "F246",
+    "F255",
+    "F256",
+    "F257",
+    "F258",
+    "F193"
+  ],
+  "visual_idea": "Doppelseite 18|19 „Umsetzung“, Register in --color-primary. Obere Seitenhälfte: Swimlane mit drei horizontalen Bahnen (Sie · Wohnraumförderstelle · NBank), acht nummerierte Stationen als Kreise, verbunden durch eine Linie, die zwischen den Bahnen wechselt; Stationen mit „with“ als Klammer über zwei Bahnen. Vordrucknummern als Badges an den Stationen 2, 5, 7. Fristmarken als kleine Kalender-Fähnchen: „soll ≤ 3 Monate“ (4), „Baubeginn ≤ 4 Monate“ (5), „≤ 6 Monate“ (8). Station 5 mit drei Warn-Icons ⚠ in --signal, Stichpunkte unter der Bahn. Untere Hälfte: dreispaltige Ampel-Tabelle „Darf ich das vor der Bewilligung?“ mit Kopfsymbolen ✓ / ! / ✕ zusätzlich zur Farbe (graustufenfest: ✓ hell, ! mittel, ✕ dunkel gerastert) und Tätigkeits-Icons (Grundstück, Plan, Bohrer, Vertrag, Spaten, Schlüssel). Stopp-Marker (ui-stopp.svg) „Erst Bewilligung, dann Vertrag“ im Kopf der roten Spalte, verbunden mit der Achtung-Box. Begriff „Vorhabenbeginn“ in der Marginalspalte. Kalkulationsnotiz mit Rechensymbol am Fuß."
+}

@@ -3,14 +3,15 @@
   "slug": "konditionen-term-sheet",
   "layout_type": "term-sheet",
   "running_title": "Finanzierung · Term Sheet",
-  "kicker": "Term Sheet – Programmteil 2.1 (entsprechend 2.4)",
+  "kicker": "Term Sheet · Programmteil 2.1",
   "headline": "Konditionen auf einem Blatt",
-  "lead": "35 Jahre 0 % Zins, höchstens 42 Jahre Laufzeit, Darlehen und Zuschuss in einem Vertrag.",
+  "lead": "0 % Zins bis Ende des 35. Jahres nach Bezugsfertigkeit – zzgl. 0,5 % Verwaltungskostenbeitrag p. a. und einmalig 1 % bzw. 0,75 % Bearbeitungsentgelt. Höchstens 42 Jahre Laufzeit, Darlehen und Zuschuss in einem Fördervertrag.",
   "blocks": [
     {
       "type": "chart",
       "chart": "timeline",
       "title": "Zeitstrahl Darlehen und Bindung",
+      "subtitle": "schematisch",
       "data": {
         "kind": "loan-lifecycle",
         "axis": {
@@ -28,10 +29,15 @@
         "pre_phase": {
           "label": "Bauphase",
           "start": "Förderentscheidung",
+          "start_marker": {
+            "label": "Vorher kein Vorhabenbeginn",
+            "note": "z. B. Bauvertrag; sonst keine Förderung (→ S. 19)",
+            "token": "--signal"
+          },
           "milestones": [
             {
               "label": "Baubeginn",
-              "note": "spätestens 4 Monate nach Bekanntgabe"
+              "note": "unverzüglich, spätestens 4 Monate nach Bekanntgabe der Förderentscheidung (Abweichung in begründeten Fällen)"
             },
             {
               "label": "Auszahlungsbeginn"
@@ -57,7 +63,7 @@
               },
               {
                 "share": "10 %",
-                "trigger": "Fertigstellung, Belegung"
+                "trigger": "Fertigstellung, Schlussbescheinigung, Belegung"
               }
             ]
           },
@@ -75,7 +81,7 @@
               },
               {
                 "share": "10 %",
-                "trigger": "Abschluss, Belegung"
+                "trigger": "Abschluss, Schlussbescheinigung, Belegung"
               }
             ]
           },
@@ -97,14 +103,15 @@
         "bands": [
           {
             "id": "nullzins",
-            "label": "0 % Zins, Jahr 1–35",
-            "from": 0,
+            "label": "0 % Zins ab Auszahlung bis Ende des 35. Jahres",
+            "from": "Auszahlungsbeginn",
             "to": 35,
             "token": "--color-loan"
           },
           {
             "id": "zins",
-            "label": "Jahr 36–42: bis zu Basiszins + 3 Prozentpunkte, höchstens marktüblich",
+            "label": "ab Jahr 36: bis zu 3 Prozentpunkte über Basiszinssatz",
+            "note": "höchstens marktüblich",
             "from": 35,
             "to": 42,
             "token": "--color-loan",
@@ -128,9 +135,12 @@
         ],
         "markers": [
           {
-            "at": "Übergang Bauphase/Jahr 0",
-            "label": "Tilgungsbeginn",
-            "note": "Monatserster nach Vollauszahlung, spätestens 2 Jahre nach dem Folgemonat der Bekanntgabe"
+            "at": {
+              "span": "Bauphase bis nach Bezugsfertigkeit"
+            },
+            "style": "span",
+            "label": "Tilgungsbeginn (variabel)",
+            "note": "Monatserster nach Vollauszahlung, meist nach Bezugsfertigkeit; spätestens 2 Jahre nach dem auf die Bekanntgabe folgenden Monat, ggf. schon in der Bauphase"
           },
           {
             "at": 20,
@@ -142,7 +152,7 @@
           }
         ]
       },
-      "note": "Ersterwerb: Laufzeit und Bindung ab Eigentumsübergang; 0 % Zins bis Ende Jahr 35 nach Bezugsfertigkeit."
+      "note": "Ersterwerb: Laufzeit und Bindung ab Eigentumsübergang."
     },
     {
       "type": "table",
@@ -153,76 +163,70 @@
       ],
       "rows": [
         [
-          "Bewilligung",
-          "NBank; Antrag über die Wohnraumförderstelle am Bauort"
+          "Bewilligung, Vertrag",
+          "NBank, Antrag über die Wohnraumförderstelle; öffentlich-rechtlicher Fördervertrag (Zuschuss nur mit Darlehen)"
         ],
         [
-          "Vertrag",
-          "öffentlich-rechtlicher Fördervertrag; Bescheid nur bei reinem Zuschuss"
+          "Instrument, Sätze",
+          "anfänglich zinsloses Darlehen bis zu 40/60/70 % + Zuschuss bis zu 40/20/10 % (A/B/C), zusammen bis zu 80 % (→ S. 8)"
         ],
         [
-          "Instrument",
-          "anfänglich zinsloses Darlehen + nicht rückzahlbarer Zuschuss, Anteilfinanzierung; Zuschuss nur mit Darlehen"
+          "Eigenmittel",
+          "mind. 20 % der zuwendungsfähigen Kosten"
         ],
         [
           "Zins",
-          "Phasen im Zeitstrahl; Basiszinssatz nach § 247 BGB; Festzins für die Restlaufzeit möglich"
+          "0 % bis Ende des 35. Jahres nach Bezugsfertigkeit; danach bis zu 3 Prozentpunkte über dem Basiszinssatz nach § 247 BGB, höchstens marktüblich; Festschreibung für die Restlaufzeit möglich"
         ],
         [
           "Tilgung",
-          "Satz legt die NBank fest (RL: keiner); läuft schon in der Nullzinsphase; bis 5 Jahre Aufschub bei vorübergehendem Fehlbetrag möglich, ohne Anspruch"
+          "Satz legt die NBank fest; läuft schon in der Nullzinsphase; Aufschub bis 5 Jahre bei vorübergehendem Fehlbetrag möglich, ohne Anspruch"
         ],
         [
           "Kosten, laufend",
-          "Verwaltungskostenbeitrag 0,5 % p. a. auf das Restkapital"
+          "Verwaltungskostenbeitrag 0,5 % p. a. auf das Darlehens-Restkapital, ab Auszahlungsbeginn, auch in der Nullzinsphase"
         ],
         [
           "Kosten, einmalig",
-          "Bearbeitungsentgelt 1 % des Darlehens, 0,75 % des Zuschusses, mit der Auszahlung verrechnet; voll fällig auch bei Verzicht vor Auszahlung; sonstige Entgelte laut Entgeltkatalog"
+          "Bearbeitungsentgelt 1 % des bewilligten Darlehens (mit der 1. Rate verrechnet), 0,75 % des bewilligten Zuschusses (mit dessen Auszahlung verrechnet); voll fällig auch bei Verzicht, Widerruf, Rücknahme vor Auszahlung"
         ],
         [
           "Sicherheiten",
-          "Grundschuld direkt nach den Kapitalmarktmitteln; vorgehen sollen nur Darlehen zu erststelligen Marktkonditionen mit mind. 1 % Tilgung zzgl. ersparter Zinsen; keine Revalutierung; weitere Sicherheiten je nach Bonität, bei reinen Objektgesellschaften immer"
+          "nachrangige Grundschuld direkt nach den Kapitalmarktmitteln, je nach Bonität weitere¹"
         ],
         [
           "Auszahlung",
-          "Darlehen und Zuschuss anteilig und zeitgleich; Darlehen erst nach rangrichtiger Sicherung"
-        ],
-        [
-          "Versicherung",
-          "Brand ab Baubeginn, Sturm ab Bezugsfertigkeit, gleitender Neuwert, bis zur Rückzahlung"
+          "je Rate Darlehen und Zuschuss anteilig und zeitgleich; Darlehen erst nach rangrichtiger Sicherung oder Notarbestätigung; Eigenmittel grundsätzlich vorrangig einsetzen"
         ],
         [
           "Exit",
-          "freiwillige Volltilgung: anteiliger Zuschuss zurück; Bindung endet nach dem 10. folgenden Kalenderjahr, frühestens 20 Jahre nach Bindungsbeginn"
+          "freiwillige Volltilgung: Zuschussanteil für die Restbindung zurück; Bindung endet nach Ablauf des 10. Kalenderjahres nach Rückzahlung, frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende"
         ],
         [
           "Beihilferecht",
-          "DAWI-Ausgleich; Quoten „bis zu“, Überkompensationsprüfung (→ S. 11)"
+          "Ausgleich für eine Dienstleistung von allgemeinem wirtschaftlichem Interesse (DAWI); Überkompensationsprüfung (→ S. 11)"
         ]
       ]
     },
     {
       "type": "callout",
-      "variant": "hinweis",
-      "title": "Begriff: Verwaltungskostenbeitrag",
-      "body": "Laufendes Entgelt auf das Restkapital – zusätzlich zu Tilgung und Zins, auch in der Nullzinsphase."
-    },
-    {
-      "type": "callout",
       "variant": "tipp",
       "title": "Kalkulationsnotiz",
-      "body": "Zinsfrei heißt nicht kostenfrei: Rechnen Sie mit 0,5 % p. a. auf das Restkapital plus einmalig 1 % bzw. 0,75 %."
+      "body": "Zinsfrei heißt nicht kostenfrei: Verwaltungskostenbeitrag und Bearbeitungsentgelte gehören als feste Kosten in Ihren Finanzplan (Beispielwerte → S. 10)."
     }
   ],
   "footnotes": [
-    "RL Nr. 1.2, 5.3–5.5, 8.3–8.5, 11.5, 11.10, 12.1–12.4, 12.7; Sicherheiten: NBank-Produktinformation Mietwohnungen (Stand 31.08.2026). Quoten 2.4 → S. 13."
+    "Laut NBank-Produktinformation 2.1 (Stand 31.08.2026), z. B. Bürgschaft; bei reinen Objektgesellschaften immer. Vorgehen sollen nur Kapitalmarktdarlehen zu erststelligen Marktbedingungen mit mind. 1 % Tilgung zzgl. ersparter Zinsen; deren Grundschuld nicht neu belegen (Ausnahmen möglich). Andere Rangfolge durch die NBank möglich. Inseln: mit der NBank klären.",
+    "Versicherung: Brand ab Baubeginn, Sturm ab Bezugsfertigkeit, gleitender Neuwert, bis zur Rückzahlung. Weitere Entgelte: Entgeltkatalog der NBank.",
+    "2.4: Darlehenskonditionen, Auszahlung, Exit entsprechend; Quoten, Eigenmittel, Kostengrenze, Mieten abweichend (→ S. 13). RL Nr. 1.2, 4.2, 5.3–5.5, 8.3–8.5, 11.5, 11.10, 12.1–12.4, 12.7."
   ],
   "fact_ids": [
     "F008",
     "F260",
     "F267",
     "F096",
+    "F105",
+    "F094",
     "F109",
     "F113",
     "F114",
@@ -253,7 +257,8 @@
     "F175",
     "F182",
     "F212",
-    "F125"
+    "F125",
+    "F255"
   ],
-  "visual_idea": "Oben über die volle Satzbreite der 42-Jahres-Zeitstrahl (Daten im chart-Block): links die gestauchte Bauphase mit Förderentscheidung, Baubeginn und Auszahlungsmarken – Neubau groß (bis zu 30/30/30 % + 10 %), darunter klein Änderung/Erweiterung (30/60/10 %) und Ersterwerb (90/10 %); dann Bezugsfertigkeit als Jahr 0, Band „0 % Zins, Jahr 1–35“ in --color-loan, schraffiertes Band „Jahr 36–42“, darüber eine dünne Linie in --signal „Verwaltungskostenbeitrag 0,5 % p. a.“ ab Auszahlungsbeginn bis zur Rückzahlung; darunter parallel das Bindungsband 35 Jahre in --baustein-21 mit Marker bei Jahr 20; Marker „Tilgungsbeginn“ am Übergang Bauphase/Jahr 0. Darunter das Term Sheet als zweispaltige Finanztabelle: Positionsspalte schmal, tabellarische Ziffern, feine Haarlinien; Zeilen „Kosten, laufend“ und „Kosten, einmalig“ links mit dünnem --signal-Strich markiert. Marginalspalte: „Begriff: Verwaltungskostenbeitrag“. Kalkulationsnotiz am Fuß. Baustein-Register 2.1 (--baustein-21) und klein 2.4 (--baustein-24) am Seitenrand, jeweils mit Nummer."
+  "visual_idea": "Oben über die volle Satzbreite der 42-Jahres-Zeitstrahl (Daten im chart-Block), Untertitel „schematisch“: links die gestauchte Bauphase mit Förderentscheidung – dort eine Stopp-Marke in --signal „vorher nicht beginnen“ –, Baubeginn und Auszahlungsmarken – Neubau groß (bis zu 30/30/30 % + 10 %), darunter klein Änderung/Erweiterung (30/60/10 %) und Ersterwerb (90/10 %); dann Bezugsfertigkeit als Jahr 0. Das Band „0 % Zins ab Auszahlung bis Ende Jahr 35“ in --color-loan beginnt schon in der Bauphase beim Auszahlungsbeginn, schraffiertes Band „ab Jahr 36“, darüber eine dünne Linie in --signal „Verwaltungskostenbeitrag 0,5 % p. a.“ ab Auszahlungsbeginn bis zur Rückzahlung; darunter parallel das Bindungsband 35 Jahre in --baustein-21 mit Marker bei Jahr 20. „Tilgungsbeginn“ NICHT als Punkt an Jahr 0, sondern als Klammer/Spanne, die von der späten Bauphase über die Bezugsfertigkeit hinausreicht (variabel, Beschriftung laut Marker-Notiz). Darunter das Term Sheet als zweispaltige Finanztabelle (.table--terms): Positionsspalte schmal, tabellarische Ziffern, feine Haarlinien; Zeilen „Kosten, laufend“ und „Kosten, einmalig“ links mit dünnem --signal-Strich markiert; Hochziffer ¹ bei „Sicherheiten“ verweist auf Fußnote 1. Kein Begriff-Kasten mehr (Inhalt steht in der Zeile „Kosten, laufend“). Kalkulationsnotiz am Fuß. Baustein-Register 2.1 (--baustein-21) und klein 2.4 (--baustein-24) am Seitenrand, jeweils mit Nummer."
 }

@@ -4,28 +4,28 @@
   "layout_type": "editorial",
   "running_title": "Einstieg",
   "kicker": "Editorial",
-  "headline": "Investieren, wenn es sich wieder rechnet",
-  "lead": "Die Bauwerkskosten haben sich in 25 Jahren mehr als verdoppelt. Ende 2025 lagen die Zinsen bei 3 bis 4 %, die Zahl der Baugenehmigungen sank seit 2021 um mehr als 50 % (NBank-Wohnungsmarktbeobachtung 2025).",
+  "headline": "Damit sich Investieren wieder rechnet",
+  "lead": "Die Bauwerkskosten haben sich in 25 Jahren mehr als verdoppelt, die Zinsen lagen Ende 2025 bei 3–4 %, die Baugenehmigungen sind seit 2021 um über 50 % gesunken (NBank-Wohnungsmarktbeobachtung, Dezember 2025).",
   "blocks": [
     {
       "type": "text",
-      "body": "Seit 01.07.2026 gilt die RL Mietwohnraum 2026, befristet bis 31.12.2031. Laut Wirtschafts- und Bauministerium ist sie übersichtlicher strukturiert und deutlich stärker auf Zuschüsse statt Tilgungsnachlässe ausgerichtet.\n\nDieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertragsseite, Modellrechnung, Antragsweg** – nachrechenbar und mit Fundstelle."
+      "body": "Seit 01.07.2026 gilt die RL Mietwohnraum 2026 (bis 31.12.2031). Laut Ministerium ist die neu aufgestellte Wohnraumförderung übersichtlicher strukturiert und deutlich stärker auf Zuschüsse statt auf Tilgungsnachlässe ausgerichtet.\n\nDieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertragsseite, Modellrechnung, Antragsweg** – nachrechenbar."
     },
     {
       "type": "quote",
       "text": "Bezahlbarer Wohnraum entsteht nur, wenn Investitionen wieder wirtschaftlich möglich sind. Genau hier setzen wir an: Wir vereinfachen die Förderung, erhöhen die Zuschussanteile und schaffen verlässliche Rahmenbedingungen für Kommunen, Wohnungsunternehmen, Genossenschaften und private Bauherren.",
       "name": "Grant Hendrik Tonne",
       "role": "Niedersächsischer Wirtschafts- und Bauminister",
-      "source": "MW-Presseinformation vom 03.07.2026"
+      "source": "MW-Presseinformation vom 03.07.2026 (Auszug)"
     },
     {
       "type": "bullets",
       "heading": "Ihr Einstieg",
       "items": [
         "**Wohnungsunternehmen und Genossenschaften:** antragsberechtigt; genossenschaftlich überlassener Wohnraum gilt als Mietwohnraum. → S. 8–11",
-        "**Private Investorinnen und Investoren:** antragsberechtigt als natürliche oder juristische Person. Personengesellschaften ohne eigene Rechtspersönlichkeit: Förderfähigkeit vorab mit der NBank klären. → S. 9–11",
-        "**Projektentwicklung:** Verkauf vor Erstvermietung – der Ersterwerb ist bis zwei Jahre nach Fertigstellung förderfähig, wenn die Wohnungen weder vermietet noch gebunden sind. → S. 8",
-        "**Kommunen:** selbst antragsberechtigt. Legen Sie geförderten Mietwohnraum per B-Plan, städtebaulichem Vertrag oder Baulandmodell fest, gilt der Bedarf als gegeben; das und ein Wohnraumversorgungskonzept können die Gruppen B und C öffnen. → S. 18"
+        "**Private Investorinnen und Investoren:** antragsberechtigt; Personengesellschaften ohne eigene Rechtspersönlichkeit vorab mit der NBank klären. → S. 9–11",
+        "**Projektentwicklung:** selbst bauen und beantragen – oder bis zwei Jahre nach Fertigstellung verkaufen; dann beantragt die Käuferseite den Ersterwerb. Kaufvertrag erst nach Bewilligung oder mit Rücktrittsrecht bei Ablehnung. → S. 8",
+        "**Kommunen:** selbst antragsberechtigt. Legen Sie geförderten Mietwohnraum in entsprechender Anzahl per Bebauungsplan, städtebaulichem Vertrag oder Baulandmodell fest, gilt der Bedarf als gegeben; damit oder mit einem Wohnraumversorgungskonzept kann die NBank auch Gruppen B und C zulassen. → S. 18"
       ]
     },
     {
@@ -63,7 +63,7 @@
               },
               {
                 "page": 7,
-                "label": "Höchstmieten"
+                "label": "Mieten"
               }
             ]
           },
@@ -73,7 +73,7 @@
             "stops": [
               {
                 "page": 8,
-                "label": "Neubau, Ersterwerb",
+                "label": "Neubau, Änderung, Ersterwerb",
                 "baustein": "2.1",
                 "token": "--baustein-21"
               },
@@ -103,7 +103,7 @@
               },
               {
                 "page": 13,
-                "label": "Inseln",
+                "label": "Ostfriesische Inseln",
                 "baustein": "2.4",
                 "token": "--baustein-24"
               },
@@ -115,7 +115,7 @@
               },
               {
                 "page": 15,
-                "label": "Stichtag",
+                "label": "Stichtag 31.12.2026",
                 "token": "--signal"
               },
               {
@@ -126,7 +126,7 @@
               },
               {
                 "page": 17,
-                "label": "Verlängerung",
+                "label": "Bindungsverlängerung",
                 "baustein": "2.6",
                 "token": "--baustein-26"
               }
@@ -157,12 +157,12 @@
       "type": "callout",
       "variant": "hinweis",
       "title": "Lesehinweis",
-      "body": "Alle Quoten und Beträge sind Höchstwerte („bis zu“), vorbehaltlich Überkompensationsprüfung. Kein Rechtsanspruch; die NBank entscheidet nach Ermessen im Rahmen verfügbarer Mittel. Modellrechnungen sind gekennzeichnet. Stand: 21.10.2026."
+      "body": "Förderquoten und -beträge: Höchstwerte („bis zu“; Bindungserwerb: Festbetrag). Eigenmittel: Mindestwerte. Entgelte: feste Sätze. Jede Bewilligung wird auf Überkompensation geprüft: kein unangemessen hoher Gewinn (EU-Beihilferecht). Kein Rechtsanspruch. Stand: 21.10.2026."
     }
   ],
   "footnotes": [
-    "NBank-Presseinformation zur Wohnungsmarktbeobachtung 2025 (05.12.2025); MW-Presseinformation „Niedersachsen stellt soziale Wohnraumförderung neu auf“ (03.07.2026)",
-    "RL Nr. 1.3, 2.1–2.6, 3, 5.2.1, 5.4.3, 13.1; § 2 Abs. 5 NWoFG; § 4 Abs. 1 DVO-NWoFG"
+    "NBank-Presseinformation zur Wohnungsmarktbeobachtung 2025 (05.12.2025); MW-Presseinformation „Niedersachsen stellt soziale Wohnraumförderung neu auf“ (03.07.2026, aktualisiert 09.07.2026)",
+    "RL Nr. 1.3, 1.6, 2.1–2.6, 3, 4.2, 5.2.1, 5.3.2.4, 5.3.7, 5.4.3, 9.3, 11.10, 12.3.2, 12.7, 13.1; § 2 Abs. 5 NWoFG; § 4 Abs. 1 DVO-NWoFG"
   ],
   "fact_ids": [
     "F310",
@@ -180,7 +180,16 @@
     "F040",
     "F003",
     "F006",
-    "F024"
+    "F024",
+    "F097",
+    "F255",
+    "F256",
+    "F258",
+    "F029",
+    "F094",
+    "F194",
+    "F276",
+    "G3-20"
   ],
   "visual_idea": "Linke Spalte: Editorial (lead + text) und darunter das Zitat mit übergroßen typografischen Anführungszeichen in --color-accent, kein Porträtfoto. Rechte Spalte (bildbestimmend): Inhaltsverzeichnis als Linienplan nach U-Bahn-Art – fünf farbige Linien (= Kapitel) mit Seitenzahlen als Haltestellen; Programmteil-Haltestellen als größere Kreise in --baustein-21 … --baustein-26 MIT eingeschriebener Nummer 2.1–2.6 (graustufenfest); Stichtag-Haltestelle in --signal. Unten über die volle Breite vier Zielgruppen-Kacheln (bullets) mit Piktogrammen (Wohnblock, verschränkte Hände, Diagramm, Rathaus); der fett gesetzte Vorsatz ist die Kachelüberschrift, der Pfeil-Tag „→ S. …“ wird als Seitenverweis-Chip gesetzt. Lesehinweis als schmale Fußleiste über den Quellen."
 }

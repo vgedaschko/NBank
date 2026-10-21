@@ -2,10 +2,10 @@
   "no": 5,
   "slug": "navigator",
   "layout_type": "decision-tree",
-  "running_title": "Orientierung",
+  "running_title": "Überblick · Navigator",
   "kicker": "Der Navigator",
-  "headline": "Welcher Programmteil passt?",
-  "lead": "Jeder Pfad führt zu genau einem Programmteil. Für alle gilt: Antrag über die kommunale Wohnraumförderstelle, Bewilligung durch die NBank. Ein Antrag nach Vordruck 1011 deckt genau eine Maßnahmeart ab.",
+  "headline": "Vom Vorhaben zum passenden Programmteil",
+  "lead": "Vier Ausgangslagen, sechs Programmteile. Für alle gilt: Antrag über die kommunale Wohnraumförderstelle, Bewilligung durch die NBank (Vordrucke → S. 19).",
   "blocks": [
     {
       "type": "chart",
@@ -16,7 +16,7 @@
         "branches": [
           {
             "branch": "A",
-            "label": "Neuen Wohnraum schaffen oder erstmals erwerben",
+            "label": "Wohnraum im Mehrfamilienhaus neu schaffen oder bis 2 Jahre nach Fertigstellung erstmals erwerben",
             "questions": [
               {
                 "q": "Auf Borkum, Norderney, Juist, Wangerooge, Baltrum, Langeoog oder Spiekeroog?",
@@ -31,6 +31,10 @@
             ],
             "pins": [
               {
+                "at": "2.4",
+                "text": "EH-40-Neubau auf den Inseln: Abgrenzung zu 2.2 mit der NBank klären"
+              },
+              {
                 "at": "2.2",
                 "text": "Nicht mit 2.1 kumulierbar"
               }
@@ -38,10 +42,10 @@
           },
           {
             "branch": "B",
-            "label": "Bestand energetisch modernisieren",
+            "label": "Bestand klimagerecht modernisieren",
             "questions": [
               {
-                "q": "Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt, danach mind. 2 Energieeffizienzklassen besser?",
+                "q": "Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt, danach mind. 2 Energieeffizienzklassen besser (ausnahmsweise 1 Klasse, mit NBank-Zulassung)?",
                 "yes": "2.3",
                 "no": null
               }
@@ -49,7 +53,7 @@
             "pins": [
               {
                 "at": "2.3",
-                "text": "Antrag bis 31.12.2026: Wahlrecht → S. 15"
+                "text": "Eingang bei der Wohnraumförderstelle bis 31.12.2026: Wahlrecht altes/neues Recht → S. 15"
               }
             ]
           },
@@ -58,7 +62,7 @@
             "label": "Bestandswohnung für Gruppe A binden",
             "questions": [
               {
-                "q": "Frei, ungebunden, noch kein Mietvertrag?",
+                "q": "Frei, ungebunden, vor der Bewilligung weder vermietet noch überlassen?",
                 "yes": "2.5",
                 "no": null
               }
@@ -69,7 +73,7 @@
             "label": "Auslaufende Landesbindung verlängern",
             "questions": [
               {
-                "q": "Bindung läuft planmäßig aus, NBank-Darlehen valutiert noch?",
+                "q": "Bindung aus Landesförderung (altes Recht) läuft planmäßig aus, NBank-Darlehen valutiert noch?",
                 "yes": "2.6",
                 "no": null
               }
@@ -77,7 +81,7 @@
             "pins": [
               {
                 "at": "2.6",
-                "text": "Schon ausgelaufen? Keine Förderung"
+                "text": "Antrag erst nach Prolongationsangebot der NBank; schon ausgelaufen: keine Förderung"
               }
             ]
           }
@@ -102,7 +106,7 @@
             "branch": "A",
             "token": "--baustein-21",
             "name": "Neubau, Änderung und Erweiterung, Ersterwerb",
-            "instrument": "Darlehen + Zuschuss",
+            "instrument": "Darlehen + Zuschuss (Zuschuss nur mit Darlehen)",
             "max": "A 40 + 40 % · B 60 + 20 % · C 70 + 10 %",
             "binding": "35 Jahre",
             "equity": "mind. 20 %",
@@ -125,9 +129,9 @@
             "token": "--baustein-24",
             "name": "Ostfriesische Inseln",
             "instrument": "Darlehen + Zuschuss",
-            "max": "90 % der Herstellungs-, 100 % der Grundstückskosten",
+            "max": "90 % der zuwendungsfähigen Herstellungskosten (max. 1,5 × Bemessungsgrenze I–III) + 100 % der Grundstückskosten bis Bodenrichtwert",
             "binding": "35 Jahre",
-            "equity": "mind. 10 % der Herstellungskosten",
+            "equity": "mind. 10 % der zuwendungsfähigen Herstellungskosten",
             "page": "S. 13"
           },
           {
@@ -137,7 +141,7 @@
             "name": "Klimagerechte Modernisierung",
             "instrument": "Zuschuss je gebundener Wohnung",
             "max": "10–40 %, höchstens 9.000–31.000 €",
-            "binding": "25 Jahre, vermietet ohne WBS +10",
+            "binding": "25 Jahre ab Abschluss; vermietete Wohnungen +10, außer Wohnberechtigung nachgewiesen",
             "equity": "mind. 20 %",
             "page": "S. 14"
           },
@@ -146,7 +150,7 @@
             "branch": "C",
             "token": "--baustein-25",
             "name": "Belegungsbindungen erwerben",
-            "instrument": "Festbetrag",
+            "instrument": "Zuschuss als Festbetrag",
             "max": "2,00–3,00 € je m² und Monat",
             "binding": "5–20 Jahre",
             "equity": null,
@@ -157,37 +161,39 @@
             "branch": "D",
             "token": "--baustein-26",
             "name": "Auslaufende Bindungen verlängern",
-            "instrument": "Zinsverbilligung",
-            "max": "0 % Zins auf 100 % der Restschuld",
+            "instrument": "Zuschuss zur Zinsverbilligung",
+            "max": "0 % Zins auf bis zu 100 % der Restschuld, längstens 20 Jahre; Tilgung und Verwaltungskostenbeitrag laufen weiter",
             "binding": "+ bis zu 20 Jahre",
             "equity": null,
             "page": "S. 17"
           }
         ]
       },
-      "note": "Höchstwerte, Überkompensationsprüfung vorbehalten. 2.4: Summe, eigene Addition."
+      "note": "Höchstwerte ohne Rechtsanspruch, Überkompensationsprüfung vorbehalten. Kosten: Darlehen 0,5 % Verwaltungskostenbeitrag p. a. und einmalig 1 % Bearbeitungsentgelt, Zuschüsse einmalig 0,75 % (→ S. 9). 2.4: Darlehen und Zuschuss zusammen, eigene Berechnung."
     },
     {
       "type": "callout",
       "variant": "achtung",
       "title": "Erst Bewilligung, dann Vertrag oder Spatenstich",
-      "body": "Liefer-, Leistungs- oder Werkvertrag, beim Ersterwerb der Kaufvertrag, oder Baubeginn vor der Bewilligung: keine Förderung – außer bei zugelassenem vorzeitigem Beginn. Bei 2.5 genügt schon ein Mietvertrag. → S. 19"
+      "body": "Kein Liefer-, Leistungs-, Werk- oder Kaufvertrag (Grundstückskauf ausgenommen) und kein Baubeginn vor der Bewilligung – sonst keine Förderung, außer bei zugelassenem vorzeitigem Beginn. Bei 2.5 schaden schon Mietvertrag oder Überlassung. → S. 19"
     },
     {
       "type": "bullets",
       "heading": "Nicht förderfähig",
       "items": [
         "Ferienwohnungen, Ferien- und Wochenendhäuser",
-        "Heime nach NuWG",
-        "stationäre und quasi-stationäre Versorgung",
+        "Heime nach § 2 Abs. 2–4 NuWG",
+        "stationäre oder quasi-stationäre Versorgung (SGB IX/XI)",
         "Wohnraum gekoppelt an Pflege- oder Betreuungsvertrag",
         "Gemeinschaftsunterkünfte",
+        "frei finanzierte Wohnungen ohne Bindung",
+        "Eigentumswohnungen zur Vermietung (WEG)",
         "Standorte außerhalb Niedersachsens"
       ]
     }
   ],
   "footnotes": [
-    "RL Nr. 1.5, 2.1–2.7, 4.2, 5.2.6, 5.3, 6–10, 12.1.2, 13.3; NBank-Vordruck 1011."
+    "RL Nr. 1.5, 2.1–2.7, 4.2, 5.2.5, 5.2.6, 5.3, 6–10, 12.1.2, 12.7, 13.3; NBank-Vordrucke 1011, 1011a, 1011b, 1012; NBank-Merkblatt Vorzeitiger Vorhabenbeginn; NBank-Produktinformation Verlängerung."
   ],
   "fact_ids": [
     "F003",
@@ -225,7 +231,22 @@
     "F241",
     "F016",
     "F129",
-    "G1-35"
+    "G1-35",
+    "F006",
+    "F093",
+    "F164",
+    "F176",
+    "F207",
+    "F210",
+    "F256",
+    "F259",
+    "F276",
+    "F281",
+    "F283",
+    "F285",
+    "F234",
+    "G1-24",
+    "G3-19"
   ],
-  "visual_idea": "Ganzseitiges Flussdiagramm: Startknoten = Blocktitel „Was haben Sie vor?“, vier Äste A–D mit Rauten (Ja/Nein) und ruhigen Linien; „weiter“ führt zur nächsten Raute, Nein-Ausgänge ohne Ziel (null) nicht zeichnen. Jeder Ast endet in einer Ziel-Kachel in der jeweiligen Baustein-Farbe (--baustein-21 … --baustein-26), immer groß mit Nummer 2.1–2.6 (graustufenfest), Förderart-Icon (Darlehen/Zuschuss/Festbetrag/Zins) und Seitenzahl. Kachelfelder: Instrument · Bis zu · Bindung · Eigenmittel (bei 2.5 und 2.6 Feld Eigenmittel weglassen). Hinweis-Pins als kleine Sprechblasen an 2.2, 2.3 und 2.6. Stopp-Marker in --signal mit Titelzeile als Schild. „Nicht förderfähig“ als schmale Fußleiste mit durchgestrichenen Piktogrammen."
+  "visual_idea": "Ganzseitiges Flussdiagramm: Startknoten = Blocktitel „Was haben Sie vor?“, vier Äste A–D mit Rauten (Ja/Nein) und ruhigen Linien; „weiter“ führt zur nächsten Raute, Nein-Ausgänge ohne Ziel (null) nicht zeichnen. Jeder Ast endet in einer Ziel-Kachel in der jeweiligen Baustein-Farbe (--baustein-21 … --baustein-26), immer groß mit Nummer 2.1–2.6 (graustufenfest), Förderart-Icon (Darlehen/Zuschuss/Festbetrag/Zins) und Seitenzahl. Kachelfelder: Instrument · Bis zu · Bindung · Eigenmittel (bei 2.5 und 2.6 Feld Eigenmittel weglassen). Hinweis-Pins als kleine Sprechblasen an 2.2, 2.3, 2.4 und 2.6. Stopp-Marker in --signal mit Titelzeile als Schild. „Nicht förderfähig“ als schmale Fußleiste mit durchgestrichenen Piktogrammen."
 }

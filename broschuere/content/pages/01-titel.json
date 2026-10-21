@@ -4,9 +4,9 @@
   "layout_type": "cover",
   "running_title": "Titel",
   "kicker": "Mietwohnraumförderung Niedersachsen",
-  "headline": "Wohnraum, der sich rechnet.",
-  "subline": "Konditionen, Kennzahlen und Modellrechnungen für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren, Projektentwicklung und Kommunen.",
-  "lead": "RL Mietwohnraum 2026 · RdErl. d. MW v. 25.06.2026 · Nds. MBl. 2026 Nr. 319 · in Kraft seit 01.07.2026",
+  "headline": "Wohnraum, der sich rechnen kann.",
+  "subline": "Konditionen und Modellrechnungen für Wohnungswirtschaft, Investorinnen und Investoren, Projektentwicklung und Kommunen.",
+  "lead": "RL Mietwohnraum 2026, in Kraft seit 01.07.2026",
   "blocks": [
     {
       "type": "key_figures",
@@ -15,35 +15,35 @@
           "value": "bis zu 80",
           "unit": "%",
           "label": "Förderquote",
-          "note": "Darlehen + Zuschuss, in % der zuwendungsfähigen Kosten · Programmteil 2.1"
+          "note": "Darlehen und Zuschuss in % der zuwendungsfähigen Kosten, Programmteil 2.1"
         },
         {
           "value": "bis zu 40",
           "unit": "%",
           "label": "Zuschuss",
-          "note": "Gruppe A, Programmteil 2.1, nur zusammen mit dem Darlehen"
+          "note": "Einkommensgruppe A, Programmteil 2.1, nur mit Darlehen"
         },
         {
           "value": "0",
           "unit": "%",
-          "label": "Zins bis Ende Jahr 35",
-          "note": "zzgl. 0,5 % Verwaltungskostenbeitrag p. a. auf das Restkapital"
+          "label": "Zins bis Ende des 35. Jahres",
+          "note": "Darlehen 2.1/2.4, gezählt ab Bezugsfertigkeit; zzgl. 0,5 % Verwaltungskostenbeitrag p. a. auf das Restkapital, einmalig 1 % Bearbeitungsentgelt (Zuschuss: 0,75 %)"
         },
         {
           "value": "6",
           "unit": "",
-          "label": "Programmteile",
-          "note": "für Neubau und Bestand"
+          "label": "Programmteile"
         }
       ]
     },
     {
       "type": "text",
-      "body": "Investitions- und Förderbank Niedersachsen – NBank\n\nStand: Oktober 2026"
+      "body": "Investitions- und Förderbank Niedersachsen – NBank\n\nStand: 21.10.2026"
     }
   ],
   "footnotes": [
-    "Regel-Höchstwerte in Programmteil 2.1 (Zuschlag für Modellprojekte und Housing First möglich, RL Nr. 5.3.3.3), vorbehaltlich Überkompensationsprüfung (RL Nr. 5.3.7); kein Rechtsanspruch (RL Nr. 1.3)."
+    "Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum (RL Mietwohnraum 2026), RdErl. d. Niedersächsischen Ministeriums für Wirtschaft, Verkehr und Bauen (MW) vom 25.06.2026, Nds. MBl. 2026 Nr. 319.",
+    "Förderquoten: Höchstwerte in Programmteil 2.1; Zuschlag für Modellprojekte und Housing First möglich (RL Nr. 5.3.3.3). Jede Förderung wird auf Überkompensation geprüft (RL Nr. 5.3.7); kein Rechtsanspruch (RL Nr. 1.3). Zins und Entgelte: RL Nr. 5.3.4, 8.3, 12.7."
   ],
   "fact_ids": [
     "F001",
@@ -56,7 +56,10 @@
     "F106",
     "F109",
     "F113",
-    "F276"
+    "F175",
+    "F276",
+    "G3-11",
+    "F290"
   ],
-  "visual_idea": "Typografisch dominantes Titelblatt: sehr große Headline in der Display-Schrift, Akzentfarbe (--color-accent) nur auf „rechnet“. Darunter isometrisches Mehrfamilienhaus, dessen Geschosse ein gestapeltes Balkendiagramm sind: Darlehen bis zu 40 % (--color-loan), Zuschuss bis zu 40 % (--color-grant), Eigenmittel mind. 20 % (--color-equity) – Beschriftung direkt an den Geschossen, damit graustufenfest. Programmzeile (lead) klein in Kapitälchen unter der Subline. Vier runde Kennzahl-Plaketten; „bis zu“ steht bewusst im value und wird als kleiner Vorsatz über der Ziffer gesetzt; die Kostenzeile (note) steht zweizeilig IM Badge, keine Sternchen. Herausgeberzeile als reiner Text am Fuß, darunter „Stand: Oktober 2026“; Fußnote in 8,5 pt. Sechs schmale Farbstreifen --baustein-21 … --baustein-26 mit Ziffern 2.1–2.6 als Register-Vorschau am unteren Rand. Kein Logo, keine CI-Nachahmung. Haus-Motiv kehrt verkleinert auf S. 20 wieder."
+  "visual_idea": "Typografisch dominantes Titelblatt: sehr große Headline in der Display-Schrift, Akzentfarbe (--color-accent) nur auf „rechnen kann“. Darunter isometrisches Mehrfamilienhaus, dessen Geschosse ein gestapeltes Balkendiagramm sind: Darlehen bis zu 40 % (--color-loan), Zuschuss bis zu 40 % (--color-grant), Eigenmittel mind. 20 % (--color-equity). PFLICHTBESCHRIFTUNG am Motiv: Geschosse direkt beschriftet mit „Darlehen bis zu 40 %“, „Zuschuss bis zu 40 %“, „Eigenmittel mind. 20 %“ (graustufenfest), dazu eine Zeile am Sockel: „Beispiel Einkommensgruppe A · Programmteil 2.1 · in % der zuwendungsfähigen Kosten (Höchstwerte)“ – das Haus darf nicht als allgemeine Finanzierungsstruktur lesbar sein. Programmzeile (lead) klein in Kapitälchen unter der Subline; die vollständige Fundstelle (Erlass, Nds. MBl.) steht in der ersten Fußnote. Vier runde Kennzahl-Plaketten; „bis zu“ steht bewusst im value und wird als kleiner Vorsatz über der Ziffer gesetzt; die Kostenzeile (note) der 0-%-Plakette steht dreizeilig IM Badge (Badge ggf. etwas größer), keine Sternchen; Plakette „6 Programmteile“ ohne Unterzeile. Herausgeberzeile als reiner Text am Fuß, darunter „Stand: 21.10.2026“; Fußnote in 8,5 pt. Sechs schmale Farbstreifen --baustein-21 … --baustein-26 mit Ziffern 2.1–2.6 als Register-Vorschau am unteren Rand. Kein Logo, keine CI-Nachahmung. Haus-Motiv kehrt verkleinert auf S. 20 wieder."
 }

@@ -2,11 +2,11 @@
   "no": 13,
   "slug": "programmteil-2-4-inseln",
   "layout_type": "program-detail",
-  "running_title": "Weitere Neubaupfade · Programmteil 2.4",
+  "running_title": "Neubau · Programmteil 2.4",
   "kicker": "Programmteil 2.4 · Ostfriesische Inseln",
-  "headline": "Sonderkonditionen für Sonderlagen",
-  "subline": "Bis zu 90 % der gedeckelten Herstellungskosten, bis zu 100 % des Grundstücks",
-  "lead": "Für gebundene Mietwohnungen in Mehrfamilienhäusern: Neubau, Änderung und Erweiterung oder Ersterwerb bis zwei Jahre nach Fertigstellung.",
+  "headline": "Höhere Kostengrenze, 10 % Eigenmittel",
+  "subline": "Bis zu 90 % der gedeckelten Herstellungskosten, bis zu 100 % der zuwendungsfähigen Grundstückskosten",
+  "lead": "Neubau, Änderung/Erweiterung oder Ersterwerb (bis zwei Jahre nach Fertigstellung) gebundener Mietwohnungen in Mehrfamilienhäusern.",
   "blocks": [
     {
       "type": "chart",
@@ -25,12 +25,12 @@
           "Wangerooge"
         ]
       },
-      "note": "Der Bedarf gilt hier als gegeben."
+      "note": "Kein Bedarfsnachweis nötig."
     },
     {
       "type": "chart",
       "chart": "stacked-bar",
-      "title": "Förderung je m² Wohnfläche, bis zu (bei Kosten ab 7.200 €/m²)",
+      "title": "Finanzierung je m² Wohnfläche",
       "data": {
         "unit": "€ je m²",
         "categories": [
@@ -40,7 +40,7 @@
         ],
         "series": [
           {
-            "name": "Darlehen",
+            "name": "Darlehen, bis zu",
             "token": "--color-loan",
             "values": [
               3600,
@@ -54,7 +54,7 @@
             ]
           },
           {
-            "name": "Zuschuss",
+            "name": "Zuschuss, bis zu",
             "token": "--color-grant",
             "values": [
               2880,
@@ -83,7 +83,7 @@
           }
         ],
         "totals": {
-          "label": "Förderung zusammen",
+          "label": "Förderung zusammen, bis zu",
           "values": [
             6480,
             6480,
@@ -93,11 +93,11 @@
         },
         "cap": {
           "value": 7200,
-          "label": "Deckel 7.200 €/m² (Ausgangswert)"
+          "label": "Deckel 1,5 × 4.800 € = 7.200 €/m² (Ausgangswert, Stand 21.10.2026)"
         },
         "secondary": {
-          "title": "Grundstück, alle Gruppen",
-          "unit": "% der Grundstückskosten",
+          "title": "Grundstück, alle Einkommensgruppen: Darlehen bis zu 70 % + Zuschuss bis zu 30 %",
+          "unit": "% der Grundstückskosten (grundsätzlich höchstens Bodenrichtwert × Grundstücksfläche)",
           "series": [
             {
               "name": "Darlehen",
@@ -110,82 +110,77 @@
               "value": 30
             }
           ]
-        }
+        },
+        "stamp": "Modellrechnung – fiktives Beispiel, keine Förderzusage",
+        "assumption": "Annahme: zuwendungsfähige Herstellungskosten ≥ 7.200 €/m² Wohnfläche (Ausgangswert)"
       },
-      "note": "Eigene Berechnung; Höchstsätze, Überkompensationsprüfung vorbehalten. Kosten über dem Deckel tragen Sie selbst."
-    },
-    {
-      "type": "text",
-      "heading": "Bemessung",
-      "body": "Herstellungskosten zählen bis zum 1,5-Fachen der Bemessungsgrenze für Mietenstufe I–III: Ausgangswert 7.200 € je m², fortgeschrieben zum 1.4. und 1.10. – aktuellen Wert auf nbank.de prüfen. Grundstückskosten zählen bis zum Bodenrichtwert."
+      "note": "Eigene Berechnung, Überkompensationsprüfung vorbehalten. Deckel: 1,5-Faches der Bemessungsgrenze für Mietenstufe I–III, unabhängig von der Inselmietenstufe; Fortschreibung 1.4./1.10.: Wert auf nbank.de prüfen. Kosten darüber: nicht zuwendungsfähig. Ersterwerb: Bemessung mit der NBank klären."
     },
     {
       "type": "key_figures",
       "items": [
         {
+          "prefix": "höchstens",
           "value": "9,50",
           "unit": "€",
-          "label": "Gruppe A",
-          "note": "Nettokaltmiete je m² und Monat, Jahr 1–3"
+          "label": "Einkommensgruppe A"
         },
         {
+          "prefix": "höchstens",
           "value": "11,50",
           "unit": "€",
-          "label": "Gruppe B",
-          "note": "unabhängig von der Mietenstufe"
+          "label": "Einkommensgruppe B"
         },
         {
+          "prefix": "höchstens",
           "value": "12,50",
           "unit": "€",
-          "label": "Gruppe C",
-          "note": "danach max. +6,15 % in drei Jahren"
+          "label": "Einkommensgruppe C"
         }
       ]
     },
     {
       "type": "text",
-      "heading": "Eigenmittel: 10 % statt 20 %",
-      "body": "Mindestens 10 % der zuwendungsfähigen Herstellungskosten, davon mindestens die Hälfte als Geld oder lastenfreies Grundstück (Soll)."
+      "body": "Nettokaltmiete je m² und Monat, erste drei Jahre der Mietbindung, alle Gruppen, unabhängig von der Mietenstufe; danach höchstens +6,15 % in drei Jahren, keine Staffel- oder Indexmiete. EH-40-Aufschlag? Mit der NBank klären."
+    },
+    {
+      "type": "text",
+      "heading": "Eigenmittel",
+      "body": "Mindestens 10 % der zuwendungsfähigen Herstellungskosten (2.1: 20 % aller zuwendungsfähigen Kosten), mindestens die Hälfte möglichst als Geld oder lastenfreies Grundstück."
     },
     {
       "type": "bullets",
-      "heading": "Konditionen wie 2.1 (→ S. 9)",
+      "heading": "Darlehen wie in 2.1 (→ S. 9)",
       "items": [
-        "Zuschuss nur zusammen mit dem Darlehen",
-        "0 % Zins bis Ende Jahr 35, plus 0,5 % Verwaltungskostenbeitrag p. a.; Laufzeit max. 42 Jahre",
-        "Bearbeitungsentgelt einmalig: 1 % (Darlehen), 0,75 % (Zuschuss)",
-        "Bindung 35 Jahre, Auszahlung in Teilraten"
+        "Zuschuss nur mit Darlehen",
+        "0 % Zins bis Ende des 35. Jahres nach Bezugsfertigkeit, zzgl. 0,5 % Verwaltungskostenbeitrag p. a. auf das Restkapital",
+        "Bearbeitungsentgelt 1 % (Darlehen), 0,75 % (Zuschuss)",
+        "Belegungs- und Mietbindung 35 Jahre ab Bezugsfertigkeit (Ersterwerb: Eigentumsübergang)"
       ]
     },
     {
       "type": "bullets",
       "heading": "Voraussetzungen",
       "items": [
-        "Grundstück im Eigentum oder Erbbaurecht ab 60 Jahren Restlaufzeit; gesicherter Erwerb genügt",
-        "neues Wohngebäude: mindestens zwei gebundene Mietwohnungen",
-        "ausgeschlossen: Ferienwohnungen, zur Vermietung bestimmte Eigentumswohnungen"
+        "Eigentum oder Erbbaurecht (mind. 60 Jahre); gesicherter Erwerb genügt",
+        "neues Gebäude: mindestens zwei gebundene Mietwohnungen",
+        "nicht gefördert: Ferienwohnungen, Ferien- und Wochenendhäuser, zur Vermietung bestimmte Eigentumswohnungen, ungebundene Wohnungen"
       ]
-    },
-    {
-      "type": "callout",
-      "variant": "hinweis",
-      "title": "Mit der NBank klären",
-      "body": "EH-40-Aufschlag von bis zu 0,30 €/m² auch auf die Inselmieten? Die Richtlinie regelt das nicht ausdrücklich."
     },
     {
       "type": "text",
       "heading": "Kombinierbar mit",
-      "body": "KfW 298 oder 296, je Wohnung nur eines (→ S. 8); Ersterwerb fördert die KfW nur bis 12 Monate nach Bauabnahme."
+      "body": "Neubau und Ersterwerb: grundsätzlich KfW 298 oder 296, je Wohnung nur eines, zusammen höchstens die förderfähigen KfW-Kosten; weitere Bedingungen → S. 8. Kommunen selbst: KfW 498."
     },
     {
       "type": "callout",
       "variant": "tipp",
       "title": "Kalkulationsnotiz",
-      "body": "Auf den Inseln trägt die Förderung bis zu 90 % der gedeckelten Baukosten und bis zu 100 % des Grundstücks – die Eigenmittelhürde halbiert sich auf 10 %."
+      "body": "Wenig Eigenmittel heißt viel Darlehen: Tilgung und Verwaltungskostenbeitrag fest einplanen."
     }
   ],
   "footnotes": [
-    "RL Nr. 2.4, 2.7, 5.2.1, 5.2.4, 5.2.5, 5.3–5.5, 8.1–8.5, 12.7; NBank-Produktinformation Ostfriesische Inseln (Stand 28.07.2026); KfW-Merkblätter 296, 297/298."
+    "RL Nr. 2.4, 2.7, 5.2.4, 5.2.5, 5.3–5.5, 8.1–8.5, 12.7; NBank-Produktinformation Ostfriesische Inseln (Stand 28.07.2026); Bemessungsgrenze: bis 21.10.2026 keine fortgeschriebenen Werte auf nbank.de auffindbar; KfW-Merkblätter 296, 297/298."
   ],
   "fact_ids": [
     "F172",
@@ -205,7 +200,6 @@
     "F186",
     "F187",
     "F188",
-    "F083",
     "F101",
     "F239",
     "F234",
@@ -216,7 +210,12 @@
     "G2-01",
     "G2-03",
     "G2-07",
-    "G2-13"
+    "G2-13",
+    "F097",
+    "F098",
+    "G1-04",
+    "G2-04",
+    "G2-05"
   ],
-  "visual_idea": "Baustein-Register 2.4 (--baustein-24, immer mit Nummer) am Seitenrand. Kopf als illustrierte Atempause: stilisierte Linienillustration der sieben Inselsilhouetten als Kette von West nach Ost (Borkum bis Wangerooge) mit Namen (eigene Gestaltung, keine Kartenkopie, Linienfarbe --baustein-24), Note „Bedarf gilt als gegeben“ als kleines Häkchen-Label. Darunter gestapelte Säulen „je m² Wohnfläche“ für A/B/C: Darlehen (--color-loan) + Zuschuss (--color-grant) = 6.480 €, oben Eigenmittel-Segment 720 € (--color-equity, schraffiert „mind.“); Prozent-Labels in den Segmenten, gestrichelte Deckel-Linie bei 7.200 € mit Label „Ausgangswert“. Daneben ein schmaler 100-%-Balken „Grundstück“ 70/30. Drei runde Miet-Badges 9,50 / 11,50 / 12,50 € in einer Reihe, Notes klein darunter. Vergleichszeile „Eigenmittel 10 % statt 20 %“ als Doppel-Chip (20 % grau durchgestrichen, 10 % in --baustein-24). Konditionen und Voraussetzungen zweispaltig, Hinweis „Mit der NBank klären“ in die Marginalspalte. „Kombinierbar mit“ als schmale Zeile, Kalkulationsnotiz mit Rechensymbol am Fuß."
+  "visual_idea": "Baustein-Register 2.4 (--baustein-24, immer mit Nummer) am Seitenrand. Kopf als illustrierte Atempause: stilisierte Linienillustration der sieben Inselsilhouetten als Kette von West nach Ost (Borkum bis Wangerooge) mit Namen (eigene Gestaltung, keine Kartenkopie, Linienfarbe --baustein-24), Note „Kein Bedarfsnachweis nötig“ als kleines Label. Darunter gestapelte Säulen „je m² Wohnfläche“ für A/B/C mit Stempel „Modellrechnung – fiktives Beispiel, keine Förderzusage“ und Annahmezeile: Darlehen (--color-loan) + Zuschuss (--color-grant) = bis zu 6.480 €, oben Eigenmittel-Segment 720 € (--color-equity, schraffiert „mind.“); Prozent-Labels in den Segmenten, gestrichelte Deckel-Linie bei 7.200 € mit Label „1,5 × 4.800 € · Ausgangswert, Stand 21.10.2026“. Daneben ein schmaler 100-%-Balken „Grundstück“ mit „bis zu 70 % / bis zu 30 %“ und Bodenrichtwert-Hinweis. Drei runde Miet-Badges „höchstens 9,50 / 11,50 / 12,50 €“ in einer Reihe, darunter EINE gemeinsame Unterzeile für alle drei Gruppen (keine Einzelnotes). Eigenmittel-Chip „mind. 10 % der Herstellungskosten“ in --baustein-24; Vergleichswert 2.1 nur klein und grau daneben, nicht durchgestrichen (andere Bezugsgröße). Darlehen und Voraussetzungen zweispaltig. „Kombinierbar mit“ als schmale Zeile, Kalkulationsnotiz mit Rechensymbol am Fuß."
 }

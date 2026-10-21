@@ -4,8 +4,8 @@
   "layout_type": "table-focus",
   "running_title": "Ertragsseite · Mieten",
   "kicker": "Ertragsseite",
-  "headline": "Höchstmieten, Mietpfad, Mietenstufe",
-  "lead": "Gedeckelt, aber planbar: drei Jahre fest, danach Erhöhungen nach klaren Regeln.",
+  "headline": "Mieten: gedeckelt, aber planbar",
+  "lead": "Was Sie verlangen dürfen, bestimmen Programmteil, Einkommensgruppe und Mietenstufe – drei Jahre fest, danach nach festen Regeln.",
   "blocks": [
     {
       "type": "table",
@@ -19,7 +19,7 @@
       ],
       "rows": [
         [
-          "2.1 · 2.3 · 2.5 (nur A)",
+          "2.1 · 2.3",
           "I–III",
           "6,50",
           "7,90",
@@ -31,6 +31,20 @@
           "6,80",
           "8,20",
           "9,00"
+        ],
+        [
+          "2.5 (nur A)",
+          "I–III",
+          "6,50",
+          "–",
+          "–"
+        ],
+        [
+          "",
+          "IV–VII",
+          "6,80",
+          "–",
+          "–"
         ],
         [
           "2.2",
@@ -56,17 +70,17 @@
         [
           "2.6",
           "alle",
-          "bisherige Miete, 3 Jahre eingefroren",
+          "bisherige Miete, 3 Jahre ab Verlängerung eingefroren, auch bei Wiedervermietung",
           "",
           ""
         ]
       ],
-      "note": "Ab KfW-EH-40-Niveau bis zu +0,30 € (2.1, 2.3, 2.5); in 2.2 enthalten; für 2.4 mit der NBank klären."
+      "note": "Ab KfW-EH-40-Niveau bis zu +0,30 € je m² (2.1, 2.3, 2.5); in 2.2 enthalten; für 2.4 mit der NBank klären. Sonderfall 2.3 bei verlängerter Bindung → S. 14."
     },
     {
       "type": "chart",
       "chart": "bar",
-      "title": "Mietpfad, Modell A, Mietenstufe IV–VII",
+      "title": "Modellrechnung: Höchstmiete Gruppe A, Programmteil 2.1, Mietenstufe IV–VII",
       "data": {
         "kind": "step",
         "unit": "€ je m²",
@@ -88,7 +102,7 @@
           }
         ]
       },
-      "note": "Eigene Berechnung, auf volle Cent abgerundet; die BGB-Voraussetzungen (§§ 558–559b) gelten zusätzlich. Höchstens +6,15 % innerhalb von drei Jahren, Betriebskosten ausgenommen, auch bei Wiedervermietung. Keine Staffel- oder Indexmiete."
+      "note": "Eigene Berechnung: volle Erhöhung um 6,15 % zum frühestmöglichen Zeitpunkt, auf volle Cent abgerundet; nach BGB (§§ 558–559b) kann weniger zulässig sein. Betriebskosten ausgenommen; gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete."
     },
     {
       "type": "chart",
@@ -98,7 +112,7 @@
         "orientation": "horizontal",
         "bars": [
           {
-            "label": "Gefördert (A, Mietenstufe IV–VII)",
+            "label": "Höchstmiete gefördert (2.1, A, Stufe IV–VII)",
             "value": 6.8,
             "value_label": "6,80"
           },
@@ -108,26 +122,27 @@
             "value_label": "9,00"
           },
           {
-            "label": "Neubau 2024, Median",
+            "label": "Angebotsmiete Neubau 2024, Median",
             "value": 11.22,
             "value_label": "11,22"
           }
         ],
         "source": "NBank-Wohnungsmarktbericht 2025"
       },
-      "note": "Rechtlich ist die Förderung ein DAWI-Ausgleich für diese Leistung; die NBank prüft auf Überkompensation (→ S. 11)."
+      "note": "Marktwerte landesweit, nicht nach Mietenstufen. Die NBank prüft bei der Bewilligung, dass keine Überkompensation entsteht (→ S. 11)."
     },
     {
       "type": "callout",
       "variant": "hinweis",
       "title": "Begriff: Mietenstufe",
-      "body": "Sie bestimmt Höchstmiete und Bemessungsgrenze. Stand 21.10.2026, WoGV-Anlage in der jeweils geltenden Fassung:\n\n**VI** Buchholz i. d. Nordheide, Neu Wulmstorf\n\n**V** Hannover, Buxtehude, Seevetal, die sieben Inselgemeinden\n\n**IV** Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg\n\n**I–III** übrige Festlandgemeinden. Stufe VII gibt es in Niedersachsen nicht; neue Stufen ab 2027 sind erst Entwurf."
+      "body": "Sie bestimmt Höchstmiete und Bemessungsgrenze; ab Stufe IV gilt zudem der Bedarf als gegeben. Stand 21.10.2026 (WoGV-Anlage):\n\n**VI** Buchholz i. d. Nordheide, Neu Wulmstorf\n\n**V** Hannover, Buxtehude, Seevetal, die sieben Inselgemeinden\n\n**IV** Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg\n\n**I–III** übrige Festlandgemeinden. Stufe VII gibt es in Niedersachsen nicht. Neue Stufen ab 2027 sind erst Entwurf – vor dem Antrag prüfen."
     },
     {
       "type": "bullets",
       "heading": "So vermieten Sie",
       "items": [
-        "unbefristeter Mietvertrag, bezugsfertige Übergabe",
+        "nur an Haushalte mit gültigem WBS, auch bei Wiedervermietung",
+        "unbefristeter Mietvertrag mit den Förderbestimmungen zur Mietbindung, bezugsfertige Übergabe",
         "Stellplätze separat vermietbar, aber nicht an die Wohnung gekoppelt"
       ]
     },
@@ -137,24 +152,26 @@
       "items": [
         "Zuschläge für Ausstattung, Keller, Energie- und Wärmeeinrichtungen",
         "Entgelte für zwingende Zusatzleistungen",
-        "Zwischenvermietung – Ausnahmen: gewerblich im begründeten Einzelfall, Housing First mit NBank-Zustimmung"
+        "Kosten für Bezugsfertigkeit oder laufende Instandhaltung entgegen BGB auf die Mieterseite abwälzen",
+        "Zwischenvermietung – Ausnahmen: gewerblich im Einzelfall (Zwischenmietpartei übernimmt alle Pflichten, Sie haften mit); Housing First (2.1) mit NBank-Zustimmung"
       ]
     },
     {
       "type": "callout",
       "variant": "achtung",
       "title": "Verstöße kosten",
-      "body": "Vermietung ohne WBS oder zu überhöhter Miete: Es drohen Geldleistungen bis 5 € je m² und Monat und ein Bußgeld bis 10.000 €. Bei Fehlbelegung kann die Kündigung angeordnet werden."
+      "body": "Wer schuldhaft ohne WBS oder zu überhöhter Miete vermietet, riskiert für die Dauer des Verstoßes Geldleistungen bis 5 € je m² und Monat, bei Vorsatz oder Fahrlässigkeit ein Bußgeld bis 10.000 €. Bei Fehlbelegung kann die zuständige Stelle Kündigung und notfalls Räumung anordnen; die Förderung kann zurückgefordert werden."
     },
     {
       "type": "callout",
       "variant": "tipp",
       "title": "Kalkulationsnotiz",
-      "body": "Die Miete ist gedeckelt, aber nach festen Regeln fortschreibbar – das macht den Cashflow über die gesamte Bindung modellierbar."
+      "body": "Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete."
     }
   ],
   "footnotes": [
-    "RL Nr. 5.4.4–5.4.5, 6.4.1, 7.4.3, 8.4, 9.4.1, 10.4.2, 11.7–11.9; §§ 7, 9, 14 NWoFG; WoGV-Anlage."
+    "RL Nr. 1.2, 5.2.1, 5.3.2.2, 5.4.4–5.4.5, 6.4.1, 7.4.3, 8.3.1, 8.4, 9.4.1, 10.4.2, 11.6–11.10; §§ 7, 9, 14 NWoFG; VV NWoFG Nr. 6; WoGV-Anlage; NBank-Wohnungsmarktbericht 2025.",
+    "Inseln (Mietenstufe V): In 2.4 gelten eigene Höchstmieten und das 1,5-Fache der Bemessungsgrenze für Mietenstufe I–III; welche Mietenstufe in 2.2 und 2.3 auf den Inseln maßgeblich ist, mit der NBank klären."
   ],
   "fact_ids": [
     "F214",
@@ -184,7 +201,14 @@
     "F228",
     "F229",
     "G2-38",
-    "G4-11"
+    "G4-11",
+    "F234",
+    "F176",
+    "F189",
+    "F224",
+    "F275",
+    "G2-36",
+    "G4-10"
   ],
-  "visual_idea": "Heatmap-Tabelle der Höchstmieten: Zeilenmarker in den Baustein-Farben (2.1/2.3/2.5 je eigener Chip, 2.2, 2.4, 2.6 – immer mit Nummer), Zellen in einer ruhigen Tonwertskala nach Miethöhe; Zeile 2.6 als Text über die Spalten A–C. Kleines Treppendiagramm Mietpfad (6,80 → 7,21 → 7,65 als „höchstens“-Linie, gestrichelt). Marktvergleich als drei horizontale Balken 6,80 / 9,00 / 11,22 € mit Quellenlabel. Mietenstufen-Gemeindeindex kompakt in der Marginalspalte (Stufe als Chip, Gemeinden als Fließtext). Spielregeln als zwei kurze Listen: „So vermieten Sie“ mit ✓-Icons, „Nicht zulässig“ mit ✕-Icons. Leere Programmteil-Zellen = Fortsetzung der Zeile darüber (Zellen verbinden). Sanktionen in --signal."
+  "visual_idea": "Heatmap-Tabelle der Höchstmieten: Zeilenmarker in den Baustein-Farben (2.1/2.3 je eigener Chip, 2.5 eigene Zeile mit leeren B/C-Zellen, 2.2, 2.4, 2.6 – immer mit Nummer), Zellen in einer ruhigen Tonwertskala nach Miethöhe; Zeile 2.6 als Text über die Spalten A–C. Kleines Treppendiagramm Mietpfad (6,80 → 7,21 → 7,65 als „höchstens“-Linie, gestrichelt). Marktvergleich als drei horizontale Balken 6,80 / 9,00 / 11,22 € mit Quellenlabel. Mietenstufen-Gemeindeindex kompakt in der Marginalspalte (Stufe als Chip, Gemeinden als Fließtext). Spielregeln als zwei kurze Listen: „So vermieten Sie“ mit ✓-Icons, „Nicht zulässig“ mit ✕-Icons. Leere Programmteil-Zellen = Fortsetzung der Zeile darüber (Zellen verbinden). Sanktionen in --signal."
 }

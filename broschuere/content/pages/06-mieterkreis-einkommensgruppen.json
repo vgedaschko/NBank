@@ -5,7 +5,7 @@
   "running_title": "Ertragsseite · Mieterkreis",
   "kicker": "Ertragsseite",
   "headline": "Ihr Mieterkreis: drei Einkommensgruppen",
-  "lead": "Für wen Sie bauen, bestimmt Fördermix und Anfangsmiete zugleich. Grundsatz ist Gruppe A.",
+  "lead": "Grundsatz ist Gruppe A. Die Gruppen B und C öffnen den Mieterkreis für höhere Einkommen.",
   "blocks": [
     {
       "type": "chart",
@@ -55,7 +55,7 @@
             ]
           },
           {
-            "household": "1 Erwachsener + 1 Kind",
+            "household": "1 erwachsene Person + 1 Kind",
             "values": [
               32500,
               45500,
@@ -108,28 +108,28 @@
           }
         ]
       },
-      "note": "Gültig seit 01.03.2025; je weitere Person +3.750 €, je Kind zusätzlich +3.750 €. B und C: eigene Berechnung (× 1,4 bzw. × 1,6)."
+      "note": "Gültig seit 01.03.2025. Je weitere Person ab der dritten und zusätzlich je Kind (§ 32 Abs. 1–5 EStG): A +3.750 €, B +5.250 €, C +6.000 €. B und C: eigene Berechnung (× 1,4 bzw. × 1,6)."
     },
     {
       "type": "callout",
       "variant": "achtung",
       "title": "B und C nur mit Zulassung",
-      "body": "Höhere Einkommen muss die NBank in der Förderentscheidung zulassen.\n\n**Bis +60 %** in Gebieten mit Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach § 7 Abs. 3 NWoFG oder angespanntem Wohnungsmarkt – oder für Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- und Pflegebedürftigen vorbehalten ist.\n\n**Sonst** nur ab 12 zusammenhängenden Wohnungen: bis +20 % für höchstens die Hälfte. Folgen für Fördersätze und Mieten mit der NBank klären."
+      "body": "Die NBank muss höhere Einkommen in der Förderentscheidung zulassen.\n\n**Bis +60 %** in Gebieten mit kommunalem Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach § 7 Abs. 3 NWoFG oder per Verordnung bestimmtem angespanntem Wohnungsmarkt – oder für Wohnraum, der Älteren, Menschen mit Behinderungen oder hilfe- bzw. pflegebedürftigen Personen vorbehalten ist.\n\n**Sonst** nur ab 12 zusammenhängenden Wohnungen: bis +20 % für höchstens die Hälfte der Wohnungen. Folgen für Fördersätze und Mieten mit der NBank klären."
     },
     {
       "type": "text",
       "heading": "Nachweis per WBS",
-      "body": "Haushalte belegen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) der zuständigen Stelle, etwa des Landkreises oder der kreisfreien Stadt; der allgemeine WBS gilt ein Jahr. Unsere Ableitung: A-Haushalte dürfen auch B- und C-Wohnungen beziehen – zur B- bzw. C-Miete. Bindungserwerb (2.5): nur Gruppe A."
+      "body": "Haushalte belegen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) der zuständigen Stelle, etwa des Landkreises; der allgemeine WBS gilt ein Jahr. Nach dem Wortlaut von § 7 NWoFG und RL Nr. 1.6 dürfen A-Haushalte auch B- oder C-Wohnungen beziehen, wenn Wohnungsgröße und Personenkreis passen – zur Höchstmiete dieser Gruppe (eigene Ableitung, im Einzelfall mit der NBank klären)."
     },
     {
       "type": "callout",
       "variant": "hinweis",
       "title": "Begriff: Gesamtjahreseinkommen",
-      "body": "Nicht das Brutto: erwartetes Einkommen aller Haushaltsmitglieder in den nächsten 12 Monaten, abzüglich je 10 % für Steuern, Kranken-/Pflege- und Rentenversicherung, soweit gezahlt (höchstens 30 %), und abzüglich Freibeträgen, z. B. 4.000 € je Person mit GdB ab 50 oder Pflegegrad 2–5."
+      "body": "Nicht das Brutto, sondern das erwartete Einkommen aller Haushaltsmitglieder in den 12 Monaten nach Antragstellung – abzüglich je 10 % für Steuern, Kranken-/Pflege- und Rentenversicherung, soweit gezahlt (höchstens 30 %), sowie Freibeträgen (z. B. 4.000 € je Person mit GdB ab 50 oder Pflegegrad 2–5) und Unterhaltsaufwendungen."
     },
     {
       "type": "table",
-      "caption": "Angemessene Wohnfläche",
+      "caption": "Angemessene Wohnfläche für die Förderung (RL Nr. 5.1.1)",
       "columns": [
         "Personen",
         "bis m²"
@@ -156,11 +156,11 @@
           "+10"
         ]
       ],
-      "note": "Rollstuhlgerecht +12 m², mit Freisitz +15 m²."
+      "note": "Rollstuhlgerecht nach DIN 18040-2 „R“: +12 m², mit Freisitz stattdessen +15 m². Mindestens 30 m² (Soll). Die Größe je Haushalt legt der WBS fest."
     },
     {
       "type": "quote",
-      "text": "Umso wichtiger ist es, dass die neuen Richtlinien den Kreis der Berechtigten spürbar erweitern. So öffnet sich eine Tür für all jene, die bisher knapp durchs Raster gefallen sind.",
+      "text": "[…] Umso wichtiger ist es, dass die neuen Richtlinien den Kreis der Berechtigten spürbar erweitern. So öffnet sich eine Tür für all jene, die bisher knapp durchs Raster gefallen sind.",
       "name": "Michael Kiesewetter",
       "role": "Vorstandsvorsitzender der NBank",
       "source": "MW-Presseinformation vom 03.07.2026"
@@ -169,11 +169,11 @@
       "type": "callout",
       "variant": "tipp",
       "title": "Kalkulationsnotiz",
-      "body": "Wo B und C zugelassen sind, bestimmt die Gruppe Zuschuss, Darlehen und Anfangsmiete zugleich (→ S. 11)."
+      "body": "Die Gruppe bestimmt Fördermix und Höchstmiete zugleich (→ S. 11)."
     }
   ],
   "footnotes": [
-    "§ 3 Abs. 2, §§ 7–8 NWoFG; §§ 2–4 DVO-NWoFG; RL Nr. 1.5, 1.6, 5.1.1, 12.3.2."
+    "§ 3 Abs. 2, §§ 7–8 NWoFG; §§ 2–4 DVO-NWoFG; RL Nr. 1.5, 1.6, 5.1.1, 12.3.2; Zuschläge B/C: eigene Berechnung."
   ],
   "fact_ids": [
     "F021",
@@ -197,7 +197,12 @@
     "F189",
     "F053",
     "F062",
-    "G3-02"
+    "G3-02",
+    "F036",
+    "F058",
+    "G2-34",
+    "F181",
+    "F158"
   ],
   "visual_idea": "„Einkommensleiter“: je Haushaltstyp ein Piktogramm (Erwachsene/Kinder) und drei horizontale Balken in abgestuften Tönen A/B/C mit den exakten Endwerten – die Beschriftung ist zugleich die Tabelle, keine zweite Tabelle nötig. Legende A/B/C als große Buchstaben-Chips mit ihrer Definition oben. Kasten „B und C nur mit Zulassung“ mit --signal-Kontur. Marginalspalte: „Begriff: Gesamtjahreseinkommen“ mit Mini-Grafik „Brutto ≠ Gesamtjahreseinkommen“ (drei 10-%-Chips, ein Freibetrag-Chip), darunter die kleine Tabelle „Angemessene Wohnfläche“. Zitat als typografische Atempause; Kalkulationsnotiz als wiederkehrendes Element am Seitenfuß."
 }

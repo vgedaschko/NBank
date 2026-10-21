@@ -1,0 +1,146 @@
+<section class="page bs-23" data-page="14">
+  <style>
+    /* Titelzone (wie S. 12): Kapitelnummer außen, Titel, Unterzeile, Vorspann */
+    .page[data-page="14"] .p14-title { align-items: start; }
+    .page[data-page="14"] .p14-title .chapter-no { text-align: left; }
+    .page[data-page="14"] .p14-title .h1 { margin-top: 2.4mm; }
+    .page[data-page="14"] .p14-deck {
+      margin-top: 3.4mm;
+      font-family: var(--font-display);
+      font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0;
+      font-weight: 400;
+      font-size: 11pt;
+      line-height: 1.32;
+      letter-spacing: -.004em;
+      -webkit-hyphens: none; hyphens: none;
+      text-wrap: balance;
+      color: var(--fg);
+    }
+    .page[data-page="14"] .p14-deck b { font-weight: 560; color: var(--accent-text); white-space: nowrap; }
+    .page[data-page="14"] .p14-leadtext { margin-top: 1.8mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
+
+    /* Effizienzskala: Petrol-Rampe A+ (dunkel) bis H (hell), helligkeitsmonoton = graustufenfest */
+    .page[data-page="14"] .p14-e0 { fill: var(--seq-6); }
+    .page[data-page="14"] .p14-e1 { fill: color-mix(in oklab, var(--seq-6) 87.5%, var(--seq-1)); }
+    .page[data-page="14"] .p14-e2 { fill: color-mix(in oklab, var(--seq-6) 75%, var(--seq-1)); }
+    .page[data-page="14"] .p14-e3 { fill: color-mix(in oklab, var(--seq-6) 62.5%, var(--seq-1)); }
+    .page[data-page="14"] .p14-e4 { fill: color-mix(in oklab, var(--seq-6) 45%, var(--seq-1)); }
+    .page[data-page="14"] .p14-e5 { fill: color-mix(in oklab, var(--seq-6) 34%, var(--seq-1)); }
+    .page[data-page="14"] .p14-e6 { fill: color-mix(in oklab, var(--seq-6) 23%, var(--seq-1)); }
+    .page[data-page="14"] .p14-e7 { fill: color-mix(in oklab, var(--seq-6) 11.5%, var(--seq-1)); }
+    .page[data-page="14"] .p14-e8 { fill: var(--seq-1); }
+    .page[data-page="14"] .chart__svg .p14-lim { fill: var(--fg); }
+    .page[data-page="14"] .p14-frame { fill: none; stroke: var(--fg); stroke-width: .5; }
+    .page[data-page="14"] .p14-frame--from { stroke-dasharray: 1 .7; }
+    .page[data-page="14"] .p14-hop { fill: none; stroke: var(--accent); stroke-width: .45; stroke-linecap: round; }
+    .page[data-page="14"] .p14-hop-dot, .page[data-page="14"] .p14-hop-head { fill: var(--accent); }
+    .page[data-page="14"] .p14-hop-start { fill: var(--surface); stroke: var(--accent); stroke-width: .4; }
+    .page[data-page="14"] .p14-rule { display: grid; grid-template-columns: 5mm minmax(0, 1fr); column-gap: 2.2mm; align-items: start; margin-top: 2.8mm; padding-top: 2.2mm; border-top: var(--hair) solid var(--rule); font-size: var(--fs-small); line-height: 1.4; color: var(--fg-2); }
+    .page[data-page="14"] .p14-rule b { color: var(--fg); }
+    .page[data-page="14"] .p14-rule .icon { width: 5mm; height: 5mm; color: var(--fg); }
+    .page[data-page="14"] .p14-rule + .chart__note { margin-top: 1.6mm; padding-left: 7.2mm; }
+    .page[data-page="14"] .p14-sw { display: inline-block; width: 2.6mm; height: 2.2mm; margin: 0 1mm -.1mm .2mm; border: .5pt solid var(--fg); background: color-mix(in oklab, var(--seq-6) 45%, var(--seq-1)); }
+    .page[data-page="14"] .p14-sw--from { border-style: dashed; background: color-mix(in oklab, var(--seq-6) 11.5%, var(--seq-1)); }
+    .page[data-page="14"] .p14-figs { display: flex; flex-direction: column; }
+    .page[data-page="14"] .p14-fn { margin-top: auto; }
+    .page[data-page="14"] .p14-heat-fig { margin-bottom: var(--sp-4); }
+
+    /* Heatmap: Tonwert steigt mit dem Satz (sequenzielle Skala, 7 Stufen) */
+    .page[data-page="14"] .p14-h0 { fill: color-mix(in oklab, var(--seq-1) 55%, var(--surface)); }
+    .page[data-page="14"] .p14-h1 { fill: var(--seq-1); }
+    .page[data-page="14"] .p14-h2 { fill: var(--seq-2); }
+    .page[data-page="14"] .p14-h3 { fill: var(--seq-3); }
+    .page[data-page="14"] .p14-h4 { fill: var(--seq-4); }
+    .page[data-page="14"] .p14-h5 { fill: var(--seq-5); }
+    .page[data-page="14"] .p14-h6 { fill: var(--seq-6); }
+    .page[data-page="14"] .chart__svg .p14-pre { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 600; letter-spacing: 0; }
+    .page[data-page="14"] .chart__svg .p14-from { font-weight: 450; }
+
+    /* Faktenspalte rechts: Module mit Haarlinie, erstes mit Modul-Linie (bündig mit den Abbildungen) */
+    .page[data-page="14"] .p14-side { display: flex; flex-direction: column; }
+    .page[data-page="14"] .p14-mod { border-top: var(--hair) solid var(--rule); padding-top: 2.4mm; }
+    .page[data-page="14"] .p14-side > * + * { margin-top: 3.2mm; }
+    .page[data-page="14"] .p14-mod--first { border-top: var(--rule-heavy) solid var(--rule-strong); padding-top: 3mm; }
+    .page[data-page="14"] .p14-mod > .label + * { margin-top: 1.4mm; }
+    .page[data-page="14"] .p14-text { font-size: var(--fs-micro); line-height: 1.38; color: var(--fg-2); }
+    .page[data-page="14"] .p14-text b { color: var(--fg); }
+    .page[data-page="14"] .bullets > li { font-size: var(--fs-micro); line-height: 1.38; }
+    .page[data-page="14"] .bullets > li + li { margin-top: .8mm; }
+    .page[data-page="14"] .p14-stop { white-space: nowrap; }
+    .page[data-page="14"] .p14-stop b { font-size: var(--fs-small); color: var(--fg); }
+    .page[data-page="14"] .p14-stop .icon { width: 3.8mm; height: 3.8mm; margin-right: 1.2mm; vertical-align: -.95mm; color: var(--signal-fill); }
+    .page[data-page="14"] .callout { padding: 3.2mm 4.4mm 3.6mm; }
+    .page[data-page="14"] .callout__title { margin-top: 1.2mm; }
+    .page[data-page="14"] .callout__body { margin-top: 1.2mm; font-size: var(--fs-micro); line-height: 1.38; }
+  </style>
+
+  <div class="bs-register" data-bleed>2.3</div>
+
+  <div class="l-grid p14-title" data-m="title">
+    <div class="l-span-3">
+      <p class="chapter-no">03<small>von 06</small></p>
+      <p class="tags u-mt-4"><span class="tag"><i class="sw sw--grant"></i>Zuschuss</span></p>
+    </div>
+    <div class="l-span-9">
+      <p class="kicker">Programmteil 2.3 · Klimagerechte Modernisierung</p>
+      <h1 class="h1 h1--s">Zuschuss nach <em>Klassensprung</em></h1>
+      <p class="p14-deck">Bis zu <b>40 %</b> der Modernisierungskosten, höchstens <b>31.000 €</b> je gebundener Wohnung (Einkommensgruppe A, ab 5 Klassen)</p>
+      <p class="p14-leadtext">Reiner Zuschuss, kein Bedarfsnachweis: Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen, fertiggestellt vor dem 08.12.2004.<span class="fn">1</span></p>
+    </div>
+  </div>
+
+  <div class="l-grid l-grid--stretch l-fill u-mt-5 p14-body">
+    <div class="l-span-7 p14-figs" data-m="left">
+      <figure class="chart module" data-m="scale">
+        <figcaption class="chart__head"><h2 class="chart__title">Effizienzklassen</h2><p class="chart__sub">Endenergiebedarf, kWh je m² Gebäudenutzfläche und Jahr</p></figcaption>
+        <svg class="chart__svg p14-scale" viewBox="0 0 99.4 21.2" width="99.4mm" height="21.2mm" role="img" aria-label="Energieeffizienzklassen nach Endenergiebedarf in kWh je m² Gebäudenutzfläche und Jahr: A+ bis 30, A bis 50, B bis 75, C bis 100, D bis 130, E bis 160, F bis 200, G bis 250, H über 250. Beispiel: Sprung von Ausgangsklasse G auf erreichte Klasse D entspricht 3 Klassen. Voraussetzung sind mindestens 2 Klassen."><rect class="p14-e0" x="0" y="8" width="10.51" height="8.6"/><text class="t-num t-mid t-on-seq" x="5.26" y="14.45">A+</text><rect class="p14-e1" x="11.11" y="8" width="10.51" height="8.6"/><text class="t-num t-mid t-on-seq" x="16.37" y="14.45">A</text><rect class="p14-e2" x="22.22" y="8" width="10.51" height="8.6"/><text class="t-num t-mid t-on-seq" x="27.48" y="14.45">B</text><rect class="p14-e3" x="33.33" y="8" width="10.51" height="8.6"/><text class="t-num t-mid t-on-seq" x="38.59" y="14.45">C</text><rect class="p14-e4" x="44.44" y="8" width="10.51" height="8.6"/><text class="t-num t-mid t-on-seq-light" x="49.7" y="14.45">D</text><rect class="p14-e5" x="55.56" y="8" width="10.51" height="8.6"/><text class="t-num t-mid t-on-seq-light" x="60.81" y="14.45">E</text><rect class="p14-e6" x="66.67" y="8" width="10.51" height="8.6"/><text class="t-num t-mid t-on-seq-light" x="71.92" y="14.45">F</text><rect class="p14-e7" x="77.78" y="8" width="10.51" height="8.6"/><text class="t-num t-mid t-on-seq-light" x="83.03" y="14.45">G</text><polygon class="p14-e8" points="88.89,8 97.2,8 99.4,12.3 97.2,16.6 88.89,16.6"/><text class="t-num t-mid t-on-seq-light" x="93.54" y="14.45">H</text><rect class="p14-frame p14-frame--from" x="78.03" y="8.25" width="10.01" height="8.1"/><rect class="p14-frame" x="44.69" y="8.25" width="10.01" height="8.1"/><path class="p14-hop" d="M83.03 7.3 Q77.48 1.9 71.92 7.3"/><path class="p14-hop" d="M71.92 7.3 Q66.37 1.9 60.81 7.3"/><path class="p14-hop" d="M60.81 7.3 Q55.26 1.9 49.7 7.3"/><circle class="p14-hop-dot" cx="71.92" cy="7.3" r=".5"/><circle class="p14-hop-dot" cx="60.81" cy="7.3" r=".5"/><circle class="p14-hop-start" cx="83.03" cy="7.3" r=".7"/><polygon class="p14-hop-head" points="49.38,7.61 50.04,5.71 51.3,7"/><text class="t-mid" x="66.37" y="2.6"><tspan class="t-caps">Beispiel</tspan><tspan class="t-b t-acc" dx="1.2">3 Klassen</tspan></text><text class="t-mid p14-lim" x="5.26" y="20.4">≤ 30</text><text class="t-mid p14-lim" x="16.37" y="20.4">≤ 50</text><text class="t-mid p14-lim" x="27.48" y="20.4">≤ 75</text><text class="t-mid p14-lim" x="38.59" y="20.4">≤ 100</text><text class="t-mid p14-lim" x="49.7" y="20.4">≤ 130</text><text class="t-mid p14-lim" x="60.81" y="20.4">≤ 160</text><text class="t-mid p14-lim" x="71.92" y="20.4">≤ 200</text><text class="t-mid p14-lim" x="83.03" y="20.4">≤ 250</text><text class="t-mid p14-lim" x="93.54" y="20.4">> 250</text></svg>
+        <div class="p14-rule">
+          <svg class="icon icon--dokument" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.8h8.4L19 7.4v13.8H6z"/><path d="M14.2 2.8v4.8H19M9 12h7M9 15.4h7M9 18.6h4.4"/></svg>
+          <p><b>Voraussetzung: mindestens 2 Klassen besser</b> – Energiebedarfsausweis vor Bewilligung (<i class="p14-sw p14-sw--from" aria-hidden="true"></i>Ausgangsklasse) und mit der Fertigstellungsanzeige (<i class="p14-sw" aria-hidden="true"></i>erreichte Klasse)</p>
+        </div>
+        <p class="chart__note"><b>Ausnahme, etwa beim Baudenkmal:</b> Sind 2 Klassen nicht oder nur unverhältnismäßig aufwendig erreichbar, kann die NBank 1 Klasse zulassen; sie zählt wie 2. Rechennorm ab 2027 → S. 15.</p>
+      </figure>
+      <figure class="chart module u-mt-5 p14-heat-fig" data-m="heat">
+        <figcaption class="chart__head"><h2 class="chart__title">Zuschuss je gebundener Wohnung</h2><p class="chart__sub">Satz bis zu, Höchstbetrag</p></figcaption>
+        <svg class="chart__svg p14-heat" viewBox="0 0 99.4 67" width="99.4mm" height="67mm" role="img" aria-label="Zuschuss je gebundener Wohnung, Satz bis zu und Höchstbetrag, nach Klassensprung und Einkommensgruppe: 2 Klassen: A bis zu 25 Prozent, höchstens 25.000 Euro, Höchstbetrag ab 100.000 Euro Kosten je Wohnung, B bis zu 20 Prozent, höchstens 17.000 Euro, Höchstbetrag ab 85.000 Euro Kosten je Wohnung, C bis zu 10 Prozent, höchstens 9.000 Euro, Höchstbetrag ab 90.000 Euro Kosten je Wohnung; 3 Klassen: A bis zu 30 Prozent, höchstens 27.000 Euro, Höchstbetrag ab 90.000 Euro Kosten je Wohnung, B bis zu 25 Prozent, höchstens 19.000 Euro, Höchstbetrag ab 76.000 Euro Kosten je Wohnung, C bis zu 15 Prozent, höchstens 11.000 Euro, Höchstbetrag ab 73.334 Euro Kosten je Wohnung; 4 Klassen: A bis zu 35 Prozent, höchstens 29.000 Euro, Höchstbetrag ab 82.858 Euro Kosten je Wohnung, B bis zu 30 Prozent, höchstens 21.000 Euro, Höchstbetrag ab 70.000 Euro Kosten je Wohnung, C bis zu 20 Prozent, höchstens 13.000 Euro, Höchstbetrag ab 65.000 Euro Kosten je Wohnung; ab 5 Klassen: A bis zu 40 Prozent, höchstens 31.000 Euro, Höchstbetrag ab 77.500 Euro Kosten je Wohnung, B bis zu 35 Prozent, höchstens 23.000 Euro, Höchstbetrag ab 65.715 Euro Kosten je Wohnung, C bis zu 25 Prozent, höchstens 15.000 Euro, Höchstbetrag ab 60.000 Euro Kosten je Wohnung."><text class="t-caps" x="0" y="6.4">Gruppe</text><text class="t-cat t-mid" x="32.2" y="6.4">A</text><text class="t-cat t-mid" x="59.2" y="6.4">B</text><text class="t-cat t-mid" x="86.2" y="6.4">C</text><text class="t-num" x="0" y="14.35">2</text><text class="t-ax" x="0" y="18">Klassen</text><rect class="p14-h3" x="19" y="8.4" width="26.4" height="14.2"/><text class="t-num t-mid t-on-seq-light" x="32.2" y="14.35">25 %</text><text class="t-b t-mid t-on-seq-light" x="32.2" y="18">max. 25.000 €</text><text class="t-mid p14-from t-on-seq-light" x="32.2" y="21.25">ab 100.000 €</text><rect class="p14-h2" x="46" y="8.4" width="26.4" height="14.2"/><text class="t-num t-mid t-on-seq-light" x="59.2" y="14.35">20 %</text><text class="t-b t-mid t-on-seq-light" x="59.2" y="18">max. 17.000 €</text><text class="t-mid p14-from t-on-seq-light" x="59.2" y="21.25">ab 85.000 €</text><rect class="p14-h0" x="73" y="8.4" width="26.4" height="14.2"/><text class="t-num t-mid t-on-seq-light" x="86.2" y="14.35">10 %</text><text class="t-b t-mid t-on-seq-light" x="86.2" y="18">max. 9.000 €</text><text class="t-mid p14-from t-on-seq-light" x="86.2" y="21.25">ab 90.000 €</text><text class="t-num" x="0" y="29.15">3</text><text class="t-ax" x="0" y="32.8">Klassen</text><rect class="p14-h4" x="19" y="23.2" width="26.4" height="14.2"/><text class="t-num t-mid t-on-seq" x="32.2" y="29.15">30 %</text><text class="t-b t-mid t-on-seq" x="32.2" y="32.8">max. 27.000 €</text><text class="t-mid p14-from t-on-seq" x="32.2" y="36.05">ab 90.000 €</text><rect class="p14-h3" x="46" y="23.2" width="26.4" height="14.2"/><text class="t-num t-mid t-on-seq-light" x="59.2" y="29.15">25 %</text><text class="t-b t-mid t-on-seq-light" x="59.2" y="32.8">max. 19.000 €</text><text class="t-mid p14-from t-on-seq-light" x="59.2" y="36.05">ab 76.000 €</text><rect class="p14-h1" x="73" y="23.2" width="26.4" height="14.2"/><text class="t-num t-mid t-on-seq-light" x="86.2" y="29.15">15 %</text><text class="t-b t-mid t-on-seq-light" x="86.2" y="32.8">max. 11.000 €</text><text class="t-mid p14-from t-on-seq-light" x="86.2" y="36.05">ab 73.334 €</text><text class="t-num" x="0" y="43.95">4</text><text class="t-ax" x="0" y="47.6">Klassen</text><rect class="p14-h5" x="19" y="38" width="26.4" height="14.2"/><text class="t-num t-mid t-on-seq" x="32.2" y="43.95">35 %</text><text class="t-b t-mid t-on-seq" x="32.2" y="47.6">max. 29.000 €</text><text class="t-mid p14-from t-on-seq" x="32.2" y="50.85">ab 82.858 €</text><rect class="p14-h4" x="46" y="38" width="26.4" height="14.2"/><text class="t-num t-mid t-on-seq" x="59.2" y="43.95">30 %</text><text class="t-b t-mid t-on-seq" x="59.2" y="47.6">max. 21.000 €</text><text class="t-mid p14-from t-on-seq" x="59.2" y="50.85">ab 70.000 €</text><rect class="p14-h2" x="73" y="38" width="26.4" height="14.2"/><text class="t-num t-mid t-on-seq-light" x="86.2" y="43.95">20 %</text><text class="t-b t-mid t-on-seq-light" x="86.2" y="47.6">max. 13.000 €</text><text class="t-mid p14-from t-on-seq-light" x="86.2" y="50.85">ab 65.000 €</text><text class="t-num" x="0" y="58.75"><tspan class="p14-pre">ab </tspan>5</text><text class="t-ax" x="0" y="62.4">Klassen</text><rect class="p14-h6" x="19" y="52.8" width="26.4" height="14.2"/><text class="t-num t-mid t-on-seq" x="32.2" y="58.75">40 %</text><text class="t-b t-mid t-on-seq" x="32.2" y="62.4">max. 31.000 €</text><text class="t-mid p14-from t-on-seq" x="32.2" y="65.65">ab 77.500 €</text><rect class="p14-h5" x="46" y="52.8" width="26.4" height="14.2"/><text class="t-num t-mid t-on-seq" x="59.2" y="58.75">35 %</text><text class="t-b t-mid t-on-seq" x="59.2" y="62.4">max. 23.000 €</text><text class="t-mid p14-from t-on-seq" x="59.2" y="65.65">ab 65.715 €</text><rect class="p14-h3" x="73" y="52.8" width="26.4" height="14.2"/><text class="t-num t-mid t-on-seq-light" x="86.2" y="58.75">25 %</text><text class="t-b t-mid t-on-seq-light" x="86.2" y="62.4">max. 15.000 €</text><text class="t-mid p14-from t-on-seq-light" x="86.2" y="65.65">ab 60.000 €</text></svg>
+        <p class="chart__note">KG 300–700; Überkompensationsprüfung vorbehalten. <span class="u-nowrap">„ab … €“:</span> Höchstbetrag greift ab diesen Kosten je Wohnung (eigene Berechnung). Gebäudekosten: RL ohne Verteilungsschlüssel, NBank-Arbeitshilfe nach Wohnfläche.</p>
+      </figure>
+      <ol class="footnotes p14-fn" data-m="fn">
+        <li>RL Nr. 1.5, 2.3, 4.2, 7.1–7.5, 11.4, 11.5, 12.7.3, 13.3; Anlage 10 GModG (vormals GEG; Klassengrenzen auch ab 01.01.2027 unverändert); NBank-Produktinformation Modernisierung (Stand 10.07.2026); NBank-Arbeitshilfe Kosten- und Finanzierungsaufteilung; KfW-Merkblatt 261; Förderrichtlinie BEG EM.</li>
+      </ol>
+    </div>
+    <div class="l-span-5 p14-side" data-m="right">
+      <section class="p14-mod p14-mod--first" data-m="was">
+        <h3 class="label label--accent">Was gefördert wird</h3>
+        <p class="p14-text"><b>Gesamtmaßnahmen statt Einzelmaßnahmen.</b> Darin auch förderfähig: Barrierefreiheit (angelehnt an DIN 18040-2), besserer Gebrauchswert, Bleileitungstausch, unmittelbar zugehörige Instandsetzung.</p>
+      </section>
+      <section class="p14-mod" data-m="bind">
+        <h3 class="label label--accent">Bindung und Miete</h3>
+        <ul class="bullets">
+          <li><b>25 Jahre ab Abschluss</b>; bei Mieterwechsel nur an WBS-Haushalte</li>
+          <li><b>vermietet: +10 Jahre</b>, außer bei WBS-Nachweis; dann Vertrag unverzüglich an Höchstmiete und Erhöhungsregeln anpassen</li>
+          <li><b>Höchstmieten wie in 2.1</b> (→ S. 7): <span class="u-nowrap">6,50 bis 9,00 € je m²</span>; bei Verlängerung Erhöhungssperre ab erster WBS-Belegung</li>
+        </ul>
+      </section>
+      <section class="p14-mod" data-m="ablauf">
+        <h3 class="label label--accent">Ablauf und Eigenmittel</h3>
+        <p class="p14-text"><span class="p14-stop"><svg class="icon icon--stopp" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="ui-fill" d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd" stroke="none"/></svg><b>Erst Bewilligung, dann Aufträge</b></span> (→ S. 19). <b>Auszahlung:</b> bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abschluss; 0,75 % Bearbeitungsentgelt. <b>Eigenmittel mind. 20 %</b> der zuwendungsfähigen Kosten, mindestens die Hälfte möglichst als Geld.</p>
+      </section>
+      <section class="p14-mod" data-m="kombi">
+        <h3 class="label label--accent">Kombinierbar mit</h3>
+        <p class="p14-text"><b>BEG Wohngebäude (KfW 261)</b> oder <b>BEG Einzelmaßnahmen</b>, nur eines (3 Jahre Sperrfrist). Die BEG kürzt, bis öffentliche Mittel höchstens 60 % derselben Kosten decken (BEG EM, Kommunen: 90 %); NBank-Zuschuss zählt mit (eigene Ableitung).</p>
+      </section>
+      <aside class="callout callout--frist" data-m="frist">
+        <p class="callout__label"><svg class="icon icon--frist" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.8" r="8.2"/><path d="M12 8.2v4.8l3.2 2"/><path d="M9.2 2.6h5.6"/></svg>Frist</p>
+        <h3 class="callout__title">Eingang bis <span class="u-nowrap">31.12.2026?</span></h3>
+        <p class="callout__body">Maßgeblich ist die Wohnraumförderstelle. Dann ist das alte Recht verbindlich wählbar (→ S. 15).</p>
+      </aside>
+      <aside class="callout callout--tipp" data-m="tipp">
+        <p class="callout__label"><svg class="icon icon--rechner" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.8" width="14" height="18.4" rx="1"/><path d="M8 6.4h8v3.4H8z"/><path d="M8.4 13.4h.01M12 13.4h.01M15.6 13.4h.01M8.4 17.2h.01M12 17.2h.01M15.6 17.2h.01" stroke-width="2"/></svg>Kalkulationsnotiz</p>
+        <p class="callout__body">Jede Zusatzklasse bis zur fünften hebt Fördersatz und Höchstbetrag: <span class="u-nowrap">Klassensprung</span> planen.</p>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="page__foot"><span class="page__folio">14</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Bestand · Programmteil 2.3</b></span><span>Stand: 21.10.2026</span></span></footer>
+</section>

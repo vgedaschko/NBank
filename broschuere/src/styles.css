@@ -283,7 +283,9 @@ h1, h2, h3, h4, .h1, .h2, .h3, .display, .cover__title, .chapter-no, .kf__label,
    hyphens: manual, damit ein von Hand gesetztes &shy; an einer Kompositionsfuge greift (Wohnraum&shy;förderstelle). */
 .lead { -webkit-hyphens: manual; hyphens: manual; text-wrap: pretty; }
 .u-hyphens { -webkit-hyphens: manual !important; hyphens: manual !important; }
-p, li, dd { text-wrap: pretty; }
+/* Kein Wort und kein Trennrest allein in der letzten Zeile – auch in Tabellenzellen. Greift nicht immer
+   (render.cjs meldet verbliebene Fälle als LASTLINE; Abhilfe: HYPH_EXCEPTIONS in assemble.cjs). */
+p, li, dd, td, th { text-wrap: pretty; }
 ul, ol { list-style: none; }
 b, strong { font-weight: 650; }
 a { color: inherit; text-decoration: none; }

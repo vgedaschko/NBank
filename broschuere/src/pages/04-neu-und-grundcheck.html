@@ -54,14 +54,17 @@
     .page[data-page="04"] .p04-nein__text { font-size: var(--fs-module); line-height: 4.4mm; }
     .page[data-page="04"] .p04-nein .callout__title { display: inline; margin: 0 .8mm 0 0; font-size: 11pt; line-height: inherit; }
     .page[data-page="04"] .p04-nein .callout__body { display: inline; margin: 0; color: var(--fg-2); }
-    .page[data-page="04"] .p04-list { margin-top: var(--sp-3); }
-    .page[data-page="04"] .p04-list .checklist__item { padding: 1.4mm 0 1.5mm; }
+    .page[data-page="04"] .p04-list { margin-top: .4mm; }
+    .page[data-page="04"] .p04-list .checklist__item { padding: 1.3mm 0 1.4mm; }
     /* Baustein-Matrix steht im DOM direkt nach der Prüffrage -> rechts oben in jeder Zeile, alle sechs Matrizen bilden eine bündige Spalte; Höhe < Zeilenhöhe (4,38 mm), sonst wird Zeile 2 mit eingezogen.
        Float statt fester Rasterspalte: eine 40-mm-Spalte über alle Zeilen kostet vier Textzeilen (+17 mm, Seite läuft über).
        Chips 5,6 mm, Fuge 0,7 mm, Tabellenziffern: 4,5 mm Ziffernbreite, 0,55 mm Luft je Seite -> Nachbarn verschmelzen nicht. */
     .page[data-page="04"] .p04-bs { float: right; display: flex; gap: .7mm; margin: .15mm 0 0 3mm; }
     .page[data-page="04"] .p04-bs > i { display: block; width: 5.6mm; height: 4.1mm; font: 650 var(--fs-micro)/4.1mm var(--font-text); font-style: normal; text-align: center; letter-spacing: -.02em; font-variant-numeric: tabular-nums lining-nums; background: var(--bs); color: var(--on-bs); }
-    .page[data-page="04"] .p04-bs > i.is-off { background: transparent; box-shadow: inset 0 0 0 var(--hair) var(--rule); }
+    /* Nicht zutreffende Programmteile: Nummer als Geisterschrift ohne Kontur, damit die Ankreuzkästchen links die einzigen leeren Quadrate bleiben und jede Spalte in jeder Zeile benannt ist */
+    .page[data-page="04"] .p04-bs > i.is-off { background: none; color: var(--rule); }
+    /* Spaltenlegende über der Chip-Matrix: bündig mit deren linker Kante (6 × 5,6 mm + 5 × 0,7 mm = 37,1 mm) */
+    .page[data-page="04"] .p04-legend { width: 37.1mm; margin: 2.4mm 0 0 auto; line-height: 1; }   /* wie ein Spaltenkopf: dicht über der Linie, mit Abstand zum Callout */
 
     /* Fußnoten */
   </style>
@@ -122,6 +125,7 @@
       </aside>
     </div>
 
+    <p class="label p04-legend" aria-hidden="true">gilt für</p>
     <ul class="checklist checklist--open-end p04-list">
       <li class="checklist__item">
         <span class="checklist__box"></span>
@@ -133,19 +137,19 @@
       </li>
       <li class="checklist__item">
         <span class="checklist__box"></span>
-        <p class="p04-item__text"><b>Mehrfamilienhaus ab drei Wohnungen?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1–2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off"></i><i class="is-off"></i></span> Ausnahmen: gemeinschaftliche Wohnformen, im Einzelfall Reihen-/Doppelhaus. 2.1/2.2/2.4: je neuem Gebäude mind. 2 gebundene Wohnungen, keine Eigentumswohnungen zur Vermietung; 2.3: fertiggestellt vor 08.12.2004.</p>
+        <p class="p04-item__text"><b>Mehrfamilienhaus ab drei Wohnungen?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1–2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span> Ausnahmen: gemeinschaftliche Wohnformen, im Einzelfall Reihen-/Doppelhaus. 2.1/2.2/2.4: je neuem Gebäude mind. 2 gebundene Wohnungen, keine Eigentumswohnungen zur Vermietung; 2.3: fertiggestellt vor 08.12.2004.</p>
       </li>
       <li class="checklist__item">
         <span class="checklist__box"></span>
-        <p class="p04-item__text"><b>Bedarf am Standort?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1, 2.2, 2.6"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off"></i><i class="is-off"></i><i class="is-off"></i><i class="bs-26">2.6</i></span> In sechs Gebietsarten gegeben, sonst <span class="u-nowrap">NBank-Karte prüfen <a href="#seite-18">→&nbsp;S.&nbsp;18</a>.</span></p>
+        <p class="p04-item__text"><b>Bedarf am Standort?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1, 2.2, 2.6"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="is-off">2.4</i><i class="is-off">2.5</i><i class="bs-26">2.6</i></span> In sechs Gebietsarten gegeben, sonst <span class="u-nowrap">NBank-Karte prüfen <a href="#seite-18">→&nbsp;S.&nbsp;18</a>.</span></p>
       </li>
       <li class="checklist__item">
         <span class="checklist__box"></span>
-        <p class="p04-item__text"><b>Eigenmittel?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1–2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off"></i><i class="is-off"></i></span> Mind. 20&nbsp;% der zuwendungsfähigen Kosten (Inseln: 10&nbsp;% der zuwendungsfähigen Herstellungskosten; Modellprojekte, <span lang="en">Housing First</span>: ggf. weniger), davon soll mind. die Hälfte Geld oder lastenfreies Grundstück sein (2.3: Geld).</p>
+        <p class="p04-item__text"><b>Eigenmittel?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1–2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span> Mind. 20&nbsp;% der zuwendungsfähigen Kosten (Inseln: 10&nbsp;% der zuwendungsfähigen Herstellungskosten; Modellprojekte, <span lang="en">Housing First</span>: ggf. weniger), davon soll mind. die Hälfte Geld oder lastenfreies Grundstück sein (2.3: Geld).</p>
       </li>
       <li class="checklist__item">
         <span class="checklist__box"></span>
-        <p class="p04-item__text"><b>Grundstück gesichert?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1, 2.2, 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off"></i><i class="bs-24">2.4</i><i class="is-off"></i><i class="is-off"></i></span> Eigentum oder Erbbaurecht (mind. 60&nbsp;Jahre Restlaufzeit); gesicherter Erwerb genügt.</p>
+        <p class="p04-item__text"><b>Grundstück gesichert?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1, 2.2, 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span> Eigentum oder Erbbaurecht (mind. 60&nbsp;Jahre Restlaufzeit); gesicherter Erwerb genügt.</p>
       </li>
     </ul>
   </section>

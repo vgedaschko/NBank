@@ -143,26 +143,31 @@
       "chart": "bar",
       "title": "Sensitivität: Herstellungskosten 5.200 € je m²",
       "data": {
-        "kind": "waterfall",
+        "kind": "stacked-total + waterfall",
         "unit": "Mio. €",
         "steps": [
           {
             "label": "Gesamtkosten",
             "value": 7.98,
-            "display": "7,98"
-          },
-          {
-            "label": "über der Grenze",
-            "value": -0.28,
-            "display": "−0,28",
-            "token": "--color-equity",
-            "style": "hatch-outline"
-          },
-          {
-            "label": "zuwendungsfähig",
-            "value": 7.7,
-            "display": "7,70",
-            "is_total": true
+            "display": "7,98",
+            "is_total": true,
+            "segments": [
+              {
+                "label": "zuwendungsfähig",
+                "value": 7.7,
+                "display": "7,70",
+                "token": "--fg",
+                "label_position": "im Balken"
+              },
+              {
+                "label": "über der Grenze, nicht zuwendungsfähig",
+                "value": 0.28,
+                "display": "0,28",
+                "token": "--color-equity",
+                "style": "hatch-outline",
+                "label_position": "unter dem Segment"
+              }
+            ]
           },
           {
             "label": "Förderung, bis zu 80 %",
@@ -220,7 +225,7 @@
     "G1-02",
     "G1-04"
   ],
-  "visual_idea": "Obere Hälfte 8 + 4: links Kicker, Titel und Vorspann (Basisfall), rechts als Seitenspalte die Stempelzeile „Modellrechnung – fiktives Beispiel, keine Förderzusage“ (globale .stampline, ohne Drehung, im Satzspiegel) und darunter das Kiesewetter-Zitat als Motto. Darunter links der nummerierte Rechenweg 1–6 im Spreadsheet-Look (Zeilennummern im grauen Kopfstreifen, Summenstriche über Zeile 2 und 5, Beträge rechtsbündig mit tabellarischen Ziffern) mit Kostenverweis → S. 11 als Tabellennotiz; in der Seitenspalte daneben „Annahmen“. Untere Hälfte 5 + 7: links die drei Kennzahlen gestapelt (Ø bis zu 140.000 € · bis zu 4.000 €/m² · bis zu 4 € je 1 € Mindest-Eigenmittel), rechts als Hauptelement der Seite die Finanzierung 7,0 Mio. € als Haus (Reprise Titel: 5 Geschosse à 20 %, 20 Fenster = 20 Wohnungen) mit Zuschuss 2,8 (--color-grant), Darlehen 2,8 (--color-loan), Eigenmittel 1,4 Mio. € (--color-equity, Schraffur); Etiketten rechts wie auf dem Titel (Klammer, Farbfeld, „Name · Anteil“, darunter der Betrag), äußere Klammer über Zuschuss und Darlehen „Förderung 5,6 Mio. € · bis zu 80 %“; Kurzvorbehalt (.caveat) direkt unter dem Haus. Keine eigene Kostentabelle (Spalte A im Vergleich → S. 11). Band „Sensitivität“ (5 + 7): links Titel und großes Ergebnis „bis zu 77,2 %“, rechts Wasserfall 7,98 → −0,28 (Eigenmittel-Schraffur mit Kontur) → 7,70 → 6,16 Mio. € mit Notiz. Fundstellen im Fußnotenblock am Seitenfuß. Baustein-Register 2.1 (--baustein-21).",
+  "visual_idea": "Obere Hälfte 8 + 4: links Kicker, Titel und Vorspann (Basisfall), rechts als Seitenspalte die Stempelzeile „Modellrechnung – fiktives Beispiel, keine Förderzusage“ (globale .stampline, ohne Drehung, im Satzspiegel) und darunter das Kiesewetter-Zitat als Motto. Darunter links der nummerierte Rechenweg 1–6 im Spreadsheet-Look (Zeilennummern im grauen Kopfstreifen, Summenstriche über Zeile 2 und 5, Beträge rechtsbündig mit tabellarischen Ziffern) mit Kostenverweis → S. 11 als Tabellennotiz; in der Seitenspalte daneben „Annahmen“. Untere Hälfte 5 + 7: links die drei Kennzahlen gestapelt (Ø bis zu 140.000 € · bis zu 4.000 €/m² · bis zu 4 € je 1 € Mindest-Eigenmittel), rechts als Hauptelement der Seite die Finanzierung 7,0 Mio. € als Haus (Reprise Titel: 5 Geschosse à 20 %, 20 Fenster = 20 Wohnungen) mit Zuschuss 2,8 (--color-grant), Darlehen 2,8 (--color-loan), Eigenmittel 1,4 Mio. € (--color-equity, Schraffur); Etiketten rechts wie auf dem Titel (Klammer, Farbfeld, „Name · Anteil“, darunter der Betrag), äußere Klammer über Zuschuss und Darlehen „Förderung 5,6 Mio. € · bis zu 80 %“; Kurzvorbehalt (.caveat) direkt unter dem Haus. Keine eigene Kostentabelle (Spalte A im Vergleich → S. 11). Band „Sensitivität“ (5 + 7): links Titel und großes Ergebnis „bis zu 77,2 %“, rechts Gesamtkosten 7,98 Mio. € als ein gestapelter Balken (7,70 zuwendungsfähig in Tinte, Beschriftung im Balken | 0,28 über der Grenze, nicht zuwendungsfähig als Eigenmittel-Schraffur mit Kontur, Beschriftung darunter), darunter Förderung 6,16 und Mindest-Eigenmittel + Restfinanzierung 1,54 + 0,28 Mio. € (die 0,28 senkrecht unter dem Grenz-Segment, gestrichelt verbunden), mit Notiz. Fundstellen im Fußnotenblock am Seitenfuß. Baustein-Register 2.1 (--baustein-21).",
   "caveat": "Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2",
   "page_variant": "accent"
 }

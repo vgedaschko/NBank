@@ -1,9 +1,9 @@
 <section class="page" data-page="07" id="seite-07">
   <style>
     /* Seite 07 · Ertragsseite Mieten – seitenspezifisch, Farben nur über Tokens.
-       Aufbau: zwei Spalten 7 | 5 ab Seitenkopf (links Titel, Tabelle, Mietpfad; rechts Lead, Begriff, Markt, Notiz),
+       Aufbau: Raster 7 | 5 in zwei Zeilen (Titel + Tabelle | Lead + Begriff; Mietpfad | Markt, Modullinien bündig),
        darunter Spielregeln 7 | 5, Fußnoten am Fuß. Modultext 9 pt; Quellen, Bildunterschriften, Gemeindeverzeichnis 8,5 pt. */
-    .page[data-page="07"] .p07-main { --row-gap: 0; }
+    .page[data-page="07"] .p07-main { --row-gap: 2.6mm; }   /* zwei Zeilen: Mietpfad und Markt beginnen auf gleicher Linie */
     .page[data-page="07"] .p07-col > * + * { margin-top: 2.6mm; }
     .page[data-page="07"] .p07-col > .p07-lead + .p07-term { margin-top: var(--sp-3); }
 
@@ -52,14 +52,15 @@
     .page[data-page="07"] .chart__note { line-height: 1.26; }
     .page[data-page="07"] .p07-marketfig .chart__svg, .page[data-page="07"] .p07-pathfig .chart__svg { margin-top: 2.4mm; }
     .page[data-page="07"] .p07-src { margin-top: .6mm; line-height: 1.26; }
+    /* Markt-Diagramm füllt die Zeile neben dem Mietpfad: Notiz unten bündig mit der Mietpfad-Notiz */
+    .page[data-page="07"] .p07-col--market { align-self: stretch; display: flex; flex-direction: column; }
+    .page[data-page="07"] .p07-marketfig { flex: 1 0 auto; display: flex; flex-direction: column; }
+    .page[data-page="07"] .p07-marketfig .chart__note { margin-top: auto; padding-top: 2.6mm; }
     .page[data-page="07"] .p07-room { fill: var(--accent-soft); }
     .page[data-page="07"] .p07-base { stroke: var(--fg-3); stroke-width: .25; stroke-dasharray: .6 .6; fill: none; }
     .page[data-page="07"] .p07-fix { stroke: var(--fg); stroke-width: .9; fill: none; }
     .page[data-page="07"] .p07-cap { stroke: var(--accent); stroke-width: .7; stroke-dasharray: 1.4 .8; fill: none; }
     .page[data-page="07"] .p07-ref { stroke: var(--fg); stroke-width: .35; stroke-dasharray: .6 .5; fill: none; }
-
-    /* Kalkulationsnotiz (globale .callout--calc): unterstes Modul der Außenspalte */
-    .page[data-page="07"] .p07-col > .p07-tipp { margin-top: 3mm; }
 
     /* Spielregeln 3 | 5 | 4: zwei Listen und „Verstöße kosten“ (Achtung ohne Fläche, Akzentlinie wie die Listentitel) */
     .page[data-page="07"] .p07-rules { margin-top: 3mm; }
@@ -114,13 +115,6 @@
         </table>
         <p class="source p07-tnote">Ab KfW-EH-40-Niveau bis zu +0,30&nbsp;€ je m² (2.1, 2.3, 2.5); in 2.2 enthalten; für 2.4 mit der NBank klären. Sonderfall 2.3 bei verlängerter Bindung →&nbsp;S.&nbsp;14.</p>
       </figure>
-
-      <figure class="chart chart--s module p07-pathfig" role="group">
-        <p class="stampline"><span class="stamp">Modellrechnung</span><span>– fiktives Beispiel, keine Förderzusage</span></p>
-        <figcaption class="chart__head"><h2 class="chart__title">Mietpfad 2.1 · Gruppe A · Mietenstufe IV–VII</h2></figcaption>
-        <svg class="chart__svg p07-path" viewBox="0 0 99.4 20" width="99.4mm" height="20mm" role="img" aria-label="Modellrechnung Mietpfad, Höchstmiete Gruppe A, Programmteil 2.1, Mietenstufe IV–VII, in Euro je Quadratmeter: Jahr 1 bis 3: 6,80; ab Jahr 4: höchstens 7,21; ab Jahr 7: höchstens 7,65 – jeweils plus 6,15 Prozent, auf volle Cent abgerundet. Achse beginnt bei 6,00 Euro."><text class="t-ax t-end" x="7.2" y="15.65">6,00</text><text class="t-ax" x="0" y="2.4">€ je m²</text><rect class="p07-room" x="38.73" y="8.59" width="30.13" height="2.04"/><rect class="p07-room" x="68.87" y="6.4" width="30.13" height="4.22"/><line class="p07-base" x1="38.73" y1="10.62" x2="99" y2="10.62"/><line class="p07-fix" x1="8.6" y1="10.62" x2="38.73" y2="10.62"/><path class="p07-cap" d="M38.73 10.62V8.59H68.87V6.4H99"/><line class="ax" x1="8.6" y1="14.6" x2="99" y2="14.6"/><line class="tick" x1="8.6" y1="14.6" x2="8.6" y2="16.1"/><line class="tick" x1="18.64" y1="14.6" x2="18.64" y2="15.4"/><line class="tick" x1="28.69" y1="14.6" x2="28.69" y2="15.4"/><line class="tick" x1="38.73" y1="14.6" x2="38.73" y2="16.1"/><line class="tick" x1="48.78" y1="14.6" x2="48.78" y2="15.4"/><line class="tick" x1="58.82" y1="14.6" x2="58.82" y2="15.4"/><line class="tick" x1="68.87" y1="14.6" x2="68.87" y2="16.1"/><line class="tick" x1="78.91" y1="14.6" x2="78.91" y2="15.4"/><line class="tick" x1="88.96" y1="14.6" x2="88.96" y2="15.4"/><line class="tick" x1="99" y1="14.6" x2="99" y2="16.1"/><text class="t-b" x="9.6" y="19">Jahr 1–3</text><text class="t-b" x="39.73" y="19">ab Jahr 4</text><text class="t-b" x="69.87" y="19">ab Jahr 7</text><text class="t-num" x="9.6" y="9.12">6,80</text><text x="39.73" y="7.09"><tspan class="t-acc t-b">max.</tspan> <tspan class="t-num">7,21</tspan></text><text x="69.87" y="4.9"><tspan class="t-acc t-b">max.</tspan> <tspan class="t-num">7,65</tspan></text></svg>
-        <p class="chart__note"><b>Eigene Berechnung:</b> volle Erhöhung um 6,15&nbsp;% zum frühestmöglichen Zeitpunkt, auf volle Cent abgerundet; nach BGB (§§&nbsp;558–559b) kann weniger zulässig sein. Betriebskosten ausgenommen; gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete.</p>
-      </figure>
     </div>
 
     <div class="l-span-5 p07-col">
@@ -131,16 +125,23 @@
         <p class="term__text">Sie bestimmt Höchstmiete und Bemessungsgrenze; ab Stufe IV gilt zudem der Bedarf als gegeben. Zuordnung laut WoGV-Anlage:</p>
         <p class="term__text p07-index"><span class="p07-grp"><b class="p07-st">VI</b> <span>Buchholz i.&nbsp;d. Nordheide, Neu Wulmstorf</span></span> <span class="p07-grp"><b class="p07-st">V</b> <span>Hannover, Buxtehude, Seevetal, die sieben Inselgemeinden<span class="fn">1</span></span></span> <span class="p07-grp"><b class="p07-st">IV</b> <span>Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg</span></span> <span class="p07-grp"><b class="p07-st">I–III</b> <span>übrige Festlandgemeinden</span></span> <span class="p07-grp p07-idx-note">Stufe&nbsp;VII gibt es in Niedersachsen nicht. Neue Stufen ab 2027 sind erst Entwurf – vor dem Antrag prüfen.</span></p>
       </aside>
+    </div>
 
+    <div class="l-span-7 p07-col">
+      <figure class="chart chart--s module p07-pathfig" role="group">
+        <p class="stampline"><span class="stamp">Modellrechnung</span><span>– fiktives Beispiel, keine Förderzusage</span></p>
+        <figcaption class="chart__head"><h2 class="chart__title">Mietpfad 2.1 · Gruppe A · Mietenstufe IV–VII</h2></figcaption>
+        <svg class="chart__svg p07-path" viewBox="0 0 99.4 20" width="99.4mm" height="20mm" role="img" aria-label="Modellrechnung Mietpfad, Höchstmiete Gruppe A, Programmteil 2.1, Mietenstufe IV–VII, in Euro je Quadratmeter: Jahr 1 bis 3: 6,80; ab Jahr 4: höchstens 7,21; ab Jahr 7: höchstens 7,65 – jeweils plus 6,15 Prozent, auf volle Cent abgerundet. Achse beginnt bei 6,00 Euro."><text class="t-ax t-end" x="7.2" y="15.65">6,00</text><text class="t-ax" x="0" y="2.4">€ je m²</text><rect class="p07-room" x="38.73" y="8.59" width="30.13" height="2.04"/><rect class="p07-room" x="68.87" y="6.4" width="30.13" height="4.22"/><line class="p07-base" x1="38.73" y1="10.62" x2="99" y2="10.62"/><line class="p07-fix" x1="8.6" y1="10.62" x2="38.73" y2="10.62"/><path class="p07-cap" d="M38.73 10.62V8.59H68.87V6.4H99"/><line class="ax" x1="8.6" y1="14.6" x2="99" y2="14.6"/><line class="tick" x1="8.6" y1="14.6" x2="8.6" y2="16.1"/><line class="tick" x1="18.64" y1="14.6" x2="18.64" y2="15.4"/><line class="tick" x1="28.69" y1="14.6" x2="28.69" y2="15.4"/><line class="tick" x1="38.73" y1="14.6" x2="38.73" y2="16.1"/><line class="tick" x1="48.78" y1="14.6" x2="48.78" y2="15.4"/><line class="tick" x1="58.82" y1="14.6" x2="58.82" y2="15.4"/><line class="tick" x1="68.87" y1="14.6" x2="68.87" y2="16.1"/><line class="tick" x1="78.91" y1="14.6" x2="78.91" y2="15.4"/><line class="tick" x1="88.96" y1="14.6" x2="88.96" y2="15.4"/><line class="tick" x1="99" y1="14.6" x2="99" y2="16.1"/><text class="t-b" x="9.6" y="19">Jahr 1–3</text><text class="t-b" x="39.73" y="19">ab Jahr 4</text><text class="t-b" x="69.87" y="19">ab Jahr 7</text><text class="t-num" x="9.6" y="9.12">6,80</text><text x="39.73" y="7.09"><tspan class="t-acc t-b">max.</tspan> <tspan class="t-num">7,21</tspan></text><text x="69.87" y="4.9"><tspan class="t-acc t-b">max.</tspan> <tspan class="t-num">7,65</tspan></text></svg>
+        <p class="chart__note"><b>Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete.</b> Eigene&nbsp;Berechnung: volle Erhöhung um 6,15&nbsp;% zum frühestmöglichen Zeitpunkt, auf volle Cent abgerundet; nach BGB (§§&nbsp;558–559b) kann weniger zulässig sein. Betriebskosten ausgenommen; gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete.</p>
+      </figure>
+    </div>
+
+    <div class="l-span-5 p07-col p07-col--market">
       <figure class="chart chart--s module p07-marketfig" role="group">
         <figcaption class="chart__head"><h2 class="chart__title">Abstand zum Markt, <span class="p07-titunit">€ je m² nettokalt</span></h2></figcaption>
-        <svg class="chart__svg p07-market" viewBox="0 0 69.6 24.4" width="69.6mm" height="24.4mm" role="img" aria-label="Nettokaltmiete in Euro je Quadratmeter: Höchstmiete gefördert (2.1, Gruppe A, Mietenstufe IV–VII) 6,80; Angebotsmiete Niedersachsen 2024, Mittel 9,00; Angebotsmiete Neubau 2024, Median 11,22. Quelle: NBank-Wohnungsmarktbericht 2025."><text x="0" y="2.4"><tspan class="t-b">Höchstmiete gefördert</tspan> (2.1, A, Stufe IV–VII)</text><rect class="c-ink" x="0" y="3.5" width="35.36" height="3.2"/><text class="t-val-ink" x="36.76" y="6.25">6,80</text><text x="0" y="11.1"><tspan class="t-b">Angebotsmiete Niedersachsen</tspan> 2024, Mittel</text><rect class="c-old" x="0" y="12.2" width="46.8" height="3.2"/><text class="t-val-ink" x="48.2" y="14.95">9,00</text><text x="0" y="19.8"><tspan class="t-b">Angebotsmiete Neubau</tspan> 2024, Median</text><rect class="c-old" x="0" y="20.9" width="58.34" height="3.2"/><text class="t-val-ink" x="59.74" y="23.65">11,22</text><line class="p07-ref" x1="35.36" y1="11.85" x2="35.36" y2="15.75"/><line class="p07-ref" x1="35.36" y1="20.55" x2="35.36" y2="24.4"/><line class="ax" x1="0" y1="3.2" x2="0" y2="7"/><line class="ax" x1="0" y1="11.9" x2="0" y2="15.7"/><line class="ax" x1="0" y1="20.6" x2="0" y2="24.4"/></svg>
+        <svg class="chart__svg p07-market" viewBox="0 0 69.6 36.1" width="69.6mm" height="36.1mm" role="img" aria-label="Nettokaltmiete in Euro je Quadratmeter: Höchstmiete gefördert (2.1, Gruppe A, Mietenstufe IV–VII) 6,80; Angebotsmiete Niedersachsen 2024, Mittel 9,00; Angebotsmiete Neubau 2024, Median 11,22. Quelle: NBank-Wohnungsmarktbericht 2025."><text x="0" y="2.4"><tspan class="t-b">Höchstmiete gefördert</tspan> (2.1, A, Stufe IV–VII)</text><rect class="c-ink" x="0" y="3.5" width="35.36" height="5"/><text class="t-val-ink" x="36.76" y="7.18">6,80</text><text x="0" y="16"><tspan class="t-b">Angebotsmiete Niedersachsen</tspan> 2024, Mittel</text><rect class="c-old" x="0" y="17.1" width="46.8" height="5"/><text class="t-val-ink" x="48.2" y="20.78">9,00</text><text x="0" y="29.6"><tspan class="t-b">Angebotsmiete Neubau</tspan> 2024, Median</text><rect class="c-old" x="0" y="30.7" width="58.34" height="5"/><text class="t-val-ink" x="59.74" y="34.38">11,22</text><line class="p07-ref" x1="35.36" y1="16.75" x2="35.36" y2="22.45"/><line class="p07-ref" x1="35.36" y1="30.35" x2="35.36" y2="36.05"/><line class="ax" x1="0" y1="3.2" x2="0" y2="8.8"/><line class="ax" x1="0" y1="16.8" x2="0" y2="22.4"/><line class="ax" x1="0" y1="30.4" x2="0" y2="36"/></svg>
         <p class="chart__note">NBank-Wohnungsmarktbericht 2025, landesweit, nicht nach Mietenstufen. Überkompensation prüft die NBank (<a class="u-nowrap" href="#seite-11">→&nbsp;S.&nbsp;11</a>).</p>
       </figure>
-      <aside class="callout callout--tipp callout--calc callout--inline p07-tipp">
-        <p class="callout__label"><svg class="icon icon--rechner" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.8" width="14" height="18.4" rx="1"/><path d="M8 6.4h8v3.4H8z"/><path d="M8.4 13.4h.01M12 13.4h.01M15.6 13.4h.01M8.4 17.2h.01M12 17.2h.01M15.6 17.2h.01" stroke-width="2"/></svg>Kalkulationsnotiz</p>
-        <p class="callout__body">Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete.</p>
-      </aside>
     </div>
   </div>
 

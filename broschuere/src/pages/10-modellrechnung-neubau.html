@@ -58,7 +58,7 @@
     .page[data-page="10"] .p10-house .chart__svg { margin-top: 2.2mm; }
     .page[data-page="10"] .p10-result .caveat { margin-top: auto; padding-top: 2mm; }
 
-    /* 4 · Sensitivität (Band: Kopf + Ergebnis | Wasserfall + Notiz) */
+    /* 4 · Sensitivität (Band: Kopf + Ergebnis | Gesamtkosten gestapelt + Wasserfall + Notiz) */
     .page[data-page="10"] .p10-sens .chart__title { font-size: var(--fs-h3); line-height: 1.16; }
     .page[data-page="10"] .p10-sens .chart__sub { margin-top: 1mm; font-size: var(--fs-micro); line-height: var(--p10-lh); }
     .page[data-page="10"] .p10-sens .chart__svg { margin-top: 0; }
@@ -73,6 +73,7 @@
     .page[data-page="10"] .chart__svg .p10-unit { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 500; letter-spacing: 0; fill: var(--fg-3); }
     .page[data-page="10"] .chart__svg .t-acc .p10-unit { fill: var(--accent-text); }
     .page[data-page="10"] .chart__svg .p10-lab { fill: var(--fg-2); }
+    .page[data-page="10"] .chart__svg .p10-in { font-weight: 500; }   /* Segmentname im Balken: nur der Wert fett */
     .page[data-page="10"] .p10-over { stroke: var(--rule-strong); stroke-width: .25; }   /* über der Grenze: Eigenmittel-Schraffur mit Kontur (kein Bernstein) */
     .page[data-page="10"] .chart__svg .p10-prop { font-variant-numeric: lining-nums proportional-nums; }   /* Textlabel: tnum würde den Bindestrich auf Ziffernbreite setzen */
     .page[data-page="10"] .p10-conn { stroke: var(--fg-3); stroke-width: .2; stroke-dasharray: .6 .5; fill: none; }
@@ -162,33 +163,32 @@
       </div>
     </figcaption>
     <div class="l-span-7">
-      <svg class="chart__svg" viewBox="0 0 99.42 24.15" width="99.42mm" height="24.15mm" role="img" aria-label="Sensitivität bei Herstellungskosten von 5.200 Euro je Quadratmeter, eigene Berechnung in Millionen Euro: Gesamtkosten 7,98; davon über der Grenze minus 0,28; zuwendungsfähig 7,70; Förderung bis zu 80 Prozent davon 6,16; Eigenmittel mindestens 1,54 plus 0,28 Restfinanzierung. Effektive Förderquote auf die Gesamtkosten bis zu 77,2 Prozent, gerundet.">
+      <svg class="chart__svg" viewBox="0 0 99.42 24.35" width="99.42mm" height="24.35mm" role="img" aria-label="Sensitivität bei Herstellungskosten von 5.200 Euro je Quadratmeter, eigene Berechnung in Millionen Euro: Gesamtkosten 7,98 als ein Balken, davon zuwendungsfähig 7,70 und über der Grenze 0,28, nicht zuwendungsfähig; Förderung bis zu 80 Prozent der zuwendungsfähigen Kosten 6,16; Eigenmittel mindestens 1,54 plus 0,28 Restfinanzierung. Effektive Förderquote auf die Gesamtkosten bis zu 77,2 Prozent, gerundet.">
         <defs><pattern id="schraffur-10-2" patternUnits="userSpaceOnUse" width="1.6" height="1.6" patternTransform="rotate(45)"><rect class="c-equity" width="1.6" height="1.6"/><line class="c-equity-line" x1="0" y1="0" x2="0" y2="1.6"/></pattern></defs>
-        <!-- WATERFALL: 5.028 mm je Mio. €, Nullpunkt x = 39.6; Zeilenabstand 4.15 mm (eigene Berechnung) -->
-        <line class="ax" x1="39.6" y1="0" x2="39.6" y2="24.15"/>
-        <text class="t-ax t-end" x="38.0" y="3.1">Gesamtkosten</text>
-        <rect class="c-old" x="39.6" y="0.6" width="40.12" height="2.8"/>
-        <text class="t-val-ink" x="80.82" y="3.1">7,98<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text>
-        <path class="p10-conn" d="M79.72 3.40 V4.75"/>
-        <text class="t-b t-end" x="38.0" y="7.25">über der Grenze</text>
-        <rect class="p10-over" x="78.32" y="4.75" width="1.41" height="2.8" fill="url(#schraffur-10-2)"/>
-        <text class="t-val-ink" x="80.82" y="7.25">−0,28</text>
-        <path class="p10-conn" d="M78.32 7.55 V8.9"/>
-        <text class="t-b t-end" x="38.0" y="11.4">zuwendungsfähig</text>
-        <rect class="c-ink" x="39.6" y="8.9" width="38.72" height="2.8"/>
-        <text class="t-val-ink" x="79.42" y="11.4">7,70</text>
-        <text class="t-ax t-end" x="38.0" y="15.55">Förderung, bis zu 80 %</text>
-        <rect class="c-loan" x="39.6" y="13.05" width="15.49" height="2.8"/>
-        <rect class="c-grant" x="55.09" y="13.05" width="15.49" height="2.8"/>
-        <line class="sep-line" x1="55.09" y1="13.05" x2="55.09" y2="15.85"/>
-        <text class="t-val-ink" x="71.67" y="15.55">6,16</text>
-        <path class="p10-conn" d="M70.57 15.85 V19.0"/>
-        <text class="t-ax t-end p10-prop" x="38.0" y="19.85"><tspan x="38.0">Mindest-Eigenmittel +</tspan><tspan x="38.0" dy="3.3">Restfinanzierung</tspan></text>
-        <rect x="70.57" y="19.0" width="7.74" height="2.8" fill="url(#schraffur-10-2)"/>
-        <rect class="c-equity-frame" x="70.57" y="19.0" width="7.74" height="2.8"/>
-        <rect class="p10-over" x="78.32" y="19.0" width="1.41" height="2.8" fill="url(#schraffur-10-2)"/>
-        <text class="t-val-ink t-end" x="69.37" y="21.5">1,54 + 0,28<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text>
-        <!-- /WATERFALL -->
+        <!-- 5.028 mm je Mio. €, Nullpunkt x = 39.6; Balken 3.6 mm (eigene Berechnung).
+             Zeile 1 gestapelt: Gesamtkosten 7,98 = zuwendungsfähig 7,70 (Tinte, Beschriftung im Balken) + über der Grenze 0,28
+             (Schraffur mit Kontur, Beschriftung darunter); die 0,28 fallen senkrecht darunter in die Restfinanzierung (gleiche x-Lage, gestrichelt). -->
+        <line class="ax" x1="39.6" y1="0" x2="39.6" y2="24.35"/>
+        <text class="t-ax t-end" x="38.0" y="3.49">Gesamtkosten</text>
+        <rect class="c-ink" x="39.6" y="0.6" width="38.72" height="3.6"/>
+        <rect class="p10-over" x="78.32" y="0.6" width="1.41" height="3.6" fill="url(#schraffur-10-2)"/>
+        <text class="t-val t-s" x="40.5" y="3.49">7,70 <tspan class="p10-in">zuwendungsfähig</tspan></text>
+        <text class="t-val-ink" x="80.82" y="3.58">7,98<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text>
+        <path class="p10-conn" d="M79.73 4.2 V19.06"/>
+        <text class="p10-lab t-end" x="78.9" y="7.55"><tspan class="t-val-ink">0,28</tspan> über der Grenze,</text>
+        <text class="p10-lab t-end" x="78.9" y="10.75">nicht zuwendungsfähig</text>
+        <text class="t-ax t-end" x="38.0" y="15.89">Förderung, bis zu 80 %</text>
+        <rect class="c-loan" x="39.6" y="13.0" width="15.49" height="3.6"/>
+        <rect class="c-grant" x="55.09" y="13.0" width="15.49" height="3.6"/>
+        <line class="sep-line" x1="55.09" y1="13.0" x2="55.09" y2="16.6"/>
+        <text class="t-val-ink" x="71.67" y="15.98">6,16</text>
+        <path class="p10-conn" d="M70.57 16.6 V19.06"/>
+        <text class="t-ax t-end p10-prop" x="38.0" y="20.3"><tspan x="38.0">Mindest-Eigenmittel +</tspan><tspan x="38.0" dy="3.3">Restfinanzierung</tspan></text>
+        <rect x="70.57" y="19.06" width="7.74" height="3.6" fill="url(#schraffur-10-2)"/>
+        <rect class="c-equity-frame" x="70.57" y="19.06" width="7.74" height="3.6"/>
+        <rect class="p10-over" x="78.32" y="19.06" width="1.41" height="3.6" fill="url(#schraffur-10-2)"/>
+        <text class="t-val-ink t-end" x="69.37" y="22.04">1,54 + 0,28<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text>
+        <!-- /Sensitivität -->
       </svg>
       <p class="chart__note">Die bis zu 80&nbsp;% beziehen sich nur auf die zuwendungsfähigen Kosten – jeder Euro über der Bemessungsgrenze senkt die effektive Förderquote. Maßgeblich sind die Verhältnisse bei Bewilligung (RL Nr.&nbsp;1.5); Fortschreibung <a class="u-nowrap" href="#seite-08">→&nbsp;S.&nbsp;8</a>.</p>
     </div>

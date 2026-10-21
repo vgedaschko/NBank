@@ -102,7 +102,7 @@
           }
         ]
       },
-      "note": "Eigene Berechnung: volle Erhöhung um 6,15 % zum frühestmöglichen Zeitpunkt, auf volle Cent abgerundet; nach BGB (§§ 558–559b) kann weniger zulässig sein. Betriebskosten ausgenommen; gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete.",
+      "note": "**Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete.** Eigene Berechnung: volle Erhöhung um 6,15 % zum frühestmöglichen Zeitpunkt, auf volle Cent abgerundet; nach BGB (§§ 558–559b) kann weniger zulässig sein. Betriebskosten ausgenommen; gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete.",
       "stampline": "Modellrechnung – fiktives Beispiel, keine Förderzusage"
     },
     {
@@ -162,12 +162,6 @@
       "variant": "achtung",
       "title": "Verstöße kosten",
       "body": "Wer schuldhaft ohne WBS oder zu überhöhter Miete vermietet, riskiert für die Dauer des Verstoßes Geldleistungen bis 5 € je m² und Monat, bei Vorsatz oder Fahrlässigkeit ein Bußgeld bis 10.000 €. Bei Fehlbelegung kann die zuständige Stelle Kündigung und notfalls Räumung anordnen; die Förderung kann zurückgefordert werden."
-    },
-    {
-      "type": "callout",
-      "variant": "tipp",
-      "title": "Kalkulationsnotiz",
-      "body": "Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete."
     }
   ],
   "sources": "Fundstellen: RL Nr. 1.2, 5.2.1, 5.3.2.2, 5.4.4–5.4.5, 6.4.1, 7.4.3, 8.3.1, 8.4, 9.4.1, 10.4.2, 11.6–11.10; §§ 7, 9, 14 NWoFG; VV NWoFG Nr. 6; WoGV-Anlage; NBank-Wohnungsmarktbericht 2025.",

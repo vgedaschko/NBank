@@ -115,7 +115,7 @@
       "type": "callout",
       "variant": "achtung",
       "title": "B und C nur mit Zulassung",
-      "body": "Zulassung in der Förderentscheidung der NBank:\n\n| Zulässig | Voraussetzung (eine genügt) |\n|---|---|\n| **bis +60 %** | Gebiet mit kommunalem Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach § 7 Abs. 3 NWoFG oder per Verordnung bestimmtem angespanntem Wohnungsmarkt – **oder** Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- bzw. Pflegebedürftigen vorbehalten ist |\n| **bis +20 %** | **Sonst** nur ab 12 zusammenhängenden Wohnungen, für höchstens die Hälfte der Wohnungen |\n\nFolgen für Fördersätze und Mieten mit der NBank klären."
+      "body": "Zulassung in der Förderentscheidung der NBank:\n\n| Zulässig | Voraussetzung (eine genügt) |\n|---|---|\n| **bis +60 %** | Gebiet mit kommunalem Wohnraumversorgungskonzept oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach § 7 Abs. 3 NWoFG oder per Verordnung bestimmtem angespanntem Wohnungsmarkt – **oder** Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- bzw. Pflegebedürftigen vorbehalten ist |\n| **bis +20 %** | **Sonst** nur ab 12 zusammenhängenden Wohnungen, für höchstens die Hälfte der Wohnungen |\n\nFolgen für Fördersätze und Mieten mit der NBank klären."
     },
     {
       "type": "text",
@@ -126,7 +126,7 @@
       "type": "callout",
       "variant": "hinweis",
       "title": "Begriff: Gesamtjahreseinkommen",
-      "body": "Nicht das Brutto, sondern das erwartete Einkommen aller Haushaltsmitglieder in den 12 Monaten nach Antragstellung – abzüglich je 10 % für Steuern, Kranken-/Pflege- und Rentenversicherung, soweit gezahlt (höchstens 30 %), sowie Freibeträgen (z. B. 4.000 € je Person mit GdB ab 50 oder Pflegegrad 2–5) und Unterhaltsaufwendungen."
+      "body": "Nicht das Brutto, sondern das erwartete Einkommen aller Haushaltsmitglieder in den 12 Monaten nach Antragstellung – abzüglich je 10 % für Steuern, Kranken-/Pflege- und Rentenversicherung, soweit gezahlt (höchstens 30 %), sowie Freibeträgen (z. B. 4.000 € je Person mit GdB ab 50 oder Pflegegrad 2–5) und Unterhaltszahlungen."
     },
     {
       "type": "table",

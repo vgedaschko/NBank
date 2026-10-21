@@ -13,9 +13,12 @@
 //      Fehlt eine Instanz, wird sie gemeldet (FONT:) und in src/fonts/static/needed.json nachgetragen.
 //   3. Ungenutzte weiche Trennstriche (U+00AD) entfernen: Nur dort, wo tatsächlich umbrochen wird, bleibt einer stehen.
 //      Der Umbruch ändert sich dadurch nicht (wird geprüft).
-//   4. Overflow-Check je .page (OVERFLOW-Zeilen = Fehler).
+//   4. Overflow-Check je .page (OVERFLOW-Zeilen = Fehler); Trennrest allein in der letzten Zeile eines Blocks
+//      (LASTLINE-Zeilen = Fehler); Link-Namen und PDF/UA-Vorprüfung (PDFUA-Zeilen: Link ohne Namen, Link in role="img",
+//      Sprung der Überschriftenebene).
 //   5. Bildschirm-PDF: tagged (Struktur, /Lang, Alt-Texte aus aria-label), eigene Lesezeichen aus h1/h2,
-//      Metadaten (Info + XMP), DisplayDocTitle.
+//      Metadaten (Info + XMP), DisplayDocTitle, /Contents je Link-Annotation (PDF/UA-1 7.18.5);
+//      PDF/UA-Kennung (pdfuaid:part 1) nur, wenn die Vorprüfung ohne Befund ist.
 //      Danach: alle ungetaggten Inhalte (Fußzeile, Register-Reiter, Farbleisten, Zier, aria-hidden, Flächen/Linien)
 //      als /Artifact markieren (PDF/UA-1, Matterhorn 01-005) – siehe markArtifacts().
 //   6. Druck-PDF (Standard bei src/index.html): 216 × 303 mm, randabfallende Flächen 3 mm über das Endformat gezogen,
@@ -285,6 +288,92 @@ function browserFontTuples() {
     return { pages: pages.length, issues: [...new Set(out)] };
   });
 
+  // 4b · Trennrest allein in der letzten Zeile (LASTLINE-Zeilen = Fehler): Ein Block endet mit einer Zeile, die nur aus dem
+  //      Rest eines getrennten Wortes besteht („zulas-|sen.“). Geprüft wird jede genutzte Trennstelle (U+00AD am Zeilenende):
+  //      Steht danach bis zum Blockende kein Leerzeichen mehr, ist die Folgezeile zugleich die letzte. Block = nächster Vorfahr,
+  //      der kein Inline-Element ist (ein dd mit display: inline läuft im dl weiter). Ein Block aus nur einem Wort (schmale
+  //      Tabellenzelle) zählt nicht. Abhilfe: HYPH_EXCEPTIONS in assemble.cjs, .u-nohyphens auf das letzte Wort, Text umstellen.
+  const lastlines = await page.evaluate(() => {
+    const blockOf = (el) => {
+      while (el.parentElement && ['inline', 'contents'].includes(getComputedStyle(el).display)) el = el.parentElement;
+      return el;
+    };
+    const out = [];
+    const range = document.createRange();
+    const rectOf = (n, a, b) => { range.setStart(n, a); range.setEnd(n, b); return range.getBoundingClientRect(); };
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+      const n = walker.currentNode, v = n.nodeValue;
+      if (!v.includes('­')) continue;
+      const pg = n.parentElement.closest('.page');
+      if (!pg) continue;
+      for (let i = v.indexOf('­'); i > -1; i = v.indexOf('­', i + 1)) {
+        if (i === 0 || i + 1 >= v.length) continue;
+        const a = rectOf(n, i - 1, i), b = rectOf(n, i + 1, i + 2);
+        if (!a.height || !b.height || (Math.abs(b.top - a.top) < 1 && b.left >= a.left)) continue;   // hier wird nicht getrennt
+        const blk = blockOf(n.parentElement);
+        range.setStart(blk, 0); range.setEnd(n, i);
+        const before = range.toString().replace(/­/g, '');
+        range.setStart(n, i + 1); range.setEnd(blk, blk.childNodes.length);
+        const rest = range.toString().replace(/­/g, '').trim();
+        if (!rest || /\s/.test(rest) || !/\s/.test(before.trim())) continue;
+        const cls = (blk.getAttribute('class') || '').split(' ')[0];
+        out.push(`Seite ${Number(pg.dataset.page)}: <${blk.tagName.toLowerCase()}${cls ? '.' + cls : ''}> „${before.match(/\S*$/)[0]}-|${rest}“`);
+      }
+    }
+    return out;
+  });
+
+  // 4c · Link-Namen für /Contents der Link-Annotationen (PDF/UA-1, 7.18.5): aria-label oder sichtbarer/Screenreader-Text
+  //      (ohne aria-hidden, Blockgrenzen als Leerzeichen, ohne weiche Trennstriche); „→ S. 15“ → „Verweis auf Seite 15“,
+  //      tel:/mailto:/Web mit Vorsatz. Dazu die Kästen je Link (px relativ zur .page) für den Abgleich in finishPdf –
+  //      Chrome schreibt die /Annots nicht in DOM-Reihenfolge. Außerdem Vorprüfung für die PDF/UA-Kennung (PDFUA-Zeilen).
+  const { links, pdfua } = await page.evaluate(() => {
+    const textOf = (node) => {
+      if (node.nodeType === 3) return node.nodeValue;
+      if (node.nodeType !== 1 || node.getAttribute('aria-hidden') === 'true') return '';
+      const d = getComputedStyle(node).display;
+      if (d === 'none') return '';
+      const inner = [...node.childNodes].map(textOf).join('');
+      return d.startsWith('inline') || d === 'contents' ? inner : ` ${inner} `;
+    };
+    const clean = (s) => s.replace(/­/g, '').replace(/[\s ]+/g, ' ').trim();
+    const pdfua = [];
+    const links = [];
+    document.querySelectorAll('.page').forEach((pg, idx) => {
+      const pr = pg.getBoundingClientRect();
+      pg.querySelectorAll('a[href]').forEach((a) => {
+        const href = a.getAttribute('href');
+        let name = clean(a.getAttribute('aria-label') || textOf(a));
+        const ref = href.match(/^#seite-(\d+)$/);
+        if (ref) {
+          const no = Number(ref[1]);
+          if (/^(→ ?)?(S\. ?)?\d+$/.test(name)) name = `Verweis auf Seite ${no}`;
+          else name = name.replace(/ ?→ ?S\. ?(\d+)$/, ' – Verweis auf Seite $1');
+        } else if (/^tel:/.test(href)) name = `Telefon ${name}`;
+        else if (/^mailto:/.test(href)) name = `E-Mail an ${name}`;
+        else if (/^https?:/.test(href) && name) name = `Website ${name}`;
+        if (!name) {
+          pdfua.push(`Seite ${idx + 1}: Link ohne zugänglichen Namen (${href.slice(0, 60)})`);
+          try { name = `Website ${decodeURI(href)}`; } catch (e) { name = href; }
+        }
+        if (a.closest('[role="img"], [aria-hidden="true"]')) pdfua.push(`Seite ${idx + 1}: Link in role="img"/aria-hidden – im Tag-Baum nicht erreichbar (${href.slice(0, 60)})`);
+        let rects = [...a.getClientRects()];
+        if (!rects.length) rects = [a.getBoundingClientRect()];
+        links.push({ page: idx, href, name, rects: rects.filter((r) => r.width && r.height).map((r) => [r.left - pr.left, r.top - pr.top, r.width, r.height]) });
+      });
+    });
+    // Überschriftenebenen: in Dokumentreihenfolge höchstens eine Ebene tiefer als die vorige (Matterhorn 14-003)
+    let prev = 0;
+    document.querySelectorAll('.page h1, .page h2, .page h3, .page h4, .page h5, .page h6').forEach((h) => {
+      if (h.closest('[aria-hidden="true"]')) return;
+      const lvl = Number(h.tagName[1]);
+      if (lvl > prev + 1) pdfua.push(`Seite ${Number(h.closest('.page').dataset.page)}: Überschriftenebene springt von h${prev} auf h${lvl} („${clean(h.textContent).slice(0, 40)}“)`);
+      prev = lvl;
+    });
+    return { links, pdfua };
+  });
+
   // Lesezeichen: je Seite die h1 (Ebene 1) und ihre h2 (Ebene 2), bereinigt (ohne Fußnotenziffern,
   // ohne aria-hidden-Teile, <br> → Leerzeichen, ohne weiche Trennstriche)
   const outline = await page.evaluate(() => {
@@ -311,7 +400,9 @@ function browserFontTuples() {
 
   fs.mkdirSync(path.dirname(pdfOut), { recursive: true });
   await page.pdf({ path: pdfOut, preferCSSPageSize: true, printBackground: true, tagged: true, outline: false });
-  await finishPdf(pdfOut, { outline, docTitle, offset: 0 });
+  // PDF/UA-Kennung (pdfuaid:part 1) nur, wenn die Vorprüfung nichts findet – sonst brechen PAC/veraPDF ohnehin ab bzw. melden Fehler
+  const pdfuaOk = !pdfua.length && !errors.length;
+  const linkStats = await finishPdf(pdfOut, { outline, docTitle, offset: 0, links, pdfua: pdfuaOk });
 
   // 6 · Druck-PDF mit Beschnitt
   if (printOut) {
@@ -364,7 +455,8 @@ function browserFontTuples() {
       document.body.offsetHeight;
     }, BLEED_MM);
     await page.pdf({ path: printOut, preferCSSPageSize: true, printBackground: true, tagged: true, outline: false });
-    await finishPdf(printOut, { outline, docTitle, offset: BLEED_MM, print: true });
+    const printLinks = await finishPdf(printOut, { outline, docTitle, offset: BLEED_MM, print: true, links });
+    if (printLinks.named !== printLinks.total) errors.push(`Druck-PDF: ${printLinks.total - printLinks.named} Link-Annotationen ohne Namen`);
   }
   await browser.close();
 
@@ -377,8 +469,15 @@ function browserFontTuples() {
     console.log(`Druck-PDF: ${printOut} (${(pinfo.match(/Page size:\s+([^\n]+)/) || [])[1]}, TrimBox ${((pinfo.match(/TrimBox:\s+([^\n]+)/) || [])[1] || '').trim()})`);
   }
   if (report.pages !== pdfPages) console.log('WARNUNG: Seitenzahl im PDF weicht von der Anzahl .page-Elemente ab (Umbruch/Overflow?)');
+  notes.push(`Link-Namen (/Contents): ${linkStats.named}/${linkStats.total} Link-Annotationen benannt` +
+    (linkStats.unmatched.length ? `, ${linkStats.unmatched.length} ohne Zuordnung` : ''));
+  linkStats.unmatched.forEach((u) => errors.push(`Link-Annotation ohne passenden DOM-Link: ${u}`));
+  notes.push(pdfuaOk ? 'PDF/UA: Kennung pdfuaid:part 1 gesetzt (Vorprüfung ohne Befund; Abnahme extern mit veraPDF/PAC)'
+    : `PDF/UA: Kennung NICHT gesetzt – Vorprüfung: ${pdfua.length} Befund(e)${errors.length ? ', Renderfehler' : ''}`);
   notes.forEach((n) => console.log(n));
   report.issues.forEach((i) => console.log('OVERFLOW: ' + i));
+  lastlines.forEach((l) => console.log('LASTLINE: ' + l));
+  pdfua.forEach((u) => console.log('PDFUA: ' + u));
   errors.forEach((e) => console.log('FEHLER: ' + e));
 
   if (pngDir) {
@@ -402,7 +501,7 @@ function browserFontTuples() {
 /* ---------------------------------------------------------------------------------------------
    PDF-Nachbearbeitung mit pdf-lib: Metadaten, XMP, Lesezeichen, Seitenboxen
    --------------------------------------------------------------------------------------------- */
-async function finishPdf(file, { outline, docTitle, offset, print }) {
+async function finishPdf(file, { outline, docTitle, offset, print, links = [], pdfua = false }) {
   const doc = await PDFDocument.load(fs.readFileSync(file), { updateMetadata: false });
   const ctx = doc.context;
   const catalog = doc.catalog;
@@ -427,7 +526,9 @@ async function finishPdf(file, { outline, docTitle, offset, print }) {
   <rdf:Description rdf:about=""
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:pdf="http://ns.adobe.com/pdf/1.3/"
-    xmlns:xmp="http://ns.adobe.com/xap/1.0/">
+    xmlns:xmp="http://ns.adobe.com/xap/1.0/"${pdfua ? `
+    xmlns:pdfuaid="http://www.aiim.org/pdfua/ns/id/"` : ''}>${pdfua ? `
+   <pdfuaid:part>1</pdfuaid:part>` : ''}
    <dc:format>application/pdf</dc:format>
    <dc:title><rdf:Alt><rdf:li xml:lang="x-default">${esc(title)}</rdf:li></rdf:Alt></dc:title>
    <dc:creator><rdf:Seq><rdf:li>${esc(META.author)}</rdf:li></rdf:Seq></dc:creator>
@@ -446,6 +547,44 @@ async function finishPdf(file, { outline, docTitle, offset, print }) {
 <?xpacket end="w"?>`;
   const xmpStream = ctx.stream(Buffer.from(xmp, 'utf8'), { Type: 'Metadata', Subtype: 'XML' });
   catalog.set(PDFName.of('Metadata'), ctx.register(xmpStream));
+
+  // Link-Annotationen: /Contents (Alternativbeschreibung, PDF/UA-1 7.18.5). Zuordnung zum DOM-Link über das Ziel
+  // (/Dest bzw. /URI) und die größte Überdeckung von /Rect mit den Link-Kästen (px relativ zur .page).
+  const linkStats = { total: 0, named: 0, unmatched: [] };
+  {
+    const off = offset * MM;
+    const norm = (u) => { try { return new URL(u).href; } catch (e) { return u; } };
+    pages.forEach((pg, pi) => {
+      const annots = pg.node.lookup(PDFName.of('Annots'));
+      if (!(annots instanceof PDFArray)) return;
+      const H = pg.getMediaBox().height;
+      const cands = links.filter((l) => l.page === pi);
+      annots.asArray().forEach((ref) => {
+        const an = ctx.lookup(ref);
+        if (!an || String(an.get(PDFName.of('Subtype'))) !== '/Link') return;
+        linkStats.total++;
+        const [x1, y1, x2, y2] = ctx.lookup(an.get(PDFName.of('Rect'))).asArray().map((n) => n.asNumber());
+        const box = [(Math.min(x1, x2) - off) / 0.75, (H - Math.max(y1, y2) - off) / 0.75, (Math.max(x1, x2) - off) / 0.75, (H - Math.min(y1, y2) - off) / 0.75];
+        // Ziel der Annotation
+        let target = null;
+        const dst = an.get(PDFName.of('Dest'));
+        if (dst instanceof PDFName) target = '#' + dst.decodeText();
+        const act = an.get(PDFName.of('A')) && ctx.lookup(an.get(PDFName.of('A')));
+        const uri = act && act.get(PDFName.of('URI'));
+        if (uri) target = norm(ctx.lookup(uri).decodeText());
+        const same = cands.filter((l) => !target || (l.href.startsWith('#') ? l.href === target : norm(l.href) === target));
+        let best = null, bestArea = 0;
+        (same.length ? same : cands).forEach((l) => l.rects.forEach(([x, y, w, h]) => {
+          const ix = Math.min(box[2], x + w) - Math.max(box[0], x), iy = Math.min(box[3], y + h) - Math.max(box[1], y);
+          const area = ix > 0 && iy > 0 ? ix * iy : 0;
+          if (area > bestArea) { bestArea = area; best = l; }
+        }));
+        if (!best) { linkStats.unmatched.push(`S. ${pi + 1} ${target || ''} [${box.map(Math.round).join(',')}]`); return; }
+        an.set(PDFName.of('Contents'), PDFHexString.fromText(best.name));
+        linkStats.named++;
+      });
+    });
+  }
 
   // Lesezeichen: „S. 8 · Bis zu 80 % Förderquote“, darunter die Modultitel (h2) der Seite
   const outlinesRef = ctx.nextRef();
@@ -562,6 +701,7 @@ async function finishPdf(file, { outline, docTitle, offset, print }) {
   }
 
   fs.writeFileSync(file, await doc.save({ useObjectStreams: false }));
+  return linkStats;
 }
 
 /* ---------------------------------------------------------------------------------------------

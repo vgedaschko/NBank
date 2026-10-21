@@ -60,7 +60,7 @@ Stand: 21.10.2026
 
 **Die Bauwerkskosten haben sich in 25 Jahren mehr als verdoppelt, die Zinsen lagen Ende 2025 bei 3–4 %, die Baugenehmigungen sind seit 2021 um über 50 % gesunken (NBank-Wohnungsmarktbeobachtung, Dezember 2025).**
 
-Seit 01.07.2026 gilt die RL Mietwohnraum 2026 (bis 31.12.2031). Laut Ministerium ist die neu aufgestellte Wohnraumförderung übersichtlicher strukturiert und deutlich stärker auf Zuschüsse statt auf Tilgungsnachlässe ausgerichtet.
+Seit 01.07.2026 gilt die RL Mietwohnraum 2026 (bis 31.12.2031). Laut Ministerium ist die neu aufgestellte Wohnraumförderung übersichtlicher strukturiert und deutlich stärker auf Zuschüsse ausgerichtet – statt wie bisher überwiegend auf Tilgungsnachlässe.
 
 Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertragsseite, Modellrechnung, Antragsweg** – nachrechenbar.
 
@@ -73,7 +73,7 @@ Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertrags
 - **Wohnungsunternehmen und Genossenschaften:** antragsberechtigt; genossenschaftlich überlassener Wohnraum gilt als Mietwohnraum. → S. 8–11
 - **Private Investorinnen und Investoren:** antragsberechtigt; Personengesellschaften ohne eigene Rechtspersönlichkeit vorab mit der NBank klären. → S. 9–11
 - **Projektentwicklung:** selbst bauen und beantragen – oder bis zwei Jahre nach Fertigstellung verkaufen; dann beantragt die Käuferseite den Ersterwerb. Kaufvertrag erst nach Bewilligung oder mit Rücktrittsrecht bei Ablehnung. → S. 8
-- **Kommunen:** selbst antragsberechtigt. Legen Sie geförderten Mietwohnraum in entsprechender Anzahl per Bebauungsplan, städtebaulichem Vertrag oder Baulandmodell fest, gilt der Bedarf als gegeben; damit oder mit einem Wohnraumversorgungskonzept kann die NBank auch Gruppen B und C zulassen. → S. 18
+- **Kommunen:** selbst antragsberechtigt. Legen Sie geförderten Mietwohnraum in entsprechender Anzahl per Bebauungsplan, städtebaulichem Vertrag oder Baulandmodell fest, gilt der Bedarf als gegeben; damit oder mit einem Wohnraumversorgungskonzept kann die NBank auch die Gruppen B und C zulassen. → S. 18
 
 ### Inhalt
 
@@ -276,7 +276,7 @@ Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertrags
 >
 > | Zulässig | Voraussetzung (eine genügt) |
 > |---|---|
-> | **bis +60 %** | Gebiet mit kommunalem Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach § 7 Abs. 3 NWoFG oder per Verordnung bestimmtem angespanntem Wohnungsmarkt – **oder** Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- bzw. Pflegebedürftigen vorbehalten ist |
+> | **bis +60 %** | Gebiet mit kommunalem Wohnraumversorgungskonzept oder städtebaulichem Entwicklungskonzept, kommunaler Festlegung (B-Plan, städtebaulicher Vertrag, Baulandmodell), Verordnung nach § 7 Abs. 3 NWoFG oder per Verordnung bestimmtem angespanntem Wohnungsmarkt – **oder** Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- bzw. Pflegebedürftigen vorbehalten ist |
 > | **bis +20 %** | **Sonst** nur ab 12 zusammenhängenden Wohnungen, für höchstens die Hälfte der Wohnungen |
 >
 > Folgen für Fördersätze und Mieten mit der NBank klären.
@@ -287,7 +287,7 @@ Haushalte belegen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) der zuständ
 
 > **[Hinweis] Begriff: Gesamtjahreseinkommen**
 >
-> Nicht das Brutto, sondern das erwartete Einkommen aller Haushaltsmitglieder in den 12 Monaten nach Antragstellung – abzüglich je 10 % für Steuern, Kranken-/Pflege- und Rentenversicherung, soweit gezahlt (höchstens 30 %), sowie Freibeträgen (z. B. 4.000 € je Person mit GdB ab 50 oder Pflegegrad 2–5) und Unterhaltsaufwendungen.
+> Nicht das Brutto, sondern das erwartete Einkommen aller Haushaltsmitglieder in den 12 Monaten nach Antragstellung – abzüglich je 10 % für Steuern, Kranken-/Pflege- und Rentenversicherung, soweit gezahlt (höchstens 30 %), sowie Freibeträgen (z. B. 4.000 € je Person mit GdB ab 50 oder Pflegegrad 2–5) und Unterhaltszahlungen.
 
 **Tabelle: Angemessene Wohnfläche für die Förderung (RL Nr. 5.1.1)**
 
@@ -347,7 +347,7 @@ Haushalte belegen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) der zuständ
 | ab Jahr 4 | max. 7,21 |
 | ab Jahr 7 | max. 7,65 |
 
-*Notiz:* Eigene Berechnung: volle Erhöhung um 6,15 % zum frühestmöglichen Zeitpunkt, auf volle Cent abgerundet; nach BGB (§§ 558–559b) kann weniger zulässig sein. Betriebskosten ausgenommen; gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete.
+*Notiz:* **Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete.** Eigene Berechnung: volle Erhöhung um 6,15 % zum frühestmöglichen Zeitpunkt, auf volle Cent abgerundet; nach BGB (§§ 558–559b) kann weniger zulässig sein. Betriebskosten ausgenommen; gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete.
 
 **Grafik (bar): Abstand zum Markt, € je m² nettokalt**
 
@@ -391,8 +391,6 @@ Quelle: NBank-Wohnungsmarktbericht 2025
 > **[Achtung] Verstöße kosten**
 >
 > Wer schuldhaft ohne WBS oder zu überhöhter Miete vermietet, riskiert für die Dauer des Verstoßes Geldleistungen bis 5 € je m² und Monat, bei Vorsatz oder Fahrlässigkeit ein Bußgeld bis 10.000 €. Bei Fehlbelegung kann die zuständige Stelle Kündigung und notfalls Räumung anordnen; die Förderung kann zurückgefordert werden.
-
-> **[Kalkulationsnotiz]** Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete.
 
 <sub>**Fußnoten und Quellen**</sub>
 
@@ -583,9 +581,9 @@ Bearbeitungsentgelte, Verwaltungskostenbeitrag und Höchstmiete dieses Hauses: S
 
 **Grafik (bar): Sensitivität: Herstellungskosten 5.200 € je m²** – *Grenze 5.000 € = Ausgangswert 01.07.2026; eigene Berechnung*
 
-- Gesamtkosten: 7,98 Mio. €
-- über der Grenze: −0,28 Mio. €
-- zuwendungsfähig: 7,70 Mio. €
+- Gesamtkosten: 7,98 Mio. € (ein gestapelter Balken), davon
+  - zuwendungsfähig: 7,70 Mio. €
+  - über der Grenze, nicht zuwendungsfähig: 0,28 Mio. €
 - Förderung, bis zu 80 %: 6,16 Mio. €
 - **bis zu 77,2 %** effektive Förderquote auf die Gesamtkosten, gerundet
 - Mindest-Eigenmittel + Restfinanzierung: 1,54 + 0,28 Mio. €
@@ -643,7 +641,7 @@ Verbindungen: A → C: −2,1 Mio. € ↔ +36.960 € p. a. · A → B: −1,4 
 | Höchstmiete je m², Jahr 1–3 (Mietenstufe IV–VII) | 6,80 | 8,20 | 9,00 | Ø 7,70 |
 | Höchstmiete nettokalt p. a., Jahr 1–3 | 114.240 | 137.760 | 151.200 | 129.360 |
 | Bearbeitungsentgelte, einmalig | 49.000 | 52.500 | 54.250 | 51.187,50 |
-| Verwaltungskostenbeitrag p. a., Darlehen voll ausgezahlt | 14.000 | 21.000 | 24.500 | 18.375 |
+| Verwaltungskostenbeitrag p. a. (bei Vollauszahlung) | 14.000 | 21.000 | 24.500 | 18.375 |
 
 *Notiz:* Mix: zehn Wohnungen A (700 m²), je fünf B und C (je 350 m²); Kosten nach Wohnflächenanteil (Hilfestellung der NBank-Arbeitshilfe, keine RL-Regel); Annahme: Höchstmiete wird erzielt.
 
@@ -916,7 +914,7 @@ BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen, nur eines (3 Jahre Sperrfr
 - [ ] Darlehen mit Tilgungsnachlass oder Zuschuss: Was passt zur Finanzierung?
 - [ ] Antrag bis 31.12.2026 bei der Wohnraumförderstelle – mit ausdrücklicher Wahl?
 
-> **[Kalkulationsnotiz]** Beide Wege durchrechnen.
+> **[Kalkulationsnotiz]** Beide Wege mit Ihren Kosten durchrechnen.
 
 *Kurzmarke unter dem Hauptdiagramm bzw. Kachelraster:* Höchstwerte · Überkompensationsprüfung · kein Rechtsanspruch → S. 2
 
@@ -979,7 +977,7 @@ Beispiel: Modellwohnung 60 m², 20 Jahre: 21.276 € nach Erstbelegung (21.600 �
 
 ### Kombinierbar mit
 
-Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überkompensation (mit der NBank klären). Eine Bindung, die direkt an eine auslaufende Bindung anschließt, fördert die NBank in 2.5 nicht; planmäßig auslaufende Landesbindungen mit laufendem NBank-Darlehen: 2.6 (→ S. 17).
+Andere Förderungen für denselben Zweck: grundsätzlich zulässig, ohne Überkompensation (mit der NBank klären). Neue Bindungen direkt nach auslaufenden Bindungen fördert die NBank in 2.5 nicht; planmäßig auslaufende Landesbindungen mit laufendem NBank-Darlehen: 2.6 (→ S. 17).
 
 > **[Kalkulationsnotiz]** Modellrechnung: bis zu 9,50 € je m² und Monat in den Jahren 1–3 (Mietenstufe I–III, 15–20 Jahre Bindung) aus höchstens 6,50 € Miete plus 3,00 € Zuschuss – unverzinst, vor Entgelt; Zuschuss in zwei Raten. *(mit Rechengrafik: höchstens 6,50 € Miete + 3,00 € Zuschuss = bis zu 9,50 €)*
 
@@ -1122,7 +1120,7 @@ Einheit: Einheits- und Samtgemeinden
 
 Bahnen: Sie · Wohnraumförderstelle · NBank
 
-1. **Vorgespräch** (Wohnraumförderstelle + Sie): Nachweise und Unterlagen vorab klären; NBank-Förderberatung zusätzlich
+1. **Vorgespräch** (Wohnraumförderstelle + Sie): Nachweise und Unterlagen vorab klären; zusätzlich NBank-Förderberatung
 2. **Antrag** (Sie): bei der Wohnraumförderstelle · Vordrucke: 1011 · 2.1–2.4; 1011a + 1012 · 2.5; 1011b · 2.6 nach Prolongationsangebot
 3. **Stellungnahme** (Wohnraumförderstelle): Bedarfsbestätigung, ggf. Anhörung der Gemeinde, Weiterleitung
 4. **Entscheidung** (NBank): Voraussetzungen, Bonität, keine Überkompensation (Beihilferecht); Fördervertrag, bei reinem Zuschuss Bescheid · Frist: Ziel: ≤ 3 Monate (kein Anspruch)

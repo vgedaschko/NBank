@@ -52,3 +52,28 @@ aber Korrektheit entsteht durch präzise Hauptaussagen, nicht durch Dutzende Abs
 - Aktiv, konkret, kurze Sätze. Keine Behördensprache, keine Superlative ohne Beleg.
 - Geschlechtergerecht ohne Sternchen (Paarform oder neutral).
 - Zahlenformat deutsch, geschützte Leerzeichen setzt der Assembler.
+
+## 6. Kundenfeedback zur v1 (vom Kunden bestätigt, verbindlich)
+
+Externe Bewertung, der der Kunde „fast 1:1“ zustimmt: *gestalterisch sehr stark, als Förderleitfaden überzeugend – als
+Investment-Memo noch nicht eingelöst.* Daraus folgt:
+
+1. **Wirtschaftlichkeit statt nur Förderquote.** Die Mittel-Doppelseite 10|11 heißt künftig „Ihre Rechnung“:
+   - S. 10 = Finanzierungsaufbau (Modellrechnung: Kosten → Darlehen/Zuschuss/Eigenmittel).
+   - S. 11 = **Wirtschaftlichkeit: von der Förderung zum laufenden Zahlungsüberschuss** – Miete, nicht umlagefähige
+     Bewirtschaftungskosten, Instandhaltung, Mietausfallwagnis, Verwaltungskostenbeitrag 0,5 %, Tilgung → Überschuss je Jahr,
+     Vergleich A/B/C. Beispiel aus der bisherigen S. 11: Gruppe C bringt gegenüber A +36.960 € Jahresmiete, aber 2,1 Mio. €
+     mehr Darlehen und +10.500 € Verwaltungskostenbeitrag → 26.460 € Spielraum vor Tilgung; bei 1,26 % Tilgung auf die
+     Mehrschuld (2,1 Mio. € × 1,26 % = 26.460 €) ist der Vorteil aufgezehrt. Das ist eine Liquiditätsbetrachtung, keine Rendite.
+   - **Die konkreten Annahmen (Bewirtschaftung, Instandhaltung, Mietausfall, Tilgungssatz) liefert PGN aus einer
+     vorhandenen Beispiel-Investitionsrechnung nach.** Bis dahin: Seite strukturell fertig schreiben, alle Werte, die aus
+     dieser Rechnung kommen, als Platzhalter in eckigen Klammern „[PGN-Rechnung: …]“ markieren – KEINE eigenen Annahmen
+     erfinden. Belegte Größen (Höchstmieten, Darlehen/Zuschuss, 0,5 % Verwaltungskostenbeitrag, Bearbeitungsentgelte) dürfen
+     eingesetzt werden.
+   - Der A/B/C-Vergleich der bisherigen S. 11 geht in diese Seite auf. Die Housing-First-Variante wandert aus dem Diagramm
+     (kurz auf S. 8 erwähnen). Diagramme nie Größen unterschiedlicher Einheit (Mio. € vs. Tsd. € p. a.) an einer gemeinsamen
+     Grundlinie zeigen – getrennte, gleich ausgerichtete Diagramme.
+2. **S. 4, 9 und 19 entlasten.** Mehr Ruhe statt zusätzlicher Elemente. Term Sheet (S. 9): Fließtext nicht in 8,5 pt;
+   Zeitstrahl auf das Wesentliche (Bauphase/Auszahlung, Zinsphase 0 % bis Ende Jahr 35, Bindung 35 Jahre, Laufzeit 42 Jahre).
+   Sonderfälle und Verfahrensdetails von S. 4, 9 und 19 auf S. 21 („Unterlagen, Kontakte & Verfahrensdetails“) verschieben.
+3. **Absender eindeutig PGN** (siehe Abschnitt 1) – Titel, Impressum, PDF-Metadaten.

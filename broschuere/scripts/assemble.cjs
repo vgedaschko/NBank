@@ -9,6 +9,34 @@
 
 const fs = require('fs');
 const path = require('path');
+const { hyphenateSync } = require('hyphen/de');
+
+// Headless-Chromium trennt Deutsch nicht selbst (hyphens: auto greift nicht) – daher werden in
+// Textknoten weiche Trennstriche (U+00AD) gesetzt. Tags, <style>, <script> und <svg> bleiben unberührt.
+// Mindestens 3 Zeichen vor bzw. nach einer Trennstelle, Wörter ab 8 Buchstaben.
+const SHY = '\u00AD';
+function hyphenateWord(word) {
+  const parts = hyphenateSync(word, { hyphenChar: SHY }).split(SHY);
+  while (parts.length > 1 && parts[0].length < 3) parts.splice(0, 2, parts[0] + parts[1]);
+  while (parts.length > 1 && parts[parts.length - 1].length < 3) parts.splice(-2, 2, parts[parts.length - 2] + parts[parts.length - 1]);
+  return parts.join(SHY);
+}
+function hyphenateHtml(html) {
+  let skip = null;
+  return html
+    .split(/(<[^>]+>)/)
+    .map((chunk) => {
+      if (chunk.startsWith('<')) {
+        const m = chunk.match(/^<(\/?)(style|script|svg|title)\b/i);
+        if (m && !m[1] && !chunk.endsWith('/>')) skip = m[2].toLowerCase();
+        else if (m && m[1] && skip === m[2].toLowerCase()) skip = null;
+        return chunk;
+      }
+      if (skip) return chunk;
+      return chunk.replace(/[A-Za-zÄÖÜäöüß]{8,}/g, hyphenateWord);
+    })
+    .join('');
+}
 
 function arg(name, fallback) {
   const i = process.argv.indexOf(`--${name}`);
@@ -41,5 +69,5 @@ const template = fs.readFileSync(path.join(src, 'template.html'), 'utf8');
 const pages = files
   .map((f) => `<!-- ${f} -->\n` + fs.readFileSync(path.join(src, 'pages', f), 'utf8').trim())
   .join('\n\n');
-fs.writeFileSync(out, template.replace('<!--PAGES-->', pages));
+fs.writeFileSync(out, hyphenateHtml(template.replace('<!--PAGES-->', pages)));
 console.log(`${files.length} Seite(n) -> ${path.relative(root, out)}`);

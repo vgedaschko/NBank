@@ -7,6 +7,7 @@
     "preview": "node scripts/render.cjs --png dist/preview --dpi 72"
   },
   "devDependencies": {
+    "hyphen": "^1.14.1",
     "playwright": "1.56.1"
   }
 }

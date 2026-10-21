@@ -3,6 +3,7 @@
   "slug": "titel",
   "layout_type": "cover",
   "running_title": "Titel",
+  "footer": "kein Kolumnentitel, keine Seitenzahl (Titel); running_title nur als Seitenname",
   "kicker": "Mietwohnraumförderung Niedersachsen",
   "headline": "Wohnraum, der sich rechnen kann.",
   "subline": "Konditionen und Modellrechnungen für Wohnungswirtschaft, Investorinnen und Investoren, Projektentwicklung und Kommunen.",

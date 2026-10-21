@@ -62,12 +62,16 @@
             "name": "Modellprojekt",
             "value": "bis zu +5 Prozentpunkte",
             "grant_A": "bis zu 45 %",
+            "grant_B": "bis zu 25 %",
+            "grant_C": "bis zu 15 %",
             "total": "bis zu 85 %"
           },
           {
             "name": "Housing First",
             "value": "bis zu +10 Prozentpunkte",
             "grant_A": "bis zu 50 %",
+            "grant_B": "bis zu 30 %",
+            "grant_C": "bis zu 20 %",
             "total": "bis zu 90 %"
           }
         ]

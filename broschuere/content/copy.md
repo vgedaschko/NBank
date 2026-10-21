@@ -18,7 +18,7 @@ Diese Fassung gibt den vollständigen Text aller 20 Seiten wieder – inklusive 
 <a id="seite-1"></a>
 ## Seite 1 – Titel
 
-<sub>Layout: cover · Kolumnentitel: Titel</sub>
+<sub>Layout: cover · kein Kolumnentitel, keine Seitenzahl (Titel)</sub>
 
 *Mietwohnraumförderung Niedersachsen*
 
@@ -72,7 +72,7 @@ Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertrags
 
 - **Wohnungsunternehmen und Genossenschaften:** antragsberechtigt; genossenschaftlich überlassener Wohnraum gilt als Mietwohnraum. → S. 8–11
 - **Private Investorinnen und Investoren:** antragsberechtigt; Personengesellschaften ohne eigene Rechtspersönlichkeit vorab mit der NBank klären. → S. 9–11
-- **Projektentwicklung:** selbst bauen und beantragen – oder bis zwei Jahre nach Fertigstellung verkaufen; dann beantragt die Käuferseite den Ersterwerb. Kaufvertrag erst nach Bewilligung oder mit Rücktrittsrecht bei Ablehnung. → S. 8
+- **Projektentwicklung:** selbst bauen und beantragen – oder bis zwei Jahre nach Fertigstellung verkaufen; dann beantragt die Käuferseite den Ersterwerb. Kaufvertrag erst nach Bewilligung oder mit eindeutigem, folgenlosem Rücktrittsrecht bei Absage. → S. 8
 - **Kommunen:** selbst antragsberechtigt. Legen Sie geförderten Mietwohnraum in entsprechender Anzahl per Bebauungsplan, städtebaulichem Vertrag oder Baulandmodell fest, gilt der Bedarf als gegeben; damit oder mit einem Wohnraumversorgungskonzept kann die NBank auch die Gruppen B und C zulassen. → S. 18
 
 ### Inhalt
@@ -166,7 +166,7 @@ Dieses Heft liest die Richtlinie wie ein Investment-Memo: **Konditionen, Ertrags
 ### Grundcheck: Passt Ihr Projekt?
 
 - [ ] **Antragsberechtigt?** Natürliche und juristische Personen (auch Kommunen), Genossenschaften und andere Personenvereinigungen mit eigener Rechtspersönlichkeit, rechtsfähige Baugemeinschaften (Ersterwerb: Käuferseite); Gesamtfinanzierung gesichert (Miete deckt Kosten dauerhaft). [alle]
-- [ ] **Noch nicht begonnen?** Vor der Bewilligung kein Baubeginn, keine Liefer-, Leistungs-, Kauf- oder Werkverträge; bei 2.5 kein Mietvertrag, keine Überlassung. Erlaubt: Grundstückskauf, Planung bis Leistungsphase 6 HOAI; Rücktrittsklauseln, vorzeitiger Beginn → S. 19. [alle]
+- [ ] **Noch nicht begonnen?** Vor der Bewilligung kein Baubeginn, keine Liefer-, Leistungs-, Kauf- oder Werkverträge; bei 2.5 kein Mietvertrag, keine Überlassung. Erlaubt: Grundstückskauf, Planung bis Leistungsphase 6 HOAI. Genau prüfen: Rücktrittsklauseln, vorzeitiger Beginn → S. 19. [alle]
 - [ ] **Mehrfamilienhaus ab drei Wohnungen?** Ausnahmen: gemeinschaftliche Wohnformen, im Einzelfall Reihen-/Doppelhaus. 2.1/2.2/2.4: je neuem Gebäude mind. 2 gebundene Wohnungen, keine Eigentumswohnungen zur Vermietung; 2.3: fertiggestellt vor 08.12.2004. [2.1–2.4]
 - [ ] **Bedarf am Standort?** In sechs Gebietsarten gegeben, sonst NBank-Karte prüfen → S. 18. [2.1, 2.2, 2.6]
 - [ ] **Eigenmittel?** Mind. 20 % der zuwendungsfähigen Kosten (Inseln: 10 % der zuwendungsfähigen Herstellungskosten; Modellprojekte, Housing First: ggf. weniger), davon soll mind. die Hälfte Geld oder lastenfreies Grundstück sein (2.3: Geld). [2.1–2.4]
@@ -426,9 +426,9 @@ Quelle: NBank-Wohnungsmarktbericht 2025
 | Zuschuss | 40 % | 20 % | 10 % |
 | Eigenmittel, mind. | 20 % | 20 % | 20 % |
 
-Zuschläge (Einkommensgruppe A):
-- Modellprojekt: bis zu +5 Prozentpunkte → Zuschuss bis zu 45 %, zusammen bis zu 85 %
-- Housing First: bis zu +10 Prozentpunkte → Zuschuss bis zu 50 %, zusammen bis zu 90 %
+Zuschläge (alle Gruppen, eigene Addition):
+- Modellprojekt: bis zu +5 Prozentpunkte → Zuschuss bis zu A 45 % / B 25 % / C 15 %, zusammen bis zu 85 %
+- Housing First: bis zu +10 Prozentpunkte → Zuschuss bis zu A 50 % / B 30 % / C 20 %, zusammen bis zu 90 %
 
 *Notiz:* Bindung 35 Jahre. Zuschläge in allen Gruppen (Werte: eigene Addition); ob beide addierbar sind, regelt die RL nicht; Vordruck 1011 nennt als Gesamtförderung höchstens 85 % bzw. 90 % – mit der NBank klären. Konditionen → S. 9.
 
@@ -951,7 +951,7 @@ Annahme: 60 m², angemessen für einen Zwei-Personen-Haushalt (RL Nr. 5.1.1) · 
 | 15 Jahre | 32.400 € | 3,00 € | 243 € |
 | 20 Jahre | 43.200 € | 3,00 € | 324 € |
 
-*Notiz:* Zwischenlaufzeiten mit der NBank klären.
+*Notiz:* Zwischenlaufzeiten: Satz der erreichten Stufe (12 Jahre: 2,50 €).
 
 **Grafik (timeline): Auszahlung in zwei Hälften**
 
@@ -1165,7 +1165,7 @@ Bahnen (Kopfspalte links vor beiden Zeilen): Sie · Förderstelle (= Wohnraumfö
 <a id="seite-20"></a>
 ## Seite 20 – Umsetzung · Kontakt und Unterlagen
 
-<sub>Layout: back-cover · Kolumnentitel: Umsetzung · Kontakt und Unterlagen</sub>
+<sub>Layout: back-cover · kein Kolumnentitel, keine Seitenzahl (Rückseite)</sub>
 
 *Ihr nächster Schritt*
 
@@ -1227,11 +1227,10 @@ In der Broschüre als „mit der NBank klären“ oder als Ableitung gekennzeich
 5. **A-Haushalte in B/C-Wohnungen:** Teilt die NBank die Auslegung, dass A-Haushalte einziehen dürfen und dann die B/C-Höchstmiete zahlen (§ 7 NWoFG, RL Nr. 1.6)? (S. 6)
 6. **Ostfriesische Inseln:** (a) Gilt der EH-40-Mietaufschlag von bis zu 0,30 € auch in 2.4? (b) Welche Mietenstufe und welche Mietobergrenzen gelten auf den Inseln in 2.2 und 2.3? (c) Wie grenzt sich ein EH-40-Neubau auf den Inseln zwischen 2.4 und 2.2 ab? (d) Wie wird der Ersterwerb in 2.4 bemessen? (e) Gelten die Sicherheitenregeln aus 2.1 auch in 2.4? (S. 5, 7, 9, 13)
 7. **2.2 EH-40-Neubau:** Gelten Bemessungsgrenze je m² und Bodenrichtwert-Deckel? Nr. 6.3.2 verweist nicht darauf. Dürfen 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen genutzt werden, mit getrennten Anträgen? (S. 12)
-8. **2.5 Bindungserwerb:** Wie werden Zwischenlaufzeiten (z. B. 7 oder 12 Jahre) bezuschusst? (S. 16)
-9. **Überkompensationsprüfung:** Welchen 30-jährigen Swapsatz verwendet die NBank (Quelle, Referenz EURIBOR oder €STR, Stichtag, Mittelung), und welchen Betrachtungszeitraum? (S. 11)
-10. **Tilgung:** Welche Tilgungsmodalitäten (Satz, Rhythmus) setzt die NBank in der Regel fest? Die RL nennt keinen Satz; relevant für Term Sheet und Modellrechnung. (S. 9, 10)
-11. **Mietenstufen ab 01.01.2027** (Entwurf BR-Drs. 474/26): Wie wirkt eine Neuzuordnung auf laufende Anträge und bereits bewilligte Vorhaben (Bedarf, Bemessungsgrenze, Höchstmiete)? (S. 7, 15, 18)
-12. **Klassensprung ab 2027:** Wie bewertet die NBank den Klassensprung, wenn Ausgangs- und Abschlussausweis auf unterschiedlichen Rechennormen beruhen (DIN V 18599 → DIN/TS 18599:2025-10)? (S. 14, 15)
-13. **Antragsunterlagen:** Gilt die Checkliste vom 20.07.2025 für die RL 2026 weiter, oder erscheint eine aktualisierte Fassung? (S. 20)
-14. **Hinweis, nicht broschürenrelevant:** In der Arbeitshilfe „Kosten-Finanzierungsaufteilung (08/26)“ verweist die Darlehensprüfung für Gruppe C auf Zelle E21 statt E15.
-15. **Redaktionell:** Die Zitate von Grant Hendrik Tonne (MW-Presseinformation vom 03.07.2026) und Michael Kiesewetter (MW-Presseinformation vom 03.07.2026; NBank-Presseinformation vom 01.10.2026) sind wörtlich übernommen. Ihre Verwendung bitte mit den Pressestellen abstimmen.
+8. **Überkompensationsprüfung:** Welchen 30-jährigen Swapsatz verwendet die NBank (Quelle, Referenz EURIBOR oder €STR, Stichtag, Mittelung), und welchen Betrachtungszeitraum? (S. 11)
+9. **Tilgung:** Welche Tilgungsmodalitäten (Satz, Rhythmus) setzt die NBank in der Regel fest? Die RL nennt keinen Satz; relevant für Term Sheet und Modellrechnung. (S. 9, 10)
+10. **Mietenstufen ab 01.01.2027** (Entwurf BR-Drs. 474/26): Wie wirkt eine Neuzuordnung auf laufende Anträge und bereits bewilligte Vorhaben (Bedarf, Bemessungsgrenze, Höchstmiete)? (S. 7, 15, 18)
+11. **Klassensprung ab 2027:** Wie bewertet die NBank den Klassensprung, wenn Ausgangs- und Abschlussausweis auf unterschiedlichen Rechennormen beruhen (DIN V 18599 → DIN/TS 18599:2025-10)? (S. 14, 15)
+12. **Antragsunterlagen:** Gilt die Checkliste vom 20.07.2025 für die RL 2026 weiter, oder erscheint eine aktualisierte Fassung? (S. 20)
+13. **Hinweis, nicht broschürenrelevant:** In der Arbeitshilfe „Kosten-Finanzierungsaufteilung (08/26)“ verweist die Darlehensprüfung für Gruppe C auf Zelle E21 statt E15.
+14. **Redaktionell:** Die Zitate von Grant Hendrik Tonne (MW-Presseinformation vom 03.07.2026) und Michael Kiesewetter (MW-Presseinformation vom 03.07.2026; NBank-Presseinformation vom 01.10.2026) sind wörtlich übernommen. Ihre Verwendung bitte mit den Pressestellen abstimmen.

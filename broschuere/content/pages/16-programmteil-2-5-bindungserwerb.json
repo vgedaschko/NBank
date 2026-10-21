@@ -55,7 +55,7 @@
         "assumption": "Annahme: 60 m², angemessen für einen Zwei-Personen-Haushalt (RL Nr. 5.1.1)",
         "formula": "Eigene Berechnung: 60 m² × Satz × 12 × Jahre"
       },
-      "note": "Zwischenlaufzeiten mit der NBank klären."
+      "note": "Zwischenlaufzeiten: Satz der erreichten Stufe (12 Jahre: 2,50 €)."
     },
     {
       "type": "chart",

@@ -1,18 +1,21 @@
 <section class="page" data-page="20" id="seite-20">
   <style>
     /* Seite 20 · PGN-Leistungen · Planwerk. Linke Seite der Doppelseite 20|21 „Umsetzung“.
-       Dominant: die sieben Stationen als senkrechter Weg (Phase außen · Marke auf der Weglinie · Titel und Text), darunter
-       das Bildmotiv: HOAI-Skala LPH 1–9 als Planleiste mit Maßketten und der Bewilligungsmarke zwischen LPH 6 und 7.
-       Unten zwei Module (Spalten 1–7 · 8–12), Oberkante = Oberkante Kontaktband S. 21. Rot nur: Kicker, Titellinie,
-       Bewilligungsmarke, Seitenverweise. Farben nur über Tokens. */
+       Dominant: die sieben Stationen als senkrechter Weg – Phase außen (Spalten 1–3, rechtsbündig) · Quadrat-Marke auf der
+       Weglinie (wie die Swimlane S. 19) · Titel als Run-in + Text (Spalten 4–12). Darunter das Bildmotiv: HOAI-Skala
+       LPH 1–9 als Planleiste mit Maßketten (45°-Strich) und der Bewilligungsmarke „±0“ zwischen LPH 6 und 7; ab LPH 7
+       Kontur. Unten zwei Module (Spalten 1–7 Anthrazit · 8–12 Papier). Gemeinsame Horizonte mit S. 21: Kicker/H1 ·
+       Beginn Station 5 (135,5 mm) = Oberkante Kontakte · Oberkante Bewilligungsmarke (196,5 mm) = Oberkante
+       „Verfahrensdetails“ · Unterkante 273 mm. Rot nur: Kicker, Titellinie, Signaturwort, Bewilligungsmarke,
+       Seitenverweise. Farben nur über Tokens. */
 
     /* Kopf: Titel 7 Spalten, Vorspann 5 Spalten, unten bündig ----------------------------------------------------- */
     .page[data-page="20"] .p20-head .deck { margin-top: 3mm; letter-spacing: .02em; }
     .page[data-page="20"] .p20-head .lead { max-width: none; }
 
     /* Stationen: Phase (rechtsbündig zur Weglinie) · Marke auf der Weglinie · Titel als Run-in + Text (Spalten 4–12) */
-    .page[data-page="20"] .p20-way { margin-top: var(--p2021-way, 8mm); border-top: var(--rule-heavy) solid var(--rule-strong); }
-    .page[data-page="20"] .p20-st { position: relative; display: grid; grid-template-columns: 37.6mm 2.2mm 4.4mm 2.05mm minmax(0, 1fr); padding: 3.6mm 0 3.8mm; }
+    .page[data-page="20"] .p20-way { margin-top: var(--sp-8); border-top: var(--rule-heavy) solid var(--rule-strong); }
+    .page[data-page="20"] .p20-st { position: relative; display: grid; grid-template-columns: 37.6mm 2.2mm 4.4mm 2.05mm minmax(0, 1fr); padding: 3.5mm 0 3.7mm; }
     .page[data-page="20"] .p20-st__phase { grid-column: 1; }
     .page[data-page="20"] .p20-st__mk { grid-column: 3; }
     .page[data-page="20"] .p20-st__text { grid-column: 5; }
@@ -20,8 +23,8 @@
     .page[data-page="20"] .p20-st:last-child::after { display: none; }
     /* Weglinie durch die Marken (Mitte 42 mm) */
     .page[data-page="20"] .p20-st::before { content: ""; position: absolute; left: calc(37.6mm + 2.2mm + 2.2mm - .175mm); width: .35mm; top: 0; bottom: 0; background: var(--fg-2); }
-    .page[data-page="20"] .p20-st:first-child::before { top: 3.8mm; }
-    .page[data-page="20"] .p20-st:last-child::before { bottom: auto; height: 3.8mm; }
+    .page[data-page="20"] .p20-st:first-child::before { top: 3.7mm; }
+    .page[data-page="20"] .p20-st:last-child::before { bottom: auto; height: 3.7mm; }
     .page[data-page="20"] .p20-st__phase { font: 600 var(--fs-small)/var(--lh-module) var(--font-text); color: var(--fg-3); text-align: right; }
     .page[data-page="20"] .p20-st__mk { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 4.4mm; height: 4.4mm; margin-top: -.05mm; background: var(--fg); color: var(--surface); font: 900 var(--fs-micro)/1 var(--font-display); font-variant-numeric: tabular-nums; }
     .page[data-page="20"] .p20-st__text { font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
@@ -29,7 +32,7 @@
     .page[data-page="20"] .p20-st__text .pageref { padding-top: .4mm; padding-bottom: .3mm; }
 
     /* HOAI-Skala (Inline-SVG, 1 Einheit = 1 mm) ------------------------------------------------------------------- */
-    .page[data-page="20"] .p20-hoai { margin-top: 6mm; }
+    .page[data-page="20"] .p20-hoai { margin-top: 8.6mm; }   /* Oberkante Bewilligungsmarke = Oberkante Verfahrensdetails S. 21 (196,5 mm) */
     .page[data-page="20"] .p20-hoai .chart__svg { margin-top: 0; }
     .page[data-page="20"] .p20-field { fill: var(--surface-2); }
     .page[data-page="20"] .p20-field--after { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }

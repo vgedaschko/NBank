@@ -1,42 +1,45 @@
 <section class="page" data-page="21" id="seite-21">
   <style>
     /* Seite 21 · Unterlagen, Kontakte und Verfahrensdetails · Planwerk. Rechte Seite der Doppelseite 20|21 „Umsetzung“.
-       Ein Lesefluss in drei Spalten (12er-Raster: 1–4 · 5–8 · 9–12): erst die Ankreuzliste, dann die Verfahrensdetails
-       (dominant, Telegrammstil mit Run-in-Fragen) – so stehen keine halbleeren Zeilen im Raster. Unten das Kontaktband auf
-       Papier mit vier gleichrangigen Feldern. Gemeinsame Horizonte mit S. 20: Kicker/H1, Oberkante des Lesefelds =
-       Oberkante der Stationen, Oberkante Kontaktband = Oberkante der Module „Schlüsselfertig“/„Für Kommunen“, Unterkante.
-       Rot nur: Kicker, Titellinie, Kontakt-Labels, Seitenverweise. Farben nur über Tokens. */
+       Ein Lesefluss in drei Spalten (12er-Raster: 1–4 · 5–8 · 9–12, Haarlinie in der Stegmitte): Ankreuzliste →
+       Verfahrensdetails (dominant, Telegrammstil mit Run-in-Fragen, keine Linien zwischen den Einträgen) → Kontakte als
+       Papierfeld unten in Spalte 3 (vier gleichrangige Einträge). Der Fluss vermeidet halbleere Zeilen im Raster und lässt
+       Luft an den Spaltenenden. Gemeinsame Horizonte mit S. 20: Kicker/H1 · Oberkante Kontakte (135,5 mm) = Beginn
+       Station 5 · Oberkante „Verfahrensdetails“ (196,5 mm) = Oberkante Bewilligungsmarke · Unterkante 273 mm = Module.
+       Rot nur: Kicker, Titellinie, Kontakt-Labels, Seitenverweise, Programmnummer 2.1. Farben nur über Tokens. */
 
     /* Programmteil im Text: Nummer in Montserrat 800 in der Programmfarbe (Nummer steht immer mit) */
-    .page[data-page="21"] .p21-bs { font: 800 .94em/1 var(--font-display); letter-spacing: .01em; color: var(--bs); font-variant-numeric: tabular-nums; }
+    .page[data-page="21"] .p21-bs { font: 800 1em/1 var(--font-display); letter-spacing: .01em; color: var(--bs); font-variant-numeric: tabular-nums; }
     .page[data-page="21"] .badge { vertical-align: .15mm; }
 
     /* Lesefeld: drei Spalten, Haarlinie in der Stegmitte ------------------------------------------------------------ */
-    .page[data-page="21"] .p21-flow { margin-top: var(--p2021-way, 8mm); padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); column-count: 3; column-gap: var(--gutter); column-rule: var(--hair) solid var(--rule); column-fill: balance; }
+    .page[data-page="21"] .p21-flow { margin-top: var(--sp-8); padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); column-count: 3; column-gap: var(--gutter); column-rule: var(--hair) solid var(--rule); column-fill: balance; }
     .page[data-page="21"] .p21-flow .chart__title { break-after: avoid; }
 
     /* Ankreuzliste */
     .page[data-page="21"] .p21-check__list { margin-top: 2.2mm; }
-    .page[data-page="21"] .p21-check__list .checklist__item { grid-template-columns: 6mm minmax(0, 1fr); column-gap: 0; padding: 1.5mm 0 1.6mm; line-height: var(--lh-module); }
+    .page[data-page="21"] .p21-check__list .checklist__item { grid-template-columns: 6mm minmax(0, 1fr); column-gap: 0; padding: 1.8mm 0 1.9mm; line-height: var(--lh-module); }
     .page[data-page="21"] .p21-check__list .checklist__item:first-child { border-top: var(--hair) solid var(--rule); }
     .page[data-page="21"] .p21-check__list .checklist__item:last-child { border-bottom: 0; }
     .page[data-page="21"] .p21-check__list .checklist__box { width: 3.6mm; height: 3.6mm; margin-top: .25mm; border-color: var(--fg-2); }
-    .page[data-page="21"] .p21-check__list b { color: var(--fg); }
-    .page[data-page="21"] .p21-check__list .badge { margin-left: 0; }
+    .page[data-page="21"] .p21-check__list b:not(.p21-bs) { color: var(--fg); }
+    .page[data-page="21"] .p21-check__list .badge { margin: 0; }
+    .page[data-page="21"] .p21-check__list .p21-in-paren { margin: 0 .3mm; }
 
     /* Verfahrensdetails: Gruppen fließen; Frage als Run-in */
     .page[data-page="21"] .p21-faq { margin-top: 5mm; padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
     .page[data-page="21"] .p21-grp__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 2mm; margin-top: 2.6mm; padding-bottom: 1.4mm; border-bottom: var(--rule-w) solid var(--rule-strong); break-after: avoid; break-inside: avoid; }
     .page[data-page="21"] .p21-grp__title { padding-top: .5mm; font: 700 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
     .page[data-page="21"] .p21-grp__head .pageref { padding-top: .5mm; padding-bottom: .4mm; }
-    .page[data-page="21"] .p21-qa__item { padding: 1.4mm 0 1.5mm; border-bottom: var(--hair) solid var(--rule); break-inside: avoid; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="21"] .p21-grp .p21-qa__item:last-child { border-bottom: 0; }
+    .page[data-page="21"] .p21-qa { padding-top: 1.7mm; }
+    .page[data-page="21"] .p21-qa__item { break-inside: avoid; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="21"] .p21-qa__item + .p21-qa__item { margin-top: 2.6mm; }
     .page[data-page="21"] .p21-qa__item dt { display: inline; font-weight: 600; color: var(--fg); }
     .page[data-page="21"] .p21-qa__item dd { display: inline; margin: 0; }
 
     /* Kontakte: Papierfeld, vier gleichrangige Einträge, Haarlinien dazwischen ------------------------------------ */
-    .page[data-page="21"] .p21-contacts { margin-top: 6mm; padding: .6mm 2.2mm 1mm; background: var(--surface-2); border-top: var(--rule-w) solid var(--rule-strong); break-inside: avoid; }
-    .page[data-page="21"] .p21-ct { padding: 2.2mm 0 2.4mm; }
+    .page[data-page="21"] .p21-contacts { margin-top: 11.4mm; padding: .6mm 1.9mm 1mm; background: var(--surface-2); border-top: var(--rule-w) solid var(--rule-strong); break-inside: avoid; }   /* Abstand so, dass Unterkante = 273 mm */
+    .page[data-page="21"] .p21-ct { padding: 2.75mm 0 2.95mm; }
     .page[data-page="21"] .p21-ct .contact__label { letter-spacing: .04em; }
     .page[data-page="21"] .p21-ct + .p21-ct { border-top: var(--hair) solid var(--rule); }
     .page[data-page="21"] .p21-ct__name { margin-top: .9mm; font: 700 var(--fs-small)/1.25 var(--font-display); color: var(--fg); }
@@ -57,9 +60,9 @@
     <h2 class="chart__title" id="p21-check-h">Unterlagen bereitlegen (Auszug)</h2>
     <ul class="checklist p21-check__list">
       <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span><b>Antrag:</b> <span class="badge badge--s badge--form">1011</span> <span class="u-nowrap">(<b class="p21-bs bs-21">2.1</b>–<b class="p21-bs bs-24">2.4</b>)</span> · <span class="badge badge--s">1011a</span> + <span class="badge badge--s">1012</span> je Wohnung (<b class="p21-bs bs-25">2.5</b>) · <span class="badge badge--s">1011b</span> (<b class="p21-bs bs-26">2.6</b>)</span></li>
-      <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span><b>Natürliche Personen</b>, auch Gesellschafterinnen und Gesellschafter: Selbstauskunft (<span class="badge badge--s badge--form">3076</span>), SCHUFA-Auskunft, Identitätsfeststellung nach Geldwäschegesetz</span></li>
+      <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span><b>Natürliche Personen</b>, auch Gesellschafterinnen und Gesellschafter: Selbstauskunft <span class="u-nowrap">(<span class="badge badge--s badge--form p21-in-paren">3076</span>),</span> SCHUFA-Auskunft, Identitätsfeststellung nach Geldwäschegesetz</span></li>
       <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span><b>Unternehmen:</b> Jahresabschlüsse (zwei Jahre), BWA (höchstens drei Monate alt), Handels- und Transparenzregisterauszug, Ertrags-, Finanz- und Liquiditätsplanung <span class="u-nowrap">(<a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;11</a>)</span></span></li>
-      <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span>Grundbuchauszug, Lageplan, Bauzeichnungen, Baubeschreibung (<span class="badge badge--s badge--form">1021</span>)</span></li>
+      <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span>Grundbuchauszug, Lageplan, Bauzeichnungen, Baubeschreibung <span class="u-nowrap">(<span class="badge badge--s badge--form p21-in-paren">1021</span>)</span></span></li>
       <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span>Wohnflächenberechnung (WoFlV), umbauter Raum (DIN 277), Kosten-Finanzierungsaufteilung</span></li>
       <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span><b>Bei <span class="p21-bs bs-23">2.3</span>:</b> Energiebedarfsausweis mit Ausgangsklasse</span></li>
     </ul>

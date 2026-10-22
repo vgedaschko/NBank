@@ -227,3 +227,15 @@ git show b347308:broschuere/dist/Mietwohnraumfoerderung-Niedersachsen-2026.pdf >
 git show b347308:broschuere/dist/Mietwohnraumfoerderung-Niedersachsen-2026-Druck-3mm-Beschnitt.pdf > /tmp/nbank-v1-druck.pdf
 git switch --detach b347308    # kompletter Quellstand der v1 (zurück mit: git switch -)
 ```
+
+## Korrekturschleife mit kommentiertem PDF
+
+Korrekturen können direkt im PDF gemacht werden (Acrobat, Vorschau, PDF-XChange, Foxit …): Notizen, Markierungen,
+Durchstreichungen, „Text ersetzen“, Textfelder, Freihand. Das Skript liest alle Kommentare mit Seite, Position (mm),
+betroffenem Text, Zeile und Bildausschnitt aus und ordnet sie der Textdatei der Seite zu:
+
+```bash
+pip install pymupdf
+python3 scripts/pdf-kommentare.py Korrektur.pdf --out dist/korrektur
+# → dist/korrektur/kommentare.md, kommentare.json, ausschnitt-SNN-NN.png
+```

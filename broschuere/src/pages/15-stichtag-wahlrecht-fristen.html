@@ -1,244 +1,170 @@
 <section class="page bs-23" data-page="15" id="seite-15">
   <style>
-    /* Titelzone: Kicker + Titel links (Titel braucht 93 mm), Unterzeile + Vorspann rechts; oben bündig, damit Kicker/H1 auf derselben Höhe stehen wie auf allen anderen Seiten (S. 6, 7, 19) */
-    .page[data-page="15"] .p15-title { display: grid; grid-template-columns: 93mm minmax(0, 1fr); column-gap: var(--gutter); align-items: start; }
-    .page[data-page="15"] .p15-deck { line-height: 1.28; }
-    .page[data-page="15"] .p15-leadtext { margin-top: 1.4mm; font-size: var(--fs-small); line-height: 1.34; color: var(--fg-2); }
-    .page[data-page="15"] .p15-leadtext b { color: var(--fg); }
+    .page[data-page="15"] .p15-head .h1 { margin-top: 3mm; }
+    .page[data-page="15"] .page__header { margin-bottom: var(--sp-5); }
+    .page[data-page="15"] .p15-head .deck { margin-top: 2.6mm; }
 
-    /* Zeitstrahl: Fahnen oben · Achse mit Band „Teilfortgeltung“ (SVG) · Lupe Jahreswechsel unten */
-    .page[data-page="15"] .p15-tl .chart__title { font-size: 13.5pt; }
-    .page[data-page="15"] .p15-lg { width: 3.2mm; height: 3.2mm; overflow: visible; }
-    .page[data-page="15"] .p15-up { display: grid; grid-template-columns: 12.8mm 38.4mm 76.8mm 44.4mm 1.6mm; margin-top: 1.6mm; }
-    .page[data-page="15"] .p15-flag { border-left: var(--hair) solid var(--fg-3); padding: 0 1mm 1mm 1.6mm; }
-    .page[data-page="15"] .p15-flag:nth-child(2) { padding-right: 2.2mm; }
-    .page[data-page="15"] .p15-flag > * + * { margin-top: .5mm; }
-    .page[data-page="15"] .p15-axis { margin-top: 0; }
-    .page[data-page="15"] .p15-date {
-      font-family: var(--font-display);
-      font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0;
-      font-weight: 500;
-      font-size: 9pt;
-      line-height: 1;
-      letter-spacing: -.005em;
-      font-variant-numeric: lining-nums tabular-nums;
-      white-space: nowrap;
-      color: var(--fg);
-      margin-right: .15mm;
-    }
-    .page[data-page="15"] .p15-ev__label { font: 650 var(--fs-micro)/1.28 var(--font-text); color: var(--fg); }
-    .page[data-page="15"] .p15-ev__text { margin-top: .2mm; font: 500 var(--fs-micro)/1.28 var(--font-text); color: var(--fg-3); }
-    .page[data-page="15"] .p15-flag--past .p15-date,
-    .page[data-page="15"] .p15-flag--past .p15-ev__label { color: var(--fg-2); }
-    /* SVG-Achse */
+    /* Stichtage: links Titel + vergangene Termine, rechts der Frist-Kasten (hängt am Stichtag-Pin), darunter die Achse */
+    .page[data-page="15"] .p15-tl { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: var(--sp-5); }
+    .page[data-page="15"] .p15-tl__side { grid-column: 1 / span 3; grid-row: 1; display: flex; flex-direction: column; }
+    .page[data-page="15"] .p15-frist { grid-column: 4 / span 9; grid-row: 1; }
+    .page[data-page="15"] .p15-tl__fig { grid-column: 1 / -1; grid-row: 2; }
+    .page[data-page="15"] .p15-tl__fig .chart__svg { margin-top: 0; }
+
+    .page[data-page="15"] .p15-past { margin: auto 0 0 7.14mm; padding: 0 0 2.4mm 1.8mm; border-left: var(--hair) solid var(--fg-3); }
+    .page[data-page="15"] .p15-past p { font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-3); }
+    .page[data-page="15"] .p15-past p + p { margin-top: 1.6mm; }
+    .page[data-page="15"] .p15-past b { display: block; font: 700 var(--fs-micro)/1.3 var(--font-display); color: var(--fg-3); font-variant-numeric: tabular-nums; }
+
+    /* Frist-Kasten (einer von zwei Achtung-Kästen im Heft): Datumzelle | Text */
+    .page[data-page="15"] .p15-frist { display: grid; grid-template-columns: 46.6mm minmax(0, 1fr); column-gap: var(--gutter); }
+    .page[data-page="15"] .p15-frist .callout__date { margin-top: 1.6mm; }
+    .page[data-page="15"] .p15-frist__ev { margin-top: 2.6mm; padding-top: 2mm; border-top: var(--hair) solid var(--rule); font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-3); }
+    .page[data-page="15"] .p15-frist__ev b { display: block; font: 800 var(--fs-small)/1.25 var(--font-display); letter-spacing: .03em; text-transform: uppercase; color: var(--signal-text); }
+    .page[data-page="15"] .p15-frist { padding-top: 3.4mm; padding-bottom: 3.8mm; }
+    .page[data-page="15"] .p15-frist .callout__body { margin-top: 0; font-size: var(--fs-module); line-height: 1.34; }
+    .page[data-page="15"] .p15-bind { text-decoration: underline; text-decoration-color: var(--signal-fill); text-decoration-thickness: .35mm; text-underline-offset: .7mm; text-decoration-skip-ink: none; }
+
+    /* Achse */
+    .page[data-page="15"] .p15-ax-past { stroke: var(--fg-3); stroke-width: .35; fill: none; }
+    .page[data-page="15"] .p15-tl__fig .tl-axis { stroke-width: .45; }
     .page[data-page="15"] .p15-pin-past { fill: var(--surface-3); stroke: var(--fg-3); stroke-width: .3; }
-    .page[data-page="15"] .p15-axis-past { stroke: var(--fg-3); stroke-width: .35; }
+    .page[data-page="15"] .p15-stem-past { stroke: var(--fg-3); stroke-width: .2; }
     .page[data-page="15"] .p15-now { stroke: var(--fg); stroke-width: .22; }
     .page[data-page="15"] .p15-halo { fill: var(--surface); stroke: var(--signal-fill); stroke-width: .3; }
-    .page[data-page="15"] .chart__svg .p15-year { font-weight: 650; fill: var(--fg); }
-    .page[data-page="15"] .chart__svg .p15-band-t { fill: var(--fg); }
-    .page[data-page="15"] .chart__svg .p15-svgdate { font-family: var(--font-display); font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0; font-weight: 500; font-size: 3.35px; fill: var(--fg); }
+    .page[data-page="15"] .p15-draft { fill: var(--surface-2); stroke: var(--fg-3); stroke-width: .25; stroke-dasharray: .9 .6; }
+    .page[data-page="15"] .chart__svg .p15-date { font-family: var(--font-display); font-weight: 700; font-size: var(--svg-fs-m); fill: var(--fg); font-variant-numeric: tabular-nums lining-nums; }
+    .page[data-page="15"] .chart__svg .p15-date--draft { fill: var(--fg-3); }
+    .page[data-page="15"] .chart__svg .p15-year { font-family: var(--font-display); font-weight: 700; fill: var(--fg-3); letter-spacing: .2px; font-variant-numeric: tabular-nums; }
 
-    /* Lupe Jahreswechsel: zwei Hälften, senkrechte „Mitternacht“ setzt den Stichtag-Stiel fort */
-    .page[data-page="15"] .p15-zoom { display: grid; grid-template-columns: 85.6mm 8mm 80.4mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
-    .page[data-page="15"] .p15-zoom__half { padding-top: 1.6mm; }
-    .page[data-page="15"] .p15-midnight { background: linear-gradient(var(--signal-text), var(--signal-text)) center / .35mm 100% no-repeat; }
-    .page[data-page="15"] .p15-zoom .p15-date { display: block; font-size: 11pt; line-height: 1.1; margin-right: 0; }
-    .page[data-page="15"] .p15-zoom__d1 { text-align: right; color: var(--signal-text) !important; }
-    .page[data-page="15"] .p15-zoom__d1 .icon { width: 4mm; height: 4mm; margin-right: 1.2mm; vertical-align: -.7mm; }
-    .page[data-page="15"] .p15-ev { margin-top: 1mm; border-top: var(--hair) solid var(--rule); padding-top: 1.1mm; }
-    .page[data-page="15"] .p15-zoom .p15-ev__text { color: var(--fg-3); -webkit-hyphens: none; hyphens: none; }
-    .page[data-page="15"] .p15-ev__head { font-weight: 650; color: var(--fg); }
-    .page[data-page="15"] .p15-mk { display: inline-block; width: 2.5mm; height: 2.5mm; margin-right: 1.1mm; vertical-align: -.3mm; overflow: visible; }
-    .page[data-page="15"] .p15-ev--signal { border-top: 2.4pt solid var(--signal-fill); background: var(--signal-soft); padding: 1.3mm 2.4mm 1.6mm; }
-    .page[data-page="15"] .p15-ev--signal .p15-ev__label { font-size: var(--fs-small); line-height: 1.25; }
-    .page[data-page="15"] .p15-ev--signal .p15-ev__text { margin-top: .3mm; color: var(--fg-2); }
-
-    /* Vergleichstabelle */
-    .page[data-page="15"] .p15-table { table-layout: fixed; font-size: var(--fs-module); line-height: 1.28; }
-    .page[data-page="15"] .p15-table th, .page[data-page="15"] .p15-table td { padding-top: .8mm; padding-bottom: .9mm; }
-    .page[data-page="15"] .p15-table thead th { vertical-align: bottom; padding-top: 1.1mm; padding-bottom: 1.2mm; text-transform: none; letter-spacing: 0; }
-    .page[data-page="15"] .p15-table thead th + th { border-top: 2pt solid var(--old); }
-    .page[data-page="15"] .p15-table thead th.p15-new { border-top-color: var(--bs); }
-    .page[data-page="15"] .p15-table .p15-new { background: var(--bs-tint); padding-left: 2.4mm; padding-right: 2.4mm; }
-    .page[data-page="15"] .p15-cap { display: block; font-size: 10.5pt; line-height: 1.1; color: var(--fg); }
-    .page[data-page="15"] .p15-head { display: block; font-family: var(--font-display); font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0; font-weight: 450; font-size: 11pt; line-height: 1.15; color: var(--fg); }
-    .page[data-page="15"] .p15-head__sub { font: 500 var(--fs-micro)/1.25 var(--font-text); color: var(--fg-3); margin-left: .2mm; }
-    .page[data-page="15"] .p15-table tbody th { font: 650 var(--fs-module)/1.28 var(--font-text); color: var(--fg); -webkit-hyphens: none; hyphens: none; }
-    .page[data-page="15"] .p15-table tbody td { color: var(--fg-2); text-wrap: pretty; }
-    .page[data-page="15"] .p15-table tbody td.p15-new { color: var(--fg); }
-    .page[data-page="15"] .p15-src { margin-top: 1.4mm; }
-    .page[data-page="15"] .p15-sw { display: inline-block; width: 2.6mm; height: 2.6mm; margin-right: 1.6mm; vertical-align: .15mm; }
-    .page[data-page="15"] .p15-sw--old { background: var(--old); }
-    .page[data-page="15"] .p15-sw--new { background: var(--bs); }
-
-    /* Untere Zone: Regeln + Kalkulationsnotiz | Prüffragen + Fußnote */
-    .page[data-page="15"] .p15-low { flex: 1 1 auto; align-items: stretch; grid-template-columns: minmax(0, 92fr) minmax(0, 77fr); }
-    .page[data-page="15"] .p15-low > .p15-col { grid-column: auto; }   /* Prüffragen | Wahlrecht: etwas mehr Breite rechts als 7 | 5 */
-    .page[data-page="15"] .p15-srcrow { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
-    .page[data-page="15"] .p15-srcrow > * { margin-top: 1.2mm; }
-    .page[data-page="15"] .p15-col { display: flex; flex-direction: column; }
-    .page[data-page="15"] .p15-col > .l-bottom { margin-top: auto; }
-    .page[data-page="15"] .p15-low .bullets__title { display: flex; align-items: center; gap: 1.6mm; min-height: 0; padding-top: 1.8mm; padding-bottom: 1.3mm; line-height: 1.14; }
-    .page[data-page="15"] .p15-low [data-m="check"] > .bullets__title { align-items: flex-start; }
-    .page[data-page="15"] .p15-weiche { flex: none; width: 7.2mm; height: 4.8mm; overflow: visible; }
+    /* Vergleichstabelle: Altes Recht (Grau) | RL 2026 · 2.3 (Programmfarbe, Spalte auf Papier) */
+    .page[data-page="15"] .p15-cmp { margin-top: var(--sp-5); table-layout: fixed; font-size: var(--fs-module); line-height: 1.3; }
+    .page[data-page="15"] .p15-cmp caption { caption-side: top; text-align: left; padding: 2.8mm 0 1.6mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
+    .page[data-page="15"] .p15-cmp th, .page[data-page="15"] .p15-cmp td { padding-top: 1.1mm; padding-bottom: 1.2mm; }
+    .page[data-page="15"] .p15-cmp thead th { vertical-align: bottom; padding-top: 2.4mm; padding-bottom: 1.4mm; font: 800 var(--fs-small)/1.2 var(--font-display); letter-spacing: .06em; color: var(--fg); }
+    .page[data-page="15"] .p15-cmp thead .p15-old { box-shadow: inset 0 1.2mm 0 var(--old); }
+    .page[data-page="15"] .p15-cmp thead .p15-new { box-shadow: inset 0 1.2mm 0 var(--bs); }
+    .page[data-page="15"] .p15-cmp .p15-new { background: var(--surface-2); padding-left: 2.6mm; padding-right: 2.6mm; color: var(--fg); }
+    .page[data-page="15"] .p15-cmp tbody th { font: 600 var(--fs-module)/1.3 var(--font-text); color: var(--fg); }
+    .page[data-page="15"] .p15-cmp tbody td { color: var(--fg-2); }
+    .page[data-page="15"] .p15-cmp tbody td.p15-new { color: var(--fg); }
+    .page[data-page="15"] .p15-cmp .bs-badge__no { margin-left: .8mm; font-size: var(--fs-small); padding: .7mm 1.2mm .6mm; letter-spacing: 0; }
+    .page[data-page="15"] .p15-weiche { display: block; width: 7.2mm; height: 4.8mm; overflow: visible; }
     .page[data-page="15"] .p15-w-trunk { fill: none; stroke: var(--fg); stroke-width: .9; stroke-linecap: round; }
     .page[data-page="15"] .p15-w-old { fill: none; stroke: var(--old); stroke-width: .9; stroke-linecap: round; }
     .page[data-page="15"] .p15-w-new { fill: none; stroke: var(--bs); stroke-width: .9; stroke-linecap: round; }
     .page[data-page="15"] .p15-w-dot { fill: var(--fg); }
     .page[data-page="15"] .p15-w-old-h { fill: var(--old); }
     .page[data-page="15"] .p15-w-new-h { fill: var(--bs); }
-    .page[data-page="15"] .p15-bind { text-decoration: underline; text-decoration-color: var(--signal-fill); text-decoration-thickness: 1.4pt; text-underline-offset: .8mm; text-decoration-skip-ink: none; }
-    .page[data-page="15"] .p15-low .bullets { margin-top: 1.8mm; }
-    .page[data-page="15"] .p15-low .bullets > li { font-size: var(--fs-module); line-height: 1.3; }
-    .page[data-page="15"] .p15-low .bullets > li + li { margin-top: .9mm; }
+
+    /* Prüffragen: vier Ankreuzkästchen, 2 × 2 – schließt unten am Satzspiegel */
+    .page[data-page="15"] .p15-checks { padding-top: var(--sp-4); }
     .page[data-page="15"] .p15-check { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gutter); }
-    .page[data-page="15"] .p15-check > .checklist__item { border-top: 0; font-size: var(--fs-module); line-height: 1.3; color: var(--fg-2); padding: .5mm 0 .6mm; }
+    .page[data-page="15"] .p15-check > .checklist__item { border-top: 0; font-size: var(--fs-module); line-height: 1.34; padding: 1.6mm 0 1.8mm; }
     .page[data-page="15"] .p15-check > .checklist__item:nth-last-child(-n+2) { border-bottom: 0; }
     .page[data-page="15"] .p15-check .checklist__item b { color: var(--fg); }
-    .page[data-page="15"] .p15-low .callout { padding: 2mm 4mm 2.3mm; }
-    .page[data-page="15"] .p15-low .callout__body { margin-top: .9mm; line-height: 1.36; }
-    .page[data-page="15"] .p15-low .footnotes { line-height: 1.3; padding-top: 2.2mm; }
+    .page[data-page="15"] .p15-check .pageref { padding-top: .5mm; padding-bottom: .4mm; }
   </style>
 
   <div class="bs-register" data-bleed aria-hidden="true">2.3</div>
+  <header class="page__header">
+    <span class="page__section">Bestand</span>
+    <div class="keyplan" role="img" aria-label="Programmteil 2.3 von sechs Programmteilen">
+      <span class="keyplan__label">Programmteil</span>
+      <ol class="keyplan__list"><li class="bs-21">2.1</li><li class="bs-22">2.2</li><li class="bs-23 is-on">2.3</li><li class="bs-24">2.4</li><li class="bs-25">2.5</li><li class="bs-26">2.6</li></ol>
+    </div>
+  </header>
 
-  <div class="p15-title" data-m="title">
-    <div>
-      <p class="kicker">Stichtag 31.12.2026</p>
-      <h1 class="h1 h1--s">Wahlrecht für <em>Modernisierungsanträge</em></h1>
+  <header class="p15-head">
+    <p class="kicker kicker--plain">Stichtag 31.12.2026</p>
+    <h1 class="h1">Altes Recht oder RL&nbsp;2026: Sie haben die <em>Wahl</em></h1>
+    <p class="deck deck--s">Nur für <b>Modernisierungsanträge</b> – einmalig, mit dem Antrag</p>
+  </header>
+
+  <div class="module p15-tl">
+    <aside class="callout callout--frist p15-frist" aria-label="Frist 31.12.2026">
+      <div>
+        <p class="callout__label"><svg class="icon icon--frist" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.8" r="8.2"/><path d="M12 8.2v4.8l3.2 2"/><path d="M9.2 2.6h5.6"/></svg>Frist</p>
+        <p class="callout__date">31.12.2026</p>
+        <p class="p15-frist__ev"><b class="u-nohyphens">Wahlrecht Modernisierung</b>Antragseingang bei der Wohnraumförderstelle</p>
+      </div>
+      <p class="callout__body">Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin das alte Recht (Förderregeln 2024) wählen – ausdrücklich, <b class="p15-bind">bindend und später nicht änderbar</b>. Es gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026; Neubau, Ersterwerb und alle übrigen Vorhaben laufen immer nach RL 2026.</p>
+    </aside>
+    <div class="p15-tl__side">
+      <h2 class="chart__title" id="p15-tl-h">Stichtage Juni 2026 bis Dezember 2031</h2>
+      <div class="p15-past">
+        <p><b>30.06.2026</b>Förderregeln 2024 enden</p>
+        <p><b>01.07.2026</b>RL Mietwohnraum 2026 in Kraft</p>
+      </div>
     </div>
-    <div>
-      <p class="deck p15-deck">Altes Recht oder RL&nbsp;2026: einmalige Wahl mit dem Antrag</p>
-      <p class="p15-leadtext">Geht Ihr Antrag auf „Modernisierung von Mietwohnungen in Mehrfamilienhäusern“ <b>bis 31.12.2026</b> bei der Wohnraumförderstelle ein, können Sie das alte Recht wählen. Alle übrigen Mietwohnraum-Vorhaben: <b>nur RL&nbsp;2026.</b></p>
-    </div>
+    <figure class="chart p15-tl__fig" role="group" aria-labelledby="p15-tl-h">
+      <svg class="chart__svg" viewBox="0 0 180 16.6" width="180mm" height="16.6mm" role="img" aria-label="Zeitleiste Juni 2026 bis Dezember 2031, zwischen 2027 und 2031 unterbrochen: 30.06.2026 Förderregeln 2024 enden; 01.07.2026 RL Mietwohnraum 2026 in Kraft; heute 21.10.2026; 31.12.2026 Stichtag Wahlrecht Modernisierung, Antragseingang bei der Wohnraumförderstelle; 01.01.2027 neue Rechennorm für Energiebedarfsausweise, Klassengrenzen unverändert; 2027 neue Mietenstufen geplant, Entwurf; 31.12.2031 RL Mietwohnraum 2026 läuft aus.">
+        <!-- Maßstab 7,264 mm je Monat ab 01.06.2026 (x 0); 01.01.2027 = 50,85; Bruch 140–148; 01.09.2031 = 150, 31.12.2031 = 179,06. Achse y 6 -->
+        <!-- 2027: neue Mietenstufen geplant (Entwurf) – gestrichelter Rahmen über das Jahr, Beschriftung darüber -->
+        <rect class="p15-draft" x="50.85" y="4.8" width="87.15" height="2.4"/>
+        <!-- Stiele: vergangene Termine (vom Text oben links), Stichtag (vom Frist-Kasten), Termine unten -->
+        <path class="p15-stem-past" d="M7.14 0V4.9"/>
+        <path class="tl-stem--signal" d="M50.73 0V3.4"/>
+        <path class="tl-stem" d="M51.2 8.6V16.2M179.06 7.2V16.2"/>
+        <!-- Achse: vergangen gedämpft bis heute, danach Tinte; Bruch zwischen 2027 und 2031 -->
+        <path class="p15-ax-past" d="M0 6H33.74"/>
+        <path class="tl-axis" d="M33.74 6H140M148 6H179.06"/>
+        <path class="brk" d="M142.3 7.6l1.4 -3.2M144.9 7.6l1.4 -3.2"/>
+        <path class="tl-tick" d="M7.26 5.2v1.6M14.53 5.2v1.6M21.79 5.2v1.6M29.06 5.2v1.6M36.32 5.2v1.6M43.58 5.2v1.6M58.11 5.2v1.6M65.38 5.2v1.6M72.64 5.2v1.6M79.9 5.2v1.6M87.17 5.2v1.6M94.43 5.2v1.6M101.7 5.2v1.6M108.96 5.2v1.6M116.22 5.2v1.6M123.49 5.2v1.6M130.75 5.2v1.6M138 5.2v1.6M150 5.2v1.6M157.26 5.2v1.6M164.53 5.2v1.6M171.79 5.2v1.6"/>
+        <path class="tl-axis" d="M50.85 3.6V8.4M0 4.4V7.6"/>
+        <!-- Jahre; 2027 zugleich Datum der geplanten Mietenstufen -->
+        <text class="p15-year" x="9.2" y="3.6">2026</text>
+        <text class="p15-year" x="52.6" y="3.6">2027</text>
+        <text class="t-b" x="63" y="3.6">Neue Mietenstufen geplant</text>
+        <text class="t-ax" x="104.6" y="3.6">Entwurf</text>
+        <text class="p15-year" x="151.4" y="3.6">2031</text>
+        <!-- heute -->
+        <path class="p15-now" d="M33.74 3.2V8.8"/>
+        <text class="t-b t-end" x="32.8" y="11.6">heute</text>
+        <text class="t-ax t-end" x="32.8" y="15.4">21.10.2026</text>
+        <!-- Pins -->
+        <circle class="p15-pin-past" cx="7.14" cy="6" r="1.05"/>
+        <circle class="p15-halo" cx="50.73" cy="6" r="2.6"/>
+        <circle class="tl-pin tl-pin--signal" cx="50.73" cy="6" r="1.8"/>
+        <circle class="tl-pin" cx="179.06" cy="6" r="1.1"/>
+        <!-- 01.01.2027 -->
+        <text x="52.6" y="11.6"><tspan class="p15-date">01.01.2027</tspan><tspan class="t-b" dx="2.2">Neue Rechennorm für Energiebedarfsausweise</tspan></text>
+        <text class="t-ax" x="52.6" y="15.4">Klassengrenzen unverändert</text>
+        <!-- 31.12.2031 -->
+        <text class="p15-date t-end" x="177.6" y="11.6">31.12.2031</text>
+        <text class="t-b t-end" x="177.6" y="15.4">RL Mietwohnraum 2026 läuft aus</text>
+      </svg>
+    </figure>
   </div>
 
-  <figure class="chart module u-mt-3 p15-tl" data-m="timeline" role="group">
-    <figcaption class="chart__head chart__head--inline">
-      <h2 class="chart__title">Stichtage 2026 bis 2031</h2>
-      <ul class="legend">
-        <li><svg class="p15-lg" viewBox="0 0 4 4" aria-hidden="true"><circle class="p15-pin-past" cx="2" cy="2" r="1.3"/></svg>vergangen</li>
-        <li><svg class="p15-lg" viewBox="0 0 4 4" aria-hidden="true"><circle class="tl-pin" cx="2" cy="2" r="1.3"/></svg>Termin</li>
-        <li><svg class="p15-lg" viewBox="0 0 4 4" aria-hidden="true"><circle class="tl-pin tl-pin--draft" cx="2" cy="2" r="1.3"/></svg>Entwurf</li>
-        <li><svg class="p15-lg" viewBox="0 0 4 4" aria-hidden="true"><circle class="tl-pin tl-pin--signal" cx="2" cy="2" r="1.6"/></svg>Stichtag</li>
-      </ul>
-    </figcaption>
+  <table class="table p15-cmp">
+    <caption class="chart__title">Altes Recht und RL 2026 im Vergleich</caption>
+    <colgroup><col style="width: 27mm"><col style="width: 75mm"><col></colgroup>
+    <thead>
+      <tr>
+        <th scope="col"><svg class="p15-weiche" viewBox="0 0 24 16" aria-hidden="true" focusable="false"><path class="p15-w-trunk" d="M1.2 8H8"/><path class="p15-w-old" d="M8 8C11.4 8 11 2.6 14.6 2.6H20"/><path class="p15-w-new" d="M8 8C11.4 8 11 13.4 14.6 13.4H20"/><path class="p15-w-old-h" d="M19.6 .4 23.4 2.6 19.6 4.8z"/><path class="p15-w-new-h" d="M19.6 11.2 23.4 13.4 19.6 15.6z"/><circle class="p15-w-dot" cx="1.2" cy="8" r="1.2"/></svg></th>
+        <th scope="col" class="p15-old">Altes Recht</th>
+        <th scope="col" class="p15-new">RL 2026 · Programmteil<b class="bs-badge__no">2.3</b></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Förderart</th><td>anfangs zinsloses Darlehen bis zu 75 % der Kosten, max. zwei Drittel eines vergleichbaren Neubaus; 30 % Tilgungsnachlass bei geringen Einkommen</td><td class="p15-new">Zuschuss je nach Klassensprung und Einkommens&shy;gruppe bis zu <span class="u-nowrap">10–40 %</span>, <span class="u-nohyphens">höchstens</span> <span class="u-nowrap">9.000–31.000 €</span> je gebundener Wohnung</td></tr>
+      <tr><th scope="row">Zins und Kosten</th><td>0 % Zins für 35 Jahre (geringe Einkommen) bzw. 30 Jahre (mittlere), danach marktüblich; 0,5 % Verwaltungskostenbeitrag p. a.</td><td class="p15-new">kein Darlehen; 0,75 % Bearbeitungsentgelt</td></tr>
+      <tr><th scope="row">Barrierefreiheit</th><td>+5.000 € Zuschuss je barrierefreier Wohnung</td><td class="p15-new">Teil der Gesamtmaßnahme, kein Extra-Zuschuss</td></tr>
+      <tr><th scope="row">Höhere Einkommen</th><td>mittlere Einkommen: nur energetisch, ohne Tilgungsnachlass</td><td class="p15-new">Gruppen B und C mit niedrigeren Sätzen</td></tr>
+      <tr><th scope="row">Kombination</th><td>ausgeschlossen, wenn dieselbe Maßnahme nach RL Mietwohnraum, Junges Wohnen oder Wohneigentum 2026 gefördert wird</td><td class="p15-new">BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen <a class="pageref" href="#seite-14">→&nbsp;S.&nbsp;14</a></td></tr>
+    </tbody>
+  </table>
 
-    <div class="p15-up" data-m="tl-up">
-      <div class="p15-flag p15-flag--past" style="grid-column: 2">
-        <p class="p15-ev__label"><span class="p15-date">30.06.2026</span> Erlasse 2024 außer Kraft</p>
-        <p class="p15-ev__label"><span class="p15-date">01.07.2026</span> RL Mietwohnraum 2026 in Kraft</p>
-      </div>
-      <div class="p15-flag p15-flag--past" style="grid-column: 3">
-        <p class="p15-ev__label u-nohyphens"><span class="p15-date">01.10.2026</span> Fortschreibung der Bemessungsgrenzen&nbsp;<span class="p15-ev__text">– erster Stichtag laut eigener Ableitung; Stand der Werte <a class="u-nowrap" href="#seite-08">→&nbsp;S.&nbsp;8</a></span></p>
-      </div>
-      <div class="p15-flag" style="grid-column: 4">
-        <p class="p15-ev__label u-nohyphens"><span class="p15-date">01.04.2027</span> Nächste Fortschreibung<span class="p15-ev__text">, danach jeweils zum 01.04. und&nbsp;01.10.</span></p>
-      </div>
-    </div>
-
-    <svg class="chart__svg p15-axis" viewBox="0 0 174 14.6" width="174mm" height="14.6mm" role="img" aria-label="Zeitstrahl Juni 2026 bis Dezember 2031, zwischen Mai 2027 und November 2031 unterbrochen: 30.06.2026 Erlasse 2024 außer Kraft, Teilfortgeltung nur für Modernisierungsanträge mit Eingang bis 31.12.2026 und Wahl des alten Rechts; 01.07.2026 RL Mietwohnraum 2026 in Kraft; 01.10.2026 Fortschreibung der Bemessungsgrenzen, erster Stichtag laut eigener Ableitung; heute 21.10.2026; 31.12.2026 Stichtag Wahlrecht Modernisierung und Ende der KfW-Stufe EH 55 im Neubau; 01.01.2027 neue Mietenstufen geplant (Entwurf) und neue Rechennorm für Energiebedarfsausweise (beschlossen); 01.04.2027 nächste Fortschreibung, danach jeweils zum 01.04. und 01.10.; 31.12.2031 RL Mietwohnraum 2026 außer Kraft.">
-      <!-- Maßstab: 12,8 mm je Monat ab 01.06.2026; Bruch zwischen Mai 2027 und Dezember 2031 -->
-      <!-- Band: Teilfortgeltung des alten Rechts bis zum Stichtag (hängt an der Achse) -->
-      <rect class="c-old" x="12.8" y="5" width="76.8" height="9.6"/>
-      <text class="p15-band-t" x="14.4" y="9">Teilfortgeltung nur für Modernisierungsanträge mit</text>
-      <text class="p15-band-t" x="14.4" y="12.6">Eingang bis 31.12.2026 und Wahl des alten Rechts</text>
-      <!-- Stiele der Fahnen oben -->
-      <path class="tl-stem" d="M12.8 0V3.85M51.2 0V3.85M128 0V3.85"/>
-      <!-- Jahre, heute -->
-      <text class="p15-year" x="0" y="2.9">2026</text>
-      <text class="p15-year" x="93.2" y="2.9">2027</text>
-      <text class="p15-year" x="150.6" y="2.9">2031</text>
-      <line class="p15-now" x1="59.46" y1=".5" x2="59.46" y2="5"/>
-      <text class="t-ax" x="60.4" y="2.9">heute: 21.10.2026</text>
-      <!-- Achse: vergangen gedämpft -->
-      <line class="p15-axis-past" x1="0" y1="5" x2="59.46" y2="5"/>
-      <line class="tl-axis" x1="59.46" y1="5" x2="143.4" y2="5"/>
-      <path class="tl-axis" d="M143.6 6.6l1.4-3.2M146.2 6.6l1.4-3.2"/>
-      <line class="tl-axis" x1="147.4" y1="5" x2="174" y2="5"/>
-      <path class="tl-tick" d="M0 4.1v.9M25.6 4.1v.9M38.4 4.1v.9M64 4.1v.9M76.8 4.1v.9M102.4 4.1v.9M115.2 4.1v.9M140.8 4.1v.9M159.6 4.1v.9"/>
-      <rect class="c-signal" x="59.46" y="4.45" width="30.14" height="1.1"/>
-      <!-- 31.12.2031 -->
-      <text class="p15-svgdate t-end" x="172.4" y="9.25">31.12.2031</text>
-      <text class="t-b t-end" x="172.4" y="12.6">RL Mietwohnraum 2026 außer Kraft</text>
-      <!-- Stichtag-Stiel zur Lupe -->
-      <line class="tl-stem--signal" x1="89.6" y1="7.4" x2="89.6" y2="14.6"/>
-      <!-- Pins -->
-      <circle class="p15-pin-past" cx="12.8" cy="5" r="1.15"/>
-      <circle class="p15-pin-past" cx="51.2" cy="5" r="1.15"/>
-      <circle class="p15-halo" cx="89.6" cy="5" r="2.4"/>
-      <circle class="tl-pin tl-pin--signal" cx="89.6" cy="5" r="1.75"/>
-      <circle class="tl-pin" cx="128" cy="5" r="1.15"/>
-      <circle class="tl-pin" cx="172.4" cy="5" r="1.15"/>
-    </svg>
-
-    <div class="p15-zoom" data-m="zoom">
-      <div class="p15-zoom__half">
-        <p class="p15-date p15-zoom__d1"><svg class="icon icon--frist" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.8" r="8.2"/><path d="M12 8.2v4.8l3.2 2"/><path d="M9.2 2.6h5.6"/></svg>31.12.2026</p>
-        <div class="p15-ev p15-ev--signal">
-          <p class="p15-ev__label">Wahlrecht Modernisierung</p>
-          <p class="p15-ev__text">Eingang bei der Wohnraumförderstelle</p>
-        </div>
-        <p class="p15-ev p15-ev__text"><svg class="p15-mk" viewBox="0 0 4 4" aria-hidden="true"><circle class="tl-pin" cx="2" cy="2" r="1.4"/></svg><b class="p15-ev__head">Neubau: KfW-Stufe EH&nbsp;55 (298) endet</b>&nbsp;– letzter Antragseingang bei der KfW, unter Bundesmittelvorbehalt; gilt nicht für Modernisierung</p>
-      </div>
-      <span class="p15-midnight" aria-hidden="true"></span>
-      <div class="p15-zoom__half">
-        <p class="p15-date p15-zoom__d2">01.01.2027</p>
-        <p class="p15-ev p15-ev__text"><svg class="p15-mk" viewBox="0 0 4 4" aria-hidden="true"><circle class="tl-pin tl-pin--draft" cx="2" cy="2" r="1.4"/></svg><b class="p15-ev__head">Neue Mietenstufen geplant</b>&nbsp;– Entwurf, nicht beschlossen; Folgen mit der NBank klären</p>
-        <p class="p15-ev p15-ev__text"><svg class="p15-mk" viewBox="0 0 4 4" aria-hidden="true"><circle class="tl-pin" cx="2" cy="2" r="1.4"/></svg><b class="p15-ev__head">Neue Rechennorm für Energiebedarfsausweise</b>&nbsp;– beschlossen, <span class="u-nowrap">DIN/TS&nbsp;18599:2025-10</span>; Klassengrenzen unverändert; Klassensprung (2.3): Folgen mit der NBank klären</p>
-      </div>
-    </div>
-  </figure>
-
-  <figure class="module u-mt-3 p15-cmp" data-m="table" role="group">
-    <table class="table p15-table">
-      <colgroup><col style="width: 26mm"><col style="width: 77mm"><col></colgroup>
-      <thead>
-        <tr>
-          <th><span class="fig-head__title p15-cap">Im Vergleich</span></th>
-          <th><span class="p15-head"><i class="p15-sw p15-sw--old"></i>Altes Recht <span class="p15-head__sub">(Eingang bis 31.12.2026)</span></span></th>
-          <th class="p15-new"><span class="p15-head"><i class="p15-sw p15-sw--new"></i>RL&nbsp;2026, Programmteil&nbsp;2.3</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><th scope="row">Instrument</th><td>anfangs zinsloses Darlehen bis zu 75&nbsp;% der Kosten, max. zwei Drittel eines vergleichbaren Neubaus; 30&nbsp;% Tilgungsnachlass nur bei geringen Einkommen</td><td class="p15-new">Zuschuss je nach Klassensprung und Einkommensgruppe bis zu <span class="u-nowrap">10–40&nbsp;%</span>, höchstens <span class="u-nowrap">9.000–31.000&nbsp;€</span> je gebundener Wohnung</td></tr>
-        <tr><th scope="row">Zins und Kosten</th><td>0&nbsp;% in den Jahren <span class="u-nowrap">1–35</span> (geringe Einkommen) bzw. <span class="u-nowrap">1–30</span> (mittlere Einkommen), danach marktüblich; 0,5&nbsp;%&nbsp;p.&nbsp;a. Verwaltungskostenbeitrag</td><td class="p15-new">kein Darlehen; Bearbeitungsentgelt 0,75&nbsp;%</td></tr>
-        <tr><th scope="row" class="u-hyphens">Barrierefreiheit</th><td>+5.000&nbsp;€ Zuschuss je barrierefrei nutzbarer Wohnung (DIN&nbsp;18040-2)</td><td class="p15-new">kein Extra-Zuschuss, Teil&nbsp;der Gesamtmaßnahme</td></tr>
-        <tr><th scope="row">Höhere Einkommen</th><td>mittlere Einkommen (<span class="u-nowrap">DVO-NWoFG</span>): nur energetisch, ohne Tilgungsnachlass</td><td class="p15-new">Einkommensgruppen B und C mit eigenen, niedrigeren Sätzen</td></tr>
-        <tr><th scope="row">Gebäude</th><td>fertiggestellt vor 01.02.2002</td><td class="p15-new">fertiggestellt vor 08.12.2004; mind.&nbsp;2&nbsp;Klassen besser</td></tr>
-      </tbody>
-    </table>
-    <div class="p15-srcrow"><p class="source p15-src">Altes Recht laut NBank, verkürzt.</p><p class="caveat">Höchstwerte&nbsp;· Überkompensationsprüfung&nbsp;· kein&nbsp;Rechtsanspruch <a href="#seite-02">→&nbsp;S.&nbsp;2</a></p></div>
-  </figure>
-
-  <div class="l-grid u-mt-2 p15-low" data-m="low">
-    <div class="l-span-7 p15-col" data-m="check">
-      <h3 class="bullets__title">Vier Prüffragen</h3>
-      <ul class="checklist p15-check">
-        <li class="checklist__item"><span class="checklist__box"></span><span><b>Fertigstellung zwischen 01.02.2002 und 07.12.2004?</b> Dann nur RL&nbsp;2026 (eigene Ableitung).</span></li>
-        <li class="checklist__item"><span class="checklist__box"></span><span><b>Zwei Effizienzklassen erreichbar (Pflicht in RL&nbsp;2026)?</b> Ausnahme: eine Klasse mit NBank-Zulassung (<a class="u-nowrap" href="#seite-14">→&nbsp;S.&nbsp;14</a>).</span></li>
-        <li class="checklist__item"><span class="checklist__box"></span><span><b>Darlehen mit Tilgungsnachlass oder Zuschuss:</b> Was passt zur Finanzierung?</span></li>
-        <li class="checklist__item"><span class="checklist__box"></span><span><b>Antrag bis 31.12.2026 bei der Wohnraumförderstelle</b> – mit ausdrücklicher Wahl?</span></li>
-      </ul>
-    </div>
-    <div class="l-span-5 p15-col" data-m="rules">
-      <h3 class="bullets__title"><svg class="p15-weiche" viewBox="0 0 24 16" aria-hidden="true" focusable="false"><path class="p15-w-trunk" d="M1.2 8H8"/><path class="p15-w-old" d="M8 8C11.4 8 11 2.6 14.6 2.6H20"/><path class="p15-w-new" d="M8 8C11.4 8 11 13.4 14.6 13.4H20"/><path class="p15-w-old-h" d="M19.6 0.4 23.4 2.6 19.6 4.8z"/><path class="p15-w-new-h" d="M19.6 11.2 23.4 13.4 19.6 15.6z"/><circle class="p15-w-dot" cx="1.2" cy="8" r="1.2"/></svg>So funktioniert die Wahl</h3>
-      <ul class="bullets">
-        <li>Wahl ausdrücklich mit dem Antrag: <b class="p15-bind">bindend, nachträglich nicht änderbar</b>; altes Recht gilt dann bis Verfahrensende</li>
-        <li>ohne Wahl gilt die RL&nbsp;2026</li>
-        <li>kein Mischen, soweit dieselbe Maßnahme nach einer der Richtlinien 2026 gefördert wird</li>
-      </ul>
-      <aside class="callout callout--tipp callout--calc l-bottom" data-m="tipp">
-        <p class="callout__label"><svg class="icon icon--rechner" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.8" width="14" height="18.4" rx="1"/><path d="M8 6.4h8v3.4H8z"/><path d="M8.4 13.4h.01M12 13.4h.01M15.6 13.4h.01M8.4 17.2h.01M12 17.2h.01M15.6 17.2h.01" stroke-width="2"/></svg>Kalkulationsnotiz</p>
-        <p class="callout__body">Beide Wege mit Ihren Kosten durchrechnen.</p>
-      </aside>
-    </div>
-  </div>
-
-  <ol class="footnotes footnotes--2col l-bottom" data-m="fn">
-    <li class="footnotes__src"><b>Fundstellen:</b> RL&nbsp;Nr.&nbsp;5.3.2.2, 7.2.1, <span class="u-nowrap">13.1–13.3</span>; NBank-Programmseite „Modernisierung von Mietwohnungen in Mehrfamilienhäusern“; KfW-Merkblatt&nbsp;297/298; BGBl.&nbsp;2026&nbsp;I&nbsp;Nr.&nbsp;226 (GModG-Änderung ab 01.01.2027); BR-Drs.&nbsp;474/26 (Entwurf).</li>
-  </ol>
+  <section class="p15-checks l-bottom" aria-labelledby="p15-check-h">
+    <h2 class="bullets__title" id="p15-check-h">Vier Prüffragen</h2>
+    <ul class="checklist p15-check">
+      <li class="checklist__item"><span class="checklist__box"></span><span><b>Fertiggestellt zwischen 01.02.2002 und 07.12.2004?</b> Dann nur RL 2026: Das alte Recht verlangt Fertigstellung vor dem 01.02.2002.</span></li>
+      <li class="checklist__item"><span class="checklist__box"></span><span><b>Zwei Effizienzklassen erreichbar?</b> Die RL 2026 verlangt sie. Nur wenn das nicht oder nur mit unverhältnismäßigem Aufwand geht, etwa beim Baudenkmal, kann die NBank eine Klasse zulassen <a class="pageref" href="#seite-14">→&nbsp;S.&nbsp;14</a></span></li>
+      <li class="checklist__item"><span class="checklist__box"></span><span><b>Darlehen mit Tilgungsnachlass oder Zuschuss</b> – was passt zu Ihrer Finanzierung?</span></li>
+      <li class="checklist__item"><span class="checklist__box"></span><span><b>Antrag mit ausdrücklicher Wahl bis 31.12.2026</b> bei der Wohnraumförderstelle?</span></li>
+    </ul>
+  </section>
 
   <footer class="page__foot" aria-hidden="true"><span class="page__folio">15</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Bestand · Stichtag 31.12.2026</b></span><span>Stand: 21.10.2026</span></span></footer>
 </section>

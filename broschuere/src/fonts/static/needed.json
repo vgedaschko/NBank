@@ -1,0 +1,56 @@
+[
+ {
+  "key": "Montserrat|italic|800|||",
+  "fam": "Montserrat",
+  "style": "italic",
+  "wght": 800
+ },
+ {
+  "key": "Montserrat|normal|300|||",
+  "fam": "Montserrat",
+  "style": "normal",
+  "wght": 300
+ },
+ {
+  "key": "Montserrat|normal|700|||",
+  "fam": "Montserrat",
+  "style": "normal",
+  "wght": 700
+ },
+ {
+  "key": "Montserrat|normal|800|||",
+  "fam": "Montserrat",
+  "style": "normal",
+  "wght": 800
+ },
+ {
+  "key": "Montserrat|normal|900|||",
+  "fam": "Montserrat",
+  "style": "normal",
+  "wght": 900
+ },
+ {
+  "key": "Work Sans|italic|500|||",
+  "fam": "Work Sans",
+  "style": "italic",
+  "wght": 500
+ },
+ {
+  "key": "Work Sans|normal|400|||",
+  "fam": "Work Sans",
+  "style": "normal",
+  "wght": 400
+ },
+ {
+  "key": "Work Sans|normal|500|||",
+  "fam": "Work Sans",
+  "style": "normal",
+  "wght": 500
+ },
+ {
+  "key": "Work Sans|normal|600|||",
+  "fam": "Work Sans",
+  "style": "normal",
+  "wght": 600
+ }
+]

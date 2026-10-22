@@ -1,198 +1,164 @@
 <section class="page" data-page="18" id="seite-18">
   <style>
-    /* Seite 18 · Standort und Kommune (Infografik) – seitenspezifisch, Farben nur über Tokens */
+    /* Seite 18 · Standort und Kommune · Planwerk. Linke Seite der Doppelseite 18|19 „Umsetzung“.
+       Dominant: Vorrang-Leiter (7 Spalten) als Treppe im Schnitt; daneben der Ring mit QR-Code (5 Spalten).
+       Unten Werkzeugkasten in drei gleich breiten Karten (Spalten 1–4 · 5–8 · 9–12 = Ampel auf S. 19) und die Zeile
+       „Kein WBS-Haushalt gefunden?“. Gemeinsame Horizonte mit S. 19: Kicker/H1, Oberkante Werkzeugkasten = Oberkante
+       Achtung-Kasten, Unterkante. Farben nur über Tokens. */
 
-    /* Register (programmübergreifend): Primärfarbe statt Baustein-Farbe */
-    .page[data-page="18"] .p18-register { background: var(--fg); color: var(--surface); padding-bottom: 1.6mm; }
-    .page[data-page="18"] .p18-register .icon { width: 4.6mm; height: 4.6mm; }
+    /* Kopf ------------------------------------------------------------------- */
+    .page[data-page="18"] .p18-head .deck { margin-top: 3mm; }
+    .page[data-page="18"] .p18-head .lead { margin-top: 3.4mm; max-width: none; column-count: 2; column-gap: var(--gutter); }
+    /* Programmteile im Vorspann: Nummer in Montserrat 800 in der Programmfarbe (Nummer steht immer mit) */
+    .page[data-page="18"] .p18-bs { font: 800 .94em/1 var(--font-display); letter-spacing: .01em; color: var(--bs); font-variant-numeric: tabular-nums; }
 
-    /* Titelzone: Titel 7 Spalten (zwei Zeilen), Vorspann 5 Spalten */
-    .page[data-page="18"] .p18-title { align-items: end; }
-    .page[data-page="18"] .p18-title .h1 { word-spacing: .03em; white-space: nowrap; }
-    .page[data-page="18"] .p18-deck { padding-bottom: .4mm; }
-    .page[data-page="18"] .p18-chip { display: inline-block; padding: .55mm 1.05mm .45mm; background: var(--bs); color: var(--on-bs); font: 700 var(--fs-micro)/1 var(--font-text); letter-spacing: .02em; vertical-align: .3mm; font-variant-numeric: tabular-nums; }
-    .page[data-page="18"] .p18-chip--o { background: transparent; color: var(--bs); box-shadow: inset 0 0 0 .8pt var(--bs); }
+    .page[data-page="18"] .p18-main { margin-top: var(--sp-8); }
 
-    /* Vorrang-Leiter: Stufen (Rang 1 = breiteste, dunkelste Stufe) */
-    .page[data-page="18"] .p18-ranks { margin-top: 3mm; }
-    .page[data-page="18"] .p18-rank { display: grid; grid-template-columns: 15mm 5mm minmax(0, 1fr); column-gap: 2.2mm; align-items: center; min-height: 8.2mm; background: linear-gradient(var(--rule), var(--rule)) right bottom / calc(100% - 17.2mm) var(--hair) no-repeat; }
-    .page[data-page="18"] .p18-rank + .p18-rank { margin-top: .6mm; }
-    .page[data-page="18"] .p18-rank__bar { align-self: stretch; width: var(--w); display: flex; align-items: center; justify-content: flex-end; padding-right: 1.3mm; }
-    .page[data-page="18"] .p18-rank__no { font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 420; font-size: 14pt; line-height: 1; letter-spacing: -.02em; font-variant-numeric: lining-nums; }
-    .page[data-page="18"] .p18-rank .icon { width: 5mm; height: 5mm; color: var(--fg); }
-    .page[data-page="18"] .p18-rank__txt { padding: .5mm 0 .6mm; }
-    .page[data-page="18"] .p18-rank__label { display: block; font: 650 var(--fs-small)/1.25 var(--font-text); color: var(--fg); }
-    .page[data-page="18"] .p18-rank__detail { display: block; margin-top: .1mm; font-size: var(--fs-module); line-height: 1.3; color: var(--fg-2); text-wrap: balance; }
-    .page[data-page="18"] .p18-ladder .chart__note { margin-top: 2.4mm; }
+    /* Vorrang-Leiter: Stufen 28 → 8 mm (Rang 1 oben, am breitesten), Grautonleiter seq-6 → seq-1 --------------------- */
+    .page[data-page="18"] .p18-ranks { margin-top: 3.4mm; }
+    .page[data-page="18"] .p18-rank { display: grid; grid-template-columns: 28mm 5mm minmax(0, 1fr); column-gap: 3mm; align-items: center; min-height: 10.2mm; }
+    .page[data-page="18"] .p18-step { align-self: start; height: 10.2mm; width: var(--w); display: flex; align-items: center; justify-content: flex-end; padding-right: 1.6mm; border-bottom: .4mm solid var(--surface); font: 900 13pt/1 var(--font-display); letter-spacing: -.02em; font-variant-numeric: lining-nums tabular-nums; }
+    .page[data-page="18"] .p18-rank:last-child .p18-step { border-bottom: 0; box-shadow: inset 0 0 0 var(--hair) var(--seq-3); }
+    .page[data-page="18"] .p18-rank .icon { align-self: start; width: 5mm; height: 5mm; margin-top: 2.6mm; color: var(--fg); }
+    /* Rang 6: zweizeiliges Detail – Stufe bleibt 10,2 mm hoch (gleiche Steigung), Text läuft darunter weiter */
+    .page[data-page="18"] .p18-rank:last-child .p18-rank__txt { justify-content: flex-start; padding-top: .9mm; }
+    .page[data-page="18"] .p18-rank__txt { align-self: stretch; display: flex; flex-direction: column; justify-content: center; padding: .6mm 0 .7mm; border-bottom: var(--hair) solid var(--rule); }
+    .page[data-page="18"] .p18-rank:last-child .p18-rank__txt { border-bottom: 0; }
+    .page[data-page="18"] .p18-rank__label { font: 700 9.5pt/1.25 var(--font-display); color: var(--fg); }
+    .page[data-page="18"] .p18-rank__detail { margin-top: .3mm; font-size: var(--fs-module); line-height: 1.3; color: var(--fg-2); }
+    .page[data-page="18"] .p18-rank__detail .pageref { padding-top: .4mm; padding-bottom: .3mm; }
+    .page[data-page="18"] .p18-ladder__foot { margin-top: 3.4mm; padding: 2.1mm 3.4mm 2.3mm; background: var(--surface-2); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="18"] .p18-ladder__foot b { color: var(--fg); }
 
-    /* Ring: QR-Code zur NBank-Landkarte im Ringloch (Papiergrund, Module in Tinte).
-       Der QR ist ein eigener Link über der Ringmitte (nicht im role="img"-SVG); Lage in viewBox-Einheiten des Rings
-       (69,6 × 36): Fläche 9,67 … 26,33 = 49 × 0,34 (45 Module + 2 Module Rand), skaliert mit dem Diagramm. */
-    .page[data-page="18"] .p18-plot { position: relative; margin-top: 2.6mm; }
+    /* Ring + QR: QR als eigener Link über der Ringmitte (nicht im role="img"-SVG). Lage in viewBox-Einheiten des
+       Rings (72,1 × 44): QR-Fläche 49 × 0,36 = 17,64 (45 Module + 2 Module Rand), Mitte (20, 20,4). */
+    .page[data-page="18"] .p18-plot { position: relative; margin-top: 3.4mm; }
     .page[data-page="18"] .p18-plot .chart__svg { margin-top: 0; }
-    .page[data-page="18"] .p18-qrlink { position: absolute; left: calc(100% * 9.67 / 69.6); top: calc(100% * 9.67 / 36); display: block; width: calc(100% * 16.66 / 69.6); }
-    .page[data-page="18"] .p18-qrlink svg { display: block; width: 100%; height: auto; }
-    .page[data-page="18"] .p18-qr__bg { fill: var(--surface); }
-    .page[data-page="18"] .p18-qr__mod { fill: var(--fg); }
-    .page[data-page="18"] .p18-ring .chart__note { margin-top: 2.4mm; }
+    .page[data-page="18"] .p18-qr { position: absolute; left: calc(100% * 11.18 / 72.1); top: calc(100% * 11.58 / 44); width: calc(100% * 17.64 / 72.1); display: block; }
+    .page[data-page="18"] .p18-qr svg { display: block; width: 100%; height: auto; }
+    .page[data-page="18"] .p18-qr__bg { fill: var(--white); }
+    .page[data-page="18"] .p18-qr__mod { fill: var(--ink); }
+    .page[data-page="18"] .p18-ring-a { fill: none; stroke: var(--fg); }
+    .page[data-page="18"] .p18-ring-b { fill: none; stroke: var(--seq-4); }
+    .page[data-page="18"] .p18-sw-a { fill: var(--fg); }
+    .page[data-page="18"] .p18-sw-b { fill: var(--seq-4); }
+    .page[data-page="18"] .p18-ring__note { margin-top: 3mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="18"] .p18-ring__note b { color: var(--fg); }
 
-    /* Bedarf widerlegt? */
-    .page[data-page="18"] .p18-proof .h3 { font-size: 11pt; }
-    .page[data-page="18"] .p18-proof p { margin-top: 1.2mm; font-size: var(--fs-module); line-height: 1.34; color: var(--fg-2); }
-    .page[data-page="18"] .p18-proof b { color: var(--fg); }
+    /* Werkzeugkasten: drei Karten, Haarlinie in der Stegmitte statt Rahmen ------------------------------------------- */
+    .page[data-page="18"] .p18-tools { margin-top: var(--sp-8); }
+    .page[data-page="18"] .p18-cards { display: grid; grid-template-columns: calc(4 * var(--col) + 3 * var(--gutter)) calc(5 * var(--col) + 4 * var(--gutter)) minmax(0, 1fr); column-gap: var(--gutter); margin-top: 3.4mm; }
+    .page[data-page="18"] .p18-card { position: relative; }
+    .page[data-page="18"] .p18-card + .p18-card::before { content: ""; position: absolute; left: calc(var(--gutter) / -2); top: 0; bottom: 0; width: var(--hair); background: var(--rule); }
+    .page[data-page="18"] .p18-card__head { display: flex; align-items: center; gap: 2.4mm; min-height: 8mm; }
+    .page[data-page="18"] .p18-card__head .icon { width: 6.4mm; height: 6.4mm; color: var(--fg); }
+    .page[data-page="18"] .p18-card__title { font: 800 9.75pt/1.22 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--fg); }
+    .page[data-page="18"] .p18-card__body { margin-top: 1.6mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="18"] .p18-card__body .pageref { padding-top: .4mm; padding-bottom: .3mm; }
 
-    /* Kalkulationsnotiz: globale .callout--calc, unterstes Modul der Außenspalte (links) */
-
-    /* Werkzeugkasten: vier Protokollkarten (Titel als Spitzmarke, Icon umflossen) */
-    .page[data-page="18"] .p18-tools .fig-head__title { font-size: var(--fs-h3); line-height: 1.16; }
-    .page[data-page="18"] .p18-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: min-content auto min-content; column-gap: var(--gutter); margin-top: 2.4mm; }
-    .page[data-page="18"] .p18-card { align-self: start; padding: 2.2mm 0 2.4mm; border-top: var(--hair) solid var(--rule); }
-    /* versetzt: links 1 + 3, rechts 2 + 4 (DOM-Reihenfolge bleibt 1–4) */
-    .page[data-page="18"] .p18-card:nth-child(1) { grid-column: 1; grid-row: 1; }
-    .page[data-page="18"] .p18-card:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; }
-    .page[data-page="18"] .p18-card:nth-child(3) { grid-column: 1; grid-row: 2 / span 2; }
-    .page[data-page="18"] .p18-card:nth-child(4) { grid-column: 2; grid-row: 3; }
-    .page[data-page="18"] .p18-card .icon { float: left; width: 5.4mm; height: 5.4mm; margin: .2mm 2.2mm 0 0; color: var(--accent-text); }
-    .page[data-page="18"] .p18-card__body { font-size: var(--fs-module); line-height: 1.34; color: var(--fg-2); }
-    .page[data-page="18"] .p18-card__body > b { margin-right: 1mm; font-weight: 650; color: var(--fg); }
-
-    /* Vermietung */
-    .page[data-page="18"] .p18-rent .bullets__title { display: flex; align-items: center; gap: 1.6mm; }
-    .page[data-page="18"] .p18-rent .bullets__title .icon { width: 4.6mm; height: 4.6mm; color: var(--fg); }
-    .page[data-page="18"] .p18-rent .bullets > li { font-size: var(--fs-module); line-height: 1.34; }
-    .page[data-page="18"] .p18-rent .bullets { margin-top: 2mm; }
-
-    /* Zwei frei laufende Spalten (7 + 5), Module mit 4 mm Abstand */
-    .page[data-page="18"] .p18-col { --stack: 4mm; }
-    .page[data-page="18"] .p18-body { margin-bottom: 4mm; }
-    .page[data-page="18"] .p18-col > * + * { margin-top: 3mm; }
-
+    /* Kein WBS-Haushalt gefunden? – Textzeile über die volle Breite, Run-in, kein Kasten ------------------------------ */
+    .page[data-page="18"] .p18-wbs { margin-top: var(--sp-5); padding-top: 2.6mm; border-top: var(--hair) solid var(--rule); column-count: 2; column-gap: var(--gutter); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="18"] .p18-wbs__h { display: inline; font: 700 var(--fs-module)/var(--lh-module) var(--font-text); color: var(--fg); }
+    .page[data-page="18"] .p18-wbs__h + p { display: inline; }
   </style>
 
-  <div class="bs-register p18-register" data-bleed aria-hidden="true"><svg class="icon icon--standort" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.2s6.6-6.4 6.6-11.4a6.6 6.6 0 0 0-13.2 0c0 5 6.6 11.4 6.6 11.4z"/><circle cx="12" cy="9.8" r="2.4"/></svg></div>
+  <header class="p18-head">
+    <p class="kicker">Standort und Kommune</p>
+    <h1 class="h1">Wo <em>Bedarf</em> gilt – und was Kommunen tun können</h1>
+    <p class="deck"><b>Sechs</b> Gebietsarten, <b>eine</b> Karte, <b>drei</b> Hebel für Kommunen</p>
+    <p class="lead">Für <b class="p18-bs bs-21">2.1</b>, <b class="p18-bs bs-22">2.2</b> und <b class="p18-bs bs-26">2.6</b> muss am Bauort mehr als nur kurzfristig Bedarf an gebundenen Mietwohnungen bestehen. Modernisierung (<b class="p18-bs bs-23">2.3</b>), Inseln (<b class="p18-bs bs-24">2.4</b>) und Bindungserwerb (<b class="p18-bs bs-25">2.5</b>) brauchen keinen Bedarfsnachweis. Klären Sie den Standort zuerst mit der Wohnraumförderstelle – er entscheidet über Förderfähigkeit, Vorrang und Mieterkreis.</p>
+  </header>
 
-  <div class="l-grid p18-title">
-    <div class="l-span-7">
-      <p class="kicker">Standort und Kommune</p>
-      <h1 class="h1 h1--s">Wo Bedarf gilt – <em>und was<br>Kommunen tun können</em></h1>
-    </div>
-    <p class="deck deck--s l-span-5 p18-deck">Förderung nach <b class="p18-chip bs-21">2.1</b> (Mehrfamilienhäuser), <b class="p18-chip bs-22">2.2</b> (EH&nbsp;40) und <b class="p18-chip bs-26">2.6</b> (Verlängerung) setzt einen nicht nur kurzfristigen Bedarf an gebundenen Mietwohnungen voraus – bei <b class="p18-chip p18-chip--o bs-23">2.3</b>, <b class="p18-chip p18-chip--o bs-24">2.4</b> und <b class="p18-chip p18-chip--o bs-25">2.5</b> nicht.</p>
-  </div>
+  <div class="l-grid p18-main">
+    <!-- Dominant: Vorrang-Leiter -->
+    <figure class="chart module l-span-7 p18-ladder" role="group" aria-labelledby="p18-ladder-h">
+      <figcaption class="chart__head"><h2 class="chart__title" id="p18-ladder-h">Bedarf gilt als erfüllt – Vorrang in dieser Reihenfolge</h2></figcaption>
+      <ol class="p18-ranks">
+        <li class="p18-rank">
+          <span class="p18-step seq-6" style="--w:28mm" aria-hidden="true">1</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5.2" y="10.4" width="13.6" height="10.4" rx="1"/><path d="M8.2 10.4V7.6a3.8 3.8 0 0 1 7.6 0v2.8"/><path d="M12 14.4v2.6"/></svg>
+          <span class="p18-rank__txt"><b class="p18-rank__label"><span class="u-sr">Rang 1: </span>Angespannter Wohnungsmarkt</b><span class="p18-rank__detail">derzeit 57 Kommunen</span></span>
+        </li>
+        <li class="p18-rank">
+          <span class="p18-step seq-5" style="--w:24mm" aria-hidden="true">2</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15.2 6.2c-.5-1.5-1.7-2.4-3.3-2.4-1.9 0-3.3 1.1-3.3 2.7 0 3.6 7 3 7 7 0 1.3-.9 2.3-2.2 2.8"/><path d="M8.8 17.8c.5 1.5 1.7 2.4 3.3 2.4 1.9 0 3.3-1.1 3.3-2.7 0-3.6-7-3-7-7 0-1.3.9-2.3 2.2-2.8"/></svg>
+          <span class="p18-rank__txt"><b class="p18-rank__label"><span class="u-sr">Rang 2: </span>Erhöhter Wohnungsbedarf</b><span class="p18-rank__detail">per Verordnung der Gemeinde</span></span>
+        </li>
+        <li class="p18-rank">
+          <span class="p18-step seq-4" style="--w:20mm" aria-hidden="true">3</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.6 9.4L12 5.2l9.4 4.2L12 13.6z"/><path d="M6.6 11.4v4.4c0 1.4 2.4 2.8 5.4 2.8s5.4-1.4 5.4-2.8v-4.4"/><path d="M21.4 9.4v5.4"/></svg>
+          <span class="p18-rank__txt"><b class="p18-rank__label"><span class="u-sr">Rang 3: </span>Hochschulstandort</b></span>
+        </li>
+        <li class="p18-rank">
+          <span class="p18-step seq-3" style="--w:16mm" aria-hidden="true">4</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.8 8.6q2.3-2.6 4.6 0t4.6 0 4.6 0 4.6 0"/><path d="M2.8 13.4q2.3-2.6 4.6 0t4.6 0 4.6 0 4.6 0"/><path d="M2.8 18.2q2.3-2.6 4.6 0t4.6 0 4.6 0 4.6 0"/></svg>
+          <span class="p18-rank__txt"><b class="p18-rank__label"><span class="u-sr">Rang 4: </span>Ostfriesische Inseln</b></span>
+        </li>
+        <li class="p18-rank">
+          <span class="p18-step seq-2" style="--w:12mm" aria-hidden="true">5</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20.4h4.6v-4.2h4.6V12h4.6V7.8H21"/><path d="M4 13.2l6.4-6.4"/><path d="M6.6 6.6h4v4"/></svg>
+          <span class="p18-rank__txt"><b class="p18-rank__label"><span class="u-sr">Rang 5: </span>Mietenstufe IV–VII</b><span class="p18-rank__detail">derzeit 29 Gemeinden <span class="u-nowrap">(<a class="pageref" href="#seite-07">→&nbsp;S.&nbsp;7</a>)</span></span></span>
+        </li>
+        <li class="p18-rank">
+          <span class="p18-step seq-1" style="--w:8mm" aria-hidden="true">6</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="4.2" width="17.2" height="15.6" rx="1"/><path d="M3.4 12.4h7.4v7.4M10.8 8.4v-4.2M14.6 12.4h6M14.6 12.4V8.8"/></svg>
+          <span class="p18-rank__txt"><b class="p18-rank__label"><span class="u-sr">Rang 6: </span>Kommunale Festlegung</b><span class="p18-rank__detail">im Bebauungsplan, städtebaulichen Vertrag oder Baulandmodell</span></span>
+        </li>
+      </ol>
+      <p class="p18-ladder__foot"><b>Vorrang zählt nur bei knappen Mitteln.</b> Im selben Rang sollen bei sonst gleichen Voraussetzungen kostengünstigere Vorhaben gleicher Güte und Ausstattung vorgehen; danach zählen etwa Barrierefreiheit, Familien mit Kindern und Klimaziele.</p>
+    </figure>
 
-  <div class="l-grid u-mt-5 p18-body">
-    <!-- links: Vorrang-Leiter, Werkzeugkasten, Kalkulationsnotiz -->
-    <div class="l-span-7 l-stack p18-col">
-      <figure class="chart chart--s module p18-ladder" role="group">
-        <figcaption class="chart__head"><h2 class="chart__title">Bedarf erfüllt – Vorrang in dieser Reihenfolge</h2></figcaption>
-        <ol class="p18-ranks" aria-label="Gebiete, in denen der Bedarf als erfüllt gilt, in der Reihenfolge des Vorrangs: 1 angespannter Wohnungsmarkt (derzeit 57 Kommunen), 2 erhöhter Wohnungsbedarf (Verordnung nach § 7 Abs. 3 NWoFG), 3 Hochschulstandort, 4 Ostfriesische Inseln, 5 Mietenstufe IV–VII (derzeit 29 Gemeinden mit IV–VI inklusive sieben Inselgemeinden; ab 2027 Änderung geplant), 6 kommunale Festlegung in B-Plan, städtebaulichem Vertrag oder Baulandmodell.">
-          <li class="p18-rank">
-            <span class="p18-rank__bar seq-6" style="--w:100%"><b class="p18-rank__no">1</b></span>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5.2" y="10.4" width="13.6" height="10.4" rx="1"/><path d="M8.2 10.4V7.6a3.8 3.8 0 0 1 7.6 0v2.8"/><path d="M12 14.4v2.6"/></svg>
-            <span class="p18-rank__txt"><b class="p18-rank__label">Angespannter Wohnungsmarkt</b><span class="p18-rank__detail">derzeit 57 Kommunen<span class="fn">1</span></span></span>
-          </li>
-          <li class="p18-rank">
-            <span class="p18-rank__bar seq-5" style="--w:86.7%"><b class="p18-rank__no">2</b></span>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15.2 6.2c-.5-1.5-1.7-2.4-3.3-2.4-1.9 0-3.3 1.1-3.3 2.7 0 3.6 7 3 7 7 0 1.3-.9 2.3-2.2 2.8"/><path d="M8.8 17.8c.5 1.5 1.7 2.4 3.3 2.4 1.9 0 3.3-1.1 3.3-2.7 0-3.6-7-3-7-7 0-1.3.9-2.3 2.2-2.8"/></svg>
-            <span class="p18-rank__txt"><b class="p18-rank__label">Erhöhter Wohnungsbedarf</b><span class="p18-rank__detail">Verordnung nach §&nbsp;7&nbsp;Abs.&nbsp;3 NWoFG</span></span>
-          </li>
-          <li class="p18-rank">
-            <span class="p18-rank__bar seq-4" style="--w:73.3%"><b class="p18-rank__no">3</b></span>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.6 9.4L12 5.2l9.4 4.2L12 13.6z"/><path d="M6.6 11.4v4.4c0 1.4 2.4 2.8 5.4 2.8s5.4-1.4 5.4-2.8v-4.4"/><path d="M21.4 9.4v5.4"/></svg>
-            <span class="p18-rank__txt"><b class="p18-rank__label">Hochschulstandort</b></span>
-          </li>
-          <li class="p18-rank">
-            <span class="p18-rank__bar seq-3" style="--w:60%"><b class="p18-rank__no">4</b></span>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.8 8.6q2.3-2.6 4.6 0t4.6 0 4.6 0 4.6 0"/><path d="M2.8 13.4q2.3-2.6 4.6 0t4.6 0 4.6 0 4.6 0"/><path d="M2.8 18.2q2.3-2.6 4.6 0t4.6 0 4.6 0 4.6 0"/></svg>
-            <span class="p18-rank__txt"><b class="p18-rank__label">Ostfriesische Inseln</b></span>
-          </li>
-          <li class="p18-rank">
-            <span class="p18-rank__bar seq-2" style="--w:46.7%"><b class="p18-rank__no">5</b></span>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20.4h4.6v-4.2h4.6V12h4.6V7.8H21"/><path d="M4 13.2l6.4-6.4"/><path d="M6.6 6.6h4v4"/></svg>
-            <span class="p18-rank__txt"><b class="p18-rank__label">Mietenstufe IV–VII</b><span class="p18-rank__detail">derzeit 29 Gemeinden (IV–VI) inkl. sieben Inselgemeinden; ab 2027 Änderung geplant<span class="fn">1</span></span></span>
-          </li>
-          <li class="p18-rank">
-            <span class="p18-rank__bar seq-1" style="--w:33.3%"><b class="p18-rank__no">6</b></span>
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="4.2" width="17.2" height="15.6" rx="1"/><path d="M3.4 12.4h7.4v7.4M10.8 8.4v-4.2M14.6 12.4h6M14.6 12.4V8.8"/></svg>
-            <span class="p18-rank__txt"><b class="p18-rank__label">Kommunale Festlegung</b><span class="p18-rank__detail">in B-Plan, städtebaulichem Vertrag oder Baulandmodell</span></span>
-          </li>
-        </ol>
-        <p class="chart__note"><b>Vorrang zählt nur bei knappen Mitteln.</b> Im selben Rang sollen bei sonst gleichen Voraussetzungen kostengünstigere Vorhaben gleicher Güte vorgehen, dann Hilfskriterien wie Barrierefreiheit, Familien mit Kindern, besondere Bedarfsgruppen, Klimaziele; ggf. Punktesystem.</p>
-      </figure>
-
-      <!-- Werkzeugkasten der Kommune -->
-      <figure class="module p18-tools" role="group">
-        <figcaption class="fig-head"><h2 class="fig-head__title">Werkzeugkasten der Kommune</h2></figcaption>
-        <ul class="p18-cards">
-          <li class="p18-card">
-            <svg class="icon icon--dokument" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.8h8.4L19 7.4v13.8H6z"/><path d="M14.2 2.8v4.8H19M9 12h7M9 15.4h7M9 18.6h4.4"/></svg>
-            <p class="p18-card__body"><b>Konzept oder Festlegung</b> belegt den Bedarf; die NBank kann dann auch Gruppe B (bis +40&nbsp;%) und C (bis +60&nbsp;%) zulassen (weitere Fälle <a class="u-nowrap" href="#seite-06">→&nbsp;S.&nbsp;6</a>), nicht bei 2.5<span class="fn">2</span></p>
-          </li>
-          <li class="p18-card">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15.2 6.2c-.5-1.5-1.7-2.4-3.3-2.4-1.9 0-3.3 1.1-3.3 2.7 0 3.6 7 3 7 7 0 1.3-.9 2.3-2.2 2.8"/><path d="M8.8 17.8c.5 1.5 1.7 2.4 3.3 2.4 1.9 0 3.3-1.1 3.3-2.7 0-3.6-7-3-7-7 0-1.3.9-2.3 2.2-2.8"/></svg>
-            <p class="p18-card__body"><b>Verordnung §&nbsp;7&nbsp;Abs.&nbsp;3 NWoFG</b> Bedarfsgebiet; auf Verlangen der zuständigen Stelle (Landkreis, kreisfreie Stadt) nur an von ihr Benannte vermieten – sie nennt mindestens drei Wohnberechtigte zur Auswahl; Ausnahmen per Verordnung möglich<span class="fn">2</span></p>
-          </li>
-          <li class="p18-card">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 4.6h16.4v11h-8.6l-4.8 4v-4H3.8z"/><path d="M7.8 8.8h8.4M7.8 11.8h5.4"/></svg>
-            <p class="p18-card__body"><b>Stellungnahme</b> Bedarfsbestätigung und Standortangaben der Förderstelle; <span class="u-nohyphens">Anhörung</span> der Gemeinde (Mehrfamilienhäuser), sofern sie nicht selbst Förderstelle ist</p>
-          </li>
-          <li class="p18-card">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.4 21V3.4M4 21h7"/><path d="M3.4 6.8h17.2M7.4 3.4l-4 3.4M7.4 3.4l9 3.4"/><path d="M17.8 6.8v5.4"/><path d="M16 12.2h3.6v3H16z"/></svg>
-            <p class="p18-card__body"><b>Kommune als Bauherrin</b> selbst antragsberechtigt; Vergaberecht gilt zusätzlich</p>
-          </li>
-        </ul>
-      </figure>
-
-      <aside class="callout callout--tipp callout--calc p18-tipp">
-        <p class="callout__label"><svg class="icon icon--rechner" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.8" width="14" height="18.4" rx="1"/><path d="M8 6.4h8v3.4H8z"/><path d="M8.4 13.4h.01M12 13.4h.01M15.6 13.4h.01M8.4 17.2h.01M12 17.2h.01M15.6 17.2h.01" stroke-width="2"/></svg>Kalkulationsnotiz</p>
-        <p class="callout__body">Klären Sie den Standort zuerst mit der Wohnraumförderstelle: Er entscheidet über Förderfähigkeit, Vorrang und Mieterkreis.</p>
-      </aside>
-    </div>
-
-    <!-- rechts: Ring, Bedarf widerlegt?, Vermietung -->
-    <div class="l-span-5 l-stack p18-col">
-      <figure class="chart chart--s module p18-ring" role="group">
-        <figcaption class="chart__head"><h2 class="chart__title">Bedarfslage laut NBank-Karte</h2><p class="chart__sub">Einheits- und Samtgemeinden</p></figcaption>
-        <div class="p18-plot">
-          <svg class="chart__svg" viewBox="0 0 69.6 36" width="69.6mm" height="36mm" role="img" aria-label="Ringdiagramm Bedarfslage laut NBank-Karte, Einheits- und Samtgemeinden: Bedarf ist gegeben in 306, Bedarf ist gesondert nachzuweisen in 96; ohne 26 gemeindefreie Gebiete.">
-            <circle class="ring-val ring-val--fg" cx="18" cy="18" r="15" stroke-width="6" pathLength="402" stroke-dasharray="306 96" stroke-dashoffset="-96" transform="rotate(-90 18 18)"/>
-            <circle class="ring-val" cx="18" cy="18" r="15" stroke-width="6" pathLength="402" stroke-dasharray="96 306" transform="rotate(-90 18 18)"/>
-            <line class="sep-line" x1="18" y1="6.6" x2="18" y2="-.4"/>
-            <line class="sep-line" x1="29.37" y1="17.2" x2="36.36" y2="16.71"/>
-            <text class="t-num-l t-acc" x="38.8" y="7.4">96</text>
-            <text class="t-b" x="38.8" y="11.3">Bedarf ist gesondert</text>
-            <text class="t-b" x="38.8" y="14.5">nachzuweisen</text>
-            <text class="t-num-l" x="38.8" y="31.2">306</text>
-            <text class="t-b" x="38.8" y="35.1">Bedarf ist gegeben</text>
-          </svg>
-          <!-- QR-Code zur NBank-Landkarte (Programmseite 2.1; segno, Version 7-L, 45 Module à 0,34 mm; Ruhezone ≥ 4 Module im Ringloch).
-               Eigenes Link-Element über der Ringmitte, nicht im role="img"-SVG: sonst ist der Link im Tag-Baum nicht erreichbar. -->
-          <a class="p18-qrlink" href="https://www.nbank.de/F%C3%B6rderprogramme/Aktuelle-F%C3%B6rderprogramme/Mietwohnungen-in-Mehrfamilienh%C3%A4usern-(Allgemeine-Mietwohnraumf%C3%B6rderung).html" aria-label="Landkarte Wohnraumförderung auf nbank.de, Programmseite Mietwohnungen in Mehrfamilienhäusern (QR-Code)"><svg viewBox="-2 -2 49 49" aria-hidden="true" focusable="false"><rect class="p18-qr__bg" x="-2" y="-2" width="49" height="49"/><path class="p18-qr__mod" d="M0 0h7v1h-7zM11 0h1v1h-1zM14 0h1v1h-1zM24 0h2v1h-2zM28 0h3v1h-3zM33 0h1v1h-1zM36 0h1v1h-1zM38 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h4v1h-4zM13 1h2v1h-2zM18 1h1v1h-1zM20 1h1v1h-1zM22 1h8v1h-8zM35 1h1v1h-1zM38 1h1v1h-1zM44 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM12 2h2v1h-2zM19 2h1v1h-1zM23 2h3v1h-3zM27 2h4v1h-4zM32 2h2v1h-2zM35 2h1v1h-1zM38 2h1v1h-1zM40 2h3v1h-3zM44 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h3v1h-3zM12 3h2v1h-2zM15 3h1v1h-1zM17 3h9v1h-9zM29 3h3v1h-3zM35 3h2v1h-2zM38 3h1v1h-1zM40 3h3v1h-3zM44 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM9 4h2v1h-2zM14 4h1v1h-1zM17 4h1v1h-1zM19 4h7v1h-7zM29 4h4v1h-4zM34 4h3v1h-3zM38 4h1v1h-1zM40 4h3v1h-3zM44 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM13 5h2v1h-2zM16 5h3v1h-3zM20 5h1v1h-1zM24 5h1v1h-1zM26 5h1v1h-1zM28 5h2v1h-2zM33 5h1v1h-1zM38 5h1v1h-1zM44 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM38 6h7v1h-7zM10 7h3v1h-3zM14 7h1v1h-1zM16 7h5v1h-5zM24 7h2v1h-2zM27 7h2v1h-2zM30 7h3v1h-3zM35 7h2v1h-2zM0 8h5v1h-5zM6 8h3v1h-3zM10 8h1v1h-1zM13 8h1v1h-1zM16 8h3v1h-3zM20 8h5v1h-5zM31 8h1v1h-1zM37 8h1v1h-1zM39 8h1v1h-1zM41 8h1v1h-1zM43 8h1v1h-1zM4 9h1v1h-1zM7 9h1v1h-1zM11 9h2v1h-2zM14 9h1v1h-1zM18 9h2v1h-2zM21 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM29 9h2v1h-2zM32 9h1v1h-1zM36 9h2v1h-2zM41 9h1v1h-1zM43 9h2v1h-2zM0 10h3v1h-3zM5 10h5v1h-5zM12 10h1v1h-1zM14 10h3v1h-3zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h6v1h-6zM33 10h1v1h-1zM38 10h2v1h-2zM43 10h1v1h-1zM3 11h1v1h-1zM7 11h7v1h-7zM15 11h1v1h-1zM18 11h2v1h-2zM21 11h1v1h-1zM24 11h1v1h-1zM26 11h3v1h-3zM30 11h3v1h-3zM34 11h3v1h-3zM40 11h1v1h-1zM42 11h1v1h-1zM0 12h2v1h-2zM5 12h2v1h-2zM8 12h2v1h-2zM12 12h2v1h-2zM15 12h5v1h-5zM22 12h4v1h-4zM31 12h1v1h-1zM33 12h2v1h-2zM38 12h1v1h-1zM43 12h1v1h-1zM1 13h2v1h-2zM5 13h1v1h-1zM7 13h1v1h-1zM9 13h3v1h-3zM14 13h2v1h-2zM17 13h1v1h-1zM19 13h2v1h-2zM22 13h1v1h-1zM25 13h1v1h-1zM29 13h3v1h-3zM35 13h3v1h-3zM39 13h1v1h-1zM42 13h1v1h-1zM44 13h1v1h-1zM0 14h4v1h-4zM5 14h6v1h-6zM12 14h2v1h-2zM18 14h1v1h-1zM20 14h1v1h-1zM22 14h1v1h-1zM24 14h1v1h-1zM26 14h1v1h-1zM31 14h1v1h-1zM33 14h4v1h-4zM38 14h3v1h-3zM42 14h2v1h-2zM0 15h1v1h-1zM3 15h2v1h-2zM10 15h5v1h-5zM17 15h1v1h-1zM19 15h1v1h-1zM25 15h1v1h-1zM27 15h1v1h-1zM29 15h1v1h-1zM31 15h3v1h-3zM37 15h7v1h-7zM2 16h1v1h-1zM4 16h1v1h-1zM6 16h3v1h-3zM10 16h3v1h-3zM16 16h1v1h-1zM18 16h1v1h-1zM21 16h5v1h-5zM29 16h1v1h-1zM31 16h1v1h-1zM34 16h1v1h-1zM36 16h1v1h-1zM38 16h1v1h-1zM41 16h1v1h-1zM43 16h1v1h-1zM2 17h1v1h-1zM5 17h1v1h-1zM8 17h1v1h-1zM14 17h1v1h-1zM17 17h1v1h-1zM19 17h1v1h-1zM21 17h1v1h-1zM23 17h1v1h-1zM25 17h1v1h-1zM28 17h4v1h-4zM33 17h1v1h-1zM35 17h3v1h-3zM39 17h3v1h-3zM43 17h2v1h-2zM1 18h4v1h-4zM6 18h1v1h-1zM8 18h1v1h-1zM10 18h1v1h-1zM13 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM22 18h3v1h-3zM26 18h1v1h-1zM28 18h1v1h-1zM31 18h1v1h-1zM34 18h2v1h-2zM38 18h2v1h-2zM41 18h3v1h-3zM2 19h2v1h-2zM5 19h1v1h-1zM13 19h1v1h-1zM19 19h1v1h-1zM21 19h1v1h-1zM23 19h7v1h-7zM31 19h5v1h-5zM37 19h1v1h-1zM39 19h4v1h-4zM0 20h9v1h-9zM11 20h3v1h-3zM15 20h10v1h-10zM26 20h1v1h-1zM31 20h1v1h-1zM33 20h1v1h-1zM36 20h5v1h-5zM43 20h1v1h-1zM0 21h2v1h-2zM4 21h1v1h-1zM8 21h1v1h-1zM11 21h4v1h-4zM20 21h1v1h-1zM24 21h2v1h-2zM28 21h1v1h-1zM30 21h1v1h-1zM33 21h1v1h-1zM35 21h2v1h-2zM40 21h1v1h-1zM42 21h1v1h-1zM44 21h1v1h-1zM0 22h1v1h-1zM2 22h1v1h-1zM4 22h1v1h-1zM6 22h1v1h-1zM8 22h2v1h-2zM11 22h1v1h-1zM14 22h1v1h-1zM18 22h3v1h-3zM22 22h1v1h-1zM24 22h1v1h-1zM26 22h1v1h-1zM31 22h1v1h-1zM33 22h4v1h-4zM38 22h1v1h-1zM40 22h2v1h-2zM43 22h1v1h-1zM0 23h1v1h-1zM2 23h3v1h-3zM8 23h1v1h-1zM10 23h2v1h-2zM13 23h1v1h-1zM16 23h2v1h-2zM20 23h1v1h-1zM24 23h2v1h-2zM27 23h4v1h-4zM32 23h2v1h-2zM36 23h1v1h-1zM40 23h1v1h-1zM42 23h3v1h-3zM1 24h1v1h-1zM3 24h6v1h-6zM10 24h1v1h-1zM12 24h1v1h-1zM15 24h2v1h-2zM18 24h1v1h-1zM20 24h6v1h-6zM27 24h1v1h-1zM29 24h1v1h-1zM31 24h1v1h-1zM34 24h1v1h-1zM36 24h6v1h-6zM43 24h1v1h-1zM1 25h1v1h-1zM8 25h3v1h-3zM12 25h1v1h-1zM14 25h1v1h-1zM19 25h7v1h-7zM29 25h2v1h-2zM33 25h1v1h-1zM38 25h1v1h-1zM43 25h2v1h-2zM1 26h1v1h-1zM3 26h6v1h-6zM10 26h1v1h-1zM12 26h2v1h-2zM15 26h1v1h-1zM17 26h1v1h-1zM21 26h2v1h-2zM24 26h1v1h-1zM26 26h1v1h-1zM29 26h1v1h-1zM31 26h1v1h-1zM33 26h5v1h-5zM41 26h3v1h-3zM2 27h3v1h-3zM7 27h1v1h-1zM9 27h1v1h-1zM11 27h1v1h-1zM17 27h1v1h-1zM19 27h1v1h-1zM21 27h1v1h-1zM23 27h3v1h-3zM27 27h3v1h-3zM31 27h2v1h-2zM35 27h2v1h-2zM38 27h1v1h-1zM41 27h2v1h-2zM0 28h1v1h-1zM2 28h1v1h-1zM6 28h1v1h-1zM8 28h1v1h-1zM10 28h2v1h-2zM13 28h1v1h-1zM15 28h4v1h-4zM20 28h1v1h-1zM23 28h3v1h-3zM29 28h2v1h-2zM38 28h3v1h-3zM44 28h1v1h-1zM7 29h2v1h-2zM11 29h4v1h-4zM19 29h5v1h-5zM27 29h1v1h-1zM30 29h2v1h-2zM37 29h2v1h-2zM44 29h1v1h-1zM1 30h1v1h-1zM3 30h1v1h-1zM6 30h1v1h-1zM9 30h2v1h-2zM13 30h2v1h-2zM17 30h2v1h-2zM20 30h1v1h-1zM26 30h1v1h-1zM28 30h1v1h-1zM33 30h1v1h-1zM36 30h1v1h-1zM39 30h2v1h-2zM43 30h1v1h-1zM0 31h1v1h-1zM2 31h1v1h-1zM4 31h1v1h-1zM7 31h2v1h-2zM11 31h1v1h-1zM14 31h1v1h-1zM16 31h3v1h-3zM23 31h6v1h-6zM30 31h1v1h-1zM32 31h1v1h-1zM35 31h1v1h-1zM38 31h1v1h-1zM40 31h1v1h-1zM42 31h1v1h-1zM44 31h1v1h-1zM0 32h2v1h-2zM3 32h2v1h-2zM6 32h2v1h-2zM9 32h2v1h-2zM13 32h1v1h-1zM15 32h4v1h-4zM20 32h1v1h-1zM23 32h2v1h-2zM31 32h1v1h-1zM39 32h2v1h-2zM43 32h2v1h-2zM4 33h1v1h-1zM8 33h5v1h-5zM14 33h1v1h-1zM18 33h4v1h-4zM25 33h1v1h-1zM29 33h2v1h-2zM32 33h1v1h-1zM36 33h2v1h-2zM41 33h1v1h-1zM44 33h1v1h-1zM4 34h1v1h-1zM6 34h4v1h-4zM11 34h3v1h-3zM15 34h4v1h-4zM22 34h1v1h-1zM26 34h1v1h-1zM28 34h1v1h-1zM33 34h1v1h-1zM35 34h3v1h-3zM43 34h1v1h-1zM1 35h4v1h-4zM9 35h3v1h-3zM13 35h3v1h-3zM17 35h1v1h-1zM19 35h4v1h-4zM24 35h5v1h-5zM33 35h1v1h-1zM35 35h1v1h-1zM38 35h1v1h-1zM40 35h1v1h-1zM42 35h1v1h-1zM44 35h1v1h-1zM0 36h1v1h-1zM3 36h2v1h-2zM6 36h3v1h-3zM10 36h1v1h-1zM13 36h1v1h-1zM15 36h4v1h-4zM20 36h6v1h-6zM30 36h2v1h-2zM34 36h1v1h-1zM36 36h5v1h-5zM44 36h1v1h-1zM8 37h1v1h-1zM11 37h2v1h-2zM14 37h1v1h-1zM17 37h1v1h-1zM20 37h1v1h-1zM24 37h2v1h-2zM27 37h1v1h-1zM29 37h3v1h-3zM33 37h1v1h-1zM36 37h1v1h-1zM40 37h2v1h-2zM44 37h1v1h-1zM0 38h7v1h-7zM8 38h2v1h-2zM12 38h1v1h-1zM14 38h1v1h-1zM18 38h3v1h-3zM22 38h1v1h-1zM24 38h1v1h-1zM28 38h1v1h-1zM30 38h2v1h-2zM34 38h1v1h-1zM36 38h1v1h-1zM38 38h1v1h-1zM40 38h2v1h-2zM43 38h1v1h-1zM0 39h1v1h-1zM6 39h1v1h-1zM9 39h2v1h-2zM15 39h1v1h-1zM19 39h2v1h-2zM24 39h5v1h-5zM30 39h4v1h-4zM35 39h2v1h-2zM40 39h1v1h-1zM42 39h2v1h-2zM0 40h1v1h-1zM2 40h3v1h-3zM6 40h1v1h-1zM8 40h1v1h-1zM10 40h1v1h-1zM13 40h1v1h-1zM16 40h1v1h-1zM18 40h1v1h-1zM20 40h5v1h-5zM29 40h3v1h-3zM33 40h2v1h-2zM36 40h5v1h-5zM43 40h1v1h-1zM0 41h1v1h-1zM2 41h3v1h-3zM6 41h1v1h-1zM8 41h7v1h-7zM17 41h1v1h-1zM20 41h1v1h-1zM23 41h3v1h-3zM29 41h2v1h-2zM32 41h2v1h-2zM37 41h5v1h-5zM43 41h1v1h-1zM0 42h1v1h-1zM2 42h3v1h-3zM6 42h1v1h-1zM8 42h2v1h-2zM12 42h5v1h-5zM18 42h1v1h-1zM22 42h3v1h-3zM26 42h1v1h-1zM28 42h1v1h-1zM31 42h1v1h-1zM34 42h3v1h-3zM38 42h1v1h-1zM41 42h2v1h-2zM44 42h1v1h-1zM0 43h1v1h-1zM6 43h1v1h-1zM8 43h7v1h-7zM19 43h3v1h-3zM25 43h4v1h-4zM30 43h1v1h-1zM32 43h2v1h-2zM35 43h3v1h-3zM40 43h3v1h-3zM0 44h7v1h-7zM8 44h2v1h-2zM13 44h1v1h-1zM15 44h4v1h-4zM21 44h5v1h-5zM29 44h2v1h-2zM34 44h2v1h-2zM38 44h1v1h-1zM40 44h1v1h-1zM42 44h2v1h-2z"/></svg></a>
-        </div>
-        <p class="chart__note">Ohne 26 gemeindefreie Gebiete; Abruf 21.10.2026, maßgeblich ist die aktuelle Karte (QR-Code in der Ringmitte). <b>In beiden Fällen: einfache Bedarfsbestätigung zum Bauort.</b></p>
-      </figure>
-
-      <section class="module--hair p18-proof">
-        <h3 class="h3">Bedarf widerlegt?</h3>
-        <p>Überall sonst vermutet die Richtlinie Bedarf. Hat die NBank das widerlegt, belegen Sie ihn gesondert – z.&nbsp;B. mit <b>Wohnraumversorgungskonzept</b> (kommunales Planungsinstrument, in der Regel mit Bestandsaufnahme, Bedarfsabschätzung, Zielen, Handlungsempfehlungen, Maßnahmen), Analysen lokaler Marktakteure, Befragungen samt Wartelisten oder Daten der kommunalen Wohnungsmarktbeobachtung (vollständige Liste: RL Nr.&nbsp;5.2.1). Ob das reicht, entscheidet die NBank.</p>
-      </section>
-
-      <!-- Vermietung -->
-      <div class="p18-rent">
-        <h3 class="bullets__title"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="5.2" width="18.4" height="13.6" rx="1"/><path d="M6 15.4v-3.4l2.8-2.4 2.8 2.4v3.4z"/><path d="M14.4 10.2h3.8M14.4 13.2h3.8"/></svg><span>Vermietung</span></h3>
-        <ul class="bullets">
-          <li><b>WBS</b> grundsätzlich bei jeder Überlassung</li>
-          <li><b>Kein berechtigter Haushalt trotz Vermarktung?</b> Befristete Freistellung von der Belegungsbindung beantragen, in der Regel spätestens 4&nbsp;Wochen vor Freiwerden oder Bezugsfertigkeit und für höchstens 5&nbsp;Jahre; einmal verlängerbar; Mietbindung bleibt.</li>
-          <li><b>Ausgleich dafür,</b> z.&nbsp;B. Geld (in der Regel 0,50&nbsp;€ je m² Wohnfläche und Monat, nicht auf die Miete umlegbar), Ersatzwohnungen oder gleichrangig sonstiger Ausgleich<span class="fn">2</span></li>
-        </ul>
+    <!-- Ring mit QR-Code -->
+    <figure class="chart module l-span-5 p18-ring" role="group" aria-labelledby="p18-ring-h">
+      <figcaption class="chart__head"><h2 class="chart__title" id="p18-ring-h">Bedarfslage auf der NBank-Karte</h2><p class="chart__sub">Einheits- und Samtgemeinden</p></figcaption>
+      <div class="p18-plot">
+        <svg class="chart__svg" viewBox="0 0 72.1 44" width="72.1mm" height="44mm" role="img" aria-label="Ringdiagramm Bedarfslage auf der NBank-Karte, Einheits- und Samtgemeinden: Bedarf gegeben in 306, Bedarf gesondert nachweisen in 96. In der Ringmitte ein QR-Code zur aktuellen Karte.">
+          <!-- Mitte (20, 20,4), r 16,5, Ringbreite 5,5 (innen 13,75 → QR 17,64 passt mit Ecken-Luft). Umfang = 402 Gemeinden;
+               96 ab 12 Uhr im Uhrzeigersinn, dann 306 -->
+          <circle class="p18-ring-a" cx="20" cy="20.4" r="16.5" stroke-width="5.5" pathLength="402" stroke-dasharray="306 96" stroke-dashoffset="-96" transform="rotate(-90 20 20.4)"/>
+          <circle class="p18-ring-b" cx="20" cy="20.4" r="16.5" stroke-width="5.5" pathLength="402" stroke-dasharray="96 306" transform="rotate(-90 20 20.4)"/>
+          <line class="sep-line" x1="20" y1="6.4" x2="20" y2="0.9"/>
+          <line class="sep-line" x1="33.96" y1="19.43" x2="39.45" y2="19.04"/>
+          <!-- Direktbeschriftung -->
+          <rect class="p18-sw-b" x="44" y="3.4" width="3" height="3"/>
+          <text class="t-num-l" x="49" y="10.2">96</text>
+          <text class="t-b" x="44" y="14.6">Bedarf gesondert</text>
+          <text class="t-b" x="44" y="17.9">nachweisen</text>
+          <rect class="p18-sw-a" x="44" y="24.6" width="3" height="3"/>
+          <text class="t-num-l" x="49" y="31.4">306</text>
+          <text class="t-b" x="44" y="35.8">Bedarf gegeben</text>
+          <text class="t-caps t-mid" x="20" y="43.6">Aktuelle Karte</text>
+        </svg>
+        <a class="p18-qr" href="https://nbank.de/F%C3%B6rderprogramme/Aktuelle-F%C3%B6rderprogramme/Mietwohnungen-in-Mehrfamilienh%C3%A4usern-(Allgemeine-Mietwohnraumf%C3%B6rderung).html" aria-label="Aktuelle Karte: Landkarte Wohnraumförderung auf der NBank-Programmseite „Mietwohnungen in Mehrfamilienhäusern“ (QR-Code)"><svg viewBox="-2 -2 49 49" aria-hidden="true" focusable="false"><rect class="p18-qr__bg" x="-2" y="-2" width="49" height="49"/><path class="p18-qr__mod" d="M0 0h7v1h-7zM11 0h1v1h-1zM14 0h1v1h-1zM24 0h2v1h-2zM28 0h3v1h-3zM33 0h1v1h-1zM36 0h1v1h-1zM38 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h4v1h-4zM13 1h2v1h-2zM18 1h1v1h-1zM20 1h1v1h-1zM22 1h8v1h-8zM35 1h1v1h-1zM38 1h1v1h-1zM44 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM12 2h2v1h-2zM19 2h1v1h-1zM23 2h3v1h-3zM27 2h4v1h-4zM32 2h2v1h-2zM35 2h1v1h-1zM38 2h1v1h-1zM40 2h3v1h-3zM44 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h3v1h-3zM12 3h2v1h-2zM15 3h1v1h-1zM17 3h9v1h-9zM29 3h3v1h-3zM35 3h2v1h-2zM38 3h1v1h-1zM40 3h3v1h-3zM44 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM9 4h2v1h-2zM14 4h1v1h-1zM17 4h1v1h-1zM19 4h7v1h-7zM29 4h4v1h-4zM34 4h3v1h-3zM38 4h1v1h-1zM40 4h3v1h-3zM44 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM13 5h2v1h-2zM16 5h3v1h-3zM20 5h1v1h-1zM24 5h1v1h-1zM26 5h1v1h-1zM28 5h2v1h-2zM33 5h1v1h-1zM38 5h1v1h-1zM44 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM34 6h1v1h-1zM36 6h1v1h-1zM38 6h7v1h-7zM10 7h3v1h-3zM14 7h1v1h-1zM16 7h5v1h-5zM24 7h2v1h-2zM27 7h2v1h-2zM30 7h3v1h-3zM35 7h2v1h-2zM0 8h5v1h-5zM6 8h3v1h-3zM10 8h1v1h-1zM13 8h1v1h-1zM16 8h3v1h-3zM20 8h5v1h-5zM31 8h1v1h-1zM37 8h1v1h-1zM39 8h1v1h-1zM41 8h1v1h-1zM43 8h1v1h-1zM4 9h1v1h-1zM7 9h1v1h-1zM11 9h2v1h-2zM14 9h1v1h-1zM18 9h2v1h-2zM21 9h1v1h-1zM23 9h1v1h-1zM25 9h1v1h-1zM29 9h2v1h-2zM32 9h1v1h-1zM36 9h2v1h-2zM41 9h1v1h-1zM43 9h2v1h-2zM0 10h3v1h-3zM5 10h5v1h-5zM12 10h1v1h-1zM14 10h3v1h-3zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h6v1h-6zM33 10h1v1h-1zM38 10h2v1h-2zM43 10h1v1h-1zM3 11h1v1h-1zM7 11h7v1h-7zM15 11h1v1h-1zM18 11h2v1h-2zM21 11h1v1h-1zM24 11h1v1h-1zM26 11h3v1h-3zM30 11h3v1h-3zM34 11h3v1h-3zM40 11h1v1h-1zM42 11h1v1h-1zM0 12h2v1h-2zM5 12h2v1h-2zM8 12h2v1h-2zM12 12h2v1h-2zM15 12h5v1h-5zM22 12h4v1h-4zM31 12h1v1h-1zM33 12h2v1h-2zM38 12h1v1h-1zM43 12h1v1h-1zM1 13h2v1h-2zM5 13h1v1h-1zM7 13h1v1h-1zM9 13h3v1h-3zM14 13h2v1h-2zM17 13h1v1h-1zM19 13h2v1h-2zM22 13h1v1h-1zM25 13h1v1h-1zM29 13h3v1h-3zM35 13h3v1h-3zM39 13h1v1h-1zM42 13h1v1h-1zM44 13h1v1h-1zM0 14h4v1h-4zM5 14h6v1h-6zM12 14h2v1h-2zM18 14h1v1h-1zM20 14h1v1h-1zM22 14h1v1h-1zM24 14h1v1h-1zM26 14h1v1h-1zM31 14h1v1h-1zM33 14h4v1h-4zM38 14h3v1h-3zM42 14h2v1h-2zM0 15h1v1h-1zM3 15h2v1h-2zM10 15h5v1h-5zM17 15h1v1h-1zM19 15h1v1h-1zM25 15h1v1h-1zM27 15h1v1h-1zM29 15h1v1h-1zM31 15h3v1h-3zM37 15h7v1h-7zM2 16h1v1h-1zM4 16h1v1h-1zM6 16h3v1h-3zM10 16h3v1h-3zM16 16h1v1h-1zM18 16h1v1h-1zM21 16h5v1h-5zM29 16h1v1h-1zM31 16h1v1h-1zM34 16h1v1h-1zM36 16h1v1h-1zM38 16h1v1h-1zM41 16h1v1h-1zM43 16h1v1h-1zM2 17h1v1h-1zM5 17h1v1h-1zM8 17h1v1h-1zM14 17h1v1h-1zM17 17h1v1h-1zM19 17h1v1h-1zM21 17h1v1h-1zM23 17h1v1h-1zM25 17h1v1h-1zM28 17h4v1h-4zM33 17h1v1h-1zM35 17h3v1h-3zM39 17h3v1h-3zM43 17h2v1h-2zM1 18h4v1h-4zM6 18h1v1h-1zM8 18h1v1h-1zM10 18h1v1h-1zM13 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM22 18h3v1h-3zM26 18h1v1h-1zM28 18h1v1h-1zM31 18h1v1h-1zM34 18h2v1h-2zM38 18h2v1h-2zM41 18h3v1h-3zM2 19h2v1h-2zM5 19h1v1h-1zM13 19h1v1h-1zM19 19h1v1h-1zM21 19h1v1h-1zM23 19h7v1h-7zM31 19h5v1h-5zM37 19h1v1h-1zM39 19h4v1h-4zM0 20h9v1h-9zM11 20h3v1h-3zM15 20h10v1h-10zM26 20h1v1h-1zM31 20h1v1h-1zM33 20h1v1h-1zM36 20h5v1h-5zM43 20h1v1h-1zM0 21h2v1h-2zM4 21h1v1h-1zM8 21h1v1h-1zM11 21h4v1h-4zM20 21h1v1h-1zM24 21h2v1h-2zM28 21h1v1h-1zM30 21h1v1h-1zM33 21h1v1h-1zM35 21h2v1h-2zM40 21h1v1h-1zM42 21h1v1h-1zM44 21h1v1h-1zM0 22h1v1h-1zM2 22h1v1h-1zM4 22h1v1h-1zM6 22h1v1h-1zM8 22h2v1h-2zM11 22h1v1h-1zM14 22h1v1h-1zM18 22h3v1h-3zM22 22h1v1h-1zM24 22h1v1h-1zM26 22h1v1h-1zM31 22h1v1h-1zM33 22h4v1h-4zM38 22h1v1h-1zM40 22h2v1h-2zM43 22h1v1h-1zM0 23h1v1h-1zM2 23h3v1h-3zM8 23h1v1h-1zM10 23h2v1h-2zM13 23h1v1h-1zM16 23h2v1h-2zM20 23h1v1h-1zM24 23h2v1h-2zM27 23h4v1h-4zM32 23h2v1h-2zM36 23h1v1h-1zM40 23h1v1h-1zM42 23h3v1h-3zM1 24h1v1h-1zM3 24h6v1h-6zM10 24h1v1h-1zM12 24h1v1h-1zM15 24h2v1h-2zM18 24h1v1h-1zM20 24h6v1h-6zM27 24h1v1h-1zM29 24h1v1h-1zM31 24h1v1h-1zM34 24h1v1h-1zM36 24h6v1h-6zM43 24h1v1h-1zM1 25h1v1h-1zM8 25h3v1h-3zM12 25h1v1h-1zM14 25h1v1h-1zM19 25h7v1h-7zM29 25h2v1h-2zM33 25h1v1h-1zM38 25h1v1h-1zM43 25h2v1h-2zM1 26h1v1h-1zM3 26h6v1h-6zM10 26h1v1h-1zM12 26h2v1h-2zM15 26h1v1h-1zM17 26h1v1h-1zM21 26h2v1h-2zM24 26h1v1h-1zM26 26h1v1h-1zM29 26h1v1h-1zM31 26h1v1h-1zM33 26h5v1h-5zM41 26h3v1h-3zM2 27h3v1h-3zM7 27h1v1h-1zM9 27h1v1h-1zM11 27h1v1h-1zM17 27h1v1h-1zM19 27h1v1h-1zM21 27h1v1h-1zM23 27h3v1h-3zM27 27h3v1h-3zM31 27h2v1h-2zM35 27h2v1h-2zM38 27h1v1h-1zM41 27h2v1h-2zM0 28h1v1h-1zM2 28h1v1h-1zM6 28h1v1h-1zM8 28h1v1h-1zM10 28h2v1h-2zM13 28h1v1h-1zM15 28h4v1h-4zM20 28h1v1h-1zM23 28h3v1h-3zM29 28h2v1h-2zM38 28h3v1h-3zM44 28h1v1h-1zM7 29h2v1h-2zM11 29h4v1h-4zM19 29h5v1h-5zM27 29h1v1h-1zM30 29h2v1h-2zM37 29h2v1h-2zM44 29h1v1h-1zM1 30h1v1h-1zM3 30h1v1h-1zM6 30h1v1h-1zM9 30h2v1h-2zM13 30h2v1h-2zM17 30h2v1h-2zM20 30h1v1h-1zM26 30h1v1h-1zM28 30h1v1h-1zM33 30h1v1h-1zM36 30h1v1h-1zM39 30h2v1h-2zM43 30h1v1h-1zM0 31h1v1h-1zM2 31h1v1h-1zM4 31h1v1h-1zM7 31h2v1h-2zM11 31h1v1h-1zM14 31h1v1h-1zM16 31h3v1h-3zM23 31h6v1h-6zM30 31h1v1h-1zM32 31h1v1h-1zM35 31h1v1h-1zM38 31h1v1h-1zM40 31h1v1h-1zM42 31h1v1h-1zM44 31h1v1h-1zM0 32h2v1h-2zM3 32h2v1h-2zM6 32h2v1h-2zM9 32h2v1h-2zM13 32h1v1h-1zM15 32h4v1h-4zM20 32h1v1h-1zM23 32h2v1h-2zM31 32h1v1h-1zM39 32h2v1h-2zM43 32h2v1h-2zM4 33h1v1h-1zM8 33h5v1h-5zM14 33h1v1h-1zM18 33h4v1h-4zM25 33h1v1h-1zM29 33h2v1h-2zM32 33h1v1h-1zM36 33h2v1h-2zM41 33h1v1h-1zM44 33h1v1h-1zM4 34h1v1h-1zM6 34h4v1h-4zM11 34h3v1h-3zM15 34h4v1h-4zM22 34h1v1h-1zM26 34h1v1h-1zM28 34h1v1h-1zM33 34h1v1h-1zM35 34h3v1h-3zM43 34h1v1h-1zM1 35h4v1h-4zM9 35h3v1h-3zM13 35h3v1h-3zM17 35h1v1h-1zM19 35h4v1h-4zM24 35h5v1h-5zM33 35h1v1h-1zM35 35h1v1h-1zM38 35h1v1h-1zM40 35h1v1h-1zM42 35h1v1h-1zM44 35h1v1h-1zM0 36h1v1h-1zM3 36h2v1h-2zM6 36h3v1h-3zM10 36h1v1h-1zM13 36h1v1h-1zM15 36h4v1h-4zM20 36h6v1h-6zM30 36h2v1h-2zM34 36h1v1h-1zM36 36h5v1h-5zM44 36h1v1h-1zM8 37h1v1h-1zM11 37h2v1h-2zM14 37h1v1h-1zM17 37h1v1h-1zM20 37h1v1h-1zM24 37h2v1h-2zM27 37h1v1h-1zM29 37h3v1h-3zM33 37h1v1h-1zM36 37h1v1h-1zM40 37h2v1h-2zM44 37h1v1h-1zM0 38h7v1h-7zM8 38h2v1h-2zM12 38h1v1h-1zM14 38h1v1h-1zM18 38h3v1h-3zM22 38h1v1h-1zM24 38h1v1h-1zM28 38h1v1h-1zM30 38h2v1h-2zM34 38h1v1h-1zM36 38h1v1h-1zM38 38h1v1h-1zM40 38h2v1h-2zM43 38h1v1h-1zM0 39h1v1h-1zM6 39h1v1h-1zM9 39h2v1h-2zM15 39h1v1h-1zM19 39h2v1h-2zM24 39h5v1h-5zM30 39h4v1h-4zM35 39h2v1h-2zM40 39h1v1h-1zM42 39h2v1h-2zM0 40h1v1h-1zM2 40h3v1h-3zM6 40h1v1h-1zM8 40h1v1h-1zM10 40h1v1h-1zM13 40h1v1h-1zM16 40h1v1h-1zM18 40h1v1h-1zM20 40h5v1h-5zM29 40h3v1h-3zM33 40h2v1h-2zM36 40h5v1h-5zM43 40h1v1h-1zM0 41h1v1h-1zM2 41h3v1h-3zM6 41h1v1h-1zM8 41h7v1h-7zM17 41h1v1h-1zM20 41h1v1h-1zM23 41h3v1h-3zM29 41h2v1h-2zM32 41h2v1h-2zM37 41h5v1h-5zM43 41h1v1h-1zM0 42h1v1h-1zM2 42h3v1h-3zM6 42h1v1h-1zM8 42h2v1h-2zM12 42h5v1h-5zM18 42h1v1h-1zM22 42h3v1h-3zM26 42h1v1h-1zM28 42h1v1h-1zM31 42h1v1h-1zM34 42h3v1h-3zM38 42h1v1h-1zM41 42h2v1h-2zM44 42h1v1h-1zM0 43h1v1h-1zM6 43h1v1h-1zM8 43h7v1h-7zM19 43h3v1h-3zM25 43h4v1h-4zM30 43h1v1h-1zM32 43h2v1h-2zM35 43h3v1h-3zM40 43h3v1h-3zM0 44h7v1h-7zM8 44h2v1h-2zM13 44h1v1h-1zM15 44h4v1h-4zM21 44h5v1h-5zM29 44h2v1h-2zM34 44h2v1h-2zM38 44h1v1h-1zM40 44h1v1h-1zM42 44h2v1h-2z"/></svg></a>
       </div>
-    </div>
+      <p class="p18-ring__note"><b>Immer nötig:</b> die einfache Bedarfsbestätigung der Wohnraumförderstelle zum Bauort. Zeigt die Karte „gesondert nachweisen“, belegen Sie den Bedarf zusätzlich – etwa mit Wohnraumversorgungskonzept, Marktanalysen, Wartelisten oder Daten der Wohnungsmarktbeobachtung; die NBank entscheidet.</p>
+    </figure>
   </div>
 
-  <ol class="footnotes footnotes--2col l-bottom">
-    <li class="footnotes__src"><b>Fundstellen:</b> RL Nr.&nbsp;1.5, 5.2.1, 5.5.1, 6.2, 8.2.1, 9.2, 10.2, 11.2, 12.1.2; NBank-Landkarte, Abruf 21.10.2026.</li>
-    <li>Angespannter Markt: NMiSchuV (ab 04.12.2025), AWohnV, §&nbsp;250 BauGB. Mietenstufen: WoGV-Anlage, §&nbsp;12&nbsp;Abs.&nbsp;4a WoGG; Entwurf ab 2027: BR-Drs.&nbsp;474/26.</li>
-    <li>Gruppen B und C: <span class="u-nowrap">§&nbsp;4&nbsp;Abs.&nbsp;1 DVO-NWoFG</span>, RL Nr.&nbsp;12.3.2. Benennungsrecht: §&nbsp;7&nbsp;Abs.&nbsp;3 NWoFG. Freistellung und Ausgleich: VV NWoFG 2026 Nr.&nbsp;6 und 9.</li>
-  </ol>
+  <!-- Werkzeugkasten der Kommune -->
+  <figure class="module p18-tools" role="group" aria-labelledby="p18-tools-h">
+    <figcaption><h2 class="chart__title" id="p18-tools-h">Werkzeugkasten der Kommune</h2></figcaption>
+    <ul class="p18-cards">
+      <li class="p18-card">
+        <div class="p18-card__head"><svg class="icon icon--dokument" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.8h8.4L19 7.4v13.8H6z"/><path d="M14.2 2.8v4.8H19M9 12h7M9 15.4h7M9 18.6h4.4"/></svg><h3 class="p18-card__title">Konzept oder Festlegung</h3></div>
+        <p class="p18-card__body">Ein Wohnraumversorgungskonzept oder eine kommunale Festlegung (Rang 6) belegt den Bedarf. Dann kann die NBank auch die Gruppen B und C zulassen <span class="u-nowrap">(<a class="pageref" href="#seite-06">→&nbsp;S.&nbsp;6</a>;</span> nicht bei 2.5).</p>
+      </li>
+      <li class="p18-card">
+        <div class="p18-card__head"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15.2 6.2c-.5-1.5-1.7-2.4-3.3-2.4-1.9 0-3.3 1.1-3.3 2.7 0 3.6 7 3 7 7 0 1.3-.9 2.3-2.2 2.8"/><path d="M8.8 17.8c.5 1.5 1.7 2.4 3.3 2.4 1.9 0 3.3-1.1 3.3-2.7 0-3.6-7-3-7-7 0-1.3.9-2.3 2.2-2.8"/></svg><h3 class="p18-card__title">Bedarfsverordnung der Gemeinde</h3></div>
+        <p class="p18-card__body">Per Verordnung legt die Gemeinde für ein Gebiet mit erhöhtem Wohnungsbedarf ein Benennungsrecht fest (Rang 2). Auf Verlangen vermieten Sie dann an einen von mindestens drei benannten wohnberechtigten Haushalten. Genossenschaftlicher Wohnraum lässt sich ausnehmen.</p>
+      </li>
+      <li class="p18-card">
+        <div class="p18-card__head"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7.4 21V3.4M4 21h7"/><path d="M3.4 6.8h17.2M7.4 3.4l-4 3.4M7.4 3.4l9 3.4"/><path d="M17.8 6.8v5.4"/><path d="M16 12.2h3.6v3H16z"/></svg><h3 class="p18-card__title">Kommune als Bauherrin</h3></div>
+        <p class="p18-card__body">Auch die Kommune selbst ist antragsberechtigt; für sie gilt zusätzlich das <span class="u-nohyphens">Vergaberecht</span>.</p>
+      </li>
+    </ul>
+  </figure>
+
+  <!-- Kein WBS-Haushalt gefunden? -->
+  <section class="p18-wbs" aria-labelledby="p18-wbs-h">
+    <h2 class="p18-wbs__h" id="p18-wbs-h">Kein WBS-Haushalt gefunden?</h2>
+    <p>Dann können Sie bei der Wohnraumförderstelle eine befristete Freistellung von der Belegungsbindung beantragen – mit Nachweis Ihrer Vermarktung, in der Regel spätestens vier Wochen vor Freiwerden oder Bezugsfertigkeit, für höchstens fünf Jahre, einmal verlängerbar. Die Mietbindung bleibt. Ausgleich: etwa 0,50 € je m² und Monat (nicht auf die Miete umlegbar) oder Belegungsrechte an Ersatzwohnungen.</p>
+  </section>
 
   <footer class="page__foot" aria-hidden="true"><span class="page__folio">18</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Standort und Kommune</b></span><span>Stand: 21.10.2026</span></span></footer>
 </section>

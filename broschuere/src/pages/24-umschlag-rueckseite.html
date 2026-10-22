@@ -1,0 +1,108 @@
+<section class="page page--u4" data-page="24" id="seite-24" aria-label="Rückseite">
+  <style>
+    /* U4 – Rotpause. Schriftfeld im selben Raster wie U1 (aufgeklappt eine Leiste über beide Seiten):
+       Oberkante --horizon · Zeile 1 Einladung + Kontakt | QR 56 mm (= Kennzahlfeld U1) · Zeile 2 Absenderleiste 18 mm */
+    /* Claim auf der Titelachse von U1: Text bei 14 mm, weiße Linie auf der Rahmenlinie (wie die rote Titellinie U1) */
+    .page[data-page="24"] .back__claim { left: var(--frame-inset); right: 20mm; }
+    .page[data-page="24"] .back__claim .claim { margin-top: 0; border-left-width: .9mm; padding-left: 5.1mm; }
+    .page[data-page="24"] .back__stamp { --rule: var(--grey-200); grid-template-columns: 64mm minmax(0, 1fr) 34mm 22mm; grid-template-rows: minmax(0, 1fr) 18mm; }
+    .page[data-page="24"] .back__stamp > * { border: 0; }
+    .page[data-page="24"] .back__invite { grid-column: 1 / span 2; grid-row: 1; display: flex; flex-direction: column; padding: 7mm 6mm 5.6mm 6mm; border-bottom: var(--hair) solid var(--ink); }
+    .page[data-page="24"] .back__lead { max-width: 118mm; font: 400 var(--fs-lead)/var(--lh-lead) var(--font-text); color: var(--fg); text-wrap: balance; }
+    .page[data-page="24"] .back__contact { margin-top: auto; padding: 0; font: 500 var(--fs-small)/1.45 var(--font-text); font-style: normal; color: var(--fg-2); }
+    .page[data-page="24"] .back__firm { font: 800 var(--fs-small)/1.45 var(--font-display); letter-spacing: .06em; text-transform: uppercase; color: var(--fg); }
+    .page[data-page="24"] .back__addr { margin-top: .4mm; }
+    .page[data-page="24"] .back__lines { display: grid; grid-template-columns: auto auto auto; justify-content: space-between; column-gap: 5mm; margin-top: 4mm; padding-top: 2.4mm; border-top: var(--hair) solid var(--rule); }
+    .page[data-page="24"] .back__lines dt { font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-3); }
+    .page[data-page="24"] .back__lines dd { margin: .5mm 0 0; font: 700 var(--fs-small)/1.3 var(--font-display); color: var(--fg); }
+    .page[data-page="24"] .back__lines a.u-url { color: inherit; font: inherit; }
+    .page[data-page="24"] .back__lines .is-web a.u-url { color: var(--accent-text); }
+    .page[data-page="24"] .back__qr { grid-column: 3 / span 2; grid-row: 1; gap: 2.6mm; padding: 6mm 4mm 5mm; border-left: var(--hair) solid var(--ink); border-bottom: var(--hair) solid var(--ink); }
+    .page[data-page="24"] .back__qr svg { width: 33mm; height: 33mm; }
+    .page[data-page="24"] .back__qr .qr-bg { fill: var(--white); }
+    .page[data-page="24"] .back__qr .qr-mod { fill: var(--ink); }
+    .page[data-page="24"] .back__qr span { font: 600 var(--fs-micro)/1.2 var(--font-display); color: var(--fg); }
+    .page[data-page="24"] .back__logo { grid-column: 1; grid-row: 2; padding: 0 5mm 0 6mm; }
+    .page[data-page="24"] .back__project { grid-column: 2; grid-row: 2; border-left: var(--hair) solid var(--ink); }
+    .page[data-page="24"] .back__stand { grid-column: 3; grid-row: 2; border-left: var(--hair) solid var(--ink); }
+    .page[data-page="24"] .back__blatt { grid-column: 4; grid-row: 2; border-left: var(--hair) solid var(--ink); }
+    .page[data-page="24"] .back__stamp .titleblock__cell { padding: 1.7mm 3mm 0; }
+    .page[data-page="24"] .back__stamp .titleblock__value { font-size: var(--fs-micro); line-height: 1.28; }
+    .page[data-page="24"] .back__stamp .titleblock__cell--blatt .titleblock__value { font-size: 13pt; }
+    /* Druckregel: Negativtext aus dem Verlauf ≥ 9 pt – Planbeschriftung der Rotpause von 8,8 auf 9,1 pt */
+    .page[data-page="24"] #sig-grundriss .sig-g-t,
+    .page[data-page="24"] #sig-grundriss .sig-g-b text,
+    .page[data-page="24"] #sig-grundriss .sig-g-north text { font-size: 3.2px; }
+  </style>
+  <div class="cover__art u-nohyphens" data-bleed aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" id="sig-grundriss" class="sig sig-grundriss" viewBox="0 0 210 297" width="210mm" height="297mm" aria-hidden="true"><style>
+#sig-grundriss text{font-family:var(--font-display, 'Montserrat Variable', Montserrat, Arial, sans-serif);}
+#sig-grundriss{color:var(--sig-plan,#fff)}
+#sig-grundriss .sig-g-ax{stroke:currentColor;stroke-width:.2;stroke-dasharray:5 1.2 .7 1.2;fill:none;opacity:.55}
+#sig-grundriss .sig-g-b circle{fill:none;stroke:currentColor;stroke-width:.25}
+#sig-grundriss .sig-g-b text,#sig-grundriss .sig-g-t{font-weight:600;font-size:3.1px;fill:currentColor}
+#sig-grundriss .sig-g-poche{fill:currentColor;fill-opacity:.9;stroke:none}
+#sig-grundriss .sig-g-poche--inner{fill-opacity:.7}
+#sig-grundriss .sig-g-glass{stroke:currentColor;stroke-width:.2;fill:none}
+#sig-grundriss .sig-g-iw{stroke:currentColor;stroke-width:.25;fill:none}
+#sig-grundriss .sig-g-dr{stroke:currentColor;stroke-width:.2;fill:none;opacity:.8}
+#sig-grundriss .sig-g-dm{stroke:currentColor;stroke-width:.25;fill:none}
+#sig-grundriss .sig-g-north circle{fill:none;stroke:currentColor;stroke-width:.25}
+#sig-grundriss .sig-g-north path{fill:none;stroke:currentColor;stroke-width:.25}
+#sig-grundriss .sig-g-north .sig-g-north-fill{fill:currentColor}
+#sig-grundriss .sig-g-north text{font-weight:700;font-size:3.1px;letter-spacing:.3px;fill:currentColor}
+</style><path class="sig-g-ax" d="M30,30V119.5M60,30V119.5M90,30V119.5M120,30V119.5M150,30V119.5M180,30V119.5M17,46H191M17,77.25H191M17,108.5H191"/>
+<g class="sig-g-b"><circle cx="30" cy="26.9" r="3.1"/><text x="30" y="28.05" text-anchor="middle">1</text></g>
+<g class="sig-g-b"><circle cx="60" cy="26.9" r="3.1"/><text x="60" y="28.05" text-anchor="middle">2</text></g>
+<g class="sig-g-b"><circle cx="90" cy="26.9" r="3.1"/><text x="90" y="28.05" text-anchor="middle">3</text></g>
+<g class="sig-g-b"><circle cx="120" cy="26.9" r="3.1"/><text x="120" y="28.05" text-anchor="middle">4</text></g>
+<g class="sig-g-b"><circle cx="150" cy="26.9" r="3.1"/><text x="150" y="28.05" text-anchor="middle">5</text></g>
+<g class="sig-g-b"><circle cx="180" cy="26.9" r="3.1"/><text x="180" y="28.05" text-anchor="middle">6</text></g>
+<g class="sig-g-b"><circle cx="13.9" cy="46" r="3.1"/><text x="13.9" y="47.15" text-anchor="middle">A</text></g>
+<g class="sig-g-b"><circle cx="13.9" cy="77.25" r="3.1"/><text x="13.9" y="78.4" text-anchor="middle">B</text></g>
+<g class="sig-g-b"><circle cx="13.9" cy="108.5" r="3.1"/><text x="13.9" y="109.65" text-anchor="middle">C</text></g>
+<path class="sig-g-poche" d="M30,46H34.5V48.1H30ZM41.5,46H48.5V48.1H41.5ZM55.5,46H64.5V48.1H55.5ZM71.5,46H78.5V48.1H71.5ZM85.5,46H99.5V48.1H85.5ZM110.5,46H124.5V48.1H110.5ZM131.5,46H138.5V48.1H131.5ZM145.5,46H154.5V48.1H145.5ZM161.5,46H168.5V48.1H161.5ZM175.5,46H180V48.1H175.5ZM30,106.4H34.5V108.5H30ZM41.5,106.4H48.5V108.5H41.5ZM55.5,106.4H64.5V108.5H55.5ZM71.5,106.4H78.5V108.5H71.5ZM85.5,106.4H124.5V108.5H85.5ZM131.5,106.4H138.5V108.5H131.5ZM145.5,106.4H154.5V108.5H145.5ZM161.5,106.4H168.5V108.5H161.5ZM175.5,106.4H180V108.5H175.5ZM30,46V54H32.1V46ZM30,64V90.5H32.1V64ZM30,100.5V108.5H32.1V100.5ZM177.9,46V54H180V46ZM177.9,64V90.5H180V64ZM177.9,100.5V108.5H180V100.5Z"/>
+<path class="sig-g-glass" d="M34.5,47.05H41.5M34.5,46H41.5M34.5,48.1H41.5M48.5,47.05H55.5M48.5,46H55.5M48.5,48.1H55.5M64.5,47.05H71.5M64.5,46H71.5M64.5,48.1H71.5M78.5,47.05H85.5M78.5,46H85.5M78.5,48.1H85.5M124.5,47.05H131.5M124.5,46H131.5M124.5,48.1H131.5M138.5,47.05H145.5M138.5,46H145.5M138.5,48.1H145.5M154.5,47.05H161.5M154.5,46H161.5M154.5,48.1H161.5M168.5,47.05H175.5M168.5,46H175.5M168.5,48.1H175.5M99.5,47.05H110.5M99.5,46H110.5M99.5,48.1H110.5M34.5,107.45H41.5M34.5,108.5H41.5M34.5,106.4H41.5M48.5,107.45H55.5M48.5,108.5H55.5M48.5,106.4H55.5M64.5,107.45H71.5M64.5,108.5H71.5M64.5,106.4H71.5M78.5,107.45H85.5M78.5,108.5H85.5M78.5,106.4H85.5M124.5,107.45H131.5M124.5,108.5H131.5M124.5,106.4H131.5M138.5,107.45H145.5M138.5,108.5H145.5M138.5,106.4H145.5M154.5,107.45H161.5M154.5,108.5H161.5M154.5,106.4H161.5M168.5,107.45H175.5M168.5,108.5H175.5M168.5,106.4H175.5M31.05,54V64M30,54V64M32.1,54V64M31.05,90.5V100.5M30,90.5V100.5M32.1,90.5V100.5M178.95,54V64M180,54V64M177.9,54V64M178.95,90.5V100.5M180,90.5V100.5M177.9,90.5V100.5"/>
+<path class="sig-g-poche sig-g-poche--inner" d="M59.38,48.1V73H60.63V48.1ZM59.38,81.5V106.4H60.63V81.5ZM89.38,48.1V73H90.63V48.1ZM89.38,81.5V106.4H90.63V81.5ZM119.38,48.1V73H120.63V48.1ZM119.38,81.5V106.4H120.63V81.5ZM149.38,48.1V73H150.63V48.1ZM149.38,81.5V106.4H150.63V81.5ZM32.1,72.38H96V73.63H32.1ZM114,72.38H177.9V73.63H114ZM32.1,80.88H94V82.13H32.1ZM116,80.88H177.9V82.13H116Z"/>
+<path class="sig-g-iw" d="M45,48.1V67M45,88.5V106.4M30.65,63.5H41M30.65,91.5H41M75,48.1V67M75,88.5V106.4M60.65,63.5H71M60.65,91.5H71M135,48.1V67M135,88.5V106.4M120.65,63.5H131M120.65,91.5H131M165,48.1V67M165,88.5V106.4M150.65,63.5H161M150.65,91.5H161"/>
+<path class="sig-g-iw" d="M93.5,50H104.5M105.5,50H116.5M93.5,51.4H104.5M105.5,51.4H116.5M93.5,52.8H104.5M105.5,52.8H116.5M93.5,54.2H104.5M105.5,54.2H116.5M93.5,55.6H104.5M105.5,55.6H116.5M93.5,57H104.5M105.5,57H116.5M93.5,58.4H104.5M105.5,58.4H116.5M93.5,59.8H104.5M105.5,59.8H116.5M93.5,61.2H104.5M105.5,61.2H116.5M93.5,62.6H104.5M105.5,62.6H116.5M93.5,64H104.5M105.5,64H116.5M93.5,65.4H104.5M105.5,65.4H116.5M93.5,50V65.4M116.5,50V65.4M105,50V65.4M95.5,86.5h10.5v10.5h-10.5zM95.5,86.5l10.5,10.5M106,86.5l-10.5,10.5"/>
+<path class="sig-g-dr" d="M50,81.5v4.5A4.5,4.5 0 0 0 54.5,81.5M70,81.5v4.5A4.5,4.5 0 0 0 74.5,81.5M140,81.5v4.5A4.5,4.5 0 0 0 144.5,81.5M160,81.5v4.5A4.5,4.5 0 0 0 164.5,81.5M50,73v-4.5A4.5,4.5 0 0 1 54.5,73M70,73v-4.5A4.5,4.5 0 0 1 74.5,73M140,73v-4.5A4.5,4.5 0 0 1 144.5,73M160,73v-4.5A4.5,4.5 0 0 1 164.5,73"/>
+<path class="sig-g-iw" d="M63,108.5V116.5H87V108.5M123,108.5V116.5H147V108.5"/>
+<text class="sig-g-t" x="37.5" y="99" text-anchor="middle">WE 1</text>
+<text class="sig-g-t" x="67.5" y="99" text-anchor="middle">WE 2</text>
+<text class="sig-g-t" x="127.5" y="99" text-anchor="middle">WE 3</text>
+<text class="sig-g-t" x="157.5" y="99" text-anchor="middle">WE 4</text>
+<text class="sig-g-t" x="37.5" y="58" text-anchor="middle">WE 5</text>
+<text class="sig-g-t" x="67.5" y="58" text-anchor="middle">WE 6</text>
+<text class="sig-g-t" x="127.5" y="58" text-anchor="middle">WE 7</text>
+<text class="sig-g-t" x="157.5" y="58" text-anchor="middle">WE 8</text>
+<path class="sig-g-dm" d="M27.5,37.5H182.5M28.9,38.6l2.2,-2.2M30,40V45.25M58.9,38.6l2.2,-2.2M60,40V45.25M88.9,38.6l2.2,-2.2M90,40V45.25M118.9,38.6l2.2,-2.2M120,40V45.25M148.9,38.6l2.2,-2.2M150,40V45.25M178.9,38.6l2.2,-2.2M180,40V45.25"/>
+<text class="sig-g-t" x="45" y="36.2" text-anchor="middle">6,00</text>
+<text class="sig-g-t" x="75" y="36.2" text-anchor="middle">6,00</text>
+<text class="sig-g-t" x="105" y="36.2" text-anchor="middle">6,00</text>
+<text class="sig-g-t" x="135" y="36.2" text-anchor="middle">6,00</text>
+<text class="sig-g-t" x="165" y="36.2" text-anchor="middle">6,00</text>
+<g class="sig-g-north"><circle cx="178" cy="125.5" r="4.4"/><path class="sig-g-north-fill" d="M178,122L179.8,128.4L178,127.3Z"/><path d="M178,122L176.2,128.4L178,127.3Z"/><text x="171" y="126.6" text-anchor="end">REGELGESCHOSS · M 1:200</text></g></svg></div>
+  <div class="planframe" aria-hidden="true"></div>
+  <div class="back__claim">
+    <h1 class="claim"><span class="light">Aus Ihrer guten Idee –</span> machen wir den <em>besten Plan</em>.</h1>
+  </div>
+  <div class="back__stamp">
+    <div class="back__invite">
+      <p class="back__lead u-nohyphens">Sprechen Sie uns an: Wir prüfen mit Ihnen, welcher Programmteil zu Ihrem Projekt passt und wie es sich rechnet.</p>
+      <address class="back__contact u-nohyphens">
+        <p class="back__firm">Planungsgemeinschaft Nord GmbH</p>
+        <p class="back__addr">Große Straße 49 · 27356 Rotenburg (Wümme)</p>
+        <dl class="back__lines">
+          <div><dt>Telefon</dt><dd><a class="u-url" href="tel:+49426192930">(+49) 4261 9293-0</a></dd></div>
+          <div><dt>E-Mail</dt><dd><a class="u-url" href="mailto:info@pgn-architekten.de">info@pgn-architekten.de</a></dd></div>
+          <div><dt>Web</dt><dd class="is-web"><a class="u-url" href="https://www.pgn-architekten.de">www.pgn-architekten.de</a></dd></div>
+        </dl>
+      </address>
+    </div>
+    <div class="back__qr"><svg class="back__qr-code" xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 37 37" shape-rendering="crispEdges" role="img" aria-label="QR-Code: Link zur Website der Planungsgemeinschaft Nord GmbH, www.pgn-architekten.de"><rect class="qr-bg" x="-4" y="-4" width="37" height="37"/><path class="qr-mod" d="M0 0h7v1h-7zM8 0h1v1h-1zM11 0h1v1h-1zM15 0h2v1h-2zM18 0h3v1h-3zM22 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h4v1h-4zM14 1h2v1h-2zM17 1h2v1h-2zM20 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM9 2h1v1h-1zM13 2h3v1h-3zM18 2h3v1h-3zM22 2h1v1h-1zM24 2h3v1h-3zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM10 3h1v1h-1zM12 3h1v1h-1zM16 3h2v1h-2zM20 3h1v1h-1zM22 3h1v1h-1zM24 3h3v1h-3zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM10 4h1v1h-1zM12 4h2v1h-2zM19 4h1v1h-1zM22 4h1v1h-1zM24 4h3v1h-3zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM10 5h1v1h-1zM14 5h1v1h-1zM17 5h1v1h-1zM19 5h2v1h-2zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h7v1h-7zM8 7h1v1h-1zM10 7h1v1h-1zM13 7h2v1h-2zM17 7h2v1h-2zM20 7h1v1h-1zM0 8h1v1h-1zM2 8h2v1h-2zM5 8h3v1h-3zM10 8h2v1h-2zM13 8h2v1h-2zM16 8h3v1h-3zM22 8h1v1h-1zM25 8h1v1h-1zM27 8h2v1h-2zM1 9h1v1h-1zM4 9h1v1h-1zM7 9h4v1h-4zM15 9h2v1h-2zM19 9h2v1h-2zM22 9h3v1h-3zM28 9h1v1h-1zM5 10h2v1h-2zM9 10h1v1h-1zM11 10h1v1h-1zM14 10h2v1h-2zM17 10h2v1h-2zM20 10h1v1h-1zM23 10h2v1h-2zM26 10h2v1h-2zM0 11h1v1h-1zM2 11h3v1h-3zM7 11h3v1h-3zM11 11h1v1h-1zM13 11h3v1h-3zM19 11h1v1h-1zM22 11h3v1h-3zM28 11h1v1h-1zM0 12h1v1h-1zM4 12h3v1h-3zM8 12h2v1h-2zM11 12h1v1h-1zM16 12h2v1h-2zM19 12h1v1h-1zM25 12h2v1h-2zM0 13h1v1h-1zM2 13h1v1h-1zM8 13h1v1h-1zM13 13h1v1h-1zM17 13h1v1h-1zM19 13h1v1h-1zM22 13h2v1h-2zM26 13h3v1h-3zM0 14h2v1h-2zM5 14h2v1h-2zM8 14h2v1h-2zM14 14h1v1h-1zM18 14h7v1h-7zM26 14h3v1h-3zM2 15h1v1h-1zM5 15h1v1h-1zM7 15h1v1h-1zM9 15h1v1h-1zM11 15h1v1h-1zM13 15h1v1h-1zM15 15h1v1h-1zM19 15h1v1h-1zM22 15h3v1h-3zM27 15h1v1h-1zM2 16h5v1h-5zM9 16h1v1h-1zM11 16h2v1h-2zM18 16h1v1h-1zM20 16h2v1h-2zM24 16h2v1h-2zM27 16h1v1h-1zM1 17h2v1h-2zM5 17h1v1h-1zM7 17h2v1h-2zM13 17h1v1h-1zM17 17h1v1h-1zM20 17h1v1h-1zM23 17h1v1h-1zM25 17h3v1h-3zM0 18h1v1h-1zM2 18h7v1h-7zM11 18h2v1h-2zM17 18h1v1h-1zM22 18h2v1h-2zM26 18h1v1h-1zM2 19h1v1h-1zM7 19h1v1h-1zM10 19h1v1h-1zM12 19h1v1h-1zM15 19h3v1h-3zM19 19h2v1h-2zM22 19h1v1h-1zM26 19h1v1h-1zM1 20h3v1h-3zM6 20h1v1h-1zM9 20h2v1h-2zM13 20h1v1h-1zM15 20h3v1h-3zM19 20h8v1h-8zM8 21h1v1h-1zM12 21h4v1h-4zM17 21h4v1h-4zM24 21h5v1h-5zM0 22h7v1h-7zM8 22h1v1h-1zM10 22h1v1h-1zM12 22h2v1h-2zM18 22h3v1h-3zM22 22h1v1h-1zM24 22h2v1h-2zM27 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM8 23h3v1h-3zM12 23h1v1h-1zM16 23h1v1h-1zM20 23h1v1h-1zM24 23h2v1h-2zM0 24h1v1h-1zM2 24h3v1h-3zM6 24h1v1h-1zM10 24h2v1h-2zM14 24h2v1h-2zM17 24h1v1h-1zM20 24h5v1h-5zM26 24h1v1h-1zM28 24h1v1h-1zM0 25h1v1h-1zM2 25h3v1h-3zM6 25h1v1h-1zM8 25h4v1h-4zM14 25h1v1h-1zM17 25h1v1h-1zM19 25h2v1h-2zM24 25h2v1h-2zM27 25h1v1h-1zM0 26h1v1h-1zM2 26h3v1h-3zM6 26h1v1h-1zM8 26h1v1h-1zM13 26h2v1h-2zM18 26h2v1h-2zM23 26h1v1h-1zM26 26h1v1h-1zM28 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM10 27h2v1h-2zM15 27h2v1h-2zM18 27h1v1h-1zM20 27h1v1h-1zM22 27h2v1h-2zM25 27h1v1h-1zM27 27h1v1h-1zM0 28h7v1h-7zM8 28h1v1h-1zM10 28h1v1h-1zM12 28h1v1h-1zM14 28h1v1h-1zM18 28h4v1h-4zM25 28h1v1h-1zM27 28h1v1h-1z"/></svg><span>www.pgn-architekten.de</span></div>
+    <div class="back__logo"><img class="logo" src="assets/pgn/logo-rot.svg" alt="PGN – Architekten, Stadtplaner, Ingenieure"></div>
+    <div class="titleblock__cell back__project" aria-hidden="true"><p class="titleblock__label">Projekt</p><p class="titleblock__value">Mietwohnraumförderung Niedersachsen&nbsp;2026</p></div>
+    <div class="titleblock__cell back__stand" aria-hidden="true"><p class="titleblock__label">Stand</p><p class="titleblock__value">21.10.2026</p></div>
+    <div class="titleblock__cell titleblock__cell--blatt back__blatt" aria-hidden="true"><p class="titleblock__label">Blatt</p><p class="titleblock__value">U4</p></div>
+  </div>
+</section>

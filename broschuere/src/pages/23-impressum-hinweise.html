@@ -1,0 +1,86 @@
+<section class="page" data-page="23" id="seite-23" aria-label="Impressum und Hinweise">
+  <style>
+    /* Seite 23 · U3 Impressum und Hinweise · Planwerk. Rechte Seite der Doppelseite 22|23, Innenseite des Umschlags:
+       ruhig, weiß, ohne Kolumnentitel und Seitenzahl. Gemeinsame Horizonte mit S. 22: H1-Oberkante · Zeile 1 ab 68,5 mm
+       (Impressum als Schriftfeld = Modulkopf „Alles aus einem Haus“ + Werte) · Zeile 2 ab 136,5 mm (Hinweis = Modulkopf
+       Referenzen) · Zeile 3 ab 197,5 mm (Rechtsgrundlage, Quellen = Referenzreihe) · Fuß: Logo im Band des Plankopfs.
+       Platzhalter [PGN: …] / [Platzhalter] als .p23-ph (Hauch + Dunkelrot, 9 pt, 600) – leicht auffindbar und ersetzbar.
+       Farben nur über Tokens. */
+    .page[data-page="23"] .p23-head { padding-top: calc(var(--fs-label-accent) * 1.2 + 4mm); height: 47.5mm; }
+    .page[data-page="23"] .p23-head .lead { margin-top: 4.5mm; max-width: 132mm; }
+
+    /* Zeile 1: Impressum als Schriftfeld (Label 3 Spalten | Wert 9 Spalten) */
+    .page[data-page="23"] .p23-imprint { display: flex; flex-direction: column; height: 61mm; margin-top: 7mm; border-top: var(--rule-w) solid var(--rule-strong); }
+    .page[data-page="23"] .p23-imprint > div { flex: 1 0 auto; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-content: center; padding: 1.2mm 0; border-bottom: var(--hair) solid var(--rule); }
+    .page[data-page="23"] .p23-imprint > div:last-child { border-bottom: var(--rule-w) solid var(--rule-strong); }
+    .page[data-page="23"] .p23-imprint dt { grid-column: 1 / span 3; padding-top: .55mm; font: 700 var(--fs-micro)/1.3 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
+    .page[data-page="23"] .p23-imprint dd { grid-column: 4 / span 9; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg); }
+    .page[data-page="23"] .p23-firm { font-weight: 600; }
+
+    /* Zeile 2: zentraler Rechtshinweis – einziger gerahmter Hinweis des Hefts */
+    .page[data-page="23"] .p23-row2 { height: 61mm; margin-top: 7mm; }
+    .page[data-page="23"] .p23-note { padding: 5.4mm 7mm 6mm 7mm; background: var(--surface-2); border-top: 0; border-left: var(--rule-accent) solid var(--accent); }
+    .page[data-page="23"] .p23-note .callout__title { margin-top: 0; }
+    .page[data-page="23"] .p23-note .callout__body { margin-top: 1.6mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
+
+    /* Zeile 3: Rechtsgrundlage | Quellen | Kleinangaben */
+    .page[data-page="23"] .p23-legal { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+    .page[data-page="23"] .p23-legal > div { grid-column: span 6; border-top: var(--hair) solid var(--rule-strong); padding-top: 2.4mm; }
+    .page[data-page="23"] .p23-credits { border-top: var(--hair) solid var(--rule); padding-top: 2.2mm; }
+    .page[data-page="23"] .p23-credits p { font-size: var(--fs-small); line-height: var(--lh-module); color: var(--fg-3); }
+    .page[data-page="23"] .p23-credits p + p { margin-top: .8mm; }
+    .page[data-page="23"] .p23-credits b { font-weight: 600; color: var(--fg-2); }
+    .page[data-page="23"] .p23-legal h2 { font: 800 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
+    .page[data-page="23"] .p23-legal p { margin-top: 1.6mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="23"] .p23-legal p b { color: var(--fg); }
+    .page[data-page="23"] .p23-legal a { color: inherit; }
+
+    /* Platzhalter bis zur Freigabe: Hauch + Dunkelrot (rote Schrift ≥ 9 pt, ≥ 600) */
+    .page[data-page="23"] .p23-ph { white-space: nowrap; padding: 0 .7mm; background: var(--accent-soft); font-size: var(--fs-small); font-weight: 600; color: var(--accent-deep); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+    /* Fuß: Logo im Band des Plankopfs (gleiche Höhe wie S. 22), ohne Blattnummer und Kolumnentitel */
+    .page[data-page="23"] .p23-foot { position: absolute; left: var(--m-inner); right: var(--m-outer); bottom: var(--foot-y); height: var(--foot-h); display: flex; align-items: center; border-top: var(--rule-w) solid var(--rule-strong); border-bottom: var(--hair) solid var(--rule); }
+    .page[data-page="23"] .p23-foot .logo { width: 34mm; }
+  </style>
+
+  <header class="p23-head">
+    <h1 class="h1">Impressum und Hinweise</h1>
+    <p class="lead">Die Investitions- und Förderbank Niedersachsen – NBank bewilligt die Förderung, die kommunale Wohnraumförderstelle am Bauort nimmt den Antrag entgegen. NBank und Land Niedersachsen sind nicht Herausgeber dieser Broschüre.</p>
+  </header>
+
+  <dl class="p23-imprint">
+    <div><dt>Herausgeber</dt><dd><span class="p23-firm">Planungsgemeinschaft Nord GmbH</span><br>Große Straße 49, 27356 Rotenburg (Wümme)</dd></div>
+    <div><dt>Kontakt</dt><dd>Telefon (+49) 4261 9293-0 · Telefax (+49) 4261 9293-90<br><a class="u-url" href="mailto:info@pgn-architekten.de">info@pgn-architekten.de</a> · <a class="u-url" href="https://www.pgn-architekten.de">www.pgn-architekten.de</a></dd></div>
+    <div><dt>Geschäftsführung</dt><dd>Norbert Behrens, Stephan Müller, Nils Neumann, Matthias Mock</dd></div>
+    <div><dt>Registergericht</dt><dd>Amtsgericht Walsrode, HRB 70348</dd></div>
+    <div><dt>USt-IdNr.</dt><dd>DE 116 324 794</dd></div>
+    <div><dt>Verantwortlich für den Inhalt</dt><dd><span class="p23-ph">[PGN: Name bestätigen]</span></dd></div>
+  </dl>
+
+  <div class="p23-row2">
+  <aside class="callout p23-note" aria-labelledby="p23-hinweis">
+    <h2 class="callout__title" id="p23-hinweis">Hinweis</h2>
+    <p class="callout__body">Alle Angaben ohne Gewähr, Stand 21.10.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind fiktive Beispiele, keine Förderzusage.</p>
+  </aside>
+  </div>
+
+  <div class="p23-legal">
+    <div>
+      <h2>Rechtsgrundlage</h2>
+      <p>RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtschaft, Verkehr und Bauen vom 25.06.2026 (Nds. MBl. 2026 Nr. 319), gültig vom 01.07.2026 bis 31.12.2031; ergänzend Niedersächsisches Wohnraum- und Wohnquartierfördergesetz (NWoFG) mit Durchführungsverordnung (DVO-NWoFG) und Wohngeldverordnung (WoGV, Mietenstufen).</p>
+    </div>
+    <div>
+      <h2>Quellen</h2>
+      <p><b>Zitate:</b> Grant Hendrik Tonne und Michael Kiesewetter, Pressemitteilung MW vom 03.07.2026 (<a href="#seite-02">→&nbsp;S.&nbsp;2</a>, <a href="#seite-06">6</a>). <b>Marktzahlen:</b> NBank-Wohnungsmarktbericht 2025 (<a href="#seite-03">→&nbsp;S.&nbsp;3</a>, <a href="#seite-07">7</a>); NBank-Pressemitteilung zur Wohnungsmarktbeobachtung vom 05.12.2025 (<a href="#seite-02">→&nbsp;S.&nbsp;2</a>); Landesregierung, Pressemitteilung vom 25.11.2025 (<a href="#seite-18">→&nbsp;S.&nbsp;18</a>); NBank-Landkarte Wohnraumförderung, abgerufen am 21.10.2026 (<a href="#seite-18">→&nbsp;S.&nbsp;18</a>).</p>
+    </div>
+  </div>
+
+  <div class="p23-credits l-bottom">
+    <p><b>Bildnachweis:</b> Visualisierungen Titel und S. 22: <span class="p23-ph">[PGN: Urheber bestätigen]</span> · Diagramme und Illustrationen: <span class="u-nohyphens">Planungsgemeinschaft Nord GmbH</span></p>
+    <p><b>Druck:</b> <span class="p23-ph">[Platzhalter]</span> · <b>Stand:</b> 21.10.2026</p>
+  </div>
+
+  <footer class="p23-foot">
+    <img class="logo" src="assets/pgn/logo-rot.svg" alt="PGN – Architekten, Stadtplaner, Ingenieure">
+  </footer>
+</section>

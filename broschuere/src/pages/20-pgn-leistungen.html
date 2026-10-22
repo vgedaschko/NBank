@@ -1,0 +1,149 @@
+<section class="page" data-page="20" id="seite-20">
+  <style>
+    /* Seite 20 · PGN-Leistungen · Planwerk. Linke Seite der Doppelseite 20|21 „Umsetzung“.
+       Dominant: die sieben Stationen als senkrechter Weg (Phase außen · Marke auf der Weglinie · Titel und Text), darunter
+       das Bildmotiv: HOAI-Skala LPH 1–9 als Planleiste mit Maßketten und der Bewilligungsmarke zwischen LPH 6 und 7.
+       Unten zwei Module (Spalten 1–7 · 8–12), Oberkante = Oberkante Kontaktband S. 21. Rot nur: Kicker, Titellinie,
+       Bewilligungsmarke, Seitenverweise. Farben nur über Tokens. */
+
+    /* Kopf: Titel 7 Spalten, Vorspann 5 Spalten, unten bündig ----------------------------------------------------- */
+    .page[data-page="20"] .p20-head .deck { margin-top: 3mm; letter-spacing: .02em; }
+    .page[data-page="20"] .p20-head .lead { max-width: none; }
+
+    /* Stationen: Phase (rechtsbündig zur Weglinie) · Marke auf der Weglinie · Titel als Run-in + Text (Spalten 4–12) */
+    .page[data-page="20"] .p20-way { margin-top: var(--p2021-way, 8mm); border-top: var(--rule-heavy) solid var(--rule-strong); }
+    .page[data-page="20"] .p20-st { position: relative; display: grid; grid-template-columns: 37.6mm 2.2mm 4.4mm 2.05mm minmax(0, 1fr); padding: 3.6mm 0 3.8mm; }
+    .page[data-page="20"] .p20-st__phase { grid-column: 1; }
+    .page[data-page="20"] .p20-st__mk { grid-column: 3; }
+    .page[data-page="20"] .p20-st__text { grid-column: 5; }
+    .page[data-page="20"] .p20-st::after { content: ""; position: absolute; left: calc(3 * var(--col) + 3 * var(--gutter)); right: 0; bottom: 0; height: var(--hair); background: var(--rule); }
+    .page[data-page="20"] .p20-st:last-child::after { display: none; }
+    /* Weglinie durch die Marken (Mitte 42 mm) */
+    .page[data-page="20"] .p20-st::before { content: ""; position: absolute; left: calc(37.6mm + 2.2mm + 2.2mm - .175mm); width: .35mm; top: 0; bottom: 0; background: var(--fg-2); }
+    .page[data-page="20"] .p20-st:first-child::before { top: 3.8mm; }
+    .page[data-page="20"] .p20-st:last-child::before { bottom: auto; height: 3.8mm; }
+    .page[data-page="20"] .p20-st__phase { font: 600 var(--fs-small)/var(--lh-module) var(--font-text); color: var(--fg-3); text-align: right; }
+    .page[data-page="20"] .p20-st__mk { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 4.4mm; height: 4.4mm; margin-top: -.05mm; background: var(--fg); color: var(--surface); font: 900 var(--fs-micro)/1 var(--font-display); font-variant-numeric: tabular-nums; }
+    .page[data-page="20"] .p20-st__text { font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="20"] .p20-st__title { margin-right: 1.4mm; font: 800 var(--fs-small)/1 var(--font-display); letter-spacing: .05em; text-transform: uppercase; color: var(--fg); }
+    .page[data-page="20"] .p20-st__text .pageref { padding-top: .4mm; padding-bottom: .3mm; }
+
+    /* HOAI-Skala (Inline-SVG, 1 Einheit = 1 mm) ------------------------------------------------------------------- */
+    .page[data-page="20"] .p20-hoai { margin-top: 6mm; }
+    .page[data-page="20"] .p20-hoai .chart__svg { margin-top: 0; }
+    .page[data-page="20"] .p20-field { fill: var(--surface-2); }
+    .page[data-page="20"] .p20-field--after { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }
+    .page[data-page="20"] .p20-ax { fill: var(--surface); stroke: var(--fg); stroke-width: .2; }
+    .page[data-page="20"] .chart__svg .p20-no { font-family: var(--font-display); font-size: var(--svg-fs-s); font-weight: 800; fill: var(--fg); text-anchor: middle; font-variant-numeric: tabular-nums; }
+    .page[data-page="20"] .p20-dim { fill: none; stroke: var(--fg-2); stroke-width: .22; }
+    .page[data-page="20"] .p20-ext { fill: none; stroke: var(--fg-2); stroke-width: .12; }
+    .page[data-page="20"] .p20-tick { fill: none; stroke: var(--fg-2); stroke-width: .45; }
+    .page[data-page="20"] .p20-gate { fill: var(--signal-fill); }
+    .page[data-page="20"] .chart__svg .p20-gate-t { font-family: var(--font-display); font-size: var(--svg-fs-m); font-weight: 800; letter-spacing: .3px; text-transform: uppercase; fill: var(--on-signal); text-anchor: middle; }
+    .page[data-page="20"] .chart__svg .p20-dim-t { font-size: var(--svg-fs-s); font-weight: 600; fill: var(--fg); text-anchor: middle; }
+    .page[data-page="20"] .p20-legend { margin-top: 1.8mm; font: 500 var(--fs-micro)/1.42 var(--font-text); color: var(--fg-3); }
+    .page[data-page="20"] .p20-legend span { white-space: nowrap; }
+    .page[data-page="20"] .p20-legend b { font: 800 var(--fs-micro)/1.42 var(--font-display); color: var(--fg); margin-right: .9mm; font-variant-numeric: tabular-nums; }
+
+    /* Module unten: Schlüsselfertig (Anthrazit, Spalten 1–7) · Für Kommunen (Papier, Spalten 8–12) --------------- */
+    .page[data-page="20"] .p20-mods { align-items: stretch; }
+    .page[data-page="20"] .p20-mods .offer-box__text .pageref { padding-top: .4mm; padding-bottom: .3mm; }
+  </style>
+
+  <header class="title-block title-block--split p20-head">
+    <div class="title-block__main">
+      <p class="kicker">Mit PGN</p>
+      <h1 class="h1">So begleiten wir Ihr <em>Förder&shy;projekt</em></h1>
+      <p class="deck">Ein Ansprechpartner für alles –<br>von der ersten Idee bis zur Objektübergabe.</p>
+    </div>
+    <p class="lead">Wir achten darauf, dass Planung, Kosten und Unterlagen zu den Förderregeln passen – und dass kein Vertrag zu früh unterschrieben wird. Antrag und Entscheidung liegen bei Wohnraumförderstelle und NBank <span class="u-nowrap">(<a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;19</a>).</span></p>
+  </header>
+
+  <!-- Dominant: sieben Stationen -->
+  <ol class="p20-way" aria-label="Unsere Leistungen in sieben Stationen">
+    <li class="p20-st">
+      <p class="p20-st__phase u-nohyphens">Vor dem Vorgespräch</p>
+      <span class="p20-st__mk" aria-hidden="true">1</span>
+      <p class="p20-st__text"><b class="p20-st__title">Förderung und Machbarkeit</b> Wir klären Programmteil, Standort und Mieterkreis – und rechnen, ob die Miete Finanzierung und Bewirtschaftung trägt <span class="u-nowrap">(<a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;11</a>).</span></p>
+    </li>
+    <li class="p20-st">
+      <p class="p20-st__phase u-nohyphens">Leistungsphasen 1–4</p>
+      <span class="p20-st__mk" aria-hidden="true">2</span>
+      <p class="p20-st__text"><b class="p20-st__title">Planung nach Förderregeln</b> Wir planen angemessene Wohnungsgrößen <span class="u-nowrap">(<a class="pageref" href="#seite-06">→&nbsp;S.&nbsp;6</a>),</span> Freisitze bis zu einem Zehntel davon – auf Wunsch rollstuhlgerecht oder auf EH-40-Niveau.</p>
+    </li>
+    <li class="p20-st">
+      <p class="p20-st__phase u-nohyphens">Leistungsphasen 2–3, dann laufend</p>
+      <span class="p20-st__mk" aria-hidden="true">3</span>
+      <p class="p20-st__text"><b class="p20-st__title">Kosten im Griff</b> Wir steuern die Herstellungskosten mit Blick auf die Bemessungsgrenze; was darüber liegt, finanzieren Sie ohne Förderung <span class="u-nowrap">(<a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a>).</span></p>
+    </li>
+    <li class="p20-st">
+      <p class="p20-st__phase u-nohyphens">Vorgespräch und Antrag</p>
+      <span class="p20-st__mk" aria-hidden="true">4</span>
+      <p class="p20-st__text"><b class="p20-st__title">Antragsunterlagen</b> Wir erstellen Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung – und kommen mit zum Vorgespräch.</p>
+    </li>
+    <li class="p20-st">
+      <p class="p20-st__phase u-nohyphens">Leistungsphasen 5–7</p>
+      <span class="p20-st__mk" aria-hidden="true">5</span>
+      <p class="p20-st__text"><b class="p20-st__title">Ausführungsplanung und Vergabe</b> Nach der Bewilligung fordern wir mindestens drei Unternehmen zum Angebot auf und dokumentieren die Vergabe.</p>
+    </li>
+    <li class="p20-st">
+      <p class="p20-st__phase u-nohyphens">Leistungsphase 8</p>
+      <span class="p20-st__mk" aria-hidden="true">6</span>
+      <p class="p20-st__text"><b class="p20-st__title">Bauleitung</b> Wir halten Termine und Kosten im Blick und dokumentieren den Baufortschritt – auch per Drohne – für jede Teilrate <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span></p>
+    </li>
+    <li class="p20-st">
+      <p class="p20-st__phase u-nohyphens">Leistungsphasen 8–9</p>
+      <span class="p20-st__mk" aria-hidden="true">7</span>
+      <p class="p20-st__text"><b class="p20-st__title">Fertigstellung und Nachweis</b> Wir bereiten die Fertigstellungsanzeige mit Bescheinigung der Bauleitung vor und liefern Bau- und Kostendaten für Ihren Verwendungsnachweis <span class="u-nowrap">(<a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;19</a>).</span></p>
+    </li>
+  </ol>
+
+  <!-- Bildmotiv: HOAI-Skala mit Bewilligungsmarke zwischen LPH 6 und 7 (Felder je 20 mm) -->
+  <figure class="chart p20-hoai" role="group" aria-label="Leistungsphasen nach HOAI">
+    <svg class="chart__svg" viewBox="0 0 180 20.6" width="180mm" height="20.6mm" role="img" aria-label="Leistungsphasen 1 bis 9 nach HOAI: 1 Grundlagen, 2 Vorplanung, 3 Entwurf, 4 Genehmigung, 5 Ausführungsplanung, 6 Vorbereitung der Vergabe, 7 Mitwirkung bei der Vergabe, 8 Objektüberwachung, 9 Objektbetreuung. Bewilligung zwischen Leistungsphase 6 und 7: Planungsauftrag LPH 1–6 vor der Bewilligung möglich, ab LPH 7 erst nach der Bewilligung.">
+      <!-- Bewilligungsmarke -->
+      <rect class="p20-gate" x="102.5" y="0" width="35" height="4.8"/>
+      <text class="p20-gate-t" x="120" y="3.5">±0 Bewilligung</text>
+      <!-- Maßketten LPH 1–6 (0–120) und LPH 7–9 (120–180) mit 45°-Strich, Hilfslinien bis zur Leiste -->
+      <path class="p20-dim" d="M0 9.9H180"/>
+      <path class="p20-ext" d="M0 8.3V11.8M180 8.3V11.8"/>
+      <path class="p20-tick" d="M-1.1 11L1.1 8.8M118.9 11L121.1 8.8M178.9 11L181.1 8.8"/>
+      <text class="p20-dim-t" x="60" y="8.5">Planungsauftrag LPH 1–6: vor der Bewilligung möglich</text>
+      <text class="p20-dim-t" x="150" y="8.5">ab LPH 7: erst nach der Bewilligung</text>
+      <!-- Felder LPH 1–9 (je 20 mm): bis LPH 6 Papier, ab LPH 7 Kontur -->
+      <g>
+        <rect class="p20-field" x="0" y="11.8" width="19.6" height="8.8"/>
+        <rect class="p20-field" x="20" y="11.8" width="19.6" height="8.8"/>
+        <rect class="p20-field" x="40" y="11.8" width="19.6" height="8.8"/>
+        <rect class="p20-field" x="60" y="11.8" width="19.6" height="8.8"/>
+        <rect class="p20-field" x="80" y="11.8" width="19.6" height="8.8"/>
+        <rect class="p20-field" x="100" y="11.8" width="19.75" height="8.8"/>
+        <rect class="p20-field--after" x="120.55" y="11.95" width="19.1" height="8.5"/>
+        <rect class="p20-field--after" x="140.55" y="11.95" width="19.1" height="8.5"/>
+        <rect class="p20-field--after" x="160.55" y="11.95" width="19.3" height="8.5"/>
+      </g>
+      <g>
+        <circle class="p20-ax" cx="9.8" cy="16.2" r="2.8"/><text class="p20-no" x="9.8" y="17.25">1</text>
+        <circle class="p20-ax" cx="29.8" cy="16.2" r="2.8"/><text class="p20-no" x="29.8" y="17.25">2</text>
+        <circle class="p20-ax" cx="49.8" cy="16.2" r="2.8"/><text class="p20-no" x="49.8" y="17.25">3</text>
+        <circle class="p20-ax" cx="69.8" cy="16.2" r="2.8"/><text class="p20-no" x="69.8" y="17.25">4</text>
+        <circle class="p20-ax" cx="89.8" cy="16.2" r="2.8"/><text class="p20-no" x="89.8" y="17.25">5</text>
+        <circle class="p20-ax" cx="109.8" cy="16.2" r="2.8"/><text class="p20-no" x="109.8" y="17.25">6</text>
+        <circle class="p20-ax" cx="130.1" cy="16.2" r="2.8"/><text class="p20-no" x="130.1" y="17.25">7</text>
+        <circle class="p20-ax" cx="150.1" cy="16.2" r="2.8"/><text class="p20-no" x="150.1" y="17.25">8</text>
+        <circle class="p20-ax" cx="170.1" cy="16.2" r="2.8"/><text class="p20-no" x="170.1" y="17.25">9</text>
+      </g>
+      <!-- Bewilligungslinie zwischen LPH 6 und 7 -->
+      <rect class="p20-gate" x="119.75" y="4.8" width=".5" height="15.8"/>
+    </svg>
+    <p class="p20-legend"><span><b>1</b>Grundlagen</span> · <span><b>2</b>Vorplanung</span> · <span><b>3</b>Entwurf</span> · <span><b>4</b>Genehmigung</span> · <span><b>5</b>Ausführungsplanung</span> · <span><b>6</b>Vorbereitung der Vergabe</span> · <span><b>7</b>Mitwirkung bei der Vergabe</span> · <span><b>8</b>Objektüberwachung</span> · <span><b>9</b>Objektbetreuung</span></p>
+  </figure>
+
+  <!-- Module unten -->
+  <div class="l-grid l-bottom p20-mods" style="--row-gap:0">
+    <aside class="l-span-7 offer-box offer-box--dark on-dark" aria-labelledby="p20-sf"><h2 class="offer-box__title" id="p20-sf">Schlüsselfertig</h2><p class="offer-box__text">Über die PGN Projektgesellschaft Nord GmbH bauen wir auch schlüsselfertig als Generalübernehmer. Förderfähig ist das, wenn Sie mindestens drei Unternehmen zum Angebot auffordern, erst nach der Bewilligung beauftragen und die Gesellschaft vorab schriftlich der Prüfung von Kalkulation, Nachunternehmervergabe und Abrechnung zustimmt.</p></aside>
+    <aside class="l-span-5 offer-box" aria-labelledby="p20-ko"><h2 class="offer-box__title" id="p20-ko">Für Kommunen</h2><p class="offer-box__text">Unsere Stadtplanung erarbeitet Bebauungspläne. Legt die Gemeinde darin geförderte Mietwohnungen fest, gilt für diese Wohnungen der Bedarf als gegeben <span class="u-nowrap">(<a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>).</span></p></aside>
+  </div>
+
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">20</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Mit PGN</b></span><span>Stand: 21.10.2026</span></span></footer>
+</section>

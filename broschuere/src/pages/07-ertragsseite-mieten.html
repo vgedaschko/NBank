@@ -1,179 +1,154 @@
 <section class="page" data-page="07" id="seite-07">
   <style>
-    /* Seite 07 · Ertragsseite Mieten – seitenspezifisch, Farben nur über Tokens.
-       Aufbau: Raster 7 | 5 in zwei Zeilen (Titel + Tabelle | Lead + Begriff; Mietpfad | Markt, Modullinien bündig),
-       darunter Spielregeln 7 | 5, Fußnoten am Fuß. Modultext 9 pt; Quellen, Bildunterschriften, Gemeindeverzeichnis 8,5 pt. */
-    .page[data-page="07"] .p07-main { --row-gap: 2.6mm; }   /* zwei Zeilen: Mietpfad und Markt beginnen auf gleicher Linie */
-    .page[data-page="07"] .p07-col > * + * { margin-top: 2.6mm; }
-    .page[data-page="07"] .p07-col > .p07-lead + .p07-term { margin-top: var(--sp-3); }
+    /* S. 07 · Mieten (rechte Seite der Doppelseite 06|07) · Planwerk.
+       Gemeinsame Horizonte mit S. 06: Titel 8 | 4, Modulkopf Zone B, Modulkopf Zone C (5 | 7).
+       Dominant: Höchstmieten-Tabelle (7 Spalten) mit Programmteil-Chips und Gruppen-Achskreisen A/B/C wie S. 06;
+       daneben Mietpfad und Markt (SVG, 1 Einheit = 1 mm, € je m², Achse ab 6 €) mit Kalkulationsnotiz. Farben nur über Tokens. */
+    .page[data-page="07"] { --p-zone-b: 127.5mm; }   /* wie S. 06: Zone C beginnt auf beiden Seiten bei 180,5 mm */
+    .page[data-page="07"] .p07-title { min-height: 27mm; }   /* Titelzone auf beiden Seiten gleich hoch: H1-Grundlinie und Modulkopf Zone B fluchten */
+    .page[data-page="07"] .p07-title > .title-block__main { grid-column: 1 / span 7; }
+    .page[data-page="07"] .p07-title > .lead { grid-column: 8 / span 5; padding-bottom: .5mm; }
 
-    /* Höchstmieten-Tabelle: Programmteil-Chips (Baustein-Farbe + Nummer), Gruppen-Chips A/B/C wie S. 6 */
-    .page[data-page="07"] .p07-rents .fig-head__title { font-size: var(--fs-h3); line-height: 1.16; }   /* Modultitel wie die Diagramme der Seite (.chart--s) */
-    .page[data-page="07"] .p07-table { table-layout: fixed; }
-    .page[data-page="07"] .p07-table .p07-w-prog { width: 22mm; }
-    .page[data-page="07"] .p07-table .p07-w-stufe { width: 18.6mm; }
-    .page[data-page="07"] .p07-table thead th { padding-bottom: 1.3mm; }
-    .page[data-page="07"] .p07-table thead tr:last-child th:nth-child(-n+2) { padding-right: 1mm; text-transform: none; letter-spacing: 0; font-size: var(--fs-micro); white-space: nowrap; }
-    .page[data-page="07"] .p07-table .p07-unitrow > * { padding: 0 0 .6mm; border-bottom: 0; }
-    .page[data-page="07"] .p07-table .p07-unit { text-align: right; text-transform: none; letter-spacing: 0; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); }
-    .page[data-page="07"] .grp-chip { vertical-align: -1.4mm; }
-    .page[data-page="07"] .p07-table tbody th,
-    .page[data-page="07"] .p07-table tbody td { vertical-align: middle; }
-    .page[data-page="07"] .p07-table tbody td.num { font-size: 11pt; padding-top: .5mm; padding-bottom: .5mm; }
-    /* Mietenstufe und Werte auf gemeinsamer Grundlinie: oben ausgerichtet, Stufe per Innenabstand auf die
-       Fraunces-Grundlinie gesetzt (vertical-align: baseline greift im Chromium-PDF bei Tabellenzellen nicht) */
-    .page[data-page="07"] .p07-table tbody td.p07-stufe,
-    .page[data-page="07"] .p07-table tbody td.num { vertical-align: top; }
-    .page[data-page="07"] .p07-table tbody tr.p07-r26 > * { vertical-align: middle; }
-    .page[data-page="07"] .p07-table .p07-stufe { padding-top: 1.24mm; padding-bottom: 0; line-height: 1; font-weight: 600; font-size: var(--fs-micro); color: var(--fg-2); }
-    .page[data-page="07"] .p07-prog { padding-top: .4mm !important; padding-bottom: .4mm !important; }
-    .page[data-page="07"] .p07-prog .bs-badge { vertical-align: middle; }
-    .page[data-page="07"] .p07-prog .bs-badge__no { padding: .75mm 1.3mm .65mm; }
-    .page[data-page="07"] .p07-prog__sep { margin: 0 .9mm; color: var(--fg-3); font-weight: 500; }
-    .page[data-page="07"] .p07-prog__note { display: block; margin-top: .9mm; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-3); }
-    .page[data-page="07"] .p07-dash { color: var(--fg-3); }
-    .page[data-page="07"] .p07-freeze { padding-top: .9mm !important; padding-bottom: 1mm !important; font-size: var(--fs-module); line-height: 1.28; color: var(--fg); }
-    .page[data-page="07"] .p07-tnote { margin-top: 1.6mm; line-height: 1.28; }
+    .page[data-page="07"] .p07-b { min-height: var(--p-zone-b); margin-top: var(--sp-6); align-content: start; }
+    .page[data-page="07"] .p07-unit { font: 500 var(--fs-small)/1.2 var(--font-text); letter-spacing: 0; text-transform: none; color: var(--fg-2); }
 
-    /* Begriff Mietenstufe: Gemeindeindex als Fließtext mit Stufen-Chips */
-    .page[data-page="07"] .p07-term .term__text { line-height: 1.28; }
-    /* Gemeindeverzeichnis als Nachschlage-Register (wie Fundstellen) in 8,5 pt */
-    .page[data-page="07"] .p07-term .p07-index { font-size: var(--fs-micro); }
-    .page[data-page="07"] .p07-term .p07-index { margin-top: 1.2mm; padding-top: 1.2mm; border-top: var(--hair) solid var(--rule); line-height: 1.22; color: var(--fg); }
-    /* je Mietenstufe ein Absatz mit fester Etikettspalte (hängender Einzug): Folgezeilen stehen auf der Textkante,
-       nicht unter dem Stufen-Chip – Gemeinde schnell auffindbar */
-    .page[data-page="07"] .p07-grp { display: grid; grid-template-columns: 6.8mm minmax(0, 1fr); column-gap: 1.1mm; align-items: baseline; }
-    .page[data-page="07"] .p07-idx-note { display: block; margin-top: .6mm; color: var(--fg-2); }   /* Hinweis ohne Etikett: volle Breite, leicht abgesetzt */
-    .page[data-page="07"] .p07-grp:not(.p07-idx-note) { -webkit-hyphens: none; hyphens: none; }   /* Ortsnamen nicht trennen */
-    .page[data-page="07"] .p07-st { display: block; position: relative; top: .15mm; padding: .15mm 0 .1mm; background: var(--accent-soft); font: 450 8.5pt/1 var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; color: var(--accent-text); text-align: center; white-space: nowrap; }
+    /* Höchstmieten-Tabelle */
+    .page[data-page="07"] .p07-table { margin-top: 3mm; table-layout: fixed; }
+    .page[data-page="07"] .p07-table .w-prog { width: 31mm; }
+    .page[data-page="07"] .p07-table .w-stufe { width: 22mm; }
+    .page[data-page="07"] .p07-table thead th { padding-bottom: 1.8mm; }
+    .page[data-page="07"] .p07-table thead .num { text-align: right; }
+    .page[data-page="07"] .p07-table th, .page[data-page="07"] .p07-table td { border-bottom: 0; vertical-align: middle; }
+    .page[data-page="07"] .p07-table thead th { vertical-align: bottom; }
+    .page[data-page="07"] .p07-table tbody td { padding-top: 2.35mm; padding-bottom: 2.35mm; }
+    .page[data-page="07"] .p07-table tr.is-end > * , .page[data-page="07"] .p07-table th.is-end { border-bottom: var(--hair) solid var(--rule); }
+    .page[data-page="07"] .p07-table tbody tr:last-child > * { border-bottom: var(--rule-w) solid var(--rule-strong); }
+    .page[data-page="07"] .p07-table tbody td.num { font: 700 13pt/1 var(--font-display); letter-spacing: -.01em; }
+    .page[data-page="07"] .p07-table tbody td.num.is-a { font-weight: 800; }
+    .page[data-page="07"] .p07-table .p07-stufe { padding-top: 2.8mm; padding-bottom: 1.9mm; font: 600 var(--fs-small)/1.2 var(--font-display); color: var(--fg-2); }   /* auf die Grundlinie der 13-pt-Ziffern gesetzt */
+    .page[data-page="07"] .p07-table tr.p07-r26 > * { vertical-align: top; }
+    .page[data-page="07"] .p07-table tr.p07-r26 > th { vertical-align: middle; }
+    .page[data-page="07"] .p07-table .p07-dash { color: var(--fg-3); font-weight: 500; }
+    .page[data-page="07"] .p07-prog { white-space: nowrap; }
+    .page[data-page="07"] .p07-prog .bs-badge__no { padding: 1.1mm 1.5mm 1mm; font-size: var(--fs-small); }
+    .page[data-page="07"] .p07-prog__sep { margin: 0 1mm; color: var(--fg-3); font-weight: 600; }
+    .page[data-page="07"] .p07-prog__note { display: block; margin-top: 1mm; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-3); }
+    .page[data-page="07"] .p07-freeze { font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg); }
+    .page[data-page="07"] .p07-rents .chart__note { margin-top: 2.6mm; text-wrap: balance; }
 
-    /* Diagramme (Inline-SVG, 1 Einheit = 1 mm) */
-    .page[data-page="07"] .p07-titunit { font-family: var(--font-text); font-size: var(--fs-small); font-weight: 500; letter-spacing: 0; color: var(--fg-2); }
-    .page[data-page="07"] .chart__note { line-height: 1.26; }
-    .page[data-page="07"] .p07-marketfig .chart__svg, .page[data-page="07"] .p07-pathfig .chart__svg { margin-top: 2.4mm; }
-    .page[data-page="07"] .p07-src { margin-top: .6mm; line-height: 1.26; }
-    /* Markt-Diagramm füllt die Zeile neben dem Mietpfad: Notiz unten bündig mit der Mietpfad-Notiz */
-    .page[data-page="07"] .p07-col--market { align-self: stretch; display: flex; flex-direction: column; }
-    .page[data-page="07"] .p07-marketfig { flex: 1 0 auto; display: flex; flex-direction: column; }
-    .page[data-page="07"] .p07-marketfig .chart__note { margin-top: auto; padding-top: 2.6mm; }
-    .page[data-page="07"] .p07-room { fill: var(--accent-soft); }
-    .page[data-page="07"] .p07-base { stroke: var(--fg-3); stroke-width: .25; stroke-dasharray: .6 .6; fill: none; }
-    .page[data-page="07"] .p07-fix { stroke: var(--fg); stroke-width: .9; fill: none; }
-    .page[data-page="07"] .p07-cap { stroke: var(--accent); stroke-width: .7; stroke-dasharray: 1.4 .8; fill: none; }
-    .page[data-page="07"] .p07-ref { stroke: var(--fg); stroke-width: .35; stroke-dasharray: .6 .5; fill: none; }
+    /* Mietpfad und Markt */
+    .page[data-page="07"] .p07-unit--block { display: block; margin-top: .6mm; }
+    .page[data-page="07"] .p07-path-fig .chart__svg { margin-top: 3.2mm; }
+    .page[data-page="07"] .p07-area { fill: var(--surface-2); }
+    .page[data-page="07"] .p07-path { stroke: var(--fg); stroke-width: .7; fill: none; stroke-linejoin: miter; }
+    .page[data-page="07"] .p07-ref { stroke: var(--fg-3); stroke-width: .3; stroke-dasharray: 1.2 .8; fill: none; }
+    .page[data-page="07"] .p07-yax { stroke: var(--fg-3); stroke-width: .2; }
+    .page[data-page="07"] .chart__svg .p07-step { font-size: 4.6px; }
+    .page[data-page="07"] .chart__svg .p07-max { fill: var(--fg-3); }
+    .page[data-page="07"] .chart__svg .p07-refval { fill: var(--fg-2); }
+    .page[data-page="07"] .chart__svg .p07-reft { fill: var(--fg-2); }
+    .page[data-page="07"] .chart__svg .t-b { font-weight: 600; fill: var(--fg); }
+    .page[data-page="07"] .p07-calc { margin-top: 4mm; }
+    .page[data-page="07"] .p07-calc .callout__body { margin-top: 1.4mm; }
 
-    /* Spielregeln 3 | 5 | 4: zwei Listen und „Verstöße kosten“ (Achtung ohne Fläche, Akzentlinie wie die Listentitel) */
-    .page[data-page="07"] .p07-rules { margin-top: 3mm; }
-    .page[data-page="07"] .p07-rules .bullets__title { padding: 2mm 0 1.2mm; }
-    .page[data-page="07"] .p07-list .checklist__item { grid-template-columns: 4mm minmax(0, 1fr); column-gap: 1.1mm; border: 0; padding: .3mm 0; font-size: var(--fs-module); line-height: 1.3; }
-    .page[data-page="07"] .p07-list .checklist__item .mark { margin-top: 0; }
-    .page[data-page="07"] .p07-list .mark { width: 3.4mm; height: 3.4mm; }
-    .page[data-page="07"] .p07-list .mark--yes::after { left: 1.15mm; top: .5mm; }
-    .page[data-page="07"] .p07-list .mark--no::before,
-    .page[data-page="07"] .p07-list .mark--no::after { left: .65mm; top: 1.5mm; }
-    .page[data-page="07"] .p07-achtung { padding-top: 2.2mm; padding-bottom: 0; }
-    .page[data-page="07"] .p07-achtung .callout__title { margin-top: 1.2mm; }
-    .page[data-page="07"] .p07-achtung .callout__body { margin-top: 1.2mm; font-size: var(--fs-module); line-height: 1.32; }
-
-    .page[data-page="07"] .p07-fn { margin-top: var(--sp-3); line-height: 1.2; }
+    /* Zone C: Mietenstufe (5 Spalten) | Spielregeln (7 Spalten) */
+    .page[data-page="07"] .p07-c { margin-top: var(--sp-6); }
+    .page[data-page="07"] .p07-ms .facts__text { margin-top: 1.8mm; }
+    .page[data-page="07"] .p07-ms__list { margin-top: 1.5mm; border-top: var(--hair) solid var(--rule); }
+    .page[data-page="07"] .p07-ms__row { display: grid; grid-template-columns: 7.6mm minmax(0, 1fr); column-gap: 1.8mm; align-items: baseline; padding: .5mm 0 .6mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg); }
+    .page[data-page="07"] .p07-ms__row > dt { justify-self: start; padding: .5mm 1mm .4mm; border: var(--hair) solid var(--rule-strong); font: 700 var(--fs-micro)/1 var(--font-display); color: var(--fg); white-space: nowrap; }
+    .page[data-page="07"] .p07-ms__row > dd { -webkit-hyphens: none; hyphens: none; }
+    .page[data-page="07"] .p07-ms__end { margin-top: 1.5mm; }
+    .page[data-page="07"] .p07-rules__list { margin-top: 2mm; }
+    .page[data-page="07"] .p07-rules__list .checklist__item { grid-template-columns: 5.4mm minmax(0, 1fr); padding: .7mm 0 .8mm; font-size: var(--fs-module); line-height: var(--lh-module); }
+    .page[data-page="07"] .p07-rules__list .checklist__item:first-child { border-top: 0; }
+    .page[data-page="07"] .p07-rules__list .checklist__item:last-child { border-bottom: 0; }
+    .page[data-page="07"] .p07-rules__list .mark { width: 3.4mm; height: 3.4mm; margin-top: .15mm; }
+    .page[data-page="07"] .p07-rules__list .mark--yes::after { left: 1.15mm; top: .5mm; }
+    .page[data-page="07"] .p07-rules__list .mark--no::before, .page[data-page="07"] .p07-rules__list .mark--no::after { left: .65mm; top: 1.5mm; }
+    .page[data-page="07"] .p07-rules__list .mark--warn { margin-left: .1mm; }
   </style>
 
-  <div class="l-grid p07-main">
-    <div class="l-span-7 p07-col">
-      <div class="title-block p07-title">
-        <div class="title-block__main">
-          <p class="kicker">Ertragsseite</p>
-          <h1 class="h1 h1--s">Mieten:<br><em>gedeckelt, aber planbar</em></h1>
-        </div>
-      </div>
-      <figure class="module p07-rents" role="group">
-        <figcaption class="fig-head"><h2 class="fig-head__title">Höchstmiete in den Jahren 1–3 der Mietbindung</h2></figcaption>
-        <table class="table table--figures p07-table">
-          <colgroup><col class="p07-w-prog"><col class="p07-w-stufe"><col><col><col></colgroup>
-          <thead><tr class="p07-unitrow"><td colspan="2"></td><th scope="colgroup" colspan="3" class="p07-unit">nettokalt, € je m² und Monat</th></tr>
-            <tr>
-            <th scope="col">Programmteil</th><th scope="col">Mietenstufe</th>
-            <th scope="col" class="num is-hl" aria-label="Gruppe A"><span class="grp-chip grp-chip--l grp-chip--a">A</span></th>
-            <th scope="col" class="num" aria-label="Gruppe B"><span class="grp-chip grp-chip--l grp-chip--b">B</span></th>
-            <th scope="col" class="num" aria-label="Gruppe C"><span class="grp-chip grp-chip--l grp-chip--c">C</span></th>
-          </tr></thead>
-          <tbody>
-            <tr><th scope="row" rowspan="2" class="p07-prog is-group-end"><span class="bs-badge bs-21"><b class="bs-badge__no">2.1</b></span><span class="p07-prog__sep">·</span><span class="bs-badge bs-23"><b class="bs-badge__no">2.3</b></span></th>
-              <td class="p07-stufe">I–III</td><td class="num is-hl">6,50</td><td class="num">7,90</td><td class="num">8,70</td></tr>
-            <tr class="is-group-end"><td class="p07-stufe">IV–VII</td><td class="num is-hl">6,80</td><td class="num">8,20</td><td class="num">9,00</td></tr>
-            <tr><th scope="row" rowspan="2" class="p07-prog is-group-end"><span class="bs-badge bs-25"><b class="bs-badge__no">2.5</b></span><span class="p07-prog__note">(nur A)</span></th>
-              <td class="p07-stufe">I–III</td><td class="num is-hl">6,50</td><td class="num p07-dash">–</td><td class="num p07-dash">–</td></tr>
-            <tr class="is-group-end"><td class="p07-stufe">IV–VII</td><td class="num is-hl">6,80</td><td class="num p07-dash">–</td><td class="num p07-dash">–</td></tr>
-            <tr><th scope="row" rowspan="2" class="p07-prog is-group-end"><span class="bs-badge bs-22"><b class="bs-badge__no">2.2</b></span></th>
-              <td class="p07-stufe">I–III</td><td class="num is-hl">6,80</td><td class="num">8,20</td><td class="num">9,00</td></tr>
-            <tr class="is-group-end"><td class="p07-stufe">IV–VII</td><td class="num is-hl">7,10</td><td class="num">8,50</td><td class="num">9,30</td></tr>
-            <tr class="is-group-end"><th scope="row" class="p07-prog is-group-end"><span class="bs-badge bs-24"><b class="bs-badge__no">2.4</b></span></th>
-              <td class="p07-stufe">alle</td><td class="num is-hl">9,50</td><td class="num">11,50</td><td class="num">12,50</td></tr>
-            <tr class="p07-r26"><th scope="row" class="p07-prog is-group-end"><span class="bs-badge bs-26"><b class="bs-badge__no">2.6</b></span></th>
-              <td colspan="4" class="p07-freeze">alle Mietenstufen: bisherige Miete, 3 Jahre ab Verlängerung eingefroren, auch bei Wiedervermietung</td></tr>
-          </tbody>
-        </table>
-        <p class="source p07-tnote">Ab KfW-EH-40-Niveau bis zu +0,30&nbsp;€ je m² (2.1, 2.3, 2.5); in 2.2 enthalten; für 2.4 mit der NBank klären. Sonderfall 2.3 bei verlängerter Bindung →&nbsp;S.&nbsp;14.</p>
-      </figure>
+  <div class="title-block title-block--split p07-title">
+    <div class="title-block__main">
+      <p class="kicker">Ertragsseite</p>
+      <h1 class="h1 h1--s">Mieten: gedeckelt,<br>aber <em>planbar</em></h1>
     </div>
+    <p class="lead lead--s u-hyphens">Was Sie verlangen dürfen, bestimmen Programmteil, Einkommensgruppe und Mietenstufe. Drei Jahre bleibt die Miete fest, danach darf sie nach klaren Regeln steigen.</p>
+  </div>
 
-    <div class="l-span-5 p07-col">
-      <p class="lead lead--s p07-lead">Was Sie verlangen dürfen, bestimmen Programm&shy;teil, Einkommens&shy;gruppe und Mieten&shy;stufe – drei Jahre fest, danach nach festen Regeln.</p>
-      <aside class="term p07-term">
-        <p class="term__label">Begriff</p>
-        <h3 class="term__word">Mietenstufe</h3>
-        <p class="term__text">Sie bestimmt Höchstmiete und Bemessungsgrenze; ab Stufe IV gilt zudem der Bedarf als gegeben. Zuordnung laut WoGV-Anlage:</p>
-        <p class="term__text p07-index"><span class="p07-grp"><b class="p07-st">VI</b> <span>Buchholz i.&nbsp;d. Nordheide, Neu Wulmstorf</span></span> <span class="p07-grp"><b class="p07-st">V</b> <span>Hannover, Buxtehude, Seevetal, die sieben Inselgemeinden<span class="fn">1</span></span></span> <span class="p07-grp"><b class="p07-st">IV</b> <span>Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg</span></span> <span class="p07-grp"><b class="p07-st">I–III</b> <span>übrige Festlandgemeinden</span></span> <span class="p07-grp p07-idx-note">Stufe&nbsp;VII gibt es in Niedersachsen nicht. Neue Stufen ab 2027 sind erst Entwurf – vor dem Antrag prüfen.</span></p>
+  <div class="l-grid p07-b">
+    <figure class="module l-span-7 p07-rents" role="group" aria-labelledby="p07-rents-h">
+      <figcaption class="fig-head"><h2 class="fig-head__title" id="p07-rents-h">Höchstmiete nettokalt, <span class="p07-unit">€ je m² und Monat, Jahre 1–3</span></h2></figcaption>
+      <table class="table p07-table">
+        <colgroup><col class="w-prog"><col class="w-stufe"><col><col><col></colgroup>
+        <thead><tr>
+          <th scope="col">Programmteil</th><th scope="col">Mietenstufe</th>
+          <th scope="col" class="num"><span class="grp-chip grp-chip--l grp-chip--a">A</span></th>
+          <th scope="col" class="num"><span class="grp-chip grp-chip--l grp-chip--b">B</span></th>
+          <th scope="col" class="num"><span class="grp-chip grp-chip--l grp-chip--c">C</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><th scope="row" rowspan="2" class="p07-prog is-end"><span class="bs-badge bs-21"><b class="bs-badge__no">2.1</b></span><span class="p07-prog__sep">·</span><span class="bs-badge bs-23"><b class="bs-badge__no">2.3</b></span></th>
+            <td class="p07-stufe">I–III</td><td class="num is-a">6,50</td><td class="num">7,90</td><td class="num">8,70</td></tr>
+          <tr class="is-end"><td class="p07-stufe">IV–VII</td><td class="num is-a">6,80</td><td class="num">8,20</td><td class="num">9,00</td></tr>
+          <tr><th scope="row" rowspan="2" class="p07-prog is-end"><span class="bs-badge bs-25"><b class="bs-badge__no">2.5</b></span><span class="p07-prog__note">(nur A)</span></th>
+            <td class="p07-stufe">I–III</td><td class="num is-a">6,50</td><td class="num p07-dash">–</td><td class="num p07-dash">–</td></tr>
+          <tr class="is-end"><td class="p07-stufe">IV–VII</td><td class="num is-a">6,80</td><td class="num p07-dash">–</td><td class="num p07-dash">–</td></tr>
+          <tr><th scope="row" rowspan="2" class="p07-prog is-end"><span class="bs-badge bs-22"><b class="bs-badge__no">2.2</b></span></th>
+            <td class="p07-stufe">I–III</td><td class="num is-a">6,80</td><td class="num">8,20</td><td class="num">9,00</td></tr>
+          <tr class="is-end"><td class="p07-stufe">IV–VII</td><td class="num is-a">7,10</td><td class="num">8,50</td><td class="num">9,30</td></tr>
+          <tr class="is-end"><th scope="row" class="p07-prog"><span class="bs-badge bs-24"><b class="bs-badge__no">2.4</b></span></th>
+            <td class="p07-stufe">alle</td><td class="num is-a">9,50</td><td class="num">11,50</td><td class="num">12,50</td></tr>
+          <tr class="p07-r26"><th scope="row" class="p07-prog"><span class="bs-badge bs-26"><b class="bs-badge__no">2.6</b></span></th>
+            <td class="p07-stufe">alle</td><td colspan="3" class="p07-freeze">bisherige Miete, drei Jahre ab Verlängerung eingefroren, auch bei Wiedervermietung</td></tr>
+        </tbody>
+      </table>
+      <p class="chart__note">Ab EH-40-Niveau bis zu +0,30&nbsp;€ (2.1, 2.3, 2.5); in 2.2 enthalten. 2.3 mit verlängerter Bindung: Jahre 1–3 ab der ersten WBS-Belegung <a class="pageref" href="#seite-14">→&nbsp;S.&nbsp;14</a>.</p>
+    </figure>
+
+    <div class="l-span-5 p07-side">
+      <figure class="chart module p07-path-fig" role="group" aria-labelledby="p07-path-h">
+        <figcaption class="chart__head chart__head--stack">
+          <h2 class="chart__title" id="p07-path-h">Mietpfad und Markt, <span class="p07-unit p07-unit--block">€ je m² nettokalt</span></h2>
+          <p class="chart__sub">Programmteil 2.1 · Gruppe A · Mietenstufe IV–VII</p>
+        </figcaption>
+        <svg class="chart__svg p07-svg" viewBox="0 0 72.08 53.85" width="72.08mm" height="53.85mm" role="img" aria-label="Mietpfad und Markt in Euro je Quadratmeter nettokalt, Programmteil 2.1, Gruppe A, Mietenstufe IV–VII: Jahr 1–3 6,80; ab Jahr 4 höchstens 7,21; ab Jahr 7 höchstens 7,65. Zum Vergleich, nur für Jahr 1–3 eingezeichnet: Angebotsmiete Niedersachsen 2024, Mittel (landesweit) 9,00; Angebotsmiete Neubau Niedersachsen 2024, Median (landesweit) 11,22. Achse ab 6 Euro."><path class="p07-area" d="M8.4 48.25V42.65H29.63V39.78H50.85V36.7H72.08V48.25Z"/><line class="p07-ref" x1="8.4" y1="27.25" x2="29.63" y2="27.25"/><text class="t-val-ink p07-refval" x="9.8" y="26.15">9,00</text><text class="p07-reft" x="31.43" y="19.9">Angebotsmiete</text><text class="p07-reft" x="31.43" y="23.3">Niedersachsen 2024,</text><text class="p07-reft" x="31.43" y="26.7">Mittel (landesweit)</text><line class="p07-ref" x1="8.4" y1="11.71" x2="29.63" y2="11.71"/><text class="t-val-ink p07-refval" x="9.8" y="10.61">11,22</text><text class="p07-reft" x="31.43" y="4.36">Angebotsmiete Neubau</text><text class="p07-reft" x="31.43" y="7.76">Niedersachsen 2024,</text><text class="p07-reft" x="31.43" y="11.16">Median (landesweit)</text><path class="p07-path" d="M8.4 42.65H29.63V39.78H50.85V36.7H72.08"/><text class="t-num p07-step" x="9.8" y="41.15">6,80</text><text class="p07-max" x="31.03" y="33.58">höchstens</text><text class="t-num p07-step" x="31.03" y="38.28">7,21</text><text class="p07-max" x="52.25" y="30.5">höchstens</text><text class="t-num p07-step" x="52.25" y="35.2">7,65</text><line class="ax" x1="8.4" y1="48.25" x2="72.08" y2="48.25"/><line class="p07-yax" x1="8.4" y1="2.75" x2="8.4" y2="48.25"/><line class="tick" x1="7" y1="48.25" x2="8.4" y2="48.25"/><text class="t-ax t-end" x="6.4" y="49.3">6</text><line class="tick" x1="7.6" y1="41.25" x2="8.4" y2="41.25"/><line class="tick" x1="7" y1="34.25" x2="8.4" y2="34.25"/><text class="t-ax t-end" x="6.4" y="35.3">8</text><line class="tick" x1="7.6" y1="27.25" x2="8.4" y2="27.25"/><line class="tick" x1="7" y1="20.25" x2="8.4" y2="20.25"/><text class="t-ax t-end" x="6.4" y="21.3">10</text><line class="tick" x1="7.6" y1="13.25" x2="8.4" y2="13.25"/><line class="tick" x1="7" y1="6.25" x2="8.4" y2="6.25"/><text class="t-ax t-end" x="6.4" y="7.3">12</text><line class="tick" x1="29.63" y1="48.25" x2="29.63" y2="49.85"/><line class="tick" x1="50.85" y1="48.25" x2="50.85" y2="49.85"/><text class="t-b" x="9.8" y="52.85">Jahr 1–3</text><text class="t-b" x="31.03" y="52.85">ab Jahr 4</text><text class="t-b" x="52.25" y="52.85">ab Jahr 7</text></svg>
+        <p class="chart__note">Ab Jahr 4 höchstens +6,15&nbsp;% in drei Jahren, auch bei Wiedervermietung; keine Staffel- oder Indexmiete.</p>
+      </figure>
+      <aside class="callout callout--tipp callout--calc p07-calc">
+        <p class="callout__label"><svg class="icon icon--rechner" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.8" width="14" height="18.4" rx="1"/><path d="M8 6.4h8v3.4H8z"/><path d="M8.4 13.4h.01M12 13.4h.01M15.6 13.4h.01M8.4 17.2h.01M12 17.2h.01M15.6 17.2h.01" stroke-width="2"/></svg>Kalkulationsnotiz</p>
+        <p class="callout__body">Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete: Selbst nach zwei Erhöhungen liegt die Fördermiete mit höchstens 7,65&nbsp;€ unter dem Landes&shy;mittel 2024 von 9,00&nbsp;€.</p>
       </aside>
     </div>
-
-    <div class="l-span-7 p07-col">
-      <figure class="chart chart--s module p07-pathfig" role="group">
-        <p class="stampline"><span class="stamp">Modellrechnung</span><span>– fiktives Beispiel, keine Förderzusage</span></p>
-        <figcaption class="chart__head"><h2 class="chart__title">Mietpfad 2.1 · Gruppe A · Mietenstufe IV–VII</h2></figcaption>
-        <svg class="chart__svg p07-path" viewBox="0 0 99.4 20" width="99.4mm" height="20mm" role="img" aria-label="Modellrechnung Mietpfad, Höchstmiete Gruppe A, Programmteil 2.1, Mietenstufe IV–VII, in Euro je Quadratmeter: Jahr 1 bis 3: 6,80; ab Jahr 4: höchstens 7,21; ab Jahr 7: höchstens 7,65 – jeweils plus 6,15 Prozent, auf volle Cent abgerundet. Achse beginnt bei 6,00 Euro."><text class="t-ax t-end" x="7.2" y="15.65">6,00</text><text class="t-ax" x="0" y="2.4">€ je m²</text><rect class="p07-room" x="38.73" y="8.59" width="30.13" height="2.04"/><rect class="p07-room" x="68.87" y="6.4" width="30.13" height="4.22"/><line class="p07-base" x1="38.73" y1="10.62" x2="99" y2="10.62"/><line class="p07-fix" x1="8.6" y1="10.62" x2="38.73" y2="10.62"/><path class="p07-cap" d="M38.73 10.62V8.59H68.87V6.4H99"/><line class="ax" x1="8.6" y1="14.6" x2="99" y2="14.6"/><line class="tick" x1="8.6" y1="14.6" x2="8.6" y2="16.1"/><line class="tick" x1="18.64" y1="14.6" x2="18.64" y2="15.4"/><line class="tick" x1="28.69" y1="14.6" x2="28.69" y2="15.4"/><line class="tick" x1="38.73" y1="14.6" x2="38.73" y2="16.1"/><line class="tick" x1="48.78" y1="14.6" x2="48.78" y2="15.4"/><line class="tick" x1="58.82" y1="14.6" x2="58.82" y2="15.4"/><line class="tick" x1="68.87" y1="14.6" x2="68.87" y2="16.1"/><line class="tick" x1="78.91" y1="14.6" x2="78.91" y2="15.4"/><line class="tick" x1="88.96" y1="14.6" x2="88.96" y2="15.4"/><line class="tick" x1="99" y1="14.6" x2="99" y2="16.1"/><text class="t-b" x="9.6" y="19">Jahr 1–3</text><text class="t-b" x="39.73" y="19">ab Jahr 4</text><text class="t-b" x="69.87" y="19">ab Jahr 7</text><text class="t-num" x="9.6" y="9.12">6,80</text><text x="39.73" y="7.09"><tspan class="t-acc t-b">max.</tspan> <tspan class="t-num">7,21</tspan></text><text x="69.87" y="4.9"><tspan class="t-acc t-b">max.</tspan> <tspan class="t-num">7,65</tspan></text></svg>
-        <p class="chart__note"><b>Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete.</b> Eigene&nbsp;Berechnung: volle Erhöhung um 6,15&nbsp;% zum frühestmöglichen Zeitpunkt, auf volle Cent abgerundet; nach BGB (§§&nbsp;558–559b) kann weniger zulässig sein. Betriebskosten ausgenommen; gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete.</p>
-      </figure>
-    </div>
-
-    <div class="l-span-5 p07-col p07-col--market">
-      <figure class="chart chart--s module p07-marketfig" role="group">
-        <figcaption class="chart__head"><h2 class="chart__title">Abstand zum Markt, <span class="p07-titunit">€ je m² nettokalt</span></h2></figcaption>
-        <svg class="chart__svg p07-market" viewBox="0 0 69.6 36.1" width="69.6mm" height="36.1mm" role="img" aria-label="Nettokaltmiete in Euro je Quadratmeter: Höchstmiete gefördert (2.1, Gruppe A, Mietenstufe IV–VII) 6,80; Angebotsmiete Niedersachsen 2024, Mittel 9,00; Angebotsmiete Neubau 2024, Median 11,22. Quelle: NBank-Wohnungsmarktbericht 2025."><text x="0" y="2.4"><tspan class="t-b">Höchstmiete gefördert</tspan> (2.1, A, Stufe IV–VII)</text><rect class="c-ink" x="0" y="3.5" width="35.36" height="5"/><text class="t-val-ink" x="36.76" y="7.18">6,80</text><text x="0" y="16"><tspan class="t-b">Angebotsmiete Niedersachsen</tspan> 2024, Mittel</text><rect class="c-old" x="0" y="17.1" width="46.8" height="5"/><text class="t-val-ink" x="48.2" y="20.78">9,00</text><text x="0" y="29.6"><tspan class="t-b">Angebotsmiete Neubau</tspan> 2024, Median</text><rect class="c-old" x="0" y="30.7" width="58.34" height="5"/><text class="t-val-ink" x="59.74" y="34.38">11,22</text><line class="p07-ref" x1="35.36" y1="16.75" x2="35.36" y2="22.45"/><line class="p07-ref" x1="35.36" y1="30.35" x2="35.36" y2="36.05"/><line class="ax" x1="0" y1="3.2" x2="0" y2="8.8"/><line class="ax" x1="0" y1="16.8" x2="0" y2="22.4"/><line class="ax" x1="0" y1="30.4" x2="0" y2="36"/></svg>
-        <p class="chart__note">NBank-Wohnungsmarktbericht 2025, landesweit, nicht nach Mietenstufen. Überkompensation prüft die NBank (<a class="u-nowrap" href="#seite-11">→&nbsp;S.&nbsp;11</a>).</p>
-      </figure>
-    </div>
   </div>
 
-  <div class="l-grid p07-rules">
-    <div class="l-span-3">
-      <h3 class="bullets__title">So vermieten Sie</h3>
-        <ul class="checklist p07-list">
-          <li class="checklist__item"><i class="mark mark--yes"></i><span>nur an Haushalte mit gültigem WBS, auch bei Wiedervermietung</span></li>
-          <li class="checklist__item"><i class="mark mark--yes"></i><span>unbefristeter Mietvertrag mit den Förderbestimmungen zur Mietbindung, bezugsfertige Übergabe</span></li>
-          <li class="checklist__item"><i class="mark mark--yes"></i><span>Stellplätze separat vermietbar, aber nicht an die Wohnung gekoppelt</span></li>
-        </ul>
-    </div>
-    <div class="l-span-5">
-      <h3 class="bullets__title">Nicht zulässig</h3>
-        <ul class="checklist p07-list">
-          <li class="checklist__item"><i class="mark mark--no"></i><span>Zuschläge für Ausstattung, Keller, Energie- und Wärmeeinrichtungen</span></li>
-          <li class="checklist__item"><i class="mark mark--no"></i><span>Entgelte für zwingende <span class="u-nohyphens">Zusatzleistungen</span></span></li>
-          <li class="checklist__item"><i class="mark mark--no"></i><span>Kosten für Bezugsfertigkeit oder laufende Instandhaltung entgegen BGB auf die Mieterseite abwälzen</span></li>
-          <li class="checklist__item"><i class="mark mark--no"></i><span>Zwischenvermietung – Ausnahmen: gewerblich im Einzelfall (Zwischenmietpartei übernimmt alle Pflichten, Sie haften mit); <span lang="en">Housing First</span> <a class="u-nowrap" href="#seite-08">→&nbsp;S.&nbsp;8</a></span></li>
-        </ul>
-    </div>
-    <aside class="callout callout--achtung callout--plain l-span-4 p07-achtung">
-      <p class="callout__label"><svg class="icon icon--achtung" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z"/><path d="M12 7.2v6.2"/><circle cx="12" cy="16.6" r=".95" fill="currentColor" stroke="none"/></svg>Achtung</p>
-      <h3 class="callout__title">Verstöße kosten</h3>
-      <p class="callout__body">Wer schuldhaft ohne WBS oder zu überhöhter Miete vermietet, riskiert für die Dauer des Verstoßes Geldleistungen <b>bis 5&nbsp;€ je m² und Monat</b>, bei Vorsatz oder Fahrlässigkeit ein Bußgeld <b>bis 10.000&nbsp;€</b>. Bei Fehlbelegung kann die zuständige Stelle Kündigung und notfalls Räumung anordnen; die Förderung kann zurückgefordert werden.</p>
-    </aside>
-  </div>
+  <div class="l-grid p07-c">
+    <section class="module l-span-5 p07-ms" aria-labelledby="p07-ms-h">
+      <h2 class="chart__title" id="p07-ms-h">Mietenstufe</h2>
+      <p class="facts__text">Die Mietenstufe Ihrer Gemeinde bestimmt Höchstmiete und Bemessungsgrenze.</p>
+      <dl class="p07-ms__list">
+        <div class="p07-ms__row"><dt>VI</dt><dd>Buchholz i.&nbsp;d. Nordheide, Neu Wulmstorf</dd></div>
+        <div class="p07-ms__row"><dt>V</dt><dd>Hannover, Buxtehude, Seevetal, die sieben Inselgemeinden</dd></div>
+        <div class="p07-ms__row"><dt>IV</dt><dd>Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg</dd></div>
+        <div class="p07-ms__row"><dt>I–III</dt><dd>übrige Festlandgemeinden</dd></div>
+      </dl>
+      <p class="facts__text p07-ms__end">Stufe VII gibt es in Niedersachsen nicht. Zuordnung nach Wohngeldrecht seit 2023; neue Stufen sind ab 2027 geplant <a class="pageref" href="#seite-15">→&nbsp;S.&nbsp;15</a>.</p>
+    </section>
 
-  <ol class="footnotes p07-fn l-bottom">
-    <li class="footnotes__src"><b>Fundstellen:</b> RL Nr.&nbsp;1.2, 5.2.1, 5.3.2.2, 5.4.4–5.4.5, 6.4.1, 7.4.3, 8.3.1, 8.4, 9.4.1, 10.4.2, 11.6–11.10; §§&nbsp;7, 9, 14&nbsp;NWoFG; VV NWoFG Nr.&nbsp;6; WoGV-Anlage; NBank-Wohnungsmarktbericht 2025.</li>
-    <li>Inseln (Mietenstufe V): Welche Stufe in 2.2 und 2.3 dort gilt, mit der NBank klären; 2.4 mit eigenen Werten <a class="u-nowrap" href="#seite-13">→&nbsp;S.&nbsp;13</a>.</li>
-  </ol>
+    <section class="module l-span-7 p07-rules" aria-labelledby="p07-rules-h">
+      <h2 class="chart__title" id="p07-rules-h">Spielregeln</h2>
+      <ul class="checklist p07-rules__list">
+        <li class="checklist__item"><i class="mark mark--yes" aria-hidden="true"></i><span>nur an Haushalte mit WBS, auch bei Wiedervermietung</span></li>
+        <li class="checklist__item"><i class="mark mark--yes" aria-hidden="true"></i><span>unbefristeter Mietvertrag, der die Förderbestimmungen zur Mietbindung wiedergibt; Wohnung bezugsfertig übergeben</span></li>
+        <li class="checklist__item"><i class="mark mark--yes" aria-hidden="true"></i><span>Stellplätze getrennt vermietbar, nicht an die Wohnung gekoppelt</span></li>
+        <li class="checklist__item"><i class="mark mark--no" aria-hidden="true"></i><span>keine Zuschläge (Ausstattung, Keller, Energie- und Wärmeeinrichtungen); Zusatzleistungen nur freiwillig</span></li>
+        <li class="checklist__item"><i class="mark mark--no" aria-hidden="true"></i><span>keine Abwälzung von Kosten für Bezugsfertigkeit oder Instandhaltung über das BGB-Mietrecht hinaus</span></li>
+        <li class="checklist__item"><i class="mark mark--no" aria-hidden="true"></i><span>keine Zwischenvermietung (Ausnahmen, z.&nbsp;B. <span lang="en">Housing</span> <span class="u-nowrap"><span lang="en">First</span> <a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a>)</span></span></li>
+        <li class="checklist__item"><i class="mark mark--warn" aria-hidden="true"></i><span>Verstöße (ohne WBS, überhöhte Miete) kosten Geldleistungen bis 5&nbsp;€ je&nbsp;m² und Monat und Bußgeld bis 10.000&nbsp;€; bei Vermietung ohne WBS drohen Kündigung und Räumung, die Förderung kann zurückgefordert werden.</span></li>
+      </ul>
+    </section>
+  </div>
 
   <footer class="page__foot" aria-hidden="true">
     <span class="page__folio">7</span>

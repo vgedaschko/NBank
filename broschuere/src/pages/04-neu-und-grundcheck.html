@@ -1,163 +1,140 @@
 <section class="page" data-page="04" id="seite-04">
   <style>
-    /* Seite 04 · Neu und Grundcheck (seitenspezifisch, Farben nur über Tokens) */
+    /* Seite 04 · Neu und Grundcheck · Planwerk. Dominant: Vorher/Nachher-Tabelle 2.1 (obere Hälfte);
+       darunter der Grundcheck als Ankreuzliste mit Programmteil-Matrix. Farben nur über Tokens.
+       Raster: Tabelle 3 + 4 + 5 Spalten (Zeilenkopf · bisher · neu), Chipspalte = Spalten 10–12. */
 
-    /* Titel + Lesehinweis zur Tabelle ------------------------------------------- */
-    /* einzeilige H1 links, Lesehinweis rechts auf der Grundlinie: Flex statt 12er-Raster, weil H1 (≈ 71 mm) und Hinweis (≈ 89 mm) zusammen in 174 mm passen, aber in keine Spaltenteilung */
-    .page[data-page="04"] .p04-title { display: flex; justify-content: space-between; align-items: flex-end; column-gap: var(--gutter); }
-    .page[data-page="04"] .p04-title > .title-block__main { flex: none; }
-    .page[data-page="04"] .p04-title > .p04-hint { flex: none; text-align: right; white-space: nowrap; padding-bottom: .9mm; font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-2); }
-    .page[data-page="04"] .p04-hint .badge { margin-right: 1.4mm; padding: .6mm 1.4mm .5mm; vertical-align: .2mm; }
+    /* Titelblock wie S. 5 (H1 7 Spalten, dreizeilig) → gemeinsame Horizontlinie der Doppelseite; rechts bewusst Luft */
 
-    /* Fußnotenziffer am 18-pt-Datum auf Versalhöhe (Schrift und Schnitt kommen aus der globalen .fn) */
-    .page[data-page="04"] .p04-date .fn { vertical-align: .85em; margin-left: .4mm; }
-
-    /* Vergleichstabelle bisher → neu ---------------------------------------- */
-    .page[data-page="04"] .p04-cmp { margin-top: var(--sp-5); }
-    .page[data-page="04"] .p04-table { table-layout: fixed; font-size: var(--fs-module); line-height: var(--lh-module); }
-    .page[data-page="04"] .p04-table .p04-c-label { width: 36mm; }
-    .page[data-page="04"] .p04-table .p04-c-old { width: 61.5mm; }
-    .page[data-page="04"] .p04-table .p04-c-arrow { width: 5mm; }
-    .page[data-page="04"] .p04-table thead th { vertical-align: bottom; text-transform: none; letter-spacing: 0; padding-bottom: 2mm; }
-    .page[data-page="04"] .p04-table thead .p04-corner { border-left: 1.2mm solid var(--bs); padding-left: 2.4mm; padding-bottom: 1.3mm; }
-    .page[data-page="04"] .p04-corner .fig-head__title { display: block; font-size: 11pt; line-height: 1.16; color: var(--fg); }
-    .page[data-page="04"] .p04-corner .fig-head__title b { font-weight: 560; color: var(--bs); }
-    .page[data-page="04"] .p04-when { display: block; font: 650 var(--fs-micro)/1.2 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; }
-    .page[data-page="04"] .p04-date { display: block; margin-top: .8mm; font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 400; font-size: 18pt; line-height: 1; letter-spacing: -.015em; font-variant-numeric: lining-nums tabular-nums; }
-    .page[data-page="04"] .p04-table thead .col-old { color: var(--fg-3); }
-    .page[data-page="04"] .p04-table thead .col-new { color: var(--accent-text); }
-    .page[data-page="04"] .p04-table tbody th { font: 650 var(--fs-small)/1.3 var(--font-text); color: var(--fg); }
-    .page[data-page="04"] .p04-table tbody th small { display: block; margin-top: .4mm; font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-2); }
-    .page[data-page="04"] .p04-table tbody th small b { font-weight: 650; color: var(--fg); }
-    .page[data-page="04"] .p04-table td.col-old { color: var(--fg-2); }
-    .page[data-page="04"] .p04-table td.col-new { color: var(--fg); font-weight: 500; }
-    .page[data-page="04"] .p04-table tbody td, .page[data-page="04"] .p04-table tbody th { padding-top: 1.5mm; padding-bottom: 1.6mm; }
-    .page[data-page="04"] .p04-fig { font-family: var(--font-display); font-variation-settings: "opsz" 36, "SOFT" 30, "WONK" 0; font-weight: 480; font-size: 10.5pt; line-height: 1; letter-spacing: -.005em; white-space: nowrap; }
+    /* Vergleichstabelle ------------------------------------------------------- */
+    .page[data-page="04"] .p04-cmp { margin-top: var(--sp-8); }
+    .page[data-page="04"] .p04-table { table-layout: fixed; margin-top: 3.6mm; font-size: var(--fs-body); line-height: 1.42; }
+    .page[data-page="04"] .p04-c-label { width: calc(3 * var(--col) + 3 * var(--gutter)); }
+    .page[data-page="04"] .p04-c-old { width: calc(4 * var(--col) + 3 * var(--gutter)); }
+    .page[data-page="04"] .p04-c-arrow { width: var(--gutter); }
+    .page[data-page="04"] .p04-table th, .page[data-page="04"] .p04-table td { padding-top: 2.2mm; padding-bottom: 2.4mm; }
+    .page[data-page="04"] .p04-table thead th, .page[data-page="04"] .p04-table thead td { padding-top: 2.4mm; padding-bottom: 2.2mm; vertical-align: bottom; text-transform: none; letter-spacing: 0; }
+    .page[data-page="04"] .p04-table .col-new { padding-left: 3mm; padding-right: 3mm; }
+    .page[data-page="04"] .p04-when { display: block; font: 700 var(--fs-micro)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
+    .page[data-page="04"] .p04-date { display: block; margin-top: 1mm; font: 800 var(--fs-fig-s)/1 var(--font-display); letter-spacing: -.01em; font-variant-numeric: lining-nums tabular-nums; color: var(--fg-3); }
+    .page[data-page="04"] thead .col-new .p04-when { color: var(--fg); }
+    .page[data-page="04"] thead .col-new .p04-date { color: var(--accent-text); }
+    .page[data-page="04"] .p04-table tbody th { font: 700 var(--fs-small)/1.32 var(--font-display); color: var(--fg); }
+    .page[data-page="04"] .p04-table tbody th small { display: block; margin-top: .6mm; font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-3); }
+    .page[data-page="04"] .p04-table td.col-old { color: var(--fg-3); }
+    .page[data-page="04"] .p04-fig { font: 700 1.04em/1 var(--font-display); letter-spacing: -.005em; font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
     .page[data-page="04"] .col-old .p04-fig { color: var(--fg-2); }
-    .page[data-page="04"] .col-new .p04-fig { color: var(--accent-text); }
-    .page[data-page="04"] .p04-table .table__arrow { padding-left: 0; padding-right: 0 !important; vertical-align: top; }
-    .page[data-page="04"] .p04-table tbody .table__arrow { padding-top: 1.3mm; }
-    .page[data-page="04"] .p04-table .table__arrow { font-size: 12pt; line-height: 1; font-weight: 400; }
-    .page[data-page="04"] .p04-table thead .table__arrow { vertical-align: bottom; padding-bottom: 2.4mm; font-size: 15pt; }
+    .page[data-page="04"] .col-new .p04-fig { color: var(--fg); }
+    .page[data-page="04"] .p04-table .table__arrow { padding-left: 0; padding-right: 0 !important; color: var(--fg-3); font: 400 11pt/1.2 var(--font-text); }
+    .page[data-page="04"] .p04-table thead .table__arrow { padding-bottom: 2.6mm; }
+    .page[data-page="04"] .p04-table td.col-new { font-weight: 400; color: var(--fg); }   /* .table--compare setzt die neue Spalte fett – hier nur die Kennwerte */
+    /* Lesehinweis in der leeren Kopfzelle: dort, wo das Auge in die Tabelle einsteigt */
+    .page[data-page="04"] .p04-key { padding-right: 4mm; font: 500 var(--fs-micro)/1.38 var(--font-text); color: var(--fg-3); text-wrap: balance; }
+    /* Programmteil-Chip im Tabellentitel (Text „2.1“ bleibt Teil des Titels) */
+    .page[data-page="04"] .p04-chip { vertical-align: .3mm; }
+    .page[data-page="04"] .p04-chip .bs-badge__no { padding: .9mm 1.5mm .8mm; font-size: var(--fs-label-accent); letter-spacing: .02em; }
 
-    /* Stichtag unter der Tabelle: Frist-Band über die volle Satzspiegelbreite (Label im Textfluss) */
-    .page[data-page="04"] .p04-frist { margin-top: var(--sp-2); }
-    .page[data-page="04"] .p04-frist .callout__body b { color: var(--signal-text); }
-    .page[data-page="04"] .p04-cmp .caveat { margin-top: 1.6mm; }
-
-    /* Grundcheck ----------------------------------------------------------- */
-    .page[data-page="04"] .p04-check { margin-top: var(--sp-4); }
-    .page[data-page="04"] .p04-check__head { display: grid; grid-template-columns: minmax(0, 1fr) calc(5 * var(--col) + 4 * var(--gutter)); column-gap: var(--gutter); align-items: end; }
-    .page[data-page="04"] .p04-nein { display: grid; grid-template-columns: 3.8mm minmax(0, 1fr); column-gap: 2mm; padding: 0; background: none; border-top: 0; }
-    .page[data-page="04"] .p04-nein .mark { margin-top: .5mm; }
-    /* Titel und Satz als Run-in (zwei Zeilen statt drei): die H2 steht einzeilig, der Kopf wird ~6 mm flacher */
-    .page[data-page="04"] .p04-nein__text { font-size: var(--fs-module); line-height: 4.4mm; }
-    .page[data-page="04"] .p04-nein .callout__title { display: inline; margin: 0 .8mm 0 0; font-size: 11pt; line-height: inherit; }
-    .page[data-page="04"] .p04-nein .callout__body { display: inline; margin: 0; color: var(--fg-2); }
-    .page[data-page="04"] .p04-list { margin-top: .4mm; }
-    .page[data-page="04"] .p04-list .checklist__item { padding: 1.3mm 0 1.4mm; }
-    /* Baustein-Matrix steht im DOM direkt nach der Prüffrage -> rechts oben in jeder Zeile, alle sechs Matrizen bilden eine bündige Spalte; Höhe < Zeilenhöhe (4,38 mm), sonst wird Zeile 2 mit eingezogen.
-       Float statt fester Rasterspalte: eine 40-mm-Spalte über alle Zeilen kostet vier Textzeilen (+17 mm, Seite läuft über).
-       Chips 5,6 mm, Fuge 0,7 mm, Tabellenziffern: 4,5 mm Ziffernbreite, 0,55 mm Luft je Seite -> Nachbarn verschmelzen nicht. */
-    .page[data-page="04"] .p04-bs { float: right; display: flex; gap: .7mm; margin: .15mm 0 0 3mm; }
-    .page[data-page="04"] .p04-bs > i { display: block; width: 5.6mm; height: 4.1mm; font: 650 var(--fs-micro)/4.1mm var(--font-text); font-style: normal; text-align: center; letter-spacing: -.02em; font-variant-numeric: tabular-nums lining-nums; background: var(--bs); color: var(--on-bs); }
-    /* Nicht zutreffende Programmteile: Nummer als Geisterschrift ohne Kontur, damit die Ankreuzkästchen links die einzigen leeren Quadrate bleiben und jede Spalte in jeder Zeile benannt ist */
+    /* Grundcheck ------------------------------------------------------------ */
+    .page[data-page="04"] .p04-check { margin-top: calc(var(--sp-8) + var(--sp-1)); }   /* Oberkante = Kachel 2.3 auf S. 5 (Horizontlinie) */
+    .page[data-page="04"] .p04-check__head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: end; padding-bottom: 2.4mm; }
+    .page[data-page="04"] .p04-check__head .h2 { grid-column: 1 / span 9; }
+    .page[data-page="04"] .p04-legend { grid-column: 10 / span 3; padding-bottom: .4mm; }
+    .page[data-page="04"] .p04-list .checklist__item { grid-template-columns: 7mm minmax(0, 1fr) calc(3 * var(--col) + 2 * var(--gutter)); column-gap: 0; padding: 2.2mm 0 2.4mm; font-size: var(--fs-small); line-height: 1.42; }
+    .page[data-page="04"] .p04-list .checklist__box { width: 4.2mm; height: 4.2mm; margin-top: 0; border-color: var(--fg-2); }
+    .page[data-page="04"] .p04-list p { padding-right: var(--gutter); }
+    .page[data-page="04"] .p04-list b { color: var(--fg); }
+    .page[data-page="04"] .p04-list .pageref { padding-top: .4mm; padding-bottom: .3mm; }
+    /* Programmteil-Matrix: feste Spaltenfolge 2.1–2.6; zutreffend = Programmfarbe, sonst Geisterziffer ohne Kontur */
+    .page[data-page="04"] .p04-bs { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); column-gap: .9mm; align-self: start; }
+    .page[data-page="04"] .p04-bs > i { display: block; height: 4.6mm; font: 800 var(--fs-micro)/4.6mm var(--font-display); font-style: normal; text-align: center; letter-spacing: .01em; font-variant-numeric: tabular-nums lining-nums; background: var(--bs); color: var(--on-bs); }
     .page[data-page="04"] .p04-bs > i.is-off { background: none; color: var(--rule); }
-    /* Spaltenlegende über der Chip-Matrix: bündig mit deren linker Kante (6 × 5,6 mm + 5 × 0,7 mm = 37,1 mm) */
-    .page[data-page="04"] .p04-legend { width: 37.1mm; margin: 2.4mm 0 0 auto; line-height: 1; }   /* wie ein Spaltenkopf: dicht über der Linie, mit Abstand zum Callout */
 
-    /* Fußnoten */
+    /* Schlusssatz: einfache Textzeile, kein Kasten */
+    .page[data-page="04"] .p04-close { margin-top: var(--sp-5); padding-left: 7mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
+    .page[data-page="04"] .p04-close b { font: 800 var(--fs-body)/1 var(--font-display); letter-spacing: .02em; text-transform: uppercase; color: var(--fg); margin-right: 1mm; }
   </style>
 
-  <div class="title-block p04-title">
+  <div class="title-block title-block--split p04-title">
     <div class="title-block__main">
-      <p class="kicker">Orientierung</p>
-      <h1 class="h1 h1--s">Was 2026 <em>neu ist</em></h1>
+      <p class="kicker">Neu und Grundcheck</p>
+      <h1 class="h1">Was neu ist&nbsp;– und ob Ihr Projekt <em>passt</em></h1>
     </div>
-    <p class="p04-hint u-nohyphens"><span class="badge">Nicht 1:1 vergleichbar</span>Paarwerte: Mietenstufe I–III/IV–VII</p>
   </div>
 
-  <figure class="module p04-cmp" role="group">
-    <table class="table table--compare p04-table" aria-labelledby="p04-cmp-cap">
+  <figure class="module p04-cmp" role="group" aria-labelledby="p04-cap">
+    <figcaption class="chart__head"><h2 class="chart__title" id="p04-cap">Programmteil <span class="bs-badge bs-21 p04-chip"><b class="bs-badge__no">2.1</b></span> im Vergleich&nbsp;· Höchstsätze</h2></figcaption>
+    <table class="table table--compare p04-table">
       <colgroup><col class="p04-c-label"><col class="p04-c-old"><col class="p04-c-arrow"><col class="p04-c-new"></colgroup>
       <thead>
-        <tr class="bs-21">
-          <th scope="col" class="p04-corner"><span class="fig-head__title" id="p04-cmp-cap"><span class="u-nowrap">Programmteil <b>2.1</b></span> im Vergleich</span></th>
-          <th scope="col" class="col-old"><span class="p04-when">bis</span> <span class="p04-date">30.06.2026<span class="fn">1</span></span></th>
+        <tr>
+          <td class="p04-corner"><p class="p04-key">Paarwerte: Mietenstufe I–III/IV–VII&nbsp;· Bemessung nicht 1:1 vergleichbar</p></td>
+          <th scope="col" class="col-old"><span class="p04-when">bis</span> <span class="p04-date">30.06.2026</span></th>
           <th class="table__arrow" aria-hidden="true">→</th>
           <th scope="col" class="col-new is-hl"><span class="p04-when">seit</span> <span class="p04-date">01.07.2026</span></th>
         </tr>
       </thead>
       <tbody>
-        <tr class="bs-row bs-21">
+        <tr>
           <th scope="row">Instrument</th>
-          <td class="col-old">zinsloses Darlehen bis zu <b class="p04-fig">75&nbsp;%</b> der Gesamtkosten; Tilgungsnachlass 30&nbsp;% des Darlehens (nur geringe Einkommen)</td>
+          <td class="col-old">zinsloses Darlehen, <b class="p04-fig">75&nbsp;%</b> der Gesamtkosten; Tilgungsnachlass <b class="p04-fig">30&nbsp;%</b> des Darlehens nur bei geringen Einkommen</td>
           <td class="table__arrow" aria-hidden="true">→</td>
-          <td class="col-new is-hl">Darlehen + Zuschuss bis zu <b class="p04-fig">80&nbsp;%</b> der zuwendungsfähigen Kosten</td>
+          <td class="col-new is-hl">Darlehen + Zuschuss statt Tilgungsnachlass; zusammen <b class="p04-fig">80&nbsp;%</b> der zuwendungsfähigen Kosten (Gruppe A: je <b class="p04-fig">40&nbsp;%</b>)</td>
         </tr>
-        <tr class="bs-row bs-21">
-          <th scope="row">Bemessung je m²</th>
-          <td class="col-old"><b class="p04-fig">5.330/5.550&nbsp;€</b> Gesamtkosten (Neubau inkl. Grundstück)</td>
+        <tr>
+          <th scope="row">Bemessung je m² Wohnfläche</th>
+          <td class="col-old"><b class="p04-fig">5.330/5.550&nbsp;€</b> Gesamtkosten, Neubau inkl. Grundstück</td>
           <td class="table__arrow" aria-hidden="true">→</td>
-          <td class="col-new is-hl"><b class="p04-fig">4.800/5.000&nbsp;€</b> Herstellungskosten (Ausgangswerte ab 01.07.2026, Fortschreibung <a class="u-nowrap" href="#seite-08">→&nbsp;S.&nbsp;8</a>), Grundstück separat bis Bodenrichtwert</td>
+          <td class="col-new is-hl">Ausgangswerte <b class="p04-fig">4.800/5.000&nbsp;€</b> Herstellungskosten; Grundstück separat bis Bodenrichtwert</td>
         </tr>
-        <tr class="bs-row bs-21">
-          <th scope="row">Mieterkreis und Höchstmiete <small>(nettokalt je m², <span class="u-nowrap">Jahre 1–3)</span></small></th>
-          <td class="col-old">geringe, mittlere Einkommen;<br><b class="p04-fig">6,30/6,60&nbsp;€</b> (geringe)</td>
+        <tr>
+          <th scope="row">Mieterkreis und Höchstmiete <small>Jahre 1–3 (nettokalt je m²)</small></th>
+          <td class="col-old">geringe und mittlere Einkommen; <b class="p04-fig">6,30/6,60&nbsp;€</b> (geringe)</td>
           <td class="table__arrow" aria-hidden="true">→</td>
-          <td class="col-new is-hl">A, B, C (B/C nur mit NBank-Zulassung);<br>A:&nbsp;<b class="p04-fig">6,50/6,80&nbsp;€</b></td>
+          <td class="col-new is-hl">Gruppen A, B, C (B/C nur mit <span class="u-nohyphens">Zulassung</span>); A:&nbsp;<b class="p04-fig">6,50/6,80&nbsp;€</b></td>
         </tr>
       </tbody>
     </table>
-    <aside class="callout callout--frist callout--s callout--inline p04-frist">
-      <p class="callout__label"><svg class="icon icon--frist" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.8" r="8.2"/><path d="M12 8.2v4.8l3.2 2"/><path d="M9.2 2.6h5.6"/></svg>Stichtag</p>
-      <p class="callout__body">Bisheriges Recht nur noch für Modernisierungsanträge mit Eingang bei der Wohnraumförderstelle bis <b class="u-nowrap">31.12.2026</b> und verbindlicher Wahl im Antrag (<a class="u-nowrap" href="#seite-15">→&nbsp;S.&nbsp;15</a>). Neubau, Ersterwerb: nur RL&nbsp;2026.</p>
-    </aside>
-    <p class="caveat">Höchstwerte&nbsp;· Überkompensationsprüfung&nbsp;· kein&nbsp;Rechtsanspruch <a href="#seite-02">→&nbsp;S.&nbsp;2</a></p>
   </figure>
 
-  <section class="module p04-check" aria-labelledby="p04-check-title">
+  <section class="module p04-check" aria-labelledby="p04-check-h">
     <div class="p04-check__head">
-      <h2 class="h2" id="p04-check-title">Grundcheck: Passt Ihr Projekt?</h2>
-      <aside class="callout callout--achtung p04-nein">
-        <i class="mark mark--warn" aria-hidden="true"></i>
-        <div class="p04-nein__text"><h3 class="callout__title">Einmal Nein?</h3> <p class="callout__body">Erst die Wohnraumförderstelle fragen; es gibt Ausnahmen.</p></div>
-      </aside>
+      <h2 class="h2" id="p04-check-h">Grundcheck in sechs Fragen</h2>
+      <p class="label p04-legend">gilt für</p>
     </div>
-
-    <p class="label p04-legend" aria-hidden="true">gilt für</p>
-    <ul class="checklist checklist--open-end p04-list">
+    <ul class="checklist p04-list">
       <li class="checklist__item">
-        <span class="checklist__box"></span>
-        <p class="p04-item__text"><b>Antragsberechtigt?</b><span class="p04-bs" role="img" aria-label="gilt für: alle"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="bs-25">2.5</i><i class="bs-26">2.6</i></span> Natürliche und juristische Personen (auch Kommunen), Genossenschaften und andere Personenvereinigungen mit eigener Rechtspersönlichkeit, rechtsfähige Baugemeinschaften (Ersterwerb: Käuferseite); Gesamtfinanzierung gesichert (Miete deckt Kosten dauerhaft).</p>
+        <span class="checklist__box" aria-hidden="true"></span>
+        <p><b>Antragsberechtigt und solide finanziert?</b> Privatpersonen, Unternehmen mit eigener Rechtspersönlichkeit, Genossenschaften, Kommunen – und die erzielbare Miete muss Finanzierung und Bewirtschaftung dauerhaft tragen <a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;11</a>.</p>
+        <span class="p04-bs" role="img" aria-label="gilt für alle Programmteile"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="bs-25">2.5</i><i class="bs-26">2.6</i></span>
       </li>
       <li class="checklist__item">
-        <span class="checklist__box"></span>
-        <p class="p04-item__text"><b>Noch nicht begonnen?</b><span class="p04-bs" role="img" aria-label="gilt für: alle"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="bs-25">2.5</i><i class="bs-26">2.6</i></span> Vor der Bewilligung kein Baubeginn<span class="fn">1</span>, keine Liefer-, <span class="u-nohyphens">Leistungs-</span>, Kauf- oder Werkverträge; bei 2.5 kein Mietvertrag, keine Überlassung. Erlaubt: Grundstückskauf, Planung bis Leistungsphase&nbsp;6 HOAI. Genau prüfen: Rücktrittsklauseln, vorzeitiger Beginn <a class="u-nowrap" href="#seite-19">→&nbsp;S.&nbsp;19</a>.</p>
+        <span class="checklist__box" aria-hidden="true"></span>
+        <p><b>Noch nicht begonnen?</b> Vor der Bewilligung kein Spatenstich und kein Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Grundstück und Planung bis Leistungsphase&nbsp;6 HOAI); bei 2.5 weder vermieten noch überlassen <a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;19</a>.</p>
+        <span class="p04-bs" role="img" aria-label="gilt für alle Programmteile"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="bs-25">2.5</i><i class="bs-26">2.6</i></span>
       </li>
       <li class="checklist__item">
-        <span class="checklist__box"></span>
-        <p class="p04-item__text"><b>Mehrfamilienhaus ab drei Wohnungen?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1–2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span> Ausnahmen: gemeinschaftliche Wohnformen, im Einzelfall Reihen-/Doppelhaus. 2.1/2.2/2.4: je neuem Gebäude mind. 2 gebundene Wohnungen, keine Eigentumswohnungen zur Vermietung; 2.3: fertiggestellt vor 08.12.2004.</p>
+        <span class="checklist__box" aria-hidden="true"></span>
+        <p><b>Mehrfamilienhaus ab drei Wohnungen?</b> Bei Modernisierung: fertiggestellt vor dem 08.12.2004.</p>
+        <span class="p04-bs" role="img" aria-label="gilt für 2.1 bis 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span>
       </li>
       <li class="checklist__item">
-        <span class="checklist__box"></span>
-        <p class="p04-item__text"><b>Bedarf am Standort?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1, 2.2, 2.6"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="is-off">2.4</i><i class="is-off">2.5</i><i class="bs-26">2.6</i></span> In sechs Gebietsarten gegeben, sonst <span class="u-nowrap">NBank-Karte prüfen <a href="#seite-18">→&nbsp;S.&nbsp;18</a>.</span></p>
+        <span class="checklist__box" aria-hidden="true"></span>
+        <p><b>Bedarf am Standort?</b> In sechs Gebietsarten gilt er als gegeben, überall sonst wird er vermutet <a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>.</p>
+        <span class="p04-bs" role="img" aria-label="gilt für 2.1, 2.2 und 2.6"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="is-off">2.4</i><i class="is-off">2.5</i><i class="bs-26">2.6</i></span>
       </li>
       <li class="checklist__item">
-        <span class="checklist__box"></span>
-        <p class="p04-item__text"><b>Eigenmittel?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1–2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span> Mind. 20&nbsp;% der zuwendungsfähigen Kosten (Inseln: 10&nbsp;% der zuwendungsfähigen Herstellungskosten; Modellprojekte, <span lang="en">Housing First</span>: ggf. weniger), davon soll mind. die Hälfte Geld oder lastenfreies Grundstück sein (2.3: Geld).</p>
+        <span class="checklist__box" aria-hidden="true"></span>
+        <p><b>Mindestens 20&nbsp;% Eigenmittel?</b> Gerechnet auf die zuwendungsfähigen Kosten; auf den Inseln reichen 10&nbsp;% der zuwendungsfähigen Herstellungskosten.</p>
+        <span class="p04-bs" role="img" aria-label="gilt für 2.1 bis 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span>
       </li>
       <li class="checklist__item">
-        <span class="checklist__box"></span>
-        <p class="p04-item__text"><b>Grundstück gesichert?</b><span class="p04-bs" role="img" aria-label="gilt für: 2.1, 2.2, 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span> Eigentum oder Erbbaurecht (mind. 60&nbsp;Jahre Restlaufzeit); gesicherter Erwerb genügt.</p>
+        <span class="checklist__box" aria-hidden="true"></span>
+        <p><b>Grundstück gesichert?</b> Eigentum, Erbbaurecht oder gesicherter Erwerb.</p>
+        <span class="p04-bs" role="img" aria-label="gilt für 2.1, 2.2 und 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span>
       </li>
     </ul>
+    <p class="p04-close"><b>Einmal Nein?</b> Sprechen Sie zuerst mit der Wohnraumförderstelle – es gibt Ausnahmen <a class="pageref" href="#seite-21">→&nbsp;S.&nbsp;21</a>.</p>
   </section>
-
-  <ol class="footnotes p04-fn l-bottom">
-    <li class="footnotes__src"><b>Fundstellen:</b> RL Nr. 1.5, 1.6, 2.3, 3, 4.1, 4.2, 5.1.4, 5.2.1–5.2.6, 5.3.2, 5.3.3, 5.4.4, 5.5.3, 5.5.6, 6.2, 7.2.2, 8.2.1, 8.2.2, 9.2, 10.2, 12.3.2, 13.2, 13.3; §&nbsp;4&nbsp;DVO-NWoFG</li>
-    <li>Bisher: NBank-Produktinformation „Allgemeine Mietwohnraumförderung“ (Stand 01.04.2026). Baubeginn als Vorhabenbeginn: NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (Stand 27.07.2026). Tilgung und Auszahlungsraten <a class="u-nowrap" href="#seite-09">→&nbsp;S.&nbsp;9</a>.</li>
-  </ol>
 
   <footer class="page__foot" aria-hidden="true">
     <span class="page__folio">4</span>

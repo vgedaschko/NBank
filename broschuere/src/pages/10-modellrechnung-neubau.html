@@ -1,202 +1,129 @@
 <section class="page page--accent bs-21" data-page="10" id="seite-10">
   <style>
-    /* ===== Seite 10 · Modellrechnung (Mittel-Doppelseite, links) =====
-       Raster: obere Hälfte 8 + 4 (Titel | Stempel + Zitat, Rechenweg | Annahmen), untere Hälfte 5 + 7
-       (Kennzahlen | Haus, Sensitivität: Kopf | Wasserfall). Hauptelement ist das Finanzierungshaus (Reprise des Titels).
-       Kosten der Förderung stehen im Vergleich S. 11 (Spalte A) – hier keine eigene Kostentabelle. */
-    .page[data-page="10"] { --p10-lh: 1.23; }
-    .page[data-page="10"] .p10-row { --row-gap: 0; align-items: stretch; }
-
-    /* 1 · Titelzone: Kicker, Titel, Vorspann | Stempelzeile (globale .stampline) + Motto-Zitat */
-    .page[data-page="10"] .p10-head .h1 { margin-top: 2.6mm; }
-    .page[data-page="10"] .p10-head .lead { margin-top: 2.6mm; font-size: 9.6pt; line-height: 1.38; }
-    .page[data-page="10"] .p10-aside { display: flex; flex-direction: column; }
-    .page[data-page="10"] .p10-quote { margin-top: auto; padding: 2.4mm 0 0 7.4mm; }
-    .page[data-page="10"] .p10-quote::before { font-size: 40pt; top: -4.4mm; left: -.4mm; }   /* Glyphe hängt unter der 1. Grundlinie */
-    .page[data-page="10"] .p10-quote .quote__text { font-size: 10.5pt; line-height: 1.3; }
-    .page[data-page="10"] .p10-quote .quote__by { margin: 1.8mm 0 0 -7.4mm; gap: 0; line-height: 1.25; letter-spacing: -.004em; }   /* Zeile unter dem Zitat, bündig mit dem Stempel */
-    .page[data-page="10"] .p10-quote .quote__name { font-size: var(--fs-micro); line-height: 1.25; }
-
-    /* Rechenblatt: gemeinsamer Kopf für Liste und Tabelle (wie .bullets__title) */
-    .page[data-page="10"] .bullets__title { padding: 2.4mm 0 1.5mm; }
-    .page[data-page="10"] .p10-ann { margin-top: 1.6mm; }
-    .page[data-page="10"] .p10-ann > li { padding-left: 3.2mm; font-size: var(--fs-module); line-height: 1.3; }
-    .page[data-page="10"] .p10-ann > li + li { margin-top: .8mm; }
-    .page[data-page="10"] .p10-ann > li::before { top: .48em; }
-    .page[data-page="10"] .p10-sheet { table-layout: fixed; }
-    .page[data-page="10"] .p10-sheet thead th { padding-top: 2.4mm; padding-bottom: 1.5mm; border-top: var(--rule-heavy) solid var(--rule-strong); border-bottom: var(--hair) solid var(--rule); font: 650 var(--fs-micro)/1.2 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
-    .page[data-page="10"] .p10-sheet thead th.num { color: var(--fg-3); }
-    .page[data-page="10"] .p10-sheet th, .page[data-page="10"] .p10-sheet td { line-height: var(--p10-lh); padding-top: .7mm; padding-bottom: .75mm; }
-    .page[data-page="10"] .p10-sheet td.num { border-left: var(--hair) solid var(--rule); padding-left: 1.6mm; font-weight: 500; }
-    .page[data-page="10"] .p10-sheet .sw { width: 2.4mm; height: 2.4mm; margin-right: 1.3mm; vertical-align: -.1mm; }
-
-    /* 2 · Rechenweg (Zeilennummern im Kopfstreifen, Summenstriche über 2 und 5) + Kostenverweis */
-    .page[data-page="10"] .p10-calc col.p10-c-no { width: 5.4mm; }
-    .page[data-page="10"] .p10-sheet td { -webkit-hyphens: none; hyphens: none; }
-    .page[data-page="10"] .p10-calc col.p10-c-val { width: 18.5mm; }
-    .page[data-page="10"] .p10-calc tbody th { background: var(--surface-2); padding-left: 0; padding-right: 0; text-align: center; font-weight: 650; color: var(--fg-3); font-variant-numeric: tabular-nums; }
-    .page[data-page="10"] .p10-calc tbody td:nth-child(2), .page[data-page="10"] .p10-calc thead th:nth-child(2) { padding-left: 2mm; }
-    .page[data-page="10"] .p10-calc tr.p10-sum > * { border-top: var(--rule-w) solid var(--rule-strong); }
-    .page[data-page="10"] .p10-calc tr.p10-sum td { font-weight: 650; }
-    .page[data-page="10"] .p10-calc .p10-paren { font-weight: 400; color: var(--fg-2); }
-    .page[data-page="10"] .p10-calc tr.is-key td { background: var(--surface-2); }
-    .page[data-page="10"] .p10-calc tr.is-key td.num { color: var(--accent-text); }
-    .page[data-page="10"] .p10-costref { margin-top: 1.6mm; }
-
-    /* 3 · Ergebnis: Kennzahlen gestapelt (5) | Finanzierungshaus (7) */
-    .page[data-page="10"] .p10-kf { display: flex; flex-direction: column; justify-content: space-between; gap: var(--sp-3); }
-    .page[data-page="10"] .p10-kf .kf { padding-top: 2mm; }
-    .page[data-page="10"] .p10-kf .kf__fig { flex-direction: row; align-items: baseline; gap: 1.6mm; margin-top: 0; }
-    .page[data-page="10"] .p10-kf .kf__pre { min-height: 0; margin-bottom: 0; }
-    .page[data-page="10"] .p10-kf .kf__num { font-size: 19pt; font-weight: 370; letter-spacing: -.025em; }
-    .page[data-page="10"] .p10-kf .kf__label { margin-top: 1.3mm; font-size: var(--fs-module); line-height: 1.3; }
-    .page[data-page="10"] .p10-kf .kf__text { margin-top: .6mm; font-size: var(--fs-module); line-height: 1.3; }
-    .page[data-page="10"] .p10-kf .kf--grant { border-top-color: var(--grant); }
-    .page[data-page="10"] .p10-kf .kf--mix { border-top-color: transparent; background: linear-gradient(90deg, var(--loan) 0 50%, var(--grant) 50% 100%) left -1.2pt / 100% var(--rule-heavy) no-repeat; }
-    .page[data-page="10"] .p10-kf .kf--equity { border-top-color: var(--equity-line); }
-    .page[data-page="10"] .p10-result { display: flex; flex-direction: column; }
-    .page[data-page="10"] .p10-house .chart__svg { margin-top: 2.2mm; }
-    .page[data-page="10"] .p10-result .caveat { margin-top: auto; padding-top: 2mm; }
-
-    /* 4 · Sensitivität (Band: Kopf + Ergebnis | Gesamtkosten gestapelt + Wasserfall + Notiz) */
-    .page[data-page="10"] .p10-sens .chart__title { font-size: var(--fs-h3); line-height: 1.16; }
-    .page[data-page="10"] .p10-sens .chart__sub { margin-top: 1mm; font-size: var(--fs-micro); line-height: var(--p10-lh); }
-    .page[data-page="10"] .p10-sens .chart__svg { margin-top: 0; }
-    .page[data-page="10"] .p10-sens .chart__note { margin-top: 1.3mm; line-height: 1.27; }
-    .page[data-page="10"] .p10-res { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 3.4mm; align-items: end; margin-top: 1.6mm; border-top: var(--hair) solid var(--rule); padding-top: 1.6mm; }
-    .page[data-page="10"] .p10-res__pre { grid-column: 1; margin-bottom: 1mm; font: 650 var(--fs-micro)/1.1 var(--font-text); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
-    .page[data-page="10"] .p10-res__num { grid-column: 1; font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0; font-weight: 340; font-size: var(--fs-fig-m); line-height: .86; letter-spacing: -.03em; white-space: nowrap; color: var(--fg); font-variant-numeric: lining-nums; }
-    .page[data-page="10"] .p10-res__num small { font-size: .5em; font-weight: 400; letter-spacing: 0; color: var(--accent-text); margin-left: .14em; }
-    .page[data-page="10"] .p10-res__txt { grid-column: 2; grid-row: 1 / span 2; font-size: var(--fs-module); line-height: 1.3; color: var(--fg-2); }
-
-    /* SVG-Ergänzungen */
-    .page[data-page="10"] .chart__svg .p10-unit { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 500; letter-spacing: 0; fill: var(--fg-3); }
-    .page[data-page="10"] .chart__svg .t-acc .p10-unit { fill: var(--accent-text); }
+    /* S. 10 · Ihre Rechnung: Finanzierungsaufbau – linke Seite der Mittel-Doppelseite 10|11 (Papier, .page--accent).
+       Raster gespiegelt zu S. 11: Diagramme außen (hier links, 7 Sp.), Text und Kennzahlen am Bund (5 Sp.).
+       Gemeinsame Horizonte mit S. 11: Kicker, H1 (25 pt, zwei Zeilen), Oberkante Hauptmodul, Fuß.
+       Hauptelement: das Haus (5 Geschosse à 20 %, 20 Fenster = 20 Wohnungen; Zuschuss ab der Grundlinie). */
+    .page[data-page="10"] .rc-top { display: flex; justify-content: space-between; align-items: center; height: 7mm; }
+    .page[data-page="10"] .rc-top .kicker { flex: none; white-space: nowrap; }
+    .page[data-page="10"] .rc-top .stampline { flex-wrap: nowrap; padding: 0 .8mm 0 0; }
+    .page[data-page="10"] .h1 { margin-top: 3.4mm; }
+    /* Bänder: Haus | Modellhaus · Rechenweg | Kennzahlen · Sensitivität */
+    .page[data-page="10"] .p10-band { --row-gap: 0; align-items: stretch; }
+    .page[data-page="10"] .p10-c { margin-top: 6.4mm; }
+    .page[data-page="10"] .p10-d { margin-top: 8mm; }
+    .page[data-page="10"] .p10-e { margin-top: 8mm; }
+    .page[data-page="10"] .p10-spec { border-top: var(--hair) solid var(--rule-strong); padding-top: 3mm; }
+    .page[data-page="10"] .p10-spec .lead { margin-top: 2.6mm; max-width: none; }
+    .page[data-page="10"] .p10-house .chart__svg { margin-top: 4.2mm; }
+    /* Haus */
+    .page[data-page="10"] .p10-win { fill: var(--surface-2); }
+    .page[data-page="10"] .p10-win--eq { stroke: var(--equity-line); stroke-width: .2; }
+    .page[data-page="10"] .p10-floor { stroke: var(--surface); stroke-width: .3; fill: none; }
+    .page[data-page="10"] .p10-ground { stroke: var(--fg); stroke-width: .5; fill: none; }
     .page[data-page="10"] .chart__svg .p10-lab { fill: var(--fg-2); }
-    .page[data-page="10"] .chart__svg .p10-in { font-weight: 500; }   /* Segmentname im Balken: nur der Wert fett */
-    .page[data-page="10"] .p10-over { stroke: var(--rule-strong); stroke-width: .25; }   /* über der Grenze: Eigenmittel-Schraffur mit Kontur (kein Bernstein) */
-    .page[data-page="10"] .chart__svg .p10-prop { font-variant-numeric: lining-nums proportional-nums; }   /* Textlabel: tnum würde den Bindestrich auf Ziffernbreite setzen */
+    .page[data-page="10"] .chart__svg .p10-unit { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 500; letter-spacing: 0; fill: var(--fg-3); }
+    .page[data-page="10"] .chart__svg .p10-v { font-family: var(--font-display); font-weight: 700; fill: var(--fg); font-variant-numeric: tabular-nums; }
+    .page[data-page="10"] .chart__svg .p10-in { font-family: var(--font-text); font-weight: 500; }
+    /* Rechenweg: Zeilennummern im Kopfstreifen, Summenstrich über Zeile 3 */
+    .page[data-page="10"] .p10-rw { padding-top: 3mm; }
+    .page[data-page="10"] .p10-rw caption { caption-side: top; text-align: left; padding-bottom: 2.6mm; }
+    .page[data-page="10"] .p10-rw table { table-layout: fixed; }
+    .page[data-page="10"] .p10-rw col.p10-c-no { width: 7mm; }
+    .page[data-page="10"] .p10-rw col.p10-c-val { width: 25mm; }
+    .page[data-page="10"] .p10-rw tbody th { background: var(--surface-3); padding-left: 0; padding-right: 0; text-align: center; font: 600 var(--fs-module)/var(--lh-module) var(--font-display); color: var(--fg-3); font-variant-numeric: tabular-nums; }
+    .page[data-page="10"] .p10-rw tbody td:nth-child(2), .page[data-page="10"] .p10-rw thead th:nth-child(2) { padding-left: 6mm; }
+    .page[data-page="10"] .p10-rw tr.p10-sum > * { border-top: var(--rule-w) solid var(--rule-strong); }
+    .page[data-page="10"] .p10-rw tr.p10-sum td { font-weight: 600; color: var(--fg); }
+    .page[data-page="10"] .p10-rw td.p10-hang { text-indent: -3.6mm; }   /* hängende Rechenzeichen + = */
+    .page[data-page="10"] .p10-op { display: inline-block; width: 2.8mm; text-indent: 0; font: 800 var(--fs-module)/1 var(--font-display); color: var(--fg); }
+    /* Kennzahlen am Bund */
+    .page[data-page="10"] .p10-kf { row-gap: 0; align-content: start; }
+    .page[data-page="10"] .p10-kf > .kf { grid-column: span 6; }
+    .page[data-page="10"] .p10-kf .kf__fig { margin-top: 2.4mm; }
+    .page[data-page="10"] .p10-kf .kf__label { margin-top: 2.2mm; }
+    /* Sensitivität */
+    .page[data-page="10"] .p10-sens .chart__svg { margin-top: 3.4mm; }
+    .page[data-page="10"] .p10-elig { fill: var(--fg-3); }
+    .page[data-page="10"] .p10-over-bg { fill: var(--surface-2); }
+    .page[data-page="10"] .p10-over-line { stroke: var(--fg-2); stroke-width: .28; }
+    .page[data-page="10"] .p10-over-frame { fill: none; stroke: var(--fg-2); stroke-width: .2; }
     .page[data-page="10"] .p10-conn { stroke: var(--fg-3); stroke-width: .2; stroke-dasharray: .6 .5; fill: none; }
+    .page[data-page="10"] .p10-res { padding-top: 0; border-top: 0; }
+    .page[data-page="10"] .p10-res .kf__fig { margin-top: 3.4mm; }
+    .page[data-page="10"] .p10-calc { margin-top: 4.4mm; }
+    /* Überleitung zum Bund */
+    .page[data-page="10"] .p10-next { display: flex; justify-content: flex-end; }
+    .page[data-page="10"] .p10-next a { font: 700 var(--fs-label-accent)/1.2 var(--font-display); letter-spacing: .02em; color: var(--fg); }
+    .page[data-page="10"] .p10-next .p10-arrow { color: var(--accent-text); }
   </style>
 
   <div class="bs-register" data-bleed aria-hidden="true">2.1</div>
 
-  <!-- 1 · Titelzone (8) | Stempelzeile + Motto-Zitat (4) -->
-  <div class="l-grid p10-row">
-    <div class="l-span-8 p10-head">
-      <p class="kicker">Programmteil 2.1 · Neubau</p>
-      <h1 class="h1 h1--s">20 Wohnungen, 7,0&nbsp;Mio.&nbsp;€:<br>bis zu <em>5,6&nbsp;Mio.&nbsp;€</em> Förderung</h1>
-      <p class="lead lead--s"><b>Basisfall:</b> Herstellungskosten von 4.500&nbsp;€ je m² Wohnfläche, 10&nbsp;% unter dem Ausgangswert der Bemessungsgrenze (5.000&nbsp;€). Die Rechnung trägt, solange die fortgeschriebene Grenze nicht unter 4.500&nbsp;€ sinkt.</p>
-    </div>
-    <div class="l-span-4 p10-aside">
-      <p class="stampline stampline--stack"><span class="stamp">Modellrechnung</span><span>fiktives Beispiel, keine Förderzusage</span></p>
-      <figure class="quote p10-quote" role="group">
-        <blockquote class="quote__text"><p>Wir sollten nicht teuer bauen, um anschließend teuer zu fördern.</p></blockquote>
-        <figcaption class="quote__by"><span class="quote__name">Michael Kiesewetter</span><span>Vorstandsvorsitzender der NBank</span><span class="quote__src">NBank-Presseinformation vom&nbsp;01.10.2026</span></figcaption>
-      </figure>
+  <div class="rc-top">
+    <p class="kicker kicker--plain">Ihre Rechnung · Finanzierung</p>
+    <p class="stampline"><span class="stamp">Modellrechnung</span><span>– fiktives Beispiel, keine Förderzusage</span></p>
+  </div>
+  <h1 class="h1">20 Wohnungen, 7,0&nbsp;Mio.&nbsp;€:<br>bis zu <em>5,6&nbsp;Mio.&nbsp;€</em> Förderung</h1>
+
+  <!-- Band 1 · Haus (7, außen, Hauptelement) | Das Modellhaus (5, am Bund) -->
+  <div class="l-grid p10-band p10-c">
+    <figure class="l-span-7 chart module p10-house" role="group" aria-labelledby="p10-house-h">
+      <figcaption class="chart__head"><h2 class="chart__title" id="p10-house-h">Finanzierung 7,0&nbsp;Mio.&nbsp;€, Höchstsätze</h2></figcaption>
+      <svg class="chart__svg p10-house__svg" viewBox="0 0 102.92 72.2" width="102.92mm" height="72.2mm" role="img" aria-label="Finanzierung des Modellhauses mit Gesamtkosten von 7,0 Millionen Euro, Höchstsätze, dargestellt als Haus mit fünf Geschossen zu je 20 Prozent und 20 Fenstern für 20 Wohnungen: unten zwei Geschosse Zuschuss 2,8 Millionen Euro (40 Prozent), darüber zwei Geschosse Darlehen 2,8 Millionen Euro (40 Prozent), oben ein Geschoss Eigenmittel 1,4 Millionen Euro (mindestens 20 Prozent). Maßkette Förderung aus Zuschuss und Darlehen: 5,6 Millionen Euro, 80 Prozent."><defs><pattern id="p10-hatch" patternUnits="userSpaceOnUse" width="1.6" height="1.6" patternTransform="rotate(45)"><rect class="c-equity" width="1.6" height="1.6"/><line class="c-equity-line" x1="0" y1="0" x2="0" y2="1.6"/></pattern></defs><rect class="c-muted" x="25" y="3.8" width="35.2" height="1.2"/><polygon class="ill-pv" points="27.4,3.8 33.8,3.8 33,1.4 26.6,1.4"/><polygon class="ill-pv" points="35.3,3.8 41.7,3.8 40.9,1.4 34.5,1.4"/><polygon class="ill-pv" points="43.2,3.8 49.6,3.8 48.8,1.4 42.4,1.4"/><polygon class="ill-pv" points="51.1,3.8 57.5,3.8 56.7,1.4 50.3,1.4"/><rect class="c-grant" x="25.6" y="53.8" width="34" height="12.2"/><rect class="p10-win" x="28.56" y="57.2" width="4.8" height="5.4"/><rect class="p10-win" x="36.32" y="57.2" width="4.8" height="5.4"/><rect class="p10-win" x="44.08" y="57.2" width="4.8" height="5.4"/><rect class="p10-win" x="51.84" y="57.2" width="4.8" height="5.4"/><rect class="c-grant" x="25.6" y="41.6" width="34" height="12.2"/><rect class="p10-win" x="28.56" y="45" width="4.8" height="5.4"/><rect class="p10-win" x="36.32" y="45" width="4.8" height="5.4"/><rect class="p10-win" x="44.08" y="45" width="4.8" height="5.4"/><rect class="p10-win" x="51.84" y="45" width="4.8" height="5.4"/><rect class="c-loan" x="25.6" y="29.4" width="34" height="12.2"/><rect class="p10-win" x="28.56" y="32.8" width="4.8" height="5.4"/><rect class="p10-win" x="36.32" y="32.8" width="4.8" height="5.4"/><rect class="p10-win" x="44.08" y="32.8" width="4.8" height="5.4"/><rect class="p10-win" x="51.84" y="32.8" width="4.8" height="5.4"/><rect class="c-loan" x="25.6" y="17.2" width="34" height="12.2"/><rect class="p10-win" x="28.56" y="20.6" width="4.8" height="5.4"/><rect class="p10-win" x="36.32" y="20.6" width="4.8" height="5.4"/><rect class="p10-win" x="44.08" y="20.6" width="4.8" height="5.4"/><rect class="p10-win" x="51.84" y="20.6" width="4.8" height="5.4"/><rect x="25.6" y="5" width="34" height="12.2" fill="url(#p10-hatch)"/><rect class="c-equity-frame" x="25.6" y="5" width="34" height="12.2"/><rect class="p10-win p10-win--eq" x="28.56" y="8.4" width="4.8" height="5.4"/><rect class="p10-win p10-win--eq" x="36.32" y="8.4" width="4.8" height="5.4"/><rect class="p10-win p10-win--eq" x="44.08" y="8.4" width="4.8" height="5.4"/><rect class="p10-win p10-win--eq" x="51.84" y="8.4" width="4.8" height="5.4"/><path class="p10-floor" d="M25.6,53.8H59.6M25.6,29.4H59.6"/><path class="sep-line" d="M25.6,41.6H59.6"/><path class="p10-ground" d="M19.4,66H66"/><path class="dim-line" stroke-width=".12" d="M60.4,5H64.3M60.4,17.2H64.3M60.4,41.6H64.3M60.4,66H64.3"/><path class="dim-line" d="M63,3.7V67.3"/><path class="dim-tick" d="M62.1,5.9L63.9,4.1M62.1,18.1L63.9,16.3M62.1,42.5L63.9,40.7M62.1,66.9L63.9,65.1"/><path class="dim-line" stroke-width=".12" d="M24.8,17.2H21.1M24.8,66H21.1"/><path class="dim-line" d="M22.4,15.9V67.3"/><path class="dim-tick" d="M21.5,18.1L23.3,16.3M21.5,66.9L23.3,65.1"/><path class="cap-line" d="M19.8,17.2H65.6"/><text class="p10-lab" x="66.2" y="9.6"><tspan class="t-b">Eigenmittel</tspan> · mind. 20 %</text><text class="t-num" x="65.95" y="16.1">1,4<tspan class="p10-unit" dx="0.9">Mio. €</tspan></text><text class="p10-lab" x="66.2" y="27.9"><tspan class="t-b">Darlehen</tspan> · 40 %</text><text class="t-num" x="65.95" y="34.4">2,8<tspan class="p10-unit" dx="0.9">Mio. €</tspan></text><text class="p10-lab" x="66.2" y="52.3"><tspan class="t-b">Zuschuss</tspan> · 40 %</text><text class="t-num t-acc" x="65.95" y="58.8">2,8<tspan class="p10-unit" dx="0.9">Mio. €</tspan></text><text class="p10-lab t-end" x="19.4" y="37"><tspan class="t-b">Förderung</tspan></text><text class="t-num t-acc t-end" x="19.4" y="43.6">5,6</text><text class="p10-lab t-end" x="19.4" y="47.8">Mio. € · 80 %</text><text class="t-ax" x="25.6" y="71">5 Geschosse à 20 % · 20 Fenster = 20 Wohnungen</text></svg>
+    </figure>
+    <div class="l-span-5 p10-spec">
+      <h2 class="chart__title">Das Modellhaus</h2>
+      <p class="lead lead--s u-hyphens">20 Neubauwohnungen nach Programmteil 2.1 (2 × 50, 6 × 60, 8 × 75, 4 × 85 m²) – jeweils die angemessene Höchstgröße für ein bis vier Personen –, zusammen 1.400 m² Wohnfläche, alle für Einkommensgruppe A. Standort: eine Gemeinde der Mietenstufe IV–VII, per Verordnung angespannter Wohnungsmarkt – der Bedarf gilt als gegeben. Herstellungskosten 4.500 € je m², also 500 € unter dem Ausgangswert der Bemessungsgrenze von 5.000 € und damit voll zuwendungsfähig. Grundstück 700.000 €, unter Bodenrichtwert × Grundstücksfläche.</p>
     </div>
   </div>
 
-  <!-- 2 · Rechnung | Eingaben: Rechenweg (8) | Annahmen (4, Seitenspalte wie in der Titelzone) -->
-  <div class="l-grid p10-row u-mt-8">
-    <div class="l-span-8">
-      <table class="table table--compact p10-sheet p10-calc">
+  <!-- Band 2 · Rechenweg (7) | Kennzahlen (5) -->
+  <div class="l-grid p10-band p10-d">
+    <div class="l-span-7 module p10-rw">
+      <table class="table table--compact">
+        <caption class="chart__title">Rechenweg</caption>
         <colgroup><col class="p10-c-no"><col><col class="p10-c-val"></colgroup>
-        <thead><tr><th scope="col" aria-label="Zeile"></th><th scope="col" class="u-nohyphens">Rechenweg</th><th scope="col" class="num">€</th></tr></thead>
+        <thead><tr><th scope="col" aria-label="Zeile"></th><th scope="col">Position</th><th scope="col" class="num">€</th></tr></thead>
         <tbody>
-          <tr><th scope="row">1</th><td>Herstellungskosten, voll zuwendungsfähig: unter ihrer Grenze (Ausgangswert 5.000&nbsp;€ ×&nbsp;1.400&nbsp;m² = 7.000.000&nbsp;€)</td><td class="num">6.300.000</td></tr>
-          <tr class="p10-sum"><th scope="row">2</th><td>+ Grundstück = zuwendungsfähige Kosten = Gesamtkosten <span class="p10-paren">(Annahme: keine weiteren Kosten)</span></td><td class="num">7.000.000</td></tr>
-          <tr><th scope="row">3</th><td><i class="sw sw--loan"></i>Darlehen, bis zu 40&nbsp;%</td><td class="num">2.800.000</td></tr>
-          <tr><th scope="row">4</th><td><i class="sw sw--grant"></i>Zuschuss, bis zu 40&nbsp;%, nur mit dem Darlehen</td><td class="num">2.800.000</td></tr>
-          <tr class="p10-sum is-key"><th scope="row">5</th><td>Förderung, bis zu 80&nbsp;%</td><td class="num">5.600.000</td></tr>
-          <tr><th scope="row">6</th><td><i class="sw sw--equity"></i>Eigenmittel, mind. 20&nbsp;%; davon sollen mind. 700.000&nbsp;€ Geld oder lastenfreies Grundstück sein</td><td class="num">1.400.000</td></tr>
+          <tr><th scope="row">1</th><td>Herstellungskosten, 1.400 m² × 4.500 €</td><td class="num">6.300.000</td></tr>
+          <tr><th scope="row">2</th><td class="p10-hang"><span class="p10-op">+</span> Grundstück</td><td class="num">700.000</td></tr>
+          <tr class="p10-sum"><th scope="row">3</th><td class="p10-hang"><span class="p10-op">=</span> zuwendungsfähige Gesamtkosten</td><td class="num">7.000.000</td></tr>
+          <tr><th scope="row">4</th><td>Eigenmittel, mindestens 20 %; davon sollen mindestens 700.000 € Geld oder lastenfreies Grundstück sein</td><td class="num">1.400.000</td></tr>
         </tbody>
       </table>
-      <p class="source p10-costref">Bearbeitungsentgelte, Verwaltungskostenbeitrag und Höchstmiete dieses Hauses: Spalte A im Vergleich <a class="u-nowrap" href="#seite-11">→&nbsp;S.&nbsp;11</a>.</p>
     </div>
-    <div class="l-span-4">
-      <h2 class="bullets__title">Annahmen</h2>
-      <ul class="bullets p10-ann">
-        <li><b>20 Neubauwohnungen</b> (2&nbsp;×&nbsp;50, 6&nbsp;×&nbsp;60, 8&nbsp;×&nbsp;75, 4&nbsp;×&nbsp;85&nbsp;m²), zusammen 1.400&nbsp;m² Wohnfläche, angemessen für 1–4 Personen</li>
-        <li><b>alle für Einkommensgruppe&nbsp;A</b>; Mietenstufe IV–VII, angespannter Wohnungsmarkt laut Verordnung: Bedarf gilt als gegeben</li>
-        <li><b>Herstellungskosten</b> (Kostengruppen 200–700 nach DIN&nbsp;276) 4.500&nbsp;€ je m² Wohnfläche; <b>Grundstück</b> 700.000&nbsp;€ (Annahme: unter Bodenrichtwert&nbsp;×&nbsp;Fläche)</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- 3 · Ergebnis: Kennzahlen (5) | Finanzierungshaus (7, Hauptelement; Reprise des Titels: 20 Fenster = 20 Wohnungen, Geschosse 40/40/20) -->
-  <div class="l-grid p10-row u-mt-6">
     <div class="l-span-5 key-figures p10-kf">
-      <article class="kf kf--grant">
-        <p class="kf__fig"><span class="kf__pre">Ø bis zu</span><span class="kf__num">140.000<span class="kf__unit">€</span></span></p>
-        <h3 class="kf__label">Zuschuss je Wohnung im Modell</h3>
-        <p class="kf__text">Ø über 20 Wohnungen, nach Wohnfläche aufgeteilt 100.000–170.000&nbsp;€; plus Darlehen in gleicher Höhe</p>
-      </article>
-      <article class="kf kf--mix">
-        <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">4.000<span class="kf__unit">€/m²</span></span></p>
-        <h3 class="kf__label">Förderung je m² Wohnfläche im Modell</h3>
-      </article>
-      <article class="kf kf--equity">
+      <div class="kf kf--s">
+        <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">140.000<span class="kf__unit">€</span></span></p>
+        <p class="kf__label">Ø Zuschuss je Wohnung im Modellhaus</p>
+        <p class="kf__text">plus Darlehen in gleicher Höhe</p>
+      </div>
+      <div class="kf kf--s">
         <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">4<span class="kf__unit">€</span></span></p>
-        <h3 class="kf__label">Förderung je 1&nbsp;€ Mindest-Eigenmittel</h3>
-        <p class="kf__text">davon 2&nbsp;€ rückzahlbares, anfänglich zinsloses Darlehen</p>
-      </article>
-    </div>
-    <div class="l-span-7 p10-result">
-      <figure class="chart chart--s module p10-house" role="group">
-        <figcaption class="chart__head"><h2 class="chart__title">Finanzierung 7,0&nbsp;Mio.&nbsp;€ (Höchstwerte)</h2></figcaption>
-        <svg class="chart__svg p10-house__svg" viewBox="0 0 99.42 49.4" width="99.42mm" height="49.4mm" role="img" aria-label="Finanzierung von 7,0 Millionen Euro als Haus mit fünf gleich hohen Geschossen zu je 20 Prozent und 20 Fenstern (1 Fenster = 1 Wohnung): oben zwei Geschosse Zuschuss bis zu 2,8 Millionen Euro (bis zu 40 Prozent), darunter zwei Geschosse Darlehen bis zu 2,8 Millionen Euro (bis zu 40 Prozent), unten ein Geschoss Eigenmittel mindestens 1,4 Millionen Euro (mindestens 20 Prozent); Klammer: Förderung aus Zuschuss und Darlehen bis zu 5,6 Millionen Euro, bis zu 80 Prozent."><defs><pattern id="schraffur-10-1" patternUnits="userSpaceOnUse" width="1.6" height="1.6" patternTransform="rotate(45)"><rect class="c-equity" width="1.6" height="1.6"/><line class="c-equity-line" x1="0" y1="0" x2="0" y2="1.6"/></pattern></defs><rect class="c-muted" x="0" y="2.4" width="36.2" height="1.2"/><polygon class="ill-pv" points="2.49,2.4 9.09,2.4 8.29,0.2 1.69,0.2"/><polygon class="ill-pv" points="10.74,2.4 17.35,2.4 16.55,0.2 9.94,0.2"/><polygon class="ill-pv" points="19,2.4 25.61,2.4 24.81,0.2 18.2,0.2"/><polygon class="ill-pv" points="27.26,2.4 33.87,2.4 33.07,0.2 26.46,0.2"/><rect class="c-grant" x="0.6" y="3.6" width="35" height="8.2"/><rect class="ill-win" x="3.44" y="5.39" width="5.19" height="4.61"/><rect class="ill-win-lit" x="11.48" y="5.39" width="5.19" height="4.61"/><rect class="ill-win" x="19.53" y="5.39" width="5.19" height="4.61"/><rect class="ill-win-lit" x="27.57" y="5.39" width="5.19" height="4.61"/><rect class="c-grant" x="0.6" y="11.8" width="35" height="8.2"/><rect class="ill-win-lit" x="3.44" y="13.59" width="5.19" height="4.61"/><rect class="ill-win" x="11.48" y="13.59" width="5.19" height="4.61"/><rect class="ill-win" x="19.53" y="13.59" width="5.19" height="4.61"/><rect class="ill-win" x="27.57" y="13.59" width="5.19" height="4.61"/><rect class="c-loan" x="0.6" y="20" width="35" height="8.2"/><rect class="ill-win" x="3.44" y="21.79" width="5.19" height="4.61"/><rect class="ill-win" x="11.48" y="21.79" width="5.19" height="4.61"/><rect class="ill-win-lit" x="19.53" y="21.79" width="5.19" height="4.61"/><rect class="ill-win" x="27.57" y="21.79" width="5.19" height="4.61"/><rect class="c-loan" x="0.6" y="28.2" width="35" height="8.2"/><rect class="ill-win" x="3.44" y="29.99" width="5.19" height="4.61"/><rect class="ill-win-lit" x="11.48" y="29.99" width="5.19" height="4.61"/><rect class="ill-win" x="19.53" y="29.99" width="5.19" height="4.61"/><rect class="ill-win-lit" x="27.57" y="29.99" width="5.19" height="4.61"/><rect x="0.6" y="36.4" width="35" height="8.2" fill="url(#schraffur-10-1)"/><rect class="c-equity-frame" x="0.6" y="36.4" width="35" height="8.2"/><rect class="ill-win-lit" x="3.44" y="38.19" width="5.19" height="4.61"/><rect class="ill-win ill-win--eq" x="11.48" y="38.19" width="5.19" height="4.61"/><rect class="ill-win ill-win--eq" x="19.53" y="38.19" width="5.19" height="4.61"/><rect class="ill-win ill-win--eq" x="27.57" y="38.19" width="5.19" height="4.61"/><line class="sep-line" x1="0.6" y1="11.8" x2="35.6" y2="11.8"/><line class="sep-line" x1="0.6" y1="20" x2="35.6" y2="20"/><line class="sep-line" x1="0.6" y1="28.2" x2="35.6" y2="28.2"/><line class="sep-line" x1="0.6" y1="36.4" x2="35.6" y2="36.4"/><line class="ax" x1="0" y1="44.6" x2="36.2" y2="44.6"/><path class="ill-brk" d="M35.9 4 H36.8 V19.6 H35.9"/><path class="ill-lead" d="M36.8 11.8 H37.8"/><rect class="c-grant" x="38.6" y="10.7" width="2.2" height="2.2"/><text class="p10-lab" x="42" y="12.9"><tspan class="t-b">Zuschuss</tspan> · bis zu 40 %</text><text class="t-num" x="38.35" y="19.5">2,8<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text><path class="ill-brk" d="M35.9 20.4 H36.8 V36 H35.9"/><path class="ill-lead" d="M36.8 28.2 H37.8"/><rect class="c-loan" x="38.6" y="27.1" width="2.2" height="2.2"/><text class="p10-lab" x="42" y="29.3"><tspan class="t-b">Darlehen</tspan> · bis zu 40 %</text><text class="t-num" x="38.35" y="35.9">2,8<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text><path class="ill-brk" d="M35.9 36.8 H36.8 V44.2 H35.9"/><path class="ill-lead" d="M36.8 40.5 H37.8"/><rect x="38.6" y="39.4" width="2.2" height="2.2" fill="url(#schraffur-10-1)"/><rect class="c-equity-frame" x="38.6" y="39.4" width="2.2" height="2.2"/><text class="p10-lab" x="42" y="41.6"><tspan class="t-b">Eigenmittel</tspan> · mind. 20 %</text><text class="t-num" x="38.35" y="48.2">1,4<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text><path class="ill-brk" d="M77.7 4 H78.6 V36 H77.7"/><path class="ill-lead" d="M78.6 20 H79.6"/><text class="t-b" x="80.4" y="21.1">Förderung</text><text class="t-num t-acc" x="80.15" y="27.7">5,6<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text><text class="p10-lab" x="80.4" y="32.3">bis zu 80 %</text><text class="t-ax" x="0.6" y="48.5">1 Fenster = 1 Wohnung</text></svg>
-      </figure>
-      <p class="caveat">Höchstwerte&nbsp;· Überkompensationsprüfung&nbsp;· kein&nbsp;Rechtsanspruch <a href="#seite-02">→&nbsp;S.&nbsp;2</a></p>
+        <p class="kf__label">Förderung je 1 € Mindest-Eigenmittel</p>
+        <p class="kf__text">davon 2 € Darlehen</p>
+      </div>
     </div>
   </div>
 
-  <!-- 4 · Sensitivität (Band) -->
-  <figure class="l-grid p10-row chart module u-mt-6 p10-sens" role="group">
-    <figcaption class="l-span-5">
-      <h2 class="chart__title">Sensitivität: Herstellungskosten 5.200&nbsp;€ je m²</h2>
-      <p class="chart__sub">Grenze 5.000&nbsp;€ = Ausgangswert 01.07.2026; eigene Berechnung</p>
-      <div class="p10-res">
-        <p class="p10-res__pre">bis zu</p>
-        <p class="p10-res__num">77,2<small>%</small></p>
-        <p class="p10-res__txt">effektive Förderquote auf die Gesamtkosten, gerundet</p>
+  <!-- Band 3 · Sensitivität: Wasserfall (7) | Ergebnis (5); darunter die Kalkulationsnotiz -->
+  <figure class="l-grid p10-band chart module p10-e p10-sens" role="group" aria-labelledby="p10-sens-h">
+    <figcaption class="l-span-12 chart__head"><h2 class="chart__title" id="p10-sens-h">Sensitivität: Herstellungskosten 5.200 € je m²</h2></figcaption>
+    <div class="l-span-7"><svg class="chart__svg p10-sens__svg" viewBox="0 0 102.92 29" width="102.92mm" height="29mm" role="img" aria-label="Sensitivität bei Herstellungskosten von 5.200 Euro je Quadratmeter, in Millionen Euro: Gesamtkosten 7,98, davon zuwendungsfähig 7,70 und über der Grenze 0,28; Förderung 80 Prozent von 7,70 gleich 6,16; Mindest-Eigenmittel plus Restfinanzierung 1,54 plus 0,28. Ergebnis: Förderquote auf die Gesamtkosten bis zu 77,2 Prozent."><defs><pattern id="p10-hatch-s" patternUnits="userSpaceOnUse" width="1.6" height="1.6" patternTransform="rotate(45)"><rect class="c-equity" width="1.6" height="1.6"/><line class="c-equity-line" x1="0" y1="0" x2="0" y2="1.6"/></pattern><pattern id="p10-over" patternUnits="userSpaceOnUse" width="1.1" height="1.1" patternTransform="rotate(-45)"><rect class="p10-over-bg" width="1.1" height="1.1"/><line class="p10-over-line" x1="0" y1="0" x2="0" y2="1.1"/></pattern></defs><path class="ax" d="M34.2,0V29"/><text class="p10-lab t-end" x="31.6" y="4.15">Gesamtkosten</text><rect class="p10-elig" x="34.2" y="0.6" width="49.67" height="5"/><rect x="83.87" y="0.6" width="1.81" height="5" fill="url(#p10-over)"/><rect class="p10-over-frame" x="83.87" y="0.6" width="1.81" height="5"/><text class="t-val" x="36" y="4.2">7,70 <tspan class="p10-in">zuwendungsfähig</tspan></text><text class="t-val-ink" x="87.27" y="4.2">7,98<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text><text class="p10-lab t-end" x="82.67" y="9.5"><tspan class="p10-v">0,28</tspan> über der Grenze</text><text class="p10-lab t-end" x="31.6" y="16.95">Förderung, 80 % von 7,70</text><rect class="c-grant" x="34.2" y="13.4" width="19.87" height="5"/><rect class="c-loan" x="54.07" y="13.4" width="19.87" height="5"/><path class="sep-line" d="M54.07,13.4v5"/><text class="t-val-ink" x="75.53" y="17">6,16</text><text class="p10-lab t-end" x="31.6" y="25.3"><tspan x="31.6">Mindest-Eigenmittel +</tspan><tspan x="31.6" dy="3.4">Restfinanzierung</tspan></text><rect x="73.93" y="23.4" width="9.93" height="5" fill="url(#p10-hatch-s)"/><rect class="c-equity-frame" x="73.93" y="23.4" width="9.93" height="5"/><rect x="83.87" y="23.4" width="1.81" height="5" fill="url(#p10-over)"/><rect class="p10-over-frame" x="83.87" y="23.4" width="1.81" height="5"/><text class="t-val-ink t-end" x="72.33" y="27">1,54 + 0,28</text><path class="p10-conn" d="M73.93,18.4V23.4M85.67,5.6V23.4"/></svg></div>
+    <div class="l-span-5">
+      <div class="kf kf--accent p10-res">
+        <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">77,2<span class="kf__unit">%</span></span></p>
+        <p class="kf__label">Förderquote auf die Gesamtkosten</p>
       </div>
-    </figcaption>
-    <div class="l-span-7">
-      <svg class="chart__svg" viewBox="0 0 99.42 24.35" width="99.42mm" height="24.35mm" role="img" aria-label="Sensitivität bei Herstellungskosten von 5.200 Euro je Quadratmeter, eigene Berechnung in Millionen Euro: Gesamtkosten 7,98 als ein Balken, davon zuwendungsfähig 7,70 und über der Grenze 0,28, nicht zuwendungsfähig; Förderung bis zu 80 Prozent der zuwendungsfähigen Kosten 6,16; Eigenmittel mindestens 1,54 plus 0,28 Restfinanzierung. Effektive Förderquote auf die Gesamtkosten bis zu 77,2 Prozent, gerundet.">
-        <defs><pattern id="schraffur-10-2" patternUnits="userSpaceOnUse" width="1.6" height="1.6" patternTransform="rotate(45)"><rect class="c-equity" width="1.6" height="1.6"/><line class="c-equity-line" x1="0" y1="0" x2="0" y2="1.6"/></pattern></defs>
-        <!-- 5.028 mm je Mio. €, Nullpunkt x = 39.6; Balken 3.6 mm (eigene Berechnung).
-             Zeile 1 gestapelt: Gesamtkosten 7,98 = zuwendungsfähig 7,70 (Tinte, Beschriftung im Balken) + über der Grenze 0,28
-             (Schraffur mit Kontur, Beschriftung darunter); die 0,28 fallen senkrecht darunter in die Restfinanzierung (gleiche x-Lage, gestrichelt). -->
-        <line class="ax" x1="39.6" y1="0" x2="39.6" y2="24.35"/>
-        <text class="t-ax t-end" x="38.0" y="3.49">Gesamtkosten</text>
-        <rect class="c-ink" x="39.6" y="0.6" width="38.72" height="3.6"/>
-        <rect class="p10-over" x="78.32" y="0.6" width="1.41" height="3.6" fill="url(#schraffur-10-2)"/>
-        <text class="t-val t-s" x="40.5" y="3.49">7,70 <tspan class="p10-in">zuwendungsfähig</tspan></text>
-        <text class="t-val-ink" x="80.82" y="3.58">7,98<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text>
-        <path class="p10-conn" d="M79.73 4.2 V19.06"/>
-        <text class="p10-lab t-end" x="78.9" y="7.55"><tspan class="t-val-ink">0,28</tspan> über der Grenze,</text>
-        <text class="p10-lab t-end" x="78.9" y="10.75">nicht zuwendungsfähig</text>
-        <text class="t-ax t-end" x="38.0" y="15.89">Förderung, bis zu 80 %</text>
-        <rect class="c-loan" x="39.6" y="13.0" width="15.49" height="3.6"/>
-        <rect class="c-grant" x="55.09" y="13.0" width="15.49" height="3.6"/>
-        <line class="sep-line" x1="55.09" y1="13.0" x2="55.09" y2="16.6"/>
-        <text class="t-val-ink" x="71.67" y="15.98">6,16</text>
-        <path class="p10-conn" d="M70.57 16.6 V19.06"/>
-        <text class="t-ax t-end p10-prop" x="38.0" y="20.3"><tspan x="38.0">Mindest-Eigenmittel +</tspan><tspan x="38.0" dy="3.3">Restfinanzierung</tspan></text>
-        <rect x="70.57" y="19.06" width="7.74" height="3.6" fill="url(#schraffur-10-2)"/>
-        <rect class="c-equity-frame" x="70.57" y="19.06" width="7.74" height="3.6"/>
-        <rect class="p10-over" x="78.32" y="19.06" width="1.41" height="3.6" fill="url(#schraffur-10-2)"/>
-        <text class="t-val-ink t-end" x="69.37" y="22.04">1,54 + 0,28<tspan class="p10-unit" dx="0.8">Mio. €</tspan></text>
-        <!-- /Sensitivität -->
-      </svg>
-      <p class="chart__note">Die bis zu 80&nbsp;% beziehen sich nur auf die zuwendungsfähigen Kosten – jeder Euro über der Bemessungsgrenze senkt die effektive Förderquote. Maßgeblich sind die Verhältnisse bei Bewilligung (RL Nr.&nbsp;1.5); Fortschreibung <a class="u-nowrap" href="#seite-08">→&nbsp;S.&nbsp;8</a>.</p>
     </div>
   </figure>
+  <aside class="callout callout--calc callout--inline p10-calc">
+    <p class="callout__label"><svg class="icon icon--rechner" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.8" width="14" height="18.4" rx="1"/><path d="M8 6.4h8v3.4H8z"/><path d="M8.4 13.4h.01M12 13.4h.01M15.6 13.4h.01M8.4 17.2h.01M12 17.2h.01M15.6 17.2h.01" stroke-width="2"/></svg>Kalkulationsnotiz</p>
+    <p class="callout__body">Die 80 % gelten nur bis zur Bemessungsgrenze – jeden Euro darüber <span class="u-nohyphens">finanzieren</span> Sie ohne Förderung.</p>
+  </aside>
 
-  <ol class="footnotes footnotes--2col l-bottom">
-    <li class="footnotes__src"><b>Fundstellen:</b> RL Nr.&nbsp;1.3, 1.5, 5.1.1, 5.2.1, 5.2.6, 5.3.2–5.3.4, 5.3.7, 5.4.4, 12.7; eigene Berechnung.</li>
-  </ol>
+  <p class="p10-next l-bottom"><a href="#seite-11">Was davon im Betrieb bleibt: rechts <span class="p10-arrow">→</span></a></p>
 
-  <footer class="page__foot" aria-hidden="true"><span class="page__folio">10</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Finanzierung · Modellrechnung</b></span><span>Stand: 21.10.2026</span></span></footer>
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">10</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Ihre Rechnung · Finanzierung</b></span><span>Stand: 21.10.2026</span></span></footer>
 </section>

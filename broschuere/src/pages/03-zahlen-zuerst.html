@@ -1,150 +1,147 @@
 <section class="page" data-page="03" id="seite-03">
   <style>
-    /* Seite 03 · Kennzahlen (seitenspezifisch, Farben nur über Tokens) */
-    .page[data-page="03"] .p03-title { align-items: end; }
-    .page[data-page="03"] .p03-title .h1 { line-height: .94; }
-    .page[data-page="03"] .p03-title > .p03-term { grid-column: 8 / span 5; margin-bottom: 0; padding-bottom: .3mm; }
-    .page[data-page="03"] .p03-term .term__label { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; }
-    .page[data-page="03"] .p03-term .term__label .ref { letter-spacing: 0; text-transform: none; }
+    /* Seite 03 · Kennzahlen: Kachelraster 4 × 2 (dominant) + Marktband · Planwerk · Farben nur über Tokens */
+    .page[data-page="03"] .p03-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start; }
+    .page[data-page="03"] .p03-title { grid-column: 1 / span 6; }
+    .page[data-page="03"] .p03-term { grid-column: 7 / span 6; }
+    .page[data-page="03"] .p03-term__head { display: flex; align-items: baseline; gap: 2.4mm; }
+    .page[data-page="03"] .p03-term__head .term__word { margin-top: 0; }
+    .page[data-page="03"] .p03-term .term__text { margin-top: 1.4mm; }
 
-    /* Kennzahlen-Raster 4 × 2: Kopfzeile = RL-Fundstelle links, Programmteil rechts; Vorsatz („bis zu“) über der Zahl */
-    .page[data-page="03"] .p03-kf { margin-top: var(--sp-8); grid-template-columns: minmax(0, 37fr) minmax(0, 41.3fr) minmax(0, 40.6fr) minmax(0, 40.1fr); row-gap: 10mm; }
-    .page[data-page="03"] .p03-kf > .kf, .page[data-page="03"] .p03-kf > .callout { grid-column: auto; }
-    .page[data-page="03"] .kf { border-top-width: 2pt; padding-top: 1.6mm; }
-    .page[data-page="03"] .kf__top { align-items: center; gap: 1.4mm; min-height: 4mm; }
-    .page[data-page="03"] .p03-kf--split { border-image: linear-gradient(90deg, var(--bs-21) 0 50%, var(--bs-24) 50% 100%) 1; }
-    .page[data-page="03"] .kf__top .bs-badge__no { padding: .8mm 1.2mm .7mm; }
-    .page[data-page="03"] .kf__badges { gap: .6mm; }
-    .page[data-page="03"] .kf__fig { margin-top: 2.6mm; }
-    .page[data-page="03"] .kf__pre { margin-bottom: 1mm; }
-    .page[data-page="03"] .kf__num { font-size: var(--fs-fig-m); font-weight: 340; }
-    .page[data-page="03"] .kf__num--pair { font-size: 23pt; font-weight: 350; letter-spacing: -.025em; }
-    .page[data-page="03"] .kf__label { margin-top: 2.8mm; font-size: var(--fs-small); line-height: 1.28; }
-    .page[data-page="03"] .kf__text { margin-top: .8mm; font-size: var(--fs-module); line-height: var(--lh-module); text-wrap: wrap; }
+    /* Raster: vier Spalten, je Kachel vier gemeinsame Zeilen (Zahl · Einheit · Label · Text) → Label und Text je Reihe auf einer Linie;
+       Programmteil-Chip sitzt rechts oben an der Kachellinie */
+    .page[data-page="03"] .p03-kf { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto) 10mm repeat(4, auto); row-gap: 0; margin-top: 14.3mm; }   /* 2. Reihe bündig mit der Zitatlinie auf S. 2 */
+    .page[data-page="03"] .p03-kf > .kf { grid-column: auto; display: grid; grid-template-rows: subgrid; row-gap: 0; border-top-width: var(--rule-heavy); padding-top: 0; }
+    .page[data-page="03"] .p03-kf > .kf:nth-child(-n+4) { grid-row: 1 / span 4; }
+    .page[data-page="03"] .p03-kf > .kf:nth-child(n+5) { grid-row: 6 / span 4; }
+    .page[data-page="03"] .p03-kf .kf__fig { grid-row: 1; align-self: start; margin-top: 2.6mm; }
+    .page[data-page="03"] .p03-kf > .kf:not(:nth-child(4n+1))::before { content: ""; position: absolute; left: calc(var(--gutter) / -2); top: 0; bottom: 0; width: var(--hair); background: var(--rule); }   /* Haarlinie im Steg */
+    .page[data-page="03"] .p03-kf .kf__sub { grid-row: 2; margin-top: 1.4mm; }
+    .page[data-page="03"] .p03-kf .kf__label { grid-row: 3; margin-top: 3.2mm; font-size: var(--fs-small); }
+    .page[data-page="03"] .p03-kf .kf__text { grid-row: 4; margin-top: 1.2mm; }
+    .page[data-page="03"] .p03-kf .kf__text .pageref { margin-top: .4mm; }
+    .page[data-page="03"] .p03-kf .kf__num { font-size: var(--fs-fig-l); }
+    .page[data-page="03"] .kf__num--pair { white-space: normal; }
+    .page[data-page="03"] .p03-chip { position: absolute; bottom: 100%; right: 0; display: inline-flex; align-items: center; gap: .9mm; font: 700 var(--fs-micro)/1 var(--font-display); color: var(--fg-3); }
+    .page[data-page="03"] .p03-chip .bs-badge__no { padding: 1mm 1.5mm .9mm; }   /* Reiter auf der Kachellinie (wie die Farbkante im Schlüsselplan) */
+    .page[data-page="03"] .p03-kf__split { border-image: linear-gradient(90deg, var(--bs-21) 0 50%, var(--bs-24) 50% 100%) 1; }
+    /* Stichtag: gleicher Aufbau, Signal nur als Linie und Datum */
+    .page[data-page="03"] .p03-kf__date { border-top-color: var(--signal-fill); }
+    .page[data-page="03"] .p03-kf__date .kf__num { font-size: var(--fs-fig-s); color: var(--signal-text); }
 
-    /* Stichtag als achte Zelle, als Zusatz zu den sieben Zahlen abgesetzt */
-    .page[data-page="03"] .p03-frist { padding: 1.6mm 3.2mm 3.4mm; border-top-width: 2pt; }
-    .page[data-page="03"] .p03-frist .kf__top .icon { width: 4.2mm; height: 4.2mm; color: var(--signal-text); }
-    .page[data-page="03"] .p03-frist .callout__label { display: block; margin-top: 1.8mm; -webkit-hyphens: none; hyphens: none; }
-    .page[data-page="03"] .p03-frist .callout__date { margin-top: 1.6mm; font-size: var(--fs-fig-s); }
-    .page[data-page="03"] .p03-frist .callout__body { margin-top: 1.6mm; font-size: var(--fs-module); line-height: var(--lh-module); text-wrap: wrap; }
-
-    /* Marktband (dunkel): Diagramm über die volle Bandbreite, Seitenverweis im Kopf */
-    .page[data-page="03"] .p03-market { margin-top: 10mm; padding: 6mm 6mm 7mm; background: var(--surface); }
-    .page[data-page="03"] .p03-mkt { display: grid; grid-template-columns: 56mm minmax(0, 1fr); column-gap: 6mm; row-gap: 6mm; align-items: end; }
-    .page[data-page="03"] .p03-mkt__head { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 4mm; }
-    .page[data-page="03"] .p03-mkt__head > * { flex: none; text-wrap: nowrap; }
-    .page[data-page="03"] .p03-mkt__head > .pageref { margin-left: auto; }
-    .page[data-page="03"] .p03-mkt__period { font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); font-variant-numeric: tabular-nums lining-nums; }
-    .page[data-page="03"] .p03-mkt__num { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0; font-weight: 300; font-size: var(--fs-fig-xl); line-height: .8; letter-spacing: -.035em; margin-left: -.8mm; color: var(--fg); font-variant-numeric: lining-nums; }
-    .page[data-page="03"] .p03-mkt__label { margin-top: 3mm; font: 650 var(--fs-small)/1.28 var(--font-text); color: var(--fg); }
-    .page[data-page="03"] .p03-mkt__note { margin-top: .4mm; font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-2); }
-    .page[data-page="03"] .p03-mkt .chart__svg { margin-top: 0; }
-    .page[data-page="03"] .p03-bar-new { fill: var(--fg); }
-    .page[data-page="03"] .chart__svg .p03-ring-num { font-family: var(--font-display); font-variation-settings: "opsz" 72, "SOFT" 40, "WONK" 0; font-weight: 400; font-size: 5.6px; fill: var(--fg); }
+    /* Marktband (Anthrazit-Verlauf), oben bündig mit „Ihr Einstieg“ auf S. 2 */
+    .page[data-page="03"] .p03-market { height: 65mm; padding: 4.6mm 6mm 5mm; background: var(--grad-dark); }
+    .page[data-page="03"] .p03-market__head { display: flex; justify-content: space-between; align-items: center; gap: 4mm; padding-bottom: 2.6mm; border-bottom: var(--hair) solid var(--rule); }
+    .page[data-page="03"] .p03-market .pageref { background: transparent; box-shadow: inset 0 0 0 var(--hair) var(--rule); color: var(--accent-text); }
+    .page[data-page="03"] .p03-market__body { display: grid; grid-template-columns: calc(6 * var(--col) + 5 * var(--gutter) - 6mm) minmax(0, 1fr); column-gap: var(--gutter); align-items: end; margin-top: 4.4mm; }
+    .page[data-page="03"] .p03-market__hero { display: flex; flex-direction: column; }
+    .page[data-page="03"] .p03-market__num { font: 900 var(--fs-fig-xl)/.8 var(--font-display); letter-spacing: -.02em; color: var(--fg); font-variant-numeric: lining-nums tabular-nums; }
+    .page[data-page="03"] .p03-market__label { margin-top: 3.4mm; font: 700 9.5pt/1.3 var(--font-display); color: var(--fg); }
+    .page[data-page="03"] .p03-market__note { margin-top: .8mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="03"] .p03-market .chart__sub { margin-top: 0; color: var(--fg-3); }
+    .page[data-page="03"] .p03-market .chart__svg { margin-top: 2.4mm; }
     .page[data-page="03"] .chart__svg .p03-v { font-size: var(--svg-fs-l); }
-
-    /* nur eine Quellen-Fußnote: über die volle Satzspiegelbreite, eine Zeile */
-    .page[data-page="03"] .p03-fn { column-count: 1; }
+    .page[data-page="03"] .chart__svg .p03-ring-num { font-family: var(--font-display); font-weight: 800; font-size: var(--svg-fs-l); fill: var(--fg); font-variant-numeric: tabular-nums; }
   </style>
 
-  <div class="title-block title-block--split p03-title">
-    <div class="title-block__main">
+  <div class="p03-head">
+    <div class="p03-title">
       <p class="kicker">Kennzahlen</p>
-      <h1 class="h1">Die Förderung in <em>sieben Zahlen</em></h1>
+      <h1 class="h1"><span class="light">Die Förderung in</span> <em>sieben</em> Zahlen</h1>
     </div>
     <aside class="term p03-term">
-      <p class="term__label">Begriff<span class="ref">RL Nr.&nbsp;5.3.2</span></p>
-      <p class="term__word">Zuwendungsfähige Kosten</p>
-      <p class="term__text">Bezugsgröße der Förderquote – in 2.1: Herstellungskosten bis zur Bemessungsgrenze plus Grundstückskosten bis Bodenrichtwert (Ersterwerb: Kaufpreis und Erwerbskosten).</p>
+      <p class="p03-term__head"><span class="term__label">Begriff:</span> <span class="term__word">zuwendungsfähige Kosten</span></p>
+      <p class="term__text">Die Bezugsgröße der Förderquote – in 2.1 die Herstellungskosten bis zur Bemessungsgrenze plus Grundstückskosten bis zum Bodenrichtwert, beim Ersterwerb Kaufpreis und Erwerbskosten.</p>
     </aside>
   </div>
 
   <div class="key-figures p03-kf">
     <article class="kf kf--bs bs-21">
-      <div class="kf__top"><span class="bs-badge bs-21"><b class="bs-badge__no">2.1</b></span><span class="ref">RL Nr.&nbsp;5.3.3</span></div>
       <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">80<span class="kf__unit">%</span></span></p>
-      <h2 class="kf__label">Förderquote</h2>
-      <p class="kf__text">Darlehen + Zuschuss, alle Einkommensgruppen; mehr bei Modellprojekten und <span lang="en">Housing First</span> <a class="u-nowrap" href="#seite-08">→&nbsp;S.&nbsp;8</a></p>
+      <p class="kf__label">Förderquote</p>
+      <p class="kf__text">Darlehen + Zuschuss, alle Gruppen; mehr bei <span lang="en">Housing First</span> und Modellprojekten <a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a></p>
+      <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.1</b></span></span>
     </article>
 
     <article class="kf kf--bs bs-21">
-      <div class="kf__top"><span class="bs-badge bs-21"><b class="bs-badge__no">2.1</b></span><span class="ref">RL Nr.&nbsp;5.3.3.2, 12.3.2</span></div>
       <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">40<span class="kf__unit">%</span></span></p>
-      <h2 class="kf__label">Zuschuss</h2>
-      <p class="kf__text">Einkommensgruppe&nbsp;A; B&nbsp;bis&nbsp;zu&nbsp;20&nbsp;%, C&nbsp;bis&nbsp;zu&nbsp;10&nbsp;% (B/C nur mit Zulassung <a class="u-nowrap" href="#seite-06">→&nbsp;S.&nbsp;6</a>); nur mit Darlehen</p>
+      <p class="kf__label">Zuschuss</p>
+      <p class="kf__text">Gruppe&nbsp;A, nur mit Darlehen; B bis zu 20&nbsp;%, C bis zu 10&nbsp;%, B/C nur mit Zulassung <a class="pageref" href="#seite-06">→&nbsp;S.&nbsp;6</a></p>
+      <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.1</b></span></span>
     </article>
 
-    <article class="kf kf--bs bs-21 p03-kf--split">
-      <div class="kf__top"><span class="kf__badges"><span class="bs-badge bs-21"><b class="bs-badge__no">2.1</b></span><span class="bs-badge bs-24"><b class="bs-badge__no">2.4</b></span></span><span class="ref">RL Nr.&nbsp;5.3.4, 12.7</span></div>
+    <article class="kf kf--bs bs-21 p03-kf__split">
       <p class="kf__fig"><span class="kf__pre"></span><span class="kf__num">0<span class="kf__unit">%</span></span></p>
-      <h2 class="kf__label">Zins bis Ende des 35.&nbsp;Jahres</h2>
-      <p class="kf__text">nach Bezugsfertigkeit; zzgl. 0,5&nbsp;% Verwaltungskostenbeitrag p.&nbsp;a. und einmaliger Entgelte <a class="u-nowrap" href="#seite-09">→&nbsp;S.&nbsp;9</a></p>
+      <p class="kf__label">Zins bis Ende des 35.&nbsp;Jahres</p>
+      <p class="kf__text">gezählt ab Bezugsfertigkeit; dazu 0,5&nbsp;% Verwaltungskostenbeitrag p.&nbsp;a. und einmalige Bearbeitungsentgelte <a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a></p>
+      <span class="p03-chip"><span class="bs-badge bs-21"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.1</b></span>/<span class="bs-badge bs-24"><b class="bs-badge__no">2.4</b></span></span>
     </article>
 
     <article class="kf kf--bs bs-21">
-      <div class="kf__top"><span class="bs-badge bs-21"><b class="bs-badge__no">2.1</b></span><span class="ref">RL Nr.&nbsp;5.3.2.2, 8.3.1</span></div>
-      <p class="kf__fig"><span class="kf__pre">Ausgangswerte</span><span class="kf__num kf__num--pair">4.800/5.000</span><span class="kf__sub">€/m² Wohnfläche</span></p>
-      <h2 class="kf__label">Bemessungsgrenze</h2>
-      <p class="kf__text">Herstellungskosten, Mietenstufe I–III/IV–VII; Fortschreibung <a class="u-nowrap" href="#seite-08">→&nbsp;S.&nbsp;8</a>; Inseln: <span class="u-nowrap">1,5 × I–III</span> <a class="u-nowrap" href="#seite-13">→&nbsp;S.&nbsp;13</a></p>
+      <p class="kf__fig"><span class="kf__pre">Ausgangswerte</span><span class="kf__num kf__num--pair">4.800/<wbr>5.000<span class="kf__unit">€</span></span></p>
+      <p class="kf__sub">je m² Wohnfläche</p>
+      <p class="kf__label">Bemessungsgrenze Herstellungskosten</p>
+      <p class="kf__text">Mietenstufe I–III/IV–VII; halbjährlich fortgeschrieben <a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a></p>
+      <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.1</b></span></span>
     </article>
 
     <article class="kf kf--bs bs-22">
-      <div class="kf__top"><span class="bs-badge bs-22"><b class="bs-badge__no">2.2</b></span><span class="ref">RL Nr.&nbsp;6.3.3, 6.3.4</span></div>
       <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">90.000<span class="kf__unit">€</span></span></p>
-      <h2 class="kf__label">Zuschuss je Wohnung im EH-40-Neubau</h2>
-      <p class="kf__text">Einkommensgruppe&nbsp;A; max. 50&nbsp;% der zuwendungsfähigen Kosten; nicht mit 2.1 <span class="u-nohyphens">kombinierbar</span></p>
+      <p class="kf__label">Zuschuss je Wohnung im <span class="u-nowrap">EH-40-Neubau</span></p>
+      <p class="kf__text">Gruppe&nbsp;A, höchstens 50&nbsp;% der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar <a class="pageref" href="#seite-12">→&nbsp;S.&nbsp;12</a></p>
+      <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.2</b></span></span>
     </article>
 
     <article class="kf kf--bs bs-23">
-      <div class="kf__top"><span class="bs-badge bs-23"><b class="bs-badge__no">2.3</b></span><span class="ref">RL Nr.&nbsp;2.3, 7.3.3</span></div>
       <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">31.000<span class="kf__unit">€</span></span></p>
-      <h2 class="kf__label u-hyphens">Modernisierungszuschuss je gebundener Wohnung</h2>
-      <p class="kf__text">ab 5&nbsp;Effizienzklassen besser, Einkommensgruppe&nbsp;A; max.&nbsp;40&nbsp;% der Kosten; Fertigstellung vor 08.12.2004</p>
+      <p class="kf__label">Modernisierungs&shy;zuschuss je gebundener Wohnung</p>
+      <p class="kf__text">Gruppe&nbsp;A, ab 5&nbsp;Effizienzklassen besser; höchstens 40&nbsp;% der zuwendungsfähigen Kosten <a class="pageref" href="#seite-14">→&nbsp;S.&nbsp;14</a></p>
+      <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.3</b></span></span>
     </article>
 
     <article class="kf kf--bs bs-25">
-      <div class="kf__top"><span class="bs-badge bs-25"><b class="bs-badge__no">2.5</b></span><span class="ref">RL Nr.&nbsp;2.5, 9.3</span></div>
-      <p class="kf__fig"><span class="kf__pre">Festbetrag</span><span class="kf__num">3,00<span class="kf__unit">€/m²</span></span><span class="kf__sub">Wohnfläche und Monat</span></p>
-      <h2 class="kf__label">Zuschuss Bindungserwerb</h2>
-      <p class="kf__text">15–20&nbsp;Jahre Bindung; ab&nbsp;5&nbsp;Jahren 2,00&nbsp;€, ab&nbsp;10&nbsp;Jahren 2,50&nbsp;€; <span class="u-nowrap">nur Einkommensgruppe&nbsp;A</span></p>
+      <p class="kf__fig"><span class="kf__pre">Festbetrag</span><span class="kf__num">3,00<span class="kf__unit">€</span></span></p>
+      <p class="kf__sub">je m² Wohnfläche und Monat</p>
+      <p class="kf__label">Zuschuss für den Bindungserwerb</p>
+      <p class="kf__text">15–20&nbsp;Jahre Bindung; ab 5&nbsp;Jahren 2,00&nbsp;€, ab 10&nbsp;Jahren 2,50&nbsp;€; nur Gruppe&nbsp;A <a class="pageref" href="#seite-16">→&nbsp;S.&nbsp;16</a></p>
+      <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.5</b></span></span>
     </article>
 
-    <aside class="callout callout--frist p03-frist">
-      <div class="kf__top"><span class="ref">RL Nr.&nbsp;13.3</span><svg class="icon icon--frist" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.8" r="8.2"/><path d="M12 8.2v4.8l3.2 2"/><path d="M9.2 2.6h5.6"/></svg></div>
-      <p class="callout__label">Und ein Stichtag</p>
-      <p class="callout__date">31.12.2026</p>
-      <p class="callout__body">Nur Modernisierungsanträge, die bis dahin bei der Wohnraumförderstelle eingehen, können mit dem Antrag verbindlich das bisherige Recht wählen <a class="u-nowrap" href="#seite-15">→&nbsp;S.&nbsp;15</a></p>
-    </aside>
+    <article class="kf p03-kf__date">
+      <p class="kf__fig"><span class="kf__pre">Und ein Stichtag</span><span class="kf__num">31.12.2026</span></p>
+      <p class="kf__label">Wahlrecht für Modernisierungs&shy;anträge</p>
+      <p class="kf__text">Geht Ihr Antrag bis dahin bei der Wohnraumförderstelle ein, können Sie das alte Recht wählen <a class="pageref" href="#seite-15">→&nbsp;S.&nbsp;15</a></p>
+    </article>
   </div>
-  <p class="caveat">Höchstwerte&nbsp;· Überkompensationsprüfung&nbsp;· kein&nbsp;Rechtsanspruch <a href="#seite-02">→&nbsp;S.&nbsp;2</a></p>
 
-  <div class="p03-market on-dark">
-    <figure class="chart p03-mkt" role="group">
-      <figcaption class="p03-mkt__head"><h2 class="chart__title">Markt in Niedersachsen</h2><p class="p03-mkt__period">31.12.2015–31.12.2024 · Wohnungen<span class="fn">1</span></p><a class="pageref" href="#seite-18">Wo Bedarf gilt →&nbsp;S.&nbsp;18</a></figcaption>
-      <div class="p03-mkt__hero">
-        <p class="p03-mkt__num">50.495</p>
-        <p class="p03-mkt__label">Sozialwohnungen 2024</p>
-        <p class="p03-mkt__note">ggü. 2015 nahezu halbiert</p>
+  <figure class="chart p03-market on-dark l-bottom" role="group" aria-labelledby="p03-markt">
+    <figcaption class="p03-market__head">
+      <h2 class="chart__title" id="p03-markt">Markt in Niedersachsen</h2>
+      <a class="pageref" href="#seite-18">Wo Bedarf gilt →&nbsp;S.&nbsp;18</a>
+    </figcaption>
+    <div class="p03-market__body">
+      <div class="p03-market__hero">
+        <p class="p03-market__num">50.495</p>
+        <p class="p03-market__label">Sozialwohnungen 2024</p><p class="p03-market__note">gegenüber 2015 nahezu halbiert</p>
       </div>
-      <svg class="chart__svg" viewBox="0 0 100 31.6" width="100mm" height="31.6mm" role="img" aria-label="31.12.2015 bis 31.12.2024 in Niedersachsen: 58.024 Wohnungen mit ausgelaufener Bindung, rund 16.000 neu geförderte Wohnungen; damit sind 28 Prozent kompensiert.">
-        <text class="t-m" x="0" y="3.4">Wohnungen mit ausgelaufener Bindung</text>
-        <rect class="c-old" x="0" y="5.2" width="70" height="7.5"/>
-        <text class="t-val p03-v t-end" x="68.4" y="10.42">58.024</text>
-        <text class="t-m" x="0" y="20.6">neu geförderte Wohnungen</text>
-        <rect class="p03-bar-new" x="0" y="22.4" width="19.37" height="7.5"/>
-        <text class="t-val-ink p03-v" x="21.4" y="27.62">rund 16.000</text>
-        <circle class="ring-bg ring-bg--old" cx="88.6" cy="15.6" r="8.6" stroke-width="2.4"/>
-        <circle class="ring-val ring-val--fg" cx="88.6" cy="15.6" r="8.6" stroke-width="2.4" pathLength="100" stroke-dasharray="28 72" transform="rotate(-90 88.6 15.6)"/>
-        <text class="p03-ring-num t-mid" x="88.6" y="17.55">28 %</text>
-        <text class="t-mid t-m" x="88.6" y="29.9">kompensiert</text>
-      </svg>
-    </figure>
-  </div>
-
-  <ol class="footnotes footnotes--2col p03-fn l-bottom">
-    <li>NBank-Wohnungsmarktbericht 2025; neu geförderte Wohnungen dort „rund 16.052“, hier gerundet.</li>
-  </ol>
+      <div class="p03-market__chart">
+        <p class="chart__sub">2015–2024 · Wohnungen</p>
+        <svg class="chart__svg" viewBox="0 0 81.5 28" width="81.5mm" height="28mm" role="img" aria-label="Niedersachsen 2015 bis 2024: Bei 58.024 Wohnungen sind die Bindungen ausgelaufen, rund 16.000 Wohnungen wurden neu gefördert. Damit sind 28 Prozent der Abgänge ersetzt.">
+          <line class="ax" x1="0" y1="4.2" x2="0" y2="25.6"/>
+          <text class="t-m" x="1.6" y="3">Bindungen ausgelaufen</text>
+          <rect class="c-old" x="0" y="4.6" width="52" height="6.8"/>
+          <text class="t-val p03-v t-end" x="50.4" y="9.55">58.024</text>
+          <text class="t-m" x="1.6" y="16.8">neu gefördert</text>
+          <rect class="c-ink" x="0" y="18.4" width="14.39" height="6.8"/>
+          <text class="t-val-ink p03-v" x="16.2" y="23.35">rund 16.000</text>
+          <circle class="ring-bg ring-bg--old" cx="70.2" cy="10.4" r="7.6" stroke-width="2.4"/>
+          <circle class="ring-val ring-val--fg" cx="70.2" cy="10.4" r="7.6" stroke-width="2.4" pathLength="100" stroke-dasharray="28 72" transform="rotate(-90 70.2 10.4)"/>
+          <text class="p03-ring-num t-mid" x="70.2" y="11.9">28 %</text>
+          <text class="t-m t-mid" x="70.2" y="25.2">der Abgänge ersetzt</text>
+        </svg>
+      </div>
+    </div>
+  </figure>
 
   <footer class="page__foot" aria-hidden="true">
     <span class="page__folio">3</span>

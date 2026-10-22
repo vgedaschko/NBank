@@ -1,267 +1,199 @@
 <section class="page" data-page="19" id="seite-19">
   <style>
-    /* Register (Doppelseite 18|19 „Umsetzung“): Primärfarbe, Icon statt Nummer */
-    .page[data-page="19"] .p19-register { background: var(--fg); color: var(--surface); padding-bottom: 1.6mm; }
-    .page[data-page="19"] .p19-register .icon { width: 4.6mm; height: 4.6mm; }
+    /* Seite 19 · Antragsweg · Planwerk (entlastet). Rechte Seite der Doppelseite 18|19 „Umsetzung“.
+       Dominant: Swimlane „Acht Schritte, drei Beteiligte“ in zwei Zeilen à vier Stationen. Über jeder Zeile ein Bahnstreifen
+       (Sie · Förderstelle · NBank, Papier/Weiß/Papier, je 7 mm), Quadrat-Marken 6 mm in Fast-Schwarz (Poché), Weg 0,35 mm
+       Anthrazit; „mit Ihnen“ = Marke über zwei Bahnen (oberes Feld Kontur). Texte darunter in Spalten, deren linke Kante
+       die Marke trägt (SVG-Koordinaten = Spaltengrenzen in mm). Unten: Achtung-Kasten und Ampel in drei Spalten
+       (Spalten 1–4 · 5–8 · 9–12 = Werkzeugkasten S. 18). Rot nur: Kicker, Titellinie, Signaturwort, Achtung-Kasten, Angebot. */
 
-    /* Titelzone: links Kicker + zweizeiliger Titel, darunter der Kopf der Swimlane; rechts der Vorspann */
-    .page[data-page="19"] .p19-top { display: grid; grid-template-columns: 107.2mm minmax(0, 1fr); column-gap: var(--gutter); align-items: stretch; }
-    .page[data-page="19"] .p19-top .h1 { white-space: nowrap; }
-    .page[data-page="19"] .p19-top__main { display: flex; flex-direction: column; justify-content: space-between; }
-    .page[data-page="19"] .p19-top .kicker + .h1 { margin-top: 3.2mm; }
-    .page[data-page="19"] .p19-top .lead { align-self: end; }
-    .page[data-page="19"] .p19-head { margin-top: 3.4mm; padding-top: 2.4mm; column-gap: 4mm; }
-    .page[data-page="19"] .p19-head .legend { column-gap: 3.5mm; }
+    .page[data-page="19"] .p19-head .lead { margin-top: 3.4mm; max-width: none; }
 
-    /* Swimlane: zwei Phasen à vier Stationen. Jede Karte hängt an der Bahn ihres Akteurs;
-       der Titel steht im Bahnband über der Linie, der Text darunter. Bahnabstand 4,6 mm.
-       Kopfspalte 19,5 mm links vor beiden Zeilen: Bahnnamen rechtsbündig auf ihrer Bahnlinie (x 0–17,6 im SVG),
-       Stationen ab x = 19,5. Breiten so verteilt, dass Zeile 1 kürzer wird (Entscheidung 52 mm: Frist einzeilig)
-       und die zusätzliche Zeile in „Bauen“ (Zeile 2, ab 50,3 mm 11 Zeilen) auffängt. Mindestbreiten: Titel
-       Vorgespräch 25, Stellungnahme 28,9, Fertigstellung 27, Verwendungsnachweis 41,4; „Notarbestätigung“ 26,1. */
-    .page[data-page="19"] .p19-lg { width: 3.4mm; height: 3.4mm; overflow: visible; }
-    .page[data-page="19"] .p19-row { position: relative; display: grid; column-gap: 3.1mm; padding-left: 19.5mm; }
-    .page[data-page="19"] .p19-row--1 { grid-template-columns: 25mm 39.3mm 28.9mm 52mm; margin-top: 2mm; }
-    .page[data-page="19"] .p19-row--2 { grid-template-columns: 50.5mm 26.2mm 27mm 41.5mm; }
-    .page[data-page="19"] .p19-svg { position: absolute; left: 0; top: 0; width: 174mm; height: 18mm; overflow: visible; }
-    .page[data-page="19"] .p19-st { position: relative; min-width: 0; }
-    .page[data-page="19"] .p19-row--1 .p19-st--w { padding-top: 4.6mm; }
-    .page[data-page="19"] .p19-row--1 .p19-st--n { padding-top: 9.2mm; }
-    .page[data-page="19"] .p19-row--2 .p19-st--s { padding-top: 3.2mm; }
-    .page[data-page="19"] .p19-row--2 .p19-st--w { padding-top: 7.8mm; }
-    .page[data-page="19"] .p19-row--2 .p19-st--n { padding-top: 12.4mm; }
-    .page[data-page="19"] .p19-st__title {
-      display: flex; align-items: baseline; gap: 1mm;
-      height: 4.2mm; margin-left: 4.8mm; white-space: nowrap;
-      font-family: var(--font-display); font-variation-settings: "opsz" 24, "SOFT" 30, "WONK" 0;
-      font-weight: 520; font-size: 9.5pt; line-height: 4.2mm; color: var(--fg);
-    }
-    /* Warnmarke und Vordruck-Badge stehen neben (nicht in) der Überschrift: zugänglicher Name bleibt „Bauen“ */
-    .page[data-page="19"] .p19-st__head { display: flex; align-items: center; height: 4.2mm; margin-left: 4.8mm; }
-    .page[data-page="19"] .p19-st__head .p19-st__title { margin-left: 0; }
-    .page[data-page="19"] .p19-st__meta { display: flex; align-items: center; margin-left: 1.4mm; }
-    .page[data-page="19"] .p19-st__meta .mark { width: 3.3mm; height: 3.3mm; }
-    .page[data-page="19"] .p19-st__meta .badge { margin-left: 1.6mm; }
-    .page[data-page="19"] .p19-st__meta .mark--warn::before { left: 1.45mm; top: .55mm; height: 1.35mm; }
-    .page[data-page="19"] .p19-st__meta .mark--warn::after { left: 1.45mm; top: 2.25mm; }
-    .page[data-page="19"] .p19-st__text { margin-top: 2.7mm; font-size: var(--fs-module); line-height: 1.27; color: var(--fg-2); }
-    .page[data-page="19"] .p19-st__text b { color: var(--fg); font-weight: 600; }
-    /* Komposita in der schmalen Spalte 7 nur an der Fuge trennen (von Hand gesetztes &shy;, Automatik aus) */
+    /* Swimlane ------------------------------------------------------------------------------------------------- */
+    .page[data-page="19"] .p19-lane { margin-top: 4.4mm; }
+    .page[data-page="19"] .p19-lane .chart__head { align-items: baseline; }
+    .page[data-page="19"] .p19-lane .offer { grid-column: 2; margin-top: 0; }
+    .page[data-page="19"] .p19-row { margin-top: 3.1mm; }
+    /* Kompositum nur an der Fuge trennen (von Hand gesetztes &shy;, Automatik aus) */
     .page[data-page="19"] .p19-hy { -webkit-hyphens: manual !important; hyphens: manual !important; }
-    .page[data-page="19"] .p19-sep { font-weight: 700; color: var(--accent-text); }
-    .page[data-page="19"] .p19-st .bullets { margin-top: 1.8mm; }
-    .page[data-page="19"] .p19-st .bullets > li { font-size: var(--fs-module); line-height: 1.3; padding-left: 3.4mm; }
-    .page[data-page="19"] .p19-st .bullets > li + li { margin-top: .5mm; }
-    .page[data-page="19"] .p19-forms { margin-top: 1.3mm; font: 500 var(--fs-module)/1.3 var(--font-text); color: var(--fg-2); }
-    .page[data-page="19"] .p19-forms > li + li { margin-top: .55mm; }
-    /* Vordruckliste: Badge · Programmteil im Zeilenfluss; eine Folgezeile rückt 2,4 mm ein (unter dem Programmteil
-       wäre die Spalte für „Prolongationsangebot“ zu schmal und das Wort bliebe als Trennrest allein stehen) */
-    .page[data-page="19"] .p19-forms > li { padding-left: 2.4mm; text-indent: -2.4mm; }
-    .page[data-page="19"] .p19-forms > li > .badge { text-indent: 0; }
-    .page[data-page="19"] .p19-frist { display: flex; align-items: flex-start; gap: 1mm; margin-top: 1.3mm; font: 650 var(--fs-micro)/1.28 var(--font-text); color: var(--signal-text); }
-    .page[data-page="19"] .p19-frist .icon { width: 3.3mm; height: 3.3mm; margin-top: -.15mm; }
+    .page[data-page="19"] .p19-row + .p19-row { margin-top: 3.2mm; }
+    .page[data-page="19"] .p19-strip { display: block; width: 180mm; height: auto; overflow: visible; }
+    .page[data-page="19"] .p19-band { fill: var(--surface-2); }
+    .page[data-page="19"] .p19-path { fill: none; stroke: var(--fg-2); stroke-width: .35; stroke-linejoin: miter; }
+    .page[data-page="19"] .p19-arrow { fill: var(--fg-2); }
+    .page[data-page="19"] .p19-mk { fill: var(--fg); }
+    .page[data-page="19"] .p19-with { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }
+    .page[data-page="19"] .p19-strip text { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 600; fill: var(--fg-3); }
+    .page[data-page="19"] .p19-strip .p19-no { font-family: var(--font-display); font-size: 3px; font-weight: 900; fill: var(--on-data); text-anchor: middle; font-variant-numeric: tabular-nums; }
+    .page[data-page="19"] .p19-strip .p19-brk-t { font-family: var(--font-display); font-weight: 700; letter-spacing: .3px; text-transform: uppercase; fill: var(--fg-3); text-anchor: middle; }
+    .page[data-page="19"] .p19-brk { fill: none; stroke: var(--fg-3); stroke-width: .25; }
+    .page[data-page="19"] .p19-brk-bg { fill: var(--surface); }
 
-    /* SVG-Bahnen */
-    .page[data-page="19"] .p19-rail { stroke: var(--rule); stroke-width: .25; fill: none; }
-    .page[data-page="19"] .p19-path { stroke: var(--fg); stroke-width: .45; fill: none; stroke-linejoin: round; }
-    .page[data-page="19"] .p19-dot { fill: var(--accent); }
-    .page[data-page="19"] .p19-inv { fill: var(--surface); stroke: var(--loan); stroke-width: .32; }
-    .page[data-page="19"] .p19-with { stroke: var(--loan); stroke-width: .3; fill: none; }
-    .page[data-page="19"] .p19-end { fill: var(--fg); }
-    .page[data-page="19"] .p19-svg text { font-family: var(--font-text); font-size: 3px; font-weight: 500; fill: var(--fg-3); }
-    .page[data-page="19"] .p19-svg .p19-no { font-weight: 650; fill: var(--on-data); font-variant-numeric: tabular-nums; }
-    /* Kopfspalte: Bahnname in gemischter Schreibung (8,5 pt = 3 mm; „FÖRDERSTELLE“ in Versalien wäre 26,5 mm breit
-       und passte nicht in 20 mm), rechtsbündig über seiner Bahnlinie; Kopf-Linie 0–17,6 in --fg-3, Bahnen ab x = 19,5 in --rule */
-    .page[data-page="19"] .p19-svg .p19-lane-t { font-weight: 650; fill: var(--fg-3); }
-    .page[data-page="19"] .p19-head-rail { stroke: var(--fg-3); stroke-width: .25; fill: none; }
-    .page[data-page="19"] .p19-svg .p19-brk-t { font-weight: 650; letter-spacing: .2px; text-transform: uppercase; fill: var(--fg-3); }
-    .page[data-page="19"] .p19-brk { stroke: var(--fg-3); stroke-width: .25; fill: none; }
+    .page[data-page="19"] .p19-stations { display: grid; column-gap: 4mm; margin-top: 2.4mm; }
+    .page[data-page="19"] .p19-row--1 .p19-stations { grid-template-columns: 34mm 44mm 42mm 48mm; }
+    .page[data-page="19"] .p19-row--2 .p19-stations { grid-template-columns: 54mm 30mm 40mm 44mm; }
+    .page[data-page="19"] .p19-st { min-width: 0; }
+    .page[data-page="19"] .p19-st__title { font: 800 8.5pt/1.2 var(--font-display); letter-spacing: .03em; text-transform: uppercase; color: var(--fg); white-space: nowrap; }
+    .page[data-page="19"] .p19-st__text { margin-top: 1.2mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="19"] .p19-st__text .pageref { padding-top: .4mm; padding-bottom: .3mm; }
+    .page[data-page="19"] .p19-st__due { display: grid; grid-template-columns: 4.6mm minmax(0, 1fr); margin-top: 1.6mm; font: 600 var(--fs-module)/1.32 var(--font-text); color: var(--fg); }
+    .page[data-page="19"] .p19-st__due .icon { width: 3.6mm; height: 3.6mm; margin-top: .1mm; color: var(--signal-text); }
 
-    /* Übergang 4 → 5: Stopp-Band über die volle Breite (Kalkulationsnotiz der Doppelseite steht auf S. 18) */
-    .page[data-page="19"] .p19-band { margin: 2.2mm 0; }
-    .page[data-page="19"] .p19-gate { padding: 2mm 3mm 2.1mm; gap: 1.6mm; font-size: var(--fs-module); line-height: 1.32; }
-    .page[data-page="19"] .p19-gate .icon { flex: none; width: 4mm; height: 4mm; }
-    .page[data-page="19"] .p19-gate > b { flex: none; white-space: nowrap; }
-    .page[data-page="19"] .p19-gate__body { margin-left: 1.6mm; }
+    /* Achtung-Kasten (einer von zwei im Heft): Stopp-Marke + Titel links (4 Spalten), Text ab Spalte 5 ---------------- */
+    .page[data-page="19"] .p19-stop { display: grid; grid-template-columns: 34.6mm minmax(0, 1fr); column-gap: 4.6mm; align-items: start; margin-top: 3.9mm; padding: 3.6mm 4mm 4.2mm; }
+    .page[data-page="19"] .p19-stop__title { font: 900 var(--fs-h3)/1.14 var(--font-display); letter-spacing: .01em; text-transform: uppercase; color: var(--fg); }
+    .page[data-page="19"] .p19-stop__title .icon { width: 4.6mm; height: 4.6mm; margin-right: 1.6mm; vertical-align: -.75mm; color: var(--accent); }
+    .page[data-page="19"] .p19-stop .callout__body { margin-top: .2mm; }
 
-    /* Geltungsnotiz unter der Swimlane (Spielregeln stehen direkt an den Stationen 5 und 8) */
-    .page[data-page="19"] .p19-more { margin-top: 2.2mm; padding-top: 1.8mm; border-top: var(--hair) solid var(--rule); }
-    .page[data-page="19"] .p19-more p { font-size: var(--fs-micro); line-height: 1.34; color: var(--fg-2); }
-    .page[data-page="19"] .p19-more b { font-weight: 650; color: var(--fg); }
-
-    /* Ampel */
-    .page[data-page="19"] .p19-ampel .fig-head__title { font-size: var(--fs-h3); }
-    .page[data-page="19"] .p19-amp { display: grid; grid-template-columns: 39mm 61mm 64mm; column-gap: var(--gutter); margin-top: 2mm; }
-    /* Kopfzeile: alle drei Köpfe gleich hoch (zweizeilig), damit die Listen auf einer Linie beginnen */
-    .page[data-page="19"] .p19-amp__head { display: flex; align-items: center; gap: 1.8mm; height: 8mm; padding: 0 2.4mm; font: 650 var(--fs-micro)/1.16 var(--font-text); }
-    .page[data-page="19"] .p19-amp__head .icon { width: 4.4mm; height: 4.4mm; margin-left: auto; }
-    .page[data-page="19"] .p19-amp--yes .p19-amp__head { background: var(--tip-soft); color: var(--fg); }
-    .page[data-page="19"] .p19-amp--warn .p19-amp__head { background: var(--signal-fill); color: var(--on-signal); }
-    .page[data-page="19"] .p19-amp--no .p19-amp__head { background: var(--no); color: var(--on-mark); }
-    .page[data-page="19"] .p19-amp--warn .mark--warn { background: var(--fg); --on-signal: var(--signal-fill); }
-    .page[data-page="19"] .p19-amp--no .mark--no { background: var(--surface); }
-    .page[data-page="19"] .p19-amp--no .mark--no::before, .page[data-page="19"] .p19-amp--no .mark--no::after { background: var(--no); }
-    .page[data-page="19"] .p19-amp__list > li { position: relative; padding: .4mm 0 .45mm 3.4mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-module); line-height: 1.26; color: var(--fg); }
-    .page[data-page="19"] .p19-amp__list > li::before { content: ""; position: absolute; left: .3mm; top: calc(.5mm + .48em); width: 1.4mm; height: 1.4mm; border-radius: 50%; }
+    /* Ampel: drei gleich breite Spalten, Köpfe hell · mittel · dunkel (graustufenfest, Symbol zusätzlich zur Fläche) -- */
+    .page[data-page="19"] .p19-ampel { margin-top: 4.5mm; }
+    .page[data-page="19"] .p19-amp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: 3mm; }
+    .page[data-page="19"] .p19-amp__list { margin-top: .6mm; }
+    .page[data-page="19"] .p19-amp__head { display: flex; align-items: center; gap: 2mm; height: 6.6mm; padding: 0 2.6mm; font: 800 9pt/1.2 var(--font-display); letter-spacing: .05em; text-transform: uppercase; }
+    .page[data-page="19"] .p19-amp__sym { flex: none; width: 4.6mm; font: 900 11pt/1 var(--font-display); text-align: center; }
+    .page[data-page="19"] .p19-amp__head .icon { width: 5mm; height: 5mm; margin-left: auto; }
+    .page[data-page="19"] .p19-amp--ok .p19-amp__head { background: var(--surface-2); color: var(--fg); }
+    .page[data-page="19"] .p19-amp--check .p19-amp__head { background: var(--seq-2); color: var(--fg); }
+    .page[data-page="19"] .p19-amp--stop .p19-amp__head { background: var(--grad-dark); color: var(--white); }
+    .page[data-page="19"] .p19-amp__list > li { position: relative; padding: 1mm 0 1.1mm 4mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
     .page[data-page="19"] .p19-amp__list > li:last-child { border-bottom: 0; }
-    .page[data-page="19"] .p19-amp--yes li::before { background: var(--ok); }
-    .page[data-page="19"] .p19-amp--warn li::before { background: var(--signal-fill); }
-    .page[data-page="19"] .p19-amp--no li::before { background: var(--no); border-radius: 0; }
+    .page[data-page="19"] .p19-amp__list > li::before { content: ""; position: absolute; left: .2mm; top: calc(1mm + .52em); width: 1.4mm; height: 1.4mm; }
+    .page[data-page="19"] .p19-amp--ok li::before { background: var(--ok); }
+    .page[data-page="19"] .p19-amp--check li::before { background: var(--seq-4); }
+    .page[data-page="19"] .p19-amp--stop li::before { background: var(--no); }
+    .page[data-page="19"] .p19-amp__list .pageref { padding-top: .4mm; padding-bottom: .3mm; }
 
-    .page[data-page="19"] .p19-st__text, .page[data-page="19"] .p19-gate { text-wrap: wrap; }
   </style>
 
-  <div class="bs-register p19-register" data-bleed aria-hidden="true"><svg class="icon icon--dokument" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2.8h8.4L19 7.4v13.8H6z"/><path d="M14.2 2.8v4.8H19M9 12h7M9 15.4h7M9 18.6h4.4"/></svg></div>
+  <header class="p19-head">
+    <p class="kicker">Antragsweg</p>
+    <h1 class="h1">Vom Vorgespräch bis zum <em>Verwendungsnachweis</em></h1>
+    <p class="lead lead--s">Sie beantragen bei der Wohnraumförderstelle am Bauort, die NBank entscheidet – in acht Schritten.</p>
+  </header>
 
-  <div class="p19-top">
-    <div class="p19-top__main">
-      <div>
-        <p class="kicker">Antragsweg</p>
-        <h1 class="h1 h1--s">Vom Vorgespräch bis<br>zum <em>Verwendungsnachweis</em></h1>
-      </div>
-      <div class="chart__head chart__head--inline chart--s module p19-head">
-        <h2 class="chart__title" id="p19-lane-title">Acht Schritte, drei Beteiligte</h2>
-        <ul class="legend">
-          <li><svg class="p19-lg" viewBox="0 0 4 4" aria-hidden="true"><circle class="p19-dot" cx="2" cy="2" r="1.9"/></svg>ist am Zug</li>
-          <li><svg class="p19-lg" viewBox="0 0 4 4" aria-hidden="true"><circle class="p19-inv" cx="2" cy="2" r="1.3"/></svg>ist beteiligt</li>
-        </ul>
-      </div>
-    </div>
-    <p class="lead lead--s">Sie beantragen bei der Wohnraumförderstelle am Bauort, die NBank entscheidet&nbsp;– in acht Schritten.</p>
-  </div>
+  <!-- Dominant: Swimlane -->
+  <figure class="chart module p19-lane" role="group" aria-labelledby="p19-lane-h">
+    <figcaption class="chart__head chart__head--inline"><h2 class="chart__title" id="p19-lane-h">Acht Schritte, drei Beteiligte</h2><p class="offer">Wie wir Sie Station für Station begleiten <a class="pageref" href="#seite-20">→&nbsp;S.&nbsp;20</a></p></figcaption>
 
-  <figure class="chart p19-lane" role="group" aria-labelledby="p19-lane-title">
-
-    <!-- Phase 1: Stationen 1–4 · Bahnlinien y = 4,6 (Sie) · 9,2 (Wohnraumförderstelle) · 13,8 (NBank)
-         Kopfspalte x 0–17,6 (Bahnnamen), Stationsspalten ab x = 19,5: 19,5 · 47,6 · 90 · 122; Wechsel in der Stegmitte -->
+    <!-- Zeile 1: Stationen 1–4. Spalten 34 · 44 · 42 · 48 mm, Steg 4 → Marken bei x 0 · 38 · 86 · 132.
+         Bahnen y 0–5 (Sie, Papier) · 5–10 (Förderstelle) · 10–15 (NBank, Papier); Mitten 2,5 · 7,5 · 12,5; Marken 4,4 mm -->
     <div class="p19-row p19-row--1">
-      <svg class="p19-svg" viewBox="0 0 174 18" role="img" aria-label="Bahnen Sie, Wohnraumförderstelle, NBank. Schritt 1 Vorgespräch: Wohnraumförderstelle am Zug, Sie beteiligt. Schritt 2 Antrag: Sie. Schritt 3 Stellungnahme: Wohnraumförderstelle. Schritt 4 Entscheidung: NBank.">
-        <path class="p19-head-rail" d="M0 4.6H17.6M0 9.2H17.6M0 13.8H17.6"/>
-        <path class="p19-rail" d="M19.5 4.6H174M120.45 9.2H174"/>
-        <path class="p19-path" d="M21.4 9.2H46.05V4.6H88.45V9.2H120.45V13.8H172.2"/>
-        <path class="p19-end" d="M171.8 12.9L174 13.8L171.8 14.7Z"/>
-        <path class="p19-with" d="M21.4 5.8V7.3"/>
-        <circle class="p19-inv" cx="21.4" cy="4.6" r="1.2"/>
-        <circle class="p19-dot" cx="21.4" cy="9.2" r="1.85"/><text class="p19-no" x="21.4" y="10.29" text-anchor="middle">1</text>
-        <circle class="p19-dot" cx="49.5" cy="4.6" r="1.85"/><text class="p19-no" x="49.5" y="5.69" text-anchor="middle">2</text>
-        <circle class="p19-dot" cx="91.9" cy="9.2" r="1.85"/><text class="p19-no" x="91.9" y="10.29" text-anchor="middle">3</text>
-        <circle class="p19-dot" cx="123.9" cy="13.8" r="1.85"/><text class="p19-no" x="123.9" y="14.89" text-anchor="middle">4</text>
-        <text class="p19-lane-t" x="17.6" y="3.5" text-anchor="end">Sie</text>
-        <text class="p19-lane-t" x="17.6" y="8.1" text-anchor="end">Förderstelle</text>
-        <text class="p19-lane-t" x="17.6" y="12.7" text-anchor="end">NBank</text>
+      <svg class="p19-strip" viewBox="0 0 180 15" width="180mm" height="15mm" role="img" aria-label="Bahnen Sie, Förderstelle, NBank. Schritt 1 Vorgespräch: Wohnraumförderstelle, mit Ihnen. Schritt 2 Antrag: Sie. Schritt 3 Stellungnahme: Wohnraumförderstelle. Schritt 4 Entscheidung: NBank. Weiter mit Schritt 5.">
+        <rect class="p19-band" x="0" y="0" width="180" height="5"/>
+        <rect class="p19-band" x="0" y="10" width="180" height="5"/>
+        <path class="p19-path" d="M2.2 7.5H40.2V2.5H88.2V7.5H134.2V12.5H151.4"/>
+        <path class="p19-arrow" d="M151 11.5L154.2 12.5L151 13.5Z"/>
+        <rect class="p19-with" x="0.15" y="0.45" width="4.1" height="9.1"/>
+        <rect class="p19-mk" x="0" y="5.3" width="4.4" height="4.4"/><text class="p19-no" x="2.2" y="8.57">1</text>
+        <rect class="p19-mk" x="38" y="0.3" width="4.4" height="4.4"/><text class="p19-no" x="40.2" y="3.57">2</text>
+        <rect class="p19-mk" x="86" y="5.3" width="4.4" height="4.4"/><text class="p19-no" x="88.2" y="8.57">3</text>
+        <rect class="p19-mk" x="132" y="10.3" width="4.4" height="4.4"/><text class="p19-no" x="134.2" y="13.57">4</text>
+        <text x="179.4" y="3.55" text-anchor="end">Sie</text>
+        <text x="179.4" y="8.55" text-anchor="end">Förderstelle</text>
+        <text x="179.4" y="13.55" text-anchor="end">NBank</text>
       </svg>
-
-      <article class="p19-st p19-st--w">
-        <h3 class="p19-st__title">Vorgespräch</h3>
-        <p class="p19-st__text">Nachweise und Unterlagen vorab klären; zusätzlich NBank-Förderberatung</p>
-      </article>
-      <article class="p19-st p19-st--s">
-        <h3 class="p19-st__title">Antrag</h3>
-        <p class="p19-st__text">bei der <span class="u-nohyphens">Wohnraumförderstelle</span></p>
-        <ul class="p19-forms">
-          <li><span class="badge badge--s badge--form">1011</span> <span>·</span> <span>2.1–2.4</span></li>
-          <li><span class="badge badge--s">1011a + 1012</span> <span>·</span> <span>2.5</span></li>
-          <li><span class="badge badge--s">1011b</span> <span>·</span> <span>2.6 nach <span class="u-nohyphens u-nowrap">Prolongationsangebot</span></span></li>
-        </ul>
-      </article>
-      <article class="p19-st p19-st--w">
-        <h3 class="p19-st__title">Stellungnahme</h3>
-        <p class="p19-st__text">Bedarfsbestätigung, ggf. Anhörung der Gemeinde, <span class="u-nohyphens u-nowrap">Weiterleitung</span></p>
-      </article>
-      <article class="p19-st p19-st--n">
-        <h3 class="p19-st__title">Entscheidung</h3>
-        <p class="p19-st__text">Voraussetzungen, Bonität, keine Überkompensation (Beihilferecht); <b>Fördervertrag</b>, bei reinem Zuschuss <b>Bescheid</b></p>
-        <p class="p19-frist"><svg class="icon icon--frist" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.8" r="8.2"/><path d="M12 8.2v4.8l3.2 2"/><path d="M9.2 2.6h5.6"/></svg><span>Ziel: ≤ 3 Monate <span class="u-nowrap">(kein Anspruch)</span></span></p>
-      </article>
+      <ol class="p19-stations">
+        <li class="p19-st">
+          <h3 class="p19-st__title">Vorgespräch</h3>
+          <p class="p19-st__text">Nachweise und Unterlagen vorab klären</p>
+        </li>
+        <li class="p19-st">
+          <h3 class="p19-st__title">Antrag</h3>
+          <p class="p19-st__text">bei der Wohnraumförderstelle am Bauort; für 2.6 erst nach dem <span class="u-nohyphens p19-hy">Prolongations&shy;angebot</span> <span class="u-nowrap">(<a class="pageref" href="#seite-17">→&nbsp;S.&nbsp;17</a>)</span></p>
+        </li>
+        <li class="p19-st">
+          <h3 class="p19-st__title">Stellungnahme</h3>
+          <p class="p19-st__text">Bedarfsbestätigung, ggf. Anhörung der Gemeinde, Weiterleitung an die NBank</p>
+        </li>
+        <li class="p19-st">
+          <h3 class="p19-st__title">Entscheidung</h3>
+          <p class="p19-st__text">Fördervertrag, bei reinem Zuschuss Bewilligungsbescheid</p>
+          <p class="p19-st__due"><svg class="icon icon--kalender" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="5" width="17.2" height="15.4" rx="1"/><path d="M3.4 9.6h17.2M8 3v4M16 3v4"/><path d="M13.6 13.2h3.4v3.4h-3.4z" fill="currentColor" stroke="none"/></svg><span>Ziel: höchstens drei Monate</span></p>
+        </li>
+      </ol>
     </div>
 
-    <div class="p19-band">
-      <p class="gate p19-gate"><svg class="icon icon--stopp" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="ui-fill" d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd" stroke="none"/></svg><b>Erst Bewilligung, dann Vertrag</b><span class="p19-gate__body">Ein Vertrag zu früh kostet die ganze Förderung: Begonnene Vorhaben werden nicht gefördert.</span></p>
-    </div>
-
-    <!-- Phase 2: Stationen 5–8 · Klammer oben, Bahnlinien y = 7,8 · 12,4 · 17,0
-         Kopfspalte x 0–17,6 (Bahnnamen), Stationsspalten ab x = 19,5: 19,5 · 73,1 · 102,4 · 132,5; Wechsel in der Stegmitte -->
+    <!-- Zeile 2: Stationen 5–8. Spalten 54 · 30 · 40 · 44 mm, Steg 4 → Marken bei x 0 · 58 · 92 · 136.
+         Klammer „bei Bauvorhaben“ über 5–7 (x 0–132, y 0–3); Bahnen y 3,6–8,6 · 8,6–13,6 · 13,6–18,6; Mitten 6,1 · 11,1 · 16,1 -->
     <div class="p19-row p19-row--2">
-      <svg class="p19-svg" viewBox="0 0 174 18" role="img" aria-label="Bahnen Sie, Wohnraumförderstelle, NBank. Schritt 5 Bauen: Sie am Zug. Schritt 6 Auszahlung: NBank. Schritt 7 Fertigstellung: Wohnraumförderstelle am Zug, Sie beteiligt. Schritt 8 Verwendungsnachweis: Sie. Schritte 5 bis 7 betreffen Bauvorhaben 2.1 bis 2.4.">
-        <path class="p19-brk" d="M19.5 2.1V.9H54.2M94.7 .9H129.4V2.1"/>
-        <text class="p19-brk-t" x="74.45" y="1.95" text-anchor="middle">Bauvorhaben 2.1–2.4</text>
-        <path class="p19-head-rail" d="M0 7.8H17.6M0 12.4H17.6M0 17H17.6"/>
-        <path class="p19-rail" d="M71.55 7.8H130.95M71.55 12.4H100.85"/>
-        <path class="p19-path" d="M21.4 7.8H71.55V17H100.85V12.4H130.95V7.8H174"/>
-        <path class="p19-with" d="M104.3 9V10.5"/>
-        <circle class="p19-inv" cx="104.3" cy="7.8" r="1.2"/>
-        <circle class="p19-dot" cx="21.4" cy="7.8" r="1.85"/><text class="p19-no" x="21.4" y="8.89" text-anchor="middle">5</text>
-        <circle class="p19-dot" cx="75" cy="17" r="1.85"/><text class="p19-no" x="75" y="18.09" text-anchor="middle">6</text>
-        <circle class="p19-dot" cx="104.3" cy="12.4" r="1.85"/><text class="p19-no" x="104.3" y="13.49" text-anchor="middle">7</text>
-        <circle class="p19-dot" cx="134.4" cy="7.8" r="1.85"/><text class="p19-no" x="134.4" y="8.89" text-anchor="middle">8</text>
-        <rect class="p19-end" x="173.6" y="6.9" width=".4" height="1.8"/>
-        <text class="p19-lane-t" x="17.6" y="6.7" text-anchor="end">Sie</text>
-        <text class="p19-lane-t" x="17.6" y="11.3" text-anchor="end">Förderstelle</text>
-        <text class="p19-lane-t" x="17.6" y="15.9" text-anchor="end">NBank</text>
+      <svg class="p19-strip" viewBox="0 0 180 18.6" width="180mm" height="18.6mm" role="img" aria-label="Bahnen Sie, Förderstelle, NBank. Schritt 5 Bauen: Sie. Schritt 6 Auszahlung: NBank. Schritt 7 Fertigstellung: Wohnraumförderstelle, mit Ihnen. Schritt 8 Verwendungsnachweis: Sie. Die Schritte 5 bis 7 gelten bei Bauvorhaben.">
+        <path class="p19-brk" d="M0.15 3V1.2H131.85V3"/>
+        <rect class="p19-brk-bg" x="47" y="0" width="38" height="2.8"/>
+        <text class="p19-brk-t" x="66" y="2.2">bei Bauvorhaben</text>
+        <rect class="p19-band" x="0" y="3.6" width="180" height="5"/>
+        <rect class="p19-band" x="0" y="13.6" width="180" height="5"/>
+        <path class="p19-path" d="M2.2 6.1H60.2V16.1H94.2V11.1H138.2V6.1"/>
+        <rect class="p19-mk" x="0" y="3.9" width="4.4" height="4.4"/><text class="p19-no" x="2.2" y="7.17">5</text>
+        <rect class="p19-mk" x="58" y="13.9" width="4.4" height="4.4"/><text class="p19-no" x="60.2" y="17.17">6</text>
+        <rect class="p19-with" x="92.15" y="4.05" width="4.1" height="9.1"/>
+        <rect class="p19-mk" x="92" y="8.9" width="4.4" height="4.4"/><text class="p19-no" x="94.2" y="12.17">7</text>
+        <rect class="p19-mk" x="136" y="3.9" width="4.4" height="4.4"/><text class="p19-no" x="138.2" y="7.17">8</text>
+        <text x="179.4" y="7.15" text-anchor="end">Sie</text>
+        <text x="179.4" y="12.15" text-anchor="end">Förderstelle</text>
+        <text x="179.4" y="17.15" text-anchor="end">NBank</text>
       </svg>
-
-      <article class="p19-st p19-st--s">
-        <div class="p19-st__head"><h3 class="p19-st__title">Bauen</h3><span class="p19-st__meta"><i class="mark mark--warn" role="img" aria-label="Achtung"></i><span class="badge badge--s badge--form">4001</span></span></div>
-        <p class="p19-st__text"><b>Baubeginnanzeige</b> erst nach Beginn, an NBank und Wohnraumförderstelle (für Unternehmen subventionserheblich) <span class="p19-sep">·</span> mind. 3 Angebote anfordern; Direktauftrag bis 25.000&nbsp;€ ohne USt <span class="p19-sep">·</span> Generalunternehmer/-übernehmer nur mit schriftlicher Prüfzustimmung <span class="p19-sep">·</span> Kommunen u.&nbsp;a.: zusätzlich Vergaberecht <span class="p19-sep">·</span> Bauschild mit Förderhinweis</p>
-        <p class="p19-frist"><svg class="icon icon--frist" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.8" r="8.2"/><path d="M12 8.2v4.8l3.2 2"/><path d="M9.2 2.6h5.6"/></svg><span>Baubeginn unverzüglich, ≤&nbsp;4&nbsp;Monate nach Bekanntgabe der Förderentscheidung</span></p>
-      </article>
-      <article class="p19-st p19-st--n">
-        <h3 class="p19-st__title">Auszahlung</h3>
-        <p class="p19-st__text">Teilraten auf Anforderung (<a class="u-nowrap" href="#seite-09">→&nbsp;S.&nbsp;9</a>); Darlehen erst nach Grundschuld an vereinbarter Rangstelle oder <span class="u-nohyphens u-nowrap">Notarbestätigung</span></p>
-      </article>
-      <article class="p19-st p19-st--w">
-        <h3 class="p19-st__title">Fertigstellung</h3>
-        <p class="p19-st__text"><span class="u-nohyphens p19-hy">Fertigstellungs&shy;anzeige</span> <span class="badge badge--s badge--form">4005</span>; Überlassung nur mit WBS; letzte 10 % nach <span class="u-nohyphens p19-hy">Schluss&shy;bescheinigung</span> und Belegung</p>
-      </article>
-      <article class="p19-st p19-st--s">
-        <h3 class="p19-st__title">Verwendungsnachweis</h3>
-        <p class="p19-st__text">an die Wohnraumförderstelle, einfacher Nachweis genügt. Die Bindungen laufen schon ab Bezugsfertigkeit, beim Ersterwerb ab Eigentumsübergang, bei 2.3 ab Abschluss der Maßnahmen.</p>
-        <p class="p19-frist"><svg class="icon icon--frist" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12.8" r="8.2"/><path d="M12 8.2v4.8l3.2 2"/><path d="M9.2 2.6h5.6"/></svg><span>≤ 6 Monate nach Erfüllung des Zuwendungszwecks</span></p>
-      </article>
-    </div>
-    <div class="p19-more">
-      <p class="p19-note"><b>Stationen 5–7:</b> Bauvorhaben 2.1–2.4 (Ersterwerb: ohne Baubeginn- und Fertigstellungsanzeige, letzte 10&nbsp;% nach Eigentumsumschreibung und Belegung). Abläufe für 2.5 und 2.6 <a href="#seite-16">→&nbsp;S.&nbsp;16</a> und <a href="#seite-17">17</a>.</p>
+      <ol class="p19-stations" start="5">
+        <li class="p19-st">
+          <h3 class="p19-st__title">Bauen</h3>
+          <p class="p19-st__text">Aufträge im Wettbewerb vergeben, Baubeginn anzeigen <span class="u-nowrap">(<a class="pageref" href="#seite-21">→&nbsp;S.&nbsp;21</a>)</span></p>
+          <p class="p19-st__due"><svg class="icon icon--kalender" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="5" width="17.2" height="15.4" rx="1"/><path d="M3.4 9.6h17.2M8 3v4M16 3v4"/><path d="M13.6 13.2h3.4v3.4h-3.4z" fill="currentColor" stroke="none"/></svg><span>Baubeginn unverzüglich, spätestens vier Monate nach Bekanntgabe der <span class="u-nohyphens">Förderentscheidung</span></span></p>
+        </li>
+        <li class="p19-st">
+          <h3 class="p19-st__title">Auszahlung</h3>
+          <p class="p19-st__text">in Raten auf Ihre Anforderung, nach Baufortschritt <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>)</span></p>
+        </li>
+        <li class="p19-st">
+          <h3 class="p19-st__title">Fertigstellung</h3>
+          <p class="p19-st__text">Fertigstellung anzeigen; Vermietung nur mit WBS; letzte 10 % nach Schlussbescheinigung und Belegung</p>
+        </li>
+        <li class="p19-st">
+          <h3 class="p19-st__title">Verwendungsnachweis</h3>
+          <p class="p19-st__text">an die Wohnraumförderstelle; ein einfacher Nachweis genügt</p>
+          <p class="p19-st__due"><svg class="icon icon--kalender" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="5" width="17.2" height="15.4" rx="1"/><path d="M3.4 9.6h17.2M8 3v4M16 3v4"/><path d="M13.6 13.2h3.4v3.4h-3.4z" fill="currentColor" stroke="none"/></svg><span>innerhalb von sechs Monaten nach Erfüllung des Förderzwecks</span></p>
+        </li>
+      </ol>
     </div>
   </figure>
 
-  <figure class="module u-mt-4 p19-ampel" role="group">
-    <figcaption class="fig-head"><h2 class="fig-head__title">Darf ich das vor der Bewilligung?</h2></figcaption>
+  <!-- Achtung-Kasten: Vorhabenbeginn -->
+  <aside class="callout callout--achtung p19-stop" aria-labelledby="p19-stop-h">
+    <h2 class="p19-stop__title" id="p19-stop-h"><svg class="icon icon--stopp" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd" stroke="none"/></svg>Erst Bewilligung, dann Vertrag</h2>
+    <p class="callout__body">Wer vor der Bewilligung einen Bau-, Liefer- oder Kaufvertrag unterschreibt – außer für das Baugrundstück – oder den ersten Spatenstich setzt, verliert die ganze Förderung. Bewilligt ist Ihr Vorhaben erst mit Fördervertrag oder Bescheid der NBank.</p>
+  </aside>
+
+  <!-- Ampel -->
+  <figure class="module p19-ampel" role="group" aria-labelledby="p19-ampel-h">
+    <figcaption><h2 class="chart__title" id="p19-ampel-h">Was ist vor der Bewilligung erlaubt?</h2></figcaption>
     <div class="p19-amp">
-      <div class="p19-amp--yes">
-        <h3 class="p19-amp__head"><i class="mark mark--yes" role="img" aria-label="Ja"></i>Erlaubt – kein Vorhabenbeginn</h3>
+      <section class="p19-amp--ok" aria-labelledby="p19-amp-1">
+        <h3 class="p19-amp__head" id="p19-amp-1"><span class="p19-amp__sym">✓</span>Erlaubt</h3>
         <ul class="p19-amp__list">
-          <li>Grundstück kaufen, Erbbaurecht bestellen</li>
-          <li>Planung bis einschließlich Leistungsphase 6 HOAI</li>
-          <li>Baugrunduntersuchung</li>
-          <li>Grundstück herrichten</li>
-          <li>nicht bindende Reservierung (Kauf)</li>
+          <li>Baugrundstück kaufen oder Erbbaurecht bestellen</li>
+          <li>nicht bindende Reservierung beim Kauf</li>
+          <li>Planung bis einschließlich Leistungsphase 6 HOAI</li>
+          <li>Baugrund untersuchen, Grundstück herrichten</li>
         </ul>
-      </div>
-      <div class="p19-amp--warn">
-        <h3 class="p19-amp__head"><i class="mark mark--warn" role="img" aria-label="Prüfen"></i>Genau prüfen</h3>
+      </section>
+      <section class="p19-amp--check" aria-labelledby="p19-amp-2">
+        <h3 class="p19-amp__head" id="p19-amp-2"><span class="p19-amp__sym">!</span>Genau prüfen</h3>
         <ul class="p19-amp__list">
-          <li>Vertrag mit eindeutigem, folgenlosem Rücktrittsrecht oder Bedingung für die Nichtförderung (Einzelfallprüfung)</li>
-          <li>vorzeitiger Vorhabenbeginn: Antrag frühestens mit dem Förderantrag; erst nach Zulassung beginnen, eigenes Risiko, kein Anspruch</li>
-          <li>bei 2.5: Mietangebot vorsorglich erst nach der Bewilligung</li>
+          <li>Vertrag mit eindeutigem, folgenlosem Rücktrittsrecht oder eindeutiger Bedingung für den Fall, dass die Förderung ausbleibt</li>
+          <li>vorzeitiger Vorhabenbeginn auf Antrag <span class="u-nowrap">(<a class="pageref" href="#seite-21">→&nbsp;S.&nbsp;21</a>)</span></li>
         </ul>
-      </div>
-      <div class="p19-amp--no">
-        <h3 class="p19-amp__head"><i class="mark mark--no" role="img" aria-label="Nein"></i>Förderschädlich – gilt als Vorhabenbeginn<svg class="icon icon--stopp" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="ui-fill" d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd" stroke="none"/></svg></h3>
+      </section>
+      <section class="p19-amp--stop" aria-labelledby="p19-amp-3">
+        <h3 class="p19-amp__head" id="p19-amp-3"><span class="p19-amp__sym">✕</span>Förderschädlich<svg class="icon icon--stopp" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd" stroke="none"/></svg></h3>
         <ul class="p19-amp__list">
-          <li>Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Grundstückserwerb)</li>
+          <li>Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer <span class="u-nohyphens">Baugrundstück</span>)</li>
           <li>beim Ersterwerb: bindender Kaufvertrag über die Wohnungen</li>
-          <li>Beauftragung ab Leistungsphase 7 HOAI<span class="fn">1</span></li>
-          <li>erster Spatenstich<span class="fn">1</span></li>
+          <li>Beauftragung ab Leistungsphase 7 HOAI</li>
+          <li>erster Spatenstich</li>
           <li>bei 2.5: Mietvertrag oder Überlassung der Wohnung</li>
         </ul>
-      </div>
+      </section>
     </div>
   </figure>
 
-  <ol class="footnotes l-bottom">
-    <li class="footnotes__src"><b>Fundstellen:</b> RL Nr. 4.2, 5.4.1, 5.4.2, 5.4.7, 5.4.8, 5.5.1–5.5.8, 7.4.1, 7.4.2, 9.2, 10.5, 11.10, 11.11, 12.1.2, 12.2, 12.3.1, 12.4, 12.5; Anlagen 1 und 2 (Vordrucke 4001, 4005); VV NWoFG 2026 Nr. 6.</li>
-    <li>Laut NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (27.07.2026), über RL Nr.&nbsp;4.2 hinaus.</li>
-  </ol>
 
   <footer class="page__foot" aria-hidden="true"><span class="page__folio">19</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Antragsweg</b></span><span>Stand: 21.10.2026</span></span></footer>
 </section>

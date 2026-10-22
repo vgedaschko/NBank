@@ -99,4 +99,4 @@ für Fotos gelten die Vorbehalte aus B.
 | sig-raster-brauerstrasse.svg | `scripts/pgn-images.py` aus ref-01 | Vektor-Punktraster (Ausschnitt x 300–1760, y 110–660 px), currentColor. |
 | img/{brauerstrasse,porstweg,dehnenweg,burgsiedlung,bahnhofstrasse}-duplex.jpg | `scripts/pgn-images.py` aus ref-01/07/04/03/02 | Graustufen-Duplex #202020 → #F4F3F2, 1800 × 740 px. |
 | img/*-duplex-rot.jpg | dto. | Dreiton Rot, nur Kapitelauftakt. |
-| qr-pgn-architekten.svg | python-qrcode | QR-Code für https://www.pgn-architekten.de (Fehlerkorrektur M, Ruhezone 4 Module), reine Vektorflächen. |
+| qr-pgn-architekten.svg | python-qrcode | QR-Code für https://www.pgn-architekten.de (Version 3, Fehlerkorrektur M, Ruhezone 4 Module), reine Vektorflächen; Farben über die Klassen `.qr-bg`/`.qr-mod` (Tokens, Rückfallwerte im eigenen `<style>`), dekodiert geprüft. |

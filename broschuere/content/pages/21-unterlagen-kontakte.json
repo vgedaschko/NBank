@@ -9,7 +9,7 @@
   "blocks": [
     {
       "type": "contact",
-      "role_hint": "kontaktband",
+      "role_hint": "dominant",
       "items": [
         {
           "label": "Hier beginnt Ihr Antrag",
@@ -49,7 +49,7 @@
     },
     {
       "type": "faq",
-      "role_hint": "dominant",
+      "role_hint": "modul",
       "heading": "Verfahrensdetails und Sonderfälle",
       "groups": [
         {
@@ -65,11 +65,11 @@
             },
             {
               "q": "Kein Mehrfamilienhaus?",
-              "a": "Gemeinschaftliche Wohnformen, im Einzelfall auch Reihen- oder Doppelhäuser. In 2.1, 2.2 und 2.4: je neuem Gebäude mindestens zwei gebundene Wohnungen, keine Eigentumswohnungen zur Vermietung."
+              "a": "Gemeinschaftliche Wohnformen, im Einzelfall auch Reihen- oder Doppelhäuser. In 2.1, 2.2 und 2.4: je neuem Gebäude mindestens zwei gebundene Wohnungen."
             },
             {
               "q": "Grundstück und Eigenmittel?",
-              "a": "Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung zählt; mindestens die Hälfte der Eigenmittel als Geld oder lastenfreies Grundstück (2.3: Geld)."
+              "a": "Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung zählt bis zur Hälfte der Eigenmittel."
             }
           ]
         },
@@ -89,12 +89,8 @@
               "a": "Bei vorübergehendem Fehlbetrag kann die NBank den Beginn um bis zu fünf Jahre verschieben."
             },
             {
-              "q": "Auszahlung?",
-              "a": "Änderung/Erweiterung: bis zu 30 % nach Baubeginn, 60 % nach Kostennachweis, 10 % nach Abschluss und Belegung. Ersterwerb: 90 % bei Kaufpreisfälligkeit, 10 % nach Umschreibung und Belegung. Darlehen erst nach rangrichtiger Sicherung oder Notarbestätigung. Bearbeitungsentgelt auch bei Verzicht vor Auszahlung fällig."
-            },
-            {
               "q": "Vorzeitig ganz zurückzahlen?",
-              "a": "Zuschussanteil für die restliche Bindungszeit zurück. Die Bindung endet nach Ablauf des zehnten folgenden Kalenderjahres – frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende."
+              "a": "Die Bindung endet nach Ablauf des zehnten folgenden Kalenderjahres – frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende."
             }
           ]
         },
@@ -111,11 +107,11 @@
             },
             {
               "q": "Vergabe?",
-              "a": "Mindestens drei Unternehmen zum Angebot auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis 25.000 € netto. Generalunternehmer und -übernehmer nur mit schriftlicher Zustimmung zur Prüfung. Für Kommunen gilt zusätzlich das Vergaberecht."
+              "a": "Mindestens drei Unternehmen zum Angebot auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis 25.000 € netto. Kommunen: zusätzlich Vergaberecht."
             },
             {
               "q": "Anzeigen?",
-              "a": "Baubeginn erst anzeigen, wenn er erfolgt ist – für Unternehmen subventionserheblich. Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis (Vorgaben auf nbank.de)."
+              "a": "Baubeginn erst anzeigen, wenn er erfolgt ist – für Unternehmen subventionserheblich. Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis."
             }
           ]
         }
@@ -144,7 +140,6 @@
     "F047",
     "F048",
     "F092",
-    "F093",
     "F090",
     "F094",
     "F095",
@@ -158,14 +153,8 @@
     "F115",
     "F117",
     "G1-14",
-    "F122",
-    "F123",
-    "F124",
-    "F268",
-    "F276",
     "F223",
     "F126",
-    "F127",
     "F270",
     "F271"
   ],
@@ -175,8 +164,9 @@
   "open_points": [
     "Stand-Hinweis entfällt im Druck (vorher: „Grundlage: NBank-Checklisten vom 20.07.2025 (vor der RL 2026) und 22.09.2026 (2.5). Nachforderungen sind möglich.“) – steht als Rückfrage Nr. 12 in Anhang A von copy.md.",
     "Bewusst nicht im Heft (Priorität 2): Zinsfestschreibung für die Restlaufzeit ab Jahr 36; frei finanzierte Wohnungen im selben Haus. Versicherung steht im Term Sheet S. 9; Rücktrittsrecht/Bedingung und nicht bindende Reservierung in der Ampel S. 19; Bindungsbeginn je Programmteil auf S. 9 (Neubau, Ersterwerb), S. 14 (2.3) und S. 16 (2.5); Vordrucke 4001/4005 bewusst nicht genannt.",
-    "Chefredaktion 21.10.2026: FAQ im Telegrammstil (Plan); Doppelungen aufgelöst – „weniger Eigenmittel bei Housing First/Modellprojekt“ steht nur auf S. 8/9, die vollständige Exit-Regel nur hier (S. 9 verweist), „ohne Anspruch auf Förderung“ beim vorzeitigen Beginn gestrichen (Hinweis-Diät; „auf eigenes Risiko“ trägt die Aussage). „Kein WBS-Haushalt gefunden?“ steht auf S. 18 (Plan), nicht hier.",
-    "Checkliste weiterhin Auszug: GwG-Vordrucke 1005a/1006a und Postident stehen nicht im Heft."
+    "Chefredaktion 21.10.2026: FAQ im Telegrammstil (Plan); Doppelungen aufgelöst – „weniger Eigenmittel bei Housing First/Modellprojekt“ steht nur auf S. 8/9, Exit: Zuschussrückzahlung und „frühestens 20 Jahre“ auf S. 9, das Bindungsende im Detail hier (S. 9 verweist), „ohne Anspruch auf Förderung“ beim vorzeitigen Beginn gestrichen (Hinweis-Diät; „auf eigenes Risiko“ trägt die Aussage). „Kein WBS-Haushalt gefunden?“ steht auf S. 18 (Plan), nicht hier.",
+    "Checkliste weiterhin Auszug: GwG-Vordrucke 1005a/1006a und Postident stehen nicht im Heft.",
+    "QA 22.10.2026 (Kundenfeedback „Seite überfüllt“): Kontaktspalte ist jetzt das dominante Element (Spalten 9–12, volle Höhe); Verfahrensdetails um Doppelungen gestrafft. Gestrichen: „Auszahlung?“ (Neubau-Raten S. 9, Änderung/Erweiterung wie 2.3 auf S. 14; nicht mehr im Heft: Ersterwerb 90 %/10 %, Darlehen erst nach rangrichtiger Sicherung oder Notarbestätigung, Bearbeitungsentgelt auch bei Verzicht vor Auszahlung), Zuschussrückzahlung beim Exit (S. 9), „keine Eigentumswohnungen zur Vermietung“ (S. 5), Generalunternehmer-Zustimmung (S. 20, Schlüsselfertig), „(Vorgaben auf nbank.de)“ beim Bauschild (Kontaktfeld nbank.de); Hälfte-Regel der Eigenmittel (S. 9) hier verdichtet zu „Eigenleistung zählt bis zur Hälfte der Eigenmittel“. „Vorzeitig beginnen?“ bleibt (Ziel des Verweises von S. 19)."
   ],
-  "visual_idea": "Gegenstück zu S. 20 auf der Doppelseite 20|21 „Mit PGN zur Bewilligung“, Register in PGN-Rot #B71E3F, eckig. Kopf: Kicker „Service“ als Versal-Label in Montserrat 600 in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links; kein Lead. Oben als Band über die volle Satzbreite auf #F4F3F2 vier gleichrangige Kontaktfelder, getrennt durch feine senkrechte Haarlinien in Anthrazit: Labels („Hier beginnt Ihr Antrag“, „Förderberatung“, „Immer aktuell“, „Planung und Unterlagen“) als einziges PGN-Rot im Band; Namen in Montserrat 700 Versalien, Anthrazit #3C3C3B; Telefonnummern (NBank 0511 30031-9333, PGN (+49) 4261 9293-0) in Montserrat 700 Anthrazit, gleich groß wie die übrigen Kontaktangaben – keine Nummer hervorgehoben, nichts in Montserrat Black; Zeiten, E-Mail und Werte in Work Sans. Feld 3 „nbank.de“ als kurze Liste mit Pfeilzeichen. Feld 4 (PGN) ohne Logo, ein Satz in PGN-Stimme. Optional ein kleiner QR-Code zur NBank-Programmseite (Ziel wie S. 18) im Feld 3. Darunter zweispaltig. Links (ca. 35–40 %) die Ankreuzliste mit echten eckigen Quadraten in Anthrazit-Kontur; Vordrucknummern (1011, 1011a, 1012, 1011b, 3076, 1021) als kleine eckige Badges, Programmteil-Angaben (2.1–2.4, 2.5, 2.6, 2.3) als Baustein-Chips in den Baustein-Farben mit Ziffer. Rechts (ca. 60–65 %, dominantes Element) die Verfahrensdetails als kompakte FAQ in drei Gruppen: Gruppenköpfe in Montserrat 600 Versalien mit eckigem Rückweg-Chip „zu S. 4“, „zu S. 9“, „zu S. 19“ (Kontur PGN-Rot), Stichfragen in Work Sans Bold als Run-in direkt vor der Antwort (spart Zeilen), Antworten in Work Sans, feine Haarlinien zwischen den Einträgen, keine Nummerierung. Fließtext nicht unter 9 pt; reicht die rechte Spalte nicht, läuft die dritte FAQ-Gruppe unter der Ankreuzliste weiter – nicht kleiner setzen. Kein Kasten, kein Achtung-Signal (der Vorhabenbeginn-Kasten steht auf S. 19), keine Fußnote, keine Quellen- oder Stand-Zeile, keine Rundungen."
+  "visual_idea": "Gegenstück zu S. 20 auf der Doppelseite 20|21 „Mit PGN zur Bewilligung“, Register in PGN-Rot #B71E3F, eckig. Kopf: Kicker „Service“ als Versal-Label in Montserrat 600 in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links; kein Lead. Dominantes Element: rechts (Spalten 9–12) die Kontaktspalte als Papierfeld #F4F3F2 über die volle Höhe des Lesefelds bis zum Satzspiegelende, Oberkante auf dem Horizont der Modulkopf-Linie links; vier gleich hohe, gleichrangige Felder, getrennt durch feine waagerechte Haarlinien. Labels („Hier beginnt Ihr Antrag“, „Förderberatung“, „Immer aktuell“, „Planung und Unterlagen“) als einziges PGN-Rot in der Spalte; Namen in Montserrat 700, Anthrazit; Telefonnummern (NBank 0511 30031-9333, PGN (+49) 4261 9293-0) in Montserrat 700 gleich groß wie die Namen – keine Nummer hervorgehoben, nichts in Montserrat Black; Zeiten, E-Mail und Werte in Work Sans. Feld 4 (PGN) ohne Logo, ein Satz in PGN-Stimme. Links (Spalten 1–8) zweispaltig im Fluss mit Haarlinie im Steg: zuerst die Ankreuzliste mit echten eckigen Quadraten in Anthrazit-Kontur; Vordrucknummern (1011, 1011a, 1012, 1011b, 3076, 1021) als kleine eckige Badges, Programmteil-Angaben (2.1–2.4, 2.5, 2.6, 2.3) als Ziffern in den Baustein-Farben. Danach die Verfahrensdetails als kompakte FAQ in drei Gruppen: Gruppenköpfe in Montserrat Versalien mit eckigem Rückweg-Chip „zu S. 4“, „zu S. 9“, „zu S. 19“, Stichfragen in Work Sans Bold als Run-in direkt vor der Antwort, keine Linien zwischen den Einträgen, keine Nummerierung. Modultext 9 pt, nicht kleiner; Luft am Spaltenende statt Füllen. Kein Kasten, kein Achtung-Signal (der Vorhabenbeginn-Kasten steht auf S. 19), keine Fußnote, keine Quellen- oder Stand-Zeile, keine Rundungen."
 }

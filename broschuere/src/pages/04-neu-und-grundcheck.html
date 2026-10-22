@@ -27,7 +27,6 @@
     .page[data-page="04"] .col-new .p04-fig { color: var(--fg); }
     .page[data-page="04"] .p04-table .table__arrow { padding-left: 0; padding-right: 0 !important; color: var(--fg-3); font: 400 11pt/1.2 var(--font-text); }
     .page[data-page="04"] .p04-table thead .table__arrow { padding-bottom: 2.6mm; }
-    .page[data-page="04"] .p04-table td.col-new { font-weight: 400; color: var(--fg); }   /* .table--compare setzt die neue Spalte fett – hier nur die Kennwerte */
     /* Lesehinweis in der leeren Kopfzelle: dort, wo das Auge in die Tabelle einsteigt */
     .page[data-page="04"] .p04-key { padding-right: 4mm; font: 500 var(--fs-micro)/1.38 var(--font-text); color: var(--fg-3); text-wrap: balance; }
     /* Programmteil-Chip im Tabellentitel (Text „2.1“ bleibt Teil des Titels) */
@@ -43,11 +42,6 @@
     .page[data-page="04"] .p04-list .checklist__box { width: 4.2mm; height: 4.2mm; margin-top: 0; border-color: var(--fg-2); }
     .page[data-page="04"] .p04-list p { padding-right: var(--gutter); }
     .page[data-page="04"] .p04-list b { color: var(--fg); }
-    .page[data-page="04"] .p04-list .pageref { padding-top: .4mm; padding-bottom: .3mm; }
-    /* Programmteil-Matrix: feste Spaltenfolge 2.1–2.6; zutreffend = Programmfarbe, sonst Geisterziffer ohne Kontur */
-    .page[data-page="04"] .p04-bs { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); column-gap: .9mm; align-self: start; }
-    .page[data-page="04"] .p04-bs > i { display: block; height: 4.6mm; font: 800 var(--fs-micro)/4.6mm var(--font-display); font-style: normal; text-align: center; letter-spacing: .01em; font-variant-numeric: tabular-nums lining-nums; background: var(--bs); color: var(--on-bs); }
-    .page[data-page="04"] .p04-bs > i.is-off { background: none; color: var(--rule); }
 
     /* Schlusssatz: einfache Textzeile, kein Kasten */
     .page[data-page="04"] .p04-close { margin-top: var(--sp-5); padding-left: 7mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
@@ -105,32 +99,32 @@
       <li class="checklist__item">
         <span class="checklist__box" aria-hidden="true"></span>
         <p><b>Antragsberechtigt und solide finanziert?</b> Privatpersonen, Unternehmen mit eigener Rechtspersönlichkeit, Genossenschaften, Kommunen – und die erzielbare Miete muss Finanzierung und Bewirtschaftung dauerhaft tragen <a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;11</a>.</p>
-        <span class="p04-bs" role="img" aria-label="gilt für alle Programmteile"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="bs-25">2.5</i><i class="bs-26">2.6</i></span>
+        <span class="bs-matrix" role="img" aria-label="gilt für alle Programmteile"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="bs-25">2.5</i><i class="bs-26">2.6</i></span>
       </li>
       <li class="checklist__item">
         <span class="checklist__box" aria-hidden="true"></span>
         <p><b>Noch nicht begonnen?</b> Vor der Bewilligung kein Spatenstich und kein Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Grundstück und Planung bis Leistungsphase&nbsp;6 HOAI); bei 2.5 weder vermieten noch überlassen <a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;19</a>.</p>
-        <span class="p04-bs" role="img" aria-label="gilt für alle Programmteile"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="bs-25">2.5</i><i class="bs-26">2.6</i></span>
+        <span class="bs-matrix" role="img" aria-label="gilt für alle Programmteile"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="bs-25">2.5</i><i class="bs-26">2.6</i></span>
       </li>
       <li class="checklist__item">
         <span class="checklist__box" aria-hidden="true"></span>
         <p><b>Mehrfamilienhaus ab drei Wohnungen?</b> Bei Modernisierung: fertiggestellt vor dem 08.12.2004.</p>
-        <span class="p04-bs" role="img" aria-label="gilt für 2.1 bis 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span>
+        <span class="bs-matrix" role="img" aria-label="gilt für 2.1 bis 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span>
       </li>
       <li class="checklist__item">
         <span class="checklist__box" aria-hidden="true"></span>
         <p><b>Bedarf am Standort?</b> In sechs Gebietsarten gilt er als gegeben, überall sonst wird er vermutet <a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>.</p>
-        <span class="p04-bs" role="img" aria-label="gilt für 2.1, 2.2 und 2.6"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="is-off">2.4</i><i class="is-off">2.5</i><i class="bs-26">2.6</i></span>
+        <span class="bs-matrix" role="img" aria-label="gilt für 2.1, 2.2 und 2.6"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="is-off">2.4</i><i class="is-off">2.5</i><i class="bs-26">2.6</i></span>
       </li>
       <li class="checklist__item">
         <span class="checklist__box" aria-hidden="true"></span>
         <p><b>Mindestens 20&nbsp;% Eigenmittel?</b> Gerechnet auf die zuwendungsfähigen Kosten; auf den Inseln reichen 10&nbsp;% der zuwendungsfähigen Herstellungskosten.</p>
-        <span class="p04-bs" role="img" aria-label="gilt für 2.1 bis 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span>
+        <span class="bs-matrix" role="img" aria-label="gilt für 2.1 bis 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span>
       </li>
       <li class="checklist__item">
         <span class="checklist__box" aria-hidden="true"></span>
         <p><b>Grundstück gesichert?</b> Eigentum, Erbbaurecht oder gesicherter Erwerb.</p>
-        <span class="p04-bs" role="img" aria-label="gilt für 2.1, 2.2 und 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span>
+        <span class="bs-matrix" role="img" aria-label="gilt für 2.1, 2.2 und 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span>
       </li>
     </ul>
     <p class="p04-close"><b>Einmal Nein?</b> Sprechen Sie zuerst mit der Wohnraumförderstelle – es gibt Ausnahmen <a class="pageref" href="#seite-21">→&nbsp;S.&nbsp;21</a>.</p>

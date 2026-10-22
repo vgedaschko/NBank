@@ -15,7 +15,7 @@
 
     /* Stationen: Phase (rechtsbündig zur Weglinie) · Marke auf der Weglinie · Titel als Run-in + Text (Spalten 4–12) */
     .page[data-page="20"] .p20-way { margin-top: var(--sp-8); border-top: var(--rule-heavy) solid var(--rule-strong); }
-    .page[data-page="20"] .p20-st { position: relative; display: grid; grid-template-columns: 37.6mm 2.2mm 4.4mm 2.05mm minmax(0, 1fr); padding: 3.5mm 0 3.7mm; }
+    .page[data-page="20"] .p20-st { position: relative; display: grid; grid-template-columns: 37.6mm 2.2mm var(--station-mk) 2.05mm minmax(0, 1fr); padding: 3.5mm 0 3.7mm; }
     .page[data-page="20"] .p20-st__phase { grid-column: 1; }
     .page[data-page="20"] .p20-st__mk { grid-column: 3; }
     .page[data-page="20"] .p20-st__text { grid-column: 5; }
@@ -26,10 +26,8 @@
     .page[data-page="20"] .p20-st:first-child::before { top: 3.7mm; }
     .page[data-page="20"] .p20-st:last-child::before { bottom: auto; height: 3.7mm; }
     .page[data-page="20"] .p20-st__phase { font: 600 var(--fs-small)/var(--lh-module) var(--font-text); color: var(--fg-3); text-align: right; }
-    .page[data-page="20"] .p20-st__mk { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: 4.4mm; height: 4.4mm; margin-top: -.05mm; background: var(--fg); color: var(--surface); font: 900 var(--fs-micro)/1 var(--font-display); font-variant-numeric: tabular-nums; }
+    .page[data-page="20"] .p20-st__mk { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: var(--station-mk); height: var(--station-mk); margin-top: -.05mm; background: var(--fg); color: var(--surface); font: 900 var(--fs-micro)/1 var(--font-display); font-variant-numeric: tabular-nums; }
     .page[data-page="20"] .p20-st__text { font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="20"] .p20-st__title { margin-right: 1.4mm; font: 800 var(--fs-small)/1 var(--font-display); letter-spacing: .05em; text-transform: uppercase; color: var(--fg); }
-    .page[data-page="20"] .p20-st__text .pageref { padding-top: .4mm; padding-bottom: .3mm; }
 
     /* HOAI-Skala (Inline-SVG, 1 Einheit = 1 mm) ------------------------------------------------------------------- */
     .page[data-page="20"] .p20-hoai { margin-top: 8.6mm; }   /* Oberkante Bewilligungsmarke = Oberkante Verfahrensdetails S. 21 (196,5 mm) */
@@ -50,7 +48,6 @@
 
     /* Module unten: Schlüsselfertig (Anthrazit, Spalten 1–7) · Für Kommunen (Papier, Spalten 8–12) --------------- */
     .page[data-page="20"] .p20-mods { align-items: stretch; }
-    .page[data-page="20"] .p20-mods .offer-box__text .pageref { padding-top: .4mm; padding-bottom: .3mm; }
   </style>
 
   <header class="title-block title-block--split p20-head">
@@ -67,37 +64,37 @@
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Vor dem Vorgespräch</p>
       <span class="p20-st__mk" aria-hidden="true">1</span>
-      <p class="p20-st__text"><b class="p20-st__title">Förderung und Machbarkeit</b> Wir klären Programmteil, Standort und Mieterkreis – und rechnen, ob die Miete Finanzierung und Bewirtschaftung trägt <span class="u-nowrap">(<a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;11</a>).</span></p>
+      <p class="p20-st__text"><b class="runin">Förderung und Machbarkeit</b> Wir klären Programmteil, Standort und Mieterkreis – und rechnen, ob die Miete Finanzierung und Bewirtschaftung trägt <span class="u-nowrap">(<a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;11</a>).</span></p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphasen 1–4</p>
       <span class="p20-st__mk" aria-hidden="true">2</span>
-      <p class="p20-st__text"><b class="p20-st__title">Planung nach Förderregeln</b> Wir planen angemessene Wohnungsgrößen <span class="u-nowrap">(<a class="pageref" href="#seite-06">→&nbsp;S.&nbsp;6</a>),</span> Freisitze bis zu einem Zehntel davon – auf Wunsch rollstuhlgerecht oder auf EH-40-Niveau.</p>
+      <p class="p20-st__text"><b class="runin">Planung nach Förderregeln</b> Wir planen angemessene Wohnungsgrößen <span class="u-nowrap">(<a class="pageref" href="#seite-06">→&nbsp;S.&nbsp;6</a>),</span> Freisitze bis zu einem Zehntel davon – auf Wunsch rollstuhlgerecht oder auf EH-40-Niveau.</p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphasen 2–3, dann laufend</p>
       <span class="p20-st__mk" aria-hidden="true">3</span>
-      <p class="p20-st__text"><b class="p20-st__title">Kosten im Griff</b> Wir steuern die Herstellungskosten mit Blick auf die Bemessungsgrenze; was darüber liegt, finanzieren Sie ohne Förderung <span class="u-nowrap">(<a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a>).</span></p>
+      <p class="p20-st__text"><b class="runin">Kosten im Griff</b> Wir steuern die Herstellungskosten mit Blick auf die Bemessungsgrenze; was darüber liegt, finanzieren Sie ohne Förderung <span class="u-nowrap">(<a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a>).</span></p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Vorgespräch und Antrag</p>
       <span class="p20-st__mk" aria-hidden="true">4</span>
-      <p class="p20-st__text"><b class="p20-st__title">Antragsunterlagen</b> Wir erstellen Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung – und kommen mit zum Vorgespräch.</p>
+      <p class="p20-st__text"><b class="runin">Antragsunterlagen</b> Wir erstellen Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung – und kommen mit zum Vorgespräch.</p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphasen 5–7</p>
       <span class="p20-st__mk" aria-hidden="true">5</span>
-      <p class="p20-st__text"><b class="p20-st__title">Ausführungsplanung und Vergabe</b> Nach der Bewilligung fordern wir mindestens drei Unternehmen zum Angebot auf und dokumentieren die Vergabe.</p>
+      <p class="p20-st__text"><b class="runin">Ausführungsplanung und Vergabe</b> Nach der Bewilligung fordern wir mindestens drei Unternehmen zum Angebot auf und dokumentieren die Vergabe.</p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphase 8</p>
       <span class="p20-st__mk" aria-hidden="true">6</span>
-      <p class="p20-st__text"><b class="p20-st__title">Bauleitung</b> Wir halten Termine und Kosten im Blick und dokumentieren den Baufortschritt – auch per Drohne – für jede Teilrate <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span></p>
+      <p class="p20-st__text"><b class="runin">Bauleitung</b> Wir halten Termine und Kosten im Blick und dokumentieren den Baufortschritt – auch per Drohne – für jede Teilrate <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span></p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphasen 8–9</p>
       <span class="p20-st__mk" aria-hidden="true">7</span>
-      <p class="p20-st__text"><b class="p20-st__title">Fertigstellung und Nachweis</b> Wir bereiten die Fertigstellungsanzeige mit Bescheinigung der Bauleitung vor und liefern Bau- und Kostendaten für Ihren Verwendungsnachweis <span class="u-nowrap">(<a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;19</a>).</span></p>
+      <p class="p20-st__text"><b class="runin">Fertigstellung und Nachweis</b> Wir bereiten die Fertigstellungsanzeige mit Bescheinigung der Bauleitung vor und liefern Bau- und Kostendaten für Ihren Verwendungsnachweis <span class="u-nowrap">(<a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;19</a>).</span></p>
     </li>
   </ol>
 

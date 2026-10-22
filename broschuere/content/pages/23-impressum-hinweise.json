@@ -63,7 +63,7 @@
     {
       "type": "text",
       "role_hint": "kleinangaben",
-      "body": "**Bildnachweis:** Visualisierungen Titel und S. 22: [PGN: Urheber bestätigen] · Diagramme und Illustrationen: Planungsgemeinschaft Nord GmbH\n\n**Druck:** [Platzhalter] · **Stand:** 21.10.2026"
+      "body": "**Bildnachweis:** Visualisierungen S. 22: [PGN: Urheber bestätigen] · Titelzeichnung, Diagramme und Illustrationen: Planungsgemeinschaft Nord GmbH\n\n**Druck:** [Platzhalter] · **Stand:** 21.10.2026"
     },
     {
       "type": "logo",
@@ -103,7 +103,7 @@
   "open_points": [
     "INTERN, nicht drucken: Bei Veröffentlichung ab 01.01.2027 Geschäftsführung aktualisieren.",
     "INTERN, nicht drucken: „Verantwortlich für den Inhalt“ – das Website-Impressum nennt Thomas Schlobohm als redaktionell verantwortlich (für die Website); Namen für die Broschüre von PGN bestätigen lassen.",
-    "INTERN, nicht drucken: Bild-Credits und Nutzungsrechte bei PGN erfragen. Die Visualisierungen auf U1 (Brauerstraße) und S. 22 stammen ggf. von externen Büros; die Website hat keinen Bildnachweis. Platzhalter durch die bestätigte Credit-Zeile ersetzen.",
+    "INTERN, nicht drucken: Bild-Credits und Nutzungsrechte bei PGN erfragen. Die Visualisierungen auf S. 22 stammen ggf. von externen Büros; die Website hat keinen Bildnachweis. Die Titelzeichnung (Axonometrie, U1) ist eine Zeichnung der PGN. Platzhalter durch die bestätigte Credit-Zeile ersetzen.",
     "INTERN, nicht drucken: Druckerei mit Anschrift eintragen; Impressumsangaben für Druckwerke nach Niedersächsischem Pressegesetz vor dem Druck prüfen – dabei mit PGN auch die Herausgeberzeile (nur Firmenname, ohne Klammerzusatz) und das Label „Geschäftsführung“ statt „Vertreten durch“ bestätigen lassen."
   ],
   "visual_idea": "Ruhige U3 auf #F4F3F2, ohne Kolumnentitel und Seitenzahl. Headline „Impressum und Hinweise“ in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links. Impressumsangaben zweispaltig als Label-Wert-Liste: Labels in Montserrat 600 Versalien (Anthrazit #3C3C3B), Werte in Work Sans, feine Haarlinien zwischen den Zeilen; Platzhalter in eckigen Klammern bis zur Freigabe sichtbar in PGN-Rot. Darunter die zwei Sätze zur Rolle der Stellen in Work Sans. Der zentrale Rechtshinweis als einziger gerahmter Hinweis der Broschüre: weiße Fläche, senkrechte rote 2-pt-Linie links, Titel „Hinweis“ in Montserrat 600 Versalien, Text in Work Sans 9,5 pt; kein Warn-Icon, kein Verlauf. Rechtsgrundlage, Quellen, Bildnachweis, Druck und Stand als ruhige Kleinangaben in Work Sans (mind. 8,5 pt), Zwischentitel in Montserrat 600 Versalien. Kein NBank- oder Landeslogo. Am Fuß klein das PGN-Logo (logo-rot.svg), linksbündig auf der Satzspiegelkante."

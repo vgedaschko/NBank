@@ -5,11 +5,7 @@
        Oberkante Band 1, Schlusszeile am Fuß. Hauptelement: die Jahresrechnung. Säulen A | B | C stehen exakt über den
        Tabellenspalten A | B | C (je 28 mm, Säule 15 mm, Zahlen enden an der Säulenkante); eigene Grundlinie,
        keine gemeinsame Achse mit der Tabelle (Mio. € gegenüber € p. a.).
-       Platzhalter „[PGN-Rechnung …]“: gestrichelt umrandet (.p11-ph) – beim Einsetzen der PGN-Werte Span samt Klasse ersetzen. */
-    .page[data-page="11"] .rc-top { display: flex; align-items: center; height: 7mm; }
-    .page[data-page="11"] .rc-top .kicker { white-space: nowrap; }
-    .page[data-page="11"] .p11-stamp { display: inline-block; margin-left: .2em; padding: .9mm 1.4mm .8mm; border: var(--rule-red-min) solid currentColor; line-height: 1; }
-    .page[data-page="11"] .h1 { margin-top: 3.4mm; }
+       Platzhalter „[PGN-Rechnung …]“: globale Klasse .ph (gestrichelt) – beim Einsetzen der PGN-Werte Span samt Klasse ersetzen. */
     /* Band 1 */
     .page[data-page="11"] .p11-c { --row-gap: 0; margin-top: 6.4mm; align-items: stretch; }
     .page[data-page="11"] .p11-intro { display: flex; flex-direction: column; border-top: var(--hair) solid var(--rule-strong); padding-top: 3mm; }
@@ -17,32 +13,19 @@
     .page[data-page="11"] .p11-legend { margin-top: auto; padding-top: 2.4mm; gap: 1mm 4.6mm; }
     .page[data-page="11"] .p11-jr-h { margin-top: 2.6mm; }
     .page[data-page="11"] .p11-mix .chart__svg { margin-top: 3.4mm; }
-    .page[data-page="11"] .p11-sw-80 { height: var(--rule-red-min); background: repeating-linear-gradient(90deg, var(--accent) 0 1.6mm, transparent 1.6mm 2.1mm, var(--accent) 2.1mm 2.5mm, transparent 2.5mm 3mm); }
     .page[data-page="11"] .p11-chip { fill: var(--surface); }
     /* Jahresrechnung */
-    .page[data-page="11"] .p11-jr { margin-top: 2.2mm; table-layout: fixed; }
-    .page[data-page="11"] .p11-jr col.p11-c-no { width: 7mm; }
+    .page[data-page="11"] .p11-jr { margin-top: 2.2mm; }
     .page[data-page="11"] .p11-jr col.p11-c-val { width: 28mm; }
     .page[data-page="11"] .p11-jr thead th { padding-top: 1.5mm; padding-bottom: 1.2mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
     .page[data-page="11"] .p11-jr thead th.p11-abc { text-align: center; padding-left: 0; padding-right: 0; }
     .page[data-page="11"] .p11-jr th, .page[data-page="11"] .p11-jr td { padding-top: .85mm; padding-bottom: .85mm; line-height: 1.3; }
-    .page[data-page="11"] .p11-jr tbody th { background: var(--surface-3); padding-left: 0; padding-right: 0; text-align: center; font: 600 var(--fs-module)/1.3 var(--font-display); color: var(--fg-3); font-variant-numeric: tabular-nums; }
-    .page[data-page="11"] .p11-jr tbody td:nth-child(2), .page[data-page="11"] .p11-jr thead th:nth-child(2) { padding-left: 5.4mm; }
     .page[data-page="11"] .p11-jr tfoot td:first-child { padding-left: 0; }
     .page[data-page="11"] .p11-jr .num { padding-right: 6.5mm; padding-left: 1mm; }
     .page[data-page="11"] .p11-jr td.p11-phc { padding-left: 1.2mm; padding-right: 1.2mm; text-align: center; }
-    .page[data-page="11"] .p11-jr td.p11-hang { text-indent: -3.5mm; }   /* hängende Rechenzeichen − = */
-    .page[data-page="11"] .p11-op { display: inline-block; width: 2.7mm; text-indent: 0; font: 800 var(--fs-module)/1 var(--font-display); color: var(--fg); }
-    .page[data-page="11"] .p11-jr tr.p11-sub > * { border-top: var(--rule-w) solid var(--rule-strong); }
-    .page[data-page="11"] .p11-jr tr.p11-sub td { font-weight: 600; color: var(--fg); }
-    .page[data-page="11"] .p11-jr tr.p11-res > * { background: var(--pgn-red); }   /* Vollton: ein Verlauf würde je Zelle neu ansetzen */
-    .page[data-page="11"] .p11-jr tr.p11-res > * { border-top: var(--rule-w) solid var(--rule-strong); border-bottom: 0; color: var(--fg); font-weight: 700; }
     
     .page[data-page="11"] .p11-jr tfoot td { padding-top: 2mm; border-bottom: 0; font-size: var(--fs-module); line-height: 1.3; color: var(--fg-3); }
     .page[data-page="11"] .p11-jr tfoot td.num { color: var(--fg-2); }
-    /* Platzhalter für Werte aus der PGN-Investitionsrechnung: gestrichelt, später ersetzen */
-    .page[data-page="11"] .p11-ph { display: inline-block; text-indent: 0; padding: 0 .6mm; border: var(--hair) dashed var(--fg-3); background: var(--surface-2); line-height: 1.15; color: var(--fg-3); white-space: nowrap; }
-    .page[data-page="11"] .p11-ph--cell { display: block; padding: .3mm 0; font: 500 var(--fs-micro)/1.2 var(--font-text); }
     /* Unteres Band: Kalkulationsnotiz | So lesen Sie die Rechnung; Angebotssatz als Schlusszeile */
     .page[data-page="11"] .p11-e { --row-gap: 0; align-items: start; }   /* Oberkante = Band „Sensitivität“ S. 10 */
     .page[data-page="11"] .p11-calc__fig { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "num eq" "lab lab"; column-gap: 4mm; align-items: baseline; margin-top: 2.4mm; }
@@ -59,8 +42,8 @@
 
   <div class="bs-register" data-bleed aria-hidden="true">2.1</div>
 
-  <div class="rc-top">
-    <p class="kicker kicker--plain">Ihre Rechnung · Wirtschaftlichkeit · <span class="p11-stamp">Modellrechnung</span></p>
+  <div class="kicker-row">
+    <p class="kicker kicker--plain">Ihre Rechnung · Wirtschaftlichkeit · <span class="stamp stamp--s">Modellrechnung</span></p>
   </div>
   <h1 class="h1">Mehr Miete, mehr Darlehen:<br><em>Was bleibt im Jahr?</em></h1>
 
@@ -72,7 +55,7 @@
         <li><i class="sw sw--loan"></i>Darlehen</li>
         <li><i class="sw sw--grant"></i>Zuschuss</li>
         <li><i class="sw sw--equity"></i>Eigenmittel, mind.</li>
-        <li><i class="sw p11-sw-80"></i>Förderung, bis zu 80 %</li>
+        <li><i class="sw sw--axis"></i>Förderung, bis zu 80 %</li>
       </ul>
       <h2 class="chart__title p11-jr-h" id="p11-jr-h">Jahresrechnung Jahre 1–3, in € p. a.</h2>
     </div>
@@ -86,19 +69,19 @@
   </div>
 
   <!-- Hauptelement · Jahresrechnung (Spalten A | B | C unter den Säulen) -->
-  <table class="table p11-jr" aria-labelledby="p11-jr-h">
-    <colgroup><col class="p11-c-no"><col><col class="p11-c-val"><col class="p11-c-val"><col class="p11-c-val"></colgroup>
+  <table class="table table--sheet p11-jr" aria-labelledby="p11-jr-h">
+    <colgroup><col class="col-no"><col><col class="p11-c-val"><col class="p11-c-val"><col class="p11-c-val"></colgroup>
     <thead><tr><th scope="col" aria-label="Zeile"></th><th scope="col">Position</th><th scope="col" class="p11-abc"><span class="axis-no axis-no--s">A</span></th><th scope="col" class="p11-abc"><span class="axis-no axis-no--s">B</span></th><th scope="col" class="p11-abc"><span class="axis-no axis-no--s">C</span></th></tr></thead>
     <tbody>
       <tr><th scope="row">1</th><td>Höchstmiete nettokalt, Mietenstufe IV–VII <span class="u-nowrap">(1.400 m² × 6,80 | 8,20 | 9,00 € × 12)</span></td><td class="num">114.240</td><td class="num">137.760</td><td class="num">151.200</td></tr>
-      <tr><th scope="row">2</th><td class="p11-hang"><span class="p11-op">−</span> Mietausfallwagnis <span class="p11-ph u-nohyphens">[PGN-Rechnung: … % der Miete]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
-      <tr><th scope="row">3</th><td class="p11-hang"><span class="p11-op">−</span> nicht umlagefähige Bewirtschaftungskosten <span class="p11-ph u-nohyphens">[PGN-Rechnung: … € je Wohnung p. a.]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
-      <tr><th scope="row">4</th><td class="p11-hang"><span class="p11-op">−</span> Instandhaltung <span class="p11-ph u-nohyphens">[PGN-Rechnung: … € je m² p. a.]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
-      <tr class="p11-sub"><th scope="row">5</th><td class="p11-hang"><span class="p11-op">=</span> Überschuss vor Kapitaldienst</td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
-      <tr><th scope="row">6</th><td class="p11-hang"><span class="p11-op">−</span> Verwaltungskostenbeitrag, 0,5 % des Restkapitals (Jahr 1, nach Vollauszahlung)</td><td class="num">14.000</td><td class="num">21.000</td><td class="num">24.500</td></tr>
-      <tr><th scope="row">7</th><td class="p11-hang"><span class="p11-op">−</span> Zins NBank-Darlehen, 0 % bis Ende Jahr 35</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
-      <tr><th scope="row">8</th><td class="p11-hang"><span class="p11-op">−</span> Tilgung <span class="p11-ph u-nohyphens">[PGN-Rechnung: Tilgungssatz … %]</span> auf <span class="u-nowrap">2,8 | 4,2 | 4,9 Mio. €</span> Darlehen</td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
-      <tr class="p11-res on-red"><th scope="row">9</th><td class="p11-hang"><span class="p11-op">=</span> Zahlungsüberschuss p. a.</td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens on-light">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens on-light">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="p11-ph p11-ph--cell u-nohyphens on-light">[PGN-Rechnung]</span></td></tr>
+      <tr><th scope="row">2</th><td class="is-hang"><span class="table__op">−</span> Mietausfallwagnis <span class="ph u-nohyphens">[PGN-Rechnung: … % der Miete]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
+      <tr><th scope="row">3</th><td class="is-hang"><span class="table__op">−</span> nicht umlagefähige Bewirtschaftungskosten <span class="ph u-nohyphens">[PGN-Rechnung: … € je Wohnung p. a.]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
+      <tr><th scope="row">4</th><td class="is-hang"><span class="table__op">−</span> Instandhaltung <span class="ph u-nohyphens">[PGN-Rechnung: … € je m² p. a.]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
+      <tr class="is-sum"><th scope="row">5</th><td class="is-hang"><span class="table__op">=</span> Überschuss vor Kapitaldienst</td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
+      <tr><th scope="row">6</th><td class="is-hang"><span class="table__op">−</span> Verwaltungskostenbeitrag, 0,5 % des Restkapitals (Jahr 1, nach Vollauszahlung)</td><td class="num">14.000</td><td class="num">21.000</td><td class="num">24.500</td></tr>
+      <tr><th scope="row">7</th><td class="is-hang"><span class="table__op">−</span> Zins NBank-Darlehen, 0 % bis Ende Jahr 35</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+      <tr><th scope="row">8</th><td class="is-hang"><span class="table__op">−</span> Tilgung <span class="ph u-nohyphens">[PGN-Rechnung: Tilgungssatz … %]</span> auf <span class="u-nowrap">2,8 | 4,2 | 4,9 Mio. €</span> Darlehen</td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
+      <tr class="is-result on-red"><th scope="row">9</th><td class="is-hang"><span class="table__op">=</span> Zahlungsüberschuss p. a.</td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens on-light">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens on-light">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens on-light">[PGN-Rechnung]</span></td></tr>
     </tbody>
     <tfoot>
       <tr><td colspan="2">Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte (1 % des Darlehens + 0,75 % des Zuschusses)</td><td class="num">49.000</td><td class="num">52.500</td><td class="num">54.250</td></tr>

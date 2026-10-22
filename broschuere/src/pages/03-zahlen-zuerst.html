@@ -10,7 +10,7 @@
 
     /* Raster: vier Spalten, je Kachel vier gemeinsame Zeilen (Zahl · Einheit · Label · Text) → Label und Text je Reihe auf einer Linie;
        Programmteil-Chip sitzt rechts oben an der Kachellinie */
-    .page[data-page="03"] .p03-kf { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto) 10mm repeat(4, auto); row-gap: 0; margin-top: 14.3mm; }   /* 2. Reihe bündig mit der Zitatlinie auf S. 2 */
+    .page[data-page="03"] .p03-kf { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto) 10.6mm repeat(4, auto); row-gap: 0; margin-top: 14.3mm; }   /* 2. Reihe bündig mit der Zitatlinie auf S. 2 */
     .page[data-page="03"] .p03-kf > .kf { grid-column: auto; display: grid; grid-template-rows: subgrid; row-gap: 0; border-top-width: var(--rule-heavy); padding-top: 0; }
     .page[data-page="03"] .p03-kf > .kf:nth-child(-n+4) { grid-row: 1 / span 4; }
     .page[data-page="03"] .p03-kf > .kf:nth-child(n+5) { grid-row: 6 / span 4; }
@@ -32,7 +32,6 @@
     /* Marktband (Anthrazit-Verlauf), oben bündig mit „Ihr Einstieg“ auf S. 2 */
     .page[data-page="03"] .p03-market { height: 65mm; padding: 4.6mm 6mm 5mm; background: var(--grad-dark); }
     .page[data-page="03"] .p03-market__head { display: flex; justify-content: space-between; align-items: center; gap: 4mm; padding-bottom: 2.6mm; border-bottom: var(--hair) solid var(--rule); }
-    .page[data-page="03"] .p03-market .pageref { background: transparent; box-shadow: inset 0 0 0 var(--hair) var(--rule); color: var(--accent-text); }
     .page[data-page="03"] .p03-market__body { display: grid; grid-template-columns: calc(6 * var(--col) + 5 * var(--gutter) - 6mm) minmax(0, 1fr); column-gap: var(--gutter); align-items: end; margin-top: 4.4mm; }
     .page[data-page="03"] .p03-market__hero { display: flex; flex-direction: column; }
     .page[data-page="03"] .p03-market__num { font: 900 var(--fs-fig-xl)/.8 var(--font-display); letter-spacing: -.02em; color: var(--fg); font-variant-numeric: lining-nums tabular-nums; }
@@ -81,7 +80,7 @@
       <p class="kf__fig"><span class="kf__pre">Ausgangswerte</span><span class="kf__num kf__num--pair">4.800/<wbr>5.000<span class="kf__unit">€</span></span></p>
       <p class="kf__sub">je m² Wohnfläche</p>
       <p class="kf__label">Bemessungsgrenze Herstellungskosten</p>
-      <p class="kf__text">Mietenstufe I–III/IV–VII; halbjährlich fortgeschrieben <a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a></p>
+      <p class="kf__text">Mietenstufe I–III/IV–VII; halbjährlich <span class="u-nohyphens">fortgeschrieben</span> <a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a></p>
       <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.1</b></span></span>
     </article>
 

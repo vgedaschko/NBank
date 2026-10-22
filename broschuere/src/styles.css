@@ -131,6 +131,7 @@
   --horizon: 196mm;          /* Oberkante Schriftfeld U1 = U4 („Horizont“ über den aufgeklappten Umschlag) */
   --safe: 5mm;
   --rule-hang: 5.75mm;       /* rote Titellinie hängt links neben dem Satzspiegel */
+  --station-mk: 4.4mm;       /* Quadrat-Marke einer Station (Antragsweg S. 19, Leistungen S. 20, Prozessband) */
 
   /* 1.6 Abstände */
   --sp-1: 1mm;
@@ -255,6 +256,7 @@
   --grid-line: #474645;
   --accent: var(--pgn-red);
   --accent-text: var(--pgn-red-300);
+  --accent-deep: var(--pgn-red-300);   /* Seitenverweis, Signalschrift: #8B2939 wäre auf Anthrazit unlesbar */
   --accent-soft: #4A4948;
   --accent-fill: var(--grad-red);
   --tip: var(--grey-300);
@@ -300,6 +302,7 @@
   --grid-line: #C2405D;
   --accent: var(--white);
   --accent-text: var(--white);
+  --accent-deep: var(--white);
   --accent-soft: var(--pgn-red-deep);
   --accent-fill: var(--white);
   --loan: var(--ink);
@@ -639,6 +642,8 @@ abbr { text-decoration: none; }
 .page[data-page$="0"] .program-head__no, .page[data-page$="2"] .program-head__no, .page[data-page$="4"] .program-head__no,
 .page[data-page$="6"] .program-head__no, .page[data-page$="8"] .program-head__no { align-items: flex-start; }
 .program-head__no .tags { margin-top: 2.6mm; }
+.program-head__no .tag { max-width: 100%; padding: 1mm 1.2mm .9mm; gap: .9mm; }
+.program-head__no .tag .sw { width: 2.4mm; }
 .program-head__main .kicker::before { display: none; }
 .program-head__main .kicker + .h1 { margin-top: 3mm; }
 .program-head__main .h1 + .deck { margin-top: 2.6mm; }
@@ -689,7 +694,10 @@ abbr { text-decoration: none; }
 /* RL-Verweis, Quellen, Fußnoten */
 .ref { font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-3); white-space: nowrap; }
 /* Seitenverweis „→ Blatt 20“ / „→ S. 8“ (Pfeil als Zeichen aus der PGN-Symbolteilmenge) */
-.pageref { display: inline-block; flex: none; padding: .7mm 1.4mm .6mm 1mm; background: var(--accent-soft); font: 700 var(--fs-label-accent)/1.15 var(--font-display); color: var(--accent-deep, var(--accent-text)); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pageref { display: inline-block; flex: none; padding: .4mm 1mm .3mm; background: var(--accent-soft); font: 700 var(--fs-label-accent)/1.15 var(--font-display); color: var(--accent-deep, var(--accent-text)); white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* Chip 4,35 mm hoch: passt in die 9-pt-Modulzeile (4,4 mm), ohne den Zeilenabstand aufzureißen. Innenabstand rechts = links,
+   damit ein folgendes Satzzeichen („→ S. 11.“) am Chip steht. Auf Anthrazit: Kontur statt Hauch (Fläche #4A4948 wäre zu flau). */
+.page--dark .pageref, .on-dark .pageref, .contact--dark .pageref { background: transparent; box-shadow: inset 0 0 0 var(--hair) var(--rule); color: var(--accent-text); }
 .source { font-size: var(--fs-micro); line-height: var(--lh-small); color: var(--fg-3); }
 .source b, .source__label { font-weight: 600; color: var(--fg-2); }
 .fn { font-family: var(--font-text); font-style: normal; font-variation-settings: normal; font-size: var(--fs-micro); line-height: 0; vertical-align: .42em; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--accent-text); margin-left: .05em; font-variant-numeric: tabular-nums; }
@@ -712,6 +720,20 @@ abbr { text-decoration: none; }
 .note b { color: var(--fg); }
 .caveat { margin-top: 2mm; font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-3); text-wrap: balance; }
 .caveat a { color: var(--accent-text); font-weight: 700; white-space: nowrap; }
+/* Run-in-Label: Versaltitel in derselben Zeile wie der folgende Text (Bänder, Zeilenlisten, Stationen, Wortleisten) */
+.runin { margin-right: 2mm; font: 800 var(--fs-small)/1 var(--font-display); letter-spacing: .05em; text-transform: uppercase; color: var(--fg); }
+/* Programmnummer im Fließtext: Montserrat 800 in der Programmfarbe (mit .bs-21 … .bs-26; 1em → in 9-pt-Text nie unter 9 pt) */
+.bs-no { font: 800 1em/1 var(--font-display); letter-spacing: .01em; color: var(--bs); font-variant-numeric: tabular-nums; }
+/* Platzhalter für Zulieferungen von PGN („[PGN-Rechnung: …]“, „[PGN: …]“, „[Platzhalter]“): gestrichelt = „noch offen“
+   (Plankonvention), heftweit gleich, per Suche nach class="ph" auffindbar. Beim Einsetzen den Span samt Klasse ersetzen.
+   --cell: Wertzelle einer Tabelle (zentriert, 8,5 pt). Auf Rot: Span zusätzlich .on-light. */
+.ph { display: inline-block; text-indent: 0; padding: 0 .6mm; border: var(--hair) dashed var(--fg-3); background: var(--surface-2); line-height: 1.15; color: var(--fg-3); white-space: nowrap; }
+.ph--cell { display: block; padding: .3mm 0; font: 500 var(--fs-micro)/1.2 var(--font-text); text-align: center; }
+/* Kickerzeile mit Stempel (Mittel-Doppelseite 10|11): Kicker links, Stempelzeile rechts, 7 mm hoch */
+.kicker-row { display: flex; justify-content: space-between; align-items: center; gap: 4mm; height: 7mm; }
+.kicker-row > .kicker { flex: none; white-space: nowrap; }
+.kicker-row + .h1 { margin-top: 3.4mm; }
+.lead--cols-2 { max-width: none; column-count: 2; column-gap: var(--gutter); }   /* langer Vorspann auf dichten Seiten (S. 18) */
 
 /* -----------------------------------------------------------------------------
    5 · LAYOUT-UTILITIES
@@ -755,6 +777,7 @@ abbr { text-decoration: none; }
 .u-muted { color: var(--fg-3); }
 .u-strong { color: var(--fg); font-weight: 600; }
 .u-caps { font-family: var(--font-display); font-weight: 700; letter-spacing: var(--track-caps); text-transform: uppercase; }
+.u-unit { text-transform: none; font-variant-caps: normal; }   /* Einheitenzeichen im Versalsatz klein (m²); setzt assemble.cjs */
 .u-sr { position: absolute; width: 1px; height: 1px; margin: 0; padding: 0; border: 0; overflow-x: hidden; clip-path: inset(50%); white-space: nowrap; }
 .u-nohyphens { -webkit-hyphens: none !important; hyphens: none !important; }
 .u-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
@@ -776,6 +799,9 @@ abbr { text-decoration: none; }
 }
 .fig-head__sub, .chart__sub { font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-3); margin-top: .8mm; }
 .fig-head + * { margin-top: 3mm; }
+/* Einheit im Diagramm-/Tabellenkopf: Work Sans, gemischt, ohne Laufweite – Titel bleibt wörtlich und schmal */
+.chart__unit { font: 500 var(--fs-small)/1.2 var(--font-text); letter-spacing: 0; text-transform: none; color: var(--fg-2); }
+.chart__unit--block { display: block; margin-top: .6mm; }
 
 /* 6.2 key_figures ------------------------------------------------------------ */
 .key-figures { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--sp-6); }
@@ -814,6 +840,7 @@ abbr { text-decoration: none; }
 .kf--accent .kf__num { color: var(--accent-text); }
 .kf--bs { border-top-color: var(--bs); border-top-width: var(--rule-heavy); }
 .kf--bs .kf__idx { color: var(--bs); }
+.key-figures--n { grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr)); }   /* Kachelzeile in einer Teilspalte (style="--n: 7"), Spannen je Kachel */
 
 /* Hero-Kachel (PGN-Rot, Verlauf) */
 .kf--hero {
@@ -854,6 +881,8 @@ abbr { text-decoration: none; }
 .kf__value:last-child { padding-right: 0; }
 .kf__value .kf__num { font-size: 22pt; line-height: 1; }
 .kf__value small { display: block; margin-top: 1.2mm; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); }
+.kf--band--compact .kf__value { min-width: 0; padding: 0 2.6mm 0 3mm; }   /* drei Werte neben einer Erklärung (S. 13) */
+.kf--band--compact .kf__value:last-child { padding-right: 0; }
 
 /* Kennzahl-Plakette: Achskreis */
 .seal {
@@ -919,13 +948,31 @@ abbr { text-decoration: none; }
 }
 .table--figures tbody th { vertical-align: middle; font-family: var(--font-display); font-weight: 700; }
 .table--figures .unit { font-size: 8.5pt; letter-spacing: 0; }
+/* Mittlere Kernwert-Stufe für Tabellen mit mehr als 8 Werten (Höchstmieten S. 7): Montserrat 700, 13 pt */
+.table--figures-m tbody td.num { font-weight: 700; font-size: 13pt; line-height: 1; letter-spacing: -.01em; }
+/* Ergebniszeile: Vollton PGN-Rot (kein Verlauf: er setzte in jeder Zelle neu an), Text weiß 700; am tr zusätzlich .on-red */
+.table tbody tr.is-result > * { background: var(--pgn-red); border-top: var(--rule-w) solid var(--rule-strong); border-bottom: 0; color: var(--fg); font-weight: 700; }
+/* Rechenblatt-Tabelle (S. 10 Rechenweg, S. 11 Jahresrechnung): Zeilennummern-Streifen, Rechenzeichen hängend vor der
+   Position (inline, damit „+ Grundstück“ im Textlayer in Lesereihenfolge steht), Summenstrich über der Summenzeile */
+.table--sheet { table-layout: fixed; }
+.table--sheet col.col-no { width: 7mm; }
+.table--sheet tbody th { padding-left: 0; padding-right: 0; background: var(--surface-3); text-align: center; font-family: var(--font-display); font-size: var(--fs-module); font-weight: 600; color: var(--fg-3); font-variant-numeric: tabular-nums; }
+.table--sheet tbody td:nth-child(2), .table--sheet thead th:nth-child(2) { padding-left: 5.6mm; }
+.table--sheet td.is-hang { text-indent: -3.55mm; }
+.table__op { display: inline-block; width: 2.75mm; text-indent: 0; font: 800 var(--fs-module)/1 var(--font-display); color: var(--fg); }
+.table--sheet tr.is-sum > * { border-top: var(--rule-w) solid var(--rule-strong); }
+.table--sheet tr.is-sum td { font-weight: 600; color: var(--fg); }
 .table--compact { font-size: var(--fs-module); line-height: var(--lh-module); }
 .table--compact th, .table--compact td { padding-top: 1.2mm; padding-bottom: 1.2mm; }
 /* Eckdaten als Definitionstabelle: Bezeichnung in Versalien, Wert */
-.table--terms th[scope="row"] { width: 30%; font: 700 var(--fs-micro)/1.35 var(--font-display); letter-spacing: .07em; text-transform: uppercase; color: var(--fg-3); padding-top: 2mm; }
-.table--terms td { padding-top: 1.8mm; padding-bottom: 1.8mm; color: var(--fg); }
+/* Term Sheet: Positionsspalte genau 3 Spalten (Einzugsachse 46 mm), Text 9 pt (Modultext), Werte fett in Tinte */
+.table--terms { font-size: var(--fs-module); line-height: var(--lh-module); }
+.table--terms th[scope="row"] { width: calc(3 * var(--col) + 2 * var(--gutter)); padding: 1.85mm 3mm 1.55mm 0; font: 700 var(--fs-micro)/1.3 var(--font-display); letter-spacing: .07em; text-transform: uppercase; color: var(--fg-3); }
+.table--terms td { padding: 1.4mm 0 1.55mm; color: var(--text); }
+.table--terms td b { color: var(--fg); }
 .table--compare .col-old { color: var(--fg-3); }
-.table--compare .col-new { color: var(--fg); font-weight: 600; }
+.table--compare .col-new { color: var(--fg); }
+.table--compare--strong .col-new { font-weight: 600; }   /* ganze neue Spalte fett nur auf Wunsch; Standard: nur Kennwerte hervorheben */
 .table--compare thead .col-new { color: var(--accent-text); }
 .table__arrow, .table thead .table__arrow { width: 5mm; padding-right: 1mm !important; color: var(--accent-text); font-weight: 700; text-align: center !important; }
 .table--matrix td { font-size: var(--fs-module); }
@@ -972,6 +1019,12 @@ abbr { text-decoration: none; }
 .callout--inline .callout__label { display: inline-flex; gap: 1.3mm; vertical-align: -.5mm; margin-right: 1.6mm; }
 .callout--inline .callout__label .icon { width: 3.6mm; height: 3.6mm; }
 .callout--inline .callout__body { display: inline; margin-top: 0; font-size: inherit; line-height: inherit; }
+/* Kurzverweis auf einen Achtung-Kasten (Vorhabenbeginn auf S. 5): kein eigener Kasten – einzeilig, ohne Fläche,
+   Stopp-Icon, rote Linie unten (Redaktionsregeln: „max. einzeilig“). Mit .callout--achtung.callout--inline kombinieren. */
+.callout--ref { --c-bg: transparent; padding: 2mm 0 1.9mm; border-bottom: var(--rule-red-min) solid var(--accent); }
+.callout--ref .callout__label .icon { width: 4.4mm; height: 4.4mm; color: var(--accent); }
+.callout--ref .callout__body { font-size: var(--fs-small); color: var(--fg); }
+.callout--ref .callout__body b { margin-right: 1.4mm; font: 800 var(--fs-small)/1.2 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--fg); }
 /* Kalkulationsnotiz: Rechenblatt (Planraster) */
 .callout--calc {
   --c-bg: var(--surface);
@@ -1016,6 +1069,10 @@ abbr { text-decoration: none; }
 .mark--warn { background: var(--signal-fill); border-radius: 0; transform: rotate(45deg) scale(.86); }
 .mark--warn::before { content: ""; position: absolute; left: 1.7mm; top: .65mm; width: .42mm; height: 1.55mm; background: var(--on-signal); transform: rotate(-45deg); transform-origin: 50% 110%; }
 .mark--warn::after { content: ""; position: absolute; left: 2.25mm; top: 2.35mm; width: .45mm; height: .45mm; background: var(--on-signal); }
+/* kleine Marke 3,4 mm (kompakte Spielregel-Listen); Haken und Kreuz neu zentriert */
+.mark--s { width: 3.4mm; height: 3.4mm; }
+.mark--s.mark--yes::after { left: 1.15mm; top: .5mm; }
+.mark--s.mark--no::before, .mark--s.mark--no::after { left: .65mm; top: 1.5mm; }
 
 /* Warnband / Bewilligungsmarke: quer über einen Ablauf („Erst Bewilligung, dann Vertrag“) */
 .gate {
@@ -1122,13 +1179,23 @@ abbr { text-decoration: none; }
 .chart__head--inline > .legend { grid-column: 2; margin-top: 0; }
 .chart__head--stack { display: block; }
 .chart__head--stack > .legend { justify-content: flex-start; margin-top: 1.6mm; }
+/* Kopf mit Stempel (Modellrechnung im Diagramm): Zeile 1 Titel + Stempel, Zeile 2 Untertitel links, Legende rechts */
+.chart__head--stamp > .chart__title { grid-column: 1; grid-row: 1; align-self: center; }
+.chart__head--stamp > .stamp { grid-column: 2; grid-row: 1; justify-self: end; margin: .8mm .8mm .8mm 0; }
+.chart__head--stamp > .chart__sub { grid-column: 1 / -1; grid-row: 2; justify-self: start; }
+.chart__head--stamp > .legend { grid-column: 1 / -1; grid-row: 2; justify-self: end; align-self: end; }
+/* Plotfläche mit Stempel in der freien Fläche über niedrigen Säulen (spart die Kopfzeile auf dichten Programmseiten) */
+.chart__plot { position: relative; margin-top: 3.6mm; }
+.chart__plot > .stamp { position: absolute; left: .8mm; top: .8mm; }
+.chart__plot > .chart__svg { margin-top: 0; }
 .chart--s .chart__title { font-size: 9.5pt; }
-.chart__svg { display: block; max-width: 100%; height: auto; margin-top: 3.6mm; overflow: visible; }
+.chart__svg { display: block; max-width: 100%; height: auto; margin-top: 3.6mm; overflow: visible; align-self: start; }   /* im Raster nicht auf die Höhe der Nachbarspalte strecken */
 .chart__note { margin-top: 2.6mm; font-size: var(--fs-micro); line-height: 1.45; color: var(--fg-3); }
 .chart__note b { color: var(--fg); }
 .legend { display: flex; flex-wrap: wrap; gap: 1.4mm 4.5mm; font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); }
 .legend li { display: inline-flex; align-items: center; gap: 1.6mm; white-space: nowrap; }
 .legend--stack { flex-direction: column; align-items: flex-start; gap: .9mm; }
+.legend--wrap li { white-space: normal; }   /* schmale Legendenspalte (3 Spalten) */
 .sw { display: inline-block; flex: none; width: 4.6mm; height: 3mm; vertical-align: -.4mm; }
 .sw--loan { background: var(--loan); }
 .sw--grant { background: var(--grant); }
@@ -1141,6 +1208,7 @@ abbr { text-decoration: none; }
 .sw--muted { background: var(--surface-3); }
 .sw--ink { background: var(--fg); }
 .sw--old { background: var(--old); }
+.sw--axis { height: var(--rule-red-min); background: repeating-linear-gradient(90deg, var(--accent) 0 1.6mm, transparent 1.6mm 2.1mm, var(--accent) 2.1mm 2.5mm, transparent 2.5mm 3mm); }   /* 80-%-Achse (Strichpunkt) in der Legende */
 
 /* SVG-Text: Beschriftung Work Sans, Werte Montserrat */
 .chart__svg text { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 500; fill: var(--fg-2); font-variant-numeric: lining-nums proportional-nums; }
@@ -1164,6 +1232,12 @@ abbr { text-decoration: none; }
 .chart__svg .t-it { font-style: italic; }
 .chart__svg .t-s { font-size: var(--svg-fs-s); }
 .chart__svg .t-halo { paint-order: stroke; stroke: var(--surface); stroke-width: .9px; stroke-linejoin: round; }
+/* Einheit hinter einem Wert („5,6 Mio. €“): Work Sans 500, grau – auch hinter roten Werten (rote Schrift erst ab 9 pt, 600) */
+.chart__svg .t-unit { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 500; letter-spacing: 0; fill: var(--fg-3); }
+/* Einkommensgruppe als Achskreis im SVG (wie .grp-chip im HTML): Kreis r ≈ 2,15 mit Buchstabe */
+.c-grp-a { fill: var(--seq-6); } .c-grp-b { fill: var(--seq-4); } .c-grp-c { fill: var(--seq-2); }
+.chart__svg .t-grp { font-family: var(--font-display); font-weight: 800; font-size: var(--svg-fs-s); text-anchor: middle; fill: var(--white); }
+.chart__svg .t-grp--ink { fill: var(--ink); }
 /* SVG-Flächen */
 .c-loan { fill: var(--loan); }
 .c-grant { fill: var(--grant); }
@@ -1183,6 +1257,15 @@ abbr { text-decoration: none; }
 .c-bs-24 { fill: var(--bs-24); } .c-bs-25 { fill: var(--bs-25); } .c-bs-26 { fill: var(--bs-26); }
 .c-seq-1 { fill: var(--seq-1); } .c-seq-2 { fill: var(--seq-2); } .c-seq-3 { fill: var(--seq-3); }
 .c-seq-4 { fill: var(--seq-4); } .c-seq-5 { fill: var(--seq-5); } .c-seq-6 { fill: var(--seq-6); }
+/* Heatmap auf einer Programmseite: Tonleiter der Programmfarbe (Stufe 1 = Tint … 6 = --bs, 7 = --bs + 25 % Tinte).
+   Text --fg auf Stufe 1–5 (Tinte auf Stufe 5 ≥ 5,3:1), --on-bs auf 6–7 (≥ 5,4:1); Werte stehen immer in der Zelle. */
+.c-bs-step-1 { fill: var(--bs-tint); }
+.c-bs-step-2 { fill: color-mix(in oklab, var(--bs) 17%, var(--bs-tint)); }
+.c-bs-step-3 { fill: color-mix(in oklab, var(--bs) 33%, var(--bs-tint)); }
+.c-bs-step-4 { fill: color-mix(in oklab, var(--bs) 50%, var(--bs-tint)); }
+.c-bs-step-5 { fill: color-mix(in oklab, var(--bs) 67%, var(--bs-tint)); }
+.c-bs-step-6 { fill: var(--bs); }
+.c-bs-step-7 { fill: color-mix(in oklab, var(--ink) 25%, var(--bs)); }
 .chart__svg .t-on-seq { fill: var(--white); }
 .chart__svg .t-on-seq-light { fill: var(--ink); }
 /* SVG-Linien (Maßketten, Achsen) */
@@ -1192,6 +1275,7 @@ abbr { text-decoration: none; }
 .lead-line { stroke: var(--fg-3); stroke-width: .2; fill: none; }
 .brk { stroke: var(--fg); stroke-width: .28; fill: none; }
 .dash { stroke-dasharray: 1 .8; }
+.dash--fine { stroke-dasharray: .9 .7; }   /* Wartezeit, Hilfslinie */
 .cap-line { stroke: var(--accent); stroke-width: var(--rule-red-min); stroke-dasharray: 4 1 .6 1; fill: none; }   /* 80-%-Achse: Strichpunkt */
 .line-loan { stroke: var(--loan); stroke-width: .6; fill: none; }
 .line-grant { stroke: var(--grant); stroke-width: .6; fill: none; }
@@ -1204,10 +1288,13 @@ abbr { text-decoration: none; }
 .dim-line--acc { stroke: var(--accent); stroke-width: var(--rule-red-min); }
 .dim-tick--acc { stroke: var(--accent); }
 .axb-c { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }      /* Achskreis im Diagramm */
+.axb-c--acc { stroke: var(--accent); stroke-width: .35; }                         /* Achskreis der 80-%-/90-%-Achse */
 .chart__svg .axb-t { font-family: var(--font-display); font-weight: 800; font-size: 5px; fill: var(--fg); }
 .sb-b { fill: var(--fg); } .sb-w { fill: var(--surface); stroke: var(--fg); stroke-width: .2; }   /* Maßstabsleiste als Achse */
 /* Zeitstrahl */
 .tl-axis { stroke: var(--fg); stroke-width: .35; fill: none; }
+.tl-axis--strong { stroke-width: .45; }                                            /* Zeitleiste als dominantes Element */
+.tl-draft { fill: var(--surface-2); stroke: var(--fg-3); stroke-width: .25; stroke-dasharray: .9 .6; }   /* geplant (Entwurf) */
 .tl-tick { stroke: var(--fg-3); stroke-width: .2; }
 .tl-pin { fill: var(--surface); stroke: var(--fg); stroke-width: .35; }
 .tl-pin--done { fill: var(--fg); }
@@ -1251,17 +1338,23 @@ abbr { text-decoration: none; }
 .checklist__box { width: 3.8mm; height: 3.8mm; margin-top: .2mm; border: .3mm solid var(--fg); background: var(--surface); }
 .checklist__item .mark { margin-top: .2mm; }
 .checklist__note { display: block; margin-top: .4mm; font-size: var(--fs-micro); color: var(--fg-3); }
-.checklist__item .badge { margin-left: 1mm; vertical-align: .2mm; }
+.checklist__item .badge { vertical-align: .2mm; }   /* Abstand nur über das Leerzeichen im Text („(Vordruck 3076)“ ohne Luft in der Klammer) */
 .checklist--cols { column-count: 2; column-gap: var(--gutter); }
 .bullets__title + .checklist > .checklist__item:first-child { border-top: 0; }
 .checklist--open-end > .checklist__item:last-child { border-bottom: 0; }
 .checklist--cols > .checklist__item:first-child { border-top: 0; }
+/* kompakt (Spielregeln S. 7): 9-pt-Modultext, Marke 3,4 mm (.mark--s), ohne Außenlinien */
+.checklist--compact .checklist__item { grid-template-columns: 5.4mm minmax(0, 1fr); padding: .7mm 0 .8mm; font-size: var(--fs-module); line-height: var(--lh-module); }
+.checklist--compact > .checklist__item:first-child { border-top: 0; }
+.checklist--compact > .checklist__item:last-child { border-bottom: 0; }
+.checklist--compact .mark { margin-top: .15mm; }
 
 /* 6.10 contact --------------------------------------------------------------- */
 .contact { display: block; font-style: normal; background: var(--surface-2); border-top: var(--rule-w) solid var(--rule-strong); padding: 4.6mm 5mm 5mm; color: var(--fg-2); }
 .contact--dark { background: var(--grad-dark); border-top-color: transparent; }
 .contact--plain { background: transparent; padding-left: 0; padding-right: 0; }
 .contact__label { font: 700 var(--fs-label-accent)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
+.contact__label--tight { letter-spacing: .04em; }   /* schmale Kontaktfelder (4 Spalten) */
 .contact__name { margin-top: 1.6mm; font: 800 10.5pt/1.2 var(--font-display); letter-spacing: .03em; text-transform: uppercase; color: var(--fg); }
 .contact__tel { margin-top: 2.4mm; font: 800 17pt/1.05 var(--font-display); letter-spacing: -.01em; word-spacing: .08em; white-space: nowrap; color: var(--fg); font-variant-numeric: lining-nums tabular-nums; }
 .contact__tel--l { font-size: 22pt; }
@@ -1293,6 +1386,12 @@ abbr { text-decoration: none; }
 .bullets--compact > li + li { margin-top: .6mm; }
 .bullets__title { padding: 2.6mm 0 2mm; border-top: var(--rule-w) solid var(--rule-strong); border-bottom: var(--hair) solid var(--rule); font: 800 var(--fs-label-accent)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
 .bullets__title + .bullets--ruled > li:first-child { padding-top: 1.8mm; }
+/* Ausschluss als Listenpunkt (Hinweis-Diät: kein Achtung-Kasten): Stopp-Icon statt Quadrat, Fettung in Signalrot.
+   Markup: <li class="is-stop"><svg class="icon icon--stopp icon--signal" …></svg><b>…</b> …</li> */
+.bullets > li.is-stop { padding-left: 5.4mm; }
+.bullets > li.is-stop::before { display: none; }
+.bullets > li.is-stop > .icon:first-child { position: absolute; left: 0; top: .05em; width: 3.8mm; height: 3.8mm; }
+.bullets > li.is-stop b { color: var(--signal-text); }
 
 /* Faktenspalte */
 .facts { display: flex; flex-direction: column; }
@@ -1350,6 +1449,11 @@ abbr { text-decoration: none; }
 .tag .sw { width: 3mm; height: 2.4mm; vertical-align: 0; }
 .tag .sw + .sw { margin-left: -.6mm; }
 .tags { display: flex; flex-wrap: wrap; gap: 1.4mm; }
+/* Programmteil-Matrix: sechs Felder 2.1–2.6 in fester Folge; zutreffend = Programmfarbe (<i class="bs-2x">),
+   sonst Geisterziffer (.is-off). Container role="img" + aria-label („gilt für 2.1 bis 2.4“). Checklisten, Übersichten. */
+.bs-matrix { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); column-gap: .9mm; align-self: start; }
+.bs-matrix > i { display: block; height: 4.6mm; font: 800 var(--fs-micro)/4.6mm var(--font-display); font-style: normal; text-align: center; letter-spacing: .01em; font-variant-numeric: tabular-nums lining-nums; background: var(--bs); color: var(--on-bs); }
+.bs-matrix > i.is-off { background: none; color: var(--rule); }
 
 /* Fördergegenstände-Übersicht */
 .programs { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--sp-5); }
@@ -1388,6 +1492,10 @@ abbr { text-decoration: none; }
 .stampline { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2mm 2.2mm; padding: .8mm 0 .4mm .8mm; font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-2); }
 .stampline > span:not(.stamp) { display: inline-block; white-space: nowrap; }
 .stampline--stack { flex-direction: column; align-items: flex-start; gap: 1.8mm; }
+.stampline--inline { flex-wrap: nowrap; padding: 0 .8mm 0 0; }   /* neben dem Kicker in der 7-mm-Kickerzeile */
+/* Kurzstempel: zweite Nennung einer Modellrechnung (Redaktionsregeln: nur ein Vollstempel je Rechnung) – einfache Kontur,
+   Schrift des Kickers (700, Laufweite des Kickers) */
+.stamp--s { padding: .9mm 1.4mm .8mm; outline: 0; font-weight: 700; letter-spacing: inherit; }
 .stampline + * { margin-top: 2.6mm; }
 .model { background: var(--surface-2); border-top: var(--rule-w) solid var(--rule-strong); padding: 4.4mm 5.5mm 4.8mm; break-inside: avoid; }
 .model__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 5mm; }
@@ -1421,6 +1529,8 @@ abbr { text-decoration: none; }
 .formula--wide .formula__row { grid-template-columns: 6mm minmax(0, 1.2fr) minmax(0, 1fr); }
 .formula--wide .formula__limit { grid-column: 3; text-align: right; }
 .formula__row--result { border-top: var(--rule-w) solid var(--rule-strong); margin-top: .8mm; padding-top: 1.8mm; font-weight: 600; }
+.formula__row--result .formula__limit { font-weight: 400; }
+.formula--stack .formula__limit { display: block; font-size: var(--fs-module); font-weight: 400; color: var(--fg-3); }   /* Grenze als eigene Zeile unter dem Term */
 
 /* 6.14 Begriff (Marginalie) ---------------------------------------------------- */
 .term { border-left: var(--rule-accent) solid var(--accent); padding: .4mm 0 .6mm 3.4mm; }
@@ -1433,6 +1543,28 @@ abbr { text-decoration: none; }
 .toc__no { font: 800 var(--fs-label-accent)/1 var(--font-display); color: var(--accent-text); font-variant-numeric: tabular-nums; }
 .toc__title { font-size: var(--fs-small); color: var(--fg); }
 .toc__page { font: 800 10pt/1 var(--font-display); color: var(--fg); font-variant-numeric: lining-nums tabular-nums; }
+/* Inhalt als Linienplan (U2): je Kapitel eine Linie (Pseudo-Element-Striche), Haltestellen als Quadrate, Programmteile als
+   Chip mit Nummer auf der Linie. Steuergrößen: --lp-pg (Seitenzahl), --lp-mk (Marke), --lp-gap, --lp-w (Linie), --lp-c (Farbe).
+   .lp__line--em = Mittel-Doppelseite (Papier, kräftige Linie), --pgn = PGN-Teil (Rot); .lp__mk--signal = Stichtag. */
+.lp { --lp-pg: 6.2mm; --lp-mk: 7.4mm; --lp-gap: 1.7mm; --lp-w: .7mm; --lp-c: var(--fg-2); --lp-x: calc(var(--lp-pg) + var(--lp-gap) + var(--lp-mk) / 2); }
+.lp__line { position: relative; }
+.lp__line + .lp__line { margin-top: 1.6mm; }
+.lp__name { position: relative; display: flex; align-items: center; height: 4.6mm; padding-left: calc(var(--lp-pg) + var(--lp-mk) + 2 * var(--lp-gap)); font: 800 var(--fs-micro)/1 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
+.lp__name::before { content: ""; position: absolute; left: calc(var(--lp-x) - 1.8mm); top: calc(50% - var(--lp-w) / 2); width: 3.6mm; height: var(--lp-w); background: var(--lp-c); }   /* Linienanfang */
+.lp__name::after { content: ""; position: absolute; left: calc(var(--lp-x) - var(--lp-w) / 2); top: 50%; bottom: 0; width: var(--lp-w); background: var(--lp-c); }
+.lp__stop { position: relative; }
+.lp__stop::before { content: ""; position: absolute; left: calc(var(--lp-x) - var(--lp-w) / 2); top: 0; bottom: 0; width: var(--lp-w); background: var(--lp-c); }
+.lp__stop:last-child::before { bottom: auto; height: 2.7mm; }
+.lp__stop > a { position: relative; display: grid; grid-template-columns: var(--lp-pg) var(--lp-mk) minmax(0, 1fr); column-gap: var(--lp-gap); align-items: start; padding: .55mm 0; }
+.lp__pg { text-align: right; font: 900 10pt/4.2mm var(--font-display); color: var(--fg); font-variant-numeric: lining-nums tabular-nums; }
+.lp__t { font: 500 var(--fs-module)/4.2mm var(--font-text); color: var(--fg); }
+.lp__mk { justify-self: center; width: 2.9mm; height: 2.9mm; margin-top: .65mm; background: var(--surface); box-shadow: inset 0 0 0 .4mm var(--lp-c); }
+.lp__mk--bs { width: auto; height: auto; margin-top: .1mm; padding: .75mm 1.1mm .65mm; background: var(--bs); box-shadow: none; font: 800 var(--fs-micro)/1 var(--font-display); letter-spacing: .02em; color: var(--on-bs); font-variant-numeric: tabular-nums; }
+.lp__mk--signal { background: var(--signal-fill); box-shadow: none; }
+.lp__t--signal { font-weight: 600; color: var(--signal-text); }
+.lp__line--em { --lp-w: 1.1mm; --lp-c: var(--fg); background: var(--surface-2); padding-bottom: 1.2mm; }
+.lp__line--pgn { --lp-c: var(--accent); }
+.lp__line--pgn .lp__name { color: var(--accent-text); font-size: var(--fs-label-accent); }
 
 /* 6.16 Zielgruppen-Zeile, Schriftfeld, Impressum ------------------------------ */
 .audience { display: flex; flex-wrap: wrap; align-items: baseline; gap: 1mm 0; font: 500 var(--fs-micro)/1.35 var(--font-text); color: var(--fg-2); }
@@ -1507,6 +1639,7 @@ abbr { text-decoration: none; }
 }
 .photo__tag { position: absolute; left: 0; top: 0; padding: 1.4mm 2.6mm 1.3mm; background: var(--accent); color: var(--white); font: 800 var(--fs-label-accent)/1 var(--font-display); letter-spacing: .14em; text-transform: uppercase; }
 .photo__caption { display: flex; gap: 2.4mm; align-items: baseline; margin-top: 2.2mm; font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-3); }
+.photo__credit { position: absolute; right: 0; bottom: 0; padding: .7mm 1.4mm .5mm; background: var(--surface); font: 500 var(--fs-micro)/1 var(--font-text); color: var(--fg-3); white-space: nowrap; }   /* neutrale Bildecke („Visualisierung“), wenn .photo__tag zu viel Rot wäre */
 .photo__caption b { flex: none; font: 800 var(--fs-micro)/1.35 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); border-bottom: .4mm solid var(--fg); }
 /* Achskreise mit Strichpunkt-Achsen über einem Banner */
 .photo__axes { position: absolute; left: 0; right: 0; top: -9mm; bottom: var(--cap-h, 0mm); pointer-events: none; display: flex; justify-content: space-between; padding: 0 var(--axes-pad, 6mm); }
@@ -1588,6 +1721,8 @@ abbr { text-decoration: none; }
 .reference__facts .is-acc { color: var(--accent-text); font-weight: 700; font-size: var(--fs-label-accent); }
 .reference__units { display: flex; align-items: baseline; gap: 2mm; font: 900 30pt/.9 var(--font-display); letter-spacing: -.02em; color: var(--fg); font-variant-numeric: tabular-nums; }
 .reference__units small { font: 800 var(--fs-label-accent)/1.15 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-2); }
+.reference__units--text { align-items: center; }   /* Einheit gemischt geschrieben neben der Zahl (schmale 3-Spalten-Referenzen) */
+.reference__units--text small { font: 500 var(--fs-micro)/1.2 var(--font-text); letter-spacing: 0; text-transform: none; color: var(--fg-2); }
 /* Hauptreferenz: Bild 100 mm + Datenspalte; große Zahl als Anker */
 .reference--feature { display: grid; grid-template-columns: 100mm minmax(0, 1fr); column-gap: 8mm; }
 .reference--feature .photo { margin-bottom: 0; }
@@ -1607,6 +1742,9 @@ abbr { text-decoration: none; }
 .logo--m { width: 50mm; }
 .logo--l { width: 62mm; }
 .logo--mark { width: 18mm; }
+/* QR-Code inline (Module als ein Pfad): Farben über Tokens, Ruhezone als Fläche */
+.qr-bg { fill: var(--white); }
+.qr-mod { fill: var(--ink); }
 
 /* -----------------------------------------------------------------------------
    7 · UMSCHLAG: U1 (Titel) und U4 (Rückseite) – aufgeklappt ein Planblatt,
@@ -1660,6 +1798,18 @@ abbr { text-decoration: none; }
 .cover__kpi .dim { margin-top: 2.6mm; height: 5mm; }
 .cover__logo { display: flex; align-items: center; padding: 0 5mm; }
 .cover__logo .logo { width: 56mm; }
+/* Schriftfeld zweizeilig (gebaut, U1 = U4 aufgeklappt eine Leiste): Zeile 1 Titel | Kennzahlfeld 56 mm, Zeile 2 Absenderleiste
+   18 mm (Oberkante 271 mm); Fußspalten Logo 64 mm | Herausgeber | Stand 34 mm | Blatt 22 mm = .back__stamp--2row */
+.cover__stamp--2row { grid-template-rows: minmax(0, 1fr) 18mm; }
+.cover__stamp--2row .cover__row--foot { grid-template-columns: 64mm minmax(0, 1fr) 34mm 22mm; }
+.cover__stamp--2row .cover__main { padding: 7mm 6mm 0; }
+.cover__stamp--2row .cover__title { margin-top: 0; }
+.cover__stamp--2row .cover__deck { margin-top: 5.5mm; max-width: 112mm; font-size: var(--fs-deck); line-height: 1.42; text-wrap: balance; }
+.cover__stamp--2row .cover__kpi { padding: 6.4mm 5mm 5.6mm; }
+.cover__stamp--2row .cover__kpi-num { margin-top: 2.4mm; font-size: 54pt; }   /* Kennzahl sekundär: die Titelzeile bleibt das erste Wort */
+.cover__stamp--2row .cover__kpi-text { font-size: 10pt; line-height: 1.25; }
+.cover__stamp--2row .cover__logo { padding: 0 5mm 0 6mm; }
+.cover__kpi-note { margin-top: 2mm; font: 600 var(--fs-small)/1.32 var(--font-text); color: var(--fg-2); }   /* Bezug der Kennzahl, 9 pt 600 (Negativtext ≥ 9 pt) */
 /* Legacy-Klassen der v1-Titelseite (bleiben definiert) */
 .cover__top { position: absolute; left: var(--m-inner); right: var(--m-outer); top: 13mm; }
 .cover__mast { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; padding-bottom: 2.6mm; border-bottom: var(--hair) solid var(--rule); font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); }
@@ -1681,7 +1831,7 @@ abbr { text-decoration: none; }
 .back__claim .claim { margin-top: 4mm; color: var(--white); border-left: .9mm solid var(--white); padding-left: 5mm; font-size: 34pt; }
 .back__claim .claim .light { color: var(--white); font-size: .6em; }
 .back__claim .claim em { color: var(--white); }
-.back__stamp { position: absolute; left: var(--frame-inset); right: var(--frame-inset); top: var(--horizon); bottom: var(--frame-inset); display: grid; grid-template-columns: 70mm minmax(0, 1fr) 42mm; grid-template-rows: minmax(0, 1fr) auto 14mm; background: var(--white); border-top: .35mm solid var(--ink); --fg: var(--ink); --fg-2: var(--anthracite); --fg-3: var(--grey-600); --rule-strong: var(--ink); --surface-2: var(--paper); --accent-text: var(--pgn-red); color: var(--anthracite); }
+.back__stamp { position: absolute; left: var(--frame-inset); right: var(--frame-inset); top: var(--horizon); bottom: var(--frame-inset); display: grid; grid-template-columns: 70mm minmax(0, 1fr) 42mm; grid-template-rows: minmax(0, 1fr) auto 14mm; background: var(--white); border-top: .35mm solid var(--ink); --fg: var(--ink); --fg-2: var(--anthracite); --fg-3: var(--grey-600); --rule: var(--grey-200); --rule-strong: var(--ink); --surface-2: var(--paper); --accent-text: var(--pgn-red); color: var(--anthracite); }
 .back__stamp > * { border-left: var(--hair) solid var(--ink); border-bottom: var(--hair) solid var(--ink); }
 .back__stamp > :first-child, .back__stamp > .is-row2:first-of-type { border-left: 0; }
 .back__stamp .is-first { border-left: 0; }
@@ -1700,6 +1850,30 @@ abbr { text-decoration: none; }
 .back__qr svg, .back__qr img { width: 26mm; height: 26mm; background: var(--white); }
 .back__qr span { font-size: var(--fs-micro); color: var(--fg-3); }
 .back__art { width: 64mm; }
+/* Schriftfeld U4 zweizeilig im Raster von U1 (.cover__stamp--2row): Zeile 1 Einladung + Kontakt | QR 56 mm (= Kennzahlfeld U1),
+   Zeile 2 Logo | Projekt | Stand | Blatt U4 */
+.back__stamp--2row { grid-template-columns: 64mm minmax(0, 1fr) 34mm 22mm; grid-template-rows: minmax(0, 1fr) 18mm; }
+.back__stamp--2row > * { border: 0; }
+.back__stamp--2row .back__invite { grid-column: 1 / span 2; grid-row: 1; display: flex; flex-direction: column; padding: 7mm 6mm 5.6mm; border-bottom: var(--hair) solid var(--ink); }
+.back__stamp--2row .back__contact { margin-top: auto; padding: 0; font: 500 var(--fs-small)/1.45 var(--font-text); font-style: normal; color: var(--fg-2); }
+.back__stamp--2row .back__qr { grid-column: 3 / span 2; grid-row: 1; gap: 2.6mm; padding: 6mm 4mm 5mm; border-left: var(--hair) solid var(--ink); border-bottom: var(--hair) solid var(--ink); }
+.back__stamp--2row .back__qr svg { width: 33mm; height: 33mm; }
+.back__stamp--2row .back__qr span { font: 600 var(--fs-micro)/1.2 var(--font-display); color: var(--fg); }
+.back__stamp--2row .back__logo { grid-column: 1; grid-row: 2; padding: 0 5mm 0 6mm; }
+.back__stamp--2row .back__project { grid-column: 2; grid-row: 2; border-left: var(--hair) solid var(--ink); }
+.back__stamp--2row .back__stand { grid-column: 3; grid-row: 2; border-left: var(--hair) solid var(--ink); }
+.back__stamp--2row .back__blatt { grid-column: 4; grid-row: 2; border-left: var(--hair) solid var(--ink); }
+.back__stamp--2row .titleblock__cell { padding: 1.7mm 3mm 0; }
+.back__stamp--2row .titleblock__value { font-size: var(--fs-micro); line-height: 1.28; }
+.back__stamp--2row .titleblock__cell--blatt .titleblock__value { font-size: 13pt; }
+.back__lead { max-width: 118mm; font: 400 var(--fs-lead)/var(--lh-lead) var(--font-text); color: var(--fg); text-wrap: balance; }
+.back__firm { font: 800 var(--fs-small)/1.45 var(--font-display); letter-spacing: .06em; text-transform: uppercase; color: var(--fg); }
+.back__addr { margin-top: .4mm; }
+.back__lines { display: grid; grid-template-columns: auto auto auto; justify-content: space-between; column-gap: 5mm; margin-top: 4mm; padding-top: 2.4mm; border-top: var(--hair) solid var(--rule); }
+.back__lines dt { font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-3); }
+.back__lines dd { margin: .5mm 0 0; font: 700 var(--fs-small)/1.3 var(--font-display); color: var(--fg); }
+.back__lines a.u-url { color: inherit; font: inherit; }
+.back__lines .is-web a.u-url { color: var(--accent-text); }
 
 /* -----------------------------------------------------------------------------
    8 · ILLUSTRATION, PIKTOGRAMME, ICONS, DEKOR

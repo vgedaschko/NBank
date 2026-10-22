@@ -27,12 +27,10 @@
 
     /* Achse */
     .page[data-page="15"] .p15-ax-past { stroke: var(--fg-3); stroke-width: .35; fill: none; }
-    .page[data-page="15"] .p15-tl__fig .tl-axis { stroke-width: .45; }
     .page[data-page="15"] .p15-pin-past { fill: var(--surface-3); stroke: var(--fg-3); stroke-width: .3; }
     .page[data-page="15"] .p15-stem-past { stroke: var(--fg-3); stroke-width: .2; }
     .page[data-page="15"] .p15-now { stroke: var(--fg); stroke-width: .22; }
     .page[data-page="15"] .p15-halo { fill: var(--surface); stroke: var(--signal-fill); stroke-width: .3; }
-    .page[data-page="15"] .p15-draft { fill: var(--surface-2); stroke: var(--fg-3); stroke-width: .25; stroke-dasharray: .9 .6; }
     .page[data-page="15"] .chart__svg .p15-date { font-family: var(--font-display); font-weight: 700; font-size: var(--svg-fs-m); fill: var(--fg); font-variant-numeric: tabular-nums lining-nums; }
     .page[data-page="15"] .chart__svg .p15-date--draft { fill: var(--fg-3); }
     .page[data-page="15"] .chart__svg .p15-year { font-family: var(--font-display); font-weight: 700; fill: var(--fg-3); letter-spacing: .2px; font-variant-numeric: tabular-nums; }
@@ -63,7 +61,6 @@
     .page[data-page="15"] .p15-check > .checklist__item { border-top: 0; font-size: var(--fs-module); line-height: 1.34; padding: 1.6mm 0 1.8mm; }
     .page[data-page="15"] .p15-check > .checklist__item:nth-last-child(-n+2) { border-bottom: 0; }
     .page[data-page="15"] .p15-check .checklist__item b { color: var(--fg); }
-    .page[data-page="15"] .p15-check .pageref { padding-top: .5mm; padding-bottom: .4mm; }
   </style>
 
   <div class="bs-register" data-bleed aria-hidden="true">2.3</div>
@@ -101,17 +98,17 @@
       <svg class="chart__svg" viewBox="0 0 180 16.6" width="180mm" height="16.6mm" role="img" aria-label="Zeitleiste Juni 2026 bis Dezember 2031, zwischen 2027 und 2031 unterbrochen: 30.06.2026 Förderregeln 2024 enden; 01.07.2026 RL Mietwohnraum 2026 in Kraft; heute 21.10.2026; 31.12.2026 Stichtag Wahlrecht Modernisierung, Antragseingang bei der Wohnraumförderstelle; 01.01.2027 neue Rechennorm für Energiebedarfsausweise, Klassengrenzen unverändert; 2027 neue Mietenstufen geplant, Entwurf; 31.12.2031 RL Mietwohnraum 2026 läuft aus.">
         <!-- Maßstab 7,264 mm je Monat ab 01.06.2026 (x 0); 01.01.2027 = 50,85; Bruch 140–148; 01.09.2031 = 150, 31.12.2031 = 179,06. Achse y 6 -->
         <!-- 2027: neue Mietenstufen geplant (Entwurf) – gestrichelter Rahmen über das Jahr, Beschriftung darüber -->
-        <rect class="p15-draft" x="50.85" y="4.8" width="87.15" height="2.4"/>
+        <rect class="tl-draft" x="50.85" y="4.8" width="87.15" height="2.4"/>
         <!-- Stiele: vergangene Termine (vom Text oben links), Stichtag (vom Frist-Kasten), Termine unten -->
         <path class="p15-stem-past" d="M7.14 0V4.9"/>
         <path class="tl-stem--signal" d="M50.73 0V3.4"/>
         <path class="tl-stem" d="M51.2 8.6V16.2M179.06 7.2V16.2"/>
         <!-- Achse: vergangen gedämpft bis heute, danach Tinte; Bruch zwischen 2027 und 2031 -->
         <path class="p15-ax-past" d="M0 6H33.74"/>
-        <path class="tl-axis" d="M33.74 6H140M148 6H179.06"/>
+        <path class="tl-axis tl-axis--strong" d="M33.74 6H140M148 6H179.06"/>
         <path class="brk" d="M142.3 7.6l1.4 -3.2M144.9 7.6l1.4 -3.2"/>
         <path class="tl-tick" d="M7.26 5.2v1.6M14.53 5.2v1.6M21.79 5.2v1.6M29.06 5.2v1.6M36.32 5.2v1.6M43.58 5.2v1.6M58.11 5.2v1.6M65.38 5.2v1.6M72.64 5.2v1.6M79.9 5.2v1.6M87.17 5.2v1.6M94.43 5.2v1.6M101.7 5.2v1.6M108.96 5.2v1.6M116.22 5.2v1.6M123.49 5.2v1.6M130.75 5.2v1.6M138 5.2v1.6M150 5.2v1.6M157.26 5.2v1.6M164.53 5.2v1.6M171.79 5.2v1.6"/>
-        <path class="tl-axis" d="M50.85 3.6V8.4M0 4.4V7.6"/>
+        <path class="tl-axis tl-axis--strong" d="M50.85 3.6V8.4M0 4.4V7.6"/>
         <!-- Jahre; 2027 zugleich Datum der geplanten Mietenstufen -->
         <text class="p15-year" x="9.2" y="3.6">2026</text>
         <text class="p15-year" x="52.6" y="3.6">2027</text>
@@ -152,7 +149,7 @@
       <tr><th scope="row">Zins und Kosten</th><td>0 % Zins für 35 Jahre (geringe Einkommen) bzw. 30 Jahre (mittlere), danach marktüblich; 0,5 % Verwaltungskostenbeitrag p. a.</td><td class="p15-new">kein Darlehen; 0,75 % Bearbeitungsentgelt</td></tr>
       <tr><th scope="row">Barrierefreiheit</th><td>+5.000 € Zuschuss je barrierefreier Wohnung</td><td class="p15-new">Teil der Gesamtmaßnahme, kein Extra-Zuschuss</td></tr>
       <tr><th scope="row">Höhere Einkommen</th><td>mittlere Einkommen: nur energetisch, ohne Tilgungsnachlass</td><td class="p15-new">Gruppen B und C mit niedrigeren Sätzen</td></tr>
-      <tr><th scope="row">Kombination</th><td>ausgeschlossen, wenn dieselbe Maßnahme nach RL Mietwohnraum, Junges Wohnen oder Wohneigentum 2026 gefördert wird</td><td class="p15-new">BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen <a class="pageref" href="#seite-14">→&nbsp;S.&nbsp;14</a></td></tr>
+      <tr><th scope="row">Kombination</th><td>ausgeschlossen, wenn dieselbe Maßnahme nach RL Mietwohnraum, Junges Wohnen oder Wohneigentum 2026 gefördert wird</td><td class="p15-new">BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen <span class="u-nowrap">(<a class="pageref" href="#seite-14">→&nbsp;S.&nbsp;14</a>)</span></td></tr>
     </tbody>
   </table>
 
@@ -160,7 +157,7 @@
     <h2 class="bullets__title" id="p15-check-h">Vier Prüffragen</h2>
     <ul class="checklist p15-check">
       <li class="checklist__item"><span class="checklist__box"></span><span><b>Fertiggestellt zwischen 01.02.2002 und 07.12.2004?</b> Dann nur RL 2026: Das alte Recht verlangt Fertigstellung vor dem 01.02.2002.</span></li>
-      <li class="checklist__item"><span class="checklist__box"></span><span><b>Zwei Effizienzklassen erreichbar?</b> Die RL 2026 verlangt sie. Nur wenn das nicht oder nur mit unverhältnismäßigem Aufwand geht, etwa beim Baudenkmal, kann die NBank eine Klasse zulassen <a class="pageref" href="#seite-14">→&nbsp;S.&nbsp;14</a></span></li>
+      <li class="checklist__item"><span class="checklist__box"></span><span><b>Zwei Effizienzklassen erreichbar?</b> Die RL 2026 verlangt sie. Nur wenn das nicht oder nur mit unverhältnismäßigem Aufwand geht, etwa beim Baudenkmal, kann die NBank eine Klasse zulassen <span class="u-nowrap">(<a class="pageref" href="#seite-14">→&nbsp;S.&nbsp;14</a>).</span></span></li>
       <li class="checklist__item"><span class="checklist__box"></span><span><b>Darlehen mit Tilgungsnachlass oder Zuschuss</b> – was passt zu Ihrer Finanzierung?</span></li>
       <li class="checklist__item"><span class="checklist__box"></span><span><b>Antrag mit ausdrücklicher Wahl bis 31.12.2026</b> bei der Wohnraumförderstelle?</span></li>
     </ul>

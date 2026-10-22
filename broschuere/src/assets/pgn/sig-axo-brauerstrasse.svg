@@ -16,11 +16,11 @@
 #sig-axo .sig-roof{fill:var(--sig-face,#fff)}
 #sig-axo .sig-roof--side{fill:var(--sig-face-2,#F1EFEC)}
 #sig-axo .sig-roof--back{fill:var(--sig-face-3,#E6E3DF)}
-#sig-axo .sig-tile{stroke:var(--sig-accent,#B71E3F);stroke-width:.14;fill:none;opacity:.75}
+#sig-axo .sig-tile{stroke:var(--sig-accent,#B71E3F);stroke-width:.25;fill:none;opacity:.5}
 #sig-axo .sig-flat{fill:var(--sig-paper,#F4F3F2)}
 #sig-axo .sig-attika{stroke:var(--sig-soft,#A8A49F);stroke-width:.13}
 #sig-axo .sig-pv{fill:var(--sig-dark,#57534F);stroke:var(--sig-face,#fff);stroke-width:.1}
-#sig-axo .sig-fig path,#sig-axo .sig-fig circle{fill:var(--sig-face,#fff);stroke:var(--sig-accent,#B71E3F);stroke-width:.16;stroke-linejoin:round}
+#sig-axo .sig-fig path,#sig-axo .sig-fig circle{fill:var(--sig-face,#fff);stroke:var(--sig-accent,#B71E3F);stroke-width:.25;stroke-linejoin:round}
 #sig-axo .sig-rail{stroke:var(--sig-line,#3C3C3B);stroke-width:.17;fill:none}
 #sig-axo .sig-slab-top{fill:var(--sig-face,#fff);stroke:var(--sig-line,#3C3C3B);stroke-width:.14}
 #sig-axo .sig-slab{fill:var(--sig-face-3,#E6E3DF);stroke:var(--sig-line,#3C3C3B);stroke-width:.16}
@@ -31,8 +31,8 @@
 #sig-axo .sig-dim-tk{stroke:var(--sig-accent,#B71E3F);stroke-width:.42;fill:none}
 #sig-axo .sig-dim-key{stroke:var(--sig-accent,#B71E3F);stroke-width:.8;fill:none}
 #sig-axo .sig-dim-dot{fill:var(--sig-accent,#B71E3F)}
-#sig-axo .sig-dim-h{stroke:var(--sig-accent,#B71E3F);stroke-width:.12;fill:none}
-#sig-axo .sig-dim-t{font-weight:600;font-size:3.06px;fill:var(--sig-accent,#B71E3F)}
+#sig-axo .sig-dim-h{stroke:var(--sig-accent,#B71E3F);stroke-width:.25;fill:none}
+#sig-axo .sig-dim-t{font-weight:600;font-size:3.2px;fill:var(--sig-accent,#B71E3F)}
 #sig-axo .sig-dim-t--key{font-weight:800;letter-spacing:.06px}
 #sig-axo .sig-dim-t--rest{font-weight:600;fill:var(--sig-line,#3C3C3B)}
 #sig-axo .sig-axb circle{fill:var(--sig-face,#fff);stroke:var(--sig-line,#3C3C3B);stroke-width:.2}

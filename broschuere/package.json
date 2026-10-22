@@ -1,11 +1,11 @@
 {
   "name": "broschuere-mietwohnraumfoerderung-2026",
   "private": true,
-  "description": "Informationsbroschüre zur Mietwohnraumförderung Niedersachsen 2026 (HTML → PDF)",
+  "description": "Informationsbroschüre der Planungsgemeinschaft Nord GmbH zur Mietwohnraumförderung Niedersachsen 2026 (HTML → PDF)",
   "scripts": {
     "assemble": "node scripts/assemble.cjs",
-    "build": "node scripts/assemble.cjs && node scripts/render.cjs --in src/index.html --pdf dist/Mietwohnraumfoerderung-Niedersachsen-2026.pdf",
-    "preview": "node scripts/assemble.cjs && node scripts/render.cjs --in src/index.html --pdf dist/Mietwohnraumfoerderung-Niedersachsen-2026.pdf --png dist/preview --dpi 80",
+    "build": "node scripts/assemble.cjs && node scripts/render.cjs --in src/index.html --pdf dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026.pdf",
+    "preview": "node scripts/assemble.cjs && node scripts/render.cjs --in src/index.html --pdf dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026.pdf --png dist/preview --dpi 80",
     "fonts": "python3 scripts/fonts-static.py"
   },
   "devDependencies": {

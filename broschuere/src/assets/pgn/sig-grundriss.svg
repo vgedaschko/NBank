@@ -3,7 +3,7 @@
 #sig-grundriss{color:var(--sig-plan,#fff)}
 #sig-grundriss .sig-g-ax{stroke:currentColor;stroke-width:.2;stroke-dasharray:5 1.2 .7 1.2;fill:none;opacity:.55}
 #sig-grundriss .sig-g-b circle{fill:none;stroke:currentColor;stroke-width:.25}
-#sig-grundriss .sig-g-b text,#sig-grundriss .sig-g-t{font-weight:600;font-size:3.1px;fill:currentColor}
+#sig-grundriss .sig-g-b text,#sig-grundriss .sig-g-t{font-weight:600;font-size:3.2px;fill:currentColor}
 #sig-grundriss .sig-g-poche{fill:currentColor;fill-opacity:.9;stroke:none}
 #sig-grundriss .sig-g-poche--inner{fill-opacity:.7}
 #sig-grundriss .sig-g-glass{stroke:currentColor;stroke-width:.2;fill:none}
@@ -13,7 +13,7 @@
 #sig-grundriss .sig-g-north circle{fill:none;stroke:currentColor;stroke-width:.25}
 #sig-grundriss .sig-g-north path{fill:none;stroke:currentColor;stroke-width:.25}
 #sig-grundriss .sig-g-north .sig-g-north-fill{fill:currentColor}
-#sig-grundriss .sig-g-north text{font-weight:700;font-size:3.1px;letter-spacing:.3px;fill:currentColor}
+#sig-grundriss .sig-g-north text{font-weight:700;font-size:3.2px;letter-spacing:.3px;fill:currentColor}
 </style><path class="sig-g-ax" d="M30,30V119.5M60,30V119.5M90,30V119.5M120,30V119.5M150,30V119.5M180,30V119.5M17,46H191M17,77.25H191M17,108.5H191"/>
 <g class="sig-g-b"><circle cx="30" cy="26.9" r="3.1"/><text x="30" y="28.05" text-anchor="middle">1</text></g>
 <g class="sig-g-b"><circle cx="60" cy="26.9" r="3.1"/><text x="60" y="28.05" text-anchor="middle">2</text></g>

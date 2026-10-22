@@ -15,7 +15,8 @@
 //   3. Ungenutzte weiche Trennstriche (U+00AD) entfernen: Nur dort, wo tatsächlich umbrochen wird, bleibt einer stehen.
 //      Der Umbruch ändert sich dadurch nicht (wird geprüft).
 //   4. Overflow-Check je .page (OVERFLOW-Zeilen = Fehler); Trennrest allein in der letzten Zeile eines Blocks
-//      (LASTLINE-Zeilen = Fehler); Link-Namen und PDF/UA-Vorprüfung (PDFUA-Zeilen: Link ohne Namen, Link in role="img",
+//      (LASTLINE-Zeilen = Fehler); Satzspiegel-Unterkante und Überlauf aus Blöcken fester Höhe (SATZSPIEGEL-Zeilen = Fehler);
+//      Link-Namen und PDF/UA-Vorprüfung (PDFUA-Zeilen: Link ohne Namen, Link in role="img",
 //      Sprung der Überschriftenebene).
 //   5. Bildschirm-PDF: tagged (Struktur, /Lang, Alt-Texte aus aria-label), eigene Lesezeichen aus h1/h2,
 //      Metadaten (Info + XMP), DisplayDocTitle, /Contents je Link-Annotation (PDF/UA-1 7.18.5);
@@ -40,7 +41,7 @@ const flag = (name) => process.argv.includes(`--${name}`);
 
 const root = path.resolve(__dirname, '..');
 const input = path.resolve(root, arg('in', 'src/index.html'));
-const pdfOut = path.resolve(root, arg('pdf', 'dist/Mietwohnraumfoerderung-Niedersachsen-2026.pdf'));
+const pdfOut = path.resolve(root, arg('pdf', 'dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026.pdf'));
 const pngDir = arg('png', null) ? path.resolve(root, arg('png')) : null;
 const dpi = Number(arg('dpi', '72'));
 const isFullDoc = path.basename(input) === 'index.html';
@@ -301,6 +302,40 @@ function browserFontTuples() {
     return { pages: pages.length, issues: [...new Set(out)] };
   });
 
+  // 4a · Satzspiegel (SATZSPIEGEL-Zeilen = Fehler): Inhalt endet über der Satzspiegel-Unterkante (Endformat − Polster
+  //      unten der .page, Standard --m-bottom = 24 mm → 273 mm), nicht erst am Seitenrand. Ausgenommen: Umschlag (U1/U4),
+  //      randabfallende Flächen, Artefakte (aria-hidden, Fuß/footer) und absolut gesetzte Elemente (Planrahmen, Register).
+  //      Dazu Inhalt, der aus einem Block mit fester Höhe herausragt (overflow sichtbar, aber größer als der Block).
+  const satz = await page.evaluate(() => {
+    const out = [];
+    const mm = 96 / 25.4;
+    const label = (el) => (el.className && typeof el.className === 'string' ? '.' + el.className.split(' ')[0] : el.tagName.toLowerCase());
+    document.querySelectorAll('.page').forEach((p) => {
+      if (p.matches('.page--u1, .page--u4, .page--cover, .page--back')) return;
+      const no = Number(p.dataset.page) || p.dataset.page;
+      const pr = p.getBoundingClientRect();
+      const limit = pr.bottom - parseFloat(getComputedStyle(p).paddingBottom) + .5 * mm;
+      p.querySelectorAll('*').forEach((el) => {
+        if (el.closest('[data-bleed], [aria-hidden="true"], footer, .page__foot')) return;
+        const tag = el.tagName.toLowerCase();
+        if (el.closest('svg') && tag !== 'svg') return;
+        const cs = getComputedStyle(el);
+        if (cs.display === 'none' || cs.visibility === 'hidden' || ['absolute', 'fixed'].includes(cs.position)) return;
+        const r = el.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        if (r.bottom > limit) out.push(`Seite ${no}: ${label(el)} endet ${((r.bottom - limit) / mm + .5).toFixed(1)} mm unter der Satzspiegel-Unterkante`);
+        // fester Block: sichtbarer Überlauf nach unten (nur Blöcke mit eigener Höhe, ohne Listen-/Tabelleninterna)
+        if (tag !== 'svg' && cs.overflowY === 'visible' && ['block', 'flex', 'grid'].includes(cs.display) && el.children.length) {
+          // nur Kinder auf Blockebene: Glyphen, die über eine knappe Zeilenhöhe ragen (H1 1,04, Kennzahl ,9), zählen nicht
+          const kids = [...el.children].filter((k) => { const kc = getComputedStyle(k); return !['absolute', 'fixed'].includes(kc.position) && !kc.display.startsWith('inline') && !k.closest('[aria-hidden="true"]'); });
+          const maxB = Math.max(...kids.map((k) => k.getBoundingClientRect().bottom), -Infinity);
+          if (maxB > r.bottom + .6 * mm) out.push(`Seite ${no}: Inhalt ragt ${((maxB - r.bottom) / mm).toFixed(1)} mm aus ${label(el)} heraus`);
+        }
+      });
+    });
+    return [...new Set(out)];
+  });
+
   // 4b · Trennrest allein in der letzten Zeile (LASTLINE-Zeilen = Fehler): Ein Block endet mit einer Zeile, die nur aus dem
   //      Rest eines getrennten Wortes besteht („zulas-|sen.“). Geprüft wird jede genutzte Trennstelle (U+00AD am Zeilenende):
   //      Steht danach bis zum Blockende kein Leerzeichen mehr, ist die Folgezeile zugleich die letzte. Block = nächster Vorfahr,
@@ -497,6 +532,7 @@ function browserFontTuples() {
   notes.forEach((n) => console.log(n));
   report.issues.forEach((i) => console.log('OVERFLOW: ' + i));
   lastlines.forEach((l) => console.log('LASTLINE: ' + l));
+  satz.forEach((l) => console.log('SATZSPIEGEL: ' + l));
   pdfua.forEach((u) => console.log('PDFUA: ' + u));
   errors.forEach((e) => console.log('FEHLER: ' + e));
 

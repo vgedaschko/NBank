@@ -72,6 +72,8 @@ const HYPH_EXCEPTIONS = new Map(Object.entries({
   'städtebaulichem': 'städte-baulichem',
   'wohnraumversorgungskonzept': 'wohnraum-versorgungs-konzept',
   'baulandmodell': 'bauland-modell',
+  'gebäudenutzfläche': 'gebäude-nutz-fläche',
+  'einkommensgruppe': 'einkommens-gruppe',
   // ungetrennt: kurze Wörter, deren Rest sonst allein in der letzten Zeile stünde („zulas-sen.“, „Maß-nahmen.“)
   'einkommen': 'einkommen',
   'zulassen': 'zulassen',
@@ -125,6 +127,11 @@ const NBSP_RULES = [
   [/(Abs\.(?:[ \u00A0]|&nbsp;)\d+[a-z]?) (Satz|Nr\.)/g, `$1${NBSP}$2`],
   [/\bRL (Nr\.)/g, `RL${NBSP}$1`],
   [/\bje (m²)/g, `je${NBSP}$1`],
+  // Zahlen- und Stufenbereiche mit Halbgeviertstrich nie am Strich umbrechen („10–|40 %“, „6,50–|9,00 €“, „I–|III“):
+  // Chromium bricht nach „–“ um (Zeilenumbruchklasse BA). Der ganze Bereich samt Einheit kommt in .u-nowrap
+  // (läuft nach den NBSP-Regeln; ein Wortverbinder U+2060 stünde im Textlayer des PDFs).
+  [/(\d[\d.,:]*–\d[\d.,:]*(?:(?:\u00A0|&nbsp;)(?:%|€|m²|Mio\.(?:\u00A0|&nbsp;)€|Mio\.|Mrd\.|Jahre\b))?|\b[IVX]+–[IVX]+\b)/g,
+    '<span class="u-nowrap">$1</span>'],
 ];
 function protectSpaces(text) {
   return NBSP_RULES.reduce((t, [re, rep]) => t.replace(re, rep), text);
@@ -145,20 +152,31 @@ const NOHY_CLASSES = new Set([
   // PGN-Designsystem: Plakatzeile, Leistungen, Referenzen, Bauzeitenplan, Planzeichen, Schriftfeld
   'claim', 'service__title', 'service__phase', 'reference__name', 'bzp__title', 'keyplan', 'photo__tag', 'kote', 'axis-no',
   'values__word', 'offer-box__title', 'plan-legend__title', 'cover__kpi-pre', 'titleblock__value', 'page__running',
+  // Integration der Seiten-CSS: Platzhalter, Run-in-Label, Kurzstempel, Programmnummer im Text
+  'ph', 'runin', 'bs-no',
 ]);
 const HY_CLASSES = new Set(['u-hyphens', 'u-justify']);
+// Einheitenzeichen bleiben im Versalsatz klein („JE m² WOHNFLÄCHE“, nicht „JE M²“): in Elementen ohne Trennung
+// (Überschriften, Labels, Vorspann, Tabellenköpfe – dort sitzen die Versal-Stile) kommt „m²“ in <span class="u-unit">
+// (text-transform: none). In Fließtext ändert der Span nichts und entfällt deshalb. SVG-Text bleibt unberührt.
+const wrapUnits = (text) => text.replace(/m²/g, '<span class="u-unit">m²</span>');
 const VOID_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr']);
 
 function hyphenateHtml(html) {
-  let skip = null;          // <style>, <script>, <svg>, <title>: Inhalt unverändert
+  // <style>, <script>, <svg>, <title>: Inhalt unverändert. Der Zustand gilt bis zum passenden schließenden Tag des
+  // äußersten übersprungenen Elements – ein <style> oder <title> in einem Inline-SVG (Signaturen) und verschachtelte
+  // <svg> setzen ihn nicht zurück (sonst bekämen die <text> nach dem inneren </style> weiche Trennstriche).
+  let skip = null, skipDepth = 0;
   const stack = [];         // offene Elemente: { tag, nohy }
   return html
     .split(/(<[^>]+>)/)
     .map((chunk) => {
       if (chunk.startsWith('<')) {
         const m = chunk.match(/^<(\/?)(style|script|svg|title)\b/i);
-        if (m && !m[1] && !chunk.endsWith('/>')) skip = m[2].toLowerCase();
-        else if (m && m[1] && skip === m[2].toLowerCase()) skip = null;
+        const mt = m && m[2].toLowerCase();
+        if (m && !m[1] && !chunk.endsWith('/>')) {
+          if (!skip) { skip = mt; skipDepth = 1; } else if (skip === mt) skipDepth++;
+        } else if (m && m[1] && skip === mt && --skipDepth === 0) skip = null;
         if (skip || m || chunk.startsWith('<!')) return chunk;
         const t = chunk.match(/^<(\/?)([a-zA-Z][a-zA-Z0-9-]*)/);
         if (!t) return chunk;
@@ -171,13 +189,14 @@ function hyphenateHtml(html) {
           const parent = stack.length ? stack[stack.length - 1].nohy : false;
           const hy = cls.some((c) => HY_CLASSES.has(c));
           const nohy = !hy && (parent || NOHY_TAGS.has(tag) || cls.some((c) => NOHY_CLASSES.has(c)));
-          stack.push({ tag, nohy });
+          stack.push({ tag, nohy, unit: cls.includes('u-unit') });
         }
         return chunk;
       }
       if (skip) return chunk;
       const text = protectSpaces(chunk);
-      if (stack.length && stack[stack.length - 1].nohy) return text;
+      const top = stack.length ? stack[stack.length - 1] : null;
+      if (top && top.nohy) return top.unit ? text : wrapUnits(text);
       return text.replace(/[A-Za-zÄÖÜäöüß]{8,}/g, hyphenateWord);
     })
     .join('');

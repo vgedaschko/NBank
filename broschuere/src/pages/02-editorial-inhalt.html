@@ -7,32 +7,13 @@
     .page[data-page="02"] .p02-main .lead { margin-top: 5mm; max-width: none; }
     .page[data-page="02"] .p02-text { margin-top: 4.6mm; }
     .page[data-page="02"] .p02-text p { break-inside: auto; orphans: 2; widows: 2; }
-    .page[data-page="02"] .p02-text a { color: var(--fg); }
     .page[data-page="02"] .p02-sign { display: flex; align-items: center; gap: 2.6mm; margin-top: 3.6mm; font: 800 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
     .page[data-page="02"] .p02-sign::before { content: ""; flex: none; width: 7mm; height: .6mm; background: var(--accent); }
     .page[data-page="02"] .p02-sign .light { font-weight: 400; color: var(--fg-2); }
     .page[data-page="02"] .p02-quote { margin-top: 6mm; }
 
-    /* Inhalt als Linienplan: acht Kapitel-Linien, Haltestellen als Quadrate, Programmteile als Chip */
-    .page[data-page="02"] .lp { --lp-pg: 6.2mm; --lp-mk: 7.4mm; --lp-gap: 1.7mm; --lp-w: .7mm; --lp-c: var(--fg-2); --lp-x: calc(var(--lp-pg) + var(--lp-gap) + var(--lp-mk) / 2); margin-top: 4mm; }
-    .page[data-page="02"] .lp__line { position: relative; }
-    .page[data-page="02"] .lp__line + .lp__line { margin-top: 1.6mm; }
-    .page[data-page="02"] .lp__name { position: relative; display: flex; align-items: center; height: 4.6mm; padding-left: calc(var(--lp-pg) + var(--lp-mk) + 2 * var(--lp-gap)); font: 800 var(--fs-micro)/1 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
-    .page[data-page="02"] .lp__name::before { content: ""; position: absolute; left: calc(var(--lp-x) - 1.8mm); top: calc(50% - var(--lp-w) / 2); width: 3.6mm; height: var(--lp-w); background: var(--lp-c); }   /* Linienanfang */
-    .page[data-page="02"] .lp__name::after { content: ""; position: absolute; left: calc(var(--lp-x) - var(--lp-w) / 2); top: 50%; bottom: 0; width: var(--lp-w); background: var(--lp-c); }
-    .page[data-page="02"] .lp__stop { position: relative; }
-    .page[data-page="02"] .lp__stop::before { content: ""; position: absolute; left: calc(var(--lp-x) - var(--lp-w) / 2); top: 0; bottom: 0; width: var(--lp-w); background: var(--lp-c); }
-    .page[data-page="02"] .lp__stop:last-child::before { bottom: auto; height: 2.7mm; }
-    .page[data-page="02"] .lp__stop > a { position: relative; display: grid; grid-template-columns: var(--lp-pg) var(--lp-mk) minmax(0, 1fr); column-gap: var(--lp-gap); align-items: start; padding: .55mm 0; }
-    .page[data-page="02"] .lp__pg { text-align: right; font: 900 10pt/4.2mm var(--font-display); color: var(--fg); font-variant-numeric: lining-nums tabular-nums; }
-    .page[data-page="02"] .lp__t { font: 500 var(--fs-module)/4.2mm var(--font-text); color: var(--fg); }
-    .page[data-page="02"] .lp__mk { justify-self: center; width: 2.9mm; height: 2.9mm; margin-top: .65mm; background: var(--surface); box-shadow: inset 0 0 0 .4mm var(--lp-c); }
-    .page[data-page="02"] .lp__mk--bs { width: auto; height: auto; margin-top: .1mm; padding: .75mm 1.1mm .65mm; background: var(--bs); box-shadow: none; font: 800 var(--fs-micro)/1 var(--font-display); letter-spacing: .02em; color: var(--on-bs); font-variant-numeric: tabular-nums; }
-    .page[data-page="02"] .lp__mk--signal { background: var(--signal-fill); box-shadow: none; }
-    .page[data-page="02"] .lp__t--signal { font-weight: 600; color: var(--signal-text); }
-    .page[data-page="02"] .lp__line--em { --lp-w: 1.1mm; --lp-c: var(--fg); background: var(--surface-2); padding-bottom: 1.2mm; }
-    .page[data-page="02"] .lp__line--pgn { --lp-c: var(--accent); }
-    .page[data-page="02"] .lp__line--pgn .lp__name { color: var(--accent-text); font-size: var(--fs-label-accent); }
+    /* Inhalt als Linienplan: globale Komponente .lp (styles.css 6.15) */
+    .page[data-page="02"] .lp { margin-top: 4mm; }
 
     /* Ihr Einstieg: vier Spalten über die volle Breite; Band gleich hoch wie das Marktband auf S. 3 (gemeinsame Oberkante) */
     .page[data-page="02"] .p02-entry { height: 65mm; }
@@ -51,7 +32,7 @@
       <p class="lead">Bauen kostet mehr als doppelt so viel wie vor 25&nbsp;Jahren, Kredite kosteten Ende 2025 drei bis vier Prozent, und die Zahl der Baugenehmigungen hat sich seit 2021 mehr als halbiert.</p>
       <div class="prose text-cols-2 p02-text">
         <p class="dropcap">Seit dem 01.07.2026 gilt die neue RL Mietwohnraum 2026, befristet bis 31.12.2031. Für Ihre Rechnung heißt das vor allem: Statt <span class="u-nohyphens">Tilgungs</span>&shy;nachlässen gibt es jetzt Zuschüsse, die nicht zurückgezahlt werden.</p>
-        <p>Seit 1981 planen wir Bauprojekte – heute von Rotenburg&nbsp;(Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Dieses Heft liest die Richtlinie aus Sicht der Planung: Was gilt, was rechnet sich, wann darf es losgehen? Das Herzstück ist <a href="#seite-10"><b>„Ihre Rechnung“ auf S.&nbsp;10–11</b></a> – vom Finanzierungsaufbau bis zum laufenden Überschuss.</p>
+        <p>Seit 1981 planen wir Bauprojekte – heute von Rotenburg&nbsp;(Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Dieses Heft liest die Richtlinie aus Sicht der Planung: Was gilt, was rechnet sich, wann darf es losgehen? Das Herzstück ist <b>„Ihre Rechnung“ auf S.&nbsp;10–11</b> – vom Finanzierungsaufbau bis zum laufenden Überschuss.</p>
       </div>
       <p class="p02-sign"><span>Ihre PGN <span class="light">– Architekten. Stadtplaner. Ingenieure.</span></span></p>
       <figure class="quote p02-quote" role="group">

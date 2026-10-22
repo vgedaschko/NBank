@@ -59,13 +59,13 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 | 18 | innen | Umsetzung · Standort und Kommune | 133 | 172 | – | 230 | 0 |
 | 19 | innen | Umsetzung · Antragsweg | 56 | 202 | – | 210 | 0 |
 | 20 | innen | Umsetzung · Mit PGN | 262 | 0 | – | 240 | 0 |
-| 21 | innen | Umsetzung · Unterlagen und Kontakte | 301 | 0 | 56 | 250 | 0 |
+| 21 | innen | Umsetzung · Unterlagen und Kontakte | 231 | 0 | 56 | 250 | 0 |
 | 22 | innen | PGN · Über uns | 86 | 0 | 77 | 200 | 0 |
 | 23 | U3 | PGN · Impressum (U3) | 157 | 0 | 47 | 180 | 0 |
 | 24 | U4 | Umschlag · Rückseite (U4) | 19 | 0 | 17 | 45 | 0 |
-| | | **Summe** | **3708** | **2041** | **197** | | **0** |
+| | | **Summe** | **3638** | **2041** | **197** | | **0** |
 
-Anmerkungen: Fachseiten mit dominanter Grafik oder Tabelle (S. 5, 9, 15, 18, 19) liegen beim Fließtext bewusst unter 180 Wörtern – der Text steht dort in Entscheidungsbaum, Term Sheet, Zeitleiste und Swimlane. S. 21 ist Service-Sammelseite der PGN-Strecke und nimmt die Pflicht-Sonderfälle von S. 4, 9 und 19 auf; sie steht im Telegrammstil (301 Wörter Fließtext, davon rund 60 in der Unterlagen-Checkliste) und liegt damit über dem Plan-Budget von 250 – Kürzen ginge nur zulasten von Priorität-1-Inhalten.
+Anmerkungen: Fachseiten mit dominanter Grafik oder Tabelle (S. 5, 9, 15, 18, 19) liegen beim Fließtext bewusst unter 180 Wörtern – der Text steht dort in Entscheidungsbaum, Term Sheet, Zeitleiste und Swimlane. S. 21 ist Service-Sammelseite der PGN-Strecke und nimmt die Pflicht-Sonderfälle von S. 4, 9 und 19 auf; sie steht im Telegrammstil (231 Wörter Fließtext, davon rund 60 in der Unterlagen-Checkliste). Nach Kundenfeedback („überfüllt“) ist die Kontaktspalte das dominante Element; Verfahrensdetails, die S. 5, 9, 19 oder 20 schon tragen, sind gestrichen (QA 22.10.2026).
 
 **Abweichungen vom Seitenplan (Entscheidungen der Chefredaktion)**
 
@@ -87,7 +87,7 @@ Anmerkungen: Fachseiten mit dominanter Grafik oder Tabelle (S. 5, 9, 15, 18, 19)
 
 *Ein Leitfaden der PGN zur RL Mietwohnraum 2026 – für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen.*
 
-*[Bild: Brauerstraße, Rotenburg (Wümme) · Visualisierung]*
+*[Bild: Axonometrie nach dem Projekt Brauerstraße, Rotenburg (Wümme) · Zeichnung: Planungsgemeinschaft Nord GmbH]*
 
 **Kennzahlen**
 
@@ -985,7 +985,7 @@ Unsere Stadtplanung erarbeitet Bebauungspläne. Legt die Gemeinde darin geförde
 <a id="seite-21"></a>
 ## Seite 21 – Umsetzung · Unterlagen und Kontakte
 
-<sub>innen · Layout: service-checklist · Kolumnentitel: Umsetzung · Unterlagen und Kontakte · Wörter: Fließtext 301, Grafik/Tabelle 0, Kontakt-/Referenzdaten 56</sub>
+<sub>innen · Layout: service-checklist · Kolumnentitel: Umsetzung · Unterlagen und Kontakte · Wörter: Fließtext 231, Grafik/Tabelle 0, Kontakt-/Referenzdaten 56</sub>
 
 *Service*
 
@@ -1010,21 +1010,20 @@ Unsere Stadtplanung erarbeitet Bebauungspläne. Legt die Gemeinde darin geförde
 **Ausnahmen zum Grundcheck** *(zu S. 4)*
 
 - **Wer noch?** Auch rechtsfähige Baugemeinschaften; beim Ersterwerb die Käuferseite.
-- **Kein Mehrfamilienhaus?** Gemeinschaftliche Wohnformen, im Einzelfall auch Reihen- oder Doppelhäuser. In 2.1, 2.2 und 2.4: je neuem Gebäude mindestens zwei gebundene Wohnungen, keine Eigentumswohnungen zur Vermietung.
-- **Grundstück und Eigenmittel?** Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung zählt; mindestens die Hälfte der Eigenmittel als Geld oder lastenfreies Grundstück (2.3: Geld).
+- **Kein Mehrfamilienhaus?** Gemeinschaftliche Wohnformen, im Einzelfall auch Reihen- oder Doppelhäuser. In 2.1, 2.2 und 2.4: je neuem Gebäude mindestens zwei gebundene Wohnungen.
+- **Grundstück und Eigenmittel?** Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung zählt bis zur Hälfte der Eigenmittel.
 
 **Finanzierung und Sicherheiten** *(zu S. 9)*
 
 - **Sicherheiten?** Grundschuld direkt hinter den Kapitalmarktmitteln; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne Revalutierung. Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft – bei reinen Objektgesellschaften immer.
 - **Tilgung später?** Bei vorübergehendem Fehlbetrag kann die NBank den Beginn um bis zu fünf Jahre verschieben.
-- **Auszahlung?** Änderung/Erweiterung: bis zu 30 % nach Baubeginn, 60 % nach Kostennachweis, 10 % nach Abschluss und Belegung. Ersterwerb: 90 % bei Kaufpreisfälligkeit, 10 % nach Umschreibung und Belegung. Darlehen erst nach rangrichtiger Sicherung oder Notarbestätigung. Bearbeitungsentgelt auch bei Verzicht vor Auszahlung fällig.
-- **Vorzeitig ganz zurückzahlen?** Zuschussanteil für die restliche Bindungszeit zurück. Die Bindung endet nach Ablauf des zehnten folgenden Kalenderjahres – frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende.
+- **Vorzeitig ganz zurückzahlen?** Die Bindung endet nach Ablauf des zehnten folgenden Kalenderjahres – frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende.
 
 **Beginn, Vergabe, Anzeigen** *(zu S. 19)*
 
 - **Vorzeitig beginnen?** Nur nach Zulassung durch die NBank, beantragt frühestens mit dem Förderantrag – auf eigenes Risiko.
-- **Vergabe?** Mindestens drei Unternehmen zum Angebot auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis 25.000 € netto. Generalunternehmer und -übernehmer nur mit schriftlicher Zustimmung zur Prüfung. Für Kommunen gilt zusätzlich das Vergaberecht.
-- **Anzeigen?** Baubeginn erst anzeigen, wenn er erfolgt ist – für Unternehmen subventionserheblich. Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis (Vorgaben auf nbank.de).
+- **Vergabe?** Mindestens drei Unternehmen zum Angebot auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis 25.000 € netto. Kommunen: zusätzlich Vergaberecht.
+- **Anzeigen?** Baubeginn erst anzeigen, wenn er erfolgt ist – für Unternehmen subventionserheblich. Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis.
 
 ---
 
@@ -1091,7 +1090,7 @@ RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtsc
 
 **Zitate:** Grant Hendrik Tonne und Michael Kiesewetter, Pressemitteilung MW vom 03.07.2026 (→ S. 2, 6). **Marktzahlen:** NBank-Wohnungsmarktbericht 2025 (→ S. 3, 7); NBank-Pressemitteilung zur Wohnungsmarktbeobachtung vom 05.12.2025 (→ S. 2); Landesregierung, Pressemitteilung vom 25.11.2025 (→ S. 18); NBank-Landkarte Wohnraumförderung, abgerufen am 21.10.2026 (→ S. 18).
 
-**Bildnachweis:** Visualisierungen Titel und S. 22: [PGN: Urheber bestätigen] · Diagramme und Illustrationen: Planungsgemeinschaft Nord GmbH
+**Bildnachweis:** Visualisierungen S. 22: [PGN: Urheber bestätigen] · Titelzeichnung, Diagramme und Illustrationen: Planungsgemeinschaft Nord GmbH
 
 **Druck:** [Platzhalter] · **Stand:** 21.10.2026
 
@@ -1180,7 +1179,7 @@ Das Heft schreibt wörtlich nach der Website „Seit 1981“ (S. 2 Editorial, S.
 
 ### 4. Bildrechte und Originalfotos
 
-- U1 und S. 22: Alle Abbildungen (Brauerstraße auf U1 und S. 22, Porstweg, Dehnenweg, Burgsiedlung, Wohnen im Lindenhof) sind Visualisierungen von der Website, ohne Bildnachweis, ggf. von externen Büros. Urheber und Nutzungsrecht für Druck und PDF bestätigen; Bildnachweis-Zeile auf U3 `[PGN: Urheber bestätigen]` ersetzen.
+- S. 22: Alle Abbildungen (Brauerstraße als Punktraster, Porstweg, Dehnenweg, Burgsiedlung, Wohnen im Lindenhof) sind Visualisierungen von der Website, ohne Bildnachweis, ggf. von externen Büros. Urheber und Nutzungsrecht für Druck und PDF bestätigen; Bildnachweis-Zeile auf U3 `[PGN: Urheber bestätigen]` ersetzen.
 - Hochaufgelöste Originale anfordern: Die Website-Panoramen haben 1800 × 740 px (U1 ca. 218 dpi auf 210 mm – zu knapp); der Dateiname der Brauerstraße deutet auf ein Original mit 5120 px Breite.
 - Wo vorhanden, Originalfotos fertiggestellter Gebäude statt Visualisierungen bereitstellen (Lindenhof ist fertiggestellt); im Heft trägt jede Visualisierung das Label „Visualisierung“.
 - Optionales Teamfoto S. 20 (planung_big.jpg): Nutzungsrecht und Einverständnis der abgebildeten Personen.

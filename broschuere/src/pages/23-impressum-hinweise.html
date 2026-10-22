@@ -4,7 +4,7 @@
        ruhig, weiß, ohne Kolumnentitel und Seitenzahl. Gemeinsame Horizonte mit S. 22: H1-Oberkante · Zeile 1 ab 68,5 mm
        (Impressum als Schriftfeld = Modulkopf „Alles aus einem Haus“ + Werte) · Zeile 2 ab 136,5 mm (Hinweis = Modulkopf
        Referenzen) · Zeile 3 ab 197,5 mm (Rechtsgrundlage, Quellen = Referenzreihe) · Fuß: Logo im Band des Plankopfs.
-       Platzhalter [PGN: …] / [Platzhalter] als .p23-ph (Hauch + Dunkelrot, 9 pt, 600) – leicht auffindbar und ersetzbar.
+       Platzhalter [PGN: …] / [Platzhalter] als globale .ph (gestrichelt, heftweit gleich) – leicht auffindbar und ersetzbar.
        Farben nur über Tokens. */
     .page[data-page="23"] .p23-head { padding-top: calc(var(--fs-label-accent) * 1.2 + 4mm); height: 47.5mm; }
     .page[data-page="23"] .p23-head .lead { margin-top: 4.5mm; max-width: 132mm; }
@@ -35,8 +35,6 @@
     .page[data-page="23"] .p23-legal p b { color: var(--fg); }
     .page[data-page="23"] .p23-legal a { color: inherit; }
 
-    /* Platzhalter bis zur Freigabe: Hauch + Dunkelrot (rote Schrift ≥ 9 pt, ≥ 600) */
-    .page[data-page="23"] .p23-ph { white-space: nowrap; padding: 0 .7mm; background: var(--accent-soft); font-size: var(--fs-small); font-weight: 600; color: var(--accent-deep); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 
     /* Fuß: Logo im Band des Plankopfs (gleiche Höhe wie S. 22), ohne Blattnummer und Kolumnentitel */
     .page[data-page="23"] .p23-foot { position: absolute; left: var(--m-inner); right: var(--m-outer); bottom: var(--foot-y); height: var(--foot-h); display: flex; align-items: center; border-top: var(--rule-w) solid var(--rule-strong); border-bottom: var(--hair) solid var(--rule); }
@@ -54,7 +52,7 @@
     <div><dt>Geschäftsführung</dt><dd>Norbert Behrens, Stephan Müller, Nils Neumann, Matthias Mock</dd></div>
     <div><dt>Registergericht</dt><dd>Amtsgericht Walsrode, HRB 70348</dd></div>
     <div><dt>USt-IdNr.</dt><dd>DE 116 324 794</dd></div>
-    <div><dt>Verantwortlich für den Inhalt</dt><dd><span class="p23-ph">[PGN: Name bestätigen]</span></dd></div>
+    <div><dt>Verantwortlich für den Inhalt</dt><dd><span class="ph">[PGN: Name bestätigen]</span></dd></div>
   </dl>
 
   <div class="p23-row2">
@@ -76,8 +74,8 @@
   </div>
 
   <div class="p23-credits l-bottom">
-    <p><b>Bildnachweis:</b> Visualisierungen Titel und S. 22: <span class="p23-ph">[PGN: Urheber bestätigen]</span> · Diagramme und Illustrationen: <span class="u-nohyphens">Planungsgemeinschaft Nord GmbH</span></p>
-    <p><b>Druck:</b> <span class="p23-ph">[Platzhalter]</span> · <b>Stand:</b> 21.10.2026</p>
+    <p><b>Bildnachweis:</b> Visualisierungen S. 22: <span class="ph">[PGN: Urheber bestätigen]</span> · Titelzeichnung, Diagramme und Illustrationen: <span class="u-nohyphens">Planungsgemeinschaft Nord GmbH</span></p>
+    <p><b>Druck:</b> <span class="ph">[Platzhalter]</span> · <b>Stand:</b> 21.10.2026</p>
   </div>
 
   <footer class="p23-foot">

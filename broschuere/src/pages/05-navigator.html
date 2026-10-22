@@ -1,7 +1,7 @@
 <section class="page" data-page="05" id="seite-05">
   <style>
     /* Seite 05 · Navigator · Planwerk. Dominant: Entscheidungsbaum (SVG, 1 Einheit = 1 mm) mit sechs Ziel-Kacheln.
-       Baum 5 Spalten, Kacheln 7 Spalten; Programmteil-Namen stehen auf den Ja-Pfeilen; die Ja-Pfeile laufen durch den Steg genau auf die Programmnummer.
+       Baum 5 Spalten (= 72,08 mm = viewBox-Breite, keine Skalierung), Kacheln 7 Spalten; Programmteil-Namen stehen auf den Ja-Pfeilen; die Ja-Pfeile laufen durch den Steg genau auf die Programmnummer.
        Kachel-Lagen (top/height/--ny) und Baumgeometrie sind gemeinsam gerechnet. Farben nur über Tokens. */
     .page[data-page="05"] .p05-title { align-items: end; }
     .page[data-page="05"] .p05-title > .lead { padding-bottom: .5mm; text-wrap: balance; }
@@ -23,7 +23,7 @@
     .page[data-page="05"] .chart__svg .p05-q { font-size: 3.1px; fill: var(--fg-2); }
     .page[data-page="05"] .chart__svg .p05-yn { font-family: var(--font-display); font-weight: 700; font-size: var(--svg-fs-s); fill: var(--fg); }
     .page[data-page="05"] .chart__svg .p05-no { fill: var(--fg-3); }
-    .page[data-page="05"] .chart__svg .p05-name { font-weight: 600; font-size: 3.1px; fill: var(--fg); }
+    .page[data-page="05"] .chart__svg .p05-name { font-weight: 600; font-size: var(--svg-fs-s); fill: var(--fg); }
 
     /* Ziel-Kacheln: Nummernfeld in Programmfarbe (Nummer immer mit), Feld auf Papier */
     .page[data-page="05"] .p05-tiles__list { position: relative; display: flex; flex-direction: column; gap: 2.4mm; }
@@ -50,14 +50,9 @@
     .page[data-page="05"] .p05-pin--frist::before { background: var(--signal-fill); }
     .page[data-page="05"] .p05-pin a { font-weight: 700; color: var(--signal-text); }
 
-    /* Kurzverweis Vorhabenbeginn (Achtung, einzeilig) und Wortleiste */
-    .page[data-page="05"] .p05-stop { --c-bg: transparent; margin-top: var(--sp-5); padding: 2mm 0 1.9mm; border-bottom: var(--rule-red-min) solid var(--accent); }
-    .page[data-page="05"] .p05-stop .callout__label .icon { width: 4.4mm; height: 4.4mm; color: var(--accent); }
-    .page[data-page="05"] .p05-stop .callout__body { font-size: var(--fs-small); color: var(--fg); }
-    .page[data-page="05"] .p05-stop .callout__body b { font: 800 var(--fs-small)/1.2 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--fg); margin-right: 1.4mm; }
+    /* Kurzverweis Vorhabenbeginn: global .callout--ref; Wortleiste mit Run-in-Titel (.runin) */
     .page[data-page="05"] .p05-nf { margin-top: var(--sp-5); padding: 3mm 5mm 3.3mm; background: var(--surface-2); border-top: var(--rule-w) solid var(--rule-strong); font-size: var(--fs-module); line-height: 1.42; color: var(--fg); }
     .page[data-page="05"] .p05-nf__title, .page[data-page="05"] .p05-nf__list, .page[data-page="05"] .p05-nf__list > li { display: inline; }
-    .page[data-page="05"] .p05-nf__title { margin-right: 2.4mm; font: 800 var(--fs-small)/1.2 var(--font-display); letter-spacing: .05em; text-transform: uppercase; color: var(--fg); }
     /* Trennmarke als Hintergrund im Endabstand des Begriffs: bleibt am Begriff, nie am Zeilenanfang */
     .page[data-page="05"] .p05-nf__list > li:not(:last-child) { padding-right: 4.4mm; background: linear-gradient(var(--fg-3), var(--fg-3)) no-repeat calc(100% - 1.6mm) 58% / 1.1mm 1.1mm; }
   </style>
@@ -73,7 +68,7 @@
   <div class="module p05-nav">
     <figure class="chart p05-tree" role="group" aria-labelledby="p05-tree-h">
       <figcaption class="chart__head"><h2 class="chart__title" id="p05-tree-h">Was haben Sie vor?</h2></figcaption>
-      <svg class="chart__svg p05-svg" viewBox="0 0 77.1 160.47" width="77.1mm" height="160.47mm" role="img" aria-label="Entscheidungsbaum „Was haben Sie vor?“ mit vier Ausgangslagen. A – Wohnraum im Mehrfamilienhaus neu schaffen oder bis zwei Jahre nach Fertigstellung erstmals erwerben: Auf Borkum, Norderney, Juist, Wangerooge, Baltrum, Langeoog oder Spiekeroog? Ja: Programmteil 2.4; Nein: weiter. Neubau ab EH-40-Niveau, nur Zuschuss gewünscht? Ja: Programmteil 2.2; Nein: Programmteil 2.1. B – Bestand klimagerecht modernisieren: Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt und nach der Modernisierung mindestens zwei Energieeffizienzklassen besser (ausnahmsweise eine, wenn die NBank das zulässt)? Ja: Programmteil 2.3. C – Freie Bestandswohnung für Gruppe A binden: Frei, ungebunden, vor der Bewilligung weder vermietet noch überlassen? Ja: Programmteil 2.5. D – Auslaufende Landesbindung verlängern: Bindung aus Landesförderung nach altem Recht läuft planmäßig aus, NBank-Darlehen läuft noch? Ja: Programmteil 2.6.">
+      <svg class="chart__svg p05-svg" viewBox="0 0 72.08 160.47" width="72.08mm" height="160.47mm" role="img" aria-label="Entscheidungsbaum „Was haben Sie vor?“ mit vier Ausgangslagen. A – Wohnraum im Mehrfamilienhaus neu schaffen oder bis zwei Jahre nach Fertigstellung erstmals erwerben: Auf Borkum, Norderney, Juist, Wangerooge, Baltrum, Langeoog oder Spiekeroog? Ja: Programmteil 2.4; Nein: weiter. Neubau ab EH-40-Niveau, nur Zuschuss gewünscht? Ja: Programmteil 2.2; Nein: Programmteil 2.1. B – Bestand klimagerecht modernisieren: Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt und nach der Modernisierung mindestens zwei Energieeffizienzklassen besser (ausnahmsweise eine, wenn die NBank das zulässt)? Ja: Programmteil 2.3. C – Freie Bestandswohnung für Gruppe A binden: Frei, ungebunden, vor der Bewilligung weder vermietet noch überlassen? Ja: Programmteil 2.5. D – Auslaufende Landesbindung verlängern: Bindung aus Landesförderung nach altem Recht läuft planmäßig aus, NBank-Darlehen läuft noch? Ja: Programmteil 2.6.">
         <circle class="p05-start" cx="1.4" cy="1.2" r="1.2"/>
         <path class="p05-trunk" d="M1.4 1.2V133.5"/>
         <path class="p05-trunk" d="M1.4 4.6H3.6"/>
@@ -97,24 +92,24 @@
         <path class="p05-rail" d="M6.1 7.1V27.87"/>
         <path class="fl-diamond p05-dia" d="M6.1 27.87l2 2l-2 2l-2 -2z"/>
         <text x="9.6" y="30.92" class="p05-yn">Ja</text>
-        <text x="73.9" y="30.97" class="p05-name t-end">Ostfriesische Inseln</text>
-        <path class="p05-yes" d="M14.38 29.87H42.3M74.7 29.87H75.2"/>
-        <path class="p05-tip" d="M77.1 29.87l-2.2 -1.1v2.2z"/>
+        <text x="68.88" y="30.97" class="p05-name t-end">Ostfriesische Inseln</text>
+        <path class="p05-yes" d="M14.38 29.87H38.18M69.68 29.87H70.18"/>
+        <path class="p05-tip" d="M72.08 29.87l-2.2 -1.1v2.2z"/>
         <text x="7.7" y="35.27" class="p05-yn p05-no">Nein, weiter</text>
         <text x="10.8" y="39.07" class="p05-q">Neubau ab EH-40-Niveau, nur</text>
         <text x="10.8" y="42.87" class="p05-q">Zuschuss gewünscht?</text>
         <path class="p05-rail" d="M6.1 31.87V44.57"/>
         <path class="fl-diamond p05-dia" d="M6.1 44.57l2 2l-2 2l-2 -2z"/>
         <text x="9.6" y="47.62" class="p05-yn">Ja</text>
-        <text x="73.9" y="47.67" class="p05-name t-end">Energetisch hochwertiger Neubau</text>
-        <path class="p05-yes" d="M14.38 46.57H21.06M74.7 46.57H75.2"/>
-        <path class="p05-tip" d="M77.1 46.57l-2.2 -1.1v2.2z"/>
+        <text x="68.88" y="47.67" class="p05-name t-end">Energetisch hochwertiger Neubau</text>
+        <path class="p05-yes" d="M14.38 46.57H17.6M69.68 46.57H70.18"/>
+        <path class="p05-tip" d="M72.08 46.57l-2.2 -1.1v2.2z"/>
         <path class="p05-rail" d="M6.1 48.57V66.41Q6.1 68.01 7.7 68.01H8.4"/>
         <text x="9" y="69.06" class="p05-yn">Nein</text>
-        <text x="73.9" y="65.36" class="p05-name t-end">Neubau, Änderung und</text>
-        <text x="73.9" y="69.11" class="p05-name t-end">Erweiterung, Ersterwerb</text>
-        <path class="p05-yes" d="M17.6 68.01H35.14M74.7 68.01H75.2"/>
-        <path class="p05-tip" d="M77.1 68.01l-2.2 -1.1v2.2z"/>
+        <text x="68.88" y="65.36" class="p05-name t-end">Neubau, Änderung und</text>
+        <text x="68.88" y="69.11" class="p05-name t-end">Erweiterung, Ersterwerb</text>
+        <path class="p05-yes" d="M17.6 68.01H31.25M69.68 68.01H70.18"/>
+        <path class="p05-tip" d="M72.08 68.01l-2.2 -1.1v2.2z"/>
         <text x="10.8" y="75.58" class="p05-label">Bestand klimagerecht modernisieren</text>
         <text x="10.8" y="80.48" class="p05-q">Mehrfamilienhaus vor dem 08.12.2004</text>
         <text x="10.8" y="84.28" class="p05-q">fertiggestellt und nach der</text>
@@ -125,9 +120,9 @@
         <path class="p05-rail" d="M6.1 76.91V101.18"/>
         <path class="fl-diamond p05-dia" d="M6.1 101.18l2 2l-2 2l-2 -2z"/>
         <text x="9.6" y="104.23" class="p05-yn">Ja</text>
-        <text x="73.9" y="104.28" class="p05-name t-end">Klimagerechte Modernisierung</text>
-        <path class="p05-yes" d="M14.38 103.18H26M74.7 103.18H75.2"/>
-        <path class="p05-tip" d="M77.1 103.18l-2.2 -1.1v2.2z"/>
+        <text x="68.88" y="104.28" class="p05-name t-end">Klimagerechte Modernisierung</text>
+        <path class="p05-yes" d="M14.38 103.18H22.39M69.68 103.18H70.18"/>
+        <path class="p05-tip" d="M72.08 103.18l-2.2 -1.1v2.2z"/>
         <text x="10.8" y="110.75" class="p05-label">Freie Bestandswohnung für Gruppe A</text>
         <text x="10.8" y="114.7" class="p05-label">binden</text>
         <text x="10.8" y="119.6" class="p05-q">Frei, ungebunden, vor der Bewilligung</text>
@@ -135,9 +130,9 @@
         <path class="p05-rail" d="M6.1 112.08V125.1"/>
         <path class="fl-diamond p05-dia" d="M6.1 125.1l2 2l-2 2l-2 -2z"/>
         <text x="9.6" y="128.15" class="p05-yn">Ja</text>
-        <text x="73.9" y="128.2" class="p05-name t-end">Belegungsbindungen erwerben</text>
-        <path class="p05-yes" d="M14.38 127.1H25.62M74.7 127.1H75.2"/>
-        <path class="p05-tip" d="M77.1 127.1l-2.2 -1.1v2.2z"/>
+        <text x="68.88" y="128.2" class="p05-name t-end">Belegungsbindungen erwerben</text>
+        <path class="p05-yes" d="M14.38 127.1H22.03M69.68 127.1H70.18"/>
+        <path class="p05-tip" d="M72.08 127.1l-2.2 -1.1v2.2z"/>
         <text x="10.8" y="134.67" class="p05-label">Auslaufende Landesbindung</text>
         <text x="10.8" y="138.62" class="p05-label">verlängern</text>
         <text x="10.8" y="143.52" class="p05-q">Bindung aus Landesförderung nach</text>
@@ -146,9 +141,9 @@
         <path class="p05-rail" d="M6.1 136V152.82"/>
         <path class="fl-diamond p05-dia" d="M6.1 152.82l2 2l-2 2l-2 -2z"/>
         <text x="9.6" y="155.87" class="p05-yn">Ja</text>
-        <text x="73.9" y="155.92" class="p05-name t-end">Auslaufende Bindungen verlängern</text>
-        <path class="p05-yes" d="M14.38 154.82H19.48M74.7 154.82H75.2"/>
-        <path class="p05-tip" d="M77.1 154.82l-2.2 -1.1v2.2z"/>
+        <text x="68.88" y="155.92" class="p05-name t-end">Auslaufende Bindungen verlängern</text>
+        <path class="p05-yes" d="M14.38 154.82H16.07M69.68 154.82H70.18"/>
+        <path class="p05-tip" d="M72.08 154.82l-2.2 -1.1v2.2z"/>
       </svg>
     </figure>
     <figure class="chart p05-tiles" role="group" aria-labelledby="p05-tiles-h">
@@ -225,13 +220,13 @@
     </figure>
   </div>
 
-  <aside class="callout callout--achtung callout--inline p05-stop">
+  <aside class="callout callout--achtung callout--inline callout--ref u-mt-5">
     <p class="callout__label"><svg class="icon icon--stopp" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd"/></svg></p>
     <p class="callout__body"><b>Erst Bewilligung, dann Vertrag oder Spatenstich</b> <a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;19</a></p>
   </aside>
 
   <section class="p05-nf l-bottom" aria-labelledby="p05-nf-h">
-    <h2 class="p05-nf__title" id="p05-nf-h">Nicht förderfähig</h2>
+    <h2 class="runin p05-nf__title" id="p05-nf-h">Nicht förderfähig</h2>
     <ul class="p05-nf__list u-nohyphens"><li>Ferienwohnungen, Ferien- und Wochenendhäuser</li> <li>Heime im Sinne des&nbsp;NuWG</li> <li>Wohnraum für stationäre oder quasistationäre Versorgung</li> <li>an Pflege- oder Betreuungsvertrag gekoppelter Wohnraum</li> <li>Gemeinschaftsunterkünfte</li> <li>Wohnungen ohne Bindung</li> <li>Eigentumswohnungen zur Vermietung (2.1, 2.2, 2.4)</li> <li>Standorte außerhalb Niedersachsens</li></ul>
   </section>
 

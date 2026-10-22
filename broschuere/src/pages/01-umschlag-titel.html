@@ -1,26 +1,6 @@
 <section class="page page--u1 page--cover" data-page="01" id="seite-01" aria-label="Titel">
-  <style>
-    /* U1 – Planblatt. Schriftfeld im selben Raster wie U4 (aufgeklappt eine Leiste über beide Seiten):
-       Oberkante --horizon (196 mm) · Zeile 1 Titel | Kennzahlfeld 56 mm · Zeile 2 Absenderleiste 18 mm (Oberkante 271 mm) */
-    .page[data-page="01"] .cover__head .kicker { padding-left: 6mm; }
-    .page[data-page="01"] .cover__stamp { grid-template-rows: minmax(0, 1fr) 18mm; }
-    .page[data-page="01"] .cover__row--main { grid-template-columns: minmax(0, 1fr) 56mm; }
-    .page[data-page="01"] .cover__row--foot { grid-template-columns: 64mm minmax(0, 1fr) 34mm 22mm; }
-    .page[data-page="01"] .cover__main { padding: 7mm 6mm 0 6mm; }
-    .page[data-page="01"] .cover__title { margin-top: 0; }
-    .page[data-page="01"] .cover__deck { margin-top: 5.5mm; max-width: 112mm; font-size: var(--fs-deck); line-height: 1.42; text-wrap: balance; }
-    /* Kennzahl sekundär: Ziffer 54 statt 64 pt – die Titelzeile bleibt das erste Wort der Seite */
-    .page[data-page="01"] .cover__kpi { padding: 6.4mm 5mm 5.6mm 5mm; }
-    .page[data-page="01"] .cover__kpi-num { margin-top: 2.4mm; font-size: 54pt; }
-    .page[data-page="01"] .cover__kpi-text { font-size: 10pt; line-height: 1.25; }
-    .page[data-page="01"] .cover__kpi-note { margin-top: 2mm; font: 600 var(--fs-small)/1.32 var(--font-text); color: var(--fg-2); }
-    .page[data-page="01"] .cover__logo { padding: 0 5mm 0 6mm; }
-    /* Druckregel: rote Schrift ≥ 9 pt – Maßkettentexte der Axonometrie von 8,7 auf 9,1 pt */
-    .page[data-page="01"] #sig-axo .sig-dim-t { font-size: 3.2px; }
-    /* Druckregel: rote Linien ≥ 0,25 mm (PGN-Rot aus drei Druckfarben) – Dachdeckung, Figuren, Maßhilfslinien (SVG-Einheit = 1 mm, daher ohne Einheit) */
-    .page[data-page="01"] #sig-axo .sig-tile { stroke-width: .25; opacity: .5; }
-    .page[data-page="01"] #sig-axo .sig-fig path, .page[data-page="01"] #sig-axo .sig-fig circle, .page[data-page="01"] #sig-axo .sig-dim-h { stroke-width: .25; }
-  </style>
+  <!-- U1 – Planblatt. Schriftfeld zweizeilig im Raster von U4 (.cover__stamp--2row, styles.css 7): Oberkante --horizon (196 mm) ·
+       Zeile 1 Titel | Kennzahlfeld 56 mm · Zeile 2 Absenderleiste 18 mm (Oberkante 271 mm). Kein seitenlokales CSS. -->
   <div class="planframe" aria-hidden="true"></div>
   <header class="cover__head">
     <p class="kicker kicker--ink">Mietwohnraumförderung Niedersachsen 2026</p>
@@ -43,11 +23,11 @@
 #sig-axo .sig-roof{fill:var(--sig-face,#fff)}
 #sig-axo .sig-roof--side{fill:var(--sig-face-2,#F1EFEC)}
 #sig-axo .sig-roof--back{fill:var(--sig-face-3,#E6E3DF)}
-#sig-axo .sig-tile{stroke:var(--sig-accent,#B71E3F);stroke-width:.14;fill:none;opacity:.75}
+#sig-axo .sig-tile{stroke:var(--sig-accent,#B71E3F);stroke-width:.25;fill:none;opacity:.5}
 #sig-axo .sig-flat{fill:var(--sig-paper,#F4F3F2)}
 #sig-axo .sig-attika{stroke:var(--sig-soft,#A8A49F);stroke-width:.13}
 #sig-axo .sig-pv{fill:var(--sig-dark,#57534F);stroke:var(--sig-face,#fff);stroke-width:.1}
-#sig-axo .sig-fig path,#sig-axo .sig-fig circle{fill:var(--sig-face,#fff);stroke:var(--sig-accent,#B71E3F);stroke-width:.16;stroke-linejoin:round}
+#sig-axo .sig-fig path,#sig-axo .sig-fig circle{fill:var(--sig-face,#fff);stroke:var(--sig-accent,#B71E3F);stroke-width:.25;stroke-linejoin:round}
 #sig-axo .sig-rail{stroke:var(--sig-line,#3C3C3B);stroke-width:.17;fill:none}
 #sig-axo .sig-slab-top{fill:var(--sig-face,#fff);stroke:var(--sig-line,#3C3C3B);stroke-width:.14}
 #sig-axo .sig-slab{fill:var(--sig-face-3,#E6E3DF);stroke:var(--sig-line,#3C3C3B);stroke-width:.16}
@@ -58,8 +38,8 @@
 #sig-axo .sig-dim-tk{stroke:var(--sig-accent,#B71E3F);stroke-width:.42;fill:none}
 #sig-axo .sig-dim-key{stroke:var(--sig-accent,#B71E3F);stroke-width:.8;fill:none}
 #sig-axo .sig-dim-dot{fill:var(--sig-accent,#B71E3F)}
-#sig-axo .sig-dim-h{stroke:var(--sig-accent,#B71E3F);stroke-width:.12;fill:none}
-#sig-axo .sig-dim-t{font-weight:600;font-size:3.06px;fill:var(--sig-accent,#B71E3F)}
+#sig-axo .sig-dim-h{stroke:var(--sig-accent,#B71E3F);stroke-width:.25;fill:none}
+#sig-axo .sig-dim-t{font-weight:600;font-size:3.2px;fill:var(--sig-accent,#B71E3F)}
 #sig-axo .sig-dim-t--key{font-weight:800;letter-spacing:.06px}
 #sig-axo .sig-dim-t--rest{font-weight:600;fill:var(--sig-line,#3C3C3B)}
 #sig-axo .sig-axb circle{fill:var(--sig-face,#fff);stroke:var(--sig-line,#3C3C3B);stroke-width:.2}
@@ -129,7 +109,7 @@
 <g class="sig-north"><circle cx="181" cy="10" r="5"/><path class="sig-north-fill" d="M181,6L183,13.3L181,12Z"/><path d="M181,6L179,13.3L181,12Z"/><text x="181" y="3.5999999999999996" text-anchor="middle">N</text></g>
 <g class="sig-scalebar"><rect x="6" y="159" width="6.46" height="1.4" class="sig-sb-b"/><rect x="12.46" y="159" width="6.46" height="1.4" class="sig-sb-w"/><rect x="18.93" y="159" width="6.46" height="1.4" class="sig-sb-b"/><rect x="25.39" y="159" width="6.46" height="1.4" class="sig-sb-w"/><rect x="31.85" y="159" width="6.46" height="1.4" class="sig-sb-b"/><text class="sig-sb-t" x="6" y="157.4" text-anchor="middle">0</text><text class="sig-sb-t" x="22.16" y="157.4" text-anchor="middle">5</text><text class="sig-sb-t" x="38.32" y="157.4" text-anchor="middle">10 m</text></g></svg></figure>
   <p class="cover__caption"><b>Axonometrie</b><span>nach dem Projekt Brauerstraße, Rotenburg (Wümme)</span></p>
-  <div class="cover__stamp">
+  <div class="cover__stamp cover__stamp--2row">
     <div class="cover__row cover__row--main">
       <div class="cover__main">
         <h1 class="cover__title">Wohnraum, der sich <em>rechnen</em> kann.</h1>

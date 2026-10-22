@@ -27,7 +27,6 @@
     .page[data-page="17"] .p17-end .p17-ph__t { margin-top: 1mm; }
     .page[data-page="17"] .chart__svg .p17-tight { letter-spacing: .12px; }
     .page[data-page="17"] .p17-env { fill: var(--surface); stroke: var(--fg); stroke-width: .3; stroke-linejoin: round; }
-    .page[data-page="17"] .p17-wait { stroke-dasharray: .9 .7; }
     .page[data-page="17"] .p17-stem { stroke: var(--fg); stroke-width: .25; }
     .page[data-page="17"] .p17-rent { stroke: var(--fg); stroke-width: .6; fill: none; }
     .page[data-page="17"] .p17-rent--cap { stroke-dasharray: 1.4 .8; }
@@ -37,7 +36,7 @@
     .page[data-page="17"] .chart__svg .p17-band-t { font-family: var(--font-display); font-weight: 700; font-size: 3.6px; fill: var(--on-bs); letter-spacing: .1px; }
 
     /* Modulzeile: innen Ablauf (7 Sp.), außen Voraussetzungen (5 Sp.) – gespiegelt zu S. 16 (Text außen 5 | Abbildungen innen 7) */
-    .page[data-page="17"] .p17-low { margin-top: var(--sp-6); }
+    .page[data-page="17"] .p17-low { margin-top: var(--sp-5); }   /* „(→ S. 7)“ in der Mietpfad-Zeile braucht eine Zeile mehr */
     .page[data-page="17"] .p17-steps { --no-w: 7mm; margin-top: .4mm; }
     .page[data-page="17"] .p17-steps > .step { position: relative; grid-template-columns: var(--no-w) 14.5mm minmax(0, 1fr); column-gap: 3mm; align-items: start; padding: 2mm 0 2mm; border: 0; }
     .page[data-page="17"] .p17-steps > .step + .step { border-top: var(--hair) solid var(--rule); }
@@ -93,7 +92,7 @@
       <h2 class="chart__title" id="p17-fig-h">Zins, Bindung und Miete im Zeitverlauf</h2>
       <p class="chart__sub">Schema, nicht maßstäblich</p>
     </figcaption>
-    <svg class="chart__svg" viewBox="0 0 133.75 27" width="133.75mm" height="27mm" role="img" aria-label="Schema, nicht maßstäblich: T minus 24 Wochen kommt das Angebot. Ab T, dem Ablauf der Zinsfreistellung, gilt 0 Prozent Zins und die Bindung ist verlängert bis zum Bindungsende: Monatsende der letzten Darlehensrate, spätestens 20 Jahre nach dem ursprünglichen Bindungsende. Miete: in Jahr 1 bis 3 bleibt die bisherige Nettokaltmiete eingefroren, auch bei Wiedervermietung; danach steigt die Nettokaltmiete höchstens um 6,15 Prozent in drei Jahren, auch bei Wiedervermietung, Betriebskosten ausgenommen, keine Staffel- oder Indexmiete."><rect class="tl-band--bs" x="30.83" y="10" width="102.77" height="9"/><text x="34.4" y="17.2"><tspan class="p17-zero">0 %</tspan><tspan class="p17-band-t" dx="1.6">· Bindung verlängert</tspan></text><line class="tl-axis p17-wait" x1="7.6" y1="14.5" x2="30.83" y2="14.5"/><rect class="p17-env" x=".3" y="12.2" width="6.6" height="4.6"/><path class="p17-env" d="M.3 12.2 L3.6 15 L6.9 12.2"/><line class="p17-stem" x1="30.83" y1=".4" x2="30.83" y2="27"/><line class="p17-stem" x1="133.6" y1=".4" x2="133.6" y2="27"/><text class="t-caps p17-tight" x="0" y="3.2">T − 24 Wochen</text><text class="t-b t-m" x="0" y="7.6">Angebot</text><text class="t-caps" x="32.6" y="3.2">T</text><text class="t-b t-m" x="32.6" y="7.6">Ablauf der Zinsfreistellung</text><path class="p17-lock-arc" d="M33.5 21.2 V20.4 A.85 .85 0 0 1 35.2 20.4 V21.2"/><rect class="p17-lock" x="32.8" y="21.1" width="3.1" height="2.4" rx=".3"/><line class="p17-rent" x1="30.83" y1="25.2" x2="92.5" y2="25.2"/><line class="tl-stem p17-wait" x1="92.5" y1="20.2" x2="92.5" y2="27"/><path class="p17-rent p17-rent--cap" d="M92.5 25.2 V23.8 H106.2 V22.4 H119.9 V21 H133.6"/></svg>
+    <svg class="chart__svg" viewBox="0 0 133.75 27" width="133.75mm" height="27mm" role="img" aria-label="Schema, nicht maßstäblich: T minus 24 Wochen kommt das Angebot. Ab T, dem Ablauf der Zinsfreistellung, gilt 0 Prozent Zins und die Bindung ist verlängert bis zum Bindungsende: Monatsende der letzten Darlehensrate, spätestens 20 Jahre nach dem ursprünglichen Bindungsende. Miete: in Jahr 1 bis 3 bleibt die bisherige Nettokaltmiete eingefroren, auch bei Wiedervermietung; danach steigt die Nettokaltmiete höchstens um 6,15 Prozent in drei Jahren, auch bei Wiedervermietung, Betriebskosten ausgenommen, keine Staffel- oder Indexmiete."><rect class="tl-band--bs" x="30.83" y="10" width="102.77" height="9"/><text x="34.4" y="17.2"><tspan class="p17-zero">0 %</tspan><tspan class="p17-band-t" dx="1.6">· Bindung verlängert</tspan></text><line class="tl-axis dash--fine" x1="7.6" y1="14.5" x2="30.83" y2="14.5"/><rect class="p17-env" x=".3" y="12.2" width="6.6" height="4.6"/><path class="p17-env" d="M.3 12.2 L3.6 15 L6.9 12.2"/><line class="p17-stem" x1="30.83" y1=".4" x2="30.83" y2="27"/><line class="p17-stem" x1="133.6" y1=".4" x2="133.6" y2="27"/><text class="t-caps p17-tight" x="0" y="3.2">T − 24 Wochen</text><text class="t-b t-m" x="0" y="7.6">Angebot</text><text class="t-caps" x="32.6" y="3.2">T</text><text class="t-b t-m" x="32.6" y="7.6">Ablauf der Zinsfreistellung</text><path class="p17-lock-arc" d="M33.5 21.2 V20.4 A.85 .85 0 0 1 35.2 20.4 V21.2"/><rect class="p17-lock" x="32.8" y="21.1" width="3.1" height="2.4" rx=".3"/><line class="p17-rent" x1="30.83" y1="25.2" x2="92.5" y2="25.2"/><line class="tl-stem dash--fine" x1="92.5" y1="20.2" x2="92.5" y2="27"/><path class="p17-rent p17-rent--cap" d="M92.5 25.2 V23.8 H106.2 V22.4 H119.9 V21 H133.6"/></svg>
     <div class="p17-end">
       <p class="label">Ende</p>
       <p class="p17-ph__t">Bindungsende</p>
@@ -102,7 +101,7 @@
     <div class="p17-ph p17-ph--a">
       <p class="label">Jahr 1–3</p>
       <p class="p17-ph__t">bisherige Nettokaltmiete eingefroren</p>
-      <p class="p17-ph__d">auch bei Wiedervermietung <a class="pageref" href="#seite-07">→&nbsp;S.&nbsp;7</a></p>
+      <p class="p17-ph__d">auch bei Wiedervermietung <span class="u-nowrap">(<a class="pageref" href="#seite-07">→&nbsp;S.&nbsp;7</a>)</span></p>
     </div>
     <div class="p17-ph p17-ph--b">
       <p class="label">danach</p>
@@ -127,7 +126,7 @@
         <li>Eigentum an der Wohnung und Rückzahlungspflicht für das laufende NBank-Darlehen</li>
         <li>früher vom Land gefördert, Bindung läuft planmäßig aus – bereits ausgelaufene Bindungen und Wohnungen ohne niedersächsische Landesbindung zählen <span class="p17-no">nicht<svg class="icon icon--stopp icon--signal" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd"/></svg></span></li>
         <li>Wohnung abgeschlossen, dauerhaft bewohnbar, gut erhalten, mit Mindestausstattung und angemessener Größe</li>
-        <li>Bedarf besteht weiter <a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a></li>
+        <li>Bedarf besteht weiter <span class="u-nowrap">(<a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>)</span></li>
       </ul>
     </section>
   </div>

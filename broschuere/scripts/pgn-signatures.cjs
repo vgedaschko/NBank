@@ -22,6 +22,7 @@ const C30 = Math.cos(Math.PI / 6), S30 = 0.5;
 const f2 = (n) => (Math.round(n * 100) / 100).toString();
 const de = (n, d = 2) => n.toFixed(d).replace('.', ',');
 const FS = 3.06;                                   // 8,7 pt (Mindestschrift 8,5 pt = 3,0 mm)
+const FS_RED = 3.2;                                // 9,1 pt: rote Schrift ≥ 9 pt (Druckregel 0.4), auch weiße Schrift auf Rot
 const FONT = "var(--font-display, 'Montserrat Variable', Montserrat, Arial, sans-serif)";
 
 const write = (name, svg) => {
@@ -331,11 +332,11 @@ function axo() {
 #sig-axo .sig-roof{fill:var(--sig-face,#fff)}
 #sig-axo .sig-roof--side{fill:var(--sig-face-2,#F1EFEC)}
 #sig-axo .sig-roof--back{fill:var(--sig-face-3,#E6E3DF)}
-#sig-axo .sig-tile{stroke:var(--sig-accent,#B71E3F);stroke-width:.14;fill:none;opacity:.75}
+#sig-axo .sig-tile{stroke:var(--sig-accent,#B71E3F);stroke-width:.25;fill:none;opacity:.5}
 #sig-axo .sig-flat{fill:var(--sig-paper,#F4F3F2)}
 #sig-axo .sig-attika{stroke:var(--sig-soft,#A8A49F);stroke-width:.13}
 #sig-axo .sig-pv{fill:var(--sig-dark,#57534F);stroke:var(--sig-face,#fff);stroke-width:.1}
-#sig-axo .sig-fig path,#sig-axo .sig-fig circle{fill:var(--sig-face,#fff);stroke:var(--sig-accent,#B71E3F);stroke-width:.16;stroke-linejoin:round}
+#sig-axo .sig-fig path,#sig-axo .sig-fig circle{fill:var(--sig-face,#fff);stroke:var(--sig-accent,#B71E3F);stroke-width:.25;stroke-linejoin:round}
 #sig-axo .sig-rail{stroke:var(--sig-line,#3C3C3B);stroke-width:.17;fill:none}
 #sig-axo .sig-slab-top{fill:var(--sig-face,#fff);stroke:var(--sig-line,#3C3C3B);stroke-width:.14}
 #sig-axo .sig-slab{fill:var(--sig-face-3,#E6E3DF);stroke:var(--sig-line,#3C3C3B);stroke-width:.16}
@@ -346,8 +347,8 @@ function axo() {
 #sig-axo .sig-dim-tk{stroke:var(--sig-accent,#B71E3F);stroke-width:.42;fill:none}
 #sig-axo .sig-dim-key{stroke:var(--sig-accent,#B71E3F);stroke-width:.8;fill:none}
 #sig-axo .sig-dim-dot{fill:var(--sig-accent,#B71E3F)}
-#sig-axo .sig-dim-h{stroke:var(--sig-accent,#B71E3F);stroke-width:.12;fill:none}
-#sig-axo .sig-dim-t{font-weight:600;font-size:${FS}px;fill:var(--sig-accent,#B71E3F)}
+#sig-axo .sig-dim-h{stroke:var(--sig-accent,#B71E3F);stroke-width:.25;fill:none}
+#sig-axo .sig-dim-t{font-weight:600;font-size:${FS_RED}px;fill:var(--sig-accent,#B71E3F)}
 #sig-axo .sig-dim-t--key{font-weight:800;letter-spacing:.06px}
 #sig-axo .sig-dim-t--rest{font-weight:600;fill:var(--sig-line,#3C3C3B)}
 #sig-axo .sig-axb circle{fill:var(--sig-face,#fff);stroke:var(--sig-line,#3C3C3B);stroke-width:.2}
@@ -458,7 +459,7 @@ function grundriss() {
 #sig-grundriss{color:var(--sig-plan,#fff)}
 #sig-grundriss .sig-g-ax{stroke:currentColor;stroke-width:.2;stroke-dasharray:5 1.2 .7 1.2;fill:none;opacity:.55}
 #sig-grundriss .sig-g-b circle{fill:none;stroke:currentColor;stroke-width:.25}
-#sig-grundriss .sig-g-b text,#sig-grundriss .sig-g-t{font-weight:600;font-size:3.1px;fill:currentColor}
+#sig-grundriss .sig-g-b text,#sig-grundriss .sig-g-t{font-weight:600;font-size:${FS_RED}px;fill:currentColor}
 #sig-grundriss .sig-g-poche{fill:currentColor;fill-opacity:.9;stroke:none}
 #sig-grundriss .sig-g-poche--inner{fill-opacity:.7}
 #sig-grundriss .sig-g-glass{stroke:currentColor;stroke-width:.2;fill:none}
@@ -468,7 +469,7 @@ function grundriss() {
 #sig-grundriss .sig-g-north circle{fill:none;stroke:currentColor;stroke-width:.25}
 #sig-grundriss .sig-g-north path{fill:none;stroke:currentColor;stroke-width:.25}
 #sig-grundriss .sig-g-north .sig-g-north-fill{fill:currentColor}
-#sig-grundriss .sig-g-north text{font-weight:700;font-size:3.1px;letter-spacing:.3px;fill:currentColor}
+#sig-grundriss .sig-g-north text{font-weight:700;font-size:${FS_RED}px;letter-spacing:.3px;fill:currentColor}
 </style>`;
   return `<svg xmlns="http://www.w3.org/2000/svg" id="sig-grundriss" class="sig sig-grundriss" viewBox="0 0 210 297" width="210mm" height="297mm" aria-hidden="true">${style}${out.join('\n')}</svg>`;
 }

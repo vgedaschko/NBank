@@ -3,3 +3,4 @@ src/.preview-*.html
 dist/preview/
 dist/qa/
 src/index.html
+.venv/

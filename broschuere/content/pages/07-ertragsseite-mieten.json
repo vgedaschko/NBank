@@ -75,7 +75,7 @@
           ""
         ]
       ],
-      "note": "Ab KfW-EH-40-Niveau bis zu +0,30 € (2.1, 2.3, 2.5); in 2.2 enthalten. 2.3 mit verlängerter Bindung: Jahre 1–3 ab der ersten WBS-Belegung → S. 14."
+      "note": "Ab EH-40-Niveau bis zu +0,30 € (2.1, 2.3, 2.5); in 2.2 enthalten. 2.3 mit verlängerter Bindung: Jahre 1–3 ab der ersten WBS-Belegung → S. 14."
     },
     {
       "type": "chart",
@@ -123,11 +123,12 @@
           }
         ]
       },
-      "note": "Ab Jahr 4 darf die Miete nach BGB steigen, um höchstens 6,15 % innerhalb von drei Jahren – auch bei Wiedervermietung. Staffel- und Indexmieten sind ausgeschlossen."
+      "note": "Ab Jahr 4 höchstens +6,15 % in drei Jahren, auch bei Wiedervermietung; keine Staffel- oder Indexmiete."
     },
     {
       "type": "callout",
       "variant": "tipp",
+      "role_hint": "kalkulationsnotiz",
       "title": "Kalkulationsnotiz",
       "body": "Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete: Selbst nach zwei Erhöhungen liegt die Fördermiete mit höchstens 7,65 € unter dem Landesmittel 2024 von 9,00 €."
     },
@@ -153,9 +154,9 @@
         "unbefristeter Mietvertrag, der die Förderbestimmungen zur Mietbindung wiedergibt; Wohnung bezugsfertig übergeben",
         "Stellplätze getrennt vermietbar, nicht an die Wohnung gekoppelt",
         "keine Zuschläge (Ausstattung, Keller, Energie- und Wärmeeinrichtungen); Zusatzleistungen nur freiwillig",
-        "keine Vertragsklauseln, die Kosten für Bezugsfertigkeit oder laufende Instandhaltung über das BGB-Mietrecht hinaus auf Mieterinnen und Mieter abwälzen",
+        "keine Abwälzung von Kosten für Bezugsfertigkeit oder Instandhaltung über das BGB-Mietrecht hinaus",
         "keine Zwischenvermietung (Ausnahmen, z. B. Housing First → S. 8)",
-        "Wer ohne WBS oder zu überhöhter Miete vermietet, riskiert Geldleistungen bis 5 € je m² und Monat und ein Bußgeld bis 10.000 €; bei Vermietung ohne WBS kann die Kommune Kündigung und Räumung anordnen. Die Förderung kann zurückgefordert werden."
+        "Verstöße (ohne WBS, überhöhte Miete) kosten Geldleistungen bis 5 € je m² und Monat und Bußgeld bis 10.000 €; bei Vermietung ohne WBS drohen Kündigung und Räumung, die Förderung kann zurückgefordert werden."
       ]
     }
   ],

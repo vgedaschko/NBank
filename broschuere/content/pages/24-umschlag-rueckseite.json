@@ -2,12 +2,12 @@
   "no": 24,
   "slug": "umschlag-rueckseite",
   "layout_type": "back-cover",
-  "running_title": "Umschlag U4",
+  "running_title": "Umschlag · Rückseite (U4)",
   "footer": "kein Kolumnentitel, keine Seitenzahl (U4); running_title nur als Seitenname",
   "kicker": "",
   "headline": "Aus Ihrer guten Idee – machen wir den besten Plan.",
   "headline_highlight": "besten Plan",
-  "lead": "Sprechen Sie uns an: Im Förder-Check prüfen wir mit Ihnen, welcher Programmteil zu Ihrem Projekt passt und wie es sich rechnet.",
+  "lead": "Sprechen Sie uns an: Wir prüfen mit Ihnen, welcher Programmteil zu Ihrem Projekt passt und wie es sich rechnet.",
   "blocks": [
     {
       "type": "logo",
@@ -55,7 +55,8 @@
   ],
   "open_points": [
     "PGN: Freigabe der Negativ-Wortmarke logo-weiss.svg; sonst logo-rot.svg auf weißem Feld.",
-    "PGN: „Förder-Check“ als Angebotsname freigeben (siehe S. 20)."
+    "PGN: „Förder-Check“ als Angebotsname freigeben (siehe S. 20). Bis dahin neutraler Lead; nach Freigabe kann es wieder heißen: „Sprechen Sie uns an: Im Förder-Check prüfen wir mit Ihnen …“.",
+    "PGN: Persönliche Ansprechperson im Kontaktblock gewünscht? Belegt (pgn-facts.md §2, Team-Seite): Norbert Behrens, Geschäftsführung – Akquisition, (+49) 4261 9293-71, nb@pgn-architekten.de. Nur nach Freigabe als Eintrag „Ihr Ansprechpartner“ ergänzen; Stand 21.10.2026 (REDAKTIONSREGELN §7)."
   ],
   "visual_idea": "U4, ruhig und flächig: Vollfläche roter Verlauf 160° #B71E3F → #8B2939, optional das Low-Poly-Facettenornament von rechts oben (bg-leistungen-red.jpg als Vorlage, als Vektor nachzeichnen oder Hi-Res anfragen). Oben links das Logo weiß (logo-weiss.svg, Freigabe klären) – alternativ logo-rot.svg auf einem weißen Quadratfeld. Im oberen Drittel der Claim in Montserrat Black Versalien, weiß, sehr groß, zweizeilig nach dem Gedankenstrich umbrochen; „besten Plan“ als Hervorhebung in Montserrat 800 Italic, weiß. Darunter die Einladung als ein Satz in Work Sans, weiß, max. 90 mm breit, mit senkrechter weißer 2-pt-Linie links. Unteres Drittel: Kontaktblock in Work Sans weiß, Firmenname in Montserrat 700 Versalien; rechts daneben der QR-Code schwarz auf weißem Quadrat mit Ruhezone (mind. 4 Module), Ziel https://www.pgn-architekten.de, darunter die Klartext-Adresse. Viel Fläche, keine weiteren Elemente: kein Rechtshinweis, keine Fundstellen, kein NBank-Kontakt (steht auf S. 21), keine Social-Media-Leiste, keine Rundungen, keine Schatten."
 }

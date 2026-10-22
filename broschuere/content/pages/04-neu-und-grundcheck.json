@@ -3,12 +3,12 @@
   "slug": "neu-und-grundcheck",
   "layout_type": "table-checklist",
   "running_title": "Überblick · Neu und Grundcheck",
-  "kicker": "Orientierung",
-  "headline": "Was 2026 neu ist",
+  "kicker": "Neu und Grundcheck",
+  "headline": "Was neu ist – und ob Ihr Projekt passt",
   "blocks": [
     {
       "type": "table",
-      "caption": "Programmteil 2.1 im Vergleich",
+      "caption": "Programmteil 2.1 im Vergleich · Höchstsätze",
       "columns": [
         "",
         "bis 30.06.2026",
@@ -17,8 +17,8 @@
       "rows": [
         [
           "Instrument",
-          "zinsloses Darlehen bis zu 75 % der Gesamtkosten; 30 % Tilgungsnachlass nur bei geringen Einkommen",
-          "Darlehen + Zuschuss bis zu 80 % der zuwendungsfähigen Kosten"
+          "zinsloses Darlehen, 75 % der Gesamtkosten; Tilgungsnachlass 30 % des Darlehens nur bei geringen Einkommen",
+          "Darlehen + Zuschuss statt Tilgungsnachlass; zusammen 80 % der zuwendungsfähigen Kosten (Gruppe A: je 40 %)"
         ],
         [
           "Bemessung je m² Wohnfläche",
@@ -26,28 +26,23 @@
           "Ausgangswerte 4.800/5.000 € Herstellungskosten; Grundstück separat bis Bodenrichtwert"
         ],
         [
-          "Mieterkreis und Höchstmiete Jahr 1–3 (nettokalt je m²)",
+          "Mieterkreis und Höchstmiete Jahre 1–3 (nettokalt je m²)",
           "geringe und mittlere Einkommen; 6,30/6,60 € (geringe)",
-          "Gruppen A, B, C (B/C mit Zulassung); A: 6,50/6,80 €"
+          "Gruppen A, B, C (B/C nur mit Zulassung); A: 6,50/6,80 €"
         ]
       ],
-      "note": "Paarwerte: Mietenstufe I–III/IV–VII"
-    },
-    {
-      "type": "text",
-      "role_hint": "tabellen-nachsatz",
-      "body": "Modernisierung: Wahlrecht für das alte Recht bei Antragseingang bis 31.12.2026 → S. 15."
+      "note": "Paarwerte: Mietenstufe I–III/IV–VII · Bemessung nicht 1:1 vergleichbar"
     },
     {
       "type": "checklist",
-      "heading": "Grundcheck: Passt Ihr Projekt?",
+      "heading": "Grundcheck in sechs Fragen",
       "chip_legend": "gilt für",
       "items": [
-        "**Antragsberechtigt und solide finanziert?** Unternehmen, Genossenschaften, Privatpersonen, Kommunen; die erzielbare Miete deckt Finanzierung und Bewirtschaftung dauerhaft → S. 11. [alle]",
-        "**Noch nicht begonnen?** Vor der Bewilligung keine Bau-, Liefer- oder Werkverträge → S. 19. [alle]",
+        "**Antragsberechtigt und solide finanziert?** Privatpersonen, Unternehmen mit eigener Rechtspersönlichkeit, Genossenschaften, Kommunen – und die erzielbare Miete muss Finanzierung und Bewirtschaftung dauerhaft tragen → S. 11. [alle]",
+        "**Noch nicht begonnen?** Vor der Bewilligung kein Spatenstich und kein Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Grundstück und Planung bis Leistungsphase 6 HOAI); bei 2.5 weder vermieten noch überlassen → S. 19. [alle]",
         "**Mehrfamilienhaus ab drei Wohnungen?** Bei Modernisierung: fertiggestellt vor dem 08.12.2004. [2.1–2.4]",
-        "**Bedarf am Standort?** In sechs Gebietsarten gilt er als gegeben → S. 18. [2.1, 2.2, 2.6]",
-        "**Eigenmittel mindestens 20 %?** Bezugsgröße sind die zuwendungsfähigen Kosten; auf den Inseln reichen 10 % der Herstellungskosten. [2.1–2.4]",
+        "**Bedarf am Standort?** In sechs Gebietsarten gilt er als gegeben, überall sonst wird er vermutet → S. 18. [2.1, 2.2, 2.6]",
+        "**Mindestens 20 % Eigenmittel?** Gerechnet auf die zuwendungsfähigen Kosten; auf den Inseln reichen 10 % der zuwendungsfähigen Herstellungskosten. [2.1–2.4]",
         "**Grundstück gesichert?** Eigentum, Erbbaurecht oder gesicherter Erwerb. [2.1, 2.2, 2.4]"
       ]
     },
@@ -68,12 +63,11 @@
     "F012",
     "F024",
     "F215",
-    "F285",
-    "F286",
     "F252",
     "F253",
     "F254",
     "F255",
+    "F193",
     "F047",
     "F092",
     "F148",
@@ -92,7 +86,7 @@
     "keine zur Vermietung bestimmten Eigentumswohnungen",
     "Erbbaurecht mit mindestens 60 Jahren Restlaufzeit",
     "Zusammensetzung der Eigenmittel: mindestens die Hälfte Geld oder lastenfreies Grundstück (2.3: Geld); Modellprojekte und Housing First ggf. weniger Eigenmittel",
-    "Rücktrittsklauseln und vorzeitiger Vorhabenbeginn; nicht als Beginn gelten Grundstückskauf und Planung bis Leistungsphase 6 HOAI; bei 2.5 gelten Mietvertrag oder Überlassung als Beginn"
+    "Rücktrittsklauseln und vorzeitiger Vorhabenbeginn; nicht als Beginn gelten Grundstückskauf und Planung bis Leistungsphase 6 HOAI"
   ],
-  "visual_idea": "Spürbar mehr Ruhe als in v1. Kopf: Kicker „Orientierung“ in PGN-Rot, Headline in Montserrat Black Versalien mit roter 2-pt-Linie links; rechts auf der Headline-Grundlinie klein der Tabellenkopf „Paarwerte: Mietenstufe I–III/IV–VII“. Kein Lead. Obere Hälfte, dominantes Element: die schlanke Vorher/Nachher-Tabelle mit drei Zeilen, Spalte „bis 30.06.2026“ in Grau (#757474), Spalte „seit 01.07.2026“ in PGN-Rot, dazwischen feine Pfeile; Zeilenmarker links als Baustein-Chip 2.1. Direkt darunter der Nachsatz zur Modernisierung als einzelne Textzeile mit Seitenchip „→ S. 15“ – kein Frist-Band, kein Kasten. Danach viel Weißraum. Untere Hälfte: Grundcheck als druckbare Ankreuzliste mit sechs leeren Quadraten (eckig, Anthrazit-Kontur), je Zeile Frage in Work Sans Bold, Erläuterung in Work Sans; rechts die Programmteil-Chips 2.1–2.6 in fester Spaltenfolge (zutreffende in Baustein-Farbe, übrige als Geisterziffer ohne Kontur), einmal die Legende „gilt für“ über der Chipspalte; die Klammer-Tags am Zeilenende werden als Chips gesetzt, nicht als Text gedruckt. Schlusssatz „Einmal Nein? …“ als einfache Textzeile unter der Liste, ohne Kasten, ohne Ampel. Keine Fußnote, keine Quellenzeile, keine Kurzmarke."
+  "visual_idea": "Spürbar mehr Ruhe als in v1. Kopf: Kicker „Neu und Grundcheck“ in PGN-Rot, Headline in Montserrat Black Versalien mit roter 2-pt-Linie links; rechts auf der Headline-Grundlinie klein der Tabellenkopf „Paarwerte: Mietenstufe I–III/IV–VII · Bemessung nicht 1:1 vergleichbar“; Caption „Programmteil 2.1 im Vergleich · Höchstsätze“ (deshalb kein „bis zu“ in den Zellen). Kein Lead. Obere Hälfte, dominantes Element: die schlanke Vorher/Nachher-Tabelle mit drei Zeilen, Spalte „bis 30.06.2026“ in Grau (#757474), Spalte „seit 01.07.2026“ in PGN-Rot, dazwischen feine Pfeile; Zeilenmarker links als Baustein-Chip 2.1. Kein Nachsatz zur Modernisierungsfrist (steht auf S. 3, 5 und 14/15), kein Frist-Band, kein Kasten. Danach viel Weißraum. Untere Hälfte: Zwischenüberschrift „Grundcheck in sechs Fragen“, darunter der Grundcheck als druckbare Ankreuzliste mit sechs leeren Quadraten (eckig, Anthrazit-Kontur), je Zeile Frage in Work Sans Bold, Erläuterung in Work Sans; rechts die Programmteil-Chips 2.1–2.6 in fester Spaltenfolge (zutreffende in Baustein-Farbe, übrige als Geisterziffer ohne Kontur), einmal die Legende „gilt für“ über der Chipspalte; die Klammer-Tags am Zeilenende werden als Chips gesetzt, nicht als Text gedruckt. Schlusssatz „Einmal Nein? …“ als einfache Textzeile unter der Liste, ohne Kasten, ohne Ampel. Keine Fußnote, keine Quellenzeile, keine Kurzmarke."
 }

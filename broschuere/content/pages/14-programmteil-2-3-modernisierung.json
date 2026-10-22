@@ -12,7 +12,7 @@
       "type": "chart",
       "chart": "grid",
       "role_hint": "modul",
-      "title": "Energieeffizienzklassen: Endenergiebedarf in kWh je m² Gebäudenutzfläche und Jahr",
+      "title": "Effizienzklassen: Endenergiebedarf in kWh je m² Gebäudenutzfläche und Jahr",
       "data": {
         "kind": "efficiency-scale",
         "classes": [
@@ -31,9 +31,9 @@
           "to": "D",
           "label": "3 Klassen"
         },
-        "rule": "Mindestens 2 Klassen besser – belegt per Energiebedarfsausweis vor der Bewilligung und mit der Fertigstellungsanzeige."
+        "rule": "Mindestens 2 Klassen besser, belegt per Energiebedarfsausweis vor Bewilligung und bei Fertigstellung."
       },
-      "note": "Sind 2 Klassen nicht oder nur unverhältnismäßig aufwendig erreichbar, etwa beim Baudenkmal, kann die NBank 1 Klasse zulassen; sie zählt dann wie 2. Gefördert wird die Gesamtmaßnahme – samt Barrierefreiheit, besserem Gebrauchswert, Bleileitungstausch und zugehöriger Instandsetzung."
+      "note": "Ausnahme, etwa beim Baudenkmal: Ist das unverhältnismäßig aufwendig, kann die NBank eine Klasse zulassen (gefördert wie zwei Klassen). Mitgefördert: Barrierefreiheit, Bleileitungstausch, unmittelbar zugehörige Instandsetzung."
     },
     {
       "type": "chart",
@@ -64,51 +64,45 @@
           [
             { "pct": 30, "max": 27000, "from": 90000 },
             { "pct": 25, "max": 19000, "from": 76000 },
-            { "pct": 15, "max": 11000, "from": 73334 }
+            { "pct": 15, "max": 11000, "from": 73400 }
           ],
           [
-            { "pct": 35, "max": 29000, "from": 82858 },
+            { "pct": 35, "max": 29000, "from": 82900 },
             { "pct": 30, "max": 21000, "from": 70000 },
             { "pct": 20, "max": 13000, "from": 65000 }
           ],
           [
             { "pct": 40, "max": 31000, "from": 77500 },
-            { "pct": 35, "max": 23000, "from": 65715 },
+            { "pct": 35, "max": 23000, "from": 65800 },
             { "pct": 25, "max": 15000, "from": 60000 }
           ]
         ],
         "format": {
-          "pct": "bis zu {v} %",
+          "pct": "{v} %",
           "max": "max. {v} €",
           "from": "ab {v} €"
         },
-        "legend": "je Zelle: Satz · Höchstbetrag · ab … € Kosten je Wohnung greift der Höchstbetrag"
+        "legend": "Satz · Höchstbetrag · ab … € Kosten je Wohnung gilt der Höchstbetrag"
       }
     },
     {
       "type": "bullets",
       "heading": "Bindung und Miete",
       "items": [
-        "25 Jahre ab Abschluss der Maßnahme, im Grundbuch per Dienstbarkeit gesichert; bei Mieterwechsel nur an Haushalte mit WBS",
-        "bereits vermietete Wohnungen: +10 Jahre, außer mit WBS-Nachweis – dann den laufenden Vertrag unverzüglich an Höchstmiete und Erhöhungsregeln anpassen",
-        "Höchstmieten wie in 2.1 (→ S. 7): 6,50–9,00 € je m², ab EH-40-Niveau bis zu +0,30 €; drei Jahre fest, bei verlängerter Bindung ab der ersten WBS-Belegung"
+        "25 Jahre ab Abschluss, grundsätzlich per Dienstbarkeit im Grundbuch gesichert; bei Mieterwechsel nur an WBS-Haushalte",
+        "Ist die Wohnung vermietet, verlängert sich die Bindung um 10 Jahre – außer der Haushalt hat einen WBS. Dann passen Sie den Mietvertrag umgehend an Höchstmiete und Erhöhungsregeln an.",
+        "Höchstmieten wie in 2.1 (→ S. 7): 6,50–9,00 € je m², ab EH-40-Niveau bis zu +0,30 €. Drei Jahre keine Mieterhöhung; bei verlängerter Bindung beginnen die drei Jahre erst mit dem ersten WBS-Haushalt."
       ]
     },
     {
       "type": "text",
       "heading": "Ablauf und Kombination",
-      "body": "Auszahlung in drei Raten: bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abschluss. Bearbeitungsentgelt 0,75 %. Eigenmittel mindestens 20 % der zuwendungsfähigen Kosten, davon soll mindestens die Hälfte Geld sein.\n\nKombinierbar mit BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen, nur eines. Dort gilt deren Kumulierungsgrenze: öffentliche Mittel höchstens 60 % derselben Kosten (BEG Einzelmaßnahmen für Kommunen: 90 %)."
-    },
-    {
-      "type": "text",
-      "variant": "frist-line",
-      "title": "Eingang bis 31.12.2026:",
-      "body": "altes Recht wählbar → S. 15"
+      "body": "Auszahlung in drei Raten: bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abschluss. Bearbeitungsentgelt: einmalig 0,75 % des Zuschusses. Eigenmittel: mindestens 20 % der förderfähigen Kosten, in der Regel mindestens die Hälfte als Geld.\n\nZusätzlich nutzbar: BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen – eines von beiden, das andere erst drei Jahre später. Decken öffentliche Mittel samt NBank-Zuschuss mehr als 60 % derselben Kosten, kürzt die BEG (Kommunen bei BEG Einzelmaßnahmen: 90 %).\n\nAntrag bis 31.12.2026 bei der Wohnraumförderstelle: altes Recht verbindlich wählbar (→ S. 15)."
     },
     {
       "type": "text",
       "role_hint": "pgn-angebot",
-      "body": "Die energetische Gesamtmaßnahme planen wir mit Ihnen – Gebäudehülle und Haustechnik aus einem Haus."
+      "body": "Die energetische Gesamtmaßnahme planen wir mit Ihnen – Architektur und Haustechnik aus einem Haus."
     }
   ],
   "footnotes": [],
@@ -149,9 +143,5 @@
     "G3-18",
     "G3-19"
   ],
-  "pgn_refs": [
-    "pgn-facts.md · Leistungen · Haustechnik: „…bei energetischen Sanierungen von Geschosswohnungsbauten aus älteren Generationen.“ (https://www.pgn-architekten.de/leistungen/haustechnik)",
-    "pgn-facts.md · Gliederung Startseite: Generalplanung mit Architektur und Haustechnik (https://www.pgn-architekten.de/)"
-  ],
-  "visual_idea": "Baustein-Register 2.3 (--baustein-23, eckig, mit Nummer) am Seitenrand. Kopf im PGN-CI wie S. 12/13: Kicker als Versal-Label in --baustein-23, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat SemiBold, Lead in Work Sans; keine Rundungen. Oben, schmal über die volle Satzbreite: Effizienzskala A+ bis H als eckiges Pfeilband grün bis rot, jedes Segment zusätzlich mit Buchstaben (graustufenfest), Grenzwerte klein darunter, Achsenlabel „kWh je m² Gebäudenutzfläche und Jahr“; Sprungpfeil G → D mit Label „3 Klassen“, Regelzeile direkt darunter, Ausnahme und Gesamtmaßnahme als zweizeilige Bildunterschrift. Dominant im mittleren Drittel: die 4 × 3-Heatmap (Zeilen 2 / 3 / 4 / ab 5 Klassen, Spalten A | B | C), Tonwert in --baustein-23 steigt mit dem Satz; je Zelle „bis zu … %“ groß in Montserrat Black mit tabellarischen Ziffern, „max. … €“ mittel, „ab … €“ klein in #757474; Kopfzeile „Höchstsätze · Kostengruppen 300–700 nach DIN 276“ als Versal-Label, Zelllegende einzeilig unter der Tabelle; Zeile „ab 5 Klassen“ als Endstufe mit feiner Abschlusslinie. Unteres Drittel zweispaltig, fluchtend mit der Modulzeile auf S. 15: „Bindung und Miete“ als schlanke Liste, „Ablauf und Kombination“ als kurzer Text. Darunter die Frist-Zeile als schmale Linie in Signalfarbe mit Kalender-Icon (ui-frist.svg) – kein Kasten, der Frist-Kasten steht auf S. 15. Am Fuß rechtsbündig der Angebotssatz klein in Work Sans SemiBold, PGN-Rot #B71E3F. Kein Stempel, keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile."
+  "visual_idea": "Baustein-Register 2.3 (--baustein-23, eckig, mit Nummer) am Seitenrand. Kopf im PGN-CI wie S. 12/13: Kicker als Versal-Label in --baustein-23, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat SemiBold, Lead in Work Sans; keine Rundungen. Oben, schmal über die volle Satzbreite: Effizienzskala A+ bis H als eckiges Pfeilband grün bis rot, jedes Segment zusätzlich mit Buchstaben (graustufenfest), Grenzwerte klein darunter, Achsenlabel „kWh je m² Gebäudenutzfläche und Jahr“; Sprungpfeil G → D mit Label „3 Klassen“, Regelzeile direkt darunter, Ausnahme und Mitgefördertes als zweizeilige Bildunterschrift. Dominant im mittleren Drittel: die 4 × 3-Heatmap (Zeilen 2 / 3 / 4 / ab 5 Klassen, Spalten A | B | C), Tonwert in --baustein-23 steigt mit dem Satz; je Zelle „… %“ groß in Montserrat Black mit tabellarischen Ziffern, „max. … €“ mittel, „ab … €“ klein in #757474; Kopfzeile „Höchstsätze · Kostengruppen 300–700 nach DIN 276“ als Versal-Label, Zelllegende einzeilig unter der Tabelle; Zeile „ab 5 Klassen“ als Endstufe mit feiner Abschlusslinie. Unteres Drittel zweispaltig, fluchtend mit der Modulzeile auf S. 15: „Bindung und Miete“ als schlanke Liste, „Ablauf und Kombination“ als kurzer Text; dessen Schlussabsatz zur Frist 31.12.2026 mit kleinem Kalender-Icon (ui-frist.svg) in --signal – kein Kasten, keine eigene Zeile, der Frist-Kasten steht auf S. 15. Am Fuß als Fußzeile rechtsbündig der Angebotssatz klein in Work Sans SemiBold, PGN-Rot #B71E3F. Kein Stempel, keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile."
 }

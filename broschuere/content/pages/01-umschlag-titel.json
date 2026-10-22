@@ -2,31 +2,31 @@
   "no": 1,
   "slug": "umschlag-titel",
   "layout_type": "cover",
-  "running_title": "Umschlag U1",
+  "running_title": "Umschlag · Titel (U1)",
   "footer": "kein Kolumnentitel, keine Seitenzahl (U1); running_title nur als Seitenname",
   "kicker": "Mietwohnraumförderung Niedersachsen 2026",
   "headline": "Wohnraum, der sich rechnen kann.",
   "headline_highlight": "rechnen",
-  "subline": "Der Leitfaden zur RL Mietwohnraum 2026 – für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren und Kommunen.",
+  "subline": "Ein Leitfaden der PGN zur RL Mietwohnraum 2026 – für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen.",
   "lead": "",
   "image": {
     "src": "src/assets/pgn/ref/ref-01-brauerstrasse-rotenburg.jpg",
     "kind": "Visualisierung",
-    "caption": "Brauerstraße, Rotenburg (Wümme)",
+    "caption": "Brauerstraße, Rotenburg (Wümme) · Visualisierung",
     "alt": "Visualisierung eines dreigeschossigen Mehrfamilienhauses aus rotem Klinker mit Staffelgeschoss und Balkonen in der Brauerstraße, Rotenburg (Wümme)",
-    "credit": "Bildnachweis auf U3; Urheber und Nutzungsrecht bei PGN erfragen"
+    "credit": "Bildnachweis auf U3"
   },
   "blocks": [
     {
       "type": "key_figures",
-      "role_hint": "dominant",
+      "role_hint": "sekundaer",
       "items": [
         {
           "prefix": "bis zu",
           "value": "80",
           "unit": "%",
           "label": "Förderquote aus Darlehen und Zuschuss",
-          "note": "Programmteil 2.1"
+          "note": "der zuwendungsfähigen Kosten · Programmteil 2.1"
         }
       ]
     },
@@ -39,7 +39,7 @@
     {
       "type": "text",
       "role_hint": "absender",
-      "body": "Planungsgemeinschaft Nord GmbH · Rotenburg (Wümme)\n\nStand: Oktober 2026"
+      "body": "Planungsgemeinschaft Nord GmbH · Rotenburg (Wümme)\n\nStand: 21.10.2026"
     }
   ],
   "footnotes": [],
@@ -61,11 +61,11 @@
   "pdf_meta": {
     "title": "Wohnraum, der sich rechnen kann. Mietwohnraumförderung Niedersachsen 2026",
     "author": "Planungsgemeinschaft Nord GmbH",
-    "subject": "Leitfaden zur RL Mietwohnraum 2026 für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren und Kommunen"
+    "subject": "Leitfaden der Planungsgemeinschaft Nord GmbH zur RL Mietwohnraum 2026 für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen"
   },
   "open_points": [
     "PGN: hochaufgelöstes Original der Visualisierung Brauerstraße (Dateiname deutet auf 5120 px Breite) und Nutzungsrecht/Urheber für den Bildnachweis auf U3",
     "PGN: Freigabe der Negativ-Wortmarke logo-weiss.svg für Druck auf Rot; sonst Variante logo-rot.svg auf weißem Feld"
   ],
-  "visual_idea": "U1, ein dominantes Element: der Claim. Oberes Feld (ca. 55 % der Höhe): Visualisierung Brauerstraße (src/assets/pgn/ref/ref-01-brauerstrasse-rotenburg.jpg) als Panorama-Banner über die volle Breite, randabfallend oben und seitlich; 1800 × 740 px ergeben nur ca. 218 dpi auf 210 mm – Hi-Res-Original bei PGN anfordern. Bildzeile „Brauerstraße, Rotenburg (Wümme)“ klein in Work Sans, weiß auf dem Bild unten rechts (oder anthrazit unter dem Bild), mit 1-pt-Linie in PGN-Rot links wie die Slider-Bildunterschrift der Website. Unteres Feld: roter Verlauf 160° #B71E3F → #8B2939, darauf weiß: Kicker in Montserrat 600 Versalien, darunter die Headline in Montserrat Black, Versalien, sehr groß, linksbündig mit senkrechter weißer 2-pt-Linie links; „rechnen“ als Hervorhebung in Montserrat 800 Italic (CI-Muster „VORAUS*denken*“). Subline in Work Sans, ein Satz, max. zwei Zeilen. Rechts daneben bzw. darunter die einzige Kennzahl: „80 %“ als Display-Ziffer in Montserrat Black, kleiner Vorsatz „bis zu“ über der Ziffer, zweizeiliges Label „Förderquote aus Darlehen und Zuschuss“, darunter klein „Programmteil 2.1“ (kein Baustein-Chip auf Rot). Absenderblock am Fuß: weißes PGN-Logo, Haarstrich wie im Logo-Aufbau, daneben „Planungsgemeinschaft Nord GmbH · Rotenburg (Wümme)“, darunter klein „Stand: Oktober 2026“. Ist logo-weiss.svg nicht freigegeben: schmales weißes Fußfeld mit logo-rot.svg. Keine Rundungen, keine Schatten, keine Fußnote, keine Fundstelle, kein Hinweistext, keine NBank- oder Landeslogos, keine Herausgeberzeile NBank. PDF-Metadaten (Titel, Autor Planungsgemeinschaft Nord GmbH) siehe pdf_meta."
+  "visual_idea": "U1, ein dominantes Element: der Claim. Oberes Feld (ca. 55 % der Höhe): Visualisierung Brauerstraße (src/assets/pgn/ref/ref-01-brauerstrasse-rotenburg.jpg) als Panorama-Banner über die volle Breite, randabfallend oben und seitlich; 1800 × 740 px ergeben nur ca. 218 dpi auf 210 mm – Hi-Res-Original bei PGN anfordern. Bildzeile „Brauerstraße, Rotenburg (Wümme) · Visualisierung“ klein in Work Sans, weiß auf dem Bild unten rechts (oder anthrazit unter dem Bild), mit 1-pt-Linie in PGN-Rot links wie die Slider-Bildunterschrift der Website. Unteres Feld: roter Verlauf 160° #B71E3F → #8B2939, darauf weiß: Kicker in Montserrat 600 Versalien, darunter die Headline in Montserrat Black, Versalien, sehr groß, linksbündig mit senkrechter weißer 2-pt-Linie links; „rechnen“ als Hervorhebung in Montserrat 800 Italic (CI-Muster „VORAUS*denken*“). Subline in Work Sans, ein Satz, max. zwei Zeilen – nennt PGN als Absender schon im Titelbereich. Rechts daneben bzw. darunter die einzige Kennzahl, sekundär (deutlich kleiner als die Headline, kein zweiter Blickfang): „80 %“ als Display-Ziffer in Montserrat Black, kleiner Vorsatz „bis zu“ über der Ziffer, zweizeiliges Label „Förderquote aus Darlehen und Zuschuss“, darunter klein „der zuwendungsfähigen Kosten · Programmteil 2.1“ (kein Baustein-Chip auf Rot). Absenderblock am Fuß: weißes PGN-Logo, Haarstrich wie im Logo-Aufbau, daneben „Planungsgemeinschaft Nord GmbH · Rotenburg (Wümme)“, darunter klein „Stand: 21.10.2026“. Ist logo-weiss.svg nicht freigegeben: schmales weißes Fußfeld mit logo-rot.svg. Keine Rundungen, keine Schatten, keine Fußnote, keine Fundstelle, kein Hinweistext, keine NBank- oder Landeslogos, keine Herausgeberzeile NBank. PDF-Metadaten (Titel, Autor Planungsgemeinschaft Nord GmbH) siehe pdf_meta."
 }

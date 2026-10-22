@@ -16,7 +16,7 @@
           "value": "100",
           "unit": "%",
           "label": "der Restschuld zu 0 % Zins",
-          "note": "Zuschuss, mit Ihren Raten verrechnet; Tilgung und Verwaltungskostenbeitrag laufen weiter, kein neues Darlehen"
+          "note": "Sie zahlen nur noch Tilgung und Verwaltungskostenbeitrag – kein neues Darlehen, keine Auszahlung"
         },
         {
           "prefix": "längstens",
@@ -30,7 +30,7 @@
           "value": "0,75",
           "unit": "%",
           "label": "Bearbeitungsentgelt",
-          "note": "auf den bewilligten Zuschuss"
+          "note": "auf die bewilligte Zinsverbilligung"
         }
       ]
     },
@@ -38,7 +38,7 @@
       "type": "chart",
       "chart": "timeline",
       "role_hint": "dominant",
-      "title": "Ablauf und Mietpfad",
+      "title": "Zins, Bindung und Miete im Zeitverlauf",
       "subtitle": "Schema, nicht maßstäblich",
       "data": {
         "kind": "prolongation",
@@ -46,8 +46,7 @@
         "markers": [
           {
             "at": "T − 24 Wochen",
-            "label": "Prolongationsangebot",
-            "detail": "in der Regel"
+            "label": "Angebot"
           },
           {
             "at": "T",
@@ -56,7 +55,7 @@
           {
             "at": "Ende",
             "label": "Bindungsende",
-            "detail": "Monatsende der letzten Darlehensrate, spätestens 20 Jahre nach dem ursprünglichen Ende"
+            "detail": "Monatsende der letzten Darlehensrate, spätestens 20 Jahre nach dem ursprünglichen Bindungsende"
           }
         ],
         "bands": [
@@ -70,30 +69,29 @@
         "rent_path": [
           {
             "phase": "Jahr 1–3",
-            "label": "bisherige Miete eingefroren",
-            "detail": "auch bei Wiedervermietung"
+            "label": "bisherige Nettokaltmiete eingefroren",
+            "detail": "auch bei Wiedervermietung (→ S. 7)"
           },
           {
             "phase": "danach",
-            "label": "höchstens +6,15 % in drei Jahren",
-            "detail": "keine Staffel- oder Indexmiete"
+            "label": "Nettokaltmiete höchstens +6,15 % in drei Jahren",
+            "detail": "auch bei Wiedervermietung; Betriebskosten ausgenommen; keine Staffel- oder Indexmiete"
           }
         ]
-      },
-      "note": "500.000 € Restschuld: Jeder entfallende Prozentpunkt Zins spart im ersten Jahr bis zu 5.000 €, danach weniger."
+      }
     },
     {
       "type": "steps",
-      "heading": "Ablauf in vier Schritten",
+      "heading": "In vier Schritten zur Verlängerung",
       "items": [
         {
           "title": "Angebot",
-          "body": "Prolongationsangebot mit Antragsvordruck 1011b",
+          "body": "Prolongationsangebot mit Antragsvordruck 1011b, in der Regel 24 Wochen vor Ablauf der Zinsfreistellung",
           "who": "NBank"
         },
         {
           "title": "Antrag",
-          "body": "erst danach, bei der Wohnraumförderstelle am Bauort",
+          "body": "erst danach, bei der Wohnraumförderstelle am Bauort; sie bestätigt den Bedarf",
           "who": "Sie"
         },
         {
@@ -103,7 +101,7 @@
         },
         {
           "title": "Entscheidung",
-          "body": "prüft Voraussetzungen und Bedarf",
+          "body": "entscheidet über Zinsverbilligung und Verlängerung der Bindung",
           "who": "NBank"
         }
       ]
@@ -112,11 +110,10 @@
       "type": "bullets",
       "heading": "Voraussetzungen",
       "items": [
-        "Sie sind Eigentümerin oder Eigentümer und schulden das laufende NBank-Darlehen",
-        "früher mit Landesmitteln gefördert, die Bindung läuft planmäßig aus",
-        "Wohnung abgeschlossen, gut erhalten, mit Mindestausstattung und angemessener Größe",
-        "Bedarf besteht weiter (→ S. 18)",
-        "nicht förderfähig: bereits ausgelaufene Bindungen und Wohnraum ohne niedersächsische Landesbindung"
+        "Eigentum an der Wohnung und Rückzahlungspflicht für das laufende NBank-Darlehen",
+        "früher vom Land gefördert, Bindung läuft planmäßig aus – bereits ausgelaufene Bindungen und Wohnungen ohne niedersächsische Landesbindung zählen nicht",
+        "Wohnung abgeschlossen, dauerhaft bewohnbar, gut erhalten, mit Mindestausstattung und angemessener Größe",
+        "Bedarf besteht weiter (→ S. 18)"
       ]
     }
   ],
@@ -135,5 +132,5 @@
     "F221",
     "F078"
   ],
-  "visual_idea": "Baustein-Register 2.6 (--baustein-26, eckig, mit Nummer) am Seitenrand; Doppelseite 16|17 „Bindungen im Bestand“, Kopf und Modulzeile fluchtend mit S. 16. Kopf im PGN-CI: Kicker als Versal-Label in --baustein-26, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat SemiBold, Lead in Work Sans. Oben drei eckige Kennzahl-Kacheln (bis zu 100 % · längstens 20 Jahre · einmalig 0,75 %), Vorsatz klein über der Ziffer, Ziffern in Montserrat Black in PGN-Rot, Unterzeilen in Work Sans. Dominantes Element über die volle Satzbreite: horizontaler Zeitstrahl, Kopfzeile „Schema, nicht maßstäblich“ klein in #757474. Marker „Prolongationsangebot“ mit Brief-Icon und Badge 1011b → Marker „Ablauf der Zinsfreistellung“ (nicht als ursprüngliches Bindungsende beschriften) → breites Band in --baustein-26 „0 % · Bindung verlängert“ bis zum Endmarker „Bindungsende“ mit Detailzeile. Unter dem Band schmaler Mietpfad als Stufenlinie in Anthrazit: drei Jahre flach („bisherige Miete eingefroren“, Schloss-Icon), danach leichter Anstieg „höchstens +6,15 % in drei Jahren“. Der Rechenbeispiel-Satz steht als Bildunterschrift direkt unter dem Zeitstrahl, Beträge in tabellarischen Ziffern – kein Stempel, kein Kasten, kein Rechen-Icon. Unteres Drittel zweispaltig: links „Ablauf in vier Schritten“ als Kette quadratischer, nummerierter Stationsmarken mit Wer-Label (NBank · Sie · Sie · NBank) und feinen Pfeilen; rechts „Voraussetzungen“ als schlanke Liste, der letzte Punkt mit kleinem Stopp-Marker. Keine Rundungen, keine Fußnote, keine Quellenzeile, keine Kurzmarke."
+  "visual_idea": "Baustein-Register 2.6 (--baustein-26, eckig, mit Nummer) am Seitenrand; Doppelseite 16|17 „Bindungen im Bestand“, Kopf und Modulzeile fluchtend mit S. 16. Kopf im PGN-CI: Kicker als Versal-Label in --baustein-26, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat SemiBold, Lead in Work Sans. Oben drei eckige Kennzahl-Kacheln (bis zu 100 % · längstens 20 Jahre · einmalig 0,75 %), Vorsatz klein über der Ziffer, Ziffern in Montserrat Black in PGN-Rot, Unterzeilen in Work Sans. Dominantes Element über die volle Satzbreite: horizontaler Zeitstrahl „Zins, Bindung und Miete im Zeitverlauf“, Kopfzeile „Schema, nicht maßstäblich“ klein in #757474. Marker „Angebot“ (T − 24 Wochen) mit Brief-Icon → Marker „Ablauf der Zinsfreistellung“ (nicht als ursprüngliches Bindungsende beschriften) → breites Band in --baustein-26 „0 % · Bindung verlängert“ bis zum Endmarker „Bindungsende“ mit Detailzeile. Unter dem Band schmaler Mietpfad als Stufenlinie in Anthrazit: drei Jahre flach („bisherige Nettokaltmiete eingefroren“, Schloss-Icon), danach leichter Anstieg „Nettokaltmiete höchstens +6,15 % in drei Jahren“, Detailzeilen klein in Work Sans darunter. Keine Bildunterschrift und keine Rechnung unter dem Zeitstrahl – kein Stempel, kein Kasten, kein Rechen-Icon. Unteres Drittel zweispaltig: links „In vier Schritten zur Verlängerung“ als Kette quadratischer, nummerierter Stationsmarken mit Wer-Label (NBank · Sie · Sie · NBank) und feinen Pfeilen; rechts „Voraussetzungen“ als schlanke Liste, Punkt 2 endet mit kleinem Stopp-Marker (Ausschluss bereits ausgelaufener Bindungen). Keine Rundungen, keine Fußnote, keine Quellenzeile, keine Kurzmarke."
 }

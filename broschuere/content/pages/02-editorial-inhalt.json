@@ -2,14 +2,14 @@
   "no": 2,
   "slug": "editorial-inhalt",
   "layout_type": "editorial",
-  "running_title": "Einstieg",
+  "running_title": "Einstieg · Editorial",
   "kicker": "Editorial",
   "headline": "Damit sich Investieren wieder rechnet",
-  "lead": "Die Bauwerkskosten haben sich in 25 Jahren mehr als verdoppelt, die Zinsen lagen Ende 2025 bei 3–4 %, die Baugenehmigungen sind seit 2021 um mehr als die Hälfte gesunken – so die Wohnungsmarktbeobachtung der NBank.",
+  "lead": "Bauen kostet mehr als doppelt so viel wie vor 25 Jahren, Kredite kosteten Ende 2025 drei bis vier Prozent, und die Zahl der Baugenehmigungen hat sich seit 2021 mehr als halbiert.",
   "blocks": [
     {
       "type": "text",
-      "body": "Seit dem 01.07.2026 gilt die RL Mietwohnraum 2026, befristet bis zum 31.12.2031. Das Land hat die Förderung übersichtlicher aufgestellt und deutlich stärker auf Zuschüsse statt auf Tilgungsnachlässe ausgerichtet.\n\nSeit 1981 planen wir von Rotenburg (Wümme) aus Bauprojekte in ganz Norddeutschland – auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren und Kommunen. Dieses Heft liest die neue Richtlinie mit dem Blick des Planers: Was gilt, was rechnet sich, wann darf es losgehen. Das Herzstück ist **„Ihre Rechnung“ auf S. 10–11** – vom Finanzierungsaufbau bis zum laufenden Überschuss.",
+      "body": "Seit dem 01.07.2026 gilt die neue RL Mietwohnraum 2026, befristet bis 31.12.2031. Für Ihre Rechnung heißt das vor allem: Statt Tilgungsnachlässen gibt es jetzt Zuschüsse, die nicht zurückgezahlt werden.\n\nSeit 1981 planen wir Bauprojekte – heute von Rotenburg (Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Dieses Heft liest die Richtlinie aus Sicht der Planung: Was gilt, was rechnet sich, wann darf es losgehen? Das Herzstück ist **„Ihre Rechnung“ auf S. 10–11** – vom Finanzierungsaufbau bis zum laufenden Überschuss.",
       "signature": "Ihre PGN – Architekten. Stadtplaner. Ingenieure."
     },
     {
@@ -24,10 +24,10 @@
       "heading": "Ihr Einstieg",
       "role_hint": "einstiegs-kacheln",
       "items": [
-        "**Wohnungsunternehmen und Genossenschaften:** Auch genossenschaftlich überlassener Wohnraum zählt als Mietwohnraum. → S. 8–11",
+        "**Wohnungsunternehmen und Genossenschaften:** Neubau, Modernisierung, Bindungen im Bestand – genossenschaftlich überlassener Wohnraum zählt als Mietwohnraum. → S. 8–17",
         "**Investorinnen und Investoren:** Konditionen, Finanzierung und laufender Überschuss auf drei Seiten. → S. 9–11",
-        "**Projektentwicklung:** Verkauf als geförderter Ersterwerb bis zwei Jahre nach Fertigstellung; Kaufvertrag erst nach der Bewilligung. → S. 8",
-        "**Kommunen:** selbst antragsberechtigt; eine Festlegung im Bebauungsplan, städtebaulichen Vertrag oder Baulandmodell belegt den Bedarf. → S. 18"
+        "**Projektentwicklung:** Verkaufen Sie bis zwei Jahre nach Fertigstellung an Käuferinnen und Käufer, die den Ersterwerb fördern lassen – den Kaufvertrag erst nach deren Bewilligung oder mit folgenlosem Rücktrittsrecht. → S. 8, 19",
+        "**Kommunen:** Selbst antragsberechtigt. Legen Sie geförderten Mietwohnraum in entsprechender Anzahl im Bebauungsplan, städtebaulichen Vertrag oder Baulandmodell fest, gilt der Bedarf als gegeben. → S. 18"
       ]
     },
     {
@@ -35,7 +35,7 @@
       "title": "Inhalt",
       "data": {
         "variant": "linienplan",
-        "note": "Inhalt als Linienplan: sieben Kapitel-Linien, Haltestellen als Quadrate; S. 2 (diese Seite) und die Umschlagseiten U1/U4 werden nicht aufgeführt. Programmteil-Stationen mit Baustein-Chip 2.1–2.6, Stichtag-Station in Signalfarbe, Kapitel „PGN“ in PGN-Rot.",
+        "note": "Inhalt als Linienplan: acht Kapitel-Linien (Kapitel = Kolumnentitel), Haltestellen als Quadrate; S. 2 (diese Seite) und die Umschlagseiten U1/U4 werden nicht aufgeführt. Programmteil-Stationen mit Baustein-Chip 2.1–2.6, Stichtag-Station in Signalfarbe, Kapitel „PGN“ in PGN-Rot.",
         "lines": [
           {
             "id": "ueberblick",
@@ -59,9 +59,16 @@
             "label": "Finanzierung",
             "stops": [
               { "page": 8, "label": "Neubau, Änderung, Ersterwerb", "baustein": "2.1", "token": "--baustein-21" },
-              { "page": 9, "label": "Term Sheet" },
-              { "page": 10, "label": "Ihre Rechnung: Finanzierung" },
-              { "page": 11, "label": "Ihre Rechnung: Wirtschaftlichkeit" }
+              { "page": 9, "label": "Term Sheet" }
+            ]
+          },
+          {
+            "id": "ihre-rechnung",
+            "label": "Ihre Rechnung",
+            "emphasis": true,
+            "stops": [
+              { "page": 10, "label": "Finanzierung" },
+              { "page": 11, "label": "Wirtschaftlichkeit" }
             ]
           },
           {
@@ -110,6 +117,8 @@
     "F310",
     "F009",
     "F015",
+    "F018",
+    "F105",
     "F002",
     "G3-01",
     "F290",
@@ -122,10 +131,10 @@
     "F003"
   ],
   "pgn_sources": [
-    "pgn-facts.md §1 Arbeitsgebiet („Von Rotenburg (Wümme) aus … Bauprojekte in ganz Norddeutschland“)",
-    "pgn-facts.md §3 Claim „100% Kundenfokus. Seit 1981.“",
+    "pgn-facts.md §1 Arbeitsgebiet („Von Rotenburg (Wümme) aus … Bauprojekte in ganz Norddeutschland“) – nur als heutige Aussage („heute“)",
+    "pgn-facts.md §3 Claim „100% Kundenfokus. Seit 1981.“; Chronik: 1981 Beginn in Visselhövede, 1990 Umzug nach Rotenburg (Wümme) – daher nicht „seit 1981 von Rotenburg aus“",
     "pgn-facts.md §6/§8 Kundengruppen (Kommunen, Investoren, Wohnungsbauunternehmen, Wohnungsbaugenossenschaften)",
     "pgn-facts.md §1/§5 Seitentitel „Architekten. Stadtplaner. Ingenieure.“"
   ],
-  "visual_idea": "Zweispaltig, ruhig, viel Weißraum. Kopf: Kicker „Editorial“ in Montserrat 600 Versalien in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links. Linke Spalte: Lead in Montserrat 600, darunter das Editorial in Work Sans; Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ als Zeile in Montserrat 600 Versalien mit feiner roter Linie davor, kein Personenname, kein Porträt. Darunter das Tonne-Zitat mit übergroßen, eckig gesetzten Anführungszeichen in PGN-Rot, Attribution klein in Anthrazit (Name, Funktion, „Pressemitteilung MW vom 03.07.2026“). Rechte Spalte, bildbestimmend (das dominante Element der Seite): Inhalt als Linienplan – sieben senkrechte Kapitel-Linien in Anthrazit, Haltestellen als Quadrate ohne Rundungen, Seitenzahl in Montserrat Black; Programmteil-Stationen tragen den Baustein-Chip 2.1–2.6 in den Baustein-Farben (Ziffer eingeschrieben, graustufenfest), die Stichtag-Station S. 15 in Signalfarbe, die Kapitel-Linie „PGN“ (S. 22–23) in PGN-Rot; „Ihre Rechnung“ S. 10–11 als Doppelhaltestelle leicht hervorgehoben. Unten über die volle Breite vier Einstiegs-Kacheln auf #F4F3F2, je ein Linienicon (Wohnblock, Diagramm, Kran, Rathaus), fett gesetzter Vorsatz als Kachelkopf, Seitenverweis als eckiger Chip in PGN-Rot. Keine Kästen, keine Fußnoten, keine Quellenzeile."
+  "visual_idea": "Zweispaltig, ruhig, viel Weißraum. Kopf: Kicker „Editorial“ in Montserrat 600 Versalien in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links. Linke Spalte: Lead in Montserrat 600, darunter das Editorial in Work Sans; Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ als Zeile in Montserrat 600 Versalien mit feiner roter Linie davor, kein Personenname, kein Porträt. Darunter das Tonne-Zitat mit übergroßen, eckig gesetzten Anführungszeichen in PGN-Rot, Attribution klein in Anthrazit (Name, Funktion, „Pressemitteilung MW vom 03.07.2026“). Rechte Spalte, bildbestimmend (das dominante Element der Seite): Inhalt als Linienplan – acht senkrechte Kapitel-Linien in Anthrazit (Kapitelnamen = erster Teil der Kolumnentitel), Haltestellen als Quadrate ohne Rundungen, Seitenzahl in Montserrat Black; Programmteil-Stationen tragen den Baustein-Chip 2.1–2.6 in den Baustein-Farben (Ziffer eingeschrieben, graustufenfest), die Stichtag-Station S. 15 in Signalfarbe, die Kapitel-Linie „PGN“ (S. 22–23) in PGN-Rot; die Kapitel-Linie „Ihre Rechnung“ (S. 10–11) leicht hervorgehoben. Unten über die volle Breite vier Einstiegs-Kacheln auf #F4F3F2, je ein Linienicon (Wohnblock, Diagramm, Kran, Rathaus), fett gesetzter Vorsatz als Kachelkopf, Seitenverweis als eckiger Chip in PGN-Rot. Keine Kästen, keine Fußnoten, keine Quellenzeile."
 }

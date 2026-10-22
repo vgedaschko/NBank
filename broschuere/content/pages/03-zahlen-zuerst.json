@@ -14,7 +14,7 @@
           "value": "80",
           "unit": "%",
           "label": "Förderquote",
-          "note": "Darlehen + Zuschuss, in allen Einkommensgruppen; Zuschläge für Housing First und Modellprojekte → S. 8",
+          "note": "Darlehen + Zuschuss, alle Gruppen; mehr bei Housing First und Modellprojekten → S. 8",
           "chip": "2.1"
         },
         {
@@ -22,14 +22,14 @@
           "value": "40",
           "unit": "%",
           "label": "Zuschuss",
-          "note": "Gruppe A; B 20 %, C 10 %, B/C nur mit Zulassung → S. 6. Zuschuss nur zusammen mit dem Darlehen",
+          "note": "Gruppe A, nur mit Darlehen; B bis zu 20 %, C bis zu 10 %, B/C nur mit Zulassung → S. 6",
           "chip": "2.1"
         },
         {
           "value": "0",
           "unit": "%",
           "label": "Zins bis Ende des 35. Jahres",
-          "note": "ab Bezugsfertigkeit; zzgl. 0,5 % Verwaltungskostenbeitrag p. a. und einmaliger Entgelte → S. 9",
+          "note": "gezählt ab Bezugsfertigkeit; dazu 0,5 % Verwaltungskostenbeitrag p. a. und einmalige Bearbeitungsentgelte → S. 9",
           "chip": "2.1/2.4"
         },
         {
@@ -45,7 +45,7 @@
           "value": "90.000",
           "unit": "€",
           "label": "Zuschuss je Wohnung im EH-40-Neubau",
-          "note": "Gruppe A, höchstens 50 % der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar",
+          "note": "Gruppe A, höchstens 50 % der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar → S. 12",
           "chip": "2.2"
         },
         {
@@ -53,7 +53,7 @@
           "value": "31.000",
           "unit": "€",
           "label": "Modernisierungszuschuss je gebundener Wohnung",
-          "note": "Gruppe A, Verbesserung um mindestens 5 Effizienzklassen; höchstens 40 % der Kosten",
+          "note": "Gruppe A, ab 5 Effizienzklassen besser; höchstens 40 % der zuwendungsfähigen Kosten → S. 14",
           "chip": "2.3"
         },
         {
@@ -61,7 +61,7 @@
           "value": "3,00",
           "unit": "€ je m² Wohnfläche und Monat",
           "label": "Zuschuss für den Bindungserwerb",
-          "note": "15–20 Jahre Bindung; ab 5 Jahren 2,00 €, ab 10 Jahren 2,50 €; nur Gruppe A",
+          "note": "15–20 Jahre Bindung; ab 5 Jahren 2,00 €, ab 10 Jahren 2,50 €; nur Gruppe A → S. 16",
           "chip": "2.5"
         },
         {
@@ -70,7 +70,7 @@
           "value": "31.12.2026",
           "unit": "",
           "label": "Wahlrecht für Modernisierungsanträge",
-          "note": "Nur Anträge, die bis dahin bei der Wohnraumförderstelle eingehen, können das bisherige Recht wählen → S. 15"
+          "note": "Geht Ihr Antrag bis dahin bei der Wohnraumförderstelle ein, können Sie das alte Recht wählen → S. 15"
         }
       ]
     },
@@ -111,7 +111,7 @@
         "ring": {
           "value": 28,
           "display": "28 %",
-          "label": "kompensiert"
+          "label": "der Abgänge ersetzt"
         },
         "ref": "Wo Bedarf gilt → S. 18"
       }
@@ -143,5 +143,5 @@
     "F306",
     "F307"
   ],
-  "visual_idea": "Das Kachelraster ist das dominante Element: 4 × 2 Zellen auf Weiß, getrennt durch feine Anthrazit-Haarlinien, keine Rundungen, keine Schatten. Je Kachel oben rechts der Programmteil-Chip (eckig, Baustein-Farbe, Ziffer eingeschrieben; Kachel 3 zweigeteilt 2.1/2.4), darunter der Vorsatz („bis zu“, „Ausgangswerte“, „Festbetrag“) klein in Montserrat 600 Versalien, die Ziffer groß in Montserrat Black in PGN-Rot, Einheit kleiner daneben, Label in Montserrat 600 Versalien, Notiz in Work Sans (nicht unter 9 pt, höchstens drei Zeilen). Achte Zelle „Und ein Stichtag 31.12.2026“ in Signalfläche, sonst gleicher Aufbau, kein Achtung-Symbol. Begriff „zuwendungsfähige Kosten“ als schmale Marginalie neben der Headline (ein Satz, Work Sans, rote 2-pt-Linie links). Kein Lead – die Kacheln sind der Einstieg. Viel Weißraum zwischen Raster und Band. Unten das Marktband über die volle Breite auf Anthrazit-Verlauf 160° #3C3C3B → #202020: links die Hero-Zahl 50.495 in Montserrat Black weiß mit Label „Sozialwohnungen 2024“, rechts das Balkenpaar 58.024 (Grau) gegen rund 16.000 (PGN-Rot) für 2015–2024 mit Ring „28 % kompensiert“; Seitenverweis-Chip „Wo Bedarf gilt → S. 18“ im Bandkopf. Keine Fußnote, keine Quellenzeile, keine Kurzmarke (Quelle der Marktzahlen steht auf U3)."
+  "visual_idea": "Das Kachelraster ist das dominante Element: 4 × 2 Zellen auf Weiß, getrennt durch feine Anthrazit-Haarlinien, keine Rundungen, keine Schatten. Je Kachel oben rechts der Programmteil-Chip (eckig, Baustein-Farbe, Ziffer eingeschrieben; Kachel 3 zweigeteilt 2.1/2.4), darunter der Vorsatz („bis zu“, „Ausgangswerte“, „Festbetrag“) klein in Montserrat 600 Versalien, die Ziffer groß in Montserrat Black in PGN-Rot, Einheit kleiner daneben, Label in Montserrat 600 Versalien, Notiz in Work Sans (nicht unter 9 pt, höchstens drei Zeilen). Achte Zelle „Und ein Stichtag 31.12.2026“ im normalen Rasterstil wie die übrigen sieben (Weiß, Haarlinien, gleicher Aufbau) – keine Signalfläche, kein Achtung-Symbol; Signalfarbe höchstens als kleiner eckiger Datums-Chip am Datum (die beiden Achtung-Kästen der Broschüre stehen auf S. 19 und S. 15). Begriff „zuwendungsfähige Kosten“ als schmale Marginalie neben der Headline (ein Satz, Work Sans, rote 2-pt-Linie links). Kein Lead – die Kacheln sind der Einstieg. Viel Weißraum zwischen Raster und Band. Unten das Marktband über die volle Breite auf Anthrazit-Verlauf 160° #3C3C3B → #202020: links die Hero-Zahl 50.495 in Montserrat Black weiß mit Label „Sozialwohnungen 2024“, rechts das Balkenpaar 58.024 (Grau) gegen rund 16.000 (PGN-Rot) für 2015–2024 mit Ring „28 % der Abgänge ersetzt“; Seitenverweis-Chip „Wo Bedarf gilt → S. 18“ im Bandkopf. Keine Fußnote, keine Quellenzeile, keine Kurzmarke (Quelle der Marktzahlen steht auf U3)."
 }

@@ -5,6 +5,7 @@
   "running_title": "Umsetzung · Antragsweg",
   "kicker": "Antragsweg",
   "headline": "Vom Vorgespräch bis zum Verwendungsnachweis",
+  "subline": "",
   "lead": "Sie beantragen bei der Wohnraumförderstelle am Bauort, die NBank entscheidet – in acht Schritten.",
   "blocks": [
     {
@@ -32,47 +33,39 @@
               "Sie"
             ],
             "title": "Vorgespräch",
-            "body": "Nachweise und Unterlagen vorab klären; zusätzlich NBank-Förderberatung"
+            "body": "Nachweise und Unterlagen vorab klären"
           },
           {
             "n": 2,
             "lane": "Sie",
             "title": "Antrag",
-            "body": "bei der Wohnraumförderstelle am Bauort",
-            "badges": [
-              "1011 · 2.1–2.4",
-              "1011a + 1012 · 2.5",
-              "1011b · 2.6"
-            ]
+            "body": "bei der Wohnraumförderstelle am Bauort; für 2.6 erst nach dem Prolongationsangebot (→ S. 17)"
           },
           {
             "n": 3,
             "lane": "Wohnraumförderstelle",
             "title": "Stellungnahme",
-            "body": "Bedarfsbestätigung, Anhörung der Gemeinde, Weiterleitung an die NBank"
+            "body": "Bedarfsbestätigung, ggf. Anhörung der Gemeinde, Weiterleitung an die NBank"
           },
           {
             "n": 4,
             "lane": "NBank",
             "title": "Entscheidung",
             "body": "Fördervertrag, bei reinem Zuschuss Bewilligungsbescheid",
-            "deadline": "Ziel: höchstens 3 Monate"
+            "deadline": "Ziel: höchstens drei Monate"
           },
           {
             "n": 5,
             "lane": "Sie",
             "title": "Bauen",
-            "body": "Aufträge im Wettbewerb vergeben (→ S. 21)",
-            "badges": [
-              "Baubeginnanzeige 4001"
-            ],
-            "deadline": "Baubeginn unverzüglich, spätestens 4 Monate nach Bekanntgabe"
+            "body": "Aufträge im Wettbewerb vergeben, Baubeginn anzeigen (→ S. 21)",
+            "deadline": "Baubeginn unverzüglich, spätestens vier Monate nach Bekanntgabe der Förderentscheidung"
           },
           {
             "n": 6,
             "lane": "NBank",
             "title": "Auszahlung",
-            "body": "in Raten nach Baufortschritt (→ S. 9)"
+            "body": "in Raten auf Ihre Anforderung, nach Baufortschritt (→ S. 9)"
           },
           {
             "n": 7,
@@ -81,17 +74,14 @@
               "Sie"
             ],
             "title": "Fertigstellung",
-            "body": "Vermietung nur mit WBS; letzte 10 % nach Schlussbescheinigung und Belegung",
-            "badges": [
-              "Fertigstellungsanzeige 4005"
-            ]
+            "body": "Fertigstellung anzeigen; Vermietung nur mit WBS; letzte 10 % nach Schlussbescheinigung und Belegung"
           },
           {
             "n": 8,
             "lane": "Sie",
             "title": "Verwendungsnachweis",
             "body": "an die Wohnraumförderstelle; ein einfacher Nachweis genügt",
-            "deadline": "6 Monate nach Erfüllung des Förderzwecks"
+            "deadline": "innerhalb von sechs Monaten nach Erfüllung des Förderzwecks"
           }
         ],
         "brackets": [
@@ -108,12 +98,12 @@
       "variant": "achtung",
       "role_hint": "stopp",
       "title": "Erst Bewilligung, dann Vertrag",
-      "body": "Ein Vertrag zu früh kostet die ganze Förderung: Begonnene Vorhaben werden nicht gefördert."
+      "body": "Wer vor der Bewilligung einen Bau-, Liefer- oder Kaufvertrag unterschreibt – außer für das Baugrundstück – oder den ersten Spatenstich setzt, verliert die ganze Förderung. Bewilligt ist Ihr Vorhaben erst mit Fördervertrag oder Bescheid der NBank."
     },
     {
       "type": "chart",
       "chart": "grid",
-      "title": "Darf ich das vor der Bewilligung?",
+      "title": "Was ist vor der Bewilligung erlaubt?",
       "data": {
         "kind": "ampel",
         "columns": [
@@ -122,7 +112,8 @@
             "symbol": "✓",
             "title": "Erlaubt",
             "items": [
-              "Grundstück kaufen oder Erbbaurecht bestellen",
+              "Baugrundstück kaufen oder Erbbaurecht bestellen",
+              "nicht bindende Reservierung beim Kauf",
               "Planung bis einschließlich Leistungsphase 6 HOAI",
               "Baugrund untersuchen, Grundstück herrichten"
             ]
@@ -132,7 +123,7 @@
             "symbol": "!",
             "title": "Genau prüfen",
             "items": [
-              "Vertrag mit eindeutigem, folgenlosem Rücktrittsrecht für den Fall, dass die Förderung ausbleibt",
+              "Vertrag mit eindeutigem, folgenlosem Rücktrittsrecht oder eindeutiger Bedingung für den Fall, dass die Förderung ausbleibt",
               "vorzeitiger Vorhabenbeginn auf Antrag (→ S. 21)"
             ]
           },
@@ -142,7 +133,8 @@
             "title": "Förderschädlich",
             "stop": true,
             "items": [
-              "Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Grundstück)",
+              "Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück)",
+              "beim Ersterwerb: bindender Kaufvertrag über die Wohnungen",
               "Beauftragung ab Leistungsphase 7 HOAI",
               "erster Spatenstich",
               "bei 2.5: Mietvertrag oder Überlassung der Wohnung"
@@ -154,19 +146,17 @@
     {
       "type": "text",
       "role_hint": "angebot",
-      "body": "Wie wir Sie Station für Station begleiten: S. 20."
+      "body": "Wie wir Sie Station für Station begleiten → S. 20"
     }
   ],
   "footnotes": [],
   "moved_to_p21": [
-    "Vergabe: mindestens drei Unternehmen zur Angebotsabgabe auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis 25.000 € ohne USt; Generalunternehmer/-übernehmer nur mit schriftlicher Zustimmung zur Prüfung von Kalkulation, Nachunternehmervergabe und Abrechnung; Kommunen u. a. zusätzlich Vergaberecht",
-    "Baubeginnanzeige (Vordruck 4001) erst nach tatsächlichem Baubeginn, an NBank und Wohnraumförderstelle; für Unternehmen subventionserheblich",
-    "Bauschild mit Förderhinweis (Logos von Land, Bund und NBank; Vorgaben auf nbank.de)",
-    "Darlehensauszahlung erst nach rangrichtiger Grundschuld oder Notarbestätigung",
-    "Ersterwerb: ohne Baubeginn- und Fertigstellungsanzeige; letzte 10 % nach Eigentumsumschreibung und Belegung",
-    "Vorzeitiger Vorhabenbeginn: Antrag frühestens zusammen mit dem Förderantrag; beginnen erst nach Zulassung, auf eigenes Risiko, ohne Anspruch auf die Förderung; Rücktrittsklauseln prüft die NBank im Einzelfall",
-    "Nicht als Vorhabenbeginn gilt auch ein rechtlich nicht bindender Reservierungsvertrag beim Kauf",
-    "Bindungsbeginn je Programmteil: ab Bezugsfertigkeit, beim Ersterwerb ab Eigentumsübergang, bei 2.3 ab Abschluss der Maßnahmen, bei 2.5 ab Erstbelegung"
+    "Vergabe: mindestens drei Unternehmen zur Angebotsabgabe auffordern, Verfahren dokumentieren; Direktauftrag bis 25.000 € netto; Generalunternehmer/-übernehmer nur mit schriftlicher Zustimmung zur Prüfung; Kommunen zusätzlich Vergaberecht (FAQ „Vergabe“)",
+    "Anzeigen: Baubeginnanzeige erst nach Baubeginn, für Unternehmen subventionserheblich; Ersterwerb ohne Baubeginn- und Fertigstellungsanzeige (FAQ „Anzeigen“)",
+    "Darlehensauszahlung erst nach rangrichtiger Sicherung oder Notarbestätigung (FAQ „Auszahlung“)",
+    "Vorzeitiger Vorhabenbeginn: Antrag frühestens mit dem Förderantrag; beginnen erst nach Zulassung, auf eigenes Risiko (FAQ „Vorzeitig beginnen?“)",
+    "Rücktrittsklauseln: kein Vorhabenbeginn, wenn eindeutig und folgenlos für den Fall ohne Förderung; Einzelfallprüfung (FAQ „Vertrag mit Rücktrittsrecht?“)",
+    "Bauschild: nur als „Bauschild-Vorgaben“ im Kontaktband „Immer aktuell: nbank.de“ (Details bewusst gestrichen, siehe open_points S. 21)"
   ],
   "fact_ids": [
     "F260",
@@ -203,5 +193,5 @@
     "F123",
     "F163"
   ],
-  "visual_idea": "Doppelseite 18|19 „Umsetzung“, Register in PGN-Rot #B71E3F, eckig. Kopf im PGN-CI: Kicker als Versal-Label in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Lead in Work Sans. Obere Hälfte, dominantes Element: Swimlane mit drei horizontalen Bahnen (Sie · Förderstelle · NBank) auf abwechselnd Weiß und #F4F3F2, acht nummerierte quadratische Stationsmarken (Ziffer in Montserrat Black, weiß auf PGN-Rot), verbunden durch eine 1-pt-Linie in Anthrazit, die zwischen den Bahnen wechselt; Stationen mit „with“ als eckige Klammer über zwei Bahnen. Stationstitel in Montserrat 600 Versalien, Kurztext in Work Sans darunter. Vordrucknummern als kleine eckige Badges an 2, 5, 7; Fristfähnchen mit Kalender-Icon an 4, 5, 8. Keine Warn-Icons in der Swimlane – das Signal trägt allein der Achtung-Kasten. Achtung-Kasten quer über die volle Breite direkt unter der Swimlane: das größte Signalelement der Broschüre, Fläche im roten Verlauf 160° #B71E3F → #8B2939, weiße Schrift, Stopp-Marker (ui-stopp.svg) links, Titel in Montserrat Black Versalien. Untere Hälfte: Ampel „Darf ich das vor der Bewilligung?“ in drei gleich breiten Spalten, Kopfsymbole ✓ / ! / ✕ zusätzlich zur Farbe (graustufenfest: ✓ hell, ! mittel, ✕ dunkel gerastert), kurze Listen mit Tätigkeits-Linienicons (Grundstück, Plan, Bohrer, Vertrag, Spaten, Schlüssel); die rote Spalte mit Stopp-Marker im Kopf. Ganz unten rechtsbündig der Angebotssatz als Seitenchip in PGN-Rot mit Pfeil „→ S. 20“. Dieselben quadratischen Stationsmarken (Größe, Abstände, Nummerierung) kehren auf S. 20 wieder. Keine Fußnote, keine Notizzeile, keine Quellenzeile."
+  "visual_idea": "Doppelseite 18|19 „Umsetzung“, Register in PGN-Rot #B71E3F, eckig. Kopf im PGN-CI: Kicker als Versal-Label in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Lead in Work Sans; Subline bleibt leer (Entlastung). Obere Hälfte, dominantes Element: Swimlane mit drei horizontalen Bahnen (Sie · Förderstelle · NBank) auf abwechselnd Weiß und #F4F3F2, acht nummerierte quadratische Stationsmarken (Ziffer in Montserrat Black, weiß auf PGN-Rot), verbunden durch eine 1-pt-Linie in Anthrazit, die zwischen den Bahnen wechselt; Stationen mit „with“ als eckige Klammer über zwei Bahnen. Stationstitel in Montserrat 600 Versalien, Kurztext in Work Sans darunter. Keine Vordruck-Badges; Fristfähnchen mit Kalender-Icon an 4, 5, 8. Keine Warn-Icons in der Swimlane – das Signal trägt allein der Achtung-Kasten. Achtung-Kasten quer über die volle Breite direkt unter der Swimlane: das größte Signalelement der Broschüre, Fläche im roten Verlauf 160° #B71E3F → #8B2939, weiße Schrift, Stopp-Marker (ui-stopp.svg) links, Titel in Montserrat Black Versalien. Untere Hälfte: Ampel „Was ist vor der Bewilligung erlaubt?“ in drei gleich breiten Spalten, Kopfsymbole ✓ / ! / ✕ zusätzlich zur Farbe (graustufenfest: ✓ hell, ! mittel, ✕ dunkel gerastert), kurze Listen mit Tätigkeits-Linienicons (Grundstück, Plan, Bohrer, Vertrag, Spaten, Schlüssel); die rote Spalte mit Stopp-Marker im Kopf. Ganz unten rechtsbündig der Angebotssatz als Seitenchip in PGN-Rot mit Pfeil „→ S. 20“. Dieselben quadratischen Stationsmarken (Größe, Abstände, Nummerierung) kehren auf S. 20 wieder. Keine Fußnote, keine Notizzeile, keine Quellenzeile."
 }

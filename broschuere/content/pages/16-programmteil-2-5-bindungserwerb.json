@@ -6,13 +6,13 @@
   "kicker": "Programmteil 2.5 · Belegungsbindungen erwerben",
   "headline": "Festbetrag für freie Bestandswohnungen",
   "subline": "Zuschuss 2,00–3,00 € je m² Wohnfläche und Monat der Bindung, 5–20 Jahre",
-  "lead": "Sie binden eine freie Bestandswohnung für Haushalte der Einkommensgruppe A und erhalten einen nicht rückzahlbaren Festbetrag – ohne Bau, ohne Darlehen. Höchstens 6,50 € Miete plus 3,00 € Zuschuss ergeben in den Jahren 1–3 bis zu 9,50 € je m² und Monat (Mietenstufe I–III, 15–20 Jahre Bindung); rechnerisch, denn der Zuschuss kommt in zwei Raten.",
+  "lead": "Sie binden eine freie Bestandswohnung für Haushalte der Einkommensgruppe A und erhalten einen nicht rückzahlbaren Festbetrag – ohne Bau, ohne Darlehen. Der Zuschuss kommt zur gedeckelten Miete hinzu.",
   "lead_equation": {
     "terms": [
       { "value": "6,50 €", "label": "Miete, höchstens", "token": "--color-primary" },
       { "value": "3,00 €", "label": "Zuschuss", "token": "--color-grant" }
     ],
-    "result": { "value": "bis zu 9,50 €", "label": "je m² und Monat, Jahre 1–3" }
+    "result": { "value": "bis zu 9,50 €", "label": "je m² und Monat, Jahre 1–3 · Mietenstufe I–III, 15–20 Jahre Bindung" }
   },
   "blocks": [
     {
@@ -52,15 +52,6 @@
             "3,00 €",
             "3,00 €"
           ]
-        },
-        "fee": {
-          "label": "Bearbeitungsentgelt 0,75 %",
-          "values": [
-            54,
-            135,
-            243,
-            324
-          ]
         }
       },
       "note": "Zwischenlaufzeiten: Satz der erreichten Stufe (12 Jahre: 2,50 €)."
@@ -77,7 +68,7 @@
           },
           {
             "at": "Erstbelegung",
-            "label": "Bindungsbeginn · 1. Rate 50 %, abzüglich Entgelt",
+            "label": "Bindungsbeginn · 1. Rate 50 %, abzüglich 0,75 % Bearbeitungsentgelt",
             "icon": "coin"
           },
           {
@@ -97,8 +88,8 @@
       "type": "bullets",
       "heading": "Miete und Bindung",
       "items": [
-        "Bindung ab der ersten Belegung mit einem WBS-Haushalt, per Dienstbarkeit im Grundbuch gesichert",
-        "Miete Jahr 1–3 höchstens 6,50 € (Mietenstufe I–III) bzw. 6,80 € (IV–VII) je m², ab EH-40-Niveau bis zu +0,30 €",
+        "Bindung ab der ersten Belegung mit einem WBS-Haushalt, grundsätzlich per Dienstbarkeit im Grundbuch gesichert",
+        "Miete Jahre 1–3 höchstens 6,50 € (Mietenstufe I–III) bzw. 6,80 € (IV–VII) je m², ab EH-40-Niveau bis zu +0,30 €",
         "danach höchstens +6,15 % in drei Jahren; keine Staffel- oder Indexmiete"
       ]
     },
@@ -106,17 +97,12 @@
       "type": "bullets",
       "heading": "Wer und welche Wohnung",
       "items": [
-        "Eigentum, Erbbaurecht oder vergleichbares langfristiges Nutzungsrecht",
+        "Sie brauchen Eigentum, Erbbaurecht oder ein vergleichbares langfristiges Nutzungsrecht an der Wohnung.",
         "Wohnung frei, ungebunden, abgeschlossen, gut erhalten, angemessen groß, mit Mindestausstattung (u. a. Heizung, Bad, Küchenanschluss); die Wohnraumförderstelle besichtigt sie",
-        "für besondere Bedarfsgruppen, etwa wohnungslose Menschen, Frauen aus Frauenhäusern oder Haftentlassene: dann **nur an sie vermieten**",
-        "**vor der Bewilligung weder Mietvertrag noch Überlassung** – sonst keine Förderung"
+        "Binden Sie die Wohnung für eine besondere Bedarfsgruppe – etwa wohnungslose Menschen, Frauen aus Frauenhäusern oder Haftentlassene –, vermieten Sie ausschließlich an diese Haushalte; mindestens ein volljähriges Haushaltsmitglied weist das per wohnungsbezogenem WBS nach.",
+        "**vor der Bewilligung weder Mietvertrag noch Überlassung** – sonst keine Förderung",
+        "Schließt die neue Bindung direkt an eine auslaufende an, greift 2.5 nicht. Für planmäßig auslaufende Landesbindungen mit noch laufendem NBank-Darlehen gibt es 2.6 (→ S. 17)."
       ]
-    },
-    {
-      "type": "text",
-      "role_hint": "band",
-      "heading": "Kombination",
-      "body": "Neue Bindungen direkt im Anschluss an auslaufende fördert 2.5 nicht; laufen Landesbindungen planmäßig aus, gibt es 2.6 (→ S. 17)."
     }
   ],
   "footnotes": [],
@@ -142,5 +128,5 @@
     "F244",
     "F255"
   ],
-  "visual_idea": "Baustein-Register 2.5 (--baustein-25, eckig, mit Nummer) am Seitenrand – Doppelseite 16|17 „Bindungen im Bestand“. Kopf im PGN-CI: Kicker als Versal-Label in --baustein-25, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat SemiBold, Lead in Work Sans; keine Rundungen. Im Lead rechts als typografisches Element die Rechengrafik „6,50 € + 3,00 € = bis zu 9,50 €“ in Montserrat Black mit tabellarischen Ziffern: 6,50 in Anthrazit (--color-primary), 3,00 in --color-grant, Ergebnis in PGN-Rot, Labels klein darunter (Miete, höchstens · Zuschuss · je m² und Monat, Jahre 1–3); kein freistehendes Kennzahl-Badge (Verwechslungsgefahr mit der Inselmiete S. 13). Dominant im mittleren Drittel: vier Säulen „Zuschuss für eine 60-m²-Wohnung“ (7.200 / 18.000 / 32.400 / 43.200 €) in --color-grant, Beträge über den Säulen in Montserrat Black; überlagert die Stufenlinie des Satzes 2,00 / 2,50 / 3,00 / 3,00 € in Anthrazit mit eigener Achse rechts; Bearbeitungsentgelt klein in #757474 unter jeder Säule; kurzer Stempel „Modellrechnung“ als Versal-Label mit eckiger Kontur oben rechts, ohne Zusatz und ohne Drehung. Darunter schmaler Zeitstrahl mit vier Marken, Erstbelegung und Halbzeit als gefüllte Münz-Icons in --color-grant, Beispielzeile klein darunter. Unteres Drittel zweispaltig, fluchtend mit S. 17: „Miete und Bindung“ und „Wer und welche Wohnung“ als schlanke Listen; die Zeile „vor der Bewilligung weder Mietvertrag noch Überlassung“ fett mit kleinem Stopp-Marker (ui-stopp.svg) – kein Kasten. „Kombination“ als schmales Band auf #F4F3F2 über die volle Breite. Keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile."
+  "visual_idea": "Baustein-Register 2.5 (--baustein-25, eckig, mit Nummer) am Seitenrand – Doppelseite 16|17 „Bindungen im Bestand“. Kopf im PGN-CI: Kicker als Versal-Label in --baustein-25, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat SemiBold, Lead in Work Sans; keine Rundungen. Im Lead rechts als typografisches Element die Rechengrafik „6,50 € + 3,00 € = bis zu 9,50 €“ in Montserrat Black mit tabellarischen Ziffern: 6,50 in Anthrazit (--color-primary), 3,00 in --color-grant, Ergebnis in PGN-Rot, Labels klein darunter (Miete, höchstens · Zuschuss · je m² und Monat, Jahre 1–3 · Mietenstufe I–III, 15–20 Jahre Bindung); kein freistehendes Kennzahl-Badge (Verwechslungsgefahr mit der Inselmiete S. 13). Dominant im mittleren Drittel: vier Säulen „Zuschuss für eine 60-m²-Wohnung“ (7.200 / 18.000 / 32.400 / 43.200 €) in --color-grant, Beträge über den Säulen in Montserrat Black; überlagert die Stufenlinie des Satzes 2,00 / 2,50 / 3,00 / 3,00 € in Anthrazit mit eigener Achse rechts; kurzer Stempel „Modellrechnung“ als Versal-Label mit eckiger Kontur oben rechts, ohne Zusatz und ohne Drehung. Darunter schmaler Zeitstrahl mit vier Marken, Erstbelegung und Halbzeit als gefüllte Münz-Icons in --color-grant, Marke Erstbelegung mit „abzüglich 0,75 % Bearbeitungsentgelt“, Beispielzeile klein darunter. Unteres Drittel zweispaltig, fluchtend mit S. 17: „Miete und Bindung“ und „Wer und welche Wohnung“ als schlanke Listen; die Zeile „vor der Bewilligung weder Mietvertrag noch Überlassung“ fett mit kleinem Stopp-Marker (ui-stopp.svg) – kein Kasten; letzter Listenpunkt mit Verweis auf 2.6 (→ S. 17). Neben dem Säulendiagramm genau drei Module (Zeitstrahl, zwei Listen). Keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile."
 }

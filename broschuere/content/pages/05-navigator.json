@@ -2,8 +2,8 @@
   "no": 5,
   "slug": "navigator",
   "layout_type": "decision-tree",
-  "running_title": "Orientierung · Navigator",
-  "kicker": "Der Navigator",
+  "running_title": "Überblick · Navigator",
+  "kicker": "Navigator",
   "headline": "Vom Vorhaben zum passenden Programmteil",
   "lead": "Vier Ausgangslagen führen zu sechs Programmteilen. Den Antrag stellen Sie bei Ihrer kommunalen Wohnraumförderstelle, die NBank bewilligt.",
   "blocks": [
@@ -24,7 +24,7 @@
                 "no": "weiter"
               },
               {
-                "q": "Neubau ab KfW-EH-40-Niveau, nur Zuschuss gewünscht?",
+                "q": "Neubau ab EH-40-Niveau, nur Zuschuss gewünscht?",
                 "yes": "2.2",
                 "no": "2.1"
               }
@@ -49,7 +49,7 @@
             "pins": [
               {
                 "at": "2.3",
-                "text": "Antragseingang bis 31.12.2026: Wahl altes/neues Recht → S. 15"
+                "text": "Wahlrecht bis 31.12.2026 → S. 15"
               }
             ]
           },
@@ -169,6 +169,11 @@
       }
     },
     {
+      "type": "text",
+      "role_hint": "achtung-einzeiler",
+      "body": "**Erst Bewilligung, dann Vertrag oder Spatenstich** → S. 19"
+    },
+    {
       "type": "bullets",
       "variant": "wordlist",
       "heading": "Nicht förderfähig",
@@ -179,7 +184,7 @@
         "an Pflege- oder Betreuungsvertrag gekoppelter Wohnraum",
         "Gemeinschaftsunterkünfte",
         "Wohnungen ohne Bindung",
-        "Eigentumswohnungen zur Vermietung",
+        "Eigentumswohnungen zur Vermietung (2.1, 2.2, 2.4)",
         "Standorte außerhalb Niedersachsens"
       ]
     }
@@ -229,5 +234,5 @@
     "F093",
     "G1-24"
   ],
-  "visual_idea": "Dominant: ganzseitiges Flussdiagramm im PGN-CI. Startknoten = Blocktitel „Was haben Sie vor?“ in Montserrat Black, Versalien, mit senkrechter roter 2-pt-Linie links. Vier Äste A–D als Versal-Etiketten, eckige Rauten (keine Rundungen) mit Ja/Nein, ruhige 0,75-pt-Linien in Anthrazit #3C3C3B; „weiter“ führt zur nächsten Raute, Nein-Ausgänge ohne Ziel (null) nicht zeichnen. Jeder Ast endet in einer eckigen Ziel-Kachel (Kachelreihe unter dem Titel „Die sechs Programmteile auf einen Blick“) in der Baustein-Farbe (--baustein-21 … --baustein-26) mit großer Nummer 2.1–2.6 (graustufenfest), Förderart-Icon (Darlehen/Zuschuss/Festbetrag/Zins) und Seitenzahl; Kachelfelder Instrument · Bis zu · Bindung · Eigenmittel (Feldetikett „Bis zu“ bei 2.5 als „Festbetrag“, bei 2.6 als „Zins“; dort kein Feld Eigenmittel). Nur drei Pins als kleine eckige Fähnchen an 2.2, 2.3 und 2.6, keine weiteren Notizen, keine Kurzmarke, kein Achtung-Band (der Kurzverweis Vorhabenbeginn steht nur auf S. 4). Unter dem Baum folgt direkt „Nicht förderfähig“ als graue Wortleiste auf #F4F3F2: Versal-Label links, Begriffe in einer Zeile mit Mittelpunkten getrennt, ohne Piktogramme."
+  "visual_idea": "Dominant: ganzseitiges Flussdiagramm im PGN-CI. Startknoten = Blocktitel „Was haben Sie vor?“ in Montserrat Black, Versalien, mit senkrechter roter 2-pt-Linie links. Vier Äste A–D als Versal-Etiketten, eckige Rauten (keine Rundungen) mit Ja/Nein, ruhige 0,75-pt-Linien in Anthrazit #3C3C3B; „weiter“ führt zur nächsten Raute, Nein-Ausgänge ohne Ziel (null) nicht zeichnen. Jeder Ast endet in einer eckigen Ziel-Kachel (Kachelreihe unter dem Titel „Die sechs Programmteile auf einen Blick“) in der Baustein-Farbe (--baustein-21 … --baustein-26) mit großer Nummer 2.1–2.6 (graustufenfest), Förderart-Icon (Darlehen/Zuschuss/Festbetrag/Zins) und Seitenzahl; Kachelfelder Instrument · Bis zu · Bindung · Eigenmittel (Feldetikett „Bis zu“ bei 2.5 als „Festbetrag“, bei 2.6 als „Zins“; dort kein Feld Eigenmittel). Nur drei Pins als kleine eckige Fähnchen an 2.2, 2.3 und 2.6, keine weiteren Notizen, keine Kurzmarke. Unter der Kachelreihe genau ein Achtung-Einzeiler „Erst Bewilligung, dann Vertrag oder Spatenstich → S. 19“ als schmales einzeiliges Band mit Signalkontur und Stopp-Marker – Kurzverweis auf den Achtung-Kasten S. 19, kein eigener Kasten, keine Fläche. Darunter folgt „Nicht förderfähig“ als graue Wortleiste auf #F4F3F2: Versal-Label links, Begriffe in einer Zeile mit Mittelpunkten getrennt, ohne Piktogramme."
 }

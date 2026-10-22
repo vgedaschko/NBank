@@ -6,7 +6,7 @@
   "kicker": "Programmteil 2.4 · Ostfriesische Inseln",
   "headline": "Höhere Kostengrenze, 10 % Eigenmittel",
   "subline": "Bis zu 90 % der gedeckelten Herstellungskosten, bis zu 100 % der zuwendungsfähigen Grundstückskosten",
-  "lead": "Neubau, Änderung und Erweiterung oder Ersterwerb (bis zwei Jahre nach Fertigstellung) gebundener Mietwohnungen in Mehrfamilienhäusern auf Borkum, Juist, Norderney, Baltrum, Langeoog, Spiekeroog und Wangerooge – ohne Bedarfsnachweis.",
+  "lead": "Sie bauen neu, ändern oder erweitern ein Gebäude oder kaufen Neubauwohnungen als Ersterwerb bis zwei Jahre nach Fertigstellung – gefördert werden gebundene Mietwohnungen in Mehrfamilienhäusern auf allen sieben bewohnten Ostfriesischen Inseln. Einen Bedarfsnachweis brauchen Sie nicht.",
   "blocks": [
     {
       "type": "chart",
@@ -43,7 +43,7 @@
         ],
         "series": [
           {
-            "name": "Darlehen, bis zu",
+            "name": "Darlehen",
             "token": "--color-loan",
             "values": [
               3600,
@@ -57,7 +57,7 @@
             ]
           },
           {
-            "name": "Zuschuss, bis zu",
+            "name": "Zuschuss",
             "token": "--color-grant",
             "values": [
               2880,
@@ -86,7 +86,7 @@
           }
         ],
         "totals": {
-          "label": "Förderung zusammen, bis zu",
+          "label": "Förderung zusammen",
           "values": [
             6480,
             6480,
@@ -103,19 +103,19 @@
           "unit": "in % der Grundstückskosten bis Bodenrichtwert",
           "series": [
             {
-              "name": "Darlehen, bis zu",
+              "name": "Darlehen",
               "token": "--color-loan",
               "value": 70
             },
             {
-              "name": "Zuschuss, bis zu",
+              "name": "Zuschuss",
               "token": "--color-grant",
               "value": 30
             }
           ]
         }
       },
-      "note": "Deckel: das 1,5-Fache der Bemessungsgrenze für Mietenstufe I–III, unabhängig von der Mietenstufe der Insel; Fortschreibung → S. 8. Eigenmittel: mindestens 10 % der zuwendungsfähigen Herstellungskosten; mindestens die Hälfte davon soll Geld oder lastenfreies Grundstück sein."
+      "note": "Deckel: das 1,5-Fache der Bemessungsgrenze für Mietenstufe I–III (→ S. 8), unabhängig von der Mietenstufe der Insel. Eigenmittel: mindestens 10 % der zuwendungsfähigen Herstellungskosten; mindestens die Hälfte davon soll Geld oder lastenfreies Grundstück sein."
     },
     {
       "type": "key_figures",
@@ -144,7 +144,7 @@
     {
       "type": "text",
       "heading": "Darlehen wie in 2.1",
-      "body": "**Zuschuss nur mit Darlehen.** Zins, Verwaltungskostenbeitrag, Bearbeitungsentgelte und **35 Jahre** Bindung wie in 2.1 (→ S. 9); beim Ersterwerb läuft die Bindung ab Eigentumsübergang. Wenig Eigenmittel heißt viel Darlehen – Tilgung und Verwaltungskostenbeitrag fest einplanen."
+      "body": "**Zuschuss nur mit Darlehen.** Es gelten die Konditionen von 2.1 (→ S. 9): 0 % Zins bis Ende Jahr 35, 0,5 % Verwaltungskostenbeitrag p. a., einmalig 1 % (Darlehen) bzw. 0,75 % (Zuschuss) Bearbeitungsentgelt, **35 Jahre** Bindung – beim Ersterwerb ab Eigentumsübergang. Wenig Eigenmittel heißt viel Darlehen: Planen Sie Tilgung und Verwaltungskostenbeitrag fest ein."
     },
     {
       "type": "bullets",
@@ -153,7 +153,7 @@
         "Eigentum oder Erbbaurecht (mindestens 60 Jahre); gesicherter Erwerb genügt",
         "je neuem Gebäude mindestens zwei gebundene Mietwohnungen",
         "nicht gefördert: Ferienwohnungen, Ferien- und Wochenendhäuser, zur Vermietung bestimmte Eigentumswohnungen",
-        "kombinierbar mit KfW 298 oder 296 wie in 2.1 (→ S. 8); Kommunen selbst: KfW 498"
+        "Neubau und Ersterwerb bis zwölf Monate nach Bauabnahme: kombinierbar mit KfW 298 oder 296 wie in 2.1 (→ S. 8); Kommunen selbst: KfW 498"
       ]
     }
   ],

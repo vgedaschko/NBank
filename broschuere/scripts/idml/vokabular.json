@@ -1,0 +1,7691 @@
+{
+ "_hinweis": "Erzeugt mit validate.py --refs DIR --write-vocab; Grundlage der Vokabularprüfung ohne Referenzen. null = beliebiger Wert, Liste = erlaubte Aufzählungswerte.",
+ "aufzaehlung_texte": {
+  "ActivePrinterPreset": [
+   "Custom",
+   "Default"
+  ],
+  "Alignment": [
+   "LeftAlign"
+  ],
+  "BalanceRaggedLines": [
+   "NoBalancing"
+  ],
+  "BaselineColor": [
+   "LightBlue"
+  ],
+  "BaselineFrameGridColor": [
+   "LightBlue"
+  ],
+  "BleedGuideColor": [
+   "Fiesta"
+  ],
+  "BulletsFontStyle": [
+   "Nothing"
+  ],
+  "CRD": [
+   "Default"
+  ],
+  "ColumnGuideColor": [
+   "Violet"
+  ],
+  "DefaultCellTagColor": [
+   "GrassGreen"
+  ],
+  "DefaultImageTagColor": [
+   "Violet"
+  ],
+  "DefaultStoryTagColor": [
+   "BrickRed"
+  ],
+  "DefaultTableTagColor": [
+   "DarkBlue"
+  ],
+  "EndnoteMarkerPositioning": [
+   "SuperscriptMarker"
+  ],
+  "EndnoteNumberingStyle": [
+   "Arabic"
+  ],
+  "FootnoteNumberingStyle": [
+   "Arabic"
+  ],
+  "FrameColor": [
+   "Nothing"
+  ],
+  "FrameCreateOption": [
+   "NewPage"
+  ],
+  "GridColor": [
+   "LightGray"
+  ],
+  "GuideColor": [
+   "Burgundy",
+   "Cyan"
+  ],
+  "KentenFontStyle": [
+   "Nothing"
+  ],
+  "KinsokuSet": [
+   "HardKinsoku",
+   "Nothing"
+  ],
+  "LayerColor": [
+   "Black",
+   "Blue",
+   "BrickRed",
+   "Brown",
+   "Burgundy",
+   "Charcoal",
+   "Cute Teal",
+   "Cyan",
+   "DarkBlue",
+   "DarkGreen",
+   "Fiesta",
+   "Gold",
+   "GrassGreen",
+   "Gray",
+   "Green",
+   "GridBlue",
+   "GridGreen",
+   "GridOrange",
+   "Lavender",
+   "LightBlue",
+   "LightGray",
+   "LightOlive",
+   "Lipstick",
+   "Magenta",
+   "Ochre",
+   "OliveGreen",
+   "Orange",
+   "Peach",
+   "Pink",
+   "Purple",
+   "Red",
+   "Sulphur",
+   "Tan",
+   "Teal",
+   "Violet",
+   "White",
+   "Yellow"
+  ],
+  "LayoutGridColorIndex": [
+   "GridGreen"
+  ],
+  "Leading": [
+   "Auto"
+  ],
+  "ListItem": [
+   "Arabic"
+  ],
+  "MarginGuideColor": [
+   "Magenta"
+  ],
+  "MarkType": [
+   "Default"
+  ],
+  "MarkerPositioning": [
+   "SuperscriptMarker"
+  ],
+  "Mojikumi": [
+   "LineEndAllOneHalfEmEnum",
+   "Nothing"
+  ],
+  "PPD": [
+   "DeviceIndependent"
+  ],
+  "PageColor": [
+   "Nothing",
+   "UseMasterColor"
+  ],
+  "PageNumberStyle": [
+   "Arabic",
+   "LowerLetters",
+   "LowerRoman",
+   "UpperLetters",
+   "UpperRoman"
+  ],
+  "PageRange": [
+   "AllPages"
+  ],
+  "PaperHeight": [
+   "Auto"
+  ],
+  "PaperSize": [
+   "DefinedByDriver"
+  ],
+  "PaperWidth": [
+   "Auto"
+  ],
+  "PreferredBrowser": [
+   "Nothing"
+  ],
+  "PreviewBackgroundColor": [
+   "LightGray"
+  ],
+  "PreviewColor": [
+   "Nothing"
+  ],
+  "Printer": [
+   "PostscriptFile"
+  ],
+  "Profile": [
+   "UseDocument"
+  ],
+  "RestartEndnoteNumbering": [
+   "Continuous"
+  ],
+  "RestartNumbering": [
+   "DontRestart"
+  ],
+  "RubyFontStyle": [
+   "Nothing"
+  ],
+  "RulerGuidesColor": [
+   "Burgundy",
+   "Cyan"
+  ],
+  "SameParaStyleSpacing": [
+   "SetIgnore"
+  ],
+  "ScopeValue": [
+   "EndnoteDocumentScope"
+  ],
+  "Screening": [
+   "Default"
+  ],
+  "ShowEndnotePrefixSuffix": [
+   "NoPrefixSuffix"
+  ],
+  "ShowPrefixSuffix": [
+   "NoPrefixSuffix"
+  ],
+  "SlugGuideColor": [
+   "GridBlue"
+  ],
+  "SpanSplitColumnCount": [
+   "All"
+  ],
+  "TagColor": [
+   "Black",
+   "Blue",
+   "BrickRed",
+   "Brown",
+   "Burgundy",
+   "Charcoal",
+   "Cyan",
+   "DarkBlue",
+   "DarkGreen",
+   "Gray",
+   "Green",
+   "GridOrange",
+   "LightBlue",
+   "LightGray",
+   "Magenta",
+   "Ochre",
+   "OliveGreen",
+   "Orange",
+   "Red",
+   "Tan",
+   "Teal",
+   "Violet",
+   "Yellow"
+  ],
+  "TransformFilename": [
+   "StylesheetInXML"
+  ],
+  "UserColor": [
+   "Gold"
+  ],
+  "WatermarkFontColor": [
+   "Black"
+  ]
+ },
+ "elemente": {
+  "ABullet": {
+   "CharacterType": [
+    "GlyphWithFont",
+    "UnicodeOnly",
+    "UnicodeWithFont"
+   ],
+   "CharacterValue": null,
+   "Self": null
+  },
+  "ActivePrinterPreset": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ActualMetadataProperty": {
+   "NamespacePrefix": null,
+   "PropertyPath": null
+  },
+  "AdjustLayoutPreference": {
+   "AllowFontSizeAndLeadingAdjustment": [
+    "false",
+    "true"
+   ],
+   "AllowLockedObjectsToAdjust": [
+    "false",
+    "true"
+   ],
+   "EnableAdjustLayout": [
+    "false",
+    "true"
+   ],
+   "EnableAutoAdjustMargins": [
+    "false",
+    "true"
+   ],
+   "ImposeFontSizeRestriction": [
+    "false",
+    "true"
+   ],
+   "MaximumFontSize": null,
+   "MinimumFontSize": null
+  },
+  "Alignment": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "AlignmentCharacter": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "AltMetadataProperty": {
+   "NamespacePrefix": null,
+   "PropertyPath": null
+  },
+  "AnchoredObjectDefault": {
+   "AnchorContent": [
+    "Unassigned"
+   ],
+   "AnchoredObjectStyle": null,
+   "AnchoredParagraphStyle": null,
+   "InitialAnchorHeight": null,
+   "InitialAnchorWidth": null
+  },
+  "AnchoredObjectSetting": {
+   "AnchorPoint": [
+    "BottomRightAnchor"
+   ],
+   "AnchorSpaceAbove": null,
+   "AnchorXoffset": null,
+   "AnchorYoffset": null,
+   "AnchoredPosition": [
+    "InlinePosition"
+   ],
+   "HorizontalAlignment": [
+    "LeftAlign"
+   ],
+   "HorizontalReferencePoint": [
+    "TextFrame"
+   ],
+   "LockPosition": [
+    "false",
+    "true"
+   ],
+   "PinPosition": [
+    "false",
+    "true"
+   ],
+   "SpineRelative": [
+    "false",
+    "true"
+   ],
+   "VerticalAlignment": [
+    "BottomAlign",
+    "TopAlign"
+   ],
+   "VerticalReferencePoint": [
+    "LineBaseline"
+   ]
+  },
+  "AppliedFont": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "AppliedNumberingList": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Assignment": {
+   "ExportOptions": [
+    "AssignedSpreads"
+   ],
+   "FilePath": null,
+   "IncludeLinksWhenPackage": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "Self": null,
+   "UserName": null
+  },
+  "BackingStory": {
+   "DOMVersion": null,
+   "src": null
+  },
+  "BalanceRaggedLines": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "BasedOn": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "BaselineColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "BaselineFrameGridColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "BaselineFrameGridOption": {
+   "BaselineFrameGridIncrement": null,
+   "BaselineFrameGridRelativeOption": [
+    "TopOfInset"
+   ],
+   "StartingOffsetForBaselineFrameGrid": null,
+   "UseCustomBaselineFrameGrid": [
+    "false",
+    "true"
+   ]
+  },
+  "BevelAndEmbossSetting": {
+   "Altitude": null,
+   "Angle": null,
+   "Applied": [
+    "false",
+    "true"
+   ],
+   "Depth": null,
+   "Direction": [
+    "Up"
+   ],
+   "HighlightBlendMode": [
+    "Screen"
+   ],
+   "HighlightColor": [
+    "n"
+   ],
+   "HighlightOpacity": null,
+   "ShadowBlendMode": [
+    "Multiply"
+   ],
+   "ShadowColor": [
+    "n"
+   ],
+   "ShadowOpacity": null,
+   "Size": null,
+   "Soften": null,
+   "Style": [
+    "InnerBevel"
+   ],
+   "Technique": [
+    "SmoothContour"
+   ],
+   "UseGlobalLight": [
+    "false",
+    "true"
+   ]
+  },
+  "BleedGuideColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "BlendingSetting": {
+   "BlendMode": [
+    "Normal"
+   ],
+   "IsolateBlending": [
+    "false",
+    "true"
+   ],
+   "KnockoutGroup": [
+    "false",
+    "true"
+   ],
+   "Opacity": null
+  },
+  "Br": {},
+  "BuildingBlock": {
+   "AppliedCharacterStyle": [
+    "n"
+   ],
+   "AppliedDelimiter": null,
+   "BlockType": [
+    "BookmarkNameBuildingBlock",
+    "CustomStringBuildingBlock",
+    "FullParagraphBuildingBlock",
+    "PageNumberBuildingBlock",
+    "ParagraphNumberBuildingBlock",
+    "ParagraphTextBuildingBlock"
+   ],
+   "CustomText": null,
+   "IncludeDelimiter": [
+    "false",
+    "true"
+   ],
+   "Self": null
+  },
+  "BulletChar": {
+   "BulletCharacterType": [
+    "UnicodeOnly"
+   ],
+   "BulletCharacterValue": null
+  },
+  "BulletsCharacterStyle": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "BulletsFont": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "BulletsFontStyle": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ButtonPreference": {
+   "Name": null
+  },
+  "CRD": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "CaptionMetadataVariablePreference": {
+   "MetadataProviderName": null,
+   "TextAfter": null,
+   "TextBefore": null
+  },
+  "Cell": {
+   "AppliedCellStyle": null,
+   "AppliedCellStylePriority": null,
+   "BottomEdgeStrokeColor": null,
+   "BottomEdgeStrokeTint": null,
+   "BottomEdgeStrokeType": null,
+   "BottomEdgeStrokeWeight": null,
+   "BottomInset": null,
+   "ColumnSpan": null,
+   "FirstBaselineOffset": [
+    "AscentOffset",
+    "CapHeight",
+    "EmboxHeight",
+    "FixedHeight",
+    "LeadingOffset",
+    "XHeight"
+   ],
+   "LeftEdgeStrokeColor": null,
+   "LeftEdgeStrokeTint": null,
+   "LeftEdgeStrokeType": null,
+   "LeftEdgeStrokeWeight": null,
+   "LeftInset": null,
+   "MinimumFirstBaselineOffset": null,
+   "Name": null,
+   "RightEdgeStrokeColor": null,
+   "RightEdgeStrokeTint": null,
+   "RightEdgeStrokeType": null,
+   "RightEdgeStrokeWeight": null,
+   "RightInset": null,
+   "RowSpan": null,
+   "Self": null,
+   "TopEdgeStrokeColor": null,
+   "TopEdgeStrokeTint": null,
+   "TopEdgeStrokeType": null,
+   "TopEdgeStrokeWeight": null,
+   "TopInset": null,
+   "VerticalJustification": [
+    "BottomAlign",
+    "CenterAlign",
+    "JustifyAlign",
+    "TopAlign"
+   ]
+  },
+  "CellStyle": {
+   "AppliedParagraphStyle": null,
+   "Name": null,
+   "Self": null
+  },
+  "ChapterNumberFormat": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ChapterNumberPreference": {
+   "ChapterNumber": null,
+   "ChapterNumberSource": [
+    "ContinueFromPreviousDocument"
+   ]
+  },
+  "ChapterNumberVariablePreference": {
+   "Format": [
+    "Current"
+   ],
+   "TextAfter": null,
+   "TextBefore": null
+  },
+  "CharacterStyle": {
+   "AppliedLanguage": null,
+   "BaselineShift": null,
+   "Capitalization": [
+    "AllCaps",
+    "CapToSmallCap",
+    "Normal",
+    "SmallCaps"
+   ],
+   "CharacterAlignment": [
+    "AlignEmCenter"
+   ],
+   "CharacterDirection": [
+    "DefaultDirection"
+   ],
+   "CharacterRotation": null,
+   "CjkGridTracking": [
+    "false",
+    "true"
+   ],
+   "DiacriticPosition": [
+    "OpentypePositionFromBaseline"
+   ],
+   "DigitsType": [
+    "DefaultDigits"
+   ],
+   "EmitCss": [
+    "false",
+    "true"
+   ],
+   "EndJoin": [
+    "MiterEndJoin"
+   ],
+   "ExtendedKeyboardShortcut": null,
+   "FillColor": null,
+   "FillTint": null,
+   "FontStyle": null,
+   "GlyphForm": [
+    "None"
+   ],
+   "GradientFillAngle": null,
+   "GradientFillLength": null,
+   "GradientFillStart": null,
+   "GradientStrokeAngle": null,
+   "GradientStrokeLength": null,
+   "GradientStrokeStart": null,
+   "HorizontalScale": null,
+   "Imported": [
+    "false",
+    "true"
+   ],
+   "IncludeClass": [
+    "false",
+    "true"
+   ],
+   "Jidori": null,
+   "Kashidas": [
+    "DefaultKashidas"
+   ],
+   "KentenAlignment": [
+    "AlignKentenCenter"
+   ],
+   "KentenCharacterSet": [
+    "CharacterInput"
+   ],
+   "KentenCustomCharacter": null,
+   "KentenFontSize": null,
+   "KentenKind": [
+    "None"
+   ],
+   "KentenOverprintFill": [
+    "Auto"
+   ],
+   "KentenOverprintStroke": [
+    "Auto"
+   ],
+   "KentenPlacement": null,
+   "KentenPosition": [
+    "AboveRight"
+   ],
+   "KentenStrokeTint": null,
+   "KentenTint": null,
+   "KentenWeight": null,
+   "KentenXScale": null,
+   "KentenYScale": null,
+   "KerningMethod": [
+    "$ID/None"
+   ],
+   "KerningValue": null,
+   "KeyboardShortcut": null,
+   "LeadingAki": null,
+   "Ligatures": [
+    "false",
+    "true"
+   ],
+   "MiterLimit": null,
+   "Name": null,
+   "NoBreak": [
+    "false",
+    "true"
+   ],
+   "OTFContextualAlternate": [
+    "false",
+    "true"
+   ],
+   "OTFDiscretionaryLigature": [
+    "false",
+    "true"
+   ],
+   "OTFFigureStyle": [
+    "Default",
+    "ProportionalLining",
+    "ProportionalOldstyle",
+    "TabularLining",
+    "TabularOldstyle"
+   ],
+   "OTFFraction": [
+    "false",
+    "true"
+   ],
+   "OTFHVKana": [
+    "false",
+    "true"
+   ],
+   "OTFHistorical": [
+    "false",
+    "true"
+   ],
+   "OTFJustificationAlternate": [
+    "false",
+    "true"
+   ],
+   "OTFLocale": [
+    "false",
+    "true"
+   ],
+   "OTFMark": [
+    "false",
+    "true"
+   ],
+   "OTFOrdinal": [
+    "false",
+    "true"
+   ],
+   "OTFOverlapSwash": [
+    "false",
+    "true"
+   ],
+   "OTFProportionalMetrics": [
+    "false",
+    "true"
+   ],
+   "OTFRomanItalics": [
+    "false",
+    "true"
+   ],
+   "OTFSlashedZero": [
+    "false",
+    "true"
+   ],
+   "OTFStretchedAlternate": [
+    "false",
+    "true"
+   ],
+   "OTFStylisticAlternate": [
+    "false",
+    "true"
+   ],
+   "OTFStylisticSets": null,
+   "OTFSwash": [
+    "false",
+    "true"
+   ],
+   "OTFTitling": [
+    "false",
+    "true"
+   ],
+   "OverprintFill": [
+    "false",
+    "true"
+   ],
+   "OverprintStroke": [
+    "false",
+    "true"
+   ],
+   "PointSize": null,
+   "Position": [
+    "Normal",
+    "OTDenominator",
+    "OTNumerator",
+    "OTSubscript",
+    "OTSuperscript",
+    "Subscript",
+    "Superscript"
+   ],
+   "PositionalForm": [
+    "None"
+   ],
+   "RubyAlignment": [
+    "RubyJIS"
+   ],
+   "RubyAutoAlign": [
+    "false",
+    "true"
+   ],
+   "RubyAutoScaling": [
+    "false",
+    "true"
+   ],
+   "RubyAutoTcyAutoScale": [
+    "false",
+    "true"
+   ],
+   "RubyAutoTcyDigits": null,
+   "RubyAutoTcyIncludeRoman": [
+    "false",
+    "true"
+   ],
+   "RubyFontSize": null,
+   "RubyOpenTypePro": [
+    "false",
+    "true"
+   ],
+   "RubyOverhang": [
+    "false",
+    "true"
+   ],
+   "RubyOverprintFill": [
+    "Auto"
+   ],
+   "RubyOverprintStroke": [
+    "Auto"
+   ],
+   "RubyParentOverhangAmount": [
+    "RubyOverhangOneRuby"
+   ],
+   "RubyParentScalingPercent": null,
+   "RubyParentSpacing": [
+    "RubyParent121Aki"
+   ],
+   "RubyPosition": [
+    "AboveRight"
+   ],
+   "RubyStrokeTint": null,
+   "RubyTint": null,
+   "RubyType": [
+    "PerCharacterRuby"
+   ],
+   "RubyWeight": null,
+   "RubyXOffset": null,
+   "RubyXScale": null,
+   "RubyYOffset": null,
+   "RubyYScale": null,
+   "ScaleAffectsLineHeight": [
+    "false",
+    "true"
+   ],
+   "Self": null,
+   "ShataiAdjustRotation": [
+    "false",
+    "true"
+   ],
+   "ShataiAdjustTsume": [
+    "false",
+    "true"
+   ],
+   "ShataiDegreeAngle": null,
+   "ShataiMagnification": null,
+   "Skew": null,
+   "SplitDocument": [
+    "false",
+    "true"
+   ],
+   "StrikeThroughGapOverprint": [
+    "false",
+    "true"
+   ],
+   "StrikeThroughGapTint": null,
+   "StrikeThroughOffset": null,
+   "StrikeThroughOverprint": [
+    "false",
+    "true"
+   ],
+   "StrikeThroughTint": null,
+   "StrikeThroughWeight": null,
+   "StrikeThru": [
+    "false",
+    "true"
+   ],
+   "StrokeAlignment": [
+    "CenterAlignment",
+    "InsideAlignment",
+    "OutsideAlignment"
+   ],
+   "StrokeTint": null,
+   "StrokeWeight": null,
+   "StyleUniqueId": null,
+   "Tatechuyoko": [
+    "false",
+    "true"
+   ],
+   "TatechuyokoXOffset": null,
+   "TatechuyokoYOffset": null,
+   "Tracking": null,
+   "TrailingAki": null,
+   "Tsume": null,
+   "Underline": [
+    "false",
+    "true"
+   ],
+   "UnderlineGapOverprint": [
+    "false",
+    "true"
+   ],
+   "UnderlineGapTint": null,
+   "UnderlineOffset": null,
+   "UnderlineOverprint": [
+    "false",
+    "true"
+   ],
+   "UnderlineTint": null,
+   "UnderlineWeight": null,
+   "VerticalScale": null,
+   "Warichu": [
+    "false",
+    "true"
+   ],
+   "WarichuAlignment": [
+    "Auto"
+   ],
+   "WarichuCharsAfterBreak": null,
+   "WarichuCharsBeforeBreak": null,
+   "WarichuLineSpacing": null,
+   "WarichuLines": null,
+   "WarichuSize": null,
+   "XOffsetDiacritic": null,
+   "YOffsetDiacritic": null
+  },
+  "CharacterStyleRange": {
+   "AppliedCharacterStyle": null,
+   "BaselineShift": null,
+   "DiacriticPosition": [
+    "OpentypePositionFromBaseline"
+   ],
+   "FillColor": null,
+   "FillTint": null,
+   "FontStyle": null,
+   "KerningValue": null,
+   "MiterLimit": null,
+   "PointSize": null,
+   "Position": [
+    "Normal",
+    "OTDenominator",
+    "OTNumerator",
+    "OTSubscript",
+    "OTSuperscript",
+    "Subscript",
+    "Superscript"
+   ],
+   "StrokeWeight": null,
+   "Tracking": null,
+   "Underline": [
+    "false",
+    "true"
+   ]
+  },
+  "CjkGridPreference": {
+   "ColorEveryNthCell": null,
+   "ICFMode": [
+    "false",
+    "true"
+   ],
+   "MinimumScale": null,
+   "ShowAllFrameGrids": [
+    "false",
+    "true"
+   ],
+   "ShowAllLayoutGrids": [
+    "false",
+    "true"
+   ],
+   "ShowCharacterCount": [
+    "false",
+    "true"
+   ],
+   "SingleLineColorMode": [
+    "false",
+    "true"
+   ],
+   "SnapToLayoutGrid": [
+    "false",
+    "true"
+   ],
+   "UseCircularCells": [
+    "false",
+    "true"
+   ]
+  },
+  "ClippingPathSettings": {
+   "AppliedPathName": null,
+   "ClippingType": [
+    "None"
+   ],
+   "IncludeInsideEdges": [
+    "false",
+    "true"
+   ],
+   "Index": null,
+   "InsetFrame": null,
+   "InvertPath": [
+    "false",
+    "true"
+   ],
+   "RestrictToFrame": [
+    "false",
+    "true"
+   ],
+   "Threshold": null,
+   "Tolerance": null,
+   "UseHighResolutionImage": [
+    "false",
+    "true"
+   ]
+  },
+  "Color": {
+   "AlternateColorValue": null,
+   "AlternateSpace": [
+    "NoAlternateColor"
+   ],
+   "ColorEditable": [
+    "false",
+    "true"
+   ],
+   "ColorOverride": [
+    "Hiddenreserved",
+    "Normal",
+    "Specialblack",
+    "Specialpaper",
+    "Specialregistration"
+   ],
+   "ColorRemovable": [
+    "false",
+    "true"
+   ],
+   "ColorValue": null,
+   "Model": [
+    "Process",
+    "Registration",
+    "Spot"
+   ],
+   "Name": null,
+   "Self": null,
+   "Space": [
+    "CMYK",
+    "RGB"
+   ],
+   "SpotInkAliasSpotColorReference": [
+    "n"
+   ],
+   "SwatchColorGroupReference": null,
+   "SwatchCreatorID": null,
+   "Visible": [
+    "false",
+    "true"
+   ]
+  },
+  "ColorGroup": {
+   "IsRootColorGroup": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "Self": null
+  },
+  "ColorGroupSwatch": {
+   "Self": null,
+   "SwatchItemRef": null
+  },
+  "Column": {
+   "Name": null,
+   "Self": null,
+   "SingleColumnWidth": null
+  },
+  "ColumnGuideColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "CompositeFont": {
+   "Name": null,
+   "Self": null
+  },
+  "CompositeFontEntry": {
+   "BaselineShift": null,
+   "CustomCharacters": null,
+   "FontStyle": null,
+   "HorizontalScale": null,
+   "Locked": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "RelativeSize": null,
+   "ScaleOption": [
+    "false",
+    "true"
+   ],
+   "Self": null,
+   "VerticalScale": null
+  },
+  "ConditionalTextPreference": {
+   "ActiveConditionSet": [
+    "n"
+   ],
+   "ShowConditionIndicators": [
+    "ShowIndicators"
+   ]
+  },
+  "Content": {},
+  "ContentTransparencySetting": {},
+  "Contents": {},
+  "ContinuingRuleColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ContinuingRuleGapColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ContinuingRuleType": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ContourOption": {
+   "ContourPathName": null,
+   "ContourType": [
+    "SameAsClipping"
+   ],
+   "IncludeInsideEdges": [
+    "false",
+    "true"
+   ]
+  },
+  "CrossReferenceFormat": {
+   "AppliedCharacterStyle": [
+    "n"
+   ],
+   "Name": null,
+   "Self": null
+  },
+  "DataMergeOption": {
+   "CenterImage": [
+    "false",
+    "true"
+   ],
+   "CreateNewDocument": [
+    "false",
+    "true"
+   ],
+   "DocumentSize": null,
+   "FittingOption": [
+    "Proportional"
+   ],
+   "LinkImages": [
+    "false",
+    "true"
+   ],
+   "RemoveBlankLines": [
+    "false",
+    "true"
+   ]
+  },
+  "DateVariablePreference": {
+   "Format": null,
+   "TextAfter": null,
+   "TextBefore": null
+  },
+  "DefaultCellTagColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "DefaultImageTagColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "DefaultStoryTagColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "DefaultTableTagColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Descriptor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "DesignAxesRange": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "DictionaryPreference": {
+   "Composition": [
+    "Both",
+    "UseDocument"
+   ],
+   "MergeUserDictionary": [
+    "false",
+    "true"
+   ],
+   "RecomposeWhenChanged": [
+    "false",
+    "true"
+   ]
+  },
+  "DirectionalFeatherSetting": {
+   "Angle": null,
+   "Applied": [
+    "false",
+    "true"
+   ],
+   "BottomWidth": null,
+   "ChokeAmount": null,
+   "FollowShapeMode": [
+    "LeadingEdge"
+   ],
+   "LeftWidth": null,
+   "Noise": null,
+   "RightWidth": null,
+   "TopWidth": null
+  },
+  "Document": {
+   "AccurateLABSpots": [
+    "false",
+    "true"
+   ],
+   "ActiveLayer": null,
+   "AfterBlendingIntent": [
+    "UseColorSettings"
+   ],
+   "CMYKPolicy": [
+    "ColorPolicyOff",
+    "CombinationOfPreserveAndSafeCmyk"
+   ],
+   "CMYKProfile": null,
+   "DOMVersion": null,
+   "DefaultImageIntent": [
+    "UseColorSettings"
+   ],
+   "Name": null,
+   "RGBPolicy": [
+    "ColorPolicyOff",
+    "PreserveEmbeddedProfiles"
+   ],
+   "RGBProfile": null,
+   "Self": null,
+   "SolidColorIntent": [
+    "UseColorSettings"
+   ],
+   "StoryList": null,
+   "ZeroPoint": null
+  },
+  "DocumentPreference": {
+   "AllowPageShuffle": [
+    "false",
+    "true"
+   ],
+   "ColumnDirection": [
+    "Horizontal"
+   ],
+   "ColumnGuideLocked": [
+    "false",
+    "true"
+   ],
+   "CreatePrimaryTextFrame": [
+    "false",
+    "true"
+   ],
+   "DocumentBleedBottomOffset": null,
+   "DocumentBleedInsideOrLeftOffset": null,
+   "DocumentBleedOutsideOrRightOffset": null,
+   "DocumentBleedTopOffset": null,
+   "DocumentBleedUniformSize": [
+    "false",
+    "true"
+   ],
+   "DocumentSlugUniformSize": [
+    "false",
+    "true"
+   ],
+   "FacingPages": [
+    "false",
+    "true"
+   ],
+   "Intent": [
+    "PrintIntent"
+   ],
+   "MasterTextFrame": [
+    "false",
+    "true"
+   ],
+   "OverprintBlack": [
+    "false",
+    "true"
+   ],
+   "PageBinding": [
+    "LeftToRight"
+   ],
+   "PageHeight": null,
+   "PageWidth": null,
+   "PagesPerDocument": null,
+   "PreserveLayoutWhenShuffling": [
+    "false",
+    "true"
+   ],
+   "SlugBottomOffset": null,
+   "SlugInsideOrLeftOffset": null,
+   "SlugRightOrOutsideOffset": null,
+   "SlugTopOffset": null,
+   "SnippetImportUsesOriginalLocation": [
+    "false",
+    "true"
+   ]
+  },
+  "DocumentUser": {
+   "Self": null,
+   "UserName": [
+    "$ID/Unknown User Name",
+    "Unknown User Name"
+   ]
+  },
+  "DropShadowSetting": {
+   "BlendMode": [
+    "Multiply"
+   ],
+   "EffectColor": [
+    "n"
+   ],
+   "HonorOtherEffects": [
+    "false",
+    "true"
+   ],
+   "KnockedOut": [
+    "false",
+    "true"
+   ],
+   "Mode": [
+    "None"
+   ],
+   "Noise": null,
+   "Opacity": null,
+   "Size": null,
+   "Spread": null,
+   "UseGlobalLight": [
+    "false",
+    "true"
+   ],
+   "XOffset": null,
+   "YOffset": null
+  },
+  "EPubExportPreference": {
+   "ApplyImageAlignmentToAnchoredObjectSettings": [
+    "false",
+    "true"
+   ],
+   "BottomMargin": null,
+   "BreakDocument": [
+    "false",
+    "true"
+   ],
+   "BulletExportOption": [
+    "UnorderedList"
+   ],
+   "CSSExportOption": [
+    "EmbeddedCSS"
+   ],
+   "CoverImageFile": null,
+   "CustomImageSizeOption": [
+    "SizeFixed"
+   ],
+   "EmbedFont": [
+    "false",
+    "true"
+   ],
+   "EpubCover": [
+    "FirstPage"
+   ],
+   "EpubCreator": null,
+   "EpubDate": null,
+   "EpubDescription": null,
+   "EpubPublisher": null,
+   "EpubRights": null,
+   "EpubSubject": null,
+   "EpubTitle": null,
+   "ExportOrder": [
+    "LayoutOrder"
+   ],
+   "ExternalCSSPath": null,
+   "ExternalStyleSheets": null,
+   "FootnoteFollowParagraph": [
+    "false",
+    "true"
+   ],
+   "FootnotePlacement": [
+    "FootnoteAfterStory"
+   ],
+   "Format": [
+    "false",
+    "true"
+   ],
+   "GIFOptionsInterlaced": [
+    "false",
+    "true"
+   ],
+   "GIFOptionsPalette": [
+    "AdaptivePalette"
+   ],
+   "GenerateCascadeStyleSheet": [
+    "false",
+    "true"
+   ],
+   "Id": null,
+   "IgnoreObjectConversionSettings": [
+    "false",
+    "true"
+   ],
+   "ImageAlignment": [
+    "AlignCenter"
+   ],
+   "ImageConversion": [
+    "Automatic"
+   ],
+   "ImageExportResolution": [
+    "Ppi150"
+   ],
+   "ImagePageBreak": [
+    "PageBreakBefore"
+   ],
+   "ImageSpaceAfter": null,
+   "ImageSpaceBefore": null,
+   "IncludeCSSDefinition": [
+    "false",
+    "true"
+   ],
+   "IncludeClassesInHTML": [
+    "false",
+    "true"
+   ],
+   "IncludeDocumentMetadata": [
+    "false",
+    "true"
+   ],
+   "JPEGOptionsFormat": [
+    "ProgressiveEncoding"
+   ],
+   "JPEGOptionsQuality": [
+    "High"
+   ],
+   "Javascripts": null,
+   "LeftMargin": null,
+   "Level": null,
+   "MarginUnit": [
+    "CssEm",
+    "CssPixel"
+   ],
+   "NumberedListExportOption": [
+    "OrderedList"
+   ],
+   "ParagraphStyleName": [
+    "$ID/NormalParagraphStyle"
+   ],
+   "PreserveLayoutAppearence": [
+    "false",
+    "true"
+   ],
+   "PreserveLocalOverride": [
+    "false",
+    "true"
+   ],
+   "RightMargin": null,
+   "SpaceUnit": [
+    "CssEm",
+    "CssPixel"
+   ],
+   "StripSoftReturn": [
+    "false",
+    "true"
+   ],
+   "TocStyleName": null,
+   "TopMargin": null,
+   "UseExistingImageOnExport": [
+    "false",
+    "true"
+   ],
+   "UseImagePageBreak": [
+    "false",
+    "true"
+   ],
+   "UseOriginalImageOnExport": [
+    "false",
+    "true"
+   ],
+   "UseSVGAs": [
+    "EmbedCode"
+   ],
+   "UseTocStyle": [
+    "false",
+    "true"
+   ],
+   "Version": null,
+   "ViewDocumentAfterExport": [
+    "false",
+    "true"
+   ]
+  },
+  "EPubFixedLayoutExportPreference": {
+   "CoverImageFile": null,
+   "EpubCover": [
+    "FirstPage"
+   ],
+   "EpubCreator": null,
+   "EpubDate": null,
+   "EpubDescription": null,
+   "EpubNavigationStyles": [
+    "NoNavigation"
+   ],
+   "EpubPageRange": null,
+   "EpubPageRangeFormat": [
+    "ExportAllPages"
+   ],
+   "EpubPublisher": null,
+   "EpubRights": null,
+   "EpubSpreadControlOptions": [
+    "SpreadsBasedOnDoc"
+   ],
+   "EpubSubject": null,
+   "EpubTitle": null,
+   "ExternalStyleSheets": null,
+   "GIFOptionsInterlaced": [
+    "false",
+    "true"
+   ],
+   "GIFOptionsPalette": [
+    "AdaptivePalette"
+   ],
+   "Id": null,
+   "ImageConversion": [
+    "Automatic"
+   ],
+   "ImageExportResolution": [
+    "Ppi150"
+   ],
+   "JPEGOptionsFormat": [
+    "ProgressiveEncoding"
+   ],
+   "JPEGOptionsQuality": [
+    "High"
+   ],
+   "Javascripts": null,
+   "Level": null,
+   "TocStyleName": null
+  },
+  "EndnoteMarkerPositioning": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "EndnoteNumberingStyle": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "EndnoteOption": {
+   "EndnoteMarkerStyle": null,
+   "EndnotePrefix": null,
+   "EndnoteSeparatorText": null,
+   "EndnoteSuffix": null,
+   "EndnoteTextStyle": null,
+   "EndnoteTitle": [
+    "Notes de fin"
+   ],
+   "EndnoteTitleStyle": null,
+   "StartEndnoteNumberAt": null
+  },
+  "ExportForWebPreference": {
+   "CopyFormattedImages": [
+    "false",
+    "true"
+   ],
+   "CopyOptimizedImages": [
+    "false",
+    "true"
+   ],
+   "CopyOriginalImages": [
+    "false",
+    "true"
+   ],
+   "GIFOptionsInterlaced": [
+    "false",
+    "true"
+   ],
+   "GIFOptionsPalette": [
+    "AdaptivePalette"
+   ],
+   "ImageConversion": [
+    "Automatic"
+   ],
+   "JPEGOptionsFormat": [
+    "BaselineEncoding"
+   ],
+   "JPEGOptionsQuality": [
+    "Medium"
+   ]
+  },
+  "FeatherSetting": {
+   "ChokeAmount": null,
+   "CornerType": [
+    "Diffusion"
+   ],
+   "Mode": [
+    "None"
+   ],
+   "Noise": null,
+   "Width": null
+  },
+  "FileNameVariablePreference": {
+   "IncludeExtension": [
+    "false",
+    "true"
+   ],
+   "IncludePath": [
+    "false",
+    "true"
+   ],
+   "TextAfter": null,
+   "TextBefore": null
+  },
+  "FillTransparencySetting": {},
+  "FlattenerPreference": {
+   "ClipComplexRegions": [
+    "false",
+    "true"
+   ],
+   "ConvertAllStrokesToOutlines": [
+    "false",
+    "true"
+   ],
+   "ConvertAllTextToOutlines": [
+    "false",
+    "true"
+   ],
+   "GradientAndMeshResolution": null,
+   "LineArtAndTextResolution": null
+  },
+  "Font": {
+   "DesignAxesName": [
+    "Weight"
+   ],
+   "DesignAxesValues": null,
+   "FontFamily": null,
+   "FontStyleName": null,
+   "FontStyleNameNative": null,
+   "FontType": [
+    "OpenTypeCFF",
+    "OpenTypeCID",
+    "OpenTypeTT",
+    "TrueType",
+    "Unknown"
+   ],
+   "FullName": null,
+   "FullNameNative": null,
+   "Name": null,
+   "NumDesignAxes": null,
+   "PlatformName": null,
+   "PostScriptName": null,
+   "Self": null,
+   "Status": [
+    "Installed",
+    "NotAvailable",
+    "Substituted"
+   ],
+   "TypekitID": null,
+   "Version": null,
+   "WritingScript": null
+  },
+  "FontFamily": {
+   "Name": null,
+   "Self": null
+  },
+  "Fonts": {
+   "DOMVersion": null,
+   "src": null
+  },
+  "FootnoteNumberingStyle": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "FootnoteOption": {
+   "ContinuingRuleGapOverprint": [
+    "false",
+    "true"
+   ],
+   "ContinuingRuleGapTint": null,
+   "ContinuingRuleLeftIndent": null,
+   "ContinuingRuleLineWeight": null,
+   "ContinuingRuleOffset": null,
+   "ContinuingRuleOn": [
+    "false",
+    "true"
+   ],
+   "ContinuingRuleOverprint": [
+    "false",
+    "true"
+   ],
+   "ContinuingRuleTint": null,
+   "ContinuingRuleWidth": null,
+   "EnableStraddling": [
+    "false",
+    "true"
+   ],
+   "EosPlacement": [
+    "false",
+    "true"
+   ],
+   "FootnoteFirstBaselineOffset": [
+    "LeadingOffset"
+   ],
+   "FootnoteMarkerStyle": null,
+   "FootnoteMinimumFirstBaselineOffset": null,
+   "FootnoteTextStyle": null,
+   "NoSplitting": [
+    "false",
+    "true"
+   ],
+   "Prefix": null,
+   "RuleGapOverprint": [
+    "false",
+    "true"
+   ],
+   "RuleGapTint": null,
+   "RuleLeftIndent": null,
+   "RuleLineWeight": null,
+   "RuleOffset": null,
+   "RuleOn": [
+    "false",
+    "true"
+   ],
+   "RuleOverprint": [
+    "false",
+    "true"
+   ],
+   "RuleTint": null,
+   "RuleWidth": null,
+   "SeparatorText": null,
+   "SpaceBetween": null,
+   "Spacer": null,
+   "StartAt": null,
+   "Suffix": null
+  },
+  "FrameColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "FrameCreateOption": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "FrameFittingOption": {
+   "AutoFit": [
+    "false",
+    "true"
+   ],
+   "BottomCrop": null,
+   "FittingAlignment": [
+    "CenterAnchor",
+    "TopLeftAnchor"
+   ],
+   "FittingOnEmptyFrame": [
+    "FillProportionally",
+    "None"
+   ],
+   "LeftCrop": null,
+   "RightCrop": null,
+   "TopCrop": null
+  },
+  "GaijiRefMaps": {},
+  "GeometryPathType": {
+   "PathOpen": [
+    "false",
+    "true"
+   ]
+  },
+  "Gradient": {
+   "ColorEditable": [
+    "false",
+    "true"
+   ],
+   "ColorRemovable": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "Self": null,
+   "SwatchColorGroupReference": [
+    "n"
+   ],
+   "SwatchCreatorID": null,
+   "Type": [
+    "Linear"
+   ],
+   "Visible": [
+    "false",
+    "true"
+   ]
+  },
+  "GradientFeatherSetting": {
+   "Angle": null,
+   "Applied": [
+    "false",
+    "true"
+   ],
+   "GradientStart": null,
+   "HiliteAngle": null,
+   "HiliteLength": null,
+   "Length": null,
+   "Type": [
+    "Linear"
+   ]
+  },
+  "GradientStop": {
+   "Location": null,
+   "Midpoint": null,
+   "Self": null,
+   "StopColor": null
+  },
+  "Graphic": {
+   "DOMVersion": null,
+   "src": null
+  },
+  "GraphicBounds": {
+   "Bottom": null,
+   "Left": null,
+   "Right": null,
+   "Top": null
+  },
+  "GraphicLine": {
+   "AppliedObjectStyle": null,
+   "ContentType": [
+    "Unassigned"
+   ],
+   "GradientFillAngle": null,
+   "GradientFillHiliteAngle": null,
+   "GradientFillHiliteLength": null,
+   "GradientFillLength": null,
+   "GradientFillStart": null,
+   "GradientStrokeAngle": null,
+   "GradientStrokeHiliteAngle": null,
+   "GradientStrokeHiliteLength": null,
+   "GradientStrokeLength": null,
+   "GradientStrokeStart": null,
+   "HorizontalLayoutConstraints": [
+    "FlexibleDimension FixedDimension FlexibleDimension"
+   ],
+   "ItemLayer": null,
+   "ItemTransform": null,
+   "LastUpdatedInterfaceChangeCount": null,
+   "LocalDisplaySetting": [
+    "Default"
+   ],
+   "LockState": [
+    "None"
+   ],
+   "Locked": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "OverriddenPageItemProps": null,
+   "ParentInterfaceChangeCount": null,
+   "Self": null,
+   "StrokeColor": null,
+   "StrokeWeight": null,
+   "TargetInterfaceChangeCount": null,
+   "VerticalLayoutConstraints": [
+    "FlexibleDimension FixedDimension FlexibleDimension"
+   ],
+   "Visible": [
+    "false",
+    "true"
+   ]
+  },
+  "GridColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "GridDataInformation": {
+   "CharacterAki": null,
+   "CharacterAlignment": [
+    "AlignEmCenter"
+   ],
+   "FontStyle": null,
+   "GridAlignment": [
+    "AlignEmCenter"
+   ],
+   "HorizontalScale": null,
+   "LineAki": null,
+   "LineAlignment": [
+    "LeftOrTopLineJustify"
+   ],
+   "PointSize": null,
+   "VerticalScale": null
+  },
+  "GridPreference": {
+   "BaselineDivision": null,
+   "BaselineGridRelativeOption": [
+    "TopOfPageOfBaselineGridRelativeOption"
+   ],
+   "BaselineGridShown": [
+    "false",
+    "true"
+   ],
+   "BaselineStart": null,
+   "BaselineViewThreshold": null,
+   "DocumentGridShown": [
+    "false",
+    "true"
+   ],
+   "DocumentGridSnapto": [
+    "false",
+    "true"
+   ],
+   "GridsInBack": [
+    "false",
+    "true"
+   ],
+   "HorizontalGridSubdivision": null,
+   "HorizontalGridlineDivision": null,
+   "VerticalGridSubdivision": null,
+   "VerticalGridlineDivision": null
+  },
+  "Group": {
+   "AppliedObjectStyle": null,
+   "BottomLeftCornerRadius": null,
+   "BottomRightCornerRadius": null,
+   "CornerRadius": null,
+   "FillColor": null,
+   "GradientFillAngle": null,
+   "GradientFillHiliteAngle": null,
+   "GradientFillHiliteLength": null,
+   "GradientFillLength": null,
+   "GradientFillStart": null,
+   "GradientStrokeAngle": null,
+   "GradientStrokeHiliteAngle": null,
+   "GradientStrokeHiliteLength": null,
+   "GradientStrokeLength": null,
+   "GradientStrokeStart": null,
+   "HorizontalLayoutConstraints": [
+    "FlexibleDimension FixedDimension FlexibleDimension"
+   ],
+   "ItemLayer": null,
+   "ItemTransform": null,
+   "LastUpdatedInterfaceChangeCount": null,
+   "LocalDisplaySetting": [
+    "Default"
+   ],
+   "Locked": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "OverriddenPageItemProps": null,
+   "ParentInterfaceChangeCount": null,
+   "Self": null,
+   "StrokeColor": null,
+   "StrokeWeight": null,
+   "TargetInterfaceChangeCount": null,
+   "TopLeftCornerRadius": null,
+   "TopRightCornerRadius": null,
+   "VerticalLayoutConstraints": [
+    "FlexibleDimension FixedDimension FlexibleDimension"
+   ],
+   "Visible": [
+    "false",
+    "true"
+   ]
+  },
+  "Guide": {
+   "FitToPage": [
+    "false",
+    "true"
+   ],
+   "GuideType": [
+    "Ruler"
+   ],
+   "GuideZone": null,
+   "ItemLayer": null,
+   "Location": null,
+   "Locked": [
+    "false",
+    "true"
+   ],
+   "Orientation": [
+    "Horizontal",
+    "Vertical"
+   ],
+   "OverriddenPageItemProps": null,
+   "PageIndex": null,
+   "Self": null,
+   "ViewThreshold": null
+  },
+  "GuideColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "GuidePreference": {
+   "GuidesInBack": [
+    "false",
+    "true"
+   ],
+   "GuidesLocked": [
+    "false",
+    "true"
+   ],
+   "GuidesShown": [
+    "false",
+    "true"
+   ],
+   "GuidesSnapto": [
+    "false",
+    "true"
+   ],
+   "RulerGuidesViewThreshold": null
+  },
+  "HTMLExportPreference": {
+   "ApplyImageAlignmentToAnchoredObjectSettings": [
+    "false",
+    "true"
+   ],
+   "BottomMargin": null,
+   "BulletExportOption": [
+    "UnorderedList"
+   ],
+   "CSSExportOption": [
+    "EmbeddedCSS"
+   ],
+   "CustomImageSizeOption": [
+    "SizeFixed"
+   ],
+   "ExportOrder": [
+    "LayoutOrder"
+   ],
+   "ExportSelection": [
+    "false",
+    "true"
+   ],
+   "ExternalCSSPath": null,
+   "ExternalStyleSheets": null,
+   "GIFOptionsInterlaced": [
+    "false",
+    "true"
+   ],
+   "GIFOptionsPalette": [
+    "AdaptivePalette"
+   ],
+   "GenerateCascadeStyleSheet": [
+    "false",
+    "true"
+   ],
+   "IgnoreObjectConversionSettings": [
+    "false",
+    "true"
+   ],
+   "ImageAlignment": [
+    "AlignCenter"
+   ],
+   "ImageConversion": [
+    "Automatic"
+   ],
+   "ImageExportOption": [
+    "OptimizedImage"
+   ],
+   "ImageExportResolution": [
+    "Ppi150"
+   ],
+   "ImageExtension": null,
+   "ImageSpaceAfter": null,
+   "ImageSpaceBefore": null,
+   "IncludeCSSDefinition": [
+    "false",
+    "true"
+   ],
+   "IncludeClassesInHTML": [
+    "false",
+    "true"
+   ],
+   "JPEGOptionsFormat": [
+    "ProgressiveEncoding"
+   ],
+   "JPEGOptionsQuality": [
+    "High"
+   ],
+   "JavascriptURL": null,
+   "Javascripts": null,
+   "LeftMargin": null,
+   "Level": null,
+   "LinkToJavascript": [
+    "false",
+    "true"
+   ],
+   "MarginUnit": [
+    "CssPixel"
+   ],
+   "NumberedListExportOption": [
+    "OrderedList"
+   ],
+   "PreserveLayoutAppearence": [
+    "false",
+    "true"
+   ],
+   "PreserveLocalOverride": [
+    "false",
+    "true"
+   ],
+   "RightMargin": null,
+   "ServerPath": null,
+   "SpaceUnit": [
+    "CssEm",
+    "CssPixel"
+   ],
+   "TopMargin": null,
+   "UseSVGAs": [
+    "EmbedCode"
+   ],
+   "ViewDocumentAfterExport": [
+    "false",
+    "true"
+   ]
+  },
+  "HTMLFXLExportPreference": {
+   "EpubPageRange": null,
+   "EpubPageRangeFormat": [
+    "ExportAllPages"
+   ]
+  },
+  "Image": {
+   "ActualPpi": null,
+   "AppliedObjectStyle": null,
+   "EffectivePpi": null,
+   "FillColor": null,
+   "GradientFillAngle": null,
+   "GradientFillHiliteAngle": null,
+   "GradientFillHiliteLength": null,
+   "GradientFillLength": null,
+   "GradientFillStart": null,
+   "HorizontalLayoutConstraints": [
+    "FlexibleDimension FixedDimension FlexibleDimension"
+   ],
+   "ImageRenderingIntent": [
+    "UseColorSettings"
+   ],
+   "ImageTypeName": null,
+   "ItemTransform": null,
+   "LastUpdatedInterfaceChangeCount": null,
+   "LocalDisplaySetting": [
+    "Default"
+   ],
+   "Name": null,
+   "OverriddenPageItemProps": null,
+   "ParentInterfaceChangeCount": null,
+   "Self": null,
+   "Space": null,
+   "TargetInterfaceChangeCount": null,
+   "VerticalLayoutConstraints": [
+    "FlexibleDimension FixedDimension FlexibleDimension"
+   ],
+   "Visible": [
+    "false",
+    "true"
+   ]
+  },
+  "ImageIOPreference": {
+   "AllowAutoEmbedding": [
+    "false",
+    "true"
+   ],
+   "AlphaChannelName": null,
+   "ApplyPhotoshopClippingPath": [
+    "false",
+    "true"
+   ]
+  },
+  "ImageablePaperSizeRect": {
+   "Bottom": null,
+   "Left": null,
+   "Right": null,
+   "Top": null
+  },
+  "InCopyExportOption": {
+   "IncludeAllResources": [
+    "false",
+    "true"
+   ],
+   "IncludeGraphicProxies": [
+    "false",
+    "true"
+   ]
+  },
+  "IndexHeaderGroupType": {
+   "DocumentString": null,
+   "InternalName": null,
+   "UIString": null,
+   "Visibility": [
+    "false",
+    "true"
+   ]
+  },
+  "IndexHeaderSetting": {
+   "HeaderSetLanguage": null,
+   "HeaderSetName": null,
+   "IndexHeaderSetGroupOptionValue": null,
+   "IndexHeaderSetGroupValue": null,
+   "IndexHeaderSetHandler": null
+  },
+  "IndexOptions": {
+   "BeforeCrossReferenceSeparator": null,
+   "BetweenEntriesSeparator": null,
+   "BetweenPageNumbersSeparator": null,
+   "CrossReferenceStyle": null,
+   "CrossReferenceTopicStyle": null,
+   "EntryEndSeparator": null,
+   "FollowingTopicSeparator": null,
+   "IncludeBookDocuments": [
+    "false",
+    "true"
+   ],
+   "IncludeEmptyIndexSections": [
+    "false",
+    "true"
+   ],
+   "IncludeHiddenEntries": [
+    "false",
+    "true"
+   ],
+   "IncludeSectionHeadings": [
+    "false",
+    "true"
+   ],
+   "IndexFormat": [
+    "NestedFormat"
+   ],
+   "Level1Style": null,
+   "Level2Style": null,
+   "Level3Style": null,
+   "Level4Style": null,
+   "PageNumberStyle": null,
+   "PageRangeSeparator": null,
+   "ReplaceExistingIndex": [
+    "false",
+    "true"
+   ],
+   "SectionHeadingStyle": null,
+   "Title": null,
+   "TitleStyle": null
+  },
+  "IndexingSortOption": {
+   "HeaderType": [
+    "BasicLatin",
+    "ChinesePinyin",
+    "HiraganaAll",
+    "KoreanConsonant",
+    "Nothing",
+    "Russian"
+   ],
+   "Include": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "Priority": null,
+   "Self": null
+  },
+  "Ink": {
+   "Angle": null,
+   "ConvertToProcess": [
+    "false",
+    "true"
+   ],
+   "Frequency": null,
+   "InkType": [
+    "Normal"
+   ],
+   "Name": null,
+   "NeutralDensity": null,
+   "PrintInk": [
+    "false",
+    "true"
+   ],
+   "Self": null,
+   "TrapOrder": null
+  },
+  "InnerGlowSetting": {
+   "Applied": [
+    "false",
+    "true"
+   ],
+   "BlendMode": [
+    "Screen"
+   ],
+   "EffectColor": [
+    "n"
+   ],
+   "Noise": null,
+   "Opacity": null,
+   "Size": null,
+   "Source": [
+    "EdgeSourced"
+   ],
+   "Spread": null,
+   "Technique": [
+    "Softer"
+   ]
+  },
+  "InnerShadowSetting": {
+   "Angle": null,
+   "Applied": [
+    "false",
+    "true"
+   ],
+   "BlendMode": [
+    "Multiply"
+   ],
+   "ChokeAmount": null,
+   "Distance": null,
+   "EffectColor": [
+    "n"
+   ],
+   "Noise": null,
+   "Opacity": null,
+   "Size": null,
+   "UseGlobalLight": [
+    "false",
+    "true"
+   ]
+  },
+  "InsetSpacing": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "KentenFillColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "KentenFont": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "KentenFontStyle": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "KentenStrokeColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "KeyValuePair": {
+   "Key": null,
+   "Value": null
+  },
+  "KinsokuSet": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "KinsokuTable": {
+   "CantBeSeparatedChars": null,
+   "CantBeginLineChars": null,
+   "CantEndLineChars": null,
+   "HangingPunctuationChars": null,
+   "Name": null,
+   "Self": null
+  },
+  "Label": {},
+  "Language": {
+   "DoubleQuotes": null,
+   "HyphenationVendor": null,
+   "Id": null,
+   "Name": null,
+   "PrimaryLanguageName": null,
+   "Self": null,
+   "SingleQuotes": null,
+   "SpellingVendor": null,
+   "SublanguageName": null
+  },
+  "Layer": {
+   "Expendable": [
+    "false",
+    "true"
+   ],
+   "IgnoreWrap": [
+    "false",
+    "true"
+   ],
+   "LockGuides": [
+    "false",
+    "true"
+   ],
+   "Locked": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "Printable": [
+    "false",
+    "true"
+   ],
+   "Self": null,
+   "ShowGuides": [
+    "false",
+    "true"
+   ],
+   "UI": [
+    "false",
+    "true"
+   ],
+   "Visible": [
+    "false",
+    "true"
+   ]
+  },
+  "LayerColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "LayoutAdjustmentPreference": {
+   "AllowGraphicsToResize": [
+    "false",
+    "true"
+   ],
+   "AllowRulerGuidesToMove": [
+    "false",
+    "true"
+   ],
+   "EnableLayoutAdjustment": [
+    "false",
+    "true"
+   ],
+   "IgnoreObjectOrLayerLocks": [
+    "false",
+    "true"
+   ],
+   "IgnoreRulerGuideAlignments": [
+    "false",
+    "true"
+   ],
+   "SnapZone": null
+  },
+  "LayoutGridColorIndex": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "LayoutGridDataInformation": {
+   "CharacterAki": null,
+   "FontStyle": null,
+   "HorizontalScale": null,
+   "LineAki": null,
+   "PointSize": null,
+   "VerticalScale": null
+  },
+  "Leader": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Leading": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Link": {
+   "AssetID": null,
+   "AssetURL": null,
+   "CanEmbed": [
+    "false",
+    "true"
+   ],
+   "CanPackage": [
+    "false",
+    "true"
+   ],
+   "CanUnembed": [
+    "false",
+    "true"
+   ],
+   "ExportPolicy": [
+    "ExportStyles",
+    "NoAutoExport"
+   ],
+   "ImportPolicy": [
+    "ImportStyles",
+    "NoAutoImport"
+   ],
+   "LinkClassID": null,
+   "LinkClientID": null,
+   "LinkImportModificationTime": null,
+   "LinkImportStamp": [
+    "file 129767622980000000 27644",
+    "file 129828423240000000 37435",
+    "file 130560441500000000 190741"
+   ],
+   "LinkImportTime": null,
+   "LinkObjectModified": [
+    "false",
+    "true"
+   ],
+   "LinkResourceFormat": null,
+   "LinkResourceModified": [
+    "false",
+    "true"
+   ],
+   "LinkResourceSize": null,
+   "LinkResourceURI": null,
+   "Self": null,
+   "ShowInUI": [
+    "false",
+    "true"
+   ],
+   "StoredState": [
+    "Embedded",
+    "LinkEmbedded",
+    "Missing",
+    "Normal"
+   ]
+  },
+  "LinkedPageItemOption": {
+   "PreserveAppearance": [
+    "false",
+    "true"
+   ],
+   "PreserveFrameContent": [
+    "false",
+    "true"
+   ],
+   "PreserveInteractivity": [
+    "false",
+    "true"
+   ],
+   "PreserveOthers": [
+    "false",
+    "true"
+   ],
+   "PreserveSizeAndShape": [
+    "false",
+    "true"
+   ],
+   "UpdateLinkWhileSaving": [
+    "false",
+    "true"
+   ],
+   "WarnOnUpdateOfEditedPageItem": [
+    "false",
+    "true"
+   ]
+  },
+  "LinkedStoryOption": {
+   "ApplyStyleMappings": [
+    "false",
+    "true"
+   ],
+   "RemoveForcedLineBreaks": [
+    "false",
+    "true"
+   ],
+   "UpdateWhileSaving": [
+    "false",
+    "true"
+   ],
+   "WarnOnUpdateOfEditedStory": [
+    "false",
+    "true"
+   ]
+  },
+  "ListItem": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ListOfIndexHeaderGroup": {},
+  "Mapping": {
+   "DOMVersion": null,
+   "src": null
+  },
+  "MarginGuideColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "MarginPreference": {
+   "Bottom": null,
+   "ColumnCount": null,
+   "ColumnDirection": [
+    "Horizontal"
+   ],
+   "ColumnGutter": null,
+   "ColumnsPositions": null,
+   "Left": null,
+   "Right": null,
+   "Top": null
+  },
+  "MarkType": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "MarkerPositioning": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "MasterSpread": {
+   "BaseName": null,
+   "DOMVersion": null,
+   "ItemTransform": null,
+   "Name": null,
+   "NamePrefix": null,
+   "OverriddenPageItemProps": null,
+   "PageCount": null,
+   "PrimaryTextFrame": null,
+   "Self": null,
+   "ShowMasterItems": [
+    "false",
+    "true"
+   ],
+   "src": null
+  },
+  "MatchParagraphStylePreference": {
+   "AppliedParagraphStyle": null,
+   "ChangeCase": [
+    "None"
+   ],
+   "DeleteEndPunctuation": [
+    "false",
+    "true"
+   ],
+   "SearchStrategy": [
+    "FirstOnPage"
+   ],
+   "TextAfter": null,
+   "TextBefore": null
+  },
+  "MetadataPacketPreference": {},
+  "Mojikumi": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "MojikumiTable": {
+   "Name": null,
+   "Self": null
+  },
+  "MojikumiUiPreference": {
+   "MojikumiUiSettings": null
+  },
+  "NamedGrid": {
+   "Name": null,
+   "Self": null
+  },
+  "NumberingCharacterStyle": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "NumberingFormat": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "NumberingList": {
+   "ContinueNumbersAcrossDocuments": [
+    "false",
+    "true"
+   ],
+   "ContinueNumbersAcrossStories": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "Self": null
+  },
+  "NumberingRestartPolicies": {
+   "LowerLevel": null,
+   "RestartPolicy": [
+    "AnyPreviousLevel"
+   ],
+   "UpperLevel": null
+  },
+  "ObjectExportOption": {
+   "ActualTextSourceType": [
+    "SourceXMLStructure"
+   ],
+   "AltTextSourceType": [
+    "SourceXMLStructure"
+   ],
+   "ApplyTagType": [
+    "TagFromStructure"
+   ],
+   "CustomActualText": null,
+   "CustomAltText": null,
+   "CustomHeight": null,
+   "CustomHeightType": [
+    "DefaultHeight"
+   ],
+   "CustomImageAlignment": [
+    "false",
+    "true"
+   ],
+   "CustomImageConversion": [
+    "false",
+    "true"
+   ],
+   "CustomImageSizeOption": [
+    "SizeRelativeToPageWidth"
+   ],
+   "CustomLayout": [
+    "false",
+    "true"
+   ],
+   "CustomLayoutType": [
+    "AlignmentAndSpacing"
+   ],
+   "CustomSize": null,
+   "CustomWidth": null,
+   "CustomWidthType": [
+    "DefaultWidth"
+   ],
+   "EpubType": null,
+   "GIFOptionsInterlaced": [
+    "false",
+    "true"
+   ],
+   "GIFOptionsPalette": [
+    "AdaptivePalette"
+   ],
+   "ImageAlignment": [
+    "AlignLeft"
+   ],
+   "ImageConversionType": [
+    "JPEG"
+   ],
+   "ImageExportResolution": [
+    "Ppi300"
+   ],
+   "ImagePageBreak": [
+    "PageBreakBefore"
+   ],
+   "ImageSpaceAfter": null,
+   "ImageSpaceBefore": null,
+   "JPEGOptionsFormat": [
+    "BaselineEncoding"
+   ],
+   "JPEGOptionsQuality": [
+    "High"
+   ],
+   "PreserveAppearanceFromLayout": [
+    "PreserveAppearanceDefault"
+   ],
+   "SizeType": [
+    "DefaultSize"
+   ],
+   "SpaceUnit": [
+    "CssEm",
+    "CssPixel"
+   ],
+   "UseExistingImage": [
+    "false",
+    "true"
+   ],
+   "UseImagePageBreak": [
+    "false",
+    "true"
+   ],
+   "UseOriginalImage": [
+    "false",
+    "true"
+   ]
+  },
+  "ObjectStyle": {
+   "AppliedNamedGrid": null,
+   "AppliedParagraphStyle": null,
+   "ApplyNextParagraphStyle": [
+    "false",
+    "true"
+   ],
+   "ArrowHeadAlignment": [
+    "InsidePath"
+   ],
+   "BottomLeftCornerOption": [
+    "None"
+   ],
+   "BottomLeftCornerRadius": null,
+   "BottomRightCornerOption": [
+    "None"
+   ],
+   "BottomRightCornerRadius": null,
+   "CornerOption": [
+    "None"
+   ],
+   "CornerRadius": null,
+   "EmitCss": [
+    "false",
+    "true"
+   ],
+   "EnableAnchoredObjectOptions": [
+    "false",
+    "true"
+   ],
+   "EnableExportTagging": [
+    "false",
+    "true"
+   ],
+   "EnableFill": [
+    "false",
+    "true"
+   ],
+   "EnableFrameFittingOptions": [
+    "false",
+    "true"
+   ],
+   "EnableObjectExportAltTextOptions": [
+    "false",
+    "true"
+   ],
+   "EnableObjectExportEpubOptions": [
+    "false",
+    "true"
+   ],
+   "EnableObjectExportTaggedPdfOptions": [
+    "false",
+    "true"
+   ],
+   "EnableParagraphStyle": [
+    "false",
+    "true"
+   ],
+   "EnableStoryOptions": [
+    "false",
+    "true"
+   ],
+   "EnableStroke": [
+    "false",
+    "true"
+   ],
+   "EnableStrokeAndCornerOptions": [
+    "false",
+    "true"
+   ],
+   "EnableTextFrameAutoSizingOptions": [
+    "false",
+    "true"
+   ],
+   "EnableTextFrameBaselineOptions": [
+    "false",
+    "true"
+   ],
+   "EnableTextFrameColumnRuleOptions": [
+    "false",
+    "true"
+   ],
+   "EnableTextFrameFootnoteOptions": [
+    "false",
+    "true"
+   ],
+   "EnableTextFrameGeneralOptions": [
+    "false",
+    "true"
+   ],
+   "EnableTextWrapAndOthers": [
+    "false",
+    "true"
+   ],
+   "EnableTransformAttributes": [
+    "false",
+    "true"
+   ],
+   "EndCap": [
+    "ButtEndCap",
+    "ProjectingEndCap",
+    "RoundEndCap"
+   ],
+   "EndJoin": [
+    "MiterEndJoin"
+   ],
+   "ExtendedKeyboardShortcut": null,
+   "FillColor": null,
+   "FillTint": null,
+   "GapColor": null,
+   "GapTint": null,
+   "GradientFillAngle": null,
+   "GradientStrokeAngle": null,
+   "IncludeClass": [
+    "false",
+    "true"
+   ],
+   "KeyboardShortcut": null,
+   "LeftArrowHeadScale": null,
+   "LeftLineEnd": [
+    "None"
+   ],
+   "MiterLimit": null,
+   "Name": null,
+   "Nonprinting": [
+    "false",
+    "true"
+   ],
+   "OverprintStroke": [
+    "false",
+    "true"
+   ],
+   "RightArrowHeadScale": null,
+   "RightLineEnd": [
+    "None"
+   ],
+   "Self": null,
+   "StrokeAlignment": [
+    "CenterAlignment",
+    "InsideAlignment",
+    "OutsideAlignment"
+   ],
+   "StrokeColor": null,
+   "StrokeTint": null,
+   "StrokeType": null,
+   "StrokeWeight": null,
+   "TopLeftCornerOption": [
+    "None"
+   ],
+   "TopLeftCornerRadius": null,
+   "TopRightCornerOption": [
+    "None"
+   ],
+   "TopRightCornerRadius": null
+  },
+  "ObjectStyleContentEffectsCategorySettings": {
+   "EnableBevelEmboss": [
+    "false",
+    "true"
+   ],
+   "EnableDirectionalFeather": [
+    "false",
+    "true"
+   ],
+   "EnableDropShadow": [
+    "false",
+    "true"
+   ],
+   "EnableFeather": [
+    "false",
+    "true"
+   ],
+   "EnableGradientFeather": [
+    "false",
+    "true"
+   ],
+   "EnableInnerGlow": [
+    "false",
+    "true"
+   ],
+   "EnableInnerShadow": [
+    "false",
+    "true"
+   ],
+   "EnableOuterGlow": [
+    "false",
+    "true"
+   ],
+   "EnableSatin": [
+    "false",
+    "true"
+   ],
+   "EnableTransparency": [
+    "false",
+    "true"
+   ]
+  },
+  "ObjectStyleFillEffectsCategorySettings": {
+   "EnableBevelEmboss": [
+    "false",
+    "true"
+   ],
+   "EnableDirectionalFeather": [
+    "false",
+    "true"
+   ],
+   "EnableDropShadow": [
+    "false",
+    "true"
+   ],
+   "EnableFeather": [
+    "false",
+    "true"
+   ],
+   "EnableGradientFeather": [
+    "false",
+    "true"
+   ],
+   "EnableInnerGlow": [
+    "false",
+    "true"
+   ],
+   "EnableInnerShadow": [
+    "false",
+    "true"
+   ],
+   "EnableOuterGlow": [
+    "false",
+    "true"
+   ],
+   "EnableSatin": [
+    "false",
+    "true"
+   ],
+   "EnableTransparency": [
+    "false",
+    "true"
+   ]
+  },
+  "ObjectStyleObjectEffectsCategorySettings": {
+   "EnableBevelEmboss": [
+    "false",
+    "true"
+   ],
+   "EnableDirectionalFeather": [
+    "false",
+    "true"
+   ],
+   "EnableDropShadow": [
+    "false",
+    "true"
+   ],
+   "EnableFeather": [
+    "false",
+    "true"
+   ],
+   "EnableGradientFeather": [
+    "false",
+    "true"
+   ],
+   "EnableInnerGlow": [
+    "false",
+    "true"
+   ],
+   "EnableInnerShadow": [
+    "false",
+    "true"
+   ],
+   "EnableOuterGlow": [
+    "false",
+    "true"
+   ],
+   "EnableSatin": [
+    "false",
+    "true"
+   ],
+   "EnableTransparency": [
+    "false",
+    "true"
+   ]
+  },
+  "ObjectStyleStrokeEffectsCategorySettings": {
+   "EnableBevelEmboss": [
+    "false",
+    "true"
+   ],
+   "EnableDirectionalFeather": [
+    "false",
+    "true"
+   ],
+   "EnableDropShadow": [
+    "false",
+    "true"
+   ],
+   "EnableFeather": [
+    "false",
+    "true"
+   ],
+   "EnableGradientFeather": [
+    "false",
+    "true"
+   ],
+   "EnableInnerGlow": [
+    "false",
+    "true"
+   ],
+   "EnableInnerShadow": [
+    "false",
+    "true"
+   ],
+   "EnableOuterGlow": [
+    "false",
+    "true"
+   ],
+   "EnableSatin": [
+    "false",
+    "true"
+   ],
+   "EnableTransparency": [
+    "false",
+    "true"
+   ]
+  },
+  "OuterGlowSetting": {
+   "Applied": [
+    "false",
+    "true"
+   ],
+   "BlendMode": [
+    "Screen"
+   ],
+   "EffectColor": [
+    "n"
+   ],
+   "Noise": null,
+   "Opacity": null,
+   "Size": null,
+   "Spread": null,
+   "Technique": [
+    "Softer"
+   ]
+  },
+  "Oval": {
+   "AppliedObjectStyle": null,
+   "ContentType": [
+    "Unassigned"
+   ],
+   "GradientFillAngle": null,
+   "GradientFillHiliteAngle": null,
+   "GradientFillHiliteLength": null,
+   "GradientFillLength": null,
+   "GradientFillStart": null,
+   "GradientStrokeAngle": null,
+   "GradientStrokeHiliteAngle": null,
+   "GradientStrokeHiliteLength": null,
+   "GradientStrokeLength": null,
+   "GradientStrokeStart": null,
+   "ItemLayer": null,
+   "ItemTransform": null,
+   "LocalDisplaySetting": [
+    "Default"
+   ],
+   "Locked": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "Self": null,
+   "StoryTitle": null,
+   "Visible": [
+    "false",
+    "true"
+   ]
+  },
+  "PDF": {
+   "AppliedObjectStyle": null,
+   "ImageTypeName": null,
+   "ItemTransform": null,
+   "Name": null,
+   "Self": null,
+   "Visible": null
+  },
+  "PDFAttribute": {
+   "PDFCrop": [
+    "CropArt",
+    "CropBleed",
+    "CropContentAllLayers",
+    "CropContentVisibleLayers",
+    "CropMedia",
+    "CropPDF",
+    "CropTrim"
+   ],
+   "PageNumber": null,
+   "TransparentBackground": [
+    "false",
+    "true"
+   ]
+  },
+  "PPD": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Page": {
+   "AppliedAlternateLayout": [
+    "n",
+    "u9b",
+    "uac",
+    "ub3",
+    "ub8"
+   ],
+   "AppliedMaster": null,
+   "AppliedTrapPreset": null,
+   "GeometricBounds": null,
+   "GridStartingPoint": [
+    "TopOutside"
+   ],
+   "ItemTransform": null,
+   "LayoutRule": [
+    "Off",
+    "UseMaster"
+   ],
+   "MasterPageTransform": null,
+   "Name": null,
+   "OptionalPage": [
+    "false",
+    "true"
+   ],
+   "OverrideList": null,
+   "Self": null,
+   "SnapshotBlendingMode": [
+    "IgnoreLayoutSnapshots"
+   ],
+   "TabOrder": null,
+   "UseMasterGrid": [
+    "false",
+    "true"
+   ]
+  },
+  "PageColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "PageItemDefault": {
+   "AppliedGraphicObjectStyle": null,
+   "AppliedGridObjectStyle": null,
+   "AppliedTextObjectStyle": null,
+   "ArrowHeadAlignment": [
+    "InsidePath"
+   ],
+   "BottomLeftCornerOption": [
+    "None"
+   ],
+   "BottomLeftCornerRadius": null,
+   "BottomRightCornerOption": [
+    "None"
+   ],
+   "BottomRightCornerRadius": null,
+   "CornerOption": [
+    "None"
+   ],
+   "CornerRadius": null,
+   "EndCap": [
+    "ButtEndCap",
+    "ProjectingEndCap",
+    "RoundEndCap"
+   ],
+   "EndJoin": [
+    "MiterEndJoin"
+   ],
+   "FillColor": null,
+   "FillTint": null,
+   "GapColor": null,
+   "GapTint": null,
+   "GradientFillAngle": null,
+   "GradientStrokeAngle": null,
+   "LeftArrowHeadScale": null,
+   "LeftLineEnd": [
+    "None"
+   ],
+   "MiterLimit": null,
+   "Nonprinting": [
+    "false",
+    "true"
+   ],
+   "RightArrowHeadScale": null,
+   "RightLineEnd": [
+    "None"
+   ],
+   "StrokeAlignment": [
+    "CenterAlignment",
+    "InsideAlignment",
+    "OutsideAlignment"
+   ],
+   "StrokeColor": null,
+   "StrokeTint": null,
+   "StrokeType": null,
+   "StrokeWeight": null,
+   "TopLeftCornerOption": [
+    "None"
+   ],
+   "TopLeftCornerRadius": null,
+   "TopRightCornerOption": [
+    "None"
+   ],
+   "TopRightCornerRadius": null
+  },
+  "PageNumberStyle": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "PageNumberVariablePreference": {
+   "Format": [
+    "Current"
+   ],
+   "Scope": [
+    "SectionScope"
+   ],
+   "TextAfter": null,
+   "TextBefore": null
+  },
+  "PageRange": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "PaperHeight": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "PaperSize": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "PaperSizeRect": {
+   "Bottom": null,
+   "Left": null,
+   "Right": null,
+   "Top": null
+  },
+  "PaperWidth": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ParagraphBorderColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ParagraphBorderGapColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ParagraphBorderType": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ParagraphShadingColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ParagraphStyle": {
+   "AllowArbitraryHyphenation": [
+    "false",
+    "true"
+   ],
+   "AppliedLanguage": null,
+   "AutoLeading": null,
+   "AutoTcy": null,
+   "AutoTcyIncludeRoman": [
+    "false",
+    "true"
+   ],
+   "BaselineShift": null,
+   "BulletsAlignment": [
+    "LeftAlign"
+   ],
+   "BulletsAndNumberingListType": [
+    "NoList"
+   ],
+   "BulletsTextAfter": null,
+   "BunriKinshi": [
+    "false",
+    "true"
+   ],
+   "Capitalization": [
+    "AllCaps",
+    "CapToSmallCap",
+    "Normal",
+    "SmallCaps"
+   ],
+   "CharacterAlignment": [
+    "AlignEmCenter"
+   ],
+   "CharacterDirection": [
+    "DefaultDirection"
+   ],
+   "CharacterRotation": null,
+   "CjkGridTracking": [
+    "false",
+    "true"
+   ],
+   "Composer": [
+    "HL Composer",
+    "HL Composer Optyca",
+    "HL Single",
+    "HL Single Optyca"
+   ],
+   "DesiredGlyphScaling": null,
+   "DesiredLetterSpacing": null,
+   "DesiredWordSpacing": null,
+   "DiacriticPosition": [
+    "OpentypePosition",
+    "OpentypePositionFromBaseline"
+   ],
+   "DigitsType": [
+    "DefaultDigits"
+   ],
+   "DropCapCharacters": null,
+   "DropCapLines": null,
+   "DropcapDetail": null,
+   "EmitCss": [
+    "false",
+    "true"
+   ],
+   "EmptyGrepStyles": [
+    "false",
+    "true"
+   ],
+   "EmptyLineStyles": [
+    "false",
+    "true"
+   ],
+   "EmptyNestedStyles": [
+    "false",
+    "true"
+   ],
+   "EndJoin": [
+    "MiterEndJoin"
+   ],
+   "ExtendedKeyboardShortcut": null,
+   "FillColor": null,
+   "FillTint": null,
+   "FirstLineIndent": null,
+   "FontStyle": null,
+   "GlyphForm": [
+    "None"
+   ],
+   "GradientFillAngle": null,
+   "GradientFillLength": null,
+   "GradientFillStart": null,
+   "GradientStrokeAngle": null,
+   "GradientStrokeLength": null,
+   "GradientStrokeStart": null,
+   "GridAlignFirstLineOnly": [
+    "false",
+    "true"
+   ],
+   "GridAlignment": [
+    "None"
+   ],
+   "GridGyoudori": null,
+   "HorizontalScale": null,
+   "HyphenWeight": null,
+   "HyphenateAcrossColumns": [
+    "false",
+    "true"
+   ],
+   "HyphenateAfterFirst": null,
+   "HyphenateBeforeLast": null,
+   "HyphenateCapitalizedWords": [
+    "false",
+    "true"
+   ],
+   "HyphenateLadderLimit": null,
+   "HyphenateLastWord": [
+    "false",
+    "true"
+   ],
+   "HyphenateWordsLongerThan": null,
+   "Hyphenation": [
+    "false",
+    "true"
+   ],
+   "HyphenationZone": null,
+   "IgnoreEdgeAlignment": [
+    "false",
+    "true"
+   ],
+   "Imported": [
+    "false",
+    "true"
+   ],
+   "IncludeClass": [
+    "false",
+    "true"
+   ],
+   "Jidori": null,
+   "Justification": [
+    "AwayFromBindingSide",
+    "CenterAlign",
+    "CenterJustified",
+    "FullyJustified",
+    "LeftAlign",
+    "LeftJustified",
+    "RightAlign",
+    "RightJustified",
+    "ToBindingSide"
+   ],
+   "Kashidas": [
+    "DefaultKashidas"
+   ],
+   "KeepAllLinesTogether": [
+    "false",
+    "true"
+   ],
+   "KeepFirstLines": null,
+   "KeepLastLines": null,
+   "KeepLinesTogether": [
+    "false",
+    "true"
+   ],
+   "KeepRuleAboveInFrame": [
+    "false",
+    "true"
+   ],
+   "KeepWithNext": null,
+   "KeepWithPrevious": [
+    "false",
+    "true"
+   ],
+   "KentenAlignment": [
+    "AlignKentenCenter"
+   ],
+   "KentenCharacterSet": [
+    "CharacterInput"
+   ],
+   "KentenCustomCharacter": null,
+   "KentenFontSize": null,
+   "KentenKind": [
+    "None"
+   ],
+   "KentenOverprintFill": [
+    "Auto"
+   ],
+   "KentenOverprintStroke": [
+    "Auto"
+   ],
+   "KentenPlacement": null,
+   "KentenPosition": [
+    "AboveRight"
+   ],
+   "KentenStrokeTint": null,
+   "KentenTint": null,
+   "KentenWeight": null,
+   "KentenXScale": null,
+   "KentenYScale": null,
+   "KerningMethod": [
+    "$ID/Metrics"
+   ],
+   "KeyboardDirection": [
+    "DefaultDirection"
+   ],
+   "KeyboardShortcut": null,
+   "KinsokuHangType": [
+    "None"
+   ],
+   "KinsokuType": [
+    "KinsokuPushInFirst"
+   ],
+   "LastLineIndent": null,
+   "LeadingAki": null,
+   "LeadingModel": [
+    "LeadingModelAkiBelow"
+   ],
+   "LeftIndent": null,
+   "Ligatures": [
+    "false",
+    "true"
+   ],
+   "MaximumGlyphScaling": null,
+   "MaximumLetterSpacing": null,
+   "MaximumWordSpacing": null,
+   "MergeConsecutiveParaBorders": [
+    "false",
+    "true"
+   ],
+   "MinimumGlyphScaling": null,
+   "MinimumLetterSpacing": null,
+   "MinimumWordSpacing": null,
+   "MiterLimit": null,
+   "Name": null,
+   "NextStyle": null,
+   "NoBreak": [
+    "false",
+    "true"
+   ],
+   "NumberingAlignment": [
+    "LeftAlign"
+   ],
+   "NumberingApplyRestartPolicy": [
+    "false",
+    "true"
+   ],
+   "NumberingContinue": [
+    "false",
+    "true"
+   ],
+   "NumberingExpression": null,
+   "NumberingLevel": null,
+   "NumberingStartAt": null,
+   "OTFContextualAlternate": [
+    "false",
+    "true"
+   ],
+   "OTFDiscretionaryLigature": [
+    "false",
+    "true"
+   ],
+   "OTFFigureStyle": [
+    "Default",
+    "ProportionalLining",
+    "ProportionalOldstyle",
+    "TabularLining",
+    "TabularOldstyle"
+   ],
+   "OTFFraction": [
+    "false",
+    "true"
+   ],
+   "OTFHVKana": [
+    "false",
+    "true"
+   ],
+   "OTFHistorical": [
+    "false",
+    "true"
+   ],
+   "OTFJustificationAlternate": [
+    "false",
+    "true"
+   ],
+   "OTFLocale": [
+    "false",
+    "true"
+   ],
+   "OTFMark": [
+    "false",
+    "true"
+   ],
+   "OTFOrdinal": [
+    "false",
+    "true"
+   ],
+   "OTFOverlapSwash": [
+    "false",
+    "true"
+   ],
+   "OTFProportionalMetrics": [
+    "false",
+    "true"
+   ],
+   "OTFRomanItalics": [
+    "false",
+    "true"
+   ],
+   "OTFSlashedZero": [
+    "false",
+    "true"
+   ],
+   "OTFStretchedAlternate": [
+    "false",
+    "true"
+   ],
+   "OTFStylisticAlternate": [
+    "false",
+    "true"
+   ],
+   "OTFStylisticSets": null,
+   "OTFSwash": [
+    "false",
+    "true"
+   ],
+   "OTFTitling": [
+    "false",
+    "true"
+   ],
+   "OverprintFill": [
+    "false",
+    "true"
+   ],
+   "OverprintStroke": [
+    "false",
+    "true"
+   ],
+   "PageNumberType": [
+    "AutoPageNumber"
+   ],
+   "ParagraphBorderBottomLeftCornerOption": [
+    "None"
+   ],
+   "ParagraphBorderBottomLeftCornerRadius": null,
+   "ParagraphBorderBottomLineWeight": null,
+   "ParagraphBorderBottomOffset": null,
+   "ParagraphBorderBottomOrigin": [
+    "DescentBottomOrigin"
+   ],
+   "ParagraphBorderBottomRightCornerOption": [
+    "None"
+   ],
+   "ParagraphBorderBottomRightCornerRadius": null,
+   "ParagraphBorderDisplayIfSplits": [
+    "false",
+    "true"
+   ],
+   "ParagraphBorderGapOverprint": [
+    "false",
+    "true"
+   ],
+   "ParagraphBorderGapTint": null,
+   "ParagraphBorderLeftLineWeight": null,
+   "ParagraphBorderLeftOffset": null,
+   "ParagraphBorderOn": [
+    "false",
+    "true"
+   ],
+   "ParagraphBorderOverprint": [
+    "false",
+    "true"
+   ],
+   "ParagraphBorderRightLineWeight": null,
+   "ParagraphBorderRightOffset": null,
+   "ParagraphBorderStrokeEndCap": [
+    "ButtEndCap"
+   ],
+   "ParagraphBorderStrokeEndJoin": [
+    "MiterEndJoin"
+   ],
+   "ParagraphBorderTint": null,
+   "ParagraphBorderTopLeftCornerOption": [
+    "None"
+   ],
+   "ParagraphBorderTopLeftCornerRadius": null,
+   "ParagraphBorderTopLineWeight": null,
+   "ParagraphBorderTopOffset": null,
+   "ParagraphBorderTopOrigin": [
+    "AscentTopOrigin"
+   ],
+   "ParagraphBorderTopRightCornerOption": [
+    "None"
+   ],
+   "ParagraphBorderTopRightCornerRadius": null,
+   "ParagraphBorderWidth": [
+    "ColumnWidth"
+   ],
+   "ParagraphBreakType": [
+    "Anywhere"
+   ],
+   "ParagraphDirection": [
+    "LeftToRightDirection"
+   ],
+   "ParagraphGyoudori": [
+    "false",
+    "true"
+   ],
+   "ParagraphJustification": [
+    "DefaultJustification"
+   ],
+   "ParagraphKashidaWidth": null,
+   "ParagraphShadingBottomLeftCornerOption": [
+    "None"
+   ],
+   "ParagraphShadingBottomLeftCornerRadius": null,
+   "ParagraphShadingBottomOffset": null,
+   "ParagraphShadingBottomOrigin": [
+    "DescentBottomOrigin"
+   ],
+   "ParagraphShadingBottomRightCornerOption": [
+    "None"
+   ],
+   "ParagraphShadingBottomRightCornerRadius": null,
+   "ParagraphShadingClipToFrame": [
+    "false",
+    "true"
+   ],
+   "ParagraphShadingLeftOffset": null,
+   "ParagraphShadingOn": [
+    "false",
+    "true"
+   ],
+   "ParagraphShadingOverprint": [
+    "false",
+    "true"
+   ],
+   "ParagraphShadingRightOffset": null,
+   "ParagraphShadingSuppressPrinting": [
+    "false",
+    "true"
+   ],
+   "ParagraphShadingTint": null,
+   "ParagraphShadingTopLeftCornerOption": [
+    "None"
+   ],
+   "ParagraphShadingTopLeftCornerRadius": null,
+   "ParagraphShadingTopOffset": null,
+   "ParagraphShadingTopOrigin": [
+    "AscentTopOrigin"
+   ],
+   "ParagraphShadingTopRightCornerOption": [
+    "None"
+   ],
+   "ParagraphShadingTopRightCornerRadius": null,
+   "ParagraphShadingWidth": [
+    "ColumnWidth"
+   ],
+   "PointSize": null,
+   "Position": [
+    "Normal",
+    "OTDenominator",
+    "OTNumerator",
+    "OTSubscript",
+    "OTSuperscript",
+    "Subscript",
+    "Superscript"
+   ],
+   "PositionalForm": [
+    "None"
+   ],
+   "ProviderHyphenationStyle": [
+    "HyphAll"
+   ],
+   "Rensuuji": [
+    "false",
+    "true"
+   ],
+   "RightIndent": null,
+   "RotateSingleByteCharacters": [
+    "false",
+    "true"
+   ],
+   "RubyAlignment": [
+    "RubyJIS"
+   ],
+   "RubyAutoAlign": [
+    "false",
+    "true"
+   ],
+   "RubyAutoScaling": [
+    "false",
+    "true"
+   ],
+   "RubyAutoTcyAutoScale": [
+    "false",
+    "true"
+   ],
+   "RubyAutoTcyDigits": null,
+   "RubyAutoTcyIncludeRoman": [
+    "false",
+    "true"
+   ],
+   "RubyFontSize": null,
+   "RubyOpenTypePro": [
+    "false",
+    "true"
+   ],
+   "RubyOverhang": [
+    "false",
+    "true"
+   ],
+   "RubyOverprintFill": [
+    "Auto"
+   ],
+   "RubyOverprintStroke": [
+    "Auto"
+   ],
+   "RubyParentOverhangAmount": [
+    "RubyOverhangOneRuby"
+   ],
+   "RubyParentScalingPercent": null,
+   "RubyParentSpacing": [
+    "RubyParent121Aki"
+   ],
+   "RubyPosition": [
+    "AboveRight"
+   ],
+   "RubyStrokeTint": null,
+   "RubyTint": null,
+   "RubyType": [
+    "PerCharacterRuby"
+   ],
+   "RubyWeight": null,
+   "RubyXOffset": null,
+   "RubyXScale": null,
+   "RubyYOffset": null,
+   "RubyYScale": null,
+   "RuleAbove": [
+    "false",
+    "true"
+   ],
+   "RuleAboveGapOverprint": [
+    "false",
+    "true"
+   ],
+   "RuleAboveGapTint": null,
+   "RuleAboveLeftIndent": null,
+   "RuleAboveLineWeight": null,
+   "RuleAboveOffset": null,
+   "RuleAboveOverprint": [
+    "false",
+    "true"
+   ],
+   "RuleAboveRightIndent": null,
+   "RuleAboveTint": null,
+   "RuleAboveWidth": [
+    "ColumnWidth"
+   ],
+   "RuleBelow": [
+    "false",
+    "true"
+   ],
+   "RuleBelowGapOverprint": [
+    "false",
+    "true"
+   ],
+   "RuleBelowGapTint": null,
+   "RuleBelowLeftIndent": null,
+   "RuleBelowLineWeight": null,
+   "RuleBelowOffset": null,
+   "RuleBelowOverprint": [
+    "false",
+    "true"
+   ],
+   "RuleBelowRightIndent": null,
+   "RuleBelowTint": null,
+   "RuleBelowWidth": [
+    "ColumnWidth"
+   ],
+   "ScaleAffectsLineHeight": [
+    "false",
+    "true"
+   ],
+   "Self": null,
+   "ShataiAdjustRotation": [
+    "false",
+    "true"
+   ],
+   "ShataiAdjustTsume": [
+    "false",
+    "true"
+   ],
+   "ShataiDegreeAngle": null,
+   "ShataiMagnification": null,
+   "SingleWordJustification": [
+    "FullyJustified"
+   ],
+   "Skew": null,
+   "SpaceAfter": null,
+   "SpaceBefore": null,
+   "SpanColumnMinSpaceAfter": null,
+   "SpanColumnMinSpaceBefore": null,
+   "SpanColumnType": [
+    "SingleColumn"
+   ],
+   "SplitColumnInsideGutter": null,
+   "SplitColumnOutsideGutter": null,
+   "SplitDocument": [
+    "false",
+    "true"
+   ],
+   "StartParagraph": [
+    "Anywhere",
+    "NextColumn",
+    "NextEvenPage",
+    "NextFrame",
+    "NextOddPage",
+    "NextPage"
+   ],
+   "StrikeThroughGapOverprint": [
+    "false",
+    "true"
+   ],
+   "StrikeThroughGapTint": null,
+   "StrikeThroughOffset": null,
+   "StrikeThroughOverprint": [
+    "false",
+    "true"
+   ],
+   "StrikeThroughTint": null,
+   "StrikeThroughWeight": null,
+   "StrikeThru": [
+    "false",
+    "true"
+   ],
+   "StrokeAlignment": [
+    "CenterAlignment",
+    "InsideAlignment",
+    "OutsideAlignment"
+   ],
+   "StrokeColor": null,
+   "StrokeTint": null,
+   "StrokeWeight": null,
+   "StyleUniqueId": null,
+   "Tatechuyoko": [
+    "false",
+    "true"
+   ],
+   "TatechuyokoXOffset": null,
+   "TatechuyokoYOffset": null,
+   "Tracking": null,
+   "TrailingAki": null,
+   "TreatIdeographicSpaceAsSpace": [
+    "false",
+    "true"
+   ],
+   "Tsume": null,
+   "Underline": [
+    "false",
+    "true"
+   ],
+   "UnderlineGapOverprint": [
+    "false",
+    "true"
+   ],
+   "UnderlineGapTint": null,
+   "UnderlineOffset": null,
+   "UnderlineOverprint": [
+    "false",
+    "true"
+   ],
+   "UnderlineTint": null,
+   "UnderlineWeight": null,
+   "VerticalScale": null,
+   "Warichu": [
+    "false",
+    "true"
+   ],
+   "WarichuAlignment": [
+    "Auto"
+   ],
+   "WarichuCharsAfterBreak": null,
+   "WarichuCharsBeforeBreak": null,
+   "WarichuLineSpacing": null,
+   "WarichuLines": null,
+   "WarichuSize": null,
+   "XOffsetDiacritic": null,
+   "YOffsetDiacritic": null
+  },
+  "ParagraphStyleRange": {
+   "AppliedParagraphStyle": null,
+   "DropcapDetail": null,
+   "Hyphenation": [
+    "false",
+    "true"
+   ],
+   "Justification": [
+    "AwayFromBindingSide",
+    "CenterAlign",
+    "CenterJustified",
+    "FullyJustified",
+    "LeftAlign",
+    "LeftJustified",
+    "RightAlign",
+    "RightJustified",
+    "ToBindingSide"
+   ],
+   "ParagraphBorderBottomLeftCornerRadius": null,
+   "ParagraphBorderBottomRightCornerRadius": null,
+   "ParagraphBorderTopLeftCornerRadius": null,
+   "ParagraphBorderTopRightCornerRadius": null,
+   "ParagraphShadingBottomLeftCornerRadius": null,
+   "ParagraphShadingBottomRightCornerRadius": null,
+   "ParagraphShadingTopLeftCornerRadius": null,
+   "ParagraphShadingTopRightCornerRadius": null,
+   "SpaceAfter": null,
+   "SpaceBefore": null,
+   "TreatIdeographicSpaceAsSpace": [
+    "false",
+    "true"
+   ]
+  },
+  "PasteboardPreference": {
+   "MatchPreviewBackgroundToThemeColor": [
+    "false",
+    "true"
+   ],
+   "MinimumSpaceAboveAndBelow": null,
+   "PasteboardMargins": null
+  },
+  "PastedSmoothShade": {
+   "ColorEditable": [
+    "false",
+    "true"
+   ],
+   "ColorRemovable": [
+    "false",
+    "true"
+   ],
+   "ContentsEncoding": [
+    "Ascii64Encoding"
+   ],
+   "ContentsMatrix": null,
+   "ContentsType": [
+    "ConstantShade"
+   ],
+   "ContentsVersion": null,
+   "Name": null,
+   "Self": null,
+   "SpotColorList": null,
+   "SwatchColorGroupReference": [
+    "n"
+   ],
+   "SwatchCreatorID": null,
+   "Visible": [
+    "false",
+    "true"
+   ]
+  },
+  "PathGeometry": {},
+  "PathPointArray": {},
+  "PathPointType": {
+   "Anchor": null,
+   "LeftDirection": null,
+   "RightDirection": null
+  },
+  "Polygon": {
+   "AppliedObjectStyle": null,
+   "BottomLeftCornerRadius": null,
+   "BottomRightCornerRadius": null,
+   "ContentType": [
+    "Unassigned"
+   ],
+   "CornerRadius": null,
+   "FillColor": null,
+   "GradientFillAngle": null,
+   "GradientFillHiliteAngle": null,
+   "GradientFillHiliteLength": null,
+   "GradientFillLength": null,
+   "GradientFillStart": null,
+   "GradientStrokeAngle": null,
+   "GradientStrokeHiliteAngle": null,
+   "GradientStrokeHiliteLength": null,
+   "GradientStrokeLength": null,
+   "GradientStrokeStart": null,
+   "HorizontalLayoutConstraints": [
+    "FlexibleDimension FixedDimension FlexibleDimension"
+   ],
+   "ItemLayer": null,
+   "ItemTransform": null,
+   "LastUpdatedInterfaceChangeCount": null,
+   "LocalDisplaySetting": [
+    "Default"
+   ],
+   "Locked": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "OverriddenPageItemProps": null,
+   "ParentInterfaceChangeCount": null,
+   "Self": null,
+   "StoryTitle": null,
+   "StrokeColor": null,
+   "StrokeType": null,
+   "StrokeWeight": null,
+   "TargetInterfaceChangeCount": null,
+   "TopLeftCornerRadius": null,
+   "TopRightCornerRadius": null,
+   "VerticalLayoutConstraints": [
+    "FlexibleDimension FixedDimension FlexibleDimension"
+   ],
+   "Visible": [
+    "false",
+    "true"
+   ]
+  },
+  "Position": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Preferences": {
+   "DOMVersion": null,
+   "src": null
+  },
+  "PreferredBrowser": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "PreviewBackgroundColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "PreviewColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "PrintBookletOption": {
+   "AutoAdjustMargins": [
+    "false",
+    "true"
+   ],
+   "BleedBetweenPages": null,
+   "BookletType": [
+    "TwoUpSaddleStitch"
+   ],
+   "BottomMargin": null,
+   "Creep": null,
+   "LeftMargin": null,
+   "MarginsUniformSize": [
+    "false",
+    "true"
+   ],
+   "PrintBlankPrinterSpreads": [
+    "false",
+    "true"
+   ],
+   "RightMargin": null,
+   "SignatureSize": [
+    "SignatureSize4"
+   ],
+   "SpaceBetweenPages": null,
+   "TopMargin": null
+  },
+  "PrintBookletPrintPreference": {
+   "AllPrinterMarks": [
+    "false",
+    "true"
+   ],
+   "BitmapPrinting": [
+    "false",
+    "true"
+   ],
+   "BitmapResolution": null,
+   "BlackAngle": null,
+   "BlackFrequency": null,
+   "BleedBottom": null,
+   "BleedChain": [
+    "false",
+    "true"
+   ],
+   "BleedInside": null,
+   "BleedMarks": [
+    "false",
+    "true"
+   ],
+   "BleedOutside": null,
+   "BleedTop": null,
+   "Collating": [
+    "false",
+    "true"
+   ],
+   "ColorBars": [
+    "false",
+    "true"
+   ],
+   "ColorOutput": [
+    "CompositeCMYK"
+   ],
+   "CompositeAngle": null,
+   "CompositeFrequency": null,
+   "CompositeScreening": [
+    "$ID/kDefault"
+   ],
+   "Copies": null,
+   "CropMarks": [
+    "false",
+    "true"
+   ],
+   "CyanAngle": null,
+   "CyanFrequency": null,
+   "DataFormat": [
+    "ASCII",
+    "Binary"
+   ],
+   "DeviceType": null,
+   "DownloadPPDFonts": [
+    "false",
+    "true"
+   ],
+   "FlattenerPresetName": null,
+   "Flip": [
+    "None"
+   ],
+   "FontDownloading": [
+    "Complete"
+   ],
+   "IgnoreSpreadOverrides": [
+    "false",
+    "true"
+   ],
+   "Intent": [
+    "AbsoluteColorimetric"
+   ],
+   "MagentaAngle": null,
+   "MagentaFrequency": null,
+   "MarkLineWeight": [
+    "P25pt"
+   ],
+   "MarkOffset": null,
+   "Negative": [
+    "false",
+    "true"
+   ],
+   "OPIImageReplacement": [
+    "false",
+    "true"
+   ],
+   "OmitBitmaps": [
+    "false",
+    "true"
+   ],
+   "OmitEPS": [
+    "false",
+    "true"
+   ],
+   "OmitPDF": [
+    "false",
+    "true"
+   ],
+   "PDFPassthrough": [
+    "false",
+    "true"
+   ],
+   "PPDFile": null,
+   "PPDList": null,
+   "PageInformationMarks": [
+    "false",
+    "true"
+   ],
+   "PagePosition": [
+    "UpperLeft"
+   ],
+   "PaperGap": null,
+   "PaperHeightRange": null,
+   "PaperOffset": null,
+   "PaperOffsetRange": null,
+   "PaperSizeList": null,
+   "PaperSizeSelector": null,
+   "PaperTransverse": [
+    "false",
+    "true"
+   ],
+   "PaperWidthRange": null,
+   "PostScriptLevel": [
+    "Level3"
+   ],
+   "PreserveColorNumbers": [
+    "false",
+    "true"
+   ],
+   "PrintBlack": [
+    "false",
+    "true"
+   ],
+   "PrintBlankPages": [
+    "false",
+    "true"
+   ],
+   "PrintCyan": [
+    "false",
+    "true"
+   ],
+   "PrintFile": null,
+   "PrintGuidesGrids": [
+    "false",
+    "true"
+   ],
+   "PrintLayers": [
+    "VisiblePrintableLayers"
+   ],
+   "PrintMagenta": [
+    "false",
+    "true"
+   ],
+   "PrintNonprinting": [
+    "false",
+    "true"
+   ],
+   "PrintPageOrientation": [
+    "Portrait"
+   ],
+   "PrintRecord": null,
+   "PrintResolution": null,
+   "PrintTo": null,
+   "PrintToDisk": [
+    "false",
+    "true"
+   ],
+   "PrintYellow": [
+    "false",
+    "true"
+   ],
+   "PrinterList": null,
+   "RegistrationMarks": [
+    "false",
+    "true"
+   ],
+   "ReverseOrder": [
+    "false",
+    "true"
+   ],
+   "ScaleHeight": null,
+   "ScaleMode": [
+    "ScaleWidthHeight"
+   ],
+   "ScaleProportional": [
+    "false",
+    "true"
+   ],
+   "ScaleWidth": null,
+   "ScreeningList": null,
+   "SendImageData": [
+    "AllImageData",
+    "OptimizedSubsampling"
+   ],
+   "SeparationScreening": null,
+   "SimulateOverprint": [
+    "false",
+    "true"
+   ],
+   "SourceSpace": [
+    "UseDocument"
+   ],
+   "SpotAngle": null,
+   "SpotFrequency": null,
+   "TextAsBlack": [
+    "false",
+    "true"
+   ],
+   "Trapping": [
+    "Off"
+   ],
+   "UseDocumentBleedToPrint": [
+    "false",
+    "true"
+   ],
+   "YellowAngle": null,
+   "YellowFrequency": null
+  },
+  "PrintPreference": {
+   "AllPrinterMarks": [
+    "false",
+    "true"
+   ],
+   "BitmapPrinting": [
+    "false",
+    "true"
+   ],
+   "BitmapResolution": null,
+   "BlackAngle": null,
+   "BlackFrequency": null,
+   "BleedBottom": null,
+   "BleedChain": [
+    "false",
+    "true"
+   ],
+   "BleedInside": null,
+   "BleedMarks": [
+    "false",
+    "true"
+   ],
+   "BleedOutside": null,
+   "BleedTop": null,
+   "Collating": [
+    "false",
+    "true"
+   ],
+   "ColorBars": [
+    "false",
+    "true"
+   ],
+   "ColorOutput": [
+    "CompositeCMYK"
+   ],
+   "CompositeAngle": null,
+   "CompositeFrequency": null,
+   "CompositeScreening": [
+    "$ID/kDefault"
+   ],
+   "Copies": null,
+   "CropMarks": [
+    "false",
+    "true"
+   ],
+   "CyanAngle": null,
+   "CyanFrequency": null,
+   "DataFormat": [
+    "ASCII",
+    "Binary"
+   ],
+   "DeviceType": null,
+   "DownloadPPDFonts": [
+    "false",
+    "true"
+   ],
+   "FlattenerPresetName": null,
+   "Flip": [
+    "None"
+   ],
+   "FontDownloading": [
+    "Complete"
+   ],
+   "IgnoreSpreadOverrides": [
+    "false",
+    "true"
+   ],
+   "IncludeSlugToPrint": [
+    "false",
+    "true"
+   ],
+   "Intent": [
+    "AbsoluteColorimetric"
+   ],
+   "MagentaAngle": null,
+   "MagentaFrequency": null,
+   "MarkLineWeight": [
+    "P25pt"
+   ],
+   "MarkOffset": null,
+   "Negative": [
+    "false",
+    "true"
+   ],
+   "OPIImageReplacement": [
+    "false",
+    "true"
+   ],
+   "OmitBitmaps": [
+    "false",
+    "true"
+   ],
+   "OmitEPS": [
+    "false",
+    "true"
+   ],
+   "OmitPDF": [
+    "false",
+    "true"
+   ],
+   "PDFPassthrough": [
+    "false",
+    "true"
+   ],
+   "PPDFile": null,
+   "PageInformationMarks": [
+    "false",
+    "true"
+   ],
+   "PagePosition": [
+    "UpperLeft"
+   ],
+   "PaperGap": null,
+   "PaperHeightRange": null,
+   "PaperOffset": null,
+   "PaperOffsetRange": null,
+   "PaperSizeSelector": null,
+   "PaperTransverse": [
+    "false",
+    "true"
+   ],
+   "PaperWidthRange": null,
+   "PostScriptLevel": [
+    "Level3"
+   ],
+   "PreserveColorNumbers": [
+    "false",
+    "true"
+   ],
+   "PrintBlack": [
+    "false",
+    "true"
+   ],
+   "PrintBlankPages": [
+    "false",
+    "true"
+   ],
+   "PrintCyan": [
+    "false",
+    "true"
+   ],
+   "PrintFile": null,
+   "PrintGuidesGrids": [
+    "false",
+    "true"
+   ],
+   "PrintLayers": [
+    "VisiblePrintableLayers"
+   ],
+   "PrintMagenta": [
+    "false",
+    "true"
+   ],
+   "PrintMasterPages": [
+    "false",
+    "true"
+   ],
+   "PrintNonprinting": [
+    "false",
+    "true"
+   ],
+   "PrintPageOrientation": [
+    "Portrait"
+   ],
+   "PrintRecord": null,
+   "PrintResolution": null,
+   "PrintSpreads": [
+    "false",
+    "true"
+   ],
+   "PrintTo": null,
+   "PrintToDisk": [
+    "false",
+    "true"
+   ],
+   "PrintYellow": [
+    "false",
+    "true"
+   ],
+   "RegistrationMarks": [
+    "false",
+    "true"
+   ],
+   "ReverseOrder": [
+    "false",
+    "true"
+   ],
+   "ScaleHeight": null,
+   "ScaleMode": [
+    "ScaleWidthHeight"
+   ],
+   "ScaleProportional": [
+    "false",
+    "true"
+   ],
+   "ScaleWidth": null,
+   "SendImageData": [
+    "AllImageData",
+    "OptimizedSubsampling"
+   ],
+   "SeparationScreening": null,
+   "Sequence": [
+    "All"
+   ],
+   "SimulateOverprint": [
+    "false",
+    "true"
+   ],
+   "SourceSpace": [
+    "UseDocument"
+   ],
+   "SpotAngle": null,
+   "SpotFrequency": null,
+   "TextAsBlack": [
+    "false",
+    "true"
+   ],
+   "Thumbnails": [
+    "false",
+    "true"
+   ],
+   "ThumbnailsPerPage": [
+    "K1x2"
+   ],
+   "Tile": [
+    "false",
+    "true"
+   ],
+   "TilingOverlap": null,
+   "TilingType": [
+    "Auto"
+   ],
+   "Trapping": [
+    "Off"
+   ],
+   "UseDocumentBleedToPrint": [
+    "false",
+    "true"
+   ],
+   "YellowAngle": null,
+   "YellowFrequency": null
+  },
+  "Printer": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Profile": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Properties": {},
+  "PublishExportPreference": {
+   "CoverImageFile": null,
+   "CoverPage": null,
+   "GIFOptionsPalette": [
+    "AdaptivePalette"
+   ],
+   "ImageConversion": [
+    "Automatic"
+   ],
+   "ImageExportResolution": [
+    "Ppi96"
+   ],
+   "JPEGOptionsQuality": [
+    "High"
+   ],
+   "PublishCover": [
+    "FirstPage"
+   ],
+   "PublishDescription": null,
+   "PublishFileName": null,
+   "PublishFormat": [
+    "PublishByPages"
+   ],
+   "PublishPageRange": null,
+   "PublishPageRangeFormat": [
+    "ExportAllPages"
+   ],
+   "PublishPdf": [
+    "false",
+    "true"
+   ]
+  },
+  "RasterVectorBalance": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Rectangle": {
+   "AppliedObjectStyle": null,
+   "ContentType": [
+    "GraphicType",
+    "Unassigned"
+   ],
+   "FillColor": null,
+   "FillTint": null,
+   "GradientFillAngle": null,
+   "GradientFillHiliteAngle": null,
+   "GradientFillHiliteLength": null,
+   "GradientFillLength": null,
+   "GradientFillStart": null,
+   "GradientStrokeAngle": null,
+   "GradientStrokeHiliteAngle": null,
+   "GradientStrokeHiliteLength": null,
+   "GradientStrokeLength": null,
+   "GradientStrokeStart": null,
+   "HorizontalLayoutConstraints": [
+    "FlexibleDimension FixedDimension FlexibleDimension"
+   ],
+   "ItemLayer": null,
+   "ItemTransform": null,
+   "LastUpdatedInterfaceChangeCount": null,
+   "LocalDisplaySetting": [
+    "Default"
+   ],
+   "Locked": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "OverriddenPageItemProps": null,
+   "ParentInterfaceChangeCount": null,
+   "Self": null,
+   "StoryTitle": null,
+   "StrokeColor": null,
+   "StrokeWeight": null,
+   "TargetInterfaceChangeCount": null,
+   "VerticalLayoutConstraints": [
+    "FlexibleDimension FixedDimension FlexibleDimension"
+   ],
+   "Visible": [
+    "false",
+    "true"
+   ]
+  },
+  "RestartEndnoteNumbering": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RestartNumbering": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RootCellStyleGroup": {
+   "Self": null
+  },
+  "RootCharacterStyleGroup": {
+   "Self": null
+  },
+  "RootObjectStyleGroup": {
+   "Self": null
+  },
+  "RootParagraphStyleGroup": {
+   "Self": null
+  },
+  "RootTableStyleGroup": {
+   "Self": null
+  },
+  "Row": {
+   "AutoGrow": [
+    "false",
+    "true"
+   ],
+   "MinimumHeight": null,
+   "Name": null,
+   "Self": null,
+   "SingleRowHeight": null
+  },
+  "RubyFill": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RubyFont": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RubyFontStyle": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RubyStroke": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RuleAboveColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RuleAboveGapColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RuleAboveType": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RuleBelowColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RuleBelowGapColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RuleBelowType": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RuleColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RuleGapColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RuleType": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "RulerGuidesColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "SameParaStyleSpacing": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "SatinSetting": {
+   "Angle": null,
+   "Applied": [
+    "false",
+    "true"
+   ],
+   "BlendMode": [
+    "Multiply"
+   ],
+   "Distance": null,
+   "EffectColor": [
+    "n"
+   ],
+   "InvertEffect": [
+    "false",
+    "true"
+   ],
+   "Opacity": null,
+   "Size": null
+  },
+  "ScopeValue": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Screening": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Section": {
+   "AlternateLayout": null,
+   "AlternateLayoutLength": null,
+   "ContinueNumbering": [
+    "false",
+    "true"
+   ],
+   "IncludeSectionPrefix": [
+    "false",
+    "true"
+   ],
+   "Length": null,
+   "Marker": null,
+   "Name": null,
+   "PageNumberStart": null,
+   "PageStart": null,
+   "SectionPrefix": null,
+   "Self": null
+  },
+  "SectionHeaderArray": {},
+  "SectionHeaderType": {
+   "DocumentHeaderString": null,
+   "Language": null,
+   "SortingHeaderString": null,
+   "UIHeaderString": null
+  },
+  "ShowEndnotePrefixSuffix": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ShowPrefixSuffix": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "SlugGuideColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "SpanSplitColumnCount": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Spread": {
+   "AllowPageShuffle": [
+    "false",
+    "true"
+   ],
+   "BindingLocation": null,
+   "DOMVersion": null,
+   "FlattenerOverride": [
+    "Default"
+   ],
+   "ItemTransform": null,
+   "PageCount": null,
+   "PageTransitionDirection": [
+    "NotApplicable"
+   ],
+   "PageTransitionDuration": [
+    "Medium"
+   ],
+   "PageTransitionType": [
+    "None"
+   ],
+   "Self": null,
+   "ShowMasterItems": [
+    "false",
+    "true"
+   ],
+   "src": null
+  },
+  "Story": {
+   "AppliedNamedGrid": null,
+   "AppliedTOCStyle": null,
+   "DOMVersion": null,
+   "IsEndnoteStory": [
+    "false",
+    "true"
+   ],
+   "Self": null,
+   "StoryTitle": null,
+   "TrackChanges": [
+    "false",
+    "true"
+   ],
+   "UserText": [
+    "false",
+    "true"
+   ],
+   "src": null
+  },
+  "StoryGridDataInformation": {
+   "CharacterAki": null,
+   "CharacterAlignment": [
+    "AlignEmCenter"
+   ],
+   "CharacterCountLocation": [
+    "BottomAlign"
+   ],
+   "CharacterCountSize": null,
+   "FontStyle": null,
+   "GridAlignment": [
+    "AlignEmCenter"
+   ],
+   "GridView": [
+    "GridViewEnum"
+   ],
+   "HorizontalScale": null,
+   "LineAki": null,
+   "LineAlignment": [
+    "LeftOrTopLineJustify"
+   ],
+   "PointSize": null,
+   "VerticalScale": null
+  },
+  "StoryPreference": {
+   "FrameType": [
+    "FrameGridType",
+    "TextFrameType",
+    "Unknown"
+   ],
+   "OpticalMarginAlignment": [
+    "false",
+    "true"
+   ],
+   "OpticalMarginSize": null,
+   "StoryDirection": [
+    "LeftToRightDirection",
+    "UnknownDirection"
+   ],
+   "StoryOrientation": [
+    "Horizontal",
+    "Unknown"
+   ]
+  },
+  "StrikeThroughColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "StrikeThroughGapColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "StrikeThroughType": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "StrokeStyle": {
+   "Name": null,
+   "Self": null
+  },
+  "StrokeTransparencySetting": {},
+  "Styles": {
+   "DOMVersion": null,
+   "src": null
+  },
+  "Swatch": {
+   "ColorEditable": [
+    "false",
+    "true"
+   ],
+   "ColorRemovable": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "Self": null,
+   "SwatchColorGroupReference": [
+    "u12ColorGroupSwatch0"
+   ],
+   "SwatchCreatorID": null,
+   "Visible": [
+    "false",
+    "true"
+   ]
+  },
+  "TOCStyle": {
+   "CreateBookmarks": [
+    "false",
+    "true"
+   ],
+   "IncludeBookDocuments": [
+    "false",
+    "true"
+   ],
+   "IncludeHidden": [
+    "false",
+    "true"
+   ],
+   "MakeAnchor": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "NumberedParagraphs": [
+    "IncludeFullParagraph"
+   ],
+   "RemoveForcedLineBreak": [
+    "false",
+    "true"
+   ],
+   "RunIn": [
+    "false",
+    "true"
+   ],
+   "Self": null,
+   "SetStoryDirection": [
+    "Horizontal"
+   ],
+   "Title": null,
+   "TitleStyle": null
+  },
+  "TabList": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "Table": {
+   "AppliedTableStyle": null,
+   "BodyRowCount": null,
+   "BottomBorderStrokeColor": null,
+   "BottomBorderStrokeWeight": null,
+   "ColumnCount": null,
+   "FooterRowCount": null,
+   "HeaderRowCount": null,
+   "LeftBorderStrokeColor": null,
+   "LeftBorderStrokeWeight": null,
+   "RightBorderStrokeColor": null,
+   "RightBorderStrokeWeight": null,
+   "Self": null,
+   "StartColumnStrokeColor": null,
+   "StartColumnStrokeCount": null,
+   "StartColumnStrokeWeight": null,
+   "StartRowStrokeColor": null,
+   "StartRowStrokeCount": null,
+   "StartRowStrokeWeight": null,
+   "TableDirection": [
+    "LeftToRightDirection",
+    "RightToLeftDirection"
+   ],
+   "TopBorderStrokeColor": null,
+   "TopBorderStrokeWeight": null
+  },
+  "TableStyle": {
+   "BodyRegionCellStyle": null,
+   "BottomBorderStrokeColor": null,
+   "BottomBorderStrokeGapColor": null,
+   "BottomBorderStrokeGapOverprint": [
+    "false",
+    "true"
+   ],
+   "BottomBorderStrokeGapTint": null,
+   "BottomBorderStrokeOverprint": [
+    "false",
+    "true"
+   ],
+   "BottomBorderStrokeTint": null,
+   "BottomBorderStrokeType": null,
+   "BottomBorderStrokeWeight": null,
+   "ClipContentToGraphicCell": [
+    "false",
+    "true"
+   ],
+   "ClipContentToTextCell": [
+    "false",
+    "true"
+   ],
+   "ColumnFillsPriority": [
+    "false",
+    "true"
+   ],
+   "EndColumnFillColor": null,
+   "EndColumnFillCount": null,
+   "EndColumnFillOverprint": [
+    "false",
+    "true"
+   ],
+   "EndColumnFillTint": null,
+   "EndColumnLineStyle": null,
+   "EndColumnStrokeColor": null,
+   "EndColumnStrokeCount": null,
+   "EndColumnStrokeGapColor": null,
+   "EndColumnStrokeGapOverprint": [
+    "false",
+    "true"
+   ],
+   "EndColumnStrokeGapTint": null,
+   "EndColumnStrokeOverprint": [
+    "false",
+    "true"
+   ],
+   "EndColumnStrokeTint": null,
+   "EndColumnStrokeWeight": null,
+   "EndRowFillColor": null,
+   "EndRowFillCount": null,
+   "EndRowFillOverprint": [
+    "false",
+    "true"
+   ],
+   "EndRowFillTint": null,
+   "EndRowStrokeColor": null,
+   "EndRowStrokeCount": null,
+   "EndRowStrokeGapColor": null,
+   "EndRowStrokeGapOverprint": [
+    "false",
+    "true"
+   ],
+   "EndRowStrokeGapTint": null,
+   "EndRowStrokeOverprint": [
+    "false",
+    "true"
+   ],
+   "EndRowStrokeTint": null,
+   "EndRowStrokeType": null,
+   "EndRowStrokeWeight": null,
+   "ExtendedKeyboardShortcut": null,
+   "FooterRegionCellStyle": [
+    "n"
+   ],
+   "FooterRegionSameAsBodyRegion": [
+    "false",
+    "true"
+   ],
+   "GraphicBottomInset": null,
+   "GraphicLeftInset": null,
+   "GraphicRightInset": null,
+   "GraphicTopInset": null,
+   "HeaderRegionCellStyle": [
+    "n"
+   ],
+   "HeaderRegionSameAsBodyRegion": [
+    "false",
+    "true"
+   ],
+   "KeyboardShortcut": null,
+   "LeftBorderStrokeColor": null,
+   "LeftBorderStrokeGapColor": null,
+   "LeftBorderStrokeGapOverprint": [
+    "false",
+    "true"
+   ],
+   "LeftBorderStrokeGapTint": null,
+   "LeftBorderStrokeOverprint": [
+    "false",
+    "true"
+   ],
+   "LeftBorderStrokeTint": null,
+   "LeftBorderStrokeType": null,
+   "LeftBorderStrokeWeight": null,
+   "LeftColumnRegionCellStyle": [
+    "n"
+   ],
+   "LeftColumnRegionSameAsBodyRegion": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "RightBorderStrokeColor": null,
+   "RightBorderStrokeGapColor": null,
+   "RightBorderStrokeGapOverprint": [
+    "false",
+    "true"
+   ],
+   "RightBorderStrokeGapTint": null,
+   "RightBorderStrokeOverprint": [
+    "false",
+    "true"
+   ],
+   "RightBorderStrokeTint": null,
+   "RightBorderStrokeType": null,
+   "RightBorderStrokeWeight": null,
+   "RightColumnRegionCellStyle": [
+    "n"
+   ],
+   "RightColumnRegionSameAsBodyRegion": [
+    "false",
+    "true"
+   ],
+   "Self": null,
+   "SkipFirstAlternatingFillColumns": null,
+   "SkipFirstAlternatingFillRows": null,
+   "SkipFirstAlternatingStrokeColumns": null,
+   "SkipFirstAlternatingStrokeRows": null,
+   "SkipLastAlternatingFillColumns": null,
+   "SkipLastAlternatingFillRows": null,
+   "SkipLastAlternatingStrokeColumns": null,
+   "SkipLastAlternatingStrokeRows": null,
+   "SpaceAfter": null,
+   "SpaceBefore": null,
+   "StartColumnFillColor": null,
+   "StartColumnFillCount": null,
+   "StartColumnFillOverprint": [
+    "false",
+    "true"
+   ],
+   "StartColumnFillTint": null,
+   "StartColumnStrokeColor": null,
+   "StartColumnStrokeCount": null,
+   "StartColumnStrokeGapColor": null,
+   "StartColumnStrokeGapOverprint": [
+    "false",
+    "true"
+   ],
+   "StartColumnStrokeGapTint": null,
+   "StartColumnStrokeOverprint": [
+    "false",
+    "true"
+   ],
+   "StartColumnStrokeTint": null,
+   "StartColumnStrokeType": null,
+   "StartColumnStrokeWeight": null,
+   "StartRowFillColor": null,
+   "StartRowFillCount": null,
+   "StartRowFillOverprint": [
+    "false",
+    "true"
+   ],
+   "StartRowFillTint": null,
+   "StartRowStrokeColor": null,
+   "StartRowStrokeCount": null,
+   "StartRowStrokeGapColor": null,
+   "StartRowStrokeGapOverprint": [
+    "false",
+    "true"
+   ],
+   "StartRowStrokeGapTint": null,
+   "StartRowStrokeOverprint": [
+    "false",
+    "true"
+   ],
+   "StartRowStrokeTint": null,
+   "StartRowStrokeType": null,
+   "StartRowStrokeWeight": null,
+   "StrokeOrder": [
+    "BestJoins"
+   ],
+   "TextBottomInset": null,
+   "TextLeftInset": null,
+   "TextRightInset": null,
+   "TextTopInset": null,
+   "TopBorderStrokeColor": null,
+   "TopBorderStrokeGapColor": null,
+   "TopBorderStrokeGapOverprint": [
+    "false",
+    "true"
+   ],
+   "TopBorderStrokeGapTint": null,
+   "TopBorderStrokeOverprint": [
+    "false",
+    "true"
+   ],
+   "TopBorderStrokeTint": null,
+   "TopBorderStrokeType": null,
+   "TopBorderStrokeWeight": null
+  },
+  "TagColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "TaggedPDFPreference": {
+   "StructureOrder": [
+    "UseXMLStructure"
+   ]
+  },
+  "Tags": {
+   "DOMVersion": null,
+   "src": null
+  },
+  "TextDefault": {
+   "AllowArbitraryHyphenation": [
+    "false",
+    "true"
+   ],
+   "AppliedCharacterStyle": null,
+   "AppliedLanguage": null,
+   "AppliedNamedGrid": null,
+   "AppliedParagraphStyle": null,
+   "AutoLeading": null,
+   "AutoTcy": null,
+   "AutoTcyIncludeRoman": [
+    "false",
+    "true"
+   ],
+   "BaselineShift": null,
+   "BulletsAlignment": [
+    "LeftAlign"
+   ],
+   "BulletsAndNumberingListType": [
+    "NoList"
+   ],
+   "BulletsTextAfter": null,
+   "BunriKinshi": [
+    "false",
+    "true"
+   ],
+   "Capitalization": [
+    "AllCaps",
+    "CapToSmallCap",
+    "Normal",
+    "SmallCaps"
+   ],
+   "CharacterAlignment": [
+    "AlignEmCenter"
+   ],
+   "CharacterDirection": [
+    "DefaultDirection"
+   ],
+   "CharacterRotation": null,
+   "CjkGridTracking": [
+    "false",
+    "true"
+   ],
+   "Composer": [
+    "HL Composer",
+    "HL Composer Optyca",
+    "HL Single",
+    "HL Single Optyca"
+   ],
+   "DesiredGlyphScaling": null,
+   "DesiredLetterSpacing": null,
+   "DesiredWordSpacing": null,
+   "DiacriticPosition": [
+    "OpentypePosition",
+    "OpentypePositionFromBaseline"
+   ],
+   "DigitsType": [
+    "DefaultDigits"
+   ],
+   "DropCapCharacters": null,
+   "DropCapLines": null,
+   "DropcapDetail": null,
+   "EndJoin": [
+    "MiterEndJoin"
+   ],
+   "FillColor": null,
+   "FillTint": null,
+   "FirstLineIndent": null,
+   "FontStyle": null,
+   "GlyphForm": [
+    "None"
+   ],
+   "GradientFillAngle": null,
+   "GradientFillLength": null,
+   "GradientFillStart": null,
+   "GradientStrokeAngle": null,
+   "GradientStrokeLength": null,
+   "GradientStrokeStart": null,
+   "GridAlignFirstLineOnly": [
+    "false",
+    "true"
+   ],
+   "GridAlignment": [
+    "None"
+   ],
+   "GridGyoudori": null,
+   "HorizontalScale": null,
+   "HyphenWeight": null,
+   "HyphenateAcrossColumns": [
+    "false",
+    "true"
+   ],
+   "HyphenateAfterFirst": null,
+   "HyphenateBeforeLast": null,
+   "HyphenateCapitalizedWords": [
+    "false",
+    "true"
+   ],
+   "HyphenateLadderLimit": null,
+   "HyphenateLastWord": [
+    "false",
+    "true"
+   ],
+   "HyphenateWordsLongerThan": null,
+   "Hyphenation": [
+    "false",
+    "true"
+   ],
+   "HyphenationZone": null,
+   "IgnoreEdgeAlignment": [
+    "false",
+    "true"
+   ],
+   "Jidori": null,
+   "Justification": [
+    "AwayFromBindingSide",
+    "CenterAlign",
+    "CenterJustified",
+    "FullyJustified",
+    "LeftAlign",
+    "LeftJustified",
+    "RightAlign",
+    "RightJustified",
+    "ToBindingSide"
+   ],
+   "Kashidas": [
+    "DefaultKashidas"
+   ],
+   "KeepAllLinesTogether": [
+    "false",
+    "true"
+   ],
+   "KeepFirstLines": null,
+   "KeepLastLines": null,
+   "KeepLinesTogether": [
+    "false",
+    "true"
+   ],
+   "KeepRuleAboveInFrame": [
+    "false",
+    "true"
+   ],
+   "KeepWithNext": null,
+   "KeepWithPrevious": [
+    "false",
+    "true"
+   ],
+   "KentenAlignment": [
+    "AlignKentenCenter"
+   ],
+   "KentenCharacterSet": [
+    "CharacterInput"
+   ],
+   "KentenCustomCharacter": null,
+   "KentenFontSize": null,
+   "KentenKind": [
+    "None"
+   ],
+   "KentenOverprintFill": [
+    "Auto"
+   ],
+   "KentenOverprintStroke": [
+    "Auto"
+   ],
+   "KentenPlacement": null,
+   "KentenPosition": [
+    "AboveRight"
+   ],
+   "KentenStrokeTint": null,
+   "KentenTint": null,
+   "KentenWeight": null,
+   "KentenXScale": null,
+   "KentenYScale": null,
+   "KerningMethod": [
+    "$ID/Metrics"
+   ],
+   "KeyboardDirection": [
+    "DefaultDirection"
+   ],
+   "KinsokuHangType": [
+    "None"
+   ],
+   "KinsokuType": [
+    "KinsokuPushInFirst"
+   ],
+   "LastLineIndent": null,
+   "LeadingAki": null,
+   "LeadingModel": [
+    "LeadingModelAkiBelow"
+   ],
+   "LeftIndent": null,
+   "Ligatures": [
+    "false",
+    "true"
+   ],
+   "MaximumGlyphScaling": null,
+   "MaximumLetterSpacing": null,
+   "MaximumWordSpacing": null,
+   "MergeConsecutiveParaBorders": [
+    "false",
+    "true"
+   ],
+   "MinimumGlyphScaling": null,
+   "MinimumLetterSpacing": null,
+   "MinimumWordSpacing": null,
+   "MiterLimit": null,
+   "NoBreak": [
+    "false",
+    "true"
+   ],
+   "NumberingAlignment": [
+    "LeftAlign"
+   ],
+   "NumberingApplyRestartPolicy": [
+    "false",
+    "true"
+   ],
+   "NumberingContinue": [
+    "false",
+    "true"
+   ],
+   "NumberingExpression": null,
+   "NumberingLevel": null,
+   "NumberingStartAt": null,
+   "OTFContextualAlternate": [
+    "false",
+    "true"
+   ],
+   "OTFDiscretionaryLigature": [
+    "false",
+    "true"
+   ],
+   "OTFFigureStyle": [
+    "Default",
+    "ProportionalLining",
+    "ProportionalOldstyle",
+    "TabularLining",
+    "TabularOldstyle"
+   ],
+   "OTFFraction": [
+    "false",
+    "true"
+   ],
+   "OTFHVKana": [
+    "false",
+    "true"
+   ],
+   "OTFHistorical": [
+    "false",
+    "true"
+   ],
+   "OTFJustificationAlternate": [
+    "false",
+    "true"
+   ],
+   "OTFLocale": [
+    "false",
+    "true"
+   ],
+   "OTFMark": [
+    "false",
+    "true"
+   ],
+   "OTFOrdinal": [
+    "false",
+    "true"
+   ],
+   "OTFOverlapSwash": [
+    "false",
+    "true"
+   ],
+   "OTFProportionalMetrics": [
+    "false",
+    "true"
+   ],
+   "OTFRomanItalics": [
+    "false",
+    "true"
+   ],
+   "OTFSlashedZero": [
+    "false",
+    "true"
+   ],
+   "OTFStretchedAlternate": [
+    "false",
+    "true"
+   ],
+   "OTFStylisticAlternate": [
+    "false",
+    "true"
+   ],
+   "OTFStylisticSets": null,
+   "OTFSwash": [
+    "false",
+    "true"
+   ],
+   "OTFTitling": [
+    "false",
+    "true"
+   ],
+   "OverprintFill": [
+    "false",
+    "true"
+   ],
+   "OverprintStroke": [
+    "false",
+    "true"
+   ],
+   "PageNumberType": [
+    "AutoPageNumber"
+   ],
+   "ParagraphBorderBottomLeftCornerOption": [
+    "None"
+   ],
+   "ParagraphBorderBottomLeftCornerRadius": null,
+   "ParagraphBorderBottomLineWeight": null,
+   "ParagraphBorderBottomOffset": null,
+   "ParagraphBorderBottomOrigin": [
+    "DescentBottomOrigin"
+   ],
+   "ParagraphBorderBottomRightCornerOption": [
+    "None"
+   ],
+   "ParagraphBorderBottomRightCornerRadius": null,
+   "ParagraphBorderDisplayIfSplits": [
+    "false",
+    "true"
+   ],
+   "ParagraphBorderGapOverprint": [
+    "false",
+    "true"
+   ],
+   "ParagraphBorderGapTint": null,
+   "ParagraphBorderLeftLineWeight": null,
+   "ParagraphBorderLeftOffset": null,
+   "ParagraphBorderOn": [
+    "false",
+    "true"
+   ],
+   "ParagraphBorderOverprint": [
+    "false",
+    "true"
+   ],
+   "ParagraphBorderRightLineWeight": null,
+   "ParagraphBorderRightOffset": null,
+   "ParagraphBorderStrokeEndCap": [
+    "ButtEndCap"
+   ],
+   "ParagraphBorderStrokeEndJoin": [
+    "MiterEndJoin"
+   ],
+   "ParagraphBorderTint": null,
+   "ParagraphBorderTopLeftCornerOption": [
+    "None"
+   ],
+   "ParagraphBorderTopLeftCornerRadius": null,
+   "ParagraphBorderTopLineWeight": null,
+   "ParagraphBorderTopOffset": null,
+   "ParagraphBorderTopOrigin": [
+    "AscentTopOrigin"
+   ],
+   "ParagraphBorderTopRightCornerOption": [
+    "None"
+   ],
+   "ParagraphBorderTopRightCornerRadius": null,
+   "ParagraphBorderWidth": [
+    "ColumnWidth"
+   ],
+   "ParagraphBreakType": [
+    "Anywhere"
+   ],
+   "ParagraphDirection": [
+    "LeftToRightDirection"
+   ],
+   "ParagraphGyoudori": [
+    "false",
+    "true"
+   ],
+   "ParagraphJustification": [
+    "DefaultJustification"
+   ],
+   "ParagraphKashidaWidth": null,
+   "ParagraphShadingBottomLeftCornerOption": [
+    "None"
+   ],
+   "ParagraphShadingBottomLeftCornerRadius": null,
+   "ParagraphShadingBottomOffset": null,
+   "ParagraphShadingBottomOrigin": [
+    "DescentBottomOrigin"
+   ],
+   "ParagraphShadingBottomRightCornerOption": [
+    "None"
+   ],
+   "ParagraphShadingBottomRightCornerRadius": null,
+   "ParagraphShadingClipToFrame": [
+    "false",
+    "true"
+   ],
+   "ParagraphShadingLeftOffset": null,
+   "ParagraphShadingOn": [
+    "false",
+    "true"
+   ],
+   "ParagraphShadingOverprint": [
+    "false",
+    "true"
+   ],
+   "ParagraphShadingRightOffset": null,
+   "ParagraphShadingSuppressPrinting": [
+    "false",
+    "true"
+   ],
+   "ParagraphShadingTint": null,
+   "ParagraphShadingTopLeftCornerOption": [
+    "None"
+   ],
+   "ParagraphShadingTopLeftCornerRadius": null,
+   "ParagraphShadingTopOffset": null,
+   "ParagraphShadingTopOrigin": [
+    "AscentTopOrigin"
+   ],
+   "ParagraphShadingTopRightCornerOption": [
+    "None"
+   ],
+   "ParagraphShadingTopRightCornerRadius": null,
+   "ParagraphShadingWidth": [
+    "ColumnWidth"
+   ],
+   "PointSize": null,
+   "Position": [
+    "Normal",
+    "OTDenominator",
+    "OTNumerator",
+    "OTSubscript",
+    "OTSuperscript",
+    "Subscript",
+    "Superscript"
+   ],
+   "PositionalForm": [
+    "None"
+   ],
+   "ProviderHyphenationStyle": [
+    "HyphAll"
+   ],
+   "Rensuuji": [
+    "false",
+    "true"
+   ],
+   "RightIndent": null,
+   "RotateSingleByteCharacters": [
+    "false",
+    "true"
+   ],
+   "RubyAlignment": [
+    "RubyJIS"
+   ],
+   "RubyAutoAlign": [
+    "false",
+    "true"
+   ],
+   "RubyAutoScaling": [
+    "false",
+    "true"
+   ],
+   "RubyAutoTcyAutoScale": [
+    "false",
+    "true"
+   ],
+   "RubyAutoTcyDigits": null,
+   "RubyAutoTcyIncludeRoman": [
+    "false",
+    "true"
+   ],
+   "RubyFontSize": null,
+   "RubyOpenTypePro": [
+    "false",
+    "true"
+   ],
+   "RubyOverhang": [
+    "false",
+    "true"
+   ],
+   "RubyOverprintFill": [
+    "Auto"
+   ],
+   "RubyOverprintStroke": [
+    "Auto"
+   ],
+   "RubyParentOverhangAmount": [
+    "RubyOverhangOneRuby"
+   ],
+   "RubyParentScalingPercent": null,
+   "RubyParentSpacing": [
+    "RubyParent121Aki"
+   ],
+   "RubyPosition": [
+    "AboveRight"
+   ],
+   "RubyStrokeTint": null,
+   "RubyTint": null,
+   "RubyType": [
+    "PerCharacterRuby"
+   ],
+   "RubyWeight": null,
+   "RubyXOffset": null,
+   "RubyXScale": null,
+   "RubyYOffset": null,
+   "RubyYScale": null,
+   "RuleAbove": [
+    "false",
+    "true"
+   ],
+   "RuleAboveGapOverprint": [
+    "false",
+    "true"
+   ],
+   "RuleAboveGapTint": null,
+   "RuleAboveLeftIndent": null,
+   "RuleAboveLineWeight": null,
+   "RuleAboveOffset": null,
+   "RuleAboveOverprint": [
+    "false",
+    "true"
+   ],
+   "RuleAboveRightIndent": null,
+   "RuleAboveTint": null,
+   "RuleAboveWidth": [
+    "ColumnWidth"
+   ],
+   "RuleBelow": [
+    "false",
+    "true"
+   ],
+   "RuleBelowGapOverprint": [
+    "false",
+    "true"
+   ],
+   "RuleBelowGapTint": null,
+   "RuleBelowLeftIndent": null,
+   "RuleBelowLineWeight": null,
+   "RuleBelowOffset": null,
+   "RuleBelowOverprint": [
+    "false",
+    "true"
+   ],
+   "RuleBelowRightIndent": null,
+   "RuleBelowTint": null,
+   "RuleBelowWidth": [
+    "ColumnWidth"
+   ],
+   "ScaleAffectsLineHeight": [
+    "false",
+    "true"
+   ],
+   "ShataiAdjustRotation": [
+    "false",
+    "true"
+   ],
+   "ShataiAdjustTsume": [
+    "false",
+    "true"
+   ],
+   "ShataiDegreeAngle": null,
+   "ShataiMagnification": null,
+   "SingleWordJustification": [
+    "FullyJustified"
+   ],
+   "Skew": null,
+   "SpaceAfter": null,
+   "SpaceBefore": null,
+   "SpanColumnMinSpaceAfter": null,
+   "SpanColumnMinSpaceBefore": null,
+   "SpanColumnType": [
+    "SingleColumn"
+   ],
+   "SplitColumnInsideGutter": null,
+   "SplitColumnOutsideGutter": null,
+   "StartParagraph": [
+    "Anywhere",
+    "NextColumn",
+    "NextEvenPage",
+    "NextFrame",
+    "NextOddPage",
+    "NextPage"
+   ],
+   "StrikeThroughGapOverprint": [
+    "false",
+    "true"
+   ],
+   "StrikeThroughGapTint": null,
+   "StrikeThroughOffset": null,
+   "StrikeThroughOverprint": [
+    "false",
+    "true"
+   ],
+   "StrikeThroughTint": null,
+   "StrikeThroughWeight": null,
+   "StrikeThru": [
+    "false",
+    "true"
+   ],
+   "StrokeAlignment": [
+    "CenterAlignment",
+    "InsideAlignment",
+    "OutsideAlignment"
+   ],
+   "StrokeColor": null,
+   "StrokeTint": null,
+   "StrokeWeight": null,
+   "Tatechuyoko": [
+    "false",
+    "true"
+   ],
+   "TatechuyokoXOffset": null,
+   "TatechuyokoYOffset": null,
+   "Tracking": null,
+   "TrailingAki": null,
+   "TreatIdeographicSpaceAsSpace": [
+    "false",
+    "true"
+   ],
+   "Tsume": null,
+   "Underline": [
+    "false",
+    "true"
+   ],
+   "UnderlineGapOverprint": [
+    "false",
+    "true"
+   ],
+   "UnderlineGapTint": null,
+   "UnderlineOffset": null,
+   "UnderlineOverprint": [
+    "false",
+    "true"
+   ],
+   "UnderlineTint": null,
+   "UnderlineWeight": null,
+   "VerticalScale": null,
+   "Warichu": [
+    "false",
+    "true"
+   ],
+   "WarichuAlignment": [
+    "Auto"
+   ],
+   "WarichuCharsAfterBreak": null,
+   "WarichuCharsBeforeBreak": null,
+   "WarichuLineSpacing": null,
+   "WarichuLines": null,
+   "WarichuSize": null,
+   "XOffsetDiacritic": null,
+   "YOffsetDiacritic": null
+  },
+  "TextFrame": {
+   "AppliedObjectStyle": null,
+   "BottomLeftCornerRadius": null,
+   "BottomRightCornerRadius": null,
+   "ContentType": [
+    "TextType"
+   ],
+   "CornerRadius": null,
+   "FillColor": null,
+   "GradientFillAngle": null,
+   "GradientFillHiliteAngle": null,
+   "GradientFillHiliteLength": null,
+   "GradientFillLength": null,
+   "GradientFillStart": null,
+   "GradientStrokeAngle": null,
+   "GradientStrokeHiliteAngle": null,
+   "GradientStrokeHiliteLength": null,
+   "GradientStrokeLength": null,
+   "GradientStrokeStart": null,
+   "HorizontalLayoutConstraints": [
+    "FlexibleDimension FixedDimension FlexibleDimension"
+   ],
+   "ItemLayer": null,
+   "ItemTransform": null,
+   "LastUpdatedInterfaceChangeCount": null,
+   "LocalDisplaySetting": [
+    "Default"
+   ],
+   "Locked": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "NextTextFrame": null,
+   "OverriddenPageItemProps": null,
+   "ParentInterfaceChangeCount": null,
+   "ParentStory": null,
+   "PreviousTextFrame": null,
+   "Self": null,
+   "StrokeColor": null,
+   "StrokeWeight": null,
+   "TargetInterfaceChangeCount": null,
+   "TopLeftCornerRadius": null,
+   "TopRightCornerRadius": null,
+   "VerticalLayoutConstraints": [
+    "FlexibleDimension FixedDimension FlexibleDimension"
+   ],
+   "Visible": [
+    "false",
+    "true"
+   ]
+  },
+  "TextFrameFootnoteOptionsObject": {
+   "EnableOverrides": [
+    "false",
+    "true"
+   ],
+   "MinimumSpacingOption": null,
+   "SpaceBetweenFootnotes": null,
+   "SpanFootnotesAcross": [
+    "false",
+    "true"
+   ]
+  },
+  "TextFramePreference": {
+   "AutoSizingReferencePoint": [
+    "BottomCenterPoint",
+    "BottomLeftPoint",
+    "BottomRightPoint",
+    "CenterPoint",
+    "LeftCenterPoint",
+    "RightCenterPoint",
+    "TopCenterPoint",
+    "TopLeftPoint",
+    "TopRightPoint"
+   ],
+   "AutoSizingType": [
+    "Off"
+   ],
+   "ColumnRuleBottomInset": null,
+   "ColumnRuleInsetChainOverride": [
+    "false",
+    "true"
+   ],
+   "ColumnRuleOffset": null,
+   "ColumnRuleOverprintOverride": [
+    "false",
+    "true"
+   ],
+   "ColumnRuleOverride": [
+    "false",
+    "true"
+   ],
+   "ColumnRuleStrokeColor": null,
+   "ColumnRuleStrokeTint": null,
+   "ColumnRuleStrokeType": null,
+   "ColumnRuleStrokeWidth": null,
+   "ColumnRuleTopInset": null,
+   "FirstBaselineOffset": [
+    "AscentOffset",
+    "CapHeight",
+    "EmboxHeight",
+    "FixedHeight",
+    "LeadingOffset",
+    "XHeight"
+   ],
+   "FootnotesEnableOverrides": [
+    "false",
+    "true"
+   ],
+   "FootnotesMinimumSpacing": null,
+   "FootnotesSpaceBetween": null,
+   "FootnotesSpanAcrossColumns": [
+    "false",
+    "true"
+   ],
+   "IgnoreWrap": [
+    "false",
+    "true"
+   ],
+   "MinimumFirstBaselineOffset": null,
+   "MinimumHeightForAutoSizing": null,
+   "MinimumWidthForAutoSizing": null,
+   "TextColumnCount": null,
+   "TextColumnFixedWidth": null,
+   "TextColumnGutter": null,
+   "TextColumnMaxWidth": null,
+   "UseFixedColumnWidth": [
+    "false",
+    "true"
+   ],
+   "UseFlexibleColumnWidth": [
+    "false",
+    "true"
+   ],
+   "UseMinimumHeightForAutoSizing": [
+    "false",
+    "true"
+   ],
+   "UseMinimumWidthForAutoSizing": [
+    "false",
+    "true"
+   ],
+   "UseNoLineBreaksForAutoSizing": [
+    "false",
+    "true"
+   ],
+   "VerticalBalanceColumns": [
+    "false",
+    "true"
+   ],
+   "VerticalJustification": [
+    "BottomAlign",
+    "CenterAlign",
+    "JustifyAlign",
+    "TopAlign"
+   ],
+   "VerticalThreshold": null
+  },
+  "TextPreference": {
+   "AbutTextToTextWrap": [
+    "false",
+    "true"
+   ],
+   "AddPages": [
+    "EndOfStory"
+   ],
+   "BaselineShiftKeyIncrement": null,
+   "DeleteEmptyPages": [
+    "false",
+    "true"
+   ],
+   "EnableStylePreviewMode": [
+    "false",
+    "true"
+   ],
+   "HighlightCustomSpacing": [
+    "false",
+    "true"
+   ],
+   "HighlightHjViolations": [
+    "false",
+    "true"
+   ],
+   "HighlightKeeps": [
+    "false",
+    "true"
+   ],
+   "HighlightKinsoku": [
+    "false",
+    "true"
+   ],
+   "HighlightSubstitutedFonts": [
+    "false",
+    "true"
+   ],
+   "HighlightSubstitutedGlyphs": [
+    "false",
+    "true"
+   ],
+   "JustifyTextWraps": [
+    "false",
+    "true"
+   ],
+   "KerningKeyIncrement": null,
+   "LeadingKeyIncrement": null,
+   "LimitToMasterTextFrames": [
+    "false",
+    "true"
+   ],
+   "LinkTextFilesWhenImporting": [
+    "false",
+    "true"
+   ],
+   "PreserveFacingPageSpreads": [
+    "false",
+    "true"
+   ],
+   "QuoteCharactersRotatedInVertical": [
+    "false",
+    "true"
+   ],
+   "ShapeIndicAndLatinWithHarbuzz": [
+    "false",
+    "true"
+   ],
+   "ShowInvisibles": [
+    "false",
+    "true"
+   ],
+   "SmallCap": null,
+   "SmartTextReflow": [
+    "false",
+    "true"
+   ],
+   "SmartTextReflowSync": [
+    "false",
+    "true"
+   ],
+   "SubscriptPosition": null,
+   "SubscriptSize": null,
+   "SuperscriptPosition": null,
+   "SuperscriptSize": null,
+   "TypographersQuotes": [
+    "false",
+    "true"
+   ],
+   "UseCidMojikumi": [
+    "false",
+    "true"
+   ],
+   "UseNewVerticalScaling": [
+    "false",
+    "true"
+   ],
+   "UseOpticalSize": [
+    "false",
+    "true"
+   ],
+   "UseParagraphLeading": [
+    "false",
+    "true"
+   ],
+   "ZOrderTextWrap": [
+    "false",
+    "true"
+   ]
+  },
+  "TextVariable": {
+   "Name": null,
+   "Self": null,
+   "VariableType": [
+    "ChapterNumberType",
+    "CreationDateType",
+    "FileNameType",
+    "LastPageNumberType",
+    "LiveCaptionType",
+    "MatchParagraphStyleType",
+    "ModificationDateType",
+    "OutputDateType",
+    "XrefChapterNumberType",
+    "XrefPageNumberType"
+   ]
+  },
+  "TextWrapOffset": {
+   "Bottom": null,
+   "Left": null,
+   "Right": null,
+   "Top": null
+  },
+  "TextWrapPreference": {
+   "ApplyToMasterPageOnly": [
+    "false",
+    "true"
+   ],
+   "Inverse": [
+    "false",
+    "true"
+   ],
+   "TextWrapMode": [
+    "BoundingBoxTextWrap",
+    "None"
+   ],
+   "TextWrapSide": [
+    "BothSides"
+   ]
+  },
+  "TinDocumentDataObject": {},
+  "TransformAttributeOption": {
+   "TransformAttrLeftReference": [
+    "PageEdgeReference"
+   ],
+   "TransformAttrRefAnchorPoint": [
+    "TopLeftAnchor"
+   ],
+   "TransformAttrTopReference": [
+    "PageEdgeReference"
+   ]
+  },
+  "TransformFilename": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "TransformParameters": {},
+  "TransparencyDefaultContainerObject": {},
+  "TransparencyPreference": {
+   "BlendingSpace": [
+    "CMYK",
+    "RGB"
+   ],
+   "GlobalLightAltitude": null,
+   "GlobalLightAngle": null
+  },
+  "TransparencySetting": {},
+  "TrapPreset": {
+   "BlackColorThreshold": null,
+   "BlackDensity": null,
+   "BlackWidth": null,
+   "ColorReduction": null,
+   "DefaultTrapWidth": null,
+   "ImagePlacement": [
+    "CenterEdges"
+   ],
+   "ImagesToImages": [
+    "false",
+    "true"
+   ],
+   "InternalImages": [
+    "false",
+    "true"
+   ],
+   "Name": null,
+   "ObjectsToImages": [
+    "false",
+    "true"
+   ],
+   "OneBitImages": [
+    "false",
+    "true"
+   ],
+   "Self": null,
+   "SlidingTrapThreshold": null,
+   "StepThreshold": null,
+   "TrapEnd": [
+    "MiterTrapEnds"
+   ],
+   "TrapJoin": [
+    "MiterEndJoin"
+   ]
+  },
+  "UnderlineColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "UnderlineGapColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "UnderlineType": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "UserColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "ViewPreference": {
+   "CursorKeyIncrement": null,
+   "GuideSnaptoZone": null,
+   "HorizontalCustomPoints": null,
+   "HorizontalMeasurementUnits": [
+    "Millimeters"
+   ],
+   "LineMeasurementUnits": [
+    "Points"
+   ],
+   "PointsPerInch": null,
+   "PrintDialogMeasurementUnits": [
+    "Millimeters"
+   ],
+   "RulerOrigin": [
+    "SpreadOrigin"
+   ],
+   "ShowFrameEdges": [
+    "false",
+    "true"
+   ],
+   "ShowNotes": [
+    "false",
+    "true"
+   ],
+   "ShowRulers": [
+    "false",
+    "true"
+   ],
+   "StrokeMeasurementUnits": [
+    "Points"
+   ],
+   "TextSizeMeasurementUnits": [
+    "Points"
+   ],
+   "TypographicMeasurementUnits": [
+    "Points"
+   ],
+   "VerticalCustomPoints": null,
+   "VerticalMeasurementUnits": [
+    "Millimeters"
+   ]
+  },
+  "WatermarkFontColor": {
+   "type": [
+    "boolean",
+    "double",
+    "enumeration",
+    "list",
+    "long",
+    "object",
+    "record",
+    "ref",
+    "string",
+    "unit"
+   ]
+  },
+  "WatermarkPreference": {
+   "WatermarkDoPrint": [
+    "false",
+    "true"
+   ],
+   "WatermarkDrawInBack": [
+    "false",
+    "true"
+   ],
+   "WatermarkFontFamily": [
+    "Minion Pro"
+   ],
+   "WatermarkFontPointSize": null,
+   "WatermarkFontStyle": [
+    "Regular"
+   ],
+   "WatermarkHorizontalOffset": null,
+   "WatermarkHorizontalPosition": [
+    "WatermarkHCenter"
+   ],
+   "WatermarkOpacity": null,
+   "WatermarkRotation": null,
+   "WatermarkText": null,
+   "WatermarkVerticalOffset": null,
+   "WatermarkVerticalPosition": [
+    "WatermarkVCenter"
+   ],
+   "WatermarkVisibility": [
+    "false",
+    "true"
+   ]
+  },
+  "XMLAttribute": {
+   "Name": null,
+   "Self": null,
+   "Value": null
+  },
+  "XMLElement": {
+   "MarkupTag": null,
+   "Self": null,
+   "XMLContent": null
+  },
+  "XMLExportPreference": {
+   "AllowTransform": [
+    "false",
+    "true"
+   ],
+   "CharacterReferences": [
+    "false",
+    "true"
+   ],
+   "CopyFormattedImages": [
+    "false",
+    "true"
+   ],
+   "CopyOptimizedImages": [
+    "false",
+    "true"
+   ],
+   "CopyOriginalImages": [
+    "false",
+    "true"
+   ],
+   "ExcludeDtd": [
+    "false",
+    "true"
+   ],
+   "ExportFromSelected": [
+    "false",
+    "true"
+   ],
+   "ExportUntaggedTablesFormat": [
+    "CALS"
+   ],
+   "FileEncoding": [
+    "UTF8"
+   ],
+   "GIFOptionsInterlaced": [
+    "false",
+    "true"
+   ],
+   "GIFOptionsPalette": [
+    "AdaptivePalette"
+   ],
+   "ImageConversion": [
+    "Automatic"
+   ],
+   "JPEGOptionsFormat": [
+    "BaselineEncoding"
+   ],
+   "JPEGOptionsQuality": [
+    "Medium"
+   ],
+   "Ruby": [
+    "false",
+    "true"
+   ],
+   "ViewAfterExport": [
+    "false",
+    "true"
+   ]
+  },
+  "XMLImportMap": {
+   "MappedStyle": null,
+   "MarkupTag": null,
+   "Self": null
+  },
+  "XMLImportPreference": {
+   "AllowTransform": [
+    "false",
+    "true"
+   ],
+   "CreateLinkToXML": [
+    "false",
+    "true"
+   ],
+   "IgnoreUnmatchedIncoming": [
+    "false",
+    "true"
+   ],
+   "IgnoreWhitespace": [
+    "false",
+    "true"
+   ],
+   "ImportCALSTables": [
+    "false",
+    "true"
+   ],
+   "ImportStyle": [
+    "MergeImport"
+   ],
+   "ImportTextIntoTables": [
+    "false",
+    "true"
+   ],
+   "ImportToSelected": [
+    "false",
+    "true"
+   ],
+   "RemoveUnmatchedExisting": [
+    "false",
+    "true"
+   ],
+   "RepeatTextElements": [
+    "false",
+    "true"
+   ]
+  },
+  "XMLPreference": {
+   "DefaultCellTagName": [
+    "Cell",
+    "Cellule"
+   ],
+   "DefaultImageTagName": [
+    "Image"
+   ],
+   "DefaultStoryTagName": [
+    "Article",
+    "Story"
+   ],
+   "DefaultTableTagName": [
+    "Table",
+    "Tableau"
+   ],
+   "DeleteElementOnContentDeletion": [
+    "false",
+    "true"
+   ]
+  },
+  "XMLTag": {
+   "Name": null,
+   "Self": null
+  },
+  "XmlStory": {
+   "AppliedNamedGrid": null,
+   "AppliedTOCStyle": null,
+   "IsEndnoteStory": [
+    "false",
+    "true"
+   ],
+   "Self": null,
+   "StoryTitle": null,
+   "TrackChanges": [
+    "false",
+    "true"
+   ],
+   "UserText": [
+    "false",
+    "true"
+   ]
+  }
+ },
+ "global": {
+  "AppliedLanguage": null,
+  "BaselineShift": null,
+  "BottomLeftCornerOption": null,
+  "BottomLeftCornerRadius": null,
+  "BottomRightCornerOption": null,
+  "BottomRightCornerRadius": null,
+  "Capitalization": [
+   "AllCaps",
+   "CapToSmallCap",
+   "Normal",
+   "SmallCaps"
+  ],
+  "DropCapCharacters": null,
+  "DropCapLines": null,
+  "EndCap": [
+   "ButtEndCap",
+   "ProjectingEndCap",
+   "RoundEndCap"
+  ],
+  "FillColor": null,
+  "FillTint": null,
+  "FirstLineIndent": null,
+  "FontStyle": null,
+  "Hyphenation": [
+   "false",
+   "true"
+  ],
+  "Justification": [
+   "AwayFromBindingSide",
+   "CenterAlign",
+   "CenterJustified",
+   "FullyJustified",
+   "LeftAlign",
+   "LeftJustified",
+   "RightAlign",
+   "RightJustified",
+   "ToBindingSide"
+  ],
+  "KeepAllLinesTogether": [
+   "false",
+   "true"
+  ],
+  "KeepLinesTogether": [
+   "false",
+   "true"
+  ],
+  "LeftIndent": null,
+  "NoBreak": [
+   "false",
+   "true"
+  ],
+  "OTFFigureStyle": [
+   "Default",
+   "ProportionalLining",
+   "ProportionalOldstyle",
+   "TabularLining",
+   "TabularOldstyle"
+  ],
+  "PointSize": null,
+  "Position": [
+   "Normal",
+   "OTDenominator",
+   "OTNumerator",
+   "OTSubscript",
+   "OTSuperscript",
+   "Subscript",
+   "Superscript"
+  ],
+  "RightIndent": null,
+  "SpaceAfter": null,
+  "SpaceBefore": null,
+  "StartParagraph": [
+   "Anywhere",
+   "NextColumn",
+   "NextEvenPage",
+   "NextFrame",
+   "NextOddPage",
+   "NextPage"
+  ],
+  "StoryTitle": null,
+  "StrikeThru": [
+   "false",
+   "true"
+  ],
+  "StrokeAlignment": [
+   "CenterAlignment",
+   "InsideAlignment",
+   "OutsideAlignment"
+  ],
+  "StrokeColor": null,
+  "StrokeTint": null,
+  "StrokeType": null,
+  "StrokeWeight": null,
+  "TopLeftCornerOption": null,
+  "TopLeftCornerRadius": null,
+  "TopRightCornerOption": null,
+  "TopRightCornerRadius": null,
+  "Tracking": null,
+  "Underline": [
+   "false",
+   "true"
+  ]
+ },
+ "implizit": [],
+ "referenzen": 18
+}

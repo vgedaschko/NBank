@@ -1,0 +1,13 @@
+# Python-Abhängigkeiten des IDML-Exports (scripts/export-idml.cjs, scripts/idml/*.py)
+# Einrichten:  npm run indesign:setup   (= python3 -m venv .venv && .venv/bin/pip install -r scripts/idml/requirements-idml.txt)
+# Export:      npm run indesign   (.venv/ wird automatisch verwendet; sonst IDML_PYTHON=… bzw. --python …, zuletzt python3)
+#
+# Pflicht (Desktop-Schriften instanziieren, WOFF2 lesen)
+fonttools==4.67.0
+brotli==1.2.0
+# Prüfung validate.py (ohne diese Pakete wird sie mit Hinweis übersprungen)
+lxml==6.1.3
+pypdf==6.21.1
+pillow==13.0.0
+# optional: Ladetest mit SimpleIDML
+simpleidml==1.3.1

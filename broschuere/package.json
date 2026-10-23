@@ -6,7 +6,11 @@
     "assemble": "node scripts/assemble.cjs",
     "build": "node scripts/assemble.cjs && node scripts/render.cjs --in src/index.html --pdf dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026.pdf",
     "preview": "node scripts/assemble.cjs && node scripts/render.cjs --in src/index.html --pdf dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026.pdf --png dist/preview --dpi 80",
-    "fonts": "python3 scripts/fonts-static.py"
+    "fonts": "python3 scripts/fonts-static.py",
+    "indesign": "node scripts/export-idml.cjs",
+    "indesign:check": "node scripts/export-idml.cjs --check",
+    "indesign:setup": "python3 -m venv .venv && .venv/bin/pip install -r scripts/idml/requirements-idml.txt",
+    "indesign:selbsttest": "node scripts/export-idml.cjs --selbsttest"
   },
   "devDependencies": {
     "hyphen": "^1.14.1",

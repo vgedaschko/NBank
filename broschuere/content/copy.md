@@ -366,9 +366,9 @@ Stufe VII gibt es in Niedersachsen nicht. Zuordnung nach Wohngeldrecht seit 2023
 - ✓ nur an Haushalte mit WBS, auch bei Wiedervermietung
 - ✓ unbefristeter Mietvertrag, der die Förderbestimmungen zur Mietbindung wiedergibt; Wohnung bezugsfertig übergeben
 - ✓ Stellplätze getrennt vermietbar, nicht an die Wohnung gekoppelt
-- ✕ keine Zuschläge (Ausstattung, Keller, Energie- und Wärmeeinrichtungen); Zusatzleistungen nur freiwillig
-- ✕ keine Abwälzung von Kosten für Bezugsfertigkeit oder Instandhaltung über das BGB-Mietrecht hinaus
-- ✕ keine Zwischenvermietung (Ausnahmen, z. B. Housing First → S. 8)
+- ✗ keine Zuschläge (Ausstattung, Keller, Energie- und Wärmeeinrichtungen); Zusatzleistungen nur freiwillig
+- ✗ keine Abwälzung von Kosten für Bezugsfertigkeit oder Instandhaltung über das BGB-Mietrecht hinaus
+- ✗ keine Zwischenvermietung (Ausnahmen, z. B. Housing First → S. 8)
 - ! Verstöße (ohne WBS, überhöhte Miete) kosten Geldleistungen bis 5 € je m² und Monat und Bußgeld bis 10.000 €; bei Vermietung ohne WBS drohen Kündigung und Räumung, die Förderung kann zurückgefordert werden.
 
 ---
@@ -942,7 +942,7 @@ Klammer Station 5–7: bei Bauvorhaben
 
 - **✓ Erlaubt:** Baugrundstück kaufen oder Erbbaurecht bestellen · nicht bindende Reservierung beim Kauf · Planung bis einschließlich Leistungsphase 6 HOAI · Baugrund untersuchen, Grundstück herrichten
 - **! Genau prüfen:** Vertrag mit eindeutigem, folgenlosem Rücktrittsrecht oder eindeutiger Bedingung für den Fall, dass die Förderung ausbleibt · vorzeitiger Vorhabenbeginn auf Antrag (→ S. 21)
-- **✕ Förderschädlich:** Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück) · beim Ersterwerb: bindender Kaufvertrag über die Wohnungen · Beauftragung ab Leistungsphase 7 HOAI · erster Spatenstich · bei 2.5: Mietvertrag oder Überlassung der Wohnung
+- **✗ Förderschädlich:** Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück) · beim Ersterwerb: bindender Kaufvertrag über die Wohnungen · Beauftragung ab Leistungsphase 7 HOAI · erster Spatenstich · bei 2.5: Mietvertrag oder Überlassung der Wohnung
 
 *[Angebotssatz]* Wie wir Sie Station für Station begleiten → S. 20
 

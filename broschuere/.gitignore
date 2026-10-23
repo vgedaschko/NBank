@@ -4,3 +4,8 @@ dist/preview/
 dist/qa/
 src/index.html
 .venv/
+dist/indesign/
+dist/indesign-qa/
+dist/indesign-fehlgeschlagen/
+scripts/idml/__pycache__/
+scripts/__pycache__/

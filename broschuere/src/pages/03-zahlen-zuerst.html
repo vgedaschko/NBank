@@ -29,18 +29,17 @@
     .page[data-page="03"] .p03-kf__date { border-top-color: var(--signal-fill); }
     .page[data-page="03"] .p03-kf__date .kf__num { font-size: var(--fs-fig-s); color: var(--signal-text); }
 
-    /* Marktband (Anthrazit-Verlauf), oben bündig mit „Ihr Einstieg“ auf S. 2 */
-    .page[data-page="03"] .p03-market { height: 65mm; padding: 4.6mm 6mm 5mm; background: var(--grad-dark); }
+    /* Marktband (Anthrazit-Verlauf), oben bündig mit „Ihr Einstieg“ auf S. 2. Korrekturlauf 1: eine Kernbotschaft, ein Diagramm
+       (Einheitenquadrate 1 = 1.000 Wohnungen mit zweistufiger Maßkette: Gesamtmaß 58.024 ausgelaufen, Teilmaß rund 16.000 neu gefördert) */
+    .page[data-page="03"] .p03-market { display: flex; flex-direction: column; height: 65mm; padding: 4.6mm 6mm 4.6mm; background: var(--grad-dark); }
     .page[data-page="03"] .p03-market__head { display: flex; justify-content: space-between; align-items: center; gap: 4mm; padding-bottom: 2.6mm; border-bottom: var(--hair) solid var(--rule); }
-    .page[data-page="03"] .p03-market__body { display: grid; grid-template-columns: calc(6 * var(--col) + 5 * var(--gutter) - 6mm) minmax(0, 1fr); column-gap: var(--gutter); align-items: end; margin-top: 4.4mm; }
-    .page[data-page="03"] .p03-market__hero { display: flex; flex-direction: column; }
-    .page[data-page="03"] .p03-market__num { font: 900 var(--fs-fig-xl)/.8 var(--font-display); letter-spacing: -.02em; color: var(--fg); font-variant-numeric: lining-nums tabular-nums; }
-    .page[data-page="03"] .p03-market__label { margin-top: 3.4mm; font: 700 9.5pt/1.3 var(--font-display); color: var(--fg); }
-    .page[data-page="03"] .p03-market__note { margin-top: .8mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="03"] .p03-market .chart__sub { margin-top: 0; color: var(--fg-3); }
-    .page[data-page="03"] .p03-market .chart__svg { margin-top: 2.4mm; }
-    .page[data-page="03"] .chart__svg .p03-v { font-size: var(--svg-fs-l); }
-    .page[data-page="03"] .chart__svg .p03-ring-num { font-family: var(--font-display); font-weight: 800; font-size: var(--svg-fs-l); fill: var(--fg); font-variant-numeric: tabular-nums; }
+    .page[data-page="03"] .p03-market__msg { max-width: calc(10 * var(--col) + 9 * var(--gutter)); margin-top: 4.4mm; font: 800 15pt/1.16 var(--font-display); letter-spacing: -.005em; color: var(--fg); }
+    .page[data-page="03"] .p03-hl { color: var(--grant); }
+    .page[data-page="03"] .p03-units { display: block; margin-top: auto; overflow: visible; }
+    .page[data-page="03"] .p03-ext { stroke: var(--fg-3); stroke-width: .12; fill: none; }
+    .page[data-page="03"] .p03-u-new { fill: var(--grant); }
+    .page[data-page="03"] .p03-u-gone { fill: none; stroke: var(--fg-3); stroke-width: .25; }
+    .page[data-page="03"] .p03-market__foot { display: flex; justify-content: space-between; gap: 4mm; white-space: nowrap; margin-top: 2.6mm; font-size: var(--fs-micro); line-height: 1.3; color: var(--fg-3); }
   </style>
 
   <div class="p03-head">
@@ -58,21 +57,21 @@
     <article class="kf kf--bs bs-21">
       <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">80<span class="kf__unit">%</span></span></p>
       <p class="kf__label">Förderquote</p>
-      <p class="kf__text">Darlehen + Zuschuss, alle Gruppen; mehr bei <span lang="en">Housing First</span> und Modellprojekten <a class="pageref" href="#seite-8">→&nbsp;S.&nbsp;8</a></p>
+      <p class="kf__text">Darlehen + Zuschuss, alle Gruppen; mehr bei <span lang="en">Housing First</span> und Modellprojekten <a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a></p>
       <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.1</b></span></span>
     </article>
 
     <article class="kf kf--bs bs-21">
       <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">40<span class="kf__unit">%</span></span></p>
       <p class="kf__label">Zuschuss</p>
-      <p class="kf__text">Gruppe&nbsp;A, nur mit Darlehen; B bis zu 20&nbsp;%, C bis zu 10&nbsp;%, B/C nur mit Zulassung <a class="pageref" href="#seite-6">→&nbsp;S.&nbsp;6</a></p>
+      <p class="kf__text">Gruppe&nbsp;A, nur mit Darlehen; B bis zu 20&nbsp;%, C bis zu 10&nbsp;%, B/C nur mit Zulassung <a class="pageref" href="#seite-06">→&nbsp;S.&nbsp;6</a></p>
       <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.1</b></span></span>
     </article>
 
     <article class="kf kf--bs bs-21 p03-kf__split">
       <p class="kf__fig"><span class="kf__pre"></span><span class="kf__num">0<span class="kf__unit">%</span></span></p>
       <p class="kf__label">Zins bis Ende des 35.&nbsp;Jahres</p>
-      <p class="kf__text">gezählt ab Bezugsfertigkeit; dazu 0,5&nbsp;% Verwaltungskostenbeitrag p.&nbsp;a. und einmalige Bearbeitungsentgelte <a class="pageref" href="#seite-9">→&nbsp;S.&nbsp;9</a></p>
+      <p class="kf__text">gezählt ab Bezugsfertigkeit; dazu 0,5&nbsp;% Verwaltungskostenbeitrag p.&nbsp;a. und einmalige Bearbeitungsentgelte <a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a></p>
       <span class="p03-chip"><span class="bs-badge bs-21"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.1</b></span>/<span class="bs-badge bs-24"><b class="bs-badge__no">2.4</b></span></span>
     </article>
 
@@ -80,21 +79,21 @@
       <p class="kf__fig"><span class="kf__pre">Ausgangswerte</span><span class="kf__num kf__num--pair">4.800/<wbr>5.000<span class="kf__unit">€</span></span></p>
       <p class="kf__sub">je m² Wohnfläche</p>
       <p class="kf__label">Bemessungsgrenze Herstellungskosten</p>
-      <p class="kf__text">Mietenstufe I–III/IV–VII; halbjährlich <span class="u-nohyphens">fortgeschrieben</span> <a class="pageref" href="#seite-8">→&nbsp;S.&nbsp;8</a></p>
+      <p class="kf__text">Mietenstufe I–III/IV–VII; halbjährlich <span class="u-nohyphens">fortgeschrieben</span> <a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a></p>
       <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.1</b></span></span>
     </article>
 
     <article class="kf kf--bs bs-22">
       <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">90.000<span class="kf__unit">€</span></span></p>
       <p class="kf__label">Zuschuss je Wohnung im <span class="u-nowrap">EH-40-Neubau</span></p>
-      <p class="kf__text">Gruppe&nbsp;A, höchstens 50&nbsp;% der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar <a class="pageref" href="#seite-13">→&nbsp;S.&nbsp;12</a></p>
+      <p class="kf__text">Gruppe&nbsp;A, höchstens 50&nbsp;% der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar <a class="pageref" href="#seite-13">→&nbsp;S.&nbsp;13</a></p>
       <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.2</b></span></span>
     </article>
 
     <article class="kf kf--bs bs-23">
       <p class="kf__fig"><span class="kf__pre">bis zu</span><span class="kf__num">31.000<span class="kf__unit">€</span></span></p>
       <p class="kf__label">Modernisierungs&shy;zuschuss je gebundener Wohnung</p>
-      <p class="kf__text">Gruppe&nbsp;A, ab 5&nbsp;Effizienzklassen besser; höchstens 40&nbsp;% der zuwendungsfähigen Kosten <a class="pageref" href="#seite-15">→&nbsp;S.&nbsp;14</a></p>
+      <p class="kf__text">Gruppe&nbsp;A, ab 5&nbsp;Effizienzklassen besser; höchstens 40&nbsp;% der zuwendungsfähigen Kosten <a class="pageref" href="#seite-15">→&nbsp;S.&nbsp;15</a></p>
       <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.3</b></span></span>
     </article>
 
@@ -102,14 +101,14 @@
       <p class="kf__fig"><span class="kf__pre">Festbetrag</span><span class="kf__num">3,00<span class="kf__unit">€</span></span></p>
       <p class="kf__sub">je m² Wohnfläche und Monat</p>
       <p class="kf__label">Zuschuss für den Bindungserwerb</p>
-      <p class="kf__text">15–20&nbsp;Jahre Bindung; ab 5&nbsp;Jahren 2,00&nbsp;€, ab 10&nbsp;Jahren 2,50&nbsp;€; nur Gruppe&nbsp;A <a class="pageref" href="#seite-17">→&nbsp;S.&nbsp;16</a></p>
+      <p class="kf__text">15–20&nbsp;Jahre Bindung; ab 5&nbsp;Jahren 2,00&nbsp;€, ab 10&nbsp;Jahren 2,50&nbsp;€; nur Gruppe&nbsp;A <a class="pageref" href="#seite-17">→&nbsp;S.&nbsp;17</a></p>
       <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.5</b></span></span>
     </article>
 
     <article class="kf p03-kf__date">
-      <p class="kf__fig"><span class="kf__pre">Und ein Stichtag</span><span class="kf__num">31.12.2026</span></p>
+      <p class="kf__fig"><span class="kf__pre">Stichtag</span><span class="kf__num">31.12.2026</span></p>
       <p class="kf__label">Wahlrecht für Modernisierungs&shy;anträge</p>
-      <p class="kf__text">Geht Ihr Antrag bis dahin bei der Wohnraumförderstelle ein, können Sie das alte Recht wählen <a class="pageref" href="#seite-16">→&nbsp;S.&nbsp;15</a></p>
+      <p class="kf__text">Geht Ihr Antrag bis dahin bei der Wohnraumförderstelle ein, können Sie das alte Recht wählen <a class="pageref" href="#seite-16">→&nbsp;S.&nbsp;16</a></p>
     </article>
   </div>
 
@@ -118,32 +117,22 @@
       <h2 class="chart__title" id="p03-markt">Markt in Niedersachsen</h2>
       <a class="pageref" href="#seite-18">Wo Bedarf gilt →&nbsp;S.&nbsp;18</a>
     </figcaption>
-    <div class="p03-market__body">
-      <div class="p03-market__hero">
-        <p class="p03-market__num">50.495</p>
-        <p class="p03-market__label">Sozialwohnungen 2024</p><p class="p03-market__note">gegenüber 2015 nahezu halbiert</p>
-      </div>
-      <div class="p03-market__chart">
-        <p class="chart__sub">2015–2024 · Wohnungen</p>
-        <svg class="chart__svg" viewBox="0 0 81.5 28" width="81.5mm" height="28mm" role="img" aria-label="Niedersachsen 2015 bis 2024: Bei 58.024 Wohnungen sind die Bindungen ausgelaufen, rund 16.000 Wohnungen wurden neu gefördert. Damit sind 28 Prozent der Abgänge ersetzt.">
-          <line class="ax" x1="0" y1="4.2" x2="0" y2="25.6"/>
-          <text class="t-m" x="1.6" y="3">Bindungen ausgelaufen</text>
-          <rect class="c-old" x="0" y="4.6" width="52" height="6.8"/>
-          <text class="t-val p03-v t-end" x="50.4" y="9.55">58.024</text>
-          <text class="t-m" x="1.6" y="16.8">neu gefördert</text>
-          <rect class="c-ink" x="0" y="18.4" width="14.39" height="6.8"/>
-          <text class="t-val-ink p03-v" x="16.2" y="23.35">rund 16.000</text>
-          <circle class="ring-bg ring-bg--old" cx="70.2" cy="10.4" r="7.6" stroke-width="2.4"/>
-          <circle class="ring-val ring-val--fg" cx="70.2" cy="10.4" r="7.6" stroke-width="2.4" pathLength="100" stroke-dasharray="28 72" transform="rotate(-90 70.2 10.4)"/>
-          <text class="p03-ring-num t-mid" x="70.2" y="11.9">28 %</text>
-          <text class="t-m t-mid" x="70.2" y="25.2">der Abgänge ersetzt</text>
-        </svg>
-      </div>
-    </div>
+    <p class="p03-market__msg u-nohyphens">Seit 2015 hat die Neuförderung nur <span class="p03-hl">28&nbsp;%</span> der ausgelaufenen Sozialbindungen ersetzt.</p>
+    <svg class="chart__svg p03-units" viewBox="0 0 168.01 23.64" width="168.01mm" height="23.64mm" role="img" aria-label="Niedersachsen 2015 bis 2024: Bei 58.024 Wohnungen sind die Belegungs- und Mietbindungen ausgelaufen; neu gefördert wurden rund 16.000 Wohnungen, das sind 28 Prozent. Ein Quadrat steht für 1.000 Wohnungen: 16 von 58 Quadraten sind gefüllt.">
+      <path class="p03-ext" d="M0 3.2V12M168.01 3.2V12M46.17 9.2V12"/>
+      <path class="dim-line" d="M0 4.6H168.01M0 10.6H168.01"/>
+      <path class="dim-tick" d="M-0.9 5.5L0.9 3.7M167.11 5.5L168.91 3.7M-0.9 11.5L0.9 9.7M45.27 11.5L47.07 9.7M167.11 11.5L168.91 9.7"/>
+      <text class="t-val-ink t-mid" x="84" y="3.4">2015–2024: 58.024 Bindungen ausgelaufen</text>
+      <text class="t-b t-mid" x="23.09" y="9.4">rund 16.000 neu gefördert</text>
+      <text class="t-mid" x="107.09" y="9.4">nicht ersetzt</text>
+      <path class="p03-u-new" d="M0 12.6h5.02v5.02h-5.02zM0 18.42h5.02v5.02h-5.02zM5.82 12.6h5.02v5.02h-5.02zM5.82 18.42h5.02v5.02h-5.02zM11.64 12.6h5.02v5.02h-5.02zM11.64 18.42h5.02v5.02h-5.02zM17.46 12.6h5.02v5.02h-5.02zM17.46 18.42h5.02v5.02h-5.02zM23.28 12.6h5.02v5.02h-5.02zM23.28 18.42h5.02v5.02h-5.02zM29.1 12.6h5.02v5.02h-5.02zM29.1 18.42h5.02v5.02h-5.02zM34.93 12.6h5.02v5.02h-5.02zM34.93 18.42h5.02v5.02h-5.02zM40.75 12.6h5.02v5.02h-5.02zM40.75 18.42h5.02v5.02h-5.02z"/>
+      <path class="p03-u-gone" d="M46.69 12.72h4.77v4.77h-4.77zM46.69 18.55h4.77v4.77h-4.77zM52.51 12.72h4.77v4.77h-4.77zM52.51 18.55h4.77v4.77h-4.77zM58.33 12.72h4.77v4.77h-4.77zM58.33 18.55h4.77v4.77h-4.77zM64.16 12.72h4.77v4.77h-4.77zM64.16 18.55h4.77v4.77h-4.77zM69.98 12.72h4.77v4.77h-4.77zM69.98 18.55h4.77v4.77h-4.77zM75.8 12.72h4.77v4.77h-4.77zM75.8 18.55h4.77v4.77h-4.77zM81.62 12.72h4.77v4.77h-4.77zM81.62 18.55h4.77v4.77h-4.77zM87.44 12.72h4.77v4.77h-4.77zM87.44 18.55h4.77v4.77h-4.77zM93.26 12.72h4.77v4.77h-4.77zM93.26 18.55h4.77v4.77h-4.77zM99.08 12.72h4.77v4.77h-4.77zM99.08 18.55h4.77v4.77h-4.77zM104.9 12.72h4.77v4.77h-4.77zM104.9 18.55h4.77v4.77h-4.77zM110.72 12.72h4.77v4.77h-4.77zM110.72 18.55h4.77v4.77h-4.77zM116.54 12.72h4.77v4.77h-4.77zM116.54 18.55h4.77v4.77h-4.77zM122.37 12.72h4.77v4.77h-4.77zM122.37 18.55h4.77v4.77h-4.77zM128.19 12.72h4.77v4.77h-4.77zM128.19 18.55h4.77v4.77h-4.77zM134.01 12.72h4.77v4.77h-4.77zM134.01 18.55h4.77v4.77h-4.77zM139.83 12.72h4.77v4.77h-4.77zM139.83 18.55h4.77v4.77h-4.77zM145.65 12.72h4.77v4.77h-4.77zM145.65 18.55h4.77v4.77h-4.77zM151.47 12.72h4.77v4.77h-4.77zM151.47 18.55h4.77v4.77h-4.77zM157.29 12.72h4.77v4.77h-4.77zM157.29 18.55h4.77v4.77h-4.77zM163.11 12.72h4.77v4.77h-4.77zM163.11 18.55h4.77v4.77h-4.77z"/>
+    </svg>
+    <p class="p03-market__foot"><span>1&nbsp;Quadrat = 1.000&nbsp;Wohnungen</span><span>Bestand 2024: 50.495 Sozialwohnungen, gegenüber 2015 nahezu halbiert</span></p>
   </figure>
 
   <footer class="page__foot" aria-hidden="true">
     <span class="page__folio">3</span>
-    <span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Überblick · Kennzahlen</b></span><span>Stand: 21.10.2026</span></span>
+    <span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Überblick · Kennzahlen</b></span></span>
   </footer>
 </section>

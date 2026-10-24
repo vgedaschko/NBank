@@ -2,14 +2,14 @@
   "no": 2,
   "slug": "editorial-inhalt",
   "layout_type": "editorial",
-  "running_title": "Einstieg · Editorial",
+  "running_title": "Editorial",
   "kicker": "Editorial",
   "headline": "Damit sich Investieren wieder rechnet",
   "lead": "Bauen kostet mehr als doppelt so viel wie vor 25 Jahren, Kredite kosteten Ende 2025 drei bis vier Prozent, und die Zahl der Baugenehmigungen hat sich seit 2021 mehr als halbiert.",
   "blocks": [
     {
       "type": "text",
-      "body": "Seit dem 01.07.2026 gilt die neue RL Mietwohnraum 2026, befristet bis 31.12.2031. Für Ihre Rechnung heißt das vor allem: Statt Tilgungsnachlässen gibt es jetzt Zuschüsse, die nicht zurückgezahlt werden.\n\nSeit 1981 planen wir Bauprojekte – heute von Rotenburg (Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Dieses Heft liest die Richtlinie aus Sicht der Planung: Was gilt, was rechnet sich, wann darf es losgehen? Das Herzstück ist **„Ihre Rechnung“ auf S. 10–11** – vom Finanzierungsaufbau bis zum laufenden Überschuss.",
+      "body": "Seit dem 01.07.2026 gilt die neue RL Mietwohnraum 2026, befristet bis 31.12.2031. Für Ihre Rechnung heißt das vor allem: Statt Tilgungsnachlässen gibt es jetzt nicht rückzahlbare Zuschüsse.\n\nSeit 1981 planen wir Bauprojekte – heute von Rotenburg (Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Dieses Heft folgt der Logik einer Investitionsentscheidung: vom passenden Programmteil über Mieten, Bindungen und Finanzierung bis zur Bewilligung. Im Mittelpunkt steht **„Ihre Rechnung“ auf S. 10–12** – vom Finanzierungsaufbau über den laufenden Überschuss bis zum Mix der Einkommensgruppen.",
       "signature": "Ihre PGN – Architekten. Stadtplaner. Ingenieure."
     },
     {
@@ -24,10 +24,10 @@
       "heading": "Ihr Einstieg",
       "role_hint": "einstiegs-kacheln",
       "items": [
-        "**Wohnungsunternehmen und Genossenschaften:** Neubau, Modernisierung, Bindungen im Bestand – genossenschaftlich überlassener Wohnraum zählt als Mietwohnraum. → S. 8–17",
-        "**Investorinnen und Investoren:** Konditionen, Finanzierung und laufender Überschuss auf drei Seiten. → S. 9–11",
-        "**Projektentwicklung:** Verkaufen Sie bis zwei Jahre nach Fertigstellung an Käuferinnen und Käufer, die den Ersterwerb fördern lassen – den Kaufvertrag erst nach deren Bewilligung oder mit folgenlosem Rücktrittsrecht. → S. 8, 19",
-        "**Kommunen:** Selbst antragsberechtigt. Legen Sie geförderten Mietwohnraum in entsprechender Anzahl im Bebauungsplan, städtebaulichen Vertrag oder Baulandmodell fest, gilt der Bedarf als gegeben. → S. 18"
+        "**Wohnungsunternehmen und Genossenschaften:** Neubau, Modernisierung und Bindungen im Bestand; genossenschaftlich überlassener Wohnraum gilt als Mietwohnraum. → S. 8–17",
+        "**Investorinnen und Investoren:** Konditionen, Finanzierung, laufender Überschuss und der Mix der Einkommensgruppen. → S. 9–12",
+        "**Projektentwicklung:** Gefördert wird auch der Ersterwerb bis zwei Jahre nach Fertigstellung. Die Käuferseite schließt den Kaufvertrag erst nach ihrer Bewilligung – vorher nur mit folgenlosem Rücktrittsrecht. → S. 8, 19",
+        "**Kommunen:** Selbst antragsberechtigt. Wo die Gemeinde geförderten Mietwohnraum im Bebauungsplan, städtebaulichen Vertrag oder Baulandmodell festlegt, gilt der für die Bewilligung nötige Bedarf als erfüllt. → S. 18"
       ]
     },
     {
@@ -35,14 +35,14 @@
       "title": "Inhalt",
       "data": {
         "variant": "linienplan",
-        "note": "Inhalt als Linienplan: acht Kapitel-Linien (Kapitel = Kolumnentitel), Haltestellen als Quadrate; S. 2 (diese Seite) und die Umschlagseiten U1/U4 werden nicht aufgeführt. Programmteil-Stationen mit Baustein-Chip 2.1–2.6, Stichtag-Station in Signalfarbe, Kapitel „PGN“ in PGN-Rot.",
+        "note": "Inhalt als Linienplan: acht Kapitel-Linien (Kapitel = Kolumnentitel), Haltestellen als Quadrate; S. 2 (diese Seite) und die Umschlagseiten U1/U4 werden nicht aufgeführt. Programmteil-Stationen mit Baustein-Chip 2.1–2.6, Stichtag-Station in Signalfarbe, Kapitel „PGN“ in PGN-Rot. S. 17 bündelt 2.5 und 2.6: eine Haltestelle mit zwei Chips übereinander (Korrekturlauf 1).",
         "lines": [
           {
             "id": "ueberblick",
             "label": "Überblick",
             "stops": [
               { "page": 3, "label": "Kennzahlen" },
-              { "page": 4, "label": "Neu und Grundcheck" },
+              { "page": 4, "label": "Neuerungen und Grundcheck" },
               { "page": 5, "label": "Navigator" }
             ]
           },
@@ -59,7 +59,7 @@
             "label": "Finanzierung",
             "stops": [
               { "page": 8, "label": "Neubau, Änderung, Ersterwerb", "baustein": "2.1", "token": "--baustein-21" },
-              { "page": 9, "label": "Term Sheet" }
+              { "page": 9, "label": "Eckdaten" }
             ]
           },
           {
@@ -68,25 +68,25 @@
             "emphasis": true,
             "stops": [
               { "page": 10, "label": "Finanzierung" },
-              { "page": 11, "label": "Wirtschaftlichkeit" }
+              { "page": 11, "label": "Wirtschaftlichkeit" },
+              { "page": 12, "label": "Mix und Tilgung" }
             ]
           },
           {
             "id": "neubau",
             "label": "Neubau",
             "stops": [
-              { "page": 12, "label": "EH-40-Neubau", "baustein": "2.2", "token": "--baustein-22" },
-              { "page": 13, "label": "Ostfriesische Inseln", "baustein": "2.4", "token": "--baustein-24" }
+              { "page": 13, "label": "EH-40-Neubau", "baustein": "2.2", "token": "--baustein-22" },
+              { "page": 14, "label": "Ostfriesische Inseln", "baustein": "2.4", "token": "--baustein-24" }
             ]
           },
           {
             "id": "bestand",
             "label": "Bestand",
             "stops": [
-              { "page": 14, "label": "Modernisierung", "baustein": "2.3", "token": "--baustein-23" },
-              { "page": 15, "label": "Stichtag 31.12.2026", "token": "--signal" },
-              { "page": 16, "label": "Bindungserwerb", "baustein": "2.5", "token": "--baustein-25" },
-              { "page": 17, "label": "Bindungsverlängerung", "baustein": "2.6", "token": "--baustein-26" }
+              { "page": 15, "label": "Modernisierung", "baustein": "2.3", "token": "--baustein-23" },
+              { "page": 16, "label": "Stichtag 31.12.2026", "token": "--signal" },
+              { "page": 17, "label": "Bindungserwerb und Bindungsverlängerung", "baustein": "2.5/2.6", "token": "--baustein-25/--baustein-26" }
             ]
           },
           {
@@ -127,6 +127,7 @@
     "G4-18",
     "F044",
     "F255",
+    "F258",
     "F079",
     "F003"
   ],
@@ -136,5 +137,5 @@
     "pgn-facts.md §6/§8 Kundengruppen (Kommunen, Investoren, Wohnungsbauunternehmen, Wohnungsbaugenossenschaften)",
     "pgn-facts.md §1/§5 Seitentitel „Architekten. Stadtplaner. Ingenieure.“"
   ],
-  "visual_idea": "Zweispaltig, ruhig, viel Weißraum. Kopf: Kicker „Editorial“ in Montserrat 600 Versalien in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links. Linke Spalte: Lead in Montserrat 600, darunter das Editorial in Work Sans; Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ als Zeile in Montserrat 600 Versalien mit feiner roter Linie davor, kein Personenname, kein Porträt. Darunter das Tonne-Zitat mit übergroßen, eckig gesetzten Anführungszeichen in PGN-Rot, Attribution klein in Anthrazit (Name, Funktion, „Pressemitteilung MW vom 03.07.2026“). Rechte Spalte, bildbestimmend (das dominante Element der Seite): Inhalt als Linienplan – acht senkrechte Kapitel-Linien in Anthrazit (Kapitelnamen = erster Teil der Kolumnentitel), Haltestellen als Quadrate ohne Rundungen, Seitenzahl in Montserrat Black; Programmteil-Stationen tragen den Baustein-Chip 2.1–2.6 in den Baustein-Farben (Ziffer eingeschrieben, graustufenfest), die Stichtag-Station S. 16 in Signalfarbe, die Kapitel-Linie „PGN“ (S. 22–23) in PGN-Rot; die Kapitel-Linie „Ihre Rechnung“ (S. 10–11) leicht hervorgehoben. Unten über die volle Breite vier Einstiegs-Kacheln auf #F4F3F2, je ein Linienicon (Wohnblock, Diagramm, Kran, Rathaus), fett gesetzter Vorsatz als Kachelkopf, Seitenverweis als eckiger Chip in PGN-Rot. Keine Kästen, keine Fußnoten, keine Quellenzeile."
+  "visual_idea": "Zweispaltig, ruhig, viel Weißraum. Kopf: Kicker „Editorial“ in Montserrat 600 Versalien in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links. Linke Spalte: Lead in Montserrat 600, darunter das Editorial in Work Sans; Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ als Zeile in Montserrat 600 Versalien mit feiner roter Linie davor, kein Personenname, kein Porträt. Darunter das Tonne-Zitat mit übergroßen, eckig gesetzten Anführungszeichen in PGN-Rot, Attribution klein in Anthrazit (Name, Funktion, „Pressemitteilung MW vom 03.07.2026“). Rechte Spalte, bildbestimmend (das dominante Element der Seite): Inhalt als Linienplan – acht senkrechte Kapitel-Linien in Anthrazit (Kapitelnamen = erster Teil der Kolumnentitel), Haltestellen als Quadrate ohne Rundungen, Seitenzahl in Montserrat Black; Programmteil-Stationen tragen den Baustein-Chip 2.1–2.6 in den Baustein-Farben (Ziffer eingeschrieben, graustufenfest), die Stichtag-Station S. 16 in Signalfarbe, S. 17 (2.5 und 2.6) als eine Haltestelle mit zwei Chips übereinander, die Kapitel-Linie „PGN“ (S. 22–23) in PGN-Rot; die Kapitel-Linie „Ihre Rechnung“ (S. 10–12) leicht hervorgehoben. Unten über die volle Breite vier Einstiegs-Kacheln auf #F4F3F2, je ein Linienicon (Wohnblock, Diagramm, Kran, Rathaus), fett gesetzter Vorsatz als Kachelkopf, Seitenverweis als eckiger Chip in PGN-Rot. Keine Kästen, keine Fußnoten, keine Quellenzeile."
 }

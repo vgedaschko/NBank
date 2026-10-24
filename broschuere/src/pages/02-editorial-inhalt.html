@@ -14,6 +14,9 @@
 
     /* Inhalt als Linienplan: globale Komponente .lp (styles.css 6.15) */
     .page[data-page="02"] .lp { margin-top: 4mm; }
+    /* S. 17 bündelt 2.5 und 2.6: eine Haltestelle, zwei Chips übereinander, je eine Zeile */
+    .page[data-page="02"] .p02-mk2 { justify-self: center; display: grid; row-gap: .3mm; margin-top: .1mm; }
+    .page[data-page="02"] .p02-mk2 .lp__mk--bs { margin-top: 0; padding: .5mm 1.1mm .4mm; }
 
     /* Ihr Einstieg: vier Spalten über die volle Breite; Band gleich hoch wie das Marktband auf S. 3 (gemeinsame Oberkante) */
     .page[data-page="02"] .p02-entry { height: 65mm; }
@@ -31,8 +34,8 @@
       <h1 class="h1"><span class="light">Damit sich Investieren</span> wieder <em>rechnet</em></h1>
       <p class="lead">Bauen kostet mehr als doppelt so viel wie vor 25&nbsp;Jahren, Kredite kosteten Ende 2025 drei bis vier Prozent, und die Zahl der Baugenehmigungen hat sich seit 2021 mehr als halbiert.</p>
       <div class="prose text-cols-2 p02-text">
-        <p class="dropcap">Seit dem 01.07.2026 gilt die neue RL Mietwohnraum 2026, befristet bis 31.12.2031. Für Ihre Rechnung heißt das vor allem: Statt <span class="u-nohyphens">Tilgungs</span>&shy;nachlässen gibt es jetzt Zuschüsse, die nicht zurückgezahlt werden.</p>
-        <p>Seit 1981 planen wir Bauprojekte – heute von Rotenburg&nbsp;(Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Dieses Heft liest die Richtlinie aus Sicht der Planung: Was gilt, was rechnet sich, wann darf es losgehen? Das Herzstück ist <b>„Ihre Rechnung“ auf S.&nbsp;10–11</b> – vom Finanzierungsaufbau bis zum laufenden Überschuss.</p>
+        <p class="dropcap">Seit dem 01.07.2026 gilt die neue RL Mietwohnraum 2026, befristet bis 31.12.2031. Für Ihre Rechnung heißt das vor allem: Statt <span class="u-nohyphens">Tilgungs</span>&shy;nachlässen gibt es jetzt nicht rückzahlbare Zuschüsse.</p>
+        <p>Seit 1981 planen wir Bauprojekte – heute von Rotenburg&nbsp;(Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Dieses Heft folgt der Logik einer Investitionsentscheidung: vom passenden Programmteil über Mieten, Bindungen und Finanzierung bis zur Bewilligung. Im Mittelpunkt steht <b><span class="u-nohyphens">„Ihre Rechnung“</span> auf S.&nbsp;10–12</b> – vom Finanzierungsaufbau über den laufenden Überschuss bis zum Mix der Einkommensgruppen.</p>
       </div>
       <p class="p02-sign"><span>Ihre PGN <span class="light">– Architekten. Stadtplaner. Ingenieure.</span></span></p>
       <figure class="quote p02-quote" role="group">
@@ -45,31 +48,31 @@
       <h2 class="kicker kicker--ink" id="p02-inhalt">Inhalt</h2>
       <ol class="lp">
         <li class="lp__line"><h3 class="lp__name">Überblick</h3><ol class="lp__stops">
-          <li class="lp__stop"><a href="#seite-3"><span class="lp__pg"><span class="u-sr">Seite </span>3</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Kennzahlen</span></a></li>
-          <li class="lp__stop"><a href="#seite-4"><span class="lp__pg"><span class="u-sr">Seite </span>4</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Neu und Grundcheck</span></a></li>
-          <li class="lp__stop"><a href="#seite-5"><span class="lp__pg"><span class="u-sr">Seite </span>5</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Navigator</span></a></li>
+          <li class="lp__stop"><a href="#seite-03"><span class="lp__pg"><span class="u-sr">Seite </span>3</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Kennzahlen</span></a></li>
+          <li class="lp__stop"><a href="#seite-04"><span class="lp__pg"><span class="u-sr">Seite </span>4</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Neuerungen und Grundcheck</span></a></li>
+          <li class="lp__stop"><a href="#seite-05"><span class="lp__pg"><span class="u-sr">Seite </span>5</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Navigator</span></a></li>
         </ol></li>
         <li class="lp__line"><h3 class="lp__name">Ertragsseite</h3><ol class="lp__stops">
-          <li class="lp__stop"><a href="#seite-6"><span class="lp__pg"><span class="u-sr">Seite </span>6</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Mieterkreis</span></a></li>
-          <li class="lp__stop"><a href="#seite-7"><span class="lp__pg"><span class="u-sr">Seite </span>7</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Mieten</span></a></li>
+          <li class="lp__stop"><a href="#seite-06"><span class="lp__pg"><span class="u-sr">Seite </span>6</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Mieterkreis</span></a></li>
+          <li class="lp__stop"><a href="#seite-07"><span class="lp__pg"><span class="u-sr">Seite </span>7</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Mieten</span></a></li>
         </ol></li>
         <li class="lp__line"><h3 class="lp__name">Finanzierung</h3><ol class="lp__stops">
-          <li class="lp__stop"><a href="#seite-8"><span class="lp__pg"><span class="u-sr">Seite </span>8</span><span class="lp__mk lp__mk--bs bs-21"><span class="u-sr">Programmteil </span>2.1</span><span class="lp__t">Neubau, Änderung, Ersterwerb</span></a></li>
-          <li class="lp__stop"><a href="#seite-9"><span class="lp__pg"><span class="u-sr">Seite </span>9</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t" lang="en">Term Sheet</span></a></li>
+          <li class="lp__stop"><a href="#seite-08"><span class="lp__pg"><span class="u-sr">Seite </span>8</span><span class="lp__mk lp__mk--bs bs-21"><span class="u-sr">Programmteil </span>2.1</span><span class="lp__t">Neubau, Änderung, Ersterwerb</span></a></li>
+          <li class="lp__stop"><a href="#seite-09"><span class="lp__pg"><span class="u-sr">Seite </span>9</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Eckdaten</span></a></li>
         </ol></li>
         <li class="lp__line lp__line--em"><h3 class="lp__name">Ihre Rechnung</h3><ol class="lp__stops">
           <li class="lp__stop"><a href="#seite-10"><span class="lp__pg"><span class="u-sr">Seite </span>10</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Finanzierung</span></a></li>
           <li class="lp__stop"><a href="#seite-11"><span class="lp__pg"><span class="u-sr">Seite </span>11</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Wirtschaftlichkeit</span></a></li>
+          <li class="lp__stop"><a href="#seite-12"><span class="lp__pg"><span class="u-sr">Seite </span>12</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Mix und Tilgung</span></a></li>
         </ol></li>
         <li class="lp__line"><h3 class="lp__name">Neubau</h3><ol class="lp__stops">
-          <li class="lp__stop"><a href="#seite-13"><span class="lp__pg"><span class="u-sr">Seite </span>12</span><span class="lp__mk lp__mk--bs bs-22"><span class="u-sr">Programmteil </span>2.2</span><span class="lp__t"><span class="u-nowrap">EH-40-Neubau</span></span></a></li>
-          <li class="lp__stop"><a href="#seite-14"><span class="lp__pg"><span class="u-sr">Seite </span>13</span><span class="lp__mk lp__mk--bs bs-24"><span class="u-sr">Programmteil </span>2.4</span><span class="lp__t">Ostfriesische Inseln</span></a></li>
+          <li class="lp__stop"><a href="#seite-13"><span class="lp__pg"><span class="u-sr">Seite </span>13</span><span class="lp__mk lp__mk--bs bs-22"><span class="u-sr">Programmteil </span>2.2</span><span class="lp__t"><span class="u-nowrap">EH-40-Neubau</span></span></a></li>
+          <li class="lp__stop"><a href="#seite-14"><span class="lp__pg"><span class="u-sr">Seite </span>14</span><span class="lp__mk lp__mk--bs bs-24"><span class="u-sr">Programmteil </span>2.4</span><span class="lp__t">Ostfriesische Inseln</span></a></li>
         </ol></li>
         <li class="lp__line"><h3 class="lp__name">Bestand</h3><ol class="lp__stops">
-          <li class="lp__stop"><a href="#seite-15"><span class="lp__pg"><span class="u-sr">Seite </span>14</span><span class="lp__mk lp__mk--bs bs-23"><span class="u-sr">Programmteil </span>2.3</span><span class="lp__t">Modernisierung</span></a></li>
-          <li class="lp__stop"><a href="#seite-16"><span class="lp__pg"><span class="u-sr">Seite </span>15</span><span class="lp__mk lp__mk--signal" aria-hidden="true"></span><span class="lp__t lp__t--signal">Stichtag 31.12.2026</span></a></li>
-          <li class="lp__stop"><a href="#seite-17"><span class="lp__pg"><span class="u-sr">Seite </span>16</span><span class="lp__mk lp__mk--bs bs-25"><span class="u-sr">Programmteil </span>2.5</span><span class="lp__t">Bindungserwerb</span></a></li>
-          <li class="lp__stop"><a href="#seite-17"><span class="lp__pg"><span class="u-sr">Seite </span>17</span><span class="lp__mk lp__mk--bs bs-26"><span class="u-sr">Programmteil </span>2.6</span><span class="lp__t">Bindungsverlängerung</span></a></li>
+          <li class="lp__stop"><a href="#seite-15"><span class="lp__pg"><span class="u-sr">Seite </span>15</span><span class="lp__mk lp__mk--bs bs-23"><span class="u-sr">Programmteil </span>2.3</span><span class="lp__t">Modernisierung</span></a></li>
+          <li class="lp__stop"><a href="#seite-16"><span class="lp__pg"><span class="u-sr">Seite </span>16</span><span class="lp__mk lp__mk--signal" aria-hidden="true"></span><span class="lp__t lp__t--signal">Stichtag 31.12.2026</span></a></li>
+          <li class="lp__stop"><a href="#seite-17"><span class="lp__pg"><span class="u-sr">Seite </span>17</span><span class="p02-mk2"><span class="lp__mk lp__mk--bs bs-25"><span class="u-sr">Programmteile </span>2.5</span><span class="lp__mk lp__mk--bs bs-26"><span class="u-sr">und </span>2.6</span></span><span class="lp__t">Bindungserwerb <span class="u-sr">und </span><br>Bindungsverlängerung</span></a></li>
         </ol></li>
         <li class="lp__line"><h3 class="lp__name">Umsetzung</h3><ol class="lp__stops">
           <li class="lp__stop"><a href="#seite-18"><span class="lp__pg"><span class="u-sr">Seite </span>18</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Standort und Kommune</span></a></li>
@@ -88,15 +91,15 @@
   <section class="p02-entry l-bottom" aria-labelledby="p02-einstieg">
     <h2 class="p02-entry__title" id="p02-einstieg">Ihr Einstieg</h2>
     <ul class="p02-tiles">
-      <li class="p02-tile"><p class="p02-tile__text"><b class="p02-tile__head">Wohnungsunternehmen und Genossenschaften:</b> Neubau, Modernisierung, Bindungen im Bestand – genossenschaftlich überlassener Wohnraum zählt als Mietwohnraum. <a class="pageref" href="#seite-8">→&nbsp;S.&nbsp;8–17</a></p></li>
-      <li class="p02-tile"><p class="p02-tile__text"><b class="p02-tile__head">Investorinnen und <span class="u-nohyphens">Investoren:</span></b> Konditionen, Finanzierung und laufender Überschuss auf drei Seiten. <a class="pageref" href="#seite-9">→&nbsp;S.&nbsp;9–11</a></p></li>
-      <li class="p02-tile"><p class="p02-tile__text"><b class="p02-tile__head">Projektentwicklung:</b> Verkaufen Sie bis zwei Jahre nach Fertigstellung an Käuferinnen und Käufer, die den Ersterwerb fördern lassen – den Kaufvertrag erst nach deren Bewilligung oder mit folgenlosem <span class="u-nohyphens">Rücktrittsrecht.</span> <a class="pageref" href="#seite-8">→&nbsp;S.&nbsp;8, 19</a></p></li>
-      <li class="p02-tile"><p class="p02-tile__text"><b class="p02-tile__head">Kommunen:</b> Selbst antragsberechtigt. Legen Sie geförderten Mietwohnraum in entsprechender Anzahl im <span class="u-nohyphens">Bebauungs</span>&shy;plan, städtebaulichen Vertrag oder Baulandmodell fest, gilt der Bedarf als gegeben. <a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a></p></li>
+      <li class="p02-tile"><p class="p02-tile__text"><b class="p02-tile__head">Wohnungsunternehmen und Genossenschaften:</b> Neubau, Modernisierung und Bindungen im Bestand; genossenschaftlich überlassener Wohnraum gilt als Mietwohnraum. <a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8–17</a></p></li>
+      <li class="p02-tile"><p class="p02-tile__text"><b class="p02-tile__head">Investorinnen und <span class="u-nohyphens">Investoren:</span></b> Konditionen, Finanzierung, laufender Überschuss und der Mix der Einkommensgruppen. <a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9–12</a></p></li>
+      <li class="p02-tile"><p class="p02-tile__text"><b class="p02-tile__head">Projektentwicklung:</b> Gefördert wird auch der Ersterwerb bis zwei Jahre nach Fertigstellung. Die Käuferseite schließt den Kaufvertrag erst nach ihrer Bewilligung – vorher nur mit folgenlosem <span class="u-nohyphens">Rücktrittsrecht.</span> <a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8, 19</a></p></li>
+      <li class="p02-tile"><p class="p02-tile__text"><b class="p02-tile__head">Kommunen:</b> Selbst antragsberechtigt. Wo die Gemeinde geförderten Mietwohnraum im <span class="u-nohyphens">Bebauungs</span>&shy;plan, städtebaulichen Vertrag oder Baulandmodell festlegt, gilt der für die Bewilligung nötige Bedarf als erfüllt. <a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a></p></li>
     </ul>
   </section>
 
   <footer class="page__foot" aria-hidden="true">
     <span class="page__folio">2</span>
-    <span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Einstieg · Editorial</b></span><span>Stand: 21.10.2026</span></span>
+    <span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Editorial</b></span></span>
   </footer>
 </section>

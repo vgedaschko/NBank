@@ -1819,7 +1819,10 @@ class Metrics:
             f = self.f.get(face)
             if f is None or c in '­﻿​':
                 continue
-            g = f['cmap'].get(ord(c)) or f['cmap'].get(0x20)
+            # Mehrteilige Zeichen (Basiszeichen + kombinierendes Zeichen) mit dem Basiszeichen messen;
+            # kombinierende Zeichen haben keine eigene Vorschubbreite.
+            g = f['cmap'].get(ord(c[0])) if c else None
+            g = g or f['cmap'].get(0x20)
             if g is None:
                 continue
             k = self.kern(f, prev[0], g) if prev and prev[1] == face else 0

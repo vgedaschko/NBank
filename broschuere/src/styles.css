@@ -202,6 +202,15 @@
   --grant: var(--pgn-red);          /* Zuschuss = PGN-Rot */
   --equity: var(--grey-150);        /* Eigenmittel = Schraffur auf Hellgrau */
   --equity-line: #8E8A85;
+  /* Muster vektorsicher (Korrekturlauf 1): Chromium rastert SVG-Pattern-Füllungen und gekachelte CSS-Verläufe im PDF (72 dpi).
+     Daher Schraffur als vorgeschnittene Vektorlinien (SVG: path.hatch[data-hatch], scripts/schraffur.cjs) und in CSS
+     fest gefärbte SVG-Daten-URIs, immer EINMAL gesetzt (no-repeat, nie gekachelt). Neu erzeugen: node scripts/schraffur.cjs --css */
+  --sw-equity: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4.6 3' preserveAspectRatio='none'%3E%3Crect width='4.6' height='3' fill='%23DCD8D3'/%3E%3Cpath d='M0,1.697L1.697,0M0.394,3L3.394,0M2.091,3L4.6,0.491M3.788,3L4.6,2.188' stroke='%238E8A85' stroke-width='.2' fill='none'/%3E%3Crect x='.1' y='.1' width='4.4' height='2.8' stroke='%238E8A85' stroke-width='.2' fill='none'/%3E%3C/svg%3E");
+  --sw-cap: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4.6 3' preserveAspectRatio='none'%3E%3Crect x='.125' y='.125' width='4.35' height='2.75' stroke='%23B71E3F' stroke-width='.25' stroke-dasharray='1 .6' fill='none'/%3E%3C/svg%3E");
+  --sw-axis: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4.6 .25' preserveAspectRatio='none'%3E%3Cpath d='M0,.125H4.6' stroke='%23B71E3F' stroke-width='.25' stroke-dasharray='1.6 .5 .4 .5'/%3E%3C/svg%3E");
+  --planraster: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180mm' height='260mm' viewBox='0 0 180 260'%3E%3Cpath d='M0,0v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260m5,-260v260M0,0h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180m-180,5h180' stroke='%23ECEAE7' stroke-width='.2' fill='none'/%3E%3C/svg%3E");
+  --dashdot-h: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='50%25' x2='100%25' y2='50%25' stroke='%23202020' stroke-width='40' stroke-dasharray='22.677 4.535 2.268 4.535'/%3E%3C/svg%3E");
+  --dashdot-v: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='50%25' y1='0' x2='50%25' y2='100%25' stroke='%23202020' stroke-width='40' stroke-dasharray='18.898 4.535 2.268 4.535'/%3E%3C/svg%3E");
   --on-data: var(--white);
   --old: var(--grey-300);           /* „bisher / altes Recht“ */
   --ok: var(--ink);
@@ -423,9 +432,10 @@ abbr { text-decoration: none; }
 .page__section { font: 700 var(--fs-micro)/1.2 var(--font-display); letter-spacing: var(--track-kicker); text-transform: uppercase; color: var(--fg); }
 .page__section b { color: var(--accent-text); margin-right: 1.6mm; font-weight: 800; font-size: var(--fs-label-accent); }
 
-/* Fuß = Mini-Plankopf: [Blatt NN] [PGN] [Projekt · Rubrik] [Stand] – außen die Blattnummer, daneben die Wortmarke.
-   Markup unverändert: <footer class="page__foot"><span class="page__folio">8</span><span class="page__running">
-   <span>Titel<span class="sep">·</span><b>Rubrik</b></span><span>Stand: 21.10.2026</span></span></footer> */
+/* Fuß = Mini-Plankopf: [Blatt NN] [PGN] [Projekt · Rubrik] – außen die Blattnummer, daneben die Wortmarke.
+   Kein Stand in der Fußzeile (Korrekturlauf 1: Stand nur auf U1 und im Impressum U3).
+   Markup: <footer class="page__foot" aria-hidden="true"><span class="page__folio">8</span><span class="page__running">
+   <span>Titel<span class="sep">·</span><b>Rubrik</b></span></span></footer> */
 .page__foot {
   position: absolute;
   left: var(--m-inner);
@@ -965,7 +975,7 @@ abbr { text-decoration: none; }
 .table--compact { font-size: var(--fs-module); line-height: var(--lh-module); }
 .table--compact th, .table--compact td { padding-top: 1.2mm; padding-bottom: 1.2mm; }
 /* Eckdaten als Definitionstabelle: Bezeichnung in Versalien, Wert */
-/* Term Sheet: Positionsspalte genau 3 Spalten (Einzugsachse 46 mm), Text 9 pt (Modultext), Werte fett in Tinte */
+/* Eckdaten: Positionsspalte genau 3 Spalten (Einzugsachse 46 mm), Text 9 pt (Modultext), Werte fett in Tinte */
 .table--terms { font-size: var(--fs-module); line-height: var(--lh-module); }
 .table--terms th[scope="row"] { width: calc(3 * var(--col) + 2 * var(--gutter)); padding: 1.85mm 3mm 1.55mm 0; font: 700 var(--fs-micro)/1.3 var(--font-display); letter-spacing: .07em; text-transform: uppercase; color: var(--fg-3); }
 .table--terms td { padding: 1.4mm 0 1.55mm; color: var(--text); }
@@ -1031,8 +1041,10 @@ abbr { text-decoration: none; }
   --c-rule: var(--rule-strong);
   --c-label: var(--fg);
   background-color: var(--surface);
-  background-image: linear-gradient(var(--grid-line) .2mm, transparent .2mm), linear-gradient(90deg, var(--grid-line) .2mm, transparent .2mm);
-  background-size: var(--plan) var(--plan);
+  background-image: var(--planraster);   /* 5-mm-Planraster als Vektorzeichnung, nicht gekachelt (nur auf hellem Grund) */
+  background-size: 180mm 260mm;
+  background-repeat: no-repeat;
+  background-position: 0 0;
   box-shadow: inset 0 0 0 var(--hair) var(--rule);
   padding: 2.8mm 4mm 3.2mm;
 }
@@ -1069,7 +1081,7 @@ abbr { text-decoration: none; }
 .mark--warn { background: var(--signal-fill); border-radius: 0; transform: rotate(45deg) scale(.86); }
 .mark--warn::before { content: ""; position: absolute; left: 1.7mm; top: .65mm; width: .42mm; height: 1.55mm; background: var(--on-signal); transform: rotate(-45deg); transform-origin: 50% 110%; }
 .mark--warn::after { content: ""; position: absolute; left: 2.25mm; top: 2.35mm; width: .45mm; height: .45mm; background: var(--on-signal); }
-/* kleine Marke 3,4 mm (kompakte Spielregel-Listen); Haken und Kreuz neu zentriert */
+/* kleine Marke 3,4 mm (kompakte Bedingungslisten); Haken und Kreuz neu zentriert */
 .mark--s { width: 3.4mm; height: 3.4mm; }
 .mark--s.mark--yes::after { left: 1.15mm; top: .5mm; }
 .mark--s.mark--no::before, .mark--s.mark--no::after { left: .65mm; top: 1.5mm; }
@@ -1199,16 +1211,16 @@ abbr { text-decoration: none; }
 .sw { display: inline-block; flex: none; width: 4.6mm; height: 3mm; vertical-align: -.4mm; }
 .sw--loan { background: var(--loan); }
 .sw--grant { background: var(--grant); }
-.sw--equity { background: repeating-linear-gradient(-45deg, var(--equity-line) 0 .25mm, var(--equity) .25mm 1.1mm); box-shadow: inset 0 0 0 .2mm var(--equity-line); }
+.sw--equity { background: var(--sw-equity) 0 0 / 100% 100% no-repeat; }   /* Eigenmittel: Vektorschraffur mit Rahmen (wie path.hatch) */
 .sw--loan-o { box-shadow: inset 0 0 0 .3mm var(--loan); }
 .sw--grant-o { box-shadow: inset 0 0 0 .3mm var(--grant); }
-.sw--cap { box-shadow: inset 0 0 0 var(--rule-red-min) var(--accent); background: repeating-linear-gradient(90deg, transparent 0 .9mm, var(--surface) .9mm 1.4mm); }   /* Zuschlag: gestrichelte Kappe */
+.sw--cap { background: var(--sw-cap) 0 0 / 100% 100% no-repeat; }   /* Zuschlag: gestrichelte Kappe (Strich 1 / Lücke 0,6 wie im Diagramm) */
 .sw--signal { background: var(--signal-fill); }
 .sw--bs { background: var(--bs); }
 .sw--muted { background: var(--surface-3); }
 .sw--ink { background: var(--fg); }
 .sw--old { background: var(--old); }
-.sw--axis { height: var(--rule-red-min); background: repeating-linear-gradient(90deg, var(--accent) 0 1.6mm, transparent 1.6mm 2.1mm, var(--accent) 2.1mm 2.5mm, transparent 2.5mm 3mm); }   /* 80-%-Achse (Strichpunkt) in der Legende */
+.sw--axis { height: var(--rule-red-min); background: var(--sw-axis) 0 0 / 100% 100% no-repeat; }   /* 80-%-Achse (Strichpunkt) in der Legende */
 
 /* SVG-Text: Beschriftung Work Sans, Werte Montserrat */
 .chart__svg text { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 500; fill: var(--fg-2); font-variant-numeric: lining-nums proportional-nums; }
@@ -1242,7 +1254,10 @@ abbr { text-decoration: none; }
 .c-loan { fill: var(--loan); }
 .c-grant { fill: var(--grant); }
 .c-equity { fill: var(--equity); }
-.c-equity-line { stroke: var(--equity-line); stroke-width: .32; }
+/* Schraffur = vorgeschnittene 45°-Linien in einem <path> (scripts/schraffur.cjs; d wird aus data-hatch="x y w h" erzeugt).
+   Reihenfolge: Fläche (c-equity) · Linien (hatch) · Rahmen (c-equity-frame). Keine SVG-Pattern-Füllung (wird im PDF gerastert). */
+.hatch { fill: none; stroke: var(--equity-line); stroke-width: .2; }
+.hatch--over { stroke: var(--fg-2); }   /* Kosten über der Bemessungsgrenze: Gegenrichtung (data-hatch-dir="\") */
 .c-equity-frame { fill: none; stroke: var(--equity-line); stroke-width: .2; }
 .c-accent { fill: var(--accent); }
 .c-signal { fill: var(--signal-fill); }
@@ -1276,7 +1291,7 @@ abbr { text-decoration: none; }
 .brk { stroke: var(--fg); stroke-width: .28; fill: none; }
 .dash { stroke-dasharray: 1 .8; }
 .dash--fine { stroke-dasharray: .9 .7; }   /* Wartezeit, Hilfslinie */
-.cap-line { stroke: var(--accent); stroke-width: var(--rule-red-min); stroke-dasharray: 4 1 .6 1; fill: none; }   /* 80-%-Achse: Strichpunkt */
+.cap-line { stroke: var(--accent); stroke-width: .25; stroke-dasharray: 4 1 .6 1; fill: none; }   /* 80-%-Achse: Strichpunkt; 0,25 mm = --rule-red-min, ohne Einheit (SVG-viewBox in mm – „.25mm“ wirkte dort als rund 0,95 mm) */
 .line-loan { stroke: var(--loan); stroke-width: .6; fill: none; }
 .line-grant { stroke: var(--grant); stroke-width: .6; fill: none; }
 .line-ink { stroke: var(--fg); stroke-width: .45; fill: none; }
@@ -1285,7 +1300,7 @@ abbr { text-decoration: none; }
 .sep-line { stroke: var(--surface); stroke-width: .7; }
 .dim-line { stroke: var(--fg-2); stroke-width: .22; fill: none; }            /* Maßkette im Diagramm: Anthrazit */
 .dim-tick { stroke: var(--fg-2); stroke-width: .45; fill: none; }            /* 45°-Architektenstrich */
-.dim-line--acc { stroke: var(--accent); stroke-width: var(--rule-red-min); }
+.dim-line--acc { stroke: var(--accent); stroke-width: .25; }   /* 0,25 mm in mm-viewBox, ohne Einheit (siehe .cap-line) */
 .dim-tick--acc { stroke: var(--accent); }
 .axb-c { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }      /* Achskreis im Diagramm */
 .axb-c--acc { stroke: var(--accent); stroke-width: .35; }                         /* Achskreis der 80-%-/90-%-Achse */
@@ -1343,7 +1358,7 @@ abbr { text-decoration: none; }
 .bullets__title + .checklist > .checklist__item:first-child { border-top: 0; }
 .checklist--open-end > .checklist__item:last-child { border-bottom: 0; }
 .checklist--cols > .checklist__item:first-child { border-top: 0; }
-/* kompakt (Spielregeln S. 7): 9-pt-Modultext, Marke 3,4 mm (.mark--s), ohne Außenlinien */
+/* kompakt (Vermietungsbedingungen S. 7): 9-pt-Modultext, Marke 3,4 mm (.mark--s), ohne Außenlinien */
 .checklist--compact .checklist__item { grid-template-columns: 5.4mm minmax(0, 1fr); padding: .7mm 0 .8mm; font-size: var(--fs-module); line-height: var(--lh-module); }
 .checklist--compact > .checklist__item:first-child { border-top: 0; }
 .checklist--compact > .checklist__item:last-child { border-bottom: 0; }
@@ -1518,8 +1533,10 @@ abbr { text-decoration: none; }
 .formula {
   border: var(--hair) solid var(--rule);
   background-color: var(--surface);
-  background-image: linear-gradient(var(--grid-line) .2mm, transparent .2mm), linear-gradient(90deg, var(--grid-line) .2mm, transparent .2mm);
-  background-size: var(--plan) var(--plan);
+  background-image: var(--planraster);   /* 5-mm-Planraster als Vektorzeichnung, nicht gekachelt (nur auf hellem Grund) */
+  background-size: 180mm 260mm;
+  background-repeat: no-repeat;
+  background-position: 0 0;
   padding: 3mm 4.4mm 3.2mm;
 }
 .formula__row { display: grid; grid-template-columns: 6mm minmax(0, 1fr); column-gap: 2mm; align-items: baseline; padding: 1mm 0; font-size: var(--fs-small); line-height: 1.32; color: var(--fg-2); }
@@ -1608,7 +1625,7 @@ abbr { text-decoration: none; }
 .dim--on-red .dim__seg { --dim-c: var(--white); color: var(--white); }
 /* Schnittlinie A–A als Trenner zwischen Abschnitten (Strichpunkt, Buchstaben, rote Pfeile) */
 .cutline { position: relative; height: 8mm; margin: 2mm 0; }
-.cutline::before { content: ""; position: absolute; left: 4mm; right: 4mm; top: 4.6mm; height: var(--hair); background: repeating-linear-gradient(90deg, var(--fg) 0 6mm, transparent 6mm 7.2mm, var(--fg) 7.2mm 7.8mm, transparent 7.8mm 9mm); }
+.cutline::before { content: ""; position: absolute; left: 4mm; right: 4mm; top: 4.6mm; height: var(--hair); background: var(--dashdot-h) 0 0 / 100% 100% no-repeat; }   /* Strichpunkt 6/1,2/0,6/1,2 mm, Vektor */
 .cutline > span { position: absolute; top: 0; width: 8mm; text-align: center; font: 800 9pt/1 var(--font-display); color: var(--fg); }
 .cutline > span::after { content: ""; position: absolute; left: 2.2mm; top: 5.6mm; width: 0; height: 0; border: solid transparent; border-width: 0 1.8mm 2.4mm; border-bottom-color: var(--accent); }
 .cutline > span:first-child { left: 0; }
@@ -1645,7 +1662,7 @@ abbr { text-decoration: none; }
 .photo__axes { position: absolute; left: 0; right: 0; top: -9mm; bottom: var(--cap-h, 0mm); pointer-events: none; display: flex; justify-content: space-between; padding: 0 var(--axes-pad, 6mm); }
 .photo__axes > span { position: relative; width: 6.2mm; display: flex; flex-direction: column; align-items: center; }
 .photo__axes > span > b { display: flex; align-items: center; justify-content: center; width: 6.2mm; height: 6.2mm; border: .3mm solid var(--fg); border-radius: 50%; background: var(--surface); font: 800 8.5pt/1 var(--font-display); color: var(--fg); }
-.photo__axes > span::after { content: ""; flex: 1; width: var(--hair); background: repeating-linear-gradient(180deg, var(--fg) 0 5mm, transparent 5mm 6.2mm, var(--fg) 6.2mm 6.8mm, transparent 6.8mm 8mm); opacity: .55; }
+.photo__axes > span::after { content: ""; flex: 1; width: var(--hair); background: var(--dashdot-v) 0 0 / 100% 100% no-repeat; opacity: .55; }
 /* Vektor-Punktraster (assets/pgn/sig-raster-*.svg inline, currentColor) */
 .raster { display: block; color: var(--accent); }
 .raster svg { display: block; width: 100%; height: auto; }
@@ -1695,7 +1712,7 @@ abbr { text-decoration: none; }
 .bzp__title { display: block; font: 800 9pt/1.2 var(--font-display); letter-spacing: .02em; text-transform: uppercase; color: var(--fg); }
 .bzp__title em { font-style: normal; color: var(--accent-text); margin-right: 1.6mm; }
 .bzp__label small { display: block; margin-top: .3mm; font: 400 var(--fs-micro)/1.25 var(--font-text); color: var(--fg-3); }
-.bzp__track { position: relative; border-bottom: var(--hair) solid var(--rule); background: repeating-linear-gradient(90deg, transparent 0 calc(100% / var(--n) - var(--hair)), var(--rule) calc(100% / var(--n) - var(--hair)) calc(100% / var(--n))); }
+.bzp__track { position: relative; border-bottom: var(--hair) solid var(--rule); }   /* Spaltenraster nicht als gekachelter Verlauf (PDF-Rasterung); bei Bedarf als SVG-Linien */
 .bzp__bar { position: absolute; top: 50%; height: 3.2mm; margin-top: -1.6mm; left: calc((var(--from) - 1) / var(--n) * 100%); width: calc((var(--to) - var(--from) + 1) / var(--n) * 100%); background: var(--loan); }
 .bzp__bar--foerder { background: var(--accent); }
 .bzp__bar--line { height: 0; margin-top: 0; border-top: .35mm solid var(--fg-2); background: none; }

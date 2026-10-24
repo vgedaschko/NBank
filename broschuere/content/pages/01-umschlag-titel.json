@@ -11,10 +11,11 @@
   "lead": "",
   "image": {
     "src": "src/assets/pgn/sig-axo-brauerstrasse.svg",
-    "kind": "Linienzeichnung (Axonometrie)",
-    "caption": "Axonometrie nach dem Projekt Brauerstraße, Rotenburg (Wümme)",
-    "alt": "Axonometrische Linienzeichnung eines geförderten Mehrfamilienhauses nach dem Projekt Brauerstraße in Rotenburg (Wümme): dreigeschossiger Klinkerbau mit Walmdach, Balkonen und zweigeschossigem Kopfbau mit Photovoltaik. Rote Maßketten; auf der 30-Meter-Kette markiert eine rote Marke bei 24 Metern 80 Prozent Förderung, der Rest von 20 Prozent steht für die Eigenmittel.",
-    "credit": "Planungsgemeinschaft Nord GmbH"
+    "kind": "Linienzeichnung (Axonometrie), weiß als Negativ auf dem Rotverlauf",
+    "caption": "Referenzprojekt Brauerstraße, Rotenburg (Wümme) · 19 barrierefreie Wohnungen · mit Förderung der NBank",
+    "alt": "Axonometrische Linienzeichnung in Weiß auf Rot: gefördertes Mehrfamilienhaus nach dem Referenzprojekt Brauerstraße in Rotenburg (Wümme), dreigeschossiger Klinkerbau mit Walmdach, Balkonen und zweigeschossigem Kopfbau mit Photovoltaik. Auf der 30-Meter-Maßkette markiert eine Marke bei 24 Metern 80 Prozent Förderung, der Rest von 20 Prozent steht für die Eigenmittel.",
+    "credit": "Planungsgemeinschaft Nord GmbH",
+    "caption_layout": "Label „Referenzprojekt“, Text zweizeilig: „Brauerstraße, Rotenburg (Wümme)“ / „19 barrierefreie Wohnungen · mit Förderung der NBank“"
   },
   "blocks": [
     {
@@ -32,14 +33,24 @@
     },
     {
       "type": "logo",
-      "variant": "weiss-auf-rot",
-      "fallback": "logo-rot.svg auf weißem Feld",
+      "variant": "rot-auf-weissem-Feld",
+      "fallback": "logo-negativ.svg bzw. logo-weiss.svg auf Rot erst nach Freigabe durch PGN",
       "role_hint": "absender"
     },
     {
-      "type": "text",
+      "type": "titleblock",
       "role_hint": "absender",
-      "body": "Planungsgemeinschaft Nord GmbH · Rotenburg (Wümme)\n\nStand: 21.10.2026"
+      "items": [
+        {
+          "label": "Herausgeber",
+          "value": "Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme)"
+        },
+        {
+          "label": "Stand",
+          "value": "30.09.2026"
+        }
+      ],
+      "note": "Absenderleiste des Schriftfelds; keine Blattnummer auf dem Umschlag"
     }
   ],
   "footnotes": [],
@@ -55,7 +66,7 @@
   ],
   "pgn_sources": [
     "pgn-facts.md §1 Firma „Planungsgemeinschaft Nord GmbH“, Sitz Rotenburg (Wümme)",
-    "pgn-facts.md §7a Brauerstraße, Rotenburg (Wümme): 19 WE, „Die Umsetzung wird durch die Förderung der N-Bank unterstützt.“",
+    "pgn-facts.md §7a Brauerstraße, Rotenburg (Wümme): Neubau eines Mehrfamilienhauses, 19 WE, „Alle Wohnungen sind barrierefrei …“, „Die Umsetzung wird durch die Förderung der N-Bank unterstützt.“ (Schreibweise NBank; Formulierung wie S. 22)",
     "assets/pgn/MANIFEST.md: sig-axo-brauerstrasse.svg = Axonometrie nach der Kubatur Brauerstraße, Zeichnung der PGN (Schema); logo-weiss.svg Freigabe [UNSICHER]"
   ],
   "pdf_meta": {
@@ -64,7 +75,8 @@
     "subject": "Leitfaden der Planungsgemeinschaft Nord GmbH zur RL Mietwohnraum 2026 für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen"
   },
   "open_points": [
-    "PGN: Freigabe der Negativ-Wortmarke logo-weiss.svg für Druck auf Rot; sonst Variante logo-rot.svg auf weißem Feld"
+    "PGN: Freigabe der Negativ-Wortmarke (logo-negativ.svg / logo-weiss.svg) für Druck auf Rot; bis dahin logo-rot.svg auf weißem Logofeld (U1 und U4 gleich)",
+    "Andruck: weiße Linien der Axonometrie (≥ 0,16 mm, Klinkertextur 0,13 mm als Tönung) und weiße Schrift 9 pt auf dem Rotverlauf prüfen; PGN-Rot möglichst als Sonderfarbe"
   ],
-  "visual_idea": "U1, ein dominantes Element: der Claim. Oberes Feld (ca. 55 % der Höhe): Visualisierung Brauerstraße (src/assets/pgn/ref/ref-01-brauerstrasse-rotenburg.jpg) als Panorama-Banner über die volle Breite, randabfallend oben und seitlich; 1800 × 740 px ergeben nur ca. 218 dpi auf 210 mm – Hi-Res-Original bei PGN anfordern. Bildzeile „Brauerstraße, Rotenburg (Wümme) · Visualisierung“ klein in Work Sans, weiß auf dem Bild unten rechts (oder anthrazit unter dem Bild), mit 1-pt-Linie in PGN-Rot links wie die Slider-Bildunterschrift der Website. Unteres Feld: roter Verlauf 160° #B71E3F → #8B2939, darauf weiß: Kicker in Montserrat 600 Versalien, darunter die Headline in Montserrat Black, Versalien, sehr groß, linksbündig mit senkrechter weißer 2-pt-Linie links; „rechnen“ als Hervorhebung in Montserrat 800 Italic (CI-Muster „VORAUS*denken*“). Subline in Work Sans, ein Satz, max. zwei Zeilen – nennt PGN als Absender schon im Titelbereich. Rechts daneben bzw. darunter die einzige Kennzahl, sekundär (deutlich kleiner als die Headline, kein zweiter Blickfang): „80 %“ als Display-Ziffer in Montserrat Black, kleiner Vorsatz „bis zu“ über der Ziffer, zweizeiliges Label „Förderquote aus Darlehen und Zuschuss“, darunter klein „der zuwendungsfähigen Kosten · Programmteil 2.1“ (kein Baustein-Chip auf Rot). Absenderblock am Fuß: weißes PGN-Logo, Haarstrich wie im Logo-Aufbau, daneben „Planungsgemeinschaft Nord GmbH · Rotenburg (Wümme)“, darunter klein „Stand: 21.10.2026“. Ist logo-weiss.svg nicht freigegeben: schmales weißes Fußfeld mit logo-rot.svg. Keine Rundungen, keine Schatten, keine Fußnote, keine Fundstelle, kein Hinweistext, keine NBank- oder Landeslogos, keine Herausgeberzeile NBank. PDF-Metadaten (Titel, Autor Planungsgemeinschaft Nord GmbH) siehe pdf_meta."
+  "visual_idea": "U1 „Rotpause“ wie U4 (Korrekturlauf 1): Rotverlauf 160° #B71E3F → #8B2939 ganzseitig und randabfallend (.cover__art), weißer Planrahmen 8 mm, Kopfleiste mit Kicker weiß. Axonometrie Brauerstraße inline als Negativ: Linien, Maßketten, Koten, Achskreise und Nordpfeil weiß; Flächen deckend im Seitenverlauf (SVG-Verläufe sig-axo-r0…r16 in Seitenlage), Seiten- und Dachflächen mit 4–16 % Weiß abgestuft; Klinkertextur weiß 26 %. Bildzeile rechts über dem Schriftfeld: Label „Referenzprojekt“, zweizeilig Projekt, Ort, Wohnungen, Förderung. Schriftfeld ab --horizon 196 mm auf Rot mit weißen Linien: Titel weiß mit weißer Titellinie auf der Rahmenlinie und kursivem „rechnen“, Deck weiß 10,5 pt; Kennzahlfeld 56 mm invertiert (weiß, „bis zu“ und 80 % in PGN-Rot); Absenderleiste 18 mm: Logo rot auf weißem Feld 64 mm | Herausgeber | Stand 56 mm. Keine Blattnummer. Weiße Schrift auf Rot ≥ 9 pt und ≥ 600, Fließtext ≥ 10 pt. Auf U4 entsprechen QR-Feld und Logofeld dem Kennzahl- und Logofeld – aufgeklappt ein durchgehend roter Umschlag. Keine NBank- oder Landeslogos, keine Fußnote, keine Fundstelle."
 }

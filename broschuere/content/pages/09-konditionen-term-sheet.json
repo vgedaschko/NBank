@@ -2,10 +2,10 @@
   "no": 9,
   "slug": "konditionen-term-sheet",
   "layout_type": "term-sheet",
-  "running_title": "Finanzierung · Term Sheet",
-  "kicker": "Term Sheet · Programmteil 2.1",
-  "headline": "Konditionen auf einem Blatt",
-  "subline": "Zinsfrei ist nicht kostenfrei: 0,5 % Verwaltungskostenbeitrag p. a. und einmalige Entgelte gehören in den Finanzplan.",
+  "running_title": "Finanzierung · Eckdaten",
+  "kicker": "Eckdaten · Programmteil 2.1",
+  "headline": "Konditionen im Überblick",
+  "subline": "",
   "lead": "",
   "blocks": [
     {
@@ -80,7 +80,7 @@
     {
       "type": "table",
       "role_hint": "term-sheet",
-      "caption": "Term Sheet",
+      "caption": "Eckdaten",
       "columns": [
         "Position",
         "Kondition"
@@ -104,7 +104,7 @@
         ],
         [
           "Tilgung",
-          "Satz legt die NBank fest; Beginn nach vollständiger Auszahlung, spätestens zwei Jahre nach dem auf die Bekanntgabe folgenden Monat – also in der zinsfreien Zeit → S. 21"
+          "Satz legt die NBank fest; Beginn nach vollständiger Auszahlung, spätestens zwei Jahre nach dem auf die Bekanntgabe der Förderentscheidung folgenden Monat → S. 21"
         ],
         [
           "Kosten, laufend",
@@ -127,8 +127,8 @@
           "Brand ab Baubeginn, Sturm ab Bezugsfertigkeit, jeweils gleitender Neuwert, bis zur vollständigen Rückzahlung"
         ],
         [
-          "Exit",
-          "Freiwillige vorzeitige Volltilgung: Zuschuss anteilig für die restliche Bindungszeit zurück; die Bindung endet frühestens 20 Jahre nach Bindungsbeginn → S. 21"
+          "Vorzeitige Rückzahlung",
+          "Bei freiwilliger Rückzahlung des Darlehens in voller Höhe ist der Zuschuss anteilig für die restliche Bindungsdauer zurückzuzahlen; die Bindungen enden frühestens 20 Jahre nach Bindungsbeginn → S. 21"
         ],
         [
           "Beihilferecht",
@@ -185,7 +185,8 @@
   ],
   "open_points": [
     "Zinsfestschreibung für die Restlaufzeit ab Jahr 36 (RL Nr. 5.3.4 Satz 3, Kann-Regel) steht weder hier noch auf S. 21 (dort als Priorität 2 gestrichen) – bewusst nicht im Heft.",
-    "Chefredaktion 21.10.2026: Versicherung und spätester Tilgungsbeginn stehen im Term Sheet; Exit-Details (zehntes Kalenderjahr, spätestens reguläres Ende) und Tilgungsaufschub nur auf S. 21 – Doppelung aufgelöst."
+    "Chefredaktion 21.10.2026: Versicherung und spätester Tilgungsbeginn stehen in den Eckdaten; Details zur vorzeitigen Rückzahlung (zehntes Kalenderjahr, spätestens reguläres Ende) und Tilgungsaufschub nur auf S. 21 – Doppelung aufgelöst.",
+    "Korrekturlauf 1 (Kunde PGN): Unterzeile „Zinsfrei ist nicht kostenfrei …“ gestrichen (nicht belehren); Verwaltungskostenbeitrag und Bearbeitungsentgelte stehen unverändert in den Eckdaten. Headline „Konditionen auf einem Blatt“ → „Konditionen im Überblick“ (kein Wortspiel; Details stehen auf S. 21). Zeile „Exit“ → „Vorzeitige Rückzahlung“; Kosten-Markierung der Zeilen entfällt."
   ],
-  "visual_idea": "Ruhigste Seite der Finanzierungsstrecke, deutlich mehr Weißraum als v1. Baustein-Register 2.1 (--baustein-21, eckig, mit Nummer) am Seitenrand; der Nebenreiter 2.4 entfällt. Kopf: Kicker in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links; die Subline „Zinsfrei ist nicht kostenfrei …“ als einzeiliger Satz in Work Sans darunter – kein Kasten, kein Icon. Oberes Drittel: Zeitstrahl über die volle Satzbreite mit genau vier Bändern untereinander – Bauphase Neubau (gestaucht links vor Jahr 0, vier kleine Auszahlungsmarken „bis zu 30 · 30 · 30 % · 10 %“, letzte Marke „Fertigstellung und Belegung“), 0 % Zins (--color-loan, beginnt schon in der gestauchten Bauphase bei der ersten Rate), Bindung 35 Jahre (--baustein-21), Laufzeit 42 Jahre (Kontur in --color-loan, Abschnitt ab Jahr 36 schraffiert). Achse nur mit den Marken 0 · 35 · 42 in Montserrat 600; keine Nebenmarker, keine Stopp-Marke, keine Tilgungsspanne; die Ersterwerb-Zeile klein unter der Achse. Darunter das dominante Term Sheet zweispaltig mit zwölf Zeilen: Positionsspalte schmal in Montserrat 600 Versalien, Konditionen in Work Sans mindestens 9,5 pt, tabellarische Ziffern, feine Haarlinien in Anthrazit zwischen den Zeilen; Seitenverweise „→ S. 21“ als kleine eckige Chips. Zeile „Beihilferecht“ als letzte Zeile auf #F4F3F2 hinterlegt. Keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile."
+  "visual_idea": "Ruhigste Seite der Finanzierungsstrecke, deutlich mehr Weißraum als v1. Baustein-Register 2.1 (--baustein-21, eckig, mit Nummer) am Seitenrand; der Nebenreiter 2.4 entfällt. Kopf: Kicker in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links; keine Unterzeile. Oberes Drittel: Zeitstrahl über die volle Satzbreite mit genau vier Bändern untereinander – Bauphase Neubau (gestaucht links vor Jahr 0, vier kleine Auszahlungsmarken „bis zu 30 · 30 · 30 % · 10 %“, letzte Marke „Fertigstellung und Belegung“), 0 % Zins (--color-loan, beginnt schon in der gestauchten Bauphase bei der ersten Rate), Bindung 35 Jahre (--baustein-21), Laufzeit 42 Jahre (Kontur in --color-loan, Abschnitt ab Jahr 36 schraffiert). Achse nur mit den Marken 0 · 35 · 42 in Montserrat 600; keine Nebenmarker, keine Stopp-Marke, keine Tilgungsspanne; die Ersterwerb-Zeile klein unter der Achse. Darunter das dominante Eckdaten zweispaltig mit zwölf Zeilen: Positionsspalte schmal in Montserrat 600 Versalien, Konditionen in Work Sans mindestens 9,5 pt, tabellarische Ziffern, feine Haarlinien in Anthrazit zwischen den Zeilen; Seitenverweise „→ S. 21“ als kleine eckige Chips. Zeile „Beihilferecht“ als letzte Zeile auf #F4F3F2 hinterlegt. Keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile."
 }

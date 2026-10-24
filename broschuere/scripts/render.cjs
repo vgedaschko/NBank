@@ -17,7 +17,7 @@
 //   4. Overflow-Check je .page (OVERFLOW-Zeilen = Fehler); Trennrest allein in der letzten Zeile eines Blocks
 //      (LASTLINE-Zeilen = Fehler); Satzspiegel-Unterkante und Überlauf aus Blöcken fester Höhe (SATZSPIEGEL-Zeilen = Fehler);
 //      Link-Namen und PDF/UA-Vorprüfung (PDFUA-Zeilen: Link ohne Namen, Link in role="img",
-//      Sprung der Überschriftenebene).
+//      Sprung der Überschriftenebene); Musterfüllungen, die Chromium als Rasterbild einbettet (MUSTER-Zeilen = Fehler).
 //   5. Bildschirm-PDF: tagged (Struktur, /Lang, Alt-Texte aus aria-label), eigene Lesezeichen aus h1/h2,
 //      Metadaten (Info + XMP), DisplayDocTitle, /Contents je Link-Annotation (PDF/UA-1 7.18.5);
 //      PDF/UA-Kennung (pdfuaid:part 1) nur, wenn die Vorprüfung ohne Befund ist.
@@ -458,6 +458,7 @@ function browserFontTuples() {
   // PDF/UA-Kennung (pdfuaid:part 1) nur, wenn die Vorprüfung nichts findet – sonst brechen PAC/veraPDF ohnehin ab bzw. melden Fehler
   const pdfuaOk = !pdfua.length && !errors.length;
   const linkStats = await finishPdf(pdfOut, { outline, docTitle, offset: 0, links, pdfua: pdfuaOk });
+  const muster = await rasterPatterns(pdfOut, outline.map((o) => o.no));
 
   // 6 · Druck-PDF mit Beschnitt
   if (printOut) {
@@ -533,6 +534,7 @@ function browserFontTuples() {
   report.issues.forEach((i) => console.log('OVERFLOW: ' + i));
   lastlines.forEach((l) => console.log('LASTLINE: ' + l));
   satz.forEach((l) => console.log('SATZSPIEGEL: ' + l));
+  muster.forEach((m) => console.log('MUSTER: ' + m));
   pdfua.forEach((u) => console.log('PDFUA: ' + u));
   errors.forEach((e) => console.log('FEHLER: ' + e));
 
@@ -553,6 +555,45 @@ function browserFontTuples() {
   console.error(e);
   process.exit(1);
 });
+
+/* ---------------------------------------------------------------------------------------------
+   Muster-Prüfung (MUSTER-Zeilen = Fehler): Chromium rastert SVG-<pattern>-Füllungen und gekachelte CSS-Muster
+   (repeating-*-gradient, Verlauf mit background-size + repeat) als Bild in einer Kachel (PatternType 1) mit 72 dpi –
+   im Druck verpixelt. Gemeldet wird jede Seite, auf der ein Rasterbild über eine Pattern-Ressource erreicht wird.
+   Fotos (Bild-XObjects direkt auf der Seite) sind nicht betroffen. Abhilfe: scripts/schraffur.cjs, DESIGN.md 1.3.1.
+   --------------------------------------------------------------------------------------------- */
+async function rasterPatterns(file, pageNos) {
+  const doc = await PDFDocument.load(fs.readFileSync(file), { updateMetadata: false });
+  const ctx = doc.context;
+  const dictOf = (o) => (o && o.get ? o : (o && o.dict ? o.dict : null));
+  const found = [];
+  doc.getPages().forEach((pg, i) => {
+    const seen = new Set();
+    let tiles = 0;
+    const walk = (res, viaPattern) => {
+      res = res instanceof PDFRef ? ctx.lookup(res) : res;
+      if (!res || !res.get) return;
+      for (const key of ['XObject', 'Pattern']) {
+        const sub = res.lookup(PDFName.of(key));
+        if (!sub || !sub.values) continue;
+        for (const v of sub.values()) {
+          const k = String(v);
+          if (seen.has(k)) continue;
+          seen.add(k);
+          const d = dictOf(v instanceof PDFRef ? ctx.lookup(v) : v);
+          if (!d) continue;
+          const via = viaPattern || key === 'Pattern';
+          if (String(d.get(PDFName.of('Subtype'))) === '/Image') { if (via) tiles++; continue; }
+          const r = d.get(PDFName.of('Resources'));
+          if (r) walk(r, via);
+        }
+      }
+    };
+    walk(pg.node.get(PDFName.of('Resources')), false);
+    if (tiles) found.push(`S. ${String(pageNos[i] || i + 1).padStart(2, '0')}: ${tiles} Rasterbild(er) in Musterfüllungen (SVG-<pattern> oder gekacheltes CSS-Muster) – Vektorschraffur verwenden (scripts/schraffur.cjs)`);
+  });
+  return found;
+}
 
 /* ---------------------------------------------------------------------------------------------
    PDF-Nachbearbeitung mit pdf-lib: Metadaten, XMP, Lesezeichen, Seitenboxen

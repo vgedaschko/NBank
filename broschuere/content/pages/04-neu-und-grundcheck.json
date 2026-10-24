@@ -2,9 +2,9 @@
   "no": 4,
   "slug": "neu-und-grundcheck",
   "layout_type": "table-checklist",
-  "running_title": "Überblick · Neu und Grundcheck",
-  "kicker": "Neu und Grundcheck",
-  "headline": "Was neu ist – und ob Ihr Projekt passt",
+  "running_title": "Überblick · Neuerungen und Grundcheck",
+  "kicker": "Vergleich und Grundcheck",
+  "headline": "Richtlinie 2026: Neuerungen und Voraussetzungen",
   "blocks": [
     {
       "type": "table",
@@ -31,25 +31,25 @@
           "Gruppen A, B, C (B/C nur mit Zulassung); A: 6,50/6,80 €"
         ]
       ],
-      "note": "Paarwerte: Mietenstufe I–III/IV–VII · Bemessung nicht 1:1 vergleichbar"
+      "note": "Wertepaare: Mietenstufe I–III/IV–VII · Bemessung nicht direkt vergleichbar"
     },
     {
       "type": "checklist",
-      "heading": "Grundcheck in sechs Fragen",
+      "heading": "Grundcheck: sechs Voraussetzungen",
       "chip_legend": "gilt für",
       "items": [
-        "**Antragsberechtigt und solide finanziert?** Privatpersonen, Unternehmen mit eigener Rechtspersönlichkeit, Genossenschaften, Kommunen – und die erzielbare Miete muss Finanzierung und Bewirtschaftung dauerhaft tragen → S. 11. [alle]",
-        "**Noch nicht begonnen?** Vor der Bewilligung kein Spatenstich und kein Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Grundstück und Planung bis Leistungsphase 6 HOAI); bei 2.5 weder vermieten noch überlassen → S. 19. [alle]",
+        "**Antragsberechtigt, Finanzierung gesichert?** Privatpersonen, Unternehmen mit eigener Rechtspersönlichkeit, Genossenschaften, Kommunen; die erzielbare Miete muss Finanzierung und Bewirtschaftung auf Dauer decken → S. 11. [alle]",
+        "**Vor der Bewilligung nicht begonnen?** Als Beginn zählen Baubeginn sowie Werk-, Liefer-, Leistungs- und Kaufverträge, nicht Grundstückserwerb und Planung bis Leistungsphase 6 HOAI; bei 2.5 Mietvertrag oder Überlassung → S. 19. [alle]",
         "**Mehrfamilienhaus ab drei Wohnungen?** Bei Modernisierung: fertiggestellt vor dem 08.12.2004. [2.1–2.4]",
-        "**Bedarf am Standort?** In sechs Gebietsarten gilt er als gegeben, überall sonst wird er vermutet → S. 18. [2.1, 2.2, 2.6]",
-        "**Mindestens 20 % Eigenmittel?** Gerechnet auf die zuwendungsfähigen Kosten; auf den Inseln reichen 10 % der zuwendungsfähigen Herstellungskosten. [2.1–2.4]",
+        "**Bedarf am Standort?** In sechs Gebietsarten gilt er als erfüllt, sonst wird er vermutet, sofern die NBank-Karte keinen gesonderten Nachweis verlangt → S. 18. [2.1, 2.2, 2.6]",
+        "**Mindestens 20 % Eigenmittel?** Bezogen auf die zuwendungsfähigen Kosten; auf den Inseln 10 % der zuwendungsfähigen Herstellungskosten. [2.1–2.4]",
         "**Grundstück gesichert?** Eigentum, Erbbaurecht oder gesicherter Erwerb. [2.1, 2.2, 2.4]"
       ]
     },
     {
       "type": "text",
       "role_hint": "schlusssatz",
-      "body": "**Einmal Nein?** Sprechen Sie zuerst mit der Wohnraumförderstelle – es gibt Ausnahmen → S. 21."
+      "body": "**Ausnahmen** etwa für gemeinschaftliche Wohnformen sowie Reihen- und Doppelhäuser → S. 21."
     }
   ],
   "footnotes": [],
@@ -77,7 +77,9 @@
     "F156",
     "F174",
     "F090",
-    "F173"
+    "F173",
+    "F089",
+    "F256"
   ],
   "moved_to_p21": [
     "Baugemeinschaften (rechtsfähig) als Antragsberechtigte; beim Ersterwerb beantragt die Käuferseite",
@@ -88,5 +90,5 @@
     "Zusammensetzung der Eigenmittel: mindestens die Hälfte Geld oder lastenfreies Grundstück (2.3: Geld); Modellprojekte und Housing First ggf. weniger Eigenmittel",
     "Rücktrittsklauseln und vorzeitiger Vorhabenbeginn; nicht als Beginn gelten Grundstückskauf und Planung bis Leistungsphase 6 HOAI"
   ],
-  "visual_idea": "Spürbar mehr Ruhe als in v1. Kopf: Kicker „Neu und Grundcheck“ in PGN-Rot, Headline in Montserrat Black Versalien mit roter 2-pt-Linie links; rechts auf der Headline-Grundlinie klein der Tabellenkopf „Paarwerte: Mietenstufe I–III/IV–VII · Bemessung nicht 1:1 vergleichbar“; Caption „Programmteil 2.1 im Vergleich · Höchstsätze“ (deshalb kein „bis zu“ in den Zellen). Kein Lead. Obere Hälfte, dominantes Element: die schlanke Vorher/Nachher-Tabelle mit drei Zeilen, Spalte „bis 30.06.2026“ in Grau (#757474), Spalte „seit 01.07.2026“ in PGN-Rot, dazwischen feine Pfeile; Zeilenmarker links als Baustein-Chip 2.1. Kein Nachsatz zur Modernisierungsfrist (steht auf S. 3, 5 und 14/15), kein Frist-Band, kein Kasten. Danach viel Weißraum. Untere Hälfte: Zwischenüberschrift „Grundcheck in sechs Fragen“, darunter der Grundcheck als druckbare Ankreuzliste mit sechs leeren Quadraten (eckig, Anthrazit-Kontur), je Zeile Frage in Work Sans Bold, Erläuterung in Work Sans; rechts die Programmteil-Chips 2.1–2.6 in fester Spaltenfolge (zutreffende in Baustein-Farbe, übrige als Geisterziffer ohne Kontur), einmal die Legende „gilt für“ über der Chipspalte; die Klammer-Tags am Zeilenende werden als Chips gesetzt, nicht als Text gedruckt. Schlusssatz „Einmal Nein? …“ als einfache Textzeile unter der Liste, ohne Kasten, ohne Ampel. Keine Fußnote, keine Quellenzeile, keine Kurzmarke."
+  "visual_idea": "Spürbar mehr Ruhe als in v1. Kopf: Kicker „Vergleich und Grundcheck“ in PGN-Rot, Headline „Richtlinie 2026: Neuerungen und Voraussetzungen“ (dreizeilig, Signaturwort „Neuerungen“) in Montserrat Black Versalien mit roter 2-pt-Linie links; rechts auf der Headline-Grundlinie klein der Tabellenkopf „Wertepaare: Mietenstufe I–III/IV–VII · Bemessung nicht direkt vergleichbar“; Caption „Programmteil 2.1 im Vergleich · Höchstsätze“ (deshalb kein „bis zu“ in den Zellen). Kein Lead. Obere Hälfte, dominantes Element: die schlanke Vorher/Nachher-Tabelle mit drei Zeilen, Spalte „bis 30.06.2026“ in Grau (#757474), Spalte „seit 01.07.2026“ in PGN-Rot, dazwischen feine Pfeile; Zeilenmarker links als Baustein-Chip 2.1. Kein Nachsatz zur Modernisierungsfrist (steht auf S. 3, 5 und 14/15), kein Frist-Band, kein Kasten. Danach viel Weißraum. Untere Hälfte: Zwischenüberschrift „Grundcheck: sechs Voraussetzungen“, darunter der Grundcheck als druckbare Ankreuzliste mit sechs leeren Quadraten (eckig, Anthrazit-Kontur), je Zeile Frage in Work Sans Bold, Erläuterung in Work Sans; rechts die Programmteil-Chips 2.1–2.6 in fester Spaltenfolge (zutreffende in Baustein-Farbe, übrige als Geisterziffer ohne Kontur), einmal die Legende „gilt für“ über der Chipspalte; die Klammer-Tags am Zeilenende werden als Chips gesetzt, nicht als Text gedruckt. Schlusssatz „Ausnahmen … → S. 21“ als einfache Textzeile unter der Liste, ohne Kasten, ohne Ampel, ohne Aufforderung. Ton (Korrekturlauf 1): Prüfpunkte neutral und technisch formuliert, Vorhabenbeginn als Definition statt Verbotsliste. Keine Fußnote, keine Quellenzeile, keine Kurzmarke."
 }

@@ -4,7 +4,8 @@
        Gemeinsame Horizonte mit S. 23 (feste Zeilenhöhen): Kicker 14 mm · H1 · Vorspann · Zeile 1 ab 68,5 mm
        (Modulkopf „Alles aus einem Haus“ + Werte = Oberkante Impressum-Schriftfeld) · Zeile 2 ab 136,5 mm
        (Modulkopf Referenzen = Oberkante Hinweis) · Referenzreihe ab 197,5 mm (= Rechtsgrundlage/Quellen) · Plankopf.
-       Dominant: Referenzen – Punktraster Brauerstraße (9 Spalten, außen) + vier Duplex-Referenzen.
+       Dominant: Referenzen – Punktraster Brauerstraße (9 Spalten, außen) + vier Duplex-Referenzen;
+       „Weitere Projekte → pgn-architekten.de“ rechts im Modulkopf der Referenzen.
        Farben nur über Tokens; kein Grün (PGN Projektgesellschaft fett in Tinte). */
 
     /* Kopf ------------------------------------------------------------------- */
@@ -24,27 +25,43 @@
     .page[data-page="22"] .p22-values .values__item img { width: 10mm; height: 10mm; }
     .page[data-page="22"] .p22-values .values__word { font-size: var(--fs-label-accent); letter-spacing: .09em; }
 
-    /* Zeile 2: Referenzen ------------------------------------------------------------------------------------ */
+    /* Zeile 2: Referenzen ------------------------------------------------------------------------------------
+       Jede Referenz liest sich in derselben Rangfolge (Korrekturlauf 1): Projektname (Montserrat 800, Versalien, Tinte)
+       → Ort (Work Sans 9 pt) → Auftraggeber (Label + Name, abgesetzt durch Haarlinie) → Kennzahl (Zahl + Einheit,
+       Haarlinie) → Kurzbeschreibung (8,5 pt grau). Die vier kleinen Kacheln teilen sich ein Zeilenraster (subgrid):
+       Namen stehen auf einer Grundlinie, Auftraggeber- und Kennzahlzeilen auf gemeinsamen Haarlinien. */
     .page[data-page="22"] .p22-refs { flex: 1 1 auto; display: flex; flex-direction: column; margin-top: 7mm; }
     .page[data-page="22"] .p22-feature { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: 3.4mm; }
     .page[data-page="22"] .p22-feature .photo { grid-column: 1 / span 9; }
     .page[data-page="22"] .p22-feature .raster { overflow: hidden; }
     .page[data-page="22"] .p22-feature__data { grid-column: 10 / span 3; display: flex; flex-direction: column; }
-    .page[data-page="22"] .p22-flag { font: 700 var(--fs-label-accent)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
-    .page[data-page="22"] .p22-feature .reference__units { margin-top: 3mm; font-size: 28pt; }
-    .page[data-page="22"] .p22-feature .reference__name { margin-top: 2.4mm; font-size: 10.5pt; }
-    .page[data-page="22"] .p22-note { margin-top: 1.2mm; font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-2); }
 
+    .page[data-page="22"] .p22-ref .reference__name { font-size: 10pt; line-height: 1.16; }
+    .page[data-page="22"] .p22-ref .reference__place { margin-top: .5mm; font: 500 var(--fs-small)/1.3 var(--font-text); color: var(--fg-2); }
+    .page[data-page="22"] .p22-client { margin-top: 1.9mm; padding-top: 1.3mm; border-top: var(--hair) solid var(--rule); font: 400 var(--fs-micro)/1.32 var(--font-text); color: var(--fg-2); -webkit-hyphens: none; hyphens: none; }   /* Firmennamen nie trennen */
+    .page[data-page="22"] .p22-client__label { display: block; margin-bottom: .5mm; font: 700 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
+    .page[data-page="22"] .p22-kpi { display: flex; align-items: baseline; gap: 1.5mm; margin-top: 1.9mm; padding-top: 1.5mm; border-top: var(--hair) solid var(--rule); font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); white-space: nowrap; }
+    .page[data-page="22"] .p22-kpi b { font: 800 12pt/1 var(--font-display); letter-spacing: -.01em; color: var(--fg); font-variant-numeric: tabular-nums; }
+    .page[data-page="22"] .p22-note { margin-top: .9mm; font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-3); -webkit-hyphens: none; hyphens: none; }
 
-    .page[data-page="22"] .p22-small { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: 5.5mm; }
-    .page[data-page="22"] .p22-small .photo { margin-bottom: 2.6mm; }
-    .page[data-page="22"] .p22-small .reference__units { gap: 1.8mm; min-height: 7.4mm; font-size: var(--fs-fig-s); }   /* Namen auf einer Linie, auch bei zweizeiliger Einheit */
-    .page[data-page="22"] .p22-small .reference__name { margin-top: 1.8mm; font-size: 9pt; }
-    .page[data-page="22"] .p22-small .reference__place { margin-top: .6mm; }
-    .page[data-page="22"] .p22-small .p22-client { margin-top: 0; }
-    .page[data-page="22"] .p22-small .p22-note { margin-top: .8mm; font-size: var(--fs-micro); line-height: 1.35; letter-spacing: -.005em; }   /* „drei Wohnhäuser, 50–95 m²,“ = 41,3 mm auf 41,25 mm */
+    /* Hauptreferenz: gleiche Rangfolge, eine Stufe größer; Fördervermerk als Stempel am Fuß der Datenspalte */
+    .page[data-page="22"] .p22-feature .reference__name { font-size: 11pt; }
+    .page[data-page="22"] .p22-feature .reference__place { font-size: var(--fs-body); }
+    .page[data-page="22"] .p22-feature .p22-kpi { margin-top: 3mm; }
+    .page[data-page="22"] .p22-feature .p22-kpi b { font-size: 15pt; }
+    .page[data-page="22"] .p22-flag { margin-top: auto; align-self: flex-start; padding: 1.2mm 2mm 1.05mm; border: var(--rule-red-min) solid var(--accent); font: 700 var(--fs-label-accent)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
 
-    .page[data-page="22"] .p22-more { margin-top: auto; display: flex; justify-content: flex-end; align-items: baseline; gap: 1.6mm; font-size: var(--fs-module); color: var(--fg-2); }
+    .page[data-page="22"] .p22-small { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); column-gap: var(--gutter); margin-top: 5.5mm; }
+    .page[data-page="22"] .p22-small .p22-ref { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; }
+    .page[data-page="22"] .p22-small .photo { grid-row: 1; margin-bottom: 2.2mm; }
+    .page[data-page="22"] .p22-small .reference__name { grid-row: 2; align-self: end; }
+    .page[data-page="22"] .p22-small .reference__place { grid-row: 3; }
+    .page[data-page="22"] .p22-small .p22-client { grid-row: 4; }
+    .page[data-page="22"] .p22-small .p22-kpi { grid-row: 5; }
+    .page[data-page="22"] .p22-small .p22-note { grid-row: 6; }
+
+    .page[data-page="22"] .p22-refs__head { display: flex; justify-content: space-between; align-items: baseline; gap: 6mm; }
+    .page[data-page="22"] .p22-more { display: flex; align-items: baseline; gap: 1.6mm; font-size: var(--fs-module); color: var(--fg-2); }
     .page[data-page="22"] .p22-more a { font: 700 var(--fs-small)/1.2 var(--font-display); color: var(--fg); }
     .page[data-page="22"] .p22-more__arrow { font: 700 var(--fs-label-accent)/1.2 var(--font-display); color: var(--accent-text); }
   </style>
@@ -60,7 +77,7 @@
     <div class="p22-about module">
       <h2 class="chart__title">Alles aus einem Haus</h2>
       <div class="prose">
-        <p>Wir arbeiten für Wohnungsunternehmen und Wohnungsbaugenossenschaften, Investorinnen und Investoren, öffentliche Bauträger und Kommunen. Generalplanung, Architektur, Tragwerksplanung, Haustechnik sowie Stadt- und Landschaftsplanung greifen bei uns ineinander – in allen Leistungsphasen. Im Projektcontrolling planen wir mit der Finanzierung im Hinterkopf. Über die <b class="u-nohyphens"><span class="u-nowrap">PGN Projektgesellschaft</span> Nord GmbH</b> entwickeln wir Projekte und bauen als Generalübernehmer auch schlüsselfertig. <span class="u-nowrap">3D-Druck</span> und AR machen Entwürfe greifbar.</p>
+        <p>Wir arbeiten für Wohnungsunternehmen und Wohnungsbaugenossenschaften, Investorinnen und Investoren, öffentliche Bauträger und Kommunen. Generalplanung, Architektur, Tragwerksplanung, Haustechnik sowie Stadt- und Landschaftsplanung greifen bei uns ineinander – in allen Leistungsphasen und mit einem Ansprechpartner für Ihr Vorhaben. Im Projektcontrolling verbinden wir Kostenplanung und Termine mit der Finanzierung. Über die <b class="u-nohyphens"><span class="u-nowrap">PGN Projektgesellschaft</span> Nord GmbH</b> entwickeln wir Projekte und bauen als Generalübernehmer auch schlüsselfertig.</p>
       </div>
     </div>
     <div class="p22-values on-red">
@@ -75,7 +92,10 @@
   </div>
 
   <div class="p22-refs module">
-    <h2 class="chart__title" id="p22-refs-h">Wohnungsbau-Referenzen</h2>
+    <div class="p22-refs__head">
+      <h2 class="chart__title" id="p22-refs-h">Wohnungsbau-Referenzen</h2>
+      <p class="p22-more">Weitere Projekte: <span class="p22-more__arrow" aria-hidden="true">→</span><a class="u-url" href="https://www.pgn-architekten.de">pgn-architekten.de</a></p>
+    </div>
     <article class="p22-feature" aria-labelledby="p22-ref-1">
       <figure class="photo photo--marks" role="group" style="--photo-h:44.6mm">
         <div class="raster" role="img" aria-label="Visualisierung des Mehrfamilienhauses Brauerstraße in Rotenburg (Wümme) als Punktraster: dreigeschossiger Bau mit Walmdach, Kopfbau und Balkonen">
@@ -83,62 +103,62 @@
         </div>
         <span class="photo__credit">Visualisierung</span>
       </figure>
-      <div class="p22-feature__data">
-        <p class="p22-flag">Mit Förderung der NBank</p>
-        <p class="reference__units reference__units--text">19 <small>barrierefreie Wohnungen</small></p>
+      <div class="p22-feature__data p22-ref">
         <h3 class="reference__name" id="p22-ref-1">Brauerstraße</h3>
         <p class="reference__place">Rotenburg (Wümme)</p>
-        <p class="p22-note">Neubau mit Aufzug, ca. <span class="u-nowrap">50–61 m²</span>, Luft-Wasser-Wärmepumpe, PV</p>
+        <p class="p22-kpi"><b>19</b> Wohnungen</p>
+        <p class="p22-note">ca.&nbsp;<span class="u-nowrap">50–61 m²</span>, Aufzug, barrierefrei, Luft-Wasser-Wärmepumpe, PV</p>
+        <p class="p22-flag">Mit Förderung der NBank</p>
       </div>
     </article>
 
     <div class="p22-small">
-      <article class="reference" aria-labelledby="p22-ref-2">
+      <article class="reference p22-ref" aria-labelledby="p22-ref-2">
         <figure class="photo" role="group" style="--photo-h:22mm;--photo-pos:52% 45%">
           <img class="photo__img" src="assets/pgn/img/porstweg-duplex.jpg" alt="Visualisierung Porstweg, Rotenburg (Wümme): dreigeschossiges Wohnhaus aus hellem Klinker mit großen Eckfenstern">
           <span class="photo__credit">Visualisierung</span>
         </figure>
-        <p class="reference__units reference__units--text">29 <small>Wohnungen</small></p>
         <h3 class="reference__name" id="p22-ref-2">Porstweg</h3>
         <p class="reference__place">Rotenburg (Wümme)</p>
-        <p class="reference__place p22-client">Wohnungsbau-Genossenschaft Rotenburg (Wümme) eG</p>
-        <p class="p22-note">drei Wohnhäuser, <span class="u-nowrap">50–95 m²</span>, Gemeinschaftsraum</p>
+        <p class="p22-client"><span class="p22-client__label">Auftraggeber<span class="u-sr">:</span></span> Wohnungsbau-Genossenschaft Rotenburg (Wümme) eG</p>
+        <p class="p22-kpi"><b>29</b> Wohnungen</p>
+        <p class="p22-note">drei Häuser, <span class="u-nowrap">50–95 m²</span>, Gemeinschaftsraum</p>
       </article>
-      <article class="reference" aria-labelledby="p22-ref-3">
+      <article class="reference p22-ref" aria-labelledby="p22-ref-3">
         <figure class="photo" role="group" style="--photo-h:22mm;--photo-pos:35% 60%">
           <img class="photo__img" src="assets/pgn/img/dehnenweg-duplex.jpg" alt="Visualisierung Dehnenweg, Hohenhameln: dreigeschossiges Klinkerhaus mit Satteldach, Gauben und vorgestellten Balkonen">
           <span class="photo__credit">Visualisierung</span>
         </figure>
-        <p class="reference__units reference__units--text">15 <small>barrierefreie Wohnungen</small></p>
         <h3 class="reference__name" id="p22-ref-3">Dehnenweg</h3>
         <p class="reference__place">Hohenhameln</p>
-        <p class="reference__place p22-client">kwg Kreiswohnbaugesellschaft Hildesheim mbH</p>
-        <p class="p22-note"><span class="u-nowrap">43–63 m²</span>, Aufzug</p>
+        <p class="p22-client"><span class="p22-client__label">Auftraggeber<span class="u-sr">:</span></span> kwg Kreiswohnbaugesellschaft Hildesheim mbH</p>
+        <p class="p22-kpi"><b>15</b> Wohnungen</p>
+        <p class="p22-note"><span class="u-nowrap">43–63 m²</span>, Aufzug, barrierefrei</p>
       </article>
-      <article class="reference" aria-labelledby="p22-ref-4">
+      <article class="reference p22-ref" aria-labelledby="p22-ref-4">
         <figure class="photo" role="group" style="--photo-h:22mm;--photo-pos:62% 55%">
           <img class="photo__img" src="assets/pgn/img/burgsiedlung-duplex.jpg" alt="Visualisierung Burgsiedlung, Stade: Zeile aus Stadthäusern in dunklem Klinker mit hellem Staffelgeschoss">
           <span class="photo__credit">Visualisierung</span>
         </figure>
-        <p class="reference__units reference__units--text">40 <small>barrierefreie Wohnungen</small></p>
         <h3 class="reference__name" id="p22-ref-4">Burgsiedlung</h3>
         <p class="reference__place">Stade</p>
-        <p class="reference__place p22-client">IDB mbH &amp; Co. Stade-Altes Land KG</p>
-        <p class="p22-note">vier Stadthäuser, Aufzug in jedem Gebäude</p>
+        <p class="p22-client"><span class="p22-client__label">Auftraggeber<span class="u-sr">:</span></span> IDB mbH &amp; Co. <span class="u-nowrap">Stade-Altes Land KG</span></p>
+        <p class="p22-kpi"><b>40</b> Wohnungen</p>
+        <p class="p22-note">vier Stadthäuser, je mit Aufzug, barrierefrei</p>
       </article>
-      <article class="reference" aria-labelledby="p22-ref-5">
+      <article class="reference p22-ref" aria-labelledby="p22-ref-5">
         <figure class="photo" role="group" style="--photo-h:22mm;--photo-pos:50% 50%">
           <img class="photo__img" src="assets/pgn/img/lindenhof-duplex.jpg" alt="Visualisierung Wohnen im Lindenhof, Gifhorn: Quartier aus der Vogelperspektive mit hellen Satteldachhäusern">
           <span class="photo__credit">Visualisierung</span>
         </figure>
-        <p class="reference__units reference__units--text">93 <small>Mietwohnungen</small></p>
         <h3 class="reference__name" id="p22-ref-5">Wohnen im Lindenhof</h3>
         <p class="reference__place">Gifhorn</p>
+        <span class="p22-client" aria-hidden="true"></span>
+        <p class="p22-kpi"><b>93</b> Mietwohnungen</p>
         <p class="p22-note">Quartier mit 15 Gebäuden, fertiggestellt Frühjahr 2018</p>
       </article>
     </div>
-    <p class="p22-more">Weitere Projekte: <span class="p22-more__arrow" aria-hidden="true">→</span><a class="u-url" href="https://www.pgn-architekten.de">pgn-architekten.de</a></p>
   </div>
 
-  <footer class="page__foot" aria-hidden="true"><span class="page__folio">22</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>PGN · Über uns</b></span><span>Stand: 21.10.2026</span></span></footer>
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">22</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>PGN · Über uns</b></span></span></footer>
 </section>

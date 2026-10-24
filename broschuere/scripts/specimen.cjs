@@ -10,6 +10,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const A = (f) => fs.readFileSync(path.join(ROOT, 'src/assets/pgn', f), 'utf8').replace(/^<!--.*?-->\s*/s, '').trim();
 const f2 = (n) => (Math.round(n * 100) / 100).toString();
+const { hatchPath } = require('./schraffur.cjs');
 // Piktogramme der Zuschläge aus dem v1-Partial S. 8 (fehlen sie nach dem Neusatz, bleibt die Stelle leer)
 const p08file = path.join(ROOT, 'src/pages/08-programmteil-2-1.html');
 const p08 = fs.existsSync(p08file) ? fs.readFileSync(p08file, 'utf8') : '';
@@ -26,7 +27,6 @@ function foerdermix() {
   const top = 11.5, rowH = 14.5, barH = 6.2;
   const H = top + rows.length * rowH + 10.5;
   const out = [];
-  out.push(`<defs><pattern id="sp-hatch" patternUnits="userSpaceOnUse" width="1.6" height="1.6" patternTransform="rotate(45)"><rect class="c-equity" width="1.6" height="1.6"/><line class="c-equity-line" x1="0" y1="0" x2="0" y2="1.6"/></pattern></defs>`);
   const ax = x0 + 80 * u;
   const yEnd = top + (rows.length - 1) * rowH + 6.4 + barH + 1.4;
   rows.forEach((r, i) => {
@@ -34,10 +34,12 @@ function foerdermix() {
     out.push(`<circle class="axb-c" cx="5" cy="${f2(yb + barH / 2)}" r="4.1"/><text class="axb-t" x="5" y="${f2(yb + barH / 2 + 1.8)}" text-anchor="middle">${r.g}</text>`);
     out.push(`<text x="12.4" y="${f2(yb + barH / 2 - 0.6)}">${r.d[0]}</text><text x="12.4" y="${f2(yb + barH / 2 + 3.1)}">${r.d[1]}</text>`);
     let xs = x0; const stops = [x0];
-    const cls = ['c-grant', 'c-loan', ''];
+    const cls = ['c-grant', 'c-loan', 'c-equity'];
     r.v.forEach((v, j) => {
       const w = v * u;
-      out.push(`<rect class="${cls[j]}" x="${f2(xs)}" y="${f2(yb)}" width="${f2(w)}" height="${barH}"${j === 2 ? ' fill="url(#sp-hatch)"' : ''}/>`);
+      out.push(`<rect class="${cls[j]}" x="${f2(xs)}" y="${f2(yb)}" width="${f2(w)}" height="${barH}"/>`);
+      // Eigenmittel: Vektorschraffur (vorgeschnittene Linien, kein <pattern> – das rastert Chromium im PDF)
+      if (j === 2) out.push(`<path class="hatch" data-hatch="${f2(xs)} ${f2(yb)} ${f2(w)} ${barH}" d="${hatchPath([[xs, yb, w, barH]])}"/>`);
       xs += w; stops.push(xs);
     });
     out.push(`<rect class="c-equity-frame" x="${f2(stops[2])}" y="${f2(yb)}" width="${f2(stops[3] - stops[2])}" height="${barH}"/>`);
@@ -72,7 +74,7 @@ function foerdermix() {
   return `<svg class="chart__svg" viewBox="0 0 ${W} ${f2(H)}" width="${W}mm" height="${f2(H)}mm" role="img" aria-label="Fördermix je Einkommensgruppe, Höchstsätze in Prozent der zuwendungsfähigen Kosten: Gruppe A Zuschuss 40, Darlehen 40, Eigenmittel mindestens 20; Gruppe B Zuschuss 20, Darlehen 60, Eigenmittel 20; Gruppe C Zuschuss 10, Darlehen 70, Eigenmittel 20. Förderung zusammen in jeder Gruppe bis zu 80 Prozent; mit Zuschlag für Modellprojekte bis zu 85, für Housing First bis zu 90 Prozent.">${out.join('')}</svg>`;
 }
 
-const foot = (no, rubric) => `<footer class="page__foot" aria-hidden="true"><span class="page__folio">${no}</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>${rubric}</b></span><span>Stand: 21.10.2026</span></span></footer>`;
+const foot = (no, rubric) => `<footer class="page__foot" aria-hidden="true"><span class="page__folio">${no}</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>${rubric}</b></span></span></footer>`;
 const keyplan = (on) => `<div class="keyplan" role="img" aria-label="Programmteil ${on} von sechs Programmteilen"><span class="keyplan__label">Programmteil</span><ol class="keyplan__list">${['21', '22', '23', '24', '25', '26'].map((n) => `<li class="bs-${n}${`${n[0]}.${n[1]}` === on ? ' is-on' : ''}">${n[0]}.${n[1]}</li>`).join('')}</ol></div>`;
 const icon = {
   hinweis: '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"><circle cx="12" cy="12" r="9.2"/><path d="M12 10.6v6.2"/><circle cx="12" cy="7.4" r=".9" fill="currentColor" stroke="none"/></svg>',
@@ -307,7 +309,7 @@ const html = `<!doctype html>
     <ul class="sp-swatches u-mt-2" style="--n:6">
       <li class="sp-sw"><i class="sw--grant"></i><b>Zuschuss</b><span>PGN-Rot</span></li><li class="sp-sw"><i class="sw--loan"></i><b>Darlehen</b><span>#202020 · Poché</span></li><li class="sp-sw"><i class="sw--equity"></i><b>Eigenmittel</b><span>Schraffur, beschriftet</span></li><li class="sp-sw"><i style="background:var(--seq-6)"></i><b>Gruppe A</b><span>Stufe 6</span></li><li class="sp-sw"><i style="background:var(--seq-4)"></i><b>Gruppe B</b><span>Stufe 4</span></li><li class="sp-sw"><i style="background:var(--seq-2)"></i><b>Gruppe C</b><span>Stufe 2</span></li>
     </ul>
-    <p class="caveat">Geprüft mit validate_palette.js: Programmteile benachbart CVD ΔE ≥ 10,9, Normalsicht ΔE ≥ 22,2; Zuschuss/Darlehen CVD ΔE 16,8. Eigenmittel nur mit Schraffur und Beschriftung. Kein Grün.</p>
+    <p class="caveat">Geprüft mit validate_palette.js: Programmteile benachbart CVD ΔE ≥ 10,9, Normalsicht ΔE ≥ 22,2; Zuschuss/Darlehen CVD ΔE 16,8. Eigenmittel nur mit (Vektor-)Schraffur und Beschriftung. Kein Grün.</p>
   </section>
   <div class="l-grid u-mt-6">
     <section class="l-span-7 sp-type module" aria-label="Typografie">
@@ -445,7 +447,7 @@ const html = `<!doctype html>
     <address class="back__contact"><span class="titleblock__label">Kontakt</span><br><b>Planungsgemeinschaft Nord GmbH</b><br>Große Straße 49<br>27356 Rotenburg (Wümme)<br>Telefon <a class="u-url" style="color:inherit;font-family:inherit;font-weight:500" href="tel:+4942619293-0">(+49) 4261 9293-0</a><br><a class="u-url" href="mailto:info@pgn-architekten.de">info@pgn-architekten.de</a><br><a class="u-url" href="https://www.pgn-architekten.de">www.pgn-architekten.de</a></address>
     <div class="back__qr">${A('qr-pgn-architekten.svg')}<span>pgn-architekten.de</span></div>
     <div class="titleblock__cell back__invite-cell is-first"><p class="kicker kicker--plain">Förder-Check</p><p class="titleblock__value">Sprechen Sie uns an: Im Förder-Check prüfen wir mit Ihnen, welcher Programmteil zu Ihrem Projekt passt und wie es sich rechnet.</p></div>
-    <div class="titleblock__cell is-row2 is-first" style="grid-column:1 / span 2"><p class="titleblock__label">Projekt</p><p class="titleblock__value">Mietwohnraumförderung Niedersachsen 2026 · Stand 21.10.2026</p></div>
+    <div class="titleblock__cell is-row2 is-first" style="grid-column:1 / span 2"><p class="titleblock__label">Projekt</p><p class="titleblock__value">Mietwohnraumförderung Niedersachsen 2026 · Stand 30.09.2026</p></div>
     <div class="titleblock__cell titleblock__cell--blatt is-row2"><p class="titleblock__label">Blatt</p><p class="titleblock__value">U4</p></div>
   </div>
 </section>

@@ -5,8 +5,8 @@
   "running_title": "Neubau · Programmteil 2.4",
   "kicker": "Programmteil 2.4 · Ostfriesische Inseln",
   "headline": "Höhere Kostengrenze, 10 % Eigenmittel",
-  "subline": "Bis zu 90 % der gedeckelten Herstellungskosten, bis zu 100 % der zuwendungsfähigen Grundstückskosten",
-  "lead": "Sie bauen neu, ändern oder erweitern ein Gebäude oder kaufen Neubauwohnungen als Ersterwerb bis zwei Jahre nach Fertigstellung – gefördert werden gebundene Mietwohnungen in Mehrfamilienhäusern auf allen sieben bewohnten Ostfriesischen Inseln. Einen Bedarfsnachweis brauchen Sie nicht.",
+  "subline": "Bis zu 90 % der Herstellungskosten bis zur Kostengrenze, bis zu 100 % der Grundstückskosten",
+  "lead": "Gefördert werden gebundene Mietwohnungen in Mehrfamilienhäusern auf allen sieben bewohnten Inseln: Neubau, Änderung oder Erweiterung und Ersterwerb bis zwei Jahre nach Fertigstellung. Kein Bedarfsnachweis.",
   "blocks": [
     {
       "type": "chart",
@@ -14,8 +14,13 @@
       "role_hint": "illustration",
       "title": "",
       "data": {
-        "kind": "island-chain",
+        "kind": "island-map",
         "token": "--baustein-24",
+        "scale": "1 : 600 000",
+        "rotation_deg": 11,
+        "scale_bar_km": [0, 5, 10],
+        "north_arrow": "um 11° im Uhrzeigersinn gedreht (Kette waagerecht gelegt)",
+        "drawing": "Lageskizze: eigene, stark generalisierte Umrisse (Molen und Häfen geglättet) in wahrer Lage, Länge und Fläche, West → Ost; Vorlage OSM-Küstenlinien (place=island, © OpenStreetMap-Mitwirkende, ODbL) – Nennung im Bildnachweis U3 prüfen",
         "items": [
           "Borkum",
           "Juist",
@@ -31,7 +36,7 @@
       "type": "chart",
       "chart": "stacked-bar",
       "role_hint": "dominant",
-      "title": "Finanzierung je m² Wohnfläche, Kosten am Deckel",
+      "title": "Finanzierung je m² Wohnfläche an der Kostengrenze",
       "subtitle": "Höchstsätze · B und C nur mit Zulassung (→ S. 6)",
       "stampline": "Modellrechnung",
       "data": {
@@ -96,7 +101,7 @@
         },
         "cap": {
           "value": 7200,
-          "label": "Deckel 1,5 × 4.800 € = 7.200 € je m² (Ausgangswert)"
+          "label": "Kostengrenze 1,5 × 4.800 € = 7.200 € je m²"
         },
         "secondary": {
           "title": "Grundstück, alle Gruppen",
@@ -115,7 +120,7 @@
           ]
         }
       },
-      "note": "Deckel: das 1,5-Fache der Bemessungsgrenze für Mietenstufe I–III (→ S. 8), unabhängig von der Mietenstufe der Insel. Eigenmittel: mindestens 10 % der zuwendungsfähigen Herstellungskosten; mindestens die Hälfte davon soll Geld oder lastenfreies Grundstück sein."
+      "note": "Kostengrenze: das 1,5-Fache der Bemessungsgrenze für Mietenstufe I–III, Ausgangswert 4.800 € je m² (→ S. 8), unabhängig von der Mietenstufe der Insel. Eigenmittel: mindestens 10 % der zuwendungsfähigen Herstellungskosten; mindestens die Hälfte davon soll Geld oder lastenfreies Grundstück sein."
     },
     {
       "type": "key_figures",
@@ -143,17 +148,17 @@
     },
     {
       "type": "text",
-      "heading": "Darlehen wie in 2.1",
-      "body": "**Zuschuss nur mit Darlehen.** Es gelten die Konditionen von 2.1 (→ S. 9): 0 % Zins bis Ende Jahr 35, 0,5 % Verwaltungskostenbeitrag p. a., einmalig 1 % (Darlehen) bzw. 0,75 % (Zuschuss) Bearbeitungsentgelt, **35 Jahre** Bindung – beim Ersterwerb ab Eigentumsübergang. Wenig Eigenmittel heißt viel Darlehen: Planen Sie Tilgung und Verwaltungskostenbeitrag fest ein."
+      "heading": "Konditionen wie in 2.1",
+      "body": "**Zuschuss nur zusammen mit dem Darlehen.** 0 % Zins bis zum Ende des 35. Jahres, 0,5 % Verwaltungskostenbeitrag p. a. auf das Restkapital, einmalig 1 % (Darlehen) bzw. 0,75 % (Zuschuss) Bearbeitungsentgelt (→ S. 9). **35 Jahre** Belegungs- und Mietbindung ab Bezugsfertigkeit, beim Ersterwerb ab Eigentumsübergang."
     },
     {
       "type": "bullets",
       "heading": "Voraussetzungen und Kombination",
       "items": [
         "Eigentum oder Erbbaurecht (mindestens 60 Jahre); gesicherter Erwerb genügt",
-        "je neuem Gebäude mindestens zwei gebundene Mietwohnungen",
+        "mindestens zwei gebundene Mietwohnungen je Neubau",
         "nicht gefördert: Ferienwohnungen, Ferien- und Wochenendhäuser, zur Vermietung bestimmte Eigentumswohnungen",
-        "Neubau und Ersterwerb bis zwölf Monate nach Bauabnahme: kombinierbar mit KfW 298 oder 296 wie in 2.1 (→ S. 8); Kommunen selbst: KfW 498"
+        "kombinierbar mit KfW 298 oder 296 wie in 2.1 (→ S. 8), Kommunen selbst KfW 498 – für Neubau und Ersterwerb bis zwölf Monate nach Bauabnahme"
       ]
     }
   ],
@@ -195,5 +200,5 @@
     "G2-07",
     "G2-13"
   ],
-  "visual_idea": "Baustein-Register 2.4 (--baustein-24) mit Nummer am Seitenrand. Kopf im PGN-CI wie S. 13: Kicker als Versal-Label in --baustein-24, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat SemiBold, Lead in Work Sans. Darunter als illustrierte Atempause eine Linienkette der sieben Inselsilhouetten von West nach Ost (Borkum bis Wangerooge) in --baustein-24, eigene Gestaltung, keine Kartenkopie, Namen klein in Work Sans an den Silhouetten. Dominantes Element: gestapelte Säulen „je m² Wohnfläche“ für A | B | C mit kurzem Stempel „Modellrechnung“ (Versal-Label, ohne Zusatz) – Darlehen (--color-loan) + Zuschuss (--color-grant) = bis zu 6.480 €, oben Eigenmittel-Segment 720 € (--color-equity, schraffiert „mind.“), Prozent-Labels in den Segmenten, Beträge in tabellarischen Ziffern; gestrichelte Deckel-Linie bei 7.200 € in PGN-Rot mit Label „1,5 × 4.800 € · Ausgangswert“. Daneben ein schmaler 100-%-Balken „Grundstück“ (70 % Darlehen / 30 % Zuschuss). Modul 1: drei eckige Mietkacheln „höchstens 9,50 / 11,50 / 12,50 €“ in einer Reihe, Zahlen in PGN-Rot, darunter eine gemeinsame Unterzeile. Modul 2 „Darlehen wie in 2.1“ und Modul 3 „Voraussetzungen und Kombination“ zweispaltig, fluchtend mit der Modulzeile auf S. 13; der Satz „Wenig Eigenmittel …“ ist Teil des Fließtexts, kein Kasten, kein Rechen-Icon. Keine Fußnote, keine Quellenzeile. Heftmitte (12|13 auf einem Bogen): gleich aufgebauter Seitenrhythmus wie S. 13."
+  "visual_idea": "Baustein-Register 2.4 (--baustein-24) mit Nummer am Seitenrand; linke Seite der Doppelseite 14|15 (2.4 Inseln | 2.3 Modernisierung), Horizonte gemeinsam mit S. 15: H1, Kopfende (Unterzeile + Gegenstand = 2 + 3 Zeilen gegen 3 + 2 auf S. 15), Modulzeile 1 bei 88 mm, Modulzeile 2 bei 198 mm, Fuß bei 273 mm. Kopf im PGN-CI: Kicker als Versal-Label in --baustein-24, Headline Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Unterzeile Montserrat Light Versalien (wie 2.1, 2.2, 2.3), Gegenstand in Work Sans. Dominantes Element: gestapelte Balken „je m² Wohnfläche“ für A | B | C mit Stempel „Modellrechnung“ – Zuschuss (--color-grant) + Darlehen (--color-loan) = bis zu 6.480 €, Eigenmittel-Segment 720 € (--color-equity, Vektorschraffur, Werte freigestellt: Textmaske in der Flächenfarbe), Prozent-Labels in den Segmenten, tabellarische Ziffern; 90-%-Achse in PGN-Rot, Kostengrenze 7.200 € als Abschlusslinie mit Label „Kostengrenze 1,5 × 4.800 € = 7.200 € je m²“; daneben schmaler 100-%-Balken „Grundstück“ (70 % Darlehen / 30 % Zuschuss). Modul 1: Papierband mit drei Mietwerten „höchstens 9,50 / 11,50 / 12,50 €“. Modul 2 „Konditionen wie in 2.1“ (5 Sp.) und Modul 3 „Voraussetzungen und Kombination“ (7 Sp.), fluchtend mit „Bindung und Miete“ | „Ablauf und Kombination“ auf S. 15. Am Fuß als Horizont eine Lageskizze der sieben bewohnten Ostfriesischen Inseln in --baustein-24: maßstäblich 1 : 600 000, eigene generalisierte Umrisse in wahrer Lage und Größe, Kette um 11° gedreht, Nordpfeil entsprechend gedreht, Maßstabsleiste 0–5–10 km, Namen in Work Sans 8,5 pt auf gemeinsamer Grundlinie (Borkum neben der Insel). Keine Fußnote, keine Quellenzeile, keine Kalkulationsnotiz."
 }

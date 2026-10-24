@@ -4,8 +4,8 @@
   "layout_type": "table-focus",
   "running_title": "Ertragsseite · Mieten",
   "kicker": "Ertragsseite",
-  "headline": "Mieten: gedeckelt, aber planbar",
-  "lead": "Was Sie verlangen dürfen, bestimmen Programmteil, Einkommensgruppe und Mietenstufe. Drei Jahre bleibt die Miete fest, danach darf sie nach klaren Regeln steigen.",
+  "headline": "Höchstmieten und Mietentwicklung",
+  "lead": "Programmteil, Einkommensgruppe und Mietenstufe legen die Höchstmiete fest. Sie gilt drei Jahre lang, danach darf die Miete begrenzt steigen.",
   "blocks": [
     {
       "type": "table",
@@ -85,6 +85,11 @@
       "data": {
         "kind": "step",
         "unit": "€ je m²",
+        "y_axis": {
+          "min": 0,
+          "max": 12,
+          "labels_every": 2
+        },
         "points": [
           {
             "period": "Jahr 1–3",
@@ -126,20 +131,13 @@
       "note": "Ab Jahr 4 höchstens +6,15 % in drei Jahren, auch bei Wiedervermietung; keine Staffel- oder Indexmiete."
     },
     {
-      "type": "callout",
-      "variant": "tipp",
-      "role_hint": "kalkulationsnotiz",
-      "title": "Kalkulationsnotiz",
-      "body": "Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete: Selbst nach zwei Erhöhungen liegt die Fördermiete mit höchstens 7,65 € unter dem Landesmittel 2024 von 9,00 €."
-    },
-    {
       "type": "text",
       "heading": "Mietenstufe",
       "body": "Die Mietenstufe Ihrer Gemeinde bestimmt Höchstmiete und Bemessungsgrenze.\n\n**VI** Buchholz i. d. Nordheide, Neu Wulmstorf\n\n**V** Hannover, Buxtehude, Seevetal, die sieben Inselgemeinden\n\n**IV** Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg\n\n**I–III** übrige Festlandgemeinden\n\nStufe VII gibt es in Niedersachsen nicht. Zuordnung nach Wohngeldrecht seit 2023; neue Stufen sind ab 2027 geplant → S. 16."
     },
     {
       "type": "bullets",
-      "heading": "Spielregeln",
+      "heading": "Vermietungsbedingungen",
       "icons": [
         "check",
         "check",
@@ -156,7 +154,7 @@
         "keine Zuschläge (Ausstattung, Keller, Energie- und Wärmeeinrichtungen); Zusatzleistungen nur freiwillig",
         "keine Abwälzung von Kosten für Bezugsfertigkeit oder Instandhaltung über das BGB-Mietrecht hinaus",
         "keine Zwischenvermietung (Ausnahmen, z. B. Housing First → S. 8)",
-        "Verstöße (ohne WBS, überhöhte Miete) kosten Geldleistungen bis 5 € je m² und Monat und Bußgeld bis 10.000 €; bei Vermietung ohne WBS drohen Kündigung und Räumung, die Förderung kann zurückgefordert werden."
+        "Verstöße (ohne WBS, überhöhte Miete): Geldleistungen bis 5 € je m² und Monat, Bußgeld bis 10.000 €; bei Vermietung ohne WBS zudem Kündigung und Räumung. Die Förderung kann zurückgefordert werden."
       ]
     }
   ],
@@ -196,5 +194,5 @@
     "F232",
     "F236"
   ],
-  "visual_idea": "Dominant: Höchstmieten-Tabelle als Heatmap über die volle Satzspiegelbreite – Zeilenmarker in den Baustein-Farben (2.1/2.3 je eigener Chip, 2.5, 2.2, 2.4, 2.6, immer mit Nummer, eckig), Zellen in einer ruhigen Tonwertskala nach Miethöhe, Ziffern tabellarisch in Anthrazit; leere Programmteil-Zellen = Fortsetzung der Zeile darüber (Zellen verbinden), 2.5 mit leeren B/C-Zellen, Zeile 2.6 als Text über die Spalten A–C. Tabellenkopf als Versal-Label, Tabellenfuß höchstens zweizeilig (EH-40-Aufschlag; 2.3 mit Verweis-Chip „S. 15“). Modul 1: ein Diagramm für Mietpfad und Markt in derselben Einheit (€ je m²) – Treppenlinie 6,80 → höchstens 7,21 → höchstens 7,65 in PGN-Rot #B71E3F, Zahlen in Rot, dazu zwei gestrichelte graue Referenzmarken 9,00 € und 11,22 € nur über dem Abschnitt „Jahr 1–3“ (nicht in die Folgejahre fortgeführt), Label direkt daneben mit „2024, landesweit“; Regelzeile darunter. Kalkulationsnotiz direkt unter dem Diagramm als ein Satz mit kleinem Rechen-Icon, ohne Kasten. Modul 2: „Mietenstufe“ als Marginaltext ohne Kasten und ohne Fläche (Stufe als eckiger Chip, Gemeinden als Fließtext, Stand-Zeile mit Verweis-Chip „S. 16“). Modul 3: „Spielregeln“ als schlanke Liste mit Häkchen bzw. Kreuz; die letzte Zeile (Verstöße) mit Signal-Marker statt Häkchen, kein eigener Kasten. Keine Fußnote, keine Quellenzeile, kein Stempel."
+  "visual_idea": "Dominant: Höchstmieten-Tabelle als Heatmap über die volle Satzspiegelbreite – Zeilenmarker in den Baustein-Farben (2.1/2.3 je eigener Chip, 2.5, 2.2, 2.4, 2.6, immer mit Nummer, eckig), Zellen in einer ruhigen Tonwertskala nach Miethöhe, Ziffern tabellarisch in Anthrazit; leere Programmteil-Zellen = Fortsetzung der Zeile darüber (Zellen verbinden), 2.5 mit leeren B/C-Zellen, Zeile 2.6 als Text über die Spalten A–C. Tabellenkopf als Versal-Label, Tabellenfuß höchstens zweizeilig (EH-40-Aufschlag; 2.3 mit Verweis-Chip „S. 15“). Modul 1: ein Diagramm für Mietpfad und Markt in derselben Einheit (€ je m²) – Treppenlinie 6,80 → höchstens 7,21 → höchstens 7,65 in Anthrazit über heller Fläche, dazu zwei gestrichelte graue Referenzmarken 9,00 € und 11,22 € nur über dem Abschnitt „Jahr 1–3“ (nicht in die Folgejahre fortgeführt), Label direkt daneben mit „2024, landesweit“; Regelzeile darunter. Keine Kalkulationsnotiz (Korrekturlauf 1): Das Diagramm steht allein, Achse ab 0 € (Fläche unter der Treppe = Miethöhe), Höhe so, dass die Bildunterschrift mit dem Tabellenfuß links fluchtet; Werte „6,80“, „höchstens 7,21“, „höchstens 7,65“ in der Fläche unter der jeweiligen Stufe. Modul 2: „Mietenstufe“ als Marginaltext ohne Kasten und ohne Fläche (Stufe als eckiger Chip, Gemeinden als Fließtext, Stand-Zeile mit Verweis-Chip „S. 16“). Modul 3: „Vermietungsbedingungen“ als schlanke Liste mit Häkchen bzw. Kreuz im Kreis; die letzte Zeile (Verstöße) mit Signal-Raute und Ausrufezeichen statt Häkchen, kein eigener Kasten. Marken als SVG, Glyph geometrisch exakt im Farbfeld zentriert, Mitte auf der ersten Textzeile. Keine Fußnote, keine Quellenzeile, kein Stempel."
 }

@@ -1,9 +1,27 @@
 <section class="page page--u4" data-page="24" id="seite-24" aria-label="Rückseite">
   <style>
     /* U4 – Rotpause. Schriftfeld im selben Raster wie U1: .back__stamp--2row (styles.css 7).
-       Claim auf der Titelachse von U1: Text bei 14 mm, weiße Linie auf der Rahmenlinie (wie die rote Titellinie U1) */
+       Claim auf der Titelachse von U1: Text bei 14 mm, weiße Linie auf der Rahmenlinie (wie die weiße Titellinie U1) */
     .page[data-page="24"] .back__claim { left: var(--frame-inset); right: 20mm; }
     .page[data-page="24"] .back__claim .claim { margin-top: 0; border-left-width: .9mm; padding-left: 5.1mm; }
+    /* Korrekturlauf 1: U4|U1 durchgehend rot – Schriftfeld auf dem Verlauf wie U1, weiße Linien; weiß bleiben nur das QR-Feld
+       (Ruhezone) und das Logofeld (logo-rot.svg) – auf U1 entsprechen ihnen Kennzahlfeld und Logofeld. Absenderleiste:
+       Logo 64 mm | Informationsbroschüre; Stand nur auf U1 und U3, keine Blattnummer auf dem Umschlag.
+       Weiße Schrift auf Rot ≥ 9 pt / ≥ 600, Fließtext ≥ 10 pt (DESIGN.md 0.4). */
+    .page[data-page="24"] .back__stamp {
+      --fg: var(--white); --fg-2: var(--pgn-red-100); --fg-3: var(--pgn-red-100); --rule: #D47E91; --rule-strong: var(--white);
+      --accent-text: var(--white); background: none; border-top-color: var(--white); color: var(--white);
+    }
+    .page[data-page="24"] .back__stamp--2row .back__invite { border-bottom-color: var(--white); }
+    .page[data-page="24"] .back__lead { color: var(--white); }
+    .page[data-page="24"] .back__stamp--2row .back__contact { font-weight: 600; color: var(--fg-2); }
+    .page[data-page="24"] .back__lines dt { font: 600 9pt/1.3 var(--font-text); color: var(--fg-2); }
+    .page[data-page="24"] .back__stamp--2row .back__qr { background: var(--white); border-left-color: var(--white); border-bottom-color: var(--white); }
+    .page[data-page="24"] .back__stamp--2row .back__qr span { color: var(--ink); }
+    .page[data-page="24"] .back__stamp--2row .back__logo { background: var(--white); }
+    .page[data-page="24"] .back__stamp--2row .back__project { grid-column: 2 / span 3; border-left: 0; padding: 2mm 4mm 0; }
+    .page[data-page="24"] .back__stamp--2row .titleblock__label { font: 600 9pt/1.2 var(--font-text); color: var(--fg-2); }
+    .page[data-page="24"] .back__stamp--2row .titleblock__value { font: 700 9pt/1.3 var(--font-display); color: var(--white); }
   </style>
   <div class="cover__art u-nohyphens" data-bleed aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" id="sig-grundriss" class="sig sig-grundriss" viewBox="0 0 210 297" width="210mm" height="297mm" aria-hidden="true"><style>
 #sig-grundriss text{font-family:var(--font-display, 'Montserrat Variable', Montserrat, Arial, sans-serif);}
@@ -59,7 +77,7 @@
   </div>
   <div class="back__stamp back__stamp--2row">
     <div class="back__invite">
-      <p class="back__lead u-nohyphens">Sprechen Sie uns an: Wir prüfen mit Ihnen, welcher Programmteil zu Ihrem Projekt passt und wie es sich rechnet.</p>
+      <p class="back__lead u-nohyphens">Planung aus einer Hand für Ihr Vorhaben im geförderten Mietwohnungsbau&nbsp;– von der ersten Idee bis zur Fertigstellung. Sprechen Sie uns an.</p>
       <address class="back__contact u-nohyphens">
         <p class="back__firm">Planungsgemeinschaft Nord GmbH</p>
         <p class="back__addr">Große Straße 49 · 27356 Rotenburg (Wümme)</p>
@@ -72,8 +90,6 @@
     </div>
     <div class="back__qr"><svg class="back__qr-code" xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 37 37" shape-rendering="crispEdges" role="img" aria-label="QR-Code: Link zur Website der Planungsgemeinschaft Nord GmbH, www.pgn-architekten.de"><rect class="qr-bg" x="-4" y="-4" width="37" height="37"/><path class="qr-mod" d="M0 0h7v1h-7zM8 0h1v1h-1zM11 0h1v1h-1zM15 0h2v1h-2zM18 0h3v1h-3zM22 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h4v1h-4zM14 1h2v1h-2zM17 1h2v1h-2zM20 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM9 2h1v1h-1zM13 2h3v1h-3zM18 2h3v1h-3zM22 2h1v1h-1zM24 2h3v1h-3zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM10 3h1v1h-1zM12 3h1v1h-1zM16 3h2v1h-2zM20 3h1v1h-1zM22 3h1v1h-1zM24 3h3v1h-3zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM10 4h1v1h-1zM12 4h2v1h-2zM19 4h1v1h-1zM22 4h1v1h-1zM24 4h3v1h-3zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM10 5h1v1h-1zM14 5h1v1h-1zM17 5h1v1h-1zM19 5h2v1h-2zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h7v1h-7zM8 7h1v1h-1zM10 7h1v1h-1zM13 7h2v1h-2zM17 7h2v1h-2zM20 7h1v1h-1zM0 8h1v1h-1zM2 8h2v1h-2zM5 8h3v1h-3zM10 8h2v1h-2zM13 8h2v1h-2zM16 8h3v1h-3zM22 8h1v1h-1zM25 8h1v1h-1zM27 8h2v1h-2zM1 9h1v1h-1zM4 9h1v1h-1zM7 9h4v1h-4zM15 9h2v1h-2zM19 9h2v1h-2zM22 9h3v1h-3zM28 9h1v1h-1zM5 10h2v1h-2zM9 10h1v1h-1zM11 10h1v1h-1zM14 10h2v1h-2zM17 10h2v1h-2zM20 10h1v1h-1zM23 10h2v1h-2zM26 10h2v1h-2zM0 11h1v1h-1zM2 11h3v1h-3zM7 11h3v1h-3zM11 11h1v1h-1zM13 11h3v1h-3zM19 11h1v1h-1zM22 11h3v1h-3zM28 11h1v1h-1zM0 12h1v1h-1zM4 12h3v1h-3zM8 12h2v1h-2zM11 12h1v1h-1zM16 12h2v1h-2zM19 12h1v1h-1zM25 12h2v1h-2zM0 13h1v1h-1zM2 13h1v1h-1zM8 13h1v1h-1zM13 13h1v1h-1zM17 13h1v1h-1zM19 13h1v1h-1zM22 13h2v1h-2zM26 13h3v1h-3zM0 14h2v1h-2zM5 14h2v1h-2zM8 14h2v1h-2zM14 14h1v1h-1zM18 14h7v1h-7zM26 14h3v1h-3zM2 15h1v1h-1zM5 15h1v1h-1zM7 15h1v1h-1zM9 15h1v1h-1zM11 15h1v1h-1zM13 15h1v1h-1zM15 15h1v1h-1zM19 15h1v1h-1zM22 15h3v1h-3zM27 15h1v1h-1zM2 16h5v1h-5zM9 16h1v1h-1zM11 16h2v1h-2zM18 16h1v1h-1zM20 16h2v1h-2zM24 16h2v1h-2zM27 16h1v1h-1zM1 17h2v1h-2zM5 17h1v1h-1zM7 17h2v1h-2zM13 17h1v1h-1zM17 17h1v1h-1zM20 17h1v1h-1zM23 17h1v1h-1zM25 17h3v1h-3zM0 18h1v1h-1zM2 18h7v1h-7zM11 18h2v1h-2zM17 18h1v1h-1zM22 18h2v1h-2zM26 18h1v1h-1zM2 19h1v1h-1zM7 19h1v1h-1zM10 19h1v1h-1zM12 19h1v1h-1zM15 19h3v1h-3zM19 19h2v1h-2zM22 19h1v1h-1zM26 19h1v1h-1zM1 20h3v1h-3zM6 20h1v1h-1zM9 20h2v1h-2zM13 20h1v1h-1zM15 20h3v1h-3zM19 20h8v1h-8zM8 21h1v1h-1zM12 21h4v1h-4zM17 21h4v1h-4zM24 21h5v1h-5zM0 22h7v1h-7zM8 22h1v1h-1zM10 22h1v1h-1zM12 22h2v1h-2zM18 22h3v1h-3zM22 22h1v1h-1zM24 22h2v1h-2zM27 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM8 23h3v1h-3zM12 23h1v1h-1zM16 23h1v1h-1zM20 23h1v1h-1zM24 23h2v1h-2zM0 24h1v1h-1zM2 24h3v1h-3zM6 24h1v1h-1zM10 24h2v1h-2zM14 24h2v1h-2zM17 24h1v1h-1zM20 24h5v1h-5zM26 24h1v1h-1zM28 24h1v1h-1zM0 25h1v1h-1zM2 25h3v1h-3zM6 25h1v1h-1zM8 25h4v1h-4zM14 25h1v1h-1zM17 25h1v1h-1zM19 25h2v1h-2zM24 25h2v1h-2zM27 25h1v1h-1zM0 26h1v1h-1zM2 26h3v1h-3zM6 26h1v1h-1zM8 26h1v1h-1zM13 26h2v1h-2zM18 26h2v1h-2zM23 26h1v1h-1zM26 26h1v1h-1zM28 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM10 27h2v1h-2zM15 27h2v1h-2zM18 27h1v1h-1zM20 27h1v1h-1zM22 27h2v1h-2zM25 27h1v1h-1zM27 27h1v1h-1zM0 28h7v1h-7zM8 28h1v1h-1zM10 28h1v1h-1zM12 28h1v1h-1zM14 28h1v1h-1zM18 28h4v1h-4zM25 28h1v1h-1zM27 28h1v1h-1z"/></svg><span>www.pgn-architekten.de</span></div>
     <div class="back__logo"><img class="logo" src="assets/pgn/logo-rot.svg" alt="PGN – Architekten, Stadtplaner, Ingenieure"></div>
-    <div class="titleblock__cell back__project" aria-hidden="true"><p class="titleblock__label">Projekt</p><p class="titleblock__value">Mietwohnraumförderung Niedersachsen&nbsp;2026</p></div>
-    <div class="titleblock__cell back__stand" aria-hidden="true"><p class="titleblock__label">Stand</p><p class="titleblock__value">21.10.2026</p></div>
-    <div class="titleblock__cell titleblock__cell--blatt back__blatt" aria-hidden="true"><p class="titleblock__label">Blatt</p><p class="titleblock__value">U4</p></div>
+    <div class="titleblock__cell back__project" aria-hidden="true"><p class="titleblock__label">Informationsbroschüre</p><p class="titleblock__value">Mietwohnraumförderung Niedersachsen&nbsp;2026</p></div>
   </div>
 </section>

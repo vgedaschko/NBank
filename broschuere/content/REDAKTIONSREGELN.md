@@ -9,7 +9,7 @@ aber Korrektheit entsteht durch präzise Hauptaussagen, nicht durch Dutzende Abs
   Die NBank ist Bewilligungsstelle, die kommunale Wohnraumförderstelle ist Antragsstelle – beide werden sachlich genannt,
   nie als Absender oder Mitautor.
 - Ansprache „Sie“. PGN spricht als „wir“ nur auf Umschlag, Editorial (U2) und den PGN-Seiten (20–24) und dort, wo eine
-  Seite natürlich in ein Angebot mündet (höchstens ein Satz, z. B. „Wir rechnen Ihr Projekt mit Ihnen durch.“).
+  Seite natürlich in ein Angebot mündet (höchstens ein Satz, allgemein formuliert, ohne Detailversprechen – siehe §8.3).
   Die Fachseiten bleiben sachlich; keine Werbesprache in Konditionen.
 - Kein Logo, keine CI, keine Formulierung, die den Eindruck erweckt, die NBank oder das Land habe die Broschüre herausgegeben
   oder freigegeben. Zitate von Minister Tonne und NBank-Chef Kiesewetter dürfen bleiben – wörtlich, mit Quelle
@@ -19,15 +19,15 @@ aber Korrektheit entsteht durch präzise Hauptaussagen, nicht durch Dutzende Abs
 
 | Element | Regel |
 |---|---|
-| **Zentraler Rechtshinweis** | Steht **einmal** auf U3 (Impressum): „Alle Angaben ohne Gewähr, Stand 21.10.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind fiktive Beispiele, keine Förderzusage.“ Danach wird nichts davon auf Fachseiten wiederholt. |
+| **Zentraler Rechtshinweis** | Steht **einmal** auf U3 (Impressum): „Alle Angaben ohne Gewähr, Stand 30.09.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind fiktive Beispiele, keine Förderzusage.“ Danach wird nichts davon auf Fachseiten wiederholt. |
 | **„bis zu“** | Nur in Headlines, Kennzahlen-Kacheln und Tabellen-/Diagrammköpfen („Höchstsätze“, „bis zu“) – **nicht** vor jeder Zahl im Fließtext, wenn der Kontext klar ist. Wo eine Zahl ohne Kontext als fester Wert missverstanden würde, bleibt „bis zu“. |
-| **Überkompensation / Beihilfe-Vorbehalt** | Raus aus allen Seiten außer: einmal kurz auf der Seite „Konditionen auf einem Blatt“ (S. 9) als eigene Zeile im Term Sheet, und im zentralen Hinweis. |
-| **„eigene Berechnung“, „eigene Ableitung“, „Annahme“** | Raus. Modellrechnungen tragen genau **einen** Stempel „Modellrechnung“ (S. 10/11, ggf. S. 13/16). Abgeleitete Tabellen (z. B. Einkommensgrenzen B/C) bekommen eine knappe Kopfzeile („B = Grenze + 40 %, C = + 60 %“) statt Disclaimer. |
+| **Überkompensation / Beihilfe-Vorbehalt** | Raus aus allen Seiten außer: einmal kurz auf der Seite „Konditionen im Überblick“ (S. 9) als eigene Zeile in den Eckdaten, und im zentralen Hinweis. |
+| **„eigene Berechnung“, „eigene Ableitung“, „Annahme“** | Raus. Modellrechnungen tragen genau **einen** Stempel „Modellrechnung“ (S. 10, 11, 12, 14). Abgeleitete Tabellen (z. B. Einkommensgrenzen B/C) bekommen statt Disclaimer eine knappe Legende – nicht doppelt als Unterzeile und Legende (Korrekturlauf 1, S. 6). |
 | **„mit der NBank klären“, „Stand bis 21.10.2026 auf nbank.de nicht auffindbar“** | Komplett raus. Das sind Recherche-Notizen, keine Kundeninformation. Wo ein Wert regelmäßig fortgeschrieben wird: „Ausgangswert; aktueller Wert auf nbank.de“ – einmal pro Größe, nicht pro Seite. Offene Fachfragen stehen nur in `content/copy.md` (Anhang) für die interne Freigabe. |
 | **Fundstellen-/Quellenzeilen** | Komplett raus von allen Seiten. Belege liegen in `recherche/factbase.md`. U3 nennt die Rechtsgrundlage einmal (RL Mietwohnraum 2026, Nds. MBl. 2026 Nr. 319) und die Quellen der Zitate/Marktzahlen. |
 | **Fußnoten** | Maximal **eine** kurze Fußnote pro Seite, nur wenn sie eine echte Bedingung trägt, die nicht in den Text passt. Lieber die Bedingung in den Satz holen. |
-| **Achtung-Kästen** | Genau zwei in der ganzen Broschüre: (1) **Vorhabenbeginn** – „Erst Bewilligung, dann Vertrag“ (prominent auf dem Antragsweg, S. 19, und als Kurzverweis max. einzeilig auf S. 4 oder S. 5); (2) **Frist 31.12.2026** Wahlrecht Modernisierung (S. 14/15). Alle übrigen Achtung-/Hinweis-Kästen: in den Text integrieren oder streichen. |
-| **Kalkulationsnotiz** | Höchstens drei in der Broschüre (die stärksten, z. B. S. 7, 10, 11). Ein Satz, kein Kasten-Overhead. |
+| **Achtung-Kästen** | Genau zwei in der ganzen Broschüre: (1) **Vorhabenbeginn** – „Erst Bewilligung, dann Vertrag“ (prominent auf dem Antragsweg, S. 19, und als Kurzverweis max. einzeilig auf S. 4 oder S. 5); (2) **Frist 31.12.2026** Wahlrecht Modernisierung (S. 16). Alle übrigen Achtung-/Hinweis-Kästen: in den Text integrieren oder streichen. |
+| **Kalkulationsnotiz** | Entfällt ganz (Korrekturlauf 1, §8.1). |
 | **„keine Förderzusage“, „fiktives Beispiel“** | Nur im zentralen Hinweis und einmal im Stempel der Modellrechnung. |
 | **RL-Nummern im Text** | Nur wo sie dem Leser nützen (Programmteil 2.1–2.6 als Orientierung). Keine „(RL Nr. 5.3.3.2)“-Klammern im Fließtext. |
 
@@ -73,7 +73,7 @@ Investment-Memo noch nicht eingelöst.* Daraus folgt:
    - Der A/B/C-Vergleich der bisherigen S. 11 geht in diese Seite auf. Die Housing-First-Variante wandert aus dem Diagramm
      (kurz auf S. 8 erwähnen). Diagramme nie Größen unterschiedlicher Einheit (Mio. € vs. Tsd. € p. a.) an einer gemeinsamen
      Grundlinie zeigen – getrennte, gleich ausgerichtete Diagramme.
-2. **S. 4, 9 und 19 entlasten.** Mehr Ruhe statt zusätzlicher Elemente. Term Sheet (S. 9): Fließtext nicht in 8,5 pt;
+2. **S. 4, 9 und 19 entlasten.** Mehr Ruhe statt zusätzlicher Elemente. Eckdaten (S. 9): Fließtext nicht in 8,5 pt;
    Zeitstrahl auf das Wesentliche (Bauphase/Auszahlung, Zinsphase 0 % bis Ende Jahr 35, Bindung 35 Jahre, Laufzeit 42 Jahre).
    Sonderfälle und Verfahrensdetails von S. 4, 9 und 19 auf S. 21 („Unterlagen, Kontakte & Verfahrensdetails“) verschieben.
 3. **Absender eindeutig PGN** (siehe Abschnitt 1) – Titel, Impressum, PDF-Metadaten.
@@ -83,3 +83,24 @@ Investment-Memo noch nicht eingelöst.* Daraus folgt:
 - **Impressum/Geschäftsführung:** Es bleibt der Stand vom 21.10.2026 (Geschäftsführung laut Impressum der PGN-Website:
   Norbert Behrens, Stephan Müller, Nils Neumann, Matthias Mock). Die Broschüre wird 2026 veröffentlicht. In `copy.md`,
   Anhang B, nur noch als Hinweis: „Bei Veröffentlichung ab 01.01.2027 Geschäftsführung aktualisieren.“
+
+## 8. Regeln aus Korrekturlauf 1 (Kunde PGN, verbindlich; Details: `korrektur/lauf-1/ENTSCHEIDUNGEN.md`, Abschnitt B)
+
+Gelten auf allen Seiten – auch dort, wo kein Kommentar steht.
+
+1. **Nicht belehren.** Keine Ratschläge und Selbstverständlichkeiten an Profis („Kalkulieren Sie …“, „Zinsfrei ist nicht
+   kostenfrei“, „jeden Euro darüber finanzieren Sie ohne Förderung“). **Kalkulationsnotizen entfallen ganz.** Fakten
+   nennen, Schlüsse zieht der Leser.
+2. **Nicht flapsig, keine Schülerreferat-Überschriften.** Sachlich, professionell, technisch präzise. Keine Wortspiele,
+   Teaser oder Weiterleitungen wie „Was davon im Betrieb bleibt: rechts →“.
+   Begriffe: „Spielregeln“ → **„Förderbedingungen“** oder kontextgenau präziser (S. 7 „Vermietungsbedingungen“;
+   S. 13 „Förderbedingungen“ für Pflichten während der Förderung neben „Voraussetzungen“); „Term Sheet“ → **„Eckdaten“** (Kicker, Kolumnentitel, Inhaltsverzeichnis, Verweise).
+3. **Nichts versprechen, was PGN nicht tut** („Wir rechnen Ihr Projekt mit Ihnen durch“, „kommen mit zum Vorgespräch“).
+   PGN-Leistungen allgemein und souverän formulieren, ohne Detailversprechen (keine Drohne, keine Freisitz-Zehntel;
+   statt „mindestens drei Angebote“: „richtlinienkonform ausschreiben und vergeben“).
+4. **Bauherren-Perspektive**, nicht Planer-Perspektive – besonders im Editorial: Was hat der Investor davon?
+5. **Stand: 30.09.2026** – nur auf U1 und im Impressum/Rechtshinweis (U3), **nicht in den Fußzeilen** der Innenseiten.
+   Quellen- und Abrufdaten mit anderem Sinn („abgerufen am …“) bleiben unverändert. Keine Blattnummer „U1“ auf dem Titel.
+6. **Fachlich bleibt alles korrekt** (Abschnitt 3 gilt weiter): Sätze, Beträge, Fristen, Kosten und die entscheidenden
+   Bedingungen nie wegkürzen – Kürzen heißt Ton und Floskeln streichen, nicht Inhalt.
+7. **Kolumnentitel** benennen den Inhalt, nicht die Dramaturgie (S. 2: „Editorial“ statt „Einstieg · Editorial“).

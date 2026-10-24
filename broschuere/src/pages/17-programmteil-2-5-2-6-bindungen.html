@@ -1,0 +1,125 @@
+<section class="page" data-page="17" id="seite-17">
+  <style>
+    /* S. 17 · Programmteile 2.5 und 2.6 kompakt (rechte Seite der Doppelseite 16|17 „Bestand“, Korrekturlauf 1).
+       Ein dominantes Element: Eckdaten-Vergleich 2.5 | 2.6 im selben Spaltenraster wie die Vergleichstabelle auf S. 16
+       (Bezeichnung 2 Spalten + Steg | 2.5 Spalten 3–7 | 2.6 Spalten 8–12). */
+    .page[data-page="17"] .p17-no > span { display: block; color: var(--bs); }
+    .page[data-page="17"] .p17-no > span + span { margin-top: 2.2mm; }
+    .page[data-page="17"] .p17-no { font-size: 46pt; }
+    .page[data-page="17"] .program-head__no .tags { flex-direction: column; align-items: flex-end; gap: 1.2mm; }
+
+    .page[data-page="17"] .p17-tab { margin-top: var(--sp-6); table-layout: fixed; font-size: var(--fs-module); line-height: var(--lh-module); }
+    .page[data-page="17"] .p17-tab .p17-c1 { width: calc(2 * var(--col) + 2 * var(--gutter)); }
+    .page[data-page="17"] .p17-tab .p17-c2 { width: calc(5 * var(--col) + 5 * var(--gutter)); }
+    .page[data-page="17"] .p17-tab th, .page[data-page="17"] .p17-tab td { padding: 1.3mm 0 1.45mm; }
+    .page[data-page="17"] .p17-tab .p17-25 { padding-right: var(--gutter); }
+    /* Spaltenköpfe: Balken in der Programmfarbe nur über der Textspalte (Steg bleibt frei), Nummer + Titel */
+    .page[data-page="17"] .p17-tab thead th { position: relative; padding-top: 3.2mm; padding-bottom: 1.8mm; color: var(--fg); letter-spacing: .06em; font: 800 var(--fs-small)/1.2 var(--font-display); }
+    .page[data-page="17"] .p17-tab thead th.p17-25::before, .page[data-page="17"] .p17-tab thead th.p17-26::before { content: ""; position: absolute; left: 0; top: 0; height: 1.2mm; background: var(--bs); }
+    .page[data-page="17"] .p17-tab thead th.p17-25::before { right: var(--gutter); }
+    .page[data-page="17"] .p17-tab thead th.p17-26::before { right: 0; }
+    .page[data-page="17"] .p17-tab thead .bs-badge__no { margin-right: 1.8mm; font-size: var(--fs-small); padding: .7mm 1.2mm .6mm; letter-spacing: 0; }
+    .page[data-page="17"] .p17-tab tbody th { font: 700 var(--fs-micro)/1.3 var(--font-display); letter-spacing: .07em; text-transform: uppercase; color: var(--fg-3); padding-top: 1.6mm; padding-right: 3mm; }
+    .page[data-page="17"] .p17-tab td { color: var(--text); }
+    .page[data-page="17"] .p17-tab td b:not(.bs-badge__no) { color: var(--fg); }
+    /* Kennzahlzeile */
+    .page[data-page="17"] .p17-tab .p17-kf > * { padding-top: 2.6mm; padding-bottom: 2.4mm; }
+    .page[data-page="17"] .p17-tab .p17-kf--num > * { padding-bottom: 0; border-bottom: 0; }
+    .page[data-page="17"] .p17-tab .p17-kf--text > * { padding-top: 0; }
+    .page[data-page="17"] .p17-num { display: block; margin-bottom: 1.6mm; font: 800 var(--fs-fig-m)/1 var(--font-display); letter-spacing: -.01em; color: var(--fg); font-variant-numeric: tabular-nums lining-nums; }
+    .page[data-page="17"] .p17-num small { margin-left: .12em; font-size: .52em; font-weight: 700; letter-spacing: 0; color: var(--accent-text); }
+    /* gemeinsame Zeilen (gelten für 2.5 und 2.6): über beide Spalten, mit Hinweis-Chip */
+    .page[data-page="17"] .p17-both { display: inline-flex; gap: .8mm; margin-right: 1.6mm; vertical-align: .2mm; }
+    .page[data-page="17"] .p17-both .bs-badge__no { padding: .5mm 1mm .4mm; font-size: var(--fs-micro); letter-spacing: 0; }
+    .page[data-page="17"] .p17-stop { white-space: nowrap; }
+    .page[data-page="17"] .p17-stop .icon { width: 3.4mm; height: 3.4mm; vertical-align: -.7mm; margin-right: .8mm; }
+    .page[data-page="17"] .p17-stop + b { color: var(--signal-text); }
+    .page[data-page="17"] .p17-tab .badge { padding: .45mm 1mm .35mm; vertical-align: .2mm; }
+  </style>
+
+  <div class="bs-register bs-25" data-bleed aria-hidden="true">2.5</div>
+  <div class="bs-register bs-26" data-bleed aria-hidden="true">2.6</div>
+  <header class="page__header"><span class="page__section">Bestand</span><div class="keyplan" role="img" aria-label="Programmteile 2.5 und 2.6 von sechs Programmteilen"><span class="keyplan__label">Programmteil</span><ol class="keyplan__list"><li class="bs-21">2.1</li><li class="bs-22">2.2</li><li class="bs-23">2.3</li><li class="bs-24">2.4</li><li class="bs-25 is-on">2.5</li><li class="bs-26 is-on">2.6</li></ol></div></header>
+
+  <header class="program-head program-head--master">
+    <div class="program-head__no">
+      <p class="chapter-no p17-no"><span class="bs-25">2.5</span><span class="bs-26">2.6</span><small>Programmteile</small></p>
+      <p class="tags"><span class="tag"><i class="sw sw--grant"></i>Zuschuss</span><span class="tag"><i class="sw sw--loan-o"></i>Zinsverbilligung</span></p>
+    </div>
+    <div class="program-head__main">
+      <p class="kicker">Belegungs- und Mietbindungen im Bestand</p>
+      <h1 class="h1"><em>Bindungen</em> erwerben oder verlängern</h1>
+      <p class="deck">Festbetrag <b>2,00–3,00 €</b> je m² und Monat · Zinsverbilligung auf <b>0 %</b></p>
+      <p class="program-head__subject">Ohne Baumaßnahme: 2.5 vergütet neue Bindungen an freien Wohnungen, 2.6 verlängert planmäßig auslaufende Landesbindungen.</p>
+    </div>
+  </header>
+
+  <table class="table p17-tab">
+    <caption class="u-sr">Programmteile 2.5 und 2.6 im Vergleich</caption>
+    <colgroup><col class="p17-c1"><col class="p17-c2"><col></colgroup>
+    <thead>
+      <tr>
+        <th scope="col"><span class="u-sr">Merkmal</span></th>
+        <th scope="col" class="p17-25 bs-25"><b class="bs-badge__no">2.5</b>Bindungen erwerben</th>
+        <th scope="col" class="p17-26 bs-26"><b class="bs-badge__no">2.6</b>Bindungen verlängern</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="p17-kf p17-kf--num">
+        <th scope="row" class="u-nohyphens">Förderung</th>
+        <td class="p17-25"><span class="p17-num">2,00–3,00<small>€</small></span></td>
+        <td class="p17-26"><span class="p17-num">0<small>%</small></span></td>
+      </tr>
+      <tr class="p17-kf p17-kf--text">
+        <th scope="row"><span class="u-sr">Förderung im Detail</span></th>
+        <td class="p17-25">Zuschuss je m² Wohnfläche und Monat der Bindung: ab 5&nbsp;Jahren <b>2,00&nbsp;€</b>, ab 10&nbsp;Jahren <b>2,50&nbsp;€</b>, 15–20&nbsp;Jahre <b>3,00&nbsp;€</b>; 60&nbsp;m² über 20&nbsp;Jahre: <b>43.200&nbsp;€</b></td>
+        <td class="p17-26">Zinsverbilligung für bis zu <b>100&nbsp;%</b> der Restschuld, solange das NBank-Darlehen läuft, längstens <b>20&nbsp;Jahre</b>; nicht rückzahlbar, kein neues Darlehen</td>
+      </tr>
+      <tr>
+        <th scope="row" class="u-nohyphens">Wohnung</th>
+        <td class="p17-25">frei, ohne andere Belegungsbindung; nicht im direkten Anschluss an eine auslaufende Bindung (dafür 2.6)</td>
+        <td class="p17-26">vom Land gefördert, Bindung läuft planmäßig aus – nicht bereits ausgelaufen; Bedarf besteht fort <span class="u-nowrap">(<a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>)</span></td>
+      </tr>
+      <tr>
+        <th scope="row" class="u-nohyphens">Zustand, Größe</th>
+        <td colspan="2"><span class="p17-both" aria-hidden="true"><b class="bs-badge__no bs-25">2.5</b><b class="bs-badge__no bs-26">2.6</b></span>abgeschlossen, zur dauernden Wohnnutzung geeignet, gut erhalten, angemessen groß, mit Mindestausstattung (u.&nbsp;a. Heizung, Bad, Küchenanschluss)</td>
+      </tr>
+      <tr>
+        <th scope="row" class="u-nohyphens">Berechtigt</th>
+        <td class="p17-25">Eigentum, Erbbaurecht oder vergleichbares langfristiges Nutzungsrecht</td>
+        <td class="p17-26">Eigentum und Rückzahlungspflicht für das laufende NBank-Darlehen</td>
+      </tr>
+      <tr>
+        <th scope="row" class="u-nohyphens">Mieterkreis</th>
+        <td class="p17-25">nur Einkommensgruppe A; bei Bindung für eine besondere Bedarfsgruppe ausschließlich an diese (wohnungsbezogener WBS)</td>
+        <td class="p17-26">bestehende Belegungs- und Mietbindung läuft unverändert weiter</td>
+      </tr>
+      <tr>
+        <th scope="row" class="u-nohyphens">Bindung</th>
+        <td class="p17-25">5 bis 20&nbsp;Jahre ab der ersten Belegung mit einem WBS-Haushalt; grundsätzlich per Dienstbarkeit im Grundbuch gesichert</td>
+        <td class="p17-26">verlängert bis zum Monatsende der letzten Darlehensrate, spätestens 20&nbsp;Jahre nach dem ursprünglichen Bindungsende</td>
+      </tr>
+      <tr>
+        <th scope="row" class="u-nohyphens">Miete Jahr 1–3</th>
+        <td class="p17-25">höchstens <b>6,50&nbsp;€</b> (Mietenstufe I–III) bzw. <b>6,80&nbsp;€</b> (IV–VII) je m², ab EH-40-Niveau bis zu +0,30&nbsp;€; keine Erhöhung</td>
+        <td class="p17-26">bisherige Nettokaltmiete; keine Erhöhung, auch nicht bei Wiedervermietung</td>
+      </tr>
+      <tr>
+        <th scope="row" class="u-nohyphens">Miete ab Jahr&nbsp;4</th>
+        <td colspan="2"><span class="p17-both" aria-hidden="true"><b class="bs-badge__no bs-25">2.5</b><b class="bs-badge__no bs-26">2.6</b></span>Erhöhung höchstens <b>+6,15&nbsp;%</b> in drei Jahren (Betriebskosten ausgenommen); die Grenze gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete <span class="u-nowrap">(<a class="pageref" href="#seite-07">→&nbsp;S.&nbsp;7</a>)</span></td>
+      </tr>
+      <tr>
+        <th scope="row" class="u-nohyphens">Auszahlung</th>
+        <td class="p17-25">je zur Hälfte nach der Erstbelegung und nach halber Bindungsdauer; <b>0,75&nbsp;%</b> Bearbeitungsentgelt auf den Zuschuss, einbehalten mit der ersten Rate</td>
+        <td class="p17-26">keine – Verrechnung mit den fälligen Raten; Tilgung und Verwaltungskostenbeitrag laufen weiter; <b>0,75&nbsp;%</b> Bearbeitungsentgelt auf die Zinsverbilligung</td>
+      </tr>
+      <tr>
+        <th scope="row" class="u-nohyphens">Antrag</th>
+        <td class="p17-25">bei der Wohnraumförderstelle, die die Wohnung besichtigt. <span class="p17-stop"><svg class="icon icon--stopp icon--signal" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd"/></svg></span><b>Vor der Bewilligung weder Mietvertrag noch Überlassung</b> – sonst keine Förderung</td>
+        <td class="p17-26">Prolongationsangebot der NBank <span class="u-nowrap">(mit <span class="badge badge--form">1011b</span>)</span> in der Regel 24&nbsp;Wochen vor Ablauf der Zinsfreistellung; danach Antrag bei der Wohnraumförderstelle, angenommenes Angebot an die NBank</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">17</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Bestand · Programmteile 2.5 und 2.6</b></span></span></footer>
+</section>

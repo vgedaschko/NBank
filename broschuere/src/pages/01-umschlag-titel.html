@@ -1,11 +1,64 @@
-<section class="page page--u1 page--cover" data-page="01" id="seite-01" aria-label="Titel">
-  <!-- U1 – Planblatt. Schriftfeld zweizeilig im Raster von U4 (.cover__stamp--2row, styles.css 7): Oberkante --horizon (196 mm) ·
-       Zeile 1 Titel | Kennzahlfeld 56 mm · Zeile 2 Absenderleiste 18 mm (Oberkante 271 mm). Kein seitenlokales CSS. -->
+<section class="page page--u1 page--cover on-red" data-page="01" id="seite-01" aria-label="Titel">
+  <style>
+    /* U1 – Rotpause wie U4 (Korrekturlauf 1): Rotverlauf ganzseitig in .cover__art (randabfallend), Axonometrie weiß als
+       Negativ, Schriftfeld auf Rot mit weißen Linien. Raster wie U4 (.cover__stamp--2row): Oberkante --horizon 196 mm,
+       Absenderleiste 18 mm. Weiß bleiben nur Kennzahlfeld (invertiert: Ziffer rot) und Logofeld (logo-rot.svg, Negativ-Logo
+       nicht freigegeben) – auf U4 entsprechen ihnen QR-Feld und Logofeld. Weiße Schrift auf Rot ≥ 9 pt / ≥ 600 (DESIGN.md 0.4). */
+    .page[data-page="01"] .cover__art { background: var(--grad-red); }
+    .page[data-page="01"] .cover__head { border-bottom-color: rgba(255, 255, 255, .85); }
+    /* Axonometrie als Negativ: Linien weiß; Flächen deckend im Seitenverlauf (Verläufe sig-axo-r*, userSpaceOnUse = Lage der
+       Zeichnung auf der Seite, 10/27 mm), Tönungen = Verlauf + n % Weiß in der Abstufung der hellen Fassung */
+    .page[data-page="01"] .cover__drawing {
+      --sig-ink: var(--white);
+      --sig-line: var(--white);
+      --sig-accent: var(--white);
+      --sig-grid: rgba(255, 255, 255, .6);
+      --sig-soft: rgba(255, 255, 255, .62);
+      --sig-face: url(#sig-axo-r0);
+      --sig-face-2: url(#sig-axo-r6);
+      --sig-face-3: url(#sig-axo-r10);
+      --sig-face-4: url(#sig-axo-r16);
+      --sig-paper: url(#sig-axo-r4);
+      --sig-glass: url(#sig-axo-r4);
+      --sig-dark: rgba(255, 255, 255, .5);
+      --sig-brick: rgba(255, 255, 255, .26);
+    }
+    /* weiße Haarlinien für den Offset nicht unter 0,16 mm, Planbeschriftung ≥ 9 pt (3,2 px) */
+    .page[data-page="01"] #sig-axo .sig-grid { stroke-width: .2; }
+    .page[data-page="01"] #sig-axo .sig-edge-thin, .page[data-page="01"] #sig-axo .sig-kote-l { stroke-width: .18; }
+    .page[data-page="01"] #sig-axo .sig-win-l, .page[data-page="01"] #sig-axo .sig-attika,
+    .page[data-page="01"] #sig-axo .sig-slab-top, .page[data-page="01"] #sig-axo .sig-glass { stroke-width: .16; }
+    .page[data-page="01"] #sig-axo .sig-kote-t, .page[data-page="01"] #sig-axo .sig-axb text,
+    .page[data-page="01"] #sig-axo .sig-north text, .page[data-page="01"] #sig-axo .sig-sb-t { font-size: 3.2px; }
+    /* Bildzeile auf Rot (9 pt), zweizeilig rechts über dem Schriftfeld – frei von Maßstab und Achskreisen */
+    .page[data-page="01"] .cover__caption { top: auto; bottom: calc(297mm - var(--horizon) + 3.6mm); font: 600 9pt/1.36 var(--font-text); color: var(--fg-2); }
+    .page[data-page="01"] .cover__caption b { font-size: 9pt; border-bottom-color: var(--white); }
+    .page[data-page="01"] .cover__caption span { display: block; }
+    /* Schriftfeld auf dem Verlauf */
+    .page[data-page="01"] .cover__stamp { background: none; }
+    .page[data-page="01"] .cover__deck { color: var(--white); }
+    /* Kennzahlfeld invertiert: weiß, Ziffer und Vorsatz PGN-Rot */
+    .page[data-page="01"] .cover__kpi {
+      --fg: var(--ink); --fg-2: var(--anthracite); --fg-3: var(--grey-600); --accent: var(--pgn-red); --accent-text: var(--pgn-red);
+      background: var(--white); color: var(--anthracite);
+    }
+    .page[data-page="01"] .cover__kpi-pre, .page[data-page="01"] .cover__kpi-num { color: var(--pgn-red); }
+    .page[data-page="01"] .cover__kpi-text { color: var(--ink); }
+    /* Absenderleiste: Logo 64 mm (weißes Feld) | Herausgeber | Stand 56 mm (unter dem Kennzahlfeld); keine Blattnummer */
+    .page[data-page="01"] .cover__stamp--2row .cover__row--foot { grid-template-columns: 64mm minmax(0, 1fr) 56mm; }
+    .page[data-page="01"] .cover__logo { background: var(--white); }
+    .page[data-page="01"] .cover__row .titleblock__cell { padding: 2mm 4mm 0; }
+    .page[data-page="01"] .cover__row .titleblock__label { font: 600 9pt/1.2 var(--font-text); color: var(--fg-2); }
+    .page[data-page="01"] .cover__row .titleblock__value { font: 700 9pt/1.3 var(--font-display); color: var(--white); }
+  </style>
+  <div class="cover__art" data-bleed aria-hidden="true"></div>
+  <!-- U1 – Planblatt auf Rot. Schriftfeld zweizeilig im Raster von U4 (.cover__stamp--2row, styles.css 7): Oberkante --horizon
+       (196 mm) · Zeile 1 Titel | Kennzahlfeld 56 mm · Zeile 2 Absenderleiste 18 mm (Oberkante 271 mm). -->
   <div class="planframe" aria-hidden="true"></div>
   <header class="cover__head">
     <p class="kicker kicker--ink">Mietwohnraumförderung Niedersachsen 2026</p>
   </header>
-  <figure class="cover__drawing u-nohyphens" role="group"><svg xmlns="http://www.w3.org/2000/svg" id="sig-axo" class="sig sig-axo" viewBox="0 0 190 165" width="190mm" height="165mm" role="img" aria-label="Axonometrische Linienzeichnung eines geförderten Mehrfamilienhauses nach dem Projekt Brauerstraße in Rotenburg (Wümme): dreigeschossiger Klinkerbau mit Walmdach, Balkonen und zweigeschossigem Kopfbau mit Photovoltaik. Rote Maßketten; auf der 30-Meter-Kette markiert eine rote Marke bei 24 Metern 80 Prozent Förderung, der Rest von 20 Prozent steht für die Eigenmittel."><style>
+  <figure class="cover__drawing u-nohyphens" role="group"><svg xmlns="http://www.w3.org/2000/svg" id="sig-axo" class="sig sig-axo" viewBox="0 0 190 165" width="190mm" height="165mm" role="img" aria-label="Axonometrische Linienzeichnung in Weiß auf Rot: gefördertes Mehrfamilienhaus nach dem Referenzprojekt Brauerstraße in Rotenburg (Wümme), dreigeschossiger Klinkerbau mit Walmdach, Balkonen und zweigeschossigem Kopfbau mit Photovoltaik. Auf der 30-Meter-Maßkette markiert eine Marke bei 24 Metern 80 Prozent Förderung, der Rest von 20 Prozent steht für die Eigenmittel."><style>
 #sig-axo text{font-family:var(--font-display, 'Montserrat Variable', Montserrat, Arial, sans-serif);}
 #sig-axo .sig-grid{stroke:var(--sig-grid,#B4B0AB);stroke-width:.16;stroke-dasharray:5 1 .6 1;fill:none}
 #sig-axo .sig-tree path{stroke:var(--sig-soft,#A8A49F);stroke-width:.18;fill:none}
@@ -54,7 +107,7 @@
 #sig-axo .sig-sb-b{fill:var(--sig-ink,#202020)}
 #sig-axo .sig-sb-w{fill:var(--sig-face,#fff);stroke:var(--sig-ink,#202020);stroke-width:.2}
 #sig-axo .sig-sb-t{font-weight:600;font-size:3.06px;fill:var(--sig-line,#3C3C3B)}
-</style><path class="sig-grid" d="M83.39,56.31L22.93,91.22M100.18,66.01L39.72,100.91M116.97,75.7L56.52,110.61M133.76,85.4L73.31,120.3M150.56,95.09L90.1,130M167.35,104.79L106.89,139.69M66.59,56.31L175.74,119.33M49.1,66.41L158.25,129.43M31.61,76.51L140.76,139.53"/>
+</style><defs><linearGradient id="sig-axo-r0" gradientUnits="userSpaceOnUse" x1="34.99" y1="-43.375" x2="155.01" y2="286.375"><stop offset="0" stop-color="#B71E3F"/><stop offset="1" stop-color="#8B2939"/></linearGradient><linearGradient id="sig-axo-r4" gradientUnits="userSpaceOnUse" x1="34.99" y1="-43.375" x2="155.01" y2="286.375"><stop offset="0" stop-color="#BA2747"/><stop offset="1" stop-color="#903241"/></linearGradient><linearGradient id="sig-axo-r6" gradientUnits="userSpaceOnUse" x1="34.99" y1="-43.375" x2="155.01" y2="286.375"><stop offset="0" stop-color="#BB2C4B"/><stop offset="1" stop-color="#923645"/></linearGradient><linearGradient id="sig-axo-r10" gradientUnits="userSpaceOnUse" x1="34.99" y1="-43.375" x2="155.01" y2="286.375"><stop offset="0" stop-color="#BE3452"/><stop offset="1" stop-color="#973E4D"/></linearGradient><linearGradient id="sig-axo-r16" gradientUnits="userSpaceOnUse" x1="34.99" y1="-43.375" x2="155.01" y2="286.375"><stop offset="0" stop-color="#C3425E"/><stop offset="1" stop-color="#9E4B59"/></linearGradient></defs><path class="sig-grid" d="M83.39,56.31L22.93,91.22M100.18,66.01L39.72,100.91M116.97,75.7L56.52,110.61M133.76,85.4L73.31,120.3M150.56,95.09L90.1,130M167.35,104.79L106.89,139.69M66.59,56.31L175.74,119.33M49.1,66.41L158.25,129.43M31.61,76.51L140.76,139.53"/>
 <g class="sig-tree"><path d="M58.76,59.55L58.76,39.83"/><path class="sig-tree-crown" d="M68.7,33.05L68.94,33.94L68.72,34.8L68.31,35.6L67.97,36.4L67.68,37.21L67.19,37.92L66.45,38.43L65.68,38.86L65.17,39.46L64.89,40.36L64.57,41.34L63.94,42.03L63.05,42.26L62.11,42.25L61.24,42.32L60.43,42.52L59.59,42.6L58.76,42.41L57.96,42.15L57.15,42.15L56.24,42.45L55.24,42.71L54.34,42.51L53.69,41.82L53.23,40.94L52.73,40.23L52.1,39.7L51.48,39.15L51.03,38.46L50.69,37.71L50.19,37.04L49.46,36.43L48.75,35.73L48.49,34.86L48.78,33.92L49.31,33.05L49.62,32.25L49.62,31.43L49.58,30.59L49.75,29.77L50.11,29.01L50.4,28.22L50.57,27.31L50.83,26.39L51.46,25.75L52.43,25.51L53.44,25.46L54.25,25.24L54.86,24.69L55.48,24.03L56.22,23.59L57.06,23.42L57.9,23.28L58.76,23.02L59.65,22.84L60.52,23.05L61.26,23.72L61.87,24.49L62.54,24.94L63.39,25.03L64.35,25.06L65.19,25.38L65.81,25.99L66.33,26.69L66.91,27.33L67.48,28.01L67.77,28.84L67.68,29.8L67.48,30.71L67.58,31.49L68.1,32.23L68.7,33.05Z"/><path d="M53.42,34.02q4.85,-4.85 9.7,-0.48"/></g>
 <g class="sig-tree"><path d="M155.31,93.96L155.31,70.6"/><path class="sig-tree-crown" d="M165.58,63.59L165.83,64.51L165.61,65.4L165.18,66.23L164.84,67.05L164.54,67.89L164.03,68.62L163.26,69.15L162.47,69.59L161.94,70.21L161.65,71.14L161.32,72.16L160.67,72.87L159.75,73.11L158.78,73.1L157.88,73.17L157.04,73.37L156.18,73.45L155.31,73.27L154.49,73L153.65,72.99L152.71,73.3L151.68,73.57L150.75,73.37L150.08,72.65L149.6,71.75L149.08,71.01L148.43,70.46L147.79,69.9L147.33,69.18L146.97,68.4L146.47,67.71L145.71,67.08L144.97,66.36L144.7,65.46L145.01,64.49L145.55,63.59L145.87,62.76L145.87,61.92L145.83,61.04L146.01,60.2L146.38,59.42L146.68,58.6L146.85,57.66L147.12,56.71L147.77,56.04L148.78,55.79L149.82,55.75L150.65,55.52L151.28,54.95L151.92,54.27L152.7,53.82L153.56,53.64L154.43,53.49L155.31,53.23L156.24,53.04L157.13,53.26L157.9,53.95L158.53,54.74L159.22,55.21L160.1,55.3L161.09,55.33L161.96,55.66L162.6,56.3L163.14,57.02L163.74,57.68L164.33,58.38L164.63,59.24L164.53,60.23L164.33,61.17L164.43,61.98L164.97,62.74L165.58,63.59Z"/><path d="M149.8,64.59q5.01,-5.01 10.02,-0.5"/></g>
 <g class="sig-tree"><path d="M113.05,68.27L113.05,46.36"/><path class="sig-tree-crown" d="M121.67,40.48L121.87,41.25L121.68,42L121.33,42.7L121.04,43.39L120.79,44.09L120.36,44.7L119.72,45.15L119.05,45.52L118.61,46.04L118.37,46.82L118.09,47.67L117.55,48.26L116.78,48.46L115.96,48.46L115.21,48.52L114.5,48.69L113.78,48.76L113.05,48.6L112.36,48.37L111.66,48.37L110.87,48.63L110,48.85L109.23,48.68L108.66,48.08L108.26,47.32L107.83,46.71L107.28,46.25L106.74,45.77L106.35,45.17L106.06,44.52L105.63,43.94L104.99,43.41L104.38,42.8L104.15,42.05L104.41,41.24L104.86,40.48L105.13,39.79L105.13,39.08L105.1,38.35L105.25,37.64L105.56,36.98L105.81,36.3L105.95,35.51L106.18,34.71L106.73,34.15L107.57,33.94L108.45,33.9L109.14,33.71L109.67,33.23L110.21,32.67L110.86,32.29L111.58,32.14L112.31,32.01L113.05,31.79L113.83,31.63L114.58,31.82L115.22,32.39L115.75,33.06L116.33,33.45L117.07,33.53L117.9,33.56L118.63,33.83L119.17,34.37L119.62,34.97L120.12,35.53L120.61,36.11L120.86,36.84L120.79,37.66L120.61,38.45L120.7,39.13L121.15,39.77L121.67,40.48Z"/><path d="M108.43,41.32q4.2,-4.2 8.4,-0.42"/></g>
@@ -108,7 +161,7 @@
 <path class="sig-kote-l" d="M38.6,81.36H18.49"/><path class="sig-kote" d="M31.09,81.36l-1.2,-2.05h2.4z"/><text class="sig-kote-t" x="29.09" y="80.61" text-anchor="end">±0,00</text><path class="sig-kote-l" d="M38.6,71.99H18.49"/><path class="sig-kote" d="M31.09,71.99l-1.2,-2.05h2.4z"/><text class="sig-kote-t" x="29.09" y="71.24" text-anchor="end">+2,90</text><path class="sig-kote-l" d="M38.6,62.62H18.49"/><path class="sig-kote" d="M31.09,62.62l-1.2,-2.05h2.4z"/><text class="sig-kote-t" x="29.09" y="61.87" text-anchor="end">+5,80</text><path class="sig-kote-l" d="M38.6,52.27H18.49"/><path class="sig-kote" d="M31.09,52.27l-1.2,-2.05h2.4z"/><text class="sig-kote-t" x="29.09" y="51.52" text-anchor="end">+9,00</text><path class="sig-kote-l" d="M73.59,41.29H18.49"/><path class="sig-kote" d="M31.09,41.29l-1.2,-2.05h2.4z"/><text class="sig-kote-t" x="29.09" y="40.54" text-anchor="end">+12,40</text>
 <g class="sig-north"><circle cx="181" cy="10" r="5"/><path class="sig-north-fill" d="M181,6L183,13.3L181,12Z"/><path d="M181,6L179,13.3L181,12Z"/><text x="181" y="3.5999999999999996" text-anchor="middle">N</text></g>
 <g class="sig-scalebar"><rect x="6" y="159" width="6.46" height="1.4" class="sig-sb-b"/><rect x="12.46" y="159" width="6.46" height="1.4" class="sig-sb-w"/><rect x="18.93" y="159" width="6.46" height="1.4" class="sig-sb-b"/><rect x="25.39" y="159" width="6.46" height="1.4" class="sig-sb-w"/><rect x="31.85" y="159" width="6.46" height="1.4" class="sig-sb-b"/><text class="sig-sb-t" x="6" y="157.4" text-anchor="middle">0</text><text class="sig-sb-t" x="22.16" y="157.4" text-anchor="middle">5</text><text class="sig-sb-t" x="38.32" y="157.4" text-anchor="middle">10 m</text></g></svg></figure>
-  <p class="cover__caption"><b>Axonometrie</b><span>nach dem Projekt Brauerstraße, Rotenburg (Wümme)</span></p>
+  <p class="cover__caption"><b>Referenzprojekt</b><span>Brauerstraße, Rotenburg (Wümme)<br>19 barrierefreie Wohnungen · mit Förderung der NBank</span></p>
   <div class="cover__stamp cover__stamp--2row">
     <div class="cover__row cover__row--main">
       <div class="cover__main">
@@ -125,8 +178,7 @@
     <div class="cover__row cover__row--foot">
       <div class="cover__logo"><img class="logo" src="assets/pgn/logo-rot.svg" alt="PGN – Architekten, Stadtplaner, Ingenieure"></div>
       <div class="titleblock__cell"><p class="titleblock__label">Herausgeber</p><p class="titleblock__value">Planungsgemeinschaft Nord GmbH<br>Rotenburg (Wümme)</p></div>
-      <div class="titleblock__cell"><p class="titleblock__label">Stand</p><p class="titleblock__value">21.10.2026</p></div>
-      <div class="titleblock__cell titleblock__cell--blatt" aria-hidden="true"><p class="titleblock__label">Blatt</p><p class="titleblock__value">U1</p></div>
+      <div class="titleblock__cell"><p class="titleblock__label">Stand</p><p class="titleblock__value">30.09.2026</p></div>
     </div>
   </div>
 </section>

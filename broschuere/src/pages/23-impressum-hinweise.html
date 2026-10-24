@@ -4,14 +4,15 @@
        ruhig, weiß, ohne Kolumnentitel und Seitenzahl. Gemeinsame Horizonte mit S. 22: H1-Oberkante · Zeile 1 ab 68,5 mm
        (Impressum als Schriftfeld = Modulkopf „Alles aus einem Haus“ + Werte) · Zeile 2 ab 136,5 mm (Hinweis = Modulkopf
        Referenzen) · Zeile 3 ab 197,5 mm (Rechtsgrundlage, Quellen = Referenzreihe) · Fuß: Logo im Band des Plankopfs.
-       Platzhalter [PGN: …] / [Platzhalter] als globale .ph (gestrichelt, heftweit gleich) – leicht auffindbar und ersetzbar.
-       Farben nur über Tokens. */
+       Korrekturlauf 1: „Verantwortlich für den Inhalt“ und „Druck“ entfallen (§ 7 Abs. 3, § 8 Abs. 2 NPresseG), Bildnachweis
+       als sechste Zeile des Schriftfelds, Stand nur noch im Hinweis, Rolle der Stellen nur noch einmal (Hinweis) – jede Angabe
+       steht auf der Seite genau einmal. Farben nur über Tokens. */
     .page[data-page="23"] .p23-head { padding-top: calc(var(--fs-label-accent) * 1.2 + 4mm); height: 47.5mm; }
-    .page[data-page="23"] .p23-head .lead { margin-top: 4.5mm; max-width: 132mm; }
+    .page[data-page="23"] .p23-head .lead { margin-top: 4.5mm; max-width: none; }   /* ein Satz, eine Zeile */
 
     /* Zeile 1: Impressum als Schriftfeld (Label 3 Spalten | Wert 9 Spalten) */
     .page[data-page="23"] .p23-imprint { display: flex; flex-direction: column; height: 61mm; margin-top: 7mm; border-top: var(--rule-w) solid var(--rule-strong); }
-    .page[data-page="23"] .p23-imprint > div { flex: 1 0 auto; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-content: center; padding: 1.2mm 0; border-bottom: var(--hair) solid var(--rule); }
+    .page[data-page="23"] .p23-imprint > div { flex: 1 0 auto; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-content: center; padding: 1mm 0; border-bottom: var(--hair) solid var(--rule); }
     .page[data-page="23"] .p23-imprint > div:last-child { border-bottom: var(--rule-w) solid var(--rule-strong); }
     .page[data-page="23"] .p23-imprint dt { grid-column: 1 / span 3; padding-top: .55mm; font: 700 var(--fs-micro)/1.3 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
     .page[data-page="23"] .p23-imprint dd { grid-column: 4 / span 9; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg); }
@@ -23,13 +24,9 @@
     .page[data-page="23"] .p23-note .callout__title { margin-top: 0; }
     .page[data-page="23"] .p23-note .callout__body { margin-top: 1.6mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
 
-    /* Zeile 3: Rechtsgrundlage | Quellen | Kleinangaben */
+    /* Zeile 3: Rechtsgrundlage | Quellen */
     .page[data-page="23"] .p23-legal { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
     .page[data-page="23"] .p23-legal > div { grid-column: span 6; border-top: var(--hair) solid var(--rule-strong); padding-top: 2.4mm; }
-    .page[data-page="23"] .p23-credits { border-top: var(--hair) solid var(--rule); padding-top: 2.2mm; }
-    .page[data-page="23"] .p23-credits p { font-size: var(--fs-small); line-height: var(--lh-module); color: var(--fg-3); }
-    .page[data-page="23"] .p23-credits p + p { margin-top: .8mm; }
-    .page[data-page="23"] .p23-credits b { font-weight: 600; color: var(--fg-2); }
     .page[data-page="23"] .p23-legal h2 { font: 800 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
     .page[data-page="23"] .p23-legal p { margin-top: 1.6mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
     .page[data-page="23"] .p23-legal p b { color: var(--fg); }
@@ -43,7 +40,7 @@
 
   <header class="p23-head">
     <h1 class="h1">Impressum und Hinweise</h1>
-    <p class="lead">Die Investitions- und Förderbank Niedersachsen – NBank bewilligt die Förderung, die kommunale Wohnraumförderstelle am Bauort nimmt den Antrag entgegen. NBank und Land Niedersachsen sind nicht Herausgeber dieser Broschüre.</p>
+    <p class="lead">NBank und Land Niedersachsen sind nicht Herausgeber dieser Broschüre.</p>
   </header>
 
   <dl class="p23-imprint">
@@ -52,13 +49,13 @@
     <div><dt>Geschäftsführung</dt><dd>Norbert Behrens, Stephan Müller, Nils Neumann, Matthias Mock</dd></div>
     <div><dt>Registergericht</dt><dd>Amtsgericht Walsrode, HRB 70348</dd></div>
     <div><dt>USt-IdNr.</dt><dd>DE 116 324 794</dd></div>
-    <div><dt>Verantwortlich für den Inhalt</dt><dd><span class="ph">[PGN: Name bestätigen]</span></dd></div>
+    <div><dt>Bildnachweis</dt><dd>Alle Visualisierungen, Zeichnungen und Diagramme: <span class="u-nowrap">Planungsgemeinschaft Nord GmbH</span></dd></div>
   </dl>
 
   <div class="p23-row2">
   <aside class="callout p23-note" aria-labelledby="p23-hinweis">
     <h2 class="callout__title" id="p23-hinweis">Hinweis</h2>
-    <p class="callout__body">Alle Angaben ohne Gewähr, Stand 21.10.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind fiktive Beispiele, keine Förderzusage.</p>
+    <p class="callout__body">Alle Angaben ohne Gewähr, Stand 30.09.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind fiktive Beispiele, keine Förderzusage.</p>
   </aside>
   </div>
 
@@ -69,13 +66,8 @@
     </div>
     <div>
       <h2>Quellen</h2>
-      <p><b>Zitate:</b> Grant Hendrik Tonne und Michael Kiesewetter, Pressemitteilung MW vom 03.07.2026 (<a href="#seite-2">→&nbsp;S.&nbsp;2</a>, <a href="#seite-6">6</a>). <b>Marktzahlen:</b> NBank-Wohnungsmarktbericht 2025 (<a href="#seite-3">→&nbsp;S.&nbsp;3</a>, <a href="#seite-7">7</a>); NBank-Pressemitteilung zur Wohnungsmarktbeobachtung vom 05.12.2025 (<a href="#seite-2">→&nbsp;S.&nbsp;2</a>); Landesregierung, Pressemitteilung vom 25.11.2025 (<a href="#seite-18">→&nbsp;S.&nbsp;18</a>); NBank-Landkarte Wohnraumförderung, abgerufen am 21.10.2026 (<a href="#seite-18">→&nbsp;S.&nbsp;18</a>).</p>
+      <p><b class="u-nohyphens">Zitate:</b> Grant Hendrik Tonne und Michael Kiesewetter, Pressemitteilung MW vom 03.07.2026 (<a href="#seite-02">→&nbsp;S.&nbsp;2</a>, <a href="#seite-06">6</a>). <b class="u-nohyphens">Marktzahlen:</b> NBank-Wohnungsmarktbericht 2025 (<a href="#seite-03">→&nbsp;S.&nbsp;3</a>, <a href="#seite-07">7</a>); NBank-Pressemitteilung zur Wohnungsmarktbeobachtung vom 05.12.2025 (<a href="#seite-02">→&nbsp;S.&nbsp;2</a>); Landesregierung, Pressemitteilung vom 25.11.2025 (<a href="#seite-18">→&nbsp;S.&nbsp;18</a>); NBank-Landkarte Wohnraumförderung, abgerufen am 21.10.2026 (<a href="#seite-18">→&nbsp;S.&nbsp;18</a>).</p>
     </div>
-  </div>
-
-  <div class="p23-credits l-bottom">
-    <p><b>Bildnachweis:</b> Visualisierungen S. 22: <span class="ph">[PGN: Urheber bestätigen]</span> · Titelzeichnung, Diagramme und Illustrationen: <span class="u-nohyphens">Planungsgemeinschaft Nord GmbH</span></p>
-    <p><b>Druck:</b> <span class="ph">[Platzhalter]</span> · <b>Stand:</b> 21.10.2026</p>
   </div>
 
   <footer class="p23-foot">

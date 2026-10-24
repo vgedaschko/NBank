@@ -7,12 +7,12 @@
   "kicker": "",
   "headline": "Aus Ihrer guten Idee – machen wir den besten Plan.",
   "headline_highlight": "besten Plan",
-  "lead": "Sprechen Sie uns an: Wir prüfen mit Ihnen, welcher Programmteil zu Ihrem Projekt passt und wie es sich rechnet.",
+  "lead": "Planung aus einer Hand für Ihr Vorhaben im geförderten Mietwohnungsbau – von der ersten Idee bis zur Fertigstellung. Sprechen Sie uns an.",
   "blocks": [
     {
       "type": "logo",
-      "variant": "weiss-auf-rot",
-      "fallback": "logo-rot.svg auf weißem Feld",
+      "variant": "rot-auf-weissem-Feld",
+      "fallback": "logo-negativ.svg bzw. logo-weiss.svg auf Rot erst nach Freigabe durch PGN",
       "role_hint": "absender"
     },
     {
@@ -42,6 +42,17 @@
         "label": "www.pgn-architekten.de",
         "position": "neben dem Kontaktblock"
       }
+    },
+    {
+      "type": "titleblock",
+      "role_hint": "absender",
+      "items": [
+        {
+          "label": "Informationsbroschüre",
+          "value": "Mietwohnraumförderung Niedersachsen 2026"
+        }
+      ],
+      "note": "Absenderleiste des Schriftfelds: Logo | Informationsbroschüre; kein Stand (nur U1 und U3), keine Blattnummer auf dem Umschlag"
     }
   ],
   "footnotes": [],
@@ -51,12 +62,13 @@
   "pgn_sources": [
     "pgn-facts.md §5 Hauptclaim „Aus Ihrer guten Idee – machen wir den besten Plan.“ (Startseite, Meta-Beschreibung)",
     "pgn-facts.md §1 Firma, Anschrift „Große Straße 49, 27356 Rotenburg (Wümme)“, Telefon „(+49) 4261 9293-0“ (Impressum-Schreibweise), info@pgn-architekten.de, https://www.pgn-architekten.de",
+    "pgn-facts.md §1/§3/§7a Leistungsbild: Generalplaner (Architektur, Stadtplanung, Ingenieurwesen, „Prokurist Bauleitung“), „Sämtliche Leistungsphasen werden durch die PGN abgedeckt“ (Mainstraße); NBank-gefördertes Referenzprojekt Brauerstraße; „von der ersten Idee“ im Sinn des Claims",
     "pgn-ci.md §2/§4 Hervorhebung in Montserrat 800 Italic (span.highlight), roter Verlauf 160°"
   ],
   "open_points": [
-    "PGN: Freigabe der Negativ-Wortmarke logo-weiss.svg; sonst logo-rot.svg auf weißem Feld.",
-    "PGN: „Förder-Check“ als Angebotsname freigeben (siehe S. 20). Bis dahin neutraler Lead; nach Freigabe kann es wieder heißen: „Sprechen Sie uns an: Im Förder-Check prüfen wir mit Ihnen …“.",
+    "PGN: Freigabe der Negativ-Wortmarke (logo-negativ.svg / logo-weiss.svg) für Druck auf Rot; bis dahin logo-rot.svg auf weißem Logofeld (U1 und U4 gleich).",
+    "Lead nach Korrekturlauf 1 (Regel B3) allgemein formuliert – kein Angebotsname („Förder-Check“) und kein Detailversprechen auf U4.",
     "PGN: Persönliche Ansprechperson im Kontaktblock gewünscht? Belegt (pgn-facts.md §2, Team-Seite): Norbert Behrens, Geschäftsführung – Akquisition, (+49) 4261 9293-71, nb@pgn-architekten.de. Nur nach Freigabe als Eintrag „Ihr Ansprechpartner“ ergänzen; Stand 21.10.2026 (REDAKTIONSREGELN §7)."
   ],
-  "visual_idea": "U4, ruhig und flächig: Vollfläche roter Verlauf 160° #B71E3F → #8B2939, optional das Low-Poly-Facettenornament von rechts oben (bg-leistungen-red.jpg als Vorlage, als Vektor nachzeichnen oder Hi-Res anfragen). Oben links das Logo weiß (logo-weiss.svg, Freigabe klären) – alternativ logo-rot.svg auf einem weißen Quadratfeld. Im oberen Drittel der Claim in Montserrat Black Versalien, weiß, sehr groß, zweizeilig nach dem Gedankenstrich umbrochen; „besten Plan“ als Hervorhebung in Montserrat 800 Italic, weiß. Darunter die Einladung als ein Satz in Work Sans, weiß, max. 90 mm breit, mit senkrechter weißer 2-pt-Linie links. Unteres Drittel: Kontaktblock in Work Sans weiß, Firmenname in Montserrat 700 Versalien; rechts daneben der QR-Code schwarz auf weißem Quadrat mit Ruhezone (mind. 4 Module), Ziel https://www.pgn-architekten.de, darunter die Klartext-Adresse. Viel Fläche, keine weiteren Elemente: kein Rechtshinweis, keine Fundstellen, kein NBank-Kontakt (steht auf S. 21), keine Social-Media-Leiste, keine Rundungen, keine Schatten."
+  "visual_idea": "U4 „Rotpause“, aufgeklappt mit U1 ein durchgehend roter Umschlag (Korrekturlauf 1): Rotverlauf 160° #B71E3F → #8B2939 ganzseitig und randabfallend (.cover__art) mit dem Regelgeschoss-Grundriss in Weiß, weißer Planrahmen 8 mm. Über dem Schriftfeld der Claim in Montserrat Black Versalien, weiß, „Aus Ihrer guten Idee –“ als Light-Zeile, „besten Plan“ in Montserrat 800 Italic, weiße Titellinie auf der Rahmenlinie. Schriftfeld ab --horizon 196 mm im Raster von U1, auf Rot mit weißen Linien: Zeile 1 Einladung (ein Satz, weiß 11 pt) und Kontaktblock (Firmenname Montserrat 800 Versalien, Werte 9 pt ≥ 600) | QR-Feld 56 mm weiß mit schwarzem QR-Code (Ruhezone, Ziel https://www.pgn-architekten.de) und Klartext-Adresse – entspricht dem Kennzahlfeld auf U1; Absenderleiste 18 mm: Logo rot auf weißem Feld 64 mm | „Informationsbroschüre: Mietwohnraumförderung Niedersachsen 2026“. Kein Stand, keine Blattnummer, kein Rechtshinweis, keine Fundstellen, kein NBank-Kontakt (S. 21), keine Social-Media-Leiste, keine Rundungen, keine Schatten."
 }

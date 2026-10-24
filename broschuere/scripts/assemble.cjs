@@ -141,7 +141,7 @@ function protectSpaces(text) {
 // Liste muss eine Teilmenge der hyphens:none-Selektoren in styles.css sein (dann ändert sich am Satz nichts).
 // .u-hyphens / .u-justify schalten die Trennung für ein Element (und seine Kinder) wieder ein.
 // Tabellenköpfe (thead) sind Versal-Labels; Zeilenköpfe (tbody th) trennen dagegen bewusst (S. 4) und
-// werden nur im Term Sheet (S. 9) per .u-nohyphens ausgenommen.
+// werden nur in den Eckdaten (S. 9) per .u-nohyphens ausgenommen.
 const NOHY_TAGS = new Set(['h1', 'h2', 'h3', 'h4', 'thead']);
 const NOHY_CLASSES = new Set([
   'h1', 'h2', 'h3', 'h4', 'display', 'cover__title', 'chapter-no', 'deck', 'kf__label', 'chart__title', 'fig-head__title',
@@ -250,9 +250,19 @@ function generatedText(html) {
   return html;
 }
 
+// Vektorschraffur (scripts/schraffur.cjs): d-Attribute aller path[data-hatch] aus dem Rechteck berechnen, damit der
+// Build auch dann stimmt, wenn ein Partial nach einer Maßänderung nicht mit --sync nachgezogen wurde.
+// SVG-<pattern> und gekachelte CSS-Muster rastert Chromium im PDF – sie werden als MUSTER-Zeile gemeldet.
+const { expandHatches, findRasterPatterns } = require('./schraffur.cjs');
 const template = fs.readFileSync(path.join(src, 'template.html'), 'utf8');
 const pages = files
-  .map((f) => `<!-- ${f} -->\n` + fs.readFileSync(path.join(src, 'pages', f), 'utf8').trim())
+  .map((f) => {
+    const raw = fs.readFileSync(path.join(src, 'pages', f), 'utf8').trim();
+    findRasterPatterns(raw).forEach((h) => console.log(`MUSTER: src/pages/${f}:${h} – rastert im PDF, Vektorschraffur verwenden (DESIGN.md 1.3.1)`));
+    const r = expandHatches(raw);
+    if (r.changed) console.log(`Hinweis: src/pages/${f}: ${r.changed} Schraffurpfad(e) neu berechnet – node scripts/schraffur.cjs --sync`);
+    return `<!-- ${f} -->\n` + r.html;
+  })
   .join('\n\n');
 fs.writeFileSync(out, hyphenateHtml(generatedText(template.replace('<!--PAGES-->', pages))));
 console.log(`${files.length} Seite(n) -> ${path.relative(root, out)}`);

@@ -3,19 +3,18 @@
     /* Seite 20 · PGN-Leistungen · Planwerk. Linke Seite der Doppelseite 20|21 „Umsetzung“.
        Dominant: die sieben Stationen als senkrechter Weg – Phase außen (Spalten 1–3, rechtsbündig) · Quadrat-Marke auf der
        Weglinie (wie die Swimlane S. 19) · Titel als Run-in + Text (Spalten 4–12). Darunter das Bildmotiv: HOAI-Skala
-       LPH 1–9 als Planleiste mit Maßketten (45°-Strich) und der Bewilligungsmarke „±0“ zwischen LPH 6 und 7; ab LPH 7
+       LPH 1–9 als Planleiste mit Maßketten (45°-Strich) und der Bewilligungsmarke zwischen LPH 6 und 7; ab LPH 7
        Kontur. Unten zwei Module (Spalten 1–7 Anthrazit · 8–12 Papier). Gemeinsame Horizonte mit S. 21: Kicker/H1 ·
-       Beginn Station 5 (135,5 mm) = Oberkante Kontakte · Oberkante Bewilligungsmarke (196,5 mm) = Oberkante
+       Oberkante Bewilligungsmarke (188,7 mm; Stationen-Unterkante über padding-bottom 3,43 mm justiert) = Oberkante
        „Verfahrensdetails“ · Unterkante 273 mm. Rot nur: Kicker, Titellinie, Signaturwort, Bewilligungsmarke,
        Seitenverweise. Farben nur über Tokens. */
 
-    /* Kopf: Titel 7 Spalten, Vorspann 5 Spalten, unten bündig ----------------------------------------------------- */
+    /* Kopf: Titel 7 Spalten, kein Vorspann (Korrekturlauf 1: redundant zu Stationen und HOAI-Skala) ------------------ */
     .page[data-page="20"] .p20-head .deck { margin-top: 3mm; letter-spacing: .02em; }
-    .page[data-page="20"] .p20-head .lead { max-width: none; }
 
     /* Stationen: Phase (rechtsbündig zur Weglinie) · Marke auf der Weglinie · Titel als Run-in + Text (Spalten 4–12) */
     .page[data-page="20"] .p20-way { margin-top: var(--sp-8); border-top: var(--rule-heavy) solid var(--rule-strong); }
-    .page[data-page="20"] .p20-st { position: relative; display: grid; grid-template-columns: 37.6mm 2.2mm var(--station-mk) 2.05mm minmax(0, 1fr); padding: 3.5mm 0 3.7mm; }
+    .page[data-page="20"] .p20-st { position: relative; display: grid; grid-template-columns: 37.6mm 2.2mm var(--station-mk) 2.05mm minmax(0, 1fr); padding: 3.5mm 0 3.43mm; }
     .page[data-page="20"] .p20-st__phase { grid-column: 1; }
     .page[data-page="20"] .p20-st__mk { grid-column: 3; }
     .page[data-page="20"] .p20-st__text { grid-column: 5; }
@@ -30,7 +29,7 @@
     .page[data-page="20"] .p20-st__text { font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
 
     /* HOAI-Skala (Inline-SVG, 1 Einheit = 1 mm) ------------------------------------------------------------------- */
-    .page[data-page="20"] .p20-hoai { margin-top: 8.6mm; }   /* Oberkante Bewilligungsmarke = Oberkante Verfahrensdetails S. 21 (196,5 mm) */
+    .page[data-page="20"] .p20-hoai { margin-top: 8.6mm; }   /* Oberkante Bewilligungsmarke = Oberkante Verfahrensdetails S. 21 (188,7 mm) */
     .page[data-page="20"] .p20-hoai .chart__svg { margin-top: 0; }
     .page[data-page="20"] .p20-field { fill: var(--surface-2); }
     .page[data-page="20"] .p20-field--after { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }
@@ -56,7 +55,6 @@
       <h1 class="h1">So begleiten wir Ihr <em>Förder&shy;projekt</em></h1>
       <p class="deck">Ein Ansprechpartner für alles –<br>von der ersten Idee bis zur Objektübergabe.</p>
     </div>
-    <p class="lead">Wir achten darauf, dass Planung, Kosten und Unterlagen zu den Förderregeln passen – und dass kein Vertrag zu früh unterschrieben wird. Antrag und Entscheidung liegen bei Wohnraumförderstelle und NBank <span class="u-nowrap">(<a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;19</a>).</span></p>
   </header>
 
   <!-- Dominant: sieben Stationen -->
@@ -64,32 +62,32 @@
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Vor dem Vorgespräch</p>
       <span class="p20-st__mk" aria-hidden="true">1</span>
-      <p class="p20-st__text"><b class="runin">Förderung und Machbarkeit</b> Wir klären Programmteil, Standort und Mieterkreis – und rechnen, ob die Miete Finanzierung und Bewirtschaftung trägt <span class="u-nowrap">(<a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;11</a>).</span></p>
+      <p class="p20-st__text"><b class="runin">Förderung und Machbarkeit</b> Wir klären Programmteil, Standort und Mieterkreis und ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung <span class="u-nowrap">(<a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;11</a>).</span></p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphasen 1–4</p>
       <span class="p20-st__mk" aria-hidden="true">2</span>
-      <p class="p20-st__text"><b class="runin">Planung nach Förderregeln</b> Wir planen angemessene Wohnungsgrößen <span class="u-nowrap">(<a class="pageref" href="#seite-6">→&nbsp;S.&nbsp;6</a>),</span> Freisitze bis zu einem Zehntel davon – auf Wunsch rollstuhlgerecht oder auf EH-40-Niveau.</p>
+      <p class="p20-st__text"><b class="runin">Förderkonforme Planung</b> Wir planen Grundrisse, Wohnungsgrößen und Baustandard nach den Anforderungen des jeweiligen Programmteils.</p>
     </li>
     <li class="p20-st">
-      <p class="p20-st__phase u-nohyphens">Leistungsphasen 2–3, dann laufend</p>
+      <p class="p20-st__phase u-nohyphens">Leistungsphasen 2–8</p>
       <span class="p20-st__mk" aria-hidden="true">3</span>
-      <p class="p20-st__text"><b class="runin">Kosten im Griff</b> Wir steuern die Herstellungskosten mit Blick auf die Bemessungsgrenze; was darüber liegt, finanzieren Sie ohne Förderung <span class="u-nowrap">(<a class="pageref" href="#seite-8">→&nbsp;S.&nbsp;8</a>).</span></p>
+      <p class="p20-st__text"><b class="runin">Kostenplanung</b> Wir planen und steuern die Kosten von der Kostenschätzung bis zur Kostenfeststellung, mit Blick auf die Bemessungsgrenzen <span class="u-nowrap">(<a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a>).</span></p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Vorgespräch und Antrag</p>
       <span class="p20-st__mk" aria-hidden="true">4</span>
-      <p class="p20-st__text"><b class="runin">Antragsunterlagen</b> Wir erstellen Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung – und kommen mit zum Vorgespräch.</p>
+      <p class="p20-st__text"><b class="runin">Antragsunterlagen</b> Wir erstellen die baufachlichen Antragsunterlagen: Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung.</p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphasen 5–7</p>
       <span class="p20-st__mk" aria-hidden="true">5</span>
-      <p class="p20-st__text"><b class="runin">Ausführungsplanung und Vergabe</b> Nach der Bewilligung fordern wir mindestens drei Unternehmen zum Angebot auf und dokumentieren die Vergabe.</p>
+      <p class="p20-st__text"><b class="runin">Ausführungsplanung und Vergabe</b> Wir schreiben die Bauleistungen richtlinienkonform aus und vergeben sie nach der Bewilligung.</p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphase 8</p>
       <span class="p20-st__mk" aria-hidden="true">6</span>
-      <p class="p20-st__text"><b class="runin">Bauleitung</b> Wir halten Termine und Kosten im Blick und dokumentieren den Baufortschritt – auch per Drohne – für jede Teilrate <span class="u-nowrap">(<a class="pageref" href="#seite-9">→&nbsp;S.&nbsp;9</a>).</span></p>
+      <p class="p20-st__text"><b class="runin">Bauleitung</b> Wir überwachen Ausführung und Termine und dokumentieren den Baufortschritt für die Auszahlung der Teilraten <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span></p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphasen 8–9</p>
@@ -102,8 +100,8 @@
   <figure class="chart p20-hoai" role="group" aria-label="Leistungsphasen nach HOAI">
     <svg class="chart__svg" viewBox="0 0 180 20.6" width="180mm" height="20.6mm" role="img" aria-label="Leistungsphasen 1 bis 9 nach HOAI: 1 Grundlagen, 2 Vorplanung, 3 Entwurf, 4 Genehmigung, 5 Ausführungsplanung, 6 Vorbereitung der Vergabe, 7 Mitwirkung bei der Vergabe, 8 Objektüberwachung, 9 Objektbetreuung. Bewilligung zwischen Leistungsphase 6 und 7: Planungsauftrag LPH 1–6 vor der Bewilligung möglich, ab LPH 7 erst nach der Bewilligung.">
       <!-- Bewilligungsmarke -->
-      <rect class="p20-gate" x="102.5" y="0" width="35" height="4.8"/>
-      <text class="p20-gate-t" x="120" y="3.5">±0 Bewilligung</text>
+      <rect class="p20-gate" x="103.5" y="0" width="33" height="4.8"/>
+      <text class="p20-gate-t" x="120" y="3.5">Bewilligung</text>
       <!-- Maßketten LPH 1–6 (0–120) und LPH 7–9 (120–180) mit 45°-Strich, Hilfslinien bis zur Leiste -->
       <path class="p20-dim" d="M0 9.9H180"/>
       <path class="p20-ext" d="M0 8.3V11.8M180 8.3V11.8"/>
@@ -142,8 +140,8 @@
   <!-- Module unten -->
   <div class="l-grid l-bottom p20-mods" style="--row-gap:0">
     <aside class="l-span-7 offer-box offer-box--dark on-dark" aria-labelledby="p20-sf"><h2 class="offer-box__title" id="p20-sf">Schlüsselfertig</h2><p class="offer-box__text">Über die PGN Projektgesellschaft Nord GmbH bauen wir auch schlüsselfertig als Generalübernehmer. Förderfähig ist das, wenn Sie mindestens drei Unternehmen zum Angebot auffordern, erst nach der Bewilligung beauftragen und die Gesellschaft vorab schriftlich der Prüfung von Kalkulation, Nachunternehmervergabe und Abrechnung zustimmt.</p></aside>
-    <aside class="l-span-5 offer-box" aria-labelledby="p20-ko"><h2 class="offer-box__title" id="p20-ko">Für Kommunen</h2><p class="offer-box__text">Unsere Stadtplanung erarbeitet Bebauungspläne. Legt die Gemeinde darin geförderte Mietwohnungen fest, gilt für diese Wohnungen der Bedarf als gegeben <span class="u-nowrap">(<a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>).</span></p></aside>
+    <aside class="l-span-5 offer-box" aria-labelledby="p20-ko"><h2 class="offer-box__title" id="p20-ko">Für Kommunen</h2><p class="offer-box__text">Unsere Stadtplanung erarbeitet Bebauungspläne – auch mit Festlegungen für geförderten Mietwohnraum. Für die so festgelegten Wohnungen gilt der Bedarf als gegeben <span class="u-nowrap">(<a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>).</span></p></aside>
   </div>
 
-  <footer class="page__foot" aria-hidden="true"><span class="page__folio">20</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Mit PGN</b></span><span>Stand: 21.10.2026</span></span></footer>
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">20</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Mit PGN</b></span></span></footer>
 </section>

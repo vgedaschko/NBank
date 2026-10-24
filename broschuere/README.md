@@ -15,7 +15,7 @@ Die Broschüre umfasst 24 Seiten im Format DIN A4 hoch und erklärt die **RL Mie
 Zielgruppen sind Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren, Projektentwicklung und Kommunen.
 Die Broschüre liest die Richtlinie wie ein Investment-Memo: zuerst die Zahlen, dann die Orientierung und die Ertragsseite,
 dann die Finanzierung mit Modellrechnung und Wirtschaftlichkeit, danach die übrigen Programmteile, Standort, Kommune und
-Antragsweg, zuletzt die Leistungen von PGN. Redaktionsstand: **21.10.2026**.
+Antragsweg, zuletzt die Leistungen von PGN. Redaktionsstand: **30.09.2026** (Korrekturlauf 1; Stand steht nur auf U1 und U3, nicht in den Fußzeilen).
 
 ## Dateien in `dist/`
 
@@ -39,7 +39,7 @@ Doppelseite 10|11 „Ihre Rechnung“ trägt Finanzierung und Wirtschaftlichkeit
 | S. | Seite | Kolumnentitel | Überschrift |
 |---:|---|---|---|
 | 1 | U1 | Umschlag · Titel | Wohnraum, der sich rechnen kann. |
-| 2 | U2 | Einstieg · Editorial | Damit sich Investieren wieder rechnet (Editorial, Inhalt) |
+| 2 | U2 | Editorial | Damit sich Investieren wieder rechnet (Editorial, Inhalt) |
 | 23 | U3 | PGN · Impressum | Impressum und Hinweise |
 | 24 | U4 | Umschlag · Rückseite | Aus Ihrer guten Idee – machen wir den besten Plan. |
 
@@ -48,21 +48,21 @@ Doppelseite 10|11 „Ihre Rechnung“ trägt Finanzierung und Wirtschaftlichkeit
 | S. | Kolumnentitel | Überschrift |
 |---:|---|---|
 | 3 | Überblick · Kennzahlen | Die Förderung in sieben Zahlen |
-| 4 | Überblick · Neu und Grundcheck | Was neu ist – und ob Ihr Projekt passt |
+| 4 | Überblick · Neuerungen und Grundcheck | Richtlinie 2026: Neuerungen und Voraussetzungen |
 | 5 | Überblick · Navigator | Vom Vorhaben zum passenden Programmteil |
 | 6 | Ertragsseite · Mieterkreis | Ihr Mieterkreis: drei Einkommensgruppen |
-| 7 | Ertragsseite · Mieten | Mieten: gedeckelt, aber planbar |
+| 7 | Ertragsseite · Mieten | Höchstmieten und Mietentwicklung |
 | 8 | Finanzierung · Programmteil 2.1 | Bis zu 80 % Förderquote |
-| 9 | Finanzierung · Term Sheet | Konditionen auf einem Blatt |
+| 9 | Finanzierung · Eckdaten | Konditionen im Überblick |
 | 10 | Ihre Rechnung · Finanzierung | 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung |
-| 11 | Ihre Rechnung · Wirtschaftlichkeit | Mehr Miete, mehr Darlehen: Was bleibt im Jahr? |
-| 12 | Neubau · Programmteil 2.2 | Reiner Zuschuss statt Darlehen |
-| 13 | Neubau · Programmteil 2.4 | Höhere Kostengrenze, 10 % Eigenmittel |
-| 14 | Bestand · Programmteil 2.3 | Zuschuss nach Klassensprung |
-| 15 | Bestand · Stichtag 31.12.2026 | Altes Recht oder RL 2026: Sie haben die Wahl |
-| 16 | Bestand · Programmteil 2.5 | Festbetrag für freie Bestandswohnungen |
-| 17 | Bestand · Programmteil 2.6 | Bindung verlängern, Zins auf 0 % |
-| 18 | Umsetzung · Standort und Kommune | Wo Bedarf gilt – und was Kommunen tun können |
+| 11 | Ihre Rechnung · Wirtschaftlichkeit | Mehr Miete, mehr Darlehen: Überschuss je Jahr |
+| 12 | Ihre Rechnung · Mix und Tilgung | Welcher Mix rechnet sich? |
+| 13 | Neubau · Programmteil 2.2 | Reiner Zuschuss statt Darlehen |
+| 14 | Neubau · Programmteil 2.4 | Höhere Kostengrenze, 10 % Eigenmittel |
+| 15 | Bestand · Programmteil 2.3 | Zuschuss nach Effizienzsteigerung |
+| 16 | Bestand · Stichtag 31.12.2026 | Wahlrecht für Modernisierungsanträge |
+| 17 | Bestand · Programmteile 2.5 und 2.6 | Bindungen erwerben oder verlängern |
+| 18 | Umsetzung · Standort und Kommune | Bedarf am Standort und die Rolle der Kommune |
 | 19 | Umsetzung · Antragsweg | Vom Vorgespräch bis zum Verwendungsnachweis |
 | 20 | Umsetzung · Mit PGN | So begleiten wir Ihr Förderprojekt |
 | 21 | Umsetzung · Unterlagen und Kontakte | Unterlagen, Kontakte und Verfahrensdetails |
@@ -75,21 +75,22 @@ Platzhalter sind gewollt und im Heft als gestrichelt umrandete Felder gesetzt (g
 `content/pages/NN-*.json` und `content/copy.md` nachziehen und neu bauen. Maßgeblich und vollständig ist
 **Anhang B „Vor dem Druck mit PGN klären“ in `content/copy.md`**.
 
-Im Heft sichtbar (25 Felder):
+Im Heft sichtbar (23 Felder):
 
 | S. | Platzhalter | Anzahl | PGN liefert |
 |---:|---|---:|---|
-| 11 | `[PGN-Rechnung: … % der Miete]` (Zeile 2, Mietausfallwagnis) | 1 | Satz in % der Nettokaltmiete |
-| 11 | `[PGN-Rechnung: … € je Wohnung p. a.]` (Zeile 3, nicht umlagefähige Bewirtschaftungskosten) | 1 | Ansatz je Wohnung (20 Wohnungen) |
-| 11 | `[PGN-Rechnung: … € je m² p. a.]` (Zeile 4, Instandhaltung) | 1 | Ansatz je m² Wohnfläche (1.400 m²) |
-| 11 | `[PGN-Rechnung: Tilgungssatz … %]` (Zeile 8, Tilgung) | 1 | Tilgungssatz der Beispielrechnung |
-| 11 | `[PGN-Rechnung]` (Zeilen 2, 3, 4, 5, 8, 9 × Spalten A, B, C) | 18 | Beträge aus der PGN-Beispiel-Investitionsrechnung, Zwischensumme Zeile 5, Ergebnis Zeile 9 |
-| 23 | `Verantwortlich für den Inhalt: [PGN: Name bestätigen]` | 1 | verantwortliche Person für die Broschüre |
-| 23 | `Bildnachweis: … [PGN: Urheber bestätigen]` | 1 | Urheber und Nutzungsrecht der Visualisierungen S. 22 |
-| 23 | `Druck: [Platzhalter]` | 1 | Druckerei mit Anschrift |
+| 11 | `[PGN-Rechnung: … %]` (Zeile 1, Unterzeile Mietausfall/Leerstand) | 1 | Satz in % der Sollmiete (Erlösschmälerung) |
+| 11 | `[PGN-Rechnung: … € je Wohnung p. a.]` (Zeile 2, nicht umlagefähige Bewirtschaftungskosten) | 1 | Ansatz je Wohnung (20 Wohnungen) |
+| 11 | `[PGN-Rechnung: … € je m² p. a.]` (Zeile 3, Instandhaltung) | 1 | Ansatz je m² Wohnfläche (1.400 m²) |
+| 11 | `[PGN-Rechnung: Tilgungssatz … %]` (Zeile 7, Tilgung) | 1 | Tilgungssatz der Beispielrechnung |
+| 11 | `[PGN-Rechnung]` (Zeile 1 Unterzeile, Zeilen 2, 3, 4, 7, 8 × Spalten A, B, C) | 18 | Beträge aus der PGN-Beispiel-Investitionsrechnung, Zwischensumme Zeile 4, Ergebnis Zeile 8 |
+| 12 | `[PGN-Rechnung: … %]` (Fuß des Rechenwegs, Mietausfall) | 1 | derselbe Satz wie S. 11, Zeile 1; danach Tilgungsschwellen 1,18 % / 1,26 % nachrechnen (Anhang B Nr. 1) |
+
+U3 trägt seit Korrekturlauf 1 keine Platzhalter mehr: „Verantwortlich für den Inhalt“ und „Druck“ entfallen
+(§ 8 Abs. 2, § 7 Abs. 3 NPresseG), der Bildnachweis lautet „Planungsgemeinschaft Nord GmbH“.
 
 Außerdem vor dem Druck zu bestätigen oder freizugeben (ohne Platzhalter im Heft, Details in Anhang B):
-Preisstand der Beispielrechnung S. 11; Geschäftsführung, Herausgeberzeile und PDF-Metadaten (U3); Formulierung
+Preisstand der Beispielrechnung S. 11–12; Geschäftsführung, Herausgeberzeile und PDF-Metadaten (U3); Formulierung
 „Seit 1981“ (S. 2, 22); Bildrechte und hochaufgelöste Originale (U1, S. 20, 22); Negativ-Logo, CMYK-/Pantone-Werte und
 CI-Anwendung; Zitate Tonne (S. 2) und Kiesewetter (S. 6); PGN-Claims, Leistungsaussagen S. 20, Referenzen S. 22 und
 eine mögliche Ansprechperson auf U4.
@@ -114,6 +115,7 @@ broschuere/
 ├── scripts/
 │   ├── assemble.cjs         setzt template.html + src/pages/*.html zu src/index.html zusammen (Silbentrennung, geschützte Leerzeichen)
 │   ├── render.cjs           rendert HTML → PDF (Playwright/Chromium) + QA-Prüfungen + PNG-Vorschauen
+│   ├── schraffur.cjs        Vektorschraffur: path.hatch[data-hatch] erzeugen/nachziehen (--sync), Musterprüfung (--check)
 │   ├── fonts-static.py      erzeugt statische Schriftinstanzen (nur bei neuen Schriftschnitten nötig)
 │   ├── pgn-signatures.cjs   Axonometrie, Grundriss, Planzeichen (SVG)
 │   └── pgn-images.py        Duplex-Fotos, Vektor-Punktraster
@@ -182,6 +184,7 @@ Partial vornehmen und neu zusammensetzen, `src/index.html` nie von Hand bearbeit
 - `OVERFLOW`: Inhalt ragt über die Seite oder einen Rahmen hinaus.
 - `LASTLINE`: Ein Trennrest steht allein in der letzten Zeile.
 - `SATZSPIEGEL`: Inhalt endet unter der Satzspiegel-Unterkante (273 mm) oder ragt aus einem Block mit fester Höhe.
+- `MUSTER`: Eine Musterfüllung (SVG-`<pattern>`, `repeating-*-gradient`, gekachelter Verlauf) liegt im PDF als Rasterbild vor – Schraffur als Vektor setzen (`scripts/schraffur.cjs`, `DESIGN.md` 1.3.1).
 - `PDFUA`: Befund der PDF/UA-Vorprüfung, z. B. Link ohne Namen oder Sprung der Überschriftenebene.
 - `FEHLER`: Lade- oder Renderfehler.
 - `FONT`: Ein Schriftschnitt fehlt. Dann `scripts/fonts-static.py` ausführen (siehe oben) und neu rendern.
@@ -212,8 +215,8 @@ Die PGN-Fassung nutzt das Designsystem **„Planwerk“** (Details und Komponent
 Nach der Hinweis-Diät (`content/REDAKTIONSREGELN.md`) stehen offene Fachfragen nicht im Heft, sondern in
 `content/copy.md`, **Anhang A „Offene fachliche Rückfragen an die NBank“** (19 Punkte, maßgebliche Nummerierung), und in
 `recherche/factbase.md` (Abschnitt „Lücken (Kritiker) / weiterhin offen“). Schwerpunkte: Fortschreibung der
-Bemessungsgrenzen zum 01.10.2026 (betrifft S. 3, 4, 8, 13 und die Modellrechnung S. 10–12), Kombinierbarkeit der Zuschläge in 2.1, Tilgungsmodalitäten
-(Term Sheet S. 9, Jahresrechnung S. 11), Swapsatz der Überkompensationsprüfung, Mietenstufen ab 01.01.2027,
+Bemessungsgrenzen zum 01.10.2026 (betrifft S. 3, 4, 8, 14, die Modellrechnung S. 10–12 und die Marke auf S. 13), Kombinierbarkeit der Zuschläge in 2.1, Tilgungsmodalitäten
+(Eckdaten S. 9, Jahresrechnung S. 11), Swapsatz der Überkompensationsprüfung, Mietenstufen ab 01.01.2027,
 Sonderfragen Ostfriesische Inseln (2.4), 2.2, 2.3 (Klassensprung, Kostenschlüssel, BEG) und 2.5 (Zwischenlaufzeiten,
 Kombination) sowie die Abstimmung der Zitate mit den Pressestellen.
 

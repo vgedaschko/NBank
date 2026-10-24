@@ -17,7 +17,7 @@
 
     /* Ankreuzliste */
     .page[data-page="21"] .p21-check__list { margin-top: 2.2mm; }
-    .page[data-page="21"] .p21-check__list .checklist__item { grid-template-columns: 6mm minmax(0, 1fr); column-gap: 0; padding: 1.8mm 0 1.9mm; line-height: var(--lh-module); }
+    .page[data-page="21"] .p21-check__list .checklist__item { grid-template-columns: 6mm minmax(0, 1fr); column-gap: 0; padding: 1.5mm 0 1.6mm; line-height: var(--lh-module); }
     .page[data-page="21"] .p21-check__list .checklist__item:first-child { border-top: var(--hair) solid var(--rule); }
     .page[data-page="21"] .p21-check__list .checklist__item:last-child { border-bottom: 0; }
     .page[data-page="21"] .p21-check__list .checklist__box { width: 3.6mm; height: 3.6mm; margin-top: .25mm; border-color: var(--fg-2); }
@@ -25,7 +25,7 @@
     .page[data-page="21"] .p21-check__list .p21-in-paren { margin: 0 .3mm; }
 
     /* Verfahrensdetails: Gruppen fließen; Frage als Run-in */
-    .page[data-page="21"] .p21-faq { margin-top: 5.45mm; padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
+    .page[data-page="21"] .p21-faq { margin-top: 5.45mm; padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); }   /* Oberkante 188,7 mm = Bewilligungsmarke S. 20 */
     .page[data-page="21"] .p21-grp__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 2mm; margin-top: 2.6mm; padding-bottom: 1.4mm; border-bottom: var(--rule-w) solid var(--rule-strong); break-after: avoid; break-inside: avoid; }
     .page[data-page="21"] .p21-grp__title { padding-top: .5mm; font: 700 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
     .page[data-page="21"] .p21-qa { padding-top: 1.7mm; }
@@ -53,7 +53,7 @@
   <!-- Lesefeld: Ankreuzliste, dann Verfahrensdetails in zwei Spalten -->
   <div class="p21-flow">
   <section class="p21-check" aria-labelledby="p21-check-h">
-    <h2 class="chart__title" id="p21-check-h">Unterlagen bereitlegen (Auszug)</h2>
+    <h2 class="chart__title" id="p21-check-h">Unterlagen (Auszug)</h2>
     <ul class="checklist p21-check__list">
       <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span><b>Antrag:</b> <span class="badge badge--s badge--form">1011</span> <span class="u-nowrap">(<b class="bs-no bs-21">2.1</b>–<b class="bs-no bs-24">2.4</b>)</span> · <span class="badge badge--s">1011a</span> + <span class="badge badge--s">1012</span> je Wohnung (<b class="bs-no bs-25">2.5</b>) · <span class="badge badge--s">1011b</span> (<b class="bs-no bs-26">2.6</b>)</span></li>
       <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span><b>Natürliche Personen</b>, auch Gesellschafterinnen und Gesellschafter: Selbstauskunft <span class="u-nowrap">(<span class="badge badge--s badge--form p21-in-paren">3076</span>),</span> SCHUFA-Auskunft, Identitätsfeststellung nach Geldwäschegesetz</span></li>
@@ -65,27 +65,27 @@
   </section>
 
   <section class="p21-faq" aria-labelledby="p21-faq-h">
-    <h2 class="chart__title" id="p21-faq-h">Verfahrensdetails und Sonderfälle</h2>
+    <h2 class="chart__title" id="p21-faq-h">Verfahrensdetails</h2>
       <section class="p21-grp" aria-labelledby="p21-g1">
-        <div class="p21-grp__head"><h3 class="p21-grp__title" id="p21-g1">Ausnahmen zum Grundcheck</h3><a class="pageref" href="#seite-4">zu S.&nbsp;4</a></div>
+        <div class="p21-grp__head"><h3 class="p21-grp__title" id="p21-g1">Ausnahmen zum Grundcheck</h3><a class="pageref" href="#seite-04">zu S.&nbsp;4</a></div>
         <dl class="p21-qa">
-          <div class="p21-qa__item"><dt>Wer noch?</dt> <dd>Auch rechtsfähige Baugemeinschaften; beim Ersterwerb die Käuferseite.</dd></div>
+          <div class="p21-qa__item"><dt>Weitere Antragsberechtigte?</dt> <dd>Auch rechtsfähige Baugemeinschaften; beim Ersterwerb die Käuferseite.</dd></div>
           <div class="p21-qa__item"><dt>Kein Mehrfamilienhaus?</dt> <dd>Gemeinschaftliche Wohnformen, im Einzelfall auch Reihen- oder Doppelhäuser. In <b class="bs-no bs-21">2.1</b>, <b class="bs-no bs-22">2.2</b> und <b class="bs-no bs-24">2.4</b>: je neuem Gebäude mindestens zwei gebundene Wohnungen.</dd></div>
           <div class="p21-qa__item"><dt>Grundstück und Eigenmittel?</dt> <dd>Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung zählt bis zur Hälfte der Eigenmittel.</dd></div>
         </dl>
       </section>
       <section class="p21-grp" aria-labelledby="p21-g2">
-        <div class="p21-grp__head"><h3 class="p21-grp__title" id="p21-g2">Finanzierung und Sicherheiten</h3><a class="pageref" href="#seite-9">zu S.&nbsp;9</a></div>
+        <div class="p21-grp__head"><h3 class="p21-grp__title" id="p21-g2">Finanzierung und Sicherheiten</h3><a class="pageref" href="#seite-09">zu S.&nbsp;9</a></div>
         <dl class="p21-qa">
           <div class="p21-qa__item"><dt>Sicherheiten?</dt> <dd>Grundschuld direkt hinter den Kapitalmarktmitteln; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne Revalutierung. Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft – bei reinen Objektgesellschaften immer.</dd></div>
-          <div class="p21-qa__item"><dt>Tilgung später?</dt> <dd>Bei vorübergehendem Fehlbetrag kann die NBank den Beginn um bis zu fünf Jahre <span class="u-nohyphens">verschieben.</span></dd></div>
-          <div class="p21-qa__item"><dt>Vorzeitig ganz zurückzahlen?</dt> <dd>Die Bindung endet nach Ablauf des zehnten folgenden Kalenderjahres – frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende.</dd></div>
+          <div class="p21-qa__item"><dt>Tilgungsaufschub?</dt> <dd>Bei vorübergehendem Fehlbetrag im Objekt kann die NBank den Tilgungsbeginn um bis zu fünf Jahre <span class="u-nohyphens">hinausschieben.</span></dd></div>
+          <div class="p21-qa__item"><dt>Vorzeitige Rückzahlung?</dt> <dd>Bei freiwilliger Rückzahlung in voller Höhe ist der Zuschuss anteilig zurückzuzahlen. Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20&nbsp;Jahre nach Bindungs&shy;beginn, spätestens zum regulären Ende.<br>Beispiel: Bindungsbeginn 2028, Rückzahlung 2040 – Ende 31.12.2050; bei Rückzahlung 2032 erst 2048.</dd></div>
         </dl>
       </section>
       <section class="p21-grp" aria-labelledby="p21-g3">
         <div class="p21-grp__head"><h3 class="p21-grp__title" id="p21-g3">Beginn, Vergabe, Anzeigen</h3><a class="pageref" href="#seite-19">zu S.&nbsp;19</a></div>
         <dl class="p21-qa">
-          <div class="p21-qa__item"><dt>Vorzeitig beginnen?</dt> <dd>Nur nach Zulassung durch die NBank, beantragt frühestens mit dem Förderantrag – auf eigenes Risiko.</dd></div>
+          <div class="p21-qa__item"><dt>Vorzeitiger Vorhabenbeginn?</dt> <dd>Nur nach Zulassung durch die NBank, beantragt frühestens mit dem Förderantrag – auf eigenes Risiko.</dd></div>
           <div class="p21-qa__item"><dt>Vergabe?</dt> <dd>Mindestens drei Unternehmen zum Angebot auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis 25.000 € netto. Kommunen: zusätzlich <span class="u-nohyphens">Vergaberecht.</span></dd></div>
           <div class="p21-qa__item"><dt>Anzeigen?</dt> <dd>Baubeginn erst anzeigen, wenn er erfolgt ist – für Unternehmen subventionserheblich. Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis.</dd></div>
         </dl>
@@ -96,7 +96,7 @@
   <!-- Kontakte: dominante Spalte 9–12 über die volle Höhe -->
   <ul class="p21-contacts" aria-label="Kontakte">
     <li class="p21-ct">
-      <p class="contact__label contact__label--tight">Hier beginnt Ihr Antrag</p>
+      <p class="contact__label contact__label--tight">Antragstellung</p>
       <p class="p21-ct__name u-nohyphens">Wohnraumförderstelle am&nbsp;Bauort</p>
       <p class="p21-ct__text">Landkreis, Stadt oder Gemeinde: Vorabklärung, Formulare, Antrag</p>
     </li>
@@ -107,7 +107,7 @@
       <p class="p21-ct__text">Mo–Fr 08:00–17:00 Uhr · <a class="u-url" href="mailto:wohnraumfoerderung@nbank.de">wohnraumfoerderung@nbank.de</a>&nbsp;· fünf Beratungsstellen im Land</p>
     </li>
     <li class="p21-ct">
-      <p class="contact__label contact__label--tight">Immer aktuell</p>
+      <p class="contact__label contact__label--tight">Aktuelle Informationen</p>
       <p class="p21-ct__name u-nohyphens"><a href="https://www.nbank.de">nbank.de</a></p>
       <p class="p21-ct__text">Förderstellen-Verzeichnis, Bemessungsgrenzen, Bedarfskarte, Vordrucke, Arbeitshilfen, Entgeltkatalog, Bauschild-Vorgaben</p>
     </li>
@@ -115,10 +115,10 @@
       <p class="contact__label contact__label--tight">Planung und Unterlagen</p>
       <p class="p21-ct__name u-nohyphens">PGN</p>
       <p class="p21-ct__tel"><a href="tel:+49426192930">(+49) 4261 9293-0</a></p>
-      <p class="p21-ct__text">Wir stellen die Antragsunterlagen mit Ihnen zusammen <span class="u-nowrap">(<a class="pageref" href="#seite-20">→&nbsp;S.&nbsp;20</a>)&nbsp;·</span> <a class="u-url" href="mailto:info@pgn-architekten.de">info@pgn-architekten.de</a></p>
+      <p class="p21-ct__text">Wir planen Ihr Vorhaben und erstellen die baufachlichen Antragsunterlagen <span class="u-nowrap">(<a class="pageref" href="#seite-20">→&nbsp;S.&nbsp;20</a>)&nbsp;·</span> <a class="u-url" href="mailto:info@pgn-architekten.de">info@pgn-architekten.de</a></p>
     </li>
   </ul>
   </div>
 
-  <footer class="page__foot" aria-hidden="true"><span class="page__folio">21</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Unterlagen und Kontakte</b></span><span>Stand: 21.10.2026</span></span></footer>
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">21</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Unterlagen und Kontakte</b></span></span></footer>
 </section>

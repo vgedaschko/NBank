@@ -5,13 +5,12 @@
   "running_title": "Ertragsseite · Mieterkreis",
   "kicker": "Ertragsseite",
   "headline": "Ihr Mieterkreis: drei Einkommensgruppen",
-  "lead": "Grundsatz ist Gruppe A. B und C bringen höhere Mieten, aber weniger Zuschuss – und es gibt sie nur, wenn die NBank sie in der Förderentscheidung zulässt.",
+  "lead": "Grundsatz ist Gruppe A. Wohnungen für B und C erlauben höhere Mieten bei geringerem Zuschuss, sofern die NBank sie in der Förderentscheidung zulässt.",
   "blocks": [
     {
       "type": "chart",
       "chart": "bar",
-      "title": "Obergrenze Gesamtjahreseinkommen in €",
-      "subtitle": "Einkommensgrenzen seit 01.03.2025 · B = Grenze + 40 %, C = + 60 %",
+      "title": "Obergrenze Gesamtjahreseinkommen, in €, gültig seit 01.03.2025",
       "data": {
         "orientation": "horizontal",
         "series": [
@@ -123,7 +122,7 @@
           }
         ],
         "admission": {
-          "heading": "Wann B und C möglich sind",
+          "heading": "Zulassung von B und C",
           "rows": [
             {
               "label": "bis +60 %",
@@ -131,17 +130,17 @@
             },
             {
               "label": "sonst nur bis +20 %",
-              "text": "also nur ein Teil von B, kein C – und nur ab 12 zusammenhängenden Wohnungen, für höchstens die Hälfte davon"
+              "text": "ab 12 zusammenhängenden Wohnungen, für höchstens die Hälfte davon (Teil von B, kein C)"
             }
           ]
         }
       },
-      "ref": "A, B und C im Vergleich → S. 11"
+      "ref": "A, B und C im Vergleich → S. 11–12"
     },
     {
       "type": "text",
       "heading": "Nachweis",
-      "body": "Mieterinnen und Mieter weisen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) nach. Ihn stellt die Kommune aus, meist Landkreis oder Stadt; der allgemeine WBS gilt ein Jahr und legt auch die angemessene Wohnungsgröße fest.\n\nDie Grenzen in der Grafik meinen nicht das Brutto. Ausgangspunkt ist das in den zwölf Monaten ab Antragstellung erwartete Einkommen aller Haushaltsmitglieder. Davon gehen je 10 % ab, wenn Steuern, Kranken-/Pflege- oder Rentenbeiträge gezahlt werden, dazu Freibeträge und Unterhalt. Das Bruttoeinkommen kann daher deutlich höher liegen."
+      "body": "Mieterinnen und Mieter weisen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) nach. Ihn stellt die Kommune aus, meist Landkreis oder Stadt; der allgemeine WBS gilt ein Jahr und legt auch die angemessene Wohnungsgröße fest.\n\nMaßgeblich ist nicht das Brutto, sondern das Gesamtjahreseinkommen: das in den zwölf Monaten ab Antragstellung erwartete Einkommen aller Haushaltsmitglieder. Davon gehen je 10 % ab, soweit Steuern, Kranken-/Pflege- oder Rentenbeiträge anfallen, außerdem Freibeträge und Unterhalt. Das Bruttoeinkommen kann daher deutlich über den Grenzen liegen."
     },
     {
       "type": "table",
@@ -207,5 +206,5 @@
     "F062",
     "G3-02"
   ],
-  "visual_idea": "Dominant: „Einkommensleiter“ über die volle Satzspiegelbreite – je Haushaltstyp ein eckiges Piktogramm (Erwachsene/Kinder) und drei horizontale Balken in abgestuften Tonwerten A/B/C (A am dunkelsten) mit den exakten Endwerten; die Beschriftung ist zugleich die Tabelle. Siebte Zeile „je weitere Person …“ als Zuschlagszeile ohne Balken, nur mit den drei Plus-Werten. Kopfzeile der Grafik in Versal-Label: „Einkommensgrenzen seit 01.03.2025 · B = Grenze + 40 %, C = + 60 %“; Legende A/B/C als eckige Buchstaben-Chips. Direkt unter der Leiter, als Teil der Grafik, die zwei Zulassungszeilen als schmale Legende auf #F4F3F2 (Überschrift „Wann B und C möglich sind“; Label „bis +60 %“ / „sonst nur bis +20 %“ in PGN-Rot #B71E3F, Text in Anthrazit) – kein Achtung-Kasten, keine Signalfarbe. Seitenverweis-Chip „S. 11“ oben rechts an der Grafik. Darunter drei Module: Marginalspalte mit „Nachweis“ (WBS und Gesamtjahreseinkommen, Mini-Grafik „erwartetes Einkommen → minus bis zu 3 × 10 % → minus Freibeträge und Unterhalt = Wert für die Grenze“) und der kleinen Tabelle „Angemessene Wohnfläche“; daneben das Kiesewetter-Zitat als typografische Atempause mit großen roten Anführungszeichen, Name und Funktion untereinander, Quelle darunter. Keine Fußnoten, keine Kalkulationsnotiz."
+  "visual_idea": "Dominant: „Einkommensleiter“ über die volle Satzspiegelbreite – je Haushaltstyp ein eckiges Piktogramm (Erwachsene/Kinder) und drei horizontale Balken in abgestuften Tonwerten A/B/C (A am dunkelsten) mit den exakten Endwerten; die Beschriftung ist zugleich die Tabelle. Siebte Zeile „je weitere Person …“ als Zuschlagszeile ohne Balken, nur mit den drei Plus-Werten. Kopfzeile der Grafik: Versal-Titel „Obergrenze Gesamtjahreseinkommen,“ mit Einheitenzeile „in €, gültig seit 01.03.2025“ (wie die Tabellenköpfe auf S. 7), keine Unterzeile – die Definition B/C steht nur einmal, in der Legende A/B/C mit Buchstaben-Chips (Korrekturlauf 1). Direkt unter der Leiter, als Teil der Grafik, die zwei Zulassungszeilen als schmale Legende auf #F4F3F2 (Überschrift „Zulassung von B und C“; Label „bis +60 %“ / „sonst nur bis +20 %“ in PGN-Rot #B71E3F, Text in Anthrazit) – kein Achtung-Kasten, keine Signalfarbe. Seitenverweis-Chip „S. 11–12“ oben rechts an der Grafik. Darunter drei Module: Marginalspalte mit „Nachweis“ (WBS und Gesamtjahreseinkommen, Mini-Grafik „erwartetes Einkommen → minus bis zu 3 × 10 % → minus Freibeträge und Unterhalt = Wert für die Grenze“) und der kleinen Tabelle „Angemessene Wohnfläche“; daneben das Kiesewetter-Zitat als typografische Atempause mit großen roten Anführungszeichen, Name und Funktion untereinander, Quelle darunter. Keine Fußnoten, keine Kalkulationsnotiz."
 }

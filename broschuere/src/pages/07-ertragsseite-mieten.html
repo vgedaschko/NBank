@@ -3,7 +3,9 @@
     /* S. 7 · Mieten (rechte Seite der Doppelseite 06|07) · Planwerk.
        Gemeinsame Horizonte mit S. 6: Titel 8 | 4, Modulkopf Zone B, Modulkopf Zone C (5 | 7).
        Dominant: Höchstmieten-Tabelle (7 Spalten) mit Programmteil-Chips und Gruppen-Achskreisen A/B/C wie S. 6;
-       daneben Mietpfad und Markt (SVG, 1 Einheit = 1 mm, € je m², Achse ab 6 €) mit Kalkulationsnotiz. Farben nur über Tokens. */
+       daneben Mietpfad und Markt (SVG, 1 Einheit = 1 mm, € je m², Achse ab 0 €, 6,3 mm je €); die Unterkante der
+       Bildunterschrift fluchtet mit dem Tabellenfuß links. Marken der Vermietungsbedingungen als SVG (Glyph geometrisch
+       in Kreis bzw. Raute zentriert). Farben nur über Tokens. */
     .page[data-page="07"] { --p-zone-b: 127.5mm; }   /* wie S. 6: Zone C beginnt auf beiden Seiten bei 180,5 mm */
     .page[data-page="07"] .p07-title { min-height: 27mm; }   /* Titelzone auf beiden Seiten gleich hoch: H1-Grundlinie und Modulkopf Zone B fluchten */
     .page[data-page="07"] .p07-title > .title-block__main { grid-column: 1 / span 7; }
@@ -44,10 +46,9 @@
     .page[data-page="07"] .chart__svg .p07-max { fill: var(--fg-3); }
     .page[data-page="07"] .chart__svg .p07-refval { fill: var(--fg-2); }
     .page[data-page="07"] .chart__svg .p07-reft { fill: var(--fg-2); }
-    .page[data-page="07"] .p07-calc { margin-top: 4mm; }
-    .page[data-page="07"] .p07-calc .callout__body { margin-top: 1.4mm; }
+    .page[data-page="07"] .p07-sep { stroke: var(--surface); stroke-width: .35; }
 
-    /* Zone C: Mietenstufe (5 Spalten) | Spielregeln (7 Spalten) */
+    /* Zone C: Mietenstufe (5 Spalten) | Vermietungsbedingungen (7 Spalten) */
     .page[data-page="07"] .p07-c { margin-top: var(--sp-6); }
     .page[data-page="07"] .p07-ms .facts__text { margin-top: 1.8mm; }
     .page[data-page="07"] .p07-ms__list { margin-top: 1.5mm; border-top: var(--hair) solid var(--rule); }
@@ -56,15 +57,22 @@
     .page[data-page="07"] .p07-ms__row > dd { -webkit-hyphens: none; hyphens: none; }
     .page[data-page="07"] .p07-ms__end { margin-top: 1.5mm; }
     .page[data-page="07"] .p07-rules__list { margin-top: 2mm; }
-    .page[data-page="07"] .p07-rules__list .mark--warn { margin-left: .1mm; }
+    /* Marken 3,4 mm (Kreis r 1,7 mm) in einem 4-mm-Feld, Raute 4 mm Diagonale – alle Mittelpunkte auf einer Achse.
+       Feld 0,3 mm nach links versetzt (Kreis bündig mit der Spalte) und auf die Mitte der ersten Textzeile gesetzt. */
+    .page[data-page="07"] .p07-mk { display: block; width: 4mm; height: 4mm; margin: calc((var(--lh-module) * var(--fs-module) - 4mm) / 2) 0 0 -.3mm; overflow: visible; }
+    .page[data-page="07"] .p07-mk__yes { fill: var(--ok); }
+    .page[data-page="07"] .p07-mk__no { fill: var(--no); }
+    .page[data-page="07"] .p07-mk__warn { fill: var(--signal-fill); }
+    .page[data-page="07"] .p07-mk__glyph { fill: none; stroke: var(--on-mark); stroke-width: 4; stroke-linecap: butt; stroke-linejoin: miter; }
+    .page[data-page="07"] .p07-mk__on-warn { fill: var(--on-signal); }
   </style>
 
   <div class="title-block title-block--split p07-title">
     <div class="title-block__main">
       <p class="kicker">Ertragsseite</p>
-      <h1 class="h1 h1--s">Mieten: gedeckelt,<br>aber <em>planbar</em></h1>
+      <h1 class="h1 h1--s">Höchstmieten und<br><em>Mietentwicklung</em></h1>
     </div>
-    <p class="lead lead--s u-hyphens">Was Sie verlangen dürfen, bestimmen Programmteil, Einkommensgruppe und Mietenstufe. Drei Jahre bleibt die Miete fest, danach darf sie nach klaren Regeln steigen.</p>
+    <p class="lead lead--s u-hyphens">Programmteil, Einkommensgruppe und Mietenstufe legen die Höchstmiete fest. Sie gilt drei Jahre lang, danach darf die Miete begrenzt steigen.</p>
   </div>
 
   <div class="l-grid p07-b">
@@ -94,7 +102,7 @@
             <td class="p07-stufe">alle</td><td colspan="3" class="p07-freeze">bisherige Miete, drei Jahre ab Verlängerung eingefroren, auch bei Wiedervermietung</td></tr>
         </tbody>
       </table>
-      <p class="chart__note">Ab EH-40-Niveau bis zu +0,30&nbsp;€ (2.1, 2.3, 2.5); in 2.2 enthalten. 2.3 mit verlängerter Bindung: Jahre 1–3 ab der ersten WBS-Belegung <a class="pageref" href="#seite-15">→&nbsp;S.&nbsp;14</a>.</p>
+      <p class="chart__note">Ab EH-40-Niveau bis zu +0,30&nbsp;€ (2.1, 2.3, 2.5); in 2.2 enthalten. 2.3 mit verlängerter Bindung: Jahre 1–3 ab der ersten WBS-Belegung <a class="pageref" href="#seite-15">→&nbsp;S.&nbsp;15</a>.</p>
     </figure>
 
     <div class="l-span-5 p07-side">
@@ -103,13 +111,9 @@
           <h2 class="chart__title" id="p07-path-h">Mietpfad und Markt, <span class="chart__unit chart__unit--block">€ je m² nettokalt</span></h2>
           <p class="chart__sub">Programmteil 2.1 · Gruppe A · Mietenstufe IV–VII</p>
         </figcaption>
-        <svg class="chart__svg p07-svg" viewBox="0 0 72.08 53.85" width="72.08mm" height="53.85mm" role="img" aria-label="Mietpfad und Markt in Euro je Quadratmeter nettokalt, Programmteil 2.1, Gruppe A, Mietenstufe IV–VII: Jahr 1–3 6,80; ab Jahr 4 höchstens 7,21; ab Jahr 7 höchstens 7,65. Zum Vergleich, nur für Jahr 1–3 eingezeichnet: Angebotsmiete Niedersachsen 2024, Mittel (landesweit) 9,00; Angebotsmiete Neubau Niedersachsen 2024, Median (landesweit) 11,22. Achse ab 6 Euro."><path class="p07-area" d="M8.4 48.25V42.65H29.63V39.78H50.85V36.7H72.08V48.25Z"/><line class="p07-ref" x1="8.4" y1="27.25" x2="29.63" y2="27.25"/><text class="t-val-ink p07-refval" x="9.8" y="26.15">9,00</text><text class="p07-reft" x="31.43" y="19.9">Angebotsmiete</text><text class="p07-reft" x="31.43" y="23.3">Niedersachsen 2024,</text><text class="p07-reft" x="31.43" y="26.7">Mittel (landesweit)</text><line class="p07-ref" x1="8.4" y1="11.71" x2="29.63" y2="11.71"/><text class="t-val-ink p07-refval" x="9.8" y="10.61">11,22</text><text class="p07-reft" x="31.43" y="4.36">Angebotsmiete Neubau</text><text class="p07-reft" x="31.43" y="7.76">Niedersachsen 2024,</text><text class="p07-reft" x="31.43" y="11.16">Median (landesweit)</text><path class="p07-path" d="M8.4 42.65H29.63V39.78H50.85V36.7H72.08"/><text class="t-num p07-step" x="9.8" y="41.15">6,80</text><text class="p07-max" x="31.03" y="33.58">höchstens</text><text class="t-num p07-step" x="31.03" y="38.28">7,21</text><text class="p07-max" x="52.25" y="30.5">höchstens</text><text class="t-num p07-step" x="52.25" y="35.2">7,65</text><line class="ax" x1="8.4" y1="48.25" x2="72.08" y2="48.25"/><line class="p07-yax" x1="8.4" y1="2.75" x2="8.4" y2="48.25"/><line class="tick" x1="7" y1="48.25" x2="8.4" y2="48.25"/><text class="t-ax t-end" x="6.4" y="49.3">6</text><line class="tick" x1="7.6" y1="41.25" x2="8.4" y2="41.25"/><line class="tick" x1="7" y1="34.25" x2="8.4" y2="34.25"/><text class="t-ax t-end" x="6.4" y="35.3">8</text><line class="tick" x1="7.6" y1="27.25" x2="8.4" y2="27.25"/><line class="tick" x1="7" y1="20.25" x2="8.4" y2="20.25"/><text class="t-ax t-end" x="6.4" y="21.3">10</text><line class="tick" x1="7.6" y1="13.25" x2="8.4" y2="13.25"/><line class="tick" x1="7" y1="6.25" x2="8.4" y2="6.25"/><text class="t-ax t-end" x="6.4" y="7.3">12</text><line class="tick" x1="29.63" y1="48.25" x2="29.63" y2="49.85"/><line class="tick" x1="50.85" y1="48.25" x2="50.85" y2="49.85"/><text class="t-b" x="9.8" y="52.85">Jahr 1–3</text><text class="t-b" x="31.03" y="52.85">ab Jahr 4</text><text class="t-b" x="52.25" y="52.85">ab Jahr 7</text></svg>
+        <svg class="chart__svg p07-svg" viewBox="0 0 72.08 87.23" width="72.08mm" height="87.23mm" role="img" aria-label="Mietpfad und Markt in Euro je Quadratmeter nettokalt, Programmteil 2.1, Gruppe A, Mietenstufe IV–VII: Jahr 1–3 6,80; ab Jahr 4 höchstens 7,21; ab Jahr 7 höchstens 7,65. Zum Vergleich, nur für Jahr 1–3 eingezeichnet: Angebotsmiete Niedersachsen 2024, Mittel (landesweit) 9,00; Angebotsmiete Neubau Niedersachsen 2024, Median (landesweit) 11,22. Achse ab 0 Euro."><path class="p07-area" d="M8.4 81.63V38.79H29.63V36.21H50.85V33.43H72.08V81.63Z"/><line class="p07-sep" x1="29.63" y1="81.63" x2="29.63" y2="38.79"/><line class="p07-sep" x1="50.85" y1="81.63" x2="50.85" y2="36.21"/><line class="p07-ref" x1="8.4" y1="24.93" x2="29.63" y2="24.93"/><text class="t-val-ink p07-refval" x="9.8" y="23.83">9,00</text><text class="p07-reft" x="31.43" y="17.58">Angebotsmiete</text><text class="p07-reft" x="31.43" y="20.98">Niedersachsen 2024,</text><text class="p07-reft" x="31.43" y="24.38">Mittel (landesweit)</text><line class="p07-ref" x1="8.4" y1="10.94" x2="29.63" y2="10.94"/><text class="t-val-ink p07-refval" x="9.8" y="9.84">11,22</text><text class="p07-reft" x="31.43" y="3.59">Angebotsmiete Neubau</text><text class="p07-reft" x="31.43" y="6.99">Niedersachsen 2024,</text><text class="p07-reft" x="31.43" y="10.39">Median (landesweit)</text><path class="p07-path" d="M8.4 38.79H29.63V36.21H50.85V33.43H72.08"/><text class="t-num p07-step" x="9.8" y="43.69">6,80</text><text class="p07-max" x="31.03" y="40.11">höchstens</text><text class="t-num p07-step" x="31.03" y="44.91">7,21</text><text class="p07-max" x="52.25" y="37.33">höchstens</text><text class="t-num p07-step" x="52.25" y="42.13">7,65</text><line class="ax" x1="8.4" y1="81.63" x2="72.08" y2="81.63"/><line class="p07-yax" x1="8.4" y1="6.03" x2="8.4" y2="81.63"/><line class="tick" x1="7" y1="81.63" x2="8.4" y2="81.63"/><text class="t-ax t-end" x="6.4" y="82.68">0</text><line class="tick" x1="7.6" y1="75.33" x2="8.4" y2="75.33"/><line class="tick" x1="7" y1="69.03" x2="8.4" y2="69.03"/><text class="t-ax t-end" x="6.4" y="70.08">2</text><line class="tick" x1="7.6" y1="62.73" x2="8.4" y2="62.73"/><line class="tick" x1="7" y1="56.43" x2="8.4" y2="56.43"/><text class="t-ax t-end" x="6.4" y="57.48">4</text><line class="tick" x1="7.6" y1="50.13" x2="8.4" y2="50.13"/><line class="tick" x1="7" y1="43.83" x2="8.4" y2="43.83"/><text class="t-ax t-end" x="6.4" y="44.88">6</text><line class="tick" x1="7.6" y1="37.53" x2="8.4" y2="37.53"/><line class="tick" x1="7" y1="31.23" x2="8.4" y2="31.23"/><text class="t-ax t-end" x="6.4" y="32.28">8</text><line class="tick" x1="7.6" y1="24.93" x2="8.4" y2="24.93"/><line class="tick" x1="7" y1="18.63" x2="8.4" y2="18.63"/><text class="t-ax t-end" x="6.4" y="19.68">10</text><line class="tick" x1="7.6" y1="12.33" x2="8.4" y2="12.33"/><line class="tick" x1="7" y1="6.03" x2="8.4" y2="6.03"/><text class="t-ax t-end" x="6.4" y="7.08">12</text><line class="tick" x1="29.63" y1="81.63" x2="29.63" y2="83.23"/><line class="tick" x1="50.85" y1="81.63" x2="50.85" y2="83.23"/><text class="t-b" x="9.8" y="86.23">Jahr 1–3</text><text class="t-b" x="31.03" y="86.23">ab Jahr 4</text><text class="t-b" x="52.25" y="86.23">ab Jahr 7</text></svg>
         <p class="chart__note">Ab Jahr 4 höchstens +6,15&nbsp;% in drei Jahren, auch bei Wiedervermietung; keine Staffel- oder Indexmiete.</p>
       </figure>
-      <aside class="callout callout--tipp callout--calc p07-calc">
-        <p class="callout__label"><svg class="icon icon--rechner" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.8" width="14" height="18.4" rx="1"/><path d="M8 6.4h8v3.4H8z"/><path d="M8.4 13.4h.01M12 13.4h.01M15.6 13.4h.01M8.4 17.2h.01M12 17.2h.01M15.6 17.2h.01" stroke-width="2"/></svg>Kalkulationsnotiz</p>
-        <p class="callout__body">Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete: Selbst nach zwei Erhöhungen liegt die Fördermiete mit höchstens 7,65&nbsp;€ unter dem Landes&shy;mittel 2024 von 9,00&nbsp;€.</p>
-      </aside>
     </div>
   </div>
 
@@ -123,25 +127,25 @@
         <div class="p07-ms__row"><dt>IV</dt><dd>Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg</dd></div>
         <div class="p07-ms__row"><dt>I–III</dt><dd>übrige Festlandgemeinden</dd></div>
       </dl>
-      <p class="facts__text p07-ms__end">Stufe VII gibt es in Niedersachsen nicht. Zuordnung nach Wohngeldrecht seit 2023; neue Stufen sind ab 2027 geplant <a class="pageref" href="#seite-16">→&nbsp;S.&nbsp;15</a>.</p>
+      <p class="facts__text p07-ms__end">Stufe VII gibt es in Niedersachsen nicht. Zuordnung nach Wohngeldrecht seit 2023; neue Stufen sind ab 2027 geplant <a class="pageref" href="#seite-16">→&nbsp;S.&nbsp;16</a>.</p>
     </section>
 
     <section class="module l-span-7 p07-rules" aria-labelledby="p07-rules-h">
-      <h2 class="chart__title" id="p07-rules-h">Spielregeln</h2>
+      <h2 class="chart__title" id="p07-rules-h">Vermietungsbedingungen</h2>
       <ul class="checklist checklist--compact p07-rules__list">
-        <li class="checklist__item"><i class="mark mark--s mark--yes" aria-hidden="true"></i><span>nur an Haushalte mit WBS, auch bei Wiedervermietung</span></li>
-        <li class="checklist__item"><i class="mark mark--s mark--yes" aria-hidden="true"></i><span>unbefristeter Mietvertrag, der die Förderbestimmungen zur Mietbindung wiedergibt; Wohnung bezugsfertig übergeben</span></li>
-        <li class="checklist__item"><i class="mark mark--s mark--yes" aria-hidden="true"></i><span>Stellplätze getrennt vermietbar, nicht an die Wohnung gekoppelt</span></li>
-        <li class="checklist__item"><i class="mark mark--s mark--no" aria-hidden="true"></i><span>keine Zuschläge (Ausstattung, Keller, Energie- und Wärmeeinrichtungen); Zusatzleistungen nur freiwillig</span></li>
-        <li class="checklist__item"><i class="mark mark--s mark--no" aria-hidden="true"></i><span>keine Abwälzung von Kosten für Bezugsfertigkeit oder Instandhaltung über das BGB-Mietrecht hinaus</span></li>
-        <li class="checklist__item"><i class="mark mark--s mark--no" aria-hidden="true"></i><span>keine Zwischenvermietung (Ausnahmen, z.&nbsp;B. <span lang="en">Housing</span> <span class="u-nowrap"><span lang="en">First</span> <a class="pageref" href="#seite-8">→&nbsp;S.&nbsp;8</a>)</span></span></li>
-        <li class="checklist__item"><i class="mark mark--s mark--warn" aria-hidden="true"></i><span>Verstöße (ohne WBS, überhöhte Miete) kosten Geldleistungen bis 5&nbsp;€ je&nbsp;m² und Monat und Bußgeld bis 10.000&nbsp;€; bei Vermietung ohne WBS drohen Kündigung und Räumung, die Förderung kann zurückgefordert werden.</span></li>
+        <li class="checklist__item"><svg class="p07-mk" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle class="p07-mk__yes" cx="20" cy="20" r="17"/><path class="p07-mk__glyph" d="M11.69 19.12L17.35 24.77L28.31 13.81"/></svg><span>nur an Haushalte mit WBS, auch bei Wiedervermietung</span></li>
+        <li class="checklist__item"><svg class="p07-mk" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle class="p07-mk__yes" cx="20" cy="20" r="17"/><path class="p07-mk__glyph" d="M11.69 19.12L17.35 24.77L28.31 13.81"/></svg><span>unbefristeter Mietvertrag, der die Förderbestimmungen zur Mietbindung wiedergibt; Wohnung bezugsfertig übergeben</span></li>
+        <li class="checklist__item"><svg class="p07-mk" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle class="p07-mk__yes" cx="20" cy="20" r="17"/><path class="p07-mk__glyph" d="M11.69 19.12L17.35 24.77L28.31 13.81"/></svg><span>Stellplätze getrennt vermietbar, nicht an die Wohnung gekoppelt</span></li>
+        <li class="checklist__item"><svg class="p07-mk" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle class="p07-mk__no" cx="20" cy="20" r="17"/><path class="p07-mk__glyph" d="M11.87 11.87L28.13 28.13M28.13 11.87L11.87 28.13"/></svg><span>keine Zuschläge (Ausstattung, Keller, Energie- und Wärmeeinrichtungen); Zusatzleistungen nur freiwillig</span></li>
+        <li class="checklist__item"><svg class="p07-mk" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle class="p07-mk__no" cx="20" cy="20" r="17"/><path class="p07-mk__glyph" d="M11.87 11.87L28.13 28.13M28.13 11.87L11.87 28.13"/></svg><span>keine Abwälzung von Kosten für Bezugsfertigkeit oder Instandhaltung über das BGB-Mietrecht hinaus</span></li>
+        <li class="checklist__item"><svg class="p07-mk" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle class="p07-mk__no" cx="20" cy="20" r="17"/><path class="p07-mk__glyph" d="M11.87 11.87L28.13 28.13M28.13 11.87L11.87 28.13"/></svg><span>keine Zwischenvermietung (Ausnahmen, z.&nbsp;B. <span lang="en">Housing</span> <span class="u-nowrap"><span lang="en">First</span> <a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a>)</span></span></li>
+        <li class="checklist__item"><svg class="p07-mk" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path class="p07-mk__warn" d="M20 0L40 20L20 40L0 20Z"/><path class="p07-mk__on-warn" d="M18 10.6H22V23H18ZM18 25.4H22V29.4H18Z"/></svg><span>Verstöße (ohne WBS, überhöhte Miete): Geldleistungen bis 5&nbsp;€ je&nbsp;m² und Monat, Bußgeld bis 10.000&nbsp;€; bei Vermietung ohne WBS zudem Kündigung und Räumung. Die Förderung kann zurückgefordert werden.</span></li>
       </ul>
     </section>
   </div>
 
   <footer class="page__foot" aria-hidden="true">
     <span class="page__folio">7</span>
-    <span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Ertragsseite · Mieten</b></span><span>Stand: 21.10.2026</span></span>
+    <span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Ertragsseite · Mieten</b></span></span>
   </footer>
 </section>

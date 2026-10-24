@@ -6,7 +6,7 @@
   "kicker": "Mit PGN",
   "headline": "So begleiten wir Ihr Förderprojekt",
   "subline": "Ein Ansprechpartner für alles – von der ersten Idee bis zur Objektübergabe.",
-  "lead": "Wir achten darauf, dass Planung, Kosten und Unterlagen zu den Förderregeln passen – und dass kein Vertrag zu früh unterschrieben wird. Antrag und Entscheidung liegen bei Wohnraumförderstelle und NBank (→ S. 19).",
+  "lead": "",
   "blocks": [
     {
       "type": "services",
@@ -17,42 +17,42 @@
           "icon": "lupe",
           "title": "Förderung und Machbarkeit",
           "phase": "Vor dem Vorgespräch",
-          "body": "Wir klären Programmteil, Standort und Mieterkreis – und rechnen, ob die Miete Finanzierung und Bewirtschaftung trägt (→ S. 11)."
+          "body": "Wir klären Programmteil, Standort und Mieterkreis und ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung (→ S. 11)."
         },
         {
           "n": 2,
           "icon": "grundriss",
-          "title": "Planung nach Förderregeln",
+          "title": "Förderkonforme Planung",
           "phase": "Leistungsphasen 1–4",
-          "body": "Wir planen angemessene Wohnungsgrößen (→ S. 6), Freisitze bis zu einem Zehntel davon – auf Wunsch rollstuhlgerecht oder auf EH-40-Niveau."
+          "body": "Wir planen Grundrisse, Wohnungsgrößen und Baustandard nach den Anforderungen des jeweiligen Programmteils."
         },
         {
           "n": 3,
           "icon": "rechner",
-          "title": "Kosten im Griff",
-          "phase": "Leistungsphasen 2–3, dann laufend",
-          "body": "Wir steuern die Herstellungskosten mit Blick auf die Bemessungsgrenze; was darüber liegt, finanzieren Sie ohne Förderung (→ S. 8)."
+          "title": "Kostenplanung",
+          "phase": "Leistungsphasen 2–8",
+          "body": "Wir planen und steuern die Kosten von der Kostenschätzung bis zur Kostenfeststellung, mit Blick auf die Bemessungsgrenzen (→ S. 8)."
         },
         {
           "n": 4,
           "icon": "ordner",
           "title": "Antragsunterlagen",
           "phase": "Vorgespräch und Antrag",
-          "body": "Wir erstellen Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung – und kommen mit zum Vorgespräch."
+          "body": "Wir erstellen die baufachlichen Antragsunterlagen: Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung."
         },
         {
           "n": 5,
           "icon": "handschlag",
           "title": "Ausführungsplanung und Vergabe",
           "phase": "Leistungsphasen 5–7",
-          "body": "Nach der Bewilligung fordern wir mindestens drei Unternehmen zum Angebot auf und dokumentieren die Vergabe."
+          "body": "Wir schreiben die Bauleistungen richtlinienkonform aus und vergeben sie nach der Bewilligung."
         },
         {
           "n": 6,
           "icon": "kran",
           "title": "Bauleitung",
           "phase": "Leistungsphase 8",
-          "body": "Wir halten Termine und Kosten im Blick und dokumentieren den Baufortschritt – auch per Drohne – für jede Teilrate (→ S. 9)."
+          "body": "Wir überwachen Ausführung und Termine und dokumentieren den Baufortschritt für die Auszahlung der Teilraten (→ S. 9)."
         },
         {
           "n": 7,
@@ -123,15 +123,13 @@
       "type": "text",
       "role_hint": "modul-flaeche",
       "heading": "Für Kommunen",
-      "body": "Unsere Stadtplanung erarbeitet Bebauungspläne. Legt die Gemeinde darin geförderte Mietwohnungen fest, gilt für diese Wohnungen der Bedarf als gegeben (→ S. 18)."
+      "body": "Unsere Stadtplanung erarbeitet Bebauungspläne – auch mit Festlegungen für geförderten Mietwohnraum. Für die so festgelegten Wohnungen gilt der Bedarf als gegeben (→ S. 18)."
     }
   ],
   "footnotes": [],
   "fact_ids": [
     "F003",
     "F053",
-    "F062",
-    "F064",
     "F079",
     "F085",
     "F097",
@@ -158,7 +156,7 @@
     "pgn-facts.md §5 „Alles aus einem Haus …“ und §6 Generalplanung „in allen Leistungsphasen sämtlicher Fachbereiche“",
     "pgn-facts.md §6 Architektur, Tragwerksplanung (HOAI § 49, Wärme- und Schallschutznachweise), Haustechnik LPH 1–9",
     "pgn-facts.md §6 Projektcontrolling „Mit der Finanzierung im Hinterkopf …“; §5 Kostensicherheit „Wir planen Kosten ein, wir setzen Termine und halten sie ein.“",
-    "pgn-facts.md §6/§9 Drohnenbilder „für die Baustellendokumentation“; §2 Felix Räke, Prokurist Bauleitung",
+    "pgn-facts.md §2 Felix Räke, Prokurist Bauleitung",
     "pgn-facts.md §1/§6 PGN Projektgesellschaft Nord GmbH: „Im Rahmen eines Generalübernehmervertrages bieten wir Ihnen die schlüsselfertige Erstellung von Wohn- und Gewerbebauten an. Planungs- und Ingenieurleistungen inklusive.“",
     "pgn-facts.md §6 Stadt- & Landschaftsplanung: Bauleitplanung, Städtebauliche Rahmenpläne, „Für Kommunen, Städte und privat Bauende“"
   ],
@@ -167,8 +165,8 @@
     "PGN: Bestätigen, dass Planungsverträge für geförderte Projekte gestuft geschlossen werden (LPH 1–6 vor, ab LPH 7 nach der Bewilligung).",
     "PGN Projektgesellschaft Nord GmbH: Erteilt sie als Generalübernehmer die schriftliche Prüfzustimmung (Kalkulation, Nachunternehmervergabe, Abrechnung) für NBank und Landesrechnungshof? Wenn ja, Satz ergänzen: „Diese Zustimmung geben wir.“ Intern beachten: Der GÜ-Auftrag ist ein Werkvertrag – vor der Bewilligung geschlossen, ist er Vorhabenbeginn; eine Direktvergabe ohne Aufforderung von mindestens drei Unternehmen deckt die Richtlinie nicht.",
     "PGN: Übernimmt PGN die Erstellung des Verwendungsnachweises (Sachbericht und zahlenmäßiger Nachweis)? Wenn ja, freigeben; bis dahin nennt Station 7 nur die Zulieferung der Bau- und Kostendaten.",
-    "PGN: Begleitung zum Vorgespräch (Station 4) als Leistung bestätigen.",
-    "PGN: Teamfoto slider/planung_big.jpg – Nutzungsrecht und Einverständnis der abgebildeten Personen."
+    "PGN: Teamfoto slider/planung_big.jpg – Nutzungsrecht und Einverständnis der abgebildeten Personen.",
+    "Korrekturlauf 1 (Kunde PGN, Kommentare S. 20; ENTSCHEIDUNGEN.md B): Vorspann gestrichen – Planung, Kosten, Unterlagen und „kein Vertrag zu früh“ tragen Stationen und HOAI-Skala, die Zuständigkeit von Wohnraumförderstelle und NBank S. 19 und das Kontaktfeld „Antragstellung“ auf S. 21. Leistungen allgemein und ohne Detailversprechen: Station 1 ohne „rechnen, ob die Miete … trägt“ (PGN liefert Flächen und Kosten, die Wirtschaftlichkeitsberechnung ist Sache des Bauherrn; vgl. S. 11), Station 2 ohne Freisitz-Zehntel, Rollstuhl- und EH-40-Hinweis (steht auf S. 6 bzw. ist Standard), Station 3 „Kosten im Griff“ → „Kostenplanung“ ohne Belehrung „was darüber liegt, finanzieren Sie ohne Förderung“, Station 4 ohne „kommen mit zum Vorgespräch“, Station 5 „richtlinienkonform ausschreiben und vergeben“ statt „mindestens drei Unternehmen“ (die RL-Regel steht auf S. 21 unter „Vergabe?“), Station 6 ohne Drohne. „Für Kommunen“ auf ein Thema gebracht: Bebauungsplan mit Festlegung geförderter Wohnungen → Bedarf gilt als gegeben (RL Nr. 5.2.1, Rang 6). Bewilligungsmarke ohne „±0“ (kein Wortspiel). „Schlüsselfertig“ unverändert: Die drei Bedingungen sind förderentscheidend (REDAKTIONSREGELN §3)."
   ],
-  "visual_idea": "Doppelseite 20|21 „Umsetzung“ (wie der Kolumnentitel; „Mit PGN“ nur als Kicker dieser Seite, nicht über S. 21), Register in PGN-Rot #B71E3F, eckig. Kopf im PGN-CI: Kicker „Mit PGN“ als Versal-Label in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat 600 Versalien (Website-Claim), Lead in Work Sans. Dominantes Element über die volle Breite: Prozess als senkrechte Liste mit sieben Zeilen im Raster Marke | Phase | Titel | Text (je Station ein Satz, höchstens zwei Zeilen; ein waagrechtes Band mit sieben Spalten à ca. 22 mm trägt diese Texte nicht), quadratische Stationsmarken (Ziffer in Montserrat Black, weiß auf PGN-Rot) in der Größe deckungsgleich mit den Marken der Swimlane auf S. 19, verbunden durch eine senkrechte 1-pt-Linie in Anthrazit; je Station Linienicon in Anthrazit (Lupe, Grundriss, Rechner, Ordner, Handschlag, Kran, Haken), Phasen-Label in Montserrat 600 Versalien in PGN-Rot, Titel in Montserrat 700 Versalien, Text in Work Sans. Bezug zu S. 19: Station 1 vor dem Vorgespräch, 4 bis zum Antrag, 6 und 7 parallel zu Bauen, Auszahlung, Fertigstellung, Verwendungsnachweis. Direkt darunter das Bildmotiv der Seite: dünne HOAI-Skala LPH 1–9 (neun gleich breite Felder auf #F4F3F2, Ziffer und Kurzname), rote senkrechte 2-pt-Marke „Bewilligung“ zwischen LPH 6 und 7; links davon klein „Planungsauftrag LPH 1–6: vor der Bewilligung möglich“, rechts „ab LPH 7: erst nach der Bewilligung“. Die Skala trägt die gestufte Beauftragung allein; die Zuordnung der Stationen zu den Leistungsphasen leistet die Phasen-Spalte der Liste. Untere Zeile zwei Module nebeneinander: „Schlüsselfertig“ als einzige grüne Fläche der Seite (#26772B, weiße Schrift, Kopfzeile „PGN Projektgesellschaft Nord GmbH“ klein, optional logo-gruen.svg auf weißem Streifen) und „Für Kommunen“ auf #F4F3F2 mit senkrechter 2-pt-Linie in Anthrazit links (Leistungs-Panel-Muster der Website). Optional kleines Teamfoto (slider/planung_big.jpg, noch nicht geladen, Rechte klären) im Kopf rechts; kein Baustellenfoto Eichenweg (PGN-Rolle unbelegt). Kein Achtung-Kasten, keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile, keine Superlative."
+  "visual_idea": "Doppelseite 20|21 „Umsetzung“ (wie der Kolumnentitel; „Mit PGN“ nur als Kicker dieser Seite, nicht über S. 21), Register in PGN-Rot #B71E3F, eckig. Kopf im PGN-CI: Kicker „Mit PGN“ als Versal-Label in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat 600 Versalien (Website-Claim); kein Vorspann (Korrekturlauf 1). Dominantes Element über die volle Breite: Prozess als senkrechte Liste mit sieben Zeilen im Raster Marke | Phase | Titel | Text (je Station ein Satz, höchstens zwei Zeilen; ein waagrechtes Band mit sieben Spalten à ca. 22 mm trägt diese Texte nicht), quadratische Stationsmarken (Ziffer in Montserrat Black, weiß auf PGN-Rot) in der Größe deckungsgleich mit den Marken der Swimlane auf S. 19, verbunden durch eine senkrechte 1-pt-Linie in Anthrazit; je Station Linienicon in Anthrazit (Lupe, Grundriss, Rechner, Ordner, Handschlag, Kran, Haken), Phasen-Label in Montserrat 600 Versalien in PGN-Rot, Titel in Montserrat 700 Versalien, Text in Work Sans. Bezug zu S. 19: Station 1 vor dem Vorgespräch, 4 bis zum Antrag, 6 und 7 parallel zu Bauen, Auszahlung, Fertigstellung, Verwendungsnachweis. Direkt darunter das Bildmotiv der Seite: dünne HOAI-Skala LPH 1–9 (neun gleich breite Felder auf #F4F3F2, Ziffer und Kurzname), rote senkrechte 2-pt-Marke „Bewilligung“ (ohne „±0“) zwischen LPH 6 und 7; links davon klein „Planungsauftrag LPH 1–6: vor der Bewilligung möglich“, rechts „ab LPH 7: erst nach der Bewilligung“. Die Skala trägt die gestufte Beauftragung allein; die Zuordnung der Stationen zu den Leistungsphasen leistet die Phasen-Spalte der Liste. Untere Zeile zwei Module nebeneinander: „Schlüsselfertig“ als einzige grüne Fläche der Seite (#26772B, weiße Schrift, Kopfzeile „PGN Projektgesellschaft Nord GmbH“ klein, optional logo-gruen.svg auf weißem Streifen) und „Für Kommunen“ auf #F4F3F2 mit senkrechter 2-pt-Linie in Anthrazit links (Leistungs-Panel-Muster der Website). Optional kleines Teamfoto (slider/planung_big.jpg, noch nicht geladen, Rechte klären) im Kopf rechts; kein Baustellenfoto Eichenweg (PGN-Rolle unbelegt). Kein Achtung-Kasten, keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile, keine Superlative."
 }

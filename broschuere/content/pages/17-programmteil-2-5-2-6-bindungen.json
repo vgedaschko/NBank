@@ -1,0 +1,146 @@
+{
+  "no": 17,
+  "slug": "programmteil-2-5-2-6-bindungen",
+  "layout_type": "program-detail",
+  "running_title": "Bestand · Programmteile 2.5 und 2.6",
+  "kicker": "Belegungs- und Mietbindungen im Bestand",
+  "headline": "Bindungen erwerben oder verlängern",
+  "subline": "Festbetrag 2,00–3,00 € je m² und Monat · Zinsverbilligung auf 0 %",
+  "lead": "Ohne Baumaßnahme: 2.5 vergütet neue Bindungen an freien Wohnungen, 2.6 verlängert planmäßig auslaufende Landesbindungen.",
+  "blocks": [
+    {
+      "type": "table",
+      "variant": "compare",
+      "role_hint": "dominant",
+      "caption": "Programmteile 2.5 und 2.6 im Vergleich",
+      "caption_visible": false,
+      "columns": [
+        "",
+        {
+          "no": "2.5",
+          "title": "Bindungen erwerben",
+          "token": "--bs-25"
+        },
+        {
+          "no": "2.6",
+          "title": "Bindungen verlängern",
+          "token": "--bs-26"
+        }
+      ],
+      "rows": [
+        {
+          "label": "Förderung",
+          "figures": [
+            {
+              "value": "2,00–3,00",
+              "unit": "€"
+            },
+            {
+              "value": "0",
+              "unit": "%"
+            }
+          ],
+          "cells": [
+            "Zuschuss je m² Wohnfläche und Monat der Bindung: ab 5 Jahren **2,00 €**, ab 10 Jahren **2,50 €**, 15–20 Jahre **3,00 €**; 60 m² über 20 Jahre: **43.200 €**",
+            "Zinsverbilligung für bis zu **100 %** der Restschuld, solange das NBank-Darlehen läuft, längstens **20 Jahre**; nicht rückzahlbar, kein neues Darlehen"
+          ]
+        },
+        {
+          "label": "Wohnung",
+          "cells": [
+            "frei, ohne andere Belegungsbindung; nicht im direkten Anschluss an eine auslaufende Bindung (dafür 2.6)",
+            "vom Land gefördert, Bindung läuft planmäßig aus – nicht bereits ausgelaufen; Bedarf besteht fort (→ S. 18)"
+          ]
+        },
+        {
+          "label": "Zustand, Größe",
+          "both": "abgeschlossen, zur dauernden Wohnnutzung geeignet, gut erhalten, angemessen groß, mit Mindestausstattung (u. a. Heizung, Bad, Küchenanschluss)"
+        },
+        {
+          "label": "Berechtigt",
+          "cells": [
+            "Eigentum, Erbbaurecht oder vergleichbares langfristiges Nutzungsrecht",
+            "Eigentum und Rückzahlungspflicht für das laufende NBank-Darlehen"
+          ]
+        },
+        {
+          "label": "Mieterkreis",
+          "cells": [
+            "nur Einkommensgruppe A; bei Bindung für eine besondere Bedarfsgruppe ausschließlich an diese (wohnungsbezogener WBS)",
+            "bestehende Belegungs- und Mietbindung läuft unverändert weiter"
+          ]
+        },
+        {
+          "label": "Bindung",
+          "cells": [
+            "5 bis 20 Jahre ab der ersten Belegung mit einem WBS-Haushalt; grundsätzlich per Dienstbarkeit im Grundbuch gesichert",
+            "verlängert bis zum Monatsende der letzten Darlehensrate, spätestens 20 Jahre nach dem ursprünglichen Bindungsende"
+          ]
+        },
+        {
+          "label": "Miete Jahr 1–3",
+          "cells": [
+            "höchstens **6,50 €** (Mietenstufe I–III) bzw. **6,80 €** (IV–VII) je m², ab EH-40-Niveau bis zu +0,30 €; keine Erhöhung",
+            "bisherige Nettokaltmiete; keine Erhöhung, auch nicht bei Wiedervermietung"
+          ]
+        },
+        {
+          "label": "Miete ab Jahr 4",
+          "both": "Erhöhung höchstens **+6,15 %** in drei Jahren (Betriebskosten ausgenommen); die Grenze gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete (→ S. 7)"
+        },
+        {
+          "label": "Auszahlung",
+          "cells": [
+            "je zur Hälfte nach der Erstbelegung und nach halber Bindungsdauer; **0,75 %** Bearbeitungsentgelt auf den Zuschuss, einbehalten mit der ersten Rate",
+            "keine – Verrechnung mit den fälligen Raten; Tilgung und Verwaltungskostenbeitrag laufen weiter; **0,75 %** Bearbeitungsentgelt auf die Zinsverbilligung"
+          ]
+        },
+        {
+          "label": "Antrag",
+          "cells": [
+            "bei der Wohnraumförderstelle, die die Wohnung besichtigt. **Vor der Bewilligung weder Mietvertrag noch Überlassung** – sonst keine Förderung",
+            "Prolongationsangebot der NBank (mit Vordruck 1011b) in der Regel 24 Wochen vor Ablauf der Zinsfreistellung; danach Antrag bei der Wohnraumförderstelle, angenommenes Angebot an die NBank"
+          ]
+        }
+      ],
+      "note": "Zeilen mit „both“ gelten für 2.5 und 2.6 (Zelle über beide Spalten, Chips 2.5 | 2.6)."
+    }
+  ],
+  "footnotes": [],
+  "fact_ids": [
+    "F189",
+    "F190",
+    "F191",
+    "F192",
+    "F193",
+    "F194",
+    "F195",
+    "F196",
+    "F197",
+    "F198",
+    "F199",
+    "F200",
+    "F201",
+    "F202",
+    "F203",
+    "F204",
+    "F205",
+    "F206",
+    "F207",
+    "F208",
+    "F209",
+    "F210",
+    "F211",
+    "F213",
+    "F220",
+    "F221",
+    "F222",
+    "F042",
+    "F078",
+    "F242",
+    "F244",
+    "F255",
+    "F279"
+  ],
+  "visual_idea": "Korrekturlauf 1: 2.5 und 2.6 kompakt auf einer Seite („der Vollständigkeit halber“). Rechte Seite der Bestandsdoppelseite 16|17. Zwei Daumenregister 2.5 (--bs-25) und 2.6 (--bs-26) am Außenrand, Schlüsselplan mit beiden Programmteilen aktiv. Kopf wie die übrigen Programmseiten (program-head--master): Kicker als Versal-Label, Headline in Montserrat Black Versalien mit roter Titellinie, Signaturwort „Bindungen“; Subline mit den beiden Kennwerten; Lead zweizeilig. Nummernblock außen: „2.5“ und „2.6“ übereinander in den Programmfarben (46 pt), darunter „Programmteile“ und die Chips „Zuschuss“ | „Zinsverbilligung“. Dominant: Eckdaten-Vergleich über die volle Satzbreite im Spaltenraster der Vergleichstabelle auf S. 16 (Bezeichnung 2 Spalten + Steg | 2.5 Spalten 3–7 + Steg | 2.6 Spalten 8–12); Spaltenköpfe mit Balken in der Programmfarbe und Nummernchip; erste Zeile „Förderung“ mit den Kennwerten 2,00–3,00 € und 0 % in Montserrat 800 (21 pt, Einheit rot); Zeilen, die für beide Programmteile gelten (Zustand/Größe, Miete ab Jahr 4), laufen über beide Spalten und tragen die Chips 2.5 | 2.6; Stopp-Marke vor „Vor der Bewilligung weder Mietvertrag noch Überlassung“. Kein Diagramm, kein Stempel, keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile."
+}

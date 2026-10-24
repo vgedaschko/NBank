@@ -66,7 +66,7 @@
         },
         {
           "variant": "stichtag",
-          "prefix": "Und ein Stichtag",
+          "prefix": "Stichtag",
           "value": "31.12.2026",
           "unit": "",
           "label": "Wahlrecht für Modernisierungsanträge",
@@ -82,37 +82,39 @@
     },
     {
       "type": "chart",
-      "chart": "compare",
+      "chart": "units",
       "title": "Markt in Niedersachsen",
       "data": {
-        "hero": {
-          "value": "50.495",
-          "label": "Sozialwohnungen 2024",
-          "note": "gegenüber 2015 nahezu halbiert"
+        "message": "Seit 2015 hat die Neuförderung nur 28 % der ausgelaufenen Sozialbindungen ersetzt.",
+        "message_highlight": "28 %",
+        "units": {
+          "period": "2015–2024 (31.12.2015–31.12.2024)",
+          "unit_value": 1000,
+          "unit_label": "1 Quadrat = 1.000 Wohnungen",
+          "layout": "2 Reihen × 29 Spalten, spaltenweise gefüllt",
+          "total": {
+            "label": "Bindungen ausgelaufen",
+            "value": 58024,
+            "display": "58.024",
+            "units": 58
+          },
+          "part": {
+            "label": "neu gefördert",
+            "value": 16052,
+            "display": "rund 16.000",
+            "units": 16,
+            "token": "--grant"
+          },
+          "rest": {
+            "label": "nicht ersetzt",
+            "units": 42
+          }
         },
-        "bars": {
-          "period": "2015–2024",
-          "unit": "Wohnungen",
-          "items": [
-            {
-              "label": "Bindungen ausgelaufen",
-              "value": 58024,
-              "display": "58.024",
-              "token": "--old"
-            },
-            {
-              "label": "neu gefördert",
-              "value": 16052,
-              "display": "rund 16.000",
-              "token": "--color-accent"
-            }
-          ]
-        },
-        "ring": {
-          "value": 28,
-          "display": "28 %",
-          "label": "der Abgänge ersetzt"
-        },
+        "dimension_chain": "Gesamtmaß „2015–2024: 58.024 Bindungen ausgelaufen“; Teilmaß „rund 16.000 neu gefördert“ | „nicht ersetzt“",
+        "foot": [
+          "1 Quadrat = 1.000 Wohnungen",
+          "Bestand 2024: 50.495 Sozialwohnungen, gegenüber 2015 nahezu halbiert"
+        ],
         "ref": "Wo Bedarf gilt → S. 18"
       }
     }
@@ -143,5 +145,5 @@
     "F306",
     "F307"
   ],
-  "visual_idea": "Das Kachelraster ist das dominante Element: 4 × 2 Zellen auf Weiß, getrennt durch feine Anthrazit-Haarlinien, keine Rundungen, keine Schatten. Je Kachel oben rechts der Programmteil-Chip (eckig, Baustein-Farbe, Ziffer eingeschrieben; Kachel 3 zweigeteilt 2.1/2.4), darunter der Vorsatz („bis zu“, „Ausgangswerte“, „Festbetrag“) klein in Montserrat 600 Versalien, die Ziffer groß in Montserrat Black in PGN-Rot, Einheit kleiner daneben, Label in Montserrat 600 Versalien, Notiz in Work Sans (nicht unter 9 pt, höchstens drei Zeilen). Achte Zelle „Und ein Stichtag 31.12.2026“ im normalen Rasterstil wie die übrigen sieben (Weiß, Haarlinien, gleicher Aufbau) – keine Signalfläche, kein Achtung-Symbol; Signalfarbe höchstens als kleiner eckiger Datums-Chip am Datum (die beiden Achtung-Kästen der Broschüre stehen auf S. 19 und S. 16). Begriff „zuwendungsfähige Kosten“ als schmale Marginalie neben der Headline (ein Satz, Work Sans, rote 2-pt-Linie links). Kein Lead – die Kacheln sind der Einstieg. Viel Weißraum zwischen Raster und Band. Unten das Marktband über die volle Breite auf Anthrazit-Verlauf 160° #3C3C3B → #202020: links die Hero-Zahl 50.495 in Montserrat Black weiß mit Label „Sozialwohnungen 2024“, rechts das Balkenpaar 58.024 (Grau) gegen rund 16.000 (PGN-Rot) für 2015–2024 mit Ring „28 % der Abgänge ersetzt“; Seitenverweis-Chip „Wo Bedarf gilt → S. 18“ im Bandkopf. Keine Fußnote, keine Quellenzeile, keine Kurzmarke (Quelle der Marktzahlen steht auf U3)."
+  "visual_idea": "Das Kachelraster ist das dominante Element: 4 × 2 Zellen auf Weiß, getrennt durch feine Anthrazit-Haarlinien, keine Rundungen, keine Schatten. Je Kachel oben rechts der Programmteil-Chip (eckig, Baustein-Farbe, Ziffer eingeschrieben; Kachel 3 zweigeteilt 2.1/2.4), darunter der Vorsatz („bis zu“, „Ausgangswerte“, „Festbetrag“) klein in Montserrat 600 Versalien, die Ziffer groß in Montserrat Black in PGN-Rot, Einheit kleiner daneben, Label in Montserrat 600 Versalien, Notiz in Work Sans (nicht unter 9 pt, höchstens drei Zeilen). Achte Zelle „Stichtag 31.12.2026“ im normalen Rasterstil wie die übrigen sieben (Weiß, Haarlinien, gleicher Aufbau) – keine Signalfläche, kein Achtung-Symbol; Signalfarbe höchstens als kleiner eckiger Datums-Chip am Datum (die beiden Achtung-Kästen der Broschüre stehen auf S. 19 und S. 16). Begriff „zuwendungsfähige Kosten“ als schmale Marginalie neben der Headline (ein Satz, Work Sans, rote 2-pt-Linie links). Kein Lead – die Kacheln sind der Einstieg. Viel Weißraum zwischen Raster und Band. Unten das Marktband über die volle Breite auf Anthrazit-Verlauf 160° #3C3C3B → #202020 (Korrekturlauf 1: eine Kernbotschaft, ein Diagramm): Kopf „Markt in Niedersachsen“ mit Seitenverweis-Chip „Wo Bedarf gilt → S. 18“; darunter die Kernbotschaft als Satz in Montserrat 800, 15 pt weiß, „28 %“ in der Zuschussfarbe auf Anthrazit; darunter über die volle Breite ein Einheitendiagramm – 58 Quadrate (2 × 29, 1 Quadrat = 1.000 Wohnungen), die ersten 16 gefüllt (neu gefördert), 42 offen (nicht ersetzt) – mit zweistufiger Maßkette im Planwerk-Stil (Gesamtmaß 58.024 ausgelaufen, Teilmaß rund 16.000 neu gefördert | nicht ersetzt); Fußzeile klein: Einheit links, Bestand 2024 (50.495, gegenüber 2015 nahezu halbiert) rechts. Kein Ring, keine Hero-Zahl, kein zweites Diagramm. Keine Fußnote, keine Quellenzeile, keine Kurzmarke (Quelle der Marktzahlen steht auf U3)."
 }

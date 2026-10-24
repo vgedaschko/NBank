@@ -33,22 +33,22 @@
           "value": "DE 116 324 794"
         },
         {
-          "label": "Verantwortlich für den Inhalt",
-          "value": "[PGN: Name bestätigen]"
+          "label": "Bildnachweis",
+          "value": "Alle Visualisierungen, Zeichnungen und Diagramme: Planungsgemeinschaft Nord GmbH"
         }
       ]
     },
     {
       "type": "text",
-      "role_hint": "rolle-der-stellen",
-      "body": "Die Investitions- und Förderbank Niedersachsen – NBank bewilligt die Förderung, die kommunale Wohnraumförderstelle am Bauort nimmt den Antrag entgegen. NBank und Land Niedersachsen sind nicht Herausgeber dieser Broschüre."
+      "role_hint": "herausgeber-abgrenzung",
+      "body": "NBank und Land Niedersachsen sind nicht Herausgeber dieser Broschüre."
     },
     {
       "type": "callout",
       "variant": "rechtshinweis",
       "role_hint": "zentraler-rechtshinweis",
       "title": "Hinweis",
-      "body": "Alle Angaben ohne Gewähr, Stand 21.10.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind fiktive Beispiele, keine Förderzusage."
+      "body": "Alle Angaben ohne Gewähr, Stand 30.09.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind fiktive Beispiele, keine Förderzusage."
     },
     {
       "type": "text",
@@ -59,11 +59,6 @@
       "type": "text",
       "heading": "Quellen",
       "body": "**Zitate:** Grant Hendrik Tonne und Michael Kiesewetter, Pressemitteilung MW vom 03.07.2026 (→ S. 2, 6). **Marktzahlen:** NBank-Wohnungsmarktbericht 2025 (→ S. 3, 7); NBank-Pressemitteilung zur Wohnungsmarktbeobachtung vom 05.12.2025 (→ S. 2); Landesregierung, Pressemitteilung vom 25.11.2025 (→ S. 18); NBank-Landkarte Wohnraumförderung, abgerufen am 21.10.2026 (→ S. 18)."
-    },
-    {
-      "type": "text",
-      "role_hint": "kleinangaben",
-      "body": "**Bildnachweis:** Visualisierungen S. 22: [PGN: Urheber bestätigen] · Titelzeichnung, Diagramme und Illustrationen: Planungsgemeinschaft Nord GmbH\n\n**Druck:** [Platzhalter] · **Stand:** 21.10.2026"
     },
     {
       "type": "logo",
@@ -78,13 +73,11 @@
     "F004",
     "F006",
     "F008",
-    "F016",
     "F129",
     "F024",
     "F219",
     "F245",
     "F246",
-    "F260",
     "F290",
     "F293",
     "G3-01",
@@ -98,13 +91,12 @@
   ],
   "pgn_sources": [
     "pgn-facts.md §1 Impressum: „Planungsgemeinschaft Nord GmbH“, „Große Straße 49, 27356 Rotenburg (Wümme)“, Telefon „(+49) 4261 9293-0“, Telefax „(+49) 4261 9293-90“, info@pgn-architekten.de, www.pgn-architekten.de, „HRB 70348“, „Registergericht: Amtsgericht Walsrode“, USt-IdNr. „DE 116 324 794“. Herausgeberzeile ohne Klammerzusatz: „PGN Architekten und Ingenieure“ ist nicht belegt (Website/Logo: „Architekten. Stadtplaner. Ingenieure.“, §1/§5); das Logo am Seitenfuß trägt die belegte Unterzeile.",
-    "pgn-facts.md §2 Geschäftsführung laut Team-Seite: Norbert Behrens, Stephan Müller, Nils Neumann, Matthias Mock – Liste per Kundenentscheidung (REDAKTIONSREGELN §7); Website-Impressum „Vertreten durch: Norbert Behrens - Dipl.-Ing. Architekt“ als eigene Zeile entfallen (Doppelung)."
+    "pgn-facts.md §2 Geschäftsführung laut Team-Seite: Norbert Behrens, Stephan Müller, Nils Neumann, Matthias Mock – Liste per Kundenentscheidung (REDAKTIONSREGELN §7); Website-Impressum „Vertreten durch: Norbert Behrens - Dipl.-Ing. Architekt“ als eigene Zeile entfallen (Doppelung).",
+    "Korrekturlauf 1 (ENTSCHEIDUNGEN.md F, Kommentare S. 23): „Verantwortlich für den Inhalt“ und „Druck“ entfallen – § 8 Abs. 2 NPresseG (verantwortliche Person) gilt nur für periodische Druckwerke, Werbedrucksachen sind nach § 7 Abs. 3 NPresseG von der Impressumspflicht ausgenommen. Bildnachweis laut Kunde („Das kommt von uns“): Planungsgemeinschaft Nord GmbH für alle Visualisierungen, Zeichnungen und Diagramme. Entdoppelt: Stand nur noch im zentralen Rechtshinweis; die Rolle der NBank nur noch im Rechtshinweis („Förderentscheidung der NBank“) – Antragsweg und Wohnraumförderstelle stehen auf S. 19 und S. 21."
   ],
   "open_points": [
     "INTERN, nicht drucken: Bei Veröffentlichung ab 01.01.2027 Geschäftsführung aktualisieren.",
-    "INTERN, nicht drucken: „Verantwortlich für den Inhalt“ – das Website-Impressum nennt Thomas Schlobohm als redaktionell verantwortlich (für die Website); Namen für die Broschüre von PGN bestätigen lassen.",
-    "INTERN, nicht drucken: Bild-Credits und Nutzungsrechte bei PGN erfragen. Die Visualisierungen auf S. 22 stammen ggf. von externen Büros; die Website hat keinen Bildnachweis. Die Titelzeichnung (Axonometrie, U1) ist eine Zeichnung der PGN. Platzhalter durch die bestätigte Credit-Zeile ersetzen.",
-    "INTERN, nicht drucken: Druckerei mit Anschrift eintragen; Impressumsangaben für Druckwerke nach Niedersächsischem Pressegesetz vor dem Druck prüfen – dabei mit PGN auch die Herausgeberzeile (nur Firmenname, ohne Klammerzusatz) und das Label „Geschäftsführung“ statt „Vertreten durch“ bestätigen lassen."
+    "INTERN, nicht drucken: Herausgeberzeile (nur Firmenname, ohne Klammerzusatz) und das Label „Geschäftsführung“ statt „Vertreten durch“ mit PGN bestätigen."
   ],
-  "visual_idea": "Ruhige U3 auf #F4F3F2, ohne Kolumnentitel und Seitenzahl. Headline „Impressum und Hinweise“ in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links. Impressumsangaben zweispaltig als Label-Wert-Liste: Labels in Montserrat 600 Versalien (Anthrazit #3C3C3B), Werte in Work Sans, feine Haarlinien zwischen den Zeilen; Platzhalter in eckigen Klammern bis zur Freigabe sichtbar in PGN-Rot. Darunter die zwei Sätze zur Rolle der Stellen in Work Sans. Der zentrale Rechtshinweis als einziger gerahmter Hinweis der Broschüre: weiße Fläche, senkrechte rote 2-pt-Linie links, Titel „Hinweis“ in Montserrat 600 Versalien, Text in Work Sans 9,5 pt; kein Warn-Icon, kein Verlauf. Rechtsgrundlage, Quellen, Bildnachweis, Druck und Stand als ruhige Kleinangaben in Work Sans (mind. 8,5 pt), Zwischentitel in Montserrat 600 Versalien. Kein NBank- oder Landeslogo. Am Fuß klein das PGN-Logo (logo-rot.svg), linksbündig auf der Satzspiegelkante."
+  "visual_idea": "Ruhige U3 auf Weiß, ohne Kolumnentitel und Seitenzahl, Horizonte wie S. 22. Headline „Impressum und Hinweise“ in Montserrat Black Versalien mit roter Titellinie; darunter ein Satz in Work Sans (Vorspann): NBank und Land Niedersachsen sind nicht Herausgeber. Zeile 1 (Oberkante = Modulkopf „Alles aus einem Haus“ S. 22): Impressum als Schriftfeld mit sechs Zeilen – Herausgeber, Kontakt, Geschäftsführung, Registergericht, USt-IdNr., Bildnachweis; Labels in Montserrat 700 Versalien grau (3 Spalten), Werte in Work Sans (9 Spalten), Haarlinien zwischen den Zeilen, kräftige Linie oben und unten. Zeile 2 (Oberkante = Modulkopf Referenzen S. 22): zentraler Rechtshinweis als einziger gerahmter Hinweis der Broschüre – Papierfläche, rote Linie links, Titel „Hinweis“, Text in Work Sans 9,75 pt; einziger Ort für den Stand 30.09.2026. Zeile 3 (Oberkante = Referenzkacheln S. 22): Rechtsgrundlage | Quellen zweispaltig, Zwischentitel in Montserrat 800 Versalien. Fuß: PGN-Logo (logo-rot.svg) im Band des Plankopfs. Keine Platzhalter mehr; kein NBank- oder Landeslogo. Jede Angabe steht auf der Seite genau einmal."
 }

@@ -28,7 +28,7 @@
     {
       "type": "text",
       "heading": "Alles aus einem Haus",
-      "body": "Wir arbeiten für Wohnungsunternehmen und Wohnungsbaugenossenschaften, Investorinnen und Investoren, öffentliche Bauträger und Kommunen. Generalplanung, Architektur, Tragwerksplanung, Haustechnik sowie Stadt- und Landschaftsplanung greifen bei uns ineinander – in allen Leistungsphasen. Im Projektcontrolling planen wir mit der Finanzierung im Hinterkopf. Über die **PGN Projektgesellschaft Nord GmbH** entwickeln wir Projekte und bauen als Generalübernehmer auch schlüsselfertig. 3D-Druck und AR machen Entwürfe greifbar."
+      "body": "Wir arbeiten für Wohnungsunternehmen und Wohnungsbaugenossenschaften, Investorinnen und Investoren, öffentliche Bauträger und Kommunen. Generalplanung, Architektur, Tragwerksplanung, Haustechnik sowie Stadt- und Landschaftsplanung greifen bei uns ineinander – in allen Leistungsphasen und mit einem Ansprechpartner für Ihr Vorhaben. Im Projektcontrolling verbinden wir Kostenplanung und Termine mit der Finanzierung. Über die **PGN Projektgesellschaft Nord GmbH** entwickeln wir Projekte und bauen als Generalübernehmer auch schlüsselfertig."
     },
     {
       "type": "references",
@@ -39,8 +39,9 @@
           "name": "Brauerstraße",
           "place": "Rotenburg (Wümme)",
           "client": null,
-          "units": "19 barrierefreie Wohnungen",
-          "note": "Mit Förderung der NBank · Neubau mit Aufzug, ca. 50–61 m², Luft-Wasser-Wärmepumpe, PV",
+          "units": "19 Wohnungen",
+          "note": "ca. 50–61 m², Aufzug, barrierefrei, Luft-Wasser-Wärmepumpe, PV",
+          "flag": "Mit Förderung der NBank",
           "image": "ref-01-brauerstrasse-rotenburg.jpg"
         },
         {
@@ -48,23 +49,23 @@
           "place": "Rotenburg (Wümme)",
           "client": "Wohnungsbau-Genossenschaft Rotenburg (Wümme) eG",
           "units": "29 Wohnungen",
-          "note": "drei Wohnhäuser, 50–95 m², Gemeinschaftsraum",
+          "note": "drei Häuser, 50–95 m², Gemeinschaftsraum",
           "image": "ref-07-porstweg-rotenburg.jpg"
         },
         {
           "name": "Dehnenweg",
           "place": "Hohenhameln",
           "client": "kwg Kreiswohnbaugesellschaft Hildesheim mbH",
-          "units": "15 barrierefreie Wohnungen",
-          "note": "43–63 m², Aufzug",
+          "units": "15 Wohnungen",
+          "note": "43–63 m², Aufzug, barrierefrei",
           "image": "ref-04-dehnenweg-hohenhameln.jpg"
         },
         {
           "name": "Burgsiedlung",
           "place": "Stade",
           "client": "IDB mbH & Co. Stade-Altes Land KG",
-          "units": "40 barrierefreie Wohnungen",
-          "note": "vier Stadthäuser, Aufzug in jedem Gebäude",
+          "units": "40 Wohnungen",
+          "note": "vier Stadthäuser, je mit Aufzug, barrierefrei",
           "image": "ref-03-burgsiedlung-stade.jpg"
         },
         {
@@ -75,11 +76,19 @@
           "note": "Quartier mit 15 Gebäuden, fertiggestellt Frühjahr 2018",
           "image": "ref-11-wohnen-im-lindenhof-gifhorn.jpg"
         }
-      ]
+      ],
+      "field_order": [
+        "name",
+        "place",
+        "client",
+        "units",
+        "note"
+      ],
+      "client_label": "Auftraggeber"
     },
     {
       "type": "text",
-      "role_hint": "fusszeile",
+      "role_hint": "referenzen-modulkopf-rechts",
       "body": "Weitere Projekte: pgn-architekten.de"
     }
   ],
@@ -91,13 +100,13 @@
     "pgn-facts.md §3 Jubiläum „45 Jahre PGN“ (Feier am 18.09.2026) – als Label neben der Headline (headline_label)",
     "pgn-facts.md §5 Werte „Für Sie denken wir an:“ – Verantwortung., Kostensicherheit., Innovation., Vertrauen. (nur Wörter, keine Erläuterungen)",
     "pgn-facts.md §5 „Alles aus einem Haus. … greifen … wie Zahnräder ineinander“; §6 Gliederung Startseite (Generalplanung, Architektur, Tragwerksplanung, Haustechnik, Stadt- & Landschaftsplanung; Projektentwicklung, Projektcontrolling; 3D-Druck, AR); §6 Generalplanung „in allen Leistungsphasen sämtlicher Fachbereiche“",
-    "pgn-facts.md §6 Projektentwicklung: „Im Rahmen eines Generalübernehmervertrages bieten wir Ihnen die schlüsselfertige Erstellung von Wohn- und Gewerbebauten an.“; Projektcontrolling: „Mit der Finanzierung im Hinterkopf …“; 3D-Druck „für die räumliche Vorstellungskraft“, AR für Entwürfe, „die noch nicht real existieren“ (Drohnenbilder stehen auf S. 20)",
+    "pgn-facts.md §6 Projektentwicklung: „Im Rahmen eines Generalübernehmervertrages bieten wir Ihnen die schlüsselfertige Erstellung von Wohn- und Gewerbebauten an.“; Projektcontrolling: „Kalkulieren. Überblicken. Kommunizieren.“ / „Mit der Finanzierung im Hinterkopf …“ / „Setzen Termine auf, um Fristen einzuhalten“ (sachlich als „verbinden wir Kostenplanung und Termine mit der Finanzierung“); „Ein Ansprechpartner für alle Aufgaben“ (/leistungen/generalplanung) als „mit einem Ansprechpartner für Ihr Vorhaben“. 3D-Druck/AR entfallen (Korrekturlauf 1, Regel B3: keine Werkzeug-Details wie Drohne, 3D-Druck, AR).",
     "pgn-facts.md §6/§8 Kundengruppen: „Wohnungsbauunternehmen und Wohnungsbaugenossenschaften, genauso wie öffentliche Bauträger“ (/karriere) und „Kommunen, Investoren und Wohnungsbaugesellschaften“ (/leistungen/generalplanung) – im Heft einheitlich „Wohnungsunternehmen“",
-    "pgn-facts.md §7a Referenzen Brauerstraße, Porstweg, Dehnenweg, Burgsiedlung, Wohnen im Lindenhof; §7/§8 Brauerstraße „Alle Wohnungen sind barrierefrei, mit einem Aufzug zu erreichen und haben eine Größe von ca. 50m² - 61m²“ und einzige Förderaussage „Die Umsetzung wird durch die Förderung der N-Bank unterstützt.“ – als Paraphrase „Mit Förderung der NBank“ (korrekte Schreibweise, ohne Programmteil oder Jahr)"
+    "pgn-facts.md §7a Referenzen Brauerstraße, Porstweg, Dehnenweg, Burgsiedlung, Wohnen im Lindenhof; §7/§8 Brauerstraße „Alle Wohnungen sind barrierefrei, mit einem Aufzug zu erreichen und haben eine Größe von ca. 50m² - 61m²“, Luft-Wasserwärmepumpe, PV-Anlage, und einzige Förderaussage „Die Umsetzung wird durch die Förderung der N-Bank unterstützt.“ – als Paraphrase „Mit Förderung der NBank“ (korrekte Schreibweise, ohne Programmteil oder Jahr); Porstweg „3 Wohnhäuser“, „Im Auftrag der Wohnungsbau-Genossenschaft Rotenburg (Wümme) eG“; Dehnenweg „barrierefreien Wohneinheiten“, „für die kwg Kreiswohnbaugesellschaft Hildesheim mbH“; Burgsiedlung „barrierefreien Wohneinheiten“, „Aufzug in jedem Gebäude“, „für die IDB mbH & Co. Stade-Altes Land KG“; Lindenhof „93 Mietwohnungen“, „15 Gebäude“, „Fertigstellung: Frühjahr 2018“. Kachel-Rangfolge (Korrekturlauf 1): Name → Ort → Auftraggeber → Kennzahl (Wohnungen) → Kurzbeschreibung; „barrierefrei“ steht in der Kurzbeschreibung."
   ],
   "open_points": [
-    "PGN: Alle fünf Referenzabbildungen sind Visualisierungen (MANIFEST), keine Fotos; Urheber und Nutzungsrechte bestätigen, hochaufgelöste Originale anfordern.",
-    "PGN: Freigabe der Referenzauswahl und der Auftraggeber-Nennung (Wohnungsbau-Genossenschaft Rotenburg (Wümme) eG, kwg Hildesheim, IDB Stade-Altes Land) sowie der Förderangabe Brauerstraße."
+    "PGN: Urheber der Visualisierungen geklärt (Korrekturlauf 1: „Das kommt von uns“ → Bildnachweis Planungsgemeinschaft Nord GmbH, U3). Offen: hochaufgelöste Originale der fünf Referenzabbildungen anfordern.",
+    "PGN: Freigabe der Referenzauswahl und der Auftraggeber-Nennung (Wohnungsbau-Genossenschaft Rotenburg (Wümme) eG, kwg Kreiswohnbaugesellschaft Hildesheim mbH, IDB mbH & Co. Stade-Altes Land KG) sowie der Förderangabe Brauerstraße."
   ],
-  "visual_idea": "Doppelseite 22|23 „Über PGN | Impressum“. Kopf: Kicker „Über PGN“ als Versal-Label in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links; rechts neben bzw. über der Headline ein kleines eckiges Label „45 Jahre PGN“ (headline_label) in Montserrat 600 Versalien, Kontur PGN-Rot; Lead in Work Sans. Darunter Kopfband über die volle Breite im roten Verlauf 160° #B71E3F → #8B2939 mit der Werte-Viererreihe wie auf der PGN-Startseite: Zeile „Für Sie denken wir an:“ klein in Montserrat 600 Versalien, weiß; vier weiße Linienicons (src/assets/pgn/*-white.svg) zentriert über den Wort-Labels in Montserrat 700 Versalien, weiß, getrennt durch weiße 1-px-Trennlinien; keine Erläuterungstexte. Darunter Text „Alles aus einem Haus“ in einer schmalen linken Spalte (Zwischentitel in Montserrat 700 Versalien); der Firmenname „PGN Projektgesellschaft Nord GmbH“ als einzige grüne Auszeichnung der Seite (#26772B, fett) – sonst kein Grün. Dominantes Element: Referenzraster rechts bzw. darunter – ein großes Bild Brauerstraße (Panorama-Ausschnitt), daneben bzw. darunter vier kleine Bilder im 4:3-Ausschnitt aus den 1800 × 740-px-Panoramen (src/assets/pgn/ref/), keine Rundungen, keine Schatten. Bildunterschriften: Projektname in Montserrat 700 Versalien, darunter Ort · Auftraggeber (falls genannt) · Wohnungen in Work Sans, dann die Notiz; Wohnungszahl in PGN-Rot. Bei Brauerstraße steht der Notiz-Teil vor dem „·“ („Mit Förderung der NBank“) als kleines eckiges Label in der Bildunterschrift (Montserrat 600 Versalien, PGN-Rot auf Weiß oder weiß auf PGN-Rot), der Rest als normale Notiz – kein NBank-Logo. Alle Abbildungen sind Visualisierungen – kleines Label „Visualisierung“ in der Bildecke. Fußzeile „Weitere Projekte: pgn-architekten.de“ rechtsbündig mit Pfeilzeichen. Kein Kasten, keine Fußnote, keine Mitarbeiterzahl, keine Superlative."
+  "visual_idea": "Doppelseite 22|23 „Über PGN | Impressum“. Kopf: Kicker „Über PGN“, Headline in Montserrat Black Versalien mit roter Titellinie, rechts das eckige Label „45 Jahre PGN“ (Kontur PGN-Rot); Vorspann in Work Sans. Zeile 1 (Oberkante = Impressum-Schriftfeld S. 23): links „Alles aus einem Haus“ (7 Spalten, Firmenname PGN Projektgesellschaft fett in Tinte, kein Grün), rechts die Werte im roten Verlauf (5 Spalten, weiße Icons, Wort-Labels in Versalien, Haarlinien). Zeile 2 (Oberkante = Hinweis S. 23): Modulkopf „Wohnungsbau-Referenzen“, rechts im selben Kopf „Weitere Projekte: → pgn-architekten.de“. Hauptreferenz Brauerstraße als rotes Vektor-Punktraster (9 Spalten, Beschnittmarken) mit Datenspalte (3 Spalten). Darunter vier Referenzkacheln (je 3 Spalten, Duplex-Bild 22 mm, Bildecke „Visualisierung“). Korrekturlauf 1 – klare Rangfolge in jeder Kachel: Projektname (Montserrat 800 Versalien, Tinte) → Ort (Work Sans 9 pt) → Auftraggeber (graues Versal-Label „Auftraggeber“ über dem Namen, Haarlinie darüber; nur wo belegt) → Kennzahl (Zahl Montserrat 800, Einheit Work Sans, Haarlinie darüber) → Kurzbeschreibung (8,5 pt grau). Die vier Kacheln teilen ein Zeilenraster (subgrid): Namen auf einer Grundlinie, Auftraggeber- und Kennzahl-Haarlinien durchgehend. Hauptreferenz in derselben Rangfolge eine Stufe größer; „Mit Förderung der NBank“ als eckiger roter Konturstempel am Fuß der Datenspalte (bündig mit der Bildunterkante) – kein NBank-Logo. Kein Kasten, keine Fußnote, keine Mitarbeiterzahl, keine Superlative."
 }

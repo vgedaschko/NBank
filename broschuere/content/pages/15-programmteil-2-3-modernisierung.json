@@ -4,9 +4,9 @@
   "layout_type": "program-detail",
   "running_title": "Bestand · Programmteil 2.3",
   "kicker": "Programmteil 2.3 · Klimagerechte Modernisierung",
-  "headline": "Zuschuss nach Klassensprung",
+  "headline": "Zuschuss nach Effizienzsteigerung",
   "subline": "Bis zu 40 % der Modernisierungskosten, höchstens 31.000 € je gebundener Wohnung (Einkommensgruppe A, ab 5 Klassen)",
-  "lead": "Reiner Zuschuss, kein Bedarfsnachweis: für Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen, fertiggestellt vor dem 08.12.2004.",
+  "lead": "Reiner Zuschuss ohne Bedarfsnachweis – für Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen, die vor dem 08.12.2004 fertiggestellt wurden.",
   "blocks": [
     {
       "type": "chart",
@@ -31,16 +31,16 @@
           "to": "D",
           "label": "3 Klassen"
         },
-        "rule": "Mindestens 2 Klassen besser, belegt per Energiebedarfsausweis vor Bewilligung und bei Fertigstellung."
+        "rule": "Mindestens zwei Klassen besser, belegt per Energiebedarfsausweis vor Bewilligung und bei Fertigstellung."
       },
-      "note": "Ausnahme, etwa beim Baudenkmal: Ist das unverhältnismäßig aufwendig, kann die NBank eine Klasse zulassen (gefördert wie zwei Klassen). Mitgefördert: Barrierefreiheit, Bleileitungstausch, unmittelbar zugehörige Instandsetzung."
+      "note": "Ausnahme, etwa bei Baudenkmalen: Ist das nicht oder nur mit unverhältnismäßigem Aufwand möglich, kann die NBank nach Einzelfallprüfung eine Klasse zulassen (bemessen wie zwei). Gefördert wird die Gesamtmaßnahme samt Barrierefreiheit, Bleileitungstausch und unmittelbar zugehöriger Instandsetzung."
     },
     {
       "type": "chart",
       "chart": "grid",
       "role_hint": "dominant",
-      "title": "Zuschuss je gebundener Wohnung, Höchstsätze",
-      "subtitle": "in % der Modernisierungskosten · Kostengruppen 300–700 nach DIN 276",
+      "title": "Zuschuss je gebundener Wohnung",
+      "subtitle": "Höchstsätze in % der Modernisierungskosten · Kostengruppen 300–700 nach DIN 276",
       "data": {
         "kind": "heatmap",
         "token": "--baustein-23",
@@ -90,19 +90,19 @@
       "heading": "Bindung und Miete",
       "items": [
         "25 Jahre ab Abschluss, grundsätzlich per Dienstbarkeit im Grundbuch gesichert; bei Mieterwechsel nur an WBS-Haushalte",
-        "Ist die Wohnung vermietet, verlängert sich die Bindung um 10 Jahre – außer der Haushalt hat einen WBS. Dann passen Sie den Mietvertrag umgehend an Höchstmiete und Erhöhungsregeln an.",
-        "Höchstmieten wie in 2.1 (→ S. 7): 6,50–9,00 € je m², ab EH-40-Niveau bis zu +0,30 €. Drei Jahre keine Mieterhöhung; bei verlängerter Bindung beginnen die drei Jahre erst mit dem ersten WBS-Haushalt."
+        "Bei vermieteten Wohnungen verlängert sich die Bindung um 10 Jahre, außer der Haushalt hat einen WBS; dann sind Miete und Erhöhungsregeln unverzüglich anzupassen.",
+        "Höchstmieten wie in 2.1 (→ S. 7): 6,50–9,00 € je m², ab EH-40-Niveau bis zu +0,30 €. Drei Jahre keine Mieterhöhung; bei verlängerter Bindung zählen die drei Jahre ab dem ersten WBS-Haushalt."
       ]
     },
     {
       "type": "text",
       "heading": "Ablauf und Kombination",
-      "body": "Auszahlung in drei Raten: bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abschluss. Bearbeitungsentgelt: einmalig 0,75 % des Zuschusses. Eigenmittel: mindestens 20 % der förderfähigen Kosten, in der Regel mindestens die Hälfte als Geld.\n\nZusätzlich nutzbar: BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen – eines von beiden, das andere erst drei Jahre später. Decken öffentliche Mittel samt NBank-Zuschuss mehr als 60 % derselben Kosten, kürzt die BEG (Kommunen bei BEG Einzelmaßnahmen: 90 %).\n\nAntrag bis 31.12.2026 bei der Wohnraumförderstelle: altes Recht verbindlich wählbar (→ S. 16)."
+      "body": "Auszahlung: bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abschluss. Bearbeitungsentgelt: einmalig 0,75 % des Zuschusses. Eigenmittel: mindestens 20 % der zuwendungsfähigen Kosten, in der Regel mindestens die Hälfte als Geld.\n\nZusätzlich nutzbar: BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen – eines von beiden, das andere frühestens drei Jahre später. Decken öffentliche Mittel samt NBank-Zuschuss mehr als 60 % derselben Kosten, kürzt die BEG (Kommunen bei BEG Einzelmaßnahmen: 90 %).\n\nAntrag bis 31.12.2026 bei der Wohnraumförderstelle: altes Recht verbindlich wählbar (→ S. 16)."
     },
     {
       "type": "text",
       "role_hint": "pgn-angebot",
-      "body": "Die energetische Gesamtmaßnahme planen wir mit Ihnen – Architektur und Haustechnik aus einem Haus."
+      "body": "Energetische Gesamtmaßnahmen planen wir aus einer Hand – Architektur und Haustechnik."
     }
   ],
   "footnotes": [],
@@ -143,5 +143,5 @@
     "G3-18",
     "G3-19"
   ],
-  "visual_idea": "Baustein-Register 2.3 (--baustein-23, eckig, mit Nummer) am Seitenrand. Kopf im PGN-CI wie S. 13/13: Kicker als Versal-Label in --baustein-23, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat SemiBold, Lead in Work Sans; keine Rundungen. Oben, schmal über die volle Satzbreite: Effizienzskala A+ bis H als eckiges Pfeilband grün bis rot, jedes Segment zusätzlich mit Buchstaben (graustufenfest), Grenzwerte klein darunter, Achsenlabel „kWh je m² Gebäudenutzfläche und Jahr“; Sprungpfeil G → D mit Label „3 Klassen“, Regelzeile direkt darunter, Ausnahme und Mitgefördertes als zweizeilige Bildunterschrift. Dominant im mittleren Drittel: die 4 × 3-Heatmap (Zeilen 2 / 3 / 4 / ab 5 Klassen, Spalten A | B | C), Tonwert in --baustein-23 steigt mit dem Satz; je Zelle „… %“ groß in Montserrat Black mit tabellarischen Ziffern, „max. … €“ mittel, „ab … €“ klein in #757474; Kopfzeile „Höchstsätze · Kostengruppen 300–700 nach DIN 276“ als Versal-Label, Zelllegende einzeilig unter der Tabelle; Zeile „ab 5 Klassen“ als Endstufe mit feiner Abschlusslinie. Unteres Drittel zweispaltig, fluchtend mit der Modulzeile auf S. 16: „Bindung und Miete“ als schlanke Liste, „Ablauf und Kombination“ als kurzer Text; dessen Schlussabsatz zur Frist 31.12.2026 mit kleinem Kalender-Icon (ui-frist.svg) in --signal – kein Kasten, keine eigene Zeile, der Frist-Kasten steht auf S. 16. Am Fuß als Fußzeile rechtsbündig der Angebotssatz klein in Work Sans SemiBold, PGN-Rot #B71E3F. Kein Stempel, keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile."
+  "visual_idea": "Baustein-Register 2.3 (--baustein-23, eckig, mit Nummer) am Seitenrand; rechte Seite der Doppelseite 14|15, Horizonte gemeinsam mit S. 14: H1, Kopfende (Unterzeile 3 + Gegenstand 2 Zeilen), Modulzeile 1 bei 88 mm, Modulzeile 2 bei 198 mm, Fuß bei 273 mm. Kopf im PGN-CI wie 2.1/2.2/2.4: Kicker als Versal-Label, Headline Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Unterzeile Montserrat Light Versalien mit roten Kennwerten, Gegenstand in Work Sans; keine Rundungen. Modulzeile 1 links (5 Sp.): Effizienzskala A+ bis H als Balken ab 0 (Länge ∝ Obergrenze kWh, warmes Grau hell → dunkel, Buchstabe immer dabei), Grenzwerte daneben, Sprungmaßkette G → D „3 Klassen“, darunter Regelzeile und Ausnahme/Gesamtmaßnahme als Modultext. Rechts (7 Sp., dominant): 4 × 3-Heatmap (Zeilen 2 / 3 / 4 / ab 5 Klassen, Spalten A | B | C), Tonwert in --baustein-23 steigt mit dem Satz; je Zelle „… %“ groß in Montserrat Black mit tabellarischen Ziffern, „max. … €“ mittel, „ab … €“ klein; Zelllegende einzeilig unter der Tabelle. Modulzeile 2 zweispaltig (5 | 7 Sp.), fluchtend mit S. 14: „Bindung und Miete“ als Liste, „Ablauf und Kombination“ als kurzer Text, Schlussabsatz zur Frist 31.12.2026 mit Uhr-Icon in --signal (kein Kasten, der Frist-Kasten steht auf S. 16). Am Fuß rechtsbündig der Angebotssatz in Work Sans SemiBold, PGN-Rot. Kein Stempel, keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile."
 }

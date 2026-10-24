@@ -1,5 +1,5 @@
 {
-  "no": 15,
+  "no": 16,
   "slug": "stichtag-wahlrecht-fristen",
   "layout_type": "timeline",
   "running_title": "Bestand · Stichtag 31.12.2026",
@@ -102,7 +102,7 @@
         [
           "Kombination",
           "ausgeschlossen, wenn dieselbe Maßnahme nach RL Mietwohnraum, Junges Wohnen oder Wohneigentum 2026 gefördert wird",
-          "BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen (→ S. 14)"
+          "BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen (→ S. 15)"
         ]
       ]
     },
@@ -111,7 +111,7 @@
       "heading": "Vier Prüffragen",
       "items": [
         "Fertiggestellt zwischen 01.02.2002 und 07.12.2004? Dann nur RL 2026: Das alte Recht verlangt Fertigstellung vor dem 01.02.2002.",
-        "Zwei Effizienzklassen erreichbar? Die RL 2026 verlangt sie. Nur wenn das nicht oder nur mit unverhältnismäßigem Aufwand geht, etwa beim Baudenkmal, kann die NBank eine Klasse zulassen (→ S. 14).",
+        "Zwei Effizienzklassen erreichbar? Die RL 2026 verlangt sie. Nur wenn das nicht oder nur mit unverhältnismäßigem Aufwand geht, etwa beim Baudenkmal, kann die NBank eine Klasse zulassen (→ S. 15).",
         "Darlehen mit Tilgungsnachlass oder Zuschuss – was passt zu Ihrer Finanzierung?",
         "Antrag mit ausdrücklicher Wahl bis 31.12.2026 bei der Wohnraumförderstelle?"
       ]
@@ -143,5 +143,5 @@
     "G3-15",
     "G3-16"
   ],
-  "visual_idea": "Baustein-Register 2.3 (--baustein-23, eckig, mit Nummer) am Seitenrand – Bestandsdoppelseite 14|15. Kopf im PGN-CI: Kicker als Versal-Label, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat SemiBold; keine Rundungen. Direkt unter dem Kopf, prominent über die volle Satzbreite: der Frist-Kasten (einer von zwei Achtung-Kästen im Heft) mit 1,5-pt-Kontur in --signal, Kalender-Icon (ui-frist.svg) links, Titel „Frist 31.12.2026“ als Versal-Label, Text in Work Sans, „bindend und später nicht änderbar“ fett mit --signal-Unterstrich. Dominant im oberen Drittel: horizontale Zeitleiste Juni 2026 bis Dezember 2031 in Anthrazit, zwischen 2027 und 2031 gestaucht mit Bruchsymbol; vergangene Termine (30.06., 01.07.2026) gedämpft in #757474, „heute 21.10.2026“ als feiner Strich; der 31.12.2026 „Wahlrecht Modernisierung“ als einziger großer Pin in --signal mit Datum in Montserrat Black; 01.01.2027 durchgezogen „Neue Rechennorm“ (beschlossen), „Neue Mietenstufen geplant“ gestrichelt (Entwurf); 31.12.2031 als Endmarke. Kein tagesgenauer Countdown. Unteres Drittel, Oberkante fluchtend mit der Modulzeile auf S. 14: die Vergleichstabelle über die volle Satzbreite, Kopfzeile mit Weichen-Piktogramm „Altes Recht | RL 2026“, Zeilenköpfe links, Spalte „Altes Recht“ in Grau, Spalte RL 2026 mit Kopf in --baustein-23, Zellen auf #F4F3F2, Ziffern tabellarisch. Darunter die vier Prüffragen als druckbare eckige Ankreuzkästchen (ui-check.svg) über die volle Breite. Neben der Zeitleiste genau drei Module (Frist-Kasten, Tabelle, Prüffragen). Keine Kalkulationsnotiz, kein Stempel, keine Fußnote, keine Quellenzeile."
+  "visual_idea": "Baustein-Register 2.3 (--baustein-23, eckig, mit Nummer) am Seitenrand – Bestandsdoppelseite 14|15. Kopf im PGN-CI: Kicker als Versal-Label, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat SemiBold; keine Rundungen. Direkt unter dem Kopf, prominent über die volle Satzbreite: der Frist-Kasten (einer von zwei Achtung-Kästen im Heft) mit 1,5-pt-Kontur in --signal, Kalender-Icon (ui-frist.svg) links, Titel „Frist 31.12.2026“ als Versal-Label, Text in Work Sans, „bindend und später nicht änderbar“ fett mit --signal-Unterstrich. Dominant im oberen Drittel: horizontale Zeitleiste Juni 2026 bis Dezember 2031 in Anthrazit, zwischen 2027 und 2031 gestaucht mit Bruchsymbol; vergangene Termine (30.06., 01.07.2026) gedämpft in #757474, „heute 21.10.2026“ als feiner Strich; der 31.12.2026 „Wahlrecht Modernisierung“ als einziger großer Pin in --signal mit Datum in Montserrat Black; 01.01.2027 durchgezogen „Neue Rechennorm“ (beschlossen), „Neue Mietenstufen geplant“ gestrichelt (Entwurf); 31.12.2031 als Endmarke. Kein tagesgenauer Countdown. Unteres Drittel, Oberkante fluchtend mit der Modulzeile auf S. 15: die Vergleichstabelle über die volle Satzbreite, Kopfzeile mit Weichen-Piktogramm „Altes Recht | RL 2026“, Zeilenköpfe links, Spalte „Altes Recht“ in Grau, Spalte RL 2026 mit Kopf in --baustein-23, Zellen auf #F4F3F2, Ziffern tabellarisch. Darunter die vier Prüffragen als druckbare eckige Ankreuzkästchen (ui-check.svg) über die volle Breite. Neben der Zeitleiste genau drei Module (Frist-Kasten, Tabelle, Prüffragen). Keine Kalkulationsnotiz, kein Stempel, keine Fußnote, keine Quellenzeile."
 }

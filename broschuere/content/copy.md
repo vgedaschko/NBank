@@ -12,7 +12,7 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 - Platzhalter in eckigen Klammern – `[PGN-Rechnung: …]`, `[PGN: …]`, `[Platzhalter]` – liefert PGN vor dem Druck (→ Anhang B).
 - Wortzählung je Seite: *Fließtext* = Subline, Lead, Texte, Listen, Checklisten, FAQ, Leistungen, Notizen, Bildunterschriften, Zitate, Kachel-Labels und -Unterzeilen; *Grafik/Tabelle* = Text in Diagrammen und Tabellen (auch Term Sheet, Entscheidungsbaum, Swimlane); *Kontakt-/Referenzdaten* separat. Headline und Kicker sind nicht mitgezählt.
 
-**Inhalt:** [S. 1](#seite-1) Wohnraum, der sich rechnen kann. · [S. 2](#seite-2) Damit sich Investieren wieder rechnet · [S. 3](#seite-3) Die Förderung in sieben Zahlen · [S. 4](#seite-4) Was neu ist – und ob Ihr Projekt passt · [S. 5](#seite-5) Vom Vorhaben zum passenden Programmteil · [S. 6](#seite-6) Ihr Mieterkreis: drei Einkommensgruppen · [S. 7](#seite-7) Mieten: gedeckelt, aber planbar · [S. 8](#seite-8) Bis zu 80 % Förderquote · [S. 9](#seite-9) Konditionen auf einem Blatt · [S. 10](#seite-10) 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung · [S. 11](#seite-11) Mehr Miete, mehr Darlehen: Was bleibt im Jahr? · [S. 12](#seite-12) Reiner Zuschuss statt Darlehen · [S. 13](#seite-13) Höhere Kostengrenze, 10 % Eigenmittel · [S. 14](#seite-14) Zuschuss nach Klassensprung · [S. 15](#seite-15) Altes Recht oder RL 2026: Sie haben die Wahl · [S. 16](#seite-16) Festbetrag für freie Bestandswohnungen · [S. 17](#seite-17) Bindung verlängern, Zins auf 0 % · [S. 18](#seite-18) Wo Bedarf gilt – und was Kommunen tun können · [S. 19](#seite-19) Vom Vorgespräch bis zum Verwendungsnachweis · [S. 20](#seite-20) So begleiten wir Ihr Förderprojekt · [S. 21](#seite-21) Unterlagen, Kontakte und Verfahrensdetails · [S. 22](#seite-22) Ihre Generalplaner aus dem Norden. Seit 1981. · [S. 23](#seite-23) Impressum und Hinweise · [S. 24](#seite-24) Aus Ihrer guten Idee – machen wir den besten Plan. · [Anhang A](#anhang-a) Offene fachliche Rückfragen an die NBank · [Anhang B](#anhang-b) Vor dem Druck mit PGN klären
+**Inhalt:** [S. 1](#seite-1) Wohnraum, der sich rechnen kann. · [S. 2](#seite-2) Damit sich Investieren wieder rechnet · [S. 3](#seite-3) Die Förderung in sieben Zahlen · [S. 4](#seite-4) Was neu ist – und ob Ihr Projekt passt · [S. 5](#seite-5) Vom Vorhaben zum passenden Programmteil · [S. 6](#seite-6) Ihr Mieterkreis: drei Einkommensgruppen · [S. 7](#seite-7) Mieten: gedeckelt, aber planbar · [S. 8](#seite-8) Bis zu 80 % Förderquote · [S. 9](#seite-9) Konditionen auf einem Blatt · [S. 10](#seite-10) 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung · [S. 11](#seite-11) Mehr Miete, mehr Darlehen: Was bleibt im Jahr? · [S. 13](#seite-13) Reiner Zuschuss statt Darlehen · [S. 14](#seite-14) Höhere Kostengrenze, 10 % Eigenmittel · [S. 15](#seite-15) Zuschuss nach Klassensprung · [S. 16](#seite-16) Altes Recht oder RL 2026: Sie haben die Wahl · [S. 17](#seite-17) Festbetrag für freie Bestandswohnungen · [S. 17](#seite-17) Bindung verlängern, Zins auf 0 % · [S. 18](#seite-18) Wo Bedarf gilt – und was Kommunen tun können · [S. 19](#seite-19) Vom Vorgespräch bis zum Verwendungsnachweis · [S. 20](#seite-20) So begleiten wir Ihr Förderprojekt · [S. 21](#seite-21) Unterlagen, Kontakte und Verfahrensdetails · [S. 22](#seite-22) Ihre Generalplaner aus dem Norden. Seit 1981. · [S. 23](#seite-23) Impressum und Hinweise · [S. 24](#seite-24) Aus Ihrer guten Idee – machen wir den besten Plan. · [Anhang A](#anhang-a) Offene fachliche Rückfragen an die NBank · [Anhang B](#anhang-b) Vor dem Druck mit PGN klären
 
 ---
 
@@ -23,7 +23,7 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 | Element | Regel | Ist | Fundstellen im Heft |
 |---|---|---|---|
 | Zentraler Rechtshinweis | genau 1× (U3), Wortlaut fest | 1 | S. 23 |
-| Achtung-Kästen | genau 2 | 2 | S. 19 „Erst Bewilligung, dann Vertrag“ (+ Einzeiler S. 5) · S. 15 „Frist 31.12.2026“ |
+| Achtung-Kästen | genau 2 | 2 | S. 19 „Erst Bewilligung, dann Vertrag“ (+ Einzeiler S. 5) · S. 16 „Frist 31.12.2026“ |
 | Kalkulationsnotizen | höchstens 3 | 3 | S. 7, 10, 11 |
 | Überkompensation / Beihilferecht | nur S. 9 und U3 | 2 | S. 9 (Term-Sheet-Zeile), S. 23 |
 | Fußnoten | höchstens 1 je Seite | 0 | – |
@@ -70,7 +70,7 @@ Anmerkungen: Fachseiten mit dominanter Grafik oder Tabelle (S. 5, 9, 15, 18, 19)
 **Abweichungen vom Seitenplan (Entscheidungen der Chefredaktion)**
 
 - Inhaltsverzeichnis U2 mit acht statt sieben Kapitel-Linien: „Ihre Rechnung“ (S. 10–11) ist eigenes Kapitel, damit Kolumnentitel (Kapitel · Thema) und Inhalt übereinstimmen.
-- Headlines: S. 4 „Was neu ist – und ob Ihr Projekt passt“ (deckt beide Seitenhälften), S. 15 „Altes Recht oder RL 2026: Sie haben die Wahl“ (Datum steht im Kicker und im Frist-Kasten).
+- Headlines: S. 4 „Was neu ist – und ob Ihr Projekt passt“ (deckt beide Seitenhälften), S. 16 „Altes Recht oder RL 2026: Sie haben die Wahl“ (Datum steht im Kicker und im Frist-Kasten).
 - S. 5 trägt wieder den Achtung-Einzeiler „Erst Bewilligung, dann Vertrag oder Spatenstich → S. 19“ (Plan); S. 18 trägt wieder das Modul „Kein WBS-Haushalt gefunden?“ (im Plan auf S. 18, war zwischen S. 18 und S. 21 verloren gegangen).
 - U3 ohne den Satz zum fehlenden Rechtsanspruch (Plan: Rolle der Stellen in einem Satz; die Aussage trägt der zentrale Rechtshinweis).
 
@@ -137,8 +137,8 @@ Seit 1981 planen wir Bauprojekte – heute von Rotenburg (Wümme) aus in ganz No
 - **Ertragsseite:** S. 6 Mieterkreis · S. 7 Mieten
 - **Finanzierung:** S. 8 Neubau, Änderung, Ersterwerb [2.1] · S. 9 Term Sheet
 - **Ihre Rechnung:** S. 10 Finanzierung · S. 11 Wirtschaftlichkeit
-- **Neubau:** S. 12 EH-40-Neubau [2.2] · S. 13 Ostfriesische Inseln [2.4]
-- **Bestand:** S. 14 Modernisierung [2.3] · S. 15 Stichtag 31.12.2026 · S. 16 Bindungserwerb [2.5] · S. 17 Bindungsverlängerung [2.6]
+- **Neubau:** S. 13 EH-40-Neubau [2.2] · S. 14 Ostfriesische Inseln [2.4]
+- **Bestand:** S. 15 Modernisierung [2.3] · S. 16 Stichtag 31.12.2026 · S. 17 Bindungserwerb [2.5] · S. 17 Bindungsverlängerung [2.6]
 - **Umsetzung:** S. 18 Standort und Kommune · S. 19 Antragsweg · S. 20 So begleiten wir Ihr Förderprojekt · S. 21 Unterlagen, Kontakte, Verfahrensdetails
 - **PGN:** S. 22 Über PGN · S. 23 Impressum und Hinweise
 
@@ -161,10 +161,10 @@ Seit 1981 planen wir Bauprojekte – heute von Rotenburg (Wümme) aus in ganz No
 | bis zu | **40 %** | Zuschuss | Gruppe A, nur mit Darlehen; B bis zu 20 %, C bis zu 10 %, B/C nur mit Zulassung → S. 6 | 2.1 |
 |   | **0 %** | Zins bis Ende des 35. Jahres | gezählt ab Bezugsfertigkeit; dazu 0,5 % Verwaltungskostenbeitrag p. a. und einmalige Bearbeitungsentgelte → S. 9 | 2.1/2.4 |
 | Ausgangswerte | **4.800/5.000 € je m² Wohnfläche** | Bemessungsgrenze Herstellungskosten | Mietenstufe I–III/IV–VII; halbjährlich fortgeschrieben → S. 8 | 2.1 |
-| bis zu | **90.000 €** | Zuschuss je Wohnung im EH-40-Neubau | Gruppe A, höchstens 50 % der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar → S. 12 | 2.2 |
-| bis zu | **31.000 €** | Modernisierungszuschuss je gebundener Wohnung | Gruppe A, ab 5 Effizienzklassen besser; höchstens 40 % der zuwendungsfähigen Kosten → S. 14 | 2.3 |
-| Festbetrag | **3,00 € je m² Wohnfläche und Monat** | Zuschuss für den Bindungserwerb | 15–20 Jahre Bindung; ab 5 Jahren 2,00 €, ab 10 Jahren 2,50 €; nur Gruppe A → S. 16 | 2.5 |
-| Und ein Stichtag | **31.12.2026** | Wahlrecht für Modernisierungsanträge | Geht Ihr Antrag bis dahin bei der Wohnraumförderstelle ein, können Sie das alte Recht wählen → S. 15 |   |
+| bis zu | **90.000 €** | Zuschuss je Wohnung im EH-40-Neubau | Gruppe A, höchstens 50 % der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar → S. 13 | 2.2 |
+| bis zu | **31.000 €** | Modernisierungszuschuss je gebundener Wohnung | Gruppe A, ab 5 Effizienzklassen besser; höchstens 40 % der zuwendungsfähigen Kosten → S. 15 | 2.3 |
+| Festbetrag | **3,00 € je m² Wohnfläche und Monat** | Zuschuss für den Bindungserwerb | 15–20 Jahre Bindung; ab 5 Jahren 2,00 €, ab 10 Jahren 2,50 €; nur Gruppe A → S. 17 | 2.5 |
+| Und ein Stichtag | **31.12.2026** | Wahlrecht für Modernisierungsanträge | Geht Ihr Antrag bis dahin bei der Wohnraumförderstelle ein, können Sie das alte Recht wählen → S. 16 |   |
 
 #### Begriff: zuwendungsfähige Kosten
 
@@ -230,7 +230,7 @@ Die Bezugsgröße der Förderquote – in 2.1 die Herstellungskosten bis zur Bem
   - Pin an 2.2: *Nicht mit 2.1 kombinierbar*
 - **B – Bestand klimagerecht modernisieren**
   - Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt und nach der Modernisierung mindestens zwei Energieeffizienzklassen besser (ausnahmsweise eine, wenn die NBank das zulässt)? Ja → 2.3
-  - Pin an 2.3: *Wahlrecht bis 31.12.2026 → S. 15*
+  - Pin an 2.3: *Wahlrecht bis 31.12.2026 → S. 16*
 - **C – Freie Bestandswohnung für Gruppe A binden**
   - Frei, ungebunden, vor der Bewilligung weder vermietet noch überlassen? Ja → 2.5
 - **D – Auslaufende Landesbindung verlängern**
@@ -242,10 +242,10 @@ Die Bezugsgröße der Förderquote – in 2.1 die Herstellungskosten bis zur Bem
 | Programmteil | Instrument | Bis zu / Festbetrag / Zins | Bindung | Eigenmittel | Seite |
 |---|---|---|---|---|---|
 | **2.1** Neubau, Änderung und Erweiterung, Ersterwerb | Darlehen + Zuschuss (Zuschuss nur mit Darlehen) | Bis zu: zusammen 80 %: A 40 + 40 · B 60 + 20 · C 70 + 10 % | 35 Jahre | mind. 20 % | S. 8 |
-| **2.2** Energetisch hochwertiger Neubau | nur Zuschuss | Bis zu: A 50 · B 40 · C 30 %, max. 90.000/75.000/60.000 € je Wohnung | 35 Jahre | mind. 20 % | S. 12 |
-| **2.4** Ostfriesische Inseln | Darlehen + Zuschuss | Bis zu: zusammen 90 % der Herstellungskosten + 100 % der Grundstückskosten | 35 Jahre | mind. 10 % der zuwendungsfähigen Herstellungskosten | S. 13 |
-| **2.3** Klimagerechte Modernisierung | Zuschuss je gebundener Wohnung | Bis zu: 10–40 %, höchstens 9.000–31.000 € | 25 Jahre; vermietete Wohnungen ohne WBS-Nachweis 35 Jahre | mind. 20 % | S. 14 |
-| **2.5** Belegungsbindungen erwerben | Zuschuss | Festbetrag: 2,00–3,00 € je m² und Monat, nach Bindungsdauer gestaffelt | 5–20 Jahre | – | S. 16 |
+| **2.2** Energetisch hochwertiger Neubau | nur Zuschuss | Bis zu: A 50 · B 40 · C 30 %, max. 90.000/75.000/60.000 € je Wohnung | 35 Jahre | mind. 20 % | S. 13 |
+| **2.4** Ostfriesische Inseln | Darlehen + Zuschuss | Bis zu: zusammen 90 % der Herstellungskosten + 100 % der Grundstückskosten | 35 Jahre | mind. 10 % der zuwendungsfähigen Herstellungskosten | S. 14 |
+| **2.3** Klimagerechte Modernisierung | Zuschuss je gebundener Wohnung | Bis zu: 10–40 %, höchstens 9.000–31.000 € | 25 Jahre; vermietete Wohnungen ohne WBS-Nachweis 35 Jahre | mind. 20 % | S. 15 |
+| **2.5** Belegungsbindungen erwerben | Zuschuss | Festbetrag: 2,00–3,00 € je m² und Monat, nach Bindungsdauer gestaffelt | 5–20 Jahre | – | S. 17 |
 | **2.6** Auslaufende Bindungen verlängern | Zuschuss zur Zinsverbilligung | Zins: 0 % auf bis zu 100 % der Restschuld, längstens 20 Jahre | + bis zu 20 Jahre | – | S. 17 |
 
 > **[Achtung-Einzeiler]** **Erst Bewilligung, dann Vertrag oder Spatenstich** → S. 19
@@ -333,7 +333,7 @@ Die Grenzen in der Grafik meinen nicht das Brutto. Ausgangspunkt ist das in den 
 | 2.4 | alle | 9,50 | 11,50 | 12,50 |
 | 2.6 | alle | bisherige Miete, drei Jahre ab Verlängerung eingefroren, auch bei Wiedervermietung |   |   |
 
-*Tabellenfuß:* Ab EH-40-Niveau bis zu +0,30 € (2.1, 2.3, 2.5); in 2.2 enthalten. 2.3 mit verlängerter Bindung: Jahre 1–3 ab der ersten WBS-Belegung → S. 14.
+*Tabellenfuß:* Ab EH-40-Niveau bis zu +0,30 € (2.1, 2.3, 2.5); in 2.2 enthalten. 2.3 mit verlängerter Bindung: Jahre 1–3 ab der ersten WBS-Belegung → S. 15.
 
 **Grafik (step): Mietpfad und Markt, € je m² nettokalt** · Programmteil 2.1 · Gruppe A · Mietenstufe IV–VII
 
@@ -359,7 +359,7 @@ Die Mietenstufe Ihrer Gemeinde bestimmt Höchstmiete und Bemessungsgrenze.
 
 **I–III** übrige Festlandgemeinden
 
-Stufe VII gibt es in Niedersachsen nicht. Zuordnung nach Wohngeldrecht seit 2023; neue Stufen sind ab 2027 geplant → S. 15.
+Stufe VII gibt es in Niedersachsen nicht. Zuordnung nach Wohngeldrecht seit 2023; neue Stufen sind ab 2027 geplant → S. 16.
 
 #### Spielregeln
 
@@ -717,7 +717,7 @@ Auszahlung in drei Raten: bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis,
 
 Zusätzlich nutzbar: BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen – eines von beiden, das andere erst drei Jahre später. Decken öffentliche Mittel samt NBank-Zuschuss mehr als 60 % derselben Kosten, kürzt die BEG (Kommunen bei BEG Einzelmaßnahmen: 90 %).
 
-Antrag bis 31.12.2026 bei der Wohnraumförderstelle: altes Recht verbindlich wählbar (→ S. 15).
+Antrag bis 31.12.2026 bei der Wohnraumförderstelle: altes Recht verbindlich wählbar (→ S. 16).
 
 *[Angebotssatz]* Die energetische Gesamtmaßnahme planen wir mit Ihnen – Architektur und Haustechnik aus einem Haus.
 
@@ -756,12 +756,12 @@ Zeitraum 2026-06 bis 2031-12, gestaucht zwischen 2027 und 2031; Marke „heute 2
 | Zins und Kosten | 0 % Zins für 35 Jahre (geringe Einkommen) bzw. 30 Jahre (mittlere), danach marktüblich; 0,5 % Verwaltungskostenbeitrag p. a. | kein Darlehen; 0,75 % Bearbeitungsentgelt |
 | Barrierefreiheit | +5.000 € Zuschuss je barrierefreier Wohnung | Teil der Gesamtmaßnahme, kein Extra-Zuschuss |
 | Höhere Einkommen | mittlere Einkommen: nur energetisch, ohne Tilgungsnachlass | Gruppen B und C mit niedrigeren Sätzen |
-| Kombination | ausgeschlossen, wenn dieselbe Maßnahme nach RL Mietwohnraum, Junges Wohnen oder Wohneigentum 2026 gefördert wird | BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen (→ S. 14) |
+| Kombination | ausgeschlossen, wenn dieselbe Maßnahme nach RL Mietwohnraum, Junges Wohnen oder Wohneigentum 2026 gefördert wird | BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen (→ S. 15) |
 
 #### Vier Prüffragen
 
 - ☐ Fertiggestellt zwischen 01.02.2002 und 07.12.2004? Dann nur RL 2026: Das alte Recht verlangt Fertigstellung vor dem 01.02.2002.
-- ☐ Zwei Effizienzklassen erreichbar? Die RL 2026 verlangt sie. Nur wenn das nicht oder nur mit unverhältnismäßigem Aufwand geht, etwa beim Baudenkmal, kann die NBank eine Klasse zulassen (→ S. 14).
+- ☐ Zwei Effizienzklassen erreichbar? Die RL 2026 verlangt sie. Nur wenn das nicht oder nur mit unverhältnismäßigem Aufwand geht, etwa beim Baudenkmal, kann die NBank eine Klasse zulassen (→ S. 15).
 - ☐ Darlehen mit Tilgungsnachlass oder Zuschuss – was passt zu Ihrer Finanzierung?
 - ☐ Antrag mit ausdrücklicher Wahl bis 31.12.2026 bei der Wohnraumförderstelle?
 
@@ -1123,25 +1123,25 @@ QR-Code → https://www.pgn-architekten.de (Label „www.pgn-architekten.de“)
 
 Interne Liste, nicht Teil der Broschüre. Nach der Hinweis-Diät sind diese Punkte im Heft nicht mehr gekennzeichnet; das Heft folgt jeweils dem Wortlaut der Richtlinie bzw. der genannten Lesart. Bitte vor der Druckfreigabe beantworten bzw. bestätigen lassen. Seitenangaben beziehen sich auf die PGN-Fassung (24 Seiten).
 
-1. **Bemessungsgrenzen:** Wurden die Werte zum 01.10.2026 fortgeschrieben (erster Stichtag nach RL Nr. 5.3.2.2)? Bis 21.10.2026 waren auf nbank.de keine neuen Werte auffindbar. Falls ja: neue Werte für Mietenstufe I–III und IV–VII sowie für die Inseln (1,5-fach) – betrifft S. 3, 4, 8, 13 und die Modellrechnung S. 10–12 (Basisfall 4.500 €/m², Sensitivität 5.200 €/m², Marke „Modell S. 10“ auf S. 12).
+1. **Bemessungsgrenzen:** Wurden die Werte zum 01.10.2026 fortgeschrieben (erster Stichtag nach RL Nr. 5.3.2.2)? Bis 21.10.2026 waren auf nbank.de keine neuen Werte auffindbar. Falls ja: neue Werte für Mietenstufe I–III und IV–VII sowie für die Inseln (1,5-fach) – betrifft S. 3, 4, 8, 13 und die Modellrechnung S. 10–12 (Basisfall 4.500 €/m², Sensitivität 5.200 €/m², Marke „Modell S. 10“ auf S. 13).
 2. **Zuschläge in 2.1:** Lassen sich Housing First (+10 Prozentpunkte) und Modellprojekt (+5 Prozentpunkte) addieren? Vordruck 1011 nennt höchstens 85 % bzw. 90 %. Dürfen die Eigenmittel bei einem Zuschlag entsprechend unter 20 % sinken? Das Heft schreibt „mit Zuschlag entsprechend weniger“ (RL Nr. 5.2.6: „soweit sich aus den Fördersätzen nichts anderes ergibt“). (S. 3, 8, 9)
 3. **Antragsberechtigung:** Können Personengesellschaften ohne eigene Rechtspersönlichkeit (z. B. GbR) gefördert werden? Im Heft nicht erwähnt. (S. 4, 21)
 4. **§ 4 Abs. 2 DVO-NWoFG** (bis +20 % für höchstens die Hälfte der Wohnungen ab 12 Wohnungen): Welche Fördersätze und Höchstmieten gelten für diese Wohnungen? (S. 6)
 5. **A-Haushalte in B/C-Wohnungen:** Teilt die NBank die Auslegung, dass A-Haushalte einziehen dürfen und dann die B/C-Höchstmiete zahlen (§ 7 NWoFG, RL Nr. 1.6)? Im Heft nicht mehr erwähnt. (S. 6)
 6. **Ostfriesische Inseln:** (a) Gilt der EH-40-Mietaufschlag von bis zu 0,30 € auch in 2.4? (b) Welche Mietenstufe und welche Mietobergrenzen gelten auf den Inseln in 2.2 und 2.3 (die Inselgemeinden stehen in Mietenstufe V)? (c) Wie grenzt sich ein EH-40-Neubau auf den Inseln zwischen 2.4 und 2.2 ab? (d) Wie wird der Ersterwerb in 2.4 bemessen? (e) Gelten die Sicherheitenregeln aus 2.1 auch in 2.4? (S. 5, 7, 9, 13)
-7. **2.2 EH-40-Neubau:** Gelten Bemessungsgrenze je m² und Bodenrichtwert-Deckel? Nr. 6.3.2 verweist nicht darauf. Dürfen 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen genutzt werden, mit getrennten Anträgen? (S. 12)
+7. **2.2 EH-40-Neubau:** Gelten Bemessungsgrenze je m² und Bodenrichtwert-Deckel? Nr. 6.3.2 verweist nicht darauf. Dürfen 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen genutzt werden, mit getrennten Anträgen? (S. 13)
 8. **Überkompensationsprüfung:** Welchen 30-jährigen Swapsatz verwendet die NBank (Quelle, Referenz EURIBOR oder €STR, Stichtag, Mittelung), und welchen Betrachtungszeitraum? (S. 9)
 9. **Tilgung:** Welche Tilgungsmodalitäten (Satz, Rhythmus) setzt die NBank in der Regel fest? Die RL nennt keinen Satz; relevant für das Term Sheet (S. 9) und die Jahresrechnung „Ihre Rechnung“ (S. 11: Platzhalter Tilgungssatz, Break-even 1,26 % bzw. 1,18 %).
 10. **Mietenstufen ab 01.01.2027** (Entwurf BR-Drs. 474/26): Wie wirkt eine Neuzuordnung auf laufende Anträge und bereits bewilligte Vorhaben (Bedarf, Bemessungsgrenze, Höchstmiete)? (S. 7, 15, 18)
-11. **Klassensprung ab 2027:** Wie bewertet die NBank den Klassensprung, wenn Ausgangs- und Abschlussausweis auf unterschiedlichen Rechennormen beruhen (DIN V 18599 → DIN/TS 18599:2025-10)? (S. 14, 15)
+11. **Klassensprung ab 2027:** Wie bewertet die NBank den Klassensprung, wenn Ausgangs- und Abschlussausweis auf unterschiedlichen Rechennormen beruhen (DIN V 18599 → DIN/TS 18599:2025-10)? (S. 15, 15)
 12. **Antragsunterlagen:** Gilt die Checkliste vom 20.07.2025 für die RL 2026 weiter, oder erscheint eine aktualisierte Fassung? Der bisherige Stand-Hinweis („Grundlage: NBank-Checklisten vom 20.07.2025 (vor der RL 2026) und 22.09.2026 (2.5). Nachforderungen sind möglich.“) ist im Heft entfallen. (S. 21)
 13. **Hinweis, nicht broschürenrelevant:** In der Arbeitshilfe „Kosten-Finanzierungsaufteilung (08/26)“ verweist die Darlehensprüfung für Gruppe C auf Zelle E21 statt E15.
 14. **Redaktionell:** Das Zitat von Michael Kiesewetter (S. 6; MW-Presseinformation vom 03.07.2026) steht jetzt in einer Broschüre der PGN – Verwendung bitte mit der NBank-Pressestelle abstimmen (Freigabe beider Zitate → Anhang B, Nr. 6).
 15. **KfW bei Änderung und Erweiterung (2.1):** Lassen sich KfW 298 oder 296 mit Dachausbau, Aufstockung oder Anbau nach 2.1 kombinieren? Die KfW-Merkblätter regeln das nicht ausdrücklich (Rückfrage an KfW bzw. Hausbank; im Heft nur Neubau und Ersterwerb genannt). (S. 8, 13)
-16. **Modernisierung (2.3), Gebäudekosten je Wohnung:** Die RL nennt keinen Schlüssel, nach dem gebäudebezogene Modernisierungskosten auf gebundene und ungebundene Wohnungen verteilt werden; die NBank-Arbeitshilfe „Kosten-Finanzierungsaufteilung“ (08/2026) verteilt nach Wohnflächenanteil × Anteil umbauter Raum. Rechnet die NBank im Bewilligungsverfahren genauso? (S. 14)
-17. **Modernisierung (2.3) und BEG:** Zählt der NBank-Zuschuss bei der 60-%-Kumulierungsgrenze von BEG WG (KfW 261) bzw. BEG EM als öffentliches Fördermittel mit, soweit er dieselben Kosten betrifft? Das Heft folgt dem Wortlaut der BEG-Regeln und rechnet ihn ein. (S. 14)
-18. **Bindungserwerb (2.5), Zwischenlaufzeiten:** Bestätigt die NBank, dass bei Bindungsdauern zwischen den Stufen der Satz der erreichten Stufe gilt (z. B. 12 Jahre: 2,50 €)? Die RL regelt das nicht ausdrücklich; im Heft steht die Lesart nach dem Wortlaut „mindestens zehnjährig“. (S. 16)
-19. **Bindungserwerb (2.5), andere Förderungen:** Welche Förderungen für denselben Zweck lassen sich mit dem Bindungserwerb kombinieren (RL Nr. 11.4), und wie prüft die NBank dabei die Überkompensation? Der Hinweis steht nicht im Heft. (S. 16)
+16. **Modernisierung (2.3), Gebäudekosten je Wohnung:** Die RL nennt keinen Schlüssel, nach dem gebäudebezogene Modernisierungskosten auf gebundene und ungebundene Wohnungen verteilt werden; die NBank-Arbeitshilfe „Kosten-Finanzierungsaufteilung“ (08/2026) verteilt nach Wohnflächenanteil × Anteil umbauter Raum. Rechnet die NBank im Bewilligungsverfahren genauso? (S. 15)
+17. **Modernisierung (2.3) und BEG:** Zählt der NBank-Zuschuss bei der 60-%-Kumulierungsgrenze von BEG WG (KfW 261) bzw. BEG EM als öffentliches Fördermittel mit, soweit er dieselben Kosten betrifft? Das Heft folgt dem Wortlaut der BEG-Regeln und rechnet ihn ein. (S. 15)
+18. **Bindungserwerb (2.5), Zwischenlaufzeiten:** Bestätigt die NBank, dass bei Bindungsdauern zwischen den Stufen der Satz der erreichten Stufe gilt (z. B. 12 Jahre: 2,50 €)? Die RL regelt das nicht ausdrücklich; im Heft steht die Lesart nach dem Wortlaut „mindestens zehnjährig“. (S. 17)
+19. **Bindungserwerb (2.5), andere Förderungen:** Welche Förderungen für denselben Zweck lassen sich mit dem Bindungserwerb kombinieren (RL Nr. 11.4), und wie prüft die NBank dabei die Überkompensation? Der Hinweis steht nicht im Heft. (S. 17)
 
 ---
 

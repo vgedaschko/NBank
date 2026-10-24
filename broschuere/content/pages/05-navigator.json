@@ -49,7 +49,7 @@
             "pins": [
               {
                 "at": "2.3",
-                "text": "Wahlrecht bis 31.12.2026 → S. 15"
+                "text": "Wahlrecht bis 31.12.2026 → S. 16"
               }
             ]
           },
@@ -117,7 +117,7 @@
             "max": "A 50 · B 40 · C 30 %, max. 90.000/75.000/60.000 € je Wohnung",
             "binding": "35 Jahre",
             "equity": "mind. 20 %",
-            "page": "S. 12"
+            "page": "S. 13"
           },
           {
             "id": "2.4",
@@ -128,7 +128,7 @@
             "max": "zusammen 90 % der Herstellungskosten + 100 % der Grundstückskosten",
             "binding": "35 Jahre",
             "equity": "mind. 10 % der zuwendungsfähigen Herstellungskosten",
-            "page": "S. 13"
+            "page": "S. 14"
           },
           {
             "id": "2.3",
@@ -139,7 +139,7 @@
             "max": "10–40 %, höchstens 9.000–31.000 €",
             "binding": "25 Jahre; vermietete Wohnungen ohne WBS-Nachweis 35 Jahre",
             "equity": "mind. 20 %",
-            "page": "S. 14"
+            "page": "S. 15"
           },
           {
             "id": "2.5",
@@ -151,7 +151,7 @@
             "max": "2,00–3,00 € je m² und Monat, nach Bindungsdauer gestaffelt",
             "binding": "5–20 Jahre",
             "equity": null,
-            "page": "S. 16"
+            "page": "S. 17"
           },
           {
             "id": "2.6",

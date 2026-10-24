@@ -1,0 +1,1046 @@
+[
+ {
+  "seite": 1,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023074244+02'00'",
+  "kommentar": "Seiten-Nr. auf Cover??",
+  "position_mm": {
+   "x": 190.8,
+   "y": 275.5,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Blatt U1",
+  "bild": "ausschnitt-S01-01.png",
+  "json": "content/pages/01-umschlag-titel.json"
+ },
+ {
+  "seite": 1,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023092123+02'00'",
+  "kommentar": "Was ist der Informationswert für die Leser?",
+  "position_mm": {
+   "x": 193.5,
+   "y": 188.2,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "AXONOMETRIE nach dem Projekt Brauerstraße, Rotenburg (Wümme)",
+  "bild": "ausschnitt-S01-02.png",
+  "json": "content/pages/01-umschlag-titel.json"
+ },
+ {
+  "seite": 1,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023074436+02'00'",
+  "kommentar": "Hintergrund weiß auf CoverSeite sinnvoll?",
+  "position_mm": {
+   "x": 37.0,
+   "y": 257.3,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Ein Leitfaden der PGN zur RL Mietwohnraum 2026 – für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen.",
+  "bild": "ausschnitt-S01-03.png",
+  "json": "content/pages/01-umschlag-titel.json"
+ },
+ {
+  "seite": 1,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023092148+02'00'",
+  "kommentar": "Stand 30.09.2026 --> Wirkt runder und ändert nichts an der Lage",
+  "position_mm": {
+   "x": 155.0,
+   "y": 278.9,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "21.10.2026",
+  "bild": "ausschnitt-S01-04.png",
+  "json": "content/pages/01-umschlag-titel.json"
+ },
+ {
+  "seite": 2,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023074614+02'00'",
+  "kommentar": "Text ab \"Dieses Heft\" neutraler formulieren. Warum ausgerechnet aus Sicht der Planung? Entscheidend ist die Bauherren-Perspektive",
+  "position_mm": {
+   "x": 99.8,
+   "y": 94.9,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "gilt, was rechnet sich, wann darf es losgehen? Das Herzstück ist „Ihre Rechnung“ auf S. 10–11 – vom Finanzierungsaufbau bis zum laufenden Überschuss.",
+  "bild": "ausschnitt-S02-05.png",
+  "json": "content/pages/02-editorial-inhalt.json"
+ },
+ {
+  "seite": 2,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023074703+02'00'",
+  "kommentar": "Was?",
+  "position_mm": {
+   "x": 167.2,
+   "y": 238.8,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Kommunen: Selbst antragsberechtigt. Legen Sie geförderten Miet- wohnraum in entspre- chender Anzahl im Bebauungsplan, städte- baulichen Vertrag oder Baulandmodell fest, gilt der Bedarf als gegeben.",
+  "bild": "ausschnitt-S02-06.png",
+  "json": "content/pages/02-editorial-inhalt.json"
+ },
+ {
+  "seite": 2,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023074744+02'00'",
+  "kommentar": "Entweder Einstieg oder Editorial. Da die Seiten-Überschrift Editorial ist eher letzteres.",
+  "position_mm": {
+   "x": 61.0,
+   "y": 281.8,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Blatt 2 Mietwohnraumförderung Niedersachsen 2026 EINSTIEG · EDITORIAL Stand: 21.10.2026",
+  "bild": "ausschnitt-S02-07.png",
+  "json": "content/pages/02-editorial-inhalt.json"
+ },
+ {
+  "seite": 2,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023074802+02'00'",
+  "kommentar": "Muss auf jeder Seite der Stand stehen?",
+  "position_mm": {
+   "x": 178.8,
+   "y": 280.4,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Blatt 2 Mietwohnraumförderung Niedersachsen 2026 EINSTIEG · EDITORIAL Stand: 21.10.2026",
+  "bild": "ausschnitt-S02-08.png",
+  "json": "content/pages/02-editorial-inhalt.json"
+ },
+ {
+  "seite": 2,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023080222+02'00'",
+  "kommentar": "2.5 / 2.6 evtl. komplett ausgrenzen. Nicht PGN relevant. Alterna.iv nur stark verkürzt.",
+  "position_mm": {
+   "x": 196.5,
+   "y": 138.6,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "UMSETZUNG 18 Standort und Kommune",
+  "bild": "ausschnitt-S02-09.png",
+  "json": "content/pages/02-editorial-inhalt.json"
+ },
+ {
+  "seite": 2,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023075523+02'00'",
+  "kommentar": "Warum kommt Block 2.1 mehrere Seiten vor den restlichen Blöcken?",
+  "position_mm": {
+   "x": 195.7,
+   "y": 64.4,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "FINANZIERUNG 8 2.1 Neubau, Änderung, Ersterwerb",
+  "bild": "ausschnitt-S02-10.png",
+  "json": "content/pages/02-editorial-inhalt.json"
+ },
+ {
+  "seite": 3,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023080042+02'00'",
+  "kommentar": "Die Box ist optisch/inhaltlich noch nicht so richtig gelungen. Box optisch ansprechender gestalten. Leserführung/visuelle Hierachie vereinfachen (Fokus Kernbotschaft?) Und stimmt das mit den zwei Diagrammen rechts wirklich in der Form? Da habe ich ohne genauer zu recherchieren Zweifel.",
+  "position_mm": {
+   "x": 109.7,
+   "y": 213.9,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "MARKT IN NIEDERSACHSEN Wo Bedarf gilt → S. 18",
+  "bild": "ausschnitt-S03-11.png",
+  "json": "content/pages/03-zahlen-zuerst.json"
+ },
+ {
+  "seite": 4,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023075023+02'00'",
+  "kommentar": "neutraler/technischer formulieren.",
+  "position_mm": {
+   "x": 83.6,
+   "y": 194.5,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Noch nicht begonnen? Vor der Bewilligung kein Spatenstich und kein Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Grundstück und Planung bis Leistungsphase 6 HOAI); bei 2.5 weder vermieten noch überlassen → S. 19 .",
+  "bild": "ausschnitt-S04-12.png",
+  "json": "content/pages/04-neu-und-grundcheck.json"
+ },
+ {
+  "seite": 4,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023075116+02'00'",
+  "kommentar": "Ggf. verständlicher formulieren.",
+  "position_mm": {
+   "x": 88.9,
+   "y": 223.5,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Bedarf am Standort? In sechs Gebietsarten gilt er als gegeben, überall sonst wird er vermutet → S. 18 .",
+  "bild": "ausschnitt-S04-13.png",
+  "json": "content/pages/04-neu-und-grundcheck.json"
+ },
+ {
+  "seite": 4,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023075209+02'00'",
+  "kommentar": "Überschrift professioneller. Bitte kein Schülerreferat",
+  "position_mm": {
+   "x": 80.6,
+   "y": 33.3,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "WAS NEU IST – UND OB IHR PROJEKT PASST",
+  "bild": "ausschnitt-S04-14.png",
+  "json": "content/pages/04-neu-und-grundcheck.json"
+ },
+ {
+  "seite": 5,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023075350+02'00'",
+  "kommentar": "Optische Trennung der verschiedenen Aspekte falls auf dem knappen Raum möglich",
+  "position_mm": {
+   "x": 143.8,
+   "y": 80.3,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Bis zu zusammen 90 % der Herstellungskosten + 100 % der Grundstückskosten Bindung 35 Jahre Eigenmittel mind. 10 % der zuwendungsfähigen Herstellungskosten",
+  "bild": "ausschnitt-S05-15.png",
+  "json": "content/pages/05-navigator.json"
+ },
+ {
+  "seite": 5,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023080101+02'00'",
+  "kommentar": "Lässt sich das mit dem \"Nein weiter\" ggf. eleganter in die visuelle Hierarchie des Entscheidungsbaums integrieren? Falls aus Platzgründen schlecht machbar so lassen.",
+  "position_mm": {
+   "x": 48.7,
+   "y": 99.2,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Ja Ostfriesische Inseln Nein, weiter",
+  "bild": "ausschnitt-S05-16.png",
+  "json": "content/pages/05-navigator.json"
+ },
+ {
+  "seite": 6,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023080746+02'00'",
+  "kommentar": "Einkommensgrenzen seit 01.03.2025 · B = Grenze + 40 %, C = + 60 % Das steht da jetzt streng genommen zweimal. Einmal als Untertitel und dann direkt darunter im Diagramm bzw. Grafik.",
+  "position_mm": {
+   "x": 96.3,
+   "y": 54.9,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Einkommensgrenzen seit 01.03.2025 · B = Grenze + 40 %, C = + 60 %",
+  "bild": "ausschnitt-S06-17.png",
+  "json": "content/pages/06-mieterkreis-einkommensgruppen.json"
+ },
+ {
+  "seite": 6,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023101925+02'00'",
+  "kommentar": "",
+  "position_mm": {
+   "x": 135.2,
+   "y": 19.4,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "E R T R A G S S E I T E Grundsatz ist Gruppe A. B und C bringen höhere Mieten, aber weniger Zuschuss – und es gibt sie nur, wenn die NBank sie in der Förderentscheidung zulässt.",
+  "bild": "ausschnitt-S06-18.png",
+  "json": "content/pages/06-mieterkreis-einkommensgruppen.json"
+ },
+ {
+  "seite": 7,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023101605+02'00'",
+  "kommentar": "Belehren wollen wir eigentlich nicht. Auch nicht unser Problem. Kalkulationsnotiz kann eigentlich komplett raus.",
+  "position_mm": {
+   "x": 153.9,
+   "y": 156.4,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Kalkulieren Sie mit dem Mietpfad, nicht mit der Marktmiete: Selbst nach zwei Erhöhungen liegt die Fördermiete mit höchstens 7,65 € unter dem Landes- mittel 2024 von 9,00 €.",
+  "bild": "ausschnitt-S07-19.png",
+  "json": "content/pages/07-ertragsseite-mieten.json"
+ },
+ {
+  "seite": 7,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023081043+02'00'",
+  "kommentar": "Spielregeln ist zu flapsig.",
+  "position_mm": {
+   "x": 109.4,
+   "y": 183.4,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "SPIELREGELN",
+  "bild": "ausschnitt-S07-20.png",
+  "json": "content/pages/07-ertragsseite-mieten.json"
+ },
+ {
+  "seite": 7,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023101822+02'00'",
+  "kommentar": "die Icons sind teilweise nicht 100 % in ihren Farbfeldern zentriert.",
+  "position_mm": {
+   "x": 92.8,
+   "y": 254.1,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Verstöße (ohne WBS, überhöhte Miete) kosten Geldleistungen bis 5 € je m² und Monat und Bußgeld bis 10.000 €; bei Vermietung ohne WBS drohen Kündigung und Räumung, die Förderung kann zurückgefordert werden.",
+  "bild": "ausschnitt-S07-21.png",
+  "json": "content/pages/07-ertragsseite-mieten.json"
+ },
+ {
+  "seite": 8,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023101526+02'00'",
+  "kommentar": "diese roten strichelierten boxe ggf. etwas filigraner, der 80 % Strich ebenfalls.",
+  "position_mm": {
+   "x": 184.0,
+   "y": 101.2,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "20 % 60 % 20 %",
+  "bild": "ausschnitt-S08-22.png",
+  "json": "content/pages/08-programmteil-2-1.json"
+ },
+ {
+  "seite": 9,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023091709+02'00'",
+  "kommentar": "Nicht belehren. Nicht unser Thema. Zudem trivial.",
+  "position_mm": {
+   "x": 57.9,
+   "y": 48.2,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Zinsfrei ist nicht kostenfrei: 0,5 % Verwaltungskostenbeitrag p. a. und einmalige Entgelte gehören in den Finanzplan.",
+  "bild": "ausschnitt-S09-23.png",
+  "json": "content/pages/09-konditionen-term-sheet.json"
+ },
+ {
+  "seite": 9,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023081443+02'00'",
+  "kommentar": "Ggf. Eckdaten statt Term Sheet.",
+  "position_mm": {
+   "x": 27.1,
+   "y": 29.8,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "T E R M S H E E T · P R O G R A M M T E I L 2 .1",
+  "bild": "ausschnitt-S09-24.png",
+  "json": "content/pages/09-konditionen-term-sheet.json"
+ },
+ {
+  "seite": 10,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023081955+02'00'",
+  "kommentar": "Was sagt uns das? Mehrwert?",
+  "position_mm": {
+   "x": 171.8,
+   "y": 167.8,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Förderung je 1 € Mindest- Eigenmittel",
+  "bild": "ausschnitt-S10-25.png",
+  "json": "content/pages/10-modellrechnung-neubau.json"
+ },
+ {
+  "seite": 10,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023091737+02'00'",
+  "kommentar": "5 Geschosse a 20 % 20 Fenster = 20 Wohnungen | Was soll mir das sagen?",
+  "position_mm": {
+   "x": 81.9,
+   "y": 129.5,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "5 Geschosse à 20 % · 20 Fenster = 20 Wohnungen",
+  "bild": "ausschnitt-S10-26.png",
+  "json": "content/pages/10-modellrechnung-neubau.json"
+ },
+ {
+  "seite": 10,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023091832+02'00'",
+  "kommentar": "Auch hier ist die Schraffur/strichlierung verpixelt.",
+  "position_mm": {
+   "x": 93.8,
+   "y": 240.9,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Förderung, 80 % von 7,70 6,16",
+  "bild": "ausschnitt-S10-27.png",
+  "json": "content/pages/10-modellrechnung-neubau.json"
+ },
+ {
+  "seite": 10,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023091945+02'00'",
+  "kommentar": "Ach wirklich??",
+  "position_mm": {
+   "x": 98.8,
+   "y": 257.7,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "KALKULATIONSNOTIZ Die 80 % gelten nur bis zur Bemessungsgrenze – jeden Euro darüber finanzieren Sie ohne Förderung.",
+  "bild": "ausschnitt-S10-28.png",
+  "json": "content/pages/10-modellrechnung-neubau.json"
+ },
+ {
+  "seite": 10,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023091959+02'00'",
+  "kommentar": "Auch wieder sehr flapsig formuliert",
+  "position_mm": {
+   "x": 127.9,
+   "y": 268.6,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Was davon im Betrieb bleibt: rechts →",
+  "bild": "ausschnitt-S10-29.png",
+  "json": "content/pages/10-modellrechnung-neubau.json"
+ },
+ {
+  "seite": 11,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023095711+02'00'",
+  "kommentar": "Die Strichelung bei den Eigenmitteln ist verpixelt? Kann man das ggf. eleganter gestalten? Auch diese 5,6er Linie (Förderung bis zu 80 %) könnte schicker/filigraner sein.",
+  "position_mm": {
+   "x": 130.4,
+   "y": 67.2,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "5,6",
+  "bild": "ausschnitt-S11-30.png",
+  "json": "content/pages/11-wirtschaftlichkeit.json"
+ },
+ {
+  "seite": 11,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023082336+02'00'",
+  "kommentar": "Ne tun wir nicht.",
+  "position_mm": {
+   "x": 115.6,
+   "y": 270.2,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Wir rechnen Ihr Projekt mit Ihnen durch – mit Ihren Kosten und Ihrem Standort.",
+  "bild": "ausschnitt-S11-31.png",
+  "json": "content/pages/11-wirtschaftlichkeit.json"
+ },
+ {
+  "seite": 11,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023082617+02'00'",
+  "kommentar": "Das ist eigentlich interessant für Entscheider Wie sieht der optimale Mix aus? Ggf. in dem Kontext auch auf die Rolle des Tilgungssatzes etc. eingehen.",
+  "position_mm": {
+   "x": 54.4,
+   "y": 241.2,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "C bringt gegenüber A 36.960 € mehr Jahresmiete, kostet aber 10.500 € mehr Verwaltungskosten- beitrag – die übrigen 26.460 € zehrt die Tilgung der 2,1 Mio. € Mehrschuld ab 1,26 % auf (B: 16.520 €, Schwelle 1,18 % auf 1,4 Mio. €).",
+  "bild": "ausschnitt-S11-32.png",
+  "json": "content/pages/11-wirtschaftlichkeit.json"
+ },
+ {
+  "seite": 11,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023102319+02'00'",
+  "kommentar": "Mietausfallwagnis ist natürlich sinnvoll, fraglich nur ob in Cashflow-Schema sinnvoll/fachlich korrekt, da kein Liquiditätswirksamer Aufwand oder?",
+  "position_mm": {
+   "x": 44.3,
+   "y": 127.9,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "2 − Mietausfallwagnis [PGN-Rechnung: … % der Miete] [PGN-Rechnung] [PGN-Rechnung] [PGN-Rechnung]",
+  "bild": "ausschnitt-S11-33.png",
+  "json": "content/pages/11-wirtschaftlichkeit.json"
+ },
+ {
+  "seite": 12,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023082723+02'00'",
+  "kommentar": "den Eh 40 Zuschlag gibts aber auch in der 2.1 Variante oder?",
+  "position_mm": {
+   "x": 114.8,
+   "y": 74.4,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Wer ab KfW-Effizienzhaus-40-Niveau neu baut, erhält einen reinen Zuschuss – ohne Darlehen, also ohne Verwaltungskostenbeitrag. Es gilt der niedrigere Wert aus Satz und Höchstbetrag. 2.2 lässt sich nicht mit 2.1 und nicht mit anderen Förderdarlehen der Richtlinie kombinieren.",
+  "bild": "ausschnitt-S12-34.png",
+  "json": "content/pages/12-programmteil-2-2-eh40.json"
+ },
+ {
+  "seite": 12,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023082945+02'00'",
+  "kommentar": "Ggf. auch die Y-Achse beschriften. Wenn ich das richtig lese geht es da ja um den zuschuss.",
+  "position_mm": {
+   "x": 118.9,
+   "y": 140.0,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Modell S. 10",
+  "bild": "ausschnitt-S12-35.png",
+  "json": "content/pages/12-programmteil-2-2-eh40.json"
+ },
+ {
+  "seite": 12,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023095928+02'00'",
+  "kommentar": "Wie gesagt, Spielregeln durch eine passendere Bezeichnung ersetzen.",
+  "position_mm": {
+   "x": 27.0,
+   "y": 209.8,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "SPIELREGELN VORAUSSETZUNGEN",
+  "bild": "ausschnitt-S12-36.png",
+  "json": "content/pages/12-programmteil-2-2-eh40.json"
+ },
+ {
+  "seite": 13,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023095251+02'00'",
+  "kommentar": "Falls das mit den Insel-Symbolen beibehalten wird, ggf. etwas realistischere Formen verwenden",
+  "position_mm": {
+   "x": 104.0,
+   "y": 268.4,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Borkum Juist Norderney Baltrum Langeoog Spiekeroog Wangerooge N",
+  "bild": "ausschnitt-S13-37.png",
+  "json": "content/pages/13-programmteil-2-4-inseln.json"
+ },
+ {
+  "seite": 14,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023100406+02'00'",
+  "kommentar": "Ggf. auch einfach \"Zuschuss nach Effizienzsteigerung\"",
+  "position_mm": {
+   "x": 149.4,
+   "y": 44.5,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Bis zu 40 % der Modernisierungskosten, höchstens 31.000 € je gebundener Wohnung (Einkommensgruppe A, ab 5 Klassen)",
+  "bild": "ausschnitt-S14-38.png",
+  "json": "content/pages/14-programmteil-2-3-modernisierung.json"
+ },
+ {
+  "seite": 15,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023100947+02'00'",
+  "kommentar": "Gemäß RL 2026 wird eine Steigerung um zwei Energieeffizienzklassen vorausgesetzt. Bei mangelnder Wirtschaftlichkeit bzw. unverhältnißmäßigem Aufwand etwa bei Baudenkmälern, kann nach Einzelfallprüfung durch die NBank auch eine Klasse genügen.",
+  "position_mm": {
+   "x": 144.0,
+   "y": 245.7,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Zwei Effizienzklassen erreichbar? Die RL 2026 ver- langt sie. Nur wenn das nicht oder nur mit unverhältnismäßigem Aufwand geht, etwa beim Baudenkmal, kann die NBank eine Klasse zulassen ( → S. 14 ).",
+  "bild": "ausschnitt-S15-39.png",
+  "json": "content/pages/15-stichtag-wahlrecht-fristen.json"
+ },
+ {
+  "seite": 15,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023101103+02'00'",
+  "kommentar": "Abstand der bounding box nach links prüfen.",
+  "position_mm": {
+   "x": 49.6,
+   "y": 142.0,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "ALTES RECHT RL 2026 · PROGRAMMTEIL 2.3",
+  "bild": "ausschnitt-S15-40.png",
+  "json": "content/pages/15-stichtag-wahlrecht-fristen.json"
+ },
+ {
+  "seite": 16,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023101324+02'00'",
+  "kommentar": "Der Vollständigkeit halber könnte man dass Kapitel drin lassen. Allerdings lässt sich da für die PGN aus offensichtlichen Gründen kein Mehrwert daraus schlagen.",
+  "position_mm": {
+   "x": 108.7,
+   "y": 6.5,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "B E STA N D Programmteil 2.5",
+  "bild": "ausschnitt-S16-41.png",
+  "json": "content/pages/16-programmteil-2-5-bindungserwerb.json"
+ },
+ {
+  "seite": 17,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023101345+02'00'",
+  "kommentar": "Selbes Problem wie in Kapitel 2.5",
+  "position_mm": {
+   "x": 109.0,
+   "y": 4.5,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "B E STA N D Programmteil",
+  "bild": "ausschnitt-S17-42.png",
+  "json": "content/pages/17-programmteil-2-6-verlaengerung.json"
+ },
+ {
+  "seite": 19,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023094055+02'00'",
+  "kommentar": "Bei förderschädlich nur eines der Icons.",
+  "position_mm": {
+   "x": 167.6,
+   "y": 201.9,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "✓ ERLAUBT ! GENAU PRÜFEN ✕ FÖRDERSCHÄDLICH",
+  "bild": "ausschnitt-S19-43.png",
+  "json": "content/pages/19-antragsweg.json"
+ },
+ {
+  "seite": 20,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023093010+02'00'",
+  "kommentar": "Ist ggf. überflüssig falls die Aspekte auch weiter unten schon behandelt werden.",
+  "position_mm": {
+   "x": 153.9,
+   "y": 28.2,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Wir achten darauf, dass Planung, Kosten und Unterlagen zu den Förderregeln passen – und dass kein",
+  "bild": "ausschnitt-S20-44.png",
+  "json": "content/pages/20-pgn-leistungen.json"
+ },
+ {
+  "seite": 20,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023093156+02'00'",
+  "kommentar": "Allgemeiner halten. Der hinweis zu Freisitz etc. ist an dieser Stelle überflüssig. Der Hinweis auf S.6 steht da ja bereits. Und dass wir auch eh40 planen können sollte ja eigentlich selbstverständlich sein.",
+  "position_mm": {
+   "x": 114.8,
+   "y": 91.7,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Leistungsphasen 1–4 PLANUNG NACH FÖRDERREGELN Wir planen angemessene Wohnungsgrößen ( → S. 6 ), Freisitze bis zu einem Zehntel davon – auf Wunsch rollstuhlgerecht oder auf EH-40-Niveau.",
+  "bild": "ausschnitt-S20-45.png",
+  "json": "content/pages/20-pgn-leistungen.json"
+ },
+ {
+  "seite": 20,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023093244+02'00'",
+  "kommentar": "Auch hier etwas allgemeiner halten",
+  "position_mm": {
+   "x": 126.7,
+   "y": 111.1,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "KOSTEN IM GRIFF Wir steuern die Herstellungskosten mit Blick auf die Bemessungsgrenze; was darüber liegt, finanzieren Sie ohne Förderung ( → S. 8 ).",
+  "bild": "ausschnitt-S20-46.png",
+  "json": "content/pages/20-pgn-leistungen.json"
+ },
+ {
+  "seite": 20,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023093402+02'00'",
+  "kommentar": "- und kommen mit zum Vorgespräch --> Das klingt etwas nach emotional support. Lass dass mal raus.",
+  "position_mm": {
+   "x": 136.4,
+   "y": 127.4,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Vorgespräch und Antrag ANTRAGSUNTERLAGEN Wir erstellen Pläne, Wohnflächen- und Raumberech- nung, Baubeschreibung und Kostenaufteilung – und kommen mit zum Vorgespräch.",
+  "bild": "ausschnitt-S20-47.png",
+  "json": "content/pages/20-pgn-leistungen.json"
+ },
+ {
+  "seite": 20,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023093523+02'00'",
+  "kommentar": "Man könnte auch einfach allgemeienr schreiben dass wir richtlinienkonform ausschreiben/vergeben oder so.",
+  "position_mm": {
+   "x": 143.4,
+   "y": 142.4,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Leistungsphasen 5–7 AUSFÜHRUNGSPLANUNG UND VERGABE Nach der Bewilligung fordern wir mindestens drei Unternehmen zum Angebot auf und dokumentieren die Vergabe.",
+  "bild": "ausschnitt-S20-48.png",
+  "json": "content/pages/20-pgn-leistungen.json"
+ },
+ {
+  "seite": 20,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023093547+02'00'",
+  "kommentar": "Auch hier: Allgemeiner halten. Was soll die Drohne da?",
+  "position_mm": {
+   "x": 125.0,
+   "y": 157.3,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Leistungsphase 8 BAULEITUNG Wir halten Termine und Kosten im Blick und dokumentieren den Baufortschritt – auch per Drohne – für jede Teilrate ( → S. 9 ).",
+  "bild": "ausschnitt-S20-49.png",
+  "json": "content/pages/20-pgn-leistungen.json"
+ },
+ {
+  "seite": 20,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023093740+02'00'",
+  "kommentar": "Hier werden irgendwie mehrere Themen vermischt kann das sein?",
+  "position_mm": {
+   "x": 158.3,
+   "y": 252.7,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Unsere Stadtplanung erarbeitet Bebau- ungspläne. Legt die Gemeinde darin geförderte Mietwohnungen fest, gilt für diese Wohnungen der Bedarf als gegeben ( → S. 18 ).",
+  "bild": "ausschnitt-S20-50.png",
+  "json": "content/pages/20-pgn-leistungen.json"
+ },
+ {
+  "seite": 21,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023093804+02'00'",
+  "kommentar": "Was ist da der Fachbegriff? Tilgungsaufschub?",
+  "position_mm": {
+   "x": 99.9,
+   "y": 129.4,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Tilgung später? Bei vorübergehen- dem Fehlbetrag kann die NBank den Beginn um bis zu fünf Jahre verschieben.",
+  "bild": "ausschnitt-S21-51.png",
+  "json": "content/pages/21-unterlagen-kontakte.json"
+ },
+ {
+  "seite": 21,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023093940+02'00'",
+  "kommentar": "Was? frühestens nach 10 oder 20 Jahren? Was ist da gemeint?",
+  "position_mm": {
+   "x": 108.2,
+   "y": 156.0,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Vorzeitig ganz zurückzahlen? Die Bindung endet nach Ablauf des zehnten folgenden Kalenderjahres – frühestens 20 Jahre nach Bin- dungsbeginn, spätestens zum regu- lären Ende.",
+  "bild": "ausschnitt-S21-52.png",
+  "json": "content/pages/21-unterlagen-kontakte.json"
+ },
+ {
+  "seite": 22,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023092746+02'00'",
+  "kommentar": "Bei diesen Projektkacheln ggf. die visuelle Hierachie etwas mehr herausstellen.",
+  "position_mm": {
+   "x": 32.9,
+   "y": 238.3,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Rotenburg (Wümme) Wohnungsbau- Genossenschaft Rotenburg (Wümme) eG",
+  "bild": "ausschnitt-S22-53.png",
+  "json": "content/pages/22-ueber-pgn.json"
+ },
+ {
+  "seite": 23,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023092345+02'00'",
+  "kommentar": "Hier generell nochmal prüfen dass es keine Informationsüberschneidungen zwischen den verschiedenen Textblöcken gibt.",
+  "position_mm": {
+   "x": 105.3,
+   "y": 13.9,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "IMPRESSUM UND HINWEISE",
+  "bild": "ausschnitt-S23-54.png",
+  "json": "content/pages/23-impressum-hinweise.json"
+ },
+ {
+  "seite": 23,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023092357+02'00'",
+  "kommentar": "Inwiefern relevant?",
+  "position_mm": {
+   "x": 113.6,
+   "y": 120.4,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "[PGN: Name bestätigen]",
+  "bild": "ausschnitt-S23-55.png",
+  "json": "content/pages/23-impressum-hinweise.json"
+ },
+ {
+  "seite": 23,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023092421+02'00'",
+  "kommentar": "Ja... Das kommt von uns",
+  "position_mm": {
+   "x": 91.9,
+   "y": 258.0,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Bildnachweis: Visualisierungen S. 22: [PGN: Urheber bestätigen] · Titelzeichnung, Diagramme und Illustrationen: Planungsgemeinschaft Nord GmbH",
+  "bild": "ausschnitt-S23-56.png",
+  "json": "content/pages/23-impressum-hinweise.json"
+ },
+ {
+  "seite": 23,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023092610+02'00'",
+  "kommentar": "Inwiefern ist das relevant wer das druckt?",
+  "position_mm": {
+   "x": 34.8,
+   "y": 268.0,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Druck: [Platzhalter] · Stand: 21.10.2026",
+  "bild": "ausschnitt-S23-57.png",
+  "json": "content/pages/23-impressum-hinweise.json"
+ },
+ {
+  "seite": 24,
+  "typ": "Notiz",
+  "pdf_typ": "Text",
+  "autor": "vg",
+  "datum": "D:20261023092549+02'00'",
+  "kommentar": "Projekt? Ich weiß warum da Projekt steht, aber das ist ja kein Plan sondern eine Broschüre. Ggf. lieber etwas neutrales wie \"Informationsbroschüre\" verwenden.",
+  "position_mm": {
+   "x": 82.0,
+   "y": 271.1,
+   "b": 7.1,
+   "h": 6.3
+  },
+  "antworten": [],
+  "text_in_der_naehe": "Projekt",
+  "bild": "ausschnitt-S24-58.png",
+  "json": "content/pages/24-umschlag-rueckseite.json"
+ }
+]

@@ -223,7 +223,8 @@ function axo() {
   // Flachdach als L (außerhalb des Hauptbaukörpers) + Attika + PV
   const roofL = [P(W.x0, D, W.za), P(W.x0, W.y1, W.za), P(W.x1, W.y1, W.za), P(W.x1, W.y0, W.za), P(L, W.y0, W.za), P(L, D, W.za)];
   out.push(poly(roofL, 'sig-flat'));
-  out.push(poly([P(W.x0 + 0.3, D, W.za), P(W.x0 + 0.3, W.y1 - 0.3, W.za), P(W.x1 - 0.3, W.y1 - 0.3, W.za), P(W.x1 - 0.3, W.y0 + 0.3, W.za), P(L, W.y0 + 0.3, W.za)], 'sig-attika', ' fill="none"'));
+  // Attika-Innenkante als offener Linienzug (als <polygon> schloss sie mit einer Linie quer über das Dach)
+  out.push(`<path class="sig-attika" fill="none" d="M${[P(W.x0 + 0.3, D, W.za), P(W.x0 + 0.3, W.y1 - 0.3, W.za), P(W.x1 - 0.3, W.y1 - 0.3, W.za), P(W.x1 - 0.3, W.y0 + 0.3, W.za), P(L, W.y0 + 0.3, W.za)].map(pt).join('L')}"/>`);
   let pv = '';
   for (let i = 0; i < 4; i++) for (let j = 0; j < 2; j++) {           // vor dem Hauptbaukörper
     const x0 = 22.0 + i * 1.9, y0 = 13.2 + j * 1.45;
@@ -299,7 +300,7 @@ function axo() {
   const xL = P(-O, D + O, 0)[0];
   levels.forEach(([z, t], i) => {
     const base = i === 4 ? r1 : P(0, D, z);
-    const xe = base[0] - 1.4, xt = xL - 6.4, y = base[1];
+    const xe = (i === 3 ? Math.min(base[0], xL) : base[0]) - 1.4, xt = xL - 6.4, y = base[1];   // Traufe: vor dem Dachüberstand enden
     kt += `<path class="sig-kote-l" d="M${f2(xe)},${f2(y)}H${f2(xL - 19)}"/>`;
     kt += `<path class="sig-kote" d="M${f2(xt)},${f2(y)}l-1.2,-2.05h2.4z"/>`;
     kt += `<text class="sig-kote-t" x="${f2(xt - 2)}" y="${f2(y - 0.75)}" text-anchor="end">${t}</text>`;
@@ -360,7 +361,7 @@ function axo() {
 #sig-axo .sig-north path{fill:var(--sig-face,#fff);stroke:var(--sig-line,#3C3C3B);stroke-width:.2}
 #sig-axo .sig-north .sig-north-fill{fill:var(--sig-ink,#202020)}
 #sig-axo .sig-north text{font-weight:700;font-size:${FS}px;fill:var(--sig-line,#3C3C3B)}
-#sig-axo .sig-sb-b{fill:var(--sig-ink,#202020)}
+#sig-axo .sig-sb-b{fill:var(--sig-ink,#202020);stroke:var(--sig-ink,#202020);stroke-width:.2}
 #sig-axo .sig-sb-w{fill:var(--sig-face,#fff);stroke:var(--sig-ink,#202020);stroke-width:.2}
 #sig-axo .sig-sb-t{font-weight:600;font-size:${FS}px;fill:var(--sig-line,#3C3C3B)}
 </style>`;
@@ -395,16 +396,18 @@ function grundriss() {
     let d = '';
     segs.forEach(([a, b]) => { d += `M${X(a)},${Y(Math.min(y, y2))}H${X(b)}V${Y(Math.max(y, y2))}H${X(a)}Z`; });
     let g = '';
-    open.forEach(([a, b]) => { g += `M${X(a)},${Y(y + side * t / 2)}H${X(b)}M${X(a)},${Y(y)}H${X(b)}M${X(a)},${Y(y2)}H${X(b)}`; });
+    const hs = 0.02;                              // ½ Strichbreite der Glaslinie (0,1 mm) in m
+    open.forEach(([a, b]) => { g += `M${X(a)},${Y(y + side * t / 2)}H${X(b)}M${X(a)},${Y(y + side * hs)}H${X(b)}M${X(a)},${Y(y2 - side * hs)}H${X(b)}`; });
     return [d, g];
   };
   const wallV = (x, side, open) => {
     const x2 = x + side * t, segs = []; let ys = 0;
     open.slice().sort((a, b) => a[0] - b[0]).forEach(([a, b]) => { segs.push([ys, a]); ys = b; }); segs.push([ys, D]);
     let d = '';
-    segs.forEach(([a, b]) => { d += `M${X(Math.min(x, x2))},${Y(a)}V${Y(b)}H${X(Math.max(x, x2))}V${Y(a)}Z`; });
+    segs.forEach(([a, b]) => { d += `M${X(Math.min(x, x2))},${Y(a)}H${X(Math.max(x, x2))}V${Y(b)}H${X(Math.min(x, x2))}Z`; });   // gleicher Drehsinn wie wallH
     let g = '';
-    open.forEach(([a, b]) => { g += `M${X(x + side * t / 2)},${Y(a)}V${Y(b)}M${X(x)},${Y(a)}V${Y(b)}M${X(x2)},${Y(a)}V${Y(b)}`; });
+    const hs = 0.02;
+    open.forEach(([a, b]) => { g += `M${X(x + side * t / 2)},${Y(a)}V${Y(b)}M${X(x + side * hs)},${Y(a)}V${Y(b)}M${X(x2 - side * hs)},${Y(a)}V${Y(b)}`; });
     return [d, g];
   };
   const parts = [wallH(0, 1, winsH), wallH(D, -1, winsH.filter(([a]) => !(a > 13 && a < 16))), wallV(0, 1, winsV), wallV(L, -1, winsV)];
@@ -413,7 +416,7 @@ function grundriss() {
   // Innenwände: Wohnungstrennwände (Poché schmal), Flurwände, Zimmerwände
   const fy0 = 5.4, fy1 = 7.1;
   let pw = '';
-  const rectV = (x, y0, y1, w) => `M${X(x - w / 2)},${Y(y0)}V${Y(y1)}H${X(x + w / 2)}V${Y(y0)}Z`;
+  const rectV = (x, y0, y1, w) => `M${X(x - w / 2)},${Y(y0)}H${X(x + w / 2)}V${Y(y1)}H${X(x - w / 2)}Z`;   // gleicher Drehsinn wie rectH
   const rectH = (y, x0, x1, w) => `M${X(x0)},${Y(y - w / 2)}H${X(x1)}V${Y(y + w / 2)}H${X(x0)}Z`;
   [6, 12, 18, 24].forEach((x) => { pw += rectV(x, t, fy0, tw) + rectV(x, fy1, D - t, tw); });
   pw += rectH(fy0, t, 13.2, tw) + rectH(fy0, 16.8, L - t, tw) + rectH(fy1, t, 12.8, tw) + rectH(fy1, 17.2, L - t, tw);
@@ -422,7 +425,8 @@ function grundriss() {
   [0, 1, 3, 4].forEach((b) => {
     const xm = b * 6 + 3.0;
     iw += `M${X(xm)},${Y(t)}V${Y(fy0 - 1.2)}M${X(xm)},${Y(fy1 + 1.4)}V${Y(D - t)}`;      // Zimmerwand
-    iw += `M${X(b * 6 + 0.13)},${Y(fy0 - 1.9)}H${X(b * 6 + 2.2)}M${X(b * 6 + 0.13)},${Y(fy1 + 2.0)}H${X(b * 6 + 2.2)}`; // Bad
+    const xb0 = b ? b * 6 + tw / 2 : t;                                                    // Trennwand- bzw. Außenwand-Innenkante
+    iw += `M${X(xb0)},${Y(fy0 - 1.9)}H${X(b * 6 + 2.2)}M${X(xb0)},${Y(fy1 + 2.0)}H${X(b * 6 + 2.2)}`; // Bad
   });
   out.push(`<path class="sig-g-iw" d="${iw}"/>`);
   // Treppe + Aufzug
@@ -496,7 +500,7 @@ function massstab() {
   for (let i = 0; i < 10; i++) b += `<rect x="${i * 10}" y="4.6" width="10" height="1.4" class="${i % 2 ? 'w' : 'b'}"/>`;
   [0, 20, 40, 60, 80, 100].forEach((v) => { b += `<text x="${v}" y="10.4" text-anchor="middle">${v}</text>`; });
   return small('sig-massstab', '-4 0 108 11', b,
-    '#sig-massstab .b{fill:var(--sig-ink,#202020)}#sig-massstab .w{fill:var(--sig-face,#fff);stroke:var(--sig-ink,#202020);stroke-width:.2}#sig-massstab text{font-weight:600;font-size:3.06px;fill:var(--sig-line,#3C3C3B)}', 'Maßstabsleiste 0 bis 100');
+    '#sig-massstab .b{fill:var(--sig-ink,#202020);stroke:var(--sig-ink,#202020);stroke-width:.2}#sig-massstab .w{fill:var(--sig-face,#fff);stroke:var(--sig-ink,#202020);stroke-width:.2}#sig-massstab text{font-weight:600;font-size:3.06px;fill:var(--sig-line,#3C3C3B)}', 'Maßstabsleiste 0 bis 100');
 }
 function achskreis() {
   return small('sig-achskreis', '0 0 8 8', '<circle cx="4" cy="4" r="3.6"/><text x="4" y="5.2" text-anchor="middle">A</text>',

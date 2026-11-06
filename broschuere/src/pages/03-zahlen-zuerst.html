@@ -24,7 +24,7 @@
     .page[data-page="03"] .kf__num--pair { white-space: normal; }
     .page[data-page="03"] .p03-chip { position: absolute; bottom: 100%; right: 0; display: inline-flex; align-items: center; gap: .9mm; font: 700 var(--fs-micro)/1 var(--font-display); color: var(--fg-3); }
     .page[data-page="03"] .p03-chip .bs-badge__no { padding: 1mm 1.5mm .9mm; }   /* Reiter auf der Kachellinie (wie die Farbkante im Schlüsselplan) */
-    .page[data-page="03"] .p03-kf__split { border-image: linear-gradient(90deg, var(--bs-21) 0 50%, var(--bs-24) 50% 100%) 1; }
+    .page[data-page="03"] .p03-kf__split { border-image: linear-gradient(90deg, var(--bs-21) 0 calc(100% - 9.7mm), var(--bs-24) calc(100% - 9.7mm) 100%) 1; }   /* Farbwechsel mittig im Schrägstrich zwischen den Reitern 2.1 / 2.4 (bei 50 % lag er 1,2 mm links neben dem roten Reiter) */
     /* Stichtag: gleicher Aufbau, Signal nur als Linie und Datum */
     .page[data-page="03"] .p03-kf__date { border-top-color: var(--signal-fill); }
     .page[data-page="03"] .p03-kf__date .kf__num { font-size: var(--fs-fig-s); color: var(--signal-text); }

@@ -35,17 +35,22 @@ function foerdermix() {
     out.push(`<text x="12.4" y="${f2(yb + barH / 2 - 0.6)}">${r.d[0]}</text><text x="12.4" y="${f2(yb + barH / 2 + 3.1)}">${r.d[1]}</text>`);
     let xs = x0; const stops = [x0];
     const cls = ['c-grant', 'c-loan', 'c-equity'];
+    // Fuge 0,7 als echter Abstand (je 0,35 an inneren Teilungsstellen) – keine Überdeck-Linie; Rahmen innen (½ Strich = 0,1)
+    const G = 0.35, HF = 0.1;
     r.v.forEach((v, j) => {
       const w = v * u;
-      out.push(`<rect class="${cls[j]}" x="${f2(xs)}" y="${f2(yb)}" width="${f2(w)}" height="${barH}"/>`);
-      // Eigenmittel: Vektorschraffur (vorgeschnittene Linien, kein <pattern> – das rastert Chromium im PDF)
-      if (j === 2) out.push(`<path class="hatch" data-hatch="${f2(xs)} ${f2(yb)} ${f2(w)} ${barH}" d="${hatchPath([[xs, yb, w, barH]])}"/>`);
+      const a = xs + (j > 0 ? G : 0), b = xs + w - (j < r.v.length - 1 ? G : 0);
+      out.push(`<rect class="${cls[j]}" x="${f2(a)}" y="${f2(yb)}" width="${f2(b - a)}" height="${barH}"/>`);
+      // Eigenmittel: Vektorschraffur (vorgeschnittene Linien, kein <pattern> – das rastert Chromium im PDF) bis zur Rahmen-Mittellinie
+      if (j === 2) {
+        const hr = [a + HF, yb + HF, b - a - 2 * HF, barH - 2 * HF];
+        out.push(`<path class="hatch" data-hatch="${hr.map(f2).join(' ')}" d="${hatchPath([hr])}"/>`);
+        out.push(`<rect class="c-equity-frame" x="${f2(hr[0])}" y="${f2(hr[1])}" width="${f2(hr[2])}" height="${f2(hr[3])}"/>`);
+      }
       xs += w; stops.push(xs);
     });
-    out.push(`<rect class="c-equity-frame" x="${f2(stops[2])}" y="${f2(yb)}" width="${f2(stops[3] - stops[2])}" height="${barH}"/>`);
-    out.push(`<path class="sep-line" d="M${f2(stops[1])},${f2(yb)}v${barH}M${f2(stops[2])},${f2(yb)}v${barH}"/>`);
     // Zuschlag: gestrichelte rote Kappe 80 → 90 (Modellprojekt +5, Housing First +10)
-    out.push(`<path class="dim-line--acc" fill="none" stroke-dasharray="1 .6" d="M${f2(ax)},${f2(yb + 0.4)}H${f2(x0 + 90 * u)}V${f2(yb + barH - 0.4)}H${f2(ax)}M${f2(x0 + 85 * u)},${f2(yb + 0.4)}V${f2(yb + barH - 0.4)}"/>`);
+    out.push(`<path class="dim-line--acc" fill="none" stroke-dasharray="1 .6" d="M${f2(ax + 0.35)},${f2(yb + 0.4)}H${f2(x0 + 90 * u)}V${f2(yb + barH - 0.4)}H${f2(ax + 0.35)}M${f2(x0 + 85 * u)},${f2(yb + 0.4)}V${f2(yb + barH - 0.4)}"/>`);
     // Maßkette (Anthrazit)
     let d = `M${f2(x0 - 1.4)},${f2(yc)}H${f2(x1 + 1.4)}`, tk = '', hl = '';
     stops.forEach((sx) => { tk += `M${f2(sx - 0.9)},${f2(yc + 0.9)}L${f2(sx + 0.9)},${f2(yc - 0.9)}`; hl += `M${f2(sx)},${f2(yc - 1.2)}V${f2(yb - 0.6)}`; });

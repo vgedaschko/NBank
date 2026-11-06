@@ -152,9 +152,9 @@ liegen in den Pattern-Ressourcen); deshalb prüft `render.cjs` selbst und meldet
 `<pattern>`, ohne `clip-path`, ohne IDs. Reihenfolge: Fläche · Linien · Rahmen.
 
 ```html
-<rect class="c-equity" x="107" y="8.6" width="23.5" height="6.2"/>
-<path class="hatch" data-hatch="107 8.6 23.5 6.2" d="…"/>          <!-- d erzeugt scripts/schraffur.cjs -->
-<rect class="c-equity-frame" x="107" y="8.6" width="23.5" height="6.2"/>
+<rect class="c-equity" x="107.35" y="8.6" width="23.15" height="6.2"/>                       <!-- Fläche = Segment (nach der Fuge) -->
+<path class="hatch" data-hatch="107.45 8.7 22.95 6" d="…"/>          <!-- Rahmen-Mittellinie; d erzeugt scripts/schraffur.cjs -->
+<rect class="c-equity-frame" x="107.45" y="8.7" width="22.95" height="6"/>                   <!-- Rahmen um ½ Strich (0,1) nach innen -->
 ```
 
 - `data-hatch="x y w h"` = Rechteck (mehrere mit `;` getrennt in einem Pfad). Optional `data-hatch-step="…"`
@@ -166,7 +166,10 @@ liegen in den Pattern-Ressourcen); deshalb prüft `render.cjs` selbst und meldet
 - Linien global verankert (wie `userSpaceOnUse`): benachbarte Flächen laufen bündig durch.
 - Klassen: `.hatch` (Linie `--equity-line`, 0,2 mm) · `.hatch--over` (Linie `--fg-2`, für „über der Bemessungsgrenze“,
   mit `data-hatch-dir="\"`) · seitenlokal nur die Linienfarbe ändern (S. 9: `.p09-hatch-line` = `--loan`, verzinste Restlaufzeit).
-  Die Linienenden stehen bis 0,07 mm über das Rechteck (stumpfe Enden unter 45°) – der Rahmen `c-equity-frame` deckt das.
+  Die Linienenden stehen bis 0,07 mm über das Rechteck (stumpfe Enden unter 45°) – deshalb `data-hatch` = Rechteck auf der
+  **Mittellinie des Rahmens**, dann deckt der Rahmen die Enden. Der Rahmen liegt **innen** (um ½ Strichbreite eingerückt):
+  seine Außenkante = Segmentkante, bündig mit den Nachbarsegmenten (früher stand er 0,1 mm über → Stufe an Ober-/Unterkante).
+  Freigestellte Werte in der Schraffur (S. 14) als Rahmenband: mehrere Rechtecke in `data-hatch`, keine Deckmaske.
 - Ist keine Schraffur nötig (keine Unterscheidung schwarz-weiß/CVD), **flächige Tönung** statt Muster
   (`--surface-2`, `--seq-*`, `c-muted`).
 
@@ -434,7 +437,7 @@ Weitere Varianten wie v1: `.steps--lanes` (Sie · Förderstelle · NBank, Marker
 
 **Maßketten-Balken (Fördermix, Signatur des Hefts)** – Bauplan: `scripts/specimen.cjs`, Funktion `foerdermix()`:
 - Zeilen je Gruppe 14,5 mm, Balken 6–7 mm (leichte Variante; nie 14 mm-Blöcke), Gruppe als Achskreis (`axb-c` + `axb-t`, r 4,1 mm) mit zweizeiliger Beschreibung.
-- Reihenfolge **Zuschuss ab der Grundlinie** (rot) · Darlehen (#202020) · Eigenmittel (Fläche `c-equity` + Vektorschraffur `path.hatch[data-hatch]` + Rahmen `c-equity-frame`, s. 1.3.1 – kein `<pattern>`); 0,7-mm-Fuge (`sep-line`).
+- Reihenfolge **Zuschuss ab der Grundlinie** (rot) · Darlehen (#202020) · Eigenmittel (Fläche `c-equity` + Vektorschraffur `path.hatch[data-hatch]` + Rahmen `c-equity-frame`, s. 1.3.1 – kein `<pattern>`); 0,7-mm-Fuge als **echter Abstand** (je 0,35 beiderseits der Teilungsstelle, s. „Keine Überdeck-Fugen“ unten).
 - Über jedem Balken eine **Maßkette in Anthrazit** (`dim-line` 0,22, `dim-tick` 0,45 als 45°-Strich, Hilfslinien 0,12) mit den Werten (Montserrat 700, `t-val-ink`, Zuschusswert `t-acc`).
 - **80-%-Achse** rot Strichpunkt (`cap-line`, 0,25 mm) mit rotem Achskreis „80“ und Label „Förderung bis zu 80 % – in jeder Gruppe“; Zuschläge als rote gestrichelte Kappe 80 → 85 → 90.
   Strichstärken in SVGs mit mm-viewBox immer **ohne Einheit** angeben (`stroke-width: .25`): eine CSS-Länge wie `.25mm` wird in px umgerechnet und dann als Nutzereinheit gelesen – im Diagramm rund 0,95 mm (Korrekturlauf 1, global in `.cap-line`/`.dim-line--acc` behoben).
@@ -444,6 +447,16 @@ Weitere Varianten wie v1: `.steps--lanes` (Sie · Förderstelle · NBank, Marker
 **Kopf und Plotfläche:** `.chart__head--stamp` (Zeile 1 Titel + `.stamp`, Zeile 2 Untertitel links, Legende rechts; S. 13), `.chart__plot` (Stempel absolut in der freien Fläche über niedrigen Säulen, spart eine Kopfzeile; bis Korrekturlauf 1 S. 16), `.chart__unit` / `--block` (Einheit im Titel in Work Sans 9 pt gemischt: „Höchstmiete nettokalt, € je m² und Monat …“; S. 7), `.legend--wrap` (Legende in schmaler 3-Spalten-Marginalie), `.sw--axis` (80-%-Achse als Legendeneintrag). `.chart__svg` steht im Raster oben (`align-self: start`) und wird nicht auf die Höhe der Nachbarspalte gestreckt.
 
 **SVG-Konventionen:** 1 SVG-Einheit = 1 mm (`viewBox`-Breite = `width` in mm). Beschriftung Work Sans (`text` 3px = 8,5 pt, `t-m` 9,2 pt, `t-l` 12 pt), Werte Montserrat (`t-val`, `t-val-ink`, `t-num` 18 pt, `t-num-l` 25,5 pt, `t-cat` 7px, `axb-t` 5px – alle mit Tabellenziffern). `t-acc` = Rot 700. `t-unit` = Einheit hinter einem Wert (Work Sans 500 8,5 pt, grau – auch hinter roten Werten). Einkommensgruppen als Achskreis: `c-grp-a/-b/-c` (seq-6/-4/-2) + `t-grp` (`--ink` auf C). `axb-c--acc` = Achskreis der 80-/90-%-Achse (rot, 0,35). `dash--fine` (0,9/0,7) für Wartezeiten, `tl-axis--strong` (0,45) für dominante Zeitleisten, `tl-draft` (gestrichelter Rahmen auf Papier) für Geplantes. Kein `stroke` auf Text. Zahl–Einheit im SVG mit U+202F (aus der Symbolteilmenge).
+
+**Keine Überdeck-Fugen (Optik-Lauf 06.11.2026, Kundenbefund S. 18):** Fugen, Lücken und Freistellungen sind echte Geometrie,
+nie eine darübergelegte Linie/Fläche in Papierfarbe (`sep-line`, „Radierer“, Textmaske). Gestapelte Balken/Säulen: Segmente enden
+0,35 vor bzw. beginnen 0,35 nach der Teilungsstelle (Fuge 0,7; Geschossdecke im Haus S. 10: 0,3). Ringe: Kreisring-Sektoren als
+`path` mit zwei Bögen, Fugen mit parallelen Kanten (Versatz ½ Fuge rechtwinklig zur Radiallinie), kein `stroke-dasharray`.
+Konturen liegen innen (Rechteck um ½ Strich eingerückt), wenn die Fläche bündig an Nachbarn oder Bezugslinien stoßen soll;
+Maßstabsleisten tragen auf **beiden** Feldern dieselbe Kontur (`.sb-b`, `.sb-w`, `sig-sb-*`). Gefüllte Pfade, die sich
+überlappen (Poché, Wände), laufen alle im selben Drehsinn – sonst stanzt `nonzero` an den Überlappungen Löcher.
+Leader-/Kotenlinien enden mit festem Abstand vor dem vordersten Punkt des Bezugs (nicht darunter durch). Prüfskript-Ausschnitte
+und Bericht: `dist/qa/optik/`.
 
 **Diagramm-Regeln:** (1) Farben je Reihe fest (1.3). (2) Direkt beschriften; Legende im Kopf nur ergänzend. (3) Höchstwerte im Kopf („Höchstsätze“, „bis zu“). (4) Proportionen exakt, Balken ab 0, keine 3D-Effekte. (5) Zahlenformat deutsch. (6) Modellrechnungen tragen den Stempel `.stamp` „Modellrechnung“ (einmal je Rechnung). (7) Nie Größen unterschiedlicher Einheit an einer gemeinsamen Grundlinie – getrennte, gleich ausgerichtete Diagramme. (8) Rot im Diagramm nur für Zuschuss, 80-%-Achse und Zuschlag. (9) Programmfarben nur mit Nummer. (10) Diagrammtitel ≤ 6 Wörter (Versalien!), Untertitel ≤ 12, Notiz ≤ 30 Wörter / 1–2 Zeilen.
 

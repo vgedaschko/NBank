@@ -1297,7 +1297,7 @@ abbr { text-decoration: none; }
 .line-ink { stroke: var(--fg); stroke-width: .45; fill: none; }
 .line-bs { stroke: var(--bs); stroke-width: .6; fill: none; }
 .line-signal { stroke: var(--signal-fill); stroke-width: .8; fill: none; }
-.sep-line { stroke: var(--surface); stroke-width: .7; }
+/* .sep-line (weiße Überdeck-Fuge) entfällt seit dem Optik-Lauf 06.11.2026: Fugen sind echte Abstände zwischen den Segmenten (DESIGN.md 6.6). */
 .dim-line { stroke: var(--fg-2); stroke-width: .22; fill: none; }            /* Maßkette im Diagramm: Anthrazit */
 .dim-tick { stroke: var(--fg-2); stroke-width: .45; fill: none; }            /* 45°-Architektenstrich */
 .dim-line--acc { stroke: var(--accent); stroke-width: .25; }   /* 0,25 mm in mm-viewBox, ohne Einheit (siehe .cap-line) */
@@ -1305,7 +1305,7 @@ abbr { text-decoration: none; }
 .axb-c { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }      /* Achskreis im Diagramm */
 .axb-c--acc { stroke: var(--accent); stroke-width: .35; }                         /* Achskreis der 80-%-/90-%-Achse */
 .chart__svg .axb-t { font-family: var(--font-display); font-weight: 800; font-size: 5px; fill: var(--fg); }
-.sb-b { fill: var(--fg); } .sb-w { fill: var(--surface); stroke: var(--fg); stroke-width: .2; }   /* Maßstabsleiste als Achse */
+.sb-b { fill: var(--fg); stroke: var(--fg); stroke-width: .2; } .sb-w { fill: var(--surface); stroke: var(--fg); stroke-width: .2; }   /* Maßstabsleiste als Achse: beide Felder mit derselben Kontur 0,2 → Ober-/Unterkante durchgehend bündig (ohne Kontur auf sb-b entstand an jedem Wechsel eine 0,1-mm-Stufe) */
 /* Zeitstrahl */
 .tl-axis { stroke: var(--fg); stroke-width: .35; fill: none; }
 .tl-axis--strong { stroke-width: .45; }                                            /* Zeitleiste als dominantes Element */
@@ -1421,7 +1421,7 @@ abbr { text-decoration: none; }
 
 /* 6.12 Badges, Tags, Programmteil-Kennzeichnung ------------------------------- */
 .badge { display: inline-flex; align-items: center; gap: 1mm; padding: .85mm 1.5mm .75mm; border: var(--hair) solid var(--rule-strong); font: 700 var(--fs-micro)/1 var(--font-display); letter-spacing: .03em; color: var(--fg); white-space: nowrap; font-variant-numeric: tabular-nums; }
-.badge--form { gap: 0; }
+.badge--form { gap: 0; margin-inline: .4mm; }   /* Vordruck-Kasten im Fließtext: Klammern davor/dahinter stießen an den Rahmen (S. 17, 21) */
 .badge__pre { font-family: var(--font-text); font-weight: 500; color: var(--fg-3); letter-spacing: 0; -webkit-hyphens: none; hyphens: none; }
 .badge--frist { background: var(--signal-fill); border-color: var(--signal-fill); color: var(--on-signal); }
 .badge--accent { border-color: var(--accent-text); color: var(--accent-text); }
@@ -1450,7 +1450,7 @@ abbr { text-decoration: none; }
 .keyplan__label { margin-right: 1mm; }
 .keyplan__list { display: inline-flex; gap: 1.2mm; }
 .keyplan__list > li { position: relative; width: 9.5mm; height: 6.2mm; border: var(--hair) solid var(--rule-strong); font: 700 var(--fs-micro)/5.8mm var(--font-display); text-align: center; color: var(--fg); font-variant-numeric: tabular-nums; }
-.keyplan__list > li::before { content: ""; position: absolute; left: -.2mm; right: -.2mm; top: -.2mm; height: 1.1mm; background: var(--bs); }
+.keyplan__list > li::before { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 1.1mm; background: var(--bs); }   /* Kappe deckt den Rahmen beidseitig: Chromium setzt die 0,2-mm-Haarlinie als 1 CSS-px; mit −0,2 mm blieb links die schwarze Rahmenkante neben der Kappe stehen, rechts nicht */
 .keyplan__list > li.is-on { background: var(--bs); border-color: var(--bs); color: var(--on-bs); font-weight: 800; }
 
 /* Einkommensgruppen A/B/C als Achskreise (Füllung = sequenzielle Stufe, A dunkel → C hell) */
@@ -1466,7 +1466,7 @@ abbr { text-decoration: none; }
 .tags { display: flex; flex-wrap: wrap; gap: 1.4mm; }
 /* Programmteil-Matrix: sechs Felder 2.1–2.6 in fester Folge; zutreffend = Programmfarbe (<i class="bs-2x">),
    sonst Geisterziffer (.is-off). Container role="img" + aria-label („gilt für 2.1 bis 2.4“). Checklisten, Übersichten. */
-.bs-matrix { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); column-gap: .9mm; align-self: start; }
+.bs-matrix { display: grid; grid-template-columns: repeat(6, 23px); column-gap: 3px; justify-content: end; align-self: start; }   /* ganze CSS-Pixel: Chromium rastet Kastenkanten im PDF auf ganze px – bei 1fr/0,9 mm schwankten die Fugen zwischen 3 und 4 px (0,8–1,1 mm) */
 .bs-matrix > i { display: block; height: 4.6mm; font: 800 var(--fs-micro)/4.6mm var(--font-display); font-style: normal; text-align: center; letter-spacing: .01em; font-variant-numeric: tabular-nums lining-nums; background: var(--bs); color: var(--on-bs); }
 .bs-matrix > i.is-off { background: none; color: var(--rule); }
 

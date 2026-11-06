@@ -34,8 +34,8 @@
     .page[data-page="18"] .p18-plot .chart__svg { margin-top: 0; }
     .page[data-page="18"] .p18-qr { position: absolute; left: calc(100% * 11.18 / 72.1); top: calc(100% * 11.58 / 44); width: calc(100% * 17.64 / 72.1); display: block; }
     .page[data-page="18"] .p18-qr svg { display: block; width: 100%; height: auto; }
-    .page[data-page="18"] .p18-ring-a { fill: none; stroke: var(--fg); }
-    .page[data-page="18"] .p18-ring-b { fill: none; stroke: var(--seq-4); }
+    .page[data-page="18"] .p18-ring-a { fill: var(--fg); }
+    .page[data-page="18"] .p18-ring-b { fill: var(--seq-4); }
     .page[data-page="18"] .p18-sw-a { fill: var(--fg); }
     .page[data-page="18"] .p18-sw-b { fill: var(--seq-4); }
     .page[data-page="18"] .p18-ring__note { margin-top: 3mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
@@ -108,12 +108,11 @@
       <figcaption class="chart__head"><h2 class="chart__title" id="p18-ring-h">Bedarfslage auf der NBank-Karte</h2><p class="chart__sub">Einheits- und Samtgemeinden</p></figcaption>
       <div class="p18-plot">
         <svg class="chart__svg" viewBox="0 0 72.1 44" width="72.1mm" height="44mm" role="img" aria-label="Ringdiagramm Bedarfslage auf der NBank-Karte, Einheits- und Samtgemeinden: Bedarf gegeben in 306, Bedarf gesondert nachweisen in 96. In der Ringmitte ein QR-Code zur aktuellen Karte.">
-          <!-- Mitte (20, 20,4), r 16,5, Ringbreite 5,5 (innen 13,75 → QR 17,64 passt mit Ecken-Luft). Umfang = 402 Gemeinden;
-               96 ab 12 Uhr im Uhrzeigersinn, dann 306 -->
-          <circle class="p18-ring-a" cx="20" cy="20.4" r="16.5" stroke-width="5.5" pathLength="402" stroke-dasharray="306 96" stroke-dashoffset="-96" transform="rotate(-90 20 20.4)"/>
-          <circle class="p18-ring-b" cx="20" cy="20.4" r="16.5" stroke-width="5.5" pathLength="402" stroke-dasharray="96 306" transform="rotate(-90 20 20.4)"/>
-          <line class="sep-line" x1="20" y1="6.4" x2="20" y2="0.9"/>
-          <line class="sep-line" x1="33.96" y1="19.43" x2="39.45" y2="19.04"/>
+          <!-- Mitte (20, 20,4), Kreisring r 13,75–19,25 (Mittelradius 16,5, Ringbreite 5,5; innen 13,75 → QR 17,64 passt mit Ecken-Luft).
+               Umfang = 402 Gemeinden; 96 ab 12 Uhr im Uhrzeigersinn (0°–85,97°), dann 306. Segmente als echte Kreisring-Sektoren
+               (je zwei Bögen); Fugen 0,7 als echter Spalt mit parallelen Kanten (je 0,35 beiderseits der Radiallinie) – keine Überdeck-Linie -->
+          <path class="p18-ring-a" d="M39.224 19.397A19.25 19.25 0 1 1 19.650 1.153L19.650 6.654A13.75 13.75 0 1 0 33.736 19.783Z"/>
+          <path class="p18-ring-b" d="M20.350 1.153A19.25 19.25 0 0 1 39.175 18.698L33.687 19.085A13.75 13.75 0 0 0 20.350 6.654Z"/>
           <!-- Direktbeschriftung -->
           <rect class="p18-sw-b" x="44" y="3.4" width="3" height="3"/>
           <text class="t-num-l" x="49" y="10.2">96</text>

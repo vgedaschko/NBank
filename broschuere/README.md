@@ -1,9 +1,10 @@
 # Wohnraum, der sich rechnen kann. – Mietwohnraumförderung Niedersachsen 2026 (PGN-Fassung)
 
 > **Herausgeberin: Planungsgemeinschaft Nord GmbH (PGN), Rotenburg (Wümme).** Die NBank ist Bewilligungsstelle und wird
-> nur sachlich genannt, nie als Absender (kein Logo von NBank oder Land). Vor dem Druck liefert PGN die Platzhalter
-> `[PGN-Rechnung: …]`, `[PGN: …]` und `[Platzhalter]` zu (siehe [Platzhalter](#platzhalter--was-pgn-vor-dem-druck-liefert)
-> und Anhang B in `content/copy.md`).
+> nur sachlich genannt, nie als Absender (kein Logo von NBank oder Land). Die Platzhalter `[PGN-Rechnung: …]` auf
+> S. 11/12 sind seit 09.11.2026 vorläufig durch die Werte der PGN-Beispielrechnung ersetzt; was PGN vor dem Druck noch
+> bestätigen oder entscheiden muss, steht unter [Platzhalter](#platzhalter--was-pgn-vor-dem-druck-liefert) und in
+> Anhang B von `content/copy.md`.
 >
 > **v1 = Commit `b347308`:** Die frühere NBank-Fassung (20 Seiten, Stand 21.10.2026, Herausgeberin NBank) ist nicht mehr
 > im Arbeitsstand enthalten und wird nicht ausgeliefert. Sie bleibt über Git abrufbar (siehe [Frühere Fassung](#frühere-fassung-v1)).
@@ -75,25 +76,29 @@ Platzhalter sind gewollt und im Heft als gestrichelt umrandete Felder gesetzt (g
 `content/pages/NN-*.json` und `content/copy.md` nachziehen und neu bauen. Maßgeblich und vollständig ist
 **Anhang B „Vor dem Druck mit PGN klären“ in `content/copy.md`**.
 
-Im Heft sichtbar (23 Felder):
+Im Heft sichtbar: **keine Felder mehr.** Die 23 Platzhalter auf S. 11 (Jahresrechnung) und S. 12 (Rechenweg) sind am
+09.11.2026 mit den Werten der PGN-Beispielrechnung gefüllt (vorläufig übernommen, Kunde 09.11.2026; Quelle PGN-VOFI-Modell
+v2-1, `Eingabe!C80–C82`, `Basisdaten!C62`; Prüfung `zulieferungen/vofi-pruefung/PRUEFBERICHT.md` Abschnitt 5). Excel-Mappe,
+Präsentation und Broschüre werden am Ende abgeglichen; offene Punkte in Anhang B, Nr. 1:
 
-| S. | Platzhalter | Anzahl | PGN liefert |
-|---:|---|---:|---|
-| 11 | `[PGN-Rechnung: … %]` (Zeile 1, Unterzeile Mietausfall/Leerstand) | 1 | Satz in % der Sollmiete (Erlösschmälerung) |
-| 11 | `[PGN-Rechnung: … € je Wohnung p. a.]` (Zeile 2, nicht umlagefähige Bewirtschaftungskosten) | 1 | Ansatz je Wohnung (20 Wohnungen) |
-| 11 | `[PGN-Rechnung: … € je m² p. a.]` (Zeile 3, Instandhaltung) | 1 | Ansatz je m² Wohnfläche (1.400 m²) |
-| 11 | `[PGN-Rechnung: Tilgungssatz … %]` (Zeile 7, Tilgung) | 1 | Tilgungssatz der Beispielrechnung |
-| 11 | `[PGN-Rechnung]` (Zeile 1 Unterzeile, Zeilen 2, 3, 4, 7, 8 × Spalten A, B, C) | 18 | Beträge aus der PGN-Beispiel-Investitionsrechnung, Zwischensumme Zeile 4, Ergebnis Zeile 8 |
-| 12 | `[PGN-Rechnung: … %]` (Fuß des Rechenwegs, Mietausfall) | 1 | derselbe Satz wie S. 11, Zeile 1; danach Tilgungsschwellen 1,18 % / 1,26 % nachrechnen (Anhang B Nr. 1) |
+| S. | früher | jetzt |
+|---:|---|---|
+| 11 | Mietausfall/Leerstand `[… %]` | 2 % der Sollmiete: 2.285 / 2.755 / 3.024 € (A / B / C) |
+| 11 | nicht umlagefähige Bewirtschaftungskosten `[… € je Wohnung p. a.]` | Objektverwaltung 367 € je Wohnung p. a., Betriebskosten voll umgelegt: 7.340 € |
+| 11 | Instandhaltung `[… € je m² p. a.]` | 14,40 € je m² p. a.: 20.160 € |
+| 11 | Tilgung `[Tilgungssatz … %]` | 2,5 % p. a. (Annahme): 70.000 / 105.000 / 122.500 € |
+| 11 | Zeilen 4 und 8 `[PGN-Rechnung]` | 84.455 / 107.505 / 120.676 € und 455 / −18.495 / −26.324 € (Jahr 1) |
+| 12 | Mietausfall `[… %]` im Rechenweg | Unterzeile 470 / 739 € (B / C); Tilgungsschwellen 1,15 % / 1,22 % |
 
 U3 trägt seit Korrekturlauf 1 keine Platzhalter mehr: „Verantwortlich für den Inhalt“ und „Druck“ entfallen
 (§ 8 Abs. 2, § 7 Abs. 3 NPresseG), der Bildnachweis lautet „Planungsgemeinschaft Nord GmbH“.
 
 Außerdem vor dem Druck zu bestätigen oder freizugeben (ohne Platzhalter im Heft, Details in Anhang B):
-Preisstand der Beispielrechnung S. 11–12; Geschäftsführung, Herausgeberzeile und PDF-Metadaten (U3); Formulierung
-„Seit 1981“ (S. 2, 22); Bildrechte und hochaufgelöste Originale (U1, S. 20, 22); Negativ-Logo, CMYK-/Pantone-Werte und
-CI-Anwendung; Zitate Tonne (S. 2) und Kiesewetter (S. 6); PGN-Claims, Leistungsaussagen S. 20, Referenzen S. 22 und
-eine mögliche Ansprechperson auf U4.
+Schlussabgleich S. 11/12 mit VOFI-Mappe und Präsentation, Kostenstand 2026, „Betriebskosten voll umgelegt“, Tilgungssatz
+2,5 % (NBank abgestimmt?) sowie Tenor S. 11, Tilgungsaufschub-Hinweis und Verweis S. 4 → S. 11 (Entscheidung PGN);
+Geschäftsführung, Herausgeberzeile und PDF-Metadaten (U3); Formulierung „Seit 1981“ (S. 2, 22); Bildrechte und
+hochaufgelöste Originale (U1, S. 20, 22); Negativ-Logo, CMYK-/Pantone-Werte und CI-Anwendung; Zitate Tonne (S. 2) und
+Kiesewetter (S. 6); PGN-Claims, Leistungsaussagen S. 20, Referenzen S. 22 und eine mögliche Ansprechperson auf U4.
 
 ## Aufbau des Repos
 

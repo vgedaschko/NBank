@@ -5,7 +5,8 @@
        Oberkante Band 1, Unterkante Band 3 = Satzspiegel. Hauptelement: die Jahresrechnung. Säulen A | B | C stehen exakt über den
        Tabellenspalten A | B | C (je 28 mm, Säule 15 mm, Zahlen enden an der Säulenkante); eigene Grundlinie,
        keine gemeinsame Achse mit der Tabelle (Mio. € gegenüber € p. a.).
-       Platzhalter „[PGN-Rechnung …]“: globale Klasse .ph (gestrichelt) – beim Einsetzen der PGN-Werte Span samt Klasse ersetzen.
+       Werte der PGN-Rechnung eingesetzt (VOFI-Mappe v3, Eingaben 5.1–5.3 und 3.1, Übersicht Zeilen 29–39; vorläufig, Kunde 09.11.2026): Mietausfall 2 %, Verwaltung 367 € je
+       Wohnung, Instandhaltung 14,40 € je m² (Kostenstand 2026), Tilgung 2,5 % (PGN-Annahme); Tabelle zeigt Jahr 1.
        Korrekturlauf 1: Mietausfall als Erlösschmälerung in Zeile 1 (Unterzeile, Zeilennummer per rowspan); Kalkulationsnotiz
        und Angebotssatz entfallen; 80-%-Linie läuft hinter den Säulen (nur in den Zwischenräumen sichtbar), Eigenmittelwerte
        stehen neben der Säule statt auf einem Feld in der Schraffur. */
@@ -27,7 +28,6 @@
     .page[data-page="11"] .p11-jr th, .page[data-page="11"] .p11-jr td { padding-top: 1.4mm; padding-bottom: 1.4mm; line-height: 1.3; }
     .page[data-page="11"] .p11-jr tfoot td:first-child { padding-left: 0; }
     .page[data-page="11"] .p11-jr .num { padding-right: 6.5mm; padding-left: 1mm; }
-    .page[data-page="11"] .p11-jr td.p11-phc { padding-left: 1.2mm; padding-right: 1.2mm; text-align: center; }
     /* Zeile 1 = Sollmiete und Erlösschmälerung: Unterzeile ohne eigene Nummer, ohne Trennlinie dazwischen */
     .page[data-page="11"] .p11-jr tr.p11-r1 > td { border-bottom: 0; padding-bottom: .3mm; }
     .page[data-page="11"] .p11-jr tr.p11-r1b > td { padding-top: .3mm; }
@@ -57,14 +57,14 @@
         <li><i class="sw sw--equity"></i>Eigenmittel, mind.</li>
         <li><i class="sw sw--axis"></i>Förderung, bis zu 80 %</li>
       </ul>
-      <h2 class="chart__title p11-jr-h" id="p11-jr-h">Jahresrechnung Jahre 1–3, in € p. a.</h2>
+      <h2 class="chart__title p11-jr-h" id="p11-jr-h">Jahresrechnung Jahr 1, in € p. a.</h2>
     </div>
     <figure class="l-span-6 chart module p11-mix" role="group" aria-labelledby="p11-mix-h">
       <figcaption class="chart__head">
         <h2 class="chart__title" id="p11-mix-h">Finanzierung in Mio. €</h2>
-        <p class="chart__sub">Gesamtkosten je 7,0 Mio. € · Höchstwerte</p>
+        <p class="chart__sub">Gesamtkosten je 7,0 Mio. € · Höchstsätze</p>
       </figcaption>
-      <svg class="chart__svg p11-mix__svg" viewBox="0 0 87.5 43.6" width="87.5mm" height="43.6mm" role="img" aria-label="Finanzierung in Millionen Euro, Gesamtkosten je 7,0 Millionen Euro, Höchstwerte, je Einkommensgruppe: A Darlehen 2,8, Zuschuss 2,8, Eigenmittel mindestens 1,4; B Darlehen 4,2, Zuschuss 1,4, Eigenmittel mindestens 1,4; C Darlehen 4,9, Zuschuss 0,7, Eigenmittel mindestens 1,4. Förderung bis zu 80 Prozent in allen drei Gruppen je 5,6. Die Säulen stehen über den Spalten A, B und C der Jahresrechnung."><path class="cap-line" d="M0,9.4H87.5"/><rect class="c-grant" x="10" y="26.55" width="15" height="16.45"/>
+      <svg class="chart__svg p11-mix__svg" viewBox="0 0 87.5 43.6" width="87.5mm" height="43.6mm" role="img" aria-label="Finanzierung in Millionen Euro, Gesamtkosten je 7,0 Millionen Euro, Höchstsätze, je Einkommensgruppe: A Darlehen 2,8, Zuschuss 2,8, Eigenmittel mindestens 1,4; B Darlehen 4,2, Zuschuss 1,4, Eigenmittel mindestens 1,4; C Darlehen 4,9, Zuschuss 0,7, Eigenmittel mindestens 1,4. Förderung bis zu 80 Prozent in allen drei Gruppen je 5,6. Die Säulen stehen über den Spalten A, B und C der Jahresrechnung."><path class="cap-line" d="M0,9.4H87.5"/><rect class="c-grant" x="10" y="26.55" width="15" height="16.45"/>
 <rect class="c-loan" x="10" y="9.4" width="15" height="16.45"/>
 <rect class="c-equity" x="10" y="1" width="15" height="8.4"/>
 <path class="hatch" data-hatch="10.1 1.1 14.8 8.2" d="M10.1,1.779L10.779,1.1M10.1,3.476L12.476,1.1M10.1,5.174L14.174,1.1M10.1,6.871L15.871,1.1M10.1,8.568L17.568,1.1M11.065,9.3L19.265,1.1M12.762,9.3L20.962,1.1M14.459,9.3L22.659,1.1M16.156,9.3L24.356,1.1M17.853,9.3L24.9,2.253M19.55,9.3L24.9,3.95M21.247,9.3L24.9,5.647M22.944,9.3L24.9,7.344M24.641,9.3L24.9,9.041"/>
@@ -86,14 +86,14 @@
     <thead><tr><th scope="col" aria-label="Zeile"></th><th scope="col">Position</th><th scope="col" class="p11-abc"><span class="axis-no axis-no--s">A</span></th><th scope="col" class="p11-abc"><span class="axis-no axis-no--s">B</span></th><th scope="col" class="p11-abc"><span class="axis-no axis-no--s">C</span></th></tr></thead>
     <tbody>
       <tr class="p11-r1"><th scope="row" rowspan="2">1</th><td>Sollmiete: Höchstmiete nettokalt, Mietenstufe IV–VII <span class="u-nowrap">(1.400 m² × 6,80 | 8,20 | 9,00 € × 12)</span></td><td class="num">114.240</td><td class="num">137.760</td><td class="num">151.200</td></tr>
-      <tr class="p11-r1b"><td class="is-hang"><span class="table__op">−</span> Mietausfall/Leerstand <span class="ph u-nohyphens">[PGN-Rechnung: … %]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
-      <tr><th scope="row">2</th><td class="is-hang"><span class="table__op">−</span> nicht umlagefähige Bewirtschaftungskosten <span class="ph u-nohyphens">[PGN-Rechnung: … € je Wohnung p. a.]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
-      <tr><th scope="row">3</th><td class="is-hang"><span class="table__op">−</span> Instandhaltung <span class="ph u-nohyphens">[PGN-Rechnung: … € je m² p. a.]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
-      <tr class="is-sum"><th scope="row">4</th><td class="is-hang"><span class="table__op">=</span> Überschuss vor Kapitaldienst</td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
+      <tr class="p11-r1b"><td class="is-hang"><span class="table__op">−</span> Mietausfall/Leerstand, 2 % der Sollmiete</td><td class="num">2.285</td><td class="num">2.755</td><td class="num">3.024</td></tr>
+      <tr><th scope="row">2</th><td class="is-hang"><span class="table__op">−</span> Objektverwaltung, 367 € je Wohnung p. a. (Betriebskosten voll umgelegt)</td><td class="num">7.340</td><td class="num">7.340</td><td class="num">7.340</td></tr>
+      <tr><th scope="row">3</th><td class="is-hang"><span class="table__op">−</span> Instandhaltung, 14,40 € je m² p. a.</td><td class="num">20.160</td><td class="num">20.160</td><td class="num">20.160</td></tr>
+      <tr class="is-sum"><th scope="row">4</th><td class="is-hang"><span class="table__op">=</span> Überschuss vor Kapitaldienst</td><td class="num">84.455</td><td class="num">107.505</td><td class="num">120.676</td></tr>
       <tr><th scope="row">5</th><td class="is-hang"><span class="table__op">−</span> Verwaltungskostenbeitrag, 0,5 % des Restkapitals (Jahr 1, nach Vollauszahlung)</td><td class="num">14.000</td><td class="num">21.000</td><td class="num">24.500</td></tr>
       <tr><th scope="row">6</th><td class="is-hang"><span class="table__op">−</span> Zins NBank-Darlehen, 0 % bis Ende Jahr 35</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
-      <tr><th scope="row">7</th><td class="is-hang"><span class="table__op">−</span> Tilgung <span class="ph u-nohyphens">[PGN-Rechnung: Tilgungssatz … %]</span> auf <span class="u-nowrap">2,8 | 4,2 | 4,9 Mio. €</span> Darlehen</td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens">[PGN-Rechnung]</span></td></tr>
-      <tr class="is-result on-red"><th scope="row">8</th><td class="is-hang"><span class="table__op">=</span> Zahlungsüberschuss p. a.</td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens on-light">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens on-light">[PGN-Rechnung]</span></td><td class="num p11-phc"><span class="ph ph--cell u-nohyphens on-light">[PGN-Rechnung]</span></td></tr>
+      <tr><th scope="row">7</th><td class="is-hang"><span class="table__op">−</span> Tilgung 2,5 % p. a. (Annahme) auf <span class="u-nowrap">2,8 | 4,2 | 4,9 Mio. €</span> Darlehen</td><td class="num">70.000</td><td class="num">105.000</td><td class="num">122.500</td></tr>
+      <tr class="is-result on-red"><th scope="row">8</th><td class="is-hang"><span class="table__op">=</span> Zahlungsüberschuss p. a.</td><td class="num">455</td><td class="num">−18.495</td><td class="num">−26.324</td></tr>
     </tbody>
     <tfoot>
       <tr><td colspan="2">Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte (1 % des Darlehens + 0,75 % des Zuschusses)</td><td class="num">49.000</td><td class="num">52.500</td><td class="num">54.250</td></tr>
@@ -104,11 +104,11 @@
   <div class="l-grid p11-e l-bottom">
     <section class="l-span-6 module p11-cmp">
       <h2 class="chart__title">B und C gegenüber A</h2>
-      <p class="body">C erzielt 36.960 € mehr Sollmiete im Jahr als A und zahlt 10.500 € mehr Verwaltungskostenbeitrag: Vor Tilgung bleiben 26.460 € mehr (B: 16.520 €). Die Tilgung der Mehrschuld von 2,1 Mio. € (B: 1,4 Mio. €) zehrt diesen Vorsprung ab einem Tilgungssatz von 1,26 % (B: 1,18 %) auf. Mischungen liegen <span class="u-nohyphens">dazwischen</span> <span class="u-nowrap">(<a class="pageref" href="#seite-12">→&nbsp;S.&nbsp;12</a>).</span></p>
+      <p class="body">C erzielt 36.960 € mehr Sollmiete im Jahr als A. Nach 2 % Mietausfall und 10.500 € mehr Verwaltungskostenbeitrag bleiben vor Tilgung 25.721 € mehr (B: 16.050 €). Die Tilgung der Mehrschuld von 2,1 Mio. € (B: 1,4 Mio. €) zehrt diesen Vorsprung ab 1,22 % Tilgung auf (B: 1,15 %). Mischungen liegen <span class="u-nohyphens">dazwischen</span> <span class="u-nowrap">(<a class="pageref" href="#seite-12">→&nbsp;S.&nbsp;12</a>).</span></p>
     </section>
     <section class="l-span-6 module p11-read">
       <h2 class="chart__title">Annahmen und Abgrenzung</h2>
-      <p class="body">Bewirtschaftung und Instandhaltung sind in A, B und C gleich – sie verschieben das Niveau, nicht den Vergleich. Nur der Mietausfall wächst mit der Sollmiete und senkt beide Tilgungsschwellen. Die Rechnung zeigt Liquidität bei festen Höchstmieten, keine Rendite. Den Tilgungssatz legt die NBank fest <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span></p>
+      <p class="body">Objektverwaltung und Instandhaltung sind in A, B und C gleich – sie verschieben das Niveau, nicht den Vergleich. Nur der Mietausfall wächst mit der Sollmiete und senkt beide Tilgungsschwellen. Die Rechnung zeigt Liquidität bei festen Höchstmieten und Kostenstand&nbsp;2026, keine Rendite. Den Tilgungssatz legt die NBank fest <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span></p>
     </section>
   </div>
 

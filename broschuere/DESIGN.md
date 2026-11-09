@@ -579,7 +579,7 @@ Je Kapitel (= Kolumnentitel) eine Linie als Pseudo-Element-Strich, Haltestellen 
 ```html
 <span class="ph">[PGN-Rechnung: … € je Wohnung p. a.]</span>   <td class="num"><span class="ph ph--cell">[PGN-Rechnung]</span></td>
 ```
-Heftweit eine Form für „[PGN-Rechnung: …]“, „[PGN: …]“, „[Platzhalter]“: gestrichelte Haarlinie in `--fg-3`, Fläche `--surface-2`, Text grau, nie umbrochen – Plankonvention „gestrichelt = noch offen“, neutral (S. 11 trägt 22 Platzhalter; rot wäre dort eine Fläche aus Rosa). `--cell`: Wertzelle, zentriert, 8,5 pt. Auf Rot (Ergebniszeile) zusätzlich `.on-light`. Beim Einsetzen der Werte den Span samt Klasse ersetzen; Suche nach `class="ph` findet alle offenen Stellen (S. 11, 12; U3 seit Korrekturlauf 1 ohne Platzhalter).
+Heftweit eine Form für „[PGN-Rechnung: …]“, „[PGN: …]“, „[Platzhalter]“: gestrichelte Haarlinie in `--fg-3`, Fläche `--surface-2`, Text grau, nie umbrochen – Plankonvention „gestrichelt = noch offen“, neutral (S. 11 trug bis 09.11.2026 22 Platzhalter; rot wäre dort eine Fläche aus Rosa). `--cell`: Wertzelle, zentriert, 8,5 pt. Auf Rot (Ergebniszeile) zusätzlich `.on-light`. Beim Einsetzen der Werte den Span samt Klasse ersetzen; Suche nach `class="ph` findet alle offenen Stellen (seit 09.11.2026 keine: S. 11/12 mit den PGN-Werten gefüllt, U3 seit Korrekturlauf 1 ohne Platzhalter).
 
 ---
 

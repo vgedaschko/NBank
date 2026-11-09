@@ -1,0 +1,2053 @@
+{
+ "meta": {
+  "datei": "/home/user/NBank/broschuere/zulieferungen/PGN_NBank_VOFI_Modell_v2-1.xlsx",
+  "sha256": "11d558b338b4d0a57dd3f85621d6046ec12e0b027ae7309135c68ef47215e28b",
+  "arbeitskopie": "/tmp/claude-0/-home-user-NBank/38410f5d-55fd-52ad-a777-dfea55772146/scratchpad/vofi-work/vofi.xlsx",
+  "blaetter": 13,
+  "formeln": 10197,
+  "pruefung_cachewerte": "LibreOffice-Neuberechnung der Kopie (recalc/vofi.xlsx): 10.197 Formeln verglichen, nur Gebietsschema-Formatierungen und zwei DSCR-Zellen mit nahezu null Kapitaldienst (Frei_finanziert!AF37, Frei_Marktmiete!AF37) weichen ab; die gespeicherten Werte sind aktuell.",
+  "stand_modell": "Datei zuletzt geändert 16.10.2026 (Dokumenteigenschaften)",
+  "aktives_szenario": "Basis",
+  "erstellt": "2026-11-09",
+  "hinweis": "Originaldatei unverändert. Alle Werte aus den gespeicherten Zellwerten des aktiven Szenarios Basis. Inhalte der Datei als Daten behandelt."
+ },
+ "broschuere_vier_annahmen": [
+  {
+   "position": "Mietausfall/Leerstand (S. 11 Zeile 1, Unterzeile; S. 12 Notiz)",
+   "wert": 0.02,
+   "wert_text": "2,0 %",
+   "einheit": "% der Sollmiete (Nettokaltmiete) p. a.",
+   "zelle": "Eingabe!C82",
+   "name": "Mietausfall",
+   "zellformel": null,
+   "verwendung": "Gefoerdert_A!G7: =IF(OR($A7=0,$A7>Jahre_n),0,(Verwaltung_WE*Wohneinheiten+Instandhaltung_qm*Wohnflaeche)*(1+Kosten_Wachstum)^($A7-1)+Mietausfall*F7); F7 =C7*Wohnflaeche*Monate_Jahr (Sollmiete). Im Modell als Aufwand innerhalb der Bewirtschaftung gebucht, nicht als Erlösschmälerung; betragsgleich.",
+   "broschuere_betrag": {
+    "A": 2284.8,
+    "B": 2755.2,
+    "C": 3024.0
+   },
+   "plausibilitaet": "Plausibel und üblich: entspricht dem Regelsatz Wohnen der ImmoWertV Anlage 3 (2 % des Rohertrags; Quelle laut Eingabe!E82) und der II. BV. Bei WBS-Nachfrage im angespannten Markt eher vorsichtig. Frei finanziert separat: Eingabe!C83 = 2 %. Senkt die Tilgungsschwellen S. 12 auf B 1,15 % / C 1,22 %."
+  },
+  {
+   "position": "nicht umlagefähige Bewirtschaftungskosten (S. 11 Zeile 2)",
+   "wert": 367,
+   "wert_text": "367 €",
+   "einheit": "€ je Wohnung p. a. (Verwaltungskosten); nicht umlagefähige Betriebskosten: kein Ansatz (0)",
+   "zelle": "Eingabe!C80",
+   "name": "Verwaltung_WE",
+   "zellformel": null,
+   "verwendung": "Gefoerdert_A!G7 (Term Verwaltung_WE*Wohneinheiten, Steigerung (1+Kosten_Wachstum)^(t-1)). Die Bewirtschaftung im Modell besteht nur aus Verwaltung + Instandhaltung + Mietausfall; Betriebskosten gelten als voll umlagefähig.",
+   "broschuere_betrag": {
+    "A": 7340,
+    "B": 7340,
+    "C": 7340
+   },
+   "plausibilitaet": "Plausibel: ImmoWertV Anlage 3 (Basiswert 2021: 298 €/Wohnung), laut Eingabe!E80 auf 2026 fortgeschrieben; die Größenordnung passt zu einer VPI-Fortschreibung um rund 23 % (nicht gegen eine amtliche Veröffentlichung geprüft). In der Broschüre als „Verwaltung“ benennen oder ergänzen, dass Betriebskosten voll umgelegt werden. Kein Leerstands-Betriebskostenansatz."
+  },
+  {
+   "position": "Instandhaltung (S. 11 Zeile 3)",
+   "wert": 14.4,
+   "wert_text": "14,40 €",
+   "einheit": "€ je m² Wohnfläche p. a.; Steigerung 2,0 % p. a. ab Jahr 2 (Kostensteigerung, Szenario 1,5/2,0/2,5 %)",
+   "zelle": "Eingabe!C81 (Steigerung Eingabe!C84 = INDEX(SZ_Kosten_Wachstum,Szenario_Nr) → Szenarien!H8)",
+   "name": "Instandhaltung_qm / Kosten_Wachstum",
+   "zellformel": null,
+   "verwendung": "Gefoerdert_A!G7 (Term Instandhaltung_qm*Wohnflaeche, Steigerung (1+Kosten_Wachstum)^(t-1)); gleichmäßiger Jahresaufwand, keine Instandhaltungszyklen (Modellannahmen!C10), keine Modernisierungsinvestitionen (Modellannahmen!C27).",
+   "broschuere_betrag": {
+    "A": 20160.0,
+    "B": 20160.0,
+    "C": 20160.0
+   },
+   "plausibilitaet": "Vertretbar, für Neubau in Jahr 1–3 vorsichtig: ImmoWertV Anlage 3 (Basiswert 2021: 11,70 €/m²) ist ein über die Nutzungsdauer gemittelter Wertermittlungsansatz; altersgestaffelte Sätze (II. BV § 28) liegen für junge Gebäude niedriger. Als Pauschale mit Quelle gut vertretbar."
+  },
+  {
+   "position": "Tilgung NBank-Darlehen (S. 11 Zeile 7; S. 12 Bandbreite)",
+   "wert": 0.025,
+   "wert_text": "2,50 %",
+   "einheit": "% des Ursprungsdarlehens p. a., linear (gleichbleibender Betrag), keine Annuität; ab Jahr 1, ohne Aufschub; Szenario Best/Basis 2,50 % (40 J.), Worst 3,03 % (33 J.)",
+   "zelle": "Basisdaten!C62 (Tilgungsrate_A); Laufzeit Eingabe!C25 = INDEX(SZ_Laufzeit_NBank,Szenario_Nr) → Szenarien!G9:I9 = 40/40/33; Tilgungsfrei Eingabe!C26 = 0; Anzeige Finanzierung!F5/F14/F23 = 2,50 %",
+   "name": "Tilgungsrate_A/_B/_C, Laufzeit_NBank, Tilgungsfrei_NBank",
+   "zellformel": "Basisdaten!C62: =IFERROR(Darlehen_A/MAX(1,Laufzeit_NBank-Tilgungsfrei_NBank),0); Gefoerdert_A!J7: =IF(OR($A7=0,$A7>Jahre_n,$A7<=Tilgungsfrei_NBank),0,MIN(Tilgungsrate_A,N(V6)))",
+   "verwendung": "Konstante Jahresrate 2,5 % × Ursprungsbetrag bis zur Volltilgung in T40; Verwaltungskostenbeitrag 0,5 % auf das fallende Restkapital zusätzlich; ab T36 zusätzlich 3,74 % Zins auf den Rest (12,5 % des Ursprungsbetrags). Bankdarlehen dagegen Annuität mit 1,86 % Anfangstilgung (Eingabe!C54).",
+   "broschuere_betrag": {
+    "A": 70000.0,
+    "B": 105000.0,
+    "C": 122500.0
+   },
+   "plausibilitaet": "Annahme von PGN, kein RL-Wert (RL Nr. 5.3.5: NBank setzt fest; Faktbasis G1-14/G1-15). Rechnerisch schlüssig: Volltilgung binnen 40 ≤ 42 Jahren. Ein linearer Satz, der in 42 Jahren voll tilgt, liegt bei mindestens 2,38 % (1/42), mit 5 Jahren Aufschub bei 2,70 % (1/37). Bisher (WFB 2024) galten mindestens 1,25 % in der zinsfreien Phase und 2,5 % danach (G1-20/G1-21). Folge für S. 11/12: bei 2,50 % liegt A vorn, B und C sind in Jahr 1 negativ (siehe Jahresrechnung)."
+  }
+ ],
+ "broschuere_jahresrechnung_mit_modellannahmen": {
+  "basis": "Modellhaus S. 10: 20 WE, 1.400 m², 7,0 Mio. € zuwendungsfähig, Höchstsätze; Annahmen aus dem PGN-Modell (Kostenstand 2026, ohne Steigerung), Jahr 1 nach Vollauszahlung. Eigene Nachrechnung, nicht im Modell enthalten.",
+  "varianten": {
+   "Modell Basis/Best: 1/40": {
+    "tilgungssatz": 0.025,
+    "rows": {
+     "A": {
+      "Sollmiete": 114240.0,
+      "Mietausfall": 2284.8,
+      "Verwaltung": 7340,
+      "Instandhaltung": 20160.0,
+      "Ueberschuss_vor_KD": 84455.2,
+      "VKB": 14000.0,
+      "Zins": 0,
+      "Tilgung": 70000.0,
+      "Zahlungsueberschuss": 455.2
+     },
+     "B": {
+      "Sollmiete": 137760.0,
+      "Mietausfall": 2755.2,
+      "Verwaltung": 7340,
+      "Instandhaltung": 20160.0,
+      "Ueberschuss_vor_KD": 107504.8,
+      "VKB": 21000.0,
+      "Zins": 0,
+      "Tilgung": 105000.0,
+      "Zahlungsueberschuss": -18495.2
+     },
+     "C": {
+      "Sollmiete": 151200.0,
+      "Mietausfall": 3024.0,
+      "Verwaltung": 7340,
+      "Instandhaltung": 20160.0,
+      "Ueberschuss_vor_KD": 120676.0,
+      "VKB": 24500.0,
+      "Zins": 0,
+      "Tilgung": 122500.0,
+      "Zahlungsueberschuss": -26324.0
+     }
+    }
+   },
+   "Modell Worst: 1/33": {
+    "tilgungssatz": 0.030303030303030304,
+    "rows": {
+     "A": {
+      "Sollmiete": 114240.0,
+      "Mietausfall": 2284.8,
+      "Verwaltung": 7340,
+      "Instandhaltung": 20160.0,
+      "Ueberschuss_vor_KD": 84455.2,
+      "VKB": 14000.0,
+      "Zins": 0,
+      "Tilgung": 84848.48,
+      "Zahlungsueberschuss": -14393.28
+     },
+     "B": {
+      "Sollmiete": 137760.0,
+      "Mietausfall": 2755.2,
+      "Verwaltung": 7340,
+      "Instandhaltung": 20160.0,
+      "Ueberschuss_vor_KD": 107504.8,
+      "VKB": 21000.0,
+      "Zins": 0,
+      "Tilgung": 127272.73,
+      "Zahlungsueberschuss": -40767.93
+     },
+     "C": {
+      "Sollmiete": 151200.0,
+      "Mietausfall": 3024.0,
+      "Verwaltung": 7340,
+      "Instandhaltung": 20160.0,
+      "Ueberschuss_vor_KD": 120676.0,
+      "VKB": 24500.0,
+      "Zins": 0,
+      "Tilgung": 148484.85,
+      "Zahlungsueberschuss": -52308.85
+     }
+    }
+   },
+   "RL-Mindestwert linear 1/42": {
+    "tilgungssatz": 0.023809523809523808,
+    "rows": {
+     "A": {
+      "Sollmiete": 114240.0,
+      "Mietausfall": 2284.8,
+      "Verwaltung": 7340,
+      "Instandhaltung": 20160.0,
+      "Ueberschuss_vor_KD": 84455.2,
+      "VKB": 14000.0,
+      "Zins": 0,
+      "Tilgung": 66666.67,
+      "Zahlungsueberschuss": 3788.53
+     },
+     "B": {
+      "Sollmiete": 137760.0,
+      "Mietausfall": 2755.2,
+      "Verwaltung": 7340,
+      "Instandhaltung": 20160.0,
+      "Ueberschuss_vor_KD": 107504.8,
+      "VKB": 21000.0,
+      "Zins": 0,
+      "Tilgung": 100000.0,
+      "Zahlungsueberschuss": -13495.2
+     },
+     "C": {
+      "Sollmiete": 151200.0,
+      "Mietausfall": 3024.0,
+      "Verwaltung": 7340,
+      "Instandhaltung": 20160.0,
+      "Ueberschuss_vor_KD": 120676.0,
+      "VKB": 24500.0,
+      "Zins": 0,
+      "Tilgung": 116666.67,
+      "Zahlungsueberschuss": -20490.67
+     }
+    }
+   },
+   "bisherige WFB-Tilgung 1,25 %": {
+    "tilgungssatz": 0.0125,
+    "rows": {
+     "A": {
+      "Sollmiete": 114240.0,
+      "Mietausfall": 2284.8,
+      "Verwaltung": 7340,
+      "Instandhaltung": 20160.0,
+      "Ueberschuss_vor_KD": 84455.2,
+      "VKB": 14000.0,
+      "Zins": 0,
+      "Tilgung": 35000.0,
+      "Zahlungsueberschuss": 35455.2
+     },
+     "B": {
+      "Sollmiete": 137760.0,
+      "Mietausfall": 2755.2,
+      "Verwaltung": 7340,
+      "Instandhaltung": 20160.0,
+      "Ueberschuss_vor_KD": 107504.8,
+      "VKB": 21000.0,
+      "Zins": 0,
+      "Tilgung": 52500.0,
+      "Zahlungsueberschuss": 34004.8
+     },
+     "C": {
+      "Sollmiete": 151200.0,
+      "Mietausfall": 3024.0,
+      "Verwaltung": 7340,
+      "Instandhaltung": 20160.0,
+      "Ueberschuss_vor_KD": 120676.0,
+      "VKB": 24500.0,
+      "Zins": 0,
+      "Tilgung": 61250.0,
+      "Zahlungsueberschuss": 34926.0
+     }
+    }
+   }
+  },
+  "schwellen_mit_mietausfall": {
+   "B": {
+    "mehrmiete_nach_ausfall": 23049.6,
+    "mehr_vor_tilgung": 16049.6,
+    "schwelle": 0.011463999999999995
+   },
+   "C": {
+    "mehrmiete_nach_ausfall": 36220.8,
+    "mehr_vor_tilgung": 25720.8,
+    "schwelle": 0.012248000000000004
+   }
+  },
+  "kosten_jahr3_mit_steigerung": {
+   "Verwaltung_Jahr3": 7636.54,
+   "Instandhaltung_Jahr3": 20974.46
+  },
+  "kosten_fortgeschrieben_auf_T1_2028": {
+   "Verwaltung_je_WE_2028": 381.83,
+   "Instandhaltung_je_m2_2028": 14.98
+  }
+ },
+ "kernannahmen": [
+  {
+   "thema": "Verwaltungskosten",
+   "wert": "367 € je WE p. a.; +2,0 % p. a. ab T2",
+   "zelle": "Eingabe!C80, Eingabe!C84",
+   "formel": "Gefoerdert_A!G7 (s. o.)",
+   "hinweis": "Kostenstand 2026 wird ohne Fortschreibung als T1 = 2028 angesetzt (fortgeschrieben wären es 381,83 € bzw. 14,98 €/m²)."
+  },
+  {
+   "thema": "Mietsteigerung gefördert",
+   "wert": "T1–T3: 0; ab T4 alle 3 Jahre +6,15 % (≈ 2,01 % p. a.), gedeckelt durch Vergleichsmiete; nach Bindung (ab T36) Kappung 20 % je 3 Jahre (VO angespannt endet 2029), gedeckelt durch Vergleichsmiete",
+   "zelle": "Eingabe!C73:C79",
+   "formel": "Gefoerdert_A!C7: =IF(OR($A7=0,$A7>Jahre_n),0,IF($A7=1,Startmiete_A,IF(AND($A7>Karenz_Jahre,MOD($A7-1-Karenz_Jahre,Anpassung_Rhythmus)=0),MAX(N(C6),MIN(N(C6)*(1+IF($A7<=Bindung,Kappung,IF(AND(Marktlage=\"angespannt\",OR(Marktlage_bis=0,Fertigstellungsjahr+$A7<=Marktlage_bis)),Kappung_angespannt,Kappung_normal))),D7)),N(C6))))",
+   "hinweis": "Ausschöpfung jeder zulässigen Erhöhung unterstellt (Modellannahmen!C11). Miete A: 6,80 → 13,11 €/m² in T35 (Dashboard!C15) → 18,88 €/m² in T42 (Dashboard!C16)."
+  },
+  {
+   "thema": "Markt- und Vergleichsmiete",
+   "wert": "Vergleichsmiete T1 12,92 €/m², Marktmiete T1 14,48 €/m² (Mittel der Anker 11,70 €/2023 und 15,42 €/2026, je +2,0 % p. a. fortgeschrieben); Wachstum 2,0 % p. a.",
+   "zelle": "Eingabe!C63:C72; Basisdaten!C46:C49",
+   "formel": "Basisdaten!C48: =IF(Miete_Ansatz=\"unterer Anker\",Anker_unten,IF(Miete_Ansatz=\"oberer Anker\",Anker_oben,(Anker_unten+Anker_oben)/2))+Zuschlag_Standard",
+   "hinweis": "Steuert Restwert (Ertragswert), boG und frei finanzierte Varianten, nicht die geförderte Startmiete."
+  },
+  {
+   "thema": "Kostensteigerung",
+   "wert": "2,0 % p. a. (Best 1,5 %, Worst 2,5 %) auf Verwaltung und Instandhaltung; Mietausfall wächst mit der Miete",
+   "zelle": "Eingabe!C84 = INDEX(SZ_Kosten_Wachstum,Szenario_Nr); Szenarien!G8:I8",
+   "formel": "Exponent (t−1) in Gefoerdert_A!G",
+   "hinweis": "Im Ertragswert (Spalte Z) mit Exponent t gerechnet."
+  },
+  {
+   "thema": "Betrachtungszeitraum",
+   "wert": "42 Jahre ab Bezugsfertigkeit (T1–T42 = 2028–2069); zusätzlich 2,5 Jahre Vorlaufzeit nur im Exponenten der VOFI-Endwertrendite (44,5 Jahre)",
+   "zelle": "Eingabe!C11, Eingabe!C107",
+   "formel": "Bewertung!N5: =IF(AND(M5>0,Eigenkapital>0,$B5>0),(M5/Eigenkapital)^(1/($B5+Vorlaufzeit_Jahre))-1,\"n. v.\")",
+   "hinweis": "EK-IRR (Dashboard!C58) rechnet ohne Vorlaufzeit; beide Renditen haben damit unterschiedliche Zeitbasis."
+  },
+  {
+   "thema": "Restwertansatz",
+   "wert": "Verkehrswert in T42 nach Ertragswertverfahren auf Marktmiete (6,71 Mio. €, alle Varianten gleich), abzüglich Restschuld zum Nennwert (in T42: 0 €); keine Veräußerungskosten",
+   "zelle": "Bewertung!J/K/L/M (Zeilen 30–34), BW_EW, BW_Endwert; Parameter Eingabe!C103:C106, Eingabe!B124:C129",
+   "formel": "Gefoerdert_A!AC: =KG_Grundstueck*(1+Bodenwert_Wachstum)^$A+MAX(0,Z-KG_Grundstueck*(1+Bodenwert_Wachstum)^$A*AA)*AB; Bewertung!M: =D+L-E; Gefoerdert_A!AJ48 (T42): T+S+Verkehrswert−Restschuld",
+   "hinweis": "LZ 3,1 % (RND 80) → 2,7 % (RND 38). Der Abzug für die gebundene Miete (boG) ist in T42 konstruktionsbedingt 0: die nach T42 fortbestehende Mietdifferenz der Bestandsmieter fehlt (eigene Abschätzung: A rd. 0,46 Mio. €, B 0,21 Mio. €, C 0,14 Mio. €). Bodenwert 0 € (Eingabe!C15)."
+  },
+  {
+   "thema": "Zins NBank nach Jahr 35",
+   "wert": "3,74 % p. a. für T36–T42 auf das Restkapital (bei 40 J. Laufzeit 12,5 % des Ursprungsbetrags)",
+   "zelle": "Eingabe!C43 (Zins_NBank_ab36)",
+   "formel": "Gefoerdert_A!I7: =IF(OR($A7=0,$A7>Jahre_n),0,N(V6)*IF($A7<=Zinsfrei_Jahre,Zins_NBank_1_35,Zins_NBank_ab36))",
+   "hinweis": "Gesetzt = Bankzins (marktüblich als Obergrenze); nicht aus Basiszinssatz + 3 Pp. hergeleitet (Eingabe!E43 „VORBEHALT“)."
+  },
+  {
+   "thema": "Habenzins / Sollzins / Kontokorrent",
+   "wert": "Haben 2,0 %, Soll 5,0 %, Linie 0 €",
+   "zelle": "Eingabe!C100, C101, C102",
+   "formel": "Gefoerdert_A!U7: =IF(OR($A7=0,$A7>Jahre_n),0,N(Y6)*IF(N(Y6)>=0,Haben,Soll))",
+   "hinweis": "Thesaurierung (Entnahme_Modus 0): Überschüsse verzinsen sich mit 2 % im VOFI-Konto; in A/B/C bleibt das Konto positiv, Frei_Marktmiete überzieht um 22.640 € (Basisdaten!C147)."
+  },
+  {
+   "thema": "Bankdarlehen",
+   "wert": "3,74 % fest 10 J., Anfangstilgung 1,86 % (Annuität, rechnerische Laufzeit 30 J.), Anschluss 2,74/3,74/4,74 %, Prolongationsmodus 2; in A/B/C nur 20.744/22.226/22.966 € (= Bearbeitungsentgelte)",
+   "zelle": "Eingabe!C51:C59; Basisdaten!C78, C89, C100",
+   "formel": "Basisdaten!C78: =MAX(0,Barbedarf-Darlehen_A-Zuschuss_A+Entgelt_A-EK_bar)",
+   "hinweis": "Eingabe!E51 nennt „die angesetzten 2 %“, die Zelle C54 rechnet 1,86 %."
+  },
+  {
+   "thema": "Eigenkapital",
+   "wert": "592.682 € = 20 % der zuwendungsfähigen Kosten, nur bar; Grundstück 0 €",
+   "zelle": "Eingabe!C88, Basisdaten!C126",
+   "formel": "Eingabe!C88: =0.2*Zuwendungsfaehig; Basisdaten!C126: =KG_Grundstueck+EK_bar",
+   "hinweis": "Nenner aller Renditen; identisch in allen Varianten."
+  },
+  {
+   "thema": "Bauphase / KG 800",
+   "wert": "KG 800 = 0 € angesetzt; informativ berechnet 83.716 € (12 Monate, 4,9 % ZF-Zins, 3 % Bereitstellung, 6 Monate frei)",
+   "zelle": "Eingabe!C19, C91:C95; Basisdaten!C28:C31",
+   "formel": "Basisdaten!C31: =IF(KG800_berechnen=\"ja\",Bauzeitkosten,KG_Finanzierung)",
+   "hinweis": "Zuwendung komplett in T0 gebucht, keine Teilraten (Modellannahmen!C20); VKB in der Bauphase fehlt (Eingabe!E44)."
+  },
+  {
+   "thema": "Überkompensation",
+   "wert": "Swap 30 J. 3,39 % (19.08.2026) + 100 Bp. = 4,39 %",
+   "zelle": "Ueberkompensation!C5:C7",
+   "formel": "Ueberkompensation!C11: =IFERROR(AVERAGEIFS(BW_Rendite,BW_n,Jahre_n,BW_Alt,1),\"n. v.\")",
+   "hinweis": "Geprüft wird die VOFI-Endwertrendite mit Restwert (A 6,38 %) und ohne Restwert (A 3,34 %), nicht der IRR (Dashboard!C58: A 7,92 %); Swapsatz vor Verwendung aktualisieren (Ueberkompensation!G5)."
+  },
+  {
+   "thema": "Sonstige Bewertungsparameter",
+   "wert": "GND 80 J., Bodenwertwachstum 1,5 %, LZ-Kurve 2,5–3,1 %, Beleihungsabschlag 10 %, DSCR-Ziel 1,25, Inflation 2,0 %",
+   "zelle": "Eingabe!C105, C106, B124:C129, C57, C70, C108",
+   "formel": "—",
+   "hinweis": "Wirkt auf Restwert, Beleihungswert und Kennzahlen, nicht auf die Jahresrechnung der Broschüre."
+  }
+ ],
+ "abgleich_modellprojekt": [
+  {
+   "merkmal": "Projekt",
+   "modell": "Referenzprojekt Tarutinoer Straße 4, Neu Wulmstorf (Eingabe!A1)",
+   "broschuere": "fiktives Modellhaus (S. 10)",
+   "befund": "Abweichung: reales Referenzobjekt statt Modellhaus."
+  },
+  {
+   "merkmal": "Wohneinheiten",
+   "modell": "14 (Eingabe!C13)",
+   "broschuere": "20",
+   "befund": "Abweichung"
+  },
+  {
+   "merkmal": "Wohnfläche",
+   "modell": "828 m², Ø 59 m²/WE (Eingabe!C12)",
+   "broschuere": "1.400 m², Ø 70 m²/WE",
+   "befund": "Abweichung"
+  },
+  {
+   "merkmal": "Herstellungskosten",
+   "modell": "3.579 €/m² = 2.963.412 € (Szenarien!H6 =3579*Wohnflaeche; Eingabe!C18)",
+   "broschuere": "4.500 €/m² = 6,3 Mio. €",
+   "befund": "Abweichung: Broschüre rd. 26 % teurer je m²."
+  },
+  {
+   "merkmal": "Grundstück",
+   "modell": "0 € (Eingabe!C15/C16; Bodenrichtwertdeckel 260 €/m² × 1.362 m² = 354.120 €)",
+   "broschuere": "700.000 €",
+   "befund": "Abweichung: im Modell kein Grundstückswert."
+  },
+  {
+   "merkmal": "Zuwendungsfähige Kosten",
+   "modell": "2.963.412 € = 3.579 €/m² (Basisdaten!C27)",
+   "broschuere": "7,0 Mio. € = 5.000 €/m²",
+   "befund": "Abweichung: Darlehen je m² in der Broschüre um rd. 40 % höher, Kapitaldienst entsprechend."
+  },
+  {
+   "merkmal": "Mietenstufe / Band",
+   "modell": "VI → Band IV–VII (Eingabe!C36, Basisdaten!C18)",
+   "broschuere": "IV–VII",
+   "befund": "Übereinstimmung im Band: gleiche Bemessungsgrenze 5.000 €/m² und Höchstmieten."
+  },
+  {
+   "merkmal": "Höchstmieten Jahr 1–3",
+   "modell": "6,80 / 8,20 / 9,00 €/m² (Basisdaten!C41:C43, Eingabe!E119:G119), EH 55 ohne Zuschlag",
+   "broschuere": "6,80 / 8,20 / 9,00 €/m²",
+   "befund": "Übereinstimmung"
+  },
+  {
+   "merkmal": "Förderquoten Darlehen/Zuschuss",
+   "modell": "A 40/40, B 60/20, C 70/10 % (Eingabe!C27:C31, C35)",
+   "broschuere": "A 40/40, B 60/20, C 70/10 %",
+   "befund": "Übereinstimmung"
+  },
+  {
+   "merkmal": "Eigenmittel",
+   "modell": "20 % bar = 592.682 € (Eingabe!C88)",
+   "broschuere": "20 % = 1,4 Mio. €, davon mind. 0,7 Mio. € Geld/Grundstück",
+   "befund": "Gleiche Quote, andere Zusammensetzung (Broschüre mit Grundstück)."
+  },
+  {
+   "merkmal": "Varianten",
+   "modell": "A, B, C jeweils zu 100 % (Blätter Gefoerdert_A/_B/_C) plus zwei frei finanzierte Varianten",
+   "broschuere": "A, B, C jeweils zu 100 %; Mix nur als Schwellenlogik (S. 12)",
+   "befund": "Übereinstimmung in der Logik; kein Mischfall im Modell."
+  },
+  {
+   "merkmal": "Marktlage",
+   "modell": "angespannt (Eingabe!C76)",
+   "broschuere": "per Verordnung angespannt",
+   "befund": "Übereinstimmung"
+  },
+  {
+   "merkmal": "Zeitbezug",
+   "modell": "Bezugsfertigkeit 2027, Kostenstand 2026, Horizont 42 Jahre",
+   "broschuere": "Jahr 1–3 ohne Kalenderjahr",
+   "befund": "Für die Broschüre Jahr-1-Werte (Kostenstand 2026) verwenden."
+  },
+  {
+   "merkmal": "Ergebnis Jahr 1 (zur Einordnung)",
+   "modell": "A: Rohertrag 67.565 €, Bewirtschaftung 18.412 €, Kapitaldienst 36.723 €, Cashflow +12.429 € (Gefoerdert_A!F7:Q7); B +8.198 €, C +7.056 €",
+   "broschuere": "mit denselben Annahmen: A +455 €, B −18.495 €, C −26.324 € (eigene Nachrechnung)",
+   "befund": "Das Referenzprojekt trägt sich wegen niedrigerer Kosten je m²; das Broschürenhaus mit 5.000 €/m² kaum (A) bzw. nicht (B, C)."
+  }
+ ],
+ "foerderkonditionen_rl2026": [
+  {
+   "kondition": "Zuschuss statt Tilgungsnachlass",
+   "rl": "RL Nr. 5.3.3.2; F009/F105",
+   "modell": "Zuschussquoten Eingabe!C28/C30/C35, Zuschuss_A/B/C (Basisdaten!C63/C67/C71: =Zuwendungsfaehig*Quote_Z_eff_A); kein Tilgungsnachlass im Modell",
+   "befund": "erfüllt"
+  },
+  {
+   "kondition": "Zuschuss nur mit Darlehen",
+   "rl": "RL Nr. 5.3.3.2 Satz 2",
+   "modell": "Warnlogik Eingabe!E28/E30/E35",
+   "befund": "erfüllt"
+  },
+  {
+   "kondition": "Fördersätze A 40/40, B 60/20, C 70/10",
+   "rl": "RL Nr. 5.3.3.1/5.3.3.2; F105",
+   "modell": "Eingabe!C27:C31, C35",
+   "befund": "erfüllt (Höchstsätze)"
+  },
+  {
+   "kondition": "Zuschlag modellhaft/Housing First nur auf Zuschuss",
+   "rl": "RL Nr. 5.3.3.3",
+   "modell": "Basisdaten!C54/C55",
+   "befund": "erfüllt (inaktiv)"
+  },
+  {
+   "kondition": "0 % Zins bis Ende Jahr 35",
+   "rl": "RL Nr. 5.3.4 Satz 1; F113",
+   "modell": "Eingabe!C41 = 35, C42 = 0 %; Gefoerdert_A!I7 (s. o.)",
+   "befund": "erfüllt"
+  },
+  {
+   "kondition": "Zins ab Jahr 36: bis Basiszins + 3 Pp., höchstens marktüblich",
+   "rl": "RL Nr. 5.3.4 Satz 2; F114",
+   "modell": "Eingabe!C43 = 3,74 % gesetzt",
+   "befund": "Vorbehalt: Annahme an der Marktobergrenze, nicht hergeleitet (vom Modell selbst vermerkt)."
+  },
+  {
+   "kondition": "Laufzeit max. 42 Jahre, Tilgung legt NBank fest",
+   "rl": "RL Nr. 5.3.5; F116, G1-14",
+   "modell": "Basisdaten!C9 = 42; Laufzeit Eingabe!C25 = 40 (Worst 33); lineare Tilgung 2,5 %",
+   "befund": "erfüllt; Tilgungssatz ist PGN-Annahme"
+  },
+  {
+   "kondition": "Tilgungsaufschub bis 5 Jahre nur bei Fehlbetrag",
+   "rl": "RL Nr. 5.3.5 Satz 5; F117",
+   "modell": "Basisdaten!C10 = 5; Eingabe!C26 = 0; Prüfung Basisdaten!C45",
+   "befund": "erfüllt"
+  },
+  {
+   "kondition": "Tilgungsbeginn nach Vollauszahlung",
+   "rl": "RL Nr. 5.3.5 Satz 1; F115",
+   "modell": "Tilgung ab T1 (Gefoerdert_A!J7)",
+   "befund": "erfüllt (Näherung)"
+  },
+  {
+   "kondition": "Verwaltungskostenbeitrag 0,5 % des Restkapitals ab Beginn der Auszahlung",
+   "rl": "RL Nr. 12.7.1; F277",
+   "modell": "Eingabe!C44; Gefoerdert_A!K7: =IF(OR($A7=0,$A7>Jahre_n),0,N(V6)*VKB_Satz)",
+   "befund": "Satz erfüllt; Abweichung: erst ab T1, Bauphase fehlt (vom Modell vermerkt, Eingabe!E44)."
+  },
+  {
+   "kondition": "Bearbeitungsentgelt 1 % Darlehen / 0,75 % Zuschuss",
+   "rl": "RL Nr. 12.7.2/12.7.3; F278/F279",
+   "modell": "Eingabe!C45/C46; Basisdaten!C64: =IF(BE_in_KG800=1,0,Darlehen_A*BE_Darlehen+Zuschuss_A*BE_Zuschuss)",
+   "befund": "erfüllt; als Barbedarf in T0, über Bankdarlehen finanziert"
+  },
+  {
+   "kondition": "Höchstmieten Jahr 1–3 nach Mietenstufe, EH-40-Zuschlag bis 0,30 €",
+   "rl": "RL Nr. 5.4.4; F215/F217",
+   "modell": "Eingabe!B118:G119, C38; Basisdaten!C37:C43",
+   "befund": "erfüllt"
+  },
+  {
+   "kondition": "Keine Erhöhung Jahr 1–3, danach max. 6,15 % in 3 Jahren",
+   "rl": "RL Nr. 5.4.5; F221",
+   "modell": "Eingabe!C73 = 3, C74 = 3, C75 = 6,15 %; Gefoerdert_A!C",
+   "befund": "erfüllt; Ausschöpfung unterstellt"
+  },
+  {
+   "kondition": "Belegungs- und Mietbindung 35 Jahre",
+   "rl": "RL Nr. 5.4.1/5.4.2; F212",
+   "modell": "Eingabe!C39 = 35, C40 = 35",
+   "befund": "erfüllt"
+  },
+  {
+   "kondition": "Bemessungsgrenze 4.800/5.000 €/m², halbjährlich angepasst",
+   "rl": "RL Nr. 5.3.2.2",
+   "modell": "Eingabe!D118:D119; Basisdaten!C26",
+   "befund": "Ausgangswerte; Anpassung nicht abgebildet (wie Broschüre)"
+  },
+  {
+   "kondition": "Grundstück bis Bodenrichtwert",
+   "rl": "RL Nr. 5.3.2.3",
+   "modell": "Basisdaten!C24: =MIN(KG_Grundstueck,Bodenrichtwert_qm*Grundstuecksflaeche)",
+   "befund": "erfüllt"
+  },
+  {
+   "kondition": "Eigenmittel mind. 20 %, davon mind. 50 % hart",
+   "rl": "RL Nr. 5.2.6; F094",
+   "modell": "Basisdaten!C12/C13, C127:C135",
+   "befund": "erfüllt"
+  },
+  {
+   "kondition": "Vorrangige Kapitalmarktmittel: Tilgung mind. 1 % zzgl. ersparter Zinsen",
+   "rl": "RL Nr. 5.3.6; F118",
+   "modell": "Bank-Annuität 1,86 % Anfangstilgung (Eingabe!C54)",
+   "befund": "erfüllt; Text Eingabe!E51 nennt fälschlich 2 %"
+  },
+  {
+   "kondition": "Auszahlung in vier Teilraten, 10 % nach Belegung",
+   "rl": "RL Nr. 5.5.3",
+   "modell": "alles in T0 (Gefoerdert_A!P6)",
+   "befund": "Abweichung, vom Modell vermerkt (Modellannahmen!C20)"
+  },
+  {
+   "kondition": "Überkompensation: EK-Rendite (VOFI) ≤ Swap 30 J. + 100 Bp.",
+   "rl": "RL Nr. 5.3.7/11.10; F246, G3-20, G3-21 (DAWI: IRR)",
+   "modell": "Ueberkompensation!C5:C13",
+   "befund": "Grenzwert richtig gebildet; Renditegröße offen (VOFI-Endwertrendite mit/ohne Restwert statt IRR), Swapsatz vom 19.08.2026 veraltet"
+  }
+ ],
+ "abweichungen": [
+  {
+   "nr": 1,
+   "gewicht": "hoch",
+   "thema": "Modellprojekt passt nicht zur Broschüre",
+   "beleg": "Eingabe!C12/C13/C15, Szenarien!H6, Basisdaten!C27",
+   "text": "14 WE, 828 m², 3.579 €/m², Grundstück 0 € statt 20 WE, 1.400 m², 5.000 €/m² inkl. 0,7 Mio. € Grundstück. Nur die Annahmen (Mietausfall, Verwaltung, Instandhaltung, Tilgung) sind übertragbar, nicht die Ergebnisse."
+  },
+  {
+   "nr": 2,
+   "gewicht": "hoch",
+   "thema": "Jahresrechnung der Broschüre mit den Modellannahmen: A knapp über null, B und C negativ",
+   "beleg": "eigene Nachrechnung (brosch_calc.py) mit Eingabe!C80:C82, Eingabe!C44, Basisdaten!C62",
+   "text": "Bei 2,50 % Tilgung: A +455 €, B −18.495 €, C −26.324 € p. a.; Tilgungsschwellen mit 2 % Mietausfall B 1,15 %, C 1,22 %. Die S.-12-Aussage gilt rechnerisch, aber jeder lineare Satz, der binnen 42 Jahren voll tilgt (≥ 2,38 %), liegt über beiden Schwellen."
+  },
+  {
+   "nr": 3,
+   "gewicht": "hoch",
+   "thema": "Restwert ohne Abschlag für die gebundene Bestandsmiete",
+   "beleg": "Gefoerdert_A!AD48 (boG in T42 = 0, da SA_Marktmiete für T43 = 0 und BoG_Grenze = 42), Bewertung!L30:L34, Gefoerdert_A!AJ48",
+   "text": "Der Endwert kapitalisiert ab T43 die volle Marktmiete (33,26 €/m²), obwohl die Miete A in T42 bei 18,88 €/m² liegt und nach § 558 BGB nur stufenweise steigt. Eigene Abschätzung nach der Modelllogik: Restwert zu hoch um rd. 0,46 Mio. € (A), 0,21 Mio. € (B), 0,14 Mio. € (C); das erhöht EK-IRR und VOFI-Rendite mit Restwert."
+  },
+  {
+   "nr": 4,
+   "gewicht": "mittel",
+   "thema": "Kein Grundstückswert",
+   "beleg": "Eingabe!C15 = 0, Eingabe!E21 („ACHTUNG ... nicht mehr modellkonform“)",
+   "text": "Eigenkapital nur bar, Bodenwert im Ertragswert 0, die Liegenschaftszinskurve passt laut eigenem Hinweis nicht. Für Renditen nach außen nicht belastbar, bis der Grundstücksansatz geklärt ist."
+  },
+  {
+   "nr": 5,
+   "gewicht": "mittel",
+   "thema": "KG 800 = 0",
+   "beleg": "Eingabe!C19, Eingabe!E91, Basisdaten!C30",
+   "text": "Bauzeitzinsen von 83.716 € sind berechnet, aber nicht angesetzt; Kosten um rd. 2,8 % zu niedrig."
+  },
+  {
+   "nr": 6,
+   "gewicht": "mittel",
+   "thema": "Kennzahlen nicht sauber getrennt",
+   "beleg": "Dashboard!C43, C55, C57, C58; Bewertung!N/O; Ueberkompensation!C11:D13",
+   "text": "Objektrendite nur statisch (Nettoanfangsrendite Jahr 1 = Reinertrag/Gesamtkosten), kein Objekt-IRR mit/ohne Restwert; EK-Renditen mit unterschiedlicher Methode (VOFI-Endwert mit 2,5 J. Vorlaufzeit und 2 % Wiederanlage vs. IRR ohne Vorlaufzeit); EK-Rendite ohne Restwert nur als VOFI-Endwert, nicht als IRR. Der Verdacht des Kunden ist damit im Kern bestätigt."
+  },
+  {
+   "nr": 7,
+   "gewicht": "niedrig",
+   "thema": "Kostenstand",
+   "beleg": "Gefoerdert_A!G7 (Exponent $A7-1), Eingabe!E80/E81",
+   "text": "Kostenstand 2026 gilt unverändert für T1 = 2028; zwei Jahre Steigerung fehlen (381,83 €/WE, 14,98 €/m² bei 2 %)."
+  },
+  {
+   "nr": 8,
+   "gewicht": "niedrig",
+   "thema": "Eingabezellen mit Formeln bzw. händisch nachzuführenden Werten",
+   "beleg": "Eingabe!C54, Eingabe!C88, Eingabe!C69, Szenarien!H6",
+   "text": "C54 (=30-J.-Annuitätstilgung) und C88 (=0.2*Zuwendungsfaehig) sind als Eingabe markiert; C69 ist ein eingetragener Lösungswert (18,8006032), der nach jeder Änderung händisch auf Basisdaten!C50 zu setzen ist; 3.579 €/m² steckt im Formeltext."
+  },
+  {
+   "nr": 9,
+   "gewicht": "niedrig",
+   "thema": "Text widerspricht Zelle",
+   "beleg": "Eingabe!E51 vs. Eingabe!C54",
+   "text": "„die angesetzten 2 %“ Tilgung, gerechnet werden 1,86 %."
+  },
+  {
+   "nr": 10,
+   "gewicht": "niedrig",
+   "thema": "Veraltete Kontrollanzeigen",
+   "beleg": "Dashboard!D68, Dashboard!E68",
+   "text": "Prüfen auf 24 Bewertungszeilen/4 Varianten, das Blatt hat 30/5: zeigen „ACHTUNG“ bzw. „Hinweis“, obwohl die Struktur stimmt."
+  },
+  {
+   "nr": 11,
+   "gewicht": "niedrig",
+   "thema": "Verweis auf falsche Variante",
+   "beleg": "Frei_Marktmiete!AJ6:AJ56 (BW_Alt,4 statt 5)",
+   "text": "Der Restwert der Variante „Frei, untere Kante“ wird aus Zeile „Frei, obere Kante“ gelesen; zahlenmäßig ohne Wirkung, weil der Verkehrswert objektbezogen und ohne boG ist."
+  },
+  {
+   "nr": 12,
+   "gewicht": "niedrig",
+   "thema": "Swapsatz",
+   "beleg": "Ueberkompensation!C5",
+   "text": "3,39 % vom 19.08.2026; laut Faktbasis G3-25 lag der Satz am 19.10.2026 bei 3,43 % (Marktorientierung, kein NBank-Parameter)."
+  }
+ ],
+ "kennzahlen_im_modell": [
+  {
+   "kennzahl": "Nettoanfangsrendite Jahr 1 (Objekt, statisch)",
+   "zelle": "Dashboard!C43:G43",
+   "formel": "=IFERROR(INDEX(SA_Reinertrag,MATCH(1,SA_t,0))/Gesamtkosten,\"n. v.\")",
+   "werte": "A 1,66 %, B 2,12 %, C 2,38 %, Frei oben 5,60 %, Frei unten 4,18 %",
+   "restwert": "ohne"
+  },
+  {
+   "kennzahl": "VOFI-EK-Rendite (Endwert inkl. Verkehrswert, 44,5 J.)",
+   "zelle": "Dashboard!C55:G55 / Bewertung!N (BW_Rendite)",
+   "formel": "Bewertung!N: =(M/Eigenkapital)^(1/(B+Vorlaufzeit_Jahre))-1; M = Konto + Verkehrswert − Restschuld",
+   "werte": "A 6,38 %, B 6,44 %, C 6,49 %, Frei oben 7,62 %, Frei unten 6,91 %",
+   "restwert": "mit"
+  },
+  {
+   "kennzahl": "Endwertrendite ohne Objektwert (VOFI, 44,5 J.)",
+   "zelle": "Dashboard!C57:G57 / Bewertung!O (BW_RenditeBew)",
+   "formel": "Bewertung!O: =((D-E)/Eigenkapital)^(1/(B+Vorlaufzeit_Jahre))-1",
+   "werte": "A 3,34 %, B 3,56 %, C 3,74 %, Frei oben 6,27 %, Frei unten 4,85 %",
+   "restwert": "ohne"
+  },
+  {
+   "kennzahl": "EK-IRR (42 J., ohne Vorlaufzeit)",
+   "zelle": "Dashboard!C58:G58",
+   "formel": "=IFERROR(IRR(SA_Zahlungsstrom),...); SA_Zahlungsstrom = Gefoerdert_A!AJ6:AJ56",
+   "werte": "A 7,92 %, B 7,93 %, C 8,02 %, Frei oben 12,25 %, Frei unten 8,29 %",
+   "restwert": "mit"
+  },
+  {
+   "kennzahl": "Objekt-IRR (unlevered) mit/ohne Restwert",
+   "zelle": "—",
+   "formel": "nicht vorhanden",
+   "werte": "—",
+   "restwert": "fehlt"
+  },
+  {
+   "kennzahl": "EK-IRR ohne Restwert",
+   "zelle": "—",
+   "formel": "nicht vorhanden",
+   "werte": "—",
+   "restwert": "fehlt"
+  }
+ ],
+ "szenarien": [
+  {
+   "ref": "Szenarien!G5:I5",
+   "name": "SZ_Zins_Anschluss",
+   "treiber": "Anschlusszins ab Prolongation",
+   "einheit": "Prozentpunkte",
+   "art": "absolut",
+   "abw_best": -0.01,
+   "abw_worst": 0.01,
+   "best": 0.0274,
+   "basis": 0.0374,
+   "worst": 0.047400000000000005,
+   "basis_formel": null
+  },
+  {
+   "ref": "Szenarien!G6:I6",
+   "name": "SZ_KG_Herstellung",
+   "treiber": "Herstellungskosten KG 200–700",
+   "einheit": "€",
+   "art": "relativ",
+   "abw_best": -0.05,
+   "abw_worst": 0.15,
+   "best": 2815241.4,
+   "basis": 2963412,
+   "worst": 3407923.8,
+   "basis_formel": "=3579*Wohnflaeche"
+  },
+  {
+   "ref": "Szenarien!G7:I7",
+   "name": "SZ_Miet_Faktor",
+   "treiber": "Mietniveau, Faktor auf beide Anker",
+   "einheit": "Faktor",
+   "art": "relativ",
+   "abw_best": 0.05,
+   "abw_worst": -0.05,
+   "best": 1.05,
+   "basis": 1,
+   "worst": 0.95,
+   "basis_formel": null
+  },
+  {
+   "ref": "Szenarien!G8:I8",
+   "name": "SZ_Kosten_Wachstum",
+   "treiber": "Kostensteigerung",
+   "einheit": "Prozentpunkte",
+   "art": "absolut",
+   "abw_best": -0.005,
+   "abw_worst": 0.005,
+   "best": 0.015,
+   "basis": 0.02,
+   "worst": 0.025,
+   "basis_formel": null
+  },
+  {
+   "ref": "Szenarien!G9:I9",
+   "name": "SZ_Laufzeit_NBank",
+   "treiber": "Laufzeit NBank-Darlehen",
+   "einheit": "Jahre",
+   "art": "absolut",
+   "abw_best": 0,
+   "abw_worst": -7,
+   "best": 40,
+   "basis": 40,
+   "worst": 33,
+   "basis_formel": null
+  },
+  {
+   "ref": "Szenarien!G10:I10",
+   "name": "SZ_LZ_Zuschlag",
+   "treiber": "Zuschlag auf den Liegenschaftszinssatz",
+   "einheit": "Prozentpunkte",
+   "art": "absolut",
+   "abw_best": -0.003,
+   "abw_worst": 0.006,
+   "best": -0.003,
+   "basis": 0,
+   "worst": 0.006,
+   "basis_formel": null
+  }
+ ],
+ "nachschlagetabellen": {
+  "mietenstufen": [
+   {
+    "band": 1,
+    "mietenstufen": "I bis III",
+    "bemessungsgrenze_eur_m2": 4800,
+    "miete_A": 6.5,
+    "miete_B": 7.9,
+    "miete_C": 8.7,
+    "ref": "Eingabe!B118:G118"
+   },
+   {
+    "band": 2,
+    "mietenstufen": "IV bis VII",
+    "bemessungsgrenze_eur_m2": 5000,
+    "miete_A": 6.8,
+    "miete_B": 8.2,
+    "miete_C": 9,
+    "ref": "Eingabe!B119:G119"
+   }
+  ],
+  "liegenschaftszins": [
+   {
+    "rnd": 30,
+    "lz": 0.025,
+    "ref": "Eingabe!B124:C124"
+   },
+   {
+    "rnd": 38,
+    "lz": 0.027,
+    "ref": "Eingabe!B125:C125"
+   },
+   {
+    "rnd": 40,
+    "lz": 0.027,
+    "ref": "Eingabe!B126:C126"
+   },
+   {
+    "rnd": 50,
+    "lz": 0.029,
+    "ref": "Eingabe!B127:C127"
+   },
+   {
+    "rnd": 60,
+    "lz": 0.03,
+    "ref": "Eingabe!B128:C128"
+   },
+   {
+    "rnd": 70,
+    "lz": 0.031,
+    "ref": "Eingabe!B129:C129"
+   }
+  ],
+  "zinsaufschlag_auslauf": [
+   {
+    "auslauf_bis": 0.6,
+    "aufschlag": 0,
+    "ref": "Eingabe!B134:C134"
+   },
+   {
+    "auslauf_bis": 0.8,
+    "aufschlag": 0.0035,
+    "ref": "Eingabe!B135:C135"
+   },
+   {
+    "auslauf_bis": 1,
+    "aufschlag": 0.0075,
+    "ref": "Eingabe!B136:C136"
+   }
+  ]
+ },
+ "alle_eingaben": [
+  {
+   "ref": "Eingabe!C6",
+   "name": "Szenario",
+   "label": "Gewähltes Szenario",
+   "value": "Basis",
+   "wert_text": "Basis",
+   "unit": "",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Szenarioschalter (Best Case/Basis/Worst Case); steuert Anschlusszins, Herstellungskosten, Mietfaktor, Kostensteigerung, LZ-Zuschlag, NBank-Laufzeit über Blatt Szenarien.",
+   "model_note": "Schaltet sechs Treiber gemeinsam um: Anschlusszins, Herstellungskosten, Mietniveau, Kostensteigerung und Liegenschaftszinssatz. Die Werte stehen auf dem Blatt Szenarien und sind dort zu pflegen. Aktive Spalte: Basis."
+  },
+  {
+   "ref": "Eingabe!C10",
+   "name": "Fertigstellungsjahr",
+   "label": "Fertigstellungsjahr (T0)",
+   "value": 2027,
+   "wert_text": "2027",
+   "unit": "Jahr",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Jahr der Bezugsfertigkeit T0; Bewirtschaftung ab T1 = 2028.",
+   "model_note": "Bewirtschaftung von 2028 bis 2069. T0 ist die Bezugsfertigkeit."
+  },
+  {
+   "ref": "Eingabe!C11",
+   "name": "Jahre_n",
+   "label": "Betrachtungshorizont",
+   "value": 42,
+   "wert_text": "42",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Betrachtungszeitraum in Jahren ab T0 (T1–T42 = 2028–2069); Bewertungshorizont für Restwert und Renditen.",
+   "model_note": "Letztes gerechnetes Jahr: T42 bzw. 2069. Am Horizont wird die Restschuld vom Endwert abgezogen, das Darlehen läuft rechnerisch weiter."
+  },
+  {
+   "ref": "Eingabe!C12",
+   "name": "Wohnflaeche",
+   "label": "Wohnfläche",
+   "value": 828,
+   "wert_text": "828",
+   "unit": "m²",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Wohnfläche des Referenzprojekts; Basis für Miete, Instandhaltung, Kostendeckel.",
+   "model_note": "Kostenschätzung"
+  },
+  {
+   "ref": "Eingabe!C13",
+   "name": "Wohneinheiten",
+   "label": "Wohneinheiten",
+   "value": 14,
+   "wert_text": "14",
+   "unit": "Stück",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Anzahl Wohneinheiten; Basis der Verwaltungskosten je WE.",
+   "model_note": "Kostenschätzung"
+  },
+  {
+   "ref": "Eingabe!C14",
+   "name": "Grundstuecksflaeche",
+   "label": "Grundstücksfläche",
+   "value": 1362,
+   "wert_text": "1.362",
+   "unit": "m²",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Grundstücksfläche; für Bodenrichtwertdeckel und Bodenwert.",
+   "model_note": "Flurstück 11/17, Flur 1, Gemarkung Neu Wulmstorf"
+  },
+  {
+   "ref": "Eingabe!C15",
+   "name": "KG_Grundstueck_VW",
+   "label": "KG 100 Bodenwert, Verkehrswert des unbebauten Grundstücks",
+   "value": 0,
+   "wert_text": "0 €",
+   "unit": "€",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Verkehrswert des unbebauten Grundstücks (KG 100). Steht auf 0 €: kein Grundstückswert in Kosten, Eigenkapital und Bodenwert.",
+   "model_note": "Wertansatz nach dem Merkblatt zum Antragsvordruck: Verkehrswert bei Antragstellung oder angemessener Kaufpreis. Entspricht 0,00 €/m² und dem 0,00-fachen des Bodenrichtwerts. Der Ansatz liegt unter dem Bodenrichtwertbetrag und ist damit voll zuwendungsfähig."
+  },
+  {
+   "ref": "Eingabe!C16",
+   "name": "KG_Grundstueck_KP",
+   "label": "KG 100 Kaufpreis, falls erworben",
+   "value": 0,
+   "wert_text": "0 €",
+   "unit": "€",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Kaufpreis des Grundstücks, nur bei Erwerb; 0 €.",
+   "model_note": "Nur auszufüllen, wenn das Grundstück erworben wurde. Bei verbilligter Überlassung durch die Kommune darf ausschließlich der Kaufpreis angesetzt werden, nicht der Verkehrswert."
+  },
+  {
+   "ref": "Eingabe!C17",
+   "name": "Grundstueck_Ansatz",
+   "label": "Maßgeblicher Wertansatz",
+   "value": "Verkehrswert",
+   "wert_text": "Verkehrswert",
+   "unit": "",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Wahl des Grundstückswertansatzes (Verkehrswert/Kaufpreis/Bodenrichtwert) für Kosten, EK und Bodenwert.",
+   "model_note": "Angesetzt werden 0 €, das sind 0,00 €/m². Der Wert steuert Gesamtkosten, Eigenkapital und Bodenwert gleichzeitig, so wie es der Antragsvordruck erzwingt. Eine niedrigere Bewertung senkt deshalb die Eigenmittelquote, sie hebt sie nicht."
+  },
+  {
+   "ref": "Eingabe!C18",
+   "name": "KG_Herstellung",
+   "label": "KG 200–700 Herstellungskosten",
+   "value": 2963412,
+   "wert_text": "2.963.412 €",
+   "unit": "€",
+   "kind": "szenariogesteuert",
+   "formula": "=INDEX(SZ_KG_Herstellung,Szenario_Nr)",
+   "bedeutung": "Herstellungskosten KG 200–700; aus Szenarien!G6:I6, Basis =3579*Wohnflaeche (3.579 €/m², fest im Formeltext).",
+   "model_note": "3.579 €/m² Wohnfläche. Bemessungsgrenze 5.000 €/m². Grenze eingehalten."
+  },
+  {
+   "ref": "Eingabe!C19",
+   "name": "KG_Finanzierung",
+   "label": "KG 800 Finanzierung",
+   "value": 0,
+   "wert_text": "0 €",
+   "unit": "€",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Finanzierungskosten KG 800 (Bauzeitzinsen); Eingabe 0 €, die informative Bauzeitrechnung ergibt 83.716 €.",
+   "model_note": "DIN 276: enthält Bauzeitzinsen und Finanzierungsnebenkosten"
+  },
+  {
+   "ref": "Eingabe!C20",
+   "name": "Bodenrichtwert_qm",
+   "label": "Bodenrichtwert nach § 196 BauGB (Förderung)",
+   "value": 260,
+   "wert_text": "260",
+   "unit": "€/m²",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bodenrichtwert für den Fördergrenzdeckel nach RL Nr. 5.3.2.3.",
+   "model_note": "Zonenwert der Bodenrichtwertzone 08704020, Teilmarkt Bauland, Stichtag 01.01.2026, veröffentlicht am 01.03.2026. Maßgeblich für die Deckelung nach RL Mietwohnraum 2026 Nr. 5.3.2.3 Satz 1. NICHT zu verwechseln mit dem Bodenwert der Bewertung darunter. Deckelung greift nicht, der volle Grundstückswert ist zuwendungsfähig."
+  },
+  {
+   "ref": "Eingabe!C21",
+   "name": "Bodenwert_Modell_qm",
+   "label": "Bodenwert des Liegenschaftszinsmodells (Bewertung)",
+   "value": 600,
+   "wert_text": "600",
+   "unit": "€/m²",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bodenwert, dem die Liegenschaftszinskurve zugeordnet ist (nur Bewertung).",
+   "model_note": "Schichtungsparameter des Landesmodells des Oberen Gutachterausschusses, dem die Liegenschaftszinskurve unten zugeordnet ist. KEINE Förderregel. Angesetzter Bodenwert: 0 €/m². ACHTUNG: Der angesetzte Bodenwert weicht um mehr als 20 % vom Modellwert ab. Die Liegenschaftszinskurve ist dann nach § 10 Abs. 1 ImmoWertV nicht mehr modellkonform und beim Gutachterausschuss neu abzufragen."
+  },
+  {
+   "ref": "Eingabe!C25",
+   "name": "Laufzeit_NBank",
+   "label": "Laufzeit NBank-Darlehen",
+   "value": 40,
+   "wert_text": "40",
+   "unit": "Jahre",
+   "kind": "szenariogesteuert",
+   "formula": "=INDEX(SZ_Laufzeit_NBank,Szenario_Nr)",
+   "bedeutung": "Laufzeit des NBank-Darlehens; bestimmt den linearen Tilgungssatz (1/40 = 2,50 % p. a.). Szenario: 40/40/33 Jahre.",
+   "model_note": "RL Mietwohnraum 2026 Nr. 5.3.5 Satz 2 begrenzt auf höchstens 42 Jahre ab Bezugsfertigkeit. Das ist eine Obergrenze, kein Regelwert: nach Satz 4 setzt die Bewilligungsbehörde die Tilgungsmodalitäten fest. Deshalb szenariogesteuert, siehe Blatt Szenarien. Tilgungsrate Gruppe A ab dem ersten Tilgungsjahr: 29.634 € zuzüglich Verwaltungskostenbeitrag."
+  },
+  {
+   "ref": "Eingabe!C26",
+   "name": "Tilgungsfrei_NBank",
+   "label": "Tilgungsfreie Jahre NBank-Darlehen",
+   "value": 0,
+   "wert_text": "0",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Tilgungsaufschub NBank-Darlehen (RL bis 5 Jahre bei Fehlbetrag); 0.",
+   "model_note": "RL Nr. 5.3.5 Satz 5: die Bewilligungsbehörde darf den Beginn der Tilgung um bis zu fünf Jahre hinausschieben, wenn andernfalls vorübergehend ein Fehlbetrag zwischen Einnahmen und Ausgaben entstehen würde. Das ist ein Tatbestand, kein Gestaltungsrecht. Die Gesamtlaufzeit verlängert sich dadurch nicht, die Raten verdichten sich auf 40 Jahre. Im aktiven Szenario entsteht in keinem Jahr ein Fehlbetrag. Der Tatbestand des Satzes 5 ist damit nicht erfüllt und die Streckung nicht verfügbar."
+  },
+  {
+   "ref": "Eingabe!C27",
+   "name": "Quote_D_A",
+   "label": "Quote Darlehen Gruppe A",
+   "value": 0.4,
+   "wert_text": "40,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Darlehensquote Gruppe A auf zuwendungsfähige Kosten.",
+   "model_note": "Produktinformation Stand 01.07.2026"
+  },
+  {
+   "ref": "Eingabe!C28",
+   "name": "Quote_Z_A",
+   "label": "Quote Zuschuss Gruppe A",
+   "value": 0.4,
+   "wert_text": "40,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Zuschussquote Gruppe A.",
+   "model_note": "Summe Gruppe A einschließlich Zuschlag: 80,0 %. RL Mietwohnraum 2026 Nr. 5.3.3.1 und 5.3.3.2."
+  },
+  {
+   "ref": "Eingabe!C29",
+   "name": "Quote_D_B",
+   "label": "Quote Darlehen Gruppe B",
+   "value": 0.6,
+   "wert_text": "60,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Darlehensquote Gruppe B.",
+   "model_note": "Produktinformation Stand 01.07.2026"
+  },
+  {
+   "ref": "Eingabe!C30",
+   "name": "Quote_Z_B",
+   "label": "Quote Zuschuss Gruppe B",
+   "value": 0.2,
+   "wert_text": "20,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Zuschussquote Gruppe B.",
+   "model_note": "Summe Gruppe B einschließlich Zuschlag: 80,0 %. RL Mietwohnraum 2026 Nr. 5.3.3.1 und 5.3.3.2."
+  },
+  {
+   "ref": "Eingabe!C31",
+   "name": "Quote_D_C",
+   "label": "Quote Darlehen Gruppe C",
+   "value": 0.7,
+   "wert_text": "70,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Darlehensquote Gruppe C.",
+   "model_note": "Produktinformation Stand 01.07.2026"
+  },
+  {
+   "ref": "Eingabe!C32",
+   "name": "Vorhabenart",
+   "label": "Vorhabenart nach Nummer 5.1",
+   "value": "Regelfall",
+   "wert_text": "Regelfall",
+   "unit": "",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Vorhabenart (Regelfall/Modellhaft/Housing First); steuert Zuschusszuschlag.",
+   "model_note": "RL Nr. 5.3.3.3: erhöht ausschließlich die Zuschussquoten nach Nr. 5.3.3.2, nicht die Darlehensquoten nach Nr. 5.3.3.1. Aktiver Zuschlag: 0 Prozentpunkte. Nummer 5.3.7 bleibt unberührt, die Überkompensationsprüfung greift auch auf den erhöhten Satz zu."
+  },
+  {
+   "ref": "Eingabe!C33",
+   "name": "Zuschlag_modellhaft",
+   "label": "Höchstzuschlag modellhafte Wohnungsbauprojekte",
+   "value": 0.05,
+   "wert_text": "5,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Zuschusszuschlag modellhafte Projekte (bis 5 Pp.), nur bei Vorhabenart Modellhaft aktiv.",
+   "model_note": "RL Nr. 5.3.3.3 erster Spiegelstrich: bis zu 5 Prozentpunkte für Vorhaben nach Nr. 5.1.5. Obergrenze, kein Regelwert; die Bewilligungsbehörde entscheidet im Einzelfall"
+  },
+  {
+   "ref": "Eingabe!C34",
+   "name": "Zuschlag_housing_first",
+   "label": "Höchstzuschlag Housing First",
+   "value": 0.1,
+   "wert_text": "10,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Zuschusszuschlag Housing First (bis 10 Pp.), nur bei Vorhabenart Housing First aktiv.",
+   "model_note": "RL Nr. 5.3.3.3 zweiter Spiegelstrich: bis zu 10 Prozentpunkte für Vorhaben nach Nr. 5.1.6. Obergrenze, kein Regelwert"
+  },
+  {
+   "ref": "Eingabe!C35",
+   "name": "Quote_Z_C",
+   "label": "Quote Zuschuss Gruppe C",
+   "value": 0.1,
+   "wert_text": "10,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Zuschussquote Gruppe C.",
+   "model_note": "Summe Gruppe C einschließlich Zuschlag: 80,0 %. RL Mietwohnraum 2026 Nr. 5.3.3.1 und 5.3.3.2."
+  },
+  {
+   "ref": "Eingabe!C36",
+   "name": "Mietenstufe",
+   "label": "Mietenstufe des Standortes",
+   "value": "VI",
+   "wert_text": "VI",
+   "unit": "",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Mietenstufe; Band 2 (IV–VII) bestimmt Bemessungsgrenze 5.000 €/m² und Höchstmieten 6,80/8,20/9,00 €/m².",
+   "model_note": "Band 2 (Mietenstufen IV bis VII). Daraus folgen die Bemessungsgrenze von 5.000 €/m² und die Grundmieten 6,80 / 8,20 / 9,00 €/m². Neu Wulmstorf ist Mietenstufe VI, Anlage zu § 1 Abs. 3 WoGV."
+  },
+  {
+   "ref": "Eingabe!C37",
+   "name": "Effizienzstandard",
+   "label": "Effizienzstandard",
+   "value": "EH 55",
+   "wert_text": "EH 55",
+   "unit": "",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Energiestandard; nur EH 40/EH 40 QNG lösen den Mietzuschlag aus.",
+   "model_note": "Mietzuschlag 0,00 €/m². Ohne Nachweis gelten die Grundmieten der Produktinformation."
+  },
+  {
+   "ref": "Eingabe!C38",
+   "name": "Zuschlag_EH40",
+   "label": "Mietzuschlag ab Effizienzhaus 40",
+   "value": 0.3,
+   "wert_text": "0,30",
+   "unit": "€/m²·Mon",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Mietzuschlag bei mind. EH 40 (RL Nr. 5.4.4 Satz 2), hier ohne Wirkung (EH 55).",
+   "model_note": "RL Mietwohnraum 2026 Nr. 5.4.4 Satz 2: Die Beträge dürfen um BIS ZU 0,30 EUR erhöht werden, wenn der Wohnraum mindestens das Niveau eines KfW-Effizienzhauses 40 erreicht. Obergrenze im Ermessen der Bewilligungsbehörde, kein Automatismus. Mietenstufenunabhängig"
+  },
+  {
+   "ref": "Eingabe!C39",
+   "name": "Bindung",
+   "label": "Mietbindung",
+   "value": 35,
+   "wert_text": "35",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Mietbindung in Jahren (RL Nr. 5.4.2).",
+   "model_note": "RL Mietwohnraum 2026 Nr. 5.4.2, § 9 NWoFG. Endet mit T35 bzw. 2062. Danach kein Sprung auf die Marktmiete: Bestandsmietverhältnisse laufen weiter, es gilt die Kappungsgrenze des § 558 Abs. 3 BGB. Gruppe A steht in T42 bei 18,88 €/m², die Vergleichsmiete bei 29,09 €/m²."
+  },
+  {
+   "ref": "Eingabe!C40",
+   "name": "Belegungsbindung",
+   "label": "Belegungsbindung",
+   "value": 35,
+   "wert_text": "35",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Belegungsbindung (RL Nr. 5.4.1); nur dokumentarisch, nicht im Zahlungsstrom.",
+   "model_note": "RL Mietwohnraum 2026 Nr. 5.4.1, § 7 NWoFG: Überlassung nur an Haushalte mit Wohnberechtigungsschein. Läuft parallel zur Mietbindung. Das Modell rechnet die Belegungsbindung nicht, weil sie den Zahlungsstrom nur mittelbar über das Mietausfallwagnis berührt; der Parameter steht hier, damit die Frist nicht mit der Mietbindung verwechselt wird."
+  },
+  {
+   "ref": "Eingabe!C41",
+   "name": "Zinsfrei_Jahre",
+   "label": "Zinsfreie Jahre des Förderdarlehens",
+   "value": 35,
+   "wert_text": "35",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Dauer der Zinsfreiheit des Förderdarlehens (RL Nr. 5.3.4).",
+   "model_note": "RL Mietwohnraum 2026 Nr. 5.3.4 Satz 1: Zinssatz 0 % bis zum Ablauf des 35. Jahres nach Bezugsfertigkeit. Eigener Tatbestand, nicht an die Miet- oder Belegungsbindung geknüpft."
+  },
+  {
+   "ref": "Eingabe!C42",
+   "name": "Zins_NBank_1_35",
+   "label": "Zins NBank Jahr 1 bis 35",
+   "value": 0,
+   "wert_text": "0,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Zins NBank-Darlehen Jahr 1–35.",
+   "model_note": "RL Nr. 5.3.4 Satz 1: Das Darlehen wird bis zum Ablauf des 35. Jahres nach Bezugsfertigkeit zu einem Zinssatz von 0 % gewährt."
+  },
+  {
+   "ref": "Eingabe!C43",
+   "name": "Zins_NBank_ab36",
+   "label": "Zins NBank ab Jahr 36",
+   "value": 0.0374,
+   "wert_text": "3,74 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Zins NBank-Darlehen ab Jahr 36 (T36–T42); gesetzt = Bankzins, nicht aus Basiszinssatz hergeleitet.",
+   "model_note": "RL Nr. 5.3.4 Satz 2: bis zu drei Prozentpunkte über dem zum Zeitpunkt der Zinserhöhung gültigen Basiszinssatz nach § 247 BGB, jedoch höchstens marktüblich. Greift für T36 bis T42, also 7 Jahre. VORBEHALT: der Wert ist gesetzt, nicht aus dem Basiszinssatz hergeleitet. Nach Satz 3 kann die Bewilligungsbehörde den Zinssatz für die Restlaufzeit fest vereinbaren."
+  },
+  {
+   "ref": "Eingabe!C44",
+   "name": "VKB_Satz",
+   "label": "Verwaltungskostenbetrag",
+   "value": 0.005,
+   "wert_text": "0,50 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Verwaltungskostenbeitrag p. a. auf das Restkapital (Vorjahresende); im Modell erst ab T1.",
+   "model_note": "RL Mietwohnraum 2026 Nr. 12.7.1: jährlich 0,5 % des jeweiligen Restkapitals, mit Beginn der Auszahlung. VORBEHALT: das Modell belastet ihn erst ab T1, also ab Bezugsfertigkeit; der Anteil der Bauphase fehlt"
+  },
+  {
+   "ref": "Eingabe!C45",
+   "name": "BE_Darlehen",
+   "label": "Bearbeitungsentgelt Darlehen",
+   "value": 0.01,
+   "wert_text": "1,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Einmaliges Bearbeitungsentgelt Darlehen (Zahlung in T0).",
+   "model_note": "RL Mietwohnraum 2026 Nr. 12.7.2: einmalig 1 % des Darlehensbetrages"
+  },
+  {
+   "ref": "Eingabe!C46",
+   "name": "BE_Zuschuss",
+   "label": "Bearbeitungsentgelt Zuschuss",
+   "value": 0.0075,
+   "wert_text": "0,75 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Einmaliges Bearbeitungsentgelt Zuschuss (Zahlung in T0).",
+   "model_note": "RL Mietwohnraum 2026 Nr. 12.7.3: einmalig 0,75 % des Zuschussbetrages"
+  },
+  {
+   "ref": "Eingabe!C47",
+   "name": "BE_in_KG800",
+   "label": "Bearbeitungsentgelt in KG 800 enthalten",
+   "value": 0,
+   "wert_text": "0",
+   "unit": "Schalter (0 oder 1)",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Schalter: Entgelt in KG 800 enthalten (1) oder zusätzlicher Barbedarf (0).",
+   "model_note": "0 gewählt: das Entgelt kommt zum Barbedarf hinzu, für Gruppe A sind das 20.744 €."
+  },
+  {
+   "ref": "Eingabe!C51",
+   "name": "Zins_Bank",
+   "label": "Zins Bankdarlehen",
+   "value": 0.0374,
+   "wert_text": "3,74 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Zins Bankdarlehen Erstkondition (10 J. fest), Bundesbank-Marktmittel.",
+   "model_note": "Zehnjährige gewerbliche Objektfinanzierung, ERSTSTELLIG besichert: nach RL Nr. 5.3.6 Satz 1 und Nr. 11.5 Satz 1 gehen die Kapitalmarktmittel dem Förderdarlehen im Rang vor. Nr. 5.3.6 Satz 2 verlangt für sie eine laufende Tilgung von mindestens 1 % jährlich zuzüglich ersparter Zinsen; die angesetzten 2 % erfüllen das. Quelle des Satzes: Bundesbank MFI-Zinsstatistik Juni 2026, 3,98 % für private Haushalte (nichtfinanzielle Kapitalgesellschaften: 3,79 %). Das ist ein Marktmittel und gilt hier für den Referenzauslauf unten; die Staffel verteilt es auf die Handlungsalternativen. Eine vorläufige Kreditzusage ersetzt beides"
+  },
+  {
+   "ref": "Eingabe!C52",
+   "name": "Zinsbindung",
+   "label": "Zinsbindung",
+   "value": 10,
+   "wert_text": "10",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Zinsbindung Bankdarlehen.",
+   "model_note": "Erstkondition gilt bis T10 bzw. 2037, Prolongation ab T11."
+  },
+  {
+   "ref": "Eingabe!C53",
+   "name": "Zins_Anschluss",
+   "label": "Anschlusszins ab Jahr 11",
+   "value": 0.0374,
+   "wert_text": "3,74 %",
+   "unit": "%",
+   "kind": "szenariogesteuert",
+   "formula": "=INDEX(SZ_Zins_Anschluss,Szenario_Nr)",
+   "bedeutung": "Anschlusszins Bank ab Jahr 11; Szenario 2,74/3,74/4,74 %.",
+   "model_note": "Basisannahme: Erstkondition wird fortgeschrieben. Sensitivität ±1 Prozentpunkt. Differenz zur Erstkondition: +0,00 %"
+  },
+  {
+   "ref": "Eingabe!C54",
+   "name": "Tilgung_Bank",
+   "label": "Anfangstilgung Bankdarlehen",
+   "value": 0.018618466401638844,
+   "wert_text": "1,8618 %",
+   "unit": "%",
+   "kind": "Eingabezelle mit Formel",
+   "formula": "=IF(Zins_Bank_F=0,1/30,Zins_Bank_F/((1+Zins_Bank_F)^30-1))",
+   "bedeutung": "Anfangstilgung Bankdarlehen (Annuität); Formel = 30-Jahres-Annuität beim Erstzins, also 1,86 %, obwohl als Eingabe markiert.",
+   "model_note": "Annahme"
+  },
+  {
+   "ref": "Eingabe!C55",
+   "name": "Zins_Staffel",
+   "label": "Zinsstaffel nach Beleihungsauslauf",
+   "value": 0,
+   "wert_text": "0",
+   "unit": "Schalter (0 oder 1)",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Schalter Zinsstaffel nach Beleihungsauslauf (0 = aus).",
+   "model_note": "0 gewählt: ein Satz für alle Handlungsalternativen. Das unterstellt, dass eine Bank ein erstrangiges Darlehen mit 0,6 % Auslauf genauso bepreist wie eines mit 72,2 %."
+  },
+  {
+   "ref": "Eingabe!C56",
+   "name": "Zins_Referenzauslauf",
+   "label": "Referenzauslauf des angesetzten Zinses",
+   "value": 0.7,
+   "wert_text": "70,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Beleihungsauslauf, für den der Bankzins gilt (nur bei Staffel).",
+   "model_note": "Beleihungsauslauf, für den der oben eingegebene Zins gilt. Die Bundesbank-Reihe ist ein Marktmittel; typische Objektfinanzierungen liegen zwischen 60 und 80 %. Bei genau diesem Auslauf kommt der eingegebene Satz unverändert heraus, sonst verschiebt ihn die Staffel."
+  },
+  {
+   "ref": "Eingabe!C57",
+   "name": "Beleihungsabschlag",
+   "label": "Sicherheitsabschlag zum Beleihungswert",
+   "value": 0.1,
+   "wert_text": "10,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Sicherheitsabschlag vom vorläufigen Ertragswert zum Näherungs-Beleihungswert.",
+   "model_note": "Abschlag vom vorläufigen Ertragswert bei Bezugsfertigkeit. Näherung, KEIN Beleihungswert nach BelWertV: der wird mit mindestens 5 % kapitalisiert und setzt bei gebundenen Wohnungen die Bewilligungsmiete an, läge also niedriger. Beleihungswert im Modell: 3.285.312 €."
+  },
+  {
+   "ref": "Eingabe!C58",
+   "name": "Prolongation",
+   "label": "Verhalten der Rate bei Prolongation",
+   "value": 2,
+   "wert_text": "2",
+   "unit": "Schalter (0, 1 oder 2)",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Prolongationsmodus Bank: 2 = Rate auf Restlaufzeit neu bemessen.",
+   "model_note": "2 gewählt: die Rate wird so bemessen, dass die ursprüngliche Restlaufzeit gehalten wird. Der Zins schlägt auf die Rate durch, das Darlehen ist zum selben Zeitpunkt zurückgezahlt. Rechnerische Gesamtlaufzeit der frei finanzierten Tranche: 30,0 Jahre, davon 20,0 nach der Zinsbindung. Rate frei finanziert ab Jahr 11: 132.805 € statt 132.805 €. Das Bankdarlehen ist im Jahr 30 getilgt, das entspricht dem Kalenderjahr 2057."
+  },
+  {
+   "ref": "Eingabe!C59",
+   "name": "Tilgung_Anschluss",
+   "label": "Tilgung ab Prolongation",
+   "value": 0.02,
+   "wert_text": "2,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Tilgungssatz ab Prolongation; nur in Modus 1 wirksam, hier ohne Wirkung.",
+   "model_note": "ohne Wirkung: nur Prolongationsmodus 1 verwendet diesen Satz"
+  },
+  {
+   "ref": "Eingabe!C63",
+   "name": "Vertragsmiete_Basis",
+   "label": "Vertragsmiete, unterer Anker",
+   "value": 11.7,
+   "wert_text": "11,70",
+   "unit": "€/m²·Mon",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Untere Marktmietanker (Vertragsmieten GAA Lüneburg 2023), Basis der ortsüblichen Vergleichsmiete.",
+   "model_note": "Gutachterausschuss für Grundstückswerte Lüneburg, Grundstücksmarktdaten 2023, Region Hamburger Umland, Wohnflächenklasse 40 bis 60 m², jüngste Baualtersklasse. Tatsächlich gezahlte Nettokaltmieten aus 2.554 Mieteninformationen des Landkreises Harburg. Spanne ± 20 %. Fortgeschrieben auf T1 ergibt das 12,92 €/m²."
+  },
+  {
+   "ref": "Eingabe!C64",
+   "name": "Anker_unten_Jahr",
+   "label": "Basisjahr des unteren Ankers",
+   "value": 2023,
+   "wert_text": "2023",
+   "unit": "Jahr",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Basisjahr unterer Anker.",
+   "model_note": "Stichtag der Erhebung. Fortschreibung auf T1 über 5 Jahre mit 2,00 % p. a."
+  },
+  {
+   "ref": "Eingabe!C65",
+   "name": "Angebotsmiete_Basis",
+   "label": "Mietniveau, oberer Anker",
+   "value": 15.42,
+   "wert_text": "15,42",
+   "unit": "€/m²·Mon",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Oberer Marktmietanker (GAA 2026, teils Angebotsmieten).",
+   "model_note": "Derselbe Ausschuss, Grundstücksmarktdaten 2026, dieselbe Zelle. Nur noch 396 Mieteninformationen, und für 2025 nach Angabe der Quelle überwiegend Angebotsmieten. Aktueller, aber methodisch schwächer und nach oben verzerrt. Fortgeschrieben auf T1 ergibt das 16,04 €/m². Abstand der Anker: 24,2 %."
+  },
+  {
+   "ref": "Eingabe!C66",
+   "name": "Anker_oben_Jahr",
+   "label": "Basisjahr des oberen Ankers",
+   "value": 2026,
+   "wert_text": "2026",
+   "unit": "Jahr",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Basisjahr oberer Anker.",
+   "model_note": "Stichtag der Erhebung. Fortschreibung auf T1 über 2 Jahre."
+  },
+  {
+   "ref": "Eingabe!C67",
+   "name": "Miete_Ansatz",
+   "label": "Ansatz der Marktmiete im Band",
+   "value": "Mittelwert",
+   "wert_text": "Mittelwert",
+   "unit": "",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Lage der marktüblichen Miete im Band (Mittelwert → 14,48 €/m² in T1).",
+   "model_note": "Steuert nur die marktüblich erzielbare Miete nach § 31 Abs. 2 ImmoWertV. Sie ist stichtagsbezogen und liegt deshalb im Band zwischen beiden Ankern. Aktuell 14,48 €/m². Die ortsübliche Vergleichsmiete nach § 558 Abs. 2 BGB ist rückwärtsgewichtet und vertragsbasiert; sie folgt fest dem unteren Anker mit 12,92 €/m² und wird von diesem Schalter nicht berührt."
+  },
+  {
+   "ref": "Eingabe!C68",
+   "name": "Zuschlag_Standard",
+   "label": "Zuschlag für den energetischen Standard",
+   "value": 0,
+   "wert_text": "0",
+   "unit": "€/m²·Mon",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Zuschlag auf Marktmiete für Energiestandard; 0.",
+   "model_note": "Nur auf die marktüblich erzielbare Miete. Vorsicht vor Doppelzählung: die jüngste Baualtersklasse der Quelle enthält bereits Neubau. Anzusetzen ist deshalb allenfalls der Vorsprung von EH 40 QNG gegenüber dem Durchschnitt dieser Klasse. Als Größenordnung nennt RL Mietwohnraum 2026 Nr. 5.4.4 einen Zuschlag von 0,30 €/m² für EH 40 bei der Bewilligungsmiete."
+  },
+  {
+   "ref": "Eingabe!C69",
+   "name": "Miete_Frei_Start",
+   "label": "Startmiete frei finanziert, obere Kante des Korridors",
+   "value": 18.8006032,
+   "wert_text": "18,8006",
+   "unit": "€/m²·Mon",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Startmiete der frei finanzierten Variante (DSCR-Ziel-Kante); als fester Wert eingetragen, muss händisch dem Rechenergebnis Basisdaten!C50 nachgeführt werden.",
+   "model_note": "Obere Kante des Korridors der frei finanzierten Variante: die Miete, die das DSCR-Ziel von 1,25 in jedem Jahr trägt. Sie wird aus dem Modell aufgelöst, nicht gesetzt. Untere Kante ist die marktüblich erzielbare Miete von 14,48 €/m² auf dem Blatt Frei_Marktmiete. Der Korridor spannt damit 14,48 bis 18,80 €/m², das sind 29,8 % Abstand. Keine der beiden Kanten ist die Leitgröße; welche zutrifft, hängt von der Zahlungsbereitschaft am Standort ab."
+  },
+  {
+   "ref": "Eingabe!C70",
+   "name": "DSCR_Ziel",
+   "label": "DSCR-Ziel im ungünstigsten Jahr",
+   "value": 1.25,
+   "wert_text": "1,25",
+   "unit": "Faktor",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Ziel-Kapitaldienstdeckung (Reinertrag/Kapitaldienst) im ungünstigsten Jahr.",
+   "model_note": "Bankübliche Auflage. Erforderliche Startmiete frei finanziert: 18,80 €/m², das sind +29,8 % gegenüber Markt."
+  },
+  {
+   "ref": "Eingabe!C71",
+   "name": "Miet_Faktor",
+   "label": "Mietniveau-Faktor",
+   "value": 1,
+   "wert_text": "1",
+   "unit": "Faktor",
+   "kind": "szenariogesteuert",
+   "formula": "=INDEX(SZ_Miet_Faktor,Szenario_Nr)",
+   "bedeutung": "Mietniveau-Faktor auf beide Anker; Szenario 1,05/1,00/0,95.",
+   "model_note": "Szenariogesteuert, siehe Blatt Szenarien. Wirkt gleichmäßig auf beide Anker. Aktuell 1,000."
+  },
+  {
+   "ref": "Eingabe!C72",
+   "name": "OVM_Wachstum",
+   "label": "Wachstum Mietniveau",
+   "value": 0.02,
+   "wert_text": "2,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Jährliches Wachstum von Markt- und Vergleichsmiete (auch Pfad frei finanziert).",
+   "model_note": "Entscheidung vom 20.08.2026: 2,0 % statt der früheren 1,5 % ohne Beleg. Untergrenze der eigenen belegten Reihe (marktdaten.json, Block mieten: VPI Teilindex tatsächliche Nettokaltmiete, +12,4 % seit 2020, +2,2 % gegenüber Vorjahr im Juni 2026). Gilt für beide Anker, die marktüblich erzielbare Miete und die ortsübliche Vergleichsmiete"
+  },
+  {
+   "ref": "Eingabe!C73",
+   "name": "Karenz_Jahre",
+   "label": "Karenzjahre ohne Mieterhöhung",
+   "value": 3,
+   "wert_text": "3",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Jahre ohne Mieterhöhung zu Beginn der Bindung (RL Nr. 5.4.5).",
+   "model_note": "RL Mietwohnraum 2026 Nr. 5.4.5 Satz 1: in den ersten 3 Jahren der Mietbindung ist keine Erhöhung zulässig. Erste Anpassung damit in T4."
+  },
+  {
+   "ref": "Eingabe!C74",
+   "name": "Anpassung_Rhythmus",
+   "label": "Rhythmus der Mietanpassung",
+   "value": 3,
+   "wert_text": "3",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Abstand der Mietanpassungen (alle 3 Jahre: T4, T7, ...).",
+   "model_note": "Erhöhungen frühestens alle 3 Jahre, also in T4, T7, T10 und so fort. Der Rhythmus läuft über das Bindungsende hinweg durch."
+  },
+  {
+   "ref": "Eingabe!C75",
+   "name": "Kappung",
+   "label": "Mietanpassung während der Bindung",
+   "value": 0.0615,
+   "wert_text": "6,15 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Höchsterhöhung je 3 Jahre während der Bindung (RL Nr. 5.4.5); zusätzlich gedeckelt durch Vergleichsmiete.",
+   "model_note": "RL Mietwohnraum 2026 Nr. 5.4.5 Satz 3: höchstens 6,15 % innerhalb von 3 Jahren, Erhöhungen der Betriebskosten nach § 560 BGB ausgenommen. Entspricht 2,01 % p. a. Miete Gruppe A am Ende der Bindung: 13,11 €/m²."
+  },
+  {
+   "ref": "Eingabe!C76",
+   "name": "Marktlage",
+   "label": "Wohnungsmarkt der Kommune",
+   "value": "angespannt",
+   "wert_text": "angespannt",
+   "unit": "",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Marktlage (angespannt) für die Kappungsgrenze nach Bindungsende.",
+   "model_note": "Steuert die Kappungsgrenze nach Bindungsende. Angespannt bedeutet: die Kommune ist in einer Verordnung nach § 558 Abs. 3 Satz 3 BGB bestimmt, dann gilt 15 % statt 20 % je drei Jahre. Neu Wulmstorf ist in der Niedersächsischen Mieterschutzverordnung vom 20.12.2024 (Nds. GVBl. 2024 Nr. 122) in allen drei Paragraphen aufgeführt. Aktuell wirksam: 20 %."
+  },
+  {
+   "ref": "Eingabe!C77",
+   "name": "Kappung_angespannt",
+   "label": "Kappungsgrenze bei angespanntem Markt",
+   "value": 0.15,
+   "wert_text": "15,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Kappungsgrenze § 558 BGB bei angespanntem Markt (gilt nur bis Ablauf der VO).",
+   "model_note": "§ 558 Abs. 3 Satz 2 BGB, Gebiete nach Satz 3"
+  },
+  {
+   "ref": "Eingabe!C78",
+   "name": "Kappung_normal",
+   "label": "Kappungsgrenze im Regelfall",
+   "value": 0.2,
+   "wert_text": "20,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Kappungsgrenze § 558 BGB im Regelfall; wirkt nach Bindungsende (2063 ff.).",
+   "model_note": "§ 558 Abs. 3 Satz 1 BGB"
+  },
+  {
+   "ref": "Eingabe!C79",
+   "name": "Marktlage_bis",
+   "label": "Verordnung befristet bis Ende",
+   "value": 2029,
+   "wert_text": "2029",
+   "unit": "Jahr",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Befristung der Mieterschutz-VO (Ende 2029).",
+   "model_note": "Kalenderjahr, bis zu dem die Verordnung nach § 558 Abs. 3 Satz 3 BGB gilt. Die Niedersächsische Mieterschutzverordnung tritt in §§ 1 und 2 mit Ablauf des 31.12.2029 außer Kraft, § 3 mit Ablauf des 31.12.2031. Danach gilt ohne Nachfolgeverordnung wieder 20 %. 0 eintragen für unbefristet. Für dieses Vorhaben ohne Wirkung: die Mietbindung endet erst 2062, die abgesenkte Grenze läuft 2029 aus. Nach Bindungsende gilt deshalb durchgehend der Regelwert."
+  },
+  {
+   "ref": "Eingabe!C80",
+   "name": "Verwaltung_WE",
+   "label": "Verwaltungskosten",
+   "value": 367,
+   "wert_text": "367",
+   "unit": "€/WE·a",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Verwaltungskosten je Wohneinheit und Jahr (ImmoWertV Anlage 3, fortgeschrieben 2026); einziger Posten der nicht umlagefähigen Bewirtschaftungskosten neben Instandhaltung und Mietausfall.",
+   "model_note": "ImmoWertV Anlage 3, fortgeschrieben auf 2026"
+  },
+  {
+   "ref": "Eingabe!C81",
+   "name": "Instandhaltung_qm",
+   "label": "Instandhaltungskosten",
+   "value": 14.4,
+   "wert_text": "14,40",
+   "unit": "€/m²·a",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Instandhaltungskosten je m² Wohnfläche und Jahr (ImmoWertV Anlage 3, fortgeschrieben 2026), konstant über die Nutzungsdauer, gesteigert mit der Kostensteigerung.",
+   "model_note": "ImmoWertV Anlage 3, fortgeschrieben auf 2026"
+  },
+  {
+   "ref": "Eingabe!C82",
+   "name": "Mietausfall",
+   "label": "Mietausfallwagnis",
+   "value": 0.02,
+   "wert_text": "2,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Mietausfallwagnis in % der Sollmiete (Rohertrag) der geförderten Varianten.",
+   "model_note": "ImmoWertV Anlage 3. In T1 sind das 1.351 € für Gruppe A."
+  },
+  {
+   "ref": "Eingabe!C83",
+   "name": "Mietausfall_Frei",
+   "label": "Mietausfallwagnis frei finanziert",
+   "value": 0.02,
+   "wert_text": "2,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Mietausfallwagnis der frei finanzierten Varianten.",
+   "model_note": "Getrennt setzbar für Risikoszenarien. Entspricht 0,2 Leerstandsmonaten im Jahr."
+  },
+  {
+   "ref": "Eingabe!C84",
+   "name": "Kosten_Wachstum",
+   "label": "Kostensteigerung",
+   "value": 0.02,
+   "wert_text": "2,00 %",
+   "unit": "%",
+   "kind": "szenariogesteuert",
+   "formula": "=INDEX(SZ_Kosten_Wachstum,Szenario_Nr)",
+   "bedeutung": "Jährliche Steigerung von Verwaltungs- und Instandhaltungskosten ab T2; Szenario 1,5/2,0/2,5 %.",
+   "model_note": "Szenariogesteuert, siehe Blatt Szenarien"
+  },
+  {
+   "ref": "Eingabe!C88",
+   "name": "EK_bar",
+   "label": "Bares Eigenkapital",
+   "value": 592682.4,
+   "wert_text": "592.682 €",
+   "unit": "€",
+   "kind": "Eingabezelle mit Formel",
+   "formula": "=0.2*Zuwendungsfaehig",
+   "bedeutung": "Bares Eigenkapital; Formel =0.2*Zuwendungsfaehig in einer Eingabezelle.",
+   "model_note": "Zusätzlich zur Sacheinlage des Grundstücks. Mindert das Bankdarlehen nur, soweit eines besteht; in den geförderten Fällen erhöht es sonst den Kassenbestand in T0. Eigenmittel gesamt 592.682 € = 20,0 % der zuwendungsfähigen Kosten, gefordert sind 20 % (RL Nr. 5.2.6 Satz 1): erfüllt. Davon in harter Form 592.682 € = 100,0 % der Eigenmittel, gefordert sind 50 % (RL Nr. 5.2.6 Satz 3): erfüllt."
+  },
+  {
+   "ref": "Eingabe!C89",
+   "name": "Eigenleistungen_Sach",
+   "label": "Eigenleistungen (Sach- und Arbeitsleistungen, in Geldwert)",
+   "value": 0,
+   "wert_text": "0 €",
+   "unit": "€",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Eigenleistungen (weiche Eigenmittel), nur Eigenmittelprüfung.",
+   "model_note": "RL Mietwohnraum 2026 Nr. 5.2.6 Satz 2 zählt Eigenleistungen ausdrücklich zu den Eigenmitteln. Sie gehören nach Satz 3 zum WEICHEN Teil: der harte Teil besteht nur aus eigenen Geldmitteln und dem Wert des lastenfreien Baugrundstücks. Der Betrag wirkt allein in der Eigenmittelprüfung und verändert die Zahlungsströme nicht; die dahinterstehende Bauleistung steckt bereits in den Herstellungskosten."
+  },
+  {
+   "ref": "Eingabe!C90",
+   "name": "KG_Grundstueck_NK",
+   "label": "KG 120 Grundstücksnebenkosten",
+   "value": 0,
+   "wert_text": "0 €",
+   "unit": "€",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Grundstücksnebenkosten KG 120.",
+   "model_note": "Grunderwerbsteuer, Notar, Grundbuch, Vermessung, gegebenenfalls Maklercourtage. RL Nr. 5.3.2.1 zweiter Spiegelstrich nennt beim Erwerb ausdrücklich den Kaufpreis NEBST ERWERBSKOSTEN. Beim Verkehrswertansatz sind die Erwerbsnebenkosten im Wertansatz enthalten und hier nicht zusätzlich zu führen."
+  },
+  {
+   "ref": "Eingabe!C91",
+   "name": "Bauzeit_Monate",
+   "label": "Bauzeit",
+   "value": 12,
+   "wert_text": "12",
+   "unit": "Monate",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bauzeit für die informative Bauzeitzinsrechnung.",
+   "model_note": "Grundlage der informativen Bauzeitrechnung. Bei linearem Mittelabruf ergeben sich 83.716 € Zinsen der Bauphase. ACHTUNG: Das übersteigt die angesetzte Kostengruppe 800 von 0 €."
+  },
+  {
+   "ref": "Eingabe!C92",
+   "name": "ZF_Zins",
+   "label": "Zwischenfinanzierungszins",
+   "value": 0.049,
+   "wert_text": "4,90 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Zwischenfinanzierungszins Bauphase (informativ).",
+   "model_note": "Bauzeitzinsen auf den abgerufenen Teil"
+  },
+  {
+   "ref": "Eingabe!C93",
+   "name": "Bereitstellungszins",
+   "label": "Bereitstellungszins",
+   "value": 0.03,
+   "wert_text": "3,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bereitstellungszins (informativ).",
+   "model_note": "auf die noch nicht abgerufenen Mittel"
+  },
+  {
+   "ref": "Eingabe!C94",
+   "name": "Bereitstellungsfrei",
+   "label": "Bereitstellungsfreie Zeit",
+   "value": 6,
+   "wert_text": "6",
+   "unit": "Monate",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bereitstellungsfreie Zeit (informativ).",
+   "model_note": "marktüblich drei bis zwölf Monate"
+  },
+  {
+   "ref": "Eingabe!C95",
+   "name": "KG800_berechnen",
+   "label": "KG 800 aus der Bauzeitrechnung",
+   "value": "nein",
+   "wert_text": "nein",
+   "unit": "",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Schalter: KG 800 aus Bauzeitrechnung übernehmen (nein).",
+   "model_note": "Es gilt der Eingabewert von 0 €. Die Bauzeitrechnung läuft nur informativ mit und ergibt 83.716 €."
+  },
+  {
+   "ref": "Eingabe!C99",
+   "name": "Entnahme_Modus",
+   "label": "Entnahmemodus",
+   "value": 0,
+   "wert_text": "0",
+   "unit": "Schalter (0, 1 oder 2)",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Ergebnisverwendung: 0 Thesaurierung, 1 Ausschüttung, 2 Sondertilgung.",
+   "model_note": "0 gewählt: Thesaurierung. Überschüsse bleiben im Modell und werden zum Guthabenzins angelegt. Der DSCR misst stets den regulären Kapitaldienst ohne Sondertilgung."
+  },
+  {
+   "ref": "Eingabe!C100",
+   "name": "Haben",
+   "label": "Guthabenzins",
+   "value": 0.02,
+   "wert_text": "2,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Habenzins auf positives VOFI-Konto (Wiederanlage).",
+   "model_note": "Wiederanlage der Überschüsse. Negative Kontostände über alle fünf Handlungsalternativen im aktiven Szenario: 8 Jahre."
+  },
+  {
+   "ref": "Eingabe!C101",
+   "name": "Soll",
+   "label": "Sollzins bei Unterdeckung",
+   "value": 0.05,
+   "wert_text": "5,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Sollzins auf negatives VOFI-Konto (Zwischenfinanzierung).",
+   "model_note": "Zwischenfinanzierung negativer Salden"
+  },
+  {
+   "ref": "Eingabe!C102",
+   "name": "Kontokorrentlinie",
+   "label": "Kontokorrentlinie",
+   "value": 0,
+   "wert_text": "0 €",
+   "unit": "€",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Zugesagte Kontokorrentlinie; 0 € (Frei_Marktmiete überzieht um 22.640 €).",
+   "model_note": "ACHTUNG: Die tiefste Unterdeckung überschreitet die Linie um 22.640 €. Das Modell finanziert diesen Betrag zum Sollzins zwischen, ohne dass ihn jemand zugesagt hätte. Entweder Linie erhöhen, Eigenkapital nachlegen oder die Alternative als nicht finanzierbar kennzeichnen."
+  },
+  {
+   "ref": "Eingabe!C103",
+   "name": "LZ_Zuschlag",
+   "label": "Zuschlag auf die Liegenschaftszinskurve",
+   "value": 0,
+   "wert_text": "0,00 %",
+   "unit": "%",
+   "kind": "szenariogesteuert",
+   "formula": "=INDEX(SZ_LZ_Zuschlag,Szenario_Nr)",
+   "bedeutung": "Parallelverschiebung der Liegenschaftszinskurve; Szenario −0,3/0/+0,6 Pp.",
+   "model_note": "Der Liegenschaftszinssatz folgt der Restnutzungsdauer, siehe Nachschlagetabelle am Ende dieses Blattes. Dieser Zuschlag verschiebt die ganze Kurve und wird vom Szenario gesteuert. Satz bei Fertigstellung: 3,10 %, am Horizont: 2,70 %."
+  },
+  {
+   "ref": "Eingabe!C104",
+   "name": "BoG_bis",
+   "label": "Abschlag Mietpreisbindung bis",
+   "value": "Horizont",
+   "wert_text": "Horizont",
+   "unit": "",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bis wann die Mietdifferenz als boG vom Ertragswert abgezogen wird (Horizont = T42).",
+   "model_note": "Bis wann die Mietdifferenz als besonderes objektspezifisches Grundstücksmerkmal nach § 8 Abs. 3 ImmoWertV angesetzt wird. Die Bewilligungsmiete holt den Markt nicht ein: Bestandsmietverhältnisse laufen weiter und § 558 BGB begrenzt die Anpassung auch nach Ablauf der Zweckbestimmung. Rechtlich wechselt dabei der Tatbestand: bis T35 ist die Differenz Folge der Mietpreisbindung, danach Folge des laufenden Mietverhältnisses, also besondere Ertragsverhältnisse. Aktuell gerechnet bis T42."
+  },
+  {
+   "ref": "Eingabe!C105",
+   "name": "GND",
+   "label": "Gesamtnutzungsdauer",
+   "value": 80,
+   "wert_text": "80",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Gesamtnutzungsdauer für Restnutzungsdauer und Vervielfältiger.",
+   "model_note": "ImmoWertV Anlage 1, Mehrfamilienhaus. Restnutzungsdauer in T42: 38 Jahre."
+  },
+  {
+   "ref": "Eingabe!C106",
+   "name": "Bodenwert_Wachstum",
+   "label": "Bodenwertwachstum",
+   "value": 0.015,
+   "wert_text": "1,50 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bodenwertsteigerung p. a. (wirkt hier nicht, Bodenwert 0 €).",
+   "model_note": "Annahme"
+  },
+  {
+   "ref": "Eingabe!C107",
+   "name": "Vorlaufzeit_Jahre",
+   "label": "Vorlaufzeit bis Bezugsfertigkeit",
+   "value": 2.5,
+   "wert_text": "2,50",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Vorlaufzeit vor T0; nur im Exponenten der VOFI-Endwertrendite.",
+   "model_note": "Planung, Genehmigung, Förderantrag und Bauzeit. In dieser Zeit ist das Grundstück bereits gebunden, ohne dass Erträge fließen. Der Parameter wirkt ausschließlich im Exponenten der annualisierten Rendite; Zahlungsströme, DSCR und Endwert bleiben unberührt. Bindungsdauer des Eigenkapitals damit 44,5 Jahre."
+  },
+  {
+   "ref": "Eingabe!C108",
+   "name": "Inflation",
+   "label": "Preissteigerung für die Realrendite",
+   "value": 0.02,
+   "wert_text": "2,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Inflation nur zur Umrechnung in Realrendite.",
+   "model_note": "Nur zur Umrechnung der nominalen Renditen. Alle übrigen Rechnungen sind nominal."
+  },
+  {
+   "ref": "Eingabe!C109",
+   "name": "Stichtag_1",
+   "label": "Stichtag 1",
+   "value": 0,
+   "wert_text": "0",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bewertungsstichtag 1 (Jahre nach T0).",
+   "model_note": "Fertigstellung, für Kostenüberdeckung und Anfangsauslauf. Kalenderjahr 2027."
+  },
+  {
+   "ref": "Eingabe!C110",
+   "name": "Stichtag_2",
+   "label": "Stichtag 2",
+   "value": 1,
+   "wert_text": "1",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bewertungsstichtag 2 (Jahre nach T0).",
+   "model_note": "Ende des ersten Bewirtschaftungsjahres. Kalenderjahr 2028."
+  },
+  {
+   "ref": "Eingabe!C111",
+   "name": "Stichtag_3",
+   "label": "Stichtag 3",
+   "value": 10,
+   "wert_text": "10",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bewertungsstichtag 3 (Jahre nach T0).",
+   "model_note": "Ende der Zinsbindung, Prolongationszeitpunkt. Kalenderjahr 2037."
+  },
+  {
+   "ref": "Eingabe!C112",
+   "name": "Stichtag_4",
+   "label": "Stichtag 4",
+   "value": 30,
+   "wert_text": "30",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bewertungsstichtag 4 (Jahre nach T0).",
+   "model_note": "Haltedauer. Kalenderjahr 2057."
+  },
+  {
+   "ref": "Eingabe!C113",
+   "name": "Stichtag_5",
+   "label": "Stichtag 5",
+   "value": 35,
+   "wert_text": "35",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bewertungsstichtag 5 (Jahre nach T0).",
+   "model_note": "Ende der Zweckbestimmung. Kalenderjahr 2062."
+  },
+  {
+   "ref": "Eingabe!C114",
+   "name": "Stichtag_6",
+   "label": "Stichtag 6",
+   "value": 42,
+   "wert_text": "42",
+   "unit": "Jahre",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Bewertungsstichtag 6 (Jahre nach T0).",
+   "model_note": "Betrachtungshorizont. Kalenderjahr 2069."
+  },
+  {
+   "ref": "Basisdaten!C6",
+   "name": "Zeilen_Soll",
+   "label": "Jahreszeilen je VOFI-Blatt",
+   "value": 50,
+   "wert_text": "50",
+   "unit": "Zeilen",
+   "kind": "Festlegung",
+   "formula": null,
+   "bedeutung": "Anzahl Jahreszeilen je VOFI-Blatt (Horizont ≤ 50).",
+   "model_note": "baulich vorhandene Zeilen; der Betrachtungshorizont darf diesen Wert nicht übersteigen"
+  },
+  {
+   "ref": "Basisdaten!C7",
+   "name": "Monate_Jahr",
+   "label": "Monate je Jahr",
+   "value": 12,
+   "wert_text": "12",
+   "unit": "Monate",
+   "kind": "Festlegung",
+   "formula": null,
+   "bedeutung": "Monate je Jahr.",
+   "model_note": "Umrechnung der Monatsmieten auf den Jahresrohertrag"
+  },
+  {
+   "ref": "Basisdaten!C8",
+   "name": "Toleranz",
+   "label": "Rechentoleranz",
+   "value": 0.01,
+   "wert_text": "0 €",
+   "unit": "€",
+   "kind": "Festlegung",
+   "formula": null,
+   "bedeutung": "Rechentoleranz der Kontrollspalten in €.",
+   "model_note": "Schwelle der Kontrollspalten in Euro. Unterhalb davon gelten Bestandsidentitäten als erfüllt"
+  },
+  {
+   "ref": "Basisdaten!C9",
+   "name": "Hoechstlaufzeit_NBank",
+   "label": "Höchstlaufzeit NBank-Darlehen",
+   "value": 42,
+   "wert_text": "42",
+   "unit": "Jahre",
+   "kind": "Festlegung",
+   "formula": null,
+   "bedeutung": "Höchstlaufzeit NBank-Darlehen (RL Nr. 5.3.5).",
+   "model_note": "RL Mietwohnraum 2026 Nr. 5.3.5 Satz 2: Rückzahlung nach einer Laufzeit von längstens 42 Jahren ab Bezugsfertigkeit. Obergrenze, kein Regelwert"
+  },
+  {
+   "ref": "Basisdaten!C10",
+   "name": "Hoechst_Tilgungsfrei",
+   "label": "Höchstdauer der Tilgungsstreckung",
+   "value": 5,
+   "wert_text": "5",
+   "unit": "Jahre",
+   "kind": "Festlegung",
+   "formula": null,
+   "bedeutung": "Höchstdauer Tilgungsaufschub (RL Nr. 5.3.5).",
+   "model_note": "RL Nr. 5.3.5 Satz 5: Hinausschieben des Tilgungsbeginns um bis zu fünf Jahre"
+  },
+  {
+   "ref": "Basisdaten!C11",
+   "name": "Regelquote",
+   "label": "Summe der Höchstsätze nach Nr. 5.3.3.1 und 5.3.3.2",
+   "value": 0.8,
+   "wert_text": "80,00 %",
+   "unit": "%",
+   "kind": "Festlegung",
+   "formula": null,
+   "bedeutung": "Summe der Höchstsätze Darlehen + Zuschuss.",
+   "model_note": "RL Mietwohnraum 2026 Nr. 5.3.3.1 und Nr. 5.3.3.2 nennen ausschließlich Sätze 'bis zu'. 80 % ist damit die Obergrenze, kein Planwert. Nach Nr. 1.3 besteht ohnehin kein Anspruch; die Bewilligungsbehörde entscheidet nach pflichtgemäßem Ermessen im Rahmen der verfügbaren Haushaltsmittel"
+  },
+  {
+   "ref": "Basisdaten!C12",
+   "name": "Eigenmittel_Soll",
+   "label": "Geforderte Eigenmittel",
+   "value": 0.2,
+   "wert_text": "20,00 %",
+   "unit": "%",
+   "kind": "Festlegung",
+   "formula": null,
+   "bedeutung": "Mindest-Eigenmittel in % der zuwendungsfähigen Kosten (RL Nr. 5.2.6).",
+   "model_note": "RL Mietwohnraum 2026 Nr. 5.2.6 Satz 1: mindestens 20 % der zuwendungsfähigen Kosten. Das Merkblatt zum Förderantrag nennt in Ziffer (16) eine Ausnahme, die die Richtlinie selbst nicht enthält: für Baumaßnahmen auf den Ostfriesischen Inseln genügen 10 %. Für dieses Vorhaben ohne Bedeutung. Die frühere Quote von 25 % der Gesamtkosten stammte aus der zum 30.06.2026 außer Kraft getretenen WFB Nr. 14"
+  },
+  {
+   "ref": "Basisdaten!C13",
+   "name": "Eigenmittel_hart_Soll",
+   "label": "Davon in harter Form",
+   "value": 0.5,
+   "wert_text": "50,00 %",
+   "unit": "%",
+   "kind": "Festlegung",
+   "formula": null,
+   "bedeutung": "Mindestanteil harter Eigenmittel an den Eigenmitteln (RL Nr. 5.2.6).",
+   "model_note": "RL Nr. 5.2.6 Satz 3: mindestens 50 % DER EIGENMITTEL in Form eigener Geldmittel oder als Wert des nicht durch Fremdmittel finanzierten, nachweislich grundbuchlastenfreien Baugrundstücks. Bezugsgröße ist damit die Eigenmittelsumme, nicht die Kostenbasis"
+  },
+  {
+   "ref": "Ueberkompensation!C5",
+   "name": "Swapsatz_30J",
+   "label": "Swapsatz für Finanzierungsmittel mit 30-jähriger Laufzeit",
+   "value": 0.0339,
+   "wert_text": "3,39 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "EUR-Swapsatz 30 Jahre (Stand 19.08.2026) als Basis des Safe Harbour.",
+   "model_note": "EUR 30Y Mid Swap gegen 6M EURIBOR, 3,39 % am 19.08.2026 (bluegamma.io). VOR JEDER VERWENDUNG AUF DEN TAG DER BEWILLIGUNG FORTZUSCHREIBEN. Der Safe Harbour misst sich am Satz im Zeitpunkt der Förderentscheidung, nicht am Satz der Kalkulation."
+  },
+  {
+   "ref": "Ueberkompensation!C6",
+   "name": "DAWI_Aufschlag",
+   "label": "Zuschlag nach Artikel 6 Abs. 3 Satz 1 DAWI-Freistellungsbeschluss",
+   "value": 0.01,
+   "wert_text": "1,00 %",
+   "unit": "%",
+   "kind": "Eingabe",
+   "formula": null,
+   "bedeutung": "Aufschlag 100 Basispunkte (DAWI Art. 6 Abs. 3).",
+   "model_note": "100 Basispunkte. Fester Rechtswert, keine Annahme."
+  }
+ ]
+}

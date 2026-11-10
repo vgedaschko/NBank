@@ -77,7 +77,7 @@ Anmerkungen: Fachseiten unter 180 Wörtern Fließtext (S. 3, 4, 5, 6, 9, 10, 11,
 - Headlines: S. 4 „Richtlinie 2026: Neuerungen und Voraussetzungen“, S. 16 „Wahlrecht für Modernisierungsanträge“, S. 17 „Bindungen erwerben oder verlängern“.
 - S. 11: Mietausfall/Leerstand als Erlösschmälerung in Zeile 1 (Unterzeile ohne eigene Nummer), nicht als Aufwandszeile; A/B/C-Absatz kurz, Vertiefung auf S. 12.
 - S. 11 (10.11.2026): Kasten „B und C gegenüber A“ ersetzt durch „Zum Vergleich: frei finanziert“ (Werte aus der VOFI-Mappe v3; keine Renditen, keine Marktmiete). Ton-Durchgang über alle Seiten nach REDAKTIONSREGELN §9.
-- S. 11/12 (09.11.2026): Werte der PGN-Beispielrechnung vorläufig eingesetzt (Schlussabgleich offen, → Anhang B, Nr. 1) – Mietausfall 2 %, Objektverwaltung 367 € je Wohnung, Instandhaltung 14,40 € je m² (Kostenstand 2026), Tilgung 2,5 % als Annahme; Jahresrechnung zeigt Jahr 1; Tilgungsschwellen mit Mietausfall 1,15 % (B) und 1,22 % (C).
+- S. 11/12 (09.11.2026): Werte der PGN-Beispielrechnung vorläufig eingesetzt (Schlussabgleich offen, → Anhang B, Nr. 1) – Mietausfall 2 %, Objektverwaltung 367 € je Wohnung, Instandhaltung 14,40 € je m² (Kostenstand 2026), Tilgung 2,38 % als Annahme (seit 10.11.2026: linear über die Höchstlaufzeit von 42 Jahren, vorher 2,5 %); Jahresrechnung zeigt Jahr 1; Tilgungsschwellen mit Mietausfall 1,15 % (B) und 1,22 % (C).
 - S. 5 trägt den Achtung-Einzeiler „Erst Bewilligung, dann Vorhabenbeginn → S. 19“; S. 18 trägt das Modul „Freistellung von der Belegungsbindung“.
 - Umschlag: U1 auf PGN-Rot wie U4 („Rotpause“), U4|U1 durchgehend rot; Bildzeile U1 mit Informationswert („Referenzprojekt Brauerstraße … 19 barrierefreie Wohnungen · mit Förderung der NBank“); keine Blattnummer auf U1 und U4; U4-Schriftfeld „Informationsbroschüre“.
 - Stand 30.09.2026 nur auf U1 und im Hinweis U3; Fußzeilen der Innenseiten ohne Stand.
@@ -549,8 +549,8 @@ Einheit: Mio. €
 | 4 | = Überschuss vor Kapitaldienst | 84.455 | 107.505 | 120.676 |
 | 5 | − Verwaltungskostenbeitrag, 0,5 % des Restkapitals (Jahr 1, nach Vollauszahlung) | 14.000 | 21.000 | 24.500 |
 | 6 | − Zins NBank-Darlehen, 0 % bis Ende Jahr 35 | 0 | 0 | 0 |
-| 7 | − Tilgung 2,5 % p. a. (Annahme) auf 2,8 \| 4,2 \| 4,9 Mio. € Darlehen | 70.000 | 105.000 | 122.500 |
-| 8 | = Zahlungsüberschuss p. a. | 455 | −18.495 | −26.324 |
+| 7 | − Tilgung 2,38 % p. a. (Annahme: 42 Jahre) auf 2,8 \| 4,2 \| 4,9 Mio. € Darlehen | 66.667 | 100.000 | 116.667 |
+| 8 | = Zahlungsüberschuss p. a. | 3.789 | −13.495 | −20.491 |
 
 *Zeile 1 = Sollmiete abzüglich Mietausfall/Leerstand (Erlösschmälerung als Unterzeile ohne eigene Nummer, keine Aufwandszeile).*
 
@@ -562,14 +562,14 @@ Einheit: Mio. €
 |---|---|---|
 | Zuschuss | 2,8 Mio. € | 0 |
 | Darlehen | 2,8 Mio. € | 5,6 Mio. € |
-| Kapitaldienst p. a. | 84.000 € | 313.703 € |
-| **Miete je m², bei der Zeile 8 null ist** | **6,77 €** | **20,72 €** |
+| Kapitaldienst p. a. | 80.667 € | 313.703 € |
+| **Miete je m², bei der Zeile 8 null ist** | **6,57 €** | **20,72 €** |
 
 *Werte: VOFI-Mappe v3, Übersicht 8.2 und 8.3 (DSCR-Ziel 1,0), Eingaben 6.1 und 6.4.*
 
 #### Annahmen
 
-Frei finanziert: gleiches Haus, Eigenmittel 1,4 Mio. €, Bankdarlehen 5,6 Mio. € zu 3,74 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, keine Rendite. Den Tilgungssatz legt die NBank fest (→ S. 9). B und C im Vergleich: → S. 12
+Frei finanziert: gleiches Haus, Eigenmittel 1,4 Mio. €, Bankdarlehen 5,6 Mio. € zu 3,74 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, keine Rendite. Gefördert wird gleichmäßig über die Höchstlaufzeit von 42 Jahren getilgt; den Satz legt die NBank fest (→ S. 9). B und C im Vergleich: → S. 12
 
 ---
 
@@ -1119,7 +1119,7 @@ Interne Liste, nicht Teil der Broschüre. Nach der Hinweis-Diät sind diese Punk
 6. **Ostfriesische Inseln:** (a) Gilt der EH-40-Mietaufschlag von bis zu 0,30 € auch in 2.4? (b) Welche Mietenstufe und welche Mietobergrenzen gelten auf den Inseln in 2.2 und 2.3 (die Inselgemeinden stehen in Mietenstufe V)? (c) Wie grenzt sich ein EH-40-Neubau auf den Inseln zwischen 2.4 und 2.2 ab? (d) Wie wird der Ersterwerb in 2.4 bemessen? (e) Gelten die Sicherheitenregeln aus 2.1 auch in 2.4? (S. 5, 7, 9, 14)
 7. **2.2 EH-40-Neubau:** Gelten Bemessungsgrenze je m² und Bodenrichtwert-Deckel? Nr. 6.3.2 verweist nicht darauf. Dürfen 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen genutzt werden, mit getrennten Anträgen? (S. 13)
 8. **Überkompensationsprüfung:** Welchen 30-jährigen Swapsatz verwendet die NBank (Quelle, Referenz EURIBOR oder €STR, Stichtag, Mittelung), und welchen Betrachtungszeitraum? (S. 9)
-9. **Tilgung:** Welche Tilgungsmodalitäten (Satz, Rhythmus) setzt die NBank in der Regel fest? Die RL nennt keinen Satz; relevant für die Eckdaten (S. 9) und die Jahresrechnung „Ihre Rechnung“ (S. 11: Tilgung 2,5 % p. a. als PGN-Annahme; S. 11/12: Tilgungsschwellen 1,22 % (C) bzw. 1,15 % (B)).
+9. **Tilgung:** Welche Tilgungsmodalitäten (Satz, Rhythmus) setzt die NBank in der Regel fest? Die RL nennt keinen Satz; relevant für die Eckdaten (S. 9) und die Jahresrechnung „Ihre Rechnung“ (S. 11: Tilgung 2,38 % p. a. als PGN-Annahme, linear über 42 Jahre; S. 11/12: Tilgungsschwellen 1,22 % (C) bzw. 1,15 % (B)).
 10. **Mietenstufen ab 01.01.2027** (Entwurf BR-Drs. 474/26): Wie wirkt eine Neuzuordnung auf laufende Anträge und bereits bewilligte Vorhaben (Bedarf, Bemessungsgrenze, Höchstmiete)? (S. 7, 16, 18)
 11. **Klassensprung ab 2027:** Wie bewertet die NBank den Klassensprung, wenn Ausgangs- und Abschlussausweis auf unterschiedlichen Rechennormen beruhen (DIN V 18599 → DIN/TS 18599:2025-10)? (S. 15, 16)
 12. **Antragsunterlagen:** Gilt die Checkliste vom 20.07.2025 für die RL 2026 weiter, oder erscheint eine aktualisierte Fassung? Der bisherige Stand-Hinweis („Grundlage: NBank-Checklisten vom 20.07.2025 (vor der RL 2026) und 22.09.2026 (2.5). Nachforderungen sind möglich.“) ist im Heft entfallen. (S. 21)
@@ -1148,8 +1148,8 @@ Interne Liste, nicht Teil der Broschüre. Alles, was PGN liefern, bestätigen od
 | S. 11, 2 | `− nicht umlagefähige Bewirtschaftungskosten [PGN-Rechnung: … € je Wohnung p. a.]` | ✓ 367 € je Wohnung p. a., nur Verwaltung; Betriebskosten voll umgelegt (Eingabe 5.2, F30) | − Objektverwaltung, 367 € je Wohnung p. a. (Betriebskosten voll umgelegt): 7.340 je Spalte |
 | S. 11, 3 | `− Instandhaltung [PGN-Rechnung: … € je m² p. a.]` | ✓ 14,40 € je m² Wohnfläche p. a. (Eingabe 5.3, F31) | − Instandhaltung, 14,40 € je m² p. a.: 20.160 je Spalte |
 | S. 11, 4 | `= Überschuss vor Kapitaldienst [PGN-Rechnung]` | Zwischensumme | 84.455 / 107.505 / 120.676 |
-| S. 11, 7 | `− Tilgung [PGN-Rechnung: Tilgungssatz … %] …` | ✓ 2,5 % p. a. linear (1/40) ab Jahr 1 (Eingabe 3.1, F17) – **PGN-Annahme**, keine Projektgröße; den Satz legt die NBank fest (→ Anhang A Nr. 9) | − Tilgung 2,5 % p. a. (Annahme): 70.000 / 105.000 / 122.500 |
-| S. 11, 8 | `= Zahlungsüberschuss p. a. [PGN-Rechnung]` | Ergebnis Zeile 4 − 5 − 6 − 7 | 455 / −18.495 / −26.324 |
+| S. 11, 7 | `− Tilgung [PGN-Rechnung: Tilgungssatz … %] …` | ✓ 2,38 % p. a. linear (1/42, Höchstlaufzeit) ab Jahr 1 (Eingabe 3.1, F17) – **PGN-Annahme**, keine Projektgröße; den Satz legt die NBank fest (→ Anhang A Nr. 9) | − Tilgung 2,38 % p. a. (Annahme: 42 Jahre): 66.667 / 100.000 / 116.667 |
+| S. 11, 8 | `= Zahlungsüberschuss p. a. [PGN-Rechnung]` | Ergebnis Zeile 4 − 5 − 6 − 7 | 3.789 / −13.495 / −20.491 |
 | S. 12, Rechenweg | `Mietausfall [PGN-Rechnung: … %]` | derselbe Satz wie S. 11 | Unterzeile − Mietausfall 2 %: 470 / 739 (B / C); Tilgungsschwellen 1,15 % (B) / 1,22 % (C), bisher 1,18 / 1,26 % ohne Mietausfall; Schnittpunkt C/B 1,38 % (bisher 1,42 %) |
 
 Folgeänderungen: Tabellenkopf S. 11 „Jahr 1“ statt „Jahre 1–3“ (die Werte gelten exakt für Jahr 1; Jahr 2 und 3 laut Referenzrechnung A 255 / 44 €, B −18.520 / −18.556 €, C −26.262 / −26.210 € (ungerundet −26.261,50 / −26.210,00 €)). Kostenstand 2026 im Block „Annahmen und Abgrenzung“ genannt. Absatz „B und C gegenüber A“ (S. 11) sowie Diagramm, Notiz, Rechenweg und Tabellenfuß S. 12 nachgerechnet: Mehrüberschuss vor Tilgung 16.050 € (B) / 25.721 € (C), bei 2,5 % Tilgung −18.950 € / −26.779 €.
@@ -1164,7 +1164,7 @@ Noch zu bestätigen (ohne Platzhalter im Heft):
 
 Zur Entscheidung durch PGN (PRUEFBERICHT 5.4 Nr. 1 und 3; im Heft bisher nicht umgesetzt):
 
-- **(a) Tenor S. 11:** Bei 2,5 % Tilgung zeigt Zeile 8 für B und C Fehlbeträge (Jahr 1: −18.495 / −26.324 €; negativ in Jahr 1 bis 9, größter kumulierter Fehlbetrag B rund 92.000 €, C rund 152.000 €). Die Headline „Mehr Miete, mehr Darlehen: Überschuss je Jahr“ ist nicht falsch, lässt aber einen positiven Überschuss erwarten. Headline so lassen oder neutraler fassen?
+- **(a) Tenor S. 11:** Bei 2,38 % Tilgung zeigt Zeile 8 für B und C Fehlbeträge (Jahr 1: −13.495 / −20.491 €; B negativ in Jahr 1 bis 6, C in Jahr 1 bis 9; größter kumulierter Fehlbetrag B rund 57.000 €, C rund 100.000 €). Die Headline „Mehr Miete, mehr Darlehen: Überschuss je Jahr“ ist nicht falsch, lässt aber einen positiven Überschuss erwarten. Headline so lassen oder neutraler fassen?
 - **(b) Tilgungsaufschub:** Bei einem vorübergehenden Fehlbetrag kann die NBank den Beginn der Tilgung bis zu fünf Jahre hinausschieben (RL Nr. 5.3.5, Ermessen, kein Anspruch; im Heft auf S. 21 unter „Tilgungsaufschub?“). Auf S. 11 neutral darauf hinweisen – ja oder nein? Ein zusätzlicher Satz kostet im unteren Band eine Zeile; damit dessen Oberkante weiter mit dem Band „Sensitivität“ auf S. 10 übereinstimmt, müsste an anderer Stelle der Seite gekürzt werden.
 - **(c) Verweis S. 4 → S. 11:** Der Grundcheck auf S. 4 sagt „die erzielbare Miete muss Finanzierung und Bewirtschaftung auf Dauer decken → S. 11“. Auf S. 11 erfüllen B und C das in Jahr 1 nicht. Verweis so lassen oder auf S. 9 bzw. S. 21 umlenken?
 

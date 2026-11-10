@@ -53,6 +53,7 @@
             "per_percentage_point": -14000,
             "threshold": 1.15,
             "at_2_5": -18950,
+            "at_s11": -17284,
             "stroke": "dashed",
             "labels": [
               "16.050",
@@ -66,6 +67,7 @@
             "per_percentage_point": -21000,
             "threshold": 1.22,
             "at_2_5": -26779,
+            "at_s11": -24279,
             "stroke": "solid",
             "labels": [
               "25.721",
@@ -168,7 +170,7 @@
   ],
   "footnotes": [],
   "calculation": {
-    "basis": "Modellhaus S. 10: 20 Wohnungen, 1.400 m² Wohnfläche, zuwendungsfähige Kosten 7,0 Mio. €, Mietenstufe IV–VII, Höchstsätze Programmteil 2.1; Jahresrechnung S. 11 (Jahr 1) mit den PGN-Annahmen Mietausfall 2 %, Objektverwaltung 367 € je Wohnung, Instandhaltung 14,40 € je m² (Kostenstand 2026), Tilgung 2,5 % (VOFI-Mappe v3 (PGN_VOFI_Mietwohnraum_2026_v3.xlsx): Eingaben 3.1, 5.1–5.3; Übersicht Zeilen 29–39 und 55–72; Werte vom Kunden am 09.11.2026 übernommen)",
+    "basis": "Modellhaus S. 10: 20 Wohnungen, 1.400 m² Wohnfläche, zuwendungsfähige Kosten 7,0 Mio. €, Mietenstufe IV–VII, Höchstsätze Programmteil 2.1; Jahresrechnung S. 11 (Jahr 1) mit den PGN-Annahmen Mietausfall 2 %, Objektverwaltung 367 € je Wohnung, Instandhaltung 14,40 € je m² (Kostenstand 2026), Tilgung 2,38 % (1/42, linear über 42 Jahre; VOFI-Mappe v3 (PGN_VOFI_Mietwohnraum_2026_v3.xlsx): Eingaben 3.1, 5.1–5.3; Übersicht Zeilen 29–39 und 55–72; Werte vom Kunden am 09.11.2026 übernommen)",
     "A_B_C": {
       "zuschuss_mio": [
         2.8,
@@ -200,15 +202,15 @@
         21000,
         24500
       ],
-      "tilgung_2_5_prozent_pa": [
-        70000,
-        105000,
-        122500
+      "tilgung_pa": [
+        66667,
+        100000,
+        116667
       ],
       "zahlungsueberschuss_jahr_1": [
-        455,
-        -18495,
-        -26324
+        3789,
+        -13495,
+        -20491
       ],
       "bearbeitungsentgelte": [
         49000,
@@ -225,7 +227,8 @@
       "Tilgungsschwelle: B 16.050 ÷ 1.400.000 = 1,1464 % ≈ 1,15 %; C 25.721 ÷ 2.100.000 = 1,2248 % ≈ 1,22 %",
       "Je Prozentpunkt Tilgung: B 1 % × 1,4 Mio. = 14.000 €; C 1 % × 2,1 Mio. = 21.000 €",
       "Bei 2,5 %: B 16.050 − 35.000 = −18.950 €; C 25.721 − 52.500 = −26.779 €",
-      "Kontrolle gegen S. 11, Zeile 8: B − A = −18.495 − 455 = −18.950 €; C − A = −26.324 − 455 = −26.779 €",
+      "Beim Satz der S. 11 (2,381 %): B 16.050 − 33.333 = −17.284 €; C 25.721 − 50.000 = −24.279 €",
+      "Kontrolle gegen S. 11, Zeile 8: B − A = −13.495 − 3.789 = −17.284 €; C − A = −20.491 − 3.789 = −24.279 € (ungerundet −24.279,20)",
       "C gegenüber B: 9.671 € − t × 700.000 € > 0 für t < 1,38 % → unter 1,22 % ist C die beste Variante, darüber A; B nie",
       "Bearbeitungsentgelte einmalig, Differenz zu A: B 52.500 − 49.000 = 3.500 €; C 54.250 − 49.000 = 5.250 € (= 0,25 % der Mehrschuld)",
       "Allgemein: Schwelle = (1 − Mietausfall) × 12 × Mehrmiete je m² ÷ (Mehr-Darlehenssatz × zuwendungsfähige Kosten je m²) − 0,5 %; bei 5.000 € je m² und 2 % Mietausfall B 0,98 × 16,80 ÷ 1.000 − 0,5 % = 0,98 × 1,68 % − 0,5 % = 1,15 %, C 0,98 × 26,40 ÷ 1.500 − 0,5 % = 0,98 × 1,76 % − 0,5 % = 1,22 %"

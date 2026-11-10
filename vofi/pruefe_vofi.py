@@ -501,8 +501,8 @@ EINGABEN = [
     ("2.5", 15, "Grundstuecksflaeche", "Grundstücksfläche (0 = kein Deckel)", "m²", "ganz", ("decimal", 0, 1e6),
      "Broschüre S. 10: Deckel greift nicht / Projektdaten PGN", lambda P: P["gfl"] or 0, lambda P: P["gfl"] or 0),
     ("3.1", 17, "Tilgung_NBank", "Tilgung NBank-Darlehen, linear", "% p. a.", "pct", ("decimal", 0, 0.10),
-     "PGN-Annahme (Broschüre S. 11); Vorgängermappe Worst 3,03 %", lambda P: 1 / P["laufzeit_nbank"],
-     lambda P: 1 / P["laufzeit_nbank"]),
+     "PGN-Annahme: linear über 42 Jahre / Vorgängermappe 2,50 %", lambda P: 1 / 42,
+     lambda P: 1 / P["laufzeit_nbank"]),   # Modellhaus: 1/Höchstlaufzeit (RL 2026 Nr. 5.3.5); Tarutinoer wie v2-1 (40 Jahre)
     ("3.2", 18, "Tilgungsaufschub", "Tilgungsaufschub", "Jahre", "ganz", ("whole", 0, "Aufschub_max"),
      "PGN-Annahme (Rahmen RL 2026 Nr. 5.3.5)", _g("tilgungsfrei"), _g("tilgungsfrei")),
     ("3.3", 19, "Zins_NBank_ab36", "Zins NBank-Darlehen ab Jahr 36", "% p. a.", "pct", ("decimal", 0, 0.10),
@@ -1805,6 +1805,9 @@ LAEUFE = [
     # mit Miete für DSCR-Ziel (Aufschläge „–“)
     ("L59", "M", {"6.4": 10}), ("L60", "T", {"2.3": 731325, "6.4": 5}), ("L61", "M", {"6.2": 30}),
     ("L62", "M", {"4.4": 0, "10.1": "Miete für DSCR-Ziel"}),
+    # Vorgabe 3.1 des Modellhauses seit 10.11.2026: 1/42 (linear über die Höchstlaufzeit). L63 rechnet das Modellhaus mit dem
+    # früheren Satz 2,5 %: Träger der Regression gegen den Stand vorher und der bisherigen Sollwerte des Konzepts
+    ("L63", "M", {"3.1": 0.025}),
 ]
 # Fehlerlauf (Runde 2, R1): ungültige Mietenstufe per Einfügen (die Datenüberprüfung greift dabei nicht). Erwartet:
 # Fehlerwerte in der Mappe, aber Gesamtstatus und Prüfungen „prüfen“ (nie „OK“ aus Fehlerwerten), NBank-Lage „prüfen“.
@@ -3340,13 +3343,58 @@ _K = KONZEPT["L10"]
 _K += _abc(9, *("7.980.000",) * 3) + _abc(10, *("7.700.000",) * 3) + _abc(11, *("280.000",) * 3)
 _K += _abc(15, *("6.160.000",) * 3) + _abc(16, *("77,19 %",) * 3) + _gef("H102", *("840.000",) * 3)
 _K += _abc(18, *("280.000",) * 3) + _abc(19, *("1.540.000",) * 3) + _abc(22, "1.593.900", "1.597.750", "1.599.675")
-_K += _abc(38, "−23.629,97", "−46.780,37", "−56.709,17") + [(UEB, f"C{r}", "=OK") for r in UEB_PRUEF]
+_K += _abc(38, "−19.963,30", "−41.280,37", "−50.292,50") + [(UEB, f"C{r}", "=OK") for r in UEB_PRUEF]
 _K += [(UEB, "D3", "=OK")]
 KONZEPT["L11"] += _gef("H105", "281.900", "277.750", "275.675") + _abc(PZ, "281.900", "277.750", "275.675")
 KONZEPT["L11"] += [(UEB, f"C{PZ}", "=prüfen"), (UEB, f"C{PZ + 3}", "=prüfen"), (UEB, "D3", "=prüfen")]
 KONZEPT["L11"] += [("NBank", f"{c}{r}", "=–") for r in NB_MATRIX for c in "GHI"]
 KONZEPT["L11"] += [(UEB, f"{c}{r}", "#") for c in "GK" for r in (76, 78, 79)]
 KONZEPT["L12"] += [(UEB, "D18", "0"), (UEB, "D23", "849.000")]
+
+
+# ---- Vorgabe 3.1 seit 10.11.2026: Modellhaus mit Tilgung 1/42 (linear über die Höchstlaufzeit) ---------------------------------
+# Die Tabellen oben nennen die Sollwerte des Modellhauses bei Tilgung 2,5 %; sie gelten unverändert für L63 (3.1 = 2,5 %).
+# Für L1 (Vorgabe 1/42) weichen die folgenden Zellen ab. Gerechnet prüft F8 jeden Wert gegen die Referenzrechnung; hier steht
+# die Anzeige der Mappe in der Schreibweise des Konzepts („=…“: Text in der Zelle).
+KONZEPT["L63"] = list(KONZEPT["L1"])
+_L1_TILGUNG_42 = {
+    ("Übersicht", "D17"): "3.945.457,05", ("Übersicht", "E17"): "3.139.185,52", ("Übersicht", "F17"): "2.736.049,81",
+    ("Übersicht", "D36"): "66.666,67", ("Übersicht", "E36"): "100.000,00", ("Übersicht", "F36"): "116.666,67",
+    ("Übersicht", "D38"): "3.788,53", ("Übersicht", "E38"): "−13.495,20", ("Übersicht", "F38"): "−20.490,67",
+    ("Übersicht", "D42"): "23.375,59", ("Übersicht", "E42"): "12.111,41", ("Übersicht", "F42"): "8.448,54",
+    ("Übersicht", "D43"): "92.604,14", ("Übersicht", "E43"): "102.378,43", ("Übersicht", "F43"): "110.439,93",
+    ("Übersicht", "D44"): "179.404,03", ("Übersicht", "E44"): "208.652,19", ("Übersicht", "F44"): "227.847,56",
+    ("Übersicht", "D45"): "1,0470", ("Übersicht", "E45"): "0,8885", ("Übersicht", "F45"): "0,8548",
+    ("Übersicht", "D46"): "1,0418", ("Übersicht", "E46"): "0,8866", ("Übersicht", "F46"): "0,8540", ("Übersicht", "E47"): "6",
+    ("Übersicht", "E48"): "−57.036,14", ("Übersicht", "F48"): "−100.471,55", ("Übersicht", "D50"): "466.667",
+    ("Übersicht", "E50"): "700.000", ("Übersicht", "F50"): "816.667", ("Übersicht", "D62"): "3.788,53",
+    ("Übersicht", "E62"): "−13.495,20", ("Übersicht", "F62"): "−20.490,67", ("Übersicht", "E71"): "−17.283,73",
+    ("Übersicht", "F71"): "−24.279,20", ("Gefördert A", "R8"): "3.571,87", ("Gefördert B", "R8"): "−13.545,20",
+    ("Gefördert C", "R8"): "−20.457,33", ("Gefördert A", "R9"): "3.344,20", ("Gefördert B", "R9"): "−13.606,20",
+    ("Gefördert C", "R9"): "−20.435,00", ("Übersicht", "D76"): "5,3954 %", ("Übersicht", "E76"): "5,1223 %",
+    ("Übersicht", "F76"): "5,0452 %", ("Übersicht", "H76"): "5,3552 %", ("Übersicht", "I76"): "5,1108 %",
+    ("Übersicht", "J76"): "5,0411 %", ("Übersicht", "D77"): "2,5617 %", ("Übersicht", "E77"): "2,4241 %",
+    ("Übersicht", "F77"): "2,4355 %", ("Übersicht", "H77"): "3,2651 %", ("Übersicht", "I77"): "3,1848 %",
+    ("Übersicht", "J77"): "3,2135 %", ("Übersicht", "D89"): "6,1063 %", ("Übersicht", "E89"): "5,9440 %",
+    ("Übersicht", "F89"): "5,9225 %", ("Übersicht", "H89"): "5,9631 %", ("Übersicht", "I89"): "5,8184 %",
+    ("Übersicht", "J89"): "5,7990 %", ("Übersicht", "D90"): "1,5681 %", ("Übersicht", "E90"): "0,7323 %",
+    ("Übersicht", "F90"): "0,4677 %", ("Übersicht", "H90"): "2,9656 %", ("Übersicht", "I90"): "2,6944 %",
+    ("Übersicht", "J90"): "2,6885 %", ("Übersicht", "D94"): "−1,7028 %", ("Übersicht", "H94"): "1,8337 %",
+    ("Übersicht", "I94"): "1,5752 %", ("Übersicht", "J94"): "1,6181 %", ("Übersicht", "D91"): "5,7353 %",
+    ("Übersicht", "E91"): "5,7795 %", ("Übersicht", "F91"): "5,8134 %", ("Übersicht", "H91"): "5,5194 %",
+    ("Übersicht", "I91"): "5,5722 %", ("Übersicht", "J91"): "5,6043 %", ("Übersicht", "D92"): "1,6737 %",
+    ("Übersicht", "E92"): "0,8999 %", ("Übersicht", "F92"): "0,5594 %", ("Übersicht", "H92"): "2,7275 %",
+    ("Übersicht", "I92"): "2,5547 %", ("Übersicht", "J92"): "2,5377 %", ("Übersicht", "D95"): "−0,0746 %",
+    ("Übersicht", "E95"): "−1,6592 %", ("Übersicht", "F95"): "−2,5489 %", ("Übersicht", "H95"): "1,8878 %",
+    ("Übersicht", "I95"): "1,6450 %", ("Übersicht", "J95"): "1,6217 %", ("Übersicht", "D93"): "86,17 %",
+    ("Übersicht", "E93"): "92,21 %", ("Übersicht", "F93"): "94,39 %", ("Übersicht", "H93"): "77,03 %",
+    ("Übersicht", "I93"): "79,65 %", ("Übersicht", "J93"): "80,10 %", ("Übersicht", "E96"): "−67.599,69",
+    ("Übersicht", "F96"): "−133.137,63", ("Gefördert A", "H174"): "3.945.457,05", ("Gefördert B", "H174"): "3.139.185,52",
+    ("Gefördert C", "H174"): "2.736.049,81", ("NBank", "D30"): "1.166.457,05", ("NBank", "E30"): "1.749.685,52",
+    ("NBank", "F30"): "2.041.299,81", ("NBank", "D31"): "3.945.457,05", ("NBank", "E31"): "3.139.185,52",
+    ("NBank", "F31"): "2.736.049,81", ("Übersicht", "E94"): "=n. v.", ("Übersicht", "F94"): "=n. v.", ("NBank", "H23"): "=–", ("NBank", "I23"): "=–",
+}
+KONZEPT["L1"] = [(_bl, _z, _L1_TILGUNG_42.get((_bl, _z), _v)) for _bl, _z, _v in KONZEPT["L1"]]
 
 
 def pruefe_konzeptwerte(b, lid, werte, specs):
@@ -3613,7 +3661,7 @@ def pruefe_broschuere(b, w, w10):
         bro(p, f"S. 12 {ser['name']} Schwelle ↔ {'E63' if c == 'E' else 'F64'}", u("E63" if c == "E" else "F64"),
             ser["threshold"] / 100, nk=4)
         bro(p, f"S. 12 {ser['name']} bei 2,5 % ↔ {c}60−D60", dz(u(f"{c}60"), u("D60")), ser["at_2_5"], nk=0)
-        bro(p, f"S. 12 {ser['name']} bei 2,5 % ↔ {c}71", u(f"{c}71"), ser["at_2_5"], nk=0)
+        bro(p, f"S. 12 {ser['name']} beim Satz der S. 11 ↔ {c}71", u(f"{c}71"), ser["at_s11"], nk=0)
     g = regex_zahl(p, "S. 12 Kontrolle C/B", ch["check"], r"= ([\d,]+) %")
     if g:
         bro(p, "S. 12 Tilgungsschwelle C gegenüber B ↔ F65", u("F65"), g[0] + " %")
@@ -3636,7 +3684,7 @@ def pruefe_broschuere(b, w, w10):
     calc = s12["calculation"]["A_B_C"]
     for key, z, fk in (("zuschuss_mio", 14, 1e6), ("darlehen_mio", 13, 1e6), ("hoechstmiete_eur_m2", 26, 1.0),
                        ("sollmiete_pa", 29, 1.0), ("mietausfall_2_prozent_pa", 30, 1.0),
-                       ("verwaltungskostenbeitrag_pa", 34, 1.0), ("tilgung_2_5_prozent_pa", 36, 1.0),
+                       ("verwaltungskostenbeitrag_pa", 34, 1.0), ("tilgung_pa", 36, 1.0),
                        ("zahlungsueberschuss_jahr_1", 38, 1.0), ("bearbeitungsentgelte", 21, 1.0)):
         for i, v in enumerate(calc[key]):
             bro(p, f"S. 12 Rechenbasis {key} {GRUPPEN[i]} ↔ {'DEF'[i]}{z}", u(f"{'DEF'[i]}{z}"), v, faktor=fk)
@@ -3753,7 +3801,7 @@ def main():
         if not a.baseline:
             a.baseline = str(hole_baseline(ordner) or "")
         if a.baseline and Path(a.baseline).exists():
-            for lid, proj in (("L1", "M"), ("L2", "T")):
+            for lid, proj in (("L63", "M"), ("L2", "T")):   # L63: Modellhaus mit Tilgung 2,5 % wie im Stand vorher
                 if lid in w:
                     alt = sicher(b, "N", f"{lid} Stand vorher berechnen", baseline_lauf, a.baseline, ordner, proj, a.timeout)
                     if alt is None:

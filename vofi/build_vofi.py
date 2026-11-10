@@ -319,8 +319,8 @@ EINGABEN = [
     ("2.5", 15, "Grundstücksfläche (0 = kein Deckel)", "Grundstuecksflaeche", "m²", F_ANZ, 0, 1362,
      "Broschüre S. 10: Deckel greift nicht / Projektdaten PGN", ("dez", 0, 1000000)),
     # Block 3 Förderung NBank
-    ("3.1", 17, "Tilgung NBank-Darlehen, linear", "Tilgung_NBank", "% p. a.", F_PCT, 0.025, 0.025,
-     "PGN-Annahme (Broschüre S. 11); Vorgängermappe Worst 3,03 %", ("dez", 0, 0.10)),
+    ("3.1", 17, "Tilgung NBank-Darlehen, linear", "Tilgung_NBank", "% p. a.", F_PCT, 1 / 42, 0.025,
+     "PGN-Annahme: linear über 42 Jahre / Vorgängermappe 2,50 %", ("dez", 0, 0.10)),
     ("3.2", 18, "Tilgungsaufschub", "Tilgungsaufschub", "Jahre", F_JAHR, 0, 0,
      "PGN-Annahme (Rahmen RL 2026 Nr. 5.3.5)", ("ganz", 0, "Aufschub_max")),
     ("3.3", 19, "Zins NBank-Darlehen ab Jahr 36", "Zins_NBank_ab36", "% p. a.", F_PCT, 0.0374, 0.0374,

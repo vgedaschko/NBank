@@ -143,24 +143,24 @@
         ],
         [
           "7",
-          "− Tilgung 2,5 % p. a. (Annahme) auf 2,8 | 4,2 | 4,9 Mio. € Darlehen",
-          "70.000",
-          "105.000",
-          "122.500"
+          "− Tilgung 2,38 % p. a. (Annahme: 42 Jahre) auf 2,8 | 4,2 | 4,9 Mio. € Darlehen",
+          "66.667",
+          "100.000",
+          "116.667"
         ],
         [
           "8",
           "= Zahlungsüberschuss p. a.",
-          "455",
-          "−18.495",
-          "−26.324"
+          "3.789",
+          "−13.495",
+          "−20.491"
         ]
       ],
       "result_row": "8",
       "subtotal_rows": [
         "4"
       ],
-      "values_source": "VOFI-Mappe v3 (PGN_VOFI_Mietwohnraum_2026_v3.xlsx): Eingabe 5.1 Mietausfall 2,0 %, 5.2 Objektverwaltung 367 € je Wohnung, 5.3 Instandhaltung 14,40 € je m² (Kostenstand 2026), 3.1 Tilgung 2,5 % p. a. als PGN-Annahme, den Satz legt die NBank fest; Jahresrechnung = Übersicht Zeilen 29–39; vom Kunden am 09.11.2026 übernommen; Abgleich mit der VOFI-Mappe v3 erledigt (pruefe_vofi.py F9), Abgleich mit der Präsentation offen (→ copy.md Anhang B Nr. 1); Prüfung und Nachrechnung: zulieferungen/vofi-pruefung/PRUEFBERICHT.md Abschnitt 5, referenzrechnung-ergebnis.md Abschnitt 2. Werte gelten für Jahr 1.",
+      "values_source": "VOFI-Mappe v3 (PGN_VOFI_Mietwohnraum_2026_v3.xlsx): Eingabe 5.1 Mietausfall 2,0 %, 5.2 Objektverwaltung 367 € je Wohnung, 5.3 Instandhaltung 14,40 € je m² (Kostenstand 2026), 3.1 Tilgung 2,38 % p. a. (1/42: linear über die Höchstlaufzeit von 42 Jahren, RL Nr. 5.3.5) als PGN-Annahme seit 10.11.2026, vorher 2,5 %; den Satz legt die NBank fest; Jahresrechnung = Übersicht Zeilen 29–39; übrige Annahmen vom Kunden am 09.11.2026 übernommen; Abgleich mit der VOFI-Mappe v3 erledigt (pruefe_vofi.py F9), Abgleich mit der Präsentation offen (→ copy.md Anhang B Nr. 1); Prüfung und Nachrechnung: zulieferungen/vofi-pruefung/PRUEFBERICHT.md Abschnitt 5, referenzrechnung-ergebnis.md Abschnitt 2. Werte gelten für Jahr 1.",
       "aside_row": [
         "",
         "Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte (1 % des Darlehens + 0,75 % des Zuschusses)",
@@ -191,12 +191,12 @@
         ],
         [
           "Kapitaldienst p. a.",
-          "84.000 €",
+          "80.667 €",
           "313.703 €"
         ],
         [
           "Miete je m², bei der Zeile 8 null ist",
-          "6,77 €",
+          "6,57 €",
           "20,72 €"
         ]
       ],
@@ -206,7 +206,7 @@
     {
       "type": "text",
       "heading": "Annahmen",
-      "body": "Frei finanziert: gleiches Haus, Eigenmittel 1,4 Mio. €, Bankdarlehen 5,6 Mio. € zu 3,74 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, keine Rendite. Den Tilgungssatz legt die NBank fest (→ S. 9). B und C im Vergleich: → S. 12"
+      "body": "Frei finanziert: gleiches Haus, Eigenmittel 1,4 Mio. €, Bankdarlehen 5,6 Mio. € zu 3,74 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, keine Rendite. Gefördert wird gleichmäßig über die Höchstlaufzeit von 42 Jahren getilgt; den Satz legt die NBank fest (→ S. 9). B und C im Vergleich: → S. 12"
     }
   ],
   "footnotes": [],

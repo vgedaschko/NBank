@@ -20,7 +20,7 @@ Kurzzeichen (nur in diesem Konzept, nicht in der Excel): RW = Restwert („mit R
 | E4 | Zeitachse t = 0 … 80; Zahlungen bis t = 42, t = 43 … 80 nur Mietpfad und Reinertrag für den Restwert | Restwert als Ertragswert bis Gesamtnutzungsdauer 80 Jahre (B5) |
 | E5 | Eigenkapital = Grundstück (Verkehrswert, Sacheinlage) + bares Eigenkapital als Restgröße; die Bank finanziert nur Herstellungskosten, die nach Förderung und RL-Mindesteigenmitteln fehlen | B4; Broschüre S. 10 „Restfinanzierung“; Abweichung A3 mit Wirkung D.2a, offen O1 |
 | E6 | Bearbeitungsentgelte und KG 800 zahlt das Eigenkapital bei Bezug; die Bank finanziert sie nicht; keine Bauphase, keine Vorlaufzeit | B7; Broschüre S. 11; RR |
-| E7 | Tilgung NBank als Satz (2,50 % linear vom Ursprungsdarlehen), ab Jahr Aufschub + 1, Rest spätestens in Jahr 42 | freigegebene Annahme; RL Nr. 5.3.5 |
+| E7 | Tilgung NBank als Satz, linear vom Ursprungsdarlehen, ab Jahr Aufschub + 1, Rest spätestens in Jahr 42. Vorgabe Modellhaus seit 10.11.2026: 1/42 = 2,38 % (gleichmäßig über die Höchstlaufzeit); Tarutinoer 2,50 % wie v2-1 | Annahme PGN; RL Nr. 5.3.5 |
 | E8 | Kostenstand als Eingabe 5.5 (0 = Stand 2026 gilt in Jahr 1) | B8, Umbauliste Nr. 10 |
 | E9 | Restwert = periodischer Ertragswert auf einheitlichem Preisstand, Boden und Gebäude getrennt, Abschlag der Bestandsmiete bis zur Zielmiete | B2, B5, B6 |
 | E10 | IRR nach der Konvention „größte Nullstelle mit fallendem Barwert“ (kennzahlen-konzept 3.3): erster Treffer der Startwert-Kaskade (Objekt 3 %, Eigenkapital = VOFI-EK-Rendite derselben Variante, sonst 0; danach −10, −30, −50, −60, −70 %; Ergebnisse ≤ −100 % gelten als Fehlversuch), zweiter Versuch `IRR` ab erstem Treffer + 5 Prozentpunkte; gezeigt wird die größere der beiden Nullstellen, wenn der Barwert dort fällt (Barwert bei +0,01 Prozentpunkten < 0), sonst „n. v.“. Beide Treffer stehen als Hilfswerte in den gegliederten Spalten (Gefördert Y–AB, Frei R–U) neben der Kennzahl (Runde 1 R1/R2, Runde 2 R2) | Ein einzelner Startwert trifft bei mehreren Nullstellen je nach Reihe die obere oder die untere (Runde 2 R2: L10, L41, Tilgung 0 %). Mit zweitem Versuch und Barwert-Test gleich der RR in allen Läufen und 28.650 nachgerechneten Reihen, außer Nullstellen unter −69 % („n. v.“, K.2 R1). Bei mehreren Nullstellen ist der IRR nicht eindeutig; maßgeblich ist die VOFI-EK-Rendite (Bemerkung Übersicht 5.5, 5.7, 5.9, 6.2, 6.6; Prüfregel F8) |
@@ -96,7 +96,7 @@ Gültigkeit = Datenüberprüfung. Die Fehlermeldung nennt den zulässigen Bereic
 
 | Nr. | Zeile | Eingabe (Excel) | Name | Einheit | Modellhaus | Tarutinoer | Quelle (Excel) | Fundstelle | Gültigkeit |
 |---|---|---|---|---|---|---|---|---|---|
-| 3.1 | 17 | Tilgung NBank-Darlehen, linear | `Tilgung_NBank` | % p. a. | 2,50 % | 2,50 % | PGN-Annahme (Broschüre S. 11); Vorgängermappe Worst 3,03 % | freigegebene Annahme; RR `laufzeit_nbank` 40 / v2-1 Basisdaten!C62 (1/40) | Dezimal 0–0,1 |
+| 3.1 | 17 | Tilgung NBank-Darlehen, linear | `Tilgung_NBank` | % p. a. | 2,38 % (1/42) | 2,50 % | PGN-Annahme: linear über 42 Jahre / Vorgängermappe 2,50 % | Modellhaus: 1/Höchstlaufzeit (RL Nr. 5.3.5), Broschüre S. 11; Tarutinoer: RR `laufzeit_nbank` 40 / v2-1 Basisdaten!C62 (1/40) | Dezimal 0–0,1 |
 | 3.2 | 18 | Tilgungsaufschub | `Tilgungsaufschub` | Jahre | 0 | 0 | PGN-Annahme (Rahmen RL 2026 Nr. 5.3.5) | RR `tilgungsfrei` / v2-1 Eingabe!C26 | ganze Zahl 0–`=Aufschub_max` |
 | 3.3 | 19 | Zins NBank-Darlehen ab Jahr 36 | `Zins_NBank_ab36` | % p. a. | 3,74 % | 3,74 % | PGN-Annahme (Rahmen RL 2026 Nr. 5.3.4) | RR `zins_ab36` / v2-1 Eingabe!C43 | Dezimal 0–0,1 |
 | 3.4 | 20 | Swapsatz 30 Jahre | `Swapsatz_30J` | % | 3,39 % | 3,39 % | EUR-Swapsatz 30 Jahre, Stand 19.08.2026 | RR `swap` / v2-1 Ueberkompensation!C5 | Dezimal 0–0,1 |
@@ -978,7 +978,7 @@ Toleranzen: Beträge ≤ 1 € (Jahresrechnung, Förderbeträge ≤ 0,01 €); R
 | L61 | Modellhaus | 6.2 = 30 (gleich Laufzeit 6.4) | RR mit `zinsbindung` 29 (die RR teilt bei Zinsbindung ≥ 30 durch die Restlaufzeit 0), Bank frei geschlossen mit Zinsbindung 30 | alles; Zeilen 112 und 114 = 0, Restschuld Ende Jahr 30 < 1 €, Kapitaldienst Jahr 31 unter 1 € |
 | L62 | Modellhaus | 4.4 = 0, 10.1 = Miete für DSCR-Ziel | `markt_start` = nötige Miete; Miete gefördert 0 | alles; Miete frei 20,72 €/m², Aufschläge 185/186, Übersicht 8.5/8.6 und L26, L38, L42, L74, L87, L98 „–“ (Anzeige „Frei: Marktmiete 0, Aufschlag –“); P4, P5 und D3 „prüfen“ (gefördert ohne Miete) |
 
-Damit läuft jede der 39 Eingaben mindestens einmal abseits des Standards gegen die RR oder eine geschlossene Rechnung (62 Läufe). Frei finanziert wird in jedem Lauf geprüft (Abschnitt N.5): Zeitreihe aller Jahre, Finanzierung, Restwert, Renditen, Liquidität, Miete für das DSCR-Ziel. Grenze der Kaskade: Nullstellen unter etwa −70 % findet `IRR` in LibreOffice nicht zuverlässig (Lauf mit 5.4 = 10 %: −72 … −95 %); die Mappe zeigt dann „n. v.“ (Hinweis 11), F8 lässt das unter −69 % zu. Vorab geprüft (RR): In keinem Lauf greift A2; „EK-IRR ohne RW, J35“ ist in fast allen Läufen mehrdeutig oder ohne Nullstelle, Tarutinoer zusätzlich „ohne Geb.-RW, J35“; dafür gilt die Nullstellenregel F8.
+Damit läuft jede der 39 Eingaben mindestens einmal abseits des Standards gegen die RR oder eine geschlossene Rechnung (63 Läufe; L63: Modellhaus mit 3.1 = 2,5 %, dem Satz bis 10.11.2026). Frei finanziert wird in jedem Lauf geprüft (Abschnitt N.5): Zeitreihe aller Jahre, Finanzierung, Restwert, Renditen, Liquidität, Miete für das DSCR-Ziel. Grenze der Kaskade: Nullstellen unter etwa −70 % findet `IRR` in LibreOffice nicht zuverlässig (Lauf mit 5.4 = 10 %: −72 … −95 %); die Mappe zeigt dann „n. v.“ (Hinweis 11), F8 lässt das unter −69 % zu. Vorab geprüft (RR): In keinem Lauf greift A2; „EK-IRR ohne RW, J35“ ist in fast allen Läufen mehrdeutig oder ohne Nullstelle, Tarutinoer zusätzlich „ohne Geb.-RW, J35“; dafür gilt die Nullstellenregel F8.
 
 **F.2b Zuordnung Broschüre → Excel (L1, F9)**
 
@@ -996,6 +996,20 @@ Damit läuft jede der 39 Eingaben mindestens einmal abseits des Standards gegen 
 | 12: Rasterzeilen „höchster Überschuss“ | Übersicht B55:B62 (Tilgungssatz), G55:G62 |
 
 ### F.3 Sollwerte Modellhaus (aktiv, Standard)
+
+**Stand 10.11.2026:** Die Vorgabe 3.1 des Modellhauses ist 1/42 (2,38 %). Die Tabellen dieses Abschnitts nennen die Werte bei Tilgung 2,50 %; sie gelten unverändert für den Lauf **L63** (Modellhaus, 3.1 = 2,5 %), der auch die Regression gegen den Stand vorher trägt. Für den Standardlauf **L1** weichen 108 Zellen ab; sie stehen im Prüfskript (`_L1_TILGUNG_42`) und sind in F8 gegen die Referenzrechnung geprüft. Kernwerte L1 (A | B | C):
+
+| Größe | A | B | C |
+|---|---:|---:|---:|
+| Tilgung NBank Jahr 1 (Z. 36) | 66.666,67 | 100.000,00 | 116.666,67 |
+| Zahlungsüberschuss Jahr 1 (Z. 38) | 3.788,53 | −13.495,20 | −20.490,67 |
+| Zahlungsüberschuss Jahr 10 / Jahr 35 | 23.375,59 / 92.604,14 | 12.111,41 / 102.378,43 | 8.448,54 / 110.439,93 |
+| Jahre mit Fehlbetrag, Jahr 1–35 | 0 | 6 | 9 |
+| Größter kumulierter Fehlbetrag | 0 | −57.036,14 | −100.471,55 |
+| Restschuld NBank Ende Jahr 35 | 466.667 | 700.000 | 816.667 |
+| Kapitaldienst Jahr 1 (8.2) | 80.666,67 | 121.000,00 | 141.166,67 |
+| Nötige Miete Jahr 1 (8.3), €/m² | 6,57 | 9,02 | 10,24 |
+| Mehrüberschuss bei Tilgung laut 3.1 (4.17) | – | −17.283,73 | −24.279,20 |
 
 **(a) Broschüre S. 10–12** (Übersicht)
 

@@ -67,21 +67,21 @@ Jahresrechnung Jahr 1 in € (Übersicht Zeilen 29–38), gleich Broschüre S. 1
 | 3 − Instandhaltung 14,40 €/m² | 20.160 | 20.160 | 20.160 |
 | 4 = Überschuss vor Kapitaldienst | 84.455 | 107.505 | 120.676 |
 | 5 − Verwaltungskostenbeitrag 0,5 % | 14.000 | 21.000 | 24.500 |
-| 7 − Tilgung 2,5 % | 70.000 | 105.000 | 122.500 |
-| 8 = Zahlungsüberschuss | 455 | −18.495 | −26.324 |
+| 7 − Tilgung 2,38 % (linear über 42 Jahre) | 66.667 | 100.000 | 116.667 |
+| 8 = Zahlungsüberschuss | 3.789 | −13.495 | −20.491 |
 
-Darlehen 2,8 / 4,2 / 4,9 Mio. €, Zuschuss 2,8 / 1,4 / 0,7 Mio. €, Eigenmittel 1,4 Mio. €, Entgelte 49.000 / 52.500 / 54.250 €. Tilgungsschwellen S. 12: B 1,15 %, C 1,22 %. DSCR Jahr 1: 1,01 / 0,85 / 0,82; größter kumulierter Fehlbetrag 0 / −92.052 / −151.922 €; Break-even-Tilgung 2,52 / 2,06 / 1,96 %.
+Darlehen 2,8 / 4,2 / 4,9 Mio. €, Zuschuss 2,8 / 1,4 / 0,7 Mio. €, Eigenmittel 1,4 Mio. €, Entgelte 49.000 / 52.500 / 54.250 €. Tilgungsschwellen S. 12: B 1,15 %, C 1,22 %. DSCR Jahr 1: 1,05 / 0,89 / 0,85; größter kumulierter Fehlbetrag 0 / −57.036 / −100.472 €; Break-even-Tilgung 2,52 / 2,06 / 1,96 %.
 
 | Renditen in %, Jahr 42 (Jahr 35) | A | B | C | frei |
 |---|---:|---:|---:|---:|
 | Objekt-IRR ohne Zuschuss, mit Restwert | 2,48 (2,12) | 2,95 (2,68) | 3,20 (2,97) | 4,66 (4,63) |
 | Objekt-IRR nach Zuschuss, mit Restwert | 4,16 (4,04) | 3,71 (3,55) | 3,56 (3,38) | 4,66 (4,63) |
-| Objekt-IRR nach Förderbarwert, mit Restwert | 5,32 (5,36) | 5,07 (5,08) | 5,00 (5,00) | 4,66 (4,63) |
-| EK-IRR, mit Restwert | 5,90 (6,03) | 5,73 (5,85) | 5,70 (5,81) | 5,31 (5,37) |
-| EK-IRR, nur Bodenwert | 2,92 (1,53) | 2,64 (0,72) | 2,63 (0,47) | 2,89 (1,03) |
-| VOFI-EK-Rendite, mit Restwert | 5,52 (5,72) | 5,56 (5,75) | 5,58 (5,77) | 5,42 (5,52) |
-| VOFI-EK-Rendite, nur Bodenwert | 2,71 (1,63) | 2,51 (0,76) | 2,46 (0,32) | 1,17 (n. v.) |
-| Restwertanteil am Endvermögen | 77 (86) | 80 (93) | 81 (96) | 92 (121) |
+| Objekt-IRR nach Förderbarwert, mit Restwert | 5,36 (5,40) | 5,11 (5,12) | 5,04 (5,05) | 4,66 (4,63) |
+| EK-IRR, mit Restwert | 5,96 (6,11) | 5,82 (5,94) | 5,80 (5,92) | 5,31 (5,37) |
+| EK-IRR, nur Bodenwert | 2,97 (1,57) | 2,69 (0,73) | 2,69 (0,47) | 2,89 (1,03) |
+| VOFI-EK-Rendite, mit Restwert | 5,52 (5,74) | 5,57 (5,78) | 5,60 (5,81) | 5,42 (5,52) |
+| VOFI-EK-Rendite, nur Bodenwert | 2,73 (1,67) | 2,55 (0,90) | 2,54 (0,56) | 1,17 (n. v.) |
+| Restwertanteil am Endvermögen | 77 (86) | 80 (92) | 80 (94) | 92 (121) |
 
 NBank: mit Restwert „über“ 4,39 %, nur Bodenwert „unter“. Alle Werte = Referenzrechnung (±0,01 Pp, ±1 €).
 
@@ -107,7 +107,7 @@ Alle sechs Werte in der Spalte des aktiven Projekts eintragen. Worst 3,03 % (33 
 
 ## 8. Offene Punkte (Prüfbericht Abschnitt 6)
 
-1. Tilgungssatz 2,5 % mit der NBank abgestimmt? Die vier Annahmen sind vorläufig übernommen. (NBank)
+1. Tilgungssatz: Das Modellhaus rechnet seit 10.11.2026 mit 2,38 % (linear über die Höchstlaufzeit von 42 Jahren), vorher 2,5 %. Welchen Satz setzt die NBank fest? (NBank)
 2. Kostenstand 2026 in Jahr 1 oder fortschreiben (5.5)? Nicht umlagefähige Betriebskosten = 0 bestätigen.
 3. Grundstück Tarutinoer 0 € oder 731.325 €? Mit Verkehrswert 309.386 € Bank, Jahr 1 A −7.989 €.
 4. Modellhaus: Mieten 4.3/4.4 und Liegenschaftszins sind Platzhalter; Renditen mit Restwert hängen daran.

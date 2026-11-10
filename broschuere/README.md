@@ -86,8 +86,8 @@ Präsentation und Broschüre werden am Ende abgeglichen; offene Punkte in Anhang
 | 11 | Mietausfall/Leerstand `[… %]` | 2 % der Sollmiete: 2.285 / 2.755 / 3.024 € (A / B / C) |
 | 11 | nicht umlagefähige Bewirtschaftungskosten `[… € je Wohnung p. a.]` | Objektverwaltung 367 € je Wohnung p. a., Betriebskosten voll umgelegt: 7.340 € |
 | 11 | Instandhaltung `[… € je m² p. a.]` | 14,40 € je m² p. a.: 20.160 € |
-| 11 | Tilgung `[Tilgungssatz … %]` | 2,5 % p. a. (Annahme): 70.000 / 105.000 / 122.500 € |
-| 11 | Zeilen 4 und 8 `[PGN-Rechnung]` | 84.455 / 107.505 / 120.676 € und 455 / −18.495 / −26.324 € (Jahr 1) |
+| 11 | Tilgung `[Tilgungssatz … %]` | 2,38 % p. a. (Annahme: linear über 42 Jahre): 66.667 / 100.000 / 116.667 € |
+| 11 | Zeilen 4 und 8 `[PGN-Rechnung]` | 84.455 / 107.505 / 120.676 € und 3.789 / −13.495 / −20.491 € (Jahr 1) |
 | 12 | Mietausfall `[… %]` im Rechenweg | Unterzeile 470 / 739 € (B / C); Tilgungsschwellen 1,15 % / 1,22 % |
 
 U3 trägt seit Korrekturlauf 1 keine Platzhalter mehr: „Verantwortlich für den Inhalt“ und „Druck“ entfallen

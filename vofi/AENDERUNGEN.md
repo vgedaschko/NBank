@@ -114,4 +114,3 @@ Alle sechs Werte in der Spalte des aktiven Projekts eintragen. Worst 3,03 % (33 
 5. NBank: Renditegröße, Horizont, Restwert, Swap-Stichtag; Zins ab Jahr 36 (3,74 % oder Basiszins + 3 Pp)?
 6. Präsentation: Abgleich nach der Neugestaltung. Druck in Excel ansehen (geprüft nur mit LibreOffice).
 7. Frei: Konditionen Block 6 auch für ein Bankdarlehen über 80 % der Kosten? 7.1 frei voll anrechnen?
-8. Nötige Miete bei Tilgungsaufschub (3.2 > 0): Jahr 1 ohne Tilgung NBank; mit der Regeltilgung rechnen?

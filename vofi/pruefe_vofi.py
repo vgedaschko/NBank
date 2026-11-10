@@ -755,8 +755,8 @@ UEB_ZEILEN = {
     106: ("7.7", "Liegenschaftszins", "%", "Standort Neu Wulmstorf"),
     107: ("7.8", "Ertragswert Zielmiete gegenüber Gesamtkosten", "% (Bezug)", "bei Bezug; nachrichtlich"),
     110: ("8.1", "DSCR-Ziel", "Faktor", "Eingabe 10.2"),
-    111: ("8.2", "Kapitaldienst Jahr 1", "€",
-          "Zeilen 5 bis 7 und Bankdarlehen; bei Tilgungsaufschub (3.2) ohne Tilgung NBank"),
+    111: ("8.2", "Kapitaldienst Jahr 1, mit Regeltilgung", "€",
+          "Zeilen 5 bis 7 und Bankdarlehen; bei Tilgungsaufschub (3.2) mit Regeltilgung NBank"),
     112: ("8.3", "Nötige Miete Jahr 1 für das DSCR-Ziel", "€/m² Monat",
           "deckt in Jahr 1 DSCR-Ziel × Kapitaldienst und die Zeilen 2 und 3; Folgejahre: 3.5"),
     113: ("8.4", "Miete Jahr 1, gerechnet", "€/m² Monat", "wie 1.18"),
@@ -982,7 +982,7 @@ GEF_BLOCK = {
     172: ("Förderbarwert und Objektrendite", None), 174: ("Förderbarwert (Zuschuss + Barwertvorteil)", "€"),
     175: ("Objekt-IRR nach Förderbarwert, mit Restwert", "%"), 176: ("Objekt-IRR nach Förderbarwert, nur Bodenwert", "%"),
     177: ("Objekt-IRR nach Förderbarwert, ohne Restwert", "%"),
-    179: ("Miete für das DSCR-Ziel", None), 181: ("DSCR-Ziel", "Faktor"), 182: ("Kapitaldienst Jahr 1", "€"),
+    179: ("Miete für das DSCR-Ziel", None), 181: ("DSCR-Ziel", "Faktor"), 182: ("Kapitaldienst Jahr 1, mit Regeltilgung", "€"),
     183: ("Nötige Miete Jahr 1 für das DSCR-Ziel", "€/m² Monat"),
 }
 for _r, (_a, _u) in GEF_BLOCK.items():
@@ -1425,6 +1425,8 @@ class Soll:
         kd1 = L["VKB"][1] + L["ZINS"][1] + L["TILG"][1] + b1[0] + b1[1]
         if fin and abs(kd1 - L["KD"][1]) > 0.01:
             raise ValueError(f"Gefördert {g}: Kapitaldienst Jahr 1 ungleich RR")
+        if self.opt["tilgungsfrei"] > 0:          # Tilgungsaufschub: nötige Miete mit der Regeltilgung NBank
+            kd1 += l.rate
         s.update({"H181": ("satz", self.dscr_ziel), "H182": ("cent", kd1), "H183": ("miete", self.noetige_miete(kd1))})
         return s
 
@@ -3011,10 +3013,11 @@ def pruefe_lauf(b, lid, proj, aend, res, werte, soll, specs):
                         f"{x} Kapitaldienst Bank Jahr {lfz + 1}", kd, "unter 1 €")
     for g in GRUPPEN:                             # nötige Miete gefördert: dieselbe Formel mit dem Kapitaldienst Q7
         x = GEF[g]
-        v = [werte.get(x, z) for z in ("H181", "H182", "H183", "Q7", "I7", "J7")]
+        v = [werte.get(x, z) for z in ("H181", "H182", "H183", "Q7", "I7", "J7", "H110")]
         if all(ist_zahl(a_) for a_ in v):
             nb = werte.get("Eingaben", "F29"), werte.get("Eingaben", "F8")
-            p.check(abs(v[1] + v[3]) < 0.005 and abs(v[2] - (v[0] * v[1] - v[4] - v[5]) / ((1 - nb[0]) * nb[1] * 12)) < 1e-9,
+            regel = v[6] if int(soll.e["3.2"]) > 0 else 0.0   # Tilgungsaufschub: Regeltilgung NBank kommt dazu
+            p.check(abs(v[1] + v[3] - regel) < 0.005 and abs(v[2] - (v[0] * v[1] - v[4] - v[5]) / ((1 - nb[0]) * nb[1] * 12)) < 1e-9,
                     f"{x} nötige Miete aus Kapitaldienst Jahr 1", v[2], "(Ziel × Kapitaldienst + Kosten) ÷ Ertrag")
         else:
             p.check(False, f"{x} Miete für das DSCR-Ziel", v, "Zahlen")

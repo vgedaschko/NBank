@@ -835,17 +835,19 @@ FOERDER_GEF = [
 FETT_FOERDER = (174, 175)
 # Block Miete für das DSCR-Ziel (Konzept N): Zeilen 179-183 auf Gefördert A/B/C und Frei gleich. Nötige Miete Jahr 1 =
 # (DSCR-Ziel × Kapitaldienst Jahr 1 + Objektverwaltung + Instandhaltung Jahr 1) ÷ ((1 − Mietausfall) × Wohnfläche × 12).
+# Gefördert mit Tilgungsaufschub (Eingabe 3.2 > 0): Kapitaldienst Jahr 1 zuzüglich Regeltilgung NBank (H110), damit die
+# nötige Miete den Kapitaldienst auch nach dem Aufschub trägt.
 # {kd} = Spalte Kapitaldienst, {vw}/{ih} = Spalten Objektverwaltung/Instandhaltung (Auszahlungen negativ).
 _NOETIG = "=(H181*H182-{vw}7-{ih}7)/((1-Mietausfall)*Wohnflaeche*12)"
 
 
-def miete_dscr(kd, vw, ih):
+def miete_dscr(kd, vw, ih, regel=""):
     return [(181, "DSCR-Ziel", "Faktor", "=DSCR_Ziel", F_FAKTOR),
-            (182, "Kapitaldienst Jahr 1", "€", f"=-{kd}7", F_EUR),
+            (182, "Kapitaldienst Jahr 1, mit Regeltilgung", "€", f"=-{kd}7{regel}", F_EUR),
             (183, "Nötige Miete Jahr 1 für das DSCR-Ziel", "€/m² Monat", _NOETIG.format(vw=vw, ih=ih), F_EUR2)]
 
 
-MIETE_DSCR_GEF = miete_dscr("Q", "I", "J")
+MIETE_DSCR_GEF = miete_dscr("Q", "I", "J", "+IF(Tilgungsaufschub>0,$H$110,0)")
 FETT_MIETE_DSCR = (183,)
 GEF_LETZTE = 183
 FETT_RENDITEN = (133, 140, 143)
@@ -1379,8 +1381,8 @@ FETT_UEB = (76, 89, 91, 100)
 UEB_KOPF8 = 109
 UEB_BLOCK8 = [
     (110, "8.1", "DSCR-Ziel", "Faktor", "H181", "H181", F_FAKTOR, "Eingabe 10.2"),
-    (111, "8.2", "Kapitaldienst Jahr 1", "€", "H182", "H182", F_EUR,
-     "Zeilen 5 bis 7 und Bankdarlehen; bei Tilgungsaufschub (3.2) ohne Tilgung NBank"),
+    (111, "8.2", "Kapitaldienst Jahr 1, mit Regeltilgung", "€", "H182", "H182", F_EUR,
+     "Zeilen 5 bis 7 und Bankdarlehen; bei Tilgungsaufschub (3.2) mit Regeltilgung NBank"),
     (112, "8.3", "Nötige Miete Jahr 1 für das DSCR-Ziel", "€/m² Monat", "H183", "H183", F_EUR2,
      "deckt in Jahr 1 DSCR-Ziel × Kapitaldienst und die Zeilen 2 und 3; Folgejahre: 3.5"),
     (113, "8.4", "Miete Jahr 1, gerechnet", "€/m² Monat", "H109", "H109", F_EUR2, "wie 1.18"),

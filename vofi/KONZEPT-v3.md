@@ -20,7 +20,7 @@ Kurzzeichen (nur in diesem Konzept, nicht in der Excel): RW = Restwert („mit R
 | E4 | Zeitachse t = 0 … 80; Zahlungen bis t = 42, t = 43 … 80 nur Mietpfad und Reinertrag für den Restwert | Restwert als Ertragswert bis Gesamtnutzungsdauer 80 Jahre (B5) |
 | E5 | Eigenkapital = Grundstück (Verkehrswert, Sacheinlage) + bares Eigenkapital als Restgröße; die Bank finanziert nur Herstellungskosten, die nach Förderung und RL-Mindesteigenmitteln fehlen | B4; Broschüre S. 10 „Restfinanzierung“; Abweichung A3 mit Wirkung D.2a, offen O1 |
 | E6 | Bearbeitungsentgelte und KG 800 zahlt das Eigenkapital bei Bezug; die Bank finanziert sie nicht; keine Bauphase, keine Vorlaufzeit | B7; Broschüre S. 11; RR |
-| E7 | Tilgung NBank als Satz, linear vom Ursprungsdarlehen, ab Jahr Aufschub + 1, Rest spätestens in Jahr 42. Vorgabe Modellhaus seit 10.11.2026: 1/42 = 2,38 % (gleichmäßig über die Höchstlaufzeit); Tarutinoer 2,50 % wie v2-1 | Annahme PGN; RL Nr. 5.3.5 |
+| E7 | Tilgung NBank als Satz, linear vom Ursprungsdarlehen, ab Jahr Aufschub + 1, Rest spätestens in Jahr 42. Vorgabe beider Projekte seit 10.11.2026: 1/42 = 2,38 % (gleichmäßig über die Höchstlaufzeit); v2-1 rechnete mit 1/40 = 2,50 % | Annahme PGN; RL Nr. 5.3.5 |
 | E8 | Kostenstand als Eingabe 5.5 (0 = Stand 2026 gilt in Jahr 1) | B8, Umbauliste Nr. 10 |
 | E9 | Restwert = periodischer Ertragswert auf einheitlichem Preisstand, Boden und Gebäude getrennt, Abschlag der Bestandsmiete bis zur Zielmiete | B2, B5, B6 |
 | E10 | IRR nach der Konvention „größte Nullstelle mit fallendem Barwert“ (kennzahlen-konzept 3.3): erster Treffer der Startwert-Kaskade (Objekt 3 %, Eigenkapital = VOFI-EK-Rendite derselben Variante, sonst 0; danach −10, −30, −50, −60, −70 %; Ergebnisse ≤ −100 % gelten als Fehlversuch), zweiter Versuch `IRR` ab erstem Treffer + 5 Prozentpunkte; gezeigt wird die größere der beiden Nullstellen, wenn der Barwert dort fällt (Barwert bei +0,01 Prozentpunkten < 0), sonst „n. v.“. Beide Treffer stehen als Hilfswerte in den gegliederten Spalten (Gefördert Y–AB, Frei R–U) neben der Kennzahl (Runde 1 R1/R2, Runde 2 R2) | Ein einzelner Startwert trifft bei mehreren Nullstellen je nach Reihe die obere oder die untere (Runde 2 R2: L10, L41, Tilgung 0 %). Mit zweitem Versuch und Barwert-Test gleich der RR in allen Läufen und 28.650 nachgerechneten Reihen, außer Nullstellen unter −69 % („n. v.“, K.2 R1). Bei mehreren Nullstellen ist der IRR nicht eindeutig; maßgeblich ist die VOFI-EK-Rendite (Bemerkung Übersicht 5.5, 5.7, 5.9, 6.2, 6.6; Prüfregel F8) |
@@ -96,7 +96,7 @@ Gültigkeit = Datenüberprüfung. Die Fehlermeldung nennt den zulässigen Bereic
 
 | Nr. | Zeile | Eingabe (Excel) | Name | Einheit | Modellhaus | Tarutinoer | Quelle (Excel) | Fundstelle | Gültigkeit |
 |---|---|---|---|---|---|---|---|---|---|
-| 3.1 | 17 | Tilgung NBank-Darlehen, linear | `Tilgung_NBank` | % p. a. | 2,38 % (1/42) | 2,50 % | PGN-Annahme: linear über 42 Jahre / Vorgängermappe 2,50 % | Modellhaus: 1/Höchstlaufzeit (RL Nr. 5.3.5), Broschüre S. 11; Tarutinoer: RR `laufzeit_nbank` 40 / v2-1 Basisdaten!C62 (1/40) | Dezimal 0–0,1 |
+| 3.1 | 17 | Tilgung NBank-Darlehen, linear | `Tilgung_NBank` | % p. a. | 2,38 % (1/42) | 2,38 % (1/42) | PGN-Annahme: linear über die Höchstlaufzeit von 42 Jahren | 1/Höchstlaufzeit (RL Nr. 5.3.5), Broschüre S. 11; v2-1: RR `laufzeit_nbank` 40 / Basisdaten!C62 (1/40) | Dezimal 0–0,1 |
 | 3.2 | 18 | Tilgungsaufschub | `Tilgungsaufschub` | Jahre | 0 | 0 | PGN-Annahme (Rahmen RL 2026 Nr. 5.3.5) | RR `tilgungsfrei` / v2-1 Eingabe!C26 | ganze Zahl 0–`=Aufschub_max` |
 | 3.3 | 19 | Zins NBank-Darlehen ab Jahr 36 | `Zins_NBank_ab36` | % p. a. | 3,74 % | 3,74 % | PGN-Annahme (Rahmen RL 2026 Nr. 5.3.4) | RR `zins_ab36` / v2-1 Eingabe!C43 | Dezimal 0–0,1 |
 | 3.4 | 20 | Swapsatz 30 Jahre | `Swapsatz_30J` | % | 3,39 % | 3,39 % | EUR-Swapsatz 30 Jahre, Stand 19.08.2026 | RR `swap` / v2-1 Ueberkompensation!C5 | Dezimal 0–0,1 |
@@ -978,7 +978,7 @@ Toleranzen: Beträge ≤ 1 € (Jahresrechnung, Förderbeträge ≤ 0,01 €); R
 | L61 | Modellhaus | 6.2 = 30 (gleich Laufzeit 6.4) | RR mit `zinsbindung` 29 (die RR teilt bei Zinsbindung ≥ 30 durch die Restlaufzeit 0), Bank frei geschlossen mit Zinsbindung 30 | alles; Zeilen 112 und 114 = 0, Restschuld Ende Jahr 30 < 1 €, Kapitaldienst Jahr 31 unter 1 € |
 | L62 | Modellhaus | 4.4 = 0, 10.1 = Miete für DSCR-Ziel | `markt_start` = nötige Miete; Miete gefördert 0 | alles; Miete frei 20,72 €/m², Aufschläge 185/186, Übersicht 8.5/8.6 und L26, L38, L42, L74, L87, L98 „–“ (Anzeige „Frei: Marktmiete 0, Aufschlag –“); P4, P5 und D3 „prüfen“ (gefördert ohne Miete) |
 
-Damit läuft jede der 39 Eingaben mindestens einmal abseits des Standards gegen die RR oder eine geschlossene Rechnung (63 Läufe; L63: Modellhaus mit 3.1 = 2,5 %, dem Satz bis 10.11.2026). Frei finanziert wird in jedem Lauf geprüft (Abschnitt N.5): Zeitreihe aller Jahre, Finanzierung, Restwert, Renditen, Liquidität, Miete für das DSCR-Ziel. Grenze der Kaskade: Nullstellen unter etwa −70 % findet `IRR` in LibreOffice nicht zuverlässig (Lauf mit 5.4 = 10 %: −72 … −95 %); die Mappe zeigt dann „n. v.“ (Hinweis 11), F8 lässt das unter −69 % zu. Vorab geprüft (RR): In keinem Lauf greift A2; „EK-IRR ohne RW, J35“ ist in fast allen Läufen mehrdeutig oder ohne Nullstelle, Tarutinoer zusätzlich „ohne Geb.-RW, J35“; dafür gilt die Nullstellenregel F8.
+Damit läuft jede der 39 Eingaben mindestens einmal abseits des Standards gegen die RR oder eine geschlossene Rechnung (67 Läufe; L63 bis L67: Modellhaus und Tarutinoer mit 3.1 = 2,5 %, dem Satz bis 10.11.2026). Frei finanziert wird in jedem Lauf geprüft (Abschnitt N.5): Zeitreihe aller Jahre, Finanzierung, Restwert, Renditen, Liquidität, Miete für das DSCR-Ziel. Grenze der Kaskade: Nullstellen unter etwa −70 % findet `IRR` in LibreOffice nicht zuverlässig (Lauf mit 5.4 = 10 %: −72 … −95 %); die Mappe zeigt dann „n. v.“ (Hinweis 11), F8 lässt das unter −69 % zu. Vorab geprüft (RR): In keinem Lauf greift A2; „EK-IRR ohne RW, J35“ ist in fast allen Läufen mehrdeutig oder ohne Nullstelle, Tarutinoer zusätzlich „ohne Geb.-RW, J35“; dafür gilt die Nullstellenregel F8.
 
 **F.2b Zuordnung Broschüre → Excel (L1, F9)**
 
@@ -1100,6 +1100,8 @@ Gegen PRUEFBERICHT 4.2 (2 Stellen) unverändert; gegen die RR mit vollen Mietwer
 
 ### F.4 Tarutinoer (aktiv, Standard) gegen v2-1-Cache
 
+**Stand 10.11.2026:** Auch die Tarutinoer Straße rechnet mit der Vorgabe 1/42. Der Abgleich mit v2-1, die Überleitung E.3 und die Tabellen dieses Abschnitts gelten für den Lauf **L64** (3.1 = 2,5 %, der Satz von v2-1). Für den Standardlauf L2 stehen die abweichenden Zellen im Prüfskript (`_TARU_TILGUNG_42`): Zahlungsüberschuss Jahr 1 15.002,51 / 11.559,80 / 10.812,18 € statt 13.591,36 / 9.443,08 / 8.342,67 €; EK-IRR mit Restwert Jahr 42 7,77 / 7,91 / 8,05 % statt 7,68 / 7,79 / 7,91 %.
+
 | Größe | v2-1 Zelle | v2-1 A / B / C | v3 A / B / C | Bewertung |
 |---|---|---|---|---|
 | NBank-Darlehen | Basisdaten!C61/C65/C69 | 1.185.364,80 / 1.778.047,20 / 2.074.388,40 | gleich | gleich |
@@ -1127,6 +1129,8 @@ Gegen PRUEFBERICHT 4.2 (2 Stellen) unverändert; gegen die RR mit vollen Mietwer
 Weitere v3-Sollwerte Tarutinoer (RR, J35 / J42): Objekt-IRR nach Förderbarwert mit RW 6,77/6,59 % · 6,53/6,38 % · 6,48/6,34 % (Förderbarwert 1.658.894 / 1.311.867 / 1.138.353 €); Objekt-IRR n. Z. mit RW 5,31/5,28 % · 4,83/4,85 % · 4,68/4,72 %; ohne RW 1,54/2,66 % · 1,33/2,46 % · 1,34/2,46 %; brutto mit RW 3,23/3,45 % · 3,89/4,02 % · 4,23/4,31 %; Frei 6,27/6,17 %; EK-IRR ohne RW 3,03/4,66 % · 3,02/4,90 % · 3,26/5,17 %; VOFI ohne RW 2,55/3,52 % · 2,56/3,74 % · 2,70/3,92 %; Tilgungsschwellen 1,80 / 1,91 %; Break-even 3,65 / 3,03 / 2,90 %; Barwertvorteil 482.419,88 / 723.629,82 / 844.234,79 €. Ohne Grundstück sind „ohne Geb.-RW“ und „ohne RW“ gleich; „EK-IRR ohne Geb.-RW, J35“ ist dann mehrdeutig (Nullstellen A −41,3 % und 3,03 %). Lage EK-IRR ohne RW J42: „über“ (4,66–5,17 % > 4,39 %).
 
 ### F.5 Sollwerte Finanzierungsfälle
+
+**Stand 10.11.2026:** Die Tarutinoer-Fälle dieses Abschnitts gelten bei 3.1 = 2,5 % für die Läufe **L65 bis L67** (wie L3 bis L5, mit dem Satz von v2-1). Für L3 bis L5 mit der Vorgabe 1/42 stehen die abweichenden Zellen im Prüfskript (`_TARU_TILGUNG_42`).
 
 | Lauf | Größe | A | B | C |
 |---|---|---:|---:|---:|

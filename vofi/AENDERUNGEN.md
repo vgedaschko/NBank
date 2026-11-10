@@ -28,7 +28,7 @@ v2-1 → v3: Blätter 13 → 9; Eingaben 75 + Szenario-Umschalter → 39 je Proj
 
 ## 4. Korrekturen B1–B11
 
-Tarutinoer, Gruppe A, Jahr 42, v2-1 → v3; Förderung, Mieten, Bewirtschaftung, Tilgung Jahr 1: auf den Cent gleich.
+Tarutinoer, Gruppe A, Jahr 42, v2-1 → v3 bei gleicher Tilgung (2,5 %); Förderung, Mieten, Bewirtschaftung, Tilgung Jahr 1: auf den Cent gleich.
 
 | Befund | Umsetzung | Wirkung |
 |---|---|---|
@@ -44,7 +44,9 @@ Tarutinoer, Gruppe A, Jahr 42, v2-1 → v3; Förderung, Mieten, Bewirtschaftung,
 | Bearbeitungsentgelte | aus Eigenkapital statt Bank | Zahlungsüberschuss Jahr 1 12.429 → 13.591 € |
 | Anfangsmiete gefördert | höchstens Marktmiete | 0; greift nur bei niedriger Marktmiete |
 
-Gesamt mit Restwert: VOFI-EK 6,38 → 6,49 %, EK-IRR 7,92 → 7,68 %; Modellhaus 4,75 → 5,52 und 6,11 → 5,96 %.
+Gesamt mit Restwert bei gleicher Tilgung (2,5 %): VOFI-EK 6,38 → 6,49 %, EK-IRR 7,92 → 7,68 %.
+
+Seit 10.11.2026 rechnen beide Projekte mit Tilgung 2,38 % (linear über die Höchstlaufzeit von 42 Jahren) statt 2,5 %. Tarutinoer: Zahlungsüberschuss Jahr 1 13.591 → 15.003 €, EK-IRR 7,68 → 7,77 %, VOFI-EK unverändert 6,49 %. Modellhaus gegenüber v2-1: VOFI-EK 4,75 → 5,52 %, EK-IRR 6,11 → 5,96 %.
 
 ## 5. Bedienung
 
@@ -107,7 +109,7 @@ Alle sechs Werte in der Spalte des aktiven Projekts eintragen. Worst 3,03 % (33 
 
 ## 8. Offene Punkte (Prüfbericht Abschnitt 6)
 
-1. Tilgungssatz: Das Modellhaus rechnet seit 10.11.2026 mit 2,38 % (linear über die Höchstlaufzeit von 42 Jahren), vorher 2,5 %. Welchen Satz setzt die NBank fest? (NBank)
+1. Tilgungssatz: Beide Projekte rechnen seit 10.11.2026 mit 2,38 % (linear über die Höchstlaufzeit von 42 Jahren), vorher 2,5 %. Welchen Satz setzt die NBank fest? (NBank)
 2. Kostenstand 2026 in Jahr 1 oder fortschreiben (5.5)? Nicht umlagefähige Betriebskosten = 0 bestätigen.
 3. Grundstück Tarutinoer 0 € oder 731.325 €? Mit Verkehrswert 309.386 € Bank, Jahr 1 A −7.989 €.
 4. Modellhaus: Mieten 4.3/4.4 und Liegenschaftszins sind Platzhalter; Renditen mit Restwert hängen daran.

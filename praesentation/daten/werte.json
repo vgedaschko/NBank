@@ -2,7 +2,7 @@
  "meta": {
   "titel": "Werte der VOFI-Mappe für die Präsentation Mietwohnraumförderung Niedersachsen 2026",
   "mappe": "PGN_VOFI_Mietwohnraum_2026_v3.xlsx",
-  "mappe_sha256": "49bc21999bf0ec6272195f7e7232bbbebb25065e7c6c2b0a403ad56ba3298ce3",
+  "mappe_sha256": "51f018b13dcae0db3a5fc13ef5a7b5e7a7d373ca9033bd9e0e0bceb3a407dab5",
   "mappe_stand": "Version 3.0, Stand 11/2026",
   "erzeugt_mit": "daten/werte_aus_vofi.py",
   "neuberechnung": "recalc.py (LibreOffice)",
@@ -6652,7 +6652,7 @@
    }
   },
   "projekt2": {
-   "beschreibung": "Projekt 2 der Mappe: Projekt der Altfassung der Präsentation (14 Wohnungen, 828 m², Herstellungskosten 3.579 € je m², ohne Grundstück, Mietenstufe VI).",
+   "beschreibung": "Projekt 2 der Mappe: Projekt der Altfassung der Präsentation (14 Wohnungen, 828 m², Herstellungskosten 3.579 € je m², ohne Grundstück, Mietenstufe VI). Tilgung 2,5 % wie in der Altfassung; die Mappe führt seit 10.11.2026 die Vorgabe 1/42.",
    "aenderungen": [
     {
      "blatt": "Eingaben",
@@ -6660,6 +6660,13 @@
      "alt": 1,
      "neu": 2,
      "eingabe": "Aktives Projekt"
+    },
+    {
+     "blatt": "Eingaben",
+     "zelle": "E17",
+     "alt": 0.023809523809523808,
+     "neu": 0.025,
+     "eingabe": "3.1 Tilgung NBank-Darlehen, wie Altfassung"
     }
    ],
    "pruefungen": {

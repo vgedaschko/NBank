@@ -501,8 +501,8 @@ EINGABEN = [
     ("2.5", 15, "Grundstuecksflaeche", "Grundstücksfläche (0 = kein Deckel)", "m²", "ganz", ("decimal", 0, 1e6),
      "Broschüre S. 10: Deckel greift nicht / Projektdaten PGN", lambda P: P["gfl"] or 0, lambda P: P["gfl"] or 0),
     ("3.1", 17, "Tilgung_NBank", "Tilgung NBank-Darlehen, linear", "% p. a.", "pct", ("decimal", 0, 0.10),
-     "PGN-Annahme: linear über 42 Jahre / Vorgängermappe 2,50 %", lambda P: 1 / 42,
-     lambda P: 1 / P["laufzeit_nbank"]),   # Modellhaus: 1/Höchstlaufzeit (RL 2026 Nr. 5.3.5); Tarutinoer wie v2-1 (40 Jahre)
+     "PGN-Annahme: linear über die Höchstlaufzeit von 42 Jahren", lambda P: 1 / 42,
+     lambda P: 1 / 42),   # beide Projekte: 1/Höchstlaufzeit (RL 2026 Nr. 5.3.5); die Vorgängermappe v2-1 rechnete mit 1/40
     ("3.2", 18, "Tilgungsaufschub", "Tilgungsaufschub", "Jahre", "ganz", ("whole", 0, "Aufschub_max"),
      "PGN-Annahme (Rahmen RL 2026 Nr. 5.3.5)", _g("tilgungsfrei"), _g("tilgungsfrei")),
     ("3.3", 19, "Zins_NBank_ab36", "Zins NBank-Darlehen ab Jahr 36", "% p. a.", "pct", ("decimal", 0, 0.10),
@@ -1808,6 +1808,10 @@ LAEUFE = [
     # Vorgabe 3.1 des Modellhauses seit 10.11.2026: 1/42 (linear über die Höchstlaufzeit). L63 rechnet das Modellhaus mit dem
     # früheren Satz 2,5 %: Träger der Regression gegen den Stand vorher und der bisherigen Sollwerte des Konzepts
     ("L63", "M", {"3.1": 0.025}),
+    # Tarutinoer mit dem früheren Satz 2,5 % (1/40 wie v2-1): L64 trägt den Abgleich mit v2-1, die Überleitung E.3, die Regression
+    # und die bisherigen Sollwerte von L2; L65 bis L67 tragen die bisherigen Sollwerte von L3 bis L5
+    ("L64", "T", {"3.1": 0.025}), ("L65", "T", {"2.3": 354120, "3.1": 0.025}), ("L66", "T", {"2.3": 731325, "3.1": 0.025}),
+    ("L67", "T", {"2.3": 731325, "7.1": 309386.40, "3.1": 0.025}),
 ]
 # Fehlerlauf (Runde 2, R1): ungültige Mietenstufe per Einfügen (die Datenüberprüfung greift dabei nicht). Erwartet:
 # Fehlerwerte in der Mappe, aber Gesamtstatus und Prüfungen „prüfen“ (nie „OK“ aus Fehlerwerten), NBank-Lage „prüfen“.
@@ -3357,6 +3361,8 @@ KONZEPT["L12"] += [(UEB, "D18", "0"), (UEB, "D23", "849.000")]
 # Für L1 (Vorgabe 1/42) weichen die folgenden Zellen ab. Gerechnet prüft F8 jeden Wert gegen die Referenzrechnung; hier steht
 # die Anzeige der Mappe in der Schreibweise des Konzepts („=…“: Text in der Zelle).
 KONZEPT["L63"] = list(KONZEPT["L1"])
+for _neu, _alt in (("L64", "L2"), ("L65", "L3"), ("L66", "L4"), ("L67", "L5")):
+    KONZEPT[_neu] = list(KONZEPT[_alt])
 _L1_TILGUNG_42 = {
     ("Übersicht", "D17"): "3.945.457,05", ("Übersicht", "E17"): "3.139.185,52", ("Übersicht", "F17"): "2.736.049,81",
     ("Übersicht", "D36"): "66.666,67", ("Übersicht", "E36"): "100.000,00", ("Übersicht", "F36"): "116.666,67",
@@ -3397,6 +3403,49 @@ _L1_TILGUNG_42 = {
 KONZEPT["L1"] = [(_bl, _z, _L1_TILGUNG_42.get((_bl, _z), _v)) for _bl, _z, _v in KONZEPT["L1"]]
 
 
+# Tarutinoer seit 10.11.2026 ebenfalls mit Tilgung 1/42: Die Tabellen oben gelten für L64 bis L67 (3.1 = 2,5 %, der Satz der
+# Vorgängermappe); für die Läufe L2 bis L5 mit der neuen Vorgabe weichen die folgenden Zellen ab (Anzeige der Mappe, in F8
+# gegen die Referenzrechnung geprüft).
+_TARU_TILGUNG_42 = {
+    "L2": {
+        ("Übersicht", "D38"): "15.002,51", ("Übersicht", "E38"): "11.559,80", ("Übersicht", "F38"): "10.812,18",
+        ("Übersicht", "D45"): "1,4393", ("Übersicht", "E45"): "1,2257", ("Übersicht", "F45"): "1,1809",
+        ("Gefördert A", "H110"): "28.222,97", ("Gefördert B", "H110"): "42.334,46", ("Gefördert C", "H110"): "49.390,20",
+        ("Gefördert A", "J143"): "6,492 %", ("Gefördert B", "J143"): "6,665 %", ("Gefördert C", "J143"): "6,758 %",
+        ("Gefördert A", "J140"): "7,765 %", ("Gefördert B", "J140"): "7,908 %", ("Gefördert C", "J140"): "8,052 %",
+        ("Übersicht", "D76"): "6,81 %", ("Übersicht", "E76"): "6,58 %", ("Übersicht", "F76"): "6,53 %",
+        ("Übersicht", "H76"): "6,63 %", ("Übersicht", "I76"): "6,43 %", ("Übersicht", "J76"): "6,39 %",
+        ("Übersicht", "D94"): "3,13 %", ("Übersicht", "E94"): "3,17 %", ("Übersicht", "F94"): "3,44 %",
+        ("Übersicht", "H94"): "4,76 %", ("Übersicht", "I94"): "5,05 %", ("Übersicht", "J94"): "5,34 %",
+        ("Übersicht", "D95"): "2,58 %", ("Übersicht", "E95"): "2,61 %", ("Übersicht", "F95"): "2,75 %",
+        ("Übersicht", "H95"): "3,53 %", ("Übersicht", "I95"): "3,76 %", ("Übersicht", "J95"): "3,94 %",
+        ("NBank", "D30"): "493.813,23", ("NBank", "E30"): "740.719,90", ("NBank", "F30"): "864.173,18",
+    },
+    "L3": {
+        ("Übersicht", "D38"): "10.921,70", ("Übersicht", "E38"): "5.438,59", ("Übersicht", "F38"): "3.670,76",
+        ("Übersicht", "H91"): "6,2037 %", ("Übersicht", "I91"): "6,3421 %", ("Übersicht", "J91"): "6,4192 %",
+        ("Übersicht", "H89"): "7,1327 %", ("Übersicht", "I89"): "7,1640 %", ("Übersicht", "J89"): "7,2424 %",
+    },
+    "L4": {
+        ("Übersicht", "D38"): "−6.409,65", ("Übersicht", "E38"): "−11.892,77", ("Übersicht", "F38"): "−13.660,59",
+        ("Übersicht", "D45"): "0,8846", ("Übersicht", "E45"): "0,8407", ("Übersicht", "F45"): "0,8378",
+        ("Übersicht", "H91"): "5,7655 %", ("Übersicht", "I91"): "5,9013 %", ("Übersicht", "J91"): "5,9817 %",
+        ("Übersicht", "H89"): "5,9641 %", ("Übersicht", "I89"): "6,0486 %", ("Übersicht", "J89"): "6,1374 %",
+        ("Übersicht", "D47"): "6", ("Übersicht", "E47"): "9", ("Übersicht", "F47"): "9", ("Übersicht", "D48"): "−29.129",
+        ("Übersicht", "E48"): "−66.278", ("Übersicht", "F48"): "−76.367", ("Übersicht", "H92"): "3,20 %",
+        ("Übersicht", "I92"): "3,27 %", ("Übersicht", "J92"): "3,39 %", ("Übersicht", "H90"): "3,38 %",
+        ("Übersicht", "I90"): "3,47 %", ("Übersicht", "J90"): "3,61 %",
+    },
+    "L5": {
+        ("Übersicht", "D38"): "10.921,70", ("Übersicht", "E38"): "5.438,59", ("Übersicht", "F38"): "3.670,76",
+        ("Übersicht", "H91"): "5,1758 %", ("Übersicht", "I91"): "5,3110 %", ("Übersicht", "J91"): "5,3864 %",
+        ("Übersicht", "H89"): "5,7463 %", ("Übersicht", "I89"): "5,8310 %", ("Übersicht", "J89"): "5,9135 %",
+    },
+}
+for _lid, _neu in _TARU_TILGUNG_42.items():
+    KONZEPT[_lid] = [(_bl, _z, _neu.get((_bl, _z), _v)) for _bl, _z, _v in KONZEPT[_lid]]
+
+
 def pruefe_konzeptwerte(b, lid, werte, specs):
     if lid not in KONZEPT or not KONZEPT[lid]:
         return
@@ -3430,7 +3479,7 @@ def pruefe_v21_abgleich(b, ordner, werte, soll):
     alt = Werte(kopie)
     a = lambda s, z: alt.get(s, z)                                              # noqa: E731
     n = lambda s, z: werte.get(s, z)                                            # noqa: E731
-    p = b.pruefung("F10", "L2 Tarutinoer gegen v2-1-Cache: gleiche Konvention (0,01 €)")
+    p = b.pruefung("F10", "L64 Tarutinoer (Tilgung 2,5 %) gegen v2-1-Cache: gleiche Konvention (0,01 €)")
     zeilen = {"A": ("C61", "C63", "C64", "C62"), "B": ("C65", "C67", "C68", "C66"), "C": ("C69", "C71", "C72", "C70")}
     for g in GRUPPEN:
         x, ga = GEF[g], f"Gefoerdert_{g}"
@@ -3449,7 +3498,7 @@ def pruefe_v21_abgleich(b, ordner, werte, soll):
     p.zahl("A Wertüberschuss vor Abschlag", n(GEF["A"], "H129"), a("Dashboard", "C44"), 1e-9)
     p.fertig()
 
-    p = b.pruefung("F10", "L2 Abweichungen zu v2-1 erklärt (Entgelte aus EK, Restwert, Vorlaufzeit)")
+    p = b.pruefung("F10", "L64 Abweichungen zu v2-1 erklärt (Entgelte aus EK, Restwert, Vorlaufzeit)")
     l21 = {g: RR.Lauf(BASIS["T"], g, **RR.MODELL) for g in GRUPPEN}
     for i, g in enumerate(GRUPPEN):
         x, ga, c = GEF[g], f"Gefoerdert_{g}", "CDE"[i]
@@ -3793,15 +3842,15 @@ def main():
         if "L1" in w:
             sicher(b, "F2", "gelieferte Werte", pruefe_gelieferte_werte, b, Werte(mappe), w["L1"])
             sicher(b, "F9", "Broschüre", pruefe_broschuere, b, w["L1"], w.get("L10"))
-        if "L2" in w:
-            sicher(b, "F10", "v2-1", pruefe_v21_abgleich, b, ordner, w["L2"], None)
+        if "L64" in w:   # Abgleich mit v2-1 und Überleitung E.3 beim Satz der Vorgängermappe (2,5 %)
+            sicher(b, "F10", "v2-1", pruefe_v21_abgleich, b, ordner, w["L64"], None)
         if "L13" in w and "L1" in w:
             sicher(b, "F7", "L13 = L1", pruefe_gleich_l1, b, "L13", w["L13"], w["L1"])
         # Regression laut Entscheidung 7 (Konzept N): L1 und L2 gegen den Stand vorher
         if not a.baseline:
             a.baseline = str(hole_baseline(ordner) or "")
         if a.baseline and Path(a.baseline).exists():
-            for lid, proj in (("L63", "M"), ("L2", "T")):   # L63: Modellhaus mit Tilgung 2,5 % wie im Stand vorher
+            for lid, proj in (("L63", "M"), ("L64", "T")):   # L63, L64: beide Projekte mit Tilgung 2,5 % wie im Stand vorher
                 if lid in w:
                     alt = sicher(b, "N", f"{lid} Stand vorher berechnen", baseline_lauf, a.baseline, ordner, proj, a.timeout)
                     if alt is None:

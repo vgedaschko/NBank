@@ -8,7 +8,7 @@ Wirtschaftlichkeitsmappe für geförderten Mietwohnungsbau nach RL Mietwohnraum 
 |---|---|
 | `PGN_VOFI_Mietwohnraum_2026_v3.xlsx` | Mappe, neu berechnet, aktives Projekt Modellhaus |
 | `build_vofi.py` | Generator (openpyxl): Blätter, Formeln, Namen, Formate, Druck |
-| `pruefe_vofi.py` | Abnahmeprüfung: Struktur, Gestaltung, Sprache, Seitenreserve im Druck (gerechnet nach der Breitenregel von Excel), 63 Testläufe gegen Referenzrechnung, Broschüre S. 10–12 und v2-1; Regression gegen den Stand vor der Erweiterung „Frei finanziert“ |
+| `pruefe_vofi.py` | Abnahmeprüfung: Struktur, Gestaltung, Sprache, Seitenreserve im Druck (gerechnet nach der Breitenregel von Excel), 67 Testläufe gegen Referenzrechnung, Broschüre S. 10–12 und v2-1; Regression gegen den Stand vor der Erweiterung „Frei finanziert“ |
 | `KONZEPT-v3.md` | Sollkonzept (intern): Zelladressen, Namen, Rechenlogik, Sollwerte, Abweichungen, Fundstellen der Eingaben |
 | `AENDERUNGEN.md` | Änderungen gegenüber v2-1, für PGN |
 

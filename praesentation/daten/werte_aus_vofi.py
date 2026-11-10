@@ -406,8 +406,10 @@ LAEUFE = [
     dict(
         lauf="projekt2",
         beschreibung="Projekt 2 der Mappe: Projekt der Altfassung der Präsentation (14 Wohnungen, 828 m², "
-                     "Herstellungskosten 3.579 € je m², ohne Grundstück, Mietenstufe VI).",
-        aenderungen=[dict(blatt="Eingaben", zelle="D3", alt=1, neu=2, eingabe="Aktives Projekt")],
+                     "Herstellungskosten 3.579 € je m², ohne Grundstück, Mietenstufe VI). Tilgung 2,5 % wie in der "
+                     "Altfassung; die Mappe führt seit 10.11.2026 die Vorgabe 1/42.",
+        aenderungen=[dict(blatt="Eingaben", zelle="D3", alt=1, neu=2, eingabe="Aktives Projekt"),
+                     dict(blatt="Eingaben", zelle="E17", alt=1 / 42, neu=0.025, eingabe="3.1 Tilgung NBank-Darlehen, wie Altfassung")],
         katalog=KERN,
     ),
 ]

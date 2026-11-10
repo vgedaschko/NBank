@@ -10,11 +10,14 @@ module.exports = {
     // ---- Diagramm über acht Spalten -----------------------------------------------------------------------------
     B.modulkopf(s, { x: colX(1), y: y0, w: span(8), titel: 'Obergrenze Gesamtjahreseinkommen', sub: `in €, gültig seit ${R('einkommensgrenze.gueltig_seit')}` });
     const legende = { A: 'bis zur Einkommensgrenze', B: `bis ${fmt.prozent(R('einkommensgrenze.zuschlag_B'))} darüber`, C: `bis ${fmt.prozent(R('einkommensgrenze.zuschlag_C'))} darüber` };
-    G.forEach((g, i) => {
-      const x = colX(1) + i * 2.60;
-      B.achskreis(s, { cx: x + 0.13, cy: y0 + 0.86, d: 0.26, pt: 10, text: g, variante: 'gruppe' });
-      B.text(s, legende[g], { x: x + 0.34, y: y0 + 0.74, w: 2.2, h: 0.24, rolle: 'legende', valign: 'middle', einzeilig: true, name: 'Legende Gruppe ' + g });
-    });
+    // Die Einträge folgen im Abstand von 0,20 Zoll auf den Text des Vorgängers (wie B.legende), nicht in festem Schritt: gleiche Lücken
+    let xL = colX(1);
+    for (const g of G) {
+      const tb = ctx.P.zeile('Legende Gruppe ' + g, B.schutz(legende[g]), B.stil('legende'), 3.0) + 0.04;
+      B.achskreis(s, { cx: xL + 0.13, cy: y0 + 0.86, d: 0.26, pt: 10, text: g, variante: 'gruppe' });
+      B.text(s, legende[g], { x: xL + 0.34, y: y0 + 0.74, w: tb, h: 0.24, rolle: 'legende', valign: 'middle', einzeilig: true, name: 'Legende Gruppe ' + g });
+      xL += 0.34 + tb + 0.20;
+    }
     D.gruppierteBalken(s, { x: colX(1), y: y0 + 1.06, w: span(8), h: 3.94, kategorien: R('einkommensgrenze.haushalte'), katBreite: 2.05, name: 'Diagramm Einkommensgrenzen',
       reihen: G.map(g => ({ name: 'Gruppe ' + g, art: g, werte: R('einkommensgrenze.' + g) })), achse: { min: 0, max: 80000, schritt: 20000, format: 'ganz' }, rand: { r: 0.30 }, luecke: 45 });
 

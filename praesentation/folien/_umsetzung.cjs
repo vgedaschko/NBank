@@ -15,6 +15,7 @@ function felder(ctx) {
     wohnungen: U('referenz.wohnungen'),
     lph_vor: nach,                // letzte Leistungsphase vor der Bewilligung
     lph_nach: nach + 1,           // erste Leistungsphase nach der Bewilligung
+    phasen: U('leistungen.phasen'),
     eigenmittel: fmt.prozent(W('modellhaus', 'tab.eigenmittel_mindestens')),
   };
 }

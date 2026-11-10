@@ -29,12 +29,12 @@
       "wort": { "wert": "Bewilligung", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].title („Erst Bewilligung, dann Vertrag“); Wortlaut des Konzepts", "geprueft": true },
       "text": { "wert": "Vor der Bewilligung begonnene Vorhaben werden nicht gefördert.", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].body, Satz 1", "geprueft": true }
     },
-    "beginn": { "wert": "Als Beginn gilt ein Bau-, Liefer- oder Kaufvertrag (außer für das Baugrundstück) oder der erste Spatenstich.", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].body, Satz 2", "geprueft": true }
+    "beginn": { "wert": "Als Vorhabenbeginn gilt ein Bau-, Liefer- oder Kaufvertrag (außer für das Baugrundstück) oder der erste Spatenstich.", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].body, Satz 2 („Als Beginn gilt …“, dort direkt hinter dem Satz zum Vorhabenbeginn; auf der Folie steht der Satz unter Station 5 „Baubeginn“, deshalb „Vorhabenbeginn“ ausgeschrieben)", "geprueft": true }
   },
 
   "leistungen": {
     "_hinweis": "Folie 17. Balkenplan der Leistungen der PGN über die Leistungsphasen 1 bis 9 der HOAI mit der Bewilligung zwischen 6 und 7.",
-    "deck": { "wert": "Ein Ansprechpartner für alles, von der Machbarkeit bis zur Übergabe.", "einheit": "Text", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, subline", "geprueft": true },
+    "deck": { "wert": "Leistungen der PGN nach Leistungsphasen 1 bis {phasen}", "einheit": "Text mit Feldern", "herkunft": "Konzept, Folie pgn-leistungen: Die Unterzeile beschreibt den Plan (Leistungen und Phasen nach Broschüre S. 20, 20-pgn-leistungen.json, blocks[0]). Die Unterzeile der Broschüre („Ein Ansprechpartner für alles, von der Machbarkeit bis zur Übergabe.“) steht in den Notizen der Folie.", "geprueft": true },
     "kopf": { "wert": "Leistungsphase", "einheit": "Text", "herkunft": "Konzept, Folie pgn-leistungen (Kopfleiste); Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale (kind hoai)", "geprueft": true },
     "phasen": { "wert": 9, "einheit": "Anzahl Leistungsphasen", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.phases (n 1 bis 9)", "geprueft": true },
     "marke": {

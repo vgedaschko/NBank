@@ -28,8 +28,8 @@ function quellenZeilen(ctx) {
   const meta = W.meta(), version = (String(meta.mappe).match(/_(v\d+)\.xlsx$/) || [])[1], stand = (String(meta.mappe_stand).match(/Stand (\d{2}\/\d{4})/) || [])[1];
   if (!version || !stand) throw new Error(`Quellen: Version oder Stand der Mappe nicht lesbar (werte.json meta.mappe „${meta.mappe}“, meta.mappe_stand „${meta.mappe_stand}“).`);
   // Vollständigkeit: kein Teil einer Quellenzeile ohne Tabellenzeile. Teile trennt ein Semikolon oder ein Satzende (Punkt vor Großbuchstabe,
-  // außer nach Abkürzungen wie „Nds.“, „Nr.“, „S.“, „Dr.“)
-  const kennungen = zeilen.flatMap(z => z.kennung), TEILER = /;\s*|(?<!\b(?:Nds|MBl|Nr|Abs|Abb|RdErl|Dr|S|d|v|V))\.\s+(?=[A-ZÄÖÜ])/;
+  // außer nach Abkürzungen wie „Nds.“, „Nr.“, „S.“, „Dr.“, „e. V.“)
+  const kennungen = zeilen.flatMap(z => z.kennung), TEILER = /;\s*|(?<!\b(?:Nds|MBl|Nr|Abs|Abb|RdErl|Dr|S|d|v|V|e))\.\s+(?=[A-ZÄÖÜ])/;
   for (const f of outline.folien) {
     for (const teil of String(f.quellen || '').replace(/^Quellen?:\s*/, '').split(TEILER).map(t => t.trim()).filter(Boolean)) {
       if (![...kennungen, ...ohne].some(k => teil.includes(k))) P.melde(`Quellen: „${teil}“ (Folie ${f.nr}, ${f.id}) gehört zu keiner Zeile der Quellentabelle. Zeile oder Kennung in daten/rahmen.json ergänzen.`);

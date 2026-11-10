@@ -198,9 +198,9 @@ function diagramme(pres, kx) {
 
   // ---- Linien -----------------------------------------------------------------------------------------------------------
   // o: { x, y, w, h | Platzhalter, kategorien: [], reihen: [{ name, werte, art: tinte | referenz | bisher, strich: solid | dash | sysDash … }],
-  //      achse, katLabels: 'alle' | { jede: n } | { nur: ['1', '5', …] }, rand, name }
+  //      achse, katLabels: 'alle' | { jede: n } | { nur: ['1', '5', …] } | { formen: ['1', '5', …] }, rand, name }
   // Liegt null zwischen min und max, steht die Größenachse als kräftige Nulllinie bei null; die Kategorien stehen unten.
-  // Rückgabe: { x, y, w, h, plot, yWert(v), katMitte(i), katBreite }
+  // Rückgabe: { x, y, w, h, plot, yWert(v), katMitte(i), katBreite, katTexte: [{ i, text }] (bei katLabels.formen: die Beschriftungen für B.achstexte) }
   D.linien = (s, o) => {
     const { geo, opt } = lage(o), a = achse(o), n = o.kategorien.length;
     pruefeReihen(o.kategorien, o.reihen);
@@ -208,8 +208,14 @@ function diagramme(pres, kx) {
     const { L, plot } = plotflaeche(geo, rand);
     // Beschriftung der Kategorien: alle · { jede: n } (die 1., n + 1., 2n + 1. …; fest in der Datei, gilt in PowerPoint und LibreOffice) ·
     // { nur: [...] } (übrige Beschriftungen bleiben leer; nur bis 40 Kategorien verlässlich, darüber dünnen die Programme selbst aus)
-    let labels = o.kategorien.map(String), frequenz = null;
-    if (o.katLabels && o.katLabels.jede) {
+    // { formen: [...] } (die Achse bleibt ohne Beschriftung, die genannten Kategorien stehen als Textfelder darunter: B.achstexte. Die Daten
+    // behalten ihre echten Kategorien, und kein Programm dreht, bricht oder dünnt die Beschriftung aus)
+    let labels = o.kategorien.map(String), frequenz = null, katTexte = null;
+    if (o.katLabels && o.katLabels.formen) {
+      const nur = o.katLabels.formen.map(String), fremd = nur.filter(l => !labels.includes(l));
+      if (fremd.length) throw new Error(`D.linien: katLabels.formen nennt ${fremd.map(l => `„${l}“`).join(', ')}; diese Kategorien gibt es nicht.`);
+      katTexte = labels.map((l, i) => ({ i, text: l })).filter(e => nur.includes(e.text));
+    } else if (o.katLabels && o.katLabels.jede) {
       frequenz = o.katLabels.jede;
       if (!Number.isInteger(frequenz) || frequenz < 1) throw new Error(`D.linien: katLabels.jede ist „${frequenz}“; erwartet wird eine ganze Zahl ab 1.`);
     } else if (o.katLabels && o.katLabels.nur) {
@@ -226,6 +232,7 @@ function diagramme(pres, kx) {
     const optionen = { ...opt, ...basis(o, L, a, 'Liniendiagramm'), lineSize: o.staerke || 2.25, lineDataSymbol: 'none', catAxisLabelPos: 'low', showValue: false,
       chartColors: o.reihen.map(r => art(r.art || 'tinte').farbe) };
     if (frequenz) optionen.catAxisLabelFrequency = frequenz;
+    if (katTexte) optionen.catAxisLabelPos = 'none';
     if (a.min < 0 && a.max > 0) optionen.catAxisLineSize = 1;
     const merk = { striche: {} };
     for (const r of o.reihen) {
@@ -235,7 +242,7 @@ function diagramme(pres, kx) {
     if (P && new Set(o.reihen.map(r => (r.art || 'tinte') + '|' + (r.strich || 'solid'))).size < o.reihen.length) P.melde('D.linien: Zwei Reihen haben dieselbe Farbe und Strichart und sind nicht zu unterscheiden.');
     const datei = zeichne(s, pres.charts.LINE, daten, optionen, merk);
     const kb = plot.w / n;
-    return { ...geo, plot, datei, katBreite: kb, yWert: v => plot.y + plot.h * (1 - (v - a.min) / (a.max - a.min)), katMitte: i => plot.x + kb * (i + 0.5) };
+    return { ...geo, plot, datei, katBreite: kb, katTexte: katTexte || [], yWert: v => plot.y + plot.h * (1 - (v - a.min) / (a.max - a.min)), katMitte: i => plot.x + kb * (i + 0.5) };
   };
 
   // ---- Ring ---------------------------------------------------------------------------------------------------------------

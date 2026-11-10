@@ -75,8 +75,10 @@ class Pruefung {
     if (b > feld + 0.005) this.melde(`${was}: „${text}“ ist ${b.toFixed(2)} Zoll breit, das Feld ${feld.toFixed(2)} Zoll (${Math.round((b / feld - 1) * 100)} % zu breit). Kürzen oder anders brechen.`);
     return b;
   }
-  // Mehrzeiliger Text gegen Feldbreite und Feldhöhe
-  block(was, text, stil, feldB, feldH) {
+  // Mehrzeiliger Text gegen Feldbreite und Feldhöhe. Fehler, sobald der Text höher ist als sein Feld; Hinweis, wenn weniger als 5 % Luft bleiben
+  // (andere Schriftbreiten in PowerPoint können eine Zeile mehr ergeben). Den Hinweis gibt es nur mit luft: true, also für Felder fester Höhe;
+  // viele Aufrufe prüfen nur die Wortbreite und geben als Höhe die des Textes selbst mit.
+  block(was, text, stil, feldB, feldH, { luft = false } = {}) {
     const u = new Set(), n = zeilenzahl(text, stil, feldB, u), h = n * zeilenhoehe(stil);
     this.zeichen(u, was, text);
     // ein einzelnes Wort, das breiter ist als das Feld, würde mitten im Wort brechen
@@ -84,8 +86,13 @@ class Pruefung {
       const bw = breite(wort, stil);
       if (bw > feldB + 0.005) { this.melde(`${was}: Das Wort „${wort}“ ist ${bw.toFixed(2)} Zoll breit, das Feld ${feldB.toFixed(2)} Zoll; es bräche mitten im Wort. Feld verbreitern oder anders formulieren.`); break; }
     }
-    if (h > feldH * 1.02 + 0.01) this.melde(`${was}: Text braucht ${n} Zeilen (${h.toFixed(2)} Zoll), das Feld ist ${feldH.toFixed(2)} Zoll hoch. Text: „${String(text).slice(0, 80)}${String(text).length > 80 ? '…' : ''}“`);
+    if (h > feldH + 0.005) this.melde(`${was}: Text braucht ${n} Zeilen (${h.toFixed(2)} Zoll), das Feld ist ${feldH.toFixed(2)} Zoll hoch. Text: „${String(text).slice(0, 80)}${String(text).length > 80 ? '…' : ''}“`);
+    else if (luft) this.luft(was, h, feldH, n);
     return h;
+  }
+  // Hinweis bei weniger als 5 % Luft in einem mehrzeiligen Feld fester Höhe (zeilen: Zahl der Zeilen, wenn bekannt; einzeilige Felder zählen nicht)
+  luft(was, h, feldH, zeilen) {
+    if (zeilen !== 1 && h * 1.05 > feldH + 0.005) this.hinweis(`${was}: ${zeilen ? zeilen + ' Zeilen füllen' : 'Der Text füllt'} das Feld bis auf ${Math.max(0, Math.round((1 - h / feldH) * 1000) / 10).toString().replace('.', ',')} % (${h.toFixed(2)} von ${feldH.toFixed(2)} Zoll). Mit anderen Schriftbreiten kann eine Zeile mehr entstehen.`);
   }
   mindest(was, pt, min) { if (pt < min) this.melde(`${was}: ${pt} pt liegt unter der Mindestgröße ${min} pt (E3).`); }
   bericht() {

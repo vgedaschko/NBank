@@ -7,8 +7,8 @@ module.exports = {
     inhalt: 'Kicker: „UMSETZUNG · MIT PGN“. Titelzeilen: „Planung bis Leistungsphase 6 ist“ | „vor der Bewilligung möglich“ (Signaturwort: „vor der Bewilligung“).' },
   bau(ctx) {
     const { B, colX, span, Y } = ctx, s = ctx.folie();
-    B.text(s, 'Ein Ansprechpartner für alles, von der Machbarkeit bis zur Übergabe.', { x: colX(1), y: Y.deck, w: 12.0, h: Y.deckH, rolle: 'deck', valign: 'middle', einzeilig: true, name: 'Deck' });
-    B.balkenplan(s, { x: colX(1), y: Y.inhaltNachDeck, w: span(8), labelBreite: 3.50, zeilenH: 0.34, kopf: 'Leistungsphase', phasen: 9,
+    B.text(s, 'Leistungen der PGN nach Leistungsphasen 1 bis 9', { x: colX(1), y: Y.deck, w: 12.0, h: Y.deckH, rolle: 'deck', valign: 'middle', einzeilig: true, name: 'Deck' });
+    B.balkenplan(s, { x: colX(1), y: Y.inhaltNachDeck, w: span(8), labelBreite: 3.50, zeilenH: 0.34, kopf: 'Leistungsphase', phasen: 9, nummern: false,   // ohne Nummern: Im Plan zählen nur die Leistungsphasen
       marke: { nach: 6, text: 'Bewilligung', zeichen: '±0' },
       links: 'Planungsauftrag LPH 1–6: vor der Bewilligung möglich', rechts: 'ab LPH 7: erst nach der Bewilligung',
       zeilen: [

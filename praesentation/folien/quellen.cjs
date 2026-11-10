@@ -12,7 +12,8 @@ module.exports = {
     const x = colX(1), w = Raster.CW, spalte = Raster.PITCH;   // Spalte „Folie“: eine Rasterspalte, die Quelle beginnt auf colX(2)
 
     const zeilen = R.quellenZeilen(ctx);
-    const t = B.tabelle(s, { x, y: Y.anhangInhalt, w, pt: 12, name: 'Quellentabelle', schlusslinie: false,   // die Linie des Hinweis-Kastens schließt die Tabelle
+    // dicht: Tabelle, Hinweis und die beiden Sätze füllen die Inhaltszone; mit dem Zuschlag je Zeile der gewöhnlichen Tabelle passten sieben Zeilen nicht
+    const t = B.tabelle(s, { x, y: Y.anhangInhalt, w, pt: 12, dicht: true, name: 'Quellentabelle', schlusslinie: false,   // die Linie des Hinweis-Kastens schließt die Tabelle
       spalten: [{ kopf: wl('Folie'), breite: spalte, art: 'stichwort' }, { kopf: wl('Quelle') }], zeilen: zeilen.map(z => [z.folien, z.text]) });
 
     // Rechtshinweis: genau einmal im Vortrag, Wortlaut der Broschüre S. 23. Der Kasten schließt als Fuß an die Tabelle an (eine Linie statt

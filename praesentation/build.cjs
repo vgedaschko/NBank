@@ -10,7 +10,7 @@
 const path = require('path'), fs = require('fs');
 const pptxgen = require('pptxgenjs');
 const T = require('./lib/theme.cjs');
-const { definiereLayouts, LAYOUTS } = require('./lib/layouts.cjs');
+const { definiereLayouts, layoutBeschreibung, LAYOUTS } = require('./lib/layouts.cjs');
 const { bausteine, titelLaeufe, titelPruefzeilen, titelKollisionen, schutz } = require('./lib/bausteine.cjs');
 const { diagramme } = require('./lib/diagramme.cjs');
 const daten = require('./lib/daten.cjs');
@@ -106,7 +106,7 @@ async function main() {
   pres.author = T.FIRMA; pres.company = T.FIRMA; pres.revision = '1';
   definiereLayouts(pres);
 
-  const P = new Pruefung(), anweisungen = {}, leer = {}, warnungen = [];
+  const P = new Pruefung(), anweisungen = {}, leer = {}, tabellen = {}, warnungen = [];
   const warnAlt = console.warn;
   console.warn = (...a) => { warnungen.push(a.join(' ')); };
   const abschnitte = new Set();
@@ -120,7 +120,8 @@ async function main() {
     let slide = null, formen = [];
     const ausnahmen = new Map();   // Objektname → Grund (ctx.zoneAusnahme)
     const zuletzt = [];            // Rubrik und Blattnummer des Schriftfelds: nach dem Inhalt angelegt, damit sie in der Lesereihenfolge am Ende stehen
-    const kx = { grund: lay.grund, art: lay.art, P, layout: o.layout, merke: (datei, anw) => { anweisungen[datei] = anw; } };
+    // tabelle: Jede Tabelle meldet, ob sie eine Kopfzeile oder eine Kopfspalte hat (in der Reihenfolge, in der die Folie sie anlegt)
+    const kx = { grund: lay.grund, art: lay.art, P, layout: o.layout, merke: (datei, anw) => { anweisungen[datei] = anw; }, tabelle: t => { (tabellen[`slide${nr + 1}.xml`] = tabellen[`slide${nr + 1}.xml`] || []).push(t); } };
     const B = bausteine(pres, kx), D = diagramme(pres, kx), cs = T.GRUND[lay.grund], inh = o.inhalt || '';
 
     function folie(opt = {}) {
@@ -169,12 +170,12 @@ async function main() {
         if (n === null || n === undefined) throw new Error(`Folie „${o.id}“: Nummer für den Achskreis fehlt (ctx.folie({ nr })).`);
         slide.addText(String(n), { placeholder: 'nr' });
         const lead = opt.lead !== undefined ? opt.lead : zitat(inh, /Lead: „([^“]+)“/);
-        if (lead) { P.block('Vorspann', lead, { fontFace: T.F.text, fontSize: 18, zeileMal: 1.1 }, 8.0, 1.3); slide.addText(schutz(lead), { placeholder: 'lead' }); }
+        if (lead) { P.block('Vorspann', lead, { fontFace: T.F.text, fontSize: 18, zeileMal: 1.1 }, 8.0, 1.40, { luft: true }); slide.addText(schutz(lead), { placeholder: 'lead' }); }
       }
       // Titel und Schluss: Untertitel; Titel: Ort und Datum (ohne Angabe bleibt das Eingabefeld stehen)
       if (hat('untertitel')) {
         const u = opt.untertitel !== undefined ? opt.untertitel : zitat(inh, /Untertitel: „([^“]+)“/);
-        if (u) { P.block('Untertitel', u, { fontFace: T.F.text, fontSize: 18, zeileMal: 1.1 }, lay.art === 'titel' ? 6.3 : 5.4, lay.art === 'titel' ? 1.15 : 1.2); slide.addText(schutz(u), { placeholder: 'untertitel' }); }
+        if (u) { P.block('Untertitel', u, { fontFace: T.F.text, fontSize: 18, zeileMal: 1.1 }, lay.art === 'titel' ? 6.3 : 5.4, lay.art === 'titel' ? 1.15 : 1.2, { luft: true }); slide.addText(schutz(u), { placeholder: 'untertitel' }); }
       }
       if (hat('anlass') && opt.anlass) slide.addText(opt.anlass, { placeholder: 'anlass' });
       // Notizen: Notizzeilen, Leerzeile, Quellenzeile
@@ -230,10 +231,14 @@ async function main() {
   fs.mkdirSync(path.dirname(ziel), { recursive: true });
   await pres.writeFile({ fileName: ziel });
   console.warn = warnAlt;
+  // Datum der Mappe: der Stand der Inhalte (daten/rahmen.json, titel.stand). Kein Tagesdatum, damit zwei Läufe dieselbe Datei liefern
+  const st = String(daten.X('rahmen', 'titel.stand')).match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+  if (!st) throw new Error('daten/rahmen.json: titel.stand ist kein Datum der Form TT.MM.JJJJ.');
   const stat = await nachbearbeiten(ziel, { theme: T.THEME, firma: T.FIRMA, schraffur: { merkfarbe: T.HEX.schraffur, bg: T.HEX.eigenmittel, fg: T.HEX.schraffurLinie }, diagramme: anweisungen, leerePlatzhalter: leer,
-    folientitel: liste.map(e => e.o.titel), schriften: Object.values(T.F) });
+    folientitel: liste.map(e => e.o.titel), schriften: Object.values(T.F), layouts: layoutBeschreibung(pres), tabellen, datum: `${st[3]}-${st[2]}-${st[1]}T00:00:00Z` });
   console.log(`${path.relative(ROOT, ziel)} · ${liste.length} Folien · Abschnitte: ${[...abschnitte].join(', ')}`);
   console.log(`Nachbearbeitung: Theme „${T.THEME.name}“, Schraffur ${stat.formen} Formen und ${stat.reihen} Reihen, ${stat.striche} Stricharten, ${stat.labels} Beschriftungsfarben, ${stat.ausgeblendet} Beschriftungen ausgeblendet, ${stat.marker} Marker, ${stat.platzhalter} leere Platzhalter entfernt, ${stat.arbeitsmappen} Arbeitsmappen, ${stat.absaetze} Absätze bereinigt`);
+  console.log(`Datei: ${stat.layoutPlatzhalter} Platzhalter der Layouts mit Innenabstand und Anker, ${stat.idx} Platzhalternummern gesetzt, ${stat.diagrammSchema} Stellen der Diagramme nach Schema, ${stat.nullen} Nullwerte in Arbeitsmappen, ${stat.dekorativ} Formen dekorativ, ${stat.tabellen} Tabellen gekennzeichnet, ${stat.notizAbsaetze} Notizabsätze, ${stat.inhaltstypen} tote Inhaltstypen entfernt`);
   if (!stat.masterAbstand) { console.error('Nachbearbeitung: Der Absatzabstand im Master wurde nicht gefunden (bodyStyle). Text in Platzhaltern stünde mit 20 % Abstand vor jedem Absatz.'); process.exit(1); }
   for (const a of stat.absatzAbweichend) console.log(`Hinweis · ${a} – Die Läufe dieses Absatzes tragen verschiedene Absatzeigenschaften; es gilt die des ersten Laufs.`);
   if (warnungen.length) { console.error('Warnungen von pptxgenjs (gelten als Fehler; meist eine ungültige Farbe oder Option):\n' + [...new Set(warnungen)].map(w => '  ' + w).join('\n')); process.exit(1); }

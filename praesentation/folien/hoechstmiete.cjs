@@ -40,7 +40,8 @@ module.exports = {
     B.text(s, `Ab EH-40-Niveau bis zu +${fmt.dez(T('zuschlag_hoechstmiete_eh40'))} €.`, { x: colX(1), y: 6.26, w: span(8), h: 0.24, rolle: 'klein', valign: 'middle', einzeilig: true, name: 'Zeile unter dem Diagramm' });
 
     // ---- Kommentarspalte: Mietpfad als drei Stufenwerte, darunter Regel und Gruppen ------------------------------------
-    const kx = colX(9), kw = span(4), k0 = ZONE.diagramm.kommentar.y;
+    // Der Modultitel „Mietpfad“ (Feld 0,24 hoch, mittig) steht auf der Höhe des Diagrammtitels links (Feld 2,18 bis 2,44)
+    const kx = colX(9), kw = span(4), k0 = ZONE.diagramm.titel + 0.01;
     const erste = fest + 1, zweite = erste + T('abstand_mieterhoehungen');
     B.text(s, 'Mietpfad', { x: kx, y: k0, w: kw, h: 0.24, rolle: 'modultitel', valign: 'middle', einzeilig: true, name: 'Modultitel Mietpfad' });
     B.text(s, 'Gruppe A · Mietenstufe IV–VII', { x: kx, y: k0 + 0.26, w: kw, h: 0.24, rolle: 'sub', valign: 'middle', einzeilig: true, name: 'Modul-Untertitel Mietpfad' });

@@ -6,8 +6,9 @@ Aufbau, Zahlen und das Design „Planwerk“ folgen der Broschüre. Einziges Rec
 
 Ergebnis im Ordner `dist/`:
 
-- `PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Vortrag.pptx`: in PowerPoint editierbar. Theme, Layouts mit Platzhaltern,
-  Abschnitte, native Diagramme und Tabellen, Sprechernotizen mit Quellenzeile. Keine Folie ist ein Bild.
+- `PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Vortrag.pptx`: in PowerPoint editierbar. Theme, Layouts mit Platzhaltern
+  (im Layout-Menü „Inhalt“, „Diagramm · Modellrechnung“ und so weiter), Abschnitte, native Diagramme und Tabellen,
+  Sprechernotizen mit Quellenzeile. Keine Folie ist ein Bild.
 - `PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Vortrag.pdf`: dieselben Folien mit eingebetteten Schriften.
 
 Die Mappe wird aus Code gebaut. Wer eine Folie in PowerPoint ändert, verliert die Änderung beim nächsten Bau; dauerhafte
@@ -17,9 +18,9 @@ Die Mappe wird aus Code gebaut. Wer eine Folie in PowerPoint ändert, verliert d
 
 | Ort | Inhalt |
 |---|---|
-| `build.cjs` | baut die Mappe aus Konzept, Folienmodulen und Daten und bearbeitet sie nach (Theme-Farben, Schraffur, Stricharten, Dateieigenschaften) |
+| `build.cjs` | baut die Mappe aus Konzept, Folienmodulen und Daten und bearbeitet sie nach (Theme-Farben, Schraffur, Stricharten, Dateieigenschaften, eindeutige Form-IDs, Platzhalter der Layouts, Diagramme nach Schema, Kennzeichnung dekorativer Formen). Zwei Läufe liefern dieselbe Datei; ihr Datum ist der Stand der Inhalte |
 | `folien/<id>.cjs` | ein Modul je Folie; `folien/_<gruppe>.cjs` enthält, was nur eine Baugruppe braucht |
-| `lib/` | Bibliothek: Theme, Layouts, Bausteine, Diagramme, Datenzugriff, Prüfungen beim Bau; Beschreibung in `lib/API.md` |
+| `lib/` | Bibliothek: Theme, Layouts, Bausteine, Diagramme, Datenzugriff, Prüfungen beim Bau; Beschreibung in `lib/API.md`. `lib/layoutnamen.json`: Namen der Layouts im Layout-Menü |
 | `daten/outline.json` | Folienkonzept: Reihenfolge, Titel, Wortlaut, Sprechernotizen, Quellen. `INHALT.md` ist die Lesefassung dazu |
 | `daten/werte.json` | Zahlen der Rechenmappe, erzeugt aus `../vofi/PGN_VOFI_Mietwohnraum_2026_v3.xlsx` |
 | `daten/regeln.json`, `markt.json`, `umsetzung.json`, `rahmen.json`, `rechnung.json` | Zahlen und Texte, die nur die Broschüre oder die Altfassung hat, je Eintrag mit Herkunft und Prüfstand |
@@ -46,22 +47,34 @@ python daten/inhalt_md.py
 node build.cjs
 node build.cjs --nur foerdermix,hoechstmiete --aus dist/test.pptx    # einzelne Folien
 
-# 4 Rendern: PDF, Bilder und Übersicht nach dist/render/gesamt, das PDF zum Weitergeben nach dist/ (braucht LibreOffice)
-export PPTX_SKILL=<Ordner mit scripts/office/soffice.py und validate.py>
+# 4 Rendern: PDF, Bilder und Übersicht nach dist/render/gesamt, das PDF zum Weitergeben nach dist/
+#   braucht LibreOffice („soffice“ im Suchpfad oder SOFFICE=<Pfad zum Programm>) und pdftoppm (Poppler)
 node werkzeug/render.cjs dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Vortrag.pptx dist/render/gesamt \
   --pdf dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Vortrag.pdf
 
 # 5 Prüfen
-python $PPTX_SKILL/scripts/office/validate.py dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Vortrag.pptx
 python pruefe_folien.py              # eine Zeile je Prüfung, Summe am Ende, Rückgabewert 1 bei Fehlern
 python pruefe_folien.py --zahlen     # dazu jede Zahl mit ihrem Beleg
 ```
 
 `pruefe_folien.py` liest Texte, Tabellen, Diagrammdaten und Notizen der fertigen Datei. Es prüft Folienzahl, Reihenfolge,
-Abschnitte, Blattnummern, Notizen, Dateieigenschaften, Schriften und Mindestgrößen, Alternativtexte, verbotene Wörter und
-Gedankenstriche. Jede Zahl braucht einen Beleg in `daten/werte.json`, in einer Datendatei oder in `daten/pruefung.json`;
-Jahreszahlen, Daten, Seiten-, Folien- und Programmnummern stehen auf einer kurzen Freiliste im Skript. Einstellige Zahlen
-prüft es nur schwach, weil sie in den Daten häufig vorkommen.
+Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs, Schriften und Mindestgrößen, Alternativtexte,
+verbotene Wörter und Gedankenstriche.
+
+- **Zahlen:** Jede Zahl braucht einen Beleg in `daten/werte.json`, in einer Datendatei oder in `daten/pruefung.json`. Die
+  Einheit zählt: Vor „%“ belegt nur ein Anteil oder eine Prozentangabe, vor „€“ und „Mio.“ nur ein Eurobetrag. Zahlen hinter
+  einem Schrägstrich („5.330/5.550 €“) werden wie jede andere geprüft.
+- **Daten und Jahreszahlen** gelten nur, wenn eine Datendatei oder `daten/pruefung.json` sie führt. „Broschüre S. n“ gilt für
+  die Seiten 1 bis 24, ein Folienverweis nur für eine Blattnummer des Konzepts.
+- **Kernwerte und Kernsätze** stehen an ihren Folien mit Einheit und Vorzeichen („−18.495“, „Laufzeit höchstens 42 Jahre“,
+  „Bearbeitungsentgelt 1 % des bewilligten Darlehens und 0,75 % des bewilligten Zuschusses“), einige auch in den Diagrammdaten.
+  Die Listen `KERNWERTE`, `KERNSAETZE` und `KERNWERTE_DIAGRAMM` stehen am Anfang des Skripts.
+- **Diagrammdaten:** Zwischenspeicher und eingebettete Arbeitsmappe jedes Diagramms stimmen überein.
+- Was das Skript nicht sieht: zwei Werte derselben Einheit, die im freien Text vertauscht sind und nicht zu den Kernsätzen
+  gehören. Kleine ganze Zahlen ohne Einheit prüft es nur schwach, weil sie in den Daten häufig vorkommen.
+
+Zusatzprüfung, nicht Teil des Projekts: die Mappe mit einem Validator für Office-Open-XML gegen das Schema prüfen. Die
+Nachbearbeitung bricht bei doppelten Form-IDs, ungültigen Farben und Stricharten selbst ab.
 
 ## Schriften
 
@@ -71,6 +84,8 @@ Zwei Auswege: die Mappe auf einem Rechner mit installierten Schriften einmal mit
 (Datei, Optionen, Speichern, „Schriftarten in der Datei einbetten“) oder das PDF zeigen.
 
 Gerendert und geprüft ist die Mappe mit LibreOffice. Vor dem ersten Vortrag einmal in PowerPoint öffnen und jede Folie ansehen.
+Das PDF aus LibreOffice trägt die Sprache Deutsch und kennzeichnet Linien und Flächen als Schmuck; die Alternativtexte der
+Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten braucht, exportiert die Endfassung aus PowerPoint.
 
 ## Texte und Zahlen ändern
 
@@ -84,6 +99,10 @@ Gerendert und geprüft ist die Mappe mit LibreOffice. Vor dem ersten Vortrag ein
   sie als unbelegt.
 - **Aussehen:** Farben, Schriften und Raster in `lib/theme.cjs`, Folienrahmen in `lib/layouts.cjs`, Bausteine in
   `lib/bausteine.cjs` und `lib/diagramme.cjs`.
+- **Beschriftungen an den Diagrammen** (Summen, Endwerte, Maßketten, die Jahre unter dem Verlauf der Folie 13) sind Textfelder
+  und folgen geänderten Diagrammdaten nicht; Zahlen deshalb in den Datendateien ändern und neu bauen.
+- **Speichern:** Die Mappe nur mit PowerPoint speichern. LibreOffice dient allein dem Rendern und entfernt beim Speichern
+  Abschnitte, Diagrammdaten und Alternativtexte.
 - **Ort und Datum des Vortrags:** Eingabefeld auf der Titelfolie, in PowerPoint ausfüllen.
 
 Nicht auf die Folien gehören Renditen, Deckungsgrade und eine Marktmiete des Modellhauses. Quellen stehen in den Notizen und
@@ -101,6 +120,6 @@ nimmt sie heraus.
 - Folie 14, Spalte 3.579 €: Gesamtkosten 5,71 Mio. €, Förderung 4,57 Mio. €, Zahlungsüberschuss 15.928 €, nötige Miete 5,83 €; in den Notizen Kapitaldienst 68.527 € und nötige Miete frei finanziert 17,21 €. Mit der Mappe gerechnet, aber auf dem ungeprüften Eingabewert.
 - A7: PGN-Werte je Kostengruppe (Median Bauwerk 2.812 €, Baunebenkosten 458 €, Außenanlagen 221 €; Spanne Herstellung 3.321 bis 3.861 €; Altfassung Folie 12).
 - A7: ARGE-Werte für deutsche Großstädte, Bruttokosten (Median Q4 2025: Herstellung 4.631 €, Bauwerk 3.713 €, Baunebenkosten 555 €, Außenanlagen 174 €; Spanne Herstellung 3.221 bis 8.592 €; Median Q1 2020: 3.028 €; Altfassung Folien 12 und 23).
-- Quellenangaben zu diesen Daten (Dr. Klein Wowi Finanz AG; ARGE e.V., Wohnungsbau in Deutschland 2026, S. 32 Abb. 20 und S. 34 Abb. 23; PGN, eigene Auswertung von fünf Projekten) stammen aus den Quellenzeilen der Altfassung.
+- Quellenangaben zu diesen Daten (Dr. Klein Wowi Finanz AG; ARGE e. V., Wohnungsbau in Deutschland 2026, S. 32 Abb. 20 und S. 34 Abb. 23; PGN, eigene Auswertung von fünf Projekten) stammen aus den Quellenzeilen der Altfassung.
 
 Offene Fragen an PGN (Tenor der Jahresrechnung, Tilgungssatz 2,5 %, Bildrechte, Ort und Datum) stehen am Ende von `INHALT.md`.

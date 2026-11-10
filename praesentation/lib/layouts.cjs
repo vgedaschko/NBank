@@ -32,6 +32,32 @@ const LAYOUTS = {
 };
 for (const n of ['INHALT', 'KENNZAHLEN', 'DIAGRAMM', 'TABELLE', 'VERGLEICH']) LAYOUTS[`PGN_${n}_MR`] = { ...LAYOUTS[`PGN_${n}`], grund: 'papier', stempel: true };
 
+// Feste Nummer (idx) je Platzhalter, gleich in allen Layouts: Wechselt jemand in PowerPoint das Layout einer Folie, findet jeder Text sein Feld wieder.
+// pptxgenjs zählt die Objekte eines Layouts durch; die Nachbearbeitung setzt diese Nummern ein. Der Titel trägt keine Nummer (Typ „title“).
+const IDX = { kicker: 10, rubrik: 11, blatt: 12, untertitel: 13, kommentar: 14, anlass: 15, nr: 16, lead: 17, body: 18, seite: 19,
+  diagrammtitel: 20, diagrammsub: 21, chart: 22, tabellentitel: 23, tabellensub: 24, notiz: 25, zitat: 26, name: 27, quelle: 28, fuss: 29,
+  links_kopf: 30, links_wert: 31, links_text: 32, rechts_kopf: 33, rechts_wert: 34, rechts_text: 35,
+  kf0_kopf: 40, kf0_zahl: 41, kf0_label: 42, kf0_text: 43, kf1_kopf: 44, kf1_zahl: 45, kf1_label: 46, kf1_text: 47, kf2_kopf: 48, kf2_zahl: 49, kf2_label: 50, kf2_text: 51 };
+// Namen der Layouts im Layout-Menü von PowerPoint (eine Quelle mit pruefe_folien.py)
+const ANZEIGE = require('./layoutnamen.json');
+
+// Beschreibung der fertigen Layouts für die Nachbearbeitung: je Layout der Name im Menü und je Platzhalter (Schlüssel: idx von pptxgenjs, Titel „title“)
+// Name, Anker und feste Nummer. pres: die Mappe nach definiereLayouts
+function layoutBeschreibung(pres) {
+  const out = {};
+  for (const l of pres.slideLayouts) {
+    if (!ANZEIGE[l._name]) throw new Error(`lib/layoutnamen.json: Für das Layout „${l._name}“ fehlt der Name im Layout-Menü.`);
+    const platzhalter = {};
+    for (const x of l._slideObjects.filter(x => x._type === 'placeholder')) {
+      const name = x.options.placeholder, titel = x.options._placeholderType === 'title';
+      if (!titel && !IDX[name]) throw new Error(`lib/layouts.cjs: Für den Platzhalter „${name}“ (Layout ${l._name}) fehlt die feste Nummer in IDX.`);
+      platzhalter[titel ? 'title' : x.options._placeholderIdx] = { name, anker: x.options.valign || null, idx: titel ? null : IDX[name] };
+    }
+    out[l._name] = { anzeige: ANZEIGE[l._name], platzhalter };
+  }
+  return out;
+}
+
 // Namen der Platzhalter im Auswahlbereich von PowerPoint
 const NAMEN = { title: 'Titel', kicker: 'Kicker', rubrik: 'Rubrik', blatt: 'Blattnummer', untertitel: 'Untertitel', anlass: 'Ort und Datum', nr: 'Abschnittsnummer', lead: 'Vorspann', body: 'Text',
   seite: 'Planlegende', kommentar: 'Kommentar', notiz: 'Notiz', diagrammtitel: 'Diagrammtitel', diagrammsub: 'Diagramm-Untertitel', tabellentitel: 'Tabellentitel', tabellensub: 'Tabellen-Untertitel',
@@ -82,7 +108,8 @@ function definiereLayouts(pres) {
       ph('nr', { x: 0.85, y: 1.75, w: 1.40, h: 1.40, fontFace: F.black, fontSize: 54, color: rot ? C.weiss : C.rot, align: 'center', valign: 'middle' }, '1'),
       // Titel in der Höhe des Achskreises, senkrecht mittig: Ein-, zwei- und dreizeilige Titel stehen alle auf der Mitte des Kreises
       ph('title', { x: 2.65, y: 1.75, w: 9.6, h: 1.40, fontFace: F.black, bold: false, fontSize: 40, lineSpacing: 41, color: fg, align: 'left', valign: 'middle' }, 'TITEL DES ABSCHNITTS', 'title'),
-      ph('lead', { x: 2.65, y: 3.75, w: 8.0, h: 1.3, fontFace: F.text, fontSize: 18, lineSpacingMultiple: 1.1, color: rot ? C.weiss : C.anthrazit }, 'Vorspann'),
+      // vier Zeilen 18 pt brauchen 1,32 Zoll; das Feld lässt ihnen Luft
+      ph('lead', { x: 2.65, y: 3.75, w: 8.0, h: 1.40, fontFace: F.text, fontSize: 18, lineSpacingMultiple: 1.1, color: rot ? C.weiss : C.anthrazit }, 'Vorspann'),
       linie(0.30, 6.50, W - 0.60, 0, fg, 1, 'Schriftfeld Oberlinie'),
       ...(rot ? [{ rect: { x: 0.30, y: 6.50, w: 2.35, h: 0.70, fill: { color: C.weiss }, line: { type: 'none' }, objectName: 'Logofeld' } }] : []),
       { image: { path: asset('logo-rot.png'), x: 0.56, y: 6.692, w: 1.80, h: 0.317, objectName: 'Logo PGN', altText: 'PGN Architekten, Stadtplaner, Ingenieure' } },
@@ -201,4 +228,4 @@ function definiereLayouts(pres) {
   return LAYOUTS;
 }
 
-module.exports = { definiereLayouts, LAYOUTS };
+module.exports = { definiereLayouts, layoutBeschreibung, LAYOUTS, IDX };

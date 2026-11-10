@@ -31,7 +31,8 @@ module.exports = {
     const koepfe = U('programmteile.texte.spalten').map(k => ctx.wortlaut(k, 'Spaltenkopf'));
     // Sätze je Gruppe, „+ 100 % der Grundstückskosten“ und kurze Zellen („+ bis zu 20 Jahre“) bleiben zusammen; der Mittelpunkt bleibt am Zeilenende
     const NB = ctx.fmt.NBSP, fest = t => String(t).split(' ').join(NB);
-    const nb = t => { const u = String(t).replace(/([ABC]) (\d+) \+ (\d+)/g, `$1${NB}$2${NB}+${NB}$3`).replace(/([ABC]) (\d+)(?= ·| %)/g, `$1${NB}$2`).replace(/\+ \d[^·;,]*$/, fest).split(' · ').join(`${NB}· `); return u.length <= 18 ? fest(u) : u; };
+    // „zusammen 80 %:“ bricht nach dem Doppelpunkt: Die Sätze der drei Gruppen stehen zusammen in der zweiten Zeile (kein Trennpunkt am Zeilenende)
+    const nb = t => { const u = String(t).replace(/^(zusammen \d+ %:) (?=A \d)/, '$1\n').replace(/([ABC]) (\d+) \+ (\d+)/g, `$1${NB}$2${NB}+${NB}$3`).replace(/([ABC]) (\d+)(?= ·| %)/g, `$1${NB}$2`).replace(/\+ \d[^·;,]*$/, fest).split(' · ').join(`${NB}· `); return u.length <= 18 ? fest(u) : u; };
     const tab = B.tabelle(s, { dicht: true, x, y: yTab, w, name: 'Tabelle Programmteile',
       spalten: [{ kopf: '', breite: BREITEN[0] }, ...koepfe.map((k, i) => ({ kopf: k, breite: BREITEN[i + 1], ...(i === koepfe.length - 1 ? { randRechts: 0.02 } : {}) }))],
       zeilen: zeilen.map(z => {
@@ -47,8 +48,8 @@ module.exports = {
     zeilen.forEach((z, i) => B.programmChip(s, { x, y: tab.zeilen[i].y + tab.rand.oben + (tab.zeilenmass - 0.24) / 2, nr: z.nr }));
 
     // ---- Fußzeile unten in der Inhaltszone ------------------------------------------------------------------------------------------
-    const yFuss = Y.inhaltEnde - 0.24;
-    B.text(s, T('fusszeile'), { x, y: yFuss, w, h: 0.22, rolle: 'kleinText', valign: 'middle', einzeilig: true, name: 'Fußzeile' });
+    const yFuss = Y.inhaltEnde - 0.20;   // die Zeile schließt mit der Inhaltszone; die Tabelle darüber hat so 0,04 Zoll mehr Platz
+    B.text(s, T('fusszeile'), { x, y: yFuss, w, h: 0.20, rolle: 'kleinText', valign: 'middle', einzeilig: true, name: 'Fußzeile' });
     if (tab.unten > yFuss - 0.10) P.melde(`Tabelle endet bei y ${tab.unten.toFixed(2)} und reicht an die Fußzeile (ab y ${yFuss.toFixed(2)}).`);
   },
 };

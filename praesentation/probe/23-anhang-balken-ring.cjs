@@ -23,6 +23,6 @@ module.exports = {
     B.text(s, 'Gemeinden', { x: r.cx - 0.6, y: r.cy + 0.10, w: 1.2, h: 0.20, rolle: 'label', align: 'center', valign: 'middle', einzeilig: true, name: 'Ring Bezeichnung' });
     B.legende(s, { x: colX(9), y: y0 + 3.72, eintraege: [{ text: `${fmt.zahl(a)} Bedarf gegeben`, art: 'tinte' }] });
     B.legende(s, { x: colX(9), y: y0 + 4.00, eintraege: [{ text: `${fmt.zahl(b)} Bedarf gesondert nachweisen`, art: 'referenz' }] });
-    B.text(s, 'In beiden Fällen nötig: die einfache Bedarfsbestätigung der Wohnraumförderstelle zum Bauort.', { x: colX(9), y: y0 + 4.34, w: span(4), h: 0.66, rolle: 'kleinText', name: 'Zeile unter dem Ring' });
+    B.text(s, 'In beiden Fällen nötig: die einfache Bedarfsbestätigung der Wohnraumförderstelle zum Bauort.', { x: colX(9), y: y0 + 4.30, w: span(4), h: 0.70, rolle: 'kleinText', name: 'Zeile unter dem Ring' });
   },
 };

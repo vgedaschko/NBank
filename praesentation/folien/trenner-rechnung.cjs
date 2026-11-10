@@ -6,9 +6,9 @@ module.exports = {
   id: 'trenner-rechnung',
   bau(ctx) {
     const { B, W, P, o, outline } = ctx;
-    // Vorspann im Wortlaut des Konzepts; die Zahl der Wohnungen kommt aus der Mappe. Der zweite Satz beginnt auf einer neuen Zeile, und
-    // „Kostenstand 2026“ bleibt zusammen: So steht am Ende nicht das einzelne Wort „Rendite.“
-    const lead = `Ein Neubau mit ${W('modellhaus', 'eingabe.wohnungen')} Wohnungen nach Programmteil 2.1, einmal gefördert und einmal frei finanziert gerechnet.\nDie Rechnung zeigt die Liquidität in Jahr 1 bei ${ctx.fmt.nb('Kostenstand 2026')}, keine Rendite.`;
+    // Vorspann im Wortlaut des Konzepts; die Zahl der Wohnungen kommt aus der Mappe. Der Satz zur Liquidität („keine Rendite“) steht bei den
+    // Annahmen der Jahresrechnung (Folie 9) und nicht ein zweites Mal hier.
+    const lead = `Ein Neubau mit ${W('modellhaus', 'eingabe.wohnungen')} Wohnungen nach Programmteil 2.1, einmal gefördert und einmal frei finanziert gerechnet.`;
     ctx.wortlaut(lead, 'Vorspann');
     const s = ctx.folie({ lead });
 

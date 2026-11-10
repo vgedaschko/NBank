@@ -14,6 +14,10 @@ module.exports = {
     const kosten = L('eingabe.herstellungskosten_qm'), kopf = kosten.map(v => fmt.euro(v)), grenze = W('modellhaus', 'fin.bemessungsgrenze_qm'), ueber = L('fin.ueber_bemessungsgrenze.A');
     R.pruefe(kosten[0] < kosten[1] && kosten[1] < grenze && grenze < kosten[2] && ueber[0] === 0 && ueber[1] === 0 && ueber[2] > 0, 'Die drei Läufe der Folie 14 liegen nicht mehr unter, unter und über der Bemessungsgrenze.');
     R.pruefe(new Set(L('eingabe.grundstueck')).size === 1 && new Set(L('fin.bemessungsgrenze_qm')).size === 1, 'Grundstück oder Bemessungsgrenze unterscheiden sich zwischen den drei Läufen der Folie 14.');
+    // Über der Bemessungsgrenze finanziert die Mappe die nicht zuwendungsfähigen Kosten über ein Bankdarlehen; die beiden anderen Läufe haben keins.
+    // An dieser Annahme hängen Zahlungsüberschuss und nötige Miete der Spalte 5.200 €; die Folie nennt sie deshalb.
+    const bank = L('fin.bankdarlehen.A');
+    R.pruefe(bank[0] === 0 && bank[1] === 0 && Math.abs(bank[2] - ueber[2]) < 0.5, 'Das Bankdarlehen des Laufs über der Bemessungsgrenze ist nicht gleich den nicht zuwendungsfähigen Kosten, oder ein anderer Lauf der Folie 14 trägt ein Bankdarlehen.');
     const ueberschuss = L('jr1.zahlungsueberschuss.A');
     B.diagrammkopf(s, { titel: 'Zahlungsüberschuss Jahr 1, Gruppe A', sub: 'in € p. a. · nach Herstellungskosten je m² Wohnfläche' });
 
@@ -33,9 +37,11 @@ module.exports = {
       { nr: 3, text: 'Förderquote auf die Gesamtkosten', werte: L('fin.foerderquote.A').map(v => R.prozentKurz(fmt, v)) },
       { nr: 4, text: 'Nötige Miete je m², Gruppe A', werte: L('dscr.noetige_miete.A').map(v => fmt.euroDez(v)) }] });
 
-    B.planlegende(s, { platzhalter: 'kommentar', pt: 14, eintraege: [
-      { titel: 'Szenarien', text: `Geändert sind nur die Herstellungskosten. Grundstück ${fmt.euro(W('modellhaus', 'eingabe.grundstueck'))}, Mieten und Annahmen wie im Modellhaus.` },
-      { titel: `${kopf[0]} je m²`, text: X('rechnung', 'kosten_pgn.beschreibung') },
-      { titel: `${kopf[2]} je m²`, text: `${fmt.euro(kosten[2] - grenze)} über dem Ausgangswert der Bemessungsgrenze von ${fmt.euro(grenze)}. ${fmt.mio(ueber[2], 2)} sind nicht zuwendungsfähig.` }] });
+    // titelAbstand 4 pt: Mit dem Satz zum Bankdarlehen füllt die Spalte ihr Feld; mit 10 pt vor den Zwischentiteln bliebe keine Luft, so sind es gut 5 %
+    B.planlegende(s, { platzhalter: 'kommentar', pt: 14, titelAbstand: 4, eintraege: [
+      { titel: 'Szenarien', text: ctx.wortlaut(`Geändert sind nur die Herstellungskosten. Grundstück ${fmt.euro(W('modellhaus', 'eingabe.grundstueck'))}, Mieten und Annahmen wie im Modellhaus.`, 'Szenarien') },
+      { titel: `${kopf[0]} je m²`, text: ctx.wortlaut(X('rechnung', 'kosten_pgn.beschreibung'), 'PGN-Median') },
+      { titel: `${kopf[2]} je m²`, text: ctx.wortlaut(`${fmt.euro(kosten[2] - grenze)} über dem Ausgangswert der Bemessungsgrenze von ${fmt.euro(grenze)}. ${fmt.mio(ueber[2], 2)} sind nicht zuwendungsfähig; ` +
+        `gerechnet mit einem Bankdarlehen zu ${fmt.prozent(W(laeufe[2], 'eingabe.zins_bank'), 2)} Zins.`, 'über der Bemessungsgrenze') }] });
   },
 };

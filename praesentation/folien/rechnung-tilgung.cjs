@@ -51,6 +51,8 @@ module.exports = {
     B.planlegende(s, { platzhalter: 'kommentar', eintraege: [
       { text: `Unter ${fmt.prozent(schwelle, 2)} Tilgung bringt C den höchsten Zahlungsüberschuss, darüber A.` },
       { text: 'B liegt in dieser Rechnung nie vorn.' },
-      { text: 'Den Tilgungssatz legt die NBank fest, die Richtlinie nennt keinen.' }] });
+      { text: 'Den Tilgungssatz legt die NBank fest, die Richtlinie nennt keinen.' },
+      // Bedingung, die beim Vergleich von A, B und C nicht fehlen darf (Broschüre S. 12, Redaktionsregeln §3)
+      { text: 'B und C setzen eine Zulassung in der Förderentscheidung voraus.' }].map(e => ({ text: ctx.wortlaut(e.text, 'Kommentar') })) });
   },
 };

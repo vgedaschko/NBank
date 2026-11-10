@@ -1,0 +1,23 @@
+{
+  "_hinweis": "Namen der Layouts im Layout-Menü von PowerPoint. Schlüssel: Name im Konzept (daten/outline.json, Feld layout) und im Bau; Wert: Name in der fertigen Mappe. Gelesen von lib/layouts.cjs und pruefe_folien.py. DEFAULT ist das leere Layout, das die Bibliothek immer mitschreibt.",
+  "DEFAULT": "Leer",
+  "PGN_TITEL": "Titel",
+  "PGN_ABSCHNITT": "Abschnitt",
+  "PGN_ABSCHNITT_ROT": "Abschnitt · Rot",
+  "PGN_INHALT": "Inhalt",
+  "PGN_INHALT_MR": "Inhalt · Modellrechnung",
+  "PGN_ABLAUF": "Ablauf",
+  "PGN_AUSSAGE": "Aussage",
+  "PGN_KENNZAHLEN": "Kennzahlen",
+  "PGN_KENNZAHLEN_MR": "Kennzahlen · Modellrechnung",
+  "PGN_DIAGRAMM": "Diagramm",
+  "PGN_DIAGRAMM_MR": "Diagramm · Modellrechnung",
+  "PGN_TABELLE": "Tabelle",
+  "PGN_TABELLE_MR": "Tabelle · Modellrechnung",
+  "PGN_VERGLEICH": "Vergleich",
+  "PGN_VERGLEICH_MR": "Vergleich · Modellrechnung",
+  "PGN_ZITAT": "Zitat",
+  "PGN_SCHLUSS": "Schluss",
+  "PGN_ANHANG": "Anhang",
+  "PGN_AUSSAGE_DUNKEL": "Aussage · Anthrazit"
+}

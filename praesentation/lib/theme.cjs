@@ -55,10 +55,11 @@ const Y = {
   fuss: 6.78, fussH: 0.44,
 };
 const ZONE = {
-  // Layout PGN_DIAGRAMM(_MR)
-  diagramm: { kopf: 2.10, titel: 2.18, sub: 2.44, legende: 2.70, chart: { x: colX(1), y: 2.95, w: span(8), h: 3.55 }, kommentar: { x: colX(9), y: 2.24, w: span(4), h: 4.26 } },
+  // Layout PGN_DIAGRAMM(_MR). Die Kommentarspalte beginnt 0,07 unter der Modulkopf-Linie: Ihr Modultitel (erste Zeile, oben verankert) steht dann
+  // auf derselben Höhe wie der Diagrammtitel links (Feld 2,18 bis 2,44, mittig)
+  diagramm: { kopf: 2.10, titel: 2.18, sub: 2.44, legende: 2.70, chart: { x: colX(1), y: 2.95, w: span(8), h: 3.55 }, kommentar: { x: colX(9), y: 2.17, w: span(4), h: 4.33 } },
   // Layout PGN_TABELLE(_MR)
-  tabelle: { kopf: 2.10, titel: 2.18, sub: 2.44, tabelle: 2.80, tabelleEnde: 6.20, notiz: { x: colX(1), y: 6.05, w: CW, h: 0.45 }, kommentar: { x: colX(9), y: 2.24, w: span(4), h: 4.26 } },
+  tabelle: { kopf: 2.10, titel: 2.18, sub: 2.44, tabelle: 2.80, tabelleEnde: 6.20, notiz: { x: colX(1), y: 6.05, w: CW, h: 0.45 }, kommentar: { x: colX(9), y: 2.17, w: span(4), h: 4.33 } },
   // Layout PGN_ABLAUF
   ablauf: { achse: 2.55, textVon: 3.00, textBis: 5.55, warnband: 5.95, warnbandH: 0.42 },
   // Layout PGN_KENNZAHLEN(_MR)
@@ -69,7 +70,7 @@ const ZONE = {
   vergleich: { links: { x: colX(1), w: 5.60 }, rechts: { x: colX(7) + 0.20, w: 5.40 }, kopf: 2.22, wert: 2.52, wertH: 0.70, text: 3.35, textEnde: 6.00,
     flaecheEnde: 6.12, fuss: { x: colX(1), y: 6.24, w: CW, h: 0.24 } },
   // Layout PGN_AUSSAGE
-  aussage: { lead: { x: colX(1), y: 2.10, w: span(8), h: 0.80 }, body: { x: colX(1), y: 3.05, w: span(7), h: 3.45 }, seite: { x: colX(9), y: 2.24, w: span(4), h: 4.26 } },
+  aussage: { lead: { x: colX(1), y: 2.10, w: span(8), h: 0.80 }, body: { x: colX(1), y: 3.05, w: span(7), h: 3.45 }, seite: { x: colX(9), y: 2.17, w: span(4), h: 4.33 } },
   stempel: { x: 10.547, y: 0.385, w: 2.12, h: 0.37 },
   register: { x: W - 0.42, w: 0.42, h: 0.62, y0: 2.10, schritt: 0.74 },
 };

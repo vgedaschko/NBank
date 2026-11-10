@@ -23,7 +23,8 @@ module.exports = {
     seg.forEach(g => ctx.wortlaut(fmt.zahl(g.wert), 'Segmentwert'));
     // Der Ring steht mittig zwischen dem Modulkopf und der Zeile darunter
     const RING = 2.90, H_HINWEIS = 0.50, yHinweis = liste.unten - H_HINWEIS, yRing = +((yKopf + yHinweis - RING) / 2).toFixed(3);
-    const ring = D.ring(s, { x, y: yRing, w: RING, h: RING, segmente: seg, name: 'Ringdiagramm Bedarfslage',
+    // Die Reihe heißt nach dem, was sie zählt (Einheits- und Samtgemeinden); der Name steht im Datenblatt von PowerPoint
+    const ring = D.ring(s, { x, y: yRing, w: RING, h: RING, segmente: seg, name: 'Ringdiagramm Bedarfslage', reihenname: U('bedarf.bezug'),
       altText: `Ringdiagramm: ${seg.map(g => `${fmt.zahl(g.wert)} ${g.name}`).join(', ')}` });
     B.ringWerte(s, { x: x + RING + 0.14, cy: ring.cy, w: w - RING - 0.14, eintraege: seg.map(g => ({ wert: fmt.zahl(g.wert), text: g.name, art: g.art })) });
     // Die Zeile unter dem Ring schließt mit der Unterkante der Prüfliste

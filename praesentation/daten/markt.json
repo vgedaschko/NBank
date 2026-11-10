@@ -99,7 +99,7 @@
       "marke": "{bezeichnung}: {z10} | {z20} | {z30} %",
       "ausgangslage_titel": "Ausgangslage",
       "ausgangslage": { "wert": "Bauen kostet mehr als doppelt so viel wie vor 25 Jahren, Kredite kosteten Ende 2025 drei bis vier Prozent, und die Zahl der Baugenehmigungen hat sich seit 2021 mehr als halbiert.", "einheit": "Text", "herkunft": "Broschüre S. 2, 02-editorial-inhalt.json, lead", "geprueft": true },
-      "zins_bank": "{zins_bis_wort}, {mappe_zinsbindung} Jahre Zinsbindung. Mit diesem Zins rechnet die Modellrechnung das Bankdarlehen."
+      "zins_bank": "{zins_bis_wort}, {mappe_zinsbindung} Jahre Zinsbindung. Zins des Bankdarlehens in der Modellrechnung."
     }
   },
   "kosten": {
@@ -164,7 +164,7 @@
       "diagrammtitel": "Herstellungskosten je m² Wohnfläche, Median",
       "untertitel": "Bruttokosten, Kostenstand Q4 2025 · PGN: fünf Projekte · ARGE: deutsche Großstädte",
       "tabellentitel": "Spanne {kg_herstellung}: Min / Median / Max",
-      "zeile_q1_2020": "ARGE-Median {kg_herstellung} im Q1 2020: {arge_q1_2020} €.",
+      "zeile_q1_2020": "ARGE-Median {kg_herstellung}, Q1 2020: {arge_q1_2020} €.",
       "zeile_modellhaus": "Ansatz im Modellhaus: {mappe_herstellungskosten_qm} € je m²."
     }
   },
@@ -262,11 +262,11 @@
     "texte": {
       "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter.",
       "kennzahl_label": "der seit {seit} ausgelaufenen Bindungen neu gefördert",
-      "satz": "Seit {seit} hat die Neuförderung nur {quote} % der ausgelaufenen Sozialbindungen ersetzt.",
       "mass_neu": "rund {neu_rund} neu gefördert",
       "mass_rest": "nicht ersetzt",
       "legende": "1 Quadrat = {je_quadrat} Wohnungen · {seit}–{bis}: {ausgelaufen} Bindungen ausgelaufen",
-      "zeile": "Bestand {bestand_jahr}: {bestand} Sozialwohnungen, gegenüber {seit} nahezu halbiert"
+      "bestand_label": "Sozialwohnungen im Bestand {bestand_jahr}",
+      "bestand_text": "gegenüber {seit} nahezu halbiert"
     }
   }
 }

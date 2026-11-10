@@ -8,12 +8,12 @@ const { breite, zeilenzahl, zeilenhoehe } = require('./passpruefung.cjs');
 const { asset } = require('./assets.cjs');
 const { NBSP } = require('./daten.cjs');
 
-// Leerzeichen zwischen Zahl und Einheit sowie in festen Abkürzungen schützen (kein Umbruch): „5,6 Mio. €“, „80 %“, „S. 8“, „p. a.“
+// Leerzeichen zwischen Zahl und Einheit sowie in festen Abkürzungen schützen (kein Umbruch): „5,6 Mio. €“, „80 %“, „S. 8“, „p. a.“, „e. V.“
 function schutz(s) {
   return String(s)
     .replace(/(\d) (?=(?:%|€|Mio\.|Mrd\.|m²|m³|kWh|Jahren?\b|Prozentpunkte?n?\b|Wohnungen\b|Monate?n?\b|pt\b))/g, '$1' + NBSP)
     .replace(/Mio\. €/g, 'Mio.' + NBSP + '€').replace(/€ je m²/g, '€ je' + NBSP + 'm²').replace(/\bje m²/g, 'je' + NBSP + 'm²')
-    .replace(/\bp\. a\./g, 'p.' + NBSP + 'a.').replace(/\bP\. A\./g, 'P.' + NBSP + 'A.').replace(/\bz\. B\./g, 'z.' + NBSP + 'B.')
+    .replace(/\bp\. a\./g, 'p.' + NBSP + 'a.').replace(/\bP\. A\./g, 'P.' + NBSP + 'A.').replace(/\bz\. B\./g, 'z.' + NBSP + 'B.').replace(/\be\. V\./g, 'e.' + NBSP + 'V.')
     .replace(/\b(S\.|Nr\.|Abs\.|§|Folie|Blatt|Jahr|Gruppe|Programmteil|Mietenstufe|Leistungsphase|Leistungsphasen|bis zu|mind\.) (?=[\dIVXA-C])/g, '$1' + NBSP)
     .replace(/Nds\. MBl\. \d{4} Nr\.\s\d+/g, m => m.replace(/\s/g, NBSP));   // Fundstelle „Nds. MBl. 2026 Nr. 319“ bleibt in einer Zeile
 }
@@ -83,9 +83,10 @@ function titelLaeufe(zeilen, o = {}) {
   let gesetzt = false;
   zeilen.forEach((z, i) => {
     const runs = [];
-    const last = i === zeilen.length - 1, Z = versal(z);
+    // geschützte Leerzeichen zwischen Zahl und Einheit auch im Titel („84.000 €“, „80 %“, „7,0 Mio. €“): Mit Ersatzschriften bräche die Zeile sonst dort
+    const last = i === zeilen.length - 1, Z = versal(schutz(z));
     if (o.stimme === i) { alle.push({ text: Z, options: { fontFace: F.montLight, fontSize: 20, charSpacing: 1.0, breakLine: !last } }); return; }
-    const Ak = o.akzent ? versal(o.akzent) : null, p = Ak && !gesetzt ? Z.indexOf(Ak) : -1;
+    const Ak = o.akzent ? versal(schutz(o.akzent)) : null, p = Ak && !gesetzt ? Z.indexOf(Ak) : -1;
     if (p >= 0) {
       gesetzt = true;
       const a = Z.slice(0, p), b = Z.slice(p + Ak.length), ak = { fontFace: F.xbold, italic: true, breakLine: !last && !b };
@@ -113,9 +114,9 @@ function titelKollisionen(pruefzeilen) {
 function titelPruefzeilen(zeilen, o, basis) {
   let gesetzt = false;
   return zeilen.map((z, i) => {
-    const Z = versal(z);
+    const Z = versal(schutz(z));
     if (o.stimme === i) return [{ text: Z, stil: { fontFace: F.montLight, fontSize: 20, weite: 1.0 } }];
-    const Ak = o.akzent ? versal(o.akzent) : null, p = Ak && !gesetzt ? Z.indexOf(Ak) : -1;
+    const Ak = o.akzent ? versal(schutz(o.akzent)) : null, p = Ak && !gesetzt ? Z.indexOf(Ak) : -1;
     if (p < 0) return [{ text: Z, stil: basis }];
     gesetzt = true;
     return [{ text: Z.slice(0, p), stil: basis }, { text: Ak, stil: { fontFace: F.xbold, italic: true, fontSize: basis.fontSize } }, { text: Z.slice(p + Ak.length), stil: basis }].filter(l => l.text);
@@ -182,7 +183,7 @@ function bausteine(pres, kx) {
     const zh = zeilenhoehe(st);
     const h = o.h || +(zeilenzahl(t, st, o.w) * zh + 0.04).toFixed(3);
     if (P && o.pruefen !== false) {
-      if (o.einzeilig) P.zeile(o.name || `Text (${st.rolle})`, t, st, o.w); else P.block(o.name || `Text (${st.rolle})`, t, st, o.w, Math.max(h, zh));
+      if (o.einzeilig) P.zeile(o.name || `Text (${st.rolle})`, t, st, o.w); else P.block(o.name || `Text (${st.rolle})`, t, st, o.w, Math.max(h, zh), { luft: !!o.h });
     }
     // Mindestgröße je Rolle (E3): Fließtext 14 pt, Zusätze 12 pt, Beschriftungen 10 pt
     if (P) P.mindest(o.name || `Text (${st.rolle})`, st.fontSize, ROLLENMIN[st.rolle] || 10);
@@ -256,11 +257,13 @@ function bausteine(pres, kx) {
   };
 
   // 4.15 Planlegende / Kommentarspalte: Einträge aus Modultitel und Text in einem Textfeld.
-  // o: { x, y, w, h, eintraege: [{ titel, text }], pt: 16 | 14 | 12, platzhalter: 'kommentar' | 'seite', linie: true (Modulkopf-Linie bei y) }
+  // o: { x, y, w, h, eintraege: [{ titel, text }], pt: 16 | 14 | 12, platzhalter: 'kommentar' | 'seite', linie: true (Modulkopf-Linie bei y),
+  //      titelAbstand: 10 (Abstand vor den Zwischentiteln in pt; 4 für Spalten, die ihr Feld sonst bis auf die letzte Zeile füllen) }
   // Ein Eintrag braucht titel oder text; ohne titel ist er ein Absatz (8 pt Abstand zum vorigen). Freie Lage ohne h: Die Höhe folgt dem Text.
+  // Mit linie steht der Text 0,07 unter der Linie: Der Modultitel der ersten Zeile hat dann die Höhe eines Titels aus B.modulkopf.
   B.planlegende = (s, o) => {
     if (!o || !Array.isArray(o.eintraege) || !o.eintraege.length) throw new Error('B.planlegende: eintraege fehlt (Liste aus { titel, text }).');
-    const pt = o.pt || 16, st = stil(pt >= 16 ? 'fliess' : pt >= 14 ? 'dicht' : 'kleinText', { pt }), tt = stil('modultitel');
+    const pt = o.pt || 16, st = stil(pt >= 16 ? 'fliess' : pt >= 14 ? 'dicht' : 'kleinText', { pt }), tt = stil('modultitel'), vor = o.titelAbstand ?? 10;
     let geo;
     if (o.platzhalter) {
       const z = { kommentar: /TABELLE/.test(kx.layout) ? ZONE.tabelle.kommentar : /DIAGRAMM/.test(kx.layout) ? ZONE.diagramm.kommentar : null, seite: /^PGN_AUSSAGE$/.test(kx.layout) ? ZONE.aussage.seite : null }[o.platzhalter];
@@ -270,7 +273,7 @@ function bausteine(pres, kx) {
     } else {
       brauche('B.planlegende', o, ['x', 'y', 'w']);
       geo = { x: o.x, y: o.y, w: o.w, h: o.h > 0 ? o.h : 0 };
-      if (o.linie) { B.linie(s, { x: o.x, y: o.y, w: o.w, art: 'modul', name: 'Modulkopf-Linie' }); geo.y = o.y + 0.14; if (geo.h) geo.h = +(geo.h - 0.14).toFixed(3); }
+      if (o.linie) { B.linie(s, { x: o.x, y: o.y, w: o.w, art: 'modul', name: 'Modulkopf-Linie' }); geo.y = o.y + 0.07; if (geo.h) geo.h = +(geo.h - 0.07).toFixed(3); }
     }
     const runs = [];
     let hoehe = 0;
@@ -278,8 +281,8 @@ function bausteine(pres, kx) {
       if (!e || (!e.titel && !e.text)) throw new Error(`B.planlegende: Eintrag ${i + 1} hat weder titel noch text.`);
       const letzter = i === o.eintraege.length - 1;
       if (e.titel) {
-        runs.push({ text: versal(schutz(e.titel)), options: { fontFace: tt.fontFace, fontSize: tt.fontSize, charSpacing: tt.weite, color: tt.color, breakLine: !!e.text || !letzter, paraSpaceBefore: i ? 10 : 0, paraSpaceAfter: 2 } });
-        hoehe += zeilenzahl(versal(schutz(e.titel)), tt, geo.w) * zeilenhoehe({ ...tt, zeileMal: st.zeileMal }) + (i ? 10 : 0) / 72 + 2 / 72;
+        runs.push({ text: versal(schutz(e.titel)), options: { fontFace: tt.fontFace, fontSize: tt.fontSize, charSpacing: tt.weite, color: tt.color, breakLine: !!e.text || !letzter, paraSpaceBefore: i ? vor : 0, paraSpaceAfter: 2 } });
+        hoehe += zeilenzahl(versal(schutz(e.titel)), tt, geo.w) * zeilenhoehe({ ...tt, zeileMal: st.zeileMal }) + (i ? vor : 0) / 72 + 2 / 72;
       }
       if (!e.text) return;
       const lr = laeufe(e.text, st, { absatz: { fontSize: pt, ...(!e.titel && i ? { paraSpaceBefore: 8 } : {}) } });
@@ -287,9 +290,11 @@ function bausteine(pres, kx) {
       runs.push(...lr);
       hoehe += zeilenzahl(klar(e.text), st, geo.w) * zeilenhoehe(st) + (!e.titel && i ? 8 / 72 : 0);
     });
+    const fest = !!geo.h;                                    // Feld fester Höhe (Platzhalter oder h): Luft wird geprüft
     if (!geo.h) geo.h = +(hoehe + 0.04).toFixed(3);        // freie Lage ohne h: Höhe aus dem Text
     if (P) {
-      if (hoehe > geo.h * 1.02) P.melde(`Planlegende: Text braucht ${hoehe.toFixed(2)} Zoll, das Feld ist ${geo.h.toFixed(2)} Zoll hoch (Breite ${geo.w.toFixed(2)}, ${pt} pt). Kürzen oder kleinere Stufe wählen.`);
+      if (hoehe > geo.h + 0.005) P.melde(`Planlegende: Text braucht ${hoehe.toFixed(2)} Zoll, das Feld ist ${geo.h.toFixed(2)} Zoll hoch (Breite ${geo.w.toFixed(2)}, ${pt} pt). Kürzen oder kleinere Stufe wählen.`);
+      else if (fest) P.luft(o.name || 'Planlegende', hoehe, geo.h);
       P.mindest('Planlegende', pt, 12);
     }
     if (o.platzhalter) s.addText(runs, { placeholder: o.platzhalter });
@@ -313,7 +318,8 @@ function bausteine(pres, kx) {
     if (P) {
       if (o.punkte.length > 5) P.hinweis(`Aufzählung mit ${o.punkte.length} Punkten (Planwerk: höchstens fünf)`);
       for (const t of texte) P.block('Aufzählungspunkt', t, st, w, geo.h);
-      if (hoehe > geo.h * 1.02) P.melde(`Aufzählung: Text braucht ${hoehe.toFixed(2)} Zoll, das Feld ist ${geo.h.toFixed(2)} Zoll hoch (${pt} pt).`);
+      if (hoehe > geo.h + 0.005) P.melde(`Aufzählung: Text braucht ${hoehe.toFixed(2)} Zoll, das Feld ist ${geo.h.toFixed(2)} Zoll hoch (${pt} pt).`);
+      else if (z || o.h > 0) P.luft('Aufzählung', hoehe, geo.h);
       P.mindest('Aufzählung', pt, kx.art === 'anhang' ? 12 : 14);
     }
     if (o.platzhalter) s.addText(runs, { placeholder: o.platzhalter });
@@ -563,7 +569,7 @@ function bausteine(pres, kx) {
     if (e) runs.push({ text: e, options: { fontSize: pt / 2, color: cs.akzent } });
     s.addText(runs, { placeholder: `kf${i}_zahl` });
     if (o.label) { const l = schutz(o.label); if (P) P.zeile('Kennzahl Label (14 pt, einzeilig)', l, { fontFace: F.mont, bold: true, fontSize: 14 }, w); s.addText(l, { placeholder: `kf${i}_label` }); }
-    if (o.text) { if (P) P.block('Kennzahl Text', klar(o.text), stil('dicht'), w, K.textEnde - K.text); s.addText(laeufe(o.text, stil('dicht'), { absatz: { fontSize: 14 } }), { placeholder: `kf${i}_text` }); }
+    if (o.text) { if (P) P.block('Kennzahl Text', klar(o.text), stil('dicht'), w, K.textEnde - K.text, { luft: true }); s.addText(laeufe(o.text, stil('dicht'), { absatz: { fontSize: 14 } }), { placeholder: `kf${i}_text` }); }
     return { unten: K.textEnde, darunter: K.darunter };
   };
   // Hero-Kennzahl: Montserrat Black 96 pt, höchstens eine je Folie. o: { x, y, w, zahl, einheit, flaeche: true (Fläche in Rot), text }
@@ -595,7 +601,8 @@ function bausteine(pres, kx) {
       absaetze.forEach((a, i) => { const lr = laeufe(a, st, { absatz: { paraSpaceAfter: 8, fontSize: pt } }); if (i < absaetze.length - 1) lr[lr.length - 1].options.breakLine = true; runs.push(...lr); });
       const feldH = ZONE.vergleich.textEnde - ZONE.vergleich.text, hh = absaetze.reduce((a, t) => a + zeilenzahl(klar(t), st, z.w) * zeilenhoehe(st) + 8 / 72, 0) - 8 / 72;
       if (P) {
-        if (hh > feldH * 1.02) P.melde(`Vergleich ${seite}: Text braucht ${hh.toFixed(2)} Zoll, das Feld ist ${feldH.toFixed(2)} Zoll hoch (${pt} pt).`);
+        if (hh > feldH + 0.005) P.melde(`Vergleich ${seite}: Text braucht ${hh.toFixed(2)} Zoll, das Feld ist ${feldH.toFixed(2)} Zoll hoch (${pt} pt).`);
+        else P.luft(`Vergleich ${seite}`, hh, feldH);
         P.mindest(`Vergleich ${seite}`, pt, 14);
       }
       s.addText(runs, { placeholder: `${seite}_text` });
@@ -662,8 +669,9 @@ function bausteine(pres, kx) {
       rows.push(row); rowH.push(z.h || hoch);
     });
     const colW = [nrW, ...(mitZeichen ? [zW] : []), posW, ...Array(nW).fill(wb)];
-    s.addTable(rows, { x: o.x, y: o.y, w: o.w, colW, rowH, margin: [0.04, 0.08, 0.04, 0.08], valign: 'middle', objectName: o.name || 'Rechenblatt' });
     const h = rowH.reduce((a, b) => a + b, 0), x0 = o.x + nrW + zW + posW;
+    s.addTable(rows, { x: o.x, y: o.y, w: o.w, h, colW, rowH, margin: [0.04, 0.08, 0.04, 0.08], valign: 'middle', objectName: o.name || 'Rechenblatt' });
+    if (kx.tabelle) kx.tabelle({ kopfzeile: true });
     const spalten = Array.from({ length: nW }, (_, i) => ({ x: +(x0 + i * wb).toFixed(3), w: wb }));
     const zeilen = []; let yy = o.y + khoch; for (let i = 1; i < rowH.length; i++) { zeilen.push({ y: +yy.toFixed(3), h: rowH[i] }); yy += rowH[i]; }
     kopf.slice(1).forEach((k, i) => { if (k && typeof k === 'object' && k.kreis) B.achskreis(s, { cx: spalten[i].x + wb - 0.08 - 0.13, cy: o.y + khoch - 0.17, d: 0.26, pt: 10, text: k.kreis, name: 'Spaltenkopf ' + k.kreis }); });
@@ -694,8 +702,9 @@ function bausteine(pres, kx) {
       rows.push([{ text: t, options: { fontFace: z.kern ? F.semi : F.text, fontSize: pt, color: z.kern ? cs.titel : cs.text, align: 'left', border: b() } }, wert(z.wert, false), wert(z.vergleich, true)]);
       rowH.push(z.h || hoch);
     });
-    s.addTable(rows, { x: o.x, y: o.y, w: o.w, colW: [posW, wb, wb], rowH, margin: [0.04, 0.10, 0.04, 0.10], valign: 'middle', objectName: o.name || 'Vergleichstabelle' });
     const h = rowH.reduce((a, b) => a + b, 0);
+    s.addTable(rows, { x: o.x, y: o.y, w: o.w, h, colW: [posW, wb, wb], rowH, margin: [0.04, 0.10, 0.04, 0.10], valign: 'middle', objectName: o.name || 'Vergleichstabelle' });
+    if (kx.tabelle) kx.tabelle({ kopfzeile: true });
     return { x: o.x, y: o.y, w: o.w, h, unten: o.y + h };
   };
 
@@ -703,7 +712,7 @@ function bausteine(pres, kx) {
   // o: { x, y, w, spalten: [{ kopf, breite, art: text | zahl | stichwort, randRechts }], zeilen: [[Zelle, …] | { zellen: [], trennlinie: true, flaeche: true }],
   //      pt: 12 | 14, kopf: true, dicht, zeilenH, zielHoehe, schlusslinie: true, messen }
   // Zelle: Text (mit **fett**) oder { text, fett, farbe, align }. Eine Spalte ohne Breite nimmt den Rest.
-  // dicht: true      Zeilenhöhe genau Zeilenzahl × Zeilenmaß + Zellränder (ohne den Zuschlag je Zeile; nur 12 pt) für Tabellen, die die Inhaltszone füllen
+  // dicht: true      Zeilenhöhe Zeilenzahl × Zeilenmaß + Zellränder + 0,01 (nur 12 pt) für Tabellen, die die Inhaltszone füllen
   // zeilenH          Mindesthöhe je Zeile · zielHoehe: Gesamthöhe mit Kopf; kürzere Tabellen bekommen dafür eine gemeinsame Mindesthöhe je Zeile
   // schlusslinie     false lässt die Linie unter der letzten Zeile weg (wenn ein Kasten oder eine Linie direkt anschließt)
   // messen: true     rechnet nur und zeichnet nichts (Höhen vorab, zum Beispiel für zwei Tabellen, die auf gleicher Höhe enden)
@@ -714,7 +723,8 @@ function bausteine(pres, kx) {
     if (!Array.isArray(o.spalten) || !o.spalten.length || !Array.isArray(o.zeilen) || !o.zeilen.length) throw new Error('B.tabelle: spalten und zeilen fehlen.');
     const dicht = !!o.dicht, pt = o.pt || 12, OBEN = 0.06, UNTEN = 0.05, SEITE = 0.08, mitKopf = o.kopf !== false && o.spalten.some(c => c.kopf);
     if (dicht && pt !== 12) throw new Error('B.tabelle: dicht gibt es nur in 12 pt.');
-    const st = { fontFace: F.text, fontSize: pt, ...(dicht ? {} : { zeileMal: 1.08 }) }, zh = zeilenhoehe(st), zuschlag = dicht ? OBEN + UNTEN : 0.13;
+    // dicht: Zellränder und 0,01 Zoll Zuschlag je Zeile (ohne ihn füllt die Schrift die Zeile bis auf 2 %, und die Zeile wüchse in PowerPoint)
+    const st = { fontFace: F.text, fontSize: pt, ...(dicht ? {} : { zeileMal: 1.08 }) }, zh = zeilenhoehe(st), zuschlag = dicht ? OBEN + UNTEN + 0.01 : 0.13;
     if (P) P.mindest('Tabelle', pt, 12);
     const fest = o.spalten.reduce((a, c) => a + (c.breite || 0), 0), offen = o.spalten.filter(c => !c.breite).length;
     const colW = o.spalten.map(c => +(c.breite || (o.w - fest) / offen).toFixed(3)), rechts = o.spalten.map(c => (typeof c.randRechts === 'number' ? c.randRechts : SEITE));
@@ -722,7 +732,8 @@ function bausteine(pres, kx) {
     const rows = [], rowH = [], rand = i => [OBEN, rechts[i], UNTEN, SEITE];
     if (mitKopf) {
       rows.push(o.spalten.map((c, i) => { pruefeKopf(c.kopf, colW[i], SEITE + rechts[i] + 0.02); const z = kopfzelle(c.kopf, c.art === 'zahl' ? 'right' : 'left'); z.options.margin = rand(i); return z; }));
-      rowH.push(dicht ? 0.30 : 0.32);
+      // Kopfzeile aus der Schrift: Montserrat Bold 12 pt (0,203 Zoll je Zeile) und die Zellränder, mit Luft 0,33 Zoll; je weitere Zeile 0,20
+      rowH.push(kopfHoehe(o.spalten.map(c => c.kopf || ''), 0.33));
     }
     const kopfH = mitKopf ? rowH[0] : 0, zahlen = [];
     o.zeilen.forEach((z, zi) => {
@@ -751,8 +762,12 @@ function bausteine(pres, kx) {
         for (let i = k0; i < rowH.length; i++) rowH[i] = Math.max(rowH[i], +hi.toFixed(3));
       }
     }
-    if (!o.messen) s.addTable(rows, { x: o.x, y: o.y, w: o.w, colW, rowH, margin: [OBEN, SEITE, UNTEN, SEITE], valign: 'top', objectName: o.name || 'Tabelle' });
     const h = rowH.reduce((a, b) => a + b, 0), zeilen = [], spalten = [];
+    if (!o.messen) {
+      s.addTable(rows, { x: o.x, y: o.y, w: o.w, h, colW, rowH, margin: [OBEN, SEITE, UNTEN, SEITE], valign: 'top', objectName: o.name || 'Tabelle' });
+      // Kopfzeile oder, ohne Kopf, die Stichwortspalte: für Vorleseprogramme als Kopf gekennzeichnet (Nachbearbeitung, Schritt 14)
+      if (kx.tabelle) kx.tabelle({ kopfzeile: mitKopf, kopfspalte: !mitKopf && o.spalten[0].art === 'stichwort' });
+    }
     let yy = o.y + kopfH; rowH.slice(mitKopf ? 1 : 0).forEach((r, i) => { zeilen.push({ y: +yy.toFixed(3), h: r, n: zahlen[i] }); yy += r; });
     let xx = o.x; colW.forEach(c => { spalten.push({ x: +xx.toFixed(3), w: c }); xx += c; });
     return { x: o.x, y: o.y, w: o.w, h, unten: +(o.y + h).toFixed(3), kopfH, zeilen, spalten, zeilenzahl: zahlen.reduce((a, b) => a + b, 0), zeilenmass: zh, rand: { oben: OBEN, seite: SEITE } };
@@ -779,7 +794,7 @@ function bausteine(pres, kx) {
   // Achsleiste. o: { x, y, w, stationen: [{ nr, titel, zustaendig, text, zusatz, signal }], art: 'reihe' | 'text', groesse: 'S' | 'M' | 'L', versalTitel: true,
   //      pt: 14 | 12, abstand: 0.12, anteile: [Breite je Station im Verhältnis] }
   // art „reihe“: bis sechs Stationen mit Titel mittig unter dem Kreis (ohne Titel bis zwölf). art „text“: bis vier Stationen je Reihe mit Titel,
-  // Zuständigkeit (10 pt), Text und Zusatz (12 pt, grau) linksbündig ab Kreis. Alle Texte sind wahlfrei. Rückgabe: { punkte: [x der Kreismitten], unten }
+  // Zuständigkeit (12 pt), Text und Zusatz (12 pt, grau) linksbündig ab Kreis. Alle Texte sind wahlfrei. Rückgabe: { punkte: [x der Kreismitten], unten }
   B.achsleiste = (s, o) => {
     brauche('B.achsleiste', o, ['x', 'y', 'w']);
     if (!Array.isArray(o.stationen) || !o.stationen.length) throw new Error('B.achsleiste: stationen fehlt.');
@@ -817,7 +832,8 @@ function bausteine(pres, kx) {
           if (P) P.zeile('Station', tt, st, tw);
           s.addText(tt, opt(st, { x, y, w: tw, h: 0.24 }, { valign: 'middle', objectName: 'Station ' + t.titel })); y += 0.24;
         }
-        if (t.zustaendig) { s.addText(schutz(t.zustaendig), opt(stil('label'), { x, y, w: tw, h: 0.17 }, { valign: 'middle', objectName: 'Zuständigkeit' })); y += 0.19; }
+        // Zuständigkeit: 12 pt. Wer handelt, ist Inhalt der Station und muss im Saal lesbar sein (10 pt ist Randbeschriftungen vorbehalten)
+        if (t.zustaendig) { const zs = stil('label', { pt: 12 }); if (P) P.zeile('Zuständigkeit', schutz(t.zustaendig), zs, tw); s.addText(schutz(t.zustaendig), opt(zs, { x, y, w: tw, h: 0.20 }, { valign: 'middle', objectName: 'Zuständigkeit' })); y += 0.22; }
         if (t.text) { const r = B.text(s, t.text, { x, y: y + 0.01, w: tw, rolle: ptT >= 14 ? 'dicht' : 'kleinText', pt: ptT, name: 'Stationstext' }); y = r.unten; }
         if (t.zusatz) { const r = B.text(s, t.zusatz, { x, y: y - 0.02, w: tw, rolle: 'klein', name: 'Stationszusatz' }); y = r.unten; }
         unten = Math.max(unten, y);
@@ -964,12 +980,17 @@ function bausteine(pres, kx) {
     const x = 10.63, w = 2.27, zeilen = [o.bezug, o.zusatz].filter(Boolean), st = { fontFace: F.semi, fontSize: 10, zeileMal: 1.0 };
     if (P) {
       P.zeile('Titel-Kennzahl', [{ text: o.zahl, stil: { fontFace: F.black, fontSize: 44 } }, { text: NBSP + (o.einheit || ''), stil: { fontFace: F.black, fontSize: 24 } }], null, w);
-      const n = zeilen.reduce((a, t) => a + zeilenzahl(schutz(t), st, w), 0);
+      const n = zeilen.reduce((a, t) => a + zeilenzahl(schutz(t), st, w), 0);   // „\n“ zählt als Zeilenwechsel
       if (n > 4) P.melde(`Titel-Kennzahl: Bezug und Zusatz brauchen ${n} Zeilen, das Feld fasst vier.`);
     }
+    // Lagen im Feld 5,70 bis 7,20: Vorsatz 5,77, Zahl 6,00, Bezug 6,49 bis 7,14. Zwischen Vorsatz, Zahl und Bezug stehen damit gleiche Abstände
+    // (bei 5,96 stieß die Oberkante der Zahl an den Vorsatz). „\n“ im Bezug bricht die Zeile von Hand (kein einzelnes Wort in der zweiten Zeile).
     if (o.vorsatz) s.addText(versal(o.vorsatz), { x, y: 5.77, w, h: 0.17, margin: 0, isTextBox: true, fontFace: F.xbold, fontSize: 11, charSpacing: 1.5, color: C.rot, valign: 'middle', objectName: 'Titel-Kennzahl Vorsatz' });
-    s.addText([{ text: o.zahl, options: {} }, { text: NBSP + (o.einheit || ''), options: { fontSize: 24 } }], { x: x - 0.03, y: 5.96, w: w + 0.03, h: 0.50, margin: 0, isTextBox: true, fontFace: F.black, fontSize: 44, lineSpacing: 44, color: C.rot, valign: 'middle', objectName: 'Titel-Kennzahl' });
-    if (zeilen.length) s.addText(zeilen.map((t, i) => ({ text: schutz(t), options: { fontFace: i ? F.medium : F.semi, color: i ? C.grau : C.tinte, breakLine: i < zeilen.length - 1 } })), { x, y: 6.45, w, h: 0.65, margin: 0, isTextBox: true, fontSize: 10, lineSpacingMultiple: 0.95, valign: 'top', objectName: 'Titel-Kennzahl Bezug' });
+    s.addText([{ text: o.zahl, options: {} }, { text: NBSP + (o.einheit || ''), options: { fontSize: 24 } }], { x: x - 0.03, y: 6.00, w: w + 0.03, h: 0.50, margin: 0, isTextBox: true, fontFace: F.black, fontSize: 44, lineSpacing: 44, color: C.rot, valign: 'middle', objectName: 'Titel-Kennzahl' });
+    if (zeilen.length) {
+      const laeufe = zeilen.flatMap((t, i) => schutz(t).split('\n').map((teil, k, alle) => ({ text: teil, options: { fontFace: i ? F.medium : F.semi, color: i ? C.grau : C.tinte, breakLine: k < alle.length - 1 || i < zeilen.length - 1 } })));
+      s.addText(laeufe, { x, y: 6.49, w, h: 0.65, margin: 0, isTextBox: true, fontSize: 10, lineSpacingMultiple: 0.95, valign: 'top', objectName: 'Titel-Kennzahl Bezug' });
+    }
   };
 
   // Notiz unter der Tabelle im Platzhalter „notiz“ der Layouts PGN_TABELLE(_MR): eine Zeile, 12 pt, unten in der Inhaltszone
@@ -998,7 +1019,7 @@ function bausteine(pres, kx) {
   B.vorspann = (s, text) => {
     if (kx.layout !== 'PGN_AUSSAGE') throw new Error('B.vorspann braucht das Layout PGN_AUSSAGE; sonst B.text mit rolle „vorspann“.');
     const t = schutz(text), z = ZONE.aussage.lead;
-    if (P) P.block('Vorspann', t, stil('vorspann'), z.w, z.h);
+    if (P) P.block('Vorspann', t, stil('vorspann'), z.w, z.h, { luft: true });
     s.addText(t, { placeholder: 'lead' });
   };
 
@@ -1031,11 +1052,12 @@ function bausteine(pres, kx) {
   };
 
   // ---- Balkenplan (Leistungen über Phasen) -------------------------------------------------------------------------------------------------
-  // Kopfleiste mit einem Achskreis S je Phase; darunter je Zeile Nummer und Bezeichnung (14 pt) und ein Balken in Tinte über die Phasen von … bis.
-  // Zeilen ohne Balken tragen ihr Wort in der Planfläche (12 pt, grau). Senkrechte Marke in Dunkelrot zwischen zwei Phasen mit gefülltem Achskreis
+  // Kopfleiste mit einem Achskreis S je Phase, davor rechtsbündig die Bezeichnung der Achse; darunter je Zeile Nummer und Bezeichnung (14 pt)
+  // und ein Balken in Tinte über die Phasen von … bis. nummern: false lässt die Nummern der Zeilen weg: Dann zählen im Plan nur die Phasen.
+  // Zeilen ohne Balken tragen ihr Wort in der Planfläche (12 pt, Tinte: Das Wort hat das Gewicht eines Balkens). Senkrechte Marke in Dunkelrot zwischen zwei Phasen mit gefülltem Achskreis
   // und Wort; unter dem Plan je ein Satz links und rechts der Marke (12 pt; „\n“ bricht die Zeile).
   // o: { x, y, w, labelBreite: 3.30, phasen: 9 | ['1', …], kopf: 'Leistungsphase', zeilen: [{ nr, text, von, bis } | { nr, text, wort }], zeilenH: 0.38,
-  //      marke: { nach: 6, text: 'Bewilligung', zeichen: '±0' }, links, rechts }
+  //      nummern: true, marke: { nach: 6, text: 'Bewilligung', zeichen: '±0' }, links, rechts }
   // y ist die Oberkante (dort steht das Markenwort); die Kopfleiste liegt bei y + 0,50.
   // Rückgabe: { unten, kopfY, planX, planW, xPhase(n) (Mitte der Phase n, ab 1), xMarke, zeilen: [{ y, h }] }
   B.balkenplan = (s, o) => {
@@ -1046,19 +1068,20 @@ function bausteine(pres, kx) {
     if (dx < dS + 0.08) throw new Error(`B.balkenplan: Je Phase bleiben ${dx.toFixed(2)} Zoll, die Achskreise brauchen ${(dS + 0.08).toFixed(2)}. labelBreite senken oder w erhöhen.`);
     const m = o.marke || null, kopfY = o.y + (m ? 0.50 : dS / 2), xPhase = k => xp + (k - 0.5) * dx, xm = m ? xp + m.nach * dx : null;
     if (m && !(m.nach >= 1 && m.nach < n)) throw new Error(`B.balkenplan: marke.nach ist ${m.nach}; erlaubt ist 1 bis ${n - 1} (die Marke steht zwischen zwei Phasen).`);
-    if (o.kopf) B.text(s, o.kopf, { x: o.x, y: kopfY - 0.10, w: lb - 0.10, h: 0.20, rolle: 'label', valign: 'middle', einzeilig: true, name: 'Balkenplan Kopf' });
+    // Bezeichnung der Achse: rechtsbündig vor dem ersten Achskreis (linksbündig über den Zeilen läse sie sich als Kopf der Zeilenspalte)
+    if (o.kopf) B.text(s, o.kopf, { x: o.x, y: kopfY - 0.10, w: lb - 0.10, h: 0.20, rolle: 'label', align: 'right', valign: 'middle', einzeilig: true, name: 'Balkenplan Kopf' });
     B.linie(s, { x: xp, y: kopfY, w: wp, art: 'kraeftig', name: 'Balkenplan Achse' });
     ph.forEach((t, i) => B.achskreis(s, { cx: xPhase(i + 1), cy: kopfY, groesse: 'S', text: t, name: 'Phase ' + t }));
     const y0 = kopfY + dS / 2 + 0.17, zeilen = [];
     o.zeilen.forEach((z, i) => {
       const y = y0 + i * zh, name = z.nr ?? i + 1;
       if (!z.text) throw new Error(`B.balkenplan: Zeile ${i + 1} hat keinen text.`);
-      B.text(s, `**${name}** ${z.text}`, { x: o.x, y: y + (zh - 0.28) / 2, w: lb - 0.10, h: 0.28, rolle: 'dicht', valign: 'middle', einzeilig: true, name: 'Leistung ' + name });
+      B.text(s, o.nummern === false ? z.text : `**${name}** ${z.text}`, { x: o.x, y: y + (zh - 0.28) / 2, w: lb - 0.10, h: 0.28, rolle: 'dicht', valign: 'middle', einzeilig: true, name: 'Leistung ' + name });
       if (typeof z.von === 'number') {
         const bis = z.bis ?? z.von;
         if (!(z.von >= 1 && bis <= n && bis >= z.von)) throw new Error(`B.balkenplan: Zeile ${i + 1} läuft von ${z.von} bis ${bis}; es gibt die Phasen 1 bis ${n}.`);
         B.balken(s, { x: xp + (z.von - 1) * dx + 0.04, y: y + (zh - 0.24) / 2, w: (bis - z.von + 1) * dx - 0.08, h: 0.24, art: z.art || 'tinte', name: `Balken ${name}` });
-      } else if (z.wort) B.text(s, z.wort, { x: xp + 0.04, y: y + (zh - 0.28) / 2, w: wp - 0.08, h: 0.28, rolle: 'klein', valign: 'middle', einzeilig: true, name: 'Phase im Wortlaut ' + name });
+      } else if (z.wort) B.text(s, z.wort, { x: xp + 0.04, y: y + (zh - 0.28) / 2, w: wp - 0.08, h: 0.28, rolle: 'klein', farbe: 'titel', valign: 'middle', einzeilig: true, name: 'Phase im Wortlaut ' + name });
       B.linie(s, { x: o.x, y: y + zh, w: o.w, art: 'haar', name: 'Balkenplan Zeilenlinie' });
       zeilen.push({ y, h: zh });
     });
@@ -1094,6 +1117,17 @@ function bausteine(pres, kx) {
     const hell = ['eigenmittel', 'bisher', 'papier', 'C'].includes(o.art);
     s.addText([{ text: name, options: { fontFace: F.semi, fontSize: 11, bold: false, breakLine: true } }, { text: wert, options: { fontFace: F.mont, bold: true, fontSize: 12 } }],
       { x: o.x, y: o.y, w: o.w, h: o.h, margin: 0, isTextBox: true, fontFace: F.semi, fontSize: 11, color: hell ? C.tinte : C.weiss, align: 'center', valign: 'middle', objectName: 'Segment ' + o.name });
+  };
+  // Beschriftung der Kategorienachse als Textfelder unter der Plotfläche (Work Sans 11 pt, grau, mittig unter der Kategorie), für Liniendiagramme
+  // mit katLabels: { formen: [...] }. d: Rückgabe von D.linien. Die Texte folgen einer späteren Änderung der Diagrammdaten in PowerPoint nicht.
+  B.achstexte = (s, d) => {
+    if (!d || !Array.isArray(d.katTexte) || !d.katTexte.length) throw new Error('B.achstexte: Das Diagramm trägt keine Beschriftungen (D.linien mit katLabels: { formen: [...] }).');
+    const st = stil('achse'), w = 0.60;
+    for (const e of d.katTexte) {
+      if (P) P.zeile('Achsbeschriftung', e.text, st, w);
+      s.addText(e.text, opt(st, { x: d.katMitte(e.i) - w / 2, y: d.plot.y + d.plot.h + 0.08, w, h: 0.20 }, { align: 'center', valign: 'middle', objectName: 'Achsbeschriftung ' + e.text }));
+    }
+    return { unten: d.plot.y + d.plot.h + 0.28 };
   };
   // Werte an einer Marke im Liniendiagramm: je Zeile ein Achskreis (0,26 Zoll) und der Wert in Montserrat Bold 12 pt.
   // Die Zeilen stehen in den Bändern zwischen den Gitterlinien (mitten: y je Zeile), damit keine Gitterlinie durch eine Zahl läuft.

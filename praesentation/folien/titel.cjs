@@ -13,9 +13,10 @@ module.exports = {
     // Kennzahlfeld: Förderquote in Gruppe A = Darlehen + Zuschuss (Höchstsätze der Richtlinie, Programmteil 2.1)
     const quote = W('modellhaus', 'tab.quote_darlehen.A') + W('modellhaus', 'tab.quote_zuschuss.A');
     wl(fmt.prozent(quote), 'Kennzahl');
-    // Zusatz: „Kosten · Programmteil 2.1“ bleibt zusammen (Umbruch wie auf U1 der Broschüre, kein Trennpunkt am Zeilenende)
+    // Bezug fest gebrochen wie auf U1 der Broschüre („Förderquote aus“ | „Darlehen und Zuschuss“), sonst stünde „Zuschuss“ allein in der zweiten Zeile.
+    // Zusatz: „Kosten · Programmteil 2.1“ bleibt zusammen (kein Trennpunkt am Zeilenende)
     B.titelKennzahl(s, { vorsatz: wl('bis zu'), zahl: fmt.zahl(quote * 100), einheit: '%',
-      bezug: wl('Förderquote aus Darlehen und Zuschuss'), zusatz: wl(`der zuwendungsfähigen ${fmt.nb('Kosten · Programmteil 2.1')}`) });
+      bezug: wl('Förderquote aus Darlehen und Zuschuss').replace(' aus ', ' aus\n'), zusatz: wl(`der zuwendungsfähigen ${fmt.nb('Kosten · Programmteil 2.1')}`) });
 
     // Bildzeile unter der Zeichnung, gebrochen wie auf U1 der Broschüre: Projekt und Ort | Wohnungen und Förderung.
     // Unterkante 0,14 über der Linie des Schriftfelds (y 5,70), rechts neben der Maßstabsleiste der Zeichnung

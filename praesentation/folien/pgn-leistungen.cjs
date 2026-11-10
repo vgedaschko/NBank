@@ -13,14 +13,15 @@ module.exports = {
     // ---- Balkenplan über acht Spalten ---------------------------------------------------------------------------------
     const zeilen = U('leistungen.zeilen'), phasen = U('leistungen.phasen'), nach = U('leistungen.marke.nach');
     for (const z of zeilen) {
-      ctx.wortlaut(`${z.nr} ${z.text}`, `Leistung ${z.nr}`);
+      ctx.wortlaut(z.text, `Leistung ${z.nr}`);
       if (z.wort) ctx.wortlaut(z.wort, `Leistung ${z.nr}, Phase im Wortlaut`);
       else ctx.wortlaut(z.bis > z.von ? `Balken ${z.von}–${z.bis}` : `Balken ${z.von}`, `Leistung ${z.nr}, Balken`);
     }
     // Der Satz rechts der Marke hat drei Phasen Breite: Er bricht nach dem Doppelpunkt, damit die Phase allein in der ersten Zeile steht
     const rechts = ctx.wortlaut(U('leistungen.marke.rechts'), 'Satz rechts der Marke').replace(/: /, ':\n');
-    // labelBreite 3,60: Die längste Bezeichnung („5 Ausführungsplanung und Vergabe“, 3,38 Zoll) hat damit gut 3 % Luft in ihrem Feld
-    const plan = B.balkenplan(s, { x: colX(1), y: Y.inhaltNachDeck, w: span(8), labelBreite: 3.60, zeilenH: 0.34,
+    // Die Zeilen stehen ohne Nummer: Die Ziffern des Plans sind die Leistungsphasen 1 bis 9; eine zweite Zählung 1 bis 7 daneben verwirrt
+    // („6 Bauleitung“ läge unter Leistungsphase 8). labelBreite 3,60 lässt der längsten Bezeichnung und der Achsbezeichnung Luft.
+    const plan = B.balkenplan(s, { x: colX(1), y: Y.inhaltNachDeck, w: span(8), labelBreite: 3.60, zeilenH: 0.34, nummern: false,
       kopf: ctx.wortlaut(U('leistungen.kopf'), 'Kopfleiste'), phasen,
       marke: { nach, text: ctx.wortlaut(U('leistungen.marke.text'), 'Marke'), zeichen: U('leistungen.marke.zeichen') },
       links: ctx.wortlaut(U('leistungen.marke.links'), 'Satz links der Marke'), rechts,

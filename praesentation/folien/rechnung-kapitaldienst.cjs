@@ -9,7 +9,7 @@ module.exports = {
   bau(ctx) {
     const { B, D, W, fmt, colX, ZONE } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
     B.register(s, '2.1');
-    B.diagrammkopf(s, { titel: 'Kapitaldienst in Jahr 1', sub: 'in € p. a. · dasselbe Haus, gefördert und frei finanziert' });
+    B.diagrammkopf(s, { titel: 'Kapitaldienst in Jahr 1', sub: ctx.wortlaut('in € p. a. · gleiches Haus, gefördert und frei finanziert', 'Untertitel') });
     B.legende(s, { x: colX(1), y: ZONE.diagramm.legende, eintraege: [{ text: 'Tilgung', art: 'tinte' }, { text: 'Zins', art: 'referenz' }, { text: 'Verwaltungskostenbeitrag', art: 'bisher' }] });
 
     // Kategorien in Lesereihenfolge: gefördert oben, frei finanziert unten
@@ -33,8 +33,8 @@ module.exports = {
       B.textAufPlot(s, fmt.zahl(o.wert), { x: mitte - 0.40, y: oben(o.i) - 0.27, w: 0.80, h: 0.24, rolle: 'wert', align: 'center', valign: 'middle', name: 'Wert ' + o.reihe });
     }
 
-    B.planlegende(s, { platzhalter: 'kommentar', pt: 14, eintraege: [
+    B.planlegende(s, { platzhalter: 'kommentar', pt: 16, eintraege: [
       { titel: 'Annahmen', text: `Frei finanziert: gleiches Haus, Eigenmittel ${fmt.mio(M('fin.eigenmittel.Frei'))}, Bankdarlehen ${fmt.mio(M('fin.bankdarlehen.Frei'))} zu ${fmt.prozent(M('eingabe.zins_bank'), 2)} Zins, Annuität über ${M('eingabe.laufzeit_bank')} Jahre. Objektverwaltung und Instandhaltung wie gefördert.` },
-      { text: `Gefördert: Zuschuss ${fmt.mio(M('fin.zuschuss.A'))}, Darlehen ${fmt.mio(M('fin.darlehen_nbank.A'))} zu ${fmt.prozent(M('jr1.satz.zins_nbank'))} Zins, Tilgung ${fmt.prozent(M('eingabe.tilgung_nbank'), 1)} p. a. (Annahme).` }] });
+      { text: `Gefördert: Zuschuss ${fmt.mio(M('fin.zuschuss.A'))}, Darlehen ${fmt.mio(M('fin.darlehen_nbank.A'))} zu ${fmt.prozent(M('jr1.satz.zins_nbank'))} Zins, Tilgung ${fmt.prozent(M('eingabe.tilgung_nbank'), 1)} p. a.` }].map(e => ({ ...e, text: ctx.wortlaut(e.text, 'Annahmen') })) });
   },
 };

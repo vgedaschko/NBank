@@ -24,8 +24,10 @@ module.exports = {
     R.pruefe(ctx.o.titel.includes(`Ab Jahr ${jahrAlle} `) && fehljahre === M('liq.jahre_mit_fehlbetrag.C') && fehljahre === iAlle && M('liq.jahre_mit_fehlbetrag.A') === 0,
       `Alle drei Gruppen haben ab Jahr ${jahrAlle} einen Überschuss; Titel oder Kommentar der Folie 13 nennen etwas anderes.`);
 
-    const d = D.linien(s, { kategorien: jahre, katLabels: { nur: [1, 5, 10, 15, 20, 25, 30, 35] }, rand: { r: 1.30 }, name: `Diagramm Zahlungsüberschuss Jahr ${jahre[0]} bis ${jahre[n]}`,
+    // Die Jahre an der Achse stehen als Textfelder: Die Daten behalten die Kategorien 1 bis 35, und kein Programm dreht oder bricht die Beschriftung
+    const d = D.linien(s, { kategorien: jahre, katLabels: { formen: [1, 5, 10, 15, 20, 25, 30, 35] }, rand: { r: 1.30 }, name: `Diagramm Zahlungsüberschuss Jahr ${jahre[0]} bis ${jahre[n]}`,
       reihen: R.linienReihen(reihe), achse: { min: -40000, max: 120000, schritt: 20000, format: 'ganz' } });
+    B.achstexte(s, d);
     const band = oben => (d.yWert(oben) + d.yWert(oben - 20000)) / 2;   // Mitte des Bandes unter der Gitterlinie „oben“
 
     // Jahr 1: Marke mit den drei Werten in den Bändern darunter
@@ -37,9 +39,12 @@ module.exports = {
     B.linienenden(s, { x: d.katMitte(n) + 0.26, abstand: 0.30, eintraege: G.map(g => ({ kreis: g, y: d.yWert(reihe(g)[n]), wert: fmt.zahl(reihe(g)[n]) })) });
 
     const abstand = M('tab.abstand_mieterhoehungen');
-    B.planlegende(s, { platzhalter: 'kommentar', pt: 14, eintraege: [
-      { titel: 'Annahmen', text: `Tilgung ${fmt.prozent(M('eingabe.tilgung_nbank'), 1)} p. a. (Annahme). Miete alle ${ctx.zahlwort(abstand)} Jahre +${fmt.prozent(M('tab.mieterhoehung_in_der_bindung'), 2)} (Höchstwert). ` +
-        `Objektverwaltung und Instandhaltung ab Jahr ${X('rechnung', 'kostensteigerung.ab_jahr')} +${fmt.prozent(M('eingabe.kostensteigerung'))} p. a.` },
-      { titel: 'B und C', text: `${ctx.zahlwort(fehljahre, true)} Jahre mit Fehlbetrag, zusammen bis zu ${fmt.euro(-M('liq.groesster_kumulierter_fehlbetrag.B'))} (B) und ${fmt.euro(-M('liq.groesster_kumulierter_fehlbetrag.C'))} (C).` }] });
+    // „+2 % p. a.“ bleibt zusammen (geschützte Leerzeichen), sonst stünde „p. a.“ allein in der letzten Zeile.
+    // Die Beträge unter „B und C“ sind die Summe der Fehlbeträge der Jahre 1 bis 9 (Übersicht 3.x, größter kumulierter Fehlbetrag), kein Höchstwert.
+    const steigerung = fmt.nb(`+${fmt.prozent(M('eingabe.kostensteigerung'))} p. a.`);
+    B.planlegende(s, { platzhalter: 'kommentar', pt: 16, eintraege: [
+      { titel: 'Annahmen', text: ctx.wortlaut(`Tilgung ${fmt.prozent(M('eingabe.tilgung_nbank'), 1)} p. a. Miete alle ${ctx.zahlwort(abstand)} Jahre +${fmt.prozent(M('tab.mieterhoehung_in_der_bindung'), 2)} (Höchstwert). ` +
+        `Objektverwaltung und Instandhaltung ab Jahr ${X('rechnung', 'kostensteigerung.ab_jahr')} ${steigerung}`, 'Annahmen') },
+      { titel: 'B und C', text: ctx.wortlaut(`Nur mit Zulassung in der Förderentscheidung. ${ctx.zahlwort(fehljahre, true)} Jahre mit Fehlbetrag, zusammen ${fmt.euro(-M('liq.groesster_kumulierter_fehlbetrag.B'))} (B) und ${fmt.euro(-M('liq.groesster_kumulierter_fehlbetrag.C'))} (C).`, 'B und C') }] });
   },
 };

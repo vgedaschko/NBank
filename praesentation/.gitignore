@@ -1,6 +1,7 @@
 node_modules/
-dist/render/
-dist/probe/
-dist/teil-*
+# Im Ordner dist/ gehören nur die beiden Dateien zum Weitergeben ins Repository; Teilmappen, Probemappen und Bilder entstehen neu
+dist/*
+!dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Vortrag.pptx
+!dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Vortrag.pdf
 __pycache__/
 *.pyc

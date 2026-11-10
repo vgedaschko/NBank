@@ -23,9 +23,10 @@ module.exports = {
       { nr: 7, zeichen: fmt.MINUS, text: `Tilgung ${fmt.prozent(satz('tilgung_nbank'), 1)} p. a. (Annahme)`, werte: z('tilgung_nbank') },
       { nr: 8, zeichen: '=', text: 'Zahlungsüberschuss p. a.', werte: z('zahlungsueberschuss'), art: 'ergebnis' }] });
     B.notiz(s, `Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte ${z('bearbeitungsentgelte').join(' | ')} €`);
-    B.planlegende(s, { platzhalter: 'kommentar', pt: 14, eintraege: [
-      { titel: 'Annahmen', text: `Liquidität in Jahr 1 bei Kostenstand ${R.kostenstand(ctx)}, keine Rendite.` },
-      { text: `Tilgung auf ${G.map(g => fmt.mioZahl(M(`fin.darlehen_nbank.${g}`))).join(' | ')} Mio. € Darlehen. Den Tilgungssatz legt die NBank fest.` },
-      { text: 'B und C setzen eine Zulassung in der Förderentscheidung voraus.' }] });
+    // Dass die NBank den Tilgungssatz festlegt, steht auf den Folien 6, 12 und 15; hier trägt Zeile 7 der Rechnung den Vermerk „Annahme“
+    B.planlegende(s, { platzhalter: 'kommentar', pt: 16, eintraege: [
+      { titel: 'Annahmen', text: ctx.wortlaut(`Liquidität in Jahr 1 bei Kostenstand ${R.kostenstand(ctx)}, keine Rendite.`, 'Annahmen') },
+      { text: ctx.wortlaut(`Tilgung auf ${G.map(g => fmt.mioZahl(M(`fin.darlehen_nbank.${g}`))).join(' | ')} Mio. € Darlehen.`, 'Annahmen') },
+      { text: ctx.wortlaut('B und C setzen eine Zulassung in der Förderentscheidung voraus.', 'Annahmen') }] });
   },
 };

@@ -1,6 +1,6 @@
 # Planwerk 16:9: Bibliothek der Vortragsmappe
 
-Stand: Die 33 Folien sind zusammengeführt (`folien/`), die Musterfolien bauen mit derselben Bibliothek (`probe/`, 33 Folien,
+Stand: Die 36 Folien sind zusammengeführt (`folien/`), die Musterfolien bauen mit derselben Bibliothek (`probe/`, 33 Folien,
 alle 19 Layouts). Ein Folienmodul baut nur seine Inhaltszone; Rahmen, Notizen und Prüfungen kommen aus `build.cjs` und `lib/`.
 Was mehrere Folien brauchen, steht in `lib/` (Bausteine `B`, Diagramme `D`, Helfer im `ctx`); was nur eine Baugruppe braucht,
 in `folien/_<gruppe>.cjs`. Zahlen der Rechenmappe stehen nur in `daten/werte.json`; diese Datei wird erzeugt und nie von Hand
@@ -28,7 +28,9 @@ eine sinnvolle Zusatzprüfung; sie gehört nicht zum Projekt.
 Baugruppen: `rahmen`, `einstieg`, `regeln`, `rechnung`, `fluss`, `struktur`, `umsetzung`, `ueberblick` (Zuordnung in
 `daten/outline.json`, Feld `baugruppen`). Hilfsdateien der Baugruppen: `folien/_einstieg.cjs` (Texte der Folien 4 und 6),
 `_fluss.cjs` (gemeinsame Anlage der Folien 17 und 18; dazu die Maßkette an der Quelle der Folie 18 und der Umriss an der Quelle der Folie 17, die auf jeder der beiden Folien den Betrag der anderen im selben Maßstab zeigen), `_struktur.cjs` (Agenda, Texte der Folie 22, Quellentabelle), `_rechnung.cjs`,
-`_regeln.cjs`, `_umsetzung.cjs`, `_ueberblick.cjs`.
+`_regeln.cjs`, `_umsetzung.cjs`, `_ueberblick.cjs`. Was nur eine Folie braucht, steht in `folien/_fein_<id>.cjs`:
+`_fein_ausgangslage-zinsen.cjs` (Folie 4: Legende mit Werten, Werteblöcke an den Marken, Punkt am Linienende, Jahresstriche) und
+`_fein_pgn-baukosten.cjs` (Folie 22: Maßzeichen der Spanne neben einer Säule und in der Legende).
 Jedes Bild ansehen. Der Build rechnet Texte gegen ihre Felder und jede Form gegen Satzspiegel und Inhaltszone (Abschnitt 9),
 sieht aber keine Überlagerung von Formen untereinander.
 
@@ -36,7 +38,7 @@ sieht aber keine Überlagerung von Formen untereinander.
 
 `folien/<id>.cjs` exportiert `{ id, bau(ctx) }`. `bau` ruft genau einmal `ctx.folie()` auf und baut danach die Inhaltszone.
 `ctx.folie()` legt aus `daten/outline.json` an: Layout, Abschnitt, Kicker, Titel mit Signaturwort, Rubrik im Schriftfeld,
-Blattnummer (`nr` des Konzepts: 1 bis 25, A0 bis A7) und die Notizen (`notizen`, Leerzeile, `quellen`). Kein `addNotes`,
+Blattnummer (`nr` des Konzepts: 1 bis 28, A0 bis A7; Titel und Schluss zählen mit, zeigen aber keine) und die Notizen (`notizen`, Leerzeile, `quellen`). Kein `addNotes`,
 keine eigene Foliennummer, kein eigener Abschnitt.
 
 ```js
@@ -102,7 +104,7 @@ Ohne Optionen liest die Funktion den Rahmen aus dem Feld `inhalt` des Konzepts:
 `Kicker: „…“` · `Titelzeilen: „Zeile 1“ | „Zeile 2“ (Signaturwort: „…“)` · `Titel in drei Zeilen: „…“ | „…“ | „…“` ·
 `Rubrik im Schriftfeld: „…“` · `Achskreis XL: „4“` · `Lead: „…“` · `Untertitel: „…“`. Der Zusatz `(zweite Stimme …)` hinter
 einer Titelzeile setzt sie in Montserrat Light 20 pt. Anhangfolien (`PGN_ANHANG`) nehmen `o.titel` als einzeilige Überschrift.
-Das Konzept passt für alle 33 Folien; Optionen sind nur für Abweichungen da.
+Das Konzept passt für alle 36 Folien; Optionen sind nur für Abweichungen da.
 
 | Option | Wirkung |
 |---|---|
@@ -187,9 +189,26 @@ B71E3F, `darlehen` 202020, `referenz` 77716B, `dunkelrot` 8B2939, `grau` 626160.
 - **Rot nur für Zuschuss, Ergebniszeile, Signaturwort, Kicker, Titellinie, 80-%-Achse und Stempel.** Je Folie höchstens ein
   weiteres Akzentmodul in Rot. Dunkelrot nur als Signal (Bewilligung, Frist, Warnband) und immer mit Wort.
 - **Feste Diagrammfarben** über die Reihenart: `zuschuss` Rot · `darlehen` Tinte · `eigenmittel` Schraffur (immer beschriftet)
-  · `tinte` (Miete, Ertrag, eigene Reihe) · `referenz` 77716B (frei finanziert, Markt, Vergleich) · `bisher` B4B0AB (nur mit
-  Beschriftung) · `A`, `B`, `C` (Gruppentöne) · `signal`. Nie `darlehen` und `tinte` als zwei Reihen im selben Diagramm.
-  Auf den Folien 3 bis 6 und 16 bis 23 kein Rot im Diagramm. Zeitvergleiche: frühere Stände in `bisher`, der heutige Stand in `tinte` (Folien 3, 5, 6).
+  · `tinte` (Miete, Ertrag, eigene Reihe, Aussage) · `referenz` 77716B (frei finanziert, Markt, Vergleich) · `bisher` B4B0AB (nur mit
+  Beschriftung) · `bezug` F4F3F2 und `licht` E9E7E4 (helle Flächen, nur in feinen Säulen) · `akzent` (PGN-Rot für die eine Reihe,
+  von der Titel und Hauptzahl sprechen; nur Folie 4) · `A`, `B`, `C` (Gruppentöne) · `signal`. Nie `darlehen` und `tinte` als zwei
+  Reihen im selben Diagramm.
+- **Feine Säulen** (`fein: true`; Folien 3, 5, 6 und 22, nur auf weißem Grund): Der Bezugswert (früherer Stand, Vergleich) steht als
+  helle Fläche `bezug` mit Kontur 0,5 pt in Tinte, die Aussage (heutiger Stand, PGN) in `tinte` mit derselben Kontur. Die Säulen sind
+  schlank, die Lücke ist immer breiter als die Säule (`saeule`: Breite in Zoll); in Paaren trennt eine Fuge von 12 % der Säulenbreite.
+  Kontur und Fuge stehen einmal in `lib/theme.cjs` (`FEIN`). Werte an den Säulen: Montserrat Bold 12 pt im Ton ihrer Säule
+  (`D.ART[art].wert`: Bezugswert in Grau 626160, Aussage in Tinte); Zahlen, die der Titel nennt, stehen nie in Grau. Gestapelt
+  (Folie 5): Bezugswert unten, darüber Grautöne von unten nach oben heller (`referenz`, `bisher`, `licht`). Auf Papierton
+  (Folien 16 und 19) bleibt der Vergleichswert in `referenz`: Dort wäre die helle Fläche nicht vom Grund zu unterscheiden.
+- **Rot im Diagramm:** Auf den Folien 3 bis 6 trägt je Diagramm genau eine Größe Rot, nämlich die, die das Signaturwort des Titels
+  nennt: Folie 3 der Maßkettenwert der Herstellung, Folie 4 die Reihe „10 Jahre“ (Linie, weiche Fläche, Punkt, Linienstücke),
+  Folie 5 die Summe von heute, Folie 6 der Maßkettenwert des Rückgangs. Maßlinien bleiben Anthrazit; rote Flächen gibt es außer der
+  weichen Fläche der Folie 4 nicht; rote Schrift im Diagramm nur in Montserrat Bold ab 12 pt. Auf den Folien 16 bis 23 kein Rot im
+  Diagramm: Dort bedeutet Rot den Zuschuss.
+- **Linienstärken in Diagrammen:** Kontur der feinen Säulen 0,5 pt Tinte · Gitter 0,5 pt CFCCC8 · Grundlinie 0,75 pt Tinte ·
+  Maßlinie 0,75 pt Anthrazit mit Maßstrichen 1,25 pt · Maßhilfslinien, Bezugslinie und Zuleitungen 0,5 pt (Zuleitungen in Referenzgrau 77716B) · Linien im Liniendiagramm
+  2,25 pt, fein 1,5 pt ohne Strichart (Folie 4) · Zeitmarken der Folie 4 0,5 pt gestrichelt in Referenzgrau · Marken über Säulen
+  1 pt gestrichelt in Referenzgrau (Folien 10 und 22).
 - **Flussdiagramm** (`D.fluss`): Farbrollen `tinte`, `referenz`, `hell` (Referenzgrau mit 50 % Transparenz) und `blass` (70 %, mit feiner
   Kontur), festgelegt in `lib/theme.cjs` (`FLUSSART`, auch als `D.FLUSSART`). Auf den Folien 17 und 18: Tilgung `tinte`, Zins `referenz`,
   Verwaltungskostenbeitrag `hell`, Bewirtschaftung `blass`.
@@ -267,6 +286,7 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 | `B.zweizeilig(text, { w, rolle, pt, nach })` | bricht einen Text, der nicht in eine Zeile der Breite `w` passt, an der Wortfuge mit den zwei ausgeglichensten Zeilen („\n“); geschützte Leerzeichen brechen nicht. `nach`: Muster für das Ende der ersten Zeile (`/[,;]$/`: nur hinter Komma oder Semikolon). Passt keine Teilung in zwei Zeilen, bleibt der Text unverändert (Folien 7 und 22) |
 | `B.altText(s, name, text)` | Alternativtext an einer Form: Die Form mit diesem `objectName` bekommt ihn in der Nachbearbeitung und gilt dann nicht als Schmuck (pptxgenjs schreibt Alternativtexte nur für Bilder und Diagramme). Der Name muss auf der Folie eindeutig sein |
 | `B.textAufPlot(s, text, { x, y, w, h, rolle, pt, align, valign, farbe, grund, name })` | einzeiliger Text auf der Plotfläche eines Diagramms (Summe am Balkenende, Wert an einer Säule) mit einer Fläche in der Grundfarbe dahinter, so breit wie die Schrift: Keine Gitterlinie läuft durch die Zahl. `grund`: Farbe der Fläche auf einer hervorgehobenen Spalte (Folien 16, 19, 23) |
+| `B.grundZwischenWerten(s, { x0, x1, y0, y1, h, name })` | Fläche in der Grundfarbe zwischen zwei Werten, die nebeneinander auf fast gleicher Höhe über ihren Säulen stehen (`B.textAufPlot`): Sie deckt die Gitterlinie zwischen den beiden Zahlen, denn ein Stück Linie dort läse sich als Bis-Strich. `x0`, `x1`: Mitten der beiden Texte (am Rand der Plotfläche deren Kante); `y0`, `y1`: Oberkanten der Textfelder (Höhe `h`, Vorgabe 0,22). Vor den beiden Texten anlegen. Liegen die Oberkanten um `h` oder mehr auseinander, entfällt die Fläche (Folien 3 und 6). → `true`, wenn gezeichnet |
 | `B.linie(s, { x, y, w \| h, art, strich })` | `art`: `haar` 0,5 pt · `tinte` 0,75 · `kraeftig` 1 · `modul` 1,5 · `mass` 0,75 Anthrazit · `referenz` · `grau` 1,5 B4B0AB · `signal` · `akzent`. `strich`: `dash`, `sysDash`, `lgDashDot` |
 | `B.kasten(s, { x, y, w, h, art })` | `kasten` (Papier auf Weiß, Weiß auf Papier) · `rahmen` (Linie 0,75 pt) · `hauch`. `h` ist Pflicht. → Innenfläche `{ x, y, w, h }` mit 0,20 Rand |
 | `B.modulkopf(s, { x, y, w, titel, sub, signal, icon, altText, rechts, art, farbe })` | Linie 1,5 pt, Titel bei y + 0,08, Untertitel bei y + 0,34. `signal: true`: Linie und Titel in Dunkelrot (nur mit Wort, zum Beispiel „Förderschädlich“). `icon: 'check'`: Linien-Icon 0,24 vor dem Titel, `altText` dazu (Folie A4). `rechts`: zweite Angabe rechts in der Titelzeile, 12 pt grau (Folie A1); Titel und Angabe müssen nebeneinander passen. `art`: andere Linienart, `farbe`: Titelfarbe. → y für den Inhalt (y + 0,46 oder + 0,70) |
@@ -282,9 +302,9 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 | Funktion | Parameter und Maße |
 |---|---|
 | `B.achskreis(s, { cx, cy, text, groesse, d, pt, variante, gruppe })` | `groesse` S 0,30 / 10 pt · M 0,40 / 12 · L 0,46 / 14 · G 0,90 / 32 (Montserrat Black, Kontur 1,5 pt, Ziffer in Tinte: Agenda) · XL 1,40 / 54 (Ziffer in Rot: Trenner). `variante`: `standard` · `akzent` (roter Ring, für „80“) · `gefuellt` (Rot) · `signal` (Dunkelrot) · `tinte` · `gruppe` (Ton von A, B, C). Achskreise tragen immer Bedeutung; `text` ist Pflicht |
-| `B.masskette(s, { x, y, w, segmente: [{ anteil, text, akzent, ausrichtung }], hilfslinienBis })` | Linie 0,75 pt mit 45°-Strichen, Werte 0,28 darüber. Über einem Diagramm bei `plot.y − 0,12`. `ausrichtung: 'links'` für Texte, die breiter sind als ihr Segment. Die Linie steht 0,07 über |
+| `B.masskette(s, { x, y, w, segmente: [{ anteil, text, akzent, ausrichtung }], hilfslinienBis, grund })` | Linie 0,75 pt mit 45°-Strichen, Werte 0,28 darüber. Über einem Diagramm bei `plot.y − 0,12`. `ausrichtung: 'links'` für Texte, die breiter sind als ihr Segment. `grund: true` legt hinter jeden Wert eine Fläche in der Grundfarbe, so breit wie die Schrift: für eine Maßkette auf der Plotfläche, damit keine Gitterlinie durch die Zahl läuft (Folie 3; die Fläche endet 0,06 über der Maßlinie und deckt die Maßstriche nicht). Die Linie steht 0,07 über |
 | `B.massketteSenkrecht(s, { x, y0, y1, text, seite, name })` | senkrechte Maßkette von `y0` bis `y1` mit 45°-Strichen (Anstieg zwischen zwei Säulen); der Wert steht mittig `links` (Vorgabe) oder `rechts` daneben auf einer Fläche in der Grundfarbe (Folie 5). Die Linie steht 0,07 über |
-| `B.zuleitung(s, { x0, y0, x1, y1, xKnick, name })` | Linie 0,75 pt in B4B0AB von der Kante eines Segments zu seiner Beschriftung; liegen die Enden auf verschiedener Höhe, läuft sie mit einem Knick bei `xKnick` (Vorgabe: Mitte) (Folie 5) |
+| `B.zuleitung(s, { x0, y0, x1, y1, xKnick, name })` | Haarlinie 0,5 pt in Referenzgrau 77716B (hält auch am Beamer) von der Kante eines Segments zu seiner Beschriftung; liegen die Enden auf verschiedener Höhe, läuft sie mit einem Knick bei `xKnick` (Vorgabe: Mitte) (Folie 5) |
 | `B.achse80(s, { x, yOben, yUnten, text })` | rote Strichpunktlinie mit Achskreis „80“ auf der Maßkette |
 | `B.massstab(s, { x, y, w })` | Maßstabsleiste, fünf Felder, 0,05 hoch; bei `plot.y + plot.h + 0,02` |
 | `B.markeMitLuecken(s, { y, x0, x1, luecken: [[von, bis]], text, textX, textBreite, lage, name })` | waagerechte Marke über einem Säulendiagramm: gestrichelte Linie 1 pt in Referenzgrau von `x0` bis `x1`, an den `luecken` unterbrochen (Datenbeschriftungen, Säulen bis an die Linie). Der Text steht auf der Verlängerung rechts der Plotfläche, `lage: 'ueber' \| 'unter'`; Zeilen bricht „\n“, „**fett**“ hebt den Wert hervor (Folie 10). `lage: 'aussen'`: Die Marke liegt nur über einem Teil der Plotfläche, der Text steht einzeilig rechts neben dem Linienende auf der Höhe der Linie (`textX`: Vorgabe `x1` + 0,08; Folie 22) |
@@ -305,7 +325,7 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 | `B.konturstempel(s, { x, y, w, text })` | Fördervermerk, 0,36 hoch, Versalien in Rot |
 | `B.programmChip(s, { x, y, nr })` | 0,42 × 0,24 in der Programmfarbe. → `{ rechts }` |
 | `B.chip(s, { x, y, text })` | Verweis-Chip „Broschüre S. N“, 0,26 hoch, Breite folgt dem Text; sparsam. → `{ rechts }` |
-| `B.legende(s, { x, y, eintraege: [{ text, art, strich }] })` | Farbfeld 0,28 × 0,17 und Text 11 pt; `strich: 'solid' \| 'dash'` zeichnet ein Linienmuster. `art` wie die Reihenarten. → `{ rechts }` |
+| `B.legende(s, { x, y, eintraege: [{ text, art, strich }], fein })` | Farbfeld 0,28 × 0,17 und Text 11 pt; `strich: 'solid' \| 'dash'` zeichnet ein Linienmuster. `art` wie die Reihenarten. `fein: true` gibt den Feldern die Kontur der feinen Säulen (Pflicht für `bezug` und `licht`; Folien 3 und 22). → `{ rechts }` (der nächste Eintrag beginnt bei `rechts` + 0,20) |
 
 ### Kennzahlen und Vergleich
 
@@ -389,6 +409,17 @@ Reihen gilt: Kategorienbreite = Reihen × Säulenbreite + Lücke. `saeulenBreite
 einer einzelnen Säule oder eines einzelnen Balkens; `reiheMitte(i, j)` und `reiheLinks(i, j)` geben die Lage der Reihe j in der
 Kategorie i.
 
+Säulen (`stapelSaeulen`, `gruppierteSaeulen`, `saeulen`) nehmen dazu:
+
+- `saeule: 0.56` statt `luecke`: Breite einer einzelnen Säule in Zoll; die Lücke folgt daraus (0 bis 500 %, sonst Abbruch).
+- `fein: true`: feine Zeichnung (Abschnitt 3, Farben). Kontur 0,5 pt in Tinte um jede Säule und jedes Segment statt der Fuge in der
+  Grundfarbe; zwischen gruppierten Säulen eine Fuge von 12 % der Säulenbreite (`c:overlap`), die `reiheMitte` und `reiheLinks`
+  mitrechnen. Nur auf weißem Grund; die Reihenarten `bezug` und `licht` gibt es nur so. Bei `D.saeulen` mit `arten` trägt die
+  Nachbearbeitung die Kontur an jedem Datenpunkt nach (Folie 6): Die Farbe je Datenpunkt überschreibt sonst die Linie der Reihe.
+  Gestapelt stehen Segmente mit dem Wert 0 ohne Linie (Folie 5: die drei Ursachen bei „Q1 2020“): Ihre Kontur läge sonst als
+  zweite Linie auf der Kante des Segments darunter.
+- `gitter: false`: ohne Größenachse und ohne Gitter. Dann steht jeder Wert als Text am Diagramm; `achse` bleibt der Maßstab (Folie 5).
+
 Jede Funktion gibt die Lage zurück: `plot: { x, y, w, h }` in Zoll, dazu `xWert(v)` oder `yWert(v)` und `katMitte(i)`.
 `katMitte` nimmt auch gebrochene Indizes (Lage zwischen zwei Kategorien, etwa 1,22 % zwischen 1,0 und 1,5 %).
 Planzeichen und Werte am Balkenende setzt man damit als Formen passgenau darüber.
@@ -396,24 +427,26 @@ Planzeichen und Werte am Balkenende setzt man damit als Formen passgenau darübe
 | Funktion | Parameter | Rückgabe |
 |---|---|---|
 | `D.stapelBalken(s, { kategorien, reihen: [{ name, werte, art }], achse, labelFormat, katAchse, katBreite, luecke })` | waagerecht gestapelt. `katAchse: false` (Vorgabe): Kategorien als Formen davor, etwa Achskreise bei `plot.x − 0,36`; `true`: Text links, `katBreite` Zoll | `xWert`, `katMitte(i)` (y), `balkenHoehe`, `ohneLabel` |
-| `D.stapelSaeulen(s, { kategorien, reihen, achse, katAchse })` | senkrecht gestapelt. `katAchse`: `'text'` · `'gruppe'` (A, B, C in ExtraBold 14) · `false` (Achse als Linie ohne Beschriftung; Achskreise als Formen bei `plot.y + plot.h + 0,28` oder Texte über `B.kategorien`) | `yWert`, `katMitte(i)` (x), `saeulenBreite`, `ohneLabel` |
-| `D.gruppierteSaeulen(s, { … })` · `D.gruppierteBalken(s, { … })` | Reihen nebeneinander, Werte am Ende in Tinte. Balken mit `katAchse: true` als Vorgabe | wie oben, dazu `reiheMitte(i, j)`, Säulen auch `reiheLinks(i, j)` |
-| `D.saeulen(s, { kategorien, werte, art, arten, achse })` | eine Reihe, auch unter null; die Nulllinie ist die kräftige Achse. `arten: ['bisher', …, 'tinte']` gibt jeder Säule ihre eigene Farbe (je Kategorie eine Reihenart; Folie 6: frühere Jahre grau, das letzte in Tinte) | `yWert`, `katMitte`, `saeulenBreite` |
+| `D.stapelSaeulen(s, { kategorien, reihen, achse, katAchse, saeule, fein, gitter })` | senkrecht gestapelt. `katAchse`: `'text'` · `'gruppe'` (A, B, C in ExtraBold 14) · `false` (Achse als Linie ohne Beschriftung; Achskreise als Formen bei `plot.y + plot.h + 0,28` oder Texte über `B.kategorien`) | `yWert`, `katMitte(i)` (x), `saeulenBreite`, `ohneLabel` |
+| `D.gruppierteSaeulen(s, { … })` · `D.gruppierteBalken(s, { … })` | Reihen nebeneinander, Werte am Ende in Tinte. Balken mit `katAchse: true` als Vorgabe. Feine Säulenpaare: `fein: true`, `saeule`, `labels: false` und die Werte als `B.textAufPlot` im Ton der Säule (Folien 3 und 22) | wie oben, dazu `reiheMitte(i, j)`, Säulen auch `reiheLinks(i, j)` |
+| `D.saeulen(s, { kategorien, werte, art, arten, achse, fein })` | eine Reihe, auch unter null; die Nulllinie ist die kräftige Achse. `arten: ['bezug', …, 'tinte']` gibt jeder Säule ihre eigene Farbe (je Kategorie eine Reihenart; Folie 6 mit `fein: true`: frühere Jahre als helle Fläche, das letzte in Tinte) | `yWert`, `katMitte`, `saeulenBreite` |
 | `D.balkenpaar(s, { kategorien, werte, arten: ['tinte', 'referenz'], achse, katBreite })` | eine Reihe mit fester Farbe je Balken (gefördert, frei finanziert), ohne Beschriftung; Werte als `B.text` mit `rolle: 'kernwert'` | `xWert`, `katMitte`, `balkenHoehe` |
-| `D.linien(s, { kategorien, reihen: [{ name, werte, art, strich }], achse, katLabels })` | 2,25 pt ohne Marker. `strich`: `solid`, `dash`, `sysDash` … (je Reihe; zwei Reihen mit gleicher Farbe und Strichart meldet die Prüfung). Liegt null im Achsbereich, steht dort die kräftige Achse; Kategorien stehen unten. `katLabels` siehe unten | `yWert`, `katMitte`, `katBreite` |
+| `D.linien(s, { kategorien, reihen: [{ name, werte, art, strich }], achse, katLabels, staerke, flaeche })` | 2,25 pt ohne Marker (`staerke`: andere Linienstärke in pt für alle Reihen; fein 1,5). `flaeche: { reihe, name, deckung }`: weiche Fläche unter der genannten Reihe, als eigene Reihe `name` in einem Flächendiagramm auf denselben Achsen und Zellen; Verlauf von der Farbe der Reihe an der Oberkante zur Grundfarbe an der Achse mit `deckung` Prozent Deckung (Vorgabe 26), ohne Kontur. Die Nachbearbeitung legt sie an (Folie 4). `strich`: `solid`, `dash`, `sysDash` … (je Reihe; zwei Reihen mit gleicher Farbe und Strichart meldet die Prüfung). Liegt null im Achsbereich, steht dort die kräftige Achse; Kategorien stehen unten. `katLabels` siehe unten | `yWert`, `katMitte`, `katBreite` |
 | `D.ring(s, { x, y, w, h, segmente: [{ name, wert, art }], loch, reihenname })` | Ring ab 12 Uhr im Uhrzeigersinn, ohne Beschriftung. `reihenname`: Name der Reihe im Datenblatt (was die Werte zählen, etwa „Einheits- und Samtgemeinden“; Vorgabe „Anteil“) | `cx`, `cy`, `radius`, `winkel(i)`, `punkt(i, r)` |
 
 **Beschriftung der Kategorien bei `D.linien`:**
 
-- `katLabels: { jede: n }` beschriftet die 1., n + 1., 2n + 1. … Kategorie. Das steht fest in der Datei und gilt in
-  PowerPoint und LibreOffice. **Für lange Reihen der einzige Weg:** Die Kategorien so benennen, dass jede n-te die
-  Beschriftung trägt (Monatsreihe: Januar heißt „2016“, `jede: 12`; Muster 32 mit 127 Monaten).
+- `katLabels: { jede: n }` beschriftet die 1., n + 1., 2n + 1. … Kategorie. Das steht fest in der Datei
+  (`c:tickLblSkip`). Die Kategorien so benennen, dass jede n-te die Beschriftung trägt (Monatsreihe: Januar heißt „2016“, `jede: 12`;
+  Muster 32 mit 127 Monaten). **LibreOffice beschriftet dichter, sobald die Beschriftungen schon bei kleinerem Abstand
+  nebeneinander passen:** Bei 127 Monaten steht bei 7,4 Zoll Plotbreite jeder elfte Punkt unter der Achse („12/2016“, „11/2017“ …),
+  bei 6,2 Zoll jeder zwölfte. Für lange Reihen deshalb `formen` nehmen (Folie 4).
 - `katLabels: { nur: [1, 5, 10, …] }` beschriftet nur diese Kategorien und lässt die übrigen leer. Das trägt bis
   40 Kategorien (Muster 26 mit 35 Jahren). Darüber dünnen die Programme die Achse selbst aus; der Build bricht dann ab.
   Liegen die genannten Kategorien gleichmäßig ab der ersten, schreibt die Bibliothek von selbst den festen Abstand.
   In den Diagrammdaten heißen die übrigen Kategorien dann „ “ (Leerzeichen).
 - `katLabels: { formen: [1, 5, 10, …] }` lässt die Achse ohne Beschriftung und gibt die genannten Kategorien in `katTexte`
-  zurück; `B.achstexte(s, d)` setzt sie als Textfelder unter die Achse (Folie 21). Die Diagrammdaten behalten ihre echten
+  zurück; `B.achstexte(s, d)` setzt sie als Textfelder unter die Achse (Folien 4 und 21). Die Diagrammdaten behalten ihre echten
   Kategorien, und kein Programm dreht, bricht oder dünnt die Beschriftung aus. Nicht an der Achse festlegen lässt sich die
   Drehung: Eine feste Drehung 0 im Diagramm lässt LibreOffice alle Beschriftungen übereinander zeichnen.
 
@@ -461,10 +494,13 @@ Rot) · `bg-*.png` (Hintergründe der Layouts). Keine Bilder von anderswo, kein 
 
 ## 8 · Vorlagen: die Folien selbst (`folien/`) und die Musterfolien (`probe/`)
 
-Die 33 Folienmodule sind die besten Beispiele. Zum Nachschlagen: Diagramm mit Hauptzahl und zweiter Kennzahl `einstieg-baukosten`,
-`ausgangslage-zinsen`, `einstieg-bestand` · gestapelte Säulen mit senkrechter Maßkette, Zuleitungen und Tabelle `einstieg-kapitaldienst` ·
+Die 36 Folienmodule sind die besten Beispiele. Zum Nachschlagen: Diagramm mit Hauptzahl und zweiter Kennzahl `einstieg-baukosten`,
+`ausgangslage-zinsen`, `einstieg-bestand` · feine Säulenpaare mit Maßkette je Paar `einstieg-baukosten` · feine Linien mit weicher
+Fläche, Legende mit Werten und Werteblöcken an den Marken `ausgangslage-zinsen` · schmale gestapelte Säulen mit feiner Kontur, ohne
+Achse und Gitter, mit senkrechter Maßkette, Zuleitungen und Tabelle `einstieg-kapitaldienst` · feine Säulen mit eigener Farbe je
+Säule und Maßkette über die ganze Reihe `einstieg-bestand` ·
 Achse mit großen Achskreisen und Register der Programmteile `agenda` · Flussdiagramm `rechnung-fluss-gefoerdert`, `rechnung-fluss-frei` ·
-Säulenpaare mit Marke über einem Teil der Plotfläche `pgn-baukosten` · Vergleich `neu-seit-juli` · Säulen mit Marken `hoechstmiete` ·
+feine Säulenpaare mit Maßzeichen der Spanne und Marke über einem Teil der Plotfläche `pgn-baukosten` · Vergleich `neu-seit-juli` · Säulen mit Marken `hoechstmiete` ·
 Fördermix `foerdermix` · Zeitstrahl `eckdaten-zeitstrahl` · Balken mit Segmenttext und Rechenblatt `rechnung-finanzierung` ·
 Rechenblatt `rechnung-jahr1` · Summen am Balken `rechnung-kapitaldienst` · Balkenpaar und Vergleichstabelle `rechnung-miete` ·
 Linien mit Marken und Werten `rechnung-tilgung`, `rechnung-verlauf` · Säulen über einer Tabelle `rechnung-kosten` · Ablauf
@@ -518,12 +554,15 @@ Fehler brechen den Bau ab und nennen Folie und Form; Hinweise stehen in der Ausg
 | Text | kein „undefined“ und kein „NaN“ auf der Folie |
 | Platzhalter | nur Platzhalter, die das Layout hat |
 | pptxgenjs | jede Warnung von pptxgenjs gilt als Fehler |
-| Nachbearbeitung | ungültige Farben und Stricharten, Werkzeugnamen in der Datei; Reihen, deren Strichart oder Beschriftungsfarbe nicht ankam; Schriften außerhalb des Planwerks in Folien, Layouts, Master und Diagrammen; doppelte Form-IDs; Layouts und Platzhalter ohne Beschreibung; Tabellen, die der Bau nicht gemeldet hat |
+| Nachbearbeitung | ungültige Farben und Stricharten, Werkzeugnamen in der Datei; Reihen, deren Strichart, Beschriftungsfarbe oder Kontur je Datenpunkt nicht ankam; eine Fläche unter einer Linie, die sich nicht anlegen ließ; Schriften außerhalb des Planwerks in Folien, Layouts, Master und Diagrammen; doppelte Form-IDs; Layouts und Platzhalter ohne Beschreibung; Tabellen, die der Bau nicht gemeldet hat |
 
 Die Nachbearbeitung (`lib/nachbearbeitung.cjs`, Schritte im Kopf der Datei) richtet, was pptxgenjs nicht oder nicht schema-gerecht
 schreibt: Form-IDs je Folie fortlaufend (Tabellen bekämen sonst die ID einer anderen Form); Platzhalter der Layouts mit
 Innenabstand, Anker, festen Nummern und lesbaren Layoutnamen; Diagramme nach Schema (`grouping` im Liniendiagramm, Reihenfolge von
-`marker`, `dPt`, `dLbls` und `tickLblSkip`, keine dritte Achsen-ID); eingebettete Arbeitsmappen mit 0 statt leerer Zelle und
+`marker`, `dPt`, `dLbls` und `tickLblSkip`, keine dritte Achsen-ID); die Fläche unter einer Linie (`D.linien` mit `flaeche`: Flächenreihe mit
+Verlauf, beide Enden mit derselben Deckung, weil LibreOffice einen Verlauf mit zwei Deckungen in ein Rasterbild umrechnet); die Kontur je
+Datenpunkt feiner Säulen mit eigener Farbe je Säule (`D.saeulen` mit `arten` und `fein`: Die Linie der Reihe steht an jedem `c:dPt`;
+bleibt einer ohne, bricht der Bau ab); Segmente ohne Höhe in feinen gestapelten Säulen ohne Füllung und ohne Linie; eingebettete Arbeitsmappen mit 0 statt leerer Zelle und
 richtigem Tabellenbereich; Alternativtexte an Formen (`B.altText`, `D.fluss`: genau eine Form je Name, sonst Abbruch); Formen ohne Text
 und ohne Alternativtext als dekorativ; Tabellen mit Kennung der Kopfzeile oder
 Kopfspalte (die Bausteine melden sie über `kx.tabelle`) und der Formatvorlage „keine“; Notizen mit einem Absatz je Zeile;
@@ -565,4 +604,10 @@ verbotene Wörter, Gedankenstriche und jede Zahl gegen `daten/werte.json`, die D
     deshalb einen eigenen Namen („Ziel Tilgung“, „Register 2.2 Name“, „Notiz zum Diagramm“).
 13. **Zahlen der neuen Folien binden:** Eine Zahl, die das Modul rechnet (Anteil, Veränderung, Kapitaldienst je m²), braucht ihre Formel
     in `daten/pruefung.json` und, wenn sie eine Aussage trägt, einen Eintrag in `KERNWERTE`, `KERNWERTE_MARKT` oder `KERNSAETZE`
-    am Anfang von `pruefe_folien.py`; sonst belegt sie womöglich nur ein zufällig gleicher Wert aus `werte.json`.
+    am Anfang von `pruefe_folien.py`; sonst belegt sie womöglich nur ein zufällig gleicher Wert aus `werte.json`. Diese drei Listen
+    fragen nur, ob der Wert auf der Folie steht. Steht er dort mehrfach oder als Textfeld neben einer Bezeichnung in einem anderen
+    Textfeld (Werte über Säulen, Legende und Werteblöcke der Folie 4, Maßkettenwerte, Tabellenzellen), gehört er zusätzlich in
+    `KERNWERTE_FORM`: Die Form mit diesem Namen oder die Tabellenzelle (Zeile, Spalte) trägt genau diesen Text. Deshalb bekommt jeder
+    Wert am Diagramm einen sprechenden Namen („Wert Herstellung PGN“, „Marke 1 Wert 10 Jahre“). Zeitreihen in Diagrammen stehen als
+    Ganzes in `REIHEN_DIAGRAMM` (jeder Wert an seiner Stelle gleich der Datendatei), einzelne Stützpunkte in `KERNWERTE_DIAGRAMM`;
+    ein Nullwert heißt dort „0 * 1“, weil eine bloße „0“ als Schlüssel der Rechenmappe gelesen würde.

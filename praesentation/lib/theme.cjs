@@ -46,6 +46,10 @@ const FLUSSART = {
   blass: { farbe: C.referenz, transparenz: 70, kontur: { farbe: C.referenz, transparenz: 45, pt: 0.5 }, linie: { farbe: C.referenz, transparenz: 25 }, knoten: { farbe: C.referenz, transparenz: 25 } },
 };
 
+// Feine Säulen (Folien 3, 5, 6 und 22, nur auf weißem Grund): Kontur um jede Säule und jedes Segment wie eine Ansichtslinie im Plan; zwischen
+// den Säulen eines Paars eine Fuge in Prozent der Säulenbreite. Einzige Stelle für beide Maße: D.*Saeulen mit fein: true und B.legende mit fein: true
+const FEIN = { kontur: { pt: 0.5, farbe: HEX.tinte }, fuge: 12 };
+
 const PROGRAMMTEILE = ['2.1', '2.2', '2.3', '2.4', '2.5', '2.6'];
 
 // Schriftfamilien, wie PowerPoint sie führt. „fett“ (bold: true) nur zu F.mont und F.text.
@@ -158,4 +162,4 @@ function versal(s) {
 const PROJEKT = 'Mietwohnraumförderung Niedersachsen 2026';
 const FIRMA = 'Planungsgemeinschaft Nord GmbH';
 
-module.exports = { THEME, C, HEX, F, Raster, GRUND, SKALA, MIN, ROLLENMIN, PROGRAMMTEILE, FLUSSART, versal, PROJEKT, FIRMA, W, H, X0, X1, CW, colX, span, Y, ZONE };
+module.exports = { THEME, C, HEX, F, Raster, GRUND, SKALA, MIN, ROLLENMIN, PROGRAMMTEILE, FLUSSART, FEIN, versal, PROJEKT, FIRMA, W, H, X0, X1, CW, colX, span, Y, ZONE };

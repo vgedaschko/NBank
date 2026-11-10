@@ -1,7 +1,8 @@
 // Nachbearbeitung der fertigen .pptx (mit jszip aus pptxgenjs, ohne fremde Skripte):
 //  1 Theme: Name und die zwölf Theme-Farben (pptxgenjs schreibt nur die Schriften)
 //  2 Schraffur: Flächen in der Merkfarbe DCD8D2 werden zum nativen Füllmuster (Formen, Layouts, Diagrammreihen)
-//  3 Diagramme: Strichart je Reihe, Farbe der Datenbeschriftung je Reihe
+//  3 Diagramme: Strichart je Reihe, Farbe der Datenbeschriftung je Reihe, weiche Fläche unter einer Linie (Flächenreihe mit Verlauf),
+//    Kontur je Datenpunkt bei feinen Säulen mit eigener Farbe je Säule, keine Linie an Segmenten ohne Höhe in feinen gestapelten Säulen
 //  4 Aufzählung: eckiger Marker in Rot, 80 % der Schriftgröße, in der Textschrift; Titel-Platzhalter mit idx 0
 //  5 leere Platzhalter, die eine Folie nicht füllt, entfernen (sonst liegen in PowerPoint Eingabefelder über dem Inhalt)
 //  6 Metadaten: Sprache Deutsch, kein Werkzeugname in der Mappe und in den eingebetteten Arbeitsmappen der Diagramme
@@ -47,7 +48,8 @@ function themeXml(xml, theme) {
   return out;
 }
 
-// o: { theme: { name, colors }, firma, schraffur: { merkfarbe, bg, fg, muster }, diagramme: { 'chart3.xml': { striche: { Reihe: 'dash' }, labelFarben: { Reihe: '202020' } } },
+// o: { theme: { name, colors }, firma, schraffur: { merkfarbe, bg, fg, muster }, diagramme: { 'chart3.xml': { striche: { Reihe: 'dash' }, labelFarben: { Reihe: '202020' },
+//      flaeche: { reihe, name, farbe, deckung, grund }, punktKontur: true, ohneHoehe: { Reihe: [0] } } },
 //      leerePlatzhalter: { 'slide3.xml': [104, 107] }, markerFarbe,
 //      layouts: { PGN_INHALT: { anzeige: 'Inhalt', platzhalter: { 101: { name: 'kicker', anker: 'middle', idx: 10 }, title: { name: 'title', anker: 'top' } } } },
 //      tabellen: { 'slide4.xml': [{ kopfzeile: false, kopfspalte: true }] } (in der Reihenfolge, in der die Folie sie anlegt),
@@ -56,7 +58,7 @@ function themeXml(xml, theme) {
 async function nachbearbeiten(datei, o) {
   const zip = await JSZip.loadAsync(fs.readFileSync(datei));
   const stat = { theme: 0, formen: 0, reihen: 0, labels: 0, striche: 0, marker: 0, platzhalter: 0, arbeitsmappen: 0, ausgeblendet: 0, absaetze: 0, absatzAbweichend: [], masterAbstand: 0,
-    dekorativ: 0, altTexte: 0, tabellen: 0, layoutPlatzhalter: 0, idx: 0, diagrammSchema: 0, nullen: 0, notizAbsaetze: 0, inhaltstypen: 0 };
+    dekorativ: 0, altTexte: 0, tabellen: 0, layoutPlatzhalter: 0, idx: 0, diagrammSchema: 0, nullen: 0, notizAbsaetze: 0, inhaltstypen: 0, flaechen: 0, punktKonturen: 0, ohneHoehe: 0 };
   const datum = o.datum || '2026-01-01T00:00:00Z', zipDatum = new Date(datum);
   if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(datum) || isNaN(zipDatum)) throw new Error(`Nachbearbeitung: datum „${datum}“ ist kein Zeitpunkt der Form 2026-09-30T00:00:00Z.`);
   const layoutVon = {};      // 'ppt/slideLayouts/slideLayout5.xml' → Beschreibung des Layouts aus o.layouts
@@ -194,6 +196,31 @@ async function nachbearbeiten(datei, o) {
           if (ok) stat.labels++;
           delete rest.labelFarben[nm];      // ohne Datenbeschriftung gibt es nichts zu färben
         }
+        // 3e Kontur je Datenpunkt: Trägt jede Säule ihre eigene Farbe (c:dPt), überschreibt die Formatierung des Datenpunkts die Linie der Reihe,
+        //    und eine helle Säule stünde ohne Kontur auf Weiß. Die Linie der Reihe (a:ln) steht deshalb an jedem Datenpunkt noch einmal:
+        //    nach der Füllung und vor a:effectLst (Reihenfolge nach CT_ShapeProperties)
+        if (anw.punktKontur) {
+          const ln = ((ser.match(/<c:spPr>[\s\S]*?<\/c:spPr>/) || [''])[0].match(/<a:ln\b[\s\S]*?<\/a:ln>/) || [])[0];
+          if (!ln || /<a:noFill\/>/.test(ln)) throw new Error(`${name}: Reihe „${nm}“ trägt keine Linie; die Kontur je Datenpunkt lässt sich nicht setzen.`);
+          ser = ser.replace(/<c:dPt>[\s\S]*?<\/c:dPt>/g, dpt => dpt.replace(/<c:spPr>([\s\S]*?)<\/c:spPr>/, (m, inner) => {
+            if (/<a:ln\b/.test(inner)) return m;
+            stat.punktKonturen++;
+            return '<c:spPr>' + (/<a:effectLst/.test(inner) ? inner.replace(/<a:effectLst/, () => ln + '<a:effectLst') : inner + ln) + '</c:spPr>';
+          }));
+          const punkte = [...ser.matchAll(/<c:dPt>[\s\S]*?<\/c:dPt>/g)], ohne = punkte.filter(d => !/<a:ln\b/.test(d[0])).length;
+          if (!punkte.length || ohne) throw new Error(`${name}: Reihe „${nm}“: ${punkte.length ? ohne + ' Datenpunkte ohne Kontur' : 'keine Datenpunkte mit eigener Farbe'}; die hellen Säulen stünden ohne Kontur auf Weiß.`);
+          rest.punktKontur = false;
+        }
+        // 3f Segmente ohne Höhe in feinen gestapelten Säulen: Ein Datenpunkt mit dem Wert 0 trüge die Kontur der Reihe als Linie auf der Kante
+        //    des Segments darunter. Er steht deshalb als eigener Datenpunkt ohne Füllung und ohne Linie, gleich hinter c:invertIfNegative
+        //    der Reihe und damit vor c:dLbls (Reihenfolge nach CT_BarSer; Inhalt nach CT_DPt)
+        if (anw.ohneHoehe && anw.ohneHoehe[nm]) {
+          if (/<c:dPt>/.test(ser)) throw new Error(`${name}: Reihe „${nm}“ führt schon eigene Datenpunkte; die Segmente ohne Höhe lassen sich nicht getrennt setzen.`);
+          const punkte = anw.ohneHoehe[nm].map(i => `<c:dPt><c:idx val="${i}"/><c:invertIfNegative val="0"/><c:bubble3D val="0"/><c:spPr><a:noFill/><a:ln><a:noFill/></a:ln></c:spPr></c:dPt>`).join('');
+          let ok = false;
+          ser = ser.replace(/<c:invertIfNegative val="0"\/>/, m => (ok = true, m + punkte));
+          if (ok) { stat.ohneHoehe += anw.ohneHoehe[nm].length; delete rest.ohneHoehe[nm]; }
+        }
         return ser;
       });
       // pptxgenjs schreibt valAxisCrossesAt: 0 als <c:crossesAt val="autoZero"/>; das Wort gehört in <c:crosses>
@@ -220,6 +247,27 @@ async function nachbearbeiten(datei, o) {
       xml = xml.replace(/(<c:axId val="\d+"\/>\s*<c:axId val="\d+"\/>)\s*<c:axId val="\d+"\/>(?=\s*<\/c:(?:bar|line)Chart>)/g, (m, zwei) => (stat.diagrammSchema++, zwei));
       //    d <c:tickLblSkip> steht vor <c:noMultiLvlLbl> (an dieser Angabe hängt die Beschriftung jeder n-ten Kategorie)
       xml = xml.replace(/(\s*<c:noMultiLvlLbl val="\d"\/>)(\s*<c:tickLblSkip val="\d+"\/>)/g, (m, a, b) => (stat.diagrammSchema++, b + a));
+      // 3d Fläche unter einer Linie: eigene Reihe in einem Flächendiagramm vor dem Liniendiagramm, auf denselben Achsen und denselben Zellen wie die
+      //    Linie (wer die Daten in PowerPoint ändert, ändert Linie und Fläche zugleich). Füllung: Verlauf von der Farbe der Reihe an der Oberkante zur
+      //    Grundfarbe an der Achse, ohne Kontur. Beide Enden tragen dieselbe Deckung: So scheinen die Gitterlinien durch, und die Fläche bleibt eine
+      //    Vektorform. Einen Verlauf mit zwei verschiedenen Deckungen rechnet LibreOffice in ein Rasterbild um (im PDF mit einer hellen Naht).
+      //    Reihenfolge der Elemente nach dml-chart.xsd (CT_AreaChart, CT_AreaSer)
+      if (anw.flaeche) {
+        const fl = anw.flaeche, lin = (xml.match(/<c:lineChart>[\s\S]*?<\/c:lineChart>/) || [])[0] || '';
+        const ser = [...lin.matchAll(/<c:ser>[\s\S]*?<\/c:ser>/g)].map(m => m[0]).find(s => entXml((s.match(/<c:tx>[\s\S]*?<c:v>([^<]*)<\/c:v>/) || [])[1] || '') === fl.reihe);
+        const kat = ser && ser.match(/<c:cat>[\s\S]*?<\/c:cat>/), werte = ser && ser.match(/<c:val>[\s\S]*?<\/c:val>/), achsen = [...lin.matchAll(/<c:axId val="\d+"\/>/g)].map(m => m[0]);
+        if (!kat || !werte || achsen.length !== 2) throw new Error(`${name}: Fläche unter der Reihe „${fl.reihe}“ nicht angelegt (Reihe, Kategorien, Werte oder die zwei Achsen des Liniendiagramms fehlen).`);
+        if (typeof fl.deckung !== 'number' || fl.deckung <= 0 || fl.deckung > 100) throw new Error(`${name}: Fläche unter der Reihe „${fl.reihe}“: Deckung „${fl.deckung}“ ist kein Prozentwert über 0 bis 100.`);
+        if (!/^[0-9A-Fa-f]{6}$/.test(String(fl.grund))) throw new Error(`${name}: Fläche unter der Reihe „${fl.reihe}“: Grundfarbe „${fl.grund}“ ist kein Hex-Wert.`);
+        const hex = /^[0-9A-Fa-f]{6}$/.test(fl.farbe), alpha = `<a:alpha val="${Math.round(fl.deckung * 1000)}"/>`;
+        const oben = hex ? `<a:srgbClr val="${fl.farbe.toUpperCase()}">${alpha}</a:srgbClr>` : `<a:schemeClr val="${fl.farbe}">${alpha}</a:schemeClr>`, unten = `<a:srgbClr val="${fl.grund.toUpperCase()}">${alpha}</a:srgbClr>`;
+        const nr = (xml.match(/<c:ser>/g) || []).length;
+        const reihe = `<c:ser><c:idx val="${nr}"/><c:order val="${nr}"/><c:tx><c:v>${xmlAttr(fl.name)}</c:v></c:tx>` +
+          `<c:spPr><a:gradFill rotWithShape="1"><a:gsLst><a:gs pos="0">${oben}</a:gs><a:gs pos="100000">${unten}</a:gs></a:gsLst><a:lin ang="5400000" scaled="0"/></a:gradFill><a:ln><a:noFill/></a:ln></c:spPr>` +
+          `${kat[0]}${werte[0]}</c:ser>`;
+        xml = xml.replace('<c:lineChart>', () => `<c:areaChart><c:grouping val="standard"/><c:varyColors val="0"/>${reihe}${achsen.join('')}</c:areaChart><c:lineChart>`);
+        stat.flaechen++;
+      }
       // Nullwerte: Der Zwischenspeicher führt 0, die Arbeitsmappe eine leere Zelle (pptxgenjs schreibt 0 nicht). Zellen merken, Schritt 13 unten füllt sie
       const mappe = await mappeVon(name);
       if (mappe) for (const ser of xml.matchAll(/<c:ser>[\s\S]*?<\/c:ser>/g)) {
@@ -287,7 +335,8 @@ async function nachbearbeiten(datei, o) {
       if (doppelt.length) throw new Error(`${name}: Form-ID ${doppelt.join(', ')} ist doppelt vergeben. IDs müssen je Folie eindeutig sein.`);
     }
   }
-  const reste = Object.entries(offen).flatMap(([d, a]) => [...Object.keys(a.striche || {}).map(r => `${d}: Strichart für Reihe „${r}“`), ...Object.keys(a.labelFarben || {}).map(r => `${d}: Beschriftungsfarbe für Reihe „${r}“`)]);
+  const reste = Object.entries(offen).flatMap(([d, a]) => [...Object.keys(a.striche || {}).map(r => `${d}: Strichart für Reihe „${r}“`), ...Object.keys(a.labelFarben || {}).map(r => `${d}: Beschriftungsfarbe für Reihe „${r}“`),
+    ...(a.punktKontur ? [`${d}: Kontur je Datenpunkt`] : []), ...Object.keys(a.ohneHoehe || {}).map(r => `${d}: Segmente ohne Höhe der Reihe „${r}“`)]);
   if (reste.length) throw new Error('Nachbearbeitung: nicht angewendet (Reihe nicht gefunden): ' + reste.join('; '));
 
   // 12 idx der Platzhalter: je Platzhaltername eine feste Nummer, gleich in allen Layouts (pptxgenjs zählt die Objekte eines Layouts durch;

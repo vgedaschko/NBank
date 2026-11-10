@@ -3,7 +3,7 @@
 // Teil 2 (bausteine): Funktionen B.* für die Inhaltszone einer Folie. Jede Form trägt einen objectName.
 // Maße in Zoll, Schrift in Punkt. Farben kommen aus dem Farbsatz des Grundes (hell, papier, rot, anthrazit).
 'use strict';
-const { C, HEX, F, GRUND, SKALA, ROLLENMIN, PROGRAMMTEILE, versal, PROJEKT, W, H, X0, X1, CW, colX, span, Y, ZONE } = require('./theme.cjs');
+const { C, HEX, F, GRUND, SKALA, ROLLENMIN, PROGRAMMTEILE, FEIN, versal, PROJEKT, W, H, X0, X1, CW, colX, span, Y, ZONE } = require('./theme.cjs');
 const { breite, zeilenzahl, zeilenhoehe } = require('./passpruefung.cjs');
 const { asset } = require('./assets.cjs');
 const { NBSP } = require('./daten.cjs');
@@ -228,6 +228,18 @@ function bausteine(pres, kx) {
     B.kasten(s, { x, y: o.y, w: b + 2 * rand, h: o.h, farbe: o.grund || (kx.grund === 'papier' ? C.papier : cs.grund), name: 'Grund hinter ' + name });
     return B.text(s, text, { ...o, name, einzeilig: true });
   };
+  // Fläche in der Grundfarbe zwischen zwei Werten, die nebeneinander auf fast gleicher Höhe über ihren Säulen stehen (B.textAufPlot): Sie deckt
+  // die Gitterlinie zwischen den beiden Zahlen. Ein Stück Linie dort läse sich als Bis-Strich („726–761“). Vor den beiden Texten anlegen.
+  // o: { x0, x1 (Mitten der beiden Texte; am Rand der Plotfläche deren Kante), y0, y1 (Oberkanten der beiden Textfelder), h: 0.22 (Höhe der
+  //      Textfelder), name }. Liegen die Oberkanten um die Höhe der Felder oder mehr auseinander, entfällt die Fläche. Sie endet 0,02 Zoll über
+  // der höheren Säule (die Werte stehen 0,04 über ihrer Säule). Rückgabe: true, wenn die Fläche gezeichnet ist
+  B.grundZwischenWerten = (s, o) => {
+    brauche('B.grundZwischenWerten', o, ['x0', 'x1', 'y0', 'y1']);
+    const h = o.h || 0.22, dy = Math.abs(o.y0 - o.y1);
+    if (dy >= h || o.x1 <= o.x0) return false;
+    B.kasten(s, { x: o.x0, y: Math.min(o.y0, o.y1), w: o.x1 - o.x0, h: Math.min(h + dy, h + 0.02), farbe: kx.grund === 'papier' ? C.papier : cs.grund, name: o.name || 'Grund zwischen den Werten' });
+    return true;
+  };
 
   // Linie. art: haar | tinte | kraeftig | modul | mass | referenz | grau | signal | akzent. Waagerecht mit w, senkrecht mit h.
   const LINIEN = { haar: [cs.haar, 0.5], tinte: [cs.linie, 0.75], kraeftig: [cs.linie, 1], modul: [cs.linie, 1.5], mass: [cs.mass, 0.75], referenz: [C.referenz, 0.75], grau: [HEX.grau300, 1.5], signal: [C.dunkelrot, 1], akzent: [C.rot, 1] };
@@ -371,8 +383,9 @@ function bausteine(pres, kx) {
   };
 
   // ---- 4.6 Maßkette --------------------------------------------------------------------------------------------
-  // o: { x, y, w, segmente: [{ anteil, text, akzent, ausrichtung: 'links' }], hilfslinienBis: y, farbe }. Anteile in beliebiger Einheit, die Summe ist die Länge.
+  // o: { x, y, w, segmente: [{ anteil, text, akzent, ausrichtung: 'links' }], hilfslinienBis: y, farbe, grund }. Anteile in beliebiger Einheit, die Summe ist die Länge.
   // Der Wert steht mittig über dem Segment; mit ausrichtung „links“ beginnt er am Segmentanfang (für Texte, die breiter sind als das Segment).
+  // grund: true legt hinter jeden Wert eine Fläche in der Grundfarbe (Maßkette auf der Plotfläche eines Diagramms, Folie 3).
   const tick = (s, x, y, col) => s.addShape(ST.line, { x: x - 0.05, y: y - 0.05, w: 0.10, h: 0.10, flipV: true, line: { color: col, width: 1.25 }, objectName: 'Maßstrich' });
   B.masskette = (s, o) => {
     brauche('B.masskette', o, ['x', 'y', 'w']);
@@ -388,6 +401,8 @@ function bausteine(pres, kx) {
         const t = schutz(g.text);
         const links = g.ausrichtung === 'links', tb = links ? breite(t, st) + 0.1 : sw + 0.5;
         if (P && !links) P.zeile('Maßkettenwert', t, st, Math.max(sw, 0.2) + 0.5);
+        // grund: Fläche in der Grundfarbe hinter dem Wert, so breit wie die Schrift (Maßkette auf der Plotfläche: keine Gitterlinie läuft durch die Zahl)
+        if (o.grund) { const b = breite(t, st), xm = links ? cx + 0.08 + b / 2 : cx + sw / 2; B.kasten(s, { x: xm - b / 2 - 0.05, y: o.y - 0.28, w: b + 0.10, h: 0.22, farbe: kx.grund === 'papier' ? C.papier : cs.grund, name: 'Grund hinter Maßkettenwert ' + g.text }); }
         s.addText(t, opt(st, { x: links ? cx + 0.08 : cx - 0.25, y: o.y - 0.28, w: tb, h: 0.24 }, { align: links ? 'left' : 'center', valign: 'bottom', color: g.akzent ? cs.akzent : kx.grund === 'hell' || kx.grund === 'papier' ? C.tinte : C.weiss, objectName: 'Maßkettenwert ' + g.text }));
       }
       cx += sw; punkte.push(cx);
@@ -410,11 +425,11 @@ function bausteine(pres, kx) {
     B.textAufPlot(s, o.text, { x: links ? o.x - 0.11 - w : o.x + 0.11, y: (oben + unten) / 2 - 0.12, w, h: 0.24, rolle: 'wert', align: links ? 'right' : 'left', valign: 'middle', name: 'Maßkettenwert ' + o.text });
     return { oben, unten };
   };
-  // Zuleitung von der Kante eines Segments (x0, y0) zu seiner Beschriftung (x1, y1): Linie 0,75 pt in B4B0AB, waagerecht; liegen beide Enden
+  // Zuleitung von der Kante eines Segments (x0, y0) zu seiner Beschriftung (x1, y1): Haarlinie 0,5 pt in Referenzgrau 77716B (hält auch am Beamer), waagerecht; liegen beide Enden
   // auf verschiedener Höhe, läuft sie mit einem Knick bei xKnick (Vorgabe: Mitte). o: { x0, y0, x1, y1, xKnick, name }
   B.zuleitung = (s, o) => {
     brauche('B.zuleitung', o, ['x0', 'y0', 'x1', 'y1']);
-    const name = o.name || 'Zuleitung', strich = { art: 'haar', farbe: HEX.grau300, pt: 0.75 };
+    const name = o.name || 'Zuleitung', strich = { art: 'haar', farbe: C.referenz, pt: 0.5 };
     if (Math.abs(o.y1 - o.y0) < 0.012) { B.linie(s, { x: o.x0, y: o.y1, w: o.x1 - o.x0, ...strich, name }); return; }
     const xk = o.xKnick ?? (o.x0 + o.x1) / 2;
     B.linie(s, { x: o.x0, y: o.y0, w: xk - o.x0, ...strich, name: name + ' 1' });
@@ -561,17 +576,20 @@ function bausteine(pres, kx) {
   };
 
   // ---- 4.17 Legende ----------------------------------------------------------------------------------------------
-  // o: { x, y, eintraege: [{ text, art, strich, kreis }] }. art: zuschuss | darlehen | eigenmittel | tinte | referenz | bisher | A | B | C | Hex.
-  // strich: 'solid' | 'dash' zeichnet ein Linienmuster statt des Farbfelds. Rückgabe: { rechts }
-  const FELD = { zuschuss: C.rot, darlehen: C.darlehen, tinte: C.tinte, referenz: C.referenz, bisher: HEX.grau300, eigenmittel: HEX.schraffur, signal: C.dunkelrot, A: HEX.gruppe.A, B: HEX.gruppe.B, C: HEX.gruppe.C };
+  // o: { x, y, eintraege: [{ text, art, strich, kreis }], fein }. art: zuschuss | darlehen | eigenmittel | tinte | referenz | bisher | bezug | licht | A | B | C | Hex.
+  // strich: 'solid' | 'dash' zeichnet ein Linienmuster statt des Farbfelds. fein: true gibt den Feldern die Kontur der feinen Säulen
+  // (D.*Saeulen mit fein: true; ohne sie wäre das helle Feld des Bezugswerts auf Weiß nicht zu sehen). Rückgabe: { rechts }
+  const FELD = { zuschuss: C.rot, darlehen: C.darlehen, tinte: C.tinte, referenz: C.referenz, bisher: HEX.grau300, bezug: HEX.papier, licht: HEX.flaeche3, eigenmittel: HEX.schraffur, signal: C.dunkelrot,
+    A: HEX.gruppe.A, B: HEX.gruppe.B, C: HEX.gruppe.C };
   B.legende = (s, o) => {
     brauche('B.legende', o, ['x', 'y']);
-    const st = stil('legende');
+    const st = stil('legende'), kontur = o.fein ? { color: FEIN.kontur.farbe, width: FEIN.kontur.pt } : { type: 'none' };
     let cx = o.x;
     for (const e of o.eintraege) {
       const col = FELD[e.art] || e.art, t = schutz(e.text), tw = +(breite(t, st) + 0.06).toFixed(3);
+      if (P && !o.fein && (e.art === 'bezug' || e.art === 'licht')) P.melde(`B.legende: Das Feld „${e.text}“ ist eine helle Fläche und braucht die Kontur (fein: true).`);
       if (e.strich) s.addShape(ST.line, { x: cx, y: o.y + 0.12, w: 0.28, h: 0, line: { color: col, width: 2.25, ...(e.strich !== 'solid' ? { dashType: e.strich } : {}) }, objectName: 'Legende Linie ' + e.text });
-      else s.addShape(ST.rect, { x: cx, y: o.y + 0.035, w: 0.28, h: 0.17, fill: { color: col }, line: e.art === 'eigenmittel' ? { color: HEX.schraffurLinie, width: 0.5 } : { type: 'none' }, objectName: 'Legende ' + e.text });
+      else s.addShape(ST.rect, { x: cx, y: o.y + 0.035, w: 0.28, h: 0.17, fill: { color: col }, line: e.art === 'eigenmittel' ? { color: HEX.schraffurLinie, width: 0.5 } : kontur, objectName: 'Legende ' + e.text });
       s.addText(t, opt(st, { x: cx + 0.36, y: o.y, w: tw, h: 0.24 }, { valign: 'middle', objectName: 'Legendentext ' + e.text, wrap: false }));   // einzeilig, ohne Umbruch
       cx += 0.36 + tw + 0.20;
     }

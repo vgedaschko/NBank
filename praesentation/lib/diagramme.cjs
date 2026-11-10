@@ -3,18 +3,22 @@
 // Jede Funktion gibt die Lage der Plotfläche in Zoll zurück, damit Planzeichen (Maßkette, Achskreise, Marken) passgenau darüberliegen.
 // Dazu das Flussdiagramm (D.fluss): kein Diagrammtyp von PowerPoint, deshalb aus nativen Formen gebaut (Freihandformen mit Kurven).
 'use strict';
-const { C, HEX, F, GRUND, ZONE, FLUSSART } = require('./theme.cjs');
+const { C, HEX, F, GRUND, ZONE, FLUSSART, FEIN } = require('./theme.cjs');
 const { breite } = require('./passpruefung.cjs');
 const { zahl } = require('./daten.cjs').fmt;
 
-// Reihenart → Farbe der Fläche oder Linie und Farbe der Beschriftung im Segment
+// Reihenart → Farbe der Fläche oder Linie und Farbe der Beschriftung im Segment; wert: Farbe des Werts, der als Text an einer feinen Säule
+// steht (Schlüssel des Farbsatzes: der Bezugswert in Grau, die Aussage in Tinte)
 const ART = {
   zuschuss:    { farbe: C.rot, hex: HEX.rot, label: 'FFFFFF' },
   darlehen:    { farbe: C.darlehen, hex: HEX.tinte, label: 'FFFFFF' },
   eigenmittel: { farbe: HEX.schraffur, hex: HEX.schraffur, label: HEX.tinte },   // Merkfarbe: wird in der Nachbearbeitung zur Schraffur
-  tinte:       { farbe: C.tinte, hex: HEX.tinte, label: 'FFFFFF' },
+  tinte:       { farbe: C.tinte, hex: HEX.tinte, label: 'FFFFFF', wert: 'titel' },
+  akzent:      { farbe: C.rot, hex: HEX.rot, label: 'FFFFFF' },                 // PGN-Rot als Akzent im Diagramm: die eine Reihe, von der Titel und Hauptzahl sprechen (Folie 4)
   referenz:    { farbe: C.referenz, hex: HEX.referenz, label: 'FFFFFF' },
   bisher:      { farbe: HEX.grau300, hex: HEX.grau300, label: HEX.tinte },
+  bezug:       { farbe: HEX.papier, hex: HEX.papier, label: HEX.tinte, wert: 'sekundaer' },   // Bezugswert (früherer Stand, Vergleich) als helle Fläche; nur mit fein: true, die Kontur zeichnet die Säule
+  licht:       { farbe: HEX.flaeche3, hex: HEX.flaeche3, label: HEX.tinte },              // hellster Grauton E9E7E4 über Referenzgrau und B4B0AB; nur mit fein: true (Folie 5)
   signal:      { farbe: C.dunkelrot, hex: HEX.dunkelrot, label: 'FFFFFF' },
   A:           { farbe: HEX.gruppe.A, hex: HEX.gruppe.A, label: 'FFFFFF' },
   B:           { farbe: HEX.gruppe.B, hex: HEX.gruppe.B, label: 'FFFFFF' },
@@ -159,13 +163,31 @@ function diagramme(pres, kx) {
 
   // ---- Säulen ---------------------------------------------------------------------------------------------------------
   // o: { x, y, w, h | Platzhalter, kategorien, reihen: [{ name, werte, art }], achse, labels: true, labelFormat,
-  //      katAchse: 'text' (Vorgabe) | 'gruppe' (A, B, C in Montserrat ExtraBold 14) | false (Achskreise oder Texte als Formen), rand, luecke: 80, name }
+  //      katAchse: 'text' (Vorgabe) | 'gruppe' (A, B, C in Montserrat ExtraBold 14) | false (Achskreise oder Texte als Formen), rand, name,
+  //      luecke: 80 (Prozent einer Säule) | saeule: Breite einer einzelnen Säule in Zoll (die Lücke folgt daraus),
+  //      fein: true (feine Zeichnung auf weißem Grund: Kontur 0,5 pt in Tinte um jede Säule und jedes Segment statt der Fuge in der Grundfarbe,
+  //      zwischen gruppierten Säulen eine Fuge von 12 % der Säulenbreite; Maße in theme.cjs, FEIN),
+  //      gitter: false (ohne Größenachse und ohne Gitter: Dann steht jeder Wert als Text am Diagramm) }
   // Rückgabe: { x, y, w, h, plot, yWert(v), katMitte(i) (x der Kategorie i), katBreite, saeulenBreite (einzelne Säule), reiheMitte(i, j), reiheLinks(i, j) }
   function saeulen(s, o, gestapelt) {
     const { geo, opt } = lage(o), a = achse(o), n = o.kategorien.length;
     pruefeReihen(o.kategorien, o.reihen);
     const rand = { l: 0.62, r: 0.24, o: 0.22, u: o.katAchse === false ? 0.54 : 0.46, ...(o.rand || {}) };
-    const { L, plot } = plotflaeche(geo, rand), luecke = o.luecke ?? 80, eine = o.reihen.length === 1;
+    const { L, plot } = plotflaeche(geo, rand), eine = o.reihen.length === 1, fein = !!o.fein;
+    // Breite einer einzelnen Säule: c:gapWidth und c:overlap zählen in Prozent einer Säule, nicht der Gruppe
+    // (Kategorienbreite = Reihen × Säule + Fugen + Lücke; die Fuge gibt es nur zwischen feinen gruppierten Säulen)
+    const kb = plot.w / n, sp = gestapelt || eine ? 1 : o.reihen.length, fuge = fein && sp > 1 ? FEIN.fuge / 100 : 0, gruppe = sp + (sp - 1) * fuge;
+    let luecke = o.luecke ?? 80;
+    if (o.saeule !== undefined) {
+      if (o.luecke !== undefined) throw new Error('Säulendiagramm: saeule (Breite einer Säule in Zoll) und luecke (Prozent einer Säule) schließen sich aus.');
+      if (typeof o.saeule !== 'number' || !(o.saeule > 0)) throw new Error(`Säulendiagramm: saeule ist „${o.saeule}“; erwartet wird die Breite einer Säule in Zoll.`);
+      luecke = Math.round((kb - o.saeule * gruppe) / o.saeule * 100);
+      if (luecke < 0 || luecke > 500) throw new Error(`Säulendiagramm: Bei ${o.saeule.toFixed(2)} Zoll je Säule ergäbe sich eine Lücke von ${luecke} % (erlaubt 0 bis 500). Säulenbreite oder Plotfläche ändern.`);
+    }
+    // Die hellen Töne tragen nur mit Kontur und nur auf weißem Grund: Auf Papierton wäre die Fläche nicht vom Grund zu unterscheiden
+    const hell = [...o.reihen.map(r => r.art), ...(o.arten || [])].filter(x => x === 'bezug' || x === 'licht');
+    if (P && hell.length && !fein) P.melde(`Säulendiagramm: Die Reihenart „${hell[0]}“ ist eine helle Fläche und braucht die Kontur (fein: true).`);
+    if (P && fein && kx.grund !== 'hell') P.melde('Säulendiagramm: fein: true gilt nur auf weißem Grund; auf Papierton bleibt der Vergleichswert in Referenzgrau.');
     const daten = o.reihen.map(r => ({ name: r.name, labels: o.kategorien, values: r.werte }));
     const optionen = { ...opt, ...basis(o, L, a, gestapelt ? 'Gestapeltes Säulendiagramm' : 'Säulendiagramm'), barDir: 'col', barGrouping: gestapelt ? 'stacked' : 'clustered', barGapWidthPct: luecke,
       catAxisLabelPos: 'low', showValue: o.labels !== false, dataLabelFormatCode: mitMinus(o.labelFormat || a.format),
@@ -181,31 +203,47 @@ function diagramme(pres, kx) {
     else if (o.katAchse === 'gruppe') Object.assign(optionen, { catAxisLabelFontFace: F.xbold, catAxisLabelFontSize: 14, catAxisLabelColor: HEX.tinte });
     else optionen.catAxisLabelColor = HEX.anthrazit;
     if (a.min < 0) optionen.catAxisLineSize = 1;                       // kräftige Nulllinie
+    if (o.gitter === false) Object.assign(optionen, { valGridLine: { style: 'none' }, valAxisHidden: true });
     const merk = { labelFarben: {} };
     if (gestapelt) { optionen.dataBorder = { pt: 1.5, color: cs.fuge }; optionen.dataLabelPosition = 'ctr'; optionen.dataLabelFormatCode = fmtOhneNull(o.labelFormat || a.format); for (const r of o.reihen) merk.labelFarben[r.name] = art(r.art || 'tinte').label; }
     else { optionen.dataLabelPosition = 'outEnd'; optionen.dataLabelColor = HEX.tinte; }
-    // Breite einer einzelnen Säule: c:gapWidth zählt in Prozent einer Säule, nicht der Gruppe (Kategorienbreite = Reihen × Säule + Lücke)
-    const kb = plot.w / n, sp = gestapelt || eine ? 1 : o.reihen.length, bb = kb / (sp + luecke / 100);
+    if (fein) {
+      optionen.dataBorder = { pt: FEIN.kontur.pt, color: FEIN.kontur.farbe };
+      if (fuge) optionen.barOverlapPct = -FEIN.fuge;
+      // Eigene Farbe je Säule: pptxgenjs schreibt je Datenpunkt nur die Füllung, und die überschreibt die Kontur der Reihe.
+      // Die Nachbearbeitung trägt die Linie der Reihe an jedem Datenpunkt nach (lib/nachbearbeitung.cjs, Schritt 3e)
+      if (o.arten) merk.punktKontur = true;
+      // Gestapelt: Ein Segment mit dem Wert 0 hat keine Höhe, seine Kontur läge als zweite Linie auf der Kante des Segments darunter.
+      // Diese Datenpunkte stehen deshalb ohne Linie (Schritt 3f der Nachbearbeitung)
+      if (gestapelt) {
+        const ohne = Object.fromEntries(o.reihen.map(r => [r.name, r.werte.map((v, i) => (v === 0 ? i : -1)).filter(i => i >= 0)]).filter(e => e[1].length));
+        if (Object.keys(ohne).length) merk.ohneHoehe = ohne;
+      }
+    }
+    const bb = kb / (gruppe + luecke / 100);                           // Breite, die aus der (gerundeten) Lücke folgt
     let ohneLabel = [];
     if (gestapelt && o.labels !== false) {
       const k = zuKleineLabels(o, o.labelFormat || a.format, v => ({ quer: true, laenge: Math.abs(v) / (a.max - a.min) * plot.h, dicke: bb }), i => i);
       merk.labelWeg = k.weg; ohneLabel = k.liste;
     }
     const datei = zeichne(s, pres.charts.BAR, daten, optionen, merk);
+    const reiheLinks = (i, j) => plot.x + kb * i + (kb - gruppe * bb) / 2 + bb * (1 + fuge) * j;
     return { ...geo, plot, datei, katBreite: kb, saeulenBreite: bb, ohneLabel,
       yWert: v => plot.y + plot.h * (1 - (v - a.min) / (a.max - a.min)), katMitte: i => plot.x + kb * (i + 0.5),
       // gruppierte Säulen: x der Mitte und der linken Kante der Säule der Reihe j in der Kategorie i
-      reiheMitte: (i, j) => plot.x + kb * i + (kb - sp * bb) / 2 + bb * (j + 0.5), reiheLinks: (i, j) => plot.x + kb * i + (kb - sp * bb) / 2 + bb * j };
+      reiheMitte: (i, j) => reiheLinks(i, j) + bb / 2, reiheLinks };
   }
   D.stapelSaeulen = (s, o) => saeulen(s, o, true);
   D.gruppierteSaeulen = (s, o) => saeulen(s, o, false);
   // Säulen einer Reihe, auch mit Werten unter null (kräftige Nulllinie). o wie oben, statt reihen: { werte, art: 'tinte', reihenname,
-  // arten: ['bisher', …, 'tinte'] (eigene Farbe je Säule) }
+  // arten: ['bisher', …, 'tinte'] (eigene Farbe je Säule; fein mit ['bezug', …, 'tinte']: frühere Stände hell, der letzte in Tinte) }
   D.saeulen = (s, o) => saeulen(s, { ...o, reihen: [{ name: o.reihenname || 'Wert', werte: o.werte, art: o.art || 'tinte' }] }, false);
 
   // ---- Linien -----------------------------------------------------------------------------------------------------------
-  // o: { x, y, w, h | Platzhalter, kategorien: [], reihen: [{ name, werte, art: tinte | referenz | bisher, strich: solid | dash | sysDash … }],
-  //      achse, katLabels: 'alle' | { jede: n } | { nur: ['1', '5', …] } | { formen: ['1', '5', …] }, rand, name }
+  // o: { x, y, w, h | Platzhalter, kategorien: [], reihen: [{ name, werte, art: tinte | referenz | bisher | akzent, strich: solid | dash | sysDash … }],
+  //      achse, katLabels: 'alle' | { jede: n } | { nur: ['1', '5', …] } | { formen: ['1', '5', …] }, rand, name, staerke: 2.25 (Linienstärke in pt),
+  //      flaeche: { reihe, name, deckung: 26 } (weiche Fläche unter der genannten Reihe: Verlauf von der Farbe der Reihe an der Oberkante zur
+  //      Grundfarbe an der Achse, mit „deckung“ Prozent Deckung; „name“ ist der eigene Name der Flächenreihe im Diagramm. Die Nachbearbeitung legt sie an) }
   // Liegt null zwischen min und max, steht die Größenachse als kräftige Nulllinie bei null; die Kategorien stehen unten.
   // Rückgabe: { x, y, w, h, plot, yWert(v), katMitte(i), katBreite, katTexte: [{ i, text }] (bei katLabels.formen: die Beschriftungen für B.achstexte) }
   D.linien = (s, o) => {
@@ -247,6 +285,15 @@ function diagramme(pres, kx) {
       if (r.strich && r.strich !== 'solid') merk.striche[r.name] = r.strich;
     }
     if (P && new Set(o.reihen.map(r => (r.art || 'tinte') + '|' + (r.strich || 'solid'))).size < o.reihen.length) P.melde('D.linien: Zwei Reihen haben dieselbe Farbe und Strichart und sind nicht zu unterscheiden.');
+    // Fläche unter einer Linie: pptxgenjs kennt weder den Verlauf noch eine Fläche, die den Zellen einer Linie folgt; die Nachbearbeitung setzt
+    // sie als eigene Reihe in ein Flächendiagramm auf denselben Achsen (lib/nachbearbeitung.cjs, Schritt 3d)
+    if (o.flaeche) {
+      const r = o.reihen.find(x => x.name === o.flaeche.reihe), deckung = o.flaeche.deckung ?? 26;
+      if (!r) throw new Error(`D.linien: flaeche.reihe „${o.flaeche.reihe}“ gibt es nicht (${o.reihen.map(x => x.name).join(', ')}).`);
+      if (!o.flaeche.name || o.reihen.some(x => x.name === o.flaeche.name)) throw new Error('D.linien: flaeche.name fehlt oder heißt wie eine Linie. Die Flächenreihe braucht einen eigenen Namen, etwa „10 Jahre, Fläche“.');
+      if (typeof deckung !== 'number' || deckung <= 0 || deckung > 60) throw new Error(`D.linien: flaeche.deckung ist „${deckung}“; erwartet wird eine Zahl über 0 bis 60 (Prozent Deckung).`);
+      merk.flaeche = { reihe: r.name, name: o.flaeche.name, farbe: art(r.art || 'tinte').farbe, deckung, grund: cs.grund };
+    }
     const datei = zeichne(s, pres.charts.LINE, daten, optionen, merk);
     const kb = plot.w / n;
     return { ...geo, plot, datei, katBreite: kb, katTexte: katTexte || [], yWert: v => plot.y + plot.h * (1 - (v - a.min) / (a.max - a.min)), katMitte: i => plot.x + kb * (i + 0.5) };

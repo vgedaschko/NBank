@@ -14,7 +14,9 @@ Was geprüft wird (eine Zeile je Prüfung, am Ende die Summe; Rückgabewert 1 be
              keine Animationen
   Wortlaut   verbotene Wörter (E5), kein Gedankenstrich als Einschub (E6), Stempel der Modellrechnung auf genau den festgelegten Folien (E7)
   Zahlen     jede Zahl in Folientexten, Tabellen, Alternativtexten, Diagrammdaten und Notizen hat einen Beleg; die Diagrammdaten stehen gleich im Zwischenspeicher
-             und in der eingebetteten Arbeitsmappe; Kernwerte und Kernsätze stehen an ihren Folien, mit Einheit und Vorzeichen
+             und in der eingebetteten Arbeitsmappe; Kernwerte und Kernsätze stehen an ihren Folien, mit Einheit und Vorzeichen; Werte an
+             den Diagrammen der Folien 3 bis 6 und 22 stehen in ihrer Form oder Tabellenzelle (KERNWERTE_FORM), Zeitreihen Wert für
+             Wert in den Diagrammdaten (REIHEN_DIAGRAMM)
   Verweise   „Folie n“ und „Anhang A n“ in Folientexten und Notizen nennen die Blattnummer der gemeinten Folie (VERWEISE)
 
 Beleg einer Zahl, in dieser Reihenfolge:
@@ -171,6 +173,14 @@ KERNWERTE_MARKT = [
     ("markt#baukosten.herstellung.q4_2025 / markt#baukosten.herstellung.q1_2020 - 1", "prozent1vz", "+52,9 %", ["einstieg-baukosten"]),
     ("markt#baukosten.grundstueck.q4_2025 / markt#baukosten.grundstueck.q1_2020 - 1", "prozent1vz", "+4,8 %", ["einstieg-baukosten"]),
     ("markt#kapitaldienst.zins_q1_2020", "prozentwert2", "0,46 %", ["ausgangslage-zinsen", "einstieg-kapitaldienst"]),
+    # Folie 4: Legende (Werte des letzten Monats, Stelle 126 = 07/2026) und die Quartalsmittel an den beiden Marken stehen je Zinsbindung einzeln auf der Folie
+    ("markt#zinsen.z20.wert.126", "prozentwert2", "4,02 %", ["ausgangslage-zinsen"]),
+    ("markt#zinsen.z30.wert.126", "prozentwert2", "4,15 %", ["ausgangslage-zinsen"]),
+    ("markt#zinsen.marken.wert.0.z20", "prozentwert2", "0,87 %", ["ausgangslage-zinsen"]),
+    ("markt#zinsen.marken.wert.0.z30", "prozentwert2", "0,98 %", ["ausgangslage-zinsen"]),
+    ("markt#zinsen.marken.wert.1.z10", "prozentwert2", "3,49 %", ["ausgangslage-zinsen"]),
+    ("markt#zinsen.marken.wert.1.z20", "prozentwert2", "3,74 %", ["ausgangslage-zinsen"]),
+    ("markt#zinsen.marken.wert.1.z30", "prozentwert2", "3,87 %", ["ausgangslage-zinsen"]),
     (KOSTEN_2020, "euro", "3.754 €", ["einstieg-kapitaldienst"]),
     (KOSTEN_HEUTE, "euro", "5.392 €", ["einstieg-kapitaldienst"]),
     ("markt#kapitaldienst.fremdkapital", "prozent0", "80 %", ["einstieg-kapitaldienst"]),
@@ -189,6 +199,15 @@ KERNWERTE_MARKT = [
     ("markt#kosten.pgn.spanne_herstellung.median", "euro", "3.579 €", ["pgn-baukosten"]),
     ("markt#kosten.arge.spanne_herstellung.median", "euro", "4.631 €", ["pgn-baukosten"]),
     (PGN_UNTER_ARGE, "prozent1vz", "−22,7 %", ["pgn-baukosten"]),
+    # Folie 22: Die Werte über den Säulen sind Textfelder (Stelle in der Liste wie kosten.gruppen: Herstellung, Bauwerk, Baunebenkosten, Außenanlagen)
+    ("markt#kosten.pgn.median.wert.0", "zahl", "3.579", ["pgn-baukosten"]),
+    ("markt#kosten.arge.median.wert.0", "zahl", "4.631", ["pgn-baukosten"]),
+    ("markt#kosten.pgn.median.wert.1", "zahl", "2.812", ["pgn-baukosten"]),
+    ("markt#kosten.arge.median.wert.1", "zahl", "3.713", ["pgn-baukosten"]),
+    ("markt#kosten.pgn.median.wert.2", "zahl", "458", ["pgn-baukosten"]),
+    ("markt#kosten.arge.median.wert.2", "zahl", "555", ["pgn-baukosten"]),
+    ("markt#kosten.pgn.median.wert.3", "zahl", "221", ["pgn-baukosten"]),
+    ("markt#kosten.arge.median.wert.3", "zahl", "174", ["pgn-baukosten"]),
 ]
 # ---- Kernsätze: Werte in ihrem Satz. Folie, Satz mit Feldern, je Feld Quelle (wie bei den Kernwerten) und Schreibweise -----------------------
 # Der Satz steht so in einer Form der Folie (Groß- und Kleinschreibung zählt nicht, Titel stehen in Versalien). Die Zahl ist damit an ihr Wort
@@ -232,6 +251,7 @@ KERNSAETZE = [
     ("pgn-baukosten", "{a} gegen {b} je m²", {"a": ("markt#kosten.pgn.spanne_herstellung.median", "euro"), "b": ("markt#kosten.arge.spanne_herstellung.median", "euro")}),   # Label der Hauptzahl
     ("pgn-baukosten", "PGN {a} bis {b},", {"a": ("markt#kosten.pgn.spanne_herstellung.min", "zahl"), "b": ("markt#kosten.pgn.spanne_herstellung.max", "euro")}),
     ("pgn-baukosten", "ARGE {a} bis {b} je m²", {"a": ("markt#kosten.arge.spanne_herstellung.min", "zahl"), "b": ("markt#kosten.arge.spanne_herstellung.max", "euro")}),
+    ("pgn-baukosten", "Spanne KG 200–700: Minimum bis Maximum", {}),   # Legende zum Maßzeichen der Spanne neben den Säulen der Herstellung
 ]
 # ---- Kernwerte in den Diagrammdaten: Quelle (wie bei den Kernwerten), Folie, Reihe, Kategorie. Der Wert steht dort ungerundet und mit Vorzeichen ----
 KERNWERTE_DIAGRAMM = [
@@ -253,6 +273,10 @@ KERNWERTE_DIAGRAMM = [
     ("markt#baukosten.grundstueck.q1_2020", "einstieg-baukosten", "Q1 2020", "Grundstück KG 100"),
     ("markt#baukosten.grundstueck.q4_2025", "einstieg-baukosten", "Q4 2025", "Grundstück KG 100"),
     ("modellhaus:eingabe.zins_bank * 100", "ausgangslage-zinsen", "10 Jahre", "07/2026"),
+    # Folie 4: Die Fläche unter der Reihe „10 Jahre“ führt dieselben Werte wie die Linie (erster und letzter Monat)
+    ("modellhaus:eingabe.zins_bank * 100", "ausgangslage-zinsen", "10 Jahre, Fläche", "07/2026"),
+    ("markt#zinsen.z10.wert.0", "ausgangslage-zinsen", "10 Jahre, Fläche", "2016"),
+    ("markt#zinsen.z10.wert.0", "ausgangslage-zinsen", "10 Jahre", "2016"),
     (KD_2020, "einstieg-kapitaldienst", "Stand Q1 2020", "Q1 2020"),
     (KD_2020, "einstieg-kapitaldienst", "Stand Q1 2020", "Heute"),
     (KD_BAUKOSTEN, "einstieg-kapitaldienst", "Baukosten", "Heute"),
@@ -263,6 +287,67 @@ KERNWERTE_DIAGRAMM = [
     ("markt#bestand.reihe.wert.2025", "einstieg-bestand", "Bestand zum 31.12.", "2025"),
     ("markt#kosten.pgn.spanne_herstellung.median", "pgn-baukosten", "PGN", "Herstellung KG 200–700"),
     ("markt#kosten.arge.spanne_herstellung.median", "pgn-baukosten", "ARGE", "Herstellung KG 200–700"),
+    # Folie 22: Die Werte über den Säulen sind Textfelder und folgen den Diagrammdaten nicht; gebunden sind deshalb auch die übrigen Säulen
+    ("markt#kosten.pgn.median.wert.1", "pgn-baukosten", "PGN", "Bauwerk KG 300/400"),
+    ("markt#kosten.arge.median.wert.1", "pgn-baukosten", "ARGE", "Bauwerk KG 300/400"),
+    ("markt#kosten.pgn.median.wert.2", "pgn-baukosten", "PGN", "Baunebenkosten KG 700"),
+    ("markt#kosten.arge.median.wert.2", "pgn-baukosten", "ARGE", "Baunebenkosten KG 700"),
+    ("markt#kosten.pgn.median.wert.3", "pgn-baukosten", "PGN", "Außenanlagen KG 500"),
+    ("markt#kosten.arge.median.wert.3", "pgn-baukosten", "ARGE", "Außenanlagen KG 500"),
+    # Folie 5: Die drei Ursachen haben bei „Q1 2020“ keine Höhe (ihre Datenpunkte stehen ohne Füllung und ohne Linie)
+    ("0 * 1", "einstieg-kapitaldienst", "Baukosten", "Q1 2020"),
+    ("0 * 1", "einstieg-kapitaldienst", "Zins", "Q1 2020"),
+    ("0 * 1", "einstieg-kapitaldienst", "Wechselwirkung", "Q1 2020"),
+]
+# ---- Ganze Reihen in den Diagrammdaten: Quelle (Liste oder Tabelle Kategorie → Wert in einer Datendatei), Folie, Reihe. Jeder Wert steht an seiner Stelle ----
+REIHEN_DIAGRAMM = [
+    ("markt#zinsen.z10", "ausgangslage-zinsen", "10 Jahre"),
+    ("markt#zinsen.z10", "ausgangslage-zinsen", "10 Jahre, Fläche"),
+    ("markt#zinsen.z20", "ausgangslage-zinsen", "20 Jahre"),
+    ("markt#zinsen.z30", "ausgangslage-zinsen", "30 Jahre"),
+    ("markt#bestand.reihe", "einstieg-bestand", "Bestand zum 31.12."),
+]
+# ---- Kernwerte in ihrer Form: Quelle und Schreibweise (wie bei den Kernwerten), Folie, Name der Form, Zelle (Zeile, Spalte) einer Tabelle oder None,
+# Text mit dem Feld {a} (auch der Name der Form darf {a} tragen). Die Form trägt genau diesen Text; so ist der Wert an seine Bezeichnung gebunden, auch wenn er mehrfach auf der Folie steht ----
+KERNWERTE_FORM = [
+    ("markt#zinsen.z10.wert.126", "prozentwert2", "ausgangslage-zinsen", "Legende Wert 10 Jahre", None, "{a}"),
+    ("markt#zinsen.z20.wert.126", "prozentwert2", "ausgangslage-zinsen", "Legende Wert 20 Jahre", None, "{a}"),
+    ("markt#zinsen.z30.wert.126", "prozentwert2", "ausgangslage-zinsen", "Legende Wert 30 Jahre", None, "{a}"),
+    ("markt#zinsen.marken.wert.0.z10", "prozentwert2", "ausgangslage-zinsen", "Marke 1 Wert 10 Jahre", None, "{a}"),
+    ("markt#zinsen.marken.wert.0.z20", "prozentwert2", "ausgangslage-zinsen", "Marke 1 Wert 20 Jahre", None, "{a}"),
+    ("markt#zinsen.marken.wert.0.z30", "prozentwert2", "ausgangslage-zinsen", "Marke 1 Wert 30 Jahre", None, "{a}"),
+    ("markt#zinsen.marken.wert.1.z10", "prozentwert2", "ausgangslage-zinsen", "Marke 2 Wert 10 Jahre", None, "{a}"),
+    ("markt#zinsen.marken.wert.1.z20", "prozentwert2", "ausgangslage-zinsen", "Marke 2 Wert 20 Jahre", None, "{a}"),
+    ("markt#zinsen.marken.wert.1.z30", "prozentwert2", "ausgangslage-zinsen", "Marke 2 Wert 30 Jahre", None, "{a}"),
+    ("markt#baukosten.herstellung.q1_2020", "zahl", "einstieg-baukosten", "Wert Herstellung Q1 2020", None, "{a}"),
+    ("markt#baukosten.herstellung.q4_2025", "zahl", "einstieg-baukosten", "Wert Herstellung Q4 2025", None, "{a}"),
+    ("markt#baukosten.grundstueck.q1_2020", "zahl", "einstieg-baukosten", "Wert Grundstück Q1 2020", None, "{a}"),
+    ("markt#baukosten.grundstueck.q4_2025", "zahl", "einstieg-baukosten", "Wert Grundstück Q4 2025", None, "{a}"),
+    (KD_2020, "euro2", "einstieg-kapitaldienst", "Summe Q1 2020", None, "{a}"),
+    (KD_HEUTE, "euro2", "einstieg-kapitaldienst", "Summe Heute", None, "{a}"),
+    (KOSTEN_2020, "euro", "einstieg-kapitaldienst", "Tabelle Rechenweg", (1, 1), "{a}"),
+    (KOSTEN_HEUTE, "euro", "einstieg-kapitaldienst", "Tabelle Rechenweg", (1, 2), "{a}"),
+    ("markt#kapitaldienst.fremdkapital", "prozent0", "einstieg-kapitaldienst", "Tabelle Rechenweg", (2, 1), "{a}"),
+    ("markt#kapitaldienst.fremdkapital", "prozent0", "einstieg-kapitaldienst", "Tabelle Rechenweg", (2, 2), "{a}"),
+    ("markt#kapitaldienst.zins_q1_2020", "prozentwert2", "einstieg-kapitaldienst", "Tabelle Rechenweg", (3, 1), "{a}"),
+    ("eingabe.zins_bank", "prozent2", "einstieg-kapitaldienst", "Tabelle Rechenweg", (3, 2), "{a}"),
+    ("markt#bestand.reihe.wert.2016", "zahl", "einstieg-bestand", "Wert 2016", None, "{a}"),
+    ("markt#bestand.reihe.wert.2024", "zahl", "einstieg-bestand", "Wert 2024", None, "{a}"),
+    ("markt#bestand.reihe.wert.2025", "zahl", "einstieg-bestand", "Wert 2025", None, "{a}"),
+    ("markt#kosten.pgn.median.wert.0", "zahl", "pgn-baukosten", "Wert Herstellung PGN", None, "{a}"),
+    ("markt#kosten.arge.median.wert.0", "zahl", "pgn-baukosten", "Wert Herstellung ARGE", None, "{a}"),
+    ("markt#kosten.pgn.median.wert.1", "zahl", "pgn-baukosten", "Wert Bauwerk PGN", None, "{a}"),
+    ("markt#kosten.arge.median.wert.1", "zahl", "pgn-baukosten", "Wert Bauwerk ARGE", None, "{a}"),
+    ("markt#kosten.pgn.median.wert.2", "zahl", "pgn-baukosten", "Wert Baunebenkosten PGN", None, "{a}"),
+    ("markt#kosten.arge.median.wert.2", "zahl", "pgn-baukosten", "Wert Baunebenkosten ARGE", None, "{a}"),
+    ("markt#kosten.pgn.median.wert.3", "zahl", "pgn-baukosten", "Wert Außenanlagen PGN", None, "{a}"),
+    ("markt#kosten.arge.median.wert.3", "zahl", "pgn-baukosten", "Wert Außenanlagen ARGE", None, "{a}"),
+    ("markt#kosten.arge.spanne_herstellung.max", "zahl", "pgn-baukosten", "Spanne ARGE Text", None, "Maximum {a}"),
+    # Maßkettenwerte: Die Form heißt „Maßkettenwert <Wert>“; Name und Text tragen denselben Wert
+    ("markt#baukosten.herstellung.q4_2025 / markt#baukosten.herstellung.q1_2020 - 1", "prozent1vz", "einstieg-baukosten", "Maßkettenwert {a}", None, "{a}"),
+    ("markt#baukosten.grundstueck.q4_2025 / markt#baukosten.grundstueck.q1_2020 - 1", "prozent1vz", "einstieg-baukosten", "Maßkettenwert {a}", None, "{a}"),
+    (f"{KD_HEUTE} - {KD_2020}", "euro2vz", "einstieg-kapitaldienst", "Maßkettenwert {a}", None, "{a}"),
+    (BESTAND_RUECKGANG, "prozent1vz", "einstieg-bestand", "Maßkettenwert {a}", None, "{a}"),
 ]
 # ---- Verweise: Folie, Ort („folie“ für Folientext, „notizen“), Text mit Feldern, je Feld die Kennung der gemeinten Folie ------------------------
 # Der Text steht so auf der Folie oder in ihren Notizen, und das Feld trägt die Blattnummer der gemeinten Folie aus dem Konzept. Ändert sich
@@ -664,7 +749,7 @@ class Belege:
 
     # Formeln in daten/pruefung.json: Grundrechenarten, Klammern, runde(x, n) und Verweise.
     #   lauf:schluessel oder lauf:schluessel[i]   Wert aus daten/werte.json
-    #   datei#pfad                                 Wert aus einer Datendatei (daten/<datei>.json, Punktpfad; Feld „wert“)
+    #   datei#pfad                                 Wert aus einer Datendatei (daten/<datei>.json, Punktpfad; Feld „wert“; in Listen die Stelle ab 0)
     def rechne(self, formel):
         namen = {}
 
@@ -680,7 +765,7 @@ class Belege:
         def aus_datei(m):
             o = self.daten[m.group(1)]
             for teil in m.group(2).split("."):
-                o = o[teil]
+                o = o[int(teil)] if isinstance(o, list) else o[teil]   # in einer Liste zählt die Zahl als Index (ab 0)
             return merke(o["wert"] if isinstance(o, dict) else o)
         ausdruck = re.sub(r"\b([a-z0-9_]+)#([A-Za-z0-9_.]+[A-Za-z0-9_])", aus_datei, formel)
         ausdruck = re.sub(r"\b([a-z0-9_]+):([A-Za-z0-9_.]+[A-Za-z0-9_])(?:\[(\d+)\])?", aus_mappe, ausdruck)
@@ -1280,6 +1365,51 @@ def main(argv):
         if len(treffer) != 1 or not math.isclose(treffer[0], soll, rel_tol=1e-9, abs_tol=1e-9):
             m.append(f"Folie {nr(i)} ({fid}): Reihe „{reihe}“, Kategorie „{kategorie}“ führt {treffer or 'keinen Wert'}; {schluessel} ist {soll:g}")
     ber.pruefung("Kernwerte in den Diagrammdaten, mit Vorzeichen", m, f"{len(KERNWERTE_DIAGRAMM)} Werte")
+
+    # Ganze Reihen: jeder Wert des Diagramms an seiner Stelle gleich dem Wert der Datendatei (Liste: nach der Stelle; Tabelle: nach der Kategorie)
+    m = []
+    reihen_n = 0
+    for quelle, fid, reihe in REIHEN_DIAGRAMM:
+        if fid not in je_id:
+            m.append(f"Folie „{fid}“ fehlt")
+            continue
+        i, f = je_id[fid]
+        o = B.daten[quelle.split("#")[0]]
+        for teil in quelle.split("#")[1].split("."):
+            o = o[int(teil)] if isinstance(o, list) else o[teil]
+        soll = o["wert"] if isinstance(o, dict) and "wert" in o else o
+        gefunden = [r for d in f["diagramme"] for r in d["reihen"] if glatt(r["name"]) == reihe]
+        if len(gefunden) != 1:
+            m.append(f"Folie {nr(i)} ({fid}): Reihe „{reihe}“ steht {len(gefunden)}-mal in den Diagrammdaten")
+            continue
+        r = gefunden[0]
+        kat = dict(r["kat_punkte"])
+        ist = [(glatt(kat.get(idx, "")), v) for idx, v in r["punkte"]]
+        paare_soll = [(str(k), float(v)) for k, v in soll.items()] if isinstance(soll, dict) else [(None, float(v)) for v in soll]
+        if len(ist) != len(paare_soll):
+            m.append(f"Folie {nr(i)} ({fid}): Reihe „{reihe}“ führt {len(ist)} Werte, {quelle} führt {len(paare_soll)}")
+            continue
+        for stelle, ((k_ist, v_ist), (k_soll, v_soll)) in enumerate(zip(ist, paare_soll)):
+            reihen_n += 1
+            if (k_soll is not None and k_ist != k_soll) or not math.isclose(v_ist, v_soll, rel_tol=1e-9, abs_tol=1e-9):
+                m.append(f"Folie {nr(i)} ({fid}): Reihe „{reihe}“, Stelle {stelle + 1} ({k_ist}) führt {v_ist:g}; {quelle} führt {v_soll:g}" + (f" ({k_soll})" if k_soll is not None else ""))
+    ber.pruefung("Ganze Reihen in den Diagrammdaten, jeder Wert an seiner Stelle", m, f"{len(REIHEN_DIAGRAMM)} Reihen, {reihen_n} Werte")
+
+    # Kernwerte in ihrer Form oder Tabellenzelle: Der Wert steht bei seiner Bezeichnung, nicht nur irgendwo auf der Folie
+    m = []
+    for quelle, art, fid, form, zelle, muster in KERNWERTE_FORM:
+        if fid not in je_id:
+            m.append(f"Folie „{fid}“ fehlt")
+            continue
+        i, f = je_id[fid]
+        wert = fmt[art](kernwert(quelle))
+        soll, form = muster.format(a=wert), form.format(a=wert)      # der Name der Form darf den Wert tragen („Maßkettenwert {a}“)
+        texte = [glatt(" ".join(a["text"] for a in fo["absaetze"])) for fo in f["formen"]
+                 if glatt(fo["name"]) == form and (zelle is None or (fo.get("zeile"), fo.get("spalte")) == zelle)]
+        if texte != [soll]:
+            wo = f"„{form}“" + (f", Zeile {zelle[0] + 1}, Spalte {zelle[1] + 1}" if zelle else "")
+            m.append(f"Folie {nr(i)} ({fid}), {wo}: steht {texte or 'nicht auf der Folie'}; erwartet „{soll}“ ({quelle})")
+    ber.pruefung("Kernwerte in ihrer Form oder Tabellenzelle", m, f"{len(KERNWERTE_FORM)} Werte auf {len({fid for _, _, fid, _, _, _ in KERNWERTE_FORM})} Folien")
 
     # ---- Verweise ------------------------------------------------------------------------------------------------------------
     m = []

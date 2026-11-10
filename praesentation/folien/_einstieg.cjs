@@ -2,7 +2,9 @@
 // Die vier Folien haben denselben Aufbau: links über acht Spalten das Diagramm, rechts über vier Spalten die Hauptzahl (60 pt) an fester
 // Stelle und darunter ab y 4,40 ein zweites Modul (zweite Kennzahl oder Rechenweg). Lage und Bausteine dazu stehen in lib/:
 // ZONE.diagramm.spalte, B.hauptzahl, B.nebenzahl, B.zweitesModul; dazu B.massketteSenkrecht, B.zuleitung, D.saeulen mit arten,
-// fmt.monatKurz, fmt.monatWort und ctx.mittel.
+// fmt.monatKurz, fmt.monatWort und ctx.mittel. Die Diagramme sind fein gezeichnet: Säulen mit fein: true (Kontur, helle Fläche für den
+// Bezugswert; Folien 3, 5 und 6), Linien in 1,5 pt mit weicher Fläche (Folie 4; ihre Beschriftung steht in _fein_ausgangslage-zinsen.cjs).
+// Je Diagramm trägt genau eine Größe Rot: die, die das Signaturwort des Titels nennt.
 //   felder, lies   Zugriff auf daten/markt.json mit gefüllten Platzhaltern ({name}) für die Folien 4 und 6; „mappe_…“ kommt aus daten/werte.json
 'use strict';
 

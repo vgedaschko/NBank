@@ -32,8 +32,8 @@ Die Mappe wird aus Code gebaut. Wer eine Folie in PowerPoint ändert, verliert d
 
 | Ort | Inhalt |
 |---|---|
-| `build.cjs` | baut die Mappe aus Konzept, Folienmodulen und Daten und bearbeitet sie nach (Theme-Farben, Schraffur, Stricharten, Dateieigenschaften, eindeutige Form-IDs, Platzhalter der Layouts, Diagramme nach Schema, Kennzeichnung dekorativer Formen). Zwei Läufe liefern dieselbe Datei; ihr Datum ist der Stand der Inhalte |
-| `folien/<id>.cjs` | ein Modul je Folie; `folien/_<gruppe>.cjs` enthält, was nur eine Baugruppe braucht (zum Beispiel `_fluss.cjs`: Maßstab und Lagen der beiden Flussdiagramme) |
+| `build.cjs` | baut die Mappe aus Konzept, Folienmodulen und Daten und bearbeitet sie nach (Theme-Farben, Schraffur, Stricharten, Fläche unter einer Linie, Kontur je Datenpunkt, Dateieigenschaften, eindeutige Form-IDs, Platzhalter der Layouts, Diagramme nach Schema, Kennzeichnung dekorativer Formen). Zwei Läufe liefern dieselbe Datei; ihr Datum ist der Stand der Inhalte |
+| `folien/<id>.cjs` | ein Modul je Folie; `folien/_<gruppe>.cjs` enthält, was nur eine Baugruppe braucht (zum Beispiel `_fluss.cjs`: Maßstab und Lagen der beiden Flussdiagramme), `folien/_fein_<id>.cjs`, was nur eine Folie braucht (Folie 4: Legende mit Werten und Werteblöcke an den Marken; Folie 22: Maßzeichen der Spanne) |
 | `lib/` | Bibliothek: Theme, Layouts, Bausteine, Diagramme (auch das Flussdiagramm aus nativen Formen), Datenzugriff, Prüfungen beim Bau; Beschreibung in `lib/API.md`. `lib/layoutnamen.json`: Namen der Layouts im Layout-Menü |
 | `daten/outline.json` | Folienkonzept: Reihenfolge, Titel, Wortlaut, Sprechernotizen, Quellen. `INHALT.md` ist die Lesefassung dazu |
 | `daten/werte.json` | Zahlen der Rechenmappe, erzeugt aus `../vofi/PGN_VOFI_Mietwohnraum_2026_v3.xlsx` |
@@ -92,6 +92,11 @@ Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs, Schr
   Die Listen `KERNWERTE` (Modellhaus), `KERNWERTE_MARKT` (Ausgangslage und Kostenvergleich), `KERNSAETZE` und `KERNWERTE_DIAGRAMM`
   stehen am Anfang des Skripts. Eine Quelle ist ein Schlüssel der Rechenmappe oder eine Formel wie in `daten/pruefung.json`; so sind
   auch gerechnete Größen gebunden (Kapitaldienst je m² 8,95 und 20,14 €, nötige Sollmiete frei finanziert 348.167 €).
+- **Werte an den Diagrammen der Folien 3 bis 6 und 22** stehen als Textfelder neben ihrer Bezeichnung und zum Teil mehrfach auf der
+  Folie. Die Liste `KERNWERTE_FORM` bindet sie deshalb an ihre Form oder Tabellenzelle: Das Textfeld mit diesem Namen trägt genau diesen
+  Wert (Werte über den Säulen, Legende und Werteblöcke der Folie 4, Maßkettenwerte, „Maximum 8.592“, Summen und Tabelle „Rechenweg“ der
+  Folie 5). Die Liste `REIHEN_DIAGRAMM` prüft ganze Zeitreihen Wert für Wert gegen die Datendatei (drei Zinsreihen und die Fläche der
+  Folie 4, Bestandsreihe der Folie 6). Wer eine Form umbenennt oder eine Tabellenzeile verschiebt, führt die Liste mit.
 - **Diagrammdaten:** Zwischenspeicher und eingebettete Arbeitsmappe jedes Diagramms stimmen überein.
 - Was das Skript nicht sieht: zwei Werte derselben Einheit, die im freien Text vertauscht sind und nicht zu den Kernsätzen
   gehören. Kleine ganze Zahlen ohne Einheit prüft es nur schwach, weil sie in den Daten häufig vorkommen.
@@ -110,6 +115,38 @@ Gerendert und geprüft ist die Mappe mit LibreOffice. Vor dem ersten Vortrag ein
 besonders die Flussdiagramme der Folien 17 und 18 (Freihandformen, Transparenz der hellen Bänder, gestrichelter Umriss an der Quelle
 der Folie 17), die Agenda (Folie 7) und die Tabelle „Rechenweg“ der Folie 5. Einzeilige Beschriftungen brechen nicht um: Ist eine
 Schrift auf dem Vortragsrechner breiter, läuft der Text über sein Feld, statt in eine zweite Zeile zu fallen.
+
+Die fein gezeichneten Diagramme der Folien 3 bis 6 und 22 in PowerPoint eigens ansehen, mit installierten Schriften und bei 200 %.
+Beim Öffnen darf keine Meldung „Reparieren“ erscheinen. Geprüft ist bisher nur das Bild aus LibreOffice.
+
+- **Folie 3:** Werte und Maßketten sitzen mittig über den Säulen (ihre Lage ist aus Lücke und Fuge des Diagramms gerechnet; in den
+  Reihenoptionen stehen Abstandsbreite 418 % und Überlappung −12 %); Kontur 0,5 pt an beiden Reihen; die Flächen in der Grundfarbe
+  unterbrechen die Gitterlinie nur an den Werten und am Maßkettenwert „+4,8 %“.
+- **Folie 4:** die weiche Fläche unter der Reihe „10 Jahre“ (Flächendiagramm hinter den Linien; in „Datenreihen formatieren“ ein
+  Farbverlauf linear nach unten von Rot nach Weiß, zwei Stopps, Transparenz 74 %, keine Kontur; Anfang und Ende an der Mitte des ersten
+  und des letzten Monats; die Gitterlinien scheinen durch). Die Fläche ist eine eigene Reihe „10 Jahre, Fläche“ auf der Spalte der Reihe
+  „10 Jahre“; ihr Name steht fest im Diagramm, unter „Daten bearbeiten“ erscheinen deshalb vier Reihen auf drei Wertspalten. Dazu die beiden
+  Werteblöcke (die Gitterlinie läuft mit rund 0,05 Zoll Luft in der Fuge unter der ersten Zeile; rechnet PowerPoint die Zeile höher,
+  rückt sie an die Zahl) und das Strichmuster der beiden Marken (0,5 pt).
+- **Folie 5:** Die drei Ursachen führen bei „Q1 2020“ den Wert 0; diese drei Datenpunkte stehen ohne Füllung und ohne Linie
+  (Nachbearbeitung), damit auf der Oberkante der linken Säule keine zweite Linie liegt. Wer dort in PowerPoint einen Wert einträgt,
+  sieht kein Segment. Die Oberkante soll so stark wirken wie der übrige Umriss. Maßstriche sitzen auf den Säulenkanten, Summen mittig
+  über den Säulen (Abstandsbreite 165 %); die Trennlinien zwischen den Segmenten sind so stark wie der Umriss. Die Zuleitungen
+  (0,5 pt in Referenzgrau 77716B) führen von jedem Segment zu seiner Zeile. Dazu das Strichmuster der Bezugslinie (0,5 pt).
+- **Folie 6:** Jede der zehn Säulen trägt ihre Kontur (die Nachbearbeitung setzt sie je Datenpunkt); ohne sie stünden die hellen Säulen
+  kaum sichtbar auf Weiß.
+- **Folie 22:** Werte, Maßzeichen der Spanne, Pfeilspitze mit „Maximum 8.592“ und Marke sitzen neben und über den Säulen
+  (Abstandsbreite 156 %, Überlappung −12 %); die gestrichelte Marke (1 pt) setzt an der Maßlinie der ARGE-Spanne aus; die Flächen in
+  der Grundfarbe unterbrechen die Gitterlinien an 4.631 und 3.713 mit Absicht.
+- **Folien 4 bis 6 nacheinander zeigen:** Die Jahre der Folie 4 sind Textfelder, die Jahre der Folie 6 und die Kategorien der Folie 5
+  Achsbeschriftung des Diagramms. In LibreOffice stehen beide auf einer Höhe; in PowerPoint kann der Abstand zur Achse anders ausfallen.
+  Springt es beim Blättern sichtbar, die Jahre der Folie 6 als Textfelder setzen wie auf Folie 4.
+- **Strichmuster:** PowerPoint misst Strich und Lücke in Linienstärken. Die gestrichelten Linien der Folien 4, 5 und 22 deshalb auch am
+  Beamer ansehen.
+
+Fällt die Fläche der Folie 4 in PowerPoint anders aus als im PDF, nimmt man in `folien/ausgangslage-zinsen.cjs` die Option `flaeche`
+aus dem Aufruf von `D.linien` und baut neu; alles andere bleibt.
+
 Das PDF aus LibreOffice trägt die Sprache Deutsch und kennzeichnet Linien und Flächen als Schmuck; die Alternativtexte der
 Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten braucht, exportiert die Endfassung aus PowerPoint.
 
@@ -125,9 +162,10 @@ Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten 
   sie als unbelegt.
 - **Aussehen:** Farben, Schriften und Raster in `lib/theme.cjs`, Folienrahmen in `lib/layouts.cjs`, Bausteine in
   `lib/bausteine.cjs` und `lib/diagramme.cjs`.
-- **Beschriftungen an den Diagrammen** (Summen, Endwerte, Maßketten, Werte über den Säulen der Folien 3 und 6, die Jahre unter dem
-  Verlauf der Folie 21) sind Textfelder und folgen geänderten Diagrammdaten nicht; Zahlen deshalb in den Datendateien ändern und
-  neu bauen. Die Flussdiagramme der Folien 17 und 18 sind ganz aus Formen gebaut: Bänder und Beschriftung entstehen nur beim Bau.
+- **Beschriftungen an den Diagrammen** (Summen, Endwerte, Maßketten, Werte und Maßketten über den Säulen der Folien 3, 5, 6 und 22,
+  die Maßzeichen der Spanne auf Folie 22, auf Folie 4 die Werte in Legende und Werteblöcken, die Jahre und der Punkt am Linienende,
+  die Jahre unter dem Verlauf der Folie 21) sind Textfelder und Formen und folgen geänderten Diagrammdaten nicht; Zahlen deshalb in
+  den Datendateien ändern und neu bauen. Die Flussdiagramme der Folien 17 und 18 sind ganz aus Formen gebaut: Bänder und Beschriftung entstehen nur beim Bau.
 - **Folien einfügen, streichen oder verschieben:** Reihenfolge, Blattnummern (`nr`) und Abschnitte in `daten/outline.json`. Der
   Trenner zählt die Abschnitte von selbst; die Agenda führt ihre vier Abschnitte in `daten/rahmen.json`, der Bau prüft sie gegen
   das Konzept. Danach die Verweise in Notizen und Datendateien nachführen (der Bau prüft die Quellentabelle, `pruefe_folien.py`

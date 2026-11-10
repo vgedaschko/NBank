@@ -1,24 +1,33 @@
 // Folie 22 · PGN_DIAGRAMM: Herstellungskosten je m² Wohnfläche, Median, PGN gegen ARGE, als natives gruppiertes Säulendiagramm über acht
-// Spalten (vier Kostengruppen; PGN in Tinte, ARGE in Referenzgrau, Werte über den Säulen). Über dem Säulenpaar der Herstellung die Marke mit
-// dem Ansatz des Modellhauses. Rechts die Hauptzahl der Folie (Abstand der Mediane) in 60 pt wie auf den Folien 3 bis 6, darunter Grundlage und Spanne.
+// Spalten (vier Kostengruppen). Feine Zeichnung wie auf Folie 3 (D.gruppierteSaeulen mit fein: true): schlanke Säulen mit feiner Kontur, PGN in
+// Tinte, ARGE als helle Fläche, zwischen beiden eine schmale Fuge; die Werte stehen über den Säulen (PGN in Tinte, ARGE in Grau). Neben den
+// Säulen der Herstellung steht die Spanne als Maßzeichen (kleinster bis größter Wert, folien/_fein_pgn-baukosten.cjs); die Spanne der ARGE
+// reicht über die Größenachse hinaus, ihre Maßlinie endet in einer Pfeilspitze mit dem Wert. Über dem Säulenpaar der Herstellung die Marke mit
+// dem Ansatz des Modellhauses. Rechts die Hauptzahl der Folie (Abstand der Mediane) in 60 pt wie auf den Folien 3 bis 6, darunter Grundlage
+// und Spanne.
 // Werte aus daten/markt.json, Block kosten (Altfassung Folie 12, nicht nachgeprüft); der Abstand ist im Modul gerechnet. Ansatz des Modellhauses
 // aus daten/werte.json. Weißer Grund und kein Stempel: Die Folie zeigt Kostenkennwerte und kein Modellhaus. Kein Rot im Diagramm.
 'use strict';
 const S = require('./_struktur.cjs');
+const FEIN = require('./_fein_pgn-baukosten.cjs');
 
 module.exports = {
   id: 'pgn-baukosten',
   bau(ctx) {
     const { B, D, X, W, fmt, colX, ZONE, P } = ctx, s = ctx.folie(), K = p => X('markt', 'kosten.' + p), wl = (t, was) => ctx.wortlaut(t, was);
     const U = S.liesKosten(ctx), T = k => wl(U(k), k);
-    const gruppen = K('gruppen'), wer = ['pgn', 'arge'].map((k, i) => ({ k, name: wl(K(`${k}.name`), 'Legende'), art: i ? 'referenz' : 'tinte',
+    // PGN ist die Aussage (Tinte), ARGE der Bezugswert (helle Fläche mit Kontur)
+    const gruppen = K('gruppen'), wer = ['pgn', 'arge'].map((k, i) => ({ k, name: wl(K(`${k}.name`), 'Legende'), art: i ? 'bezug' : 'tinte',
       median: K(`${k}.median`), spanne: Object.fromEntries(['min', 'median', 'max'].map(m => [m, K(`${k}.spanne_herstellung.${m}`)])) }));
     const [pgn, arge] = wer, ansatz = W('modellhaus', 'eingabe.herstellungskosten_qm'), unter = 1 - pgn.spanne.median / arge.spanne.median;
 
     // ---- Gegenproben ------------------------------------------------------------------------------------------------------------------
     // Median der Herstellung steht in Reihe und Spanne gleich; der PGN-Median ist der Eingabewert der Folie 23; die ARGE-Mediane stehen mit
-    // denselben Werten im Block baukosten (Folie 3 und ihre Notizen)
-    for (const r of wer) if (r.median[0] !== r.spanne.median) P.melde(`${r.name}: Der Median der Herstellung steht in Reihe (${r.median[0]}) und Spanne (${r.spanne.median}) verschieden.`);
+    // denselben Werten im Block baukosten (Folie 3 und ihre Notizen); jede Spanne ist geordnet (kleinster Wert, Median, größter Wert)
+    for (const r of wer) {
+      if (r.median[0] !== r.spanne.median) P.melde(`${r.name}: Der Median der Herstellung steht in Reihe (${r.median[0]}) und Spanne (${r.spanne.median}) verschieden.`);
+      if (!(r.spanne.min <= r.spanne.median && r.spanne.median <= r.spanne.max)) P.melde(`${r.name}: Die Spanne der Herstellung ist nicht geordnet (${r.spanne.min}, ${r.spanne.median}, ${r.spanne.max}).`);
+    }
     ctx.gleich('PGN-Median gegen den Eingabewert des Laufs modellhaus_pgn_kosten', pgn.spanne.median, W('modellhaus_pgn_kosten', 'eingabe.herstellungskosten_qm'), 0);
     const baukosten = Object.values(ctx.daten.markt.baukosten || {}).filter(g => g && g.kg && g.q4_2025);
     gruppen.forEach((g, i) => {
@@ -30,26 +39,45 @@ module.exports = {
     const abstand = fmt.zahl(unter * 100, 1);
     if (!ctx.o.titel.includes(`${abstand} % unter`)) P.melde(`Titel der Folie nennt den Abstand nicht mit ${abstand} %.`);
 
-    // ---- Diagramm über acht Spalten ------------------------------------------------------------------------------------------------------
+    // ---- Diagramm über acht Spalten: schlanke Säulen, Werte als Text darüber --------------------------------------------------------------
     B.diagrammkopf(s, { titel: T('diagrammtitel'), sub: T('untertitel') });
-    B.legende(s, { x: colX(1), y: ZONE.diagramm.legende, eintraege: wer.map(r => ({ text: r.name, art: r.art })) });
-    const ACHSE = { min: 0, max: 5000, schritt: 1000, format: 'ganz' };
-    const d = D.gruppierteSaeulen(s, { kategorien: gruppen.map(g => `${g.name} ${g.kg}`), katAchse: false, luecke: 70, name: 'Diagramm Herstellungskosten', achse: ACHSE, labelFormat: 'ganz',
-      altText: `Säulendiagramm: Herstellungskosten je m² Wohnfläche in €, Median, ${wer.map(r => r.name).join(' und ')} für ${gruppen.map(g => `${g.name} (${g.kg})`).join(', ')}`,
+    // Legende: zwei Felder in der Kontur der Säulen, dahinter das Maßzeichen der Spanne
+    const chart = ZONE.diagramm.chart, yL = ZONE.diagramm.legende;
+    const felder = B.legende(s, { x: colX(1), y: yL, fein: true, eintraege: wer.map(r => ({ text: r.name, art: r.art })) });
+    const legende = FEIN.legendeSpanne(ctx, s, { x: felder.rechts + 0.20, y: yL, text: T('legende_spanne') });
+    if (legende.rechts > chart.x + chart.w + 0.005) P.melde(`Legende endet bei x ${legende.rechts.toFixed(2)} und läuft über das Diagramm (bis ${(chart.x + chart.w).toFixed(2)}).`);
+    // Säulen 0,48 Zoll breit. Der Rand oben lässt Platz für die Pfeilspitze der ARGE-Spanne und ihren Wert
+    const ACHSE = { min: 0, max: 5000, schritt: 1000, format: 'ganz' }, sp = r => `${r.name} ${fmt.zahl(r.spanne.min)} bis ${fmt.euro(r.spanne.max)}`;
+    const d = D.gruppierteSaeulen(s, { kategorien: gruppen.map(g => `${g.name} ${g.kg}`), katAchse: false, fein: true, saeule: 0.48, labels: false, rand: { o: 0.34 }, name: 'Diagramm Herstellungskosten', achse: ACHSE,
+      altText: `Säulendiagramm: Herstellungskosten je m² Wohnfläche in €, Median, ${wer.map(r => r.name).join(' und ')} für ${gruppen.map(g => `${g.name} (${g.kg})`).join(', ')}. ` +
+        `Spanne der Herstellung vom kleinsten zum größten Wert: ${wer.map(sp).join(', ')}.`,
       reihen: wer.map(r => ({ name: r.name, art: r.art, werte: r.median })) });
     B.kategorien(s, d, gruppen.map(g => ({ name: g.name, zusatz: g.kg })));
+    // Werte über den Säulen im Ton ihrer Säule, als Text auf einer Fläche in der Grundfarbe (keine Gitterlinie läuft durch die Zahl)
+    wer.forEach((r, j) => r.median.forEach((v, i) => B.textAufPlot(s, fmt.zahl(v), { x: d.reiheMitte(i, j) - 0.45, y: d.yWert(v) - 0.26, w: 0.90, h: 0.22, rolle: 'wert', farbe: D.ART[r.art].wert,
+      align: 'center', valign: 'middle', name: `Wert ${gruppen[i].name} ${r.name}` })));
+
+    // ---- Spanne der Herstellung: Maßzeichen neben den beiden Säulen (PGN links, ARGE rechts des Paars) ---------------------------------------
+    // Die ARGE-Spanne reicht über die Größenachse hinaus: Ihre Maßlinie endet über der Plotfläche in einer Pfeilspitze, daneben steht „Maximum“ mit dem Wert
+    // (nicht „bis“: Direkt neben dem Wert der ARGE-Säule läse sich das als „4.631 bis 8.592“)
+    const breite = d.saeulenBreite, ABSTAND = 0.13, xSpanne = [d.reiheLinks(0, 0) - ABSTAND, d.reiheLinks(0, 1) + breite + ABSTAND];
+    if (arge.spanne.max <= ACHSE.max) P.melde('Die ARGE-Spanne endet in der Plotfläche; der Text „Maximum …“ an der Pfeilspitze entfiele. Konzept und Modul nachführen.');
+    wer.forEach((r, j) => FEIN.spanne(ctx, s, { x: xSpanne[j], yMin: d.yWert(r.spanne.min), yMax: d.yWert(r.spanne.max), yGrenze: d.plot.y, name: `Spanne ${r.name}`,
+      bis: j ? T('spanne_bis').replace(/ (\S+)$/, ' **$1**') : undefined, bisBreite: 1.3 }));
 
     // ---- Marke: Ansatz des Modellhauses, nur über dem Säulenpaar der Herstellung ------------------------------------------------------------
-    // Die Linie setzt über einer Säule aus, die bis an die Linie reicht, und an einer Datenbeschriftung auf ihrer Höhe. Der Text steht rechts
-    // neben dem Linienende auf der Höhe der Linie.
-    const yM = d.yWert(ansatz), zoll = d.plot.h / (ACHSE.max - ACHSE.min), breite = d.saeulenBreite;
+    // Die Linie setzt über einer Säule aus, die bis an die Linie reicht, und an einem Wert auf ihrer Höhe. An der Maßlinie der ARGE-Spanne setzt
+    // sie ebenfalls aus (0,06 Zoll beiderseits) und läuft dahinter 0,32 Zoll weiter bis zum Text: B.markeMitLuecken lässt Stücke unter 0,30 Zoll
+    // weg, und der Text stünde sonst ohne Linie da. Er steht rechts neben dem Linienende auf der Höhe der Linie.
+    const yM = d.yWert(ansatz), zoll = d.plot.h / (ACHSE.max - ACHSE.min);
     const luecken = wer.map((r, j) => {
-      const dy = (ansatz - r.median[0]) * zoll, halb = P.zeile('Datenbeschriftung', fmt.zahl(r.median[0]), { fontFace: ctx.F.mont, bold: true, fontSize: 12 }, breite) / 2 + 0.09;
+      const dy = (ansatz - r.median[0]) * zoll, halb = P.zeile('Wert über der Säule', fmt.zahl(r.median[0]), { fontFace: ctx.F.mont, bold: true, fontSize: 12 }, breite + 0.4) / 2 + 0.09;
       if (dy >= 0.30) return null;
       return dy > 0.02 ? [d.reiheMitte(0, j) - halb, d.reiheMitte(0, j) + halb] : [d.reiheLinks(0, j) - 0.03, d.reiheLinks(0, j) + breite + 0.03];
     }).filter(Boolean);
-    const x1 = d.reiheLinks(0, 1) + breite + 0.36, xText = x1 + 0.08;
-    B.markeMitLuecken(s, { y: yM, x0: d.reiheLinks(0, 0) - 0.12, x1, luecken, lage: 'aussen', text: T('marke_modellhaus').replace(/: (.+)$/, ': **$1**'), textX: xText, textBreite: d.plot.x + d.plot.w - xText,
+    const x1 = xSpanne[1] + 0.06 + 0.32, xText = x1 + 0.08;
+    luecken.push([xSpanne[1] - 0.06, xSpanne[1] + 0.06]);
+    B.markeMitLuecken(s, { y: yM, x0: xSpanne[0] - 0.14, x1, luecken, lage: 'aussen', text: T('marke_modellhaus').replace(/: (.+)$/, ': **$1**'), textX: xText, textBreite: d.plot.x + d.plot.w - xText,
       name: 'Marke Ansatz Modellhaus' });
 
     // ---- Rechte Spalte: Hauptzahl, darunter Grundlage und Spanne ---------------------------------------------------------------------------

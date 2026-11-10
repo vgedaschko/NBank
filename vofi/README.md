@@ -8,7 +8,7 @@ Wirtschaftlichkeitsmappe für geförderten Mietwohnungsbau nach RL Mietwohnraum 
 |---|---|
 | `PGN_VOFI_Mietwohnraum_2026_v3.xlsx` | Mappe, neu berechnet, aktives Projekt Modellhaus |
 | `build_vofi.py` | Generator (openpyxl): Blätter, Formeln, Namen, Formate, Druck |
-| `pruefe_vofi.py` | Abnahmeprüfung: Struktur, Gestaltung, Sprache, 42 Testläufe gegen Referenzrechnung, Broschüre S. 10–12 und v2-1 |
+| `pruefe_vofi.py` | Abnahmeprüfung: Struktur, Gestaltung, Sprache, Seitenreserve im Druck (gerechnet nach der Breitenregel von Excel), 62 Testläufe gegen Referenzrechnung, Broschüre S. 10–12 und v2-1; Regression gegen den Stand vor der Erweiterung „Frei finanziert“ |
 | `KONZEPT-v3.md` | Sollkonzept (intern): Zelladressen, Namen, Rechenlogik, Sollwerte, Abweichungen, Fundstellen der Eingaben |
 | `AENDERUNGEN.md` | Änderungen gegenüber v2-1, für PGN |
 
@@ -22,7 +22,7 @@ Nur gelesen, nie verändert:
 
 ```sh
 python build_vofi.py      # bauen, mit recalc.py neu berechnen, nachbearbeiten
-python pruefe_vofi.py     # Abnahme; Exit-Code 0 = alle Prüfungen OK (rund 1 Minute)
+python pruefe_vofi.py     # Abnahme; Exit-Code 0 = alle Prüfungen OK (rund 2 Minuten)
 ```
 
 Einzelschritte (Abnahmefolge):
@@ -38,7 +38,14 @@ python pruefe_vofi.py PGN_VOFI_Mietwohnraum_2026_v3.xlsx
 
 LibreOffice entfernt beim Speichern Gliederungslage (`summaryBelow`), Klappzustand, `fullCalcOnLoad` und Dokumenteigenschaften. `--nachbearbeiten` setzt sie im XML wieder, Werte und Formeln bleiben unverändert. Nach jedem weiteren `recalc.py` erneut aufrufen, sonst meldet das Prüfskript zwei Hinweise (kein Fehler).
 
-Pfade: `build_vofi.py` liest `VOFI_PYTHON` und `VOFI_RECALC`; `pruefe_vofi.py` hat die Pfade im Kopf (Abschnitt 0: `VOFI_DIR`, `BROSCH`, `RECALC`). Optionen des Prüfskripts: `--laeufe L1,L2`, `--parallel 4`, `--timeout 120`, `--ausfuehrlich`, `--behalten`, `--arbeitsordner DIR`.
+Pfade: `build_vofi.py` nimmt den laufenden Python-Interpreter (oder `VOFI_PYTHON`); beide Skripte finden `recalc.py` über `VOFI_RECALC` oder durch Suche unter dem Benutzerordner (`~/.*/skills/**/xlsx/scripts/recalc.py`). `pruefe_vofi.py` hat `VOFI_DIR` und `BROSCH` im Kopf (Abschnitt 0). Optionen des Prüfskripts: `--laeufe L1,L2`, `--parallel 4`, `--timeout 120`, `--ausfuehrlich`, `--behalten`, `--arbeitsordner DIR`, `--baseline PFAD`.
+
+Regression (Konzept N.6): Das Prüfskript vergleicht die Läufe L1 und L2 mit dem Stand vor der Erweiterung „Frei finanziert“ (Commit `0dfe8a2`). Es holt die Vergleichsdatei selbst mit `git show` aus dem Repository in den Arbeitsordner; ohne Repository meldet es einen Hinweis (kein Fehler). Eine eigene Datei geht über `--baseline PFAD` oder `VOFI_BASELINE`:
+
+```sh
+git show 0dfe8a2:vofi/PGN_VOFI_Mietwohnraum_2026_v3.xlsx > /tmp/vofi_stand_vorher.xlsx
+python pruefe_vofi.py --baseline /tmp/vofi_stand_vorher.xlsx
+```
 
 Änderungen an der Mappe immer im Generator, nie in der xlsx. Wer Adressen, Texte oder Rechenregeln ändert, zieht `KONZEPT-v3.md` und `pruefe_vofi.py` nach; das Prüfskript liest den Generator nicht.
 

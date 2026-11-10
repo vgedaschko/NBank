@@ -1,6 +1,6 @@
 # Sollkonzept VOFI Mietwohnraum 2026, Version 3
 
-**Stand:** 09.11.2026, Fassung 4 (Kritik vom 09.11.2026, Abschnitt J; Nacharbeit Runde 1, Abschnitt K; Nacharbeit Runde 2, Abschnitt L) · **Status:** verbindliche Bauvorlage für `build_vofi.py` und `pruefe_vofi.py` · **Intern**
+**Stand:** 10.11.2026, Fassung 5 (Kritik vom 09.11.2026, Abschnitt J; Nacharbeit Runde 1–3, Abschnitte K–M; Erweiterung „Frei finanziert“ mit Finanzierung, Mietwahl und Eigenkapitalebene, Abschnitt N, mit Nacharbeit Prüfrunde 1 und 2, N.7 und N.8) · **Status:** verbindliche Bauvorlage für `build_vofi.py` und `pruefe_vofi.py` · **Intern**
 
 **Ziel:** `/home/user/NBank/vofi/PGN_VOFI_Mietwohnraum_2026_v3.xlsx`, neu erzeugt von `/home/user/NBank/vofi/build_vofi.py` (openpyxl), danach mit `recalc.py` neu berechnet, geprüft mit `/home/user/NBank/vofi/pruefe_vofi.py`.
 
@@ -15,7 +15,7 @@ Kurzzeichen (nur in diesem Konzept, nicht in der Excel): RW = Restwert („mit R
 | Nr. | Entscheidung | Grund |
 |---|---|---|
 | E1 | 9 Blätter: Übersicht, Eingaben, Gefördert A, Gefördert B, Gefördert C, Frei finanziert, NBank, Tabellen, Hinweise | Höchstgrenze 9; NBank getrennt (Ebene 4); Kennzahlen der Ebenen 1–3 auf der Übersicht |
-| E2 | 37 Eingaben in 9 Blöcken (v2-1: 75 Eingabezellen, 101 mit Festlegungen) | Streichliste Abschnitt E |
+| E2 | 39 Eingaben in 10 Blöcken (v2-1: 75 Eingabezellen, 101 mit Festlegungen); Block 10 mit 10.1 und 10.2 seit Abschnitt N | Streichliste Abschnitt E |
 | E3 | Die Blätter Gefördert A/B/C sind zellgleich; die Gruppe steht nur in `B2` | eine Formel je Spalte für alle drei Gruppen, prüfbar |
 | E4 | Zeitachse t = 0 … 80; Zahlungen bis t = 42, t = 43 … 80 nur Mietpfad und Reinertrag für den Restwert | Restwert als Ertragswert bis Gesamtnutzungsdauer 80 Jahre (B5) |
 | E5 | Eigenkapital = Grundstück (Verkehrswert, Sacheinlage) + bares Eigenkapital als Restgröße; die Bank finanziert nur Herstellungskosten, die nach Förderung und RL-Mindesteigenmitteln fehlen | B4; Broschüre S. 10 „Restfinanzierung“; Abweichung A3 mit Wirkung D.2a, offen O1 |
@@ -23,15 +23,15 @@ Kurzzeichen (nur in diesem Konzept, nicht in der Excel): RW = Restwert („mit R
 | E7 | Tilgung NBank als Satz (2,50 % linear vom Ursprungsdarlehen), ab Jahr Aufschub + 1, Rest spätestens in Jahr 42 | freigegebene Annahme; RL Nr. 5.3.5 |
 | E8 | Kostenstand als Eingabe 5.5 (0 = Stand 2026 gilt in Jahr 1) | B8, Umbauliste Nr. 10 |
 | E9 | Restwert = periodischer Ertragswert auf einheitlichem Preisstand, Boden und Gebäude getrennt, Abschlag der Bestandsmiete bis zur Zielmiete | B2, B5, B6 |
-| E10 | IRR nach der Konvention „größte Nullstelle mit fallendem Barwert“ (kennzahlen-konzept 3.3): erster Treffer der Startwert-Kaskade (Objekt 3 %, Eigenkapital = VOFI-EK-Rendite derselben Variante, sonst 0; danach −10, −30, −50, −60, −70 %; Ergebnisse ≤ −100 % gelten als Fehlversuch), zweiter Versuch `IRR` ab erstem Treffer + 5 Prozentpunkte; gezeigt wird die größere der beiden Nullstellen, wenn der Barwert dort fällt (Barwert bei +0,01 Prozentpunkten < 0), sonst „n. v.“. Beide Treffer stehen als Hilfswerte in den gegliederten Spalten (Gefördert Y–AB, Frei O–R) neben der Kennzahl (Runde 1 R1/R2, Runde 2 R2) | Ein einzelner Startwert trifft bei mehreren Nullstellen je nach Reihe die obere oder die untere (Runde 2 R2: L10, L41, Tilgung 0 %). Mit zweitem Versuch und Barwert-Test gleich der RR in allen Läufen und 28.650 nachgerechneten Reihen, außer Nullstellen unter −69 % („n. v.“, K.2 R1). Bei mehreren Nullstellen ist der IRR nicht eindeutig; maßgeblich ist die VOFI-EK-Rendite (Bemerkung Übersicht 5.5, 5.7, 5.9, 6.2, 6.6; Prüfregel F8) |
+| E10 | IRR nach der Konvention „größte Nullstelle mit fallendem Barwert“ (kennzahlen-konzept 3.3): erster Treffer der Startwert-Kaskade (Objekt 3 %, Eigenkapital = VOFI-EK-Rendite derselben Variante, sonst 0; danach −10, −30, −50, −60, −70 %; Ergebnisse ≤ −100 % gelten als Fehlversuch), zweiter Versuch `IRR` ab erstem Treffer + 5 Prozentpunkte; gezeigt wird die größere der beiden Nullstellen, wenn der Barwert dort fällt (Barwert bei +0,01 Prozentpunkten < 0), sonst „n. v.“. Beide Treffer stehen als Hilfswerte in den gegliederten Spalten (Gefördert Y–AB, Frei R–U) neben der Kennzahl (Runde 1 R1/R2, Runde 2 R2) | Ein einzelner Startwert trifft bei mehreren Nullstellen je nach Reihe die obere oder die untere (Runde 2 R2: L10, L41, Tilgung 0 %). Mit zweitem Versuch und Barwert-Test gleich der RR in allen Läufen und 28.650 nachgerechneten Reihen, außer Nullstellen unter −69 % („n. v.“, K.2 R1). Bei mehreren Nullstellen ist der IRR nicht eindeutig; maßgeblich ist die VOFI-EK-Rendite (Bemerkung Übersicht 5.5, 5.7, 5.9, 6.2, 6.6; Prüfregel F8) |
 | E11 | Stresstest mit 4 neutralen Größen (9.1–9.4) statt Szenario-Umschalter | Vorgabe 5 |
-| E12 | 64 benannte Bereiche (v2-1: 384): alle Eingaben (Spalte „verwendet“), Projektwahl und alle Festwerte; keine Gruppen-Namen | Formeln lesbar, Blätter A/B/C identisch |
+| E12 | 66 benannte Bereiche (v2-1: 384): alle Eingaben (Spalte „verwendet“), Projektwahl und alle Festwerte; keine Gruppen-Namen | Formeln lesbar, Blätter A/B/C identisch |
 | E13 | Herstellungskosten je m² Wohnfläche (2.1) und Laufzeit des Bankdarlehens (6.4) als Eingaben; Annuität und Anfangstilgung per Formel | G11; Broschüre denkt in €/m²; keine versteckte Stellenzahl |
 | E14 | Überfinanzierung bei Bezug (Kasse ≥ 1 €) sperrt alle Renditen der Blätter Gefördert A/B/C („n. v.“) | B4, Umbauliste Nr. 1 |
 | E15 | Prüfblock nur für Fehler, die anschlagen können (P1–P6), sichtbar, mit Kasse bei Bezug neben P1; jede Prüfung in `IFERROR` (Fehlerwert = „prüfen“), Gesamtstatus „OK“ nur bei sechsmal „OK“; zulässige Sonderfälle als Beträge in Block 1 und 3; Identitäten nur im Prüfskript (F13) | Gesamtstatus bleibt aussagekräftig, auch bei Fehlerwerten (Runde 2 R1); Ursache der Sperre sichtbar |
 | E16 | Projektwahl über die Position (D3 = 1 oder 2), Projektnamen als Eingaben D4:E4 | Umbenennen eines Projekts löst keinen Bezugsfehler aus (Runde 1, V1) |
-| E17 | Übersicht als Kurzfassung auf zwei Druckseiten: Nebenwerte eingeklappt, Restwert-Varianten ausgeschrieben, nicht zutreffende Frei-Zellen leer; Bemerkungen der Blöcke ohne Horizont (1–4, 8) in Spalte H neben den Zahlen | Runde 1, V2/V4; Runde 2, V4/V5 |
-| E18 | Vergleich gefördert gegen frei auf Objekt-IRR-Basis nach Förderbarwert (Zuschuss nach Entgelt + Barwertvorteil des NBank-Darlehens zum Zins 6.1); daneben nach Zuschuss und ohne Zuschuss (Kosten der Bindung), Frei in allen Zeilen | Runde 2 FL1: „nach Zuschuss“ enthält den Zinsvorteil des Darlehens nicht, bei B und C der größere Teil der Förderung; kennzahlen-konzept 2.3 weist den Förderbarwert zur Einordnung aus |
+| E17 | Übersicht als Kurzfassung auf zwei Druckseiten: Nebenwerte eingeklappt, Restwert-Varianten ausgeschrieben, nicht zutreffende Frei-Zellen leer; Bemerkungen der Blöcke ohne Horizont (1–4, 8, 9) in Spalte H neben den Zahlen | Runde 1, V2/V4; Runde 2, V4/V5 |
+| E18 | Vergleich gefördert gegen frei auf Objekt-IRR-Basis nach Förderbarwert (Zuschuss nach Entgelt + Barwertvorteil des NBank-Darlehens zum Zins 6.1); daneben nach Zuschuss und ohne Zuschuss (Kosten der Bindung), Frei in allen Zeilen. Seit Abschnitt N zusätzlich auf der Eigenkapitalebene (Block 6) und in der Liquidität (Block 2, 3): Frei mit den Mindest-Eigenmitteln wie gefördert zuzüglich Eingabe 7.1, Rest als Bankdarlehen zu Block 6; Frei-Miete laut Eingabe 10.1 (Marktmiete oder Miete für das DSCR-Ziel 10.2), Zeitreihe, Restwert und alle Frei-Kennzahlen einheitlich mit dieser Miete; der Aufschlag auf die Marktmiete steht bei den Renditen und beim Restwert (L74, L87, L98) | Runde 2 FL1: „nach Zuschuss“ enthält den Zinsvorteil des Darlehens nicht, bei B und C der größere Teil der Förderung; kennzahlen-konzept 2.3 weist den Förderbarwert zur Einordnung aus. Abschnitt N: Ohne Finanzierung blieb offen, ob sich frei zur Marktmiete trägt (Modellhaus DSCR Jahr 1 0,67) |
 
 ---
 
@@ -39,10 +39,10 @@ Kurzzeichen (nur in diesem Konzept, nicht in der Excel): RW = Restwert („mit R
 
 | Nr. | Blatt | Zweck | Aufbau | Navigation, Fixierung |
 |---|---|---|---|---|
-| 1 | Übersicht | Ergebnisse des aktiven Projekts in vier Ebenen; Prüfstatus | Kopf Zeile 1–6; Blöcke: 1 Finanzierung (Z. 8–26), 2 Jahresrechnung Jahr 1 (Z. 28–39), 3 Liquidität (Z. 41–52), 4 Tilgungssatz (Z. 54–72), 5 Objektrendite (Z. 74–85), 6 EK-Rendite (Z. 87–95), 7 Restwert (Z. 97–106), 8 Prüfungen (Z. 108–114, sichtbar). Spalten: A Nr., B Kennzahl, C Einheit/Satz, D–G A/B/C/Frei (bzw. Jahr 35), H–K A/B/C/Frei Jahr 42, L Bemerkung; in den Blöcken 1–4 und 8 (ohne Horizont) steht die Bemerkung in H. Zeilengliederung: Nebenwerte in Block 1, 3, 4 und Details in Block 5–7 eingeklappt | Zeile 6: Zellhyperlinks auf alle Blätter; fixiert ab A7 |
-| 2 | Eingaben | Auswahl „Aktives Projekt“, alle änderbaren Werte beider Projekte | Z. 1 Titel, Z. 2 Legende, Z. 3 Projektwahl (1 oder 2), Z. 4 Projektnamen (Eingaben), Z. 5 Kopf, Z. 6–51 neun Blöcke mit Zeilengliederung. Spalten A Nr. · B Eingabe · C Einheit · D Projekt 1 · E Projekt 2 · F verwendet · G Quelle | fixiert D6; Zellhyperlink „Übersicht“ in G3 |
-| 3–5 | Gefördert A, Gefördert B, Gefördert C | Zeitreihe und Ergebnisse je Einkommensgruppe | Z. 1–5 Kopf (Z. 2 Sprunglinks H2:M2, Z. 4 Gruppen, Z. 5 Spaltenköpfe), Z. 6–86 t = 0 … 80, Spalten A–X sichtbar, Y–AS „Zahlungsreihen für IRR“ und darunter die Nullstellensuche (Y–AB, Z. 131–142 und 172–177; gegliedert, zugeklappt), Zeilen 49–86 (t = 43 … 80) gegliedert, zugeklappt. Unterhalb: Finanzierung (Z. 88–114), Restwert (Z. 116–129), Renditen (Z. 131–151), Liquidität (Z. 153–170), Förderbarwert und Objektrendite (Z. 172–177) | fixiert C6; Zeile 2: Links Übersicht · Finanzierung · Restwert · Renditen · Liquidität · Förderbarwert |
-| 6 | Frei finanziert | Vergleich zur Marktmiete, nur Objektebene | wie 3–5, Zeitreihe A–H, Zahlungsreihen O–S und Nullstellensuche O–R (Z. 131–138; gegliedert, zugeklappt); Blöcke in denselben Zeilen wie 3–5 (Z. 88–95, 116–129, 131–139); Leerzeilen 123, 124, 129, 133–135 ausgeblendet | fixiert C6; Zeile 2: Links Übersicht · Kosten · Restwert · Renditen |
+| 1 | Übersicht | Ergebnisse des aktiven Projekts in vier Ebenen; Prüfstatus | Kopf Zeile 1–6; Blöcke: 1 Finanzierung (Z. 8–26), 2 Jahresrechnung Jahr 1 (Z. 28–39), 3 Liquidität (Z. 41–52), 4 Tilgungssatz (Z. 54–72), 5 Objektrendite (Z. 74–85), 6 EK-Rendite (Z. 87–96), 7 Restwert (Z. 98–107), 8 Miete für das DSCR-Ziel (Z. 109–115), 9 Prüfungen (Z. 117–123, sichtbar). Spalten: A Nr., B Kennzahl, C Einheit/Satz, D–G A/B/C/Frei (bzw. Jahr 35), H–K A/B/C/Frei Jahr 42, L Bemerkung; in den Blöcken 1–4, 8 und 9 (ohne Horizont) steht die Bemerkung in H. Zeilengliederung: Nebenwerte in Block 1, 3, 4 und Details in Block 5–7 eingeklappt | Zeile 6: Zellhyperlinks auf alle Blätter; fixiert ab A7 |
+| 2 | Eingaben | Auswahl „Aktives Projekt“, alle änderbaren Werte beider Projekte | Z. 1 Titel, Z. 2 Legende, Z. 3 Projektwahl (1 oder 2), Z. 4 Projektnamen (Eingaben), Z. 5 Kopf, Z. 6–54 zehn Blöcke mit Zeilengliederung. Spalten A Nr. · B Eingabe · C Einheit · D Projekt 1 · E Projekt 2 · F verwendet · G Quelle | fixiert D6; Zellhyperlink „Übersicht“ in G3 |
+| 3–5 | Gefördert A, Gefördert B, Gefördert C | Zeitreihe und Ergebnisse je Einkommensgruppe | Z. 1–5 Kopf (Z. 2 Sprunglinks H2:N2, Z. 4 Gruppen, Z. 5 Spaltenköpfe), Z. 6–86 t = 0 … 80, Spalten A–X sichtbar, Y–AS „Zahlungsreihen für IRR“ und darunter die Nullstellensuche (Y–AB, Z. 131–142 und 172–177; gegliedert, zugeklappt), Zeilen 49–86 (t = 43 … 80) gegliedert, zugeklappt. Unterhalb: Finanzierung (Z. 88–114), Restwert (Z. 116–129), Renditen (Z. 131–151), Liquidität (Z. 153–170), Förderbarwert und Objektrendite (Z. 172–177), Miete für das DSCR-Ziel (Z. 179–183) | fixiert C6; Zeile 2: Links Übersicht · Finanzierung · Restwert · Renditen · Liquidität · Förderbarwert · DSCR-Ziel |
+| 6 | Frei finanziert | Vergleich ohne Förderung: Objekt-, Liquiditäts- und Eigenkapitalebene mit Bankdarlehen; Miete laut Eingabe 10.1 | wie 3–5, Zeitreihe A–Q (ohne NBank), Zahlungsreihen R–AB und Nullstellensuche R–U (Z. 131–142; gegliedert, zugeklappt); Blöcke in denselben Zeilen wie 3–5: Finanzierung (Z. 88–114), Restwert (Z. 116–128), Renditen (Z. 131–151), Liquidität (Z. 153–170), Miete für das DSCR-Ziel (Z. 179–186); Zeilen ohne Inhalt ausgeblendet (D.4) | fixiert C6; Zeile 2: Links Übersicht · Finanzierung · Restwert · Renditen · Liquidität · DSCR-Ziel |
 | 7 | NBank | Ebene 4: EK-Rendite gegen Orientierungswert, neutral | Z. 1–3 Kopf (Z. 3 Projekt), Z. 4–7 Orientierungswert, Z. 8 Gruppenzeile (Rendite · Lage zum Orientierungswert), Z. 9–24 Matrix, Z. 26–31 Bezugsgrößen, Z. 33–36 Hinweise | fixiert A10; Zellhyperlink „Übersicht“ in I1 |
 | 8 | Tabellen | RL-2026-Festwerte, Nutzungsdauer; abgesetzt: Liegenschaftszins Standort Neu Wulmstorf | vier Tabellen mit Titelzeile und Kopfzeile, Quelle je Zeile; Z. 42 Eichhinweis Tabelle 4 | fixiert A3; Zellhyperlink „Übersicht“ in G1 |
 | 9 | Hinweise | höchstens 15 kurze Zeilen | A Nr., B Text; Kopf B2 „Hinweis (Version 3.0, Stand 11/2026)“ | fixiert A3; Zellhyperlink „Übersicht“ in C1 |
@@ -67,7 +67,7 @@ Alle Links sind Zellhyperlinks mit Sprungziel (openpyxl `cell.hyperlink = Hyperl
 | F4 | `=INDEX(Projektliste,Projekt_Nr)` | `Aktives_Projekt` | verwendet (grau) |
 | A5:G5 | Kopf: Nr. · Eingabe · Einheit · Projekt 1 · Projekt 2 · verwendet · Quelle Projekt 1 / Projekt 2 | – | Kopfzeile |
 
-Die Projektwahl hängt an der Position (1 = Spalte D, 2 = Spalte E), nicht am Namen: Ein umbenanntes Projekt (D4/E4) kann keinen Bezugsfehler mehr auslösen (Befund V1 Runde 1). F3 bleibt leer. Der Projektname auf den anderen Blättern ist `=Aktives_Projekt` (F4). Bedingte Formatierung: Kopf der nicht aktiven Projektspalte (D5 bzw. E5, Regel `Projekt_Nr<>1` bzw. `<>2`) grau `A6A6A6`, ihre Werte D7:D51 bzw. E7:E51 in grauer Schrift `8C8C8C`. Jede Eingabezeile r: Spalte F `=INDEX($D r:$E r,Projekt_Nr)`; der Name zeigt auf `Eingaben!$F$r`. Gruppenzeilen: Spalte A leer, Text in B (z. B. „1 Projekt“), Füllung über A–G. Gliederung: Eingabezeilen Ebene 1, Gruppenzeile darüber (`summaryBelow = False`), aufgeklappt. Kein Blattschutz (Abschnitt K, V12).
+Die Projektwahl hängt an der Position (1 = Spalte D, 2 = Spalte E), nicht am Namen: Ein umbenanntes Projekt (D4/E4) kann keinen Bezugsfehler mehr auslösen (Befund V1 Runde 1). F3 bleibt leer. Der Projektname auf den anderen Blättern ist `=Aktives_Projekt` (F4). Bedingte Formatierung: Kopf der nicht aktiven Projektspalte (D5 bzw. E5, Regel `Projekt_Nr<>1` bzw. `<>2`) grau `A6A6A6`, ihre Werte D7:D54 bzw. E7:E54 in grauer Schrift `8C8C8C`. Jede Eingabezeile r: Spalte F `=INDEX($D r:$E r,Projekt_Nr)`; der Name zeigt auf `Eingaben!$F$r`. Gruppenzeilen: Spalte A leer, Text in B (z. B. „1 Projekt“), Füllung über A–G. Gliederung: Eingabezeilen Ebene 1, Gruppenzeile darüber (`summaryBelow = False`), aufgeklappt. Kein Blattschutz (Abschnitt K, V12).
 
 ### B.2 Eingaben je Block
 
@@ -158,9 +158,18 @@ Gültigkeit = Datenüberprüfung. Die Fehlermeldung nennt den zulässigen Bereic
 
 Modellhaus 4.3/4.4 sind gerundete Platzhalter (Abweichung A7, Wirkung höchstens 318 € im Restwert und 0,0002 Pp in den Renditen); Tarutinoer behält die Werte der Vorgängermappe mit voller Stellenzahl (Rundung abgelehnt, Abschnitt K: sie bräche den 0,01-€-Abgleich F10).
 
-Beide Projekte haben im Standard kein Bankdarlehen. Block 6 wirkt dann nur über 6.1 als Vergleichszins des Barwertvorteils (NBank N19/N20). Das Bankdarlehen entsteht, wenn Förderung und Mindest-Eigenmittel die Herstellungskosten nicht decken (Kosten über der Bemessungsgrenze, Grundstück über dem Deckel; Läufe L4–L8, L10, L39, L40). Die Anfangstilgung folgt aus 6.1 und 6.4 (Gefördert H113); RL Nr. 5.3.6 verlangt mindestens 1 % (Prüfung P3).
+Gefördert haben beide Projekte im Standard kein Bankdarlehen; Block 6 wirkt dort nur über 6.1 als Vergleichszins des Barwertvorteils (NBank N19/N20). Frei finanziert nutzt 6.1 bis 6.4 immer (D.4). Gefördert entsteht das Bankdarlehen, wenn Förderung und Mindest-Eigenmittel die Herstellungskosten nicht decken (Kosten über der Bemessungsgrenze, Grundstück über dem Deckel; Läufe L4–L8, L10, L39, L40). Die Anfangstilgung folgt aus 6.1 und 6.4 (Gefördert H113); RL Nr. 5.3.6 verlangt mindestens 1 % (Prüfung P3).
 
-**Summe: 37 Eingaben** (Block 1–9: 3 · 5 · 4 · 6 · 5 · 4 · 3 · 3 · 4) plus Projektwahl D3 und Projektnamen D4:E4. Best/Worst-Werte der Vorgängermappe: Abschnitt E.4, Quellenspalte und `AENDERUNGEN.md` Abschnitt 7.
+**Block 10 Miete frei finanziert und DSCR-Ziel (2), Gruppenzeile 52** (Abschnitt N; angehängt, damit keine bestehende Eingabe Nummer oder Zeile wechselt)
+
+| Nr. | Zeile | Eingabe (Excel) | Name | Einheit | Modellhaus | Tarutinoer | Quelle (Excel) | Fundstelle | Gültigkeit |
+|---|---|---|---|---|---|---|---|---|---|
+| 10.1 | 53 | Miete frei finanziert | `Miete_Frei` | Liste | Marktmiete | Marktmiete | PGN-Annahme | Abschnitt N; v2-1 „Frei, obere Kante“ (`Eingabe!C69:C70`) | Liste „Marktmiete,Miete für DSCR-Ziel“, Meldung „Zulässig: Marktmiete oder Miete für DSCR-Ziel.“ |
+| 10.2 | 54 | DSCR-Ziel für die nötige Miete | `DSCR_Ziel` | Faktor | 1,00 | 1,00 | PGN-Annahme | Abschnitt N; v2-1 DSCR-Ziel 1,25 | Dezimal 0,50–3,00 |
+
+10.1 wirkt nur auf das Blatt Frei finanziert (H109) und dessen Werte auf der Übersicht; 10.2 wirkt auf die nötige Miete aller vier Zeitreihenblätter (Zeile 183) und, bei 10.1 = „Miete für DSCR-Ziel“, auf die Frei-Rechnung. Jede andere Angabe als „Marktmiete“ in 10.1 rechnet mit der Miete für das DSCR-Ziel; P2 meldet eine ungültige Auswahl.
+
+**Summe: 39 Eingaben** (Block 1–10: 3 · 5 · 4 · 6 · 5 · 4 · 3 · 3 · 4 · 2) plus Projektwahl D3 und Projektnamen D4:E4. Best/Worst-Werte der Vorgängermappe: Abschnitt E.4, Quellenspalte und `AENDERUNGEN.md` Abschnitt 7.
 
 ### B.3 Formate in Spalte D–F je Einheit
 
@@ -278,7 +287,7 @@ Bewusst nicht in Tabellen: Zuschlag modellhaft/Housing First (RL Nr. 5.3.3.3), A
 | A1 | KG 800 nicht in der Objektinvestition (RR: enthalten) | Kennzahlenkonzept 2.1/2.3: Finanzierungskosten gehören in die EK-Reihe | Standard 0 (KG 800 = 0). Modellhaus mit KG 800 = 100.000 € (L12): Objekt-IRR n. Z. mit RW J42 A 4,16 % (RR 4,07 %), brutto 2,48 % (RR 2,43 %); EK-Ebene gleich RR |
 | A2 | Restwert J35: Mietpfad Jahr 36–42 mit Obergrenze Vergleichsmiete (RR: Zielmiete) | ein Mietpfad je Gruppe für Zahlungen und Restwert | 0, solange die Obergrenze bis Jahr 42 nicht greift (Standard: A 18,88 < 29,09 €/m² in Jahr 42). Greift bei Mietsteigerung 1,5 % (C, Jahr 40); Testwerte F7 so gewählt, dass A2 nicht greift |
 | A3 | Lücke der Herstellungskosten über Förderung und Mindest-Eigenmitteln finanziert die Bank (RR: bares EK) | Broschüre S. 10 „Restfinanzierung“ | Standard beider Projekte 0. Tarutinoer mit Verkehrswert 731.325 €: Tabelle D.2a; die Liquiditätsaussage kippt (O1). RR-Lesart erreichbar mit 7.1 = Lücke (L5) |
-| A4 | IRR per Excel-IRR (Kaskade, zweiter Versuch, Barwert-Test, E10) statt Raster + Bisektion | Excel-Funktion | 0, solange die Nullstelle über −69 % liegt: gleiche Nullstelle wie die RR, auch bei mehreren (Runde 2: alle F.2a-Läufe und 28.650 nachgerechnete Reihen). Unter −69 % „n. v.“ (K.2 R1). Vor Runde 2 zeigte die Mappe bei mehreren Nullstellen teils die untere: L10 A EK-IRR ohne Restwert J35 −14,45 statt −6,42 %, L41 Frei ohne Restwert J35 −22,71 statt −8,44 %, 3.1 = 0 % C EK-IRR nur Bodenwert J35 0,58 statt 4,75 % |
+| A4 | IRR per Excel-IRR (Kaskade, zweiter Versuch, Barwert-Test, E10) statt Raster + Bisektion | Excel-Funktion | 0, solange die Nullstelle über −69 % liegt: gleiche Nullstelle wie die RR, auch bei mehreren (Runde 2: alle F.2a-Läufe und 28.650 nachgerechnete Reihen). Unter −69 % „n. v.“ (K.2 R1). „n. v.“ auch, wenn die Suche bei mehreren Nullstellen die größte nicht findet (Abschnitt N: 3 von 500 Zufallsläufen, nur bei Renditen unter −10 % und Status „prüfen“); eine falsche Zahl steht dann nicht in der Mappe. Vor Runde 2 zeigte die Mappe bei mehreren Nullstellen teils die untere: L10 A EK-IRR ohne Restwert J35 −14,45 statt −6,42 %, L41 Frei ohne Restwert J35 −22,71 statt −8,44 %, 3.1 = 0 % C EK-IRR nur Bodenwert J35 0,58 statt 4,75 % |
 | A5 | Stresstest 9.1, 9.2, Zusatz-EK 7.1 und Banklaufzeit 6.4 zusätzlich; 9.3/9.4 = RR `lz_delta`/`rw_faktor` | Vorgabe | 0 (neutral) |
 | A6 | DSCR nur bei Kapitaldienst > 1 € (RR: > 10⁻⁹) | Rundungsrest (G8) | 0 |
 | A7 | Modellhaus 4.3/4.4 gerundet 12,92 / 14,48 €/m² (RR: 12,9177 / 14,4804) | keine versteckte Stellenzahl in Eingaben (G11) | Restwert −125 bis −318 € je Variante; Renditen höchstens 0,0002 Pp; PRUEFBERICHT 4.2 (2 Stellen) unverändert. `pruefe_vofi.py` setzt `P['ovm_start'] = 12,92`, `P['markt_start'] = 14,48` |
@@ -318,7 +327,7 @@ Folgen: Mit Bank sinkt die Liquidität in allen Gruppen unter null, die EK-Rendi
 | A1 | Titel „Gefördert A: Zeitreihe und Ergebnisse“ (A1:J1 verbunden = Breite der ersten Druckseite; B/C analog) |
 | A2 / B2 | „Gruppe“ / „A“ (Konstante, fett; einzige Zelle, die sich zwischen den drei Blättern unterscheidet, außer A1) |
 | D2 | `=Aktives_Projekt` (grün) |
-| H2:M2 | Zellhyperlinks: „Übersicht“ → `'Übersicht'!A1` · „Finanzierung“ → A88 · „Restwert“ → A116 · „Renditen“ → A131 · „Liquidität“ → A153 · „Förderbarwert“ → A172 (eigenes Blatt); rechts neben dem Projektnamen, auf dem ersten Bildschirm sichtbar (Runde 2 V12) |
+| H2:N2 | Zellhyperlinks: „Übersicht“ → `'Übersicht'!A1` · „Finanzierung“ → A88 · „Restwert“ → A116 · „Renditen“ → A131 · „Liquidität“ → A153 · „Förderbarwert“ → A172 · „DSCR-Ziel“ → A179 (eigenes Blatt); rechts neben dem Projektnamen, auf dem ersten Bildschirm sichtbar (Runde 2 V12; N2 seit Abschnitt N) |
 | A3 | „€ p. a.; Mieten in €/m² Monat; Auszahlungen negativ; ab Jahr 43 nur Werte für den Restwert.“ |
 | Zeile 4 | Gruppen: A4 „Zeit“ · C4 „Miete“ · G4 „Ertrag und Bewirtschaftung“ · L4 „Kapitaldienst“ · R4 „Ergebnis“ · T4 „Bestände Jahresende“ · X4 „Restwert“ · Y4 „Zahlungsreihen für IRR“ |
 | Zeile 5 | Spaltenköpfe (Tabelle unten), Zeilenhöhe 56, Umbruch; Köpfe der Zahlungsreihen Y–AS zentriert |
@@ -465,7 +474,7 @@ In der Tabelle steht je Zeile die Reihe (I · J) und der Startwert s0 des ersten
 |---|---|---|---|
 | 153 / 154 | Gruppenzeile „Liquidität“ / Kopf | | |
 | 155 | Zahlungsüberschuss Jahr 1 | € | `=R7` |
-| 156 | DSCR Jahr 1 | Faktor | `=S7` |
+| 156 | DSCR Jahr 1 | Faktor | `=IF(ISNUMBER(S7),S7,"–")` („–“ ohne Kapitaldienst, wie Zeile 157; N.8) |
 | 157 | DSCR Minimum Jahr 1–35 | Faktor | `=IF(COUNT($S$7:INDEX($S$7:$S$48,Bindung))=0,"–",MIN($S$7:INDEX($S$7:$S$48,Bindung)))` |
 | 158 | Jahre mit Fehlbetrag, Jahr 1–35 | Jahre | `=COUNTIF($R$7:INDEX($R$7:$R$48,Bindung),"<0")` |
 | 159 | Größter kumulierter Fehlbetrag, Jahr 1–42 | € | `=MIN(0,MIN($W$7:$W$48))` |
@@ -491,29 +500,85 @@ In der Tabelle steht je Zeile die Reihe (I · J) und der Startwert s0 des ersten
 | 176 | Objekt-IRR nach Förderbarwert, nur Bodenwert | % | AQ · AS |
 | 177 | Objekt-IRR nach Förderbarwert, ohne Restwert | % | AO · AO |
 
+**Block Miete für das DSCR-Ziel** (Abschnitt N; Kopf wie Finanzierung: Größe · Einheit · Wert; auf Gefördert A/B/C und Frei in denselben Zeilen)
+
+| Zeile | Größe | Einheit | Formel |
+|---|---|---|---|
+| 179 / 180 | Gruppenzeile „Miete für das DSCR-Ziel“ / Kopf | | |
+| 181 | DSCR-Ziel | Faktor | `=DSCR_Ziel` |
+| 182 | Kapitaldienst Jahr 1 | € | `=-Q7` (VKB, Zins und Tilgung NBank, Zins und Tilgung Bank) |
+| 183 | Nötige Miete Jahr 1 für das DSCR-Ziel (fett) | €/m² Monat | `=(H181*H182-I7-J7)/((1-Mietausfall)*Wohnflaeche*12)` |
+
+Die nötige Miete ist eine geschlossene Formel: Kapitaldienst und Bewirtschaftungskosten Jahr 1 hängen nicht von der Miete ab. Sie wird immer ausgewiesen und ändert auf den Blättern Gefördert nichts an der Rechnung (Miete Jahr 1 bleibt H109).
+
+Die nötige Miete gilt für Jahr 1 (Entscheidung N3/N4: Kapitaldienst Jahr 1). Zwei Fälle, in denen der Kapitaldienst später höher liegt (N.8):
+
+- Tilgungsaufschub (Eingabe 3.2 > 0): Der Kapitaldienst Jahr 1 enthält keine Tilgung NBank, die nötige Miete deckt dann nur Verwaltungskostenbeitrag, Bank und Bewirtschaftung. Modellhaus mit 3.2 = 2: Kapitaldienst Jahr 1 A/B/C 14.000 / 21.000 / 24.500 €, nötige Miete für DSCR 1,0 2,52 / 2,95 / 3,16 €/m² (ohne Aufschub 6,77 / 9,32 / 10,60), DSCR Jahr 1 A 6,03, Minimum Jahr 1–35 A 0,99. Der Tilgungsvergleich (Block 4 der Übersicht) rechnet dagegen bewusst mit Tilgung ab Jahr 1 („ohne Aufschub“). Die Bemerkungen 8.2 und 8.3 nennen den Fall und verweisen auf das DSCR-Minimum 3.5. Ob die nötige Miete bei Aufschub mit der Regeltilgung H110 gerechnet werden soll, ist eine Änderung der Entscheidung N3 und offen für PGN (O15).
+- Frei mit kurzer Zinsbindung und höherem Anschlusszins: DSCR Jahr 1 = Ziel, Minimum darunter (L55: 1,00 und 0,79).
+
 Kein Zirkelbezug: Zeitreihe ← H99–H114 (nur Eingaben/Tabellen); Restwert ← K, X; H168/H174 ← L, M, N; IRR-Spalten ← Restwert, H174; Hilfswerte ← IRR-Spalten; Renditen ← Hilfswerte, V, T, U, H105.
 
 ### D.4 Blatt Frei finanziert
 
-| Sp. | Kopf | Zeile 6 | Zeilen 7 … 86 bzw. 6 … 48 |
+Seit Abschnitt N mit Finanzierung: Eigenkapital = Grundstück + Mindest-Eigenmittel in Geld + Zusatz-EK 7.1 + KG 800 (gleich den Eigenmitteln 1.11 gefördert, solange gefördert die Eingabe 7.1 ganz aufnimmt; siehe unten), der Rest der Herstellungskosten als Bankdarlehen zu den Konditionen der Eingaben 6.1–6.4; Miete laut Eingabe 10.1. Bank, Projektkonto, Zahlungsreihen und Kennzahlen haben die Formeln aus D.3 in anderen Spalten, ohne die NBank-Anteile und ohne Sperre E14 (die Kasse bei Bezug ist immer 0, weil das bare Eigenkapital die Restgröße ist). Prüfskript F4 vergleicht die Formeln Zelle für Zelle mit Gefördert A.
+
+| Sp. | Kopf (Gruppe Zeile 4) | Zeile 6 | Zeilen 7 … 86 (A–I) bzw. 7 … 48 (J–Q) |
 |---|---|---|---|
-| A, B | t, Jahr | wie D.3 | wie D.3 |
-| C | Marktmiete | leer | `=Marktmiete_1*Stress_Miete*(1+Mietsteigerung)^(A{r}-1)` |
-| D | Sollmiete | leer | `=C{r}*Wohnflaeche*12` |
-| E | Mietausfall/Leerstand | leer | `=-Mietausfall*D{r}` |
-| F, G | Objektverwaltung, Instandhaltung | leer | wie D.3 Spalte I, J |
-| H | Überschuss vor Kapitaldienst | leer | `=SUM(D{r}:G{r})` |
-| O | Objekt, ohne Restwert (6–48) | `=IF($A{r}=0,-$H$94,$H{r})` | einheitlich |
-| P / Q | Objekt, mit Restwert / nur Bodenwert, Jahr 35 | `=IF($A{r}>$I$118,"",$O{r}+IF($A{r}=$I$118,$I$126,0))` / `$I$127` | einheitlich |
-| R / S | Objekt, mit Restwert / nur Bodenwert, Jahr 42 | `=IF($A{r}>$J$118,"",$O{r}+IF($A{r}=$J$118,$J$126,0))` / `$J$127` | einheitlich |
+| A, B | t, Jahr (Zeit) | wie D.3 | wie D.3 |
+| C | Marktmiete (Miete) | leer | `=Marktmiete_1*Stress_Miete*(1+Mietsteigerung)^(A{r}-1)` |
+| D | Miete gerechnet | leer | `=$H$109*(1+Mietsteigerung)^(A{r}-1)` |
+| E | Sollmiete (Ertrag und Bewirtschaftung) | leer | `=D{r}*Wohnflaeche*12` |
+| F | Mietausfall/Leerstand | leer | `=-Mietausfall*E{r}` |
+| G, H | Objektverwaltung, Instandhaltung | leer | wie D.3 Spalte I, J |
+| I | Überschuss vor Kapitaldienst (fett) | leer | `=SUM(E{r}:H{r})` |
+| J | Zins Bank (Kapitaldienst) | leer | `=-O{p}*IF(A{r}<=Zinsbindung,Zins_Bank,Zins_Anschluss)` |
+| K | Tilgung Bank | leer | `=-MAX(0,MIN(IF(A{r}<=Zinsbindung,$H$111,$H$114)+J{r},O{p}))` |
+| L | Kapitaldienst | leer | `=SUM(J{r}:K{r})` |
+| M | Zahlungsüberschuss (Ergebnis, fett) | leer | `=ROUND(I{r}+L{r},2)` |
+| N | DSCR | leer | `=IF(-L{r}>1,I{r}/-L{r},"")` |
+| O | Restschuld Bank (Bestände Jahresende) | `=$H$103` | `=MAX(0,ROUND(O{p}+K{r},2))` |
+| P | Projektkonto (VOFI) | `=$H$105` | `=P{p}*(1+IF(P{p}>=0,Habenzins,Sollzins))+M{r}` |
+| Q | Zahlungsüberschuss kumuliert | 0 | `=Q{p}+M{r}` |
+| R | Objekt, ohne Restwert (6–48; Zahlungsreihen für IRR) | `=IF($A{r}=0,-$H$94,$I{r})` | einheitlich |
+| S / T | Objekt, mit Restwert / nur Bodenwert, Jahr 35 | `=IF($A{r}>$I$118,"",$R{r}+IF($A{r}=$I$118,$I$126,0))` / `$I$127` | einheitlich |
+| U / V | Objekt, mit Restwert / nur Bodenwert, Jahr 42 | `=IF($A{r}>$J$118,"",$R{r}+IF($A{r}=$J$118,$J$126,0))` / `$J$127` | einheitlich |
+| W | Eigenkapital, ohne Restwert, Jahr 42 | `=IF($A{r}=0,-$H$106+$H$105,$M{r}-IF($A{r}=$J$118,$O{r},0))` | einheitlich |
+| X | Eigenkapital, ohne Restwert, Jahr 35 | `=IF($A{r}>$I$118,"",IF($A{r}=0,$W{r},$M{r}-IF($A{r}=$I$118,$O{r},0)))` | einheitlich |
+| Y / Z | Eigenkapital, mit Restwert / nur Bodenwert, Jahr 35 | `=IF($A{r}>$I$118,"",$X{r}+IF($A{r}=$I$118,$I$126,0))` / `$I$127` | einheitlich |
+| AA / AB | Eigenkapital, mit Restwert / nur Bodenwert, Jahr 42 | `=$W{r}+IF($A{r}=$J$118,$J$126,0)` / `$J$127` | einheitlich |
 
-Die Zahlungsreihen stehen in O–S (Gruppe Zeile 4 „Zahlungsreihen für IRR“, Köpfe zentriert), Spaltengliederung Ebene 1, zugeklappt (Schalter über T); darunter in O–R die Hilfswerte der Nullstellensuche (Gruppenzeile O131, Kopf O132:R132, Werte Zeilen 136–138, wie D.3); N bleibt frei, damit die Blöcke darunter (A–J) nicht in gegliederten Spalten liegen (Befund V9 Runde 1). Zeilen 49–86 gegliedert und zugeklappt wie D.3.
+Die Spalten A–Q sind lückenlos belegt (keine Platzhalterspalte). Der Zahlungsüberschuss (M) ist auf Cent gerundet, einzige Abweichung von der Formel in D.3: Mit der Miete für das DSCR-Ziel 1,0 ist der Zahlungsüberschuss Jahr 1 rechnerisch 0; ohne Rundung bliebe ein Rechenrest, den „Jahre mit Fehlbetrag“ als Fehljahr zählte. Die Zahlungsreihen stehen in R–AB (Gruppe Zeile 4 „Zahlungsreihen für IRR“, Köpfe zentriert), Spaltengliederung Ebene 1, zugeklappt (Schalter über AC); darunter in R–U die Hilfswerte der Nullstellensuche (Gruppenzeile R131, Kopf R132:U132, Werte Zeilen 136–138 und 140–142, wie D.3). Zeilen 49–86 gegliedert und zugeklappt wie D.3.
 
-Kopf: A1 Titel „Frei finanziert: Zeitreihe und Ergebnisse“ (A1:H1 verbunden), D2 `=Aktives_Projekt`, Zellhyperlinks I2 „Übersicht“, J2 „Kosten“ → A88, K2 „Restwert“ → A116, L2 „Renditen“ → A131. Blöcke in denselben Zeilen wie D.3: 90–94 (Kosten, gleiche Formeln), 95 „Marktmiete Jahr 1“ `=C7`; 118–121 wie D.3; 122 „Ertragswert zur Marktmiete“ (SUMPRODUCT über `$H$7:$H$86`); 123, 124 und 129 leer (Dubletten: Bestand = Marktmiete, Abschlag 0, Wert vor = nach Abschlag); 125 „Gebäudeanteil“ `=H122-H121`; 126, 127 wie D.3; 128 „Ertragswert Marktmiete gegenüber Gesamtkosten“ `=IF($H$93>0,H122/$H$93-1,0)`; Renditen 136–138 „Objekt-IRR, mit Restwert / nur Bodenwert / ohne Restwert“ (Spalten P/R, Q/S, O/O; Regel E10 mit s0 = 0,03, Hilfswerte O/P · Q/R; ohne Sperre, keine Finanzierung); 139 „Hilfsgröße: Nettoanfangsrendite, statisch“ `=IF($H$94>0,H7/$H$94,0)`. Zeilen 123, 124, 129 und 133–135 leer und ausgeblendet (Runde 2 V14), 140–177 leer. Druck siehe G.4.
+Kopf: A1 Titel „Frei finanziert: Zeitreihe und Ergebnisse“ (A1:I1 verbunden), D2 `=Aktives_Projekt`, Zellhyperlinks H2 „Übersicht“, I2 „Finanzierung“ → A88, J2 „Restwert“ → A116, K2 „Renditen“ → A131, L2 „Liquidität“ → A153, M2 „DSCR-Ziel“ → A179.
+
+**Block Finanzierung bei Bezug** (Zeilen 88–114, Kopf Größe · Einheit · Wert; 106 fett)
+
+| Zeile | Größe | Formel |
+|---|---|---|
+| 90–96, 102 | Kosten, Bemessungsgrenze, zuwendungsfähige Kosten, Eigenmittel bar (20 % abzüglich Grundstück) | wie D.3 |
+| 103 | Bankdarlehen (Restfinanzierung) | `=MAX(0,ROUND(H90-H102-EK_Zusatz,2))` |
+| 104 | Bares Eigenkapital, inkl. KG 800 | `=MAX(0,H90+H91-H103)` |
+| 105 | Kasse bei Bezug | `=ROUND(H103+H104-H90-H91,2)` (immer 0) |
+| 106 | Eigenkapital (Grundstück + bar) | `=H92+H104` |
+| 107 | Eigenmittelquote (zuwendungsfähige Kosten) | `=IF(H96>0,(H92+H104)/H96,0)` (Bezug wie gefördert: zuwendungsfähige Kosten H96; liegt die Herstellung über der Bemessungsgrenze, ist der Anteil an den Gesamtkosten kleiner, Modellhaus mit 2.1 = 6.000 €/m²: 20,0 % gegen 16,9 %; N.8) |
+| 109 | Miete Jahr 1 | `=IF(Miete_Frei="Marktmiete",C7,H183)` |
+| 111–114 | Annuität Bank, Restschuld Ende Zinsbindung, Anfangstilgung, Annuität nach Zinsbindung | wie D.3 |
+
+Das Eigenkapital frei ist gleich den Eigenmitteln 1.11 der geförderten Varianten (dort Eigenkapital ohne Bearbeitungsentgelte), solange gefördert die Eingabe 7.1 ganz aufnimmt, also 7.1 nicht größer ist als das Bankdarlehen gefördert ohne 7.1 (Lücke `H90 − H99 − H100 − H102 − EK_Zusatz ≥ 0`). Im Standard beider Projekte ist 7.1 = 0, beide Größen sind gleich (Modellhaus 1.400.000 €, Tarutinoer 592.682 €). Ist 7.1 größer, rechnet frei es voll an, gefördert nur bis zur Höhe seines Bankdarlehens: Modellhaus mit 7.1 = 1.000.000 € Eigenmittel gefördert 1.400.000 € (20,0 %), frei 2.400.000 € (34,3 %), Bank frei 4.600.000 €; die EK-Renditen stehen dann auf verschiedenem Eigenkapital nebeneinander (Bemerkungen 1.11 und 6.1, Hinweis 7). Dasselbe gilt bei Überfinanzierung gefördert (Kasse bei Bezug > 0, P1). Das Prüfskript prüft die Gleichheit in jedem Lauf mit Lücke ≥ 0 (F13). KG 800 zahlt wie bei gefördert das Eigenkapital (A1). Deckt das Eigenkapital die Herstellungskosten ganz, ist das Bankdarlehen 0 und das Eigenkapital gleich den Gesamtkosten (Grenzfall NA8).
+
+**Block Restwert** (Zeilen 116–128): 118–121 wie D.3; 122 „Ertragswert zur gerechneten Miete“ (SUMPRODUCT über `$I$7:$I$86`); 125 „Gebäudeanteil“ `=H122-H121`; 126, 127 wie D.3; 128 „Ertragswert gegenüber Gesamtkosten“ `=IF($H$93>0,H122/$H$93-1,0)`. Der Restwert folgt damit derselben Miete wie die Zeitreihe (Befund B10).
+
+**Block Renditen** (Zeilen 131–151; 136, 140, 143 fett): 136–138 „Objekt-IRR, mit Restwert / nur Bodenwert / ohne Restwert“ (Reihen S/U, T/V, R/R; Regel E10 mit s0 = 0,03); 139 „Hilfsgröße: Nettoanfangsrendite, statisch“ `=IF($H$94>0,I7/$H$94,0)`; 140–142 „EK-IRR, mit Restwert / nur Bodenwert / ohne Restwert“ (Reihen Y/AA, Z/AB, X/W; Startwert = VOFI-EK-Rendite 143–145); 143–145 „VOFI-EK-Rendite, …“ `=IF(AND(I146>0,$H$106>0),(I146/$H$106)^(1/I$118)-1,"n. v.")`; 146–148 „Endvermögen VOFI, …“ = Projektkonto (P) am Horizont + Restwert der Variante − Restschuld Bank (O); 149 „Restwertanteil am Endvermögen“ `=IF(I146>0,I126/I146,"n. v.")`; 150 „Projektkonto (VOFI)“; 151 „Restschuld Bank“. Hilfswerte der Nullstellensuche in R/S (Jahr 35) und T/U (Jahr 42). In den Gruppenzeilen 116 (Restwert) und 131 (Renditen) steht der Aufschlag der gerechneten Miete auf die Marktmiete: I116 und I131 „Aufschlag Miete gegenüber Marktmiete“ (Text, fett, rechtsbündig), J116 und J131 `=H185` (fett, Format `+0.0 %;[Red]-0.0 %;"0,0 %"`; kein Zellverbund, G.3).
+
+**Block Liquidität** (Zeilen 153–170; 155 fett): 155 „Zahlungsüberschuss Jahr 1“ `=M7`; 156 „DSCR Jahr 1“ `=IF(ISNUMBER(N7),N7,"–")` („–“ ohne Bankdarlehen, wie 157); 157 „DSCR Minimum Jahr 1–35“; 158 „Jahre mit Fehlbetrag, Jahr 1–35“; 159 „Größter kumulierter Fehlbetrag, Jahr 1–42“ `=MIN(0,MIN($Q$7:$Q$48))`; 165–167 „Zahlungsüberschuss Jahr 10 / 35 / 42“; 169 „Tiefster Stand Projektkonto (VOFI)“; 170 „Restschuld Bank Ende Jahr 42“; Formeln wie D.3 mit den Spalten M, N, Q, P, O.
+
+**Block Miete für das DSCR-Ziel** (Zeilen 179–186; 183 fett): 181–183 wie D.3 mit `=-L7` und `=(H181*H182-G7-H7)/((1-Mietausfall)*Wohnflaeche*12)`; 184 „Marktmiete Jahr 1“ `=C7`; 185 „Aufschlag Miete Jahr 1 gegenüber Marktmiete“ `=IF(H184>0,H109/H184-1,"–")`; 186 „Aufschlag nötige Miete gegenüber Marktmiete“ `=IF(H184>0,H183/H184-1,"–")`. Bei Marktmiete 0 (Eingabe 4.4 = 0, von der Datenüberprüfung zugelassen) ist der Aufschlag nicht bestimmt: „–“ statt 0, damit die Übersicht nicht „Miete = Marktmiete“ zeigt, wenn die gerechnete Miete über 0 liegt (N.8, L62).
+
+Zeilen ohne Inhalt sind leer und ausgeblendet: 97–101, 108, 110 (NBank-Größen), 123, 124, 129 (Dubletten), 133–135, 160–164, 168, 172–178 (Zuschuss, NBank, Förderbarwert). Kein Zirkelbezug: H183 ← L7 ← H103, H111 (nur Eingaben); H109 ← H183; Zeitreihe D–I ← H109; M, P, Q ← I, L; Restwert ← I; Renditen ← Zahlungsreihen. Druck siehe G.4.
 
 ### D.5 Blatt Übersicht
 
-Muster: Spalte D/E/F = `'Gefördert A'!x`, `'Gefördert B'!x`, `'Gefördert C'!x` mit gleicher Zelle x (reiner Verweis, grün); G = `'Frei finanziert'!x` oder leer (nicht zutreffende Frei-Zellen bleiben leer, Befund V4 Runde 1). In Blöcken mit Horizont: D–G aus Spalte I (Jahr 35), H–K aus Spalte J (Jahr 42). Formeln mit Rechnung (Block 1 Zeilen 11, 12, 15, 16, 24, 25; Block 2 Sätze und Kostenzeilen; Block 3 Zeile 49; Block 4; Block 8) sind schwarz. Alle Kopfzeilen Höhe 20 (Block 4: 27, zweizeiliger Kopf G). Abkürzungen RW/Geb.-RW/brutto kommen nicht vor: „mit Restwert“, „nur Bodenwert“, „ohne Restwert“, „ohne Zuschuss“, „nach Zuschuss“, „nach Förderbarwert“. Bemerkungen: Blöcke 1–4 und 8 in Spalte H (H–K sind dort leer, der Text läuft nach rechts; Runde 2 V4), Blöcke 5–7 in L. Quellenhinweis je Block einmal (Runde 2 V7).
+Muster: Spalte D/E/F = `'Gefördert A'!x`, `'Gefördert B'!x`, `'Gefördert C'!x` mit gleicher Zelle x (reiner Verweis, grün); G = `'Frei finanziert'!x` oder leer (nicht zutreffende Frei-Zellen bleiben leer, Befund V4 Runde 1). In Blöcken mit Horizont: D–G aus Spalte I (Jahr 35), H–K aus Spalte J (Jahr 42). Formeln mit Rechnung (Block 1 Zeilen 11, 12, 15, 16, 24, 25; Block 2 Sätze und Kostenzeilen; Block 3 Zeile 49; Block 4; Block 9) sind schwarz. Alle Kopfzeilen Höhe 20 (Block 4: 27, zweizeiliger Kopf G). Abstandszeilen zwischen den Blöcken (7, 27, 40, 53, 73, 86, 97, 108, 116) leer, Höhe 6 pt wie auf dem Blatt NBank (N.8, G.4). Abkürzungen RW/Geb.-RW/brutto kommen nicht vor: „mit Restwert“, „nur Bodenwert“, „ohne Restwert“, „ohne Zuschuss“, „nach Zuschuss“, „nach Förderbarwert“. Bemerkungen: Blöcke 1–4, 8 und 9 in Spalte H (H–K sind dort leer, der Text läuft nach rechts; Runde 2 V4), Blöcke 5–7 in L. Quellenhinweis je Block einmal (Runde 2 V7).
 
 **Kopf**
 
@@ -521,7 +586,7 @@ Muster: Spalte D/E/F = `'Gefördert A'!x`, `'Gefördert B'!x`, `'Gefördert C'!x
 |---|---|
 | 1 | Titel „VOFI Mietwohnraum 2026: Übersicht“ (A1:L1 verbunden) |
 | 2 | B2 „Aktives Projekt“; D2 `=Aktives_Projekt`; H2 „Projekt wählen“, Zellhyperlink → `'Eingaben'!D3` |
-| 3 | B3 „Prüfungen“, Zellhyperlink → `'Übersicht'!A108`; D3 `=IF(COUNTIF($C$109:$C$114,"OK")=ROWS($C$109:$C$114),"OK","prüfen")` |
+| 3 | B3 „Prüfungen“, Zellhyperlink → `'Übersicht'!A117`; D3 `=IF(COUNTIF($C$118:$C$123,"OK")=ROWS($C$118:$C$123),"OK","prüfen")` |
 | 4 | B4 „Konventionen“; D4 „vor Steuern, nominal, T0 = Bezugsfertigkeit; Zeitreihen: Auszahlungen negativ“ |
 | 5 | B5 „Legende“; D5 „Ändern nur auf „Eingaben“ (blau auf Gelb). Grün: Verweis auf ein anderes Blatt. Weitere Zeilen: + am linken Rand.“ |
 | 6 | B6 „Blätter“; D6:K6 Zellhyperlinks: Eingaben · Gefördert A · Gefördert B · Gefördert C · Frei finanziert · NBank · Tabellen · Hinweise |
@@ -539,21 +604,21 @@ Muster: Spalte D/E/F = `'Gefördert A'!x`, `'Gefördert B'!x`, `'Gefördert C'!x
 | 15 | 1.7 | Förderung gesamt | € | `=x!H99+x!H100` | Darlehen + Zuschuss | sichtbar |
 | 16 | 1.8 | Förderquote auf Gesamtkosten | % | `=IF(x!H93>0,(x!H99+x!H100)/x!H93,0)` |  | sichtbar |
 | 17 | 1.9 | Förderbarwert (Zuschuss + Barwertvorteil) | € | H174 | Zuschuss nach Entgelt + Zinsvorteil; steigt mit Eingabe 6.1 | sichtbar |
-| 18 | 1.10 | Bankdarlehen | € | H103 | Restfinanzierung | sichtbar |
-| 19 | 1.11 | Eigenmittel (RL Nr. 5.2.6), ohne Entgelte | € | `=x!H106-x!H101` |  | sichtbar |
-| 20 | 1.12 | Eigenmittelquote | % | H107 | mindestens 20 % | sichtbar |
+| 18 | 1.10 | Bankdarlehen | € | H103 (G: Frei H103) | Restfinanzierung; Frei: Rest nach Eigenmitteln 1.11 (Eingaben Block 6) | sichtbar |
+| 19 | 1.11 | Eigenmittel (RL Nr. 5.2.6), ohne Entgelte | € | `=x!H106-x!H101` (G: Frei H106) | Frei: Mindest-Eigenmittel wie gefördert zuzüglich Eingabe 7.1 | sichtbar |
+| 20 | 1.12 | Eigenmittelquote | % | H107 (G: Frei H107) | mindestens 20 % der zuwendungsfähigen Kosten (1.2) | sichtbar |
 | 21 | 1.13 | Bearbeitungsentgelte, einmalig | € | H101 |  | sichtbar |
-| 22 | 1.14 | Eigenkapital (Grundstück + bar) | € | H106 | Eigenmittel + Entgelte | sichtbar |
-| 23 | 1.15 | davon bar | € | H104 |  | eingeklappt |
+| 22 | 1.14 | Eigenkapital (Grundstück + bar) | € | H106 (G: Frei H106) | Eigenmittel + Entgelte | sichtbar |
+| 23 | 1.15 | davon bar | € | H104 (G: Frei H104) |  | eingeklappt |
 | 24 | 1.16 | Zuschuss je Wohnung | € | `=IF(Wohneinheiten>0,x!H100/Wohneinheiten,0)` |  | sichtbar (Broschüre S. 10) |
 | 25 | 1.17 | Eigenmittel je Wohnung | € | `=IF(Wohneinheiten>0,(x!H106-x!H101)/Wohneinheiten,0)` |  | sichtbar (Broschüre S. 10) |
-| 26 | 1.18 | Miete Jahr 1 | €/m² Monat | H109 (G: Frei H95) |  | sichtbar |
+| 26 | 1.18 | Miete Jahr 1 | €/m² Monat | H109 (G: Frei H109) | Frei laut Eingabe 10.1; L26 Aufschlag der Frei-Miete (siehe unten) | sichtbar |
 
-**Block 2 Jahresrechnung Jahr 1** (Kopf Zeile 28: Zeile · Jahresrechnung Jahr 1, in € p. a. · Satz · A · B · C · Bemerkung (H)). Bezeichnungen nach `11-wirtschaftlichkeit.json`, gekürzt; Beträge positiv, Rechenzeichen in der Bezeichnung; Kostenzeilen ohne Rotformat (Format `#,##0;-#,##0;"–"`), Zeile 38 im Standard-Euroformat.
+**Block 2 Jahresrechnung Jahr 1** (Kopf Zeile 28: Zeile · Jahresrechnung Jahr 1, in € p. a. · Satz · A · B · C · Frei · Bemerkung (H)). Frei in Spalte G (Abschnitt N): G29 `='Frei finanziert'!E7`, G30 `=-…!F7`, G31 `=-…!G7`, G32 `=-…!H7`, G33 `=…!I7`, G37 `=-(…!J7+…!K7)`, G38 `=…!M7`; G34–G36 und G39 (NBank, Entgelte) leer. Die Zeilen 29–39 bleiben an ihrem Platz (Broschüre S. 11). Bezeichnungen nach `11-wirtschaftlichkeit.json`, gekürzt; Beträge positiv, Rechenzeichen in der Bezeichnung; Kostenzeilen ohne Rotformat (Format `#,##0;-#,##0;"–"`), Zeile 38 im Standard-Euroformat.
 
 | Zeile | A | Inhalt B | C Satz | D–F | H Bemerkung |
 |---|---|---|---|---|---|
-| 29 | 1 | Sollmiete: Höchstmiete nettokalt |  | G7 | Schema wie Broschüre S. 11 |
+| 29 | 1 | Sollmiete: Höchstmiete nettokalt |  | G7 | Schema wie Broschüre S. 11; Frei: Miete laut 1.18 |
 | 30 |  | − Mietausfall/Leerstand | `=Mietausfall` | `=-x!H7` | der Sollmiete |
 | 31 | 2 | − Objektverwaltung | `=Verwaltung_WE*(1+Kostensteigerung)^Kosten_Vorlauf` (`#,##0" € je Wohnung"`) | `=-x!I7` | Satz 2026, fortgeschrieben laut Eingabe 5.5; Betriebskosten umgelegt |
 | 32 | 3 | − Instandhaltung | `=Instandhaltung_qm*(1+Kostensteigerung)^Kosten_Vorlauf` (`0.00" €/m²"`) | `=-x!J7` | Satz 2026, fortgeschrieben laut Eingabe 5.5 |
@@ -561,18 +626,18 @@ Muster: Spalte D/E/F = `'Gefördert A'!x`, `'Gefördert B'!x`, `'Gefördert C'!x
 | 34 | 5 | − Verwaltungskostenbeitrag | `=VKB_Satz` | `=-x!L7` | des Restkapitals |
 | 35 | 6 | − Zins NBank-Darlehen | `=Zins_NBank_1_35` | `=-x!M7` | bis Ende Jahr 35 |
 | 36 | 7 | − Tilgung NBank-Darlehen (Annahme) | `=Tilgung_NBank` | `=-x!N7` | Satz legt die NBank fest |
-| 37 |  | − Kapitaldienst Bankdarlehen |  | `=-(x!O7+x!P7)` | nur bei Restfinanzierung |
-| 38 | 8 | = Zahlungsüberschuss p. a. |  | R7 |  |
+| 37 |  | − Kapitaldienst Bankdarlehen |  | `=-(x!O7+x!P7)` | gefördert nur bei Restfinanzierung |
+| 38 | 8 | = Zahlungsüberschuss p. a. |  | R7 | H leer; L38 Aufschlag der Frei-Miete |
 | 39 |  | Einmalig: Bearbeitungsentgelte |  | H101 | nicht in Zeile 8 |
 
-**Block 3 Liquidität** (Kopf Zeile 41: Nr. · Liquidität · Einheit · A · B · C · Bemerkung (H))
+**Block 3 Liquidität** (Kopf Zeile 41: Nr. · Liquidität · Einheit · A · B · C · Frei · Bemerkung (H)). Frei in Spalte G aus derselben Zeile des Blatts Frei finanziert (G42–G48 und G52: H165, H166, H167, H156, H157, H158, H159, H170); G49–G51 (NBank) leer. Nötige Miete und Aufschlag stehen in Block 8, weil Block 3 keine freie Zeile hat und die Zeilen 55–72 an ihrem Platz bleiben (Broschüre S. 12); die Bemerkung 3.4 verweist darauf.
 
 | Zeile | Nr. | Inhalt B | C | D–F | H Bemerkung | Gliederung |
 |---|---|---|---|---|---|---|
-| 42 | 3.1 | Zahlungsüberschuss Jahr 10 | € | H165 |  | sichtbar |
+| 42 | 3.1 | Zahlungsüberschuss Jahr 10 | € | H165 | H leer; L42 Aufschlag der Frei-Miete | sichtbar |
 | 43 | 3.2 | Zahlungsüberschuss Jahr 35 | € | H166 |  | sichtbar |
 | 44 | 3.3 | Zahlungsüberschuss Jahr 42 | € | H167 |  | sichtbar |
-| 45 | 3.4 | Schuldendienstdeckung (DSCR) Jahr 1 | Faktor | H156 | Zeile 4 ÷ Kapitaldienst | sichtbar |
+| 45 | 3.4 | Schuldendienstdeckung (DSCR) Jahr 1 | Faktor | H156 | Zeile 4 ÷ Kapitaldienst; nötige Miete: 8.3 | sichtbar |
 | 46 | 3.5 | DSCR Minimum Jahr 1–35 | Faktor | H157 |  | sichtbar |
 | 47 | 3.6 | Jahre mit Fehlbetrag, Jahr 1–35 | Jahre | H158 |  | sichtbar |
 | 48 | 3.7 | Größter kumulierter Fehlbetrag, Jahr 1–42 | € | H159 | ohne Zinsen | sichtbar |
@@ -605,14 +670,14 @@ Vergleich der Gruppen, Schema Broschüre S. 12 (oberer Rahmen Ergebnislinie an Z
 
 H160 = R7 − N7; bei Aufschub > 0 ist N7 = 0 und das Raster zeigt den Zahlungsüberschuss mit Tilgung ab Jahr 1 und Kosten Jahr 1. 4.13 − 4.14 − 4.15 = 4.16 (Prüfskript F13).
 
-**Block 5 Objektrendite** (Gruppenzeile 74 „Objektrendite vor Steuern“, D74 „Jahr 35“, H74 „Jahr 42“; Kopf Zeile 75: Nr. · Kennzahl · Einheit · A · B · C · Frei · A · B · C · Frei · Bemerkung). Frei steht in allen Objekt-IRR-Zeilen (frei: ohne Förderung, nach Förderbarwert = nach Zuschuss = ohne Zuschuss; E18).
+**Block 5 Objektrendite** (Gruppenzeile 74 „Objektrendite vor Steuern“, D74 „Jahr 35“, H74 „Jahr 42“, L74 Aufschlag der Frei-Miete, siehe unter Block 6; Kopf Zeile 75: Nr. · Kennzahl · Einheit · A · B · C · Frei · A · B · C · Frei · Bemerkung). Frei steht in allen Objekt-IRR-Zeilen (frei: ohne Förderung, nach Förderbarwert = nach Zuschuss = ohne Zuschuss; E18).
 
 | Zeile | Nr. | Inhalt B | C | D–F (H–J) | G (K) Frei | L Bemerkung | Gliederung |
 |---|---|---|---|---|---|---|---|
 | 76 | 5.1 | Objekt-IRR nach Förderbarwert, mit Restwert | % | I175 (J175) | Frei I136 (J136) | Frei ohne Förderung; Förderbarwert 1.9 | sichtbar, fett |
 | 77 | 5.2 | Objekt-IRR nach Förderbarwert, nur Bodenwert | % | I176 (J176) | Frei I137 (J137) |  | sichtbar |
 | 78 | 5.3 | Objekt-IRR nach Zuschuss, mit Restwert | % | I133 (J133) | Frei I136 (J136) | gefördert ohne Zinsvorteil Darlehen | sichtbar |
-| 79 | 5.4 | Objekt-IRR ohne Zuschuss, mit Restwert | % | I136 (J136) | Frei I136 (J136) | Abstand zu Frei: Kosten der Bindung | sichtbar |
+| 79 | 5.4 | Objekt-IRR ohne Zuschuss, mit Restwert | % | I136 (J136) | Frei I136 (J136) | Abstand zu Frei (Marktmiete): Bindung | sichtbar |
 | 80 | 5.5 | Objekt-IRR nach Förderbarwert, ohne Restwert | % | I177 (J177) | Frei I138 (J138) | mehrere Nullstellen möglich | eingeklappt |
 | 81 | 5.6 | Objekt-IRR nach Zuschuss, nur Bodenwert | % | I134 (J134) | Frei I137 (J137) |  | eingeklappt |
 | 82 | 5.7 | Objekt-IRR nach Zuschuss, ohne Restwert | % | I135 (J135) | Frei I138 (J138) | mehrere Nullstellen möglich | eingeklappt |
@@ -620,34 +685,50 @@ H160 = R7 − N7; bei Aufschub > 0 ist N7 = 0 und das Raster zeigt den Zahlungs�
 | 84 | 5.9 | Objekt-IRR ohne Zuschuss, ohne Restwert | % | I138 (J138) | Frei I138 (J138) | mehrere Nullstellen möglich | eingeklappt |
 | 85 | 5.10 | Hilfsgröße: Nettoanfangsrendite, statisch | % (Jahr 1) | H139; H–J leer | leer | ohne Zuschuss, ohne Restwert | eingeklappt |
 
-**Block 6 EK-Rendite** (Gruppenzeile 87 „Eigenkapitalrendite vor Steuern“, D87 „Jahr 35“, H87 „Jahr 42“; Kopf Zeile 88: Nr. · Kennzahl · Einheit · A · B · C · (leer) · A · B · C · (leer) · Bemerkung)
+**Block 6 EK-Rendite** (Gruppenzeile 87 „Eigenkapitalrendite vor Steuern“, D87 „Jahr 35“, H87 „Jahr 42“; Kopf Zeile 88: Nr. · Kennzahl · Einheit · A · B · C · Frei · A · B · C · Frei · Bemerkung). Frei in G (Jahr 35) und K (Jahr 42) aus derselben Zeile des Blatts Frei finanziert (I/J 140, 141, 143, 144, 149, 142, 145; Abschnitt N); 6.8 mit einem Wert je Variante aus Spalte H (Zeile 169), D–G, H–K leer
 
 | Zeile | Nr. | Inhalt B | C | D–F (H–J) | L Bemerkung | Gliederung |
 |---|---|---|---|---|---|---|
-| 89 | 6.1 | EK-IRR, mit Restwert | % | I140 (J140) |  | sichtbar, fett |
+| 89 | 6.1 | EK-IRR, mit Restwert | % | I140 (J140) | Frei: Eigenmittel wie 1.11, Rest Bank | sichtbar, fett |
 | 90 | 6.2 | EK-IRR, nur Bodenwert | % | I141 (J141) | mehrere Nullstellen möglich | sichtbar |
 | 91 | 6.3 | VOFI-EK-Rendite, mit Restwert | % | I143 (J143) | Kontozinsen laut Eingabe 7.2/7.3 | sichtbar, fett |
-| 92 | 6.4 | VOFI-EK-Rendite, nur Bodenwert | % | I144 (J144) |  | sichtbar |
-| 93 | 6.5 | Restwertanteil am Endvermögen | % | I149 (J149) |  | sichtbar |
+| 92 | 6.4 | VOFI-EK-Rendite, nur Bodenwert | % | I144 (J144) | „n. v.“: Endvermögen ≤ 0 | sichtbar |
+| 93 | 6.5 | Restwertanteil am Endvermögen | % | I149 (J149) | über 100 %: Konto nach Restschuld < 0 | sichtbar |
 | 94 | 6.6 | EK-IRR, ohne Restwert | % | I142 (J142) | mehrere Nullstellen möglich | eingeklappt |
-| 95 | 6.7 | VOFI-EK-Rendite, ohne Restwert | % | I145 (J145) |  | eingeklappt |
+| 95 | 6.7 | VOFI-EK-Rendite, ohne Restwert | % | I145 (J145) | „n. v.“: Endvermögen ≤ 0 | eingeklappt |
+| 96 | 6.8 | Tiefster Stand Projektkonto (VOFI) | € (Jahr 0–42) | H169 (G: Frei H169); H–K leer | negativ: Soll zu 7.3; EK-IRR: Nachschuss | sichtbar |
 
-**Block 7 Restwert** (Gruppenzeile 97 „Restwert (Ertragswert)“, D97 „Jahr 35“, H97 „Jahr 42“; Kopf Zeile 98: Nr. · Kennzahl · Einheit · A · B · C · Frei · A · B · C · Frei · Bemerkung)
+6.8 zeigt den tiefsten Stand des Projektkontos (VOFI) der Jahre 0 bis 42 (Nacharbeit N.7): Die EK-Renditen frei zur Marktmiete setzen voraus, dass das Projektkonto über Jahre im Soll geführt wird (Modellhaus −3.192.817 €, Jahr 1–39); ohne diese Zeile wäre das auf der Übersicht nicht zu sehen (3.7 zeigt den Fehlbetrag ohne Zinsen). Die Zeile steht sichtbar unter den eingeklappten Zeilen 94–95; die Nummern 6.1–6.7 bleiben. Ein Restwertanteil über 100 % (6.5) heißt: Projektkonto abzüglich Restschuld am Horizont negativ. EK-IRR und VOFI-EK-Rendite behandeln Fehlbeträge verschieden (N.8): Der EK-IRR rechnet jeden Fehlbetrag als Nachschuss, verzinst zum internen Zins; die VOFI-EK-Rendite führt ihn auf dem Projektkonto zum Sollzins 7.3 und bezieht das Endvermögen nur auf das Eigenkapital bei Bezug. „Eigenmittel wie 1.11“ gilt für den EK-IRR frei deshalb nur zum Bezug. Bei Fehlbeträgen über viele Jahre laufen beide weit auseinander (Modellhaus mit den Worst-Werten aus E.4, Jahr 42: EK-IRR frei +3,36 %, VOFI-EK-Rendite frei −1,49 %; Standard 5,31 % und 5,42 % bei Fehlbeträgen von zusammen 1.150.103 € in Jahr 1–21); maßgeblich ist dann die VOFI-EK-Rendite (Bemerkung 6.8, Hinweis 11).
+
+Aufschlag der gerechneten Frei-Miete (Abschnitt N, N.7, N.8), immer in Spalte L, fett, linksbündig mit Einzug: auf Seite 1 in L26 (1.18 Miete Jahr 1), L38 (Zeile 8 der Jahresrechnung) und L42 (3.1, erste Zeile der Liquidität), auf Seite 2 in L74, L87 und L98 (Gruppenzeilen der Blöcke 5, 6 und 7, Füllung der Gruppenzeile). Formel `='Frei finanziert'!H185`, Zahl mit Text im Zahlenformat `"Frei: Miete "0.0 %" über Marktmiete";"Frei: Miete "0.0 %" unter Marktmiete";"Frei: Miete = Marktmiete";"Frei: Marktmiete 0, Aufschlag "@` (Anzeige im Standard „Frei: Miete = Marktmiete“, mit DSCR-Ziel 1,0 im Modellhaus „Frei: Miete 43,1 % über Marktmiete“, bei Marktmiete 0 „Frei: Marktmiete 0, Aufschlag –“); keine Formel-Prosa. Seite 1 trägt die Kennzeichnung, weil Miete, Jahresrechnung und Liquidität der Teil sind, der nach außen geht (Hinweis 12): Mit der Miete für das DSCR-Ziel erschiene frei dort sonst tragfähig, ohne dass die Miete über dem Markt zu sehen wäre. Die Zahl steht in L und nicht in der Bemerkungsspalte H, weil eine Zahl nicht in Nachbarzellen überläuft (in H, Breite 12, erschiene „###“); die Bemerkungen dieser drei Zeilen in H sind leer oder kurz (höchstens 40 Zeichen, sie enden vor L), I–K bleiben leer.
+
+**Block 7 Restwert** (Gruppenzeile 98 „Restwert (Ertragswert)“, D98 „Jahr 35“, H98 „Jahr 42“, L98 Aufschlag der Frei-Miete; Kopf Zeile 99: Nr. · Kennzahl · Einheit · A · B · C · Frei · A · B · C · Frei · Bemerkung)
 
 | Zeile | Nr. | Inhalt B | C | D–F (H–J) | G (K) Frei | L Bemerkung | Gliederung |
 |---|---|---|---|---|---|---|---|
-| 99 | 7.1 | Restwert (Boden + Gebäude) | € | I126 (J126) | Frei I126 (J126) | nach Eingabe 8.3 und 9.4 | sichtbar, fett |
-| 100 | 7.2 | Bodenwert | € | I121 (J121) | Frei I121 (J121) |  | sichtbar |
-| 101 | 7.3 | Gebäudeanteil | € | I125 (J125) | Frei I125 (J125) |  | sichtbar |
-| 102 | 7.4 | Ertragswert Bestand gegenüber Gesamtkosten | % (Bezug) | H128; H–J leer | Frei H128; K leer | bei Bezug; negativ: unter Gesamtkosten | sichtbar |
-| 103 | 7.5 | Ertragswert Bestand | € | I123 (J123) | Frei I122 (J122) | Frei: zur Marktmiete | eingeklappt |
-| 104 | 7.6 | Abschlag Bestandsmiete unter Zielmiete | € | I124 (J124) | leer |  | eingeklappt |
-| 105 | 7.7 | Liegenschaftszins | % | I120 (J120) | Frei I120 (J120) | Standort Neu Wulmstorf | eingeklappt |
-| 106 | 7.8 | Ertragswert Zielmiete gegenüber Gesamtkosten | % (Bezug) | H129; H–J leer | leer | bei Bezug; nachrichtlich | eingeklappt |
+| 100 | 7.1 | Restwert (Boden + Gebäude) | € | I126 (J126) | Frei I126 (J126) | nach Eingabe 8.3 und 9.4 | sichtbar, fett |
+| 101 | 7.2 | Bodenwert | € | I121 (J121) | Frei I121 (J121) |  | sichtbar |
+| 102 | 7.3 | Gebäudeanteil | € | I125 (J125) | Frei I125 (J125) |  | sichtbar |
+| 103 | 7.4 | Ertragswert Bestand gegenüber Gesamtkosten | % (Bezug) | H128; H–J leer | Frei H128; K leer | bei Bezug; negativ: unter Gesamtkosten | sichtbar |
+| 104 | 7.5 | Ertragswert Bestand | € | I123 (J123) | Frei I122 (J122) | Frei: zur gerechneten Miete | eingeklappt |
+| 105 | 7.6 | Abschlag Bestandsmiete unter Zielmiete | € | I124 (J124) | leer |  | eingeklappt |
+| 106 | 7.7 | Liegenschaftszins | % | I120 (J120) | Frei I120 (J120) | Standort Neu Wulmstorf | eingeklappt |
+| 107 | 7.8 | Ertragswert Zielmiete gegenüber Gesamtkosten | % (Bezug) | H129; H–J leer | leer | bei Bezug; nachrichtlich | eingeklappt |
 
-**Block 8 Prüfungen** (Kopf Zeile 108: Nr. · Prüfung · Status (C, zentriert) · A · B · C · Bemerkung (H); Zeilen 109–114 = P1–P6 aus F.1, sichtbar; Gesamtstatus in D3). D109:F109 zeigen die Kasse bei Bezug A/B/C (`='Gefördert x'!H105`, grün, Euro), H109 „Kasse bei Bezug in €“; A/B/C stehen damit in denselben Spalten wie in allen Blöcken (Runde 2 V6).
+**Block 8 Miete für das DSCR-Ziel** (Abschnitt N; Kopf Zeile 109: Nr. · Miete für das DSCR-Ziel · Einheit · A · B · C · Frei · Bemerkung (H); alle Zeilen sichtbar, 8.3 fett; reine Verweise, grün)
 
-Gliederung Übersicht: Zeilen 12, 23, 50–52, 62, 66–72, 80–85, 94–95, 103–106 Ebene 1, zugeklappt (`hidden`), Schalter an der Zeile darüber (`summaryBelow = False`). Der Prüfblock ist nicht gegliedert. Spaltenbreiten G.3; Druck zwei Seiten (Umbruch nach Zeile 52), Wiederholzeilen 1:2.
+| Zeile | Nr. | Inhalt B | C | D–F | G Frei | H Bemerkung |
+|---|---|---|---|---|---|---|
+| 110 | 8.1 | DSCR-Ziel | Faktor | H181 | Frei H181 | Eingabe 10.2 |
+| 111 | 8.2 | Kapitaldienst Jahr 1 | € | H182 | Frei H182 | Zeilen 5 bis 7 und Bankdarlehen; bei Tilgungsaufschub (3.2) ohne Tilgung NBank |
+| 112 | 8.3 | Nötige Miete Jahr 1 für das DSCR-Ziel | €/m² Monat | H183 | Frei H183 | deckt in Jahr 1 DSCR-Ziel × Kapitaldienst und die Zeilen 2 und 3; Folgejahre: 3.5 |
+| 113 | 8.4 | Miete Jahr 1, gerechnet | €/m² Monat | H109 | Frei H109 | wie 1.18 |
+| 114 | 8.5 | Aufschlag Miete Jahr 1 gegenüber Marktmiete | % | leer | Frei H185 | Frei: gerechnete Miete laut Eingabe 10.1 |
+| 115 | 8.6 | Aufschlag nötige Miete gegenüber Marktmiete | % | leer | Frei H186 | Frei ohne Bankdarlehen: 8.3 deckt nur die Zeilen 2 und 3 |
+
+**Block 9 Prüfungen** (Kopf Zeile 117: Nr. · Prüfung · Status (C, zentriert) · A · B · C · Bemerkung (H); Zeilen 118–123 = P1–P6 aus F.1, sichtbar; Gesamtstatus in D3). D118:F118 zeigen die Kasse bei Bezug A/B/C (`='Gefördert x'!H105`, grün, Euro), H118 „Kasse bei Bezug in €“; H121 „A, B, C und Frei; „n. v.“ bei Endvermögen ≤ 0“ und H122 „A, B, C und Frei (Miete laut Eingabe 10.1)“ nennen, dass P4 und P5 auch an Frei hängen (N.7); A/B/C stehen damit in denselben Spalten wie in allen Blöcken (Runde 2 V6). Bis Abschnitt N stand der Prüfblock als Block 8 in den Zeilen 108–114, bis zur Nacharbeit N.7 in 116–122 (Block 7 in 97–106, Block 8 in 108–114); die Abschnitte J–M und N.1–N.6 nennen die Adressen ihres Stands.
+
+Gliederung Übersicht: Zeilen 12, 23, 50–52, 62, 66–72, 80–85, 94–95, 104–107 Ebene 1, zugeklappt (`hidden`), Schalter an der Zeile darüber (`summaryBelow = False`). Zeile 96 (6.8) ist sichtbar. Der Prüfblock ist nicht gegliedert. Bemerkungen in Spalte L (Blöcke 5–7) höchstens 40 Zeichen, damit sie in die Spalte passen (Breite 38). Spaltenbreiten G.3; Druck zwei Seiten (Umbruch nach Zeile 52), Wiederholzeilen 1:2; Abstandszeilen 6 pt (G.4).
 
 ### D.6 Blatt NBank
 
@@ -686,7 +767,7 @@ Kein Abstand in Prozentpunkten, nur die Lage „über/unter“ (Vorgabe 8); „�
 
 ### D.7 Blatt Hinweise (15 Zeilen, A3:B17)
 
-A1:B1 Titel, C1 Zellhyperlink „Übersicht“, Kopf A2:B2 „Nr. · Hinweis (Version 3.0, Stand 11/2026)“. Je Zeile ein Gedanke, 106–145 Zeichen (Runde 2 V3).
+A1:B1 Titel, C1 Zellhyperlink „Übersicht“, Kopf A2:B2 „Nr. · Hinweis (Version 3.0, Stand 11/2026)“. Je Zeile ein Gedanke, 106–145 Zeichen (Runde 2 V3); Hinweis 6 und 7 sind länger (Mietregel, seit Abschnitt N ergänzt um Mietwahl und Finanzierung frei; N.7: Aufschlag bei Frei-Renditen, Eingabe 7.1; N.8: Verweis auf 1.18, Jahresrechnung), Hinweis 11 seit N.8 (Fehlbeträge in EK-IRR und VOFI-EK-Rendite).
 
 | Nr. | Text |
 |---|---|
@@ -695,12 +776,12 @@ A1:B1 Titel, C1 Zellhyperlink „Übersicht“, Kopf A2:B2 „Nr. · Hinweis (Ve
 | 3 | Konventionen: vor Steuern, nominal, jährlich nachschüssig; T0 = Bezugsfertigkeit; Zeitreihen mit Auszahlungen negativ. |
 | 4 | Bauphase nicht abgebildet: Kosten, Eigenkapital, Entgelte und Verwaltungskostenbeitrag (RL Nr. 12.7.1) erst ab Bezug; alle Renditen eher zu hoch. |
 | 5 | Kostenstand: Die Sätze 5.2 und 5.3 (Stand 2026) gelten in Jahr 1, Steigerung ab Jahr 2; Eingabe 5.5 schreibt sie um Jahre fort. |
-| 6 | Mieten: Höchstmiete (höchstens Marktmiete) in Jahr 1–3, dann alle 3 Jahre +6,15 % (ab Jahr 36 Kappungsgrenze) bis zur Vergleichsmiete; je m² ungerundet. Frei finanziert: Marktmiete wie bei Neuvermietung, ohne Grenze nach § 558 BGB; der Frei-IRR liegt dadurch rund 0,4–0,5 Prozentpunkte höher. |
-| 7 | Finanzierung: Eigenkapital = Grundstück (Sacheinlage) + bar; Bank nur für die Lücke; NBank-Darlehen 0 % bis Jahr 35, linear, Rest in Jahr 42. |
+| 6 | Mieten: Höchstmiete (höchstens Marktmiete) in Jahr 1–3, dann alle 3 Jahre +6,15 % (ab Jahr 36 Kappungsgrenze) bis zur Vergleichsmiete; je m² ungerundet. Frei finanziert: Marktmiete wie bei Neuvermietung, ohne Grenze nach § 558 BGB; der Frei-IRR zur Marktmiete liegt dadurch rund 0,4–0,5 Prozentpunkte höher. Eingabe 10.1 rechnet frei wahlweise mit der Miete, die in Jahr 1 das DSCR-Ziel (Eingabe 10.2) erreicht; Aufschlag auf die Marktmiete: Übersicht 1.18 und 8.5. Jahresrechnung, Renditen und Restwert frei zu dieser Miete nur zusammen mit dem Aufschlag nennen. |
+| 7 | Finanzierung: Eigenkapital = Grundstück (Sacheinlage) + bar; Bank nur für die Lücke; NBank-Darlehen 0 % bis Jahr 35, linear, Rest in Jahr 42. Frei finanziert: Mindest-Eigenmittel wie gefördert zuzüglich Eingabe 7.1, der Rest als Bankdarlehen zu den Konditionen der Eingaben 6.1 bis 6.4; gefördert nimmt 7.1 nur bis zur Höhe des Bankdarlehens auf. |
 | 8 | Restwert: Ertragswert im Stichjahr; Bestandsmiete je 3 Jahre höchstens um die Kappungsgrenze, bis Jahr 42 bis zur Vergleichs-, dann Zielmiete. |
 | 9 | Restwert-Varianten: mit Restwert = Boden + Gebäude; nur Bodenwert = ohne Gebäudeanteil; ohne Restwert = 0. |
 | 10 | Objekt-IRR ohne Finanzierung: ohne Zuschuss, nach Zuschuss, nach Förderbarwert (Zuschuss + Barwertvorteil Darlehen zum Zins 6.1). |
-| 11 | IRR bei mehreren Nullstellen: größte mit fallendem Barwert, maßgeblich dann die VOFI-EK-Rendite. „n. v.“: keine Lösung oder gesperrt (P1). |
+| 11 | IRR bei mehreren Nullstellen: größte mit fallendem Barwert, maßgeblich dann die VOFI-EK-Rendite. „n. v.“: keine Lösung gefunden, Endvermögen ≤ 0 oder gesperrt (P1). Fehlbeträge über Jahre: Der EK-IRR rechnet sie als Nachschuss zum internen Zins, die VOFI-EK-Rendite führt sie zum Sollzins 7.3 und bezieht auf das Eigenkapital bei Bezug; maßgeblich ist dann die VOFI-EK-Rendite. |
 | 12 | Nach außen: Jahresrechnung, Tilgungsvergleich, Annahmen. Renditen nur in der Beratung, als Paar mit Restwert / nur Bodenwert und Restwertanteil. |
 | 13 | Bandbreite zu jeder Rendite in der Beratung: Eingabe 9.3 ±0,5 %, 9.4 = 0,50, 8.3 = 5 %, 8.2 = Vergleichsmiete. |
 | 14 | Nicht nach außen: Blatt NBank, Renditen ohne Paar, Platzhalter (Modellhaus: Mieten 4.3/4.4, Liegenschaftszins Neu Wulmstorf). |
@@ -724,7 +805,7 @@ A1:B1 Titel, C1 Zellhyperlink „Übersicht“, Kopf A2:B2 „Nr. · Hinweis (Ve
 | Prolongationsmodi 0/1/2, Tilgung ab Prolongation (`C58:C59`) | eine Regel (Modus 2) | Vorgabe 6 | 0 (v2-1 Modus 2) |
 | Realrendite, Inflation (`C108`, K4) | entfällt | Vorgabe 6 | K4 nicht mehr ausgewiesen |
 | Stichtage 1–6 (`C109:C114`), Blatt Bewertung | feste Auswertungen Bezug, Jahr 1, 10, 35, 42 | Vorgabe 6 | J35/J42 unverändert; frühe VOFI-Renditen (T1 27,55 %) entfallen (G3) |
-| Frei, obere Kante; DSCR-Ziel; Startmiete 18,80 € (`C69:C70`), Blatt Frei_finanziert | entfällt; nur Frei zur Marktmiete | B10 | Vergleich frei 6,17 % statt 7,59 % (Tarutinoer, J42) |
+| Frei, obere Kante; DSCR-Ziel; Startmiete 18,80 € (`C69:C70`), Blatt Frei_finanziert | Standard Frei zur Marktmiete; seit Abschnitt N Auswahl 10.1 mit berechneter Miete für das DSCR-Ziel 10.2 (kein fester Wert), Restwert zur selben Miete, Aufschlag bei den Renditen | B10 | Vergleich frei 6,17 % statt 7,59 % (Tarutinoer, J42); mit 10.1 = DSCR-Ziel 1,25: Miete 18,80 €/m², Objekt-IRR 7,80 % |
 | Vorlaufzeit 2,5 J. im Exponenten (`C107`) | entfällt; T0 = Bezugsfertigkeit | B7 | VOFI-EK mit RW J42: Tarutinoer A +0,39 Pp, Modellhaus A +0,33 Pp |
 | Bauzeitrechnung (`C91:C95`, `Basisdaten!C28:C31`) | entfällt; KG 800 bleibt Eingabe 2.2 | B7 | 0 (Schalter „nein“) |
 | Schalter Bearbeitungsentgelt in KG 800 (`C47`) und Bankfinanzierung der Entgelte | entfällt; Entgelte aus Eigenkapital bei Bezug | Broschüre S. 11 | Tarutinoer: Bankdarlehen −20.744 / −22.226 / −22.966 €; ZÜ Jahr 1 +1.162 / +1.245 / +1.287 €; VOFI −0,07/−0,08/−0,08 Pp; EK-IRR −0,05 Pp |
@@ -760,7 +841,7 @@ A1:B1 Titel, C1 Zellhyperlink „Übersicht“, Kopf A2:B2 „Nr. · Hinweis (Ve
 | B7 Vorlaufzeit im Exponenten | 4 | teilweise (Vorgabe 6): Exponent-Zuschlag entfällt, T0 = Bezugsfertigkeit, KG 800 Eingabe; eine datierte Bauphase gibt es nicht. Restverzerrung: alle Renditen eher zu hoch, weil Herstellungskosten und Eigenkapital vor Bezug abfließen (Eigenkapital 1 Jahr vor Bezug, Modellhaus A, J42 mit Restwert: EK-IRR 5,74 statt 5,90 %, −0,16 Pp; VOFI 5,38 statt 5,52 %, −0,13 Pp, ungerundet 5,3834 gegen 5,5151 %; kennzahlen-konzept 2.5); VKB der Bauphase ab Auszahlung (RL Nr. 12.7.1) rund 8.400 / 12.600 / 14.700 € (PRUEFBERICHT B7) nicht angesetzt; Hinweis 4 nennt beides ohne Zahlen (Runde 2 R5, FL2) | Z. 143, Hinweis 4 | gegenüber v2-1: Tarutinoer VOFI +0,39 Pp; Modellhaus +0,33 Pp; Restwirkung siehe links |
 | B8 Kostenstand | 10 | Eingabe 5.5 „Kostensätze 2026 fortschreiben um“ Jahre (0 = Stand 2026 gilt unverändert in Jahr 1 = 2028), Hinweis 5, Übersicht C31/C32 fortgeschriebener Satz mit Bemerkung „Satz 2026, fortgeschrieben laut Eingabe 5.5“ | Sp. I, J | bei 5.5 = 2: Modellhaus ZÜ J1 −656 / −19.606 / −27.435 €, EK-IRR −0,06 Pp |
 | B9 Entnahmen | 8 | entfällt (nur Thesaurierung) | – | 0 |
-| B10 Frei, obere Kante | 9 | entfällt | – | – |
+| B10 Frei, obere Kante | 9 | Standard Marktmiete; Miete für das DSCR-Ziel als Auswahl 10.1, als Formel gerechnet, Restwert einheitlich, Aufschlag ausgewiesen (Abschnitt N) | – | Standard: keine |
 | B11 Wertüberschuss nur vor Abschlag | 7 | Hauptzeile nach Abschlag, vor Abschlag nachrichtlich | Z. 128–129 („Ertragswert Bestand/Zielmiete gegenüber Gesamtkosten“), Übersicht 7.4/7.8 | Modellhaus A −54,7 % (vor Abschlag −10,4 %) |
 
 G-Befunde: G1 → NBank N17–N20 (Barwertvorteil); G2 → beide Horizonte je Kennzahl; G3 → keine Stichtage vor J35; G4 → 3.4 mit Stand in der Quelle; G5 → eigene Frei-Reihe; G6 → feste Horizonte; G7 → Prüfblock P1–P6 und F13; G8 → DSCR erst ab 1 € Kapitaldienst; G9 → ICR entfällt; G10 → ein Mietausfall; G11 → keine Formeln in Eingabezellen, Kostenkennwert je m² (2.1), Banklaufzeit (6.4), EK als Restgröße plus 7.1, keine Eingabe mit mehr als 2 sichtbaren Nachkommastellen beim Modellhaus; G12 → Frei-Spalte vollständig.
@@ -794,20 +875,20 @@ Ablage: `/home/user/NBank/vofi/AENDERUNGEN.md` Abschnitt 7 (Kundenfassung, Absch
 
 ## F. Prüfblock und Abnahme
 
-### F.1 Prüfblock auf der Übersicht (Z. 109–114, sichtbar, Status C: „OK“ oder „prüfen“)
+### F.1 Prüfblock auf der Übersicht (Z. 118–123, sichtbar, Status C: „OK“ oder „prüfen“)
 
 Nur Zustände, die ein falsches oder unzulässiges Ergebnis anzeigen und anschlagen können. Bedingung jeweils für alle drei Blätter x. Statusformel: `=IFERROR(IF(<Bedingung>,"OK","prüfen"),"prüfen")` (ein Fehlerwert ergibt „prüfen“, Runde 2 R1); Gesamtstatus D3 „OK“ nur, wenn alle sechs „OK“ zeigen.
 
 | Nr. | Zeile | Prüfung (B) | Formelkern |
 |---|---|---|---|
-| P1 | 109 | Keine Überfinanzierung bei Bezug | `x!H105 < 1`; Kasse A/B/C in D109:F109 |
-| P2 | 110 | Auswahlfelder 4.1, 4.2 und 8.2 gültig | `AND(COUNTIF(Mietenstufen,Mietenstufe)=1,OR(Effizienz_EH40="ja",Effizienz_EH40="nein"),OR(Zielmiete="Marktmiete",Zielmiete="Vergleichsmiete"))` (Einfügen umgeht die Datenüberprüfung; Runde 2 R3 ersetzt die frühere P2 „Eigenmittel mind. 20 %“, die wegen H102 nie anschlagen konnte) |
-| P3 | 111 | Bank: Anfangstilgung mind. 1 % (RL Nr. 5.3.6) | `OR(x!H103<1,x!H113>=Tilgung_Bank_min-0.00005)` |
-| P4 | 112 | Renditen mit Restwert berechnet | `COUNT(x!I z:J z)=2` für z = 133, 136, 140, 143, 175 und A, B, C sowie `COUNT('Frei finanziert'!I136:J136)=2` (Zahlen verlangt; „n. v.“ und Fehlerwerte schlagen an) |
-| P5 | 113 | Gebäudeanteil am Restwert positiv | `MIN(x!I125:J125,'Frei finanziert'!I125:J125) > 0` |
-| P6 | 114 | Eingaben vollständig | `IF(Projekt_Nr=1,SUMPRODUCT((LEN(Eingaben!$A$7:$A$51)>0)*(LEN(Eingaben!$D$7:$D$51)=0)),SUMPRODUCT((LEN(Eingaben!$A$7:$A$51)>0)*(LEN(Eingaben!$E$7:$E$51)=0))) = 0` |
+| P1 | 118 | Keine Überfinanzierung bei Bezug | `x!H105 < 1`; Kasse A/B/C in D118:F118 (Frei: Kasse immer 0) |
+| P2 | 119 | Auswahlfelder 4.1, 4.2, 8.2 und 10.1 gültig | `AND(COUNTIF(Mietenstufen,Mietenstufe)=1,OR(Effizienz_EH40="ja",Effizienz_EH40="nein"),OR(Zielmiete="Marktmiete",Zielmiete="Vergleichsmiete"),OR(Miete_Frei="Marktmiete",Miete_Frei="Miete für DSCR-Ziel"))` (Einfügen umgeht die Datenüberprüfung; Runde 2 R3 ersetzt die frühere P2 „Eigenmittel mind. 20 %“, die wegen H102 nie anschlagen konnte) |
+| P3 | 120 | Bank: Anfangstilgung mind. 1 % (RL Nr. 5.3.6) | `OR(x!H103<1,x!H113>=Tilgung_Bank_min-0.00005)` |
+| P4 | 121 | Renditen mit Restwert berechnet | `COUNT(x!I z:J z)=2` für z = 133, 136, 140, 143, 175 und A, B, C sowie `COUNT('Frei finanziert'!I z:J z)=2` für z = 136, 140, 143 (Abschnitt N: auch EK-IRR und VOFI-EK-Rendite frei) (Zahlen verlangt; „n. v.“ und Fehlerwerte schlagen an; Bemerkung H121 „A, B, C und Frei; „n. v.“ bei Endvermögen ≤ 0“) |
+| P5 | 122 | Gebäudeanteil am Restwert positiv | `MIN(x!I125:J125,'Frei finanziert'!I125:J125) > 0` (Bemerkung H122 „A, B, C und Frei (Miete laut Eingabe 10.1)“) |
+| P6 | 123 | Eingaben vollständig | `IF(Projekt_Nr=1,SUMPRODUCT((LEN(Eingaben!$A$7:$A$54)>0)*(LEN(Eingaben!$D$7:$D$54)=0)),SUMPRODUCT((LEN(Eingaben!$A$7:$A$54)>0)*(LEN(Eingaben!$E$7:$E$54)=0))) = 0` |
 
-Bedingte Formatierung „prüfen“: Schrift rot fett, Füllung `FCE4E4` (C109:C114 und D3). Erwartung beide Projekte, Standard: alle „OK“. Zulässige Sonderfälle sind keine Prüfungen, sondern Beträge: Herstellung über Bemessungsgrenze (1.3), Grundstück über Deckel (1.4), Schlussrate NBank (3.10), Restschuld Bank Jahr 42 (3.11). Die Eigenmittelquote steht als Anzeige in 1.12. Ein Sollstand im Projektkonto (Modellhaus B/C, Jahr 1–9) ist ein Ergebnis, kein Prüffehler; er steht in Übersicht 3.6/3.7. Den Tilgungsaufschub begrenzt die Datenüberprüfung 3.2 (0 bis `Aufschub_max`).
+Bedingte Formatierung „prüfen“: Schrift rot fett, Füllung `FCE4E4` (C118:C123 und D3). Erwartung beide Projekte, Standard: alle „OK“. Zulässige Sonderfälle sind keine Prüfungen, sondern Beträge: Herstellung über Bemessungsgrenze (1.3), Grundstück über Deckel (1.4), Schlussrate NBank (3.10), Restschuld Bank Jahr 42 (3.11). Die Eigenmittelquote steht als Anzeige in 1.12. Ein Sollstand im Projektkonto (Modellhaus B/C, Jahr 1–9) ist ein Ergebnis, kein Prüffehler; er steht in Übersicht 3.6/3.7 und 6.8. Der Gesamtstatus kann allein an Frei hängen (P4: VOFI-EK-Rendite frei „n. v.“ bei Endvermögen ≤ 0, etwa Modellhaus mit 4.5 = 0 %; P5: Gebäudeanteil frei ≤ 0); die Bemerkungen zu P4 und P5 nennen das (NA4). Den Tilgungsaufschub begrenzt die Datenüberprüfung 3.2 (0 bis `Aufschub_max`).
 
 ### F.2 Abnahme `pruefe_vofi.py` (läuft grün = alle Punkte erfüllt)
 
@@ -815,17 +896,18 @@ Bedingte Formatierung „prüfen“: Schrift rot fett, Füllung `FCE4E4` (C109:C
 |---|---|---|
 | F1 | v2-1 unverändert | SHA-256 beginnt `11d558b3` |
 | F2 | recalc | `status = success`, `total_errors = 0`, für jeden Testlauf F7 |
-| F3 | Struktur | 9 Blätter in der Reihenfolge A; keine Makros, keine externen Verknüpfungen; verbundene Zellen nur in Zeile 1; 64 Namen, alle Eingabe-Namen zeigen auf `Eingaben!$F$7:$F$51`, `Projekt_Nr` = D3, `Aktives_Projekt` = F4, `Projektliste` = D4:E4; keine Funktionen XLOOKUP, XMATCH, LET, LAMBDA, FILTER, SORT, UNIQUE, SEQUENCE, OFFSET, INDIRECT, HYPERLINK; Zellhyperlinks mit Sprungziel vorhanden (Übersicht B3 → A108, H2, D6:K6; Eingaben G3; Gefördert H2:M2; Frei I2:L2; NBank I1; Tabellen G1; Hinweise C1); kein Zirkelbezug |
-| F4 | Formeln einheitlich | je Zeitreihenspalte Zeilen 7 … Ende R1C1-gleich (Y–AS ab Zeile 6); Blätter Gefördert A/B/C zellgleich außer A1 und B2; Zahlenkonstanten in Formeln nur 0, 1, 2 (ROUND, COUNT), 10 (Jahr 10), 12 (Monate), 0,03 und 0,1/0,3/0,5/0,6/0,7 (IRR-Startwerte E10), 0,05 (zweiter Versuch), 0,0001 (Barwert-Test) und 0,00005 (Toleranz P3); konstante Zahlen in Zellen außerhalb von Eingaben und Tabellen nur A6, W6, H118 (je 0) und die Rasterwerte Übersicht B55:B61 außer B59 (schwarz, feste Hilfswerte) |
-| F5 | Gestaltung | Arial 10 (Titel 14); Eingabezellen D/E der Eingabezeilen 7–51, D3, D4 und E4 Schrift `0000FF`, Füllung `FFF2CC`; Spalte F Füllung `EDEDED`; reine Blattverweise grün `008000`; Kopfzeilen `8B2939`/weiß; Druck A4 quer, `fitToWidth` 1, Fußzeile `&A` / `Seite &P von &N`, Druckbereiche und Wiederholungen laut G.4 (Reihenfolge mehrteiliger Bereiche aus `workbook.xml`); keine doppelten definierten Namen; Fixierung laut A; Gliederung laut B.1, D.3, D.4 und D.5; Dokumenteigenschaften Autor „PGN“, Titel „VOFI Mietwohnraum 2026“, Sprache de-DE; `summaryBelow = 0` und `fullCalcOnLoad`: fehlen sie, weil die Mappe nach `build_vofi.py` erneut mit `recalc.py` gespeichert wurde, meldet das Skript einen HINWEIS (Abhilfe `build_vofi.py --nachbearbeiten MAPPE`) |
-| F6 | Sprache | Bezeichnungen ≤ 45 Zeichen, Quellen ≤ 60, keine Zelle > 120 außer Hinweise; Hinweise ≤ 15 Zeilen; ohne „!“, „ACHTUNG“, „Wichtig:“, „Safe Harbour“, „eingehalten“, „bitte“, „unbedingt“, Emojis; Quellenspalten ohne Zelladressen (Muster `[A-Z]+[0-9]+!` bzw. `![A-Z]+[0-9]+`) und ohne Fakt-IDs (`F[0-9]{3}`, `G[0-9]-[0-9]{2}`); „Verwaltungskostenbeitrag“ (nicht „-betrag“) |
+| F3 | Struktur | 9 Blätter in der Reihenfolge A; keine Makros, keine externen Verknüpfungen; verbundene Zellen nur in Zeile 1; 66 Namen, alle Eingabe-Namen zeigen auf `Eingaben!$F$7:$F$54`, `Projekt_Nr` = D3, `Aktives_Projekt` = F4, `Projektliste` = D4:E4; keine Funktionen XLOOKUP, XMATCH, LET, LAMBDA, FILTER, SORT, UNIQUE, SEQUENCE, OFFSET, INDIRECT, HYPERLINK; Zellhyperlinks mit Sprungziel vorhanden (Übersicht B3 → A117, H2, D6:K6; Eingaben G3; Gefördert H2:N2; Frei H2:M2; NBank I1; Tabellen G1; Hinweise C1); kein Zirkelbezug |
+| F4 | Formeln einheitlich | je Zeitreihenspalte Zeilen 7 … Ende R1C1-gleich (Y–AS ab Zeile 6); Blätter Gefördert A/B/C zellgleich außer A1 und B2; Frei finanziert mit den Formeln von Gefördert A für Bank, Projektkonto, Zahlungsreihen Eigenkapital, EK-Kennzahlen und Liquidität (Spalten umgesetzt, NBank-Anteile und Sperre E14 entfallen; Ausnahme Zahlungsüberschuss auf Cent, D.4); Zahlenkonstanten in Formeln nur 0, 1, 2 (ROUND, COUNT), 10 (Jahr 10), 12 (Monate), 0,03 und 0,1/0,3/0,5/0,6/0,7 (IRR-Startwerte E10), 0,05 (zweiter Versuch), 0,0001 (Barwert-Test) und 0,00005 (Toleranz P3); konstante Zahlen in Zellen außerhalb von Eingaben und Tabellen nur A6, W6 (Frei Q6), H118 (je 0) und die Rasterwerte Übersicht B55:B61 außer B59 (schwarz, feste Hilfswerte) |
+| F5 | Gestaltung | Arial 10 (Titel 14); Eingabezellen D/E der Eingabezeilen 7–54, D3, D4 und E4 Schrift `0000FF`, Füllung `FFF2CC`; Spalte F Füllung `EDEDED`; reine Blattverweise grün `008000`; Kopfzeilen `8B2939`/weiß; Druck A4 quer, `fitToWidth` 1, Fußzeile `&A` / `Seite &P von &N`, Druckbereiche, Wiederholungen und feste Seitenumbrüche laut G.4 (Reihenfolge mehrteiliger Bereiche aus `workbook.xml`); Seitenreserve je Druckseite nach der Breitenregel von Excel mindestens 10 pt und Abstandszeilen der Übersicht 6 pt (G.4, N.8); keine doppelten definierten Namen; Fixierung laut A; Gliederung laut B.1, D.3, D.4 und D.5; Dokumenteigenschaften Autor „PGN“, Titel „VOFI Mietwohnraum 2026“, Sprache de-DE; `summaryBelow = 0` und `fullCalcOnLoad`: fehlen sie, weil die Mappe nach `build_vofi.py` erneut mit `recalc.py` gespeichert wurde, meldet das Skript einen HINWEIS (Abhilfe `build_vofi.py --nachbearbeiten MAPPE`) |
+| F6 | Sprache | Bezeichnungen ≤ 45 Zeichen, Quellen ≤ 60, keine Zelle > 120 außer Hinweise; Bemerkungen Übersicht Spalte L ≤ 40, Bemerkungen in H neben dem Aufschlag (Zeilen 26, 38, 42) leer oder ≤ 40; Hinweise ≤ 15 Zeilen; ohne „!“, „ACHTUNG“, „Wichtig:“, „Safe Harbour“, „eingehalten“, „bitte“, „unbedingt“, Emojis; Quellenspalten ohne Zelladressen (Muster `[A-Z]+[0-9]+!` bzw. `![A-Z]+[0-9]+`) und ohne Fakt-IDs (`F[0-9]{3}`, `G[0-9]-[0-9]{2}`); „Verwaltungskostenbeitrag“ (nicht „-betrag“) |
 | F7 | Testläufe | Kopie, Eingaben setzen (beide Spalten des aktiven Projekts bleiben getrennt; gesetzt wird die Spalte des aktiven Projekts), recalc, lesen; Läufe siehe Tabelle F.2a |
 | F8 | Sollwerte gegen RR | RR wird importiert, Werte nicht abgeschrieben. Modellhaus: `parameter_broschuere(A)` mit `P['ovm_start'] = 12,92`, `P['markt_start'] = 14,48`; Tarutinoer: `parameter_referenzprojekt(A)`; Overrides laut F.2a, nach Änderung von Mengen, Kosten, Kostensätzen, Grundstück, Bodenrichtwert, Mietenstufe oder Effizienz `finalisiere(P)`. Bankpfad (A3, nur bei Lücke > 0): `Lauf(P2, g, ek_modell=True)` mit `P2['eigenmittel_quote'] = (BE_g + max(0, 20 % × zuw − Grundstück) + EK_Zusatz + KG 800) / zuw`; das ergibt Bank = Lücke, bares EK = Entgelte + KG 800 + Mindest-EM in Geld + Zusatz-EK, Kasse 0. Verglichen werden: Förderbeträge, Bank, EK, Förderbarwert, Jahresrechnung Jahr 1–3, Liquidität Block 3, alle Renditen J35/J42 (auch nach Förderbarwert), Restwert Block 7, NBank-Lage. IRR (Runde 2): Soll ist der Wert der RR, bei einer Nullstelle diese, bei mehreren die größte mit fallendem Barwert (kennzahlen-konzept 3.3), Toleranz unten. „n. v.“ ist nur zulässig, wenn die RR keinen Wert hat oder der Wert unter −69 % liegt (K.2 R1); hat die RR-Reihe im Raster −90 … 100 % keine Nullstelle, darf Excel eine Nullstelle außerhalb zeigen (Barwert auf der RR-Reihe unter 1 €). Die NBank-Lage folgt aus dem RR-Wert. Restwert J35 nur vergleichen, wenn A2 nicht greift (RR-Mietpfad Jahr 36–42 mit Obergrenze Vergleichsmiete gleich dem zur Zielmiete) |
 | F9 | Broschüre | L1 gegen die Zahlen aus `content/pages/10-…json`, `11-…json`, `12-…json` (zur Laufzeit gelesen, Zuordnung F.2b), gerundet auf die dort gezeigte Stelle; L10 gegen die Sensitivität S. 10. Später dasselbe für die Präsentation (O9) |
 | F10 | v2-1 | L2: Tabelle F.4, Spalte „gleich“ auf 0,01 €; Spalte „Δ“ auf 0,01 € |
 | F11 | B4/A3 | L3, L4, L5, L9 laut F.5 |
 | F12 | Restfinanzierung, Sperre | L10 und L11 laut F.5 |
-| F13 | Identitäten (nur Prüfskript) | für L1, L2 und alle Läufe aus F.2a: NBank-Darlehen vollständig getilgt (`ABS(x!H163-x!H99) < 1`); Ertragswert gefördert = frei bei Zielmiete Marktmiete (`ABS('Gefördert A'!J122-'Frei finanziert'!J122) < 1`); Tilgungsvergleich = Jahresrechnung bei Aufschub 0 (`ABS(Übersicht!D62-Übersicht!D38) < 1`, E, F); Rechenweg S. 12 geht auf (4.13 − 4.14 − 4.15 = 4.16, E und F); Zeitachse passt (`Laufzeit_max = 42`, `GND ≤ 80`, Zeile 48 = t 42, Zeile 86 = t 80); Bankdarlehen bei Laufzeit ≤ 42 bis Ende Laufzeit getilgt (`INDEX(U, Laufzeit_Bank+1) < 1`); Kasse = 0 bei P1 „OK“ (C109) |
+| F13 | Identitäten (nur Prüfskript) | für L1, L2 und alle Läufe aus F.2a: NBank-Darlehen vollständig getilgt (`ABS(x!H163-x!H99) < 1`); Ertragswert gefördert = frei bei Zielmiete Marktmiete (`ABS('Gefördert A'!J122-'Frei finanziert'!J122) < 1`); Tilgungsvergleich = Jahresrechnung bei Aufschub 0 (`ABS(Übersicht!D62-Übersicht!D38) < 1`, E, F); Rechenweg S. 12 geht auf (4.13 − 4.14 − 4.15 = 4.16, E und F); Zeitachse passt (`Laufzeit_max = 42`, `GND ≤ 80`, Zeile 48 = t 42, Zeile 86 = t 80); Bankdarlehen bei Laufzeit ≤ 42 bis Ende Laufzeit getilgt (`INDEX(U, Laufzeit_Bank+1) < 1`); Kasse = 0 bei P1 „OK“ (C118). Frei (Abschnitt N), in jedem Lauf: Kasse bei Bezug 0; Bank + bares Eigenkapital = KG 200–800; Eigenkapital = Grundstück + bar; Eigenkapital frei = Eigenmittel 1.11 je Gruppe (`'Frei finanziert'!H106 = x!H106 − x!H101`, Übersicht G19 = D19/E19/F19), solange die Lücke der Gruppe ≥ 0 ist, sonst frei ≥ gefördert (N.7); nötige Miete = (Ziel × Kapitaldienst Jahr 1 + Kosten Jahr 1) ÷ ((1 − Mietausfall) × Wohnfläche × 12), ebenso A/B/C mit Q7; Aufschläge = Miete ÷ Marktmiete − 1; Miete Jahr 1 der Zeitreihe (D7) = H109; bei 10.1 = „Marktmiete“ H109 = C7, sonst H109 = H183, DSCR Jahr 1 = DSCR-Ziel und Zahlungsüberschuss Jahr 1 = (Ziel − 1) × Kapitaldienst; Bankdarlehen frei bis Ende Laufzeit getilgt |
+| N | Regression (Entscheidung N7) | L1 und L2 gegen den Stand vor der Erweiterung (Commit 0dfe8a2; Datei über `--baseline` oder `VOFI_BASELINE`, sonst holt das Skript sie mit `git show` aus dem Repository; je mit Projekt 1 und 2 neu berechnet), Toleranz 1e-9: Gefördert A/B/C und NBank jede Zelle an derselben Adresse; Übersicht Spalten D–F und H–J sowie Prüfstatus, Zeilen nach Nr. und Bezeichnung zugeordnet; Frei finanziert die bisherigen Objektwerte nach Spaltenkopf bzw. Bezeichnung (Zeitreihe, Kosten, Restwert, Objekt-IRR, Nettoanfangsrendite). Ist der Stand nicht erreichbar, meldet das Skript einen HINWEIS |
 
 Toleranzen: Beträge ≤ 1 € (Jahresrechnung, Förderbeträge ≤ 0,01 €); Renditen und Sätze ≤ 0,0001 (0,01 Pp); DSCR ≤ 0,001; Zählwerte exakt; Text exakt.
 
@@ -875,8 +957,28 @@ Toleranzen: Beträge ≤ 1 € (Jahresrechnung, Förderbeträge ≤ 0,01 €); R
 | L40 | Modellhaus | 9.1 = 2,0 | Bankpfad, `herstellung × 2` | alles; EK-IRR nur Bodenwert J35/J42 A −12,49 / −5,06 %, ohne Restwert J42 A −8,46 %; VOFI mit Restwert „n. v.“ → P4 „prüfen“, Restwertanteil „n. v.“ (R3) |
 | L41 | Modellhaus | 4.5 = −5 % | `miet_wachstum` | alles (A2 greift, J35 nicht gegen RR); Frei Objekt-IRR mit Restwert ohne Nullstelle → „n. v.“ statt −199,50 % (R2); Frei ohne Restwert J35 −8,44 % (größte fallende Nullstelle, Runde 2 R2) |
 | L42 | Modellhaus | 4.1 = „VIII“ (per Einfügen, ohne Datenüberprüfung) | keiner (Fehlerlauf) | recalc meldet Fehlerwerte; D3 und P1–P5 „prüfen“, P6 „OK“; NBank G11:I24 „prüfen“ (Runde 2 R1) |
+| L43 | Modellhaus | 10.1 = Miete für DSCR-Ziel | „M“ mit `markt_start` = nötige Miete (im Skript gerechnet), Bank frei | alles; DSCR Jahr 1 frei = 1,00; Zahlungsüberschuss Jahr 1 = 0 |
+| L44 | Modellhaus | wie L43, 10.2 = 1,25 | wie L43 | alles; DSCR Jahr 1 frei = 1,25; nötige Miete A/B/C |
+| L45 | Tarutinoer | 10.1 = Miete für DSCR-Ziel | wie L43 | alles |
+| L46 | Tarutinoer | wie L45, 10.2 = 1,25 | wie L43 | alles; Miete 18,80 €/m² (v2-1 fest 18,8006) |
+| L47 | Modellhaus | 6.1 = 0 % | `zins_bank` | alles; Bank frei ohne Zins |
+| L48 | Modellhaus | 6.1 = 6 % | `zins_bank` | alles |
+| L49 | Modellhaus | 6.4 = 20 | Bank frei geschlossen | alles; Restschuld Bank frei Ende Jahr 20 < 1 € |
+| L50 | Modellhaus | 6.4 = 42 | Bank frei geschlossen | alles |
+| L51 | Modellhaus | 7.1 = 1.000.000 | `eigenmittel_quote` der Parameterkopie | alles; Bank frei 4,6 Mio. € |
+| L52 | Modellhaus | 2.3 = 500.000 | `grundstueck` | alles |
+| L53 | Modellhaus | 6.4 = 60 | Bank frei geschlossen | alles; Restschuld Bank frei Ende Jahr 42 = 3.044.607 € (3.11), am Horizont in EK-IRR, Endvermögen und VOFI-EK-Rendite abgezogen (N.7) |
+| L54 | Modellhaus | 7.1 = 6.000.000 | „M“ ohne Bankpfad | alles; Bank frei 0, Eigenkapital frei = Gesamtkosten 7,0 Mio. €, DSCR Jahr 1 und Minimum „–“, nötige Miete 1,67 €/m² (NA8); gefördert unverändert (7.1 nicht aufgenommen) |
+| L55 | Modellhaus | 10.1 = Miete für DSCR-Ziel, 6.2 = 1, 6.3 = 6 % | wie L43, `zinsbindung`, `zins_anschluss` | alles; DSCR Jahr 1 frei 1,00, Minimum 0,79, 12 Jahre mit Fehlbetrag |
+| L56 | Tarutinoer | 10.1 = Miete für DSCR-Ziel, 10.2 = 0,5 | wie L43 | alles; Miete 8,57 €/m² (unter Marktmiete), VOFI-EK-Rendite frei „n. v.“ → P4 und D3 „prüfen“ |
+| L57 | Tarutinoer | wie L56, 10.2 = 3 | wie L43 | alles; Miete 42,67 €/m² |
+| L58 | Modellhaus | wie L54, 10.1 = Miete für DSCR-Ziel | „M“ ohne Bankpfad, `markt_start` = nötige Miete | alles; Miete frei 1,67 €/m², Überschuss vor Kapitaldienst 0, P5 und D3 „prüfen“ (NA8) |
+| L59 | Modellhaus | 6.4 = 10 (gleich Zinsbindung 6.2) | Bank frei geschlossen | alles; Annuität 681.522,01 €, Restschuld Ende Zinsbindung (Zeile 112) 0, Annuität nach Zinsbindung (114) 0, Restschuld Ende Jahr 10 < 1 €, Kapitaldienst Bank Jahr 11 unter 1 € (N.8) |
+| L60 | Tarutinoer | 2.3 = 731.325, 6.4 = 5 (kleiner als Zinsbindung) | Bank geschlossen (gefördert und frei) | wie L59 für Gefördert A/B/C (Bank 309.386,40 €) und Frei (Bank 2.963.412 €); Restschuld Ende Jahr 5 höchstens 0,01 € (Rundung auf Cent), Kapitaldienst Jahr 6 unter 1 €; gefördert Kapitaldienst-abhängige Größen nicht gegen die RR (A9) |
+| L61 | Modellhaus | 6.2 = 30 (gleich Laufzeit 6.4) | RR mit `zinsbindung` 29 (die RR teilt bei Zinsbindung ≥ 30 durch die Restlaufzeit 0), Bank frei geschlossen mit Zinsbindung 30 | alles; Zeilen 112 und 114 = 0, Restschuld Ende Jahr 30 < 1 €, Kapitaldienst Jahr 31 unter 1 € |
+| L62 | Modellhaus | 4.4 = 0, 10.1 = Miete für DSCR-Ziel | `markt_start` = nötige Miete; Miete gefördert 0 | alles; Miete frei 20,72 €/m², Aufschläge 185/186, Übersicht 8.5/8.6 und L26, L38, L42, L74, L87, L98 „–“ (Anzeige „Frei: Marktmiete 0, Aufschlag –“); P4, P5 und D3 „prüfen“ (gefördert ohne Miete) |
 
-Damit läuft jede der 37 Eingaben mindestens einmal abseits des Standards gegen die RR oder eine geschlossene Rechnung. Grenze der Kaskade: Nullstellen unter etwa −70 % findet `IRR` in LibreOffice nicht zuverlässig (Lauf mit 5.4 = 10 %: −72 … −95 %); die Mappe zeigt dann „n. v.“ (Hinweis 11), F8 lässt das unter −69 % zu. Vorab geprüft (RR): In keinem Lauf greift A2; „EK-IRR ohne RW, J35“ ist in fast allen Läufen mehrdeutig oder ohne Nullstelle, Tarutinoer zusätzlich „ohne Geb.-RW, J35“; dafür gilt die Nullstellenregel F8.
+Damit läuft jede der 39 Eingaben mindestens einmal abseits des Standards gegen die RR oder eine geschlossene Rechnung (62 Läufe). Frei finanziert wird in jedem Lauf geprüft (Abschnitt N.5): Zeitreihe aller Jahre, Finanzierung, Restwert, Renditen, Liquidität, Miete für das DSCR-Ziel. Grenze der Kaskade: Nullstellen unter etwa −70 % findet `IRR` in LibreOffice nicht zuverlässig (Lauf mit 5.4 = 10 %: −72 … −95 %); die Mappe zeigt dann „n. v.“ (Hinweis 11), F8 lässt das unter −69 % zu. Vorab geprüft (RR): In keinem Lauf greift A2; „EK-IRR ohne RW, J35“ ist in fast allen Läufen mehrdeutig oder ohne Nullstelle, Tarutinoer zusätzlich „ohne Geb.-RW, J35“; dafür gilt die Nullstellenregel F8.
 
 **F.2b Zuordnung Broschüre → Excel (L1, F9)**
 
@@ -949,7 +1051,7 @@ Damit läuft jede der 37 Eingaben mindestens einmal abseits des Standards gegen 
 | ZÜ J1 bei 3,00 % | −13.544,80 | −39.495,20 | −50.824,00 |
 | höchster Überschuss (G55:G62) | C bei 0,00 und 1,00 %; A ab 1,50 % | | |
 
-**(c) Renditen und Restwert (RR mit 4.3/4.4 = 12,92/14,48, A7), Jahr 35 / Jahr 42** (Übersicht: 5.1–5.10 Zeilen 76–85 in der Reihenfolge D.5; 6.1–6.7 Zeilen 89–95 in der Reihenfolge EK-IRR mit / nur Boden, VOFI mit / nur Boden, Restwertanteil, EK-IRR ohne, VOFI ohne; 7.1–7.8 Zeilen 99–106. „n. FBW“ = nach Förderbarwert; „n. Z.“ = nach Zuschuss, „brutto“ = ohne Zuschuss, RW = Restwert, ohne Geb.-RW = nur Bodenwert. Nettoanfangsrendite frei nur auf dem Blatt Frei H139, nicht auf der Übersicht.)
+**(c) Renditen und Restwert (RR mit 4.3/4.4 = 12,92/14,48, A7), Jahr 35 / Jahr 42** (Übersicht: 5.1–5.10 Zeilen 76–85 in der Reihenfolge D.5; 6.1–6.7 Zeilen 89–95 in der Reihenfolge EK-IRR mit / nur Boden, VOFI mit / nur Boden, Restwertanteil, EK-IRR ohne, VOFI ohne; 6.8 Zeile 96; 7.1–7.8 Zeilen 100–107. „n. FBW“ = nach Förderbarwert; „n. Z.“ = nach Zuschuss, „brutto“ = ohne Zuschuss, RW = Restwert, ohne Geb.-RW = nur Bodenwert. Nettoanfangsrendite frei nur auf dem Blatt Frei H139, nicht auf der Übersicht.)
 
 | Kennzahl | A | B | C | Frei |
 |---|---:|---:|---:|---:|
@@ -963,13 +1065,14 @@ Damit läuft jede der 37 Eingaben mindestens einmal abseits des Standards gegen 
 | Objekt-IRR brutto, ohne Geb.-RW | −1,1493 / −0,0253 % | −0,3649 / 0,7078 % | 0,0527 / 1,0951 % | 2,6025 / 3,3191 % |
 | Objekt-IRR brutto, ohne RW | −2,4606 / −0,8327 % | −1,3737 / 0,0960 % | −0,8297 / 0,5641 % | 2,1896 / 3,0659 % |
 | Nettoanfangsrendite Jahr 1 | 1,2065 % | 1,5358 % | 1,7239 % | 3,0128 % |
-| EK-IRR, mit RW | 6,0348 / 5,8983 % | 5,8463 / 5,7305 % | 5,8121 / 5,6997 % | – |
-| EK-IRR, ohne Geb.-RW | 1,5306 / 2,9175 % | 0,7192 / 2,6385 % | 0,4698 / 2,6260 % | – |
-| EK-IRR, ohne RW (J35 mehrdeutig) | −1,5014 / 1,8157 % | −3,6394 / 1,5663 % | −4,6876 / 1,6054 % | – |
-| VOFI-EK, mit RW | 5,7242 / 5,5151 % | 5,7514 / 5,5578 % | 5,7730 / 5,5821 % | – |
-| VOFI-EK, ohne Geb.-RW | 1,6313 / 2,7146 % | 0,7574 / 2,5071 % | 0,3234 / 2,4626 % | – |
-| VOFI-EK, ohne RW | −0,1514 / 1,8697 % | −2,0134 / 1,5760 % | −3,2989 / 1,5125 % | – |
-| Restwertanteil am Endvermögen | 86,48 / 77,16 % | 93,07 / 80,11 % | 95,67 / 80,81 % | – |
+| EK-IRR, mit RW | 6,0348 / 5,8983 % | 5,8463 / 5,7305 % | 5,8121 / 5,6997 % | 5,3681 / 5,3143 % |
+| EK-IRR, ohne Geb.-RW | 1,5306 / 2,9175 % | 0,7192 / 2,6385 % | 0,4698 / 2,6260 % | 1,0270 / 2,8936 % |
+| EK-IRR, ohne RW (J35 mehrdeutig) | −1,5014 / 1,8157 % | −3,6394 / 1,5663 % | −4,6876 / 1,6054 % | −0,3830 / 2,3174 % |
+| VOFI-EK, mit RW | 5,7242 / 5,5151 % | 5,7514 / 5,5578 % | 5,7730 / 5,5821 % | 5,5180 / 5,4237 % |
+| VOFI-EK, ohne Geb.-RW | 1,6313 / 2,7146 % | 0,7574 / 2,5071 % | 0,3234 / 2,4626 % | n. v. / 1,1656 % |
+| VOFI-EK, ohne RW | −0,1514 / 1,8697 % | −2,0134 / 1,5760 % | −3,2989 / 1,5125 % | n. v. / −0,8709 % |
+| Restwertanteil am Endvermögen | 86,48 / 77,16 % | 93,07 / 80,11 % | 95,67 / 80,81 % | 120,52 / 92,47 % |
+| Tiefster Stand Projektkonto (VOFI), Jahr 0–42 (6.8) | 0 | −121.719,23 | −218.293,08 | −3.192.817,19 |
 | Bodenwert | 1.178.716,92 / 1.308.192,98 | gleich | gleich | gleich |
 | Ertragswert Bestand (= RW mit) | 8.792.243,99 / 10.657.902,45 | 9.570.534,13 / 11.282.394,83 | 9.919.955,64 / 11.505.426,09 | 11.056.129,02 / 11.899.358,54 |
 | Abschlag Bestandsmiete unter Zielmiete | 2.263.885,03 / 1.241.456,10 | 1.485.594,88 / 616.963,72 | 1.136.173,37 / 393.932,45 | leer (Frei: Dublette entfällt) |
@@ -1026,7 +1129,7 @@ Weitere v3-Sollwerte Tarutinoer (RR, J35 / J42): Objekt-IRR nach Förderbarwert 
 | L10 | Bank / Eigenmittel / Eigenkapital | 280.000 / 1.540.000 / 1.593.900 | 280.000 / 1.540.000 / 1.597.750 | 280.000 / 1.540.000 / 1.599.675 |
 | L10 | ZÜ J1; P1–P6 | −23.629,97; alle „OK“ | −46.780,37 | −56.709,17 |
 | L11 | Kasse bei Bezug | 281.900 | 277.750 | 275.675 |
-| L11 | Status | P1 (C109), P4 (C112) und D3 „prüfen“; Kasse in Übersicht D109:F109; Gefördert A/B/C Zeilen 133–145, 149, 175–177 „n. v.“; NBank Lage „–“; Frei-Renditen Zahlen (G76/K76, G78/K78, G79/K79) | | |
+| L11 | Status | P1 (C118), P4 (C121) und D3 „prüfen“; Kasse in Übersicht D118:F118; Gefördert A/B/C Zeilen 133–145, 149, 175–177 „n. v.“; NBank Lage „–“; Frei-Renditen Zahlen (G76/K76, G78/K78, G79/K79) | | |
 
 ---
 
@@ -1076,18 +1179,31 @@ Prozente immer als Bruch gespeichert, auch der Zuschlag 9.3; keine Speicherung �
 | Blatt | Breiten |
 |---|---|
 | Übersicht | A 6 · B 42 · C 17 (Satz „367 € je Wohnung“) · D–K 12 · L 38 |
-| Eingaben | A 6 · B 44 · C 15 · D 22 · E 22 · F 16 · G 58 |
-| Gefördert A/B/C | A 5 · B 7 · C–F 10 · G–K 13 · L–Q 12 · R 13 · S 8 · T–W 13 · X 13 · Y–AS 12 |
-| Frei finanziert | A 5 · B 7 · C 10 · D–H 13 · I–J 12 · O–S 12 |
+| Eingaben | A 6 · B 44 · C 16 · D 22 · E 22 · F 20 (Auswahl „Miete für DSCR-Ziel“ ganz lesbar, N.7) · G 58 |
+| Gefördert A/B/C | A 6 · B 7 · C–F 11 · G–L 13 · M–Q 12 · R 13 · S 8 · T–X 14 (N.8: Maßstab in Excel 75 % statt 77 %, G.4) · Y–AS 12 |
+| Frei finanziert | A 6 · B 7 · C–D 11 · E–I 13 · J–L 12 · M 13 · N 8 · O–Q 13 · R–AB 12 |
 | NBank | A 6 · B 40 · C 13 · D–F 11 · G–I 10 |
-| Tabellen | A 6 · B 44 · C 18 · D–F 12 · G 56 |
+| Tabellen | A 6 · B 44 · C 19 · D–F 12 · G 56 |
 | Hinweise | A 5 · B 120 (Umbruch) |
 
 Beschriftungen der Blöcke unter der Zeitreihe stehen in Spalte A und laufen über B–F (Zellen leer); kein Zellverbund.
 
 ### G.4 Druck
 
-A4 quer, `fitToWidth` 1, `fitToHeight` 0, Ränder 1,5 cm, Fußzeile links `&A`, rechts `Seite &P von &N`. Standardzeilenhöhe aller Blätter 12,75 pt (Arial 10; openpyxl schriebe sonst 15 pt). Übersicht: Wiederholungszeilen 1:2, Druckbereich `A1:L114`, Umbruch nach Zeile 52 (zwei Seiten, eingeklappte Zeilen werden nicht gedruckt). Eingaben: Wiederholungszeilen 4:5 (Projektnamen und Kopf, Runde 2 V10). Gefördert A/B/C: Druckbereich `A1:J48,K1:X48,A88:J177` (Zeitreihe in zwei Bereichen nebeneinander, Blöcke), Wiederholungszeilen 2:3 (Gruppe, Projekt, Sprunglinks, Einheiten; der Zeitreihenkopf Zeile 4–5 steht auf beiden Zeitreihenseiten ohnehin, über den Blockseiten nicht, Runde 2 V2), Wiederholungsspalten A:B, Umbruch nach Zeile 129 (Kosten, Finanzierung und Restwert auf einer Seite, Renditen, Liquidität und Förderbarwert auf der nächsten; Runde 3 V), Seitenfolge „erst nach rechts“; Titel A1:J1 (erste Seite); die Zeilen 49–86 sind zugeklappt und werden nicht gedruckt. Frei finanziert: Druckbereich `A1:H48,A88:J139`, Wiederholungszeilen 2:3, kein fester Umbruch (Runde 3 V). LibreOffice sortiert mehrteilige Druckbereiche beim Speichern um und schreibt die Druckwiederholungen doppelt; `build_vofi.py` stellt beides nach `recalc.py` wieder her. Excel rechnet einen Maßstab je Blatt (Gefördert rund 73 %, Zeitreihe zwei Seiten), LibreOffice je Bereich (Zeitreihe A–J bis 100 %, dann drei Seiten). `fullCalcOnLoad = True`; Dokumenteigenschaften Autor „PGN“, Titel „VOFI Mietwohnraum 2026“, Sprache de-DE.
+A4 quer, `fitToWidth` 1, `fitToHeight` 0, Ränder 1,5 cm, Fußzeile links `&A`, rechts `Seite &P von &N`. Standardzeilenhöhe aller Blätter 12,75 pt (Arial 10; openpyxl schriebe sonst 15 pt). Übersicht: Wiederholungszeilen 1:2, Druckbereich `A1:L123`, Umbruch nach Zeile 52 (zwei Seiten, eingeklappte Zeilen werden nicht gedruckt); Abstandszeilen zwischen den Blöcken 6 pt (N.8). Eingaben: Wiederholungszeilen 4:5 (Projektnamen und Kopf, Runde 2 V10). Gefördert A/B/C: Druckbereich `A1:J48,K1:X48,A88:J183` (Zeitreihe in zwei Bereichen nebeneinander, Blöcke), Wiederholungszeilen 2:3 (Gruppe, Projekt, Sprunglinks, Einheiten; der Zeitreihenkopf Zeile 4–5 steht auf beiden Zeitreihenseiten ohnehin, über den Blockseiten nicht, Runde 2 V2), Wiederholungsspalten A:B, Umbrüche nach Zeile 115 und 152 (Finanzierung; Restwert und Renditen; Liquidität, Förderbarwert und DSCR-Ziel: drei Blockseiten, seit Abschnitt N, weil der Block DSCR-Ziel die zweite Seite sonst um wenige Zeilen überliefe), Seitenfolge „erst nach rechts“; Titel A1:J1 (erste Seite); die Zeilen 49–86 sind zugeklappt und werden nicht gedruckt. Frei finanziert: Druckbereich `A1:Q48,A88:Q186` (Zeitreihe A–Q auf einer Seite; die Blöcke stehen in A–J, der Bereich ist bis Q gezogen, damit LibreOffice denselben Maßstab wählt wie Excel), Wiederholungszeilen 2:3, keine Wiederholungsspalten, Umbruch nach Zeile 129 (Finanzierung und Restwert; Renditen, Liquidität und DSCR-Ziel): drei Seiten. LibreOffice sortiert mehrteilige Druckbereiche beim Speichern um und schreibt die Druckwiederholungen doppelt; `build_vofi.py` stellt beides nach `recalc.py` wieder her. Excel rechnet einen Maßstab je Blatt (Zeitreihe Gefördert zwei Seiten, zusammen fünf), LibreOffice je Bereich (Zeitreihe A–J bis 100 %, dann drei Seiten, zusammen sechs).
+
+Seitenreserve in Excel, gerechnet (N.8): Excel setzt die Spaltenbreite in Pixel als Breitenattribut × 7 an (ECMA-376, Arial 10) und rundet den Maßstab auf ganze Prozent ab; LibreOffice setzt die Spalten breiter an und kommt auf einen kleineren Maßstab (Übersicht 67,9 % gemessen gegen 72 %). Maßgeblich für die Seitenzahl in Excel ist deshalb die Rechnung nach der Breitenregel von Excel; F5 prüft sie mit mindestens 10 pt Reserve je Seite. Stand (druckbare Fläche 756,9 × 510,2 pt):
+
+| Blatt | Breite | Maßstab | verfügbare Höhe | Seiten: Höhe (Reserve) |
+|---|---:|---:|---:|---|
+| Übersicht | 1.044,75 pt | 72 % | 708,7 pt | Seite 1 610,5 pt (98,2); Seite 2 mit Wiederholzeilen 694,5 pt (14,2) |
+| Gefördert A/B/C | 997,5 pt (K–X mit A:B) | 75 % | 680,3 pt | Zeitreihe 666,0 pt (14,3); Blöcke 387,8 / 507,8 / 436,5 pt |
+| Frei finanziert | 1.029,0 pt | 73 % | 699,0 pt | Zeitreihe 666,0 pt (32,9); Blöcke 444,0 / 564,0 pt |
+| Eingaben | 987,0 pt | 76 % | 671,4 pt | 468,8 / 324,8 pt |
+| Tabellen | 845,25 pt | 89 % | 573,3 pt | 483,8 / 132,0 pt |
+| NBank | 640,5 pt | 100 % | 510,2 pt | 477,0 pt (33,2) |
+
+Vor der Nacharbeit N.8 brauchte Seite 2 der Übersicht 735,0 pt (26,4 pt zu viel: Excel hätte die letzten Zeilen des Prüfblocks auf eine dritte Seite gedruckt; Ursache Block 8 und Zeile 6.8) und die Zeitreihe Gefördert 666,0 pt bei 662,6 pt verfügbarer Höhe (Maßstab 77 %; schon im Stand vor Abschnitt N). Abhilfe: Abstandszeilen der Übersicht 6 pt (40,5 pt auf Seite 2), Gefördert Spalten T–X 14 statt 13 (Maßstab 75 %). Die Werte sind gerechnet, nicht in Excel beobachtet; geprüft ist der Druck nur mit LibreOffice (29 Seiten). Das Druckbild in Excel bleibt offen (O13). `fullCalcOnLoad = True`; Dokumenteigenschaften Autor „PGN“, Titel „VOFI Mietwohnraum 2026“, Sprache de-DE.
 
 ### G.5 Beispielzeilen
 
@@ -1110,7 +1226,7 @@ Gefördert A, Zeile 7 (t = 1, Modellhaus): C 12,92 · D 14,48 · E 14,48 · F 6,
 
 | Regel | Umsetzung |
 |---|---|
-| Länge | Bezeichnung ≤ 45 Zeichen; Quelle ≤ 60; jede Zelle ≤ 120 außer Hinweise B3:B17 |
+| Länge | Bezeichnung ≤ 45 Zeichen; Quelle ≤ 60; jede Zelle ≤ 120 außer Hinweise B3:B17; Bemerkungen Übersicht Spalte L ≤ 40 (Spaltenbreite) |
 | Ton | Aussagesätze ohne Ausrufezeichen, ohne „Wichtig:“, „ACHTUNG“, „bitte“, „unbedingt“, Emojis; keine Werkstatthinweise (Skriptnamen, Zelladressen, Fakt-IDs) |
 | Keine Formel-Prosa | Texte sind Konstanten; Formeln liefern nur Zahlen oder ein Statuswort („OK“, „prüfen“, „über“, „unter“, „A“/„B“/„C“, „n. v.“, „–“) |
 | Begriffe | Objekt-IRR, EK-IRR, VOFI-EK-Rendite, Restwert, Gebäude-Restwert, Bodenwert, Verwaltungskostenbeitrag, Bearbeitungsentgelt, Zahlungsüberschuss (auch kumuliert, nie „ZÜ“ oder „Jahresüberschuss“), Überschuss vor Kapitaldienst (Zeile 4 der Jahresrechnung, auch Spaltenkopf Gefördert K und Frei H; „Reinertrag“ nur im Text des Konzepts, Runde 2 KO1), Förderbarwert (Zuschuss nach Entgelt + Barwertvorteil Darlehen), höchster Überschuss (nicht „beste Gruppe“, Runde 2 KO2), Sollmiete, Objektverwaltung, Mietausfall/Leerstand, Kappungsgrenze, Liegenschaftszins, Projektkonto (VOFI), Schuldendienstdeckung (DSCR, einmal ausgeschrieben in Übersicht 3.4), Abschlag Bestandsmiete unter Zielmiete, Ertragswert gegenüber Gesamtkosten, Aufschlag in Prozentpunkten |
@@ -1149,6 +1265,9 @@ Zeilen- und Spaltenadressen dieses Konzepts sind verbindlich; eine Änderung erf
 | O10 | Bemessungsgrenzen ab 01.10.2026 fortgeschrieben (RL Nr. 5.3.2.2); bis 21.10.2026 keine Bekanntgabe. Tabelle 2 bei Bekanntgabe auf nbank.de nachziehen | PGN |
 | O11 | Kopplung Bezugsjahr 1.1 und Kostenstand 5.5 (z. B. 5.5 = 1.1 − 2026 + 1): fachlich abzustimmen; bis dahin ändert 1.1 nur Jahreszahlen (Bezeichnung „ändert nur Jahresangaben“) | PGN |
 | O12 | Vergleichszins des Förderbarwerts: Eingabe 6.1 (3,74 %, Bankzins) bewertet den Zinsvorteil des NBank-Darlehens; ein höherer Zins erhöht den Förderbarwert und den Objekt-IRR nach Förderbarwert. Bestätigen, dass der Bankzins der richtige Vergleichszins für die Beratung ist (Runde 2 FL1) | PGN |
+| O13 | Druckbild in Excel prüfen (Datei, Drucken, Vorschau): Übersicht zwei Seiten, Gefördert A/B/C je fünf, Frei finanziert drei, Eingaben und Tabellen je zwei, NBank und Hinweise je eine (zusammen 26). Die Abnahme prüft die Druckeinstellungen, das LibreOffice-PDF (29 Seiten, weil LibreOffice die Zeitreihe Gefördert auf drei Seiten druckt) und die Seitenreserve nach der Breitenregel von Excel (G.4); in Excel selbst ist der Druck nicht geprüft. Knappste Seiten: Übersicht Seite 2 und Zeitreihe Gefördert mit je rund 14 pt Reserve (eine Zeile) | PGN |
+| O14 | Frei finanziert mit Bankdarlehen: Konditionen Block 6 (3,74 %, 30 Jahre Annuität) gelten für frei und für die Restfinanzierung gefördert gleich; eigene Konditionen für das Bankdarlehen frei (80 % der Gesamtkosten statt Restfinanzierung, höherer Beleihungsauslauf) sind nicht abgebildet | PGN |
+| O15 | Nötige Miete für das DSCR-Ziel bei Tilgungsaufschub (3.2 > 0): heute mit dem Kapitaldienst Jahr 1 ohne Tilgung NBank (Entscheidung N3), der Tilgungsvergleich in Block 4 dagegen mit Tilgung ab Jahr 1. Soll die nötige Miete gefördert bei Aufschub mit der Regeltilgung (Zeile 110) rechnen? Im Standard (3.2 = 0) ohne Wirkung (D.3, N.8) | PGN |
 
 ---
 
@@ -1334,3 +1453,150 @@ Zahlenwirkung auf L1 (Modellhaus) und L2 (Tarutinoer): keine.
 | V | Druck Gefördert/Frei mit halb leeren Blockseiten | Umbrüche Gefördert nur nach Zeile 129, Frei ohne festen Umbruch (G.4) |
 | KO | InDesign-Paket älter als PDF | `npm run indesign` neu, Zip neu gepackt |
 
+
+## N. Frei finanziert: Finanzierung, Mietwahl, Eigenkapitalebene (10.11.2026)
+
+Anlass: Das Blatt Frei finanziert rechnete nur die Objektebene. PGN will frei mit derselben Finanzierungslogik wie gefördert sehen: gleiche Eigenmittel, der Rest als Bankdarlehen. Dann zeigt sich, ob sich frei zur Marktmiete trägt, welche Miete es für ein DSCR-Ziel bräuchte und welche Eigenkapitalrendite dabei entsteht. Zahlenwirkung auf die geförderten Ergebnisse und auf die Broschüre: keine (N.6).
+
+### N.1 Entscheidungen (mit PGN abgestimmt)
+
+| Nr. | Entscheidung | Umsetzung |
+|---|---|---|
+| N1 | Finanzierung frei = gleiche Eigenmittel wie gefördert, Rest Bank: Eigenkapital = Grundstück + bares Eigenkapital; bar = MAX(0; 20 % × zuwendungsfähige Kosten − Grundstück) + Zusatz-EK 7.1 (+ KG 800, wie bei gefördert auf der Eigenkapitalebene, A1); Bankdarlehen so, dass die Kasse bei Bezug 0 ist; Konditionen Block 6 mit den Formeln der Blätter Gefördert. Gleich den Eigenmitteln 1.11 gefördert ist das Eigenkapital frei, solange gefördert die Eingabe 7.1 ganz aufnimmt (NA9) | D.4 Block Finanzierung (H102–H114), Spalten J–L, O |
+| N2 | Zwei Eingaben je Projekt: 10.1 „Miete frei finanziert“ (Marktmiete, Standard, oder Miete für DSCR-Ziel) und 10.2 „DSCR-Ziel“ (Standard 1,0; 0,5–3). Block 10 ist angehängt (Zeilen 52–54); keine bestehende Eingabe wechselt Nummer oder Zeile | B.2 |
+| N3 | Miete frei: „Marktmiete“ wie bisher (4.4 × 9.2, Steigerung 4.5); „Miete für DSCR-Ziel“: Miete Jahr 1 = (DSCR-Ziel × Kapitaldienst Bank Jahr 1 + Objektverwaltung Jahr 1 + Instandhaltung Jahr 1) ÷ ((1 − Mietausfall) × Wohnfläche × 12), danach dieselbe Steigerung. Formel, kein fester Wert, keine Zielwertsuche, kein Zirkelbezug, kein MAX mit der Marktmiete (liegt der Bedarf unter dem Markt, ist der Aufschlag negativ) | D.4 H109, H183, Spalte D |
+| N4 | Die nötige Miete Jahr 1 für das DSCR-Ziel wird immer ausgewiesen, für A, B, C (Kapitaldienst Jahr 1 aus VKB, Zins, Tilgung NBank und Bank) und Frei, daneben die gerechnete Miete; für Frei zusätzlich der Aufschlag der gerechneten und der nötigen Miete gegenüber der Marktmiete | Zeilen 179–183 (Frei bis 186), Übersicht Block 8 |
+| N5 | Zeitreihe, Restwert (Ertragswert) und alle Frei-Kennzahlen rechnen mit der gewählten Frei-Miete; die Blätter Gefördert bleiben bei ihrer Markt- und Vergleichsmiete | D.4 Spalte D, Zeile 122 |
+| N6 | Zeitreihe frei mit Zins Bank, Tilgung Bank, Kapitaldienst, Zahlungsüberschuss, DSCR, Restschuld Bank, Projektkonto (VOFI), Zahlungsüberschuss kumuliert; Zahlungsreihen Eigenkapital gegliedert und zugeklappt | D.4 Spalten J–Q, W–AB |
+| N7 | EK-Kennzahlen frei mit den Konventionen der geförderten Blätter (T0 = Bezug, Exponent 1/H, IRR-Regel E10, „n. v.“-Regeln, Restschuld am Horizont abgezogen); Liquidität frei wie D.3 ohne die NBank-Zeilen | D.4 Zeilen 140–151, 155–170 |
+| N8 | Übersicht: Frei in Block 1 (1.10–1.12, 1.14, 1.15, 1.18), Block 2 (Spalte G, Zeilen an ihrem Platz), Block 3, Block 6 (G und K); Aufschlag der gerechneten Frei-Miete als Zahl in L74 und L87 neben den Renditen (seit N.7 auch L98 beim Restwert und auf dem Blatt Frei finanziert in J131, seit N.8 auch auf Seite 1 in L26, L38 und L42); Blatt NBank unverändert | D.5 |
+| N9 | Mit Standard (10.1 = Marktmiete) bleiben alle Werte der Blätter Gefördert A/B/C und NBank, der Übersicht-Spalten D–F und H–J und die bisherigen Frei-Objektwerte in beiden Projekten gleich dem Stand vorher | N.6 |
+
+### N.2 Abweichungen und Festlegungen bei der Umsetzung
+
+| Nr. | Punkt | Festlegung, Grund |
+|---|---|---|
+| NA1 | Nötige Miete und Aufschlag auf der Übersicht | Eigener Block 8 statt neuer Zeilen in Block 3: Block 3 hat keine freie Zeile, und die Zeilen 55–72 bleiben an ihrem Platz (Broschüre S. 12). Die Bemerkung 3.4 verweist auf 8.3. Der Prüfblock rückte um acht Zeilen; seit N.7 (Zeile 6.8) stehen Block 8 in 109–115 und der Prüfblock in 117–123 |
+| NA2 | Zahlungsüberschuss frei auf Cent gerundet (`ROUND(…,2)`) | Einzige Formel der Zeitreihe und der Kennzahlen, die von D.3 abweicht. Mit der Miete für das DSCR-Ziel 1,0 ist der Zahlungsüberschuss Jahr 1 rechnerisch 0; ein Rechenrest zählte sonst als Jahr mit Fehlbetrag. Wirkung auf Renditen unter 0,0001 Pp |
+| NA3 | Stressfaktor 9.2 | wirkt auf die Marktmiete (Spalte C), nicht auf die nötige Miete; der Aufschlag misst gegen die Marktmiete nach 9.2 |
+| NA4 | Prüfungen P2, P4 und P5 | P2 prüft auch 10.1; P4 verlangt auch EK-IRR und VOFI-EK-Rendite frei mit Restwert als Zahl; P5 prüft auch den Gebäudeanteil frei. Der Gesamtstatus kann damit allein an Frei hängen (Endvermögen frei ≤ 0, etwa Modellhaus mit 4.5 = 0 %, 7.3 = 10 % oder 4.4 = 8,00; Tarutinoer mit DSCR-Ziel 0,5), während alle geförderten Werte rechenbar sind. Die Regel bleibt, weil sie für gefördert und frei dieselbe ist; die Bemerkungen zu P4 und P5 (H121, H122) nennen Frei und die Ursache (N.7) |
+| NA5 | Keine Sperre E14 auf Frei | Die Kasse bei Bezug ist immer 0 (bares Eigenkapital als Restgröße); L11 sperrt nur die geförderten Renditen |
+| NA6 | Bankkonditionen | Block 6 gilt für die Restfinanzierung gefördert und für das Bankdarlehen frei gleich (O14) |
+| NA8 | Frei ohne Bankdarlehen | Deckt das Eigenkapital die Herstellungskosten (7.1 ≥ Herstellungskosten − Mindest-Eigenmittel in Geld), ist das Bankdarlehen 0, der Kapitaldienst 0, das DSCR Jahr 1 und das DSCR-Minimum „–“ (Zeilen 156 und 157, Übersicht 3.4 und 3.5; seit N.8 beide mit Strich) und das Eigenkapital gleich den Gesamtkosten. Die nötige Miete bleibt nach der Formel N3 ausgewiesen und deckt dann nur Objektverwaltung und Instandhaltung (Modellhaus 1,67 €/m², Aufschlag −88,5 %). Mit 10.1 = „Miete für DSCR-Ziel“ rechnet das Blatt mit dieser Miete: Überschuss vor Kapitaldienst 0, Gebäudeanteil am Restwert 0, P5 und D3 „prüfen“. Kein Rückfall auf die Marktmiete: N3 legt die Formel ohne Ausnahme fest, N4 den Ausweis in jedem Fall. Die Bemerkung 8.6 nennt den Fall; Läufe L54 und L58 |
+| NA9 | Eigenmittel frei und gefördert | Gleich, solange gefördert die Eingabe 7.1 ganz aufnimmt (7.1 ≤ Bankdarlehen gefördert ohne 7.1; im Standard beider Projekte 7.1 = 0). Darüber rechnet frei 7.1 voll an, gefördert nur bis zur Höhe seines Bankdarlehens; die EK-Renditen stehen dann auf verschiedenem Eigenkapital. Die Rechnung folgt N1; die Texte (1.10, 1.11, 6.1, Hinweis 7) sagen „Mindest-Eigenmittel wie gefördert zuzüglich Eingabe 7.1“ statt „gleiche Eigenmittel“; F13 prüft die Gleichheit bei Lücke ≥ 0 (D.4) |
+| NA7 | Druck | Frei drei Seiten (Zeitreihe; Finanzierung und Restwert; Renditen, Liquidität, DSCR-Ziel); Gefördert drei Blockseiten statt zwei, weil der Block DSCR-Ziel die zweite Seite überliefe (G.4) |
+
+### N.3 Zahlenwirkung (Mappe, beide Projekte; Jahr 35 / Jahr 42)
+
+| Frei finanziert | Modellhaus: Marktmiete | DSCR-Ziel 1,0 | DSCR-Ziel 1,25 | Tarutinoer: Marktmiete | DSCR-Ziel 1,0 | DSCR-Ziel 1,25 |
+|---|---:|---:|---:|---:|---:|---:|
+| Miete Jahr 1, €/m² | 14,48 | 20,72 | 25,49 | 14,48 | 15,39 | 18,80 |
+| Aufschlag gegenüber Marktmiete | 0 | 43,1 % | 76,0 % | 0 | 6,3 % | 29,8 % |
+| Bankdarlehen, € | 5.600.000 | gleich | gleich | 2.370.730 | gleich | gleich |
+| Eigenkapital (davon bar), € | 1.400.000 (700.000) | gleich | gleich | 592.682 (592.682) | gleich | gleich |
+| Kapitaldienst Jahr 1, € | 313.703 | gleich | gleich | 132.805 | gleich | gleich |
+| Überschuss vor Kapitaldienst Jahr 1, € | 210.899 | 313.703 | 392.129 | 123.938 | 132.805 | 166.006 |
+| Zahlungsüberschuss Jahr 1, € | −102.805 | 0 | 78.426 | −8.867 | 0 | 33.201 |
+| DSCR Jahr 1 | 0,67 | 1,00 | 1,25 | 0,93 | 1,00 | 1,25 |
+| Jahre mit Fehlbetrag, Jahr 1–35 | 21 | 0 | 0 | 4 | 0 | 0 |
+| Größter kumulierter Fehlbetrag, € | −1.150.103 | 0 | 0 | −20.394 | 0 | 0 |
+| Tiefster Stand Projektkonto (VOFI), € | −3.192.817 | 0 | 0 | −22.640 | 0 | 0 |
+| EK-IRR, mit Restwert | 5,37 / 5,31 % | 9,58 / 9,13 % | 12,98 / 12,46 % | 8,67 / 8,29 % | 9,54 / 9,10 % | 12,96 / 12,44 % |
+| EK-IRR, nur Bodenwert | 1,03 / 2,89 % | 6,71 / 7,60 % | 11,19 / 11,60 % | 4,99 / 6,36 % | 6,28 / 7,41 % | 11,02 / 11,53 % |
+| VOFI-EK-Rendite, mit Restwert | 5,52 / 5,42 % | 8,43 / 7,65 % | 9,46 / 8,48 % | 8,03 / 7,34 % | 8,38 / 7,61 % | 9,43 / 8,45 % |
+| VOFI-EK-Rendite, nur Bodenwert | n. v. / 1,17 % | 5,34 / 5,78 % | 6,81 / 6,81 % | 4,26 / 5,15 % | 4,90 / 5,55 % | 6,54 / 6,65 % |
+| Restwertanteil am Endvermögen | 121 / 92 % | 69 / 56 % | 61 / 51 % | 71 / 58 % | 68 / 56 % | 61 / 50 % |
+| Objekt-IRR, mit Restwert | 4,63 / 4,66 % | 6,68 / 6,56 % | 8,02 / 7,82 % | 6,27 / 6,17 % | 6,65 / 6,53 % | 8,00 / 7,80 % |
+
+Modellhaus zur Marktmiete: Der Überschuss vor Kapitaldienst deckt zwei Drittel der Annuität; das Projektkonto ist bis Jahr 39 im Soll (tiefster Stand −3,19 Mio. €), das Endvermögen Jahr 35 ohne Gebäudeanteil ist negativ („n. v.“), der Restwertanteil liegt über 100 %. Die EK-Rendite mit Restwert (5,31 % / 5,42 %, Jahr 42) liegt unter der geförderten (A 5,90 % / 5,52 %) und hängt ganz am Restwert.
+
+| Gefördert (unverändert) | Modellhaus A | B | C | Tarutinoer A | B | C |
+|---|---:|---:|---:|---:|---:|---:|
+| EK-IRR, mit Restwert, Jahr 35 / 42 | 6,03 / 5,90 % | 5,85 / 5,73 % | 5,81 / 5,70 % | 8,04 / 7,68 % | 8,16 / 7,79 % | 8,30 / 7,91 % |
+| VOFI-EK-Rendite, mit Restwert, Jahr 35 / 42 | 5,72 / 5,52 % | 5,75 / 5,56 % | 5,77 / 5,58 % | 6,95 / 6,49 % | 7,16 / 6,66 % | 7,27 / 6,75 % |
+| Kapitaldienst Jahr 1, € | 84.000 | 126.000 | 147.000 | 35.561 | 53.341 | 62.232 |
+| Tiefster Stand Projektkonto (VOFI), € | 0 | −121.719 | −218.293 | 0 | 0 | 0 |
+| Miete Jahr 1, gerechnet, €/m² | 6,80 | 8,20 | 9,00 | 6,80 | 8,20 | 9,00 |
+| Nötige Miete für DSCR 1,0, €/m² | 6,77 | 9,32 | 10,60 | 5,40 | 7,23 | 8,14 |
+| Nötige Miete für DSCR 1,25, €/m² | 8,05 | 11,24 | 12,83 | 6,32 | 8,60 | 9,74 |
+
+### N.4 Bezug zu Befund B10 („Frei, obere Kante“)
+
+Die Vorgängermappe führte neben Frei zur Marktmiete eine Variante „Frei, obere Kante (DSCR-Ziel)“. Der Prüfbericht beanstandete: Startmiete als fester Wert (18,8006 €/m², richtig nur im Szenario Basis), Restwert dagegen aus der Marktmiete, Renditen ohne Kennzeichnung der überhöhten Miete neben den anderen. In v3 war die Variante gestrichen (E.1). Abschnitt N nimmt sie als Auswahl wieder auf und behebt die drei Punkte:
+
+1. Die Miete ist eine Formel aus DSCR-Ziel, Kapitaldienst und Kosten (H183) und folgt jeder Eingabe; Tarutinoer mit DSCR-Ziel 1,25 ergibt 18,80 €/m² (v2-1: derselbe Wert, fest eingetragen).
+2. Zeitreihe, Restwert und Kennzahlen rechnen mit derselben Miete (N5).
+3. Der Aufschlag gegenüber der Marktmiete steht neben den Renditen und dem Restwert (L74, L87, L98; Blatt Frei finanziert J131), in 8.5 und seit N.8 auf Seite 1 neben Miete Jahr 1, Jahresrechnung und Liquidität (L26, L38, L42); Standard bleibt die Marktmiete, der Vergleich nach E18 damit unverändert.
+
+Mit „Miete für DSCR-Ziel“ sind die Frei-Renditen keine Marktrenditen: Sie zeigen, was frei bei einer Miete brächte, die der Markt nach den Eingaben nicht hergibt. In die Beratung gehören sie nur zusammen mit dem Aufschlag (Hinweis 6). Die Bemerkung 5.4 („Abstand zu Frei (Marktmiete): Bindung“) gilt nur für die Marktmiete: Mit der Miete für das DSCR-Ziel enthält der Abstand den Mietaufschlag (Modellhaus, DSCR-Ziel 1,25, Jahr 42: 5,34 statt 2,18 Prozentpunkte).
+
+### N.5 Prüfskript
+
+Das Prüfskript liest den Generator nicht. Sollwerte frei: `RR.Lauf(P, "M", ek_modell=True)` auf einer Parameterkopie mit `eigenmittel_quote = (Mindest-Eigenmittel in Geld + Zusatz-EK + KG 800) ÷ zuwendungsfähige Kosten` (das EK-Modell der RR rechnet das Grundstück nicht an); daraus Bank, bares Eigenkapital, Kasse 0, Zahlungsüberschuss, Projektkonto, Restschuld und Restwert. Den EK-Teil (EK-IRR, VOFI-EK-Rendite, Endvermögen, Restwertanteil), den `RR.kennzahlen` für „M“ nicht rechnet, bildet das Skript nach. Die nötige Miete rechnet es selbst; bei 10.1 = „Miete für DSCR-Ziel“ läuft die RR mit dieser Miete als `markt_start` der Parameterkopie. Bei Laufzeit Bank ≠ 30 Jahre rechnet es den Bankpfad geschlossen (RR fest 30 Jahre, A9) und prüft bei 30 Jahren die RR dagegen.
+
+Neu: Frei-Zeitreihe aller Jahre und alle Frei-Kennzahlen in jedem Lauf; Läufe L43–L58 (F.2a; L53–L58 aus der Nacharbeit N.7); Identitäten Frei und nötige Miete A/B/C (F13); Formelgleichheit Frei gegen Gefördert A (F4); Regression gegen den Stand vorher (F.2 „N“); feste Seitenumbrüche (F5); Beschriftungen, Formate, Datenüberprüfung und Gliederung der neuen Zellen. Stand 10.11.2026 nach der Nacharbeit N.7: 513 Prüfungen OK, 0 Fehler; nach der Nacharbeit N.8 (Läufe L59–L62, Seitenreserve F5): 545 Prüfungen OK, 0 Fehler. Die RR teilt bei Zinsbindung ≥ 30 Jahre durch die Restlaufzeit 0 (Bank fest 30 Jahre); das Skript lässt sie dann mit Zinsbindung 29 Jahre laufen und rechnet den Bankpfad geschlossen mit der Zinsbindung laut Eingabe 6.2 (L61), wie bei Laufzeit ≠ 30 Jahre.
+
+### N.6 Regression
+
+Vergleich der Mappe (10.1 = Marktmiete, 10.2 = 1,0) mit dem Stand vorher (Commit 0dfe8a2), beide je mit Projekt 1 und 2 neu berechnet, Toleranz 1e-9, Stand nach der Nacharbeit N.8: je Projekt 9.881 Werte des Stands vorher, keine Abweichung (Gefördert A/B/C und NBank 8.358 Zellen an derselben Adresse; Übersicht D–F, H–J und Prüfstatus 564, Zeilen nach Nr. und Bezeichnung zugeordnet; Frei-Objektwerte 959: Zeitreihe, Kosten, Restwert, Objekt-IRR, Nettoanfangsrendite). Neu auf den Blättern Gefördert sind nur der Block „Miete für das DSCR-Ziel“ (Zeilen 179–183) und der Sprunglink N2 (je Blatt 14 Zellen); NBank ist zellgleich. Die Broschüre bleibt unverändert, F9 ist grün.
+
+Texte der Übersicht gegenüber dem Stand vorher: geändert die Bemerkungen 1.10, 1.12, Zeile 1, Zeile „Kapitaldienst Bankdarlehen“, 3.4 und 5.4, die Bemerkung 7.5 („Frei: zur gerechneten Miete“) und die Bezeichnung P2; neu die Bemerkungen 1.11, 1.18, 6.1, 6.5, P4 und P5, die Zeile 6.8, der Block 8, die Köpfe „Frei“ in den Blöcken 2, 3 und 6 und der Aufschlag in L26, L38, L42, L74, L87 und L98 (Spalte L ist nicht Teil des Vergleichs D–F, H–J).
+
+Auf den Blättern Gefördert seit N.8 außerdem ohne Wirkung auf die Werte: Formel Zeile 156 (`=IF(ISNUMBER(S7),S7,"–")` statt `=S7`; im Standard dieselbe Zahl) und Spaltenbreite T–X 14 statt 13 (Druck, G.4).
+
+### N.7 Nacharbeit Prüfrunde 1 (10.11.2026)
+
+Zwei Prüfungen (Rechnung, Fach) mit 14 Befunden zu elf Themen (drei doppelt gemeldet). Kein Rechenfehler; keine Formel der Zeitreihen, der Finanzierung oder der Kennzahlen ist geändert. Zahlenwirkung auf alle bisherigen Werte: keine (N.6).
+
+| Befund | Umsetzung |
+|---|---|
+| „Gleiche Eigenmittel wie gefördert“ gilt nicht, sobald 7.1 größer ist als das Bankdarlehen gefördert (zweimal gemeldet) | Rechnung bleibt (N1). Texte: Bemerkung 1.10 „Restfinanzierung; Frei: Rest nach Eigenmitteln 1.11 (Eingaben Block 6)“, 1.11 neu „Frei: Mindest-Eigenmittel wie gefördert zuzüglich Eingabe 7.1“, 6.1 „Frei: Eigenmittel wie 1.11, Rest Bank“, Hinweis 7; D.4 und NA9 nennen die Bedingung; F13 prüft die Gleichheit bei Lücke ≥ 0 und „frei ≥ gefördert“ sonst |
+| Läufe für Pfade, die frei immer nutzt, fehlen | L53 (6.4 = 60), L54 (7.1 = 6 Mio. €, Bank frei 0), L55 (Miete für DSCR-Ziel mit 6.2 = 1 und 6.3 = 6 %), L56 und L57 (DSCR-Ziel 0,5 und 3, Tarutinoer), L58 (wie L54 mit Miete für DSCR-Ziel); alle gegen die RR bzw. die geschlossene Bankrechnung (F.2a) |
+| Projektkonto frei zur Marktmiete 39 Jahre im Soll, auf der Übersicht nicht zu sehen | Zeile 6.8 „Tiefster Stand Projektkonto (VOFI)“ für A, B, C und Frei (Zeile 96, sichtbar, aus Zeile 169 der Blätter); Bemerkung 6.5 „über 100 %: Konto nach Restschuld < 0“; die Blöcke 7 bis 9 rücken um eine Zeile (D.5); AENDERUNGEN Abschnitt 6 |
+| Bemerkung 5.4 „Abstand zu Frei: Kosten der Bindung“ stimmt mit der Miete für das DSCR-Ziel nicht (zweimal gemeldet) | „Abstand zu Frei (Marktmiete): Bindung“; Hinweis 6 „der Frei-IRR zur Marktmiete …“ (N.4) |
+| Kennzeichnung der Miete über dem Markt fehlt beim Restwert und auf dem Blatt Frei finanziert | L98 wie L74 und L87; Blatt Frei finanziert I131/J131; Hinweis 6 „Renditen und Restwert frei zu dieser Miete nur zusammen mit dem Aufschlag nennen“ |
+| Gesamtstatus kippt allein wegen Frei, Ursache nicht genannt | Bemerkungen H121 (P4) und H122 (P5); Regel bleibt (NA4) |
+| Eingaben F53 schneidet „Miete für DSCR-Ziel“ ab | Spalte F Breite 20 statt 16 (G.3); Druck Eingaben weiter zwei Seiten |
+| N.6 nennt nicht alle geänderten Texte | N.6 vollständig |
+| „Vollfinanzierung“ in AENDERUNGEN Abschnitt 8 und O14 | „Bankdarlehen frei über 80 % der Gesamtkosten“ |
+| Fester Pfad der Vergleichsdatei auf einen Sitzungsordner im Prüfskript | `--baseline` oder `VOFI_BASELINE`, sonst `git show 0dfe8a2:vofi/PGN_VOFI_Mietwohnraum_2026_v3.xlsx` in den Arbeitsordner; ebenso ohne festen Pfad: `recalc.py` (Variable `VOFI_RECALC` oder Suche) in beiden Skripten und der Python-Aufruf im Generator (laufender Interpreter) |
+
+Nicht oder anders umgesetzt:
+
+| Befund | Entscheidung, Grund |
+|---|---|
+| Frei ohne Bankdarlehen: Miete auf die Marktmiete zurückfallen lassen, nötige Miete und Aufschlag als „–“ | nicht umgesetzt: widerspricht N3 (Formel ohne Ausnahme, kein Bezug zur Marktmiete) und N4 (nötige Miete immer ausgewiesen). Der Grenzfall ist in NA8 beschrieben, die Bemerkung 8.6 nennt ihn, L54 und L58 prüfen ihn |
+| Frei in P4 nur auf Fehlerwerte prüfen | nicht umgesetzt: P4 gilt für gefördert und frei gleich (NA4); stattdessen Bemerkung H121 |
+| Frei nur den Teil von 7.1 ansetzen, den gefördert einbringt | nicht umgesetzt: Änderung der Entscheidung N1; offen für PGN (AENDERUNGEN Abschnitt 8 Nr. 7) |
+| Verbundene Zelle für den Aufschlag auf dem Blatt Frei finanziert | Bezeichnung I131 und Zahl J131 statt Zellverbund (G.3, F3: Verbund nur in Zeile 1) |
+| Bemerkungen in voller Länge („… bei Marktmiete (10.1): Kosten der Bindung“, „… zuzüglich 7.1, Rest Bank“) | gekürzt auf höchstens 40 Zeichen: Spalte L ist 38 Zeichen breit, längere Texte schneidet der Druck ab; neue Prüfung F6 |
+
+Prüfskript: Adressen der Blöcke 7 bis 9, Zeile 96, L98, Frei I131/J131, Texte, Spaltenbreite, Läufe L53–L58, Identität Eigenmittel (F13), Länge der Bemerkungen in Spalte L (F6), Sollwerte 6.8 (F.3 c). 513 Prüfungen OK, 0 Fehler. Unabhängige Regression (eigenes Skript, beide Projekte je neu berechnet): je Projekt 9.881 Werte, keine Abweichung.
+
+### N.8 Nacharbeit Prüfrunde 2 (10.11.2026)
+
+Zwei Prüfungen (Rechnung, Fach) mit elf Befunden, vier mittel und sieben gering, zu elf Themen (Tilgungsaufschub und DSCR ohne Bankdarlehen sind doppelt gemeldet, zwei Befunde nennen je zwei Themen). Kein Rechenfehler; keine Formel der Zeitreihen, der Finanzierung, der nötigen Miete oder der Renditen ist geändert. Zahlenwirkung auf alle bisherigen Werte: keine (N.6, Kennzahlen N.3 unverändert).
+
+| Befund (Schwere) | Umsetzung |
+|---|---|
+| Kein Abnahmelauf mit Laufzeit Bank ≤ Zinsbindung, obwohl frei den Bankpfad immer nutzt (mittel) | Läufe L59 (6.4 = 10 = 6.2), L60 (Tarutinoer mit Verkehrswert, 6.4 = 5 < 6.2; Bank gefördert und frei) und L61 (6.2 = 30 = 6.4), dazu F13: Zeilen 112 und 114 = 0, Restschuld Bank Ende der Laufzeit < 1 €, Kapitaldienst Bank im Folgejahr unter 1 € (die Restschuld ist auf Cent gerundet; L60 lässt 0,01 € stehen, die Jahr 6 tilgt). Prüfskript: Zinsbindung ≥ 30 Jahre geschlossen gerechnet (N.5). F.2a |
+| Übersicht Seite 2 nach der Breitenregel von Excel 26,4 pt zu hoch: voraussichtlich drei Druckseiten (mittel) | Abstandszeilen der Übersicht 6 pt (Seite 2: 694,5 von 708,7 pt, Reserve 14,2 pt); neue Prüfung F5 „Seitenreserve“ für alle Blätter mit festen Seiten, mindestens 10 pt. Die Prüfung zeigte dasselbe für die Zeitreihe Gefördert (666,0 von 662,6 pt, schon im Stand vor Abschnitt N): Spalten T–X 14 statt 13, Maßstab 75 % statt 77 %, Reserve 14,3 pt. G.4 mit den gerechneten Werten berichtigt (vorher „rund 69 %“ und „rund 73 %“ mit zu breit angesetzten Spalten), O13 für PGN deutlicher |
+| Seite 1 der Übersicht ohne Kennzeichnung der Miete über dem Markt (mittel) | Aufschlag der gerechneten Frei-Miete auch in L26 (1.18), L38 (Zeile 8 der Jahresrechnung) und L42 (3.1), Format wie L74; Hinweis 6 nennt 1.18 und die Jahresrechnung. Anders als vorgeschlagen in Spalte L statt H (siehe unten) |
+| Nötige Miete A/B/C bei Tilgungsaufschub nur aus dem Kapitaldienst Jahr 1 ohne Tilgung NBank; zwei Konventionen neben Block 4 (mittel, zweimal gemeldet) | Rechnung bleibt (Entscheidung N3). Bemerkung 8.2 „Zeilen 5 bis 7 und Bankdarlehen; bei Tilgungsaufschub (3.2) ohne Tilgung NBank“, 8.3 „deckt in Jahr 1 DSCR-Ziel × Kapitaldienst und die Zeilen 2 und 3; Folgejahre: 3.5“; D.3 nennt den Fall mit Zahlen; offen für PGN als O15 |
+| F.3 (c) führt für Frei in Block 6 weiter „–“ (gering) | sieben Wertepaare eingetragen (EK-IRR, VOFI-EK-Rendite, Restwertanteil), im Prüfskript als Konzeptwerte L1 |
+| Frei ohne Bankdarlehen: DSCR Jahr 1 leer, Minimum „–“ (gering, zweimal gemeldet) | Zeile 156 `=IF(ISNUMBER(…),…,"–")` auf Frei und, damit die Formeln gleich bleiben (F4) und die Zeile 3.4 einheitlich ist, auf Gefördert A/B/C; im Standard dieselbe Zahl |
+| Marktmiete 4.4 = 0: Aufschlag 0, Anzeige „Miete = Marktmiete“ trotz gerechneter Miete über 0 (gering) | Frei 185/186 „–“ bei Marktmiete 0; vierter Formatabschnitt „Frei: Marktmiete 0, Aufschlag –“; Lauf L62 |
+| EK-IRR und VOFI-EK-Rendite laufen bei langen Fehlbeträgen auseinander, Grund nicht genannt (gering) | Bemerkung 6.8 „negativ: Soll zu 7.3; EK-IRR: Nachschuss“, Hinweis 11 ergänzt, D.5 mit Zahlen (Worst-Werte: +3,36 % gegen −1,49 %) |
+| Eigenmittelquote frei bezieht sich auf die zuwendungsfähigen Kosten (gering) | Bemerkung 1.12 „mindestens 20 % der zuwendungsfähigen Kosten (1.2)“, Frei Zeile 107 „Eigenmittelquote (zuwendungsfähige Kosten)“; D.4 |
+| Bemerkung Zeile „Kapitaldienst Bankdarlehen“ passt nur zu gefördert (gering) | „gefördert nur bei Restfinanzierung“ |
+| AENDERUNGEN.md nur bei 9,5 pt auf zwei Seiten (gering) | gestrafft (Abschnitt 3 als Liste, Abschnitt 7 quer, Abschnitte 4 bis 6 gekürzt; 1.418 → 1.349 Wörter trotz zweier neuer Punkte): zwei Seiten A4 bei 10 pt Schrift, Tabellen 9 pt, Ränder 18/16 mm, mit rund sechs Zeilen Reserve; bei 11 pt drei Seiten |
+
+Nicht oder anders umgesetzt:
+
+| Befund | Entscheidung, Grund |
+|---|---|
+| Aufschlag auf Seite 1 als Zahlzelle in H26, wiederholt in H38 oder H42 | in L26, L38 und L42: Eine Zahl läuft nicht in Nachbarzellen über; in Spalte H (Breite 12) zeigte die Probe „###“. Spalte L ist 38 Zeichen breit und trägt schon den Aufschlag der Blöcke 5 bis 7. Die Bemerkung 1.18 „Frei laut Eingabe 10.1“ bleibt in H. Die Spalten D–F und H–J bleiben damit gegenüber dem Stand vorher ohne neue Zahlzelle (N.6) |
+| Nötige Miete bei Tilgungsaufschub mit der Regeltilgung (Zeile 110) wie Block 4 | nicht umgesetzt: ändert die Entscheidung N3 (Kapitaldienst Jahr 1); offen für PGN (O15, AENDERUNGEN Abschnitt 8) |
+| Kopfzeilen der Übersicht kürzen für mehr Reserve auf Seite 2 | nicht umgesetzt: Gestaltung wie bestehend; 14 pt Reserve nach der Rechnung, Druckbild in Excel bleibt O13 |
+
+Prüfskript: Texte, Format und Adressen des Aufschlags (L26, L38, L42), Abstandszeilen und Seitenreserve (F5), Bemerkungen neben dem Aufschlag (F6), Zeile 156 und 185/186 (Sollwerte „–“), Spaltenbreite Gefördert, Läufe L59–L62 mit F13, Zinsbindung ≥ 30 Jahre geschlossen, Konzeptwerte Frei in Block 6. Gegenprobe: Der Stand vor N.8 fällt in den neuen Prüfungen durch (Seitenreserve Übersicht −26,3 pt, Gefördert −3,4 pt; Texte; Aufschlag Seite 1). 545 Prüfungen OK, 0 Fehler, 5 Hinweise (geschlossene Bankrechnung L7, L8, L60; A2 in L41; Eingabe 2.5 ohne eigenen Lauf). Unabhängige Regression (eigenes Skript, beide Projekte je neu berechnet, gegen die Sitzungskopie des Stands vorher): je Projekt 9.923 Zellen verglichen, davon 9.881 Werte des Stands vorher ohne Abweichung und 42 neue Zellen auf den Blättern Gefördert (Zeilen 179–183, N2).

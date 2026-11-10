@@ -1,6 +1,6 @@
 # Planwerk 16:9: Bibliothek der Vortragsmappe
 
-Stand: Die 28 Folien sind zusammengeführt (`folien/`), die Musterfolien bauen mit derselben Bibliothek (`probe/`, 32 Folien,
+Stand: Die 33 Folien sind zusammengeführt (`folien/`), die Musterfolien bauen mit derselben Bibliothek (`probe/`, 33 Folien,
 alle 19 Layouts). Ein Folienmodul baut nur seine Inhaltszone; Rahmen, Notizen und Prüfungen kommen aus `build.cjs` und `lib/`.
 Was mehrere Folien brauchen, steht in `lib/` (Bausteine `B`, Diagramme `D`, Helfer im `ctx`); was nur eine Baugruppe braucht,
 in `folien/_<gruppe>.cjs`. Zahlen der Rechenmappe stehen nur in `daten/werte.json`; diese Datei wird erzeugt und nie von Hand
@@ -25,7 +25,10 @@ Zwei Läufe von `node build.cjs` liefern dieselbe Datei: Datum der Mappe ist der
 `titel.stand`), die IDs der Abschnitte folgen aus ihrem Namen. Eine Schemaprüfung mit einem Validator für Office-Open-XML ist
 eine sinnvolle Zusatzprüfung; sie gehört nicht zum Projekt.
 
-Baugruppen: `rahmen`, `regeln`, `rechnung`, `umsetzung`, `ueberblick` (Zuordnung in `daten/outline.json`, Feld `baugruppen`).
+Baugruppen: `rahmen`, `einstieg`, `regeln`, `rechnung`, `fluss`, `struktur`, `umsetzung`, `ueberblick` (Zuordnung in
+`daten/outline.json`, Feld `baugruppen`). Hilfsdateien der Baugruppen: `folien/_einstieg.cjs` (Texte der Folien 3 und 5),
+`_fluss.cjs` (gemeinsame Anlage der Folien 15 und 16), `_struktur.cjs` (Agenda, Texte der Folie 20, Quellentabelle), `_rechnung.cjs`,
+`_regeln.cjs`, `_umsetzung.cjs`, `_ueberblick.cjs`.
 Jedes Bild ansehen. Der Build rechnet Texte gegen ihre Felder und jede Form gegen Satzspiegel und Inhaltszone (Abschnitt 9),
 sieht aber keine Überlagerung von Formen untereinander.
 
@@ -33,7 +36,7 @@ sieht aber keine Überlagerung von Formen untereinander.
 
 `folien/<id>.cjs` exportiert `{ id, bau(ctx) }`. `bau` ruft genau einmal `ctx.folie()` auf und baut danach die Inhaltszone.
 `ctx.folie()` legt aus `daten/outline.json` an: Layout, Abschnitt, Kicker, Titel mit Signaturwort, Rubrik im Schriftfeld,
-Blattnummer (`nr` des Konzepts: 1 bis 18, A0 bis A9) und die Notizen (`notizen`, Leerzeile, `quellen`). Kein `addNotes`,
+Blattnummer (`nr` des Konzepts: 1 bis 25, A0 bis A7) und die Notizen (`notizen`, Leerzeile, `quellen`). Kein `addNotes`,
 keine eigene Foliennummer, kein eigener Abschnitt.
 
 ```js
@@ -91,6 +94,7 @@ module.exports = {
 | `ctx.lies(datei, felder)` | Zugriff auf eine Datendatei mit gefüllten Platzhaltern: `const U = ctx.lies('umsetzung', felder); U('antragsweg.beginn')`; `U(pfad, { weitere: Felder })` |
 | `ctx.fuelle(v, felder, woher)` | Platzhalter in Texten füllen: `{name}` setzt den Wert (ganze Zahlen in deutscher Schreibweise), `{name:wort}` das Zahlwort; Listen und Objekte werden durchlaufen |
 | `ctx.zahlwort(n, gross)`, `ctx.glatt(s)` | 3 → „drei“ (0 bis 12; `gross`: „Drei“) · Vergleichsform eines Textes ohne geschützte Leerzeichen und Fettmarken |
+| `ctx.mittel(monate, werte, welche)` | Mittelwert einer Monatsreihe (Schlüssel `JJJJ-MM`) über die genannten Monate, etwa als Gegenprobe eines Quartalsmittels (Folie 3); bricht ab, wenn ein Monat fehlt |
 
 ### ctx.folie(opt)
 
@@ -98,7 +102,7 @@ Ohne Optionen liest die Funktion den Rahmen aus dem Feld `inhalt` des Konzepts:
 `Kicker: „…“` · `Titelzeilen: „Zeile 1“ | „Zeile 2“ (Signaturwort: „…“)` · `Titel in drei Zeilen: „…“ | „…“ | „…“` ·
 `Rubrik im Schriftfeld: „…“` · `Achskreis XL: „4“` · `Lead: „…“` · `Untertitel: „…“`. Der Zusatz `(zweite Stimme …)` hinter
 einer Titelzeile setzt sie in Montserrat Light 20 pt. Anhangfolien (`PGN_ANHANG`) nehmen `o.titel` als einzeilige Überschrift.
-Das Konzept passt für alle 28 Folien; Optionen sind nur für Abweichungen da.
+Das Konzept passt für alle 33 Folien; Optionen sind nur für Abweichungen da.
 
 | Option | Wirkung |
 |---|---|
@@ -117,7 +121,7 @@ Modul ihn anlegt, zuletzt Rubrik und Blattnummer des Schriftfelds. Ein Modul leg
 Titel tragen wie jeder Text geschützte Leerzeichen zwischen Zahl und Einheit („84.000 €“, „80 %“, „7,0 Mio. €“); im Konzept
 stehen gewöhnliche Leerzeichen. Titel stehen eng (32 pt mit 33 pt Zeilenabstand). Steht in einer Zeile ein Komma, Semikolon oder eine Klammer genau über
 einem Ä, Ö oder Ü der nächsten Zeile, berührt die Unterlänge die Umlautpunkte. Der Build erkennt das, gibt der unteren
-Zeile 37 pt Zeilenabstand und nennt es als Hinweis; im Konzept trifft es nur Folie 8 („7,0“ über „Förderung“). Die erste
+Zeile 37 pt Zeilenabstand und nennt es als Hinweis; im Konzept trifft es nur Folie 12 („7,0“ über „Förderung“). Die erste
 Zeile und die Titellinie bleiben an ihrem Platz.
 
 ## 3 · Raster, Layouts, Farben, Schrift
@@ -149,7 +153,7 @@ das Layout nicht hat, bricht den Bau ab.
 | Layout | Grund | Platzhalter, feste Zonen (`ctx.ZONE`) und die Bausteine dazu |
 |---|---|---|
 | `PGN_INHALT`, `PGN_INHALT_MR`, `PGN_ABLAUF` | weiß / Papier / weiß | nur Kopf und Fuß; freie Komposition. Ablauf: `ZONE.ablauf` (Achse 2,55, Text 3,00–5,55, Warnband 5,95) als Richtwerte |
-| `PGN_DIAGRAMM`, `PGN_DIAGRAMM_MR` | weiß / Papier | `diagrammtitel` (y 2,18), `diagrammsub` (2,44): `B.diagrammkopf` · Legende als Formen bei `ZONE.diagramm.legende` (2,70) · `chart` (0,667 / 2,95, 7,92 × 3,55): `D.*` ohne Lage · `kommentar` (8,827 / 2,17, 3,84 × 4,33, 16 pt): `B.planlegende`; der Modultitel der ersten Zeile steht auf der Höhe des Diagrammtitels. Modulkopf-Linien bei y 2,10 liegen im Layout |
+| `PGN_DIAGRAMM`, `PGN_DIAGRAMM_MR` | weiß / Papier | `diagrammtitel` (y 2,18), `diagrammsub` (2,44): `B.diagrammkopf` · Legende als Formen bei `ZONE.diagramm.legende` (2,70) · `chart` (0,667 / 2,95, 7,92 × 3,55): `D.*` ohne Lage · `kommentar` (8,827 / 2,17, 3,84 × 4,33, 16 pt): `B.planlegende`; der Modultitel der ersten Zeile steht auf der Höhe des Diagrammtitels. Modulkopf-Linien bei y 2,10 liegen im Layout · statt des Kommentars Kennzahlen in derselben Spalte (`ZONE.diagramm.spalte`: x 8,827, Breite 3,84, Hauptzahl ab y 2,10, zweites Modul ab y 4,40): `B.hauptzahl`, `B.nebenzahl`, `B.zweitesModul` (Folien 2 bis 5 und 20) |
 | `PGN_TABELLE`, `PGN_TABELLE_MR` | weiß / Papier | `tabellentitel`, `tabellensub` (7,92 breit): `B.tabellenkopf` · Tabelle ab `ZONE.tabelle.tabelle` (y 2,80) bis höchstens 6,20 · `kommentar` (Spalte 9–12, 14 pt): `B.planlegende` · `notiz` (y 6,05–6,50, unten ausgerichtet, 12 pt): `B.notiz` |
 | `PGN_KENNZAHLEN`, `PGN_KENNZAHLEN_MR` | weiß / Papier | je Kachel i = 0, 1, 2: `kfi_kopf` (y 2,20), `kfi_zahl` (2,44, **44 pt**), `kfi_label` (3,20, 14 pt einzeilig), `kfi_text` (3,50–4,45, 14 pt): `B.kennzahlFeld`. Darunter ab `ZONE.kennzahlen.darunter` (y 4,70) Platz für eine Planlegende über zwölf Spalten (Muster 10) |
 | `PGN_VERGLEICH`, `PGN_VERGLEICH_MR` | weiß / Papier | `links_kopf`, `links_wert` (y 2,52, 36 pt), `links_text` (3,35–6,00), `rechts_…`: `B.vergleichFeld` · `fuss` (y 6,24, zwölf Spalten, 12 pt): `B.vergleichFuss`. Fläche rechts 6,787 / 2,10, 5,88 × 4,02 (endet bei 6,12 über der Fußzeile) |
@@ -185,7 +189,10 @@ B71E3F, `darlehen` 202020, `referenz` 77716B, `dunkelrot` 8B2939, `grau` 626160.
 - **Feste Diagrammfarben** über die Reihenart: `zuschuss` Rot · `darlehen` Tinte · `eigenmittel` Schraffur (immer beschriftet)
   · `tinte` (Miete, Ertrag, eigene Reihe) · `referenz` 77716B (frei finanziert, Markt, Vergleich) · `bisher` B4B0AB (nur mit
   Beschriftung) · `A`, `B`, `C` (Gruppentöne) · `signal`. Nie `darlehen` und `tinte` als zwei Reihen im selben Diagramm.
-  Auf den Folien 10 bis 14 kein Rot im Diagramm.
+  Auf den Folien 2 bis 5 und 14 bis 21 kein Rot im Diagramm. Zeitvergleiche: frühere Stände in `bisher`, der heutige Stand in `tinte` (Folien 2, 4, 5).
+- **Flussdiagramm** (`D.fluss`): Farbrollen `tinte`, `referenz`, `hell` (Referenzgrau mit 50 % Transparenz) und `blass` (70 %, mit feiner
+  Kontur), festgelegt in `lib/theme.cjs` (`FLUSSART`, auch als `D.FLUSSART`). Auf den Folien 15 und 16: Tilgung `tinte`, Zins `referenz`,
+  Verwaltungskostenbeitrag `hell`, Bewirtschaftung `blass`.
 - Programmfarben (`HEX.bs`) nur mit Nummer: `B.register`, `B.schluesselplan`, `B.programmChip`. Kein Grün.
 - Wer pptxgenjs direkt aufruft: Schemafarben `C.*` gehen in Text, Formfüllung, Linien und Tabellen. Nur Hex (`HEX.*`) nehmen
   Gitterlinien, `dataBorder` und die Farben einer einzelnen Balkenreihe. Nie „#“, nie acht Stellen.
@@ -199,7 +206,7 @@ bei jeder anderen Schrift und bei jeder Größe unter 10 pt ab, auch in direkten
 
 Textrollen für `B.text(…, { rolle })` und ihre Mindestgröße bei `pt` (E3): `vorspann` 18 · `fliess` 16 · `dicht` 14
 (alle mindestens 14) · `kleinText` 12 (Anthrazit) · `klein` 12 (Grau) · `sub` 12 · `deck` 14 Versalien Light · `modultitel`
-und `diagrammtitel` 13 ExtraBold Versalien · `wert` 12 Montserrat Bold · `wertGross` 16 · `kernwert` 24 ExtraBold ·
+und `diagrammtitel` 13 ExtraBold Versalien · `bezeichnung` 12 Work Sans SemiBold in Tinte (Bezeichnungen an Diagrammen) · `wert` 12 Montserrat Bold · `wertGross` 16 · `kernwert` 24 ExtraBold ·
 `kennlabel` 16 Montserrat Bold · `station` 13 · `zitat` 24 kursiv (alle mindestens 12; `zitat` 14) · `vorsatz` 12 Versalien
 Rot (mindestens 11) · `label` 10 Medium Grau · `achse` und `legende` 11 (mindestens 10).
 
@@ -223,9 +230,9 @@ und Einheit schützt die Bibliothek selbst („5,6 Mio. €“, „80 %“, „S
   | Baugruppe | Datei | Inhalt |
   |---|---|---|
   | `regeln` | `daten/regeln.json` | Regelwerte der Broschüre (Stand bis 30.06.2026, Mietpfad, Angebotsmieten, Einkommensgrenzen) |
-  | `ueberblick` | `daten/markt.json` | Zinsreihe, Kostenvergleich, Marktzahlen (Altfassung mit Vermerk „nicht nachgeprüft“) |
+  | `einstieg`, `ueberblick`, Folie 20 | `daten/markt.json` | Baukosten Q1 2020 und Q4 2025, Zinsreihe, Eingangswerte zum Kapitaldienst je m², Bestandsreihe und Marktzahlen (Folien 2 bis 5), Kostenvergleich PGN gegen ARGE (Folie 20), Programmteile und Frist (A1, A2); Werte der Altfassung mit Vermerk „nicht nachgeprüft“ |
   | `umsetzung` | `daten/umsetzung.json` | Bedarfslage, Fristen, Leistungsphasen |
-  | `rahmen` | `daten/rahmen.json` | was Titel, Trenner, Kontakt und Quellen brauchen |
+  | `rahmen`, `struktur` | `daten/rahmen.json` | was Titel, Agenda (Abschnitte, Register der Programmteile), Trenner, Kontakt und Quellen brauchen |
   | `rechnung` | `daten/rechnung.json` | Angaben, die `werte.json` nicht führt (Kostenstand, Text zum PGN-Median) |
   | Prüfung | `daten/pruefung.json` | Belege für `pruefe_folien.py`: gerechnete Größen mit Formel, Zahlen der Sprechernotizen mit Herkunft |
 
@@ -239,9 +246,11 @@ und Einheit schützt die Bibliothek selbst („5,6 Mio. €“, „80 %“, „S
 | `mio(v, nk = 1)` · `mioZahl(v, nk = 1)` | 5600000 → „5,6 Mio. €“ · „5,6“ |
 | `prozent(anteil, nk = 0)` · `prozentWert(p, nk = 0)` | 0,8 → „80 %“ · 3,74 mit nk 2 → „3,74 %“ |
 | `euroQm(v)` · `euroJeQm(v)` · `qm(v)` | „6,77 €/m²“ · „6,77 € je m²“ · „1.400 m²“ |
+| `monatKurz(m)` · `monatWort(m)` | „2020-02“ → „02/2020“ · „Februar 2020“ |
 | `nb(s)` · `NBSP` · `MINUS` | alle Leerzeichen schützen · U+00A0 · U+2212 |
 
-Gerundet wird kaufmännisch und erst hier. Vor jeder Einheit steht U+00A0.
+Gerundet wird kaufmännisch und erst hier. Vor jeder Einheit steht U+00A0. Sehr kleine Beträge (ein Rest von 5,8 · 10⁻¹¹ aus einer
+Summenprobe) runden zu null.
 
 ## 5 · Bausteine `B`
 
@@ -254,14 +263,16 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 | Funktion | Parameter und Maße |
 |---|---|
 | `B.text(s, text, { x, y, w, h, rolle, pt, farbe, align, valign, einzeilig, name })` | Text in einer Rolle der Schriftskala. Ohne `h` folgt die Höhe dem Text. `einzeilig: true` prüft die Breite, sonst Breite und Höhe. `farbe`: Hex, `C.*` oder Schlüssel des Farbsatzes (`titel`, `text`, `sekundaer`, `akzent`). Die Mindestgröße der Rolle wird geprüft. → `{ x, y, w, h, unten }` |
-| `B.hoehe(text, { w, rolle, pt })` | Höhe eines Textes in einer Rolle bei gegebener Breite, gerechnet wie `B.text` ohne `h`. Zum Ausrichten an einer Unterkante, bevor gezeichnet wird (Folie A9) |
-| `B.textAufPlot(s, text, { x, y, w, h, rolle, pt, align, valign, farbe, grund, name })` | einzeiliger Text auf der Plotfläche eines Diagramms (Summe am Balkenende, Wert an einer Säule) mit einer Fläche in der Grundfarbe dahinter, so breit wie die Schrift: Keine Gitterlinie läuft durch die Zahl. `grund`: Farbe der Fläche auf einer hervorgehobenen Spalte (Folien 10, 11, 14) |
+| `B.hoehe(text, { w, rolle, pt })` | Höhe eines Textes in einer Rolle bei gegebener Breite, gerechnet wie `B.text` ohne `h`. Zum Ausrichten an einer Unterkante, bevor gezeichnet wird (Folie A7) |
+| `B.zweizeilig(text, { w, rolle, pt, nach })` | bricht einen Text, der nicht in eine Zeile der Breite `w` passt, an der Wortfuge mit den zwei ausgeglichensten Zeilen („\n“); geschützte Leerzeichen brechen nicht. `nach`: Muster für das Ende der ersten Zeile (`/[,;]$/`: nur hinter Komma oder Semikolon). Passt keine Teilung in zwei Zeilen, bleibt der Text unverändert (Folien 6 und 20) |
+| `B.altText(s, name, text)` | Alternativtext an einer Form: Die Form mit diesem `objectName` bekommt ihn in der Nachbearbeitung und gilt dann nicht als Schmuck (pptxgenjs schreibt Alternativtexte nur für Bilder und Diagramme). Der Name muss auf der Folie eindeutig sein |
+| `B.textAufPlot(s, text, { x, y, w, h, rolle, pt, align, valign, farbe, grund, name })` | einzeiliger Text auf der Plotfläche eines Diagramms (Summe am Balkenende, Wert an einer Säule) mit einer Fläche in der Grundfarbe dahinter, so breit wie die Schrift: Keine Gitterlinie läuft durch die Zahl. `grund`: Farbe der Fläche auf einer hervorgehobenen Spalte (Folien 14, 17, 21) |
 | `B.linie(s, { x, y, w \| h, art, strich })` | `art`: `haar` 0,5 pt · `tinte` 0,75 · `kraeftig` 1 · `modul` 1,5 · `mass` 0,75 Anthrazit · `referenz` · `grau` 1,5 B4B0AB · `signal` · `akzent`. `strich`: `dash`, `sysDash`, `lgDashDot` |
 | `B.kasten(s, { x, y, w, h, art })` | `kasten` (Papier auf Weiß, Weiß auf Papier) · `rahmen` (Linie 0,75 pt) · `hauch`. `h` ist Pflicht. → Innenfläche `{ x, y, w, h }` mit 0,20 Rand |
 | `B.modulkopf(s, { x, y, w, titel, sub, signal, icon, altText, rechts, art, farbe })` | Linie 1,5 pt, Titel bei y + 0,08, Untertitel bei y + 0,34. `signal: true`: Linie und Titel in Dunkelrot (nur mit Wort, zum Beispiel „Förderschädlich“). `icon: 'check'`: Linien-Icon 0,24 vor dem Titel, `altText` dazu (Folie A4). `rechts`: zweite Angabe rechts in der Titelzeile, 12 pt grau (Folie A1); Titel und Angabe müssen nebeneinander passen. `art`: andere Linienart, `farbe`: Titelfarbe. → y für den Inhalt (y + 0,46 oder + 0,70) |
 | `B.diagrammkopf(s, { titel, sub })` · `B.tabellenkopf(s, { titel, sub })` | Kopf in den Platzhaltern von `PGN_DIAGRAMM(_MR)` und `PGN_TABELLE(_MR)`: Titel in Versalien, Untertitel mit Einheit, beide einzeilig über 7,92 Zoll (geprüft). Auf anderen Layouts `B.modulkopf` |
 | `B.vorspann(s, text)` | Vorspann im Platzhalter `lead` von `PGN_AUSSAGE` (18 pt, 7,92 × 0,80) |
-| `B.planlegende(s, { x, y, w, h, eintraege: [{ titel, text }], pt, linie, platzhalter, titelAbstand })` | Kommentarspalte in einem Textfeld. `pt` 16, 14 oder 12. Ein Eintrag braucht `titel` oder `text`; ohne `titel` ist er ein Absatz mit 8 pt Abstand. `platzhalter: 'kommentar' \| 'seite'` füllt den Platzhalter des Layouts; sonst freie Lage, `linie: true` zeichnet die Modulkopf-Linie bei y, der Text beginnt 0,07 darunter (der Modultitel steht dann wie ein Titel aus `B.modulkopf`). `titelAbstand`: Abstand vor den Zwischentiteln in pt (Vorgabe 10; 4 für Spalten, die ihr Feld sonst ganz füllen: Folien 5 und 14). **Ohne `h` folgt die Höhe dem Text;** mit `h` wird sie geprüft. Mehrere Spalten: je Spalte ein Aufruf (Muster 10). → `{ x, y, w, h, unten }` |
+| `B.planlegende(s, { x, y, w, h, eintraege: [{ titel, text }], pt, linie, platzhalter, titelAbstand })` | Kommentarspalte in einem Textfeld. `pt` 16, 14 oder 12. Ein Eintrag braucht `titel` oder `text`; ohne `titel` ist er ein Absatz mit 8 pt Abstand. `platzhalter: 'kommentar' \| 'seite'` füllt den Platzhalter des Layouts; sonst freie Lage, `linie: true` zeichnet die Modulkopf-Linie bei y, der Text beginnt 0,07 darunter (der Modultitel steht dann wie ein Titel aus `B.modulkopf`). `titelAbstand`: Abstand vor den Zwischentiteln in pt (Vorgabe 10; 4 für Spalten, die ihr Feld sonst ganz füllen: Folien 9 und 21). **Ohne `h` folgt die Höhe dem Text;** mit `h` wird sie geprüft. Mehrere Spalten: je Spalte ein Aufruf (Muster 10). → `{ x, y, w, h, unten }` |
 | `B.aufzaehlung(s, { x, y, w, h, punkte: [], pt, platzhalter })` | eckiger roter Marker, höchstens fünf Punkte, `pt` 16 oder 14 (im Anhang auch 12). `platzhalter: 'body'` in `PGN_AUSSAGE`; sonst freie Lage, ohne `h` folgt die Höhe dem Text. Keine Fettung („**“ wird entfernt). → `{ x, y, w, h, unten }` |
 | `B.notiz(s, text)` | eine Zeile im Platzhalter `notiz` (`PGN_TABELLE`) |
 | `B.zitat(s, { zeilen: [], name, quelle })` | Layout `PGN_ZITAT`: höchstens vier Zeilen zu 38 Zeichen (28 pt, Zeile 36 pt), rote Linie in Zitathöhe. Mit `x, y, w`: freie Lage, 24 pt |
@@ -270,11 +281,13 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 
 | Funktion | Parameter und Maße |
 |---|---|
-| `B.achskreis(s, { cx, cy, text, groesse, d, pt, variante, gruppe })` | `groesse` S 0,30 / 10 pt · M 0,40 / 12 · L 0,46 / 14 · XL 1,40 / 54. `variante`: `standard` · `akzent` (roter Ring, für „80“) · `gefuellt` (Rot) · `signal` (Dunkelrot) · `tinte` · `gruppe` (Ton von A, B, C). Achskreise tragen immer Bedeutung; `text` ist Pflicht |
+| `B.achskreis(s, { cx, cy, text, groesse, d, pt, variante, gruppe })` | `groesse` S 0,30 / 10 pt · M 0,40 / 12 · L 0,46 / 14 · G 0,90 / 32 (Montserrat Black, Kontur 1,5 pt, Ziffer in Tinte: Agenda) · XL 1,40 / 54 (Ziffer in Rot: Trenner). `variante`: `standard` · `akzent` (roter Ring, für „80“) · `gefuellt` (Rot) · `signal` (Dunkelrot) · `tinte` · `gruppe` (Ton von A, B, C). Achskreise tragen immer Bedeutung; `text` ist Pflicht |
 | `B.masskette(s, { x, y, w, segmente: [{ anteil, text, akzent, ausrichtung }], hilfslinienBis })` | Linie 0,75 pt mit 45°-Strichen, Werte 0,28 darüber. Über einem Diagramm bei `plot.y − 0,12`. `ausrichtung: 'links'` für Texte, die breiter sind als ihr Segment. Die Linie steht 0,07 über |
+| `B.massketteSenkrecht(s, { x, y0, y1, text, seite, name })` | senkrechte Maßkette von `y0` bis `y1` mit 45°-Strichen (Anstieg zwischen zwei Säulen); der Wert steht mittig `links` (Vorgabe) oder `rechts` daneben auf einer Fläche in der Grundfarbe (Folie 4). Die Linie steht 0,07 über |
+| `B.zuleitung(s, { x0, y0, x1, y1, xKnick, name })` | Linie 0,75 pt in B4B0AB von der Kante eines Segments zu seiner Beschriftung; liegen die Enden auf verschiedener Höhe, läuft sie mit einem Knick bei `xKnick` (Vorgabe: Mitte) (Folie 4) |
 | `B.achse80(s, { x, yOben, yUnten, text })` | rote Strichpunktlinie mit Achskreis „80“ auf der Maßkette |
 | `B.massstab(s, { x, y, w })` | Maßstabsleiste, fünf Felder, 0,05 hoch; bei `plot.y + plot.h + 0,02` |
-| `B.markeMitLuecken(s, { y, x0, x1, luecken: [[von, bis]], text, textX, textBreite, lage, name })` | waagerechte Marke über einem Säulendiagramm: gestrichelte Linie 1 pt in Referenzgrau von `x0` bis `x1`, an den `luecken` unterbrochen (Datenbeschriftungen, Säulen bis an die Linie). Der Text steht auf der Verlängerung rechts der Plotfläche, `lage: 'ueber' \| 'unter'`; Zeilen bricht „\n“, „**fett**“ hebt den Wert hervor (Folie 4) |
+| `B.markeMitLuecken(s, { y, x0, x1, luecken: [[von, bis]], text, textX, textBreite, lage, name })` | waagerechte Marke über einem Säulendiagramm: gestrichelte Linie 1 pt in Referenzgrau von `x0` bis `x1`, an den `luecken` unterbrochen (Datenbeschriftungen, Säulen bis an die Linie). Der Text steht auf der Verlängerung rechts der Plotfläche, `lage: 'ueber' \| 'unter'`; Zeilen bricht „\n“, „**fett**“ hebt den Wert hervor (Folie 8). `lage: 'aussen'`: Die Marke liegt nur über einem Teil der Plotfläche, der Text steht einzeilig rechts neben dem Linienende auf der Höhe der Linie (`textX`: Vorgabe `x1` + 0,08; Folie 20) |
 | `B.marke(s, { x, y, h \| w, text, art, strich, textSeite, textBreite, rolle })` | senkrechte (`h`) oder waagerechte (`w`) Marke. `art`: `mass`, `referenz`, `signal`. `textSeite` senkrecht `rechts` / `links` / `oben`, waagerecht `oben` / `rechts` / `aussen` (rechts neben dem Linienende; dafür `rand: { r }` im Diagramm vergrößern). Der Text bricht nur an „\n“; jede Zeile muss in `textBreite` (Vorgabe 2,4) passen, das Textfeld ist so breit wie die längste Zeile |
 | `B.kote(s, { x, y, text, seite, signal })` | Höhenkote: Dreieck mit Spitze auf (x, y), Wert daneben |
 | `B.schnittlinie(s, { x, y, w, text })` | Strichpunktlinie zwischen zwei Buchstaben; höchstens einmal je Folie |
@@ -287,7 +300,7 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 |---|---|
 | `B.register(s, '2.1')` | Daumenregister am rechten Rand, 0,42 × 0,62, y = 2,10 + i · 0,74 |
 | `B.schluesselplan(s, '2.1')` | sechs Felder in der Kickerzeile (x 9,367–12,667). Nicht auf `_MR`-Layouts (dort steht der Stempel) |
-| `B.stempelZusatz(s)` | Vollfassung: „fiktives Beispiel, keine Förderzusage“ links neben dem Stempel; nur auf Folie 8 |
+| `B.stempelZusatz(s)` | Vollfassung: „fiktives Beispiel, keine Förderzusage“ links neben dem Stempel; nur auf Folie 12 |
 | `B.stempel(s, { x, y, kurz, zusatz })` | Stempel frei gesetzt (2,12 × 0,37) auf Layouts ohne `_MR`; `kurz: true` einfache Kontur 1,95 × 0,26 |
 | `B.konturstempel(s, { x, y, w, text })` | Fördervermerk, 0,36 hoch, Versalien in Rot |
 | `B.programmChip(s, { x, y, nr })` | 0,42 × 0,24 in der Programmfarbe. → `{ rechts }` |
@@ -298,10 +311,13 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 
 | Funktion | Parameter und Maße |
 |---|---|
-| `B.kennzahl(s, { x, y, w, vorsatz, zahl, einheit, label, text, gross, teile, trenner })` | Kachel mit Oberlinie in freier Lage. 44 pt (Zahl bei y + 0,34, Label 14 pt bei y + 1,10, Text ab y + 1,40), `gross: true` 60 pt (y + 0,60, Label 16 pt bei y + 1,80). Einheit halb so groß in Rot. Bei 3,84 Breite passen bei 60 pt etwa sieben Zeichen. Mehrere Zahlen mit je eigener Einheit: statt `zahl` und `einheit` `teile: [{ zahl, einheit }]`, dazwischen `trenner` (Vorgabe „/“), etwa „1 % / 0,75 %“ (Folie 6). → `{ unten }` |
+| `B.kennzahl(s, { x, y, w, vorsatz, zahl, einheit, label, text, gross, teile, trenner })` | Kachel mit Oberlinie in freier Lage. 44 pt (Zahl bei y + 0,34, Label 14 pt bei y + 1,10, Text ab y + 1,40), `gross: true` 60 pt (y + 0,60, Label 16 pt bei y + 1,80). Einheit halb so groß in Rot. Bei 3,84 Breite passen bei 60 pt etwa sieben Zeichen. Mehrere Zahlen mit je eigener Einheit: statt `zahl` und `einheit` `teile: [{ zahl, einheit }]`, dazwischen `trenner` (Vorgabe „/“), etwa „1 % / 0,75 %“ (Folie 10). → `{ unten }` |
+| `B.hauptzahl(s, { vorsatz, zahl, einheit, label, text, gross })` | Hauptzahl einer Diagrammfolie in der rechten Spalte (`ZONE.diagramm.spalte`, ab y 2,10) statt des Kommentars: die Zahl des Titels als Kennzahl-Kachel. `gross: true`: 60 pt mit Vorsatz, Zahl und einer Zeile Label (Folien 2 bis 5); sonst 44 pt, der Text darunter in zwei ausgeglichenen Zeilen (Folie 20). Meldet, wenn die Kachel in das zweite Modul läuft. → `{ x, w, unten }` |
+| `B.nebenzahl(s, { vorsatz, zahl, einheit, label, text })` | zweite Kennzahl derselben Spalte: 44 pt ab y 4,40 (Folien 2, 3, 5). → `{ x, w, unten }` |
+| `B.zweitesModul(s, { eintraege \| titel, name })` | zweites Modul derselben Spalte ab y 4,40 statt einer zweiten Kennzahl: Oberlinie 0,75 pt, darunter `eintraege: [{ titel, text }]` als Planlegende in 14 pt (Folie 20) oder nur ein Modultitel (`titel`), unter dem das Modul selbst weiterbaut, etwa eine Tabelle ab `y` + 0,30 (Folie 4). → `{ x, w, y, inhalt, ende, unten }` |
 | `B.kennzahlFeld(s, i, { vorsatz, zahl, einheit, label, text })` | Platzhalter der Layouts `PGN_KENNZAHLEN(_MR)`, i = 0, 1, 2: Zahl **44 pt**, Label 14 pt einzeilig, Text 14 pt bis y 4,45 (höchstens drei Zeilen). Dieselbe Geometrie wie `B.kennzahl`. Für 60 pt: `B.kennzahl` mit `gross: true`. → `{ unten: 4,45, darunter: 4,70 }` |
 | `B.hero(s, { x, y, w, h, zahl, einheit, text, flaeche })` | Montserrat Black 96 pt, höchstens eine je Folie; `flaeche: true` auf roter Fläche (h mindestens 2,90 mit Text) |
-| `B.vergleichFeld(s, 'links' \| 'rechts', { kopf, wert, text, pt })` | Layouts `PGN_VERGLEICH(_MR)`; `text` ist wahlfrei: Sollen die Absätze links und rechts auf gleicher Höhe beginnen, füllt man nur Kopf und Wert und setzt die Absätze als `B.text` an festen Lagen (Folie 3, Namen „Links Text 1“ …); `text` als Absatz oder Liste von Absätzen, `pt` 16 oder 14 (Feld 2,65 hoch: bei 14 pt zehn Zeilen abzüglich 8 pt je Absatz); Wert 36 pt einzeilig. → `{ x, w, unten }` |
+| `B.vergleichFeld(s, 'links' \| 'rechts', { kopf, wert, text, pt })` | Layouts `PGN_VERGLEICH(_MR)`; `text` ist wahlfrei: Sollen die Absätze links und rechts auf gleicher Höhe beginnen, füllt man nur Kopf und Wert und setzt die Absätze als `B.text` an festen Lagen (Folie 7, Namen „Links Text 1“ …); `text` als Absatz oder Liste von Absätzen, `pt` 16 oder 14 (Feld 2,65 hoch: bei 14 pt zehn Zeilen abzüglich 8 pt je Absatz); Wert 36 pt einzeilig. → `{ x, w, unten }` |
 | `B.vergleichFuss(s, text)` | Fußzeile unter beiden Seiten (Platzhalter `fuss`, 12 pt, eine Zeile über zwölf Spalten) |
 | `B.titelKennzahl(s, { vorsatz, zahl, einheit, bezug, zusatz })` | Kennzahlfeld der Titelfolie (Vorsatz y 5,77, Zahl 6,00, Bezug ab 6,49); Bezug und Zusatz zusammen höchstens vier Zeilen. „\n“ im Bezug bricht die Zeile von Hand (wie auf U1 der Broschüre) |
 
@@ -311,8 +327,8 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 |---|---|
 | `B.rechenblatt(s, { x, y, w, kopf, zeilen, wertBreite, dicht, hervor, zeilenH })` | `kopf: ['Position', 'A', 'B', 'C']`, Einträge als Text oder `{ kreis: 'A' }` (Achskreis als Spaltenkopf). `zeilen: [{ nr, zeichen, text, werte: [], art, h }]` mit `art`: `normal` · `summe` (Oberlinie, halbfett) · `ergebnis` (weiß auf Rot) · `notiz` (12 pt grau, ohne Linie). Nummernstreifen 0,42, Rechenzeichen 0,30, Wertspalten je `wertBreite` (1,20), Position nimmt den Rest. 14 pt mit Zeile 0,42, Kopf 0,34, Ergebnis 0,46; `dicht: true` 12 pt mit Zeile 0,34, Kopf 0,30, Ergebnis 0,38 (neun Zeilen ab y 2,80 enden bei 6,20). Positionen höchstens zweizeilig. `hervor: i` hebt eine Wertspalte hervor. → `{ unten, spalten: [{ x, w }], zeilen: [{ y, h }], kopfH, positionX, positionW }` |
 | `B.vergleichstabelle(s, { x, y, w, kopf: [3], zeilen: [{ text, wert, vergleich, kern }], wertBreite, dicht })` | hervorgehobene Spalte und Vergleichsspalte je `wertBreite` (2,20). Zeile 0,50 bei 16 pt; `dicht` 0,44 bei 14 pt; die Zeile wächst mit dem Text der Position. `kern: true`: Oberlinie, Werte Montserrat ExtraBold 24 pt (höchstens zwei). Reihenfolge: gefördert vor frei finanziert |
-| `B.tabelle(s, { x, y, w, spalten: [{ kopf, breite, art, randRechts }], zeilen, pt, kopf, dicht, zeilenH, zielHoehe, schlusslinie, messen })` | allgemeine Tabelle. Spalte `art`: `text` · `zahl` (rechts, Montserrat Bold) · `stichwort`. Zeile als Liste von Zellen oder `{ zellen, trennlinie: true, flaeche: true }`; Zelle als Text (mit „**fett**“) oder `{ text, fett, farbe, align }`. Zeilenhöhe folgt dem Text; ein Wort, das breiter ist als seine Zelle, meldet die Prüfung. `pt` 12 oder 14; `kopf: false` lässt die Kopfzeile weg. `dicht: true`: Zeilenhöhe Zeilenzahl × Zeilenmaß + Zellränder + 0,01, für Tabellen, die die Inhaltszone füllen (Folien A1, A9). Kopfzeile 0,33 Zoll (aus der Schrift gerechnet), je weitere Kopfzeile 0,20. `zeilenH`: Mindesthöhe je Zeile. `zielHoehe`: Gesamthöhe mit Kopf; kurze Zeilen bekommen dafür eine gemeinsame Mindesthöhe. `messen: true` rechnet nur und zeichnet nichts (zwei Tabellen auf gleiche Höhe bringen: Folie A6). `schlusslinie: false` lässt die Linie unter der letzten Zeile weg, wenn ein Kasten anschließt (Folie A9). `randRechts`: rechter Zellrand einer Spalte. → `{ unten, h, kopfH, zeilen: [{ y, h, n }], spalten: [{ x, w }], zeilenzahl, zeilenmass, rand }` (damit lassen sich Chips oder Icons in eine Zelle setzen) |
-| `B.hinweisKasten(s, { x, y, w, stichwort, text, spalte, pt })` | Hinweis als Kasten auf Fläche mit Modulkopf-Linie: Stichwort links in einer Spalte der Breite `spalte`, Text rechts (14 pt). Schließt als Fuß an eine Tabelle an, deren erste Spalte so breit ist (Folie A9). → `{ h, unten }` |
+| `B.tabelle(s, { x, y, w, spalten: [{ kopf, breite, art, randRechts }], zeilen, pt, kopf, dicht, zeilenH, zielHoehe, schlusslinie, messen })` | allgemeine Tabelle. Spalte `art`: `text` · `zahl` (rechts, Montserrat Bold) · `stichwort`. Zeile als Liste von Zellen oder `{ zellen, trennlinie: true, flaeche: true }`; Zelle als Text (mit „**fett**“) oder `{ text, fett, farbe, align }`. Zeilenhöhe folgt dem Text; ein Wort, das breiter ist als seine Zelle, meldet die Prüfung. `pt` 12 oder 14; `kopf: false` lässt die Kopfzeile weg. `dicht: true`: Zeilenhöhe Zeilenzahl × Zeilenmaß + Zellränder + 0,01, für Tabellen, die die Inhaltszone füllen (Folien A1, A7). Kopfzeile 0,33 Zoll (aus der Schrift gerechnet), je weitere Kopfzeile 0,20. `zeilenH`: Mindesthöhe je Zeile. `zielHoehe`: Gesamthöhe mit Kopf; kurze Zeilen bekommen dafür eine gemeinsame Mindesthöhe. `messen: true` rechnet nur und zeichnet nichts (zwei Tabellen auf gleiche Höhe bringen: Folie A6). `schlusslinie: false` lässt die Linie unter der letzten Zeile weg, wenn ein Kasten anschließt (Folie A7). `randRechts`: rechter Zellrand einer Spalte. → `{ unten, h, kopfH, zeilen: [{ y, h, n }], spalten: [{ x, w }], zeilenzahl, zeilenmass, rand }` (damit lassen sich Chips oder Icons in eine Zelle setzen) |
+| `B.hinweisKasten(s, { x, y, w, stichwort, text, spalte, pt })` | Hinweis als Kasten auf Fläche mit Modulkopf-Linie: Stichwort links in einer Spalte der Breite `spalte`, Text rechts (14 pt). Schließt als Fuß an eine Tabelle an, deren erste Spalte so breit ist (Folie A7). → `{ h, unten }` |
 
 Ein Kopf mit `\n` bricht in zwei Zeilen. Die Köpfe werden gegen die Spaltenbreite gerechnet; ein Wort, das breiter ist als
 seine Zelle, meldet die Passprüfung.
@@ -327,7 +343,7 @@ seine Zelle, meldet die Passprüfung.
 | `B.abschnittsleiste(s, { n, aktiv })` | Achskreise M auf der oberen Rahmenlinie der Abschnittsfolien |
 | `B.zeitstrahl(s, { x, y, w, von, bis, marken: [{ wert, text, signal }], ticks, baender: [{ von, bis, zeile, art, text }], achsText })` | Jahresachse bei `y`, Achskreise M an den Marken, Bänder darüber (Zeile 0 direkt über der Achse, Höhe 0,36). **Achskreise an den Achsenden brauchen je 0,20 Zoll Platz:** Bei einer Marke am Ende die Achse 0,20 kürzer ansetzen (Muster 22: `w: 12.0 − 0.20`). → `{ xVon(wert), yBand(zeile), oben, unten }` |
 | `B.balken(s, { x, y, w, h, art, text, align })` | Band in fester Farbe mit Text: `tinte`, `referenz`, `bisher`, `papier`, `rahmen`, `zuschuss`, `eigenmittel`, `signal`, `A`, `B`, `C` |
-| `B.balkenplan(s, { x, y, w, labelBreite, phasen, kopf, zeilen: [{ nr, text, von, bis } \| { nr, text, wort }], zeilenH, nummern, marke: { nach, text, zeichen }, links, rechts })` | Balkenplan der Leistungsphasen (Folie 17, Muster 28): Kopfleiste bei y + 0,50 mit einem Achskreis S je Phase (`phasen`: Anzahl, Vorgabe 9, oder Liste), `kopf` als Bezeichnung der Achse rechtsbündig vor dem ersten Achskreis; je Zeile Nummer und Bezeichnung (14 pt, `labelBreite` Vorgabe 3,30) und ein Balken in Tinte von Phase `von` bis `bis`; `nummern: false` lässt die Zeilennummern weg (Folie 17: Im Plan zählen nur die Leistungsphasen). Zeilen ohne Balken tragen `wort` (12 pt in Tinte). `marke`: senkrechte Linie in Dunkelrot nach Phase `nach` mit gefülltem Achskreis (`zeichen`, Vorgabe „±0“) und Wort bei y. `links`, `rechts`: Sätze unter dem Plan beiderseits der Marke (12 pt, brechen von selbst). `zeilenH` Vorgabe 0,38. → `{ unten, kopfY, planX, planW, xPhase(n), xMarke, zeilen: [{ y, h }] }` |
+| `B.balkenplan(s, { x, y, w, labelBreite, phasen, kopf, zeilen: [{ nr, text, von, bis } \| { nr, text, wort }], zeilenH, nummern, marke: { nach, text, zeichen }, links, rechts })` | Balkenplan der Leistungsphasen (Folie 24, Muster 28): Kopfleiste bei y + 0,50 mit einem Achskreis S je Phase (`phasen`: Anzahl, Vorgabe 9, oder Liste), `kopf` als Bezeichnung der Achse rechtsbündig vor dem ersten Achskreis; je Zeile Nummer und Bezeichnung (14 pt, `labelBreite` Vorgabe 3,30) und ein Balken in Tinte von Phase `von` bis `bis`; `nummern: false` lässt die Zeilennummern weg (Folie 24: Im Plan zählen nur die Leistungsphasen). Zeilen ohne Balken tragen `wort` (12 pt in Tinte). `marke`: senkrechte Linie in Dunkelrot nach Phase `nach` mit gefülltem Achskreis (`zeichen`, Vorgabe „±0“) und Wort bei y. `links`, `rechts`: Sätze unter dem Plan beiderseits der Marke (12 pt, brechen von selbst). `zeilenH` Vorgabe 0,38. → `{ unten, kopfY, planX, planW, xPhase(n), xMarke, zeilen: [{ y, h }] }` |
 | `B.pruefliste(s, { x, y, w, spalten, punkte: [{ nr, frage, zusatz, signal }], zeilenH, steg, linien })` | Prüfliste (Folie A3, Muster 29): Achskreis M mit Nummer, Frage in Work Sans SemiBold 14 pt, Zusatz 12 pt grau; `spalten` (Vorgabe 2) werden spaltenweise gefüllt, Haarlinie über jedem Punkt (`linien: false` lässt sie weg). `zeilenH` folgt ohne Angabe dem höchsten Punkt. → `{ unten, zeilenH, felder: [{ x, y, w, h }] }` |
 | `B.bild(s, { datei, x, y, w, h, altText, ecke, marken })` | Bild aus `assets/`; ohne `h` im Verhältnis 1800 : 740. Bildecke „Visualisierung“ (Vorgabe), `marken: true` Beschnittmarken. `altText` ist Pflicht. Höchstens sieben Spalten breit |
 | `B.icon(s, { name, farbe, x, y, d, altText })` | Linien-Icon: `check`, `kreuz`, `stopp`, `hinweis`, `achtung`, `frist`, `kalender`, `rechner`, `telefon`, `mail`, `web`, `standort`, `dokument`, `pfeil` in `tinte`, `rot`, `dunkelrot`, `weiss`. Ohne `altText` trägt es seine Bezeichnung als Alternativtext („Symbol: Haken“) |
@@ -338,15 +354,16 @@ Formen über der Plotfläche; die Lagen kommen aus der Rückgabe von `D.*` (`xWe
 
 | Funktion | Parameter und Maße |
 |---|---|
-| `B.segmenttext(s, { x, y, w, h, name, wert, art })` | Beschriftung in einem Segment eines gestapelten Balkens: Name (Work Sans SemiBold 11 pt) über Wert und Anteil (Montserrat Bold 12 pt), mittig; weiß auf Zuschuss und Darlehen, Tinte auf Schraffur und hellen Flächen. Diagramm dazu mit `labels: false` (Folie 8). Die Texte folgen einer späteren Änderung der Diagrammdaten in PowerPoint nicht |
-| `B.wertzeilen(s, { x, mitten: [y], eintraege: [{ kreis, text }], name })` | Werte an einer Marke im Liniendiagramm: je Zeile ein Achskreis 0,26 und der Wert (Montserrat Bold 12 pt). `mitten`: Lagen zwischen den Gitterlinien (Folien 12, 13) |
-| `B.punkt(s, { cx, cy, art, name })` | Punkt auf einer Linie, 0,10 Zoll, `art`: `tinte` oder `referenz` (Schnitt mit einer Marke, Folie 12) |
-| `B.linienenden(s, { x, eintraege: [{ kreis, y, wert }], abstand })` | Achskreise S an den Linienenden, auf `abstand` (Vorgabe 0,32) entzerrt; mit `wert` steht der Endwert daneben (Folien 12, 13). → Lagen der Kreise |
+| `B.segmenttext(s, { x, y, w, h, name, wert, art })` | Beschriftung in einem Segment eines gestapelten Balkens: Name (Work Sans SemiBold 11 pt) über Wert und Anteil (Montserrat Bold 12 pt), mittig; weiß auf Zuschuss und Darlehen, Tinte auf Schraffur und hellen Flächen. Diagramm dazu mit `labels: false` (Folie 12). Die Texte folgen einer späteren Änderung der Diagrammdaten in PowerPoint nicht |
+| `B.bezeichnungMitWert(s, { y, h, bezeichnung: { text, x, w, align, name }, wert: { text, x, w, align, name }, grau })` | Bezeichnung (Work Sans SemiBold 12 pt) und Wert (Montserrat Bold 12 pt) in einer Zeile auf gemeinsamer Grundlinie, jede in ihrem Feld; Work Sans steht in gleich hohen Feldern 0,012 Zoll tiefer als Montserrat, der Baustein gleicht das aus. `y`: Oberkante der Zeile, `h` Vorgabe 0,22. `grau: true`: Zeile ohne Betrag, beide Texte in Grau. Beide sind einzeilig und werden gegen ihr Feld geprüft (Folien 4, 15, 16) |
+| `B.wertzeilen(s, { x, mitten: [y], eintraege: [{ kreis, text }], name })` | Werte an einer Marke im Liniendiagramm: je Zeile ein Achskreis 0,26 und der Wert (Montserrat Bold 12 pt). `mitten`: Lagen zwischen den Gitterlinien (Folien 18, 19) |
+| `B.punkt(s, { cx, cy, art, name })` | Punkt auf einer Linie, 0,10 Zoll, `art`: `tinte` oder `referenz` (Schnitt mit einer Marke, Folie 18) |
+| `B.linienenden(s, { x, eintraege: [{ kreis, y, wert }], abstand })` | Achskreise S an den Linienenden, auf `abstand` (Vorgabe 0,32) entzerrt; mit `wert` steht der Endwert daneben (Folien 18, 19). → Lagen der Kreise |
 | `B.ringWerte(s, { x, cy, w, eintraege: [{ wert, text, art }], schritt })` | direkte Beschriftung eines Ringdiagramms rechts neben dem Ring: Farbfeld, Zahl als Kernwert 24 pt, Bezeichnung 12 pt; der Block steht mittig zur Ringmitte (Folie A3). → `{ oben, unten }` |
-| `B.achstexte(s, d)` | Beschriftung der Kategorienachse als Textfelder unter der Plotfläche (Work Sans 11 pt grau, mittig unter der Kategorie) für `D.linien` mit `katLabels: { formen: [...] }` (Folie 13). → `{ unten }` |
-| `B.kategorien(s, d, [{ name, zusatz }])` | zweizeilige Kategorientexte unter einem Säulendiagramm mit `katAchse: false`: Bezeichnung (Work Sans SemiBold 12 pt) und Zusatz (11 pt grau), mittig unter der Kategorie (Folie A7). → `{ unten }` |
+| `B.achstexte(s, d)` | Beschriftung der Kategorienachse als Textfelder unter der Plotfläche (Work Sans 11 pt grau, mittig unter der Kategorie) für `D.linien` mit `katLabels: { formen: [...] }` (Folie 19). → `{ unten }` |
+| `B.kategorien(s, d, [{ name, zusatz }])` | zweizeilige Kategorientexte unter einem Säulendiagramm mit `katAchse: false`: Bezeichnung (Work Sans SemiBold 12 pt) und Zusatz (11 pt grau), mittig unter der Kategorie (Folien 2 und 20). → `{ unten }` |
 
-## 6 · Diagramme `D` (nativ, `addChart`)
+## 6 · Diagramme `D` (nativ, `addChart`; das Flussdiagramm aus nativen Formen)
 
 Gemeinsam: `achse: { min, max, schritt, format }` ist Pflicht (feste Achse); die Grenzen dürfen als Zahlen im Modul stehen.
 `format` und `labelFormat`: `ganz` (84.000) · `eins` (5,6) · `zwei` (6,77) · `prozent` (80 %) · `roh` (80) oder ein eigener
@@ -357,7 +374,7 @@ im Diagramm: Titel über `B.diagrammkopf` oder `B.modulkopf`, Legende über `B.l
 
 **Reihenfolge:** Kategorien und Reihen immer in Lesereihenfolge übergeben (bei Balken von oben nach unten, also A, B, C und
 „Gefördert“ vor „Frei finanziert“). Die Bibliothek dreht sie für PowerPoint selbst. Wo das Konzept eine gedrehte Übergabe
-nennt (Folien 5 und 10), beschreibt es pptxgenjs direkt und gilt für `D.*` nicht.
+nennt (Folien 9 und 14), beschreibt es pptxgenjs direkt und gilt für `D.*` nicht.
 
 **Plotfläche:** `rand: { l, r, o, u }` überschreibt einzelne Ränder in Zoll. Vorgaben:
 
@@ -381,7 +398,7 @@ Planzeichen und Werte am Balkenende setzt man damit als Formen passgenau darübe
 | `D.stapelBalken(s, { kategorien, reihen: [{ name, werte, art }], achse, labelFormat, katAchse, katBreite, luecke })` | waagerecht gestapelt. `katAchse: false` (Vorgabe): Kategorien als Formen davor, etwa Achskreise bei `plot.x − 0,36`; `true`: Text links, `katBreite` Zoll | `xWert`, `katMitte(i)` (y), `balkenHoehe`, `ohneLabel` |
 | `D.stapelSaeulen(s, { kategorien, reihen, achse, katAchse })` | senkrecht gestapelt. `katAchse`: `'text'` · `'gruppe'` (A, B, C in ExtraBold 14) · `false` (Achse als Linie ohne Beschriftung; Achskreise als Formen bei `plot.y + plot.h + 0,28` oder Texte über `B.kategorien`) | `yWert`, `katMitte(i)` (x), `saeulenBreite`, `ohneLabel` |
 | `D.gruppierteSaeulen(s, { … })` · `D.gruppierteBalken(s, { … })` | Reihen nebeneinander, Werte am Ende in Tinte. Balken mit `katAchse: true` als Vorgabe | wie oben, dazu `reiheMitte(i, j)`, Säulen auch `reiheLinks(i, j)` |
-| `D.saeulen(s, { kategorien, werte, art, achse })` | eine Reihe, auch unter null; die Nulllinie ist die kräftige Achse | `yWert`, `katMitte`, `saeulenBreite` |
+| `D.saeulen(s, { kategorien, werte, art, arten, achse })` | eine Reihe, auch unter null; die Nulllinie ist die kräftige Achse. `arten: ['bisher', …, 'tinte']` gibt jeder Säule ihre eigene Farbe (je Kategorie eine Reihenart; Folie 5: frühere Jahre grau, das letzte in Tinte) | `yWert`, `katMitte`, `saeulenBreite` |
 | `D.balkenpaar(s, { kategorien, werte, arten: ['tinte', 'referenz'], achse, katBreite })` | eine Reihe mit fester Farbe je Balken (gefördert, frei finanziert), ohne Beschriftung; Werte als `B.text` mit `rolle: 'kernwert'` | `xWert`, `katMitte`, `balkenHoehe` |
 | `D.linien(s, { kategorien, reihen: [{ name, werte, art, strich }], achse, katLabels })` | 2,25 pt ohne Marker. `strich`: `solid`, `dash`, `sysDash` … (je Reihe; zwei Reihen mit gleicher Farbe und Strichart meldet die Prüfung). Liegt null im Achsbereich, steht dort die kräftige Achse; Kategorien stehen unten. `katLabels` siehe unten | `yWert`, `katMitte`, `katBreite` |
 | `D.ring(s, { x, y, w, h, segmente: [{ name, wert, art }], loch, reihenname })` | Ring ab 12 Uhr im Uhrzeigersinn, ohne Beschriftung. `reihenname`: Name der Reihe im Datenblatt (was die Werte zählen, etwa „Einheits- und Samtgemeinden“; Vorgabe „Anteil“) | `cx`, `cy`, `radius`, `winkel(i)`, `punkt(i, r)` |
@@ -396,7 +413,7 @@ Planzeichen und Werte am Balkenende setzt man damit als Formen passgenau darübe
   Liegen die genannten Kategorien gleichmäßig ab der ersten, schreibt die Bibliothek von selbst den festen Abstand.
   In den Diagrammdaten heißen die übrigen Kategorien dann „ “ (Leerzeichen).
 - `katLabels: { formen: [1, 5, 10, …] }` lässt die Achse ohne Beschriftung und gibt die genannten Kategorien in `katTexte`
-  zurück; `B.achstexte(s, d)` setzt sie als Textfelder unter die Achse (Folie 13). Die Diagrammdaten behalten ihre echten
+  zurück; `B.achstexte(s, d)` setzt sie als Textfelder unter die Achse (Folie 19). Die Diagrammdaten behalten ihre echten
   Kategorien, und kein Programm dreht, bricht oder dünnt die Beschriftung aus. Nicht an der Achse festlegen lässt sich die
   Drehung: Eine feste Drehung 0 im Diagramm lässt LibreOffice alle Beschriftungen übereinander zeichnen.
 
@@ -404,6 +421,34 @@ Was die Bibliothek von selbst tut: Schrift Work Sans 11 pt an den Achsen, Montse
 im Segment weiß, auf Schraffur und hellem Grau in Tinte; Nullwerte ohne Beschriftung; Minus als U+2212; Fuge 1,5 pt in der
 Grundfarbe zwischen gestapelten Segmenten; Eigenmittel als Schraffur. Beschriftungen, die nicht in ihr Segment passen, werden
 ausgeblendet und stehen in `ohneLabel: [{ reihe, i, wert }]`; wer den Wert braucht, setzt ihn als Form daneben.
+
+### Flussdiagramm `D.fluss` (Folien 15 und 16, Muster 33)
+
+PowerPoint kennt kein Flussdiagramm („Sankey“). `D.fluss` baut es aus nativen Formen: Knoten als schmale Rechtecke, Ströme als
+Freihandformen mit kubischen Kurven. Die Stärke eines Stroms ist sein Betrag ÷ `massstab` (Einheiten je Zoll Höhe); zwei Diagramme
+mit demselben Maßstab und denselben Lagen der Knoten lassen sich beim Blättern vergleichen.
+
+```js
+const d = D.fluss(s, { name: 'Flussdiagramm Finanzierung', massstab: 2500000, altText: 'Flussdiagramm: Gesamtkosten 7,0 Mio. €. …',
+  knoten:  [{ id: 'zuschuss', x: 3.40, y: 3.20, name: 'Zuschuss', art: 'referenz' }, { id: 'gesamt', x: 6.50, y: 3.34, name: 'Gesamtkosten', wert: gesamt }, …],
+  stroeme: [{ von: 'zuschuss', nach: 'gesamt', wert: zuschuss, art: 'referenz', name: 'Zuschuss' }, …] });
+B.text(s, 'Zuschuss', { x: …, y: d.knoten.zuschuss.mitte - 0.22, … });      // beschriftet wird an den Lagen der Rückgabe
+```
+
+| Feld | Bedeutung |
+|---|---|
+| `name`, `altText` | Objektname des Rahmens (auf der Folie eindeutig) und Alternativtext des Diagramms: jeder Strom mit seinem Betrag (Pflicht). Ein Rahmen ohne Füllung und Linie trägt ihn; Bänder und Knoten gelten als Schmuck |
+| `massstab` | Einheiten je Zoll Höhe (Pflicht). Auf den Folien 15 und 16 gemeinsam 160.000 € je Zoll (`folien/_fluss.cjs`) |
+| `knoten: [{ id, x, y, name, art, wert }]` | `x`, `y`: linke obere Ecke in Zoll. Die Höhe folgt aus den Strömen; `wert` ist eine Gegenprobe. An einem Knoten mit Zu- und Abflüssen müssen beide aufgehen, sonst bricht der Baustein ab |
+| `stroeme: [{ von, nach, wert, art, name }]` | Reihenfolge = Stapelfolge an beiden Knoten, von oben. Ein Strom läuft von links nach rechts. Ströme mit dem Betrag 0 werden nicht gezeichnet |
+| `arten` | Farbrollen (Vorgabe `FLUSSART`: `tinte`, `referenz`, `hell`, `blass`); eigene Rollen ergänzt man als `{ ...D.FLUSSART, name: { farbe, transparenz, kontur, linie, knoten } }` |
+| `knotenBreite` 0,12 · `fuge` 0,02 · `spannung` 0,5 | Breite der Knoten, Abstand zwischen Knoten und Band, Lage der Kurvenpunkte (0,5: in der Mitte) |
+| `linieBis` 1,5 · `mindestPt` 0,75 | Ströme unter `linieBis` Punkt Stärke stehen als Linie in ihrer wahren Stärke, mindestens `mindestPt` (455 € wären auf Folie 15 dünner als eine Haarlinie) |
+
+Rückgabe: `{ zoll(wert), knoten: { id: { x, y, w, h, wert, mitte, rechts, unten } }, stroeme: [{ …, x0, x1, y0, y1, h, alsLinie, pt }], rahmen }`.
+Das Diagramm trägt keinen Text: Bezeichnungen und Beträge setzt das Modul in Leserichtung mit `B.text` und `B.bezeichnungMitWert`
+(12 pt; jedes Textfeld braucht einen eigenen Namen, siehe Fallstrick 12). Geprüft ist das Bild in LibreOffice; Freihandformen und
+Transparenz vor dem ersten Vortrag in PowerPoint ansehen.
 
 ## 7 · Assets (`assets/`, nur lesen)
 
@@ -416,7 +461,10 @@ Rot) · `bg-*.png` (Hintergründe der Layouts). Keine Bilder von anderswo, kein 
 
 ## 8 · Vorlagen: die Folien selbst (`folien/`) und die Musterfolien (`probe/`)
 
-Die 28 Folienmodule sind die besten Beispiele. Zum Nachschlagen: Vergleich `neu-seit-juli` · Säulen mit Marken `hoechstmiete` ·
+Die 33 Folienmodule sind die besten Beispiele. Zum Nachschlagen: Diagramm mit Hauptzahl und zweiter Kennzahl `einstieg-baukosten`,
+`ausgangslage-zinsen`, `einstieg-bestand` · gestapelte Säulen mit senkrechter Maßkette, Zuleitungen und Tabelle `einstieg-kapitaldienst` ·
+Achse mit großen Achskreisen und Register der Programmteile `agenda` · Flussdiagramm `rechnung-fluss-gefoerdert`, `rechnung-fluss-frei` ·
+Säulenpaare mit Marke über einem Teil der Plotfläche `pgn-baukosten` · Vergleich `neu-seit-juli` · Säulen mit Marken `hoechstmiete` ·
 Fördermix `foerdermix` · Zeitstrahl `eckdaten-zeitstrahl` · Balken mit Segmenttext und Rechenblatt `rechnung-finanzierung` ·
 Rechenblatt `rechnung-jahr1` · Summen am Balken `rechnung-kapitaldienst` · Balkenpaar und Vergleichstabelle `rechnung-miete` ·
 Linien mit Marken und Werten `rechnung-tilgung`, `rechnung-verlauf` · Säulen über einer Tabelle `rechnung-kosten` · Ablauf
@@ -432,8 +480,8 @@ Musterfolien für Layouts und Bausteine, die der Vortrag nicht braucht oder ande
 | gestapelte Säulen auf Papier, Stempelzusatz | `04-diagramm-mr-stapel.cjs` |
 | Jahresrechnung: Rechenblatt 12 pt mit roter Ergebniszeile, Notiz, Kommentar | `05-tabelle-mr-rechenblatt.cjs` |
 | ein Balken mit Maßkette, Rechenblatt 14 pt, zwei Kennzahl-Kacheln | `06-inhalt-mr-finanzierung.cjs` |
-| Vergleich alt → neu im Wortlaut der Folie 3, mit Fußzeile · auf Papier | `07-vergleich.cjs` · `08-vergleich-mr.cjs` |
-| Kennzahlen im Layout · Folie 15 im Wortlaut mit Planlegende über zwölf Spalten | `09-kennzahlen.cjs` · `10-kennzahlen-mr.cjs` |
+| Vergleich alt → neu im Wortlaut der Folie 7, mit Fußzeile · auf Papier | `07-vergleich.cjs` · `08-vergleich-mr.cjs` |
+| Kennzahlen im Layout · Folie 22 im Wortlaut mit Planlegende über zwölf Spalten | `09-kennzahlen.cjs` · `10-kennzahlen-mr.cjs` |
 | Vorspann, Aufzählung, Achtung-Kasten, Verweis-Chip | `11-aussage.cjs` |
 | allgemeine Tabelle über zwölf Spalten | `12-tabelle.cjs` |
 | Ablauf mit acht Stationen und Warnband | `13-ablauf.cjs` |
@@ -448,10 +496,11 @@ Musterfolien für Layouts und Bausteine, die der Vortrag nicht braucht oder ande
 | gestapelte Balken in Grautönen mit Summen am Ende | `24-diagramm-mr-kapitaldienst.cjs` |
 | Säulen unter null, Tabelle passgenau unter den Säulen | `25-diagramm-mr-saeulen-tabelle.cjs` |
 | Achsleiste in einer Reihe, Kasten, Zitat frei, Hero auf Rot | `27-inhalt-weitere-bausteine.cjs` |
-| Balkenplan der Leistungsphasen im Wortlaut der Folie 17, Bild, Konturstempel | `28-inhalt-balkenplan.cjs` |
+| Balkenplan der Leistungsphasen im Wortlaut der Folie 24, Bild, Konturstempel | `28-inhalt-balkenplan.cjs` |
 | Prüfliste und Ring mit direkter Beschriftung (Folie A3) | `29-anhang-pruefliste.cjs` |
 | drei Spalten mit Kopf-Icon, eine als Signal, Aufzählungen 14 pt (Folie A4) | `30-anhang-gegenueberstellung.cjs` |
 | Achtung-Kasten und Zeitleiste mit sechs Stichtagen (Folie A2) | `31-anhang-zeitleiste.cjs` |
+| Flussdiagramm aus nativen Formen: drei Quellen, ein Knoten, zwei Ziele, eigene Farbrolle, Alternativtext | `33-inhalt-mr-flussdiagramm.cjs` |
 
 Bilder dazu: `dist/render/probe/folie-NN.png` und `uebersicht.png` (nach `node build.cjs --probe` und `werkzeug/render.cjs`).
 
@@ -475,7 +524,8 @@ Die Nachbearbeitung (`lib/nachbearbeitung.cjs`, Schritte im Kopf der Datei) rich
 schreibt: Form-IDs je Folie fortlaufend (Tabellen bekämen sonst die ID einer anderen Form); Platzhalter der Layouts mit
 Innenabstand, Anker, festen Nummern und lesbaren Layoutnamen; Diagramme nach Schema (`grouping` im Liniendiagramm, Reihenfolge von
 `marker`, `dPt`, `dLbls` und `tickLblSkip`, keine dritte Achsen-ID); eingebettete Arbeitsmappen mit 0 statt leerer Zelle und
-richtigem Tabellenbereich; Formen ohne Text und ohne Alternativtext als dekorativ; Tabellen mit Kennung der Kopfzeile oder
+richtigem Tabellenbereich; Alternativtexte an Formen (`B.altText`, `D.fluss`: genau eine Form je Name, sonst Abbruch); Formen ohne Text
+und ohne Alternativtext als dekorativ; Tabellen mit Kennung der Kopfzeile oder
 Kopfspalte (die Bausteine melden sie über `kx.tabelle`) und der Formatvorlage „keine“; Notizen mit einem Absatz je Zeile;
 `[Content_Types].xml` mit `image/jpeg` und ohne Einträge für fehlende Teile; festes Datum, Abschnitts-IDs aus dem Namen.
 Die Liste der Notizmaster in `ppt/presentation.xml` bleibt hinter der Folienliste, wie pptxgenjs sie schreibt: Notiz- und
@@ -510,3 +560,9 @@ verbotene Wörter, Gedankenstriche und jede Zahl gegen `daten/werte.json`, die D
 10. **Achskreise an Achsenden** ragen um ihren halben Durchmesser über die Achse (M 0,20, L 0,23). Zeitstrahl und Leisten
     entsprechend kürzer ansetzen; die Zonenprüfung meldet es sonst.
 11. **Schriften:** Die Mappe bettet keine Schriften ein. Für den Vortrag die Dateien aus `fonts/` installieren oder das PDF zeigen.
+12. **Namen kleiner Texte:** `pruefe_folien.py` zählt Formen, deren Name mit „Text“, „Untertitel“, „Kommentar“ oder „Planlegende“
+    beginnt, als Fließtext (Work Sans mindestens 14 pt). `B.text` ohne `name` heißt „Text (rolle)“. Jede 12-pt-Beschriftung braucht
+    deshalb einen eigenen Namen („Ziel Tilgung“, „Register 2.2 Name“, „Notiz zum Diagramm“).
+13. **Zahlen der neuen Folien binden:** Eine Zahl, die das Modul rechnet (Anteil, Veränderung, Kapitaldienst je m²), braucht ihre Formel
+    in `daten/pruefung.json` und, wenn sie eine Aussage trägt, einen Eintrag in `KERNWERTE`, `KERNWERTE_MARKT` oder `KERNSAETZE`
+    am Anfang von `pruefe_folien.py`; sonst belegt sie womöglich nur ein zufällig gleicher Wert aus `werte.json`.

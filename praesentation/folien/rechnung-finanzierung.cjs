@@ -1,4 +1,4 @@
-// Folie 8 · PGN_INHALT_MR: Finanzierung des Modellhauses nach Broschüre S. 10. Ein gestapelter Balken (Zuschuss, Darlehen, Eigenmittel)
+// Folie 12 · PGN_INHALT_MR: Finanzierung des Modellhauses nach Broschüre S. 10. Ein gestapelter Balken (Zuschuss, Darlehen, Eigenmittel)
 // mit Maßkette und 80-%-Achse, darunter der Rechenweg, rechts zwei Kennzahlen je Wohnung. Erste Folie der Modellrechnung: Stempel mit Zusatz.
 // Alle Zahlen aus werte.json (Lauf modellhaus); der Anteil „Geld oder lastenfreies Grundstück“ aus daten/rechnung.json.
 'use strict';
@@ -12,13 +12,13 @@ module.exports = {
 
     const wohnungen = M('eingabe.wohnungen'), kosten = M('fin.gesamtkosten.A'), foerderung = M('fin.foerderung.A'), eigen = M('fin.eigenmittel.A');
     const kostenQm = M('eingabe.herstellungskosten_qm'), grenze = M('fin.bemessungsgrenze_qm');
-    R.pruefe(kosten === M('fin.zuwendungsfaehige_kosten.A') && kostenQm < grenze, 'Das Modellhaus liegt nicht mehr unter der Bemessungsgrenze; Rechenweg und Notiz der Folie 8 stimmen dann nicht.');
+    R.pruefe(kosten === M('fin.zuwendungsfaehige_kosten.A') && kostenQm < grenze, 'Das Modellhaus liegt nicht mehr unter der Bemessungsgrenze; Rechenweg und Notiz der Folie 12 stimmen dann nicht.');
 
     // Deck unter dem Titel
     B.text(s, `${wohnungen} Neubauwohnungen nach Programmteil 2.1 · ${fmt.qm(M('eingabe.wohnflaeche'))} Wohnfläche · Gruppe A · Mietenstufe ${R.mietenstufeKlasse(M('eingabe.mietenstufe'))}`,
       { x: colX(1), y: Y.deck, w: span(12), h: Y.deckH, rolle: 'deck', valign: 'middle', einzeilig: true, name: 'Deck' });
 
-    // Balken über acht Spalten: Beschriftung als Text im Segment (Name, Betrag, Anteil), Maßkette und 80-%-Achse wie auf Folie 5
+    // Balken über acht Spalten: Beschriftung als Text im Segment (Name, Betrag, Anteil), Maßkette und 80-%-Achse wie auf Folie 9
     const y0 = Y.inhaltNachDeck, x0 = colX(1), w8 = span(8);
     B.modulkopf(s, { x: x0, y: y0, w: w8, titel: `Finanzierung ${fmt.mio(kosten)}, Höchstsätze` });
     const teile = [

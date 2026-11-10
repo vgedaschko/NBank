@@ -1,4 +1,4 @@
-// Muster PGN_KENNZAHLEN_MR im Wortlaut der Folie 15 des Konzepts: drei Kennzahlen (44 pt) auf Papier mit Stempel, darunter ab y 4,70
+// Muster PGN_KENNZAHLEN_MR im Wortlaut der Folie 22 des Konzepts: drei Kennzahlen (44 pt) auf Papier mit Stempel, darunter ab y 4,70
 // (ZONE.kennzahlen.darunter) eine Planlegende über zwölf Spalten: Modulkopf und drei Einträge im Raster 4 + 4 + 4.
 'use strict';
 module.exports = {

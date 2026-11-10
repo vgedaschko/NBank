@@ -852,7 +852,19 @@ def main(argv):
     paare = list(zip(F, K))
 
     # ---- Aufbau --------------------------------------------------------------------------------------------------------
-    ber.pruefung("Folienzahl", [] if len(F) == FOLIENZAHL == len(K) else [f"Mappe {len(F)} Folien, Konzept {len(K)}, verlangt {FOLIENZAHL}"], f"{len(F)} Folien")
+    m = [] if len(F) == FOLIENZAHL == len(K) else [f"Mappe {len(F)} Folien, Konzept {len(K)}, verlangt {FOLIENZAHL}"]
+    anhang = [k for k in K if k["abschnitt"] == "Anhang"]
+    if (len(K) - len(anhang), len(anhang)) != (HAUPTTEIL, ANHANG):
+        m.append(f"Konzept: {len(K) - len(anhang)} Folien im Hauptteil und {len(anhang)} im Anhang, verlangt {HAUPTTEIL} und {ANHANG}")
+    ber.pruefung("Folienzahl", m, f"{len(F)} Folien: {HAUPTTEIL} im Hauptteil, {ANHANG} im Anhang")
+    # Kennung, Blattnummer und Abschnitt jeder Folie des Konzepts wie festgelegt (AUFBAU); die Mappe folgt dem Konzept (nächste Prüfungen)
+    m = []
+    ist = [(str(k["nr"]), k["id"], k["abschnitt"]) for k in K]
+    for i in range(max(len(ist), len(AUFBAU))):
+        a, b = (ist[i] if i < len(ist) else None), (AUFBAU[i] if i < len(AUFBAU) else None)
+        if a != b:
+            m.append(f"Stelle {i + 1}: Konzept {a or 'fehlt'}, festgelegt {b or 'keine Folie'}")
+    ber.pruefung("Aufbau des Konzepts: Kennung, Blattnummer und Abschnitt je Folie wie festgelegt", m, " · ".join(dict.fromkeys(a for _, _, a in AUFBAU)))
     ber.pruefung("Format 16:9", [] if M["format"] == (12192000, 6858000) else [f"Foliengröße {M['format']} EMU statt 12192000 × 6858000 (13,333 × 7,5 Zoll)"], "13,333 × 7,5 Zoll")
 
     m = []
@@ -891,7 +903,7 @@ def main(argv):
             m.append(f"Folie {nr(i)}: trägt eine Blattnummer, Titel und Schluss stehen ohne")
         if not ohne and blatt != [str(k["nr"])]:
             m.append(f"Folie {nr(i)}: Blattnummer {blatt} statt „{k['nr']}“")
-    ber.pruefung("Blattnummern nach Konzept", m, "1 bis 18, A0 bis A9; Titel und Schluss ohne")
+    ber.pruefung("Blattnummern nach Konzept", m, f"{K[1]['nr']} bis {K[HAUPTTEIL - 2]['nr']}, {K[HAUPTTEIL]['nr']} bis {K[-1]['nr']}; Titel und Schluss ohne" if len(K) == FOLIENZAHL else "")
 
     m = []
     for i, (f, k) in enumerate(paare):
@@ -987,7 +999,7 @@ def main(argv):
     ber.pruefung(f"Schriftgröße E3: Achsen und Beschriftungen der Diagramme mindestens {MIN_BESCHRIFTUNG} pt", m, f"{sum(len(f['diagramme']) for f in F)} Diagramme")
 
     m = []
-    bilder = 0
+    bilder = flussformen = 0
     for i, f in enumerate(F):
         for name, descr, flaeche in f["bilder"]:
             bilder += 1
@@ -996,12 +1008,20 @@ def main(argv):
         for d in f["diagramme"]:
             if not d["descr"].strip():
                 m.append(f"Folie {nr(i)}, Diagramm „{d['name']}“: ohne Alternativtext")
+        # Flussdiagramme sind aus Formen gebaut: Ein Rahmen „Flussdiagramm …“ trägt den Alternativtext mit den Beträgen der Ströme
+        rahmen = [fo for fo in f["formen"] if fo["name"].startswith("Flussdiagramm")]
+        flussformen += len(rahmen)
+        for fo in rahmen:
+            if not (fo.get("descr") or "").strip() or not re.search(r"\d", fo["descr"]):
+                m.append(f"Folie {nr(i)}, „{fo['name']}“: ohne Alternativtext mit den Beträgen der Ströme")
+        if i < len(K) and K[i]["id"].startswith("rechnung-fluss") and len(rahmen) != 1:
+            m.append(f"Folie {nr(i)}: {len(rahmen)} Formen „Flussdiagramm …“ mit Alternativtext, erwartet wird eine")
     for lay in M["layouts"].values():
         for name, descr in lay["bilder"]:
             bilder += 1
             if not descr or "/" in descr:
                 m.append(f"Layout {lay['name']}, Bild „{name}“: Alternativtext fehlt oder ist ein Dateiname")
-    ber.pruefung("Bilder und Diagramme mit Alternativtext", m, f"{bilder} Bilder (Folien und Layouts), {sum(len(f['diagramme']) for f in F)} Diagramme")
+    ber.pruefung("Bilder, Diagramme und Flussdiagramme mit Alternativtext", m, f"{bilder} Bilder (Folien und Layouts), {sum(len(f['diagramme']) for f in F)} Diagramme, {flussformen} Flussdiagramme aus Formen")
 
     m = [f"Folie {nr(i)}, Bild „{name}“ bedeckt {100 * fl / M['flaeche']:.0f} % der Folie" for i, f in enumerate(F) for name, _, fl in f["bilder"] if fl > 0.5 * M["flaeche"]]
     ber.pruefung("Keine Folie als Bild; Diagramme und Tabellen nativ (E1)", m, f"{sum(len(f['diagramme']) for f in F)} Diagramme, {sum(f['tabellen'] for f in F)} Tabellen")
@@ -1046,6 +1066,9 @@ def main(argv):
             m.append(f"Folie {nr(i)}: Zusatz zum Stempel {'fehlt' if not zusatz else 'steht außerhalb der ersten Folie der Modellrechnung'}")
         if mr != soll:
             m.append(f"Folie {nr(i)}: Layout {f['layout']['name']}")
+        if soll != (k["id"] in STEMPEL):
+            m.append(f"Folie {nr(i)} ({k['id']}): {'trägt den Stempel und gehört nicht zu den Folien der Modellrechnung' if soll else 'gehört zu den Folien der Modellrechnung und trägt keinen Stempel'} (STEMPEL)")
+    m += [f"Folie „{fid}“ (STEMPEL) fehlt im Konzept" for fid in STEMPEL if fid not in {k["id"] for k in K}]
     ber.pruefung("Stempel „Modellrechnung“ auf den Folien der Rechnung, Vollfassung nur auf der ersten (E7)", m,
                  "Folien " + ", ".join(str(k["nr"]) for k in K if k["layout"].endswith("_MR")))
 
@@ -1137,26 +1160,44 @@ def main(argv):
 
     m = []
 
-    def kernwert(schluessel):
-        lauf, _, k = schluessel.rpartition(":")
-        return B.werte["laeufe"][lauf or "modellhaus"]["werte"][k]["wert"]
+    def kernwert(quelle):
+        """Wert zu einem Schlüssel der Rechenmappe („schluessel“ im Lauf modellhaus oder „lauf:schluessel“) oder zu einer Formel in der
+        Schreibweise von daten/pruefung.json (Verweise lauf:schluessel und datei#pfad, Grundrechenarten, Klammern, runde)."""
+        if re.fullmatch(r"(?:[a-z0-9_]+:)?[A-Za-z0-9_.]+", quelle):
+            lauf, _, k = quelle.rpartition(":")
+            return B.werte["laeufe"][lauf or "modellhaus"]["werte"][k]["wert"]
+        return B.rechne(quelle)
+    plus = lambda v, text: ("+" if v > 0 else "") + text
     fmt = {"euro": lambda v: zahl_de(v) + " €", "euro2": lambda v: zahl_de(v, 2) + " €", "dez2": lambda v: zahl_de(v, 2), "zahl": lambda v: zahl_de(v),
            "mio": lambda v: zahl_de(v / 1e6, 1) + " Mio. €", "prozent0": lambda v: zahl_de(v * 100, 0) + " %", "prozent1": lambda v: zahl_de(v * 100, 1) + " %",
-           "prozent2": lambda v: zahl_de(v * 100, 2) + " %"}
+           "prozent2": lambda v: zahl_de(v * 100, 2) + " %",
+           # Wert steht schon in Prozent · mit Vorzeichen: Plus vor positiven Werten, Minus U+2212 vor negativen
+           "prozentwert2": lambda v: zahl_de(v, 2) + " %", "prozent1vz": lambda v: plus(v, zahl_de(v * 100, 1) + " %"), "euro2vz": lambda v: plus(v, zahl_de(v, 2) + " €")}
     je_id = {k["id"]: (i, f) for i, (f, k) in enumerate(paare)}
-    for schluessel, art, erwartet, ids in KERNWERTE:
-        ist = fmt[art](kernwert(schluessel))
-        if ist != erwartet:
-            m.append(f"{schluessel}: Die Rechenmappe liefert „{ist}“, als Kernwert festgelegt ist „{erwartet}“")
-        for fid in ids:
-            if fid not in je_id:
-                m.append(f"Folie „{fid}“ fehlt")
+
+    def pruefe_kernwerte(liste, woher):
+        bef = []
+        for quelle, art, erwartet, ids in liste:
+            try:
+                ist = fmt[art](kernwert(quelle))
+            except Exception as ex:  # noqa: BLE001
+                bef.append(f"{quelle}: lässt sich nicht lesen oder rechnen ({ex})")
                 continue
-            i, f = je_id[fid]
-            alles = " | ".join(glatt(" ".join(a["text"] for a in fo["absaetze"])) for fo in f["formen"])
-            if not re.search(r"(?<![\d.,−])" + re.escape(ist) + r"(?![\d])", alles, re.I):   # Titel stehen in Versalien („MIO.“)
-                m.append(f"Folie {nr(i)} ({fid}): Kernwert „{ist}“ steht nicht auf der Folie")
-    ber.pruefung("Kernwerte des Modellhauses an ihren Folien, mit Einheit und Vorzeichen", m, " · ".join(dict.fromkeys(e for _, _, e, _ in KERNWERTE)))
+            if ist != erwartet:
+                bef.append(f"{quelle}: {woher} „{ist}“, als Kernwert festgelegt ist „{erwartet}“")
+            for fid in ids:
+                if fid not in je_id:
+                    bef.append(f"Folie „{fid}“ fehlt")
+                    continue
+                i, f = je_id[fid]
+                alles = " | ".join(glatt(" ".join(a["text"] for a in fo["absaetze"])) for fo in f["formen"])
+                if not re.search(r"(?<![\d.,+−])" + re.escape(ist) + r"(?![\d])", alles, re.I):   # Titel stehen in Versalien („MIO.“)
+                    bef.append(f"Folie {nr(i)} ({fid}): Kernwert „{ist}“ steht nicht auf der Folie")
+        return bef
+    ber.pruefung("Kernwerte des Modellhauses an ihren Folien, mit Einheit und Vorzeichen", pruefe_kernwerte(KERNWERTE, "Die Rechenmappe liefert"),
+                 " · ".join(dict.fromkeys(e for _, _, e, _ in KERNWERTE)))
+    ber.pruefung("Kernwerte der Ausgangslage und des Kostenvergleichs an ihren Folien, mit Einheit und Vorzeichen", pruefe_kernwerte(KERNWERTE_MARKT, "Die Datendateien liefern"),
+                 " · ".join(dict.fromkeys(e for _, _, e, _ in KERNWERTE_MARKT)))
 
     m = []
     for fid, satz, felder in KERNSAETZE:
@@ -1169,7 +1210,7 @@ def main(argv):
         texte = [glatt(" ".join(a["text"] for a in fo["absaetze"])).upper() for fo in f["formen"]]
         if not any(muster.search(t) for t in texte):
             m.append(f"Folie {nr(i)} ({fid}): Der Satz „{soll}“ steht nicht auf der Folie ({', '.join(k for k, _ in felder.values())})")
-    ber.pruefung("Kernsätze: Regelwerte in ihrem Satz", m, f"{len(KERNSAETZE)} Sätze auf {len({fid for fid, _, _ in KERNSAETZE})} Folien")
+    ber.pruefung("Kernsätze: Werte in ihrem Satz", m, f"{len(KERNSAETZE)} Sätze auf {len({fid for fid, _, _ in KERNSAETZE})} Folien")
 
     m = []
     for schluessel, fid, reihe, kategorie in KERNWERTE_DIAGRAMM:
@@ -1183,6 +1224,21 @@ def main(argv):
         if len(treffer) != 1 or not math.isclose(treffer[0], soll, rel_tol=1e-9, abs_tol=1e-9):
             m.append(f"Folie {nr(i)} ({fid}): Reihe „{reihe}“, Kategorie „{kategorie}“ führt {treffer or 'keinen Wert'}; {schluessel} ist {soll:g}")
     ber.pruefung("Kernwerte in den Diagrammdaten, mit Vorzeichen", m, f"{len(KERNWERTE_DIAGRAMM)} Werte")
+
+    # ---- Verweise ------------------------------------------------------------------------------------------------------------
+    m = []
+    nr_von = {k["id"]: str(k["nr"]) for k in K}
+    for fid, ort, text, felder in VERWEISE:
+        fehlend = [z for z in [fid, *felder.values()] if z not in nr_von]
+        if fehlend or fid not in je_id:
+            m.append(f"Verweis auf „{text[:50]}…“: Folie {', '.join(fehlend) or fid} fehlt")
+            continue
+        i, f = je_id[fid]
+        soll = glatt(text.format(**{n: nr_von[z] for n, z in felder.items()}))
+        wo = glatt(f["notizen"] or "") if ort == "notizen" else " | ".join(glatt(" ".join(a["text"] for a in fo["absaetze"])) for fo in f["formen"])
+        if soll not in wo:
+            m.append(f"Folie {nr(i)} ({fid}), {'Notizen' if ort == 'notizen' else 'Folientext'}: „{soll}“ steht dort nicht ({', '.join(f'{z} ist Blatt {nr_von[z]}' for z in felder.values())})")
+    ber.pruefung("Verweise nennen die Blattnummer der gemeinten Folie", m, f"{len(VERWEISE)} Verweise auf {len({fid for fid, _, _, _ in VERWEISE})} Folien")
 
     ber.drucke()
     frei = {k: v for k, v in stat.items() if k.startswith("frei: ")}

@@ -1,4 +1,4 @@
-// Muster PGN_INHALT im Wortlaut der Folie 17 des Konzepts: Deck, Balkenplan der Leistungsphasen (B.balkenplan) über acht Spalten mit
+// Muster PGN_INHALT im Wortlaut der Folie 24 des Konzepts: Deck, Balkenplan der Leistungsphasen (B.balkenplan) über acht Spalten mit
 // Bewilligungsmarke in Dunkelrot; rechts Bild mit Bildecke, Bildzeile, Konturstempel und ein Eintrag der Planlegende (Höhe folgt dem Text).
 'use strict';
 module.exports = {

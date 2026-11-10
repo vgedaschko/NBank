@@ -39,9 +39,10 @@ module.exports = {
     // ---- Diagramm über acht Spalten ------------------------------------------------------------------------------------------
     const staende = [K('baukosten.reihen')[0], 'Heute'], x0 = colX(1), w8 = span(8);
     B.diagrammkopf(s, { titel: wl('Kapitaldienst je m² und Monat, frei finanziert', 'Diagrammtitel'), sub: wl(`in € · ARGE-Median deutscher Großstädte · Annuität über ${n} Jahre · Anteile am Anstieg in %`, 'Untertitel') });
-    // Freie Lage bis zum Ende der Inhaltszone; die Plotfläche ist 3,30 Zoll breit, rechts davon stehen die Ursachen des Anstiegs und die Notiz
+    // Freie Lage bis zum Ende der Inhaltszone (die Grundlinie der Säulen liegt wie auf den Folien 3 und 5 bei y 6,04); die Plotfläche ist 3,30 Zoll
+    // breit, rechts davon stehen die Ursachen des Anstiegs und die Notiz
     const PLOT_W = 3.30, ACHSE = { min: 0, max: 24, schritt: 4, format: 'roh' }, yD = 2.76, hD = ctx.Y.inhaltEnde - yD;
-    const d = D.stapelSaeulen(s, { x: x0, y: yD, w: w8, h: hD, kategorien: staende, labels: false, rand: { r: w8 - 0.62 - PLOT_W, o: 0.22, u: 0.42 }, achse: ACHSE, name: 'Diagramm Kapitaldienst je m² und Monat',
+    const d = D.stapelSaeulen(s, { x: x0, y: yD, w: w8, h: hD, kategorien: staende, labels: false, rand: { r: w8 - 0.62 - PLOT_W, o: 0.22, u: 0.46 }, achse: ACHSE, name: 'Diagramm Kapitaldienst je m² und Monat',
       altText: `Gestapeltes Säulendiagramm: Kapitaldienst je m² Wohnfläche und Monat, ${staende[0]} ${fmt.euroDez(kd[0])}, heute ${fmt.euroDez(kd[1])}; ` +
         `vom Anstieg entfallen ${teile.map(t => `${fmt.euroDez(t.wert)} auf ${t.name}`).join(', ')}`,
       reihen: [{ name: wl(`Stand ${staende[0]}`, 'Reihe'), art: 'bisher', werte: [kd[0], kd[0]] }, ...teile.map(t => ({ name: t.name, art: t.art, werte: [0, t.wert] }))] });

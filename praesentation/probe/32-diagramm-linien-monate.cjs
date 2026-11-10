@@ -1,4 +1,4 @@
-// Muster PGN_DIAGRAMM für eine lange Reihe (Form der Folie 2 des Konzepts, hier mit Kunstwerten): 127 Monatswerte, Beschriftung nur der Jahre.
+// Muster PGN_DIAGRAMM für eine lange Reihe (Form der Folie 3 des Konzepts, hier mit Kunstwerten): 127 Monatswerte, Beschriftung nur der Jahre.
 // Bei mehr als 40 Kategorien trägt katLabels.nur nicht; die Kategorien heißen deshalb so, dass jede zwölfte die Beschriftung trägt
 // (Januar = „2016“), und die Achse zeigt mit katLabels: { jede: 12 } genau diese. Endwerte an den Linienenden, senkrechte Marken mit Text.
 'use strict';

@@ -1,4 +1,4 @@
-// Hilfsfunktionen der Baugruppe „umsetzung“ (Folien 16, 17, A3, A4). Kein Folienmodul: build.cjs lädt nur folien/<id>.cjs der Folien des Konzepts.
+// Hilfsfunktionen der Baugruppe „umsetzung“ (Folien 23, 24, A3, A4). Kein Folienmodul: build.cjs lädt nur folien/<id>.cjs der Folien des Konzepts.
 //   felder   Zahlen, die in den Texten von daten/umsetzung.json als Platzhalter stehen ({name} Ziffern, {name:wort} Zahlwort)
 //   lies     Zugriff auf daten/umsetzung.json mit gefüllten Platzhaltern
 // Allgemeine Helfer stehen in lib/: ctx.wortlaut (Gegenprobe gegen das Konzept), ctx.lies, B.ringWerte, B.modulkopf mit icon und altText.

@@ -1,5 +1,5 @@
-// Folie 11 · PGN_INHALT_MR im Raster 6 + 6 (die Bezeichnungen der Tabelle „Kapitaldienst p. a.“ und „Nötige Miete je m²“ stehen so einzeilig): nötige Miete in Jahr 1 als Balkenpaar (gefördert in Tinte, frei finanziert in Referenzgrau,
-// Reihenfolge und Farben wie Folie 10), Werte als Kernwerte am Balkenende, Maßlinie bei der Höchstmiete der Gruppe A.
+// Folie 17 · PGN_INHALT_MR im Raster 6 + 6 (die Bezeichnungen der Tabelle „Kapitaldienst p. a.“ und „Nötige Miete je m²“ stehen so einzeilig): nötige Miete in Jahr 1 als Balkenpaar (gefördert in Tinte, frei finanziert in Referenzgrau,
+// Reihenfolge und Farben wie Folie 14), Werte als Kernwerte am Balkenende, Maßlinie bei der Höchstmiete der Gruppe A.
 // Rechts die Vergleichstabelle der Broschüre S. 11 mit den Annahmen der freien Finanzierung als Untertitel. Kein Rot im Diagramm. Alle Zahlen aus werte.json (Lauf modellhaus).
 'use strict';
 

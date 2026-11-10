@@ -1,4 +1,4 @@
-// Folie 3 · PGN_VERGLEICH: Förderregeln bis 30.06.2026 und seit 01.07.2026 im Vergleich (Broschüre S. 4).
+// Folie 7 · PGN_VERGLEICH: Förderregeln bis 30.06.2026 und seit 01.07.2026 im Vergleich (Broschüre S. 4).
 // Links die Werte des alten Rechts aus daten/regeln.json, rechts die Werte der Richtlinie 2026 aus werte.json (tab.*).
 'use strict';
 module.exports = {

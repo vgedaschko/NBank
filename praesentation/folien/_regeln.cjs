@@ -1,4 +1,4 @@
-// Hilfsfunktion der Baugruppe „regeln“ (Folie A6). Kein Folienmodul: Der Build lädt nur folien/<id>.cjs zu den IDs des Konzepts.
+// Hilfsfunktion der Baugruppe „regeln“ (Folien 7 bis 10, A5, A6; die Funktion braucht nur A6). Kein Folienmodul: Der Build lädt nur folien/<id>.cjs zu den IDs des Konzepts.
 // Allgemeine Helfer stehen in lib/: ctx.fuelle (Platzhalter), B.kennzahl mit teile, B.markeMitLuecken, Säulenlagen in der Rückgabe von D.*.
 'use strict';
 

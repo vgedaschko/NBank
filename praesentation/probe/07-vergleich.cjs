@@ -1,4 +1,4 @@
-// Muster PGN_VERGLEICH im Wortlaut der Folie 3 des Konzepts: alt → neu in den Platzhaltern des Layouts (links grau, rechts auf Papierfläche),
+// Muster PGN_VERGLEICH im Wortlaut der Folie 7 des Konzepts: alt → neu in den Platzhaltern des Layouts (links grau, rechts auf Papierfläche),
 // je Seite drei Absätze in 14 pt mit halbfetter Zeilenbezeichnung („**…**“); darunter die Fußzeile über beide Seiten (Platzhalter „fuss“).
 'use strict';
 module.exports = {

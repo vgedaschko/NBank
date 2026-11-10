@@ -125,9 +125,10 @@ Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten 
 - **Beschriftungen an den Diagrammen** (Summen, Endwerte, Maßketten, Werte über den Säulen der Folien 2 und 5, die Jahre unter dem
   Verlauf der Folie 19) sind Textfelder und folgen geänderten Diagrammdaten nicht; Zahlen deshalb in den Datendateien ändern und
   neu bauen. Die Flussdiagramme der Folien 15 und 16 sind ganz aus Formen gebaut: Bänder und Beschriftung entstehen nur beim Bau.
-- **Folien einfügen, streichen oder verschieben:** Reihenfolge, Blattnummern (`nr`) und Abschnitte in `daten/outline.json`; Agenda
-  und Trenner zählen die Abschnitte von selbst. Danach die Verweise in Notizen und Datendateien nachführen (der Bau prüft die
-  Quellentabelle, `pruefe_folien.py` die Listen `AUFBAU`, `STEMPEL` und `VERWEISE`).
+- **Folien einfügen, streichen oder verschieben:** Reihenfolge, Blattnummern (`nr`) und Abschnitte in `daten/outline.json`. Der
+  Trenner zählt die Abschnitte von selbst; die Agenda führt ihre vier Abschnitte in `daten/rahmen.json`, der Bau prüft sie gegen
+  das Konzept. Danach die Verweise in Notizen und Datendateien nachführen (der Bau prüft die Quellentabelle, `pruefe_folien.py`
+  die Listen `AUFBAU`, `STEMPEL` und `VERWEISE`).
 - **Speichern:** Die Mappe nur mit PowerPoint speichern. LibreOffice dient allein dem Rendern und entfernt beim Speichern
   Abschnitte, Diagrammdaten und Alternativtexte.
 - **Ort und Datum des Vortrags:** Eingabefeld auf der Titelfolie, in PowerPoint ausfüllen.

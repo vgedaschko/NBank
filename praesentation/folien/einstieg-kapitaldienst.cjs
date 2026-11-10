@@ -11,7 +11,7 @@
 module.exports = {
   id: 'einstieg-kapitaldienst',
   bau(ctx) {
-    const { B, D, W, X, fmt, colX, span, ZONE, P } = ctx, s = ctx.folie(), M = k => W('modellhaus', k), K = p => X('markt', p), wl = (t, was) => ctx.wortlaut(t, was);
+    const { B, D, W, X, fmt, colX, span, P } = ctx, s = ctx.folie(), M = k => W('modellhaus', k), K = p => X('markt', p), wl = (t, was) => ctx.wortlaut(t, was);
 
     // ---- Rechnung ---------------------------------------------------------------------------------------------------------------
     const n = M('eingabe.laufzeit_bank'), iHeute = M('eingabe.zins_bank'), zins2020 = K('kapitaldienst.zins_q1_2020'), fk = K('kapitaldienst.fremdkapital');

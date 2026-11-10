@@ -624,7 +624,7 @@ Grundsatz ist Gruppe A; B und C muss die NBank in der Förderentscheidung zulass
 
 #### Über die Laufzeit
 
-Der Zuschuss ist nicht rückzahlbar; das Darlehen ist bis Ende Jahr 35 zinsfrei und nach höchstens 42 Jahren getilgt. A trägt 1,4 Mio. € weniger Schulden als B und 2,1 Mio. € weniger als C. Den Tilgungssatz legt die NBank fest, die Richtlinie nennt keinen (→ S. 9).
+Der Zuschuss ist nicht rückzahlbar; das Darlehen ist bis Ende Jahr 35 zinsfrei und nach höchstens 42 Jahren getilgt. A trägt 1,4 Mio. € weniger Schulden als B und 2,1 Mio. € weniger als C. Den Tilgungssatz legt die NBank fest; linear über 42 Jahre sind es rechnerisch mindestens 2,38 % im Jahr (→ S. 9).
 
 ---
 

@@ -51,7 +51,8 @@ module.exports = {
     B.planlegende(s, { platzhalter: 'kommentar', eintraege: [
       { text: `Unter ${fmt.prozent(schwelle, 2)} Tilgung bringt C den höchsten Zahlungsüberschuss, darüber A.` },
       { text: 'B liegt in dieser Rechnung nie vorn.' },
-      { text: 'Den Tilgungssatz legt die NBank fest, die Richtlinie nennt keinen.' },
+      // Untergrenze bei linearer Tilgung: 1 ÷ Höchstlaufzeit (RL Nr. 5.3.5); mit diesem Satz rechnet die Jahresrechnung
+      { text: `Den Tilgungssatz legt die NBank fest. Linear über ${M('tab.laufzeit_hoechstens')} Jahre sind es rechnerisch mindestens ${fmt.prozent(1 / M('tab.laufzeit_hoechstens'), 2)}.` },
       // Bedingung, die beim Vergleich von A, B und C nicht fehlen darf (Broschüre S. 12, Redaktionsregeln §3)
       { text: 'B und C setzen eine Zulassung in der Förderentscheidung voraus.' }].map(e => ({ text: ctx.wortlaut(e.text, 'Kommentar') })) });
   },

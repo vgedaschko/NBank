@@ -7,11 +7,14 @@ Aufruf im Ordner praesentation:
     python pruefe_folien.py --zahlen             listet zusätzlich jede Zahl mit ihrem Beleg
 
 Was geprüft wird (eine Zeile je Prüfung, am Ende die Summe; Rückgabewert 1 bei Fehlern):
-  Aufbau     28 Folien in der Reihenfolge des Konzepts, Titel-Platzhalter, Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs
-  Form       nur Montserrat und Work Sans, Mindestgrößen (E3), Alternativtexte, keine Folie als Bild, keine Animationen
-  Wortlaut   verbotene Wörter (E5), kein Gedankenstrich als Einschub (E6), Stempel der Modellrechnung (E7)
+  Aufbau     33 Folien (25 im Hauptteil, 8 im Anhang) mit Kennung, Blattnummer und Abschnitt wie festgelegt (AUFBAU), in der Reihenfolge des
+             Konzepts; Titel-Platzhalter, Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs
+  Form       nur Montserrat und Work Sans, Mindestgrößen (E3), Alternativtexte (Bilder, Diagramme, Flussdiagramme), keine Folie als Bild,
+             keine Animationen
+  Wortlaut   verbotene Wörter (E5), kein Gedankenstrich als Einschub (E6), Stempel der Modellrechnung auf genau den festgelegten Folien (E7)
   Zahlen     jede Zahl in Folientexten, Tabellen, Diagrammdaten und Notizen hat einen Beleg; die Diagrammdaten stehen gleich im Zwischenspeicher
              und in der eingebetteten Arbeitsmappe; Kernwerte und Kernsätze stehen an ihren Folien, mit Einheit und Vorzeichen
+  Verweise   „Folie n“ und „Anhang A n“ in Folientexten und Notizen nennen die Blattnummer der gemeinten Folie (VERWEISE)
 
 Beleg einer Zahl, in dieser Reihenfolge:
   1 daten/werte.json (Rechenmappe), gerundet auf die Nachkommastellen, mit denen die Zahl auf der Folie steht;
@@ -47,7 +50,27 @@ R = "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}"
 REL = "{http://schemas.openxmlformats.org/package/2006/relationships}"
 
 NBSP, MINUS = " ", "−"
-FOLIENZAHL = 28
+# ---- Aufbau der Mappe nach der Festlegung zum Umbau: Blattnummer, Kennung der Folie, Abschnitt; in dieser Reihenfolge ---------------------
+# Titel und Schluss tragen keine Blattnummer auf der Folie, zählen aber mit (1 und 25). Der Anhang heißt A0 bis A7.
+AUFBAU = [
+    ("1", "titel", "Ausgangslage"), ("2", "einstieg-baukosten", "Ausgangslage"), ("3", "ausgangslage-zinsen", "Ausgangslage"),
+    ("4", "einstieg-kapitaldienst", "Ausgangslage"), ("5", "einstieg-bestand", "Ausgangslage"), ("6", "agenda", "Ausgangslage"),
+    ("7", "neu-seit-juli", "Programmteil 2.1"), ("8", "hoechstmiete", "Programmteil 2.1"), ("9", "foerdermix", "Programmteil 2.1"),
+    ("10", "eckdaten-zeitstrahl", "Programmteil 2.1"),
+    ("11", "trenner-rechnung", "Ihre Rechnung"), ("12", "rechnung-finanzierung", "Ihre Rechnung"), ("13", "rechnung-jahr1", "Ihre Rechnung"),
+    ("14", "rechnung-kapitaldienst", "Ihre Rechnung"), ("15", "rechnung-fluss-gefoerdert", "Ihre Rechnung"), ("16", "rechnung-fluss-frei", "Ihre Rechnung"),
+    ("17", "rechnung-miete", "Ihre Rechnung"), ("18", "rechnung-tilgung", "Ihre Rechnung"), ("19", "rechnung-verlauf", "Ihre Rechnung"),
+    ("20", "pgn-baukosten", "Ihre Rechnung"), ("21", "rechnung-kosten", "Ihre Rechnung"), ("22", "fazit", "Ihre Rechnung"),
+    ("23", "antragsweg", "Umsetzung"), ("24", "pgn-leistungen", "Umsetzung"), ("25", "kontakt", "Umsetzung"),
+    ("A0", "anhang-trenner", "Anhang"), ("A1", "anhang-programmteile", "Anhang"), ("A2", "anhang-frist", "Anhang"), ("A3", "anhang-voraussetzungen", "Anhang"),
+    ("A4", "anhang-vertraege", "Anhang"), ("A5", "anhang-mieterkreis", "Anhang"), ("A6", "anhang-eckdaten", "Anhang"), ("A7", "quellen", "Anhang"),
+]
+FOLIENZAHL = len(AUFBAU)          # 33: 25 im Hauptteil, 8 im Anhang
+HAUPTTEIL, ANHANG = 25, 8
+# Folien der Modellrechnung: nur sie tragen den Stempel (Layouts mit „_MR“). Kein Stempel im Einstieg (Folien 2 bis 5: Medianwerte je m²)
+# und auf pgn-baukosten (Kostenkennwerte, kein Modellhaus).
+STEMPEL = ["rechnung-finanzierung", "rechnung-jahr1", "rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-fluss-frei", "rechnung-miete",
+           "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten", "fazit"]
 SCHRIFTEN = ("Montserrat", "Work Sans")
 FIRMA = "Planungsgemeinschaft Nord GmbH"
 TITEL_DER_MAPPE = "Mietwohnraumförderung Niedersachsen 2026 – Vortrag"
@@ -83,25 +106,87 @@ RENDITE_ERLAUBT = [re.compile(r"keine Rendite"), re.compile(r"Eine Eigenkapitalr
 # einer Zelle heißt „kein Wert“. Ausgenommen sind die beiden wörtlichen Claims der PGN (Redaktionsregeln §9.2).
 CLAIMS = [re.compile(r"Aus Ihrer guten Idee – machen wir den besten Plan", re.I), re.compile(r"Ihre PGN – ")]
 
-# ---- Kernwerte: Schlüssel in werte.json (Lauf modellhaus, sonst „lauf:schluessel“), Schreibweise, erwarteter Text, Folien ---------
-# Der Wert steht mit Einheit und Vorzeichen (Minus U+2212) an seiner Folie, in einem Folientext oder einer Tabellenzelle.
+# ---- Kernwerte: Quelle, Schreibweise, erwarteter Text, Folien ------------------------------------------------------------------------------
+# Quelle ist ein Schlüssel in werte.json (Lauf modellhaus, sonst „lauf:schluessel“) oder eine Formel in der Schreibweise von daten/pruefung.json
+# (Verweise lauf:schluessel und datei#pfad, + − × ÷, Klammern, runde(x, n)); so sind auch Auszahlungen mit gedrehtem Vorzeichen und Werte der
+# Datendateien an ihre Folie gebunden. Der Wert steht mit Einheit und Vorzeichen (Minus U+2212, Plus bei den Schreibweisen mit „vz“) an
+# seiner Folie, in einem Folientext oder einer Tabellenzelle.
+SOLLMIETE_FREI = "modellhaus:dscr.noetige_miete.Frei * modellhaus:eingabe.wohnflaeche * 12"   # nötige Sollmiete frei finanziert, € p. a.
 KERNWERTE = [
-    ("dscr.kapitaldienst_jahr1.A", "euro", "84.000 €", ["rechnung-kapitaldienst", "rechnung-miete", "fazit"]),
-    ("dscr.kapitaldienst_jahr1.Frei", "euro", "313.703 €", ["rechnung-kapitaldienst", "rechnung-miete", "fazit"]),
+    ("dscr.kapitaldienst_jahr1.A", "euro", "84.000 €", ["rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
+    ("dscr.kapitaldienst_jahr1.Frei", "euro", "313.703 €", ["rechnung-kapitaldienst", "rechnung-fluss-frei", "rechnung-miete", "fazit"]),
     ("dscr.noetige_miete.A", "euro2", "6,77 €", ["rechnung-miete", "rechnung-kosten", "fazit"]),
-    ("dscr.noetige_miete.Frei", "euro2", "20,72 €", ["rechnung-miete", "fazit"]),
-    ("jr1.zahlungsueberschuss.A", "euro", "455 €", ["rechnung-jahr1"]),
+    ("dscr.noetige_miete.Frei", "euro2", "20,72 €", ["rechnung-fluss-frei", "rechnung-miete", "fazit"]),
+    ("jr1.zahlungsueberschuss.A", "euro", "455 €", ["rechnung-jahr1", "rechnung-fluss-gefoerdert"]),
     ("jr1.zahlungsueberschuss.A", "zahl", "455", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten"]),
     ("jr1.zahlungsueberschuss.B", "zahl", "−18.495", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf"]),
     ("jr1.zahlungsueberschuss.C", "zahl", "−26.324", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf"]),
     ("modellhaus_kosten_5200:jr1.zahlungsueberschuss.A", "zahl", "−23.630", ["rechnung-kosten"]),
     ("fin.foerderung.A", "mio", "5,6 Mio. €", ["rechnung-finanzierung", "fazit"]),
     ("fin.gesamtkosten.A", "mio", "7,0 Mio. €", ["rechnung-finanzierung", "fazit"]),
-    ("fin.miete_jahr1.A", "euro2", "6,80 €", ["hoechstmiete", "rechnung-miete", "fazit"]),
+    ("fin.miete_jahr1.A", "euro2", "6,80 €", ["hoechstmiete", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
+    # Zahlungsfluss in Jahr 1 (Folien 15 und 16)
+    ("jr1.sollmiete.A", "euro", "114.240 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
+    ("jr1.ueberschuss_vor_kapitaldienst.A", "euro", "84.455 €", ["rechnung-fluss-gefoerdert"]),
+    ("jr1.tilgung_nbank.A", "euro", "70.000 €", ["rechnung-fluss-gefoerdert"]),
+    ("jr1.verwaltungskostenbeitrag.A", "euro", "14.000 €", ["rechnung-fluss-gefoerdert"]),
+    ("jr1.instandhaltung.A", "euro", "20.160 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
+    ("jr1.objektverwaltung.A", "euro", "7.340 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
+    ("jr1.mietausfall.A", "euro", "2.285 €", ["rechnung-fluss-gefoerdert"]),
+    ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1", "61,3 %", ["rechnung-fluss-gefoerdert"]),
+    (SOLLMIETE_FREI, "euro", "348.167 €", ["rechnung-fluss-frei"]),
+    ("modellhaus:eingabe.mietausfall * " + SOLLMIETE_FREI, "euro", "6.963 €", ["rechnung-fluss-frei"]),
+    ("-modellhaus:frei.zins_jahr1", "euro", "209.440 €", ["rechnung-fluss-frei"]),
+    ("-modellhaus:frei.tilgung_jahr1", "euro", "104.263 €", ["rechnung-fluss-frei"]),
+    ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1", "60,2 %", ["rechnung-fluss-frei"]),
+    # Herstellungskosten je m²: Ansatz des Modellhauses und PGN-Median (Folien 20 und 21)
+    ("eingabe.herstellungskosten_qm", "euro", "4.500 €", ["pgn-baukosten", "rechnung-kosten"]),
+    ("modellhaus_pgn_kosten:eingabe.herstellungskosten_qm", "euro", "3.579 €", ["pgn-baukosten", "rechnung-kosten"]),
+    ("eingabe.zins_bank", "prozent2", "3,74 %", ["ausgangslage-zinsen", "einstieg-kapitaldienst", "rechnung-kapitaldienst"]),
 ]
-# ---- Kernsätze: Regelwerte in ihrem Satz. Folie, Satz mit Feldern, je Feld Schlüssel und Schreibweise ---------------------------------
+# ---- Kernwerte der Ausgangslage und des Kostenvergleichs: Werte der Datendateien und daraus gerechnete Größen, in derselben Schreibweise ----
+KOSTEN_2020 = "(markt#baukosten.herstellung.q1_2020 + markt#baukosten.grundstueck.q1_2020)"
+KOSTEN_HEUTE = "(markt#baukosten.herstellung.q4_2025 + markt#baukosten.grundstueck.q4_2025)"
+FAKTOR_2020 = "markt#kapitaldienst.annuitaetenfaktor_q1_2020"                      # jährliche Annuität je Euro Darlehen bei 0,46 % über 30 Jahre
+FAKTOR_HEUTE = "(modellhaus:frei.annuitaet / modellhaus:fin.bankdarlehen.Frei)"    # dasselbe bei 3,74 %: wie die Rechenmappe
+KD_2020 = f"markt#kapitaldienst.fremdkapital * {KOSTEN_2020} * {FAKTOR_2020} / 12"     # Kapitaldienst je m² und Monat
+KD_HEUTE = f"markt#kapitaldienst.fremdkapital * {KOSTEN_HEUTE} * {FAKTOR_HEUTE} / 12"
+KD_BAUKOSTEN = f"markt#kapitaldienst.fremdkapital * ({KOSTEN_HEUTE} - {KOSTEN_2020}) * {FAKTOR_2020} / 12"
+KD_ZINS = f"markt#kapitaldienst.fremdkapital * {KOSTEN_2020} * ({FAKTOR_HEUTE} - {FAKTOR_2020}) / 12"
+KD_WECHSELWIRKUNG = f"markt#kapitaldienst.fremdkapital * ({KOSTEN_HEUTE} - {KOSTEN_2020}) * ({FAKTOR_HEUTE} - {FAKTOR_2020}) / 12"
+BESTAND_RUECKGANG = "markt#bestand.reihe.wert.2025 / markt#bestand.reihe.wert.2016 - 1"
+PGN_UNTER_ARGE = "markt#kosten.pgn.spanne_herstellung.median / markt#kosten.arge.spanne_herstellung.median - 1"
+KERNWERTE_MARKT = [
+    ("markt#baukosten.herstellung.q1_2020", "zahl", "3.028", ["einstieg-baukosten"]),
+    ("markt#baukosten.herstellung.q4_2025", "zahl", "4.631", ["einstieg-baukosten"]),
+    ("markt#baukosten.grundstueck.q1_2020", "zahl", "726", ["einstieg-baukosten"]),
+    ("markt#baukosten.grundstueck.q4_2025", "zahl", "761", ["einstieg-baukosten"]),
+    ("markt#baukosten.herstellung.q4_2025 / markt#baukosten.herstellung.q1_2020 - 1", "prozent1vz", "+52,9 %", ["einstieg-baukosten"]),
+    ("markt#baukosten.grundstueck.q4_2025 / markt#baukosten.grundstueck.q1_2020 - 1", "prozent1vz", "+4,8 %", ["einstieg-baukosten"]),
+    ("markt#kapitaldienst.zins_q1_2020", "prozentwert2", "0,46 %", ["ausgangslage-zinsen", "einstieg-kapitaldienst"]),
+    (KOSTEN_2020, "euro", "3.754 €", ["einstieg-kapitaldienst"]),
+    (KOSTEN_HEUTE, "euro", "5.392 €", ["einstieg-kapitaldienst"]),
+    ("markt#kapitaldienst.fremdkapital", "prozent0", "80 %", ["einstieg-kapitaldienst"]),
+    (KD_2020, "euro2", "8,95 €", ["einstieg-kapitaldienst"]),
+    (KD_HEUTE, "euro2", "20,14 €", ["einstieg-kapitaldienst"]),
+    (f"{KD_HEUTE} - {KD_2020}", "euro2vz", "+11,19 €", ["einstieg-kapitaldienst"]),
+    (KD_BAUKOSTEN, "euro2vz", "+3,91 €", ["einstieg-kapitaldienst"]),
+    (KD_ZINS, "euro2vz", "+5,07 €", ["einstieg-kapitaldienst"]),
+    (KD_WECHSELWIRKUNG, "euro2vz", "+2,21 €", ["einstieg-kapitaldienst"]),
+    ("markt#bestand.reihe.wert.2016", "zahl", "85.766", ["einstieg-bestand"]),
+    ("markt#bestand.reihe.wert.2024", "zahl", "50.495", ["einstieg-bestand"]),
+    ("markt#bestand.reihe.wert.2025", "zahl", "50.920", ["einstieg-bestand"]),
+    (BESTAND_RUECKGANG, "prozent1vz", "−40,6 %", ["einstieg-bestand"]),
+    ("markt#markt.quote", "prozent0", "28 %", ["einstieg-bestand"]),
+    ("markt#markt.ausgelaufen", "zahl", "58.024", ["einstieg-bestand"]),
+    ("markt#kosten.pgn.spanne_herstellung.median", "euro", "3.579 €", ["pgn-baukosten"]),
+    ("markt#kosten.arge.spanne_herstellung.median", "euro", "4.631 €", ["pgn-baukosten"]),
+    (PGN_UNTER_ARGE, "prozent1vz", "−22,7 %", ["pgn-baukosten"]),
+]
+# ---- Kernsätze: Werte in ihrem Satz. Folie, Satz mit Feldern, je Feld Quelle (wie bei den Kernwerten) und Schreibweise -----------------------
 # Der Satz steht so in einer Form der Folie (Groß- und Kleinschreibung zählt nicht, Titel stehen in Versalien). Die Zahl ist damit an ihr Wort
 # gebunden: Die Laufzeit von 42 Jahren belegt nicht die Bindung, 0,5 % nicht das Entgelt für den Zuschuss, die Höchstmiete von B nicht die von A.
+# Ein Satz ohne Feld ist ein fester Wortlaut, der auf der Folie stehen muss (Fokus des Vortrags auf der Agenda).
 KERNSAETZE = [
     ("eckdaten-zeitstrahl", "{a} Jahre zinsfrei und gebunden", {"a": ("tab.zinsfreie_jahre", "zahl")}),
     ("eckdaten-zeitstrahl", "Belegungs- und Mietbindung {a} Jahre", {"a": ("tab.bindung", "zahl")}),
@@ -118,8 +203,20 @@ KERNSAETZE = [
     ("rechnung-jahr1", "Verwaltungskostenbeitrag, {a}", {"a": ("tab.verwaltungskostenbeitrag", "prozent1")}),
     ("rechnung-jahr1", "Zins NBank-Darlehen, {a}", {"a": ("tab.zins_nbank_bis_jahr35", "prozent0")}),
     ("rechnung-miete", "Höchstmiete Gruppe A: {a}", {"a": ("fin.miete_jahr1.A", "euro2")}),
+    # Folien des Umbaus: die Aussage des Titels und die Angaben, die eine Zahl an ihr Wort binden
+    ("einstieg-kapitaldienst", "Kapitaldienst je m² und Monat: von {a} auf {b} seit 2020", {"a": (KD_2020, "dez2"), "b": (KD_HEUTE, "euro2")}),
+    ("einstieg-bestand", "{a} weniger gebundene Wohnungen als 2016", {"a": ("-(" + BESTAND_RUECKGANG + ")", "prozent1")}),
+    ("agenda", "Thema ist Programmteil 2.1: Neubau mit Darlehen und Zuschuss", {}),
+    ("agenda", "Der Vortrag behandelt 2.1. Die Programmteile 2.2 bis 2.6 stehen in der Broschüre und im Anhang A1.", {}),
+    ("rechnung-fluss-gefoerdert", "Gefördert: {a} der Miete fließen in die Tilgung", {"a": ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
+    ("rechnung-fluss-gefoerdert", "{a} je m² und Monat", {"a": ("fin.miete_jahr1.A", "euro2")}),
+    ("rechnung-fluss-frei", "Frei finanziert: {a} der Miete gehen an Zinsen", {"a": ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
+    ("rechnung-fluss-frei", "{a} je m² und Monat", {"a": ("dscr.noetige_miete.Frei", "euro2")}),
+    ("pgn-baukosten", "Herstellungskosten der PGN: {a} unter dem ARGE-Median", {"a": ("-(" + PGN_UNTER_ARGE + ")", "prozent1")}),
+    ("pgn-baukosten", "Ansatz im Modellhaus: {a}", {"a": ("eingabe.herstellungskosten_qm", "euro")}),
+    ("pgn-baukosten", "{a} gegen {b} je m² Wohnfläche", {"a": ("markt#kosten.pgn.spanne_herstellung.median", "euro"), "b": ("markt#kosten.arge.spanne_herstellung.median", "euro")}),
 ]
-# ---- Kernwerte in den Diagrammdaten: Schlüssel, Folie, Reihe, Kategorie. Der Wert steht dort ungerundet und mit Vorzeichen -----------------
+# ---- Kernwerte in den Diagrammdaten: Quelle (wie bei den Kernwerten), Folie, Reihe, Kategorie. Der Wert steht dort ungerundet und mit Vorzeichen ----
 KERNWERTE_DIAGRAMM = [
     ("tab.hoechstmiete.I.A", "hoechstmiete", "Mietenstufe I–III", "A"),
     ("tab.hoechstmiete.I.B", "hoechstmiete", "Mietenstufe I–III", "B"),
@@ -132,6 +229,51 @@ KERNWERTE_DIAGRAMM = [
     ("jr1.zahlungsueberschuss.C", "rechnung-verlauf", "Gruppe C", "1"),
     ("jr1.zahlungsueberschuss.B", "rechnung-tilgung", "Gruppe B", "2,5 %"),
     ("jr1.zahlungsueberschuss.C", "rechnung-tilgung", "Gruppe C", "2,5 %"),
+    # Folien des Umbaus
+    ("markt#baukosten.herstellung.q1_2020", "einstieg-baukosten", "Q1 2020", "Herstellung KG 200–700"),
+    ("markt#baukosten.herstellung.q4_2025", "einstieg-baukosten", "Q4 2025", "Herstellung KG 200–700"),
+    ("markt#baukosten.grundstueck.q1_2020", "einstieg-baukosten", "Q1 2020", "Grundstück KG 100"),
+    ("markt#baukosten.grundstueck.q4_2025", "einstieg-baukosten", "Q4 2025", "Grundstück KG 100"),
+    ("modellhaus:eingabe.zins_bank * 100", "ausgangslage-zinsen", "10 Jahre", "07/2026"),
+    (KD_2020, "einstieg-kapitaldienst", "Stand Q1 2020", "Q1 2020"),
+    (KD_2020, "einstieg-kapitaldienst", "Stand Q1 2020", "Heute"),
+    (KD_BAUKOSTEN, "einstieg-kapitaldienst", "Baukosten", "Heute"),
+    (KD_ZINS, "einstieg-kapitaldienst", "Zins", "Heute"),
+    (KD_WECHSELWIRKUNG, "einstieg-kapitaldienst", "Wechselwirkung", "Heute"),
+    ("markt#bestand.reihe.wert.2016", "einstieg-bestand", "Bestand zum 31.12.", "2016"),
+    ("markt#bestand.reihe.wert.2024", "einstieg-bestand", "Bestand zum 31.12.", "2024"),
+    ("markt#bestand.reihe.wert.2025", "einstieg-bestand", "Bestand zum 31.12.", "2025"),
+    ("markt#kosten.pgn.spanne_herstellung.median", "pgn-baukosten", "PGN", "Herstellung KG 200–700"),
+    ("markt#kosten.arge.spanne_herstellung.median", "pgn-baukosten", "ARGE", "Herstellung KG 200–700"),
+]
+# ---- Verweise: Folie, Ort („folie“ für Folientext, „notizen“), Text mit Feldern, je Feld die Kennung der gemeinten Folie ------------------------
+# Der Text steht so auf der Folie oder in ihren Notizen, und das Feld trägt die Blattnummer der gemeinten Folie aus dem Konzept. Ändert sich
+# die Zählung, fällt jeder Verweis auf, der nicht mitgeführt wurde.
+VERWEISE = [
+    ("agenda", "folie", "stehen in der Broschüre und im Anhang {a}.", {"a": "anhang-programmteile"}),
+    ("agenda", "notizen", "in Kurzform im Anhang {a}.", {"a": "anhang-programmteile"}),
+    ("einstieg-kapitaldienst", "notizen", "Die nötige Miete des Modellhauses (20,72 €, Folie {a})", {"a": "rechnung-miete"}),
+    ("hoechstmiete", "notizen", "die Grenzen stehen im Anhang {a}.", {"a": "anhang-mieterkreis"}),
+    ("eckdaten-zeitstrahl", "notizen", "Alle Eckdaten im Anhang {a}.", {"a": "anhang-eckdaten"}),
+    ("rechnung-jahr1", "notizen", "neun Jahre Fehlbetrag (Folie {a})", {"a": "rechnung-verlauf"}),
+    ("rechnung-jahr1", "notizen", "B und C folgen auf den Folien {a} und {b}.", {"a": "rechnung-tilgung", "b": "rechnung-verlauf"}),
+    ("rechnung-kapitaldienst", "notizen", "den Zinsverlauf zeigt Folie {a}.", {"a": "ausgangslage-zinsen"}),
+    ("rechnung-fluss-gefoerdert", "notizen", "Der Kapitaldienst ist der von Folie {a}:", {"a": "rechnung-kapitaldienst"}),
+    ("rechnung-fluss-frei", "notizen", "gehen in den Kapitaldienst, wie auf Folie {a}.", {"a": "rechnung-kapitaldienst"}),
+    ("rechnung-miete", "notizen", "Die Annahmen stehen auf Folie {a}.", {"a": "rechnung-kapitaldienst"}),
+    ("rechnung-verlauf", "notizen", "Folie {a} nennt abgerundet", {"a": "hoechstmiete"}),
+    ("rechnung-kosten", "notizen", "dem PGN-Median der Folie {a},", {"a": "pgn-baukosten"}),
+    ("antragsweg", "notizen", "erster Spatenstich (Anhang {a}).", {"a": "anhang-vertraege"}),
+    ("antragsweg", "notizen", "die Bedarfslage am Standort stehen im Anhang {a}.", {"a": "anhang-voraussetzungen"}),
+    ("anhang-trenner", "notizen", "{a} und {b}: Programmteile und Frist. {c} und {d}: Voraussetzungen und Verträge vor der Bewilligung. {e} und {f}: Mieterkreis und Eckdaten. {g}: Quellen und Hinweis.",
+     {"a": "anhang-programmteile", "b": "anhang-frist", "c": "anhang-voraussetzungen", "d": "anhang-vertraege", "e": "anhang-mieterkreis", "f": "anhang-eckdaten", "g": "quellen"}),
+    ("anhang-eckdaten", "notizen", "verdichtet auf den Folien {a} und {b}, Antrag und Bewilligung auf Folie {c};", {"a": "foerdermix", "b": "eckdaten-zeitstrahl", "c": "antragsweg"}),
+    ("anhang-eckdaten", "notizen", "im Hinweis auf {a}.", {"a": "quellen"}),
+    ("quellen", "folie", "Folien {a} und {b}: PGN (2026): eigene Auswertung von fünf Projekten", {"a": "pgn-baukosten", "b": "rechnung-kosten"}),
+    ("quellen", "folie", "Folie {a}: eigene Rechnung der PGN", {"a": "einstieg-kapitaldienst"}),
+    ("quellen", "folie", "Folie {a}: BT-Drs. 21/7303", {"a": "einstieg-bestand"}),
+    ("quellen", "notizen", "Baukosten (Folien {a} und {b}), Zinsreihe (Folie {c}), Bestandsreihe (Folie {d}) und der PGN-Median der Herstellungskosten (Folien {b} und {e}). Folie {f} rechnet mit diesen Werten.",
+     {"a": "einstieg-baukosten", "b": "pgn-baukosten", "c": "ausgangslage-zinsen", "d": "einstieg-bestand", "e": "rechnung-kosten", "f": "einstieg-kapitaldienst"}),
 ]
 
 # ---- Freiliste: Angaben, die keine Rechengrößen sind. Jede Regel: Name, Muster, Begründung ------------------------------------
@@ -158,7 +300,7 @@ DATUM = re.compile(r"\b(\d{1,2})\.(\d{1,2})\.(\d{4})?(?!\d)")
 JAHR = re.compile(r"(?<![\d.,/])(?:19|20)\d{2}(?![\d]|[.,]\d)")
 BROSCHUERE_S = re.compile(r"\bBroschüre\s+S\.\s+(\d+(?:(?:,\s+|\s+und\s+|\s+bis\s+|–)\d+)*)")
 FOLIE_NR = re.compile(r"\b(?:Folien?|Anhang)\s+(A?\d+(?:(?:,\s+|\s+und\s+|\s+bis\s+|–|\s+oder\s+)A?\d+)*)|\b(A\d\b(?:(?:,\s+|\s+und\s+|\s+bis\s+)A\d\b)*)")
-FOLIEN_NUMMERN = set()   # Blattnummern des Konzepts (1 bis 18, A0 bis A9); main() füllt die Menge
+FOLIEN_NUMMERN = set()   # Blattnummern des Konzepts (1 bis 25, A0 bis A7); main() füllt die Menge
 # Kleine ganze Zahlen als Zähler: Jahr der Rechnung, Zeile, Schritt, Gruppe. Nur wenn die Zahl sonst keinen Beleg hat.
 ZAEHLER = re.compile(r"\b(?:Jahr(?:e|en)?|Zeilen?|Schritte?|Station(?:en)?|Punkte?|Größen)\s+(\d{1,2})(?:(?:\s+bis\s+|–|\s+und\s+)(\d{1,2}))?")
 ZAEHLER_GRUND = "Zähler im Satz (Jahr der Rechnung, Zeile, Schritt), höchstens zweistellig"
@@ -319,7 +461,7 @@ def lies_mappe(datei):
                 nv = el.find(f"{P}nvSpPr/{P}cNvPr")
                 ph = el.find(f"{P}nvSpPr/{P}nvPr/{P}ph")
                 tx = el.find(P + "txBody")
-                form = {"name": nv.get("name") or "", "art": "text", "ph": None, "absaetze": absaetze(tx) if tx is not None else []}
+                form = {"name": nv.get("name") or "", "art": "text", "ph": None, "descr": nv.get("descr"), "absaetze": absaetze(tx) if tx is not None else []}
                 if ph is not None:
                     form["ph"] = "title" if ph.get("type") == "title" else ph.get("idx")
                 f["formen"].append(form)

@@ -1,0 +1,43 @@
+// Folie 17 · PGN_INHALT: Leistungen der PGN über die Leistungsphasen 1 bis 9 (Broschüre S. 20). Dominant der Balkenplan über acht Spalten
+// mit der Bewilligungsmarke in Dunkelrot zwischen Leistungsphase 6 und 7; rechts über vier Spalten das Referenzbild Brauerstraße mit Bildecke,
+// Bildzeile und Konturstempel und ein Eintrag der Planlegende zur ersten Leistung. Texte, Phasen und Marke aus daten/umsetzung.json.
+'use strict';
+const { lies } = require('./_umsetzung.cjs');
+
+module.exports = {
+  id: 'pgn-leistungen',
+  bau(ctx) {
+    const { B, P, colX, span, Y, Raster } = ctx, s = ctx.folie(), U = lies(ctx);
+    B.text(s, ctx.wortlaut(U('leistungen.deck'), 'Deck'), { x: colX(1), y: Y.deck, w: Raster.CW, h: Y.deckH, rolle: 'deck', valign: 'middle', einzeilig: true, name: 'Deck' });
+
+    // ---- Balkenplan über acht Spalten ---------------------------------------------------------------------------------
+    const zeilen = U('leistungen.zeilen'), phasen = U('leistungen.phasen'), nach = U('leistungen.marke.nach');
+    for (const z of zeilen) {
+      ctx.wortlaut(`${z.nr} ${z.text}`, `Leistung ${z.nr}`);
+      if (z.wort) ctx.wortlaut(z.wort, `Leistung ${z.nr}, Phase im Wortlaut`);
+      else ctx.wortlaut(z.bis > z.von ? `Balken ${z.von}–${z.bis}` : `Balken ${z.von}`, `Leistung ${z.nr}, Balken`);
+    }
+    // Der Satz rechts der Marke hat drei Phasen Breite: Er bricht nach dem Doppelpunkt, damit die Phase allein in der ersten Zeile steht
+    const rechts = ctx.wortlaut(U('leistungen.marke.rechts'), 'Satz rechts der Marke').replace(/: /, ':\n');
+    // labelBreite 3,60: Die längste Bezeichnung („5 Ausführungsplanung und Vergabe“, 3,38 Zoll) hat damit gut 3 % Luft in ihrem Feld
+    const plan = B.balkenplan(s, { x: colX(1), y: Y.inhaltNachDeck, w: span(8), labelBreite: 3.60, zeilenH: 0.34,
+      kopf: ctx.wortlaut(U('leistungen.kopf'), 'Kopfleiste'), phasen,
+      marke: { nach, text: ctx.wortlaut(U('leistungen.marke.text'), 'Marke'), zeichen: U('leistungen.marke.zeichen') },
+      links: ctx.wortlaut(U('leistungen.marke.links'), 'Satz links der Marke'), rechts,
+      zeilen: zeilen.map(z => (z.wort ? { nr: z.nr, text: z.text, wort: z.wort } : { nr: z.nr, text: z.text, von: z.von, bis: z.bis })) });
+
+    // ---- Rechte Spalte: Referenzbild, Bildzeile, Konturstempel, erste Leistung ------------------------------------------
+    const x = colX(9), w = span(4);
+    const bild = B.bild(s, { datei: U('referenz.bild'), x, y: Y.inhaltNachDeck, w, altText: U('referenz.alt_text') });
+    // Bildzeile: Der Wortlaut des Konzepts trennt Anschrift und Merkmal mit einem Mittelpunkt. In 10 pt ist die Zeile breiter als vier Spalten;
+    // sie bricht deshalb an dieser Stelle, der Mittelpunkt entfällt am Zeilenende (wie in der Bildunterschrift der Broschüre, S. 1).
+    const anschrift = U('referenz.anschrift'), merkmal = U('referenz.merkmal');
+    ctx.wortlaut(`${anschrift} · ${merkmal}`, 'Bildzeile');
+    const zeile = B.text(s, `${anschrift}\n${merkmal}`, { x, y: bild.unten + 0.05, w, rolle: 'label', name: 'Bildzeile' });
+    const stempel = { y: zeile.unten + 0.08, h: 0.36 };
+    B.konturstempel(s, { x, y: stempel.y, w: 3.0, text: ctx.wortlaut(U('referenz.vermerk'), 'Konturstempel') });
+    const legende = B.planlegende(s, { x, y: stempel.y + stempel.h + 0.12, w, linie: true, pt: 14, eintraege: [
+      { titel: ctx.wortlaut(U('leistungen.erste_leistung.titel'), 'Modultitel'), text: ctx.wortlaut(U('leistungen.erste_leistung.text'), 'Text zur ersten Leistung') }] });
+    if (Math.max(plan.unten, legende.unten) > Y.inhaltEnde) P.melde(`Leistungen: Der Inhalt endet bei y ${Math.max(plan.unten, legende.unten).toFixed(2)}, die Inhaltszone bei ${Y.inhaltEnde.toFixed(2)}.`);
+  },
+};

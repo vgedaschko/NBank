@@ -1,0 +1,18 @@
+{
+  "_hinweis": "Werte nur für die Musterfolien in probe/. Zugleich Muster für die Datendateien der Baugruppen (regeln.json, markt.json, umsetzung.json, rahmen.json): je Eintrag wert, einheit, herkunft und geprueft.",
+  "einkommensgrenze": {
+    "haushalte": { "wert": ["1 Person", "2 Erwachsene", "2 Erwachsene + 1 Kind", "2 Erwachsene + 2 Kinder"], "herkunft": "Konzept, Folie anhang-mieterkreis (Broschüre S. 6)", "geprueft": true },
+    "A": { "wert": [21250, 28750, 36250, 43750], "einheit": "€", "herkunft": "Konzept, Folie anhang-mieterkreis (Broschüre S. 6)", "geprueft": true },
+    "B": { "wert": [29750, 40250, 50750, 61250], "einheit": "€", "herkunft": "Konzept, Folie anhang-mieterkreis (Broschüre S. 6)", "geprueft": true },
+    "C": { "wert": [34000, 46000, 58000, 70000], "einheit": "€", "herkunft": "Konzept, Folie anhang-mieterkreis (Broschüre S. 6)", "geprueft": true }
+  },
+  "bedarf": {
+    "gegeben": { "wert": 306, "einheit": "Anzahl", "herkunft": "Konzept, Folie anhang-voraussetzungen (Broschüre S. 18)", "geprueft": true },
+    "nachweis": { "wert": 96, "einheit": "Anzahl", "herkunft": "Konzept, Folie anhang-voraussetzungen (Broschüre S. 18)", "geprueft": true }
+  },
+  "markt": {
+    "ausgelaufen_tausend": { "wert": 58, "einheit": "Tausend Wohnungen", "herkunft": "Konzept, Folie anhang-markt (Broschüre S. 3)", "geprueft": true },
+    "neu_tausend": { "wert": 16, "einheit": "Tausend Wohnungen", "herkunft": "Konzept, Folie anhang-markt (Broschüre S. 3)", "geprueft": true },
+    "quote": { "wert": 0.28, "einheit": "Anteil", "herkunft": "Konzept, Folie anhang-markt (Broschüre S. 3)", "geprueft": true }
+  }
+}

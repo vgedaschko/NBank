@@ -1,0 +1,129 @@
+{
+  "_hinweis": "Werte und Texte der Baugruppe „umsetzung“ (Folien 16, 17, A3, A4), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft (Broschüre: Seite, Datei unter broschuere/content/pages/, JSON-Schlüssel) und geprueft. Zahlen stehen genau einmal als Zahl; in den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul füllt (folien/_umsetzung.cjs, felder): {name} setzt die Ziffern, {name:wort} das Zahlwort. {eigenmittel} kommt aus daten/werte.json (Lauf modellhaus, tab.eigenmittel_mindestens). Die gefüllten Texte prüft der Bau gegen das Feld „inhalt“ des Konzepts.",
+
+  "antragsweg": {
+    "_hinweis": "Folie 16. Acht Stationen in zwei Reihen, dazwischen das Warnband zur Bewilligung, darunter eine Zeile zum Vorhabenbeginn.",
+    "fristen": {
+      "entscheidung_monate": { "wert": 3, "einheit": "Monate (Ziel für die Entscheidung der NBank, höchstens)", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[3].deadline", "geprueft": true },
+      "baubeginn_monate": { "wert": 4, "einheit": "Monate nach Bekanntgabe der Förderentscheidung (spätestens)", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[4].deadline", "geprueft": true },
+      "verwendungsnachweis_monate": { "wert": 6, "einheit": "Monate nach Erfüllung des Förderzwecks", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[7].deadline", "geprueft": true }
+    },
+    "stationen": {
+      "wert": [
+        { "nr": 1, "titel": "Vorgespräch", "zustaendig": "Förderstelle mit Ihnen", "text": "Nachweise und Unterlagen vorab klären", "zeile": "stations[0]: title, lane mit with, body" },
+        { "nr": 2, "titel": "Antrag", "zustaendig": "Sie", "text": "bei der Wohnraumförderstelle am Bauort", "zeile": "stations[1]: title, lane, body ohne den Zusatz zu 2.6" },
+        { "nr": 3, "titel": "Stellungnahme", "zustaendig": "Förderstelle", "text": "Bedarfsbestätigung, Weiterleitung an die NBank", "zeile": "stations[2]: title, lane, body ohne die Anhörung der Gemeinde" },
+        { "nr": 4, "titel": "Entscheidung", "zustaendig": "NBank", "text": "Fördervertrag oder Bescheid; Ziel: höchstens {entscheidung_monate:wort} Monate", "signal": true, "zeile": "stations[3]: title, lane, body verdichtet, deadline" },
+        { "nr": 5, "titel": "Bauausführung", "zustaendig": "Sie", "text": "Baubeginn spätestens {baubeginn_monate:wort} Monate nach Bekanntgabe der Förderentscheidung", "zeile": "stations[4]: title, lane, deadline ohne „unverzüglich“" },
+        { "nr": 6, "titel": "Auszahlung", "zustaendig": "NBank", "text": "in Raten nach Baufortschritt", "zeile": "stations[5]: title, lane, body verdichtet" },
+        { "nr": 7, "titel": "Fertigstellung", "zustaendig": "Förderstelle mit Ihnen", "text": "Vermietung nur mit WBS", "zeile": "stations[6]: title, lane mit with, body verdichtet" },
+        { "nr": 8, "titel": "Verwendungsnachweis", "zustaendig": "Sie", "text": "innerhalb von {verwendungsnachweis_monate:wort} Monaten nach Erfüllung des Förderzwecks", "zeile": "stations[7]: title, lane, deadline" }
+      ],
+      "einheit": "Text mit Feldern",
+      "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[0..7] (title, lane, with, body, deadline), verdichtet wie im Konzept (Folie 16)",
+      "geprueft": true
+    },
+    "reihen": { "wert": [4, 4], "einheit": "Stationen je Reihe", "herkunft": "Konzept, Folie antragsweg (darstellung): Die Teilung fällt auf die Bewilligung, Station 4 ist die Entscheidung der NBank", "geprueft": true },
+    "warnband": {
+      "zeichen": { "wert": "±0", "einheit": "Planzeichen", "herkunft": "Konzept, Folie antragsweg (Warnband „±0 BEWILLIGUNG“)", "geprueft": true },
+      "wort": { "wert": "Bewilligung", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].title („Erst Bewilligung, dann Vertrag“); Wortlaut des Konzepts", "geprueft": true },
+      "text": { "wert": "Vor der Bewilligung begonnene Vorhaben werden nicht gefördert.", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].body, Satz 1", "geprueft": true }
+    },
+    "beginn": { "wert": "Als Beginn gilt ein Bau-, Liefer- oder Kaufvertrag (außer für das Baugrundstück) oder der erste Spatenstich.", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].body, Satz 2", "geprueft": true }
+  },
+
+  "leistungen": {
+    "_hinweis": "Folie 17. Balkenplan der Leistungen der PGN über die Leistungsphasen 1 bis 9 der HOAI mit der Bewilligung zwischen 6 und 7.",
+    "deck": { "wert": "Ein Ansprechpartner für alles, von der Machbarkeit bis zur Übergabe.", "einheit": "Text", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, subline", "geprueft": true },
+    "kopf": { "wert": "Leistungsphase", "einheit": "Text", "herkunft": "Konzept, Folie pgn-leistungen (Kopfleiste); Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale (kind hoai)", "geprueft": true },
+    "phasen": { "wert": 9, "einheit": "Anzahl Leistungsphasen", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.phases (n 1 bis 9)", "geprueft": true },
+    "marke": {
+      "nach": { "wert": 6, "einheit": "Leistungsphase, nach der die Bewilligung liegt", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.between[0]", "geprueft": true },
+      "text": { "wert": "Bewilligung", "einheit": "Text", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.label", "geprueft": true },
+      "zeichen": { "wert": "±0", "einheit": "Planzeichen im gefüllten Achskreis", "herkunft": "Konzept, Folie antragsweg (Warnband „±0 BEWILLIGUNG“); auf Folie 17 dasselbe Zeichen für dieselbe Stelle", "geprueft": true },
+      "links": { "wert": "Planungsauftrag LPH 1–{lph_vor}: vor der Bewilligung möglich", "einheit": "Text mit Feldern", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.left", "geprueft": true },
+      "rechts": { "wert": "ab LPH {lph_nach}: erst nach der Bewilligung", "einheit": "Text mit Feldern", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.right", "geprueft": true }
+    },
+    "zeilen": {
+      "wert": [
+        { "nr": 1, "text": "Förderung und Machbarkeit", "wort": "vor dem Vorgespräch", "zeile": "items[0]: title, phase" },
+        { "nr": 2, "text": "Förderkonforme Planung", "von": 1, "bis": 4, "zeile": "items[1]: title, phase „Leistungsphasen 1–4“" },
+        { "nr": 3, "text": "Kostenplanung", "von": 2, "bis": 8, "zeile": "items[2]: title, phase „Leistungsphasen 2–8“" },
+        { "nr": 4, "text": "Antragsunterlagen", "wort": "Vorgespräch und Antrag", "zeile": "items[3]: title, phase" },
+        { "nr": 5, "text": "Ausführungsplanung und Vergabe", "von": 5, "bis": 7, "zeile": "items[4]: title, phase „Leistungsphasen 5–7“" },
+        { "nr": 6, "text": "Bauleitung", "von": 8, "bis": 8, "zeile": "items[5]: title, phase „Leistungsphase 8“" },
+        { "nr": 7, "text": "Fertigstellung und Nachweis", "von": 8, "bis": 9, "zeile": "items[6]: title, phase „Leistungsphasen 8–9“" }
+      ],
+      "einheit": "Leistung mit Leistungsphasen von … bis oder mit ihrer Phase im Wortlaut",
+      "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].items[0..6] (n, title, phase)",
+      "geprueft": true
+    },
+    "erste_leistung": {
+      "titel": { "wert": "Förderung und Machbarkeit", "einheit": "Text", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].items[0].title", "geprueft": true },
+      "text": { "wert": "Wir klären Programmteil, Standort und Mieterkreis und ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung.", "einheit": "Text", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].items[0].body ohne den Seitenverweis", "geprueft": true }
+    }
+  },
+
+  "referenz": {
+    "_hinweis": "Folie 17, rechte Spalte. Bild assets/ref-brauerstrasse.jpg (Broschüre: src/assets/pgn/img/brauerstrasse-duplex.jpg).",
+    "bild": { "wert": "ref-brauerstrasse.jpg", "einheit": "Datei in assets/", "herkunft": "Broschüre S. 22, 22-ueber-pgn.json, blocks[2].items[0].image; Visualisierung der Planungsgemeinschaft Nord GmbH", "geprueft": true },
+    "alt_text": { "wert": "Visualisierung des Mehrfamilienhauses Brauerstraße in Rotenburg (Wümme): dreigeschossiger Klinkerbau mit Walmdach und Balkonen", "einheit": "Text", "herkunft": "Broschüre S. 1, 01-umschlag-titel.json, image.alt (gekürzt auf das Gebäude)", "geprueft": true },
+    "anschrift": { "wert": "Brauerstraße, Rotenburg (Wümme)", "einheit": "Text", "herkunft": "Broschüre S. 22, 22-ueber-pgn.json, blocks[2].items[0].name und place; S. 1, 01-umschlag-titel.json, image.caption", "geprueft": true },
+    "wohnungen": { "wert": 19, "einheit": "Wohnungen", "herkunft": "Broschüre S. 22, 22-ueber-pgn.json, blocks[2].items[0].units; S. 1, 01-umschlag-titel.json, image.caption", "geprueft": true },
+    "merkmal": { "wert": "{wohnungen} barrierefreie Wohnungen", "einheit": "Text mit Feldern", "herkunft": "Broschüre S. 1, 01-umschlag-titel.json, image.caption", "geprueft": true },
+    "vermerk": { "wert": "Mit Förderung der NBank", "einheit": "Text", "herkunft": "Broschüre S. 22, 22-ueber-pgn.json, blocks[2].items[0].flag", "geprueft": true }
+  },
+
+  "voraussetzungen": {
+    "_hinweis": "Folie A3, linke Seite. Sechs Fragen des Grundchecks; alle sechs gelten für Programmteil 2.1 (Chips der Broschüre: alle, alle, 2.1–2.4, 2.1/2.2/2.6, 2.1–2.4, 2.1/2.2/2.4).",
+    "titel": { "wert": "Grundcheck für Programmteil 2.1", "einheit": "Text", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[1].heading („Grundcheck: sechs Voraussetzungen“); Wortlaut des Konzepts (Folie A3)", "geprueft": true },
+    "mindest_wohnungen": { "wert": 3, "einheit": "Wohnungen je Mehrfamilienhaus (ab)", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[1].items[2]", "geprueft": true },
+    "fragen": {
+      "wert": [
+        { "frage": "Antragsberechtigt, Finanzierung gesichert?", "zeile": "items[0]" },
+        { "frage": "Vor der Bewilligung nicht begonnen?", "zeile": "items[1]" },
+        { "frage": "Mehrfamilienhaus ab {mindest_wohnungen:wort} Wohnungen?", "zeile": "items[2]" },
+        { "frage": "Bedarf am Standort?", "zeile": "items[3]" },
+        { "frage": "Mindestens {eigenmittel} Eigenmittel?", "zusatz": "Bezogen auf die zuwendungsfähigen Kosten.", "zeile": "items[4]; der Satz steht auch in werte.json (tab.eigenmittel_mindestens)" },
+        { "frage": "Grundstück gesichert?", "zusatz": "Eigentum, Erbbaurecht oder gesicherter Erwerb.", "zeile": "items[5]" }
+      ],
+      "einheit": "Text mit Feldern",
+      "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[1].items[0..5] (fett gesetzte Frage; Zusatz nur bei 5 und 6, wie im Konzept)",
+      "geprueft": true
+    }
+  },
+
+  "bedarf": {
+    "_hinweis": "Folie A3, rechte Seite. Ringdiagramm mit zwei Segmenten; Stand der Karte: abgerufen am 21.10.2026 (Broschüre S. 23).",
+    "titel": { "wert": "Bedarfslage auf der NBank-Karte", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].title", "geprueft": true },
+    "bezug": { "wert": "Einheits- und Samtgemeinden", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.unit", "geprueft": true },
+    "gegeben": { "wert": 306, "einheit": "Einheits- und Samtgemeinden", "bezeichnung": "Bedarf gegeben", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.segments[0] (value, label)", "geprueft": true },
+    "nachweis": { "wert": 96, "einheit": "Einheits- und Samtgemeinden", "bezeichnung": "Bedarf gesondert nachweisen", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.segments[1] (value, label)", "geprueft": true },
+    "hinweis": { "wert": "In beiden Fällen nötig: die einfache Bedarfsbestätigung der Wohnraumförderstelle zum Bauort.", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].note, Satz 1", "geprueft": true }
+  },
+
+  "vorhabenbeginn": {
+    "_hinweis": "Folie A4. Drei Spalten in der Reihenfolge der Broschüre. Die Leistungsphasen 6 und 7 kommen aus leistungen.marke.nach; „2.5“ ist die Nummer des Programmteils.",
+    "spalten": {
+      "wert": [
+        { "titel": "Zulässig", "icon": "check", "icon_text": "Haken", "punkte": [
+          "Baugrundstück kaufen oder Erbbaurecht bestellen",
+          "nicht bindende Reservierung beim Kauf",
+          "Planung bis einschließlich Leistungsphase {lph_vor} HOAI",
+          "Baugrund untersuchen, Grundstück herrichten" ], "zeile": "columns[0]" },
+        { "titel": "Bedingt zulässig", "icon": "hinweis", "icon_text": "Hinweiszeichen", "punkte": [
+          "Vertrag mit eindeutigem, folgenlosem Rücktrittsrecht oder eindeutiger Bedingung für den Fall, dass die Förderung ausbleibt; die NBank prüft die Klausel im Einzelfall",
+          "vorzeitiger Vorhabenbeginn nach Zulassung durch die NBank" ], "zeile": "columns[1], ohne den Seitenverweis" },
+        { "titel": "Förderschädlich", "icon": "stopp", "icon_text": "Stoppzeichen", "signal": true, "punkte": [
+          "Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück)",
+          "beim Ersterwerb: bindender Kaufvertrag über die Wohnungen",
+          "Beauftragung ab Leistungsphase {lph_nach} HOAI",
+          "erster Spatenstich",
+          "bei 2.5: Mietvertrag oder Überlassung der Wohnung" ], "zeile": "columns[2]" }
+      ],
+      "einheit": "Text mit Feldern",
+      "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[2].data.columns[0..2] (title, items); icon und icon_text: Kopf-Icons nach dem Konzept (Folie A4), Bezeichnung für Vorleseprogramme",
+      "geprueft": true
+    }
+  }
+}

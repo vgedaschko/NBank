@@ -1,0 +1,272 @@
+{
+  "_hinweis": "Werte und Texte der Baugruppe „ueberblick“ (Folien 2, A1, A2, A7, A8), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft und geprueft. Broschüre: Seite, Datei unter broschuere/content/pages/ und JSON-Schlüssel. Altfassung: Präsentation vom 26.10.2026 mit Folie und Reihe, dazu die Quelle laut Altfassung; diese Werte sind aus der Altfassung übernommen und nicht nachgeprüft („geprueft“: false, „vermerk“: „nicht nachgeprüft“). Zahlen stehen genau einmal als Zahl; in den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul füllt (folien/_ueberblick.cjs, felder). Platzhalter mit dem Vorsatz „mappe_“ kommen aus daten/werte.json (Lauf modellhaus). Die gefüllten Texte prüft der Bau gegen das Feld „inhalt“ des Konzepts.",
+  "zinsen": {
+    "_hinweis": "Folie 2. Sollzins p. a. nach Zinsbindung, Top-Konditionen Wohnungswirtschaft. Die Altfassung führt die Werte nur im Zwischenspeicher des Diagramms (Verknüpfung auf eine lokale Datei des Erstellers). Zuordnung der Monate: Punkt 1 = 01/2016 (Jahreszahl an jedem zwölften Punkt der Achse), Punkt 127 = 07/2026. Die Quartalsmittel der Marken rechnet das Folienmodul aus den Monatswerten nach; die Endwerte sind die letzten Monatswerte.",
+    "quelle": { "wert": "Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung, Monatswerte 01/2016 bis 07/2026", "einheit": "Quellenangabe", "herkunft": "Altfassung Folie 24, Quellenzeile", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "monate": {
+      "wert": [
+        "2016-01", "2016-02", "2016-03", "2016-04", "2016-05", "2016-06", "2016-07", "2016-08", "2016-09", "2016-10", "2016-11", "2016-12",
+        "2017-01", "2017-02", "2017-03", "2017-04", "2017-05", "2017-06", "2017-07", "2017-08", "2017-09", "2017-10", "2017-11", "2017-12",
+        "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12",
+        "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12",
+        "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12",
+        "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12",
+        "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12",
+        "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12",
+        "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12",
+        "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12",
+        "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07"
+      ],
+      "einheit": "Monat (JJJJ-MM)",
+      "herkunft": "Altfassung Folie 24, Diagramm (Zwischenspeicher), Kategorienachse; Folie 24, Untertitel „Monatswerte seit Januar 2016 (Stand: Juli 2026)“",
+      "geprueft": false,
+      "vermerk": "nicht nachgeprüft"
+    },
+    "z10": {
+      "name": "10 Jahre",
+      "wert": [
+        1.32, 1.11, 1.19, 1.28, 1.13, 1.03, 0.91, 0.82, 0.8, 0.91, 1.1, 1.19,
+        1.33, 1.21, 1.28, 1.29, 1.26, 1.23, 1.37, 1.27, 1.33, 1.34, 1.28, 1.27,
+        1.46, 1.48, 1.37, 1.41, 1.26, 1.34, 1.36, 1.32, 1.45, 1.29, 1.26, 1.26,
+        1.22, 1.14, 1.04, 1.06, 0.92, 0.76, 0.56, 0.4, 0.46, 0.87, 0.61, 0.63,
+        0.48, 0.39, 0.52, 0.46, 0.44, 0.42, 0.4, 0.43, 0.38, 0.33, 0.41, 0.44,
+        0.43, 0.6, 0.75, 0.71, 0.73, 0.71, 0.58, 0.6, 0.81, 0.87, 0.77, 0.8,
+        0.99, 1.31, 1.85, 2.24, 2.3, 2.95, 2.63, 2.93, 3.52, 3.7, 3.27, 3.77,
+        3.5, 3.72, 3.48, 3.64, 3.61, 3.53, 3.6, 3.69, 3.81, 3.86, 3.75, 3.12,
+        3.17, 3.33, 3.33, 3.45, 3.45, 3.25, 3.12, 3.11, 2.99, 3.03, 2.79, 2.96,
+        3.08, 3.04, 3.29, 3.06, 3.1, 3.27, 3.36, 3.45, 3.42, 3.35, 3.48, 3.64,
+        3.6, 3.46, 3.67, 3.73, 3.64, 3.47, 3.74
+      ],
+      "einheit": "% p. a., Sollzins, Monatswert",
+      "herkunft": "Altfassung Folie 24, Diagramm (Zwischenspeicher), Reihe „10 Jahre (Linie)“, 127 Monatswerte 01/2016 bis 07/2026; Quelle laut Altfassung: Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung, Monatswerte 01/2016 bis 07/2026",
+      "geprueft": false,
+      "vermerk": "nicht nachgeprüft"
+    },
+    "z20": {
+      "name": "20 Jahre",
+      "wert": [
+        1.89, 1.74, 1.75, 1.79, 1.81, 1.58, 1.5, 1.33, 1.33, 1.41, 1.55, 1.68,
+        1.84, 1.68, 1.78, 1.81, 1.78, 1.78, 1.91, 1.83, 1.89, 1.82, 1.84, 1.78,
+        1.93, 1.97, 1.85, 1.9, 1.78, 1.85, 1.85, 1.82, 1.92, 1.77, 1.74, 1.74,
+        1.69, 1.59, 1.59, 1.59, 1.54, 1.41, 1.22, 0.88, 1.14, 1.18, 0.98, 1.02,
+        0.82, 0.84, 0.95, 0.81, 0.85, 0.78, 0.81, 0.91, 0.79, 0.76, 0.75, 0.8,
+        0.8, 1.01, 1.16, 1.1, 1.08, 1.09, 0.98, 1.02, 1.16, 1.13, 1.06, 1.19,
+        1.16, 1.57, 2.05, 2.38, 2.74, 3.22, 2.81, 3.19, 3.54, 3.85, 3.44, 3.92,
+        3.69, 3.92, 3.56, 3.72, 3.72, 3.64, 3.75, 3.76, 3.97, 3.97, 3.82, 3.3,
+        3.38, 3.45, 3.44, 3.56, 3.55, 3.49, 3.34, 3.32, 3.29, 3.22, 2.95, 3.19,
+        3.22, 3.24, 3.5, 3.31, 3.33, 3.55, 3.64, 3.74, 3.63, 3.59, 3.74, 3.89,
+        3.85, 3.72, 3.89, 3.93, 3.96, 3.82, 4.02
+      ],
+      "einheit": "% p. a., Sollzins, Monatswert",
+      "herkunft": "Altfassung Folie 24, Diagramm (Zwischenspeicher), Reihe „20 Jahre“, 127 Monatswerte 01/2016 bis 07/2026; Quelle laut Altfassung: Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung, Monatswerte 01/2016 bis 07/2026",
+      "geprueft": false,
+      "vermerk": "nicht nachgeprüft"
+    },
+    "z30": {
+      "name": "30 Jahre",
+      "wert": [
+        2.09, 1.8, 1.82, 1.94, 1.89, 1.65, 1.62, 1.54, 1.58, 1.7, 1.81, 1.97,
+        2.14, 1.98, 2.06, 2.1, 2.09, 2.07, 2.23, 2.14, 2.2, 2.19, 2.09, 2.07,
+        2.14, 2.18, 2.09, 2.11, 2.04, 2.09, 2.08, 2.05, 2.14, 2, 1.95, 1.95,
+        1.9, 1.75, 1.75, 1.72, 1.7, 1.62, 1.43, 1.19, 1.25, 1.31, 1.21, 1.27,
+        1.12, 0.89, 0.94, 0.89, 0.92, 0.81, 0.87, 1.08, 0.97, 0.99, 1.14, 1.09,
+        1.08, 1.31, 1.37, 1.33, 1.34, 1.25, 1.19, 1.23, 1.31, 1.22, 1.21, 1.41,
+        1.27, 1.61, 2.16, 2.47, 2.87, 3.38, 3.02, 3.54, 3.52, 3.92, 3.66, 4.09,
+        3.9, 4.02, 3.64, 3.83, 3.85, 3.76, 3.87, 3.87, 4.14, 4.06, 3.93, 3.48,
+        3.65, 3.54, 3.64, 3.64, 3.7, 3.59, 3.55, 3.51, 3.51, 3.47, 3.17, 3.44,
+        3.32, 3.4, 3.62, 3.52, 3.62, 3.73, 3.84, 3.91, 3.77, 3.71, 3.9, 3.99,
+        3.98, 3.83, 3.96, 4.05, 4.07, 3.98, 4.15
+      ],
+      "einheit": "% p. a., Sollzins, Monatswert",
+      "herkunft": "Altfassung Folie 24, Diagramm (Zwischenspeicher), Reihe „30 Jahre“, 127 Monatswerte 01/2016 bis 07/2026; Quelle laut Altfassung: Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung, Monatswerte 01/2016 bis 07/2026",
+      "geprueft": false,
+      "vermerk": "nicht nachgeprüft"
+    },
+    "marken": {
+      "wert": [
+        { "monat": "2020-02", "bezeichnung": "Ø Q1 2020", "monate": ["2020-01", "2020-02", "2020-03"], "z10": 0.46, "z20": 0.87, "z30": 0.98 },
+        { "monat": "2025-11", "bezeichnung": "Ø Q4 2025", "monate": ["2025-10", "2025-11", "2025-12"], "z10": 3.49, "z20": 3.74, "z30": 3.87 }
+      ],
+      "einheit": "% p. a., Mittel der drei Monate des Quartals; „monat“ ist die Lage der Marke auf der Achse",
+      "herkunft": "Altfassung Folie 24, Textfelder an den beiden Marken des Diagramms (Ø Q1 2020, Ø Q4 2025); Lage der Marken: Reihe „_Vergleichszeitpunkte“; Quelle laut Altfassung: Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung, Monatswerte 01/2016 bis 07/2026",
+      "geprueft": false,
+      "vermerk": "nicht nachgeprüft"
+    },
+    "texte": {
+      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter.",
+      "diagrammtitel": "Sollzins p. a. nach Zinsbindung",
+      "untertitel": "in %, Monatswerte {zins_von} bis {zins_bis}, Top-Konditionen Wohnungswirtschaft",
+      "marke": "{bezeichnung}: {z10} | {z20} | {z30} %",
+      "ausgangslage_titel": "Ausgangslage",
+      "ausgangslage": { "wert": "Bauen kostet mehr als doppelt so viel wie vor 25 Jahren, Kredite kosteten Ende 2025 drei bis vier Prozent, und die Zahl der Baugenehmigungen hat sich seit 2021 mehr als halbiert.", "einheit": "Text", "herkunft": "Broschüre S. 2, 02-editorial-inhalt.json, lead", "geprueft": true },
+      "zins_bank": "{zins_bis_wort}, {mappe_zinsbindung} Jahre Zinsbindung. Mit diesem Zins rechnet die Modellrechnung das Bankdarlehen."
+    }
+  },
+  "kosten": {
+    "_hinweis": "Folie A7. Herstellungskosten je m² Wohnfläche, Bruttokosten, Kostenstand Q4 2025; PGN: fünf Projekte, ARGE: deutsche Großstädte. Ungerundete Werte der eingebetteten Arbeitsmappe; gerundet wird erst beim Formatieren. Die Mediane der Kostengruppen addieren sich nicht zum Median der Herstellung (Mediane sind nicht additiv).",
+    "gruppen": {
+      "wert": [
+        { "name": "Herstellung", "kg": "KG 200–700" },
+        { "name": "Bauwerk", "kg": "KG 300/400" },
+        { "name": "Baunebenkosten", "kg": "KG 700" },
+        { "name": "Außenanlagen", "kg": "KG 500" }
+      ],
+      "einheit": "Kostengruppen nach DIN 276 (2018-12)",
+      "herkunft": "Altfassung Folie 12, Tabelle unter dem Diagramm, Kopfzeile (Bezeichnung und Kostengruppe); Auswahl und Reihenfolge laut Konzept, Folie anhang-kosten",
+      "geprueft": false,
+      "vermerk": "nicht nachgeprüft"
+    },
+    "pgn": {
+      "name": "PGN",
+      "median": {
+        "wert": [3579.18, 2812.42, 458.19, 221.13],
+        "einheit": "€ je m² Wohnfläche, brutto, Median, Kostenstand Q4 2025; Reihenfolge wie „gruppen“",
+        "herkunft": "Altfassung Folie 12, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeilen „… · PGN“, Spalte „Median“; Quelle laut Altfassung: PGN (2026): eigene Auswertung von fünf Projekten (KOFO-Kosten, Hochrechnung auf Q4 2025 gem. Bauleistungspreisindex des LSN)",
+        "geprueft": false,
+        "vermerk": "nicht nachgeprüft"
+      },
+      "spanne_herstellung": {
+        "min": { "wert": 3321.38, "einheit": "€ je m² Wohnfläche, brutto, KG 200–700", "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“, Spalte „_Sockel (bis min)“; Quelle laut Altfassung: PGN (2026): eigene Auswertung von fünf Projekten (KOFO-Kosten, Hochrechnung auf Q4 2025 gem. Bauleistungspreisindex des LSN)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+        "median": { "wert": 3579.18, "einheit": "€ je m² Wohnfläche, brutto, KG 200–700", "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“, Spalte „Median“; Quelle laut Altfassung: PGN (2026): eigene Auswertung von fünf Projekten (KOFO-Kosten, Hochrechnung auf Q4 2025 gem. Bauleistungspreisindex des LSN)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+        "max": {
+          "wert": 3861.35,
+          "einheit": "€ je m² Wohnfläche, brutto, KG 200–700",
+          "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“: Sockel + „Spanne min bis Median“ + „Spanne Median bis max“ (3321.38 + 257.8 + 282.17); Quelle laut Altfassung: PGN (2026): eigene Auswertung von fünf Projekten (KOFO-Kosten, Hochrechnung auf Q4 2025 gem. Bauleistungspreisindex des LSN)",
+          "geprueft": false,
+          "vermerk": "nicht nachgeprüft"
+        }
+      }
+    },
+    "arge": {
+      "name": "ARGE",
+      "median": {
+        "wert": [4631.07, 3712.84, 554.9, 174.1],
+        "einheit": "€ je m² Wohnfläche, brutto, Median, Kostenstand Q4 2025; Reihenfolge wie „gruppen“",
+        "herkunft": "Altfassung Folie 12, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeilen „… · ARGE“, Spalte „Median“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Kostenspannen min/Median/max, Kostenstand Q4 2025)",
+        "geprueft": false,
+        "vermerk": "nicht nachgeprüft"
+      },
+      "spanne_herstellung": {
+        "min": { "wert": 3221, "einheit": "€ je m² Wohnfläche, brutto, KG 200–700", "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · ARGE“, Spalte „_Sockel (bis min)“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Kostenspannen min/Median/max, Kostenstand Q4 2025)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+        "median": { "wert": 4631.07, "einheit": "€ je m² Wohnfläche, brutto, KG 200–700", "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · ARGE“, Spalte „Median“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Kostenspannen min/Median/max, Kostenstand Q4 2025)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+        "max": {
+          "wert": 8592,
+          "einheit": "€ je m² Wohnfläche, brutto, KG 200–700",
+          "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · ARGE“: Sockel + „Spanne min bis Median“ + „Spanne Median bis max“ (3221 + 1410.07 + 3960.93); Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Kostenspannen min/Median/max, Kostenstand Q4 2025)",
+          "geprueft": false,
+          "vermerk": "nicht nachgeprüft"
+        }
+      }
+    },
+    "arge_median_q1_2020": { "wert": 3028.08, "einheit": "€ je m² Wohnfläche, brutto, Median, KG 200–700, Q1 2020", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Herstellung“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "texte": {
+      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter.",
+      "diagrammtitel": "Herstellungskosten je m² Wohnfläche, Median",
+      "untertitel": "Bruttokosten, Kostenstand Q4 2025 · PGN: fünf Projekte · ARGE: deutsche Großstädte",
+      "tabellentitel": "Spanne {kg_herstellung}: Min / Median / Max",
+      "zeile_q1_2020": "ARGE-Median {kg_herstellung} im Q1 2020: {arge_q1_2020} €.",
+      "zeile_modellhaus": "Ansatz im Modellhaus: {mappe_herstellungskosten_qm} € je m²."
+    }
+  },
+  "programmteile": {
+    "_hinweis": "Folie A1. Die sechs Programmteile in der Reihenfolge der vier Ausgangslagen (2.1, 2.2, 2.4 · 2.3 · 2.5 · 2.6). Texte der Kacheln der Broschüre S. 5; im Feld „instrument“ steht hinter dem Semikolon der Pin der Broschüre (blocks[0].data.branches[].pins). Die Sätze des Programmteils 2.1 kommen aus daten/werte.json (Platzhalter „mappe_“). „gekuerzt“ nennt Felder, die für die Tabelle gekürzt sind; der volle Wortlaut der Broschüre steht daneben unter „broschuere“.",
+    "ausgangslagen": {
+      "wert": [
+        { "text": "Neu schaffen oder erstmals erwerben", "teile": ["2.1", "2.2", "2.4"] },
+        { "text": "Bestand modernisieren", "teile": ["2.3"] },
+        { "text": "Bestandswohnung binden", "teile": ["2.5"] },
+        { "text": "Bindung verlängern", "teile": ["2.6"] }
+      ],
+      "einheit": "Ausgangslage und zugehörige Programmteile",
+      "herkunft": "Broschüre S. 5, 05-navigator.json, lead und blocks[0].data.branches[0..3] (label, questions[].yes); Kurzform der Ausgangslagen laut Konzept, Folie anhang-programmteile",
+      "geprueft": true
+    },
+    "zeilen": {
+      "wert": [
+        { "nr": "2.1", "name": "Neubau, Änderung und Erweiterung, Ersterwerb", "instrument": "Darlehen + Zuschuss (Zuschuss nur mit Darlehen)", "bis_zu": "zusammen {mappe_quote} %: A {mappe_darlehen_A} + {mappe_zuschuss_A} · B {mappe_darlehen_B} + {mappe_zuschuss_B} · C {mappe_darlehen_C} + {mappe_zuschuss_C} %", "bindung": "{mappe_bindung} Jahre", "eigenmittel": "mind. {mappe_eigenmittel} %", "schluessel": "tiles[0]" },
+        { "nr": "2.2", "name": "Energetisch hochwertiger Neubau", "instrument": "nur Zuschuss; nicht mit 2.1 kombinierbar", "bis_zu": "A 50 · B 40 · C 30 %, max. 90.000/75.000/60.000 € je Wohnung", "bindung": "35 Jahre", "eigenmittel": "mind. 20 %", "schluessel": "tiles[1]; Pin branches[0].pins[0]" },
+        {
+          "nr": "2.4",
+          "name": "Ostfriesische Inseln",
+          "instrument": "Darlehen + Zuschuss",
+          "bis_zu": "zusammen 90 % der Herstellungskosten + 100 % der Grundstückskosten",
+          "bindung": "35 Jahre",
+          "eigenmittel": "mind. 10 %",
+          "schluessel": "tiles[2]",
+          "trennlinie": true,
+          "gekuerzt": ["eigenmittel"],
+          "broschuere": { "eigenmittel": "mind. 10 % der zuwendungsfähigen Herstellungskosten" }
+        },
+        {
+          "nr": "2.3",
+          "name": "Klimagerechte Modernisierung",
+          "instrument": "Zuschuss je gebundener Wohnung; Wahlrecht bis 31.12.2026",
+          "bis_zu": "10–40 %, höchstens 9.000–31.000 €",
+          "bindung": "25 Jahre; vermietet ohne WBS 35 Jahre",
+          "eigenmittel": "mind. 20 %",
+          "schluessel": "tiles[3]; Pin branches[1].pins[0]",
+          "trennlinie": true,
+          "gekuerzt": ["bindung"],
+          "broschuere": { "bindung": "25 Jahre; vermietete Wohnungen ohne WBS-Nachweis 35 Jahre" }
+        },
+        { "nr": "2.5", "name": "Belegungsbindungen erwerben", "instrument": "Zuschuss", "bis_zu": "Festbetrag 2,00–3,00 € je m² und Monat, nach Bindungsdauer gestaffelt", "bindung": "5–20 Jahre", "eigenmittel": "–", "schluessel": "tiles[4] (max_label, max)", "trennlinie": true },
+        { "nr": "2.6", "name": "Auslaufende Bindungen verlängern", "instrument": "Zuschuss zur Zinsverbilligung; Antrag erst nach Prolongationsangebot der NBank", "bis_zu": "Zins 0 % auf bis zu 100 % der Restschuld, längstens 20 Jahre", "bindung": "+ bis zu 20 Jahre", "eigenmittel": "–", "schluessel": "tiles[5] (max_label, max); Pin branches[3].pins[0]" }
+      ],
+      "einheit": "Höchstsätze je Programmteil",
+      "herkunft": "Broschüre S. 5, 05-navigator.json, blocks[1].data.tiles[0..5] (name, instrument, max, binding, equity; je Zeile unter „schluessel“)",
+      "geprueft": true
+    },
+    "texte": {
+      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter.",
+      "tabellentitel": "Die sechs Programmteile",
+      "untertitel": "Höchstsätze · B und C nur mit Zulassung",
+      "spalten": ["Programmteil", "Instrument", "Bis zu", "Bindung", "Eigenmittel"],
+      "fusszeile": { "wert": "Den Antrag stellen Sie bei Ihrer kommunalen Wohnraumförderstelle, die NBank bewilligt.", "einheit": "Text", "herkunft": "Broschüre S. 5, 05-navigator.json, lead (zweiter Satz)", "geprueft": true }
+    }
+  },
+  "frist": {
+    "_hinweis": "Folie A2. Wahlrecht für Modernisierungsanträge und Stichtage nach Broschüre S. 16.",
+    "achtung": {
+      "label": "Frist 31.12.2026",
+      "wert": "Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. **Die Wahl ist bindend**; das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026; Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert.",
+      "einheit": "Text; „**…**“ ist die Hervorhebung der Broschüre",
+      "herkunft": "Broschüre S. 16, 16-stichtag-wahlrecht-fristen.json, blocks[0] (title, body)",
+      "geprueft": true
+    },
+    "zeitleiste": {
+      "titel": "Stichtage Juni 2026 bis Dezember 2031",
+      "wert": [
+        { "datum": "30.06.2026", "text": "Förderregeln 2024 enden" },
+        { "datum": "01.07.2026", "text": "RL Mietwohnraum 2026 in Kraft" },
+        { "datum": "31.12.2026", "text": "Wahlrecht Modernisierung", "zusatz": "Antragseingang bei der Wohnraumförderstelle", "signal": true },
+        { "datum": "01.01.2027", "text": "Neue Rechennorm für Energiebedarfsausweise", "zusatz": "Klassengrenzen unverändert" },
+        { "datum": "2027", "text": "Neue Mietenstufen geplant", "zusatz": "Entwurf" },
+        { "datum": "31.12.2031", "text": "RL Mietwohnraum 2026 läuft aus" }
+      ],
+      "einheit": "Stichtag, Bezeichnung, Zusatz",
+      "herkunft": "Broschüre S. 16, 16-stichtag-wahlrecht-fristen.json, blocks[1].title und blocks[1].data.events[0..5] (date, label, detail; style „signal“)",
+      "geprueft": true
+    },
+    "zuschuss_2_3": { "nr": "2.3", "wert": "Programmteil 2.3 nach RL 2026: Zuschuss je nach Klassensprung und Einkommensgruppe bis zu 10–40 %, höchstens 9.000–31.000 € je gebundener Wohnung.", "einheit": "Text", "herkunft": "Broschüre S. 16, 16-stichtag-wahlrecht-fristen.json, blocks[2].columns[2] und blocks[2].rows[0][2]", "geprueft": true }
+  },
+  "markt": {
+    "_hinweis": "Folie A8. Markt in Niedersachsen nach Broschüre S. 3 (Quelle dort: NBank-Wohnungsmarktbericht 2025). Die Quote und die Zahl der Quadrate rechnet das Folienmodul aus den beiden Zahlen nach.",
+    "seit": { "wert": 2015, "einheit": "Jahr", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.message und units.period", "geprueft": true },
+    "bis": { "wert": 2024, "einheit": "Jahr", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.units.period", "geprueft": true },
+    "ausgelaufen": { "wert": 58024, "einheit": "Bindungen (Wohnungen), 31.12.2015 bis 31.12.2024", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.units.total.value", "geprueft": true },
+    "neu_gefoerdert": { "wert": 16052, "einheit": "Wohnungen, 31.12.2015 bis 31.12.2024; auf der Folie „rund 16.000“", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.units.part.value (display „rund 16.000“)", "geprueft": true },
+    "quote": { "wert": 0.28, "einheit": "Anteil der ausgelaufenen Bindungen, gerundet", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.message_highlight", "geprueft": true },
+    "je_quadrat": { "wert": 1000, "einheit": "Wohnungen je Quadrat", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.units.unit_value", "geprueft": true },
+    "bestand": { "wert": 50495, "einheit": "Sozialwohnungen", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.foot[1]", "geprueft": true },
+    "bestand_jahr": { "wert": 2024, "einheit": "Jahr des Bestands", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.foot[1]", "geprueft": true },
+    "texte": {
+      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter.",
+      "kennzahl_label": "der seit {seit} ausgelaufenen Bindungen neu gefördert",
+      "satz": "Seit {seit} hat die Neuförderung nur {quote} % der ausgelaufenen Sozialbindungen ersetzt.",
+      "mass_neu": "rund {neu_rund} neu gefördert",
+      "mass_rest": "nicht ersetzt",
+      "legende": "1 Quadrat = {je_quadrat} Wohnungen · {seit}–{bis}: {ausgelaufen} Bindungen ausgelaufen",
+      "zeile": "Bestand {bestand_jahr}: {bestand} Sozialwohnungen, gegenüber {seit} nahezu halbiert"
+    }
+  }
+}

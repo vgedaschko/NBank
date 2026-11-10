@@ -1,0 +1,31 @@
+// Folie 9 · PGN_TABELLE_MR: Jahresrechnung Jahr 1 für A, B und C als Rechenblatt nach Broschüre S. 11 (Zeilennummern wie dort),
+// Ergebniszeile 8 weiß auf Rot, Bearbeitungsentgelte als Notiz unter der Tabelle, rechts die Annahmen.
+// Alle Zahlen aus werte.json (Lauf modellhaus, jr1.*); das Jahr des Kostenstands aus daten/rechnung.json.
+'use strict';
+const R = require('./_rechnung.cjs');
+
+module.exports = {
+  id: 'rechnung-jahr1',
+  bau(ctx) {
+    const { B, W, fmt, colX, span, ZONE } = ctx, s = ctx.folie(), M = k => W('modellhaus', k), G = R.G;
+    B.register(s, '2.1');
+    const z = k => G.map(g => fmt.zahl(M(`jr1.${k}.${g}`))), satz = k => M('jr1.satz.' + k);
+    const miete = G.map(g => fmt.dez(M(`fin.miete_jahr1.${g}`))).join(' | ');
+    B.tabellenkopf(s, { titel: 'Jahresrechnung Jahr 1, in € p. a.', sub: `Höchstmiete nettokalt, Mietenstufe ${R.mietenstufeKlasse(M('eingabe.mietenstufe'))}: ${miete} € je m² (A | B | C)` });
+    B.rechenblatt(s, { x: colX(1), y: ZONE.tabelle.tabelle, w: span(8), dicht: true, name: 'Rechenblatt Jahresrechnung', kopf: ['Position', { kreis: 'A' }, { kreis: 'B' }, { kreis: 'C' }], zeilen: [
+      { nr: 1, text: 'Sollmiete zur Höchstmiete', werte: z('sollmiete') },
+      { zeichen: fmt.MINUS, text: `Mietausfall/Leerstand, ${fmt.prozent(satz('mietausfall'))}`, werte: z('mietausfall') },
+      { nr: 2, zeichen: fmt.MINUS, text: `Objektverwaltung, ${fmt.euro(satz('objektverwaltung'))} je Wohnung`, werte: z('objektverwaltung') },
+      { nr: 3, zeichen: fmt.MINUS, text: `Instandhaltung, ${fmt.euroJeQm(satz('instandhaltung'))}`, werte: z('instandhaltung') },
+      { nr: 4, zeichen: '=', text: 'Überschuss vor Kapitaldienst', werte: z('ueberschuss_vor_kapitaldienst'), art: 'summe' },
+      { nr: 5, zeichen: fmt.MINUS, text: `Verwaltungskostenbeitrag, ${fmt.prozent(satz('verwaltungskostenbeitrag'), 1)}`, werte: z('verwaltungskostenbeitrag') },
+      { nr: 6, zeichen: fmt.MINUS, text: `Zins NBank-Darlehen, ${fmt.prozent(satz('zins_nbank'))}`, werte: z('zins_nbank') },
+      { nr: 7, zeichen: fmt.MINUS, text: `Tilgung ${fmt.prozent(satz('tilgung_nbank'), 1)} p. a. (Annahme)`, werte: z('tilgung_nbank') },
+      { nr: 8, zeichen: '=', text: 'Zahlungsüberschuss p. a.', werte: z('zahlungsueberschuss'), art: 'ergebnis' }] });
+    B.notiz(s, `Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte ${z('bearbeitungsentgelte').join(' | ')} €`);
+    B.planlegende(s, { platzhalter: 'kommentar', pt: 14, eintraege: [
+      { titel: 'Annahmen', text: `Liquidität in Jahr 1 bei Kostenstand ${R.kostenstand(ctx)}, keine Rendite.` },
+      { text: `Tilgung auf ${G.map(g => fmt.mioZahl(M(`fin.darlehen_nbank.${g}`))).join(' | ')} Mio. € Darlehen. Den Tilgungssatz legt die NBank fest.` },
+      { text: 'B und C setzen eine Zulassung in der Förderentscheidung voraus.' }] });
+  },
+};

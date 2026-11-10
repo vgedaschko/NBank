@@ -1,0 +1,67 @@
+{
+  "_hinweis": "Regelwerte und Texte der Baugruppe „regeln“ (Folien 3 bis 6, A5, A6), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft (Broschüre: Seite, Datei unter broschuere/content/pages/, JSON-Schlüssel) und geprueft. Führt werte.json denselben Wert (tab.*), gilt werte.json: In den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul aus werte.json füllt (folien/_regeln.cjs, werteAusMappe).",
+  "stichtage": {
+    "alt_bis": { "wert": "30.06.2026", "einheit": "Datum", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].columns[1]", "geprueft": true },
+    "neu_seit": { "wert": "01.07.2026", "einheit": "Datum", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].columns[2]", "geprueft": true }
+  },
+  "bis_2026_06_30": {
+    "darlehen_anteil": { "wert": 0.75, "einheit": "Anteil der Gesamtkosten", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].rows[0][1]", "geprueft": true },
+    "tilgungsnachlass": { "wert": 0.30, "einheit": "Anteil des Darlehens", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].rows[0][1]", "geprueft": true },
+    "bemessung": {
+      "I": { "wert": 5330, "einheit": "€/m² Wohnfläche, Gesamtkosten, Mietenstufe I–III", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].rows[1][1]", "geprueft": true },
+      "IV": { "wert": 5550, "einheit": "€/m² Wohnfläche, Gesamtkosten, Mietenstufe IV–VII", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].rows[1][1]", "geprueft": true }
+    },
+    "hoechstmiete_geringe_einkommen": {
+      "I": { "wert": 6.30, "einheit": "€/m² Monat, Mietenstufe I–III", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].rows[2][1]", "geprueft": true },
+      "IV": { "wert": 6.60, "einheit": "€/m² Monat, Mietenstufe IV–VII", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].rows[2][1]", "geprueft": true }
+    }
+  },
+  "mietpfad": {
+    "_hinweis": "Programmteil 2.1, Gruppe A, Mietenstufe IV–VII. Gerundete Werte der Broschüre; die Mappe rechnet ungerundet weiter (zr.miete.A).",
+    "jahr4": { "wert": 7.21, "einheit": "€/m² Monat", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.points[1].value", "geprueft": true },
+    "jahr7": { "wert": 7.65, "einheit": "€/m² Monat", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.points[2].value", "geprueft": true }
+  },
+  "angebotsmiete": {
+    "jahr": { "wert": 2024, "einheit": "Jahr", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.reference_lines[0].label", "geprueft": true },
+    "mittel": { "wert": 9.00, "einheit": "€/m² Monat, Niedersachsen, Mittel (landesweit)", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.reference_lines[0].value", "geprueft": true },
+    "neubau_median": { "wert": 11.22, "einheit": "€/m² Monat, Neubau Niedersachsen, Median (landesweit)", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.reference_lines[1].value", "geprueft": true }
+  },
+  "bemessungsgrenze": {
+    "fortschreibung": { "wert": ["01.04.", "01.10."], "einheit": "Stichtage im Jahr", "herkunft": "Broschüre S. 8, 08-programmteil-2-1.json, blocks[1].body", "geprueft": true }
+  },
+  "einkommensgrenze": {
+    "gueltig_seit": { "wert": "01.03.2025", "einheit": "Datum", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[0].title", "geprueft": true },
+    "haushalte": { "wert": ["1 Person", "2 Erwachsene", "2 Erwachsene + 1 Kind", "2 Erwachsene + 2 Kinder"], "einheit": "Haushaltstyp", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[0].data.rows[0], [1], [3], [4].household", "geprueft": true },
+    "A": { "wert": [21250, 28750, 36250, 43750], "einheit": "€ Gesamtjahreseinkommen", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[0].data.rows[0], [1], [3], [4].values[0]", "geprueft": true },
+    "B": { "wert": [29750, 40250, 50750, 61250], "einheit": "€ Gesamtjahreseinkommen", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[0].data.rows[0], [1], [3], [4].values[1]", "geprueft": true },
+    "C": { "wert": [34000, 46000, 58000, 70000], "einheit": "€ Gesamtjahreseinkommen", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[0].data.rows[0], [1], [3], [4].values[2]", "geprueft": true },
+    "zuschlag_B": { "wert": 0.40, "einheit": "Anteil über der Einkommensgrenze", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[0].data.series[1].label", "geprueft": true },
+    "zuschlag_C": { "wert": 0.60, "einheit": "Anteil über der Einkommensgrenze", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[0].data.series[2].label", "geprueft": true }
+  },
+  "zulassung": {
+    "text": { "wert": "Grundsatz ist Gruppe A; B und C muss die NBank in der Förderentscheidung zulassen. Bis 60 % über der Einkommensgrenze setzt das eine besondere Lage oder Zweckbindung voraus, etwa einen angespannten Wohnungsmarkt; sonst sind bei Vorhaben ab zwölf zusammenhängenden Wohnungen bis +20 % für höchstens die Hälfte der Wohnungen möglich; C entfällt dann.", "einheit": "Text", "herkunft": "Broschüre S. 12, 12-mix-und-tilgung.json, blocks[2].body (ohne den Seitenverweis am Ende)", "geprueft": true },
+    "nachweis": { "wert": "Wohnberechtigungsschein (WBS) der Kommune.", "einheit": "Text", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[1].body, verdichtet wie im Konzept (Folie A5)", "geprueft": true }
+  },
+  "eckdaten": {
+    "_hinweis": "Zwölf Zeilen der Tabelle „Eckdaten“ in der Reihenfolge der Broschüre, gekürzt um Seitenverweise und Nebensätze wie im Konzept (Folie A6). Platzhalter in geschweiften Klammern füllt das Folienmodul aus werte.json (tab.*).",
+    "zeilen": {
+      "wert": [
+        { "stichwort": "Antrag, Bewilligung", "text": "Antrag bei der Wohnraumförderstelle am Bauort; die NBank bewilligt mit öffentlich-rechtlichem Fördervertrag", "zeile": "blocks[1].rows[0]" },
+        { "stichwort": "Sätze (Höchstwerte)", "text": "Darlehen {darlehen_abc} % plus Zuschuss {zuschuss_abc} % (Gruppe A/B/C), zusammen {foerderquote} der zuwendungsfähigen Kosten; Zuschuss nur mit Darlehen, B und C nur mit Zulassung", "zeile": "blocks[1].rows[1]" },
+        { "stichwort": "Eigenmittel", "text": "mindestens {eigenmittel} der zuwendungsfähigen Kosten; mindestens die Hälfte als Geld oder lastenfreies Grundstück", "zeile": "blocks[1].rows[2]" },
+        { "stichwort": "Zins", "text": "{zins} bis Ende des {zinsfreie_jahre}. Jahres nach Bezugsfertigkeit; danach bis zu 3 Prozentpunkte über dem Basiszinssatz, höchstens marktüblich", "zeile": "blocks[1].rows[3]" },
+        { "stichwort": "Tilgung", "text": "Satz legt die NBank fest; Beginn nach vollständiger Auszahlung, spätestens zwei Jahre nach dem auf die Bekanntgabe der Förderentscheidung folgenden Monat", "zeile": "blocks[1].rows[4]" },
+        { "stichwort": "Kosten, laufend", "text": "Verwaltungskostenbeitrag {verwaltungskostenbeitrag} p. a. auf das Restkapital, ab Auszahlungsbeginn", "zeile": "blocks[1].rows[5]" },
+        { "stichwort": "Kosten, einmalig", "text": "Bearbeitungsentgelt {entgelt_darlehen} des bewilligten Darlehens und {entgelt_zuschuss} des bewilligten Zuschusses", "zeile": "blocks[1].rows[6]" },
+        { "stichwort": "Auszahlung", "text": "in Raten nach Baufortschritt; Darlehen und Zuschuss je Rate anteilig, Ihre Eigenmittel in der Regel zuerst", "zeile": "blocks[1].rows[7]" },
+        { "stichwort": "Sicherheiten", "text": "nachrangige Grundschuld direkt nach den Kapitalmarktmitteln", "zeile": "blocks[1].rows[8]" },
+        { "stichwort": "Versicherung", "text": "Brand ab Baubeginn, Sturm ab Bezugsfertigkeit, jeweils gleitender Neuwert, bis zur vollständigen Rückzahlung", "zeile": "blocks[1].rows[9]" },
+        { "stichwort": "Vorzeitige Rückzahlung", "text": "Zuschuss anteilig für die restliche Bindungsdauer zurückzuzahlen; die Bindungen enden frühestens 20 Jahre nach Bindungsbeginn", "zeile": "blocks[1].rows[10]" },
+        { "stichwort": "Beihilferecht", "text": "Die NBank prüft jede Förderung auf Überkompensation. Eine Eigenkapitalrendite bis 1 Prozentpunkt über dem 30-jährigen Swapsatz gilt stets als angemessen.", "zeile": "blocks[1].rows[11]", "flaeche": true }
+      ],
+      "einheit": "Text",
+      "herkunft": "Broschüre S. 9, 09-konditionen-term-sheet.json, blocks[1].rows[0] bis [11] (je Zeile im Feld „zeile“); Hervorhebung der letzten Zeile nach blocks[1].row_emphasis",
+      "geprueft": true
+    }
+  }
+}

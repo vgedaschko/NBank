@@ -1,0 +1,15 @@
+{
+  "_hinweis": "Angaben der Baugruppe „rechnung“ (Folien 8 bis 14), die daten/werte.json nicht führt: Bezeichnungen und Regelwerte aus der Broschüre und ein Text aus der Altfassung. Zahlen der Mappe stehen hier nicht; sie kommen über W(lauf, schluessel) aus werte.json. Je Eintrag wert, einheit, herkunft (Broschüre: Seite, Datei unter broschuere/content/pages/, JSON-Schlüssel; Altfassung: Folie) und geprueft.",
+  "kostenstand": {
+    "basisjahr": { "wert": 2026, "einheit": "Jahr", "herkunft": "Broschüre S. 11, 11-wirtschaftlichkeit.json, blocks[3].body („Liquidität in Jahr 1 bei Kostenstand 2026“); in der Mappe Teil der Bezeichnung der Eingaben 5.2, 5.3 und 5.5. Das Folienmodul zählt die Fortschreibung der Mappe dazu (werte.json, eingabe.kostenstand_fortschreibung).", "geprueft": true }
+  },
+  "kostensteigerung": {
+    "ab_jahr": { "wert": 2, "einheit": "Jahr der Rechnung", "herkunft": "VOFI-Mappe v3, Eingabe 5.4 („Kostensteigerung ab Jahr 2, p. a.“); werte.json, eingabe.kostensteigerung, Feld bedeutung. Der Satz selbst kommt aus werte.json.", "geprueft": true }
+  },
+  "eigenmittel": {
+    "anteil_geld_oder_grundstueck": { "wert": 0.5, "einheit": "Anteil der Eigenmittel", "herkunft": "Broschüre S. 9, 09-konditionen-term-sheet.json, blocks[1].rows[2] („mindestens die Hälfte als Geld oder lastenfreies Grundstück“). Mit fin.eigenmittel.A aus werte.json ergibt das die 700.000 € der Broschüre S. 10, 10-modellrechnung-neubau.json, blocks[2].rows[3].", "geprueft": true }
+  },
+  "kosten_pgn": {
+    "beschreibung": { "wert": "Median aus fünf PGN-Projekten, Kostengruppen 200–700, Kostenstand Q4 2025.", "einheit": "Text", "herkunft": "Altfassung Folie 11 (Tabelle „Das Projekt“: Herstellungskosten 3.579 €/m², PGN-Median, KG 200–700, Q4 2025) und Folie 12 (Quellenzeile: PGN (2026), eigene Auswertung von fünf Projekten); Wortlaut nach dem Konzept, Folie rechnung-kosten. Der Eingabewert 3.579 € steht in werte.json (Lauf modellhaus_pgn_kosten, eingabe.herstellungskosten_qm).", "geprueft": false }
+  }
+}

@@ -82,7 +82,7 @@
           "items": [
             {
               "q": "Sicherheiten?",
-              "a": "Grundschuld direkt hinter den Kapitalmarktmitteln; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne Revalutierung. Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft – bei reinen Objektgesellschaften immer."
+              "a": "Grundschuld direkt hinter den Kapitalmarktmitteln; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne Revalutierung. Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft; bei reinen Objektgesellschaften immer."
             },
             {
               "q": "Tilgungsaufschub?",
@@ -90,7 +90,7 @@
             },
             {
               "q": "Vorzeitige Rückzahlung?",
-              "a": "Bei freiwilliger Rückzahlung in voller Höhe ist der Zuschuss anteilig zurückzuzahlen. Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende.\nBeispiel: Bindungsbeginn 2028, Rückzahlung 2040 – Ende 31.12.2050; bei Rückzahlung 2032 erst 2048."
+              "a": "Bei freiwilliger Rückzahlung in voller Höhe ist der Zuschuss anteilig zurückzuzahlen. Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende.\nBeispiel: Bindungsbeginn 2028, Rückzahlung 2040: Ende 31.12.2050; bei Rückzahlung 2032 erst 2048."
             }
           ]
         },
@@ -103,7 +103,7 @@
           "items": [
             {
               "q": "Vorzeitiger Vorhabenbeginn?",
-              "a": "Nur nach Zulassung durch die NBank, beantragt frühestens mit dem Förderantrag – auf eigenes Risiko."
+              "a": "Nur nach Zulassung durch die NBank, beantragt frühestens mit dem Förderantrag, auf eigenes Risiko."
             },
             {
               "q": "Vergabe?",
@@ -111,7 +111,7 @@
             },
             {
               "q": "Anzeigen?",
-              "a": "Baubeginn erst anzeigen, wenn er erfolgt ist – für Unternehmen subventionserheblich. Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis."
+              "a": "Baubeginn erst anzeigen, wenn er erfolgt ist; für Unternehmen subventionserheblich. Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis."
             }
           ]
         }

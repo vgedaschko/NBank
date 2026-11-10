@@ -6,13 +6,13 @@
   "kicker": "Standort und Kommune",
   "headline": "Bedarf am Standort und die Rolle der Kommune",
   "subline": "Der Standort entscheidet über Förderfähigkeit, Vorrang und Mieterkreis",
-  "lead": "Für 2.1, 2.2 und 2.6 muss am Bauort ein nicht nur kurzfristiger Bedarf an gebundenen Mietwohnungen bestehen. In sechs Gebietsarten gilt er als erfüllt, überall sonst wird er vermutet – es sei denn, die NBank hat die Vermutung widerlegt. Modernisierung (2.3), Inseln (2.4) und Bindungserwerb (2.5) setzen keinen Bedarfsnachweis voraus.",
+  "lead": "Für 2.1, 2.2 und 2.6 muss am Bauort ein nicht nur kurzfristiger Bedarf an gebundenen Mietwohnungen bestehen. In sechs Gebietsarten gilt er als erfüllt, überall sonst wird er vermutet, sofern die NBank das nicht widerlegt hat. Modernisierung (2.3), Inseln (2.4) und Bindungserwerb (2.5) setzen keinen Bedarfsnachweis voraus.",
   "blocks": [
     {
       "type": "chart",
       "chart": "grid",
       "role_hint": "dominant",
-      "title": "Bedarf gilt als erfüllt – Vorrang in dieser Reihenfolge",
+      "title": "Bedarf gilt als erfüllt, Vorrang in dieser Reihenfolge",
       "data": {
         "kind": "ladder",
         "items": [
@@ -80,7 +80,7 @@
           "position": "Ringmitte"
         }
       },
-      "note": "In beiden Fällen nötig: die einfache Bedarfsbestätigung der Wohnraumförderstelle zum Bauort. Bei „gesondert nachweisen“ (Vermutung widerlegt) ist der Bedarf zusätzlich zu belegen – etwa durch ein Wohnraumversorgungskonzept, Marktanalysen, Wartelisten oder Monitoringdaten; die NBank entscheidet."
+      "note": "In beiden Fällen nötig: die einfache Bedarfsbestätigung der Wohnraumförderstelle zum Bauort. Bei „gesondert nachweisen“ (Vermutung widerlegt) ist der Bedarf zusätzlich zu belegen, etwa durch ein Wohnraumversorgungskonzept, Marktanalysen, Wartelisten oder Monitoringdaten; die NBank entscheidet."
     },
     {
       "type": "chart",

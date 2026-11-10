@@ -35,9 +35,13 @@
     .page[data-page="11"] .p11-jr tr.p11-r1b > td:nth-child(2) { padding-left: 1.2mm; }
     .page[data-page="11"] .p11-jr tfoot td { padding-top: 2mm; border-bottom: 0; font-size: var(--fs-module); line-height: 1.3; color: var(--fg-3); }
     .page[data-page="11"] .p11-jr tfoot td.num { color: var(--fg-2); }
-    /* Unteres Band: Vergleich B und C gegenüber A | Annahmen und Abgrenzung */
-    .page[data-page="11"] .p11-e { --row-gap: 0; align-items: start; }   /* Oberkante = Band „Sensitivität“ S. 10 */
+    /* Unteres Band: Vergleich frei finanziert (VOFI-Mappe v3, Übersicht Block 8 und Zeile 37; Eingaben 6.1, 6.4) | Annahmen */
+    .page[data-page="11"] .p11-e { --row-gap: 0; align-items: start; }
     .page[data-page="11"] .p11-e .body { margin-top: 2.4mm; color: var(--text); }
+    .page[data-page="11"] .p11-cmp-t { margin-top: 1.6mm; table-layout: fixed; }
+    .page[data-page="11"] .p11-cmp-t col.p11-cmp-val { width: 23mm; }
+    .page[data-page="11"] .p11-cmp-t th, .page[data-page="11"] .p11-cmp-t td { padding-top: .9mm; padding-bottom: .9mm; }
+    .page[data-page="11"] .p11-cmp-t thead th { padding-top: .2mm; padding-bottom: .3mm; vertical-align: middle; }
   </style>
 
   <div class="bs-register" data-bleed aria-hidden="true">2.1</div>
@@ -100,15 +104,24 @@
     </tfoot>
   </table>
 
-  <!-- Band 3 · B und C gegenüber A (6, am Bund) | Annahmen und Abgrenzung (6, außen) -->
+  <!-- Band 3 · Vergleich frei finanziert (6, am Bund) | Annahmen (6, außen) -->
   <div class="l-grid p11-e l-bottom">
     <section class="l-span-6 module p11-cmp">
-      <h2 class="chart__title">B und C gegenüber A</h2>
-      <p class="body">C erzielt 36.960 € mehr Sollmiete im Jahr als A. Nach 2 % Mietausfall und 10.500 € mehr Verwaltungskostenbeitrag bleiben vor Tilgung 25.721 € mehr (B: 16.050 €). Die Tilgung der Mehrschuld von 2,1 Mio. € (B: 1,4 Mio. €) zehrt diesen Vorsprung ab 1,22 % Tilgung auf (B: 1,15 %). Mischungen liegen <span class="u-nohyphens">dazwischen</span> <span class="u-nowrap">(<a class="pageref" href="#seite-12">→&nbsp;S.&nbsp;12</a>).</span></p>
+      <h2 class="chart__title" id="p11-cmp-h">Zum Vergleich: frei finanziert</h2>
+      <table class="table table--compact p11-cmp-t" aria-labelledby="p11-cmp-h">
+        <colgroup><col><col class="p11-cmp-val"><col class="p11-cmp-val"></colgroup>
+        <thead><tr><th scope="col">Jahr 1</th><th scope="col" class="num"><span class="axis-no axis-no--s">A</span></th><th scope="col" class="num">Frei</th></tr></thead>
+        <tbody>
+          <tr><td>Zuschuss</td><td class="num">2,8 Mio. €</td><td class="num">0</td></tr>
+          <tr><td>Darlehen</td><td class="num">2,8 Mio. €</td><td class="num">5,6 Mio. €</td></tr>
+          <tr><td>Kapitaldienst p. a.</td><td class="num">84.000 €</td><td class="num">313.703 €</td></tr>
+          <tr class="is-total"><td>Miete je m², bei der Zeile&nbsp;8 null ist</td><td class="num">6,77 €</td><td class="num">20,72 €</td></tr>
+        </tbody>
+      </table>
     </section>
     <section class="l-span-6 module p11-read">
-      <h2 class="chart__title">Annahmen und Abgrenzung</h2>
-      <p class="body">Objektverwaltung und Instandhaltung sind in A, B und C gleich – sie verschieben das Niveau, nicht den Vergleich. Nur der Mietausfall wächst mit der Sollmiete und senkt beide Tilgungsschwellen. Die Rechnung zeigt Liquidität bei festen Höchstmieten und Kostenstand&nbsp;2026, keine Rendite. Den Tilgungssatz legt die NBank fest <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span></p>
+      <h2 class="chart__title">Annahmen</h2>
+      <p class="body">Frei finanziert: gleiches Haus, Eigenmittel 1,4 Mio. €, Bankdarlehen 5,6 Mio. € zu 3,74 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand&nbsp;2026, keine Rendite. Den Tilgungssatz legt die NBank fest <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span> B&nbsp;und&nbsp;C im Vergleich: <a class="pageref" href="#seite-12">→&nbsp;S.&nbsp;12</a></p>
     </section>
   </div>
 

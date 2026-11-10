@@ -5,14 +5,14 @@
   "running_title": "Bestand · Stichtag 31.12.2026",
   "kicker": "Stichtag 31.12.2026",
   "headline": "Wahlrecht für Modernisierungsanträge",
-  "subline": "Altes Recht oder RL 2026 – einmalig, mit dem Antrag",
+  "subline": "Altes Recht oder RL 2026: Wahl einmalig mit dem Antrag",
   "blocks": [
     {
       "type": "callout",
       "variant": "achtung",
       "role_hint": "frist",
       "title": "Frist 31.12.2026",
-      "body": "Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin das alte Recht (Förderregeln 2024) wählen – ausdrücklich, **bindend und später nicht änderbar**. Es gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026; Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert."
+      "body": "Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. **Die Wahl ist bindend**; das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026; Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert."
     },
     {
       "type": "chart",

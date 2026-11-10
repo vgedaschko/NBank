@@ -3576,21 +3576,28 @@ def pruefe_broschuere(b, w, w10):
     if g:
         bro(p, "S. 11 Entgelt Darlehen ↔ Tabellen!D24", w.get("Tabellen", "D24"), g[0] + " %")
         bro(p, "S. 11 Entgelt Zuschuss ↔ Tabellen!D25", w.get("Tabellen", "D25"), g[1] + " %")
-    txt = block(s11, "text", heading="B und C gegenüber A")["body"]
-    g = regex_zahl(p, "S. 11 Text Mehr-Sollmiete/VKB", txt,
-                   r"([\d.]+) € mehr Sollmiete.*?([\d.]+) € mehr Verwaltungskostenbeitrag.*?vor Tilgung ([\d.]+) € mehr \(B: ([\d.]+) €\)")
+    # Vergleich frei finanziert (Kasten unten links): Übersicht 1.5, 1.6, 1.10, 8.2, 8.3 bei DSCR-Ziel 1,0
+    vg = block(s11, "table", caption="Zum Vergleich: frei finanziert")
+    if vg is None:
+        p.check(False, "S. 11 Vergleich frei finanziert", "Tabelle fehlt", "Tabelle „Zum Vergleich: frei finanziert“")
+    else:
+        zahl = lambda t: t.replace("Mio. €", "").replace("€", "").strip()   # noqa: E731
+        p.check(abs((u("D110") or 0) - 1) < 1e-12, "S. 11 Vergleich: DSCR-Ziel 1,0 ↔ D110", u("D110"), 1)
+        ziele = (("D14", None, 1e6), ("D13", "G18", 1e6), ("D111", "G111", 1.0), ("D112", "G112", 1.0))
+        for row, (za, zf, fk) in zip(vg["rows"], ziele):
+            bro(p, f"S. 11 Vergleich {row[0]} A ↔ {za}", u(za), zahl(row[1]), faktor=fk)
+            if zf is None:
+                p.check(row[2] == "0" and not ist_zahl(u("G14")), f"S. 11 Vergleich {row[0]} Frei", row[2], "0")
+            else:
+                bro(p, f"S. 11 Vergleich {row[0]} Frei ↔ {zf}", u(zf), zahl(row[2]), faktor=fk)
+    txt = block(s11, "text", heading="Annahmen")["body"]
+    g = regex_zahl(p, "S. 11 Annahmen frei", txt,
+                   r"Eigenmittel ([\d,]+) Mio\. €, Bankdarlehen ([\d,]+) Mio\. € zu ([\d,]+) % Zins, Annuität über (\d+) Jahre")
     if g:
-        bro(p, "S. 11 Text Mehr-Sollmiete C ↔ F67", u("F67"), g[0])
-        bro(p, "S. 11 Text Mehr-VKB C ↔ F69", u("F69"), g[1])
-        bro(p, "S. 11 Text Mehrüberschuss C ↔ F70", u("F70"), g[2])
-        bro(p, "S. 11 Text Mehrüberschuss B ↔ E70", u("E70"), g[3])
-    g = regex_zahl(p, "S. 11 Text Schwellen", txt,
-                   r"Mehrschuld von ([\d,]+) Mio\. € \(B: ([\d,]+) Mio\. €\).*?ab ([\d,]+) % Tilgung auf \(B: ([\d,]+) %\)")
-    if g:
-        bro(p, "S. 11 Text Mehrschuld C ↔ F13−D13", dz(u("F13"), u("D13")), g[0], faktor=1e6)
-        bro(p, "S. 11 Text Mehrschuld B ↔ E13−D13", dz(u("E13"), u("D13")), g[1], faktor=1e6)
-        bro(p, "S. 11 Text Schwelle C ↔ F64", u("F64"), g[2] + " %")
-        bro(p, "S. 11 Text Schwelle B ↔ E63", u("E63"), g[3] + " %")
+        bro(p, "S. 11 Annahmen Eigenmittel frei ↔ G19", u("G19"), g[0], faktor=1e6)
+        bro(p, "S. 11 Annahmen Bankdarlehen frei ↔ G18", u("G18"), g[1], faktor=1e6)
+        bro(p, "S. 11 Annahmen Zins Bank ↔ Eingaben!F35", w.get("Eingaben", "F35"), g[2] + " %")
+        bro(p, "S. 11 Annahmen Laufzeit Bank ↔ Eingaben!F38", w.get("Eingaben", "F38"), g[3])
     p.fertig()
     # ---------------- S. 12
     s12 = seite(12)

@@ -76,6 +76,7 @@ Anmerkungen: Fachseiten unter 180 Wörtern Fließtext (S. 3, 4, 5, 6, 9, 10, 11,
 - Begriffe: „Spielregeln“ → „Förderbedingungen“ (S. 13) bzw. „Vermietungsbedingungen“ (S. 7); „Term Sheet“ → „Eckdaten“ (S. 9). Kalkulationsnotizen, Belehrungen, Teaser und Detailversprechen sind gestrichen (§8.1–8.3).
 - Headlines: S. 4 „Richtlinie 2026: Neuerungen und Voraussetzungen“, S. 16 „Wahlrecht für Modernisierungsanträge“, S. 17 „Bindungen erwerben oder verlängern“.
 - S. 11: Mietausfall/Leerstand als Erlösschmälerung in Zeile 1 (Unterzeile ohne eigene Nummer), nicht als Aufwandszeile; A/B/C-Absatz kurz, Vertiefung auf S. 12.
+- S. 11 (10.11.2026): Kasten „B und C gegenüber A“ ersetzt durch „Zum Vergleich: frei finanziert“ (Werte aus der VOFI-Mappe v3; keine Renditen, keine Marktmiete). Ton-Durchgang über alle Seiten nach REDAKTIONSREGELN §9.
 - S. 11/12 (09.11.2026): Werte der PGN-Beispielrechnung vorläufig eingesetzt (Schlussabgleich offen, → Anhang B, Nr. 1) – Mietausfall 2 %, Objektverwaltung 367 € je Wohnung, Instandhaltung 14,40 € je m² (Kostenstand 2026), Tilgung 2,5 % als Annahme; Jahresrechnung zeigt Jahr 1; Tilgungsschwellen mit Mietausfall 1,15 % (B) und 1,22 % (C).
 - S. 5 trägt den Achtung-Einzeiler „Erst Bewilligung, dann Vorhabenbeginn → S. 19“; S. 18 trägt das Modul „Freistellung von der Belegungsbindung“.
 - Umschlag: U1 auf PGN-Rot wie U4 („Rotpause“), U4|U1 durchgehend rot; Bildzeile U1 mit Informationswert („Referenzprojekt Brauerstraße … 19 barrierefreie Wohnungen · mit Förderung der NBank“); keine Blattnummer auf U1 und U4; U4-Schriftfeld „Informationsbroschüre“.
@@ -94,7 +95,7 @@ Anmerkungen: Fachseiten unter 180 Wörtern Fließtext (S. 3, 4, 5, 6, 9, 10, 11,
 
 ### Wohnraum, der sich rechnen kann.
 
-*Ein Leitfaden der PGN zur RL Mietwohnraum 2026 – für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen.*
+*Ein Leitfaden der PGN zur RL Mietwohnraum 2026 für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen.*
 
 *[Bild: Linienzeichnung (Axonometrie), weiß als Negativ auf dem Rotverlauf · Zeichnung: Planungsgemeinschaft Nord GmbH]*
 
@@ -123,9 +124,9 @@ Schriftfeld: **Herausgeber** Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme) 
 
 **Bauen kostet mehr als doppelt so viel wie vor 25 Jahren, Kredite kosteten Ende 2025 drei bis vier Prozent, und die Zahl der Baugenehmigungen hat sich seit 2021 mehr als halbiert.**
 
-Seit dem 01.07.2026 gilt die neue RL Mietwohnraum 2026, befristet bis 31.12.2031. Für Ihre Rechnung heißt das vor allem: Statt Tilgungsnachlässen gibt es jetzt nicht rückzahlbare Zuschüsse.
+Seit dem 01.07.2026 gilt die neue RL Mietwohnraum 2026, befristet bis 31.12.2031. Statt Tilgungsnachlässen gibt es jetzt nicht rückzahlbare Zuschüsse.
 
-Seit 1981 planen wir Bauprojekte – heute von Rotenburg (Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Dieses Heft folgt der Logik einer Investitionsentscheidung: vom passenden Programmteil über Mieten, Bindungen und Finanzierung bis zur Bewilligung. Im Mittelpunkt steht **„Ihre Rechnung“ auf S. 10–12** – vom Finanzierungsaufbau über den laufenden Überschuss bis zum Mix der Einkommensgruppen.
+Wir planen seit 1981 Bauprojekte, von Rotenburg (Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Das Heft führt vom Programmteil über Mieten, Bindungen und Finanzierung bis zur Bewilligung. **„Ihre Rechnung“ auf S. 10–12** zeigt an einem Modellhaus Finanzierung, Überschuss je Jahr und den Mix der Einkommensgruppen, zum Vergleich auch frei finanziert.
 
 *Ihre PGN – Architekten. Stadtplaner. Ingenieure.*
 
@@ -137,7 +138,7 @@ Seit 1981 planen wir Bauprojekte – heute von Rotenburg (Wümme) aus in ganz No
 
 - **Wohnungsunternehmen und Genossenschaften:** Neubau, Modernisierung und Bindungen im Bestand; genossenschaftlich überlassener Wohnraum gilt als Mietwohnraum. → S. 8–17
 - **Investorinnen und Investoren:** Konditionen, Finanzierung, laufender Überschuss und der Mix der Einkommensgruppen. → S. 9–12
-- **Projektentwicklung:** Gefördert wird auch der Ersterwerb bis zwei Jahre nach Fertigstellung. Die Käuferseite schließt den Kaufvertrag erst nach ihrer Bewilligung – vorher nur mit folgenlosem Rücktrittsrecht. → S. 8, 19
+- **Projektentwicklung:** Gefördert wird auch der Ersterwerb bis zwei Jahre nach Fertigstellung. Die Käuferseite schließt den Kaufvertrag erst nach ihrer Bewilligung, vorher nur mit folgenlosem Rücktrittsrecht. → S. 8, 19
 - **Kommunen:** Selbst antragsberechtigt. Wo die Gemeinde geförderten Mietwohnraum im Bebauungsplan, städtebaulichen Vertrag oder Baulandmodell festlegt, gilt der für die Bewilligung nötige Bedarf als erfüllt. → S. 18
 
 #### Inhalt
@@ -177,7 +178,7 @@ Seit 1981 planen wir Bauprojekte – heute von Rotenburg (Wümme) aus in ganz No
 
 #### Begriff: zuwendungsfähige Kosten
 
-Die Bezugsgröße der Förderquote – in 2.1 die Herstellungskosten bis zur Bemessungsgrenze plus Grundstückskosten bis zum Bodenrichtwert, beim Ersterwerb Kaufpreis und Erwerbskosten.
+Bezugsgröße der Förderquote: in 2.1 die Herstellungskosten bis zur Bemessungsgrenze plus Grundstückskosten bis zum Bodenrichtwert, beim Ersterwerb Kaufpreis und Erwerbskosten.
 
 **Grafik (Einheitendiagramm): Markt in Niedersachsen**
 
@@ -289,7 +290,7 @@ Ferienwohnungen, Ferien- und Wochenendhäuser · Heime im Sinne des NuWG · Wohn
 | je weitere Person ab der dritten, zusätzlich je Kind | +3.750 | +5.250 | +6.000 |
 
 *Zulassung von B und C:*
-- **bis +60 %:** in Gebieten mit kommunalem Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, mit kommunaler Festlegung von gefördertem Wohnraum (Bebauungsplan, städtebaulicher Vertrag, Baulandmodell), mit Gemeindeverordnung zu erhöhtem Wohnungsbedarf oder mit per Verordnung bestimmtem angespanntem Wohnungsmarkt – oder für Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- und Pflegebedürftigen vorbehalten ist
+- **bis +60 %:** in Gebieten mit kommunalem Wohnraumversorgungs- oder städtebaulichem Entwicklungskonzept, mit kommunaler Festlegung von gefördertem Wohnraum (Bebauungsplan, städtebaulicher Vertrag, Baulandmodell), mit Gemeindeverordnung zu erhöhtem Wohnungsbedarf oder mit per Verordnung bestimmtem angespanntem Wohnungsmarkt; ebenso für Wohnraum, der Älteren, Menschen mit Behinderungen oder Hilfe- und Pflegebedürftigen vorbehalten ist
 - **sonst nur bis +20 %:** ab 12 zusammenhängenden Wohnungen, für höchstens die Hälfte davon (Teil von B, kein C)
 
 *Seitenverweis-Chip:* A, B und C im Vergleich → S. 11–12
@@ -298,7 +299,7 @@ Ferienwohnungen, Ferien- und Wochenendhäuser · Heime im Sinne des NuWG · Wohn
 
 Mieterinnen und Mieter weisen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) nach. Ihn stellt die Kommune aus, meist Landkreis oder Stadt; der allgemeine WBS gilt ein Jahr und legt auch die angemessene Wohnungsgröße fest.
 
-Maßgeblich ist nicht das Brutto, sondern das Gesamtjahreseinkommen: das in den zwölf Monaten ab Antragstellung erwartete Einkommen aller Haushaltsmitglieder. Davon gehen je 10 % ab, soweit Steuern, Kranken-/Pflege- oder Rentenbeiträge anfallen, außerdem Freibeträge und Unterhalt. Das Bruttoeinkommen kann daher deutlich über den Grenzen liegen.
+Maßgeblich ist das Gesamtjahreseinkommen: das in den zwölf Monaten ab Antragstellung erwartete Einkommen aller Haushaltsmitglieder. Davon gehen je 10 % ab, soweit Steuern, Kranken-/Pflege- oder Rentenbeiträge anfallen, außerdem Freibeträge und Unterhalt. Das Bruttoeinkommen kann daher deutlich über den Grenzen liegen.
 
 **Angemessene Wohnfläche**
 
@@ -388,9 +389,9 @@ Stufe VII gibt es in Niedersachsen nicht. Zuordnung nach Wohngeldrecht seit 2023
 
 ### Bis zu 80 % Förderquote
 
-*Darlehen plus Zuschuss in jeder Einkommensgruppe – mit Zuschlag bis zu 90 %*
+*Darlehen plus Zuschuss in jeder Einkommensgruppe, mit Zuschlag bis zu 90 %*
 
-**Für gebundene Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen: Neubau, Änderung und Erweiterung – Dachausbau, Aufstockung, Anbau, Umnutzung – sowie Ersterwerb unvermieteter, ungebundener Wohnungen bis zwei Jahre nach Fertigstellung, höchstens zum Marktwert. Der Zuschuss wird nur zusammen mit dem Darlehen gewährt.**
+**Für gebundene Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen: Neubau, Änderung und Erweiterung (Dachausbau, Aufstockung, Anbau, Umnutzung) sowie Ersterwerb unvermieteter, ungebundener Wohnungen bis zwei Jahre nach Fertigstellung, höchstens zum Marktwert. Der Zuschuss wird nur zusammen mit dem Darlehen gewährt.**
 
 **Grafik (stacked-bar): Fördermix, Höchstsätze in % der zuwendungsfähigen Kosten**
 
@@ -416,7 +417,7 @@ Herstellungskosten (Kostengruppen 200–700 nach DIN 276), höchstens Bemessungs
 
 = zuwendungsfähige Kosten, nur für den geförderten Wohnraum. Beim Ersterwerb: Kaufpreis + Erwerbskosten.
 
-**Bemessungsgrenze:** 4.800 € je m² Wohnfläche in Mietenstufe I–III, 5.000 € in IV–VII – Ausgangswerte, fortgeschrieben zum 01.04. und 01.10.; aktueller Wert auf nbank.de.
+**Bemessungsgrenze:** 4.800 € je m² Wohnfläche in Mietenstufe I–III, 5.000 € in IV–VII; Ausgangswerte, fortgeschrieben zum 01.04. und 01.10.; aktueller Wert auf nbank.de.
 
 **Eigenmittel:** mindestens 20 %, mit Zuschlag entsprechend weniger; mindestens die Hälfte als Geld oder lastenfreies Grundstück.
 
@@ -479,7 +480,7 @@ Achse: Jahre ab Bezugsfertigkeit, Marken 0 · 35 · 42
 
 ### 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung
 
-**Das Modellhaus: 20 Neubauwohnungen nach Programmteil 2.1 (2 × 50, 6 × 60, 8 × 75, 4 × 85 m²) – jeweils die angemessene Höchstgröße für ein bis vier Personen –, zusammen 1.400 m² Wohnfläche, alle für Einkommensgruppe A (Varianten B und C → S. 11). Standort: eine Gemeinde der Mietenstufe IV–VII, per Verordnung angespannter Wohnungsmarkt – der Bedarf gilt als gegeben. Herstellungskosten 4.500 € je m², also 500 € unter dem Ausgangswert der Bemessungsgrenze von 5.000 € und damit voll zuwendungsfähig. Grundstück 700.000 €, unter Bodenrichtwert × Grundstücksfläche.**
+**Das Modellhaus: 20 Neubauwohnungen nach Programmteil 2.1 (2 × 50, 6 × 60, 8 × 75, 4 × 85 m²; die angemessenen Höchstgrößen für ein bis vier Personen), zusammen 1.400 m² Wohnfläche, alle für Einkommensgruppe A (Varianten B und C → S. 11). Standort: eine Gemeinde der Mietenstufe IV–VII, per Verordnung angespannter Wohnungsmarkt; der Bedarf gilt als gegeben. Herstellungskosten 4.500 € je m², also 500 € unter dem Ausgangswert der Bemessungsgrenze von 5.000 € und damit voll zuwendungsfähig. Grundstück 700.000 €, unter Bodenrichtwert × Grundstücksfläche.**
 
 > **[Stempel]** Modellrechnung – fiktives Beispiel, keine Förderzusage
 
@@ -555,13 +556,20 @@ Einheit: Mio. €
 
 *Abgesetzte Zeile:* Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte (1 % des Darlehens + 0,75 % des Zuschusses): 49.000 · 52.500 · 54.250 € (A · B · C)
 
-#### B und C gegenüber A
+#### Zum Vergleich: frei finanziert
 
-C erzielt 36.960 € mehr Sollmiete im Jahr als A. Nach 2 % Mietausfall und 10.500 € mehr Verwaltungskostenbeitrag bleiben vor Tilgung 25.721 € mehr (B: 16.050 €). Die Tilgung der Mehrschuld von 2,1 Mio. € (B: 1,4 Mio. €) zehrt diesen Vorsprung ab 1,22 % Tilgung auf (B: 1,15 %). Mischungen liegen dazwischen (→ S. 12).
+| Jahr 1 | A | Frei |
+|---|---|---|
+| Zuschuss | 2,8 Mio. € | 0 |
+| Darlehen | 2,8 Mio. € | 5,6 Mio. € |
+| Kapitaldienst p. a. | 84.000 € | 313.703 € |
+| **Miete je m², bei der Zeile 8 null ist** | **6,77 €** | **20,72 €** |
 
-#### Annahmen und Abgrenzung
+*Werte: VOFI-Mappe v3, Übersicht 8.2 und 8.3 (DSCR-Ziel 1,0), Eingaben 6.1 und 6.4.*
 
-Objektverwaltung und Instandhaltung sind in A, B und C gleich – sie verschieben das Niveau, nicht den Vergleich. Nur der Mietausfall wächst mit der Sollmiete und senkt beide Tilgungsschwellen. Die Rechnung zeigt Liquidität bei festen Höchstmieten und Kostenstand 2026, keine Rendite. Den Tilgungssatz legt die NBank fest (→ S. 9).
+#### Annahmen
+
+Frei finanziert: gleiches Haus, Eigenmittel 1,4 Mio. €, Bankdarlehen 5,6 Mio. € zu 3,74 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, keine Rendite. Den Tilgungssatz legt die NBank fest (→ S. 9). B und C im Vergleich: → S. 12
 
 ---
 
@@ -612,7 +620,7 @@ Bei 0 % zeigt das Diagramm den Mehrüberschuss vor Tilgung. Jeder Prozentpunkt T
 
 #### Zulassung von B und C
 
-Grundsatz ist Gruppe A; B und C muss die NBank in der Förderentscheidung zulassen. Bis 60 % über der Einkommensgrenze setzt das eine besondere Lage oder Zweckbindung voraus, etwa einen angespannten Wohnungsmarkt; sonst sind bei Vorhaben ab zwölf zusammenhängenden Wohnungen bis +20 % für höchstens die Hälfte der Wohnungen möglich – C entfällt dann (→ S. 6).
+Grundsatz ist Gruppe A; B und C muss die NBank in der Förderentscheidung zulassen. Bis 60 % über der Einkommensgrenze setzt das eine besondere Lage oder Zweckbindung voraus, etwa einen angespannten Wohnungsmarkt; sonst sind bei Vorhaben ab zwölf zusammenhängenden Wohnungen bis +20 % für höchstens die Hälfte der Wohnungen möglich; C entfällt dann (→ S. 6).
 
 #### Über die Laufzeit
 
@@ -631,7 +639,7 @@ Der Zuschuss ist nicht rückzahlbar; das Darlehen ist bis Ende Jahr 35 zinsfrei 
 
 *Bis zu 50 % der zuwendungsfähigen Kosten, höchstens 90.000 € je Wohnung (Gruppe A)*
 
-**Wer ab KfW-Effizienzhaus-40-Niveau neu baut, erhält einen reinen Zuschuss – ohne Darlehen, also ohne Verwaltungskostenbeitrag; es gilt der niedrigere Wert aus Satz und Höchstbetrag. 2.2 lässt sich nicht mit 2.1 und nicht mit anderen Förderdarlehen der Richtlinie kombinieren. In 2.1 bringt EH-40-Niveau keinen Zuschlag zum Zuschuss, nur eine um bis zu 0,30 € je m² höhere Höchstmiete.**
+**Wer ab KfW-Effizienzhaus-40-Niveau neu baut, erhält einen reinen Zuschuss ohne Darlehen und ohne Verwaltungskostenbeitrag; es gilt der niedrigere Wert aus Satz und Höchstbetrag. 2.2 lässt sich nicht mit 2.1 und nicht mit anderen Förderdarlehen der Richtlinie kombinieren. In 2.1 bringt EH-40-Niveau keinen Zuschlag zum Zuschuss, nur eine um bis zu 0,30 € je m² höhere Höchstmiete.**
 
 **Grafik (capped-lines): Zuschuss je Wohnung nach Kosten je Wohnung** · Höchstsätze · B und C nur mit Zulassung (→ S. 6)
 
@@ -720,7 +728,7 @@ Zweiter Balken „Grundstück, alle Gruppen“ (in % der Grundstückskosten bis 
 - Eigentum oder Erbbaurecht (mindestens 60 Jahre); gesicherter Erwerb genügt
 - mindestens zwei gebundene Mietwohnungen je Neubau
 - nicht gefördert: Ferienwohnungen, Ferien- und Wochenendhäuser, zur Vermietung bestimmte Eigentumswohnungen
-- kombinierbar mit KfW 298 oder 296 wie in 2.1 (→ S. 8), Kommunen selbst KfW 498 – für Neubau und Ersterwerb bis zwölf Monate nach Bauabnahme
+- kombinierbar mit KfW 298 oder 296 wie in 2.1 (→ S. 8), Kommunen selbst KfW 498; für Neubau und Ersterwerb bis zwölf Monate nach Bauabnahme
 
 ---
 
@@ -735,7 +743,7 @@ Zweiter Balken „Grundstück, alle Gruppen“ (in % der Grundstückskosten bis 
 
 *Bis zu 40 % der Modernisierungskosten, höchstens 31.000 € je gebundener Wohnung (Einkommensgruppe A, ab 5 Klassen)*
 
-**Reiner Zuschuss ohne Bedarfsnachweis – für Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen, die vor dem 08.12.2004 fertiggestellt wurden.**
+**Reiner Zuschuss ohne Bedarfsnachweis für Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen, die vor dem 08.12.2004 fertiggestellt wurden.**
 
 **Grafik (efficiency-scale): Effizienzklassen: Endenergiebedarf in kWh je m² Gebäudenutzfläche und Jahr**
 
@@ -766,11 +774,11 @@ Zelllegende: Satz · Höchstbetrag · ab … € Kosten je Wohnung gilt der Höc
 
 Auszahlung: bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abschluss. Bearbeitungsentgelt: einmalig 0,75 % des Zuschusses. Eigenmittel: mindestens 20 % der zuwendungsfähigen Kosten, in der Regel mindestens die Hälfte als Geld.
 
-Zusätzlich nutzbar: BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen – eines von beiden, das andere frühestens drei Jahre später. Decken öffentliche Mittel samt NBank-Zuschuss mehr als 60 % derselben Kosten, kürzt die BEG (Kommunen bei BEG Einzelmaßnahmen: 90 %).
+Zusätzlich nutzbar: BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen; eines von beiden, das andere frühestens drei Jahre später. Decken öffentliche Mittel samt NBank-Zuschuss mehr als 60 % derselben Kosten, kürzt die BEG (Kommunen bei BEG Einzelmaßnahmen: 90 %).
 
 Antrag bis 31.12.2026 bei der Wohnraumförderstelle: altes Recht verbindlich wählbar (→ S. 16).
 
-*[Angebotssatz]* Energetische Gesamtmaßnahmen planen wir aus einer Hand – Architektur und Haustechnik.
+*[Angebotssatz]* Energetische Gesamtmaßnahmen planen wir mit eigener Architektur und Haustechnik.
 
 ---
 
@@ -783,11 +791,11 @@ Antrag bis 31.12.2026 bei der Wohnraumförderstelle: altes Recht verbindlich wä
 
 ### Wahlrecht für Modernisierungsanträge
 
-*Altes Recht oder RL 2026 – einmalig, mit dem Antrag*
+*Altes Recht oder RL 2026: Wahl einmalig mit dem Antrag*
 
 > **[Achtung · Frist] Frist 31.12.2026**
 >
-> Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin das alte Recht (Förderregeln 2024) wählen – ausdrücklich, **bindend und später nicht änderbar**. Es gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026; Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert.
+> Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. **Die Wahl ist bindend**; das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026; Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert.
 
 **Grafik (timeline): Stichtage Juni 2026 bis Dezember 2031**
 
@@ -835,15 +843,15 @@ Zeitraum 2026-06 bis 2031-12, gestaucht zwischen 2027 und 2031; Marke „Stand 3
 |   | 2.5 Bindungen erwerben | 2.6 Bindungen verlängern |
 |---|---|---|
 | Förderung | **2,00–3,00 €** – Zuschuss je m² Wohnfläche und Monat der Bindung: ab 5 Jahren **2,00 €**, ab 10 Jahren **2,50 €**, 15–20 Jahre **3,00 €**; 60 m² über 20 Jahre: **43.200 €** | **0 %** – Zinsverbilligung für bis zu **100 %** der Restschuld, solange das NBank-Darlehen läuft, längstens **20 Jahre**; nicht rückzahlbar, kein neues Darlehen |
-| Wohnung | frei, ohne andere Belegungsbindung; nicht im direkten Anschluss an eine auslaufende Bindung (dafür 2.6) | vom Land gefördert, Bindung läuft planmäßig aus – nicht bereits ausgelaufen; Bedarf besteht fort (→ S. 18) |
+| Wohnung | frei, ohne andere Belegungsbindung; nicht im direkten Anschluss an eine auslaufende Bindung (dafür 2.6) | vom Land gefördert, Bindung läuft planmäßig aus, ist nicht bereits ausgelaufen; Bedarf besteht fort (→ S. 18) |
 | Zustand, Größe | *beide:* abgeschlossen, zur dauernden Wohnnutzung geeignet, gut erhalten, angemessen groß, mit Mindestausstattung (u. a. Heizung, Bad, Küchenanschluss) |   |
 | Berechtigt | Eigentum, Erbbaurecht oder vergleichbares langfristiges Nutzungsrecht | Eigentum und Rückzahlungspflicht für das laufende NBank-Darlehen |
 | Mieterkreis | nur Einkommensgruppe A; bei Bindung für eine besondere Bedarfsgruppe ausschließlich an diese (wohnungsbezogener WBS) | bestehende Belegungs- und Mietbindung läuft unverändert weiter |
 | Bindung | 5 bis 20 Jahre ab der ersten Belegung mit einem WBS-Haushalt; grundsätzlich per Dienstbarkeit im Grundbuch gesichert | verlängert bis zum Monatsende der letzten Darlehensrate, spätestens 20 Jahre nach dem ursprünglichen Bindungsende |
 | Miete Jahr 1–3 | höchstens **6,50 €** (Mietenstufe I–III) bzw. **6,80 €** (IV–VII) je m², ab EH-40-Niveau bis zu +0,30 €; keine Erhöhung | bisherige Nettokaltmiete; keine Erhöhung, auch nicht bei Wiedervermietung |
 | Miete ab Jahr 4 | *beide:* Erhöhung höchstens **+6,15 %** in drei Jahren (Betriebskosten ausgenommen); die Grenze gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete (→ S. 7) |   |
-| Auszahlung | je zur Hälfte nach der Erstbelegung und nach halber Bindungsdauer; **0,75 %** Bearbeitungsentgelt auf den Zuschuss, einbehalten mit der ersten Rate | keine – Verrechnung mit den fälligen Raten; Tilgung und Verwaltungskostenbeitrag laufen weiter; **0,75 %** Bearbeitungsentgelt auf die Zinsverbilligung |
-| Antrag | bei der Wohnraumförderstelle, die die Wohnung besichtigt. **Vor der Bewilligung weder Mietvertrag noch Überlassung** – sonst keine Förderung | Prolongationsangebot der NBank (mit Vordruck 1011b) in der Regel 24 Wochen vor Ablauf der Zinsfreistellung; danach Antrag bei der Wohnraumförderstelle, angenommenes Angebot an die NBank |
+| Auszahlung | je zur Hälfte nach der Erstbelegung und nach halber Bindungsdauer; **0,75 %** Bearbeitungsentgelt auf den Zuschuss, einbehalten mit der ersten Rate | keine; Verrechnung mit den fälligen Raten; Tilgung und Verwaltungskostenbeitrag laufen weiter; **0,75 %** Bearbeitungsentgelt auf die Zinsverbilligung |
+| Antrag | bei der Wohnraumförderstelle, die die Wohnung besichtigt. **Vor der Bewilligung weder Mietvertrag noch Überlassung**, sonst keine Förderung | Prolongationsangebot der NBank (mit Vordruck 1011b) in der Regel 24 Wochen vor Ablauf der Zinsfreistellung; danach Antrag bei der Wohnraumförderstelle, angenommenes Angebot an die NBank |
 
 ---
 
@@ -858,9 +866,9 @@ Zeitraum 2026-06 bis 2031-12, gestaucht zwischen 2027 und 2031; Marke „Stand 3
 
 *Der Standort entscheidet über Förderfähigkeit, Vorrang und Mieterkreis*
 
-**Für 2.1, 2.2 und 2.6 muss am Bauort ein nicht nur kurzfristiger Bedarf an gebundenen Mietwohnungen bestehen. In sechs Gebietsarten gilt er als erfüllt, überall sonst wird er vermutet – es sei denn, die NBank hat die Vermutung widerlegt. Modernisierung (2.3), Inseln (2.4) und Bindungserwerb (2.5) setzen keinen Bedarfsnachweis voraus.**
+**Für 2.1, 2.2 und 2.6 muss am Bauort ein nicht nur kurzfristiger Bedarf an gebundenen Mietwohnungen bestehen. In sechs Gebietsarten gilt er als erfüllt, überall sonst wird er vermutet, sofern die NBank das nicht widerlegt hat. Modernisierung (2.3), Inseln (2.4) und Bindungserwerb (2.5) setzen keinen Bedarfsnachweis voraus.**
 
-**Grafik (ladder): Bedarf gilt als erfüllt – Vorrang in dieser Reihenfolge**
+**Grafik (ladder): Bedarf gilt als erfüllt, Vorrang in dieser Reihenfolge**
 
 1. **Angespannter Wohnungsmarkt** – derzeit 57 Kommunen
 2. **Erhöhter Wohnungsbedarf** – per Verordnung der Gemeinde
@@ -877,7 +885,7 @@ Zeitraum 2026-06 bis 2031-12, gestaucht zwischen 2027 und 2031; Marke „Stand 3
 
 QR-Code in der Ringmitte, Label „Aktuelle Karte“ → Landkarte Wohnraumförderung auf der NBank-Programmseite „Mietwohnungen in Mehrfamilienhäusern“
 
-*Bildunterschrift:* In beiden Fällen nötig: die einfache Bedarfsbestätigung der Wohnraumförderstelle zum Bauort. Bei „gesondert nachweisen“ (Vermutung widerlegt) ist der Bedarf zusätzlich zu belegen – etwa durch ein Wohnraumversorgungskonzept, Marktanalysen, Wartelisten oder Monitoringdaten; die NBank entscheidet.
+*Bildunterschrift:* In beiden Fällen nötig: die einfache Bedarfsbestätigung der Wohnraumförderstelle zum Bauort. Bei „gesondert nachweisen“ (Vermutung widerlegt) ist der Bedarf zusätzlich zu belegen, etwa durch ein Wohnraumversorgungskonzept, Marktanalysen, Wartelisten oder Monitoringdaten; die NBank entscheidet.
 
 **Grafik (toolbox): Instrumente der Kommune**
 
@@ -900,7 +908,7 @@ Findet sich nachweislich kein wohnberechtigter Haushalt, kann die Wohnraumförde
 
 ### Vom Vorgespräch bis zum Verwendungsnachweis
 
-**Sie beantragen bei der Wohnraumförderstelle am Bauort, die NBank entscheidet – in acht Schritten.**
+**Acht Schritte: Sie beantragen bei der Wohnraumförderstelle am Bauort, die NBank entscheidet.**
 
 **Grafik (swimlane): Ablauf und Zuständigkeiten**
 
@@ -921,7 +929,7 @@ Klammer Station 5–7: bei Bauvorhaben
 
 > **[Achtung] Erst Bewilligung, dann Vertrag**
 >
-> Vor der Bewilligung begonnene Vorhaben werden nicht gefördert. Als Beginn gilt ein Bau-, Liefer- oder Kaufvertrag – außer für das Baugrundstück – oder der erste Spatenstich. Bewilligt wird durch Fördervertrag oder Bescheid der NBank.
+> Vor der Bewilligung begonnene Vorhaben werden nicht gefördert. Als Beginn gilt ein Bau-, Liefer- oder Kaufvertrag (außer für das Baugrundstück) oder der erste Spatenstich. Bewilligt wird durch Fördervertrag oder Bescheid der NBank.
 
 **Grafik (ampel): Verträge und Maßnahmen vor der Bewilligung**
 
@@ -940,11 +948,11 @@ Klammer Station 5–7: bei Bauvorhaben
 
 ### So begleiten wir Ihr Förderprojekt
 
-*Ein Ansprechpartner für alles – von der ersten Idee bis zur Objektübergabe.*
+*Ein Ansprechpartner für alles, von der Machbarkeit bis zur Übergabe.*
 
 1. **Förderung und Machbarkeit** · *Vor dem Vorgespräch* – Wir klären Programmteil, Standort und Mieterkreis und ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung (→ S. 11).
 2. **Förderkonforme Planung** · *Leistungsphasen 1–4* – Wir planen Grundrisse, Wohnungsgrößen und Baustandard nach den Anforderungen des jeweiligen Programmteils.
-3. **Kostenplanung** · *Leistungsphasen 2–8* – Wir planen und steuern die Kosten von der Kostenschätzung bis zur Kostenfeststellung, mit Blick auf die Bemessungsgrenzen (→ S. 8).
+3. **Kostenplanung** · *Leistungsphasen 2–8* – Wir planen und steuern die Kosten von der Kostenschätzung bis zur Kostenfeststellung, gemessen an den Bemessungsgrenzen (→ S. 8).
 4. **Antragsunterlagen** · *Vorgespräch und Antrag* – Wir erstellen die baufachlichen Antragsunterlagen: Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung.
 5. **Ausführungsplanung und Vergabe** · *Leistungsphasen 5–7* – Wir schreiben die Bauleistungen richtlinienkonform aus und vergeben sie nach der Bewilligung.
 6. **Bauleitung** · *Leistungsphase 8* – Wir überwachen Ausführung und Termine und dokumentieren den Baufortschritt für die Auszahlung der Teilraten (→ S. 9).
@@ -959,7 +967,7 @@ Marke „Bewilligung“ zwischen LPH 6 und 7 · links: Planungsauftrag LPH 1–6
 
 #### Für Kommunen
 
-Unsere Stadtplanung erarbeitet Bebauungspläne – auch mit Festlegungen für geförderten Mietwohnraum. Für die so festgelegten Wohnungen gilt der Bedarf als gegeben (→ S. 18).
+Unsere Stadtplanung erarbeitet Bebauungspläne, auch mit Festlegungen für geförderten Mietwohnraum. Für die so festgelegten Wohnungen gilt der Bedarf als gegeben (→ S. 18).
 
 ---
 
@@ -996,16 +1004,16 @@ Unsere Stadtplanung erarbeitet Bebauungspläne – auch mit Festlegungen für ge
 
 **Finanzierung und Sicherheiten** *(zu S. 9)*
 
-- **Sicherheiten?** Grundschuld direkt hinter den Kapitalmarktmitteln; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne Revalutierung. Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft – bei reinen Objektgesellschaften immer.
+- **Sicherheiten?** Grundschuld direkt hinter den Kapitalmarktmitteln; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne Revalutierung. Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft; bei reinen Objektgesellschaften immer.
 - **Tilgungsaufschub?** Bei vorübergehendem Fehlbetrag im Objekt kann die NBank den Tilgungsbeginn um bis zu fünf Jahre hinausschieben.
 - **Vorzeitige Rückzahlung?** Bei freiwilliger Rückzahlung in voller Höhe ist der Zuschuss anteilig zurückzuzahlen. Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende.
-  Beispiel: Bindungsbeginn 2028, Rückzahlung 2040 – Ende 31.12.2050; bei Rückzahlung 2032 erst 2048.
+  Beispiel: Bindungsbeginn 2028, Rückzahlung 2040: Ende 31.12.2050; bei Rückzahlung 2032 erst 2048.
 
 **Beginn, Vergabe, Anzeigen** *(zu S. 19)*
 
-- **Vorzeitiger Vorhabenbeginn?** Nur nach Zulassung durch die NBank, beantragt frühestens mit dem Förderantrag – auf eigenes Risiko.
+- **Vorzeitiger Vorhabenbeginn?** Nur nach Zulassung durch die NBank, beantragt frühestens mit dem Förderantrag, auf eigenes Risiko.
 - **Vergabe?** Mindestens drei Unternehmen zum Angebot auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis 25.000 € netto. Kommunen: zusätzlich Vergaberecht.
-- **Anzeigen?** Baubeginn erst anzeigen, wenn er erfolgt ist – für Unternehmen subventionserheblich. Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis.
+- **Anzeigen?** Baubeginn erst anzeigen, wenn er erfolgt ist; für Unternehmen subventionserheblich. Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis.
 
 ---
 
@@ -1020,7 +1028,7 @@ Unsere Stadtplanung erarbeitet Bebauungspläne – auch mit Festlegungen für ge
 
 <sub>Label an der Headline: 45 Jahre PGN</sub>
 
-**Von Rotenburg (Wümme) aus planen wir private, gewerbliche und kommunale Bauprojekte in ganz Norddeutschland – Architektur, Stadtplanung und Ingenieurwesen unter einem Dach.**
+**Von Rotenburg (Wümme) aus planen wir private, gewerbliche und kommunale Bauprojekte in ganz Norddeutschland. Architektur, Stadtplanung und Ingenieurwesen kommen aus einem Büro.**
 
 #### Für Sie denken wir an:
 
@@ -1028,7 +1036,7 @@ Verantwortung. · Kostensicherheit. · Innovation. · Vertrauen.
 
 #### Alles aus einem Haus
 
-Wir arbeiten für Wohnungsunternehmen und Wohnungsbaugenossenschaften, Investorinnen und Investoren, öffentliche Bauträger und Kommunen. Generalplanung, Architektur, Tragwerksplanung, Haustechnik sowie Stadt- und Landschaftsplanung greifen bei uns ineinander – in allen Leistungsphasen und mit einem Ansprechpartner für Ihr Vorhaben. Im Projektcontrolling verbinden wir Kostenplanung und Termine mit der Finanzierung. Über die **PGN Projektgesellschaft Nord GmbH** entwickeln wir Projekte und bauen als Generalübernehmer auch schlüsselfertig.
+Wir arbeiten für Wohnungsunternehmen und Wohnungsbaugenossenschaften, Investorinnen und Investoren, öffentliche Bauträger und Kommunen. Generalplanung, Architektur, Tragwerksplanung, Haustechnik sowie Stadt- und Landschaftsplanung leisten wir im eigenen Haus, in allen Leistungsphasen und mit einem Ansprechpartner für Ihr Vorhaben. Im Projektcontrolling verbinden wir Kostenplanung und Termine mit der Finanzierung. Über die **PGN Projektgesellschaft Nord GmbH** entwickeln wir Projekte und bauen als Generalübernehmer auch schlüsselfertig.
 
 **Wohnungsbau-Referenzen** <sub>(rechts im Modulkopf: Weitere Projekte: → pgn-architekten.de)</sub>
 
@@ -1083,7 +1091,7 @@ RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtsc
 
 ### Aus Ihrer guten Idee – machen wir den besten Plan.
 
-**Planung aus einer Hand für Ihr Vorhaben im geförderten Mietwohnungsbau – von der ersten Idee bis zur Fertigstellung. Sprechen Sie uns an.**
+**Wir planen Ihr Vorhaben im geförderten Mietwohnungsbau, von der Machbarkeit bis zur Fertigstellung. Sprechen Sie uns an.**
 
 *[Logo PGN – logo-rot.svg auf weißem Logofeld; logo-negativ.svg bzw. logo-weiss.svg auf Rot erst nach Freigabe durch PGN]*
 
@@ -1196,7 +1204,7 @@ Das Heft schreibt wörtlich nach der Website „Seit 1981“ (S. 2 Editorial, S.
 - S. 20, Station 5: „Wir schreiben die Bauleistungen richtlinienkonform aus und vergeben sie nach der Bewilligung“ (Kundenwortlaut). Rechtlich vergibt der Bauherr als Zuwendungsempfänger; PGN führt Ausschreibung und Vergabe für ihn durch – Formulierung bestätigen.
 - S. 20: gestufte Beauftragung bestätigen (LPH 1–6 vor, ab LPH 7 nach der Bewilligung); Zulieferung für den Verwendungsnachweis (Station 7) als Leistung bestätigen – übernimmt PGN den Verwendungsnachweis selbst, Text anpassen.
 - S. 20 „Schlüsselfertig“: Erteilt die PGN Projektgesellschaft Nord GmbH als Generalübernehmer die schriftliche Prüfzustimmung (Kalkulation, Nachunternehmervergabe, Abrechnung)? Wenn ja, Satz „Diese Zustimmung geben wir.“ ergänzen. Intern beachten: Der GÜ-Vertrag ist ein Werkvertrag – vor der Bewilligung geschlossen, ist er Vorhabenbeginn.
-- S. 15: Angebotssatz „Energetische Gesamtmaßnahmen planen wir aus einer Hand – Architektur und Haustechnik.“ bestätigen (einziger PGN-Satz auf den Fachseiten S. 3–19).
+- S. 15: Angebotssatz „Energetische Gesamtmaßnahmen planen wir mit eigener Architektur und Haustechnik.“ bestätigen (einziger PGN-Satz auf den Fachseiten S. 3–19).
 - S. 22: Referenzauswahl, Nennung der Auftraggeber (Wohnungsbau-Genossenschaft Rotenburg (Wümme) eG, kwg Kreiswohnbaugesellschaft Hildesheim mbH, IDB mbH & Co. Stade-Altes Land KG) und die Förderangabe „Mit Förderung der NBank“ (Brauerstraße, Website: „N-Bank“; ebenso Bildzeile U1) freigeben.
 - U4: persönliche Ansprechperson gewünscht? Belegt wäre Norbert Behrens, Geschäftsführung – Akquisition, (+49) 4261 9293-71 (Stand 21.10.2026); nur nach Freigabe.
 

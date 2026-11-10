@@ -104,3 +104,20 @@ Gelten auf allen Seiten – auch dort, wo kein Kommentar steht.
 6. **Fachlich bleibt alles korrekt** (Abschnitt 3 gilt weiter): Sätze, Beträge, Fristen, Kosten und die entscheidenden
    Bedingungen nie wegkürzen – Kürzen heißt Ton und Floskeln streichen, nicht Inhalt.
 7. **Kolumnentitel** benennen den Inhalt, nicht die Dramaturgie (S. 2: „Editorial“ statt „Einstieg · Editorial“).
+
+## 9. Ton (Kunde PGN, 10.11.2026, verbindlich für die ganze Broschüre)
+
+Klar, norddeutsch, verbindlich. Kein KI-Ton, keine Floskeln, keine Prosa.
+
+1. **Aussage zuerst, ein Gedanke je Satz.** Zahl, Bedingung, Frist. Schlüsse zieht der Leser (§8.1).
+2. **Keine Einschübe mit Gedankenstrich.** Komma, Semikolon, Klammer oder neuer Satz. Ausnahmen: wörtliche Zitate und die
+   PGN-Claims von der Website („Aus Ihrer guten Idee – machen wir den besten Plan.“, Signatur „Ihre PGN – …“).
+3. **Keine Gegensatz-Figuren** („nicht X, sondern Y“, „verschiebt das Niveau, nicht den Vergleich“). Sagen, was gilt.
+4. **Keine Ankündigungen und Rahmungen** („Für Ihre Rechnung heißt das vor allem“, „Im Mittelpunkt steht“, „folgt der
+   Logik“, „mit Blick auf“). Den Inhalt nennen.
+5. **Keine Bilder und Werbeformeln** („greifen ineinander“, „unter einem Dach“, „aus einer Hand“, „von der ersten Idee
+   bis …“, „zehrt auf“). Sagen, was PGN tut.
+6. **Keine Dreierreihen als Stilmittel.** Aufzählungen nur, wenn alle Glieder fachlich nötig sind.
+7. **Modellrechnung S. 11:** Der Vergleich „frei finanziert“ zeigt Darlehen, Kapitaldienst und die Miete, bei der der
+   Zahlungsüberschuss null ist. Keine Renditen, keine Marktmiete, kein Fazit-Satz. Werte aus der VOFI-Mappe v3
+   (Übersicht 8.2, 8.3; Eingaben 6.1, 6.4); `vofi/pruefe_vofi.py` (F9) prüft sie mit.

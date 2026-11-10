@@ -171,14 +171,42 @@
       "row_note": "Zeile 1 = Sollmiete abzüglich Mietausfall/Leerstand (Erlösschmälerung als Unterzeile ohne eigene Nummer, keine Aufwandszeile – Korrekturlauf 1, ENTSCHEIDUNGEN E)"
     },
     {
-      "type": "text",
-      "heading": "B und C gegenüber A",
-      "body": "C erzielt 36.960 € mehr Sollmiete im Jahr als A. Nach 2 % Mietausfall und 10.500 € mehr Verwaltungskostenbeitrag bleiben vor Tilgung 25.721 € mehr (B: 16.050 €). Die Tilgung der Mehrschuld von 2,1 Mio. € (B: 1,4 Mio. €) zehrt diesen Vorsprung ab 1,22 % Tilgung auf (B: 1,15 %). Mischungen liegen dazwischen (→ S. 12)."
+      "type": "table",
+      "caption": "Zum Vergleich: frei finanziert",
+      "columns": [
+        "Jahr 1",
+        "A",
+        "Frei"
+      ],
+      "rows": [
+        [
+          "Zuschuss",
+          "2,8 Mio. €",
+          "0"
+        ],
+        [
+          "Darlehen",
+          "2,8 Mio. €",
+          "5,6 Mio. €"
+        ],
+        [
+          "Kapitaldienst p. a.",
+          "84.000 €",
+          "313.703 €"
+        ],
+        [
+          "Miete je m², bei der Zeile 8 null ist",
+          "6,77 €",
+          "20,72 €"
+        ]
+      ],
+      "result_row": "Miete je m², bei der Zeile 8 null ist",
+      "values_source": "VOFI-Mappe v3 (PGN_VOFI_Mietwohnraum_2026_v3.xlsx): Übersicht 8.2 Kapitaldienst Jahr 1 und 8.3 nötige Miete für DSCR-Ziel 1,0 (A und Frei), 1.10 Bankdarlehen frei; Eingaben 6.1 Zins Bank 3,74 %, 6.4 Laufzeit 30 Jahre (PGN-Annahmen); Eigenmittel frei wie gefördert (1.11)."
     },
     {
       "type": "text",
-      "heading": "Annahmen und Abgrenzung",
-      "body": "Objektverwaltung und Instandhaltung sind in A, B und C gleich – sie verschieben das Niveau, nicht den Vergleich. Nur der Mietausfall wächst mit der Sollmiete und senkt beide Tilgungsschwellen. Die Rechnung zeigt Liquidität bei festen Höchstmieten und Kostenstand 2026, keine Rendite. Den Tilgungssatz legt die NBank fest (→ S. 9)."
+      "heading": "Annahmen",
+      "body": "Frei finanziert: gleiches Haus, Eigenmittel 1,4 Mio. €, Bankdarlehen 5,6 Mio. € zu 3,74 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, keine Rendite. Den Tilgungssatz legt die NBank fest (→ S. 9). B und C im Vergleich: → S. 12"
     }
   ],
   "footnotes": [],
@@ -205,6 +233,6 @@
     "G2-20",
     "G1-29"
   ],
-  "visual_idea": "Akzentseite im Rhythmus der Doppelseite „Ihre Rechnung“ (S. 10 Finanzierungsaufbau | S. 11 Wirtschaftlichkeit), Fläche #F4F3F2. Kopf wie S. 10: Kicker als Versal-Label in PGN-Rot #B71E3F, darin „Modellrechnung“ als kurzer Stempel (kein zweiter Stempel, keine Vollversion), Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Lead in Work Sans. Baustein-Register 2.1 (--baustein-21) mit Nummer am Seitenrand. Oben das Finanzierungsdiagramm „Finanzierung in Mio. €“: drei gestapelte Säulen Darlehen (--color-loan), Zuschuss (--color-grant), Eigenmittel (--color-equity, Vektorschraffur, „mind.“), Werte in den Segmenten, Eigenmittelwert neben der Säule; die 80-%-Linie (0,25 mm, feiner Strichpunkt in PGN-Rot) läuft hinter den Säulen und ist nur in den Zwischenräumen sichtbar, „5,6“ darunter. Titel und Farbschlüssel stehen über der Positionsspalte der Tabelle, die Säulen exakt über den Tabellenspalten A | B | C. Darunter als dominantes Element die Jahresrechnung als Wasserfall-Tabelle (€ p. a.) – zwei getrennte, gleich ausgerichtete Elemente mit identischer Spaltenfolge A | B | C, nie eine gemeinsame Grundlinie (Mio. € und € p. a. nicht an einer Achse). Zeilennummern 1–8 im grauen Kopfstreifen; Zeile 1 = Sollmiete mit Unterzeile „− Mietausfall/Leerstand“ (Erlösschmälerung, ohne eigene Nummer); Rechenzeichen (−, =) vor den Positionen, Summenstriche über den Zeilen 4 und 8, Beträge rechtsbündig mit tabellarischen Ziffern. Werte der PGN-Rechnung (vorläufig eingesetzt 09.11.2026) als normale Zahlenzellen, negative Ergebnisse mit Minuszeichen (U+2212); Tabellenkopf „Jahr 1“. Ergebniszeile 8 in PGN-Rot, Schrift weiß. Bearbeitungsentgelte als abgesetzte Zeile unter der Tabelle (kleiner, ohne Zeilennummer, nicht Teil der Summenlogik). Unteres Band zweispaltig, unten am Satzspiegel (Oberkante = Band „Sensitivität“ S. 10): links „B und C gegenüber A“ (kurzer Absatz, Vertiefung → S. 12), rechts „Annahmen und Abgrenzung“. Keine Kalkulationsnotiz, kein Angebotssatz (Korrekturlauf 1), kein Achtung-Kasten, keine Fußnote, keine Quellenzeile. Produktion: 10|11 liegen nicht auf einem Druckbogen (physische Heftmitte ist 12|13) – kein Element zwingend über den Bund führen.",
+  "visual_idea": "Akzentseite im Rhythmus der Doppelseite „Ihre Rechnung“ (S. 10 Finanzierungsaufbau | S. 11 Wirtschaftlichkeit), Fläche #F4F3F2. Kopf wie S. 10: Kicker als Versal-Label in PGN-Rot #B71E3F, darin „Modellrechnung“ als kurzer Stempel (kein zweiter Stempel, keine Vollversion), Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Lead in Work Sans. Baustein-Register 2.1 (--baustein-21) mit Nummer am Seitenrand. Oben das Finanzierungsdiagramm „Finanzierung in Mio. €“: drei gestapelte Säulen Darlehen (--color-loan), Zuschuss (--color-grant), Eigenmittel (--color-equity, Vektorschraffur, „mind.“), Werte in den Segmenten, Eigenmittelwert neben der Säule; die 80-%-Linie (0,25 mm, feiner Strichpunkt in PGN-Rot) läuft hinter den Säulen und ist nur in den Zwischenräumen sichtbar, „5,6“ darunter. Titel und Farbschlüssel stehen über der Positionsspalte der Tabelle, die Säulen exakt über den Tabellenspalten A | B | C. Darunter als dominantes Element die Jahresrechnung als Wasserfall-Tabelle (€ p. a.) – zwei getrennte, gleich ausgerichtete Elemente mit identischer Spaltenfolge A | B | C, nie eine gemeinsame Grundlinie (Mio. € und € p. a. nicht an einer Achse). Zeilennummern 1–8 im grauen Kopfstreifen; Zeile 1 = Sollmiete mit Unterzeile „− Mietausfall/Leerstand“ (Erlösschmälerung, ohne eigene Nummer); Rechenzeichen (−, =) vor den Positionen, Summenstriche über den Zeilen 4 und 8, Beträge rechtsbündig mit tabellarischen Ziffern. Werte der PGN-Rechnung (vorläufig eingesetzt 09.11.2026) als normale Zahlenzellen, negative Ergebnisse mit Minuszeichen (U+2212); Tabellenkopf „Jahr 1“. Ergebniszeile 8 in PGN-Rot, Schrift weiß. Bearbeitungsentgelte als abgesetzte Zeile unter der Tabelle (kleiner, ohne Zeilennummer, nicht Teil der Summenlogik). Unteres Band zweispaltig, unten am Satzspiegel (Oberkante = Band „Sensitivität“ S. 10): links die Vergleichstabelle „Zum Vergleich: frei finanziert“ (A | Frei, vier Zeilen, Ergebniszeile fett), rechts „Annahmen“ mit Verweis auf S. 12. Keine Kalkulationsnotiz, kein Angebotssatz (Korrekturlauf 1), kein Achtung-Kasten, keine Fußnote, keine Quellenzeile. Produktion: 10|11 liegen nicht auf einem Druckbogen (physische Heftmitte ist 12|13) – kein Element zwingend über den Bund führen.",
   "page_variant": "accent"
 }

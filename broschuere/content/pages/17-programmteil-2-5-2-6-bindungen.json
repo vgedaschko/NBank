@@ -49,7 +49,7 @@
           "label": "Wohnung",
           "cells": [
             "frei, ohne andere Belegungsbindung; nicht im direkten Anschluss an eine auslaufende Bindung (dafür 2.6)",
-            "vom Land gefördert, Bindung läuft planmäßig aus – nicht bereits ausgelaufen; Bedarf besteht fort (→ S. 18)"
+            "vom Land gefördert, Bindung läuft planmäßig aus, ist nicht bereits ausgelaufen; Bedarf besteht fort (→ S. 18)"
           ]
         },
         {
@@ -92,13 +92,13 @@
           "label": "Auszahlung",
           "cells": [
             "je zur Hälfte nach der Erstbelegung und nach halber Bindungsdauer; **0,75 %** Bearbeitungsentgelt auf den Zuschuss, einbehalten mit der ersten Rate",
-            "keine – Verrechnung mit den fälligen Raten; Tilgung und Verwaltungskostenbeitrag laufen weiter; **0,75 %** Bearbeitungsentgelt auf die Zinsverbilligung"
+            "keine; Verrechnung mit den fälligen Raten; Tilgung und Verwaltungskostenbeitrag laufen weiter; **0,75 %** Bearbeitungsentgelt auf die Zinsverbilligung"
           ]
         },
         {
           "label": "Antrag",
           "cells": [
-            "bei der Wohnraumförderstelle, die die Wohnung besichtigt. **Vor der Bewilligung weder Mietvertrag noch Überlassung** – sonst keine Förderung",
+            "bei der Wohnraumförderstelle, die die Wohnung besichtigt. **Vor der Bewilligung weder Mietvertrag noch Überlassung**, sonst keine Förderung",
             "Prolongationsangebot der NBank (mit Vordruck 1011b) in der Regel 24 Wochen vor Ablauf der Zinsfreistellung; danach Antrag bei der Wohnraumförderstelle, angenommenes Angebot an die NBank"
           ]
         }

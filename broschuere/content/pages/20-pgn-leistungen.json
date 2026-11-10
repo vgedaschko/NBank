@@ -5,7 +5,7 @@
   "running_title": "Umsetzung · Mit PGN",
   "kicker": "Mit PGN",
   "headline": "So begleiten wir Ihr Förderprojekt",
-  "subline": "Ein Ansprechpartner für alles – von der ersten Idee bis zur Objektübergabe.",
+  "subline": "Ein Ansprechpartner für alles, von der Machbarkeit bis zur Übergabe.",
   "lead": "",
   "blocks": [
     {
@@ -31,7 +31,7 @@
           "icon": "rechner",
           "title": "Kostenplanung",
           "phase": "Leistungsphasen 2–8",
-          "body": "Wir planen und steuern die Kosten von der Kostenschätzung bis zur Kostenfeststellung, mit Blick auf die Bemessungsgrenzen (→ S. 8)."
+          "body": "Wir planen und steuern die Kosten von der Kostenschätzung bis zur Kostenfeststellung, gemessen an den Bemessungsgrenzen (→ S. 8)."
         },
         {
           "n": 4,
@@ -123,7 +123,7 @@
       "type": "text",
       "role_hint": "modul-flaeche",
       "heading": "Für Kommunen",
-      "body": "Unsere Stadtplanung erarbeitet Bebauungspläne – auch mit Festlegungen für geförderten Mietwohnraum. Für die so festgelegten Wohnungen gilt der Bedarf als gegeben (→ S. 18)."
+      "body": "Unsere Stadtplanung erarbeitet Bebauungspläne, auch mit Festlegungen für geförderten Mietwohnraum. Für die so festgelegten Wohnungen gilt der Bedarf als gegeben (→ S. 18)."
     }
   ],
   "footnotes": [],

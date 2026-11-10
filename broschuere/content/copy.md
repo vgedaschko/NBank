@@ -1,4 +1,4 @@
-# Wohnraum, der sich rechnen kann. – Mietwohnraumförderung Niedersachsen 2026 · Broschürentext zur Freigabe
+# Wohnraum, der sich rechnet. – Mietwohnraumförderung Niedersachsen 2026 · Broschürentext zur Freigabe
 
 **PGN-Fassung, Korrekturlauf 1** · Herausgeberin: Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme) · Bewilligungsstelle: NBank · Antragsstelle: kommunale Wohnraumförderstelle · Rechtsgrundlage: RL Mietwohnraum 2026 (RdErl. d. MW v. 25.06.2026, Nds. MBl. 2026 Nr. 319, in Kraft seit 01.07.2026) · DIN A4 hoch, 24 Seiten (U1–U4 + 20 Innenseiten), Rückendraht · **Stand der Inhalte: 30.09.2026** (U1 und U3) · Redaktionsstand: 09.11.2026 (Korrekturlauf 1; PGN-Werte S. 11/12 vorläufig eingesetzt)
 
@@ -12,7 +12,7 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 - Platzhalter in eckigen Klammern – `[PGN-Rechnung: …]` – sind seit 09.11.2026 im Heft ersetzt (Werte der PGN-Beispielrechnung, vorläufig; → Anhang B, Nr. 1).
 - Wortzählung je Seite: *Fließtext* = Subline, Lead, Texte, Listen, Checklisten, FAQ, Leistungen, Notizen, Bildunterschriften, Zitate, Kachel-Labels und -Unterzeilen, Schriftfeld; *Grafik/Tabelle* = Text in Diagrammen und Tabellen (auch Eckdaten, Entscheidungsbaum, Swimlane); *Kontakt-/Referenzdaten* separat. Headline und Kicker sind nicht mitgezählt.
 
-**Inhalt:** [S. 1](#seite-1) Wohnraum, der sich rechnen kann. · [S. 2](#seite-2) Damit sich Investieren wieder rechnet · [S. 3](#seite-3) Die Förderung in sieben Zahlen · [S. 4](#seite-4) Richtlinie 2026: Neuerungen und Voraussetzungen · [S. 5](#seite-5) Vom Vorhaben zum passenden Programmteil · [S. 6](#seite-6) Ihr Mieterkreis: drei Einkommensgruppen · [S. 7](#seite-7) Höchstmieten und Mietentwicklung · [S. 8](#seite-8) Bis zu 80 % Förderquote · [S. 9](#seite-9) Konditionen im Überblick · [S. 10](#seite-10) 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung · [S. 11](#seite-11) Mehr Miete, mehr Darlehen: Überschuss je Jahr · [S. 12](#seite-12) Welcher Mix rechnet sich? · [S. 13](#seite-13) Reiner Zuschuss statt Darlehen · [S. 14](#seite-14) Höhere Kostengrenze, 10 % Eigenmittel · [S. 15](#seite-15) Zuschuss nach Effizienzsteigerung · [S. 16](#seite-16) Wahlrecht für Modernisierungsanträge · [S. 17](#seite-17) Bindungen erwerben oder verlängern · [S. 18](#seite-18) Bedarf am Standort und die Rolle der Kommune · [S. 19](#seite-19) Vom Vorgespräch bis zum Verwendungsnachweis · [S. 20](#seite-20) So begleiten wir Ihr Förderprojekt · [S. 21](#seite-21) Unterlagen, Kontakte und Verfahrensdetails · [S. 22](#seite-22) Ihre Generalplaner aus dem Norden. Seit 1981. · [S. 23](#seite-23) Impressum und Hinweise · [S. 24](#seite-24) Aus Ihrer guten Idee – machen wir den besten Plan. · [Anhang A](#anhang-a) Offene fachliche Rückfragen an die NBank · [Anhang B](#anhang-b) Vor dem Druck mit PGN klären
+**Inhalt:** [S. 1](#seite-1) Wohnraum, der sich rechnet. · [S. 2](#seite-2) Damit sich Investieren wieder rechnet · [S. 3](#seite-3) Die Förderung in sieben Zahlen · [S. 4](#seite-4) Richtlinie 2026: Neuerungen und Voraussetzungen · [S. 5](#seite-5) Vom Vorhaben zum passenden Programmteil · [S. 6](#seite-6) Ihr Mieterkreis: drei Einkommensgruppen · [S. 7](#seite-7) Höchstmieten und Mietentwicklung · [S. 8](#seite-8) Bis zu 80 % Förderquote · [S. 9](#seite-9) Konditionen im Überblick · [S. 10](#seite-10) 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung · [S. 11](#seite-11) Mehr Miete, mehr Darlehen: Überschuss je Jahr · [S. 12](#seite-12) Welcher Mix rechnet sich? · [S. 13](#seite-13) Reiner Zuschuss statt Darlehen · [S. 14](#seite-14) Höhere Kostengrenze, 10 % Eigenmittel · [S. 15](#seite-15) Zuschuss nach Effizienzsteigerung · [S. 16](#seite-16) Wahlrecht für Modernisierungsanträge · [S. 17](#seite-17) Bindungen erwerben oder verlängern · [S. 18](#seite-18) Bedarf am Standort und die Rolle der Kommune · [S. 19](#seite-19) Vom Vorgespräch bis zum Verwendungsnachweis · [S. 20](#seite-20) So begleiten wir Ihr Förderprojekt · [S. 21](#seite-21) Unterlagen, Kontakte und Verfahrensdetails · [S. 22](#seite-22) Ihre Generalplaner aus dem Norden. Seit 1981. · [S. 23](#seite-23) Impressum und Hinweise · [S. 24](#seite-24) Aus Ihrer guten Idee – machen wir den besten Plan. · [Anhang A](#anhang-a) Offene fachliche Rückfragen an die NBank · [Anhang B](#anhang-b) Vor dem Druck mit PGN klären
 
 ---
 
@@ -93,7 +93,7 @@ Anmerkungen: Fachseiten unter 180 Wörtern Fließtext (S. 3, 4, 5, 6, 9, 10, 11,
 
 *Mietwohnraumförderung Niedersachsen 2026*
 
-### Wohnraum, der sich rechnen kann.
+### Wohnraum, der sich rechnet.
 
 *Ein Leitfaden der PGN zur RL Mietwohnraum 2026 für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen.*
 

@@ -16,7 +16,7 @@ Bewertung der drei Entwürfe. „entscheider“ trägt am besten zur Kernaussage
 
 | Nr. | ID | Abschnitt | Layout | Titel | Baugruppe |
 |---|---|---|---|---|---|
-| 1 | `titel` | Ausgangslage | `PGN_TITEL` | Wohnraum, der sich rechnen kann | rahmen |
+| 1 | `titel` | Ausgangslage | `PGN_TITEL` | Wohnraum, der sich rechnet | rahmen |
 | 2 | `trenner-ausgangslage` | Ausgangslage | `PGN_ABSCHNITT_ROT` | Ausgangslage: Kosten, Zinsen, Bestand | struktur |
 | 3 | `einstieg-baukosten` | Ausgangslage | `PGN_DIAGRAMM` | Bauen ist seit 2020 um gut die Hälfte teurer geworden | einstieg |
 | 4 | `ausgangslage-zinsen` | Ausgangslage | `PGN_DIAGRAMM` | Kredite kosten 3,74 %, Anfang 2020 waren es 0,46 % | einstieg |
@@ -55,13 +55,13 @@ Bewertung der drei Entwürfe. „entscheider“ trägt am besten zur Kernaussage
 
 ## Folien im Einzelnen
 
-### 1 · Wohnraum, der sich rechnen kann
+### 1 · Wohnraum, der sich rechnet
 
 ID `titel` · Abschnitt Ausgangslage · Layout `PGN_TITEL` · Baugruppe rahmen
 
 **Aussage:** PGN zeigt, wie die RL Mietwohnraum 2026 die Rechnung eines Neubaus verändert: bis zu 80 % Förderquote aus Darlehen und Zuschuss in Programmteil 2.1.
 
-**Inhalt (Wortlaut der Folie):** Kopfleiste: „MIETWOHNRAUMFÖRDERUNG NIEDERSACHSEN 2026“. Titel in drei Zeilen: „WOHNRAUM, DER“ | „SICH RECHNEN“ | „KANN.“ (Claim der Broschüre im Wortlaut, deshalb mit Schlusspunkt; Signaturwort „RECHNEN“ kursiv). Untertitel: „Die RL Mietwohnraum 2026 für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen.“ Schriftfeld: „Herausgeber“ · „Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme)“ · „Stand 30.09.2026“ · „Vortrag“ · Platzhalter „Ort, Datum“ (trägt PGN ein). Kennzahlfeld: „BIS ZU“ · „80 %“ · „Förderquote aus Darlehen und Zuschuss“ · „der zuwendungsfähigen Kosten · Programmteil 2.1“. Bildzeile an der Zeichnung (10 pt): „Referenzprojekt Brauerstraße, Rotenburg (Wümme) · 19 barrierefreie Wohnungen · mit Förderung der NBank“. Kein Logo von NBank oder Land, keine Foliennummer.
+**Inhalt (Wortlaut der Folie):** Kopfleiste: „MIETWOHNRAUMFÖRDERUNG NIEDERSACHSEN 2026“. Titel in zwei Zeilen: „WOHNRAUM, DER“ | „SICH RECHNET.“ (Claim der Broschüre im Wortlaut, deshalb mit Schlusspunkt; Signaturwort „RECHNET“ kursiv). Untertitel: „Die RL Mietwohnraum 2026 für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen.“ Schriftfeld: „Herausgeber“ · „Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme)“ · „Stand 30.09.2026“ · „Vortrag“ · Platzhalter „Ort, Datum“ (trägt PGN ein). Kennzahlfeld: „BIS ZU“ · „80 %“ · „Förderquote aus Darlehen und Zuschuss“ · „der zuwendungsfähigen Kosten · Programmteil 2.1“. Bildzeile an der Zeichnung (10 pt): „Referenzprojekt Brauerstraße, Rotenburg (Wümme) · 19 barrierefreie Wohnungen · mit Förderung der NBank“. Kein Logo von NBank oder Land, keine Foliennummer.
 
 **Darstellung:** Dominant: Axonometrie Brauerstraße als Negativ auf Rotverlauf (Hintergrundbild bg-titel.png, erzeugt aus ../broschuere/src/assets/pgn/sig-axo-brauerstrasse.svg) mit Maßkette, dazu das weiße Kennzahlfeld mit roter „80 %“. Weißer Planrahmen, Titellinie weiß, Logo rot auf weißem Feld (logo-rot.svg). Wie Probe 1 und Broschüre U1.
 

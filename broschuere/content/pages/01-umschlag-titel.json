@@ -5,8 +5,8 @@
   "running_title": "Umschlag · Titel (U1)",
   "footer": "kein Kolumnentitel, keine Seitenzahl (U1); running_title nur als Seitenname",
   "kicker": "Mietwohnraumförderung Niedersachsen 2026",
-  "headline": "Wohnraum, der sich rechnen kann.",
-  "headline_highlight": "rechnen",
+  "headline": "Wohnraum, der sich rechnet.",
+  "headline_highlight": "rechnet",
   "subline": "Ein Leitfaden der PGN zur RL Mietwohnraum 2026 für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen.",
   "lead": "",
   "image": {
@@ -70,7 +70,7 @@
     "assets/pgn/MANIFEST.md: sig-axo-brauerstrasse.svg = Axonometrie nach der Kubatur Brauerstraße, Zeichnung der PGN (Schema); logo-weiss.svg Freigabe [UNSICHER]"
   ],
   "pdf_meta": {
-    "title": "Wohnraum, der sich rechnen kann. Mietwohnraumförderung Niedersachsen 2026",
+    "title": "Wohnraum, der sich rechnet. Mietwohnraumförderung Niedersachsen 2026",
     "author": "Planungsgemeinschaft Nord GmbH",
     "subject": "Leitfaden der Planungsgemeinschaft Nord GmbH zur RL Mietwohnraum 2026 für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen"
   },

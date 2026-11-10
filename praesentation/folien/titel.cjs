@@ -1,4 +1,4 @@
-// Folie 1 · Titel (PGN_TITEL): Claim der Broschüre in drei Zeilen, Untertitel, Kennzahlfeld „bis zu 80 %“, Bildzeile an der Axonometrie.
+// Folie 1 · Titel (PGN_TITEL): Claim der Broschüre in zwei Zeilen, Untertitel, Kennzahlfeld „bis zu 80 %“, Bildzeile an der Axonometrie.
 // Kopfleiste, Schriftfeld (Herausgeber, Stand, „Vortrag“ mit Eingabefeld „Ort, Datum“) und Logo liegen im Layout; das Eingabefeld bleibt leer.
 'use strict';
 

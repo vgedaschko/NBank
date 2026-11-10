@@ -1,4 +1,4 @@
-# Wohnraum, der sich rechnen kann. – Mietwohnraumförderung Niedersachsen 2026 (PGN-Fassung)
+# Wohnraum, der sich rechnet. – Mietwohnraumförderung Niedersachsen 2026 (PGN-Fassung)
 
 > **Herausgeberin: Planungsgemeinschaft Nord GmbH (PGN), Rotenburg (Wümme).** Die NBank ist Bewilligungsstelle und wird
 > nur sachlich genannt, nie als Absender (kein Logo von NBank oder Land). Die Platzhalter `[PGN-Rechnung: …]` auf
@@ -39,7 +39,7 @@ Doppelseite 10|11 „Ihre Rechnung“ trägt Finanzierung und Wirtschaftlichkeit
 
 | S. | Seite | Kolumnentitel | Überschrift |
 |---:|---|---|---|
-| 1 | U1 | Umschlag · Titel | Wohnraum, der sich rechnen kann. |
+| 1 | U1 | Umschlag · Titel | Wohnraum, der sich rechnet. |
 | 2 | U2 | Editorial | Damit sich Investieren wieder rechnet (Editorial, Inhalt) |
 | 23 | U3 | PGN · Impressum | Impressum und Hinweise |
 | 24 | U4 | Umschlag · Rückseite | Aus Ihrer guten Idee – machen wir den besten Plan. |

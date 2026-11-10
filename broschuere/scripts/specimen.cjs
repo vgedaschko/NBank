@@ -173,7 +173,7 @@ const html = `<!doctype html>
     <div class="cover__row cover__row--main">
       <div class="cover__main">
         <p class="kicker kicker--ink cover__kicker">Mietwohnraumförderung Niedersachsen 2026</p>
-        <h1 class="cover__title">Wohnraum, der sich <em>rechnen</em> kann.</h1>
+        <h1 class="cover__title">Wohnraum, der sich <em>rechnet</em>.</h1>
         <p class="cover__deck">Der Leitfaden zur RL Mietwohnraum 2026 – für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren und Kommunen.</p>
       </div>
       <div class="cover__kpi">

@@ -15,7 +15,7 @@ if (R('titel.herausgeber') !== FIRMA || R('kontakt.firma') !== FIRMA) throw new 
 // art: titel | abschnitt | inhalt | anhang | schluss · titel: Schriftgrad, Zeilenzahl (min, max) und größte Zeilenbreite in Zoll
 const T32 = { pt: 32, min: 2, max: 2, breite: 11.6 };
 const LAYOUTS = {
-  PGN_TITEL:          { grund: 'rot', art: 'titel', titel: { pt: 44, min: 1, max: 3, breite: 6.7 }, felder: ['title', 'untertitel', 'anlass'] },
+  PGN_TITEL:          { grund: 'rot', art: 'titel', titel: { pt: 44, min: 1, max: 2, breite: 6.7 }, felder: ['title', 'untertitel', 'anlass'] },
   PGN_ABSCHNITT:      { grund: 'hell', art: 'abschnitt', titel: { pt: 40, min: 1, max: 3, breite: 9.6 }, felder: ['nr', 'title', 'lead', 'rubrik', 'blatt'] },
   PGN_ABSCHNITT_ROT:  { grund: 'rot', art: 'abschnitt', titel: { pt: 40, min: 1, max: 3, breite: 9.6 }, felder: ['nr', 'title', 'lead', 'rubrik', 'blatt'] },
   PGN_INHALT:         { grund: 'hell', art: 'inhalt', titel: T32, felder: ['kicker', 'title', 'rubrik', 'blatt'] },
@@ -82,9 +82,11 @@ function definiereLayouts(pres) {
     linie(0.30, 0.80, W - 0.60, 0, C.weiss, 0.5, 'Kopfleiste'),
     { rect: { x: 0.60, y: 0.535, w: 0.28, h: 0.03, fill: { color: C.weiss }, line: { type: 'none' }, objectName: 'Kickerstrich' } },
     txt(PROJEKT.toLocaleUpperCase('de-DE'), { x: 1.0, y: 0.40, w: 8, h: 0.30, fontFace: F.mont, bold: true, fontSize: 12, charSpacing: 1.6, color: C.weiss, objectName: 'Kopfleiste Projekt' }),
-    RAHMEN.titellinie(0.375, 1.64, 1.68, C.weiss, 0.055),
-    ph('title', { x: 0.60, y: 1.55, w: 6.7, h: 2.05, fontFace: F.black, bold: false, fontSize: 44, lineSpacing: 45, color: C.weiss, align: 'left' }, 'TITEL IN DREI ZEILEN', 'title'),
-    ph('untertitel', { x: 0.60, y: 3.85, w: 6.3, h: 1.15, fontFace: F.text, fontSize: 18, lineSpacingMultiple: 1.1, color: C.weiss }, 'Untertitel'),
+    // Titel in zwei Zeilen (Claim der Broschüre): Titellinie von der Versalhöhe der ersten bis zur Grundlinie der zweiten Zeile; Titel und
+    // Untertitel stehen als Block mittig zur Zeichnung
+    RAHMEN.titellinie(0.375, 1.95, 1.06, C.weiss, 0.055),
+    ph('title', { x: 0.60, y: 1.86, w: 6.7, h: 1.42, fontFace: F.black, bold: false, fontSize: 44, lineSpacing: 45, color: C.weiss, align: 'left' }, 'TITEL IN ZWEI ZEILEN', 'title'),
+    ph('untertitel', { x: 0.60, y: 3.54, w: 6.3, h: 1.15, fontFace: F.text, fontSize: 18, lineSpacingMultiple: 1.1, color: C.weiss }, 'Untertitel'),
     // Schriftfeld groß
     linie(0.30, 5.70, W - 0.60, 0, C.weiss, 1, 'Schriftfeld Oberlinie'),
     { rect: { x: 0.30, y: 5.70, w: 3.20, h: 1.50, fill: { color: C.weiss }, line: { type: 'none' }, objectName: 'Logofeld' } },

@@ -28,7 +28,7 @@ module.exports = {
 
     // Planlegende über zwölf Spalten: Modulkopf-Linie und drei Einträge im Raster 4 + 4 + 4
     const y = B.modulkopf(s, { x: colX(1), y: ZONE.kennzahlen.darunter, w: Raster.CW });
-    [['Tilgungssatz', `Annahme ${fmt.prozent(M('eingabe.tilgung_nbank'), 1)} p. a.; den Satz legt die NBank fest.`],
+    [['Tilgungssatz', `Annahme ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)} p. a.; den Satz legt die NBank fest.`],
       ['Herstellungskosten je m²', `Zuwendungsfähig bis zur Bemessungsgrenze, Ausgangswert ${fmt.zahl(M('fin.bemessungsgrenze_qm'))} € in Mietenstufe IV–VII.`],
       ['Höchstmiete', `Nach Einkommensgruppe und Mietenstufe; im Modellhaus ${fmt.euroDez(M('fin.miete_jahr1.A'))}.`]].forEach(([titel, text], i) =>
       B.planlegende(s, { x: colX(1 + 4 * i), y, w: span(4), pt: 14, eintraege: [{ titel: wl(titel, 'Planlegende'), text: wl(text, 'Planlegende') }], name: 'Planlegende ' + titel }));   // ohne h: Die Höhe folgt dem Text

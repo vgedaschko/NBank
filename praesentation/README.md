@@ -87,7 +87,7 @@ Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs, Schr
   einem Schrägstrich („5.330/5.550 €“) werden wie jede andere geprüft.
 - **Daten und Jahreszahlen** gelten nur, wenn eine Datendatei oder `daten/pruefung.json` sie führt. „Broschüre S. n“ gilt für
   die Seiten 1 bis 24, ein Folienverweis nur für eine Blattnummer des Konzepts.
-- **Kernwerte und Kernsätze** stehen an ihren Folien mit Einheit und Vorzeichen („−18.495“, „+52,9 %“, „Laufzeit höchstens 42 Jahre“,
+- **Kernwerte und Kernsätze** stehen an ihren Folien mit Einheit und Vorzeichen („−13.495“, „+52,9 %“, „Laufzeit höchstens 42 Jahre“,
   „Bearbeitungsentgelt 1 % des bewilligten Darlehens und 0,75 % des bewilligten Zuschusses“), einige auch in den Diagrammdaten.
   Die Listen `KERNWERTE` (Modellhaus), `KERNWERTE_MARKT` (Ausgangslage und Kostenvergleich), `KERNSAETZE` und `KERNWERTE_DIAGRAMM`
   stehen am Anfang des Skripts. Eine Quelle ist ein Schlüssel der Rechenmappe oder eine Formel wie in `daten/pruefung.json`; so sind
@@ -152,12 +152,12 @@ Vortrag bestätigt PGN sie oder nimmt sie heraus.
 - Folie 5: Kapitaldienst je m² und Monat 8,95 € (Q1 2020) und 20,14 € (heute), Anstieg 11,19 € mit den Anteilen 3,91 | 5,07 | 2,21 €. Neu gerechnet nach der Methode der Rechenmappe (80 % Fremdkapital, jährliche Annuität über 30 Jahre), aber auf ungeprüften Eingangswerten: Kosten 3.754 und 5.392 € je m² (ARGE), Zins 0,46 % (Dr. Klein Wowi Finanz AG); der Fremdkapitalanteil von 80 % ist die Annahme der Altfassung Folie 5.
 - Folie 6: Bestand an Mietwohnungen mit Miet- und Belegungsbindung in Niedersachsen zum 31.12., 2016 bis 2025 (85.766 bis 50.920, Rückgang 40,6 %; Altfassung Folie 4; Quelle dort: BT-Drs. 21/7303, Antwort der Bundesregierung vom 21.07.2026). Geprüft sind auf dieser Folie die Zahlen der Broschüre S. 3 (58.024, rund 16.000, 28 %, Bestand 2024 50.495).
 - Folien 22 und 23: Herstellungskosten 3.579 € je m² (Median aus fünf PGN-Projekten, Kostengruppen 200–700, Kostenstand Q4 2025; Altfassung Folien 11 und 12).
-- Folie 23, Spalte 3.579 €: Gesamtkosten 5,71 Mio. €, Förderung 4,57 Mio. €, Zahlungsüberschuss 15.928 €, nötige Miete 5,83 €; in den Notizen Kapitaldienst 68.527 € und nötige Miete frei finanziert 17,21 €. Mit der Mappe gerechnet, aber auf dem ungeprüften Eingabewert.
+- Folie 23, Spalte 3.579 €: Gesamtkosten 5,71 Mio. €, Förderung 4,57 Mio. €, Zahlungsüberschuss 18.647 €, nötige Miete 5,67 €; in den Notizen Kapitaldienst 65.808 € und nötige Miete frei finanziert 17,21 €. Mit der Mappe gerechnet, aber auf dem ungeprüften Eingabewert.
 - Folie 22: PGN-Werte je Kostengruppe (Median Bauwerk 2.812 €, Baunebenkosten 458 €, Außenanlagen 221 €; Spanne Herstellung 3.321 bis 3.861 €; Altfassung Folie 12).
 - Folie 22: ARGE-Werte für deutsche Großstädte, Bruttokosten (Median Q4 2025: Herstellung 4.631 €, Bauwerk 3.713 €, Baunebenkosten 555 €, Außenanlagen 174 €; Spanne Herstellung 3.221 bis 8.592 €; Altfassung Folie 12) und der daraus gerechnete Abstand von 22,7 %.
 - Quellenangaben zu diesen Daten (ARGE e. V., Wohnungsbau in Deutschland 2026, S. 32 Abb. 20 und S. 34 Abb. 23; Dr. Klein Wowi Finanz AG; BT-Drs. 21/7303; PGN, eigene Auswertung von fünf Projekten) stammen aus den Quellenzeilen der Altfassung.
 
 Bestätigt PGN den Wert 3.579 € nicht, entfallen Folie 22 und die Spalte 3.579 € der Folie 23.
 
-Offene Fragen an PGN (Tenor der Jahresrechnung, Tilgungssatz 2,5 %, Titel der Zusammenfassung, Daten der Altfassung im Einstieg,
+Offene Fragen an PGN (Tenor der Jahresrechnung, Tilgungssatz 2,38 %, Titel der Zusammenfassung, Daten der Altfassung im Einstieg,
 Dauer des Vortrags, Ort und Datum, Bildrechte) stehen am Ende von `INHALT.md`.

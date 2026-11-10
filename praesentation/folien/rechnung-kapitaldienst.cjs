@@ -35,6 +35,6 @@ module.exports = {
 
     B.planlegende(s, { platzhalter: 'kommentar', pt: 16, eintraege: [
       { titel: 'Annahmen', text: `Frei finanziert: gleiches Haus, Eigenmittel ${fmt.mio(M('fin.eigenmittel.Frei'))}, Bankdarlehen ${fmt.mio(M('fin.bankdarlehen.Frei'))} zu ${fmt.prozent(M('eingabe.zins_bank'), 2)} Zins, Annuität über ${M('eingabe.laufzeit_bank')} Jahre. Objektverwaltung und Instandhaltung wie gefördert.` },
-      { text: `Gefördert: Zuschuss ${fmt.mio(M('fin.zuschuss.A'))}, Darlehen ${fmt.mio(M('fin.darlehen_nbank.A'))} zu ${fmt.prozent(M('jr1.satz.zins_nbank'))} Zins, Tilgung ${fmt.prozent(M('eingabe.tilgung_nbank'), 1)} p. a.` }].map(e => ({ ...e, text: ctx.wortlaut(e.text, 'Annahmen') })) });
+      { text: `Gefördert: Zuschuss ${fmt.mio(M('fin.zuschuss.A'))}, Darlehen ${fmt.mio(M('fin.darlehen_nbank.A'))} zu ${fmt.prozent(M('jr1.satz.zins_nbank'))} Zins, Tilgung ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)} p. a.` }].map(e => ({ ...e, text: ctx.wortlaut(e.text, 'Annahmen') })) });
   },
 };

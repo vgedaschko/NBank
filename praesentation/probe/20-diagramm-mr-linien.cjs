@@ -17,8 +17,9 @@ module.exports = {
       achse: { min: -60000, max: 100000, schritt: 20000, format: 'ganz' } });
     const letzter = saetze.length - 1, enden = B.entzerre(G.map(g => d.yWert(reihe(g)[letzter])), 0.32);
     G.forEach((g, i) => B.achskreis(s, { cx: d.katMitte(letzter) + 0.30, cy: enden[i], groesse: 'S', text: g }));
-    const i25 = saetze.indexOf(M('eingabe.tilgung_nbank'));
-    B.marke(s, { x: d.katMitte(i25), y: d.plot.y, h: d.plot.h, art: 'mass', text: 'Annahme der Jahresrechnung', textSeite: 'links' });
+    // Lage des Tilgungssatzes der Jahresrechnung auf der Achse; der Satz (1/42) liegt zwischen zwei Teilungen
+    const iJahr = M('eingabe.tilgung_nbank') / saetze[1];
+    B.marke(s, { x: d.katMitte(iJahr), y: d.plot.y, h: d.plot.h, art: 'mass', text: 'Annahme der Jahresrechnung', textSeite: 'links' });
     B.planlegende(s, { platzhalter: 'kommentar', eintraege: [
       { text: `Unter ${fmt.prozent(M('tilg.schwelle.C_gegen_A'), 2)} Tilgung bringt C den höchsten Zahlungsüberschuss, darüber A.` },
       { text: 'B liegt in dieser Rechnung nie vorn.' },

@@ -443,7 +443,7 @@ B.text(s, 'Zuschuss', { x: …, y: d.knoten.zuschuss.mitte - 0.22, … });      
 | `stroeme: [{ von, nach, wert, art, name }]` | Reihenfolge = Stapelfolge an beiden Knoten, von oben. Ein Strom läuft von links nach rechts. Ströme mit dem Betrag 0 werden nicht gezeichnet |
 | `arten` | Farbrollen (Vorgabe `FLUSSART`: `tinte`, `referenz`, `hell`, `blass`); eigene Rollen ergänzt man als `{ ...D.FLUSSART, name: { farbe, transparenz, kontur, linie, knoten } }` |
 | `knotenBreite` 0,12 · `fuge` 0,02 · `spannung` 0,5 | Breite der Knoten, Abstand zwischen Knoten und Band, Lage der Kurvenpunkte (0,5: in der Mitte) |
-| `linieBis` 1,5 · `mindestPt` 0,75 | Ströme unter `linieBis` Punkt Stärke stehen als Linie in ihrer wahren Stärke, mindestens `mindestPt` (455 € wären auf Folie 17 dünner als eine Haarlinie) |
+| `linieBis` 1,5 · `mindestPt` 0,75 | Ströme unter `linieBis` Punkt Stärke stehen als Linie in ihrer wahren Stärke, mindestens `mindestPt` (auf Folie 17 der Mietausfall von 2.285 €) |
 
 Rückgabe: `{ zoll(wert), knoten: { id: { x, y, w, h, wert, mitte, rechts, unten } }, stroeme: [{ …, x0, x1, y0, y1, h, alsLinie, pt }], rahmen }`.
 Das Diagramm trägt keinen Text: Bezeichnungen und Beträge setzt das Modul in Leserichtung mit `B.text` und `B.bezeichnungMitWert`

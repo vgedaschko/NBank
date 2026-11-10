@@ -120,27 +120,27 @@ CLAIMS = [re.compile(r"Aus Ihrer guten Idee – machen wir den besten Plan", re.
 # seiner Folie, in einem Folientext oder einer Tabellenzelle.
 SOLLMIETE_FREI = "modellhaus:dscr.noetige_miete.Frei * modellhaus:eingabe.wohnflaeche * 12"   # nötige Sollmiete frei finanziert, € p. a.
 KERNWERTE = [
-    ("dscr.kapitaldienst_jahr1.A", "euro", "84.000 €", ["rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
+    ("dscr.kapitaldienst_jahr1.A", "euro", "80.667 €", ["rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
     ("dscr.kapitaldienst_jahr1.Frei", "euro", "313.703 €", ["rechnung-kapitaldienst", "rechnung-fluss-frei", "rechnung-miete", "fazit"]),
-    ("dscr.noetige_miete.A", "euro2", "6,77 €", ["rechnung-miete", "rechnung-kosten", "fazit"]),
+    ("dscr.noetige_miete.A", "euro2", "6,57 €", ["rechnung-miete", "rechnung-kosten", "fazit"]),
     ("dscr.noetige_miete.Frei", "euro2", "20,72 €", ["rechnung-fluss-frei", "rechnung-miete", "fazit"]),
-    ("jr1.zahlungsueberschuss.A", "euro", "455 €", ["rechnung-jahr1", "rechnung-fluss-gefoerdert"]),
-    ("jr1.zahlungsueberschuss.A", "zahl", "455", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten"]),
-    ("jr1.zahlungsueberschuss.B", "zahl", "−18.495", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf"]),
-    ("jr1.zahlungsueberschuss.C", "zahl", "−26.324", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf"]),
-    ("modellhaus_kosten_5200:jr1.zahlungsueberschuss.A", "zahl", "−23.630", ["rechnung-kosten"]),
+    ("jr1.zahlungsueberschuss.A", "euro", "3.789 €", ["rechnung-jahr1", "rechnung-fluss-gefoerdert"]),
+    ("jr1.zahlungsueberschuss.A", "zahl", "3.789", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten"]),
+    ("jr1.zahlungsueberschuss.B", "zahl", "−13.495", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf"]),
+    ("jr1.zahlungsueberschuss.C", "zahl", "−20.491", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf"]),
+    ("modellhaus_kosten_5200:jr1.zahlungsueberschuss.A", "zahl", "−19.963", ["rechnung-kosten"]),
     ("fin.foerderung.A", "mio", "5,6 Mio. €", ["rechnung-finanzierung", "fazit"]),
     ("fin.gesamtkosten.A", "mio", "7,0 Mio. €", ["rechnung-finanzierung", "fazit"]),
     ("fin.miete_jahr1.A", "euro2", "6,80 €", ["hoechstmiete", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
     # Zahlungsfluss in Jahr 1 (Folien 17 und 18)
     ("jr1.sollmiete.A", "euro", "114.240 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
     ("jr1.ueberschuss_vor_kapitaldienst.A", "euro", "84.455 €", ["rechnung-fluss-gefoerdert"]),
-    ("jr1.tilgung_nbank.A", "euro", "70.000 €", ["rechnung-fluss-gefoerdert"]),
+    ("jr1.tilgung_nbank.A", "euro", "66.667 €", ["rechnung-fluss-gefoerdert"]),
     ("jr1.verwaltungskostenbeitrag.A", "euro", "14.000 €", ["rechnung-fluss-gefoerdert"]),
     ("jr1.instandhaltung.A", "euro", "20.160 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
     ("jr1.objektverwaltung.A", "euro", "7.340 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
     ("jr1.mietausfall.A", "euro", "2.285 €", ["rechnung-fluss-gefoerdert"]),
-    ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1", "61,3 %", ["rechnung-fluss-gefoerdert"]),
+    ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1", "58,4 %", ["rechnung-fluss-gefoerdert"]),
     (SOLLMIETE_FREI, "euro", "348.167 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),   # auf Folie 17 am Umriss der Quelle
     ("modellhaus:eingabe.mietausfall * " + SOLLMIETE_FREI, "euro", "6.963 €", ["rechnung-fluss-frei"]),
     ("-modellhaus:frei.zins_jahr1", "euro", "209.440 €", ["rechnung-fluss-frei"]),
@@ -244,8 +244,9 @@ KERNWERTE_DIAGRAMM = [
     ("jr1.zahlungsueberschuss.A", "rechnung-verlauf", "Gruppe A", "1"),
     ("jr1.zahlungsueberschuss.B", "rechnung-verlauf", "Gruppe B", "1"),
     ("jr1.zahlungsueberschuss.C", "rechnung-verlauf", "Gruppe C", "1"),
-    ("jr1.zahlungsueberschuss.B", "rechnung-tilgung", "Gruppe B", "2,5 %"),
-    ("jr1.zahlungsueberschuss.C", "rechnung-tilgung", "Gruppe C", "2,5 %"),
+    # Folie 20: Die Jahresrechnung (Tilgung 1/42) liegt zwischen zwei Achsteilungen; gebunden ist der Stützpunkt 2,5 % der Geraden
+    ("modellhaus:tilg.ueberschuss_vor_tilgung.B - 0.025 * modellhaus:fin.darlehen_nbank.B", "rechnung-tilgung", "Gruppe B", "2,5 %"),
+    ("modellhaus:tilg.ueberschuss_vor_tilgung.C - 0.025 * modellhaus:fin.darlehen_nbank.C", "rechnung-tilgung", "Gruppe C", "2,5 %"),
     # Folien des Umbaus
     ("markt#baukosten.herstellung.q1_2020", "einstieg-baukosten", "Q1 2020", "Herstellung KG 200–700"),
     ("markt#baukosten.herstellung.q4_2025", "einstieg-baukosten", "Q4 2025", "Herstellung KG 200–700"),

@@ -23,7 +23,7 @@ module.exports = {
       for (const g of G) R.pruefe(Math.abs(M(`tilg.raster.zahlungsueberschuss.${g}`)[k] - bei(g, t)) < 0.005, `Stützpunkt ${g} bei ${fmt.prozent(t, 1)} weicht vom Raster der Mappe ab.`); });
     R.pruefe(gleich >= 5, 'Das Raster der Mappe deckt weniger als fünf Stützpunkte der Folie 20.');
     const tJahr = M('eingabe.tilgung_nbank'), schwelle = M('tilg.schwelle.C_gegen_A'), bester = M('tilg.raster.bester');
-    R.pruefe(saetze.includes(tJahr), 'Der Tilgungssatz der Jahresrechnung liegt nicht auf der Achsteilung der Folie 20.');
+    R.pruefe(tJahr > saetze[0] && tJahr < saetze[n], 'Der Tilgungssatz der Jahresrechnung liegt nicht im Bereich der Achse der Folie 20.');
     for (const g of G) R.pruefe(Math.abs(bei(g, tJahr) - M(`jr1.zahlungsueberschuss.${g}`)) < 0.005, `Der Wert ${g} beim Satz der Jahresrechnung ist nicht Zeile 8 der Jahresrechnung.`);
     R.pruefe(bester[raster.indexOf(0)] === 'C' && !bester.includes('B') && Math.abs(bei('C', schwelle) - bei('A', schwelle)) < 1 && M('tilg.schwelle.B_gegen_A') < schwelle,
       'Die Aussagen „unter der Schwelle C, darüber A, B nie vorn“ treffen nicht mehr zu.');
@@ -44,7 +44,7 @@ module.exports = {
     B.marke(s, { x: xM, y: d.plot.y, h: d.plot.h, art: 'mass' });
     for (const g of G) B.punkt(s, { cx: xM, cy: d.yWert(bei(g, tJahr)), art: R.LINIEN[g].art, name: 'Punkt ' + g });
     B.wertzeilen(s, { x: xM + 0.10, mitten: [band(100000), band(80000), band(60000)], name: 'Jahresrechnung', eintraege: G.map(g => ({ kreis: g, text: fmt.zahl(bei(g, tJahr)) })) });
-    B.text(s, 'Annahme der Jahresrechnung', { x: xM - 1.30, y: d.plot.y + d.plot.h + 0.26, w: 2.60, h: 0.20, rolle: 'achse', farbe: 'text', align: 'center', valign: 'middle', einzeilig: true, name: 'Markentext' });
+    B.text(s, ctx.wortlaut(`Jahresrechnung: ${fmt.prozent(tJahr, 2)}`, 'Markentext'), { x: xM - 1.30, y: d.plot.y + d.plot.h + 0.26, w: 2.60, h: 0.20, rolle: 'achse', farbe: 'text', align: 'center', valign: 'middle', einzeilig: true, name: 'Markentext' });
 
     B.linienenden(s, { x: xSatz(saetze[n]) + 0.30, eintraege: G.map(g => ({ kreis: g, y: d.yWert(bei(g, saetze[n])) })) });
 

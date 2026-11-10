@@ -215,7 +215,7 @@ def abgleich_broschuere(w, b):
     b.enthaelt(T, "Zeile 3: Satz Instandhaltung", r[3][1], f"{de(m('jr1.satz.instandhaltung'), 2)} € je m²", q("jr1.satz.instandhaltung"))
     b.enthaelt(T, "Zeile 5: Satz Verwaltungskostenbeitrag", r[5][1], f"{pct(m('jr1.satz.verwaltungskostenbeitrag'), 1)} % des Restkapitals", q("jr1.satz.verwaltungskostenbeitrag"))
     b.enthaelt(T, "Zeile 6: Zins und zinsfreie Jahre", r[6][1], f"{pct(m('jr1.satz.zins_nbank'))} % bis Ende Jahr {m('tab.zinsfreie_jahre')}", q("jr1.satz.zins_nbank, tab.zinsfreie_jahre"))
-    b.enthaelt(T, "Zeile 7: Tilgungssatz und Darlehen", r[7][1], f"Tilgung {pct(m('jr1.satz.tilgung_nbank'), 1)} % p. a. (Annahme) auf {darl} Mio. € Darlehen", q("jr1.satz.tilgung_nbank, fin.darlehen_nbank.A/B/C"))
+    b.enthaelt(T, "Zeile 7: Tilgungssatz und Darlehen", r[7][1], f"Tilgung {pct(m('jr1.satz.tilgung_nbank'), 2)} % p. a. (Annahme: {m('tab.laufzeit_hoechstens')} Jahre) auf {darl} Mio. € Darlehen", q("jr1.satz.tilgung_nbank, fin.darlehen_nbank.A/B/C"))
     b.enthaelt(T, "Einmalig: Sätze der Entgelte", t["aside_row"][1],
                f"{pct(m('tab.bearbeitungsentgelt_darlehen'))} % des Darlehens + {pct(m('tab.bearbeitungsentgelt_zuschuss'), 2)} % des Zuschusses",
                q("tab.bearbeitungsentgelt_darlehen, tab.bearbeitungsentgelt_zuschuss"))
@@ -248,10 +248,12 @@ def abgleich_broschuere(w, b):
         b.gleich(T, f"Diagramm {g}: Mehrschuld", x["extra_debt"], m(f"tilg.mehrschuld.{g}"), q(f"tilg.mehrschuld.{g}"))
         b.gleich(T, f"Diagramm {g}: je Prozentpunkt Tilgung", x["per_percentage_point"], -zahl(D(m(f"tilg.mehrschuld.{g}")) / 100), q(f"1 % × tilg.mehrschuld.{g}"))
         b.gleich(T, f"Diagramm {g}: Tilgungsschwelle", x["threshold"], zahl(D(schwelle[g]) * 100, 2), q(f"tilg.schwelle.{g}_gegen_A"))
-        b.gleich(T, f"Diagramm {g}: Mehrüberschuss bei 2,5 %", x["at_2_5"], zahl(m(f"tilg.mehrueberschuss_bei_tilgung.{g}")), q(f"tilg.mehrueberschuss_bei_tilgung.{g}"))
+        b.gleich(T, f"Diagramm {g}: Mehrüberschuss beim Satz der S. 11", x["at_s11"], zahl(m(f"tilg.mehrueberschuss_bei_tilgung.{g}")), q(f"tilg.mehrueberschuss_bei_tilgung.{g}"))
         b.gleich(T, f"Diagramm {g}: Beschriftung vor Tilgung", x["labels"][0], de(m(f"tilg.mehrueberschuss_vor_tilgung.{g}")), q(f"tilg.mehrueberschuss_vor_tilgung.{g}"))
         b.gleich(T, f"Diagramm {g}: Beschriftung Schwelle", x["labels"][1], f"{g}: {pct(schwelle[g], 2)} %", q(f"tilg.schwelle.{g}_gegen_A"))
-    b.gleich(T, "Diagramm: Tilgungssatz der Jahresrechnung am Achsenende", d["x"]["to"], zahl(D(m("eingabe.tilgung_nbank")) * 100, 1), q("eingabe.tilgung_nbank"))
+    # Der Satz der Jahresrechnung (1/42 = 2,38 %) liegt im Bereich der Achse; ihr Ende ist der Rasterpunkt 2,5 % der Mappe
+    b.gleich(T, "Diagramm: Achsenende ist ein Rasterpunkt der Mappe und nicht kleiner als der Satz der Jahresrechnung",
+             [d["x"]["to"] / 100 in [round(float(x), 6) for x in m("tilg.raster.satz")], d["x"]["to"] / 100 >= float(m("eingabe.tilgung_nbank"))], [True, True], q("tilg.raster.satz, eingabe.tilgung_nbank"))
     b.gleich(T, "Maßkette: Teilung", d["dimension_chain"][0]["to"], zahl(D(schwelle["C"]) * 100, 2), q("tilg.schwelle.C_gegen_A"))
     vB, vC = m("tilg.mehrueberschuss_vor_tilgung.B"), m("tilg.mehrueberschuss_vor_tilgung.C")
     sB, sC = m("tilg.mehrschuld.B"), m("tilg.mehrschuld.C")
@@ -294,7 +296,7 @@ def abgleich_broschuere(w, b):
         ("zuschuss_mio", "fin.zuschuss", lambda x: zahl(D(x) / 1000000, 1)), ("darlehen_mio", "fin.darlehen_nbank", lambda x: zahl(D(x) / 1000000, 1)),
         ("hoechstmiete_eur_m2", "fin.miete_jahr1", lambda x: zahl(x, 2)), ("sollmiete_pa", "jr1.sollmiete", zahl),
         ("mietausfall_2_prozent_pa", "jr1.mietausfall", zahl), ("verwaltungskostenbeitrag_pa", "jr1.verwaltungskostenbeitrag", zahl),
-        ("tilgung_2_5_prozent_pa", "jr1.tilgung_nbank", zahl), ("zahlungsueberschuss_jahr_1", "jr1.zahlungsueberschuss", zahl),
+        ("tilgung_pa", "jr1.tilgung_nbank", zahl), ("zahlungsueberschuss_jahr_1", "jr1.zahlungsueberschuss", zahl),
         ("bearbeitungsentgelte", "jr1.bearbeitungsentgelte", zahl),
     ]
     for feld, schl, f in felder:
@@ -328,7 +330,7 @@ def abgleich_altfassung(w, b):
         ("Folie 13: NBank-Darlehen 40 %", "1.185.365", de(p("fin.darlehen_nbank.A")), "fin.darlehen_nbank.A"),
         ("Folie 13: NBank-Zuschuss 40 %", "1.185.365", de(p("fin.zuschuss.A")), "fin.zuschuss.A"),
         ("Folie 13: zulässige Miete Gruppe A", "6,80 €/m²", f"{de(p('fin.miete_jahr1.A'), 2)} €/m²", "fin.miete_jahr1.A"),
-        ("Folie 13: Tilgung 2,5 % p. a.", "29.634 €", f"{de(p('jr1.tilgung_nbank.A'))} €", "jr1.tilgung_nbank.A"),
+        ("Folie 13: Tilgung p. a.", "29.634 €", f"{de(p('jr1.tilgung_nbank.A'))} €", "jr1.tilgung_nbank.A"),
         ("Folie 13: Verwaltungskostenbeitrag 0,5 %", "5.927 €", f"{de(p('jr1.verwaltungskostenbeitrag.A'))} €", "jr1.verwaltungskostenbeitrag.A"),
         ("Folie 13: Einmalentgelte", "20.744 €", f"{de(p('fin.bearbeitungsentgelte.A'))} €", "fin.bearbeitungsentgelte.A"),
         ("Folie 14: Bankdarlehen 80 %", "2.370.730", de(p("fin.bankdarlehen.Frei")), "fin.bankdarlehen.Frei"),

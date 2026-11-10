@@ -44,7 +44,7 @@ Tarutinoer, Gruppe A, Jahr 42, v2-1 → v3; Förderung, Mieten, Bewirtschaftung,
 | Bearbeitungsentgelte | aus Eigenkapital statt Bank | Zahlungsüberschuss Jahr 1 12.429 → 13.591 € |
 | Anfangsmiete gefördert | höchstens Marktmiete | 0; greift nur bei niedriger Marktmiete |
 
-Gesamt mit Restwert: VOFI-EK 6,38 → 6,49 %, EK-IRR 7,92 → 7,68 %; Modellhaus 4,75 → 5,52 und 6,11 → 5,90 %.
+Gesamt mit Restwert: VOFI-EK 6,38 → 6,49 %, EK-IRR 7,92 → 7,68 %; Modellhaus 4,75 → 5,52 und 6,11 → 5,96 %.
 
 ## 5. Bedienung
 

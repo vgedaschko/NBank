@@ -8,7 +8,8 @@ Aufruf im Ordner praesentation:
 
 Was geprüft wird (eine Zeile je Prüfung, am Ende die Summe; Rückgabewert 1 bei Fehlern):
   Aufbau     33 Folien (25 im Hauptteil, 8 im Anhang) mit Kennung, Blattnummer und Abschnitt wie festgelegt (AUFBAU), in der Reihenfolge des
-             Konzepts; Titel-Platzhalter, Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs
+             Konzepts; Titel-Platzhalter, Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs; Kicker, Rubrik, Agenda
+             und Trenner mit denselben Abschnittsnamen und derselben Zählung
   Form       nur Montserrat und Work Sans, Mindestgrößen (E3), Alternativtexte (Bilder, Diagramme, Flussdiagramme), keine Folie als Bild,
              keine Animationen
   Wortlaut   verbotene Wörter (E5), kein Gedankenstrich als Einschub (E6), Stempel der Modellrechnung auf genau den festgelegten Folien (E7)
@@ -71,6 +72,11 @@ HAUPTTEIL, ANHANG = 25, 8
 # und auf pgn-baukosten (Kostenkennwerte, kein Modellhaus).
 STEMPEL = ["rechnung-finanzierung", "rechnung-jahr1", "rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-fluss-frei", "rechnung-miete",
            "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten", "fazit"]
+# Kicker und Rubrik im Schriftfeld nennen den Abschnitt und das Thema der Folie („IHRE RECHNUNG · KAPITALDIENST“). Die Agenda nennt alle vier
+# Abschnitte und trägt deshalb einen eigenen Kicker ohne Abschnittsnamen; jede weitere Ausnahme stünde hier.
+KICKER_OHNE_ABSCHNITT = {"agenda": "INHALT DES VORTRAGS"}
+# Register der Agenda: Der Vortrag behandelt 2.1; für 2.2 bis 2.6 steht die Seite der Broschüre (Festlegung zum Umbau)
+REGISTER = {"2.1": "in diesem Vortrag", "2.2": "Broschüre S. 13", "2.3": "Broschüre S. 15", "2.4": "Broschüre S. 14", "2.5": "Broschüre S. 17", "2.6": "Broschüre S. 17"}
 SCHRIFTEN = ("Montserrat", "Work Sans")
 FIRMA = "Planungsgemeinschaft Nord GmbH"
 TITEL_DER_MAPPE = "Mietwohnraumförderung Niedersachsen 2026 – Vortrag"
@@ -205,13 +211,20 @@ KERNSAETZE = [
     ("rechnung-miete", "Höchstmiete Gruppe A: {a}", {"a": ("fin.miete_jahr1.A", "euro2")}),
     # Folien des Umbaus: die Aussage des Titels und die Angaben, die eine Zahl an ihr Wort binden
     ("einstieg-kapitaldienst", "Kapitaldienst je m² und Monat: von {a} auf {b} seit 2020", {"a": (KD_2020, "dez2"), "b": (KD_HEUTE, "euro2")}),
+    ("einstieg-kapitaldienst", "{a} · {b}", {"a": (KD_BAUKOSTEN, "euro2vz"), "b": (f"({KD_BAUKOSTEN}) / (({KD_HEUTE}) - ({KD_2020}))", "prozent0")}),
+    ("einstieg-kapitaldienst", "{a} · {b}", {"a": (KD_ZINS, "euro2vz"), "b": (f"({KD_ZINS}) / (({KD_HEUTE}) - ({KD_2020}))", "prozent0")}),
+    ("einstieg-kapitaldienst", "{a} · {b}", {"a": (KD_WECHSELWIRKUNG, "euro2vz"), "b": (f"({KD_WECHSELWIRKUNG}) / (({KD_HEUTE}) - ({KD_2020}))", "prozent0")}),
     ("einstieg-bestand", "{a} weniger gebundene Wohnungen als 2016", {"a": ("-(" + BESTAND_RUECKGANG + ")", "prozent1")}),
     ("agenda", "Thema ist Programmteil 2.1: Neubau mit Darlehen und Zuschuss", {}),
     ("agenda", "Der Vortrag behandelt 2.1. Die Programmteile 2.2 bis 2.6 stehen in der Broschüre und im Anhang A1.", {}),
     ("rechnung-fluss-gefoerdert", "Gefördert: {a} der Miete fließen in die Tilgung", {"a": ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
     ("rechnung-fluss-gefoerdert", "{a} je m² und Monat", {"a": ("fin.miete_jahr1.A", "euro2")}),
+    ("rechnung-fluss-gefoerdert", "{a} · {b}", {"a": ("jr1.tilgung_nbank.A", "euro"), "b": ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
+    ("rechnung-fluss-gefoerdert", "{a} · {b}", {"a": ("jr1.verwaltungskostenbeitrag.A", "euro"), "b": ("modellhaus:jr1.verwaltungskostenbeitrag.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
     ("rechnung-fluss-frei", "Frei finanziert: {a} der Miete gehen an Zinsen", {"a": ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
     ("rechnung-fluss-frei", "{a} je m² und Monat", {"a": ("dscr.noetige_miete.Frei", "euro2")}),
+    ("rechnung-fluss-frei", "{a} · {b}", {"a": ("-modellhaus:frei.zins_jahr1", "euro"), "b": ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
+    ("rechnung-fluss-frei", "{a} · {b}", {"a": ("-modellhaus:frei.tilgung_jahr1", "euro"), "b": ("-modellhaus:frei.tilgung_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
     ("pgn-baukosten", "Herstellungskosten der PGN: {a} unter dem ARGE-Median", {"a": ("-(" + PGN_UNTER_ARGE + ")", "prozent1")}),
     ("pgn-baukosten", "Ansatz im Modellhaus: {a}", {"a": ("eingabe.herstellungskosten_qm", "euro")}),
     ("pgn-baukosten", "{a} gegen {b} je m² Wohnfläche", {"a": ("markt#kosten.pgn.spanne_herstellung.median", "euro"), "b": ("markt#kosten.arge.spanne_herstellung.median", "euro")}),
@@ -904,6 +917,40 @@ def main(argv):
         if not ohne and blatt != [str(k["nr"])]:
             m.append(f"Folie {nr(i)}: Blattnummer {blatt} statt „{k['nr']}“")
     ber.pruefung("Blattnummern nach Konzept", m, f"{K[1]['nr']} bis {K[HAUPTTEIL - 2]['nr']}, {K[HAUPTTEIL]['nr']} bis {K[-1]['nr']}; Titel und Schluss ohne" if len(K) == FOLIENZAHL else "")
+
+    # Eine Zählung und dieselben Namen: Kicker und Rubrik je Folie, Achse der Agenda, Achskreis und Achsleiste des Trenners
+    m = []
+    text_von = lambda f, name: [glatt(" ".join(a["text"] for a in fo["absaetze"])) for fo in f["formen"] if fo["name"] == name]
+    hauptteil = list(dict.fromkeys(a for _, _, a in AUFBAU if a != "Anhang"))
+    for i, (f, k) in enumerate(paare):
+        ab = k["abschnitt"].upper()
+        kicker, rubrik = text_von(f, "Kicker"), text_von(f, "Rubrik")
+        if k["layout"] in ("PGN_TITEL", "PGN_SCHLUSS"):
+            continue
+        if k["id"] in KICKER_OHNE_ABSCHNITT:
+            if kicker != [KICKER_OHNE_ABSCHNITT[k["id"]]]:
+                m.append(f"Folie {nr(i)}: Kicker {kicker} statt „{KICKER_OHNE_ABSCHNITT[k['id']]}“")
+        elif kicker and not (len(kicker) == 1 and kicker[0].startswith(ab + " · ") and len(kicker[0]) > len(ab) + 3):
+            m.append(f"Folie {nr(i)}: Kicker {kicker} beginnt nicht mit dem Abschnitt „{ab} · “")
+        if rubrik != (kicker or [ab]):
+            m.append(f"Folie {nr(i)}: Rubrik im Schriftfeld {rubrik} statt {kicker or [ab]}")
+        if k["layout"].startswith("PGN_ABSCHNITT"):
+            soll = "A" if k["abschnitt"] == "Anhang" else str(hauptteil.index(k["abschnitt"]) + 1) if k["abschnitt"] in hauptteil else "?"
+            if text_von(f, "Abschnittsnummer") != [soll]:
+                m.append(f"Folie {nr(i)}: Achskreis des Trenners {text_von(f, 'Abschnittsnummer')} statt „{soll}“")
+            leiste = [t for n in range(1, 10) for t in text_von(f, f"Abschnitt {n}")]
+            if k["abschnitt"] != "Anhang" and leiste != [str(n) for n in range(1, len(hauptteil) + 1)]:
+                m.append(f"Folie {nr(i)}: Achsleiste des Trenners {leiste}, der Hauptteil hat {len(hauptteil)} Abschnitte")
+        if k["id"] == "agenda":
+            namen = [t for n in range(1, 10) for t in text_von(f, f"Abschnitt {n} Name")]
+            kreise = [t for n in range(1, 10) for t in text_von(f, f"Achskreis {n}")]
+            if namen != [a.upper() for a in hauptteil] or kreise != [str(n) for n in range(1, len(hauptteil) + 1)]:
+                m.append(f"Folie {nr(i)}: Die Agenda nennt {list(zip(kreise, namen))}; die Abschnitte heißen {hauptteil}")
+            register = {teil: text_von(f, f"Register {teil} Verweis") for teil in REGISTER}
+            if register != {teil: [v] for teil, v in REGISTER.items()}:
+                m.append(f"Folie {nr(i)}: Register der Programmteile {register} statt {REGISTER}")
+    ber.pruefung("Abschnitte einheitlich: Kicker, Rubrik, Agenda und Trenner mit denselben Namen und derselben Zählung", m,
+                 f"{len(hauptteil)} Abschnitte und Anhang; Agenda mit eigenem Kicker")
 
     m = []
     for i, (f, k) in enumerate(paare):

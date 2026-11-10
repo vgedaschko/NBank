@@ -76,10 +76,11 @@ Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs, Schr
 (Bilder, Diagramme, Flussdiagramme), verbotene Wörter und Gedankenstriche.
 
 - **Aufbau:** Kennung, Blattnummer und Abschnitt jeder Folie stehen fest am Anfang des Skripts (`AUFBAU`), ebenso die Folien mit
-  Stempel (`STEMPEL`). Wer eine Folie einfügt, streicht oder verschiebt, führt beide Listen und die Verweise mit.
+  Stempel (`STEMPEL`). Wer eine Folie einfügt, streicht oder verschiebt, führt beide Listen und die Verweise mit. Kicker und Rubrik
+  jeder Folie beginnen mit dem Namen ihres Abschnitts, die Agenda nennt dieselben Namen, der Trenner dieselbe Zählung; die einzige
+  Ausnahme ist der Kicker der Agenda (`KICKER_OHNE_ABSCHNITT`). Das Register der Agenda trägt die Seiten der Broschüre (`REGISTER`).
 - **Verweise:** „Folie n“ und „Anhang A n“ in Folientexten und Notizen müssen die Blattnummer der gemeinten Folie nennen
   (`VERWEISE`: Folie, Text, Kennung der gemeinten Folie). So fällt nach einer neuen Zählung jeder Verweis auf, der nicht folgt.
-
 - **Zahlen:** Jede Zahl braucht einen Beleg in `daten/werte.json`, in einer Datendatei oder in `daten/pruefung.json`. Die
   Einheit zählt: Vor „%“ belegt nur ein Anteil oder eine Prozentangabe, vor „€“ und „Mio.“ nur ein Eurobetrag. Zahlen hinter
   einem Schrägstrich („5.330/5.550 €“) werden wie jede andere geprüft.

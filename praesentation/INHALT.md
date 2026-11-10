@@ -23,7 +23,7 @@ Bewertung der drei Entwürfe. „entscheider“ trägt am besten zur Kernaussage
 | 5 | `einstieg-kapitaldienst` | Ausgangslage | `PGN_DIAGRAMM` | Kapitaldienst je m² und Monat: von 8,95 auf 20,14 € seit 2020 | einstieg |
 | 6 | `einstieg-bestand` | Ausgangslage | `PGN_DIAGRAMM` | Niedersachsen: 40,6 % weniger gebundene Wohnungen als 2016 | einstieg |
 | 7 | `agenda` | Ausgangslage | `PGN_INHALT` | Thema ist Programmteil 2.1: Neubau mit Darlehen und Zuschuss | struktur |
-| 8 | `trenner-programmteil` | Programmteil 2.1 | `PGN_ABSCHNITT_ROT` | Programmteil 2.1: die Regeln | struktur |
+| 8 | `trenner-programmteil` | Programmteil 2.1 | `PGN_ABSCHNITT_ROT` | Programmteil 2.1: die Konditionen | struktur |
 | 9 | `neu-seit-juli` | Programmteil 2.1 | `PGN_VERGLEICH` | Seit 01.07.2026: Darlehen plus Zuschuss statt Tilgungsnachlass | regeln |
 | 10 | `hoechstmiete` | Programmteil 2.1 | `PGN_DIAGRAMM` | Höchstmiete in Programmteil 2.1: 6,50–9,00 € je m², drei Jahre fest | regeln |
 | 11 | `foerdermix` | Programmteil 2.1 | `PGN_DIAGRAMM` | In jeder Einkommensgruppe bis zu 80 % Förderquote | regeln |
@@ -216,19 +216,19 @@ ID `agenda` · Abschnitt Ausgangslage · Layout `PGN_INHALT` · Baugruppe strukt
 
 - Die Ausgangslage liegt hinter uns: Baukosten, Zinsen, Kapitaldienst, Bestand.
 - Der Vortrag behandelt Programmteil 2.1: Neubau mit Darlehen und Zuschuss. Die Programmteile 2.2 bis 2.6 stehen in der Broschüre und in Kurzform im Anhang A1.
-- Es folgen drei Abschnitte: die Regeln des Programmteils 2.1, die Rechnung am Modellhaus und der Weg zur Bewilligung.
+- Es folgen drei Abschnitte: die Konditionen des Programmteils 2.1, die Rechnung am Modellhaus und der Weg zur Bewilligung.
 - Die Rechnung nimmt etwa die Hälfte der Zeit ein.
 - Als Nächstes: was seit 01.07.2026 neu ist.
 
 **Quellenzeile der Notizen:** Quelle: keine eigenen Angaben; Broschüre S. 5, 13, 14, 15 und 17.
 
-### 8 · Programmteil 2.1: die Regeln
+### 8 · Programmteil 2.1: die Konditionen
 
 ID `trenner-programmteil` · Abschnitt Programmteil 2.1 · Layout `PGN_ABSCHNITT_ROT` · Baugruppe struktur
 
-**Aussage:** Der zweite Abschnitt nennt die Regeln des Programmteils 2.1: Darlehen plus Zuschuss, Höchstmiete, Fördermix und Eckdaten.
+**Aussage:** Der zweite Abschnitt nennt die Konditionen des Programmteils 2.1: Darlehen plus Zuschuss, Höchstmiete, Fördermix und Eckdaten.
 
-**Inhalt (Wortlaut der Folie):** Achskreis XL: „2“. Titelzeilen: „Programmteil 2.1:“ | „die Regeln“ (Signaturwort: „Regeln“; gesetzt in Versalien, 40 pt). Lead: „Darlehen plus Zuschuss: Höchstmiete, Fördermix und Eckdaten der neuen Richtlinie.“ Rubrik im Schriftfeld: „PROGRAMMTEIL 2.1“. Achsleiste auf der oberen Rahmenlinie: Achskreise „1“ bis „4“ für Ausgangslage, Programmteil 2.1, Ihre Rechnung, Umsetzung; die „2“ gefüllt.
+**Inhalt (Wortlaut der Folie):** Achskreis XL: „2“. Titelzeilen: „Programmteil 2.1:“ | „die Konditionen“ (Signaturwort: „Konditionen“; gesetzt in Versalien, 40 pt). Lead: „Darlehen plus Zuschuss: Höchstmiete, Fördermix und Eckdaten der neuen Richtlinie.“ Rubrik im Schriftfeld: „PROGRAMMTEIL 2.1“. Achsleiste auf der oberen Rahmenlinie: Achskreise „1“ bis „4“ für Ausgangslage, Programmteil 2.1, Ihre Rechnung, Umsetzung; die „2“ gefüllt.
 
 **Darstellung:** Wie die Trenner der anderen Abschnitte: Achskreis XL mit der „2“ und der Titel (Montserrat Black 40 pt) auf Rotverlauf (bg-rot.png). Weißer Planrahmen, Logo rot auf weißem Feld, Achsleiste mit vier Achskreisen M, der zweite gefüllt. Ohne Stempel. Wie Probe 14.
 
@@ -238,7 +238,7 @@ ID `trenner-programmteil` · Abschnitt Programmteil 2.1 · Layout `PGN_ABSCHNITT
 
 **Sprechernotizen**
 
-- Jetzt die Regeln des Programmteils 2.1, soweit man sie für die Rechnung braucht.
+- Jetzt die Konditionen des Programmteils 2.1, soweit man sie für die Rechnung braucht.
 - Vier Folien: die Neuerung, die Höchstmiete, der Fördermix und die Eckdaten des Darlehens.
 - Einzelheiten stehen in der Broschüre und im Anhang.
 - Als Nächstes: Darlehen plus Zuschuss statt Tilgungsnachlass.

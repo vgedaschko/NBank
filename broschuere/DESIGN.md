@@ -293,7 +293,7 @@ Linien: `--hair` 0,2 mm · `--rule-w` 0,3 mm · `--rule-heavy` 0,5 mm (Modulkopf
 <b class="runin">Kombinierbar mit</b> KfW 298 …                 <!-- Run-in-Label: 800 9 pt Versalien +0,05 em, 2 mm Abstand (Bänder, Zeilenlisten, Stationen) -->
 <b class="bs-no bs-23">2.3</b>                                  <!-- Programmnummer im Fließtext: 800, 1em, Programmfarbe -->
 <span class="ph">[PGN-Rechnung: … % der Miete]</span>            <!-- Platzhalter (s. 6.16) -->
-<div class="kicker-row"><p class="kicker kicker--plain">…</p><p class="stampline stampline--inline">…</p></div>   <!-- Kickerzeile 7 mm mit Stempel -->
+<div class="kicker-row"><p class="kicker kicker--plain">…</p><p class="stampline stampline--inline">…</p></div>   <!-- Kickerzeile 7 mm (S. 10–12); rechts auf S. 10 der Hinweis „Fiktives Beispiel, keine Förderzusage“ als Text, ohne Stempel -->
 <p class="lead lead--cols-2">…</p>                              <!-- langer Vorspann zweispaltig (dichte Seiten) -->
 ```
 
@@ -458,7 +458,7 @@ Maßstabsleisten tragen auf **beiden** Feldern dieselbe Kontur (`.sb-b`, `.sb-w`
 Leader-/Kotenlinien enden mit festem Abstand vor dem vordersten Punkt des Bezugs (nicht darunter durch). Prüfskript-Ausschnitte
 und Bericht: `dist/qa/optik/`.
 
-**Diagramm-Regeln:** (1) Farben je Reihe fest (1.3). (2) Direkt beschriften; Legende im Kopf nur ergänzend. (3) Höchstwerte im Kopf („Höchstsätze“, „bis zu“). (4) Proportionen exakt, Balken ab 0, keine 3D-Effekte. (5) Zahlenformat deutsch. (6) Modellrechnungen tragen den Stempel `.stamp` „Modellrechnung“ (einmal je Rechnung). (7) Nie Größen unterschiedlicher Einheit an einer gemeinsamen Grundlinie – getrennte, gleich ausgerichtete Diagramme. (8) Rot im Diagramm nur für Zuschuss, 80-%-Achse und Zuschlag. (9) Programmfarben nur mit Nummer. (10) Diagrammtitel ≤ 6 Wörter (Versalien!), Untertitel ≤ 12, Notiz ≤ 30 Wörter / 1–2 Zeilen.
+**Diagramm-Regeln:** (1) Farben je Reihe fest (1.3). (2) Direkt beschriften; Legende im Kopf nur ergänzend. (3) Höchstwerte im Kopf („Höchstsätze“, „bis zu“). (4) Proportionen exakt, Balken ab 0, keine 3D-Effekte. (5) Zahlenformat deutsch. (6) Modellrechnungen tragen den Stempel `.stamp` „Modellrechnung“ (einmal je Rechnung; S. 14). Im Kapitel „Modellrechnung“ (S. 10–12) trägt der Kicker das Wort, dort steht kein Stempel. (7) Nie Größen unterschiedlicher Einheit an einer gemeinsamen Grundlinie – getrennte, gleich ausgerichtete Diagramme. (8) Rot im Diagramm nur für Zuschuss, 80-%-Achse und Zuschlag. (9) Programmfarben nur mit Nummer. (10) Diagrammtitel ≤ 6 Wörter (Versalien!), Untertitel ≤ 12, Notiz ≤ 30 Wörter / 1–2 Zeilen.
 
 ### 6.7 FAQ, Checkliste, Kontakt, Aufzählung
 
@@ -476,7 +476,7 @@ Markup wie v1 (`dl.faq`, `ul.checklist`, `address.contact`, `ul.bullets`); `.che
 
 ### 6.9 Modellrechnung, Rechenblatt, Stempel
 
-`.stamp` (doppelte Kontur, 0,25 mm + Haarlinie, Montserrat 800 9 pt Rot), `.stamp--s` (Kurzstempel für die zweite Nennung derselben Modellrechnung, z. B. im Kicker S. 11: einfache Kontur, Schrift des Kickers – Redaktionsregeln: nur ein Vollstempel je Rechnung), `.stampline` (`--inline`: einzeilig neben dem Kicker in `.kicker-row`), `.formula--stack` (Grenze als eigene graue Zeile unter dem Term, 400), `.model` (Papier, `model__value` Montserrat 800 16 pt), `.formula` (**5-mm-Planraster** als Vektorzeichnung `--planraster`, s. 1.3.1, Operatoren `+ =` Montserrat 900 Rot, Ergebniszeile 0,3 mm). Markup wie v1.
+`.stamp` (doppelte Kontur, 0,25 mm + Haarlinie, Montserrat 800 9 pt Rot), `.stamp--s` (Kurzstempel für die zweite Nennung derselben Modellrechnung: einfache Kontur, Schrift des Kickers – Redaktionsregeln: nur ein Vollstempel je Rechnung; im Heft zurzeit nicht gesetzt, die Klasse bleibt), `.stampline` (`--inline`: einzeilig neben dem Kicker in `.kicker-row`; S. 10 trägt dort nur den Hinweis „Fiktives Beispiel, keine Förderzusage“ als Text, ohne `.stamp`). Seit das Kapitel S. 10–12 „Modellrechnung“ heißt, steht das Wort im Kopf dieser Seiten nur im Kicker. `.formula--stack` (Grenze als eigene graue Zeile unter dem Term, 400), `.model` (Papier, `model__value` Montserrat 800 16 pt), `.formula` (**5-mm-Planraster** als Vektorzeichnung `--planraster`, s. 1.3.1, Operatoren `+ =` Montserrat 900 Rot, Ergebniszeile 0,3 mm). Markup wie v1.
 
 ### 6.10 Planzeichen
 

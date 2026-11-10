@@ -9,7 +9,7 @@
   "blocks": [
     {
       "type": "text",
-      "body": "Seit dem 01.07.2026 gilt die neue RL Mietwohnraum 2026, befristet bis 31.12.2031. Statt Tilgungsnachlässen gibt es jetzt nicht rückzahlbare Zuschüsse.\n\nWir planen seit 1981 Bauprojekte, von Rotenburg (Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Das Heft führt vom Programmteil über Mieten, Bindungen und Finanzierung bis zur Bewilligung. **„Ihre Rechnung“ auf S. 10–12** zeigt an einem Modellhaus Finanzierung, Überschuss je Jahr und den Mix der Einkommensgruppen, zum Vergleich auch frei finanziert.",
+      "body": "Seit dem 01.07.2026 gilt die neue RL Mietwohnraum 2026, befristet bis 31.12.2031. Statt Tilgungsnachlässen gibt es jetzt nicht rückzahlbare Zuschüsse.\n\nWir planen seit 1981 Bauprojekte, von Rotenburg (Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Das Heft führt vom Programmteil über Mieten, Bindungen und Finanzierung bis zur Bewilligung. **Die Modellrechnung auf S. 10–12** zeigt für 20 Wohnungen Finanzierung, Überschuss je Jahr und den Mix der Einkommensgruppen, zum Vergleich auch frei finanziert.",
       "signature": "Ihre PGN – Architekten. Stadtplaner. Ingenieure."
     },
     {
@@ -63,8 +63,8 @@
             ]
           },
           {
-            "id": "ihre-rechnung",
-            "label": "Ihre Rechnung",
+            "id": "modellrechnung",
+            "label": "Modellrechnung",
             "emphasis": true,
             "stops": [
               { "page": 10, "label": "Finanzierung" },
@@ -137,5 +137,5 @@
     "pgn-facts.md §6/§8 Kundengruppen (Kommunen, Investoren, Wohnungsbauunternehmen, Wohnungsbaugenossenschaften)",
     "pgn-facts.md §1/§5 Seitentitel „Architekten. Stadtplaner. Ingenieure.“"
   ],
-  "visual_idea": "Zweispaltig, ruhig, viel Weißraum. Kopf: Kicker „Editorial“ in Montserrat 600 Versalien in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links. Linke Spalte: Lead in Montserrat 600, darunter das Editorial in Work Sans; Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ als Zeile in Montserrat 600 Versalien mit feiner roter Linie davor, kein Personenname, kein Porträt. Darunter das Tonne-Zitat mit übergroßen, eckig gesetzten Anführungszeichen in PGN-Rot, Attribution klein in Anthrazit (Name, Funktion, „Pressemitteilung MW vom 03.07.2026“). Rechte Spalte, bildbestimmend (das dominante Element der Seite): Inhalt als Linienplan – acht senkrechte Kapitel-Linien in Anthrazit (Kapitelnamen = erster Teil der Kolumnentitel), Haltestellen als Quadrate ohne Rundungen, Seitenzahl in Montserrat Black; Programmteil-Stationen tragen den Baustein-Chip 2.1–2.6 in den Baustein-Farben (Ziffer eingeschrieben, graustufenfest), die Stichtag-Station S. 16 in Signalfarbe, S. 17 (2.5 und 2.6) als eine Haltestelle mit zwei Chips übereinander, die Kapitel-Linie „PGN“ (S. 22–23) in PGN-Rot; die Kapitel-Linie „Ihre Rechnung“ (S. 10–12) leicht hervorgehoben. Unten über die volle Breite vier Einstiegs-Kacheln auf #F4F3F2, je ein Linienicon (Wohnblock, Diagramm, Kran, Rathaus), fett gesetzter Vorsatz als Kachelkopf, Seitenverweis als eckiger Chip in PGN-Rot. Keine Kästen, keine Fußnoten, keine Quellenzeile."
+  "visual_idea": "Zweispaltig, ruhig, viel Weißraum. Kopf: Kicker „Editorial“ in Montserrat 600 Versalien in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links. Linke Spalte: Lead in Montserrat 600, darunter das Editorial in Work Sans; Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ als Zeile in Montserrat 600 Versalien mit feiner roter Linie davor, kein Personenname, kein Porträt. Darunter das Tonne-Zitat mit übergroßen, eckig gesetzten Anführungszeichen in PGN-Rot, Attribution klein in Anthrazit (Name, Funktion, „Pressemitteilung MW vom 03.07.2026“). Rechte Spalte, bildbestimmend (das dominante Element der Seite): Inhalt als Linienplan – acht senkrechte Kapitel-Linien in Anthrazit (Kapitelnamen = erster Teil der Kolumnentitel), Haltestellen als Quadrate ohne Rundungen, Seitenzahl in Montserrat Black; Programmteil-Stationen tragen den Baustein-Chip 2.1–2.6 in den Baustein-Farben (Ziffer eingeschrieben, graustufenfest), die Stichtag-Station S. 16 in Signalfarbe, S. 17 (2.5 und 2.6) als eine Haltestelle mit zwei Chips übereinander, die Kapitel-Linie „PGN“ (S. 22–23) in PGN-Rot; die Kapitel-Linie „Modellrechnung“ (S. 10–12) leicht hervorgehoben. Unten über die volle Breite vier Einstiegs-Kacheln auf #F4F3F2, je ein Linienicon (Wohnblock, Diagramm, Kran, Rathaus), fett gesetzter Vorsatz als Kachelkopf, Seitenverweis als eckiger Chip in PGN-Rot. Keine Kästen, keine Fußnoten, keine Quellenzeile."
 }

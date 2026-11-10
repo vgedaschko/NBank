@@ -3,17 +3,17 @@
   "slug": "modellrechnung-neubau",
   "layout_type": "chart-focus",
   "page_variant": "accent",
-  "running_title": "Ihre Rechnung · Finanzierung",
-  "kicker": "Ihre Rechnung · Finanzierung",
+  "running_title": "Modellrechnung · Finanzierung",
+  "kicker": "Modellrechnung · Finanzierung",
   "headline": "20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung",
   "lead_heading": "Das Modellhaus",
   "lead": "20 Neubauwohnungen nach Programmteil 2.1 (2 × 50, 6 × 60, 8 × 75, 4 × 85 m²; die angemessenen Höchstgrößen für ein bis vier Personen), zusammen 1.400 m² Wohnfläche, alle für Einkommensgruppe A (Varianten B und C → S. 11). Standort: eine Gemeinde der Mietenstufe IV–VII, per Verordnung angespannter Wohnungsmarkt; der Bedarf gilt als gegeben. Herstellungskosten 4.500 € je m², also 500 € unter dem Ausgangswert der Bemessungsgrenze von 5.000 € und damit voll zuwendungsfähig. Grundstück 700.000 €, unter Bodenrichtwert × Grundstücksfläche.",
   "blocks": [
     {
       "type": "callout",
-      "variant": "stempel",
-      "role_hint": "stempel",
-      "title": "Modellrechnung – fiktives Beispiel, keine Förderzusage",
+      "variant": "hinweis",
+      "role_hint": "kopfhinweis",
+      "title": "Fiktives Beispiel, keine Förderzusage",
       "body": ""
     },
     {
@@ -179,5 +179,5 @@
     "F094",
     "F095"
   ],
-  "visual_idea": "Akzentseite, linke Hälfte der Doppelseite „Ihre Rechnung“. Kopf: Kicker in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, die Zahlen 7,0 und 5,6 in PGN-Rot. Oben rechts im Satzspiegel die Stempelzeile „Modellrechnung – fiktives Beispiel, keine Förderzusage“ ohne Drehung, eckige Kontur in Anthrazit – die einzige Vollversion im Heft. Darunter „Das Modellhaus“ als Vorspann mit Label in Montserrat 600 Versalien. Dominant, außen: das Haus-Diagramm als gestapelter Balken – 5 gleich hohe Geschosse (je 20 % der Gesamtkosten), ohne Erläuterungszeile; Segmente in den Finanzierungsfarben (--color-loan, --color-grant, --color-equity mit Vektorschraffur path.hatch), rechts Beschriftung je Segment „Name · Anteil“ und Betrag an einer Maßkette, links Maßkette „Förderung 5,6 Mio. € · 80 %“ (der Diagrammkopf trägt „Höchstsätze“). Die 80-%-Linie (0,25 mm, PGN-Rot) liegt hinter dem Haus und ist nur links und rechts als Höhenmarke sichtbar. Band 2: Rechenweg 1–4 im Spreadsheet-Look (nur Kostenherleitung und Eigenmittel; die Aufteilung Darlehen/Zuschuss trägt allein das Haus-Diagramm): Zeilennummern im Kopfstreifen, Summenstrich über Zeile 3, Beträge rechtsbündig mit tabellarischen Ziffern; am Bund zwei Kennzahlen je Wohnung („bis zu 140.000 €“ Ø Zuschuss · „mind. 70.000 €“ Ø Eigenmittel). Band 3, unten am Satzspiegel (Oberkante = unteres Band S. 11): Sensitivität als kleines Wasserfall-Modul – Gesamtkosten 7,98 als ein Balken mit Vektorschraffur „über der Grenze“ 0,28 in neutralem Grau (--fg-2, Gegenrichtung), dann Förderung 6,16 und Mindest-Eigenmittel + Restfinanzierung 1,54 + 0,28; Ergebnis „bis zu 77,2 %“ groß in PGN-Rot. Keine Kalkulationsnotiz, keine Überleitungszeile (Korrekturlauf 1), kein Zitat, keine Fußnote, keine Quellenzeile. Produktion: 10|11 liegen nicht auf einem Druckbogen (physische Heftmitte ist 12|13) – kein Element zwingend über den Bund führen; falls doch, Crossover-Toleranz einplanen."
+  "visual_idea": "Akzentseite, linke Hälfte der Doppelseite 10|11 im Kapitel „Modellrechnung“. Kopf: Kicker in PGN-Rot, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, die Zahlen 7,0 und 5,6 in PGN-Rot. In der Kickerzeile rechts der Hinweis „Fiktives Beispiel, keine Förderzusage“ als schlichter Text in Work Sans, ohne Stempelrahmen; das Wort „Modellrechnung“ steht im Kopf nur im Kicker. Darunter „Das Modellhaus“ als Vorspann mit Label in Montserrat 600 Versalien. Dominant, außen: das Haus-Diagramm als gestapelter Balken – 5 gleich hohe Geschosse (je 20 % der Gesamtkosten), ohne Erläuterungszeile; Segmente in den Finanzierungsfarben (--color-loan, --color-grant, --color-equity mit Vektorschraffur path.hatch), rechts Beschriftung je Segment „Name · Anteil“ und Betrag an einer Maßkette, links Maßkette „Förderung 5,6 Mio. € · 80 %“ (der Diagrammkopf trägt „Höchstsätze“). Die 80-%-Linie (0,25 mm, PGN-Rot) liegt hinter dem Haus und ist nur links und rechts als Höhenmarke sichtbar. Band 2: Rechenweg 1–4 im Spreadsheet-Look (nur Kostenherleitung und Eigenmittel; die Aufteilung Darlehen/Zuschuss trägt allein das Haus-Diagramm): Zeilennummern im Kopfstreifen, Summenstrich über Zeile 3, Beträge rechtsbündig mit tabellarischen Ziffern; am Bund zwei Kennzahlen je Wohnung („bis zu 140.000 €“ Ø Zuschuss · „mind. 70.000 €“ Ø Eigenmittel). Band 3, unten am Satzspiegel (Oberkante = unteres Band S. 11): Sensitivität als kleines Wasserfall-Modul – Gesamtkosten 7,98 als ein Balken mit Vektorschraffur „über der Grenze“ 0,28 in neutralem Grau (--fg-2, Gegenrichtung), dann Förderung 6,16 und Mindest-Eigenmittel + Restfinanzierung 1,54 + 0,28; Ergebnis „bis zu 77,2 %“ groß in PGN-Rot. Keine Kalkulationsnotiz, keine Überleitungszeile (Korrekturlauf 1), kein Zitat, keine Fußnote, keine Quellenzeile. Produktion: 10|11 liegen nicht auf einem Druckbogen (physische Heftmitte ist 12|13) – kein Element zwingend über den Bund führen; falls doch, Crossover-Toleranz einplanen."
 }

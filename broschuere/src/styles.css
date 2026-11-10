@@ -739,7 +739,7 @@ abbr { text-decoration: none; }
    --cell: Wertzelle einer Tabelle (zentriert, 8,5 pt). Auf Rot: Span zusätzlich .on-light. */
 .ph { display: inline-block; text-indent: 0; padding: 0 .6mm; border: var(--hair) dashed var(--fg-3); background: var(--surface-2); line-height: 1.15; color: var(--fg-3); white-space: nowrap; }
 .ph--cell { display: block; padding: .3mm 0; font: 500 var(--fs-micro)/1.2 var(--font-text); text-align: center; }
-/* Kickerzeile mit Stempel (Mittel-Doppelseite 10|11): Kicker links, Stempelzeile rechts, 7 mm hoch */
+/* Kickerzeile (S. 10–12): Kicker links, rechts auf S. 10 die Hinweiszeile (.stampline--inline, ohne Stempel), 7 mm hoch */
 .kicker-row { display: flex; justify-content: space-between; align-items: center; gap: 4mm; height: 7mm; }
 .kicker-row > .kicker { flex: none; white-space: nowrap; }
 .kicker-row + .h1 { margin-top: 3.4mm; }

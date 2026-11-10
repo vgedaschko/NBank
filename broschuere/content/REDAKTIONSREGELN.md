@@ -22,13 +22,13 @@ aber Korrektheit entsteht durch präzise Hauptaussagen, nicht durch Dutzende Abs
 | **Zentraler Rechtshinweis** | Steht **einmal** auf U3 (Impressum): „Alle Angaben ohne Gewähr, Stand 30.09.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind fiktive Beispiele, keine Förderzusage.“ Danach wird nichts davon auf Fachseiten wiederholt. |
 | **„bis zu“** | Nur in Headlines, Kennzahlen-Kacheln und Tabellen-/Diagrammköpfen („Höchstsätze“, „bis zu“) – **nicht** vor jeder Zahl im Fließtext, wenn der Kontext klar ist. Wo eine Zahl ohne Kontext als fester Wert missverstanden würde, bleibt „bis zu“. |
 | **Überkompensation / Beihilfe-Vorbehalt** | Raus aus allen Seiten außer: einmal kurz auf der Seite „Konditionen im Überblick“ (S. 9) als eigene Zeile in den Eckdaten, und im zentralen Hinweis. |
-| **„eigene Berechnung“, „eigene Ableitung“, „Annahme“** | Raus. Modellrechnungen tragen genau **einen** Stempel „Modellrechnung“ (S. 10, 11, 12, 14). Abgeleitete Tabellen (z. B. Einkommensgrenzen B/C) bekommen statt Disclaimer eine knappe Legende – nicht doppelt als Unterzeile und Legende (Korrekturlauf 1, S. 6). |
+| **„eigene Berechnung“, „eigene Ableitung“, „Annahme“** | Raus. Modellrechnungen tragen genau **einen** Stempel „Modellrechnung“ (S. 14). Im Kapitel „Modellrechnung“ (S. 10–12) trägt der Kicker das Wort; dort steht kein Stempel. Abgeleitete Tabellen (z. B. Einkommensgrenzen B/C) bekommen statt Disclaimer eine knappe Legende – nicht doppelt als Unterzeile und Legende (Korrekturlauf 1, S. 6). |
 | **„mit der NBank klären“, „Stand bis 21.10.2026 auf nbank.de nicht auffindbar“** | Komplett raus. Das sind Recherche-Notizen, keine Kundeninformation. Wo ein Wert regelmäßig fortgeschrieben wird: „Ausgangswert; aktueller Wert auf nbank.de“ – einmal pro Größe, nicht pro Seite. Offene Fachfragen stehen nur in `content/copy.md` (Anhang) für die interne Freigabe. |
 | **Fundstellen-/Quellenzeilen** | Komplett raus von allen Seiten. Belege liegen in `recherche/factbase.md`. U3 nennt die Rechtsgrundlage einmal (RL Mietwohnraum 2026, Nds. MBl. 2026 Nr. 319) und die Quellen der Zitate/Marktzahlen. |
 | **Fußnoten** | Maximal **eine** kurze Fußnote pro Seite, nur wenn sie eine echte Bedingung trägt, die nicht in den Text passt. Lieber die Bedingung in den Satz holen. |
 | **Achtung-Kästen** | Genau zwei in der ganzen Broschüre: (1) **Vorhabenbeginn** – „Erst Bewilligung, dann Vertrag“ (prominent auf dem Antragsweg, S. 19, und als Kurzverweis max. einzeilig auf S. 4 oder S. 5); (2) **Frist 31.12.2026** Wahlrecht Modernisierung (S. 16). Alle übrigen Achtung-/Hinweis-Kästen: in den Text integrieren oder streichen. |
 | **Kalkulationsnotiz** | Entfällt ganz (Korrekturlauf 1, §8.1). |
-| **„keine Förderzusage“, „fiktives Beispiel“** | Nur im zentralen Hinweis und einmal im Stempel der Modellrechnung. |
+| **„keine Förderzusage“, „fiktives Beispiel“** | Nur im zentralen Hinweis und einmal im Kopf der Modellrechnung (S. 10, schlichter Text neben dem Kicker). |
 | **RL-Nummern im Text** | Nur wo sie dem Leser nützen (Programmteil 2.1–2.6 als Orientierung). Keine „(RL Nr. 5.3.3.2)“-Klammern im Fließtext. |
 
 ## 3. Was bleiben MUSS (nie wegkürzen)
@@ -58,8 +58,8 @@ aber Korrektheit entsteht durch präzise Hauptaussagen, nicht durch Dutzende Abs
 Externe Bewertung, der der Kunde „fast 1:1“ zustimmt: *gestalterisch sehr stark, als Förderleitfaden überzeugend – als
 Investment-Memo noch nicht eingelöst.* Daraus folgt:
 
-1. **Wirtschaftlichkeit statt nur Förderquote.** Die Mittel-Doppelseite 10|11 heißt künftig „Ihre Rechnung“:
-   - S. 10 = Finanzierungsaufbau (Modellrechnung: Kosten → Darlehen/Zuschuss/Eigenmittel).
+1. **Wirtschaftlichkeit statt nur Förderquote.** Die Mittel-Doppelseite 10|11 heißt künftig „Modellrechnung“ (Kapitel S. 10–12):
+   - S. 10 = Finanzierungsaufbau (Kosten → Darlehen/Zuschuss/Eigenmittel).
    - S. 11 = **Wirtschaftlichkeit: von der Förderung zum laufenden Zahlungsüberschuss** – Miete, nicht umlagefähige
      Bewirtschaftungskosten, Instandhaltung, Mietausfallwagnis, Verwaltungskostenbeitrag 0,5 %, Tilgung → Überschuss je Jahr,
      Vergleich A/B/C. Beispiel aus der bisherigen S. 11: Gruppe C bringt gegenüber A +36.960 € Jahresmiete, aber 2,1 Mio. €

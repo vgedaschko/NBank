@@ -8,7 +8,7 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 
 - *Kicker* (Dachzeile) kursiv über der Headline, *Subline* kursiv darunter, **Lead** (Vorspann) fett.
 - „Grafik (…)“ = Daten und Beschriftungen eines Diagramms; die Gestaltung folgt im Layout. ☐ = Ankreuzkästchen; „gilt für“ = Programmteil-Chips.
-- Kästen und Marken: **[Achtung]** / **[Achtung · Frist]** (genau zwei im Heft), **[Achtung-Einzeiler]** (Kurzverweis auf den Kasten S. 19), **[Stempel]** (Vollversion nur S. 10), **[Zentraler Rechtshinweis]** (nur U3), *[Angebotssatz]* (PGN-Satz auf einer Fachseite).
+- Kästen und Marken: **[Achtung]** / **[Achtung · Frist]** (genau zwei im Heft), **[Achtung-Einzeiler]** (Kurzverweis auf den Kasten S. 19), **[Hinweis im Kopf]** (nur S. 10, schlichter Text neben dem Kicker), **[Zentraler Rechtshinweis]** (nur U3), *[Angebotssatz]* (PGN-Satz auf einer Fachseite).
 - Platzhalter in eckigen Klammern – `[PGN-Rechnung: …]` – sind seit 09.11.2026 im Heft ersetzt (Werte der PGN-Beispielrechnung, vorläufig; → Anhang B, Nr. 1).
 - Wortzählung je Seite: *Fließtext* = Subline, Lead, Texte, Listen, Checklisten, FAQ, Leistungen, Notizen, Bildunterschriften, Zitate, Kachel-Labels und -Unterzeilen, Schriftfeld; *Grafik/Tabelle* = Text in Diagrammen und Tabellen (auch Eckdaten, Entscheidungsbaum, Swimlane); *Kontakt-/Referenzdaten* separat. Headline und Kicker sind nicht mitgezählt.
 
@@ -27,8 +27,8 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 | Kalkulationsnotizen | entfallen (§8.1) | 0 | – |
 | Überkompensation / Beihilferecht | nur S. 9 und U3 | 2 | S. 9 (Eckdaten-Zeile), S. 23 |
 | Fußnoten | höchstens 1 je Seite | 0 | – |
-| Stempel „Modellrechnung“ | Vollversion 1×, sonst kurz | 1 + 3 | S. 10 (voll) · S. 11, 12, 14 (kurz) |
-| „fiktives Beispiel“ / „keine Förderzusage“ | nur Stempel S. 10 und U3 | 2 | S. 10, S. 23 |
+| Stempel „Modellrechnung“ | 1× je Rechnung außerhalb des Kapitels „Modellrechnung“; im Kapitel (S. 10–12) trägt der Kicker das Wort | 1 | S. 14 |
+| „fiktives Beispiel“ / „keine Förderzusage“ | nur Kopf S. 10 (schlichter Text neben dem Kicker) und U3 | 2 | S. 10, S. 23 |
 | Zitate | höchstens 2, wörtlich, mit Quelle | 2 | S. 2 Tonne · S. 6 Kiesewetter |
 | „Ausgangswert … aktueller Wert auf nbank.de“ | 1× je Größe | 1 | S. 8 (Bemessungsgrenze) |
 | Stand-Angabe | nur U1 und U3 (§8.5), nicht in den Fußzeilen | 2 | S. 1 (Schriftfeld), S. 23 (Hinweis); Zeitleiste S. 16 mit Marke „Stand 30.09.2026“ |
@@ -50,9 +50,9 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 | 7 | innen | Ertragsseite · Mieten | 210 | 100 | – | 230 | 0 |
 | 8 | innen | Finanzierung · Programmteil 2.1 | 251 | 28 | – | 240 | 0 |
 | 9 | innen | Finanzierung · Eckdaten | 14 | 289 | – | 210 | 0 |
-| 10 | innen | Ihre Rechnung · Finanzierung | 97 | 78 | – | 200 | 0 |
-| 11 | innen | Ihre Rechnung · Wirtschaftlichkeit | 143 | 149 | – | 240 | 0 |
-| 12 | innen | Ihre Rechnung · Mix und Tilgung | 219 | 110 | – | 220 | 0 |
+| 10 | innen | Modellrechnung · Finanzierung | 97 | 78 | – | 200 | 0 |
+| 11 | innen | Modellrechnung · Wirtschaftlichkeit | 143 | 149 | – | 240 | 0 |
+| 12 | innen | Modellrechnung · Mix und Tilgung | 219 | 110 | – | 220 | 0 |
 | 13 | innen | Neubau · Programmteil 2.2 | 250 | 33 | – | 220 | 0 |
 | 14 | innen | Neubau · Programmteil 2.4 | 188 | 54 | – | 200 | 0 |
 | 15 | innen | Bestand · Programmteil 2.3 | 224 | 78 | – | 240 | 0 |
@@ -71,11 +71,12 @@ Anmerkungen: Fachseiten unter 180 Wörtern Fließtext (S. 3, 4, 5, 6, 9, 10, 11,
 
 **Abweichungen vom Seitenplan und Entscheidungen aus Korrekturlauf 1** (Kunde PGN, 58 Kommentare; `korrektur/lauf-1/ENTSCHEIDUNGEN.md`)
 
-- Seitenstruktur: neue S. 12 „Welcher Mix rechnet sich?“ (Kapitel „Ihre Rechnung“, S. 10–12); 2.2, 2.4, 2.3 und Stichtag rücken auf S. 13–16; 2.5 und 2.6 stehen kompakt zusammen auf S. 17 („der Vollständigkeit halber“). 2.1 bleibt vor den übrigen Programmteilen (Kundenentscheidung).
+- Seitenstruktur: neue S. 12 „Welcher Mix rechnet sich?“ (Kapitel „Modellrechnung“, S. 10–12); 2.2, 2.4, 2.3 und Stichtag rücken auf S. 13–16; 2.5 und 2.6 stehen kompakt zusammen auf S. 17 („der Vollständigkeit halber“). 2.1 bleibt vor den übrigen Programmteilen (Kundenentscheidung).
 - Inhaltsverzeichnis U2 mit acht Kapitel-Linien; Einträge = Kolumnentitel (S. 4 „Neuerungen und Grundcheck“, S. 9 „Eckdaten“, S. 12 „Mix und Tilgung“). Kolumnentitel S. 2 „Editorial“.
 - Begriffe: „Spielregeln“ → „Förderbedingungen“ (S. 13) bzw. „Vermietungsbedingungen“ (S. 7); „Term Sheet“ → „Eckdaten“ (S. 9). Kalkulationsnotizen, Belehrungen, Teaser und Detailversprechen sind gestrichen (§8.1–8.3).
 - Headlines: S. 4 „Richtlinie 2026: Neuerungen und Voraussetzungen“, S. 16 „Wahlrecht für Modernisierungsanträge“, S. 17 „Bindungen erwerben oder verlängern“.
 - S. 11: Mietausfall/Leerstand als Erlösschmälerung in Zeile 1 (Unterzeile ohne eigene Nummer), nicht als Aufwandszeile; A/B/C-Absatz kurz, Vertiefung auf S. 12.
+- S. 2, 10–12 (10.11.2026): Das Kapitel S. 10–12 heißt „Modellrechnung“ (Inhaltsverzeichnis, Kicker, Kolumnentitel). Der Stempel im Kopf entfällt; S. 10 trägt neben dem Kicker den Hinweis „Fiktives Beispiel, keine Förderzusage“ als schlichten Text. Editorial S. 2: „Die Modellrechnung auf S. 10–12 zeigt für 20 Wohnungen …“.
 - S. 11 (10.11.2026): Kasten „B und C gegenüber A“ ersetzt durch „Zum Vergleich: frei finanziert“ (Werte aus der VOFI-Mappe v3; keine Renditen, keine Marktmiete). Ton-Durchgang über alle Seiten nach REDAKTIONSREGELN §9.
 - S. 11/12 (09.11.2026): Werte der PGN-Beispielrechnung vorläufig eingesetzt (Schlussabgleich offen, → Anhang B, Nr. 1) – Mietausfall 2 %, Objektverwaltung 367 € je Wohnung, Instandhaltung 14,40 € je m² (Kostenstand 2026), Tilgung 2,38 % als Annahme (seit 10.11.2026: linear über die Höchstlaufzeit von 42 Jahren, vorher 2,5 %); Jahresrechnung zeigt Jahr 1; Tilgungsschwellen mit Mietausfall 1,15 % (B) und 1,22 % (C).
 - S. 5 trägt den Achtung-Einzeiler „Erst Bewilligung, dann Vorhabenbeginn → S. 19“; S. 18 trägt das Modul „Freistellung von der Belegungsbindung“.
@@ -126,7 +127,7 @@ Schriftfeld: **Herausgeber** Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme) 
 
 Seit dem 01.07.2026 gilt die neue RL Mietwohnraum 2026, befristet bis 31.12.2031. Statt Tilgungsnachlässen gibt es jetzt nicht rückzahlbare Zuschüsse.
 
-Wir planen seit 1981 Bauprojekte, von Rotenburg (Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Das Heft führt vom Programmteil über Mieten, Bindungen und Finanzierung bis zur Bewilligung. **„Ihre Rechnung“ auf S. 10–12** zeigt an einem Modellhaus Finanzierung, Überschuss je Jahr und den Mix der Einkommensgruppen, zum Vergleich auch frei finanziert.
+Wir planen seit 1981 Bauprojekte, von Rotenburg (Wümme) aus in ganz Norddeutschland, auch für Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren sowie Kommunen. Das Heft führt vom Programmteil über Mieten, Bindungen und Finanzierung bis zur Bewilligung. **Die Modellrechnung auf S. 10–12** zeigt für 20 Wohnungen Finanzierung, Überschuss je Jahr und den Mix der Einkommensgruppen, zum Vergleich auch frei finanziert.
 
 *Ihre PGN – Architekten. Stadtplaner. Ingenieure.*
 
@@ -146,7 +147,7 @@ Wir planen seit 1981 Bauprojekte, von Rotenburg (Wümme) aus in ganz Norddeutsch
 - **Überblick:** S. 3 Kennzahlen · S. 4 Neuerungen und Grundcheck · S. 5 Navigator
 - **Ertragsseite:** S. 6 Mieterkreis · S. 7 Mieten
 - **Finanzierung:** S. 8 Neubau, Änderung, Ersterwerb [2.1] · S. 9 Eckdaten
-- **Ihre Rechnung:** S. 10 Finanzierung · S. 11 Wirtschaftlichkeit · S. 12 Mix und Tilgung
+- **Modellrechnung:** S. 10 Finanzierung · S. 11 Wirtschaftlichkeit · S. 12 Mix und Tilgung
 - **Neubau:** S. 13 EH-40-Neubau [2.2] · S. 14 Ostfriesische Inseln [2.4]
 - **Bestand:** S. 15 Modernisierung [2.3] · S. 16 Stichtag 31.12.2026 · S. 17 Bindungserwerb und Bindungsverlängerung [2.5/2.6]
 - **Umsetzung:** S. 18 Standort und Kommune · S. 19 Antragsweg · S. 20 So begleiten wir Ihr Förderprojekt · S. 21 Unterlagen, Kontakte, Verfahrensdetails
@@ -472,17 +473,17 @@ Achse: Jahre ab Bezugsfertigkeit, Marken 0 · 35 · 42
 ---
 
 <a id="seite-10"></a>
-## Seite 10 – Ihre Rechnung · Finanzierung
+## Seite 10 – Modellrechnung · Finanzierung
 
-<sub>innen · Layout: chart-focus · Kolumnentitel: Ihre Rechnung · Finanzierung · Wörter: Fließtext 97, Grafik/Tabelle 78</sub>
+<sub>innen · Layout: chart-focus · Kolumnentitel: Modellrechnung · Finanzierung · Wörter: Fließtext 97, Grafik/Tabelle 78</sub>
 
-*Ihre Rechnung · Finanzierung*
+*Modellrechnung · Finanzierung*
 
 ### 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung
 
 **Das Modellhaus: 20 Neubauwohnungen nach Programmteil 2.1 (2 × 50, 6 × 60, 8 × 75, 4 × 85 m²; die angemessenen Höchstgrößen für ein bis vier Personen), zusammen 1.400 m² Wohnfläche, alle für Einkommensgruppe A (Varianten B und C → S. 11). Standort: eine Gemeinde der Mietenstufe IV–VII, per Verordnung angespannter Wohnungsmarkt; der Bedarf gilt als gegeben. Herstellungskosten 4.500 € je m², also 500 € unter dem Ausgangswert der Bemessungsgrenze von 5.000 € und damit voll zuwendungsfähig. Grundstück 700.000 €, unter Bodenrichtwert × Grundstücksfläche.**
 
-> **[Stempel]** Modellrechnung – fiktives Beispiel, keine Förderzusage
+> **[Hinweis im Kopf]** Fiktives Beispiel, keine Förderzusage
 
 **Grafik (stacked-bar): Finanzierung 7,0 Mio. €, Höchstsätze**
 
@@ -517,11 +518,11 @@ Ergebnis: **bis zu 77,2 %** Förderquote auf die Gesamtkosten
 ---
 
 <a id="seite-11"></a>
-## Seite 11 – Ihre Rechnung · Wirtschaftlichkeit
+## Seite 11 – Modellrechnung · Wirtschaftlichkeit
 
-<sub>innen · Layout: chart-focus · Kolumnentitel: Ihre Rechnung · Wirtschaftlichkeit · Wörter: Fließtext 146, Grafik/Tabelle 154</sub>
+<sub>innen · Layout: chart-focus · Kolumnentitel: Modellrechnung · Wirtschaftlichkeit · Wörter: Fließtext 146, Grafik/Tabelle 154</sub>
 
-*Ihre Rechnung · Wirtschaftlichkeit · Modellrechnung*
+*Modellrechnung · Wirtschaftlichkeit*
 
 ### Mehr Miete, mehr Darlehen: Überschuss je Jahr
 
@@ -574,11 +575,11 @@ Frei finanziert: gleiches Haus, Eigenmittel 1,4 Mio. €, Bankdarlehen 5,6 Mio. 
 ---
 
 <a id="seite-12"></a>
-## Seite 12 – Ihre Rechnung · Mix und Tilgung
+## Seite 12 – Modellrechnung · Mix und Tilgung
 
-<sub>innen · Layout: chart-focus · Kolumnentitel: Ihre Rechnung · Mix und Tilgung · Wörter: Fließtext 221, Grafik/Tabelle 114</sub>
+<sub>innen · Layout: chart-focus · Kolumnentitel: Modellrechnung · Mix und Tilgung · Wörter: Fließtext 221, Grafik/Tabelle 114</sub>
 
-*Ihre Rechnung · Mix und Tilgung · Modellrechnung*
+*Modellrechnung · Mix und Tilgung*
 
 ### Welcher Mix rechnet sich?
 
@@ -1119,7 +1120,7 @@ Interne Liste, nicht Teil der Broschüre. Nach der Hinweis-Diät sind diese Punk
 6. **Ostfriesische Inseln:** (a) Gilt der EH-40-Mietaufschlag von bis zu 0,30 € auch in 2.4? (b) Welche Mietenstufe und welche Mietobergrenzen gelten auf den Inseln in 2.2 und 2.3 (die Inselgemeinden stehen in Mietenstufe V)? (c) Wie grenzt sich ein EH-40-Neubau auf den Inseln zwischen 2.4 und 2.2 ab? (d) Wie wird der Ersterwerb in 2.4 bemessen? (e) Gelten die Sicherheitenregeln aus 2.1 auch in 2.4? (S. 5, 7, 9, 14)
 7. **2.2 EH-40-Neubau:** Gelten Bemessungsgrenze je m² und Bodenrichtwert-Deckel? Nr. 6.3.2 verweist nicht darauf. Dürfen 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen genutzt werden, mit getrennten Anträgen? (S. 13)
 8. **Überkompensationsprüfung:** Welchen 30-jährigen Swapsatz verwendet die NBank (Quelle, Referenz EURIBOR oder €STR, Stichtag, Mittelung), und welchen Betrachtungszeitraum? (S. 9)
-9. **Tilgung:** Welche Tilgungsmodalitäten (Satz, Rhythmus) setzt die NBank in der Regel fest? Die RL nennt keinen Satz; relevant für die Eckdaten (S. 9) und die Jahresrechnung „Ihre Rechnung“ (S. 11: Tilgung 2,38 % p. a. als PGN-Annahme, linear über 42 Jahre; S. 11/12: Tilgungsschwellen 1,22 % (C) bzw. 1,15 % (B)).
+9. **Tilgung:** Welche Tilgungsmodalitäten (Satz, Rhythmus) setzt die NBank in der Regel fest? Die RL nennt keinen Satz; relevant für die Eckdaten (S. 9) und die Jahresrechnung der Modellrechnung (S. 11: Tilgung 2,38 % p. a. als PGN-Annahme, linear über 42 Jahre; S. 11/12: Tilgungsschwellen 1,22 % (C) bzw. 1,15 % (B)).
 10. **Mietenstufen ab 01.01.2027** (Entwurf BR-Drs. 474/26): Wie wirkt eine Neuzuordnung auf laufende Anträge und bereits bewilligte Vorhaben (Bedarf, Bemessungsgrenze, Höchstmiete)? (S. 7, 16, 18)
 11. **Klassensprung ab 2027:** Wie bewertet die NBank den Klassensprung, wenn Ausgangs- und Abschlussausweis auf unterschiedlichen Rechennormen beruhen (DIN V 18599 → DIN/TS 18599:2025-10)? (S. 15, 16)
 12. **Antragsunterlagen:** Gilt die Checkliste vom 20.07.2025 für die RL 2026 weiter, oder erscheint eine aktualisierte Fassung? Der bisherige Stand-Hinweis („Grundlage: NBank-Checklisten vom 20.07.2025 (vor der RL 2026) und 22.09.2026 (2.5). Nachforderungen sind möglich.“) ist im Heft entfallen. (S. 21)
@@ -1138,7 +1139,7 @@ Interne Liste, nicht Teil der Broschüre. Nach der Hinweis-Diät sind diese Punk
 
 Interne Liste, nicht Teil der Broschüre. Alles, was PGN liefern, bestätigen oder freigeben muss. Stand nach Korrekturlauf 1: erledigt und gestrichen sind „Verantwortlich für den Inhalt“, „Druck“ und der Bildnachweis auf U3. Am 09.11.2026 vorläufig eingesetzt: Nr. 1 (Werte der Beispielrechnung S. 11/12; Schlussabgleich und Entscheidungen offen).
 
-### 1. Zahlen aus der PGN-Beispiel-Investitionsrechnung (S. 11 „Ihre Rechnung · Wirtschaftlichkeit“, S. 12 „Mix und Tilgung“) – eingesetzt (vorläufig, Kunde 09.11.2026)
+### 1. Zahlen aus der PGN-Beispiel-Investitionsrechnung (S. 11 „Modellrechnung · Wirtschaftlichkeit“, S. 12 „Mix und Tilgung“) – eingesetzt (vorläufig, Kunde 09.11.2026)
 
 **Stand:** Der Kunde hat die Werte am 09.11.2026 vorläufig für die Broschüre übernommen; Excel-Mappe, Präsentation und Broschüre werden am Ende einheitlich abgeglichen (→ Schlussabgleich unten). Quelle: VOFI-Mappe v3 `vofi/PGN_VOFI_Mietwohnraum_2026_v3.xlsx` (Werte wie im Vorgängermodell v2-1); Prüfung und Nachrechnung in drei Wegen: `zulieferungen/vofi-pruefung/PRUEFBERICHT.md` Abschnitt 5, `zulieferungen/vofi-pruefung/referenzrechnung-ergebnis.md` Abschnitt 2. Im Heft stehen keine Platzhalter `[PGN-Rechnung: …]` mehr.
 

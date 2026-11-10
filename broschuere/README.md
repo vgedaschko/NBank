@@ -33,7 +33,7 @@ Arbeitsdateien (nicht versioniert, siehe `.gitignore`): `dist/preview/seite-01.p
 ## Seitenübersicht (24 Seiten)
 
 Rückendrahtheftung: Umschlag (4 Seiten) um einen Innenteil von 20 Seiten. Doppelseiten 2|3, 4|5 … 22|23; die
-Doppelseite 10|11 „Ihre Rechnung“ trägt Finanzierung und Wirtschaftlichkeit, physische Heftmitte ist 12|13.
+Doppelseite 10|11 „Modellrechnung“ trägt Finanzierung und Wirtschaftlichkeit, physische Heftmitte ist 12|13.
 
 **Umschlag**
 
@@ -55,9 +55,9 @@ Doppelseite 10|11 „Ihre Rechnung“ trägt Finanzierung und Wirtschaftlichkeit
 | 7 | Ertragsseite · Mieten | Höchstmieten und Mietentwicklung |
 | 8 | Finanzierung · Programmteil 2.1 | Bis zu 80 % Förderquote |
 | 9 | Finanzierung · Eckdaten | Konditionen im Überblick |
-| 10 | Ihre Rechnung · Finanzierung | 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung |
-| 11 | Ihre Rechnung · Wirtschaftlichkeit | Mehr Miete, mehr Darlehen: Überschuss je Jahr |
-| 12 | Ihre Rechnung · Mix und Tilgung | Welcher Mix rechnet sich? |
+| 10 | Modellrechnung · Finanzierung | 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung |
+| 11 | Modellrechnung · Wirtschaftlichkeit | Mehr Miete, mehr Darlehen: Überschuss je Jahr |
+| 12 | Modellrechnung · Mix und Tilgung | Welcher Mix rechnet sich? |
 | 13 | Neubau · Programmteil 2.2 | Reiner Zuschuss statt Darlehen |
 | 14 | Neubau · Programmteil 2.4 | Höhere Kostengrenze, 10 % Eigenmittel |
 | 15 | Bestand · Programmteil 2.3 | Zuschuss nach Effizienzsteigerung |

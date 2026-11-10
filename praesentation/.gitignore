@@ -2,3 +2,5 @@ node_modules/
 dist/render/
 dist/probe/
 dist/teil-*
+__pycache__/
+*.pyc

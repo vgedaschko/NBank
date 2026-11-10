@@ -4,13 +4,14 @@
 // Geprüft wird nach bau(ctx):
 //   alle Layouts          Lage und Größe sind Zahlen, die Form liegt auf der Folie, sie trägt einen Namen, Schrift und Schriftgröße sind erlaubt
 //   Inhalt und Anhang     Satzspiegel x 0,667 bis 12,667 · unten bis y 6,50 (0,28 Abstand zum Schriftfeld) · oben ab y 1,90 (Anhang 1,50)
-// Ausnahmen über den Objektnamen: Daumenregister (rechter Rand), Schlüsselplan und Stempel (Kickerzeile). Maßketten und Beschnittmarken
+// Ausnahmen über den Objektnamen: Daumenregister (rechter Rand); in der Kickerzeile Schlüsselplan, Zusatz der ersten Folie der Modellrechnung und
+// Stempel (ein frei gesetzter Stempel in der Inhaltszone ist damit ebenfalls ausgenommen). Maßketten und Beschnittmarken
 // dürfen 0,08 Zoll überstehen. Weitere Ausnahmen meldet ein Modul mit ctx.zoneAusnahme(name, grund) an; der Build nennt sie als Hinweis.
 'use strict';
 const { W, H, X0, X1, Y, F } = require('./theme.cjs');
 const { breite } = require('./passpruefung.cjs');
 
-const AUSSEN = /^(Daumenregister|Schlüsselplan|Stempel)/;
+const AUSSEN = /^(Daumenregister|Schlüsselplan|Stempel|Zusatz Modellrechnung)/;
 const KNAPP = /^(Maßkette|Maßstrich|Maßhilfslinie|Beschnittmarke)/;
 const SCHRIFTEN = new Set(Object.values(F));
 const istZahl = v => typeof v === 'number' && isFinite(v);

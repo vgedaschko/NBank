@@ -64,7 +64,9 @@ const r3 = v => +v.toFixed(3);
 const colX = k => r3(X0 + (k - 1) * PITCH);
 const span = n => r3(n * PITCH - GUT);
 const Y = {
-  kicker: 0.42, kickerH: 0.30, titel: 0.84, titelH: 0.98,
+  // kickerW: Breite des Kickerfelds. Es endet bei x 7,967, 0,15 vor dem Feld „Programmteil“ des Schlüsselplans; der Kicker darf es bis auf
+  // 10 % Reserve füllen (6,27 Zoll; der längste, „MODELLRECHNUNG · ZAHLUNGSFLUSS FREI FINANZIERT“, misst 6,21)
+  kicker: 0.42, kickerH: 0.30, kickerW: 6.9, titel: 0.84, titelH: 0.98,
   deck: 1.90, deckH: 0.26, inhaltNachDeck: 2.40,
   inhalt: 2.10, inhaltEnde: 6.50, anhangInhalt: 1.50,
   fuss: 6.78, fussH: 0.44,
@@ -88,6 +90,8 @@ const ZONE = {
     flaecheEnde: 6.12, fuss: { x: colX(1), y: 6.24, w: CW, h: 0.24 } },
   // Layout PGN_AUSSAGE
   aussage: { lead: { x: colX(1), y: 2.10, w: span(8), h: 0.80 }, body: { x: colX(1), y: 3.05, w: span(7), h: 3.45 }, seite: { x: colX(9), y: 2.17, w: span(4), h: 4.33 } },
+  // Stelle des Stempels in der Kickerzeile der Layouts mit „_MR“ (rechts am Satzspiegel). Ohne Stempel im Kopf (STEMPEL_IM_KOPF aus) bleibt sie frei;
+  // nur die erste Folie der Modellrechnung setzt dort ihren Zusatz (B.stempelZusatz)
   stempel: { x: 10.547, y: 0.385, w: 2.12, h: 0.37 },
   register: { x: W - 0.42, w: 0.42, h: 0.62, y0: 2.10, schritt: 0.74 },
 };
@@ -162,4 +166,7 @@ function versal(s) {
 const PROJEKT = 'Mietwohnraumförderung Niedersachsen 2026';
 const FIRMA = 'Planungsgemeinschaft Nord GmbH';
 
-module.exports = { THEME, C, HEX, F, Raster, GRUND, SKALA, MIN, ROLLENMIN, PROGRAMMTEILE, FLUSSART, FEIN, versal, PROJEKT, FIRMA, W, H, X0, X1, CW, colX, span, Y, ZONE };
+// Schalter: Stempel „MODELLRECHNUNG“ in der Kickerzeile der Layouts PGN_*_MR. Aus, weil der Kicker das Wort als Abschnittsnamen trägt; an ist der Rückweg (das Wort steht dann doppelt).
+const STEMPEL_IM_KOPF = false;
+
+module.exports = { THEME, C, HEX, F, Raster, GRUND, SKALA, MIN, ROLLENMIN, PROGRAMMTEILE, FLUSSART, FEIN, versal, PROJEKT, FIRMA, STEMPEL_IM_KOPF, W, H, X0, X1, CW, colX, span, Y, ZONE };

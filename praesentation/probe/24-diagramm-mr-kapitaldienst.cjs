@@ -4,7 +4,7 @@
 module.exports = {
   id: 'p24-diagramm-mr-kapitaldienst',
   o: { nr: '24', layout: 'PGN_DIAGRAMM_MR', titel: 'Kapitaldienst in Jahr 1: 84.000 € statt 313.703 € frei finanziert',
-    inhalt: 'Kicker: „IHRE RECHNUNG · KAPITALDIENST“. Titelzeilen: „Kapitaldienst in Jahr 1: 84.000 €“ | „statt 313.703 € frei finanziert“ (Signaturwort: „84.000 €“).' },
+    inhalt: 'Kicker: „MODELLRECHNUNG · KAPITALDIENST“. Titelzeilen: „Kapitaldienst in Jahr 1: 84.000 €“ | „statt 313.703 € frei finanziert“ (Signaturwort: „84.000 €“).' },
   bau(ctx) {
     const { B, D, W, fmt, colX, ZONE } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
     B.register(s, '2.1');

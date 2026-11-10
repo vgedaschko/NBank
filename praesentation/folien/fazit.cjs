@@ -1,6 +1,6 @@
 // Folie 24 · Zusammenfassung der Rechnung (PGN_KENNZAHLEN_MR): drei Kennzahlen des Modellhauses mit ihrer Bedingung, darunter über zwölf
 // Spalten die drei Größen, von denen das Ergebnis abhängt. Diese drei Größen nennt der Folientitel; der Block darunter trägt deshalb
-// nur die Modulkopf-Linie und keinen eigenen Titel, der den Folientitel wiederholt. Papierton, Stempel im Layout, Daumenregister 2.1. Kein Diagramm, kein wertender Satz.
+// nur die Modulkopf-Linie und keinen eigenen Titel, der den Folientitel wiederholt. Papierton, Daumenregister 2.1. Kein Diagramm, kein wertender Satz.
 // Alle Zahlen aus werte.json, Lauf modellhaus; jeder Text wird gegen den Wortlaut des Konzepts geprüft. Die Kacheltexte brechen am Satzanfang
 // („Bindung …“, „Höchstmiete …“), damit Bezeichnung und Wert in einer Zeile stehen.
 'use strict';

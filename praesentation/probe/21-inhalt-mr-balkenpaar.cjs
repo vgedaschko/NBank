@@ -4,7 +4,7 @@
 module.exports = {
   id: 'p21-inhalt-mr-balkenpaar',
   o: { nr: '21', layout: 'PGN_INHALT_MR', titel: 'Nötige Miete: 6,77 € gefördert, 20,72 € je m² frei finanziert',
-    inhalt: 'Kicker: „IHRE RECHNUNG · NÖTIGE MIETE“. Titelzeilen: „Nötige Miete: 6,77 € gefördert,“ | „20,72 € je m² frei finanziert“ (Signaturwort: „6,77 €“).' },
+    inhalt: 'Kicker: „MODELLRECHNUNG · NÖTIGE MIETE“. Titelzeilen: „Nötige Miete: 6,77 € gefördert,“ | „20,72 € je m² frei finanziert“ (Signaturwort: „6,77 €“).' },
   bau(ctx) {
     const { B, D, W, fmt, colX, span, Y } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
     B.register(s, '2.1');

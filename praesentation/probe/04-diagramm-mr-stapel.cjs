@@ -1,10 +1,10 @@
-// Muster PGN_DIAGRAMM_MR: gestapelte Säulen in den festen Farben (Zuschuss, Darlehen, Eigenmittel schraffiert) auf Papier mit Stempel.
-// Vollfassung des Stempels (Zusatz) nur auf der ersten Folie der Modellrechnung.
+// Muster PGN_DIAGRAMM_MR: gestapelte Säulen in den festen Farben (Zuschuss, Darlehen, Eigenmittel schraffiert) auf Papier.
+// Zusatz „Fiktives Beispiel, keine Förderzusage“ in der Kickerzeile, nur auf der ersten Folie der Modellrechnung.
 'use strict';
 module.exports = {
   id: 'p04-diagramm-mr-stapel',
   o: { nr: '4', layout: 'PGN_DIAGRAMM_MR', titel: '20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung',
-    inhalt: 'Kicker: „IHRE RECHNUNG · FINANZIERUNG“. Titelzeilen: „20 Wohnungen, 7,0 Mio. €:“ | „bis zu 5,6 Mio. € Förderung“ (Signaturwort: „5,6 Mio. €“).' },
+    inhalt: 'Kicker: „MODELLRECHNUNG · FINANZIERUNG“. Titelzeilen: „20 Wohnungen, 7,0 Mio. €:“ | „bis zu 5,6 Mio. € Förderung“ (Signaturwort: „5,6 Mio. €“).' },
   bau(ctx) {
     const { B, D, W, fmt, colX, ZONE } = ctx, s = ctx.folie();
     B.stempelZusatz(s); B.register(s, '2.1');

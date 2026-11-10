@@ -4,7 +4,7 @@
 module.exports = {
   id: 'p05-tabelle-mr-rechenblatt',
   o: { nr: '5', layout: 'PGN_TABELLE_MR', titel: 'Jahr 1: Zahlungsüberschuss 455 € in A',
-    inhalt: 'Kicker: „IHRE RECHNUNG · WIRTSCHAFTLICHKEIT“. Titelzeilen: „Jahr 1: Zahlungsüberschuss 455 €“ | „in A, Fehlbeträge in B und C“ (Signaturwort: „455 €“).' },
+    inhalt: 'Kicker: „MODELLRECHNUNG · WIRTSCHAFTLICHKEIT“. Titelzeilen: „Jahr 1: Zahlungsüberschuss 455 €“ | „in A, Fehlbeträge in B und C“ (Signaturwort: „455 €“).' },
   bau(ctx) {
     const { B, W, fmt, colX, span, ZONE } = ctx, s = ctx.folie();
     B.register(s, '2.1');

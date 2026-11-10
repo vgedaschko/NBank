@@ -3,7 +3,7 @@
 // Teil 2 (bausteine): Funktionen B.* für die Inhaltszone einer Folie. Jede Form trägt einen objectName.
 // Maße in Zoll, Schrift in Punkt. Farben kommen aus dem Farbsatz des Grundes (hell, papier, rot, anthrazit).
 'use strict';
-const { C, HEX, F, GRUND, SKALA, ROLLENMIN, PROGRAMMTEILE, FEIN, versal, PROJEKT, W, H, X0, X1, CW, colX, span, Y, ZONE } = require('./theme.cjs');
+const { C, HEX, F, GRUND, SKALA, ROLLENMIN, PROGRAMMTEILE, FEIN, versal, PROJEKT, STEMPEL_IM_KOPF, W, H, X0, X1, CW, colX, span, Y, ZONE } = require('./theme.cjs');
 const { breite, zeilenzahl, zeilenhoehe } = require('./passpruefung.cjs');
 const { asset } = require('./assets.cjs');
 const { NBSP } = require('./daten.cjs');
@@ -39,7 +39,7 @@ const RAHMEN = {
     const cs = GRUND[grund];
     return [
       { rect: { x: X0, y: Y.kicker + 0.135, w: 0.28, h: 0.03, fill: { color: C.rot }, line: { type: 'none' }, objectName: 'Kickerstrich' } },
-      { placeholder: { options: { name: 'kicker', type: 'body', objectName: 'Kicker', x: X0 + 0.40, y: Y.kicker, w: 6.6, h: Y.kickerH, margin: 0, fontFace: F.mont, bold: true, fontSize: 12, charSpacing: 1.9, color: anhang ? cs.titel : cs.akzent, valign: 'middle' }, text: 'KICKER' } },
+      { placeholder: { options: { name: 'kicker', type: 'body', objectName: 'Kicker', x: X0 + 0.40, y: Y.kicker, w: Y.kickerW, h: Y.kickerH, margin: 0, fontFace: F.mont, bold: true, fontSize: 12, charSpacing: 1.9, color: anhang ? cs.titel : cs.akzent, valign: 'middle' }, text: 'KICKER' } },
       anhang ? RAHMEN.titellinie(X0 - 0.22, Y.titel + 0.045, 0.27) : RAHMEN.titellinie(X0 - 0.22, Y.titel + 0.065, 0.78),
       anhang
         ? { placeholder: { options: { name: 'title', type: 'title', objectName: 'Titel', x: X0, y: Y.titel, w: CW, h: 0.38, margin: 0, fontFace: F.black, bold: false, fontSize: 22, lineSpacing: 24, color: cs.titel, valign: 'top', align: 'left' }, text: 'TITEL DES ANHANGS, EINE ZEILE' } }
@@ -66,7 +66,7 @@ const RAHMEN = {
       { placeholder: { options: { name: 'blatt', type: 'body', objectName: 'Blattnummer', x: 11.90, y: Y.fuss + 0.19, w: 0.70, h: 0.23, margin: 0, fontFace: F.black, fontSize: 15, color: cs.titel, align: 'right', valign: 'middle' }, text: 'Nr.' } },
     ];
   },
-  // 4.7 Stempel „Modellrechnung“, doppelte Kontur, 2,12 × 0,37
+  // 4.7 Stempel „Modellrechnung“, doppelte Kontur, 2,12 × 0,37. Die Layouts mit „_MR“ nehmen ihn nur mit STEMPEL_IM_KOPF (lib/theme.cjs)
   stempel(x = ZONE.stempel.x, y = ZONE.stempel.y) {
     return [
       { rect: { x, y, w: 2.12, h: 0.37, fill: { type: 'none' }, line: { color: C.rot, width: 0.5 }, objectName: 'Stempel Außenkontur' } },
@@ -127,6 +127,9 @@ function titelPruefzeilen(zeilen, o, basis) {
 // Teil 2: Bausteine für die Inhaltszone
 // ================================================================================================================
 // kx: { grund: 'hell' | 'papier' | 'rot' | 'anthrazit', P: Pruefung, layout: Name des Layouts }
+// Zusatz der ersten Folie der Modellrechnung in der Kickerzeile (B.stempelZusatz): Work Sans Medium in Grau, Schriftgrad in pt
+const ZUSATZ_PT = 11;
+
 function bausteine(pres, kx) {
   const cs = GRUND[kx.grund || 'hell'], P = kx.P, ST = pres.ShapeType, B = {};
   const istMR = /_MR$/.test(kx.layout || '');
@@ -517,19 +520,30 @@ function bausteine(pres, kx) {
   };
 
   // ---- 4.7 Stempel ----------------------------------------------------------------------------------------------
-  // Vollfassung: Zusatz „fiktives Beispiel, keine Förderzusage“ links neben dem Stempel des Layouts (nur erste Folie der Modellrechnung)
+  // Zusatz „Fiktives Beispiel, keine Förderzusage“ (nur erste Folie der Modellrechnung). Ohne Lage auf einem Layout mit „_MR“: schlichte Zeile
+  // ohne Rahmen an der Stelle des Stempels, in der Kickerzeile rechtsbündig am Satzspiegel. Mit STEMPEL_IM_KOPF (lib/theme.cjs) oder mit Lage
+  // (o.x, o.y: Ecke eines frei gesetzten Stempels) steht er wie früher klein links neben dem Stempel. Rückgabe: { text }
   B.stempelZusatz = (s, o = {}) => {
-    const x = o.x || ZONE.stempel.x, y = o.y || ZONE.stempel.y, st = stil('label');
-    s.addText(o.text || 'fiktives Beispiel, keine Förderzusage', opt(st, { x: x - 3.35, y: y + 0.035, w: 3.2, h: 0.30 }, { align: 'right', valign: 'middle', objectName: 'Stempelzusatz' }));
+    const neben = STEMPEL_IM_KOPF || o.x !== undefined, name = 'Zusatz Modellrechnung';
+    if (neben) {
+      const x = o.x ?? ZONE.stempel.x, y = o.y ?? ZONE.stempel.y;
+      const t = o.text || 'fiktives Beispiel, keine Förderzusage';
+      s.addText(t, opt(stil('label'), { x: x - 3.35, y: y + 0.035, w: 3.2, h: 0.30 }, { align: 'right', valign: 'middle', objectName: name }));
+      return { text: t };
+    }
+    const st = stil('label', { pt: ZUSATZ_PT }), t = o.text || 'Fiktives Beispiel, keine Förderzusage', w = 3.6;
+    if (P) { P.zeile(name, t, st, w); P.mindest(name, st.fontSize, ROLLENMIN.label); }
+    s.addText(t, opt(st, { x: X1 - w, y: Y.kicker, w, h: Y.kickerH }, { align: 'right', valign: 'middle', wrap: false, objectName: name }));
+    return { text: t };
   };
-  // Stempel frei gesetzt (Layouts mit „_MR“ tragen ihn schon). o: { x, y, kurz: true (einfache Kontur, 1,95 × 0,26), zusatz: true }
+  // Stempel frei gesetzt, in der Inhaltszone einer Folie ohne „_MR“. o: { x, y, kurz: true (einfache Kontur, 1,95 × 0,26), zusatz: true }
   B.stempel = (s, o = {}) => {
     const x = o.x ?? ZONE.stempel.x, y = o.y ?? ZONE.stempel.y;
     if (o.kurz) {
       s.addText('MODELLRECHNUNG', { x, y, w: 1.95, h: 0.26, margin: 0, fontFace: F.xbold, fontSize: 10, charSpacing: 1.2, color: C.rot, align: 'center', valign: 'middle', line: { color: C.rot, width: 0.75 }, isTextBox: true, objectName: 'Stempel Modellrechnung kurz' });
       return;
     }
-    if (istMR && o.x === undefined) throw new Error('B.stempel: Das Layout trägt den Stempel schon. Für den Zusatz B.stempelZusatz(slide) verwenden.');
+    if (istMR && o.x === undefined) throw new Error('B.stempel: Im Kopf einer Folie der Modellrechnung steht das Wort schon (im Kicker, mit STEMPEL_IM_KOPF auch als Stempel des Layouts). Für den Zusatz B.stempelZusatz(slide) verwenden.');
     s.addShape(ST.rect, { x, y, w: 2.12, h: 0.37, fill: { type: 'none' }, line: { color: C.rot, width: 0.5 }, objectName: 'Stempel Außenkontur' });
     s.addText('MODELLRECHNUNG', { x: x + 0.04, y: y + 0.04, w: 2.04, h: 0.29, margin: 0, fontFace: F.xbold, fontSize: 11, charSpacing: 1.3, color: C.rot, align: 'center', valign: 'middle', line: { color: C.rot, width: 0.75 }, isTextBox: true, objectName: 'Stempel Modellrechnung' });
     if (o.zusatz) B.stempelZusatz(s, { x, y });
@@ -551,7 +565,7 @@ function bausteine(pres, kx) {
   };
   B.schluesselplan = (s, aktiv = '2.1') => {
     pruefeNr(aktiv);
-    if (istMR) throw new Error('B.schluesselplan: Stempel und Schlüsselplan stehen nie auf derselben Folie. Auf Folien der Modellrechnung trägt das Daumenregister die Programmnummer.');
+    if (istMR) throw new Error('B.schluesselplan: Auf Folien der Modellrechnung bleibt die Kickerzeile rechts frei (erste Folie: Zusatz; mit STEMPEL_IM_KOPF: Stempel). Die Programmnummer trägt das Daumenregister.');
     const bw = 0.50, gap = 0.06, x0 = X1 - 6 * bw - 5 * gap, y = Y.kicker;
     s.addText('Programmteil', opt(stil('label'), { x: x0 - 1.25, y, w: 1.15, h: 0.30 }, { align: 'right', valign: 'middle', objectName: 'Schlüsselplan Bezeichnung' }));
     PROGRAMMTEILE.forEach((nr, i) => {

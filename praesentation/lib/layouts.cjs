@@ -1,7 +1,7 @@
 // Die 19 Layouts des Planwerks (Spezifikation Abschnitt 5). Ein defineSlideMaster je Layout.
 // Text steht in benannten Platzhaltern; Fußzeile (Schriftfeld), Logo und Foliennummer liegen im Layout.
 'use strict';
-const { C, HEX, F, W, X0, CW, colX, span, Y, ZONE, PROJEKT, FIRMA } = require('./theme.cjs');
+const { C, HEX, F, W, X0, CW, colX, span, Y, ZONE, PROJEKT, FIRMA, STEMPEL_IM_KOPF } = require('./theme.cjs');
 const { RAHMEN } = require('./bausteine.cjs');
 const { asset } = require('./assets.cjs');
 const { X } = require('./daten.cjs');
@@ -30,7 +30,8 @@ const LAYOUTS = {
   PGN_ANHANG:         { grund: 'hell', art: 'anhang', titel: { pt: 22, min: 1, max: 1, breite: 12.0 }, felder: ['kicker', 'title', 'rubrik', 'blatt'] },
   PGN_AUSSAGE_DUNKEL: { grund: 'anthrazit', art: 'inhalt', titel: T32, felder: ['kicker', 'title', 'rubrik', 'blatt'] },
 };
-for (const n of ['INHALT', 'KENNZAHLEN', 'DIAGRAMM', 'TABELLE', 'VERGLEICH']) LAYOUTS[`PGN_${n}_MR`] = { ...LAYOUTS[`PGN_${n}`], grund: 'papier', stempel: true };
+// Fassung der Modellrechnung auf Papierton. stempel: Das Layout trägt den Stempel in der Kickerzeile (nur mit STEMPEL_IM_KOPF, lib/theme.cjs)
+for (const n of ['INHALT', 'KENNZAHLEN', 'DIAGRAMM', 'TABELLE', 'VERGLEICH']) LAYOUTS[`PGN_${n}_MR`] = { ...LAYOUTS[`PGN_${n}`], grund: 'papier', stempel: STEMPEL_IM_KOPF };
 
 // Feste Nummer (idx) je Platzhalter, gleich in allen Layouts: Wechselt jemand in PowerPoint das Layout einer Folie, findet jeder Text sein Feld wieder.
 // pptxgenjs zählt die Objekte eines Layouts durch; die Nachbearbeitung setzt diese Nummern ein. Der Titel trägt keine Nummer (Typ „title“).
@@ -69,10 +70,11 @@ const txt = (text, o) => ({ text: { text, options: { margin: 0, valign: 'middle'
 
 function definiereLayouts(pres) {
   const rand = [Y.inhalt, 0.666, 1.0, X0];
-  // Inhaltslayouts in zwei Fassungen: hell und Papier mit Stempel (Modellrechnung)
+  // Inhaltslayouts in zwei Fassungen: hell und Papier (Modellrechnung). Der Papierton ist das Zeichen der Modellfolien; das Wort steht im Kicker.
+  // Den Stempel in der Kickerzeile trägt das Layout nur mit STEMPEL_IM_KOPF (lib/theme.cjs)
   function paar(name, inhalt) {
     pres.defineSlideMaster({ title: `PGN_${name}`, background: { color: 'FFFFFF' }, margin: rand, objects: [...RAHMEN.kopf('hell'), ...inhalt('hell'), ...RAHMEN.schriftfeld('hell')] });
-    pres.defineSlideMaster({ title: `PGN_${name}_MR`, background: { color: 'F4F3F2' }, margin: rand, objects: [...RAHMEN.kopf('papier'), ...RAHMEN.stempel(), ...inhalt('papier'), ...RAHMEN.schriftfeld('papier')] });
+    pres.defineSlideMaster({ title: `PGN_${name}_MR`, background: { color: 'F4F3F2' }, margin: rand, objects: [...RAHMEN.kopf('papier'), ...(STEMPEL_IM_KOPF ? RAHMEN.stempel() : []), ...inhalt('papier'), ...RAHMEN.schriftfeld('papier')] });
   }
   const flaeche = g => (g === 'papier' ? C.weiss : C.papier);
 

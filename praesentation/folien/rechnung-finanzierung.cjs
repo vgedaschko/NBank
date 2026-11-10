@@ -1,5 +1,5 @@
 // Folie 14 · PGN_INHALT_MR: Finanzierung des Modellhauses nach Broschüre S. 10. Ein gestapelter Balken (Zuschuss, Darlehen, Eigenmittel)
-// mit Maßkette und 80-%-Achse, darunter der Rechenweg, rechts zwei Kennzahlen je Wohnung. Erste Folie der Modellrechnung: Stempel mit Zusatz.
+// mit Maßkette und 80-%-Achse, darunter der Rechenweg, rechts zwei Kennzahlen je Wohnung. Erste Folie der Modellrechnung: oben rechts der Zusatz „Fiktives Beispiel, keine Förderzusage“.
 // Alle Zahlen aus werte.json (Lauf modellhaus); der Anteil „Geld oder lastenfreies Grundstück“ aus daten/rechnung.json.
 'use strict';
 const R = require('./_rechnung.cjs');
@@ -8,7 +8,7 @@ module.exports = {
   id: 'rechnung-finanzierung',
   bau(ctx) {
     const { B, D, W, X, fmt, colX, span, Y } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
-    B.stempelZusatz(s); B.register(s, '2.1');
+    ctx.wortlaut(B.stempelZusatz(s).text, 'Zusatz'); B.register(s, '2.1');
 
     const wohnungen = M('eingabe.wohnungen'), kosten = M('fin.gesamtkosten.A'), foerderung = M('fin.foerderung.A'), eigen = M('fin.eigenmittel.A');
     const kostenQm = M('eingabe.herstellungskosten_qm'), grenze = M('fin.bemessungsgrenze_qm');
@@ -34,7 +34,7 @@ module.exports = {
       B.segmenttext(s, { x: xa, y: d.katMitte(0) - d.balkenHoehe / 2, w: xe - xa, h: d.balkenHoehe, name: t.name, wert: `${fmt.mio(t.wert)} · ${fmt.prozent(t.quote)}`, art: t.art });
       lauf += t.wert;
     }
-    // Maßkettentext in Tinte: Rot tragen auf dieser Folie schon Zuschuss, 80-%-Achse, Stempel und die Kennzahlen (ein Akzentmodul je Folie)
+    // Maßkettentext in Tinte: Rot tragen auf dieser Folie schon Zuschuss, 80-%-Achse und die Kennzahlen (ein Akzentmodul je Folie)
     const my = d.plot.y - 0.12, quote = M('fin.foerderquote.A');
     B.masskette(s, { x: d.plot.x, y: my, w: d.plot.w, segmente: [
       { anteil: foerderung, text: `Förderung ${fmt.mio(foerderung)} · ${fmt.prozent(quote)}` }, { anteil: eigen, text: fmt.prozent(M('fin.eigenmittelquote.A')) }] });

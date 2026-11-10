@@ -7,7 +7,7 @@
 // Folien 3 und 4 zum Kapitaldienst).
 // Gerechnet wird nach der Methode der Rechenmappe: Annuitätendarlehen mit jährlicher Annuität, Faktor = i ÷ (1 − (1 + i)^−n). Kosten und Zins
 // Q1 2020 aus daten/markt.json (ARGE-Mediane und Zinsreihe der Altfassung, nicht nachgeprüft), Zins heute und Laufzeit aus daten/werte.json.
-// Die Folie ist keine Modellrechnung (kein Stempel): Medianwerte deutscher Großstädte je m², kein einzelnes Haus. Rot im Diagramm nur an der
+// Die Folie ist keine Modellrechnung (weißer Grund, kein Papierton): Medianwerte deutscher Großstädte je m², kein einzelnes Haus. Rot im Diagramm nur an der
 // Summe von heute: Das ist die Zahl, die das Signaturwort des Titels nennt.
 'use strict';
 

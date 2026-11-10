@@ -1,10 +1,10 @@
-// Muster PGN_KENNZAHLEN_MR im Wortlaut der Folie 22 des Konzepts: drei Kennzahlen (44 pt) auf Papier mit Stempel, darunter ab y 4,70
+// Muster PGN_KENNZAHLEN_MR im Wortlaut der Folie 22 des Konzepts: drei Kennzahlen (44 pt) auf Papier, darunter ab y 4,70
 // (ZONE.kennzahlen.darunter) eine Planlegende über zwölf Spalten: Modulkopf und drei Einträge im Raster 4 + 4 + 4.
 'use strict';
 module.exports = {
   id: 'p10-kennzahlen-mr',
   o: { nr: '10', layout: 'PGN_KENNZAHLEN_MR', titel: 'Tilgungssatz, Kosten und Höchstmiete bestimmen das Ergebnis',
-    inhalt: 'Kicker: „IHRE RECHNUNG · ZUSAMMENFASSUNG“. Titelzeilen: „Tilgungssatz, Kosten und“ | „Höchstmiete bestimmen das Ergebnis“ (Signaturwort: „das Ergebnis“).' },
+    inhalt: 'Kicker: „MODELLRECHNUNG · ZUSAMMENFASSUNG“. Titelzeilen: „Tilgungssatz, Kosten und“ | „Höchstmiete bestimmen das Ergebnis“ (Signaturwort: „das Ergebnis“).' },
   bau(ctx) {
     const { B, W, fmt, colX, span, ZONE } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
     B.register(s, '2.1');

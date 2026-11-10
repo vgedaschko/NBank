@@ -12,7 +12,7 @@ Was geprüft wird (eine Zeile je Prüfung, am Ende die Summe; Rückgabewert 1 be
              und Trenner mit denselben Abschnittsnamen und derselben Zählung
   Form       nur Montserrat und Work Sans, Mindestgrößen (E3), Alternativtexte (Bilder, Diagramme, Flussdiagramme), keine Folie als Bild,
              keine Animationen
-  Wortlaut   verbotene Wörter (E5), kein Gedankenstrich als Einschub (E6), Stempel der Modellrechnung auf genau den festgelegten Folien (E7)
+  Wortlaut   verbotene Wörter (E5), kein Gedankenstrich als Einschub (E6), das Wort „Modellrechnung“ im Kopf genau der festgelegten Folien, je einmal (E7)
   Zahlen     jede Zahl in Folientexten, Tabellen, Alternativtexten, Diagrammdaten und Notizen hat einen Beleg; die Diagrammdaten stehen gleich im Zwischenspeicher
              und in der eingebetteten Arbeitsmappe; Kernwerte und Kernsätze stehen an ihren Folien, mit Einheit und Vorzeichen; Werte an
              den Diagrammen der Folien 3 bis 6 und 22 stehen in ihrer Form oder Tabellenzelle (KERNWERTE_FORM), Zeitreihen Wert für
@@ -61,21 +61,21 @@ AUFBAU = [
     ("7", "agenda", "Ausgangslage"),
     ("8", "trenner-programmteil", "Programmteil 2.1"), ("9", "neu-seit-juli", "Programmteil 2.1"), ("10", "hoechstmiete", "Programmteil 2.1"),
     ("11", "foerdermix", "Programmteil 2.1"), ("12", "eckdaten-zeitstrahl", "Programmteil 2.1"),
-    ("13", "trenner-rechnung", "Ihre Rechnung"), ("14", "rechnung-finanzierung", "Ihre Rechnung"), ("15", "rechnung-jahr1", "Ihre Rechnung"),
-    ("16", "rechnung-kapitaldienst", "Ihre Rechnung"), ("17", "rechnung-fluss-gefoerdert", "Ihre Rechnung"), ("18", "rechnung-fluss-frei", "Ihre Rechnung"),
-    ("19", "rechnung-miete", "Ihre Rechnung"), ("20", "rechnung-tilgung", "Ihre Rechnung"), ("21", "rechnung-verlauf", "Ihre Rechnung"),
-    ("22", "pgn-baukosten", "Ihre Rechnung"), ("23", "rechnung-kosten", "Ihre Rechnung"), ("24", "fazit", "Ihre Rechnung"),
+    ("13", "trenner-rechnung", "Modellrechnung"), ("14", "rechnung-finanzierung", "Modellrechnung"), ("15", "rechnung-jahr1", "Modellrechnung"),
+    ("16", "rechnung-kapitaldienst", "Modellrechnung"), ("17", "rechnung-fluss-gefoerdert", "Modellrechnung"), ("18", "rechnung-fluss-frei", "Modellrechnung"),
+    ("19", "rechnung-miete", "Modellrechnung"), ("20", "rechnung-tilgung", "Modellrechnung"), ("21", "rechnung-verlauf", "Modellrechnung"),
+    ("22", "pgn-baukosten", "Modellrechnung"), ("23", "rechnung-kosten", "Modellrechnung"), ("24", "fazit", "Modellrechnung"),
     ("25", "trenner-umsetzung", "Umsetzung"), ("26", "antragsweg", "Umsetzung"), ("27", "pgn-leistungen", "Umsetzung"), ("28", "kontakt", "Umsetzung"),
     ("A0", "anhang-trenner", "Anhang"), ("A1", "anhang-programmteile", "Anhang"), ("A2", "anhang-frist", "Anhang"), ("A3", "anhang-voraussetzungen", "Anhang"),
     ("A4", "anhang-vertraege", "Anhang"), ("A5", "anhang-mieterkreis", "Anhang"), ("A6", "anhang-eckdaten", "Anhang"), ("A7", "quellen", "Anhang"),
 ]
 FOLIENZAHL = len(AUFBAU)          # 36: 28 im Hauptteil, 8 im Anhang
 HAUPTTEIL, ANHANG = 28, 8
-# Folien der Modellrechnung: nur sie tragen den Stempel (Layouts mit „_MR“). Kein Stempel im Einstieg (Folien 3 bis 6: Medianwerte je m²)
-# und auf pgn-baukosten (Kostenkennwerte, kein Modellhaus).
+# Folien der Modellrechnung (Layouts mit „_MR“, Papierton): Im Kopf steht das Wort „Modellrechnung“ genau einmal, im Kicker oder als Stempel des
+# Layouts, nie beides. Kein Papierton und kein Stempel im Einstieg (Folien 3 bis 6: Medianwerte je m²) und auf pgn-baukosten (Kostenkennwerte).
 STEMPEL = ["rechnung-finanzierung", "rechnung-jahr1", "rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-fluss-frei", "rechnung-miete",
            "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten", "fazit"]
-# Kicker und Rubrik im Schriftfeld nennen den Abschnitt und das Thema der Folie („IHRE RECHNUNG · KAPITALDIENST“). Die Agenda nennt alle vier
+# Kicker und Rubrik im Schriftfeld nennen den Abschnitt und das Thema der Folie („MODELLRECHNUNG · KAPITALDIENST“). Die Agenda nennt alle vier
 # Abschnitte und trägt deshalb einen eigenen Kicker ohne Abschnittsnamen; jede weitere Ausnahme stünde hier.
 KICKER_OHNE_ABSCHNITT = {"agenda": "INHALT DES VORTRAGS"}
 # Register der Agenda: Der Vortrag behandelt 2.1; für 2.2 bis 2.6 steht die Seite der Broschüre (Festlegung zum Umbau)
@@ -1195,18 +1195,24 @@ def main(argv):
     for i, (f, k) in enumerate(paare):
         mr = f["layout"]["name"].endswith("_MR")
         soll = k["layout"].endswith("_MR")
-        stempel = any("MODELLRECHNUNG" in t for t in f["layout"]["texte"]) or any(a["text"].strip() == "MODELLRECHNUNG" for _, a in folientext(f))
-        if soll != stempel:
-            m.append(f"Folie {nr(i)}: Stempel „Modellrechnung“ {'fehlt' if soll else 'steht auf einer Folie ohne Modellrechnung'}")
-        zusatz = any("keine Förderzusage" in a["text"] and fo["name"] == "Stempelzusatz" for fo, a in folientext(f))
-        if zusatz != (k["id"] == "rechnung-finanzierung"):
-            m.append(f"Folie {nr(i)}: Zusatz zum Stempel {'fehlt' if not zusatz else 'steht außerhalb der ersten Folie der Modellrechnung'}")
+        stempel = any("MODELLRECHNUNG" in t for t in f["layout"]["texte"]) or any(a["text"].strip() == "MODELLRECHNUNG" and fo["name"].startswith("Stempel") for fo, a in folientext(f))
+        im_kicker = sum(t.upper().count("MODELLRECHNUNG") for t in text_von(f, "Kicker"))
+        im_kopf = im_kicker + (1 if stempel else 0)
+        if soll and im_kopf != 1:
+            m.append(f"Folie {nr(i)}: „Modellrechnung“ steht im Kopf {im_kopf}-mal (Kicker {im_kicker}, Stempel {1 if stempel else 0}); es muss genau einmal sein")
+        if not soll and stempel:
+            m.append(f"Folie {nr(i)}: Stempel „Modellrechnung“ steht auf einer Folie ohne Modellrechnung")
+        zusatz = [a["text"].strip() for fo, a in folientext(f) if "keine Förderzusage" in a["text"] and fo["name"] == "Zusatz Modellrechnung"]
+        if bool(zusatz) != (k["id"] == "rechnung-finanzierung"):
+            m.append(f"Folie {nr(i)}: Zusatz „keine Förderzusage“ {'fehlt' if not zusatz else 'steht außerhalb der ersten Folie der Modellrechnung'}")
+        if zusatz and not stempel and zusatz != ["Fiktives Beispiel, keine Förderzusage"]:
+            m.append(f"Folie {nr(i)}: Zusatz lautet {zusatz} statt „Fiktives Beispiel, keine Förderzusage“")
         if mr != soll:
             m.append(f"Folie {nr(i)}: Layout {f['layout']['name']}")
         if soll != (k["id"] in STEMPEL):
-            m.append(f"Folie {nr(i)} ({k['id']}): {'trägt den Stempel und gehört nicht zu den Folien der Modellrechnung' if soll else 'gehört zu den Folien der Modellrechnung und trägt keinen Stempel'} (STEMPEL)")
+            m.append(f"Folie {nr(i)} ({k['id']}): {'steht auf einem Layout der Modellrechnung und gehört nicht zu deren Folien' if soll else 'gehört zu den Folien der Modellrechnung und steht auf keinem Layout mit „_MR“'} (STEMPEL)")
     m += [f"Folie „{fid}“ (STEMPEL) fehlt im Konzept" for fid in STEMPEL if fid not in {k["id"] for k in K}]
-    ber.pruefung("Stempel „Modellrechnung“ auf den Folien der Rechnung, Vollfassung nur auf der ersten (E7)", m,
+    ber.pruefung("„Modellrechnung“ im Kopf der Modellfolien genau einmal, Zusatz nur auf der ersten (E7)", m,
                  "Folien " + ", ".join(str(k["nr"]) for k in K if k["layout"].endswith("_MR")))
 
     # ---- Zahlen ------------------------------------------------------------------------------------------------------------

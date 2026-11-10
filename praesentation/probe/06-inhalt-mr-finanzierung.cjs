@@ -4,7 +4,7 @@
 module.exports = {
   id: 'p06-inhalt-mr-finanzierung',
   o: { nr: '6', layout: 'PGN_INHALT_MR', titel: '20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung',
-    inhalt: 'Kicker: „IHRE RECHNUNG · FINANZIERUNG“. Titelzeilen: „20 Wohnungen, 7,0 Mio. €:“ | „bis zu 5,6 Mio. € Förderung“ (Signaturwort: „5,6 Mio. €“).' },
+    inhalt: 'Kicker: „MODELLRECHNUNG · FINANZIERUNG“. Titelzeilen: „20 Wohnungen, 7,0 Mio. €:“ | „bis zu 5,6 Mio. € Förderung“ (Signaturwort: „5,6 Mio. €“).' },
   bau(ctx) {
     const { B, D, W, fmt, colX, span, Y } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
     B.register(s, '2.1');

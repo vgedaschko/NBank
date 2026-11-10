@@ -1,9 +1,9 @@
-// Muster PGN_VERGLEICH_MR: dasselbe Layout auf Papier mit Stempel; die rechte Fläche ist weiß. Werte aus werte.json.
+// Muster PGN_VERGLEICH_MR: dasselbe Layout auf Papier; die rechte Fläche ist weiß. Werte aus werte.json.
 'use strict';
 module.exports = {
   id: 'p08-vergleich-mr',
   o: { nr: '8', layout: 'PGN_VERGLEICH_MR', titel: 'Kapitaldienst in Jahr 1',
-    inhalt: 'Kicker: „IHRE RECHNUNG · KAPITALDIENST“. Titelzeilen: „Kapitaldienst in Jahr 1: 84.000 €“ | „statt 313.703 € frei finanziert“ (Signaturwort: „84.000 €“).' },
+    inhalt: 'Kicker: „MODELLRECHNUNG · KAPITALDIENST“. Titelzeilen: „Kapitaldienst in Jahr 1: 84.000 €“ | „statt 313.703 € frei finanziert“ (Signaturwort: „84.000 €“).' },
   bau(ctx) {
     const { B, W, fmt } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
     B.register(s, '2.1');

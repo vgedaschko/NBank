@@ -6,7 +6,7 @@
 module.exports = {
   id: 'p33-inhalt-mr-flussdiagramm',
   o: { nr: '33', layout: 'PGN_INHALT_MR', titel: 'Von 7,0 Mio. € Gesamtkosten trägt die Förderung 5,6 Mio. €',
-    inhalt: 'Kicker: „IHRE RECHNUNG · FINANZIERUNG“. Titelzeilen: „Von 7,0 Mio. € Gesamtkosten“ | „trägt die Förderung 5,6 Mio. €“ (Signaturwort: „5,6 Mio. €“).' },
+    inhalt: 'Kicker: „MODELLRECHNUNG · FINANZIERUNG“. Titelzeilen: „Von 7,0 Mio. € Gesamtkosten“ | „trägt die Förderung 5,6 Mio. €“ (Signaturwort: „5,6 Mio. €“).' },
   bau(ctx) {
     const { B, D, W, C, fmt, colX, Y, Raster } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
     B.register(s, '2.1');

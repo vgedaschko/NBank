@@ -4,7 +4,7 @@
 module.exports = {
   id: 'p26-diagramm-mr-verlauf',
   o: { nr: '26', layout: 'PGN_DIAGRAMM_MR', titel: 'Ab Jahr 10 Zahlungsüberschuss in allen drei Einkommensgruppen',
-    inhalt: 'Kicker: „IHRE RECHNUNG · LAUFZEIT“. Titelzeilen: „Ab Jahr 10 Zahlungsüberschuss“ | „in allen drei Einkommensgruppen“ (Signaturwort: „Ab Jahr 10“).' },
+    inhalt: 'Kicker: „MODELLRECHNUNG · LAUFZEIT“. Titelzeilen: „Ab Jahr 10 Zahlungsüberschuss“ | „in allen drei Einkommensgruppen“ (Signaturwort: „Ab Jahr 10“).' },
   bau(ctx) {
     const { B, D, W, fmt, colX, ZONE } = ctx, s = ctx.folie(), G = ['A', 'B', 'C'];
     B.register(s, '2.1');

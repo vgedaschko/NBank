@@ -4,7 +4,7 @@
 module.exports = {
   id: 'p25-diagramm-mr-saeulen-tabelle',
   o: { nr: '25', layout: 'PGN_DIAGRAMM_MR', titel: 'Herstellungskosten je m² bestimmen Förderquote und Zahlungsüberschuss',
-    inhalt: 'Kicker: „IHRE RECHNUNG · HERSTELLUNGSKOSTEN“. Titelzeilen: „Herstellungskosten je m² bestimmen“ | „Förderquote und Zahlungsüberschuss“ (Signaturwort: „Herstellungskosten“).' },
+    inhalt: 'Kicker: „MODELLRECHNUNG · HERSTELLUNGSKOSTEN“. Titelzeilen: „Herstellungskosten je m² bestimmen“ | „Förderquote und Zahlungsüberschuss“ (Signaturwort: „Herstellungskosten“).' },
   bau(ctx) {
     const { B, D, W, fmt, colX, span } = ctx, s = ctx.folie();
     B.register(s, '2.1');

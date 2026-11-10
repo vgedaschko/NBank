@@ -23,7 +23,7 @@
       "wert": [
         { "nr": "1", "name": "Ausgangslage", "inhalt": "Baukosten, Zinsen, Kapitaldienst, Bestand" },
         { "nr": "2", "name": "Programmteil 2.1", "inhalt": "Neuerungen, Höchstmiete, Fördermix, Eckdaten" },
-        { "nr": "3", "name": "Ihre Rechnung", "inhalt": "Das Modellhaus, gefördert und frei finanziert" },
+        { "nr": "3", "name": "Modellrechnung", "inhalt": "Das Modellhaus, gefördert und frei finanziert" },
         { "nr": "4", "name": "Umsetzung", "inhalt": "Antragsweg und Planung mit PGN" }
       ],
       "einheit": "Abschnitte des Hauptteils: Nummer im Achskreis, Name, eine Zeile Inhalt",

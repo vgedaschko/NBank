@@ -17,10 +17,10 @@ const abschnitte = ctx => [...new Set(ctx.outline.folien.map(f => f.abschnitt))]
 // ---- Trenner ----------------------------------------------------------------------------------------------------------------------------
 // Roter Trenner vor einem Abschnitt des Hauptteils (PGN_ABSCHNITT_ROT): Achskreis XL mit der Nummer des Abschnitts, Titel und Vorspann aus dem
 // Konzept, Achsleiste mit einem Achskreis je Abschnitt, der eigene gefüllt. Die Nummer folgt aus dem Feld „abschnitt“; das Konzept muss sie im
-// Achskreis XL nennen. opt: { lead } für einen Vorspann mit Werten aus der Mappe (sonst der Wortlaut des Konzepts).
+// Achskreis XL nennen. opt: { lead, titel, akzent } für Vorspann oder Titelzeilen mit Werten aus der Mappe (sonst der Wortlaut des Konzepts).
 function trenner(ctx, opt = {}) {
   const { B, P, o } = ctx, alle = abschnitte(ctx), aktiv = alle.indexOf(o.abschnitt) + 1;
-  const s = ctx.folie(opt.lead === undefined ? {} : { lead: opt.lead });
+  const s = ctx.folie(Object.fromEntries(['lead', 'titel', 'akzent'].filter(k => opt[k] !== undefined).map(k => [k, opt[k]])));
   if (!o.inhalt.includes(`Achskreis XL: „${aktiv}“`)) P.melde(`Abschnitt „${o.abschnitt}“ ist der ${aktiv}. des Hauptteils; das Konzept nennt im Achskreis XL eine andere Nummer.`);
   B.abschnittsleiste(s, { n: alle.length, aktiv });
   return s;

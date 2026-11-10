@@ -115,7 +115,7 @@ Das Konzept passt für alle 36 Folien; Optionen sind nur für Abweichungen da.
 | `titelAbstand: 37` | Zeilenabstand in pt für eine Titelzeile, über deren Umlaut ein Komma, Semikolon oder eine Klammer steht (siehe unten); ohne Angabe Schriftgrad + 5 |
 
 Geprüft wird beim Bau: Zeilenzahl des Titels (Inhaltsfolien genau zwei), Breite jeder Zeile (32 pt: höchstens 11,6 Zoll),
-Signaturwort vorhanden, Kicker höchstens 6,0 Zoll, Rubrik höchstens 8,0 Zoll.
+Signaturwort vorhanden, Kicker höchstens 6,27 Zoll (Feld 6,9 Zoll, 10 % Reserve), Rubrik höchstens 8,0 Zoll.
 
 Lesereihenfolge der Formen (Auswahlbereich, Vorleseprogramme): Titel, Kicker, dann der Inhalt in der Reihenfolge, in der das
 Modul ihn anlegt, zuletzt Rubrik und Blattnummer des Schriftfelds. Ein Modul legt seine Formen deshalb in Leserichtung an.
@@ -134,7 +134,7 @@ Teilungen: 8 + 4 (`colX(1)`, `colX(9)`), 7 + 5 (`colX(8)`), 6 + 6 (`colX(7)`), 4
 
 | `ctx.Y` | Wert | Bedeutung |
 |---|---|---|
-| `kicker` | 0,42 | Kickerzeile (Höhe 0,30); rechts darin Schlüsselplan oder Stempel |
+| `kicker` | 0,42 | Kickerzeile (Höhe 0,30); rechts darin Schlüsselplan, auf Folie 14 der Zusatz der Modellrechnung |
 | `titel` | 0,84 | Titel, zwei Zeilen 32 pt (Höhe 0,98); Anhang: eine Zeile 22 pt |
 | `deck` / `deckH` / `inhaltNachDeck` | 1,90 / 0,26 / 2,40 | Lage einer Unterzeile (`B.text` mit `rolle: 'deck'`) und Beginn des Inhalts darunter |
 | `inhalt` … `inhaltEnde` | 2,10 … 6,50 | Inhaltszone der Inhaltsfolien (Höhe 4,40) |
@@ -176,7 +176,7 @@ Die festen Texte der Titel- und der Schlussfolie (Kopfleiste, Herausgeber, Sitz,
 neue Folie aus dem Layout, „Zurücksetzen“ und ein Layoutwechsel in PowerPoint lassen die Texte im Raster. Im Bau und im Konzept
 bleiben die Namen `PGN_…`; ein neues Layout braucht einen Eintrag in `lib/layoutnamen.json`, ein neuer Platzhalter eine Nummer in `IDX`.
 
-Layouts mit `_MR` tragen den Stempel „MODELLRECHNUNG“ fest in der Kickerzeile; auf Papier sind Kästen und hervorgehobene
+Layouts mit `_MR` stehen auf Papierton; das Wort „Modellrechnung“ steht im Kicker (Stempel im Kopf nur mit `STEMPEL_IM_KOPF` in `lib/theme.cjs`); auf Papier sind Kästen und hervorgehobene
 Tabellenspalten weiß. Die Bausteine wählen ihre Farben nach dem Grund von selbst. Text steht in einem Platzhalter genauso
 wie im freien Textfeld (kein zusätzlicher Abstand vor Absätzen).
 
@@ -319,8 +319,8 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 | Funktion | Parameter und Maße |
 |---|---|
 | `B.register(s, '2.1')` | Daumenregister am rechten Rand, 0,42 × 0,62, y = 2,10 + i · 0,74 |
-| `B.schluesselplan(s, '2.1')` | sechs Felder in der Kickerzeile (x 9,367–12,667). Nicht auf `_MR`-Layouts (dort steht der Stempel) |
-| `B.stempelZusatz(s)` | Vollfassung: „fiktives Beispiel, keine Förderzusage“ links neben dem Stempel; nur auf Folie 14 |
+| `B.schluesselplan(s, '2.1')` | sechs Felder in der Kickerzeile (x 9,367–12,667). Nicht auf `_MR`-Layouts (die Kickerzeile bleibt dort rechts frei) |
+| `B.stempelZusatz(s)` | „Fiktives Beispiel, keine Förderzusage“ als schlichte Zeile rechts in der Kickerzeile (11 pt, grau); nur auf Folie 14 |
 | `B.stempel(s, { x, y, kurz, zusatz })` | Stempel frei gesetzt (2,12 × 0,37) auf Layouts ohne `_MR`; `kurz: true` einfache Kontur 1,95 × 0,26 |
 | `B.konturstempel(s, { x, y, w, text })` | Fördervermerk, 0,36 hoch, Versalien in Rot |
 | `B.programmChip(s, { x, y, nr })` | 0,42 × 0,24 in der Programmfarbe. → `{ rechts }` |
@@ -593,7 +593,7 @@ verbotene Wörter, Gedankenstriche und jede Zahl gegen `daten/werte.json`, die D
 7. **E5:** keine Renditen, kein DSCR, keine Marktmiete des Modellhauses, kein „Safe Harbour“. Der Lauf `modellhaus_dscr125`
    und die Schlüssel `dscr.ziel` und `zr.dscr.*` erscheinen nicht; `dscr.kapitaldienst_jahr1.*` und `dscr.noetige_miete.*`
    sind erlaubt (Kapitaldienst und nötige Miete bei Überschuss null).
-8. **Stempel:** `_MR`-Layouts tragen ihn; `B.schluesselplan` ist dort gesperrt, die Programmnummer trägt `B.register`.
+8. **Modellrechnung:** `_MR`-Layouts stehen auf Papierton, das Wort steht im Kicker, kein Stempel im Kopf (Schalter `STEMPEL_IM_KOPF`). `B.schluesselplan` ist dort gesperrt, die Programmnummer trägt `B.register`.
 9. **Zeilenabstand im Bild:** LibreOffice setzt Text gut 2 % höher als die Schriftmetrik; die Prüfung rechnet das ein.
    Felder nicht bis auf die letzte Zeile füllen: Unter 5 % Luft gibt der Build einen Hinweis.
 10. **Achskreise an Achsenden** ragen um ihren halben Durchmesser über die Achse (M 0,20, L 0,23). Zeitstrahl und Leisten

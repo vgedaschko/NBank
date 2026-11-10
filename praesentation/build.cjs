@@ -161,7 +161,7 @@ async function main() {
       if (hat('kicker')) {
         if (!kicker) throw new Error(`Folie „${o.id}“: Kicker fehlt (ctx.folie({ kicker }) oder im Konzept „Kicker: „…““).`);
         const k = T.versal(kicker);
-        P.zeile('Kicker', k, { fontFace: T.F.mont, bold: true, fontSize: 12, weite: 1.9 }, 6.0);
+        P.zeile('Kicker', k, { fontFace: T.F.mont, bold: true, fontSize: 12, weite: 1.9 }, +(T.Y.kickerW / 1.1).toFixed(2));   // 10 % Reserve im Kickerfeld
         slide.addText(k, { placeholder: 'kicker' });
       }
       if (hat('rubrik')) {

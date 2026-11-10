@@ -6,7 +6,7 @@
 // dem Ansatz des Modellhauses. Rechts die Hauptzahl der Folie (Abstand der Mediane) in 60 pt wie auf den Folien 3 bis 6, darunter Grundlage
 // und Spanne.
 // Werte aus daten/markt.json, Block kosten (Altfassung Folie 12, nicht nachgeprüft); der Abstand ist im Modul gerechnet. Ansatz des Modellhauses
-// aus daten/werte.json. Weißer Grund und kein Stempel: Die Folie zeigt Kostenkennwerte und kein Modellhaus. Kein Rot im Diagramm.
+// aus daten/werte.json. Weißer Grund, kein Papierton: Die Folie zeigt Kostenkennwerte und kein Modellhaus. Kein Rot im Diagramm.
 'use strict';
 const S = require('./_struktur.cjs');
 const FEIN = require('./_fein_pgn-baukosten.cjs');

@@ -11,12 +11,13 @@ Broschüre und in Kurzform auf der Anhangfolie A1.
 |---|---|---|
 | 1 Ausgangslage | 1 bis 7 | Titel; Trenner; Einstieg in vier Folien: Baukosten seit 2020, Bauzinsen, Kapitaldienst je m² und Monat, Bestand gebundener Wohnungen in Niedersachsen; Agenda mit dem Fokus auf Programmteil 2.1 |
 | 2 Programmteil 2.1 | 8 bis 12 | Trenner; Neuerungen seit 01.07.2026, Höchstmiete, Fördermix, Eckdaten |
-| 3 Ihre Rechnung | 13 bis 24 | Trenner; Finanzierung, Jahresrechnung, Kapitaldienst; Zahlungsfluss gefördert und frei finanziert als Flussdiagramme im selben Maßstab; nötige Miete, Tilgungssatz, Verlauf; Herstellungskosten der PGN gegen ARGE, Kostenszenario; Zusammenfassung |
+| 3 Modellrechnung | 13 bis 24 | Trenner; Finanzierung, Jahresrechnung, Kapitaldienst; Zahlungsfluss gefördert und frei finanziert als Flussdiagramme im selben Maßstab; nötige Miete, Tilgungssatz, Verlauf; Herstellungskosten der PGN gegen ARGE, Kostenszenario; Zusammenfassung |
 | 4 Umsetzung | 25 bis 28 | Trenner; Antragsweg, Leistungen der PGN, Kontakt |
 | Anhang | A0 bis A7 | Trenner, Programmteile, Frist, Voraussetzungen, Verträge vor der Bewilligung, Mieterkreis, Eckdaten, Quellen und Hinweis |
 
-Den Stempel „Modellrechnung“ tragen die Folien des Modellhauses (14 bis 21, 23 und 24). Die Folien 3 bis 6 und 22 rechnen mit
-Medianwerten und Kostenkennwerten, nicht mit dem Modellhaus, und tragen keinen Stempel.
+Die Folien des Modellhauses (14 bis 21, 23 und 24) stehen auf Papierton; das Wort „Modellrechnung“ steht im Kicker. Folie 14 trägt oben rechts
+den Zusatz „Fiktives Beispiel, keine Förderzusage“. Die Folien 3 bis 6 und 22 rechnen mit Medianwerten und Kostenkennwerten, nicht mit dem
+Modellhaus, und stehen auf weißem Grund. Den Stempel im Kopf schaltet `STEMPEL_IM_KOPF` in `lib/theme.cjs` wieder ein.
 
 Ergebnis im Ordner `dist/`:
 

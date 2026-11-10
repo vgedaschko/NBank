@@ -4,7 +4,7 @@
 module.exports = {
   id: 'p20-diagramm-mr-linien',
   o: { nr: '20', layout: 'PGN_DIAGRAMM_MR', titel: 'Der Tilgungssatz entscheidet über den Zahlungsüberschuss in Jahr 1',
-    inhalt: 'Kicker: „IHRE RECHNUNG · MIX UND TILGUNG“. Titelzeilen: „Der Tilgungssatz entscheidet über“ | „den Zahlungsüberschuss in Jahr 1“ (Signaturwort: „Tilgungssatz“).' },
+    inhalt: 'Kicker: „MODELLRECHNUNG · MIX UND TILGUNG“. Titelzeilen: „Der Tilgungssatz entscheidet über“ | „den Zahlungsüberschuss in Jahr 1“ (Signaturwort: „Tilgungssatz“).' },
   bau(ctx) {
     const { B, D, W, fmt, colX, ZONE } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
     B.register(s, '2.1');

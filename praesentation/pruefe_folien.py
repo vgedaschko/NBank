@@ -13,7 +13,7 @@ Was geprüft wird (eine Zeile je Prüfung, am Ende die Summe; Rückgabewert 1 be
   Form       nur Montserrat und Work Sans, Mindestgrößen (E3), Alternativtexte (Bilder, Diagramme, Flussdiagramme), keine Folie als Bild,
              keine Animationen
   Wortlaut   verbotene Wörter (E5), kein Gedankenstrich als Einschub (E6), Stempel der Modellrechnung auf genau den festgelegten Folien (E7)
-  Zahlen     jede Zahl in Folientexten, Tabellen, Diagrammdaten und Notizen hat einen Beleg; die Diagrammdaten stehen gleich im Zwischenspeicher
+  Zahlen     jede Zahl in Folientexten, Tabellen, Alternativtexten, Diagrammdaten und Notizen hat einen Beleg; die Diagrammdaten stehen gleich im Zwischenspeicher
              und in der eingebetteten Arbeitsmappe; Kernwerte und Kernsätze stehen an ihren Folien, mit Einheit und Vorzeichen
   Verweise   „Folie n“ und „Anhang A n“ in Folientexten und Notizen nennen die Blattnummer der gemeinten Folie (VERWEISE)
 
@@ -140,7 +140,7 @@ KERNWERTE = [
     ("jr1.objektverwaltung.A", "euro", "7.340 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
     ("jr1.mietausfall.A", "euro", "2.285 €", ["rechnung-fluss-gefoerdert"]),
     ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1", "61,3 %", ["rechnung-fluss-gefoerdert"]),
-    (SOLLMIETE_FREI, "euro", "348.167 €", ["rechnung-fluss-frei"]),
+    (SOLLMIETE_FREI, "euro", "348.167 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),   # auf Folie 15 am Umriss der Quelle
     ("modellhaus:eingabe.mietausfall * " + SOLLMIETE_FREI, "euro", "6.963 €", ["rechnung-fluss-frei"]),
     ("-modellhaus:frei.zins_jahr1", "euro", "209.440 €", ["rechnung-fluss-frei"]),
     ("-modellhaus:frei.tilgung_jahr1", "euro", "104.263 €", ["rechnung-fluss-frei"]),
@@ -210,6 +210,7 @@ KERNSAETZE = [
     ("rechnung-jahr1", "Zins NBank-Darlehen, {a}", {"a": ("tab.zins_nbank_bis_jahr35", "prozent0")}),
     ("rechnung-miete", "Höchstmiete Gruppe A: {a}", {"a": ("fin.miete_jahr1.A", "euro2")}),
     # Folien des Umbaus: die Aussage des Titels und die Angaben, die eine Zahl an ihr Wort binden
+    ("ausgangslage-zinsen", "Kredite kosten {a}, Anfang 2020 waren es {b}", {"a": ("eingabe.zins_bank", "prozent2"), "b": ("markt#kapitaldienst.zins_q1_2020", "prozentwert2")}),
     ("einstieg-kapitaldienst", "Kapitaldienst je m² und Monat: von {a} auf {b} seit 2020", {"a": (KD_2020, "dez2"), "b": (KD_HEUTE, "euro2")}),
     ("einstieg-kapitaldienst", "{a} · {b}", {"a": (KD_BAUKOSTEN, "euro2vz"), "b": (f"({KD_BAUKOSTEN}) / (({KD_HEUTE}) - ({KD_2020}))", "prozent0")}),
     ("einstieg-kapitaldienst", "{a} · {b}", {"a": (KD_ZINS, "euro2vz"), "b": (f"({KD_ZINS}) / (({KD_HEUTE}) - ({KD_2020}))", "prozent0")}),
@@ -227,7 +228,9 @@ KERNSAETZE = [
     ("rechnung-fluss-frei", "{a} · {b}", {"a": ("-modellhaus:frei.tilgung_jahr1", "euro"), "b": ("-modellhaus:frei.tilgung_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
     ("pgn-baukosten", "Herstellungskosten der PGN: {a} unter dem ARGE-Median", {"a": ("-(" + PGN_UNTER_ARGE + ")", "prozent1")}),
     ("pgn-baukosten", "Ansatz im Modellhaus: {a}", {"a": ("eingabe.herstellungskosten_qm", "euro")}),
-    ("pgn-baukosten", "{a} gegen {b} je m² Wohnfläche", {"a": ("markt#kosten.pgn.spanne_herstellung.median", "euro"), "b": ("markt#kosten.arge.spanne_herstellung.median", "euro")}),
+    ("pgn-baukosten", "{a} gegen {b} je m²", {"a": ("markt#kosten.pgn.spanne_herstellung.median", "euro"), "b": ("markt#kosten.arge.spanne_herstellung.median", "euro")}),   # Label der Hauptzahl
+    ("pgn-baukosten", "PGN {a} bis {b},", {"a": ("markt#kosten.pgn.spanne_herstellung.min", "zahl"), "b": ("markt#kosten.pgn.spanne_herstellung.max", "euro")}),
+    ("pgn-baukosten", "ARGE {a} bis {b} je m²", {"a": ("markt#kosten.arge.spanne_herstellung.min", "zahl"), "b": ("markt#kosten.arge.spanne_herstellung.max", "euro")}),
 ]
 # ---- Kernwerte in den Diagrammdaten: Quelle (wie bei den Kernwerten), Folie, Reihe, Kategorie. Der Wert steht dort ungerundet und mit Vorzeichen ----
 KERNWERTE_DIAGRAMM = [
@@ -1145,7 +1148,11 @@ def main(argv):
             m += nimm(i, f"„{fo['name']}“", t, nur_zahl=bool(re.fullmatch(r"[+\-−±]?\d{1,2}", t)), zusatz=zusatz)
         for t in f["layout"]["texte"]:
             m += nimm(i, f"Layout {f['layout']['name']}", glatt(t))
-    ber.pruefung("Zahlen in Folientexten und Tabellen belegt", m, f"{stat['Mappe']} aus der Rechenmappe, {stat['Datei']} aus Datendateien, {stat['frei']} nach Freiliste")
+        # Alternativtexte tragen Beträge (die der Flussdiagramme jeden Strom mit Betrag und Anteil): wie Folientext prüfen
+        for name, descr in [(fo["name"], fo.get("descr")) for fo in f["formen"]] + [(d["name"], d["descr"]) for d in f["diagramme"]]:
+            if descr:
+                m += nimm(i, f"Alternativtext „{name}“", glatt(descr))
+    ber.pruefung("Zahlen in Folientexten, Tabellen und Alternativtexten belegt", m, f"{stat['Mappe']} aus der Rechenmappe, {stat['Datei']} aus Datendateien, {stat['frei']} nach Freiliste")
     vor = Counter(stat)
 
     m = []

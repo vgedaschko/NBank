@@ -5,6 +5,7 @@ module.exports = {
   id: 'neu-seit-juli',
   bau(ctx) {
     const { B, W, X, fmt, ZONE } = ctx, s = ctx.folie(), NB = '\u00A0';
+    B.register(s, '2.1');   // erste Folie des Abschnitts „Programmteil 2.1“: Daumenregister wie auf den Folien 8 bis 10
     const T = k => W('modellhaus', 'tab.' + k), R = k => X('regeln', k);
     const paar = (a, b, nk = 0) => `**${fmt.zahl(a, nk)}/${fmt.zahl(b, nk)} €**`;       // Wertepaar Mietenstufe I–III / IV–VII, hervorgehoben
     const fett = v => `**${v}**`;

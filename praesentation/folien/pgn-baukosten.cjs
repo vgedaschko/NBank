@@ -1,6 +1,6 @@
 // Folie 20 · PGN_DIAGRAMM: Herstellungskosten je m² Wohnfläche, Median, PGN gegen ARGE, als natives gruppiertes Säulendiagramm über acht
 // Spalten (vier Kostengruppen; PGN in Tinte, ARGE in Referenzgrau, Werte über den Säulen). Über dem Säulenpaar der Herstellung die Marke mit
-// dem Ansatz des Modellhauses. Rechts die Hauptzahl der Folie (Abstand der Mediane), darunter Grundlage und Spanne.
+// dem Ansatz des Modellhauses. Rechts die Hauptzahl der Folie (Abstand der Mediane) in 60 pt wie auf den Folien 2 bis 5, darunter Grundlage und Spanne.
 // Werte aus daten/markt.json, Block kosten (Altfassung Folie 12, nicht nachgeprüft); der Abstand ist im Modul gerechnet. Ansatz des Modellhauses
 // aus daten/werte.json. Weißer Grund und kein Stempel: Die Folie zeigt Kostenkennwerte und kein Modellhaus. Kein Rot im Diagramm.
 'use strict';
@@ -53,7 +53,8 @@ module.exports = {
       name: 'Marke Ansatz Modellhaus' });
 
     // ---- Rechte Spalte: Hauptzahl, darunter Grundlage und Spanne ---------------------------------------------------------------------------
-    const h = B.hauptzahl(s, { vorsatz: T('kennzahl_vorsatz'), zahl: wl(fmt.MINUS + abstand, 'Kennzahl'), einheit: '%', label: T('kennzahl_label'), text: T('kennzahl_text') });
+    // 60 pt: „−22,7 %“ hat sieben Zeichen. Für einen Text unter dem Label ist in 60 pt kein Platz; das Label nennt deshalb das Wertepaar der Mediane.
+    const h = B.hauptzahl(s, { gross: true, vorsatz: T('kennzahl_vorsatz'), zahl: wl(fmt.MINUS + abstand, 'Kennzahl'), einheit: '%', label: T('kennzahl_label') });
     // Die Spanne bricht hinter dem Komma: je Zeile ein Absender
     B.zweitesModul(s, { name: 'Grundlage und Spanne', eintraege: [{ titel: T('grundlage_titel'), text: T('grundlage') },
       { titel: T('spanne_titel'), text: B.zweizeilig(T('spanne'), { w: h.w, rolle: 'dicht', nach: /[,;]$/ }) }] });

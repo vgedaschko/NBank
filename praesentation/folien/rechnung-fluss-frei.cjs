@@ -1,6 +1,6 @@
 // Folie 16 · PGN_INHALT_MR: Zahlungsfluss in Jahr 1 für dasselbe Haus frei finanziert, als Flussdiagramm aus nativen Formen (folien/_fluss.cjs),
 // im selben Maßstab und mit derselben Lage der Knoten wie Folie 15. Quelle ist die Sollmiete, bei der der Zahlungsüberschuss null ist:
-// nötige Miete je m² und Monat × Wohnfläche × 12. Eine Maßlinie an der Quelle zeigt die Sollmiete zur Höchstmiete der Folie 15.
+// nötige Miete je m² und Monat × Wohnfläche × 12. Eine Maßkette links der Quelle misst den Teil, den die Sollmiete zur Höchstmiete der Folie 15 deckt.
 // Alle Zahlen aus werte.json (Lauf modellhaus); frei.zins_jahr1 und frei.tilgung_jahr1 stehen dort als Auszahlung negativ.
 // Im Modul gerechnet: nötige Sollmiete, Mietausfall dazu, Anteile; Belege mit Formel in daten/pruefung.json. Kein Rot im Diagramm.
 'use strict';

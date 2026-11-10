@@ -1,6 +1,7 @@
 // Folie 15 · PGN_INHALT_MR: Zahlungsfluss in Jahr 1 für das Modellhaus, Gruppe A, als Flussdiagramm aus nativen Formen (folien/_fluss.cjs).
 // Von der Sollmiete zur Höchstmiete gehen Mietausfall, Objektverwaltung und Instandhaltung ab; der Überschuss vor Kapitaldienst teilt sich in
 // Tilgung, Verwaltungskostenbeitrag und Zahlungsüberschuss. Maßstab, Lage der Knoten und Reihenfolge der Ziele wie auf Folie 16.
+// Ein gestrichelter Umriss an der Quelle zeigt im selben Maßstab die Sollmiete, die dasselbe Haus frei finanziert braucht (Quelle der Folie 16).
 // Alle Zahlen aus werte.json (Lauf modellhaus); Anteile = Betrag ÷ Sollmiete, Belege mit Formel in daten/pruefung.json. Kein Rot im Diagramm.
 'use strict';
 const Fl = require('./_fluss.cjs');
@@ -19,10 +20,13 @@ module.exports = {
     Fl.probe(ctx, 'Überschuss vor Kapitaldienst = Verwaltungskostenbeitrag + Zins + Tilgung + Zahlungsüberschuss', beitrag + zins + tilgung + rest, vorKd);
     Fl.probe(ctx, 'Kapitaldienst = Verwaltungskostenbeitrag + Zins + Tilgung', beitrag + zins + tilgung, kd);
     Fl.probe(ctx, 'Sollmiete = Höchstmiete × Wohnfläche × 12', M('fin.miete_jahr1.A') * M('eingabe.wohnflaeche') * 12, miete);
+    // Bezug zur Folie 16: nötige Sollmiete frei finanziert, gerechnet wie dort
+    const frei = M('dscr.noetige_miete.Frei') * M('eingabe.wohnflaeche') * 12;
 
     Fl.zahlungsfluss(ctx, s, {
       art: 'gefördert', titel: 'Zahlungsfluss in Jahr 1, gefördert', sub: 'in € p. a. und in % der Sollmiete · Modellhaus, Gruppe A · gleicher Maßstab wie frei finanziert',
       quelle: { name: 'Sollmiete zur Höchstmiete', wert: miete, zusatz: `${fmt.euroDez(M('fin.miete_jahr1.A'))} je m² und Monat` },
+      umriss: { wert: frei, text: ['frei finanziert nötig:', fmt.euro(frei)] },
       knoten: { name: 'Überschuss vor Kapitaldienst', wert: vorKd },
       ziele: [
         { id: 'tilgung', name: 'Tilgung', wert: tilgung, rolle: 'tilgung', ueberKnoten: true },

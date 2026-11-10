@@ -26,7 +26,7 @@ const LAYOUTS = {
   PGN_VERGLEICH:      { grund: 'hell', art: 'inhalt', titel: T32, felder: ['kicker', 'title', 'links_kopf', 'links_wert', 'links_text', 'rechts_kopf', 'rechts_wert', 'rechts_text', 'fuss', 'rubrik', 'blatt'] },
   PGN_ABLAUF:         { grund: 'hell', art: 'inhalt', titel: T32, felder: ['kicker', 'title', 'rubrik', 'blatt'] },
   PGN_ZITAT:          { grund: 'hell', art: 'inhalt', titel: T32, felder: ['kicker', 'title', 'zitat', 'name', 'quelle', 'rubrik', 'blatt'] },
-  PGN_SCHLUSS:        { grund: 'rot', art: 'schluss', titel: { pt: 40, min: 1, max: 3, breite: 5.6 }, felder: ['title', 'untertitel'] },
+  PGN_SCHLUSS:        { grund: 'rot', art: 'schluss', titel: { pt: 40, min: 1, max: 3, breite: 6.0 }, felder: ['title', 'untertitel'] },
   PGN_ANHANG:         { grund: 'hell', art: 'anhang', titel: { pt: 22, min: 1, max: 1, breite: 12.0 }, felder: ['kicker', 'title', 'rubrik', 'blatt'] },
   PGN_AUSSAGE_DUNKEL: { grund: 'anthrazit', art: 'inhalt', titel: T32, felder: ['kicker', 'title', 'rubrik', 'blatt'] },
 };
@@ -204,7 +204,9 @@ function definiereLayouts(pres) {
   pres.defineSlideMaster({ title: 'PGN_SCHLUSS', background: { path: asset('bg-schluss.png') }, objects: [
     ...RAHMEN.planrahmen(C.weiss),
     RAHMEN.titellinie(0.375, 1.87, 1.20, C.weiss, 0.055),
-    ph('title', { x: 0.60, y: 1.30, w: 5.6, h: 1.85, fontFace: F.black, bold: false, fontSize: 40, lineSpacing: 41, color: C.weiss, align: 'left' }, 'SCHLUSS', 'title'),
+    // 6,0 Zoll breit: „MACHEN WIR DEN“ (5,54 Zoll) hat gut 7 % Luft und bricht auch mit etwas breiterer Schrift nicht; das Feld endet bei x 6,60
+    // vor den Achskreisen des Grundrisses im Hintergrund (ab x 6,64)
+    ph('title', { x: 0.60, y: 1.30, w: 6.0, h: 1.85, fontFace: F.black, bold: false, fontSize: 40, lineSpacing: 41, color: C.weiss, align: 'left' }, 'SCHLUSS', 'title'),
     ph('untertitel', { x: 0.60, y: 3.45, w: 5.4, h: 1.2, fontFace: F.text, fontSize: 18, lineSpacingMultiple: 1.1, color: C.weiss }, 'Einladung'),
     linie(0.30, 5.45, W - 0.60, 0, C.weiss, 1, 'Schriftfeld Oberlinie'),
     { rect: { x: 0.30, y: 5.45, w: 3.20, h: 1.75, fill: { color: C.weiss }, line: { type: 'none' }, objectName: 'Logofeld' } },

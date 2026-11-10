@@ -33,7 +33,8 @@ function betragUndAnteil(fmt, wert, bezug) {
 // ---- Teil 2: Zahlungsfluss in Jahr 1 (Folien 15 und 16) -------------------------------------------------------------------------------------
 // o: { art: 'gefördert' | 'frei finanziert', titel, sub (Modulkopf),
 //      quelle: { name, wert, zusatz },                          Sollmiete links
-//      marke:  { wert, text } (nur Folie 16)                     Maßlinie an der Quelle auf der Höhe dieses Betrags
+//      marke:  { wert, text: [Bezeichnung, Betrag] } (nur Folie 16)   senkrechte Maßkette links der Quelle von der Oberkante bis zur Höhe dieses Betrags
+//      umriss: { wert, text: [Bezeichnung, Betrag] } (nur Folie 15)   gestrichelter Umriss, der den Balken der Quelle bis zur Höhe dieses Betrags fortsetzt
 //      knoten: { name, wert },                                   Überschuss vor Kapitaldienst
 //      ziele:  [{ id, name, wert, rolle, ueberKnoten }]          von oben; ueberKnoten: Der Strom läuft über den Knoten in der Mitte
 //      klammer: { name, wert, ziele: [id, …] },                  fasst Ziele zum Kapitaldienst
@@ -61,6 +62,7 @@ function zahlungsfluss(ctx, s, o) {
   const altText = [`Flussdiagramm: ${o.titel}, in € p. a. und in % der Sollmiete.`, `${o.quelle.name} ${fmt.euro(o.quelle.wert)} (${o.quelle.zusatz}).`,
     `Davon ${o.knoten.name} ${fmt.euro(o.knoten.wert)}: ${ueber.map(mitAnteil).join(', ')}.`, `Vorher gehen ab: ${direkt.map(mitAnteil).join(', ')}.`,
     o.klammer ? `${o.klammer.name} ${fmt.euro(o.klammer.wert)}.` : '', o.marke ? `${o.marke.text.join(' ')}.` : '',
+    o.umriss ? `Umriss an der Quelle im selben Maßstab, ${o.umriss.text.join(' ')}.` : '',
     'Die Stärke der Bänder entspricht dem Betrag. Die Flussdiagramme für gefördert und frei finanziert haben denselben Maßstab.'].filter(Boolean).join(' ');
   const d = ctx.D.fluss(s, { name: `Flussdiagramm Zahlungsfluss ${o.art}`, altText, massstab: MASSSTAB, knotenBreite: L.knotenBreite,
     knoten: [{ id: 'quelle', x: L.quelle, y: L.oben, name: o.quelle.name, art: art('knoten'), wert: o.quelle.wert }, { id: 'knoten', x: L.knoten, y: L.oben, name: o.knoten.name, art: art('knoten'), wert: o.knoten.wert },
@@ -70,22 +72,36 @@ function zahlungsfluss(ctx, s, o) {
       ...ueber.map(z => ({ von: 'knoten', nach: z.id, wert: z.wert, art: art(z.rolle), name: z.name }))] });
 
   // ---- Beschriftung in Leserichtung: Quelle, Marke, Knoten, Ziele, Klammer ----------------------------------------------------------------
-  // Quelle: Bezeichnung, Betrag als Kernwert, Zusatz; rechtsbündig vor dem Balken. Mit Marke steht der Block unter der Maßlinie.
+  // Quelle: Bezeichnung, Betrag als Kernwert, Zusatz; rechtsbündig vor dem Balken. Mit Marke steht der Block unter der Maßkette.
   const lx = colX(1), lw = L.quelle - 0.14 - lx;
   let qy = L.oben - 0.01;
   if (o.marke) {
-    const my = L.oben + zoll(o.marke.wert), [zeile1, zeile2] = o.marke.text;
-    wl(`${zeile1} ${zeile2}`, 'Marke an der Quelle');
-    B.text(s, zeile1, { x: lx, y: my - 0.47, w: lw, h: 0.21, rolle: 'kleinText', align: 'right', valign: 'middle', einzeilig: true, name: 'Marke Höchstmiete Bezeichnung' });
-    B.text(s, zeile2, { x: lx, y: my - 0.26, w: lw, h: 0.21, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Marke Höchstmiete Betrag' });
-    B.linie(s, { x: lx, y: my, w: L.quelle - 0.03 - lx, art: 'mass', name: 'Maßlinie Höchstmiete' });
-    // Fuge im Balken der Quelle auf derselben Höhe: Der Teil darüber ist die Sollmiete zur Höchstmiete
-    B.linie(s, { x: L.quelle, y: my, w: L.knotenBreite, farbe: ctx.grund === 'papier' ? ctx.C.papier : ctx.farben.fuge, pt: 1.5, name: 'Fuge Höchstmiete' });
+    // Maßkette links der Quelle: Sie misst die Strecke von der Oberkante bis zur Höhe des Betrags, also den Teil der Quelle, den dieser Betrag
+    // deckt (auf Folie 16 die Sollmiete zur Höchstmiete; die Kette ist so hoch wie der Balken der Quelle auf Folie 15). Eine waagerechte Linie
+    // auf dieser Höhe läse sich als Grenze zwischen den Bändern daneben. Die zwei Zeilen stehen links der Kette, mittig zu ihr.
+    const my = L.oben + zoll(o.marke.wert), [zeile1, zeile2] = o.marke.text, mx = L.quelle - 0.10, mw = mx - 0.06 - lx, mitte = (L.oben + my) / 2;
+    wl(`${zeile1} ${zeile2}`, 'Maßkette an der Quelle');
+    if (my - L.oben < 0.42) ctx.P.melde(`Maßkette an der Quelle: ${(my - L.oben).toFixed(2)} Zoll hoch, die zwei Zeilen daneben brauchen 0,42 Zoll.`);
+    B.massketteSenkrecht(s, { x: mx, y0: L.oben, y1: my, name: 'Maßkette Höchstmiete' });
+    B.text(s, zeile1, { x: lx, y: mitte - 0.21, w: mw, h: 0.21, rolle: 'kleinText', align: 'right', valign: 'middle', einzeilig: true, name: 'Marke Höchstmiete Bezeichnung' });
+    B.text(s, zeile2, { x: lx, y: mitte, w: mw, h: 0.21, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Marke Höchstmiete Betrag' });
     qy = my + 0.10;
   }
   B.text(s, wl(o.quelle.name, 'Quelle'), { x: lx, y: qy, w: lw, h: 0.21, rolle: 'bezeichnung', align: 'right', valign: 'middle', einzeilig: true, name: 'Quelle Bezeichnung' });
   B.text(s, wl(fmt.euro(o.quelle.wert), 'Quelle'), { x: lx, y: qy + 0.21, w: lw, h: 0.37, rolle: 'kernwert', align: 'right', valign: 'middle', einzeilig: true, name: 'Quelle Betrag' });
   B.text(s, wl(o.quelle.zusatz, 'Quelle'), { x: lx, y: qy + 0.58, w: lw, h: 0.21, rolle: 'klein', align: 'right', valign: 'middle', einzeilig: true, name: 'Quelle Zusatz' });
+  if (o.umriss) {
+    // Umriss an der Quelle: Er setzt den Balken im selben Maßstab nach unten fort bis zur Höhe des Betrags (auf Folie 15 die nötige Sollmiete
+    // frei finanziert, die Quelle der Folie 16). So steht der Bezug zum anderen Fall auf der Folie selbst. Gestrichelt im Referenzgrau, ohne
+    // Füllung; die Bänder beginnen rechts neben dem Balken und bleiben frei. Die zwei Zeilen enden bündig mit der Unterkante des Umrisses.
+    const y0 = L.oben + zoll(o.quelle.wert), y1 = L.oben + zoll(o.umriss.wert), [zeile1, zeile2] = o.umriss.text, uw = L.quelle - 0.14 - lx;
+    wl(`${zeile1} ${zeile2}`, 'Umriss an der Quelle');
+    if (o.umriss.wert <= o.quelle.wert) throw new Error('zahlungsfluss: Der Umriss an der Quelle braucht einen Betrag über dem der Quelle.');
+    if (y1 - 0.42 < qy + 0.79 + 0.10) ctx.P.melde('Umriss an der Quelle: Die zwei Zeilen stoßen an den Zusatz der Quelle.');
+    s.addShape('rect', { x: L.quelle, y: y0, w: L.knotenBreite, h: y1 - y0, fill: { type: 'none' }, line: { color: ctx.C.referenz, width: 0.75, dashType: 'dash' }, objectName: 'Umriss nötige Sollmiete frei finanziert' });
+    B.text(s, zeile1, { x: lx, y: y1 - 0.42, w: uw, h: 0.21, rolle: 'kleinText', align: 'right', valign: 'middle', einzeilig: true, name: 'Umriss Bezeichnung' });
+    B.text(s, zeile2, { x: lx, y: y1 - 0.21, w: uw, h: 0.21, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Umriss Betrag' });
+  }
 
   // Knoten: Bezeichnung und Betrag in einer Zeile, mittig über dem Balken
   const kn = wl(o.knoten.name, 'Knoten'), kw = wl(fmt.euro(o.knoten.wert), 'Knoten'), bn = breite(nb(kn), semi) + 0.03, bw = breite(nb(kw), fett) + 0.03, steg = 0.10;

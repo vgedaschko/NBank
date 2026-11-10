@@ -93,7 +93,7 @@
       "vermerk": "nicht nachgeprüft"
     },
     "texte": {
-      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter. Seit dem Umbau stehen rechts zwei Kennzahlen (Label: kennzahl_label; Vorsatz und Zahl aus der Reihe und den Marken). „ausgangslage“ steht in den Sprechernotizen der Folie 3 und belegt dort die Zahlen des Satzes; die übrigen Texte der früheren Kommentarspalte sind entfallen.",
+      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter. Seit dem Umbau stehen rechts zwei Kennzahlen (Label: kennzahl_label; Vorsatz und Zahl aus der Reihe und den Marken). „ausgangslage“ ist der Satz der Broschüre S. 2 im Wortlaut; in den Sprechernotizen der Folie 3 steht er ohne den Halbsatz zu den Baukosten (die Folie 2 nennt die Baukosten seit 2020) und belegt dort die Jahreszahlen. Der Titel der Folie nennt die Werte der beiden Kennzahlen. Die übrigen Texte der früheren Kommentarspalte sind entfallen.",
       "diagrammtitel": "Sollzins p. a. nach Zinsbindung",
       "untertitel": "in %, Monatswerte {zins_von} bis {zins_bis}, Top-Konditionen Wohnungswirtschaft",
       "marke": "{bezeichnung}: {z10} | {z20} | {z30} %",
@@ -159,13 +159,12 @@
     },
     "quelle": { "wert": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20; PGN (2026): eigene Auswertung von fünf Projekten, Hochrechnung auf Q4 2025", "einheit": "Quellenangabe", "herkunft": "Altfassung Folie 12, Quellenzeile (dort: Kostenspannen min/Median/max, Kostenstand Q4 2025; KOFO-Kosten, Hochrechnung gem. Bauleistungspreisindex des LSN)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
     "texte": {
-      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“, Folie pgn-baukosten); Zahlen als Platzhalter. Die Platzhalter füllt folien/_struktur.cjs (kostenFelder): {kg_herstellung}, {pgn_median}, {arge_median}, {pgn_min}, {pgn_max}, {arge_min} und {arge_max} aus den Werten dieses Blocks, {mappe_herstellungskosten_qm} aus daten/werte.json.",
+      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“, Folie pgn-baukosten); Zahlen als Platzhalter. Die Platzhalter füllt folien/_struktur.cjs (kostenFelder): {kg_herstellung}, {pgn_median}, {arge_median}, {pgn_min}, {pgn_max}, {arge_min} und {arge_max} aus den Werten dieses Blocks, {mappe_herstellungskosten_qm} aus daten/werte.json. Die Hauptzahl steht in 60 pt mit Vorsatz und einer Zeile Label; das Label nennt das Wertepaar der Mediane (vorher: Label „Median der Herstellungskosten“ und das Wertepaar als Text darunter, für den in 60 pt kein Platz ist).",
       "diagrammtitel": "Herstellungskosten je m² Wohnfläche, Median",
       "untertitel": "in €, Bruttokosten, Kostenstand Q4 2025 · PGN: fünf Projekte · ARGE: deutsche Großstädte",
       "marke_modellhaus": "Ansatz im Modellhaus: {mappe_herstellungskosten_qm} €",
       "kennzahl_vorsatz": "PGN gegen ARGE, {kg_herstellung}",
-      "kennzahl_label": "Median der Herstellungskosten",
-      "kennzahl_text": "{pgn_median} € gegen {arge_median} € je m² Wohnfläche.",
+      "kennzahl_label": "{pgn_median} € gegen {arge_median} € je m²",
       "grundlage_titel": "Grundlage",
       "grundlage": "PGN: eigene Auswertung von fünf Projekten. ARGE: deutsche Großstädte.",
       "spanne_titel": "Spanne {kg_herstellung}",

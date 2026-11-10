@@ -18,8 +18,9 @@ module.exports = {
       P.melde(`Agenda: daten/rahmen.json nennt die Abschnitte ${stationen.map(t => `${t.nr} ${t.name}`).join(', ')}; das Konzept hat ${imKonzept.map((a, i) => `${i + 1} ${a}`).join(', ')}.`);
     stationen.forEach(t => wl(`„${t.nr}“ · „${t.name}“ · „${t.inhalt}“`, `Abschnitt ${t.nr}`));
     // Je Abschnitt drei Rasterspalten. Die Achskreise beginnen 0,04 über der Inhaltskante: Ein Kreis wirkt tiefer als eine Linie auf derselben Höhe,
-    // und das Register darunter braucht die Höhe für dreizeilige Namen.
-    const achse = S.achsreihe(ctx, s, { x: colX(1), y: Y.inhalt - 0.04, w: Raster.CW, schritt: 3 * Raster.PITCH, stationen });
+    // und das Register darunter braucht die Höhe für dreizeilige Namen. steg 0,10: Die Textfelder reichen bis 0,10 Zoll vor die nächste Achslinie
+    // (2,76 Zoll); die erste Zeile des Abschnitts 2 hat so gut 8 % Luft und bricht auch mit etwas breiterer Schrift nicht in drei Zeilen.
+    const achse = S.achsreihe(ctx, s, { x: colX(1), y: Y.inhalt - 0.04, w: Raster.CW, schritt: 3 * Raster.PITCH, stationen, steg: 0.10 });
 
     // ---- Register der Programmteile -----------------------------------------------------------------------------------------------
     const namen = new Map(X('markt', 'programmteile.zeilen').map(z => [z.nr, z.name])), aktiv = X('rahmen', 'agenda.register.aktiv');

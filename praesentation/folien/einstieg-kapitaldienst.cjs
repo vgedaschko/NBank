@@ -38,7 +38,7 @@ module.exports = {
 
     // ---- Diagramm über acht Spalten ------------------------------------------------------------------------------------------
     const staende = [K('baukosten.reihen')[0], 'Heute'], x0 = colX(1), w8 = span(8);
-    B.diagrammkopf(s, { titel: wl('Kapitaldienst je m² und Monat, frei finanziert', 'Diagrammtitel'), sub: wl(`in € · ARGE-Median deutscher Großstädte · Annuität über ${n} Jahre · Anteile am Anstieg in %`, 'Untertitel') });
+    B.diagrammkopf(s, { titel: wl('Kapitaldienst je m² und Monat, frei finanziert', 'Diagrammtitel'), sub: wl(`in € · ARGE-Median deutscher Großstädte · Annuität ${n} Jahre · Anteile am Anstieg in %`, 'Untertitel') });   // ohne „über“: knapp 10 % Luft im einzeiligen Platzhalter
     // Freie Lage bis zum Ende der Inhaltszone (die Grundlinie der Säulen liegt wie auf den Folien 3 und 5 bei y 6,04); die Plotfläche ist 3,30 Zoll
     // breit, rechts davon stehen die Ursachen des Anstiegs und die Notiz
     const PLOT_W = 3.30, ACHSE = { min: 0, max: 24, schritt: 4, format: 'roh' }, yD = 2.76, hD = ctx.Y.inhaltEnde - yD;

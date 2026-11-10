@@ -187,7 +187,9 @@ function bausteine(pres, kx) {
     }
     // Mindestgröße je Rolle (E3): Fließtext 14 pt, Zusätze 12 pt, Beschriftungen 10 pt
     if (P) P.mindest(o.name || `Text (${st.rolle})`, st.fontSize, ROLLENMIN[st.rolle] || 10);
-    s.addText(laeufe(text, st, o), opt(st, { x: o.x, y: o.y, w: o.w, h }, { align: o.align || 'left', valign: o.valign || 'top', objectName: o.name || 'Text ' + st.rolle }));
+    // Einzeilige Felder brechen nie um (wrap="none"): Ist die Schrift auf einem anderen Rechner etwas breiter, läuft der Text über sein Feld,
+    // statt in eine zweite Zeile zu fallen. Die Passprüfung rechnet die Breite weiter gegen das Feld.
+    s.addText(laeufe(text, st, o), opt(st, { x: o.x, y: o.y, w: o.w, h }, { align: o.align || 'left', valign: o.valign || 'top', objectName: o.name || 'Text ' + st.rolle, ...(o.einzeilig ? { wrap: false } : {}) }));
     return { x: o.x, y: o.y, w: o.w, h, unten: o.y + h };
   };
 
@@ -468,7 +470,8 @@ function bausteine(pres, kx) {
     else if (seite === 'aussen') { geo = { x: o.x + o.w + 0.08, y: o.y - th / 2, w: tw, h: th }; valign = 'middle'; }
     else if (seite === 'rechts') { geo = { x: o.x + o.w - tw, y: o.y - th - 0.02, w: tw, h: th }; align = 'right'; valign = 'bottom'; }
     else { geo = { x: o.x, y: o.y - th - 0.02, w: tw, h: th }; valign = 'bottom'; }
-    s.addText(laeufe(o.text, st), opt(st, geo, { align, valign, objectName: 'Markentext' }));
+    // Der Text bricht nur an „\n“: ohne Umbruch im Feld (wrap="none"), wie die einzeiligen Felder aus B.text
+    s.addText(laeufe(o.text, st), opt(st, geo, { align, valign, objectName: 'Markentext', wrap: false }));
   };
 
   // Waagerechte Marke über einem Säulendiagramm: gestrichelte Linie in Referenzgrau von x0 bis x1, an den genannten Lücken unterbrochen
@@ -569,7 +572,7 @@ function bausteine(pres, kx) {
       const col = FELD[e.art] || e.art, t = schutz(e.text), tw = +(breite(t, st) + 0.06).toFixed(3);
       if (e.strich) s.addShape(ST.line, { x: cx, y: o.y + 0.12, w: 0.28, h: 0, line: { color: col, width: 2.25, ...(e.strich !== 'solid' ? { dashType: e.strich } : {}) }, objectName: 'Legende Linie ' + e.text });
       else s.addShape(ST.rect, { x: cx, y: o.y + 0.035, w: 0.28, h: 0.17, fill: { color: col }, line: e.art === 'eigenmittel' ? { color: HEX.schraffurLinie, width: 0.5 } : { type: 'none' }, objectName: 'Legende ' + e.text });
-      s.addText(t, opt(st, { x: cx + 0.36, y: o.y, w: tw, h: 0.24 }, { valign: 'middle', objectName: 'Legendentext ' + e.text }));
+      s.addText(t, opt(st, { x: cx + 0.36, y: o.y, w: tw, h: 0.24 }, { valign: 'middle', objectName: 'Legendentext ' + e.text, wrap: false }));   // einzeilig, ohne Umbruch
       cx += 0.36 + tw + 0.20;
     }
     return { rechts: cx - 0.20 };

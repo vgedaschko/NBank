@@ -343,7 +343,8 @@ function diagramme(pres, kx) {
       }
       const top = Math.min(g.y0, g.y1), ya = r4(g.y0 - top), yb = r4(g.y1 - top), h = r4(g.h), B = r4(w);
       const line = r.kontur ? { color: r.kontur.farbe, width: r.kontur.pt, ...(r.kontur.transparenz ? { transparency: r.kontur.transparenz } : {}) } : { type: 'none' };
-      s.addShape(pres.shapes.CUSTOM_GEOMETRY, { x: r4(g.x0), y: r4(top), w: B, h: r4(Math.abs(g.y1 - g.y0) + g.h), fill: fuellung(r), line, objectName: on,
+      // Höhe der Form aus den gerundeten Punkten: Getrennt gerundet läge der unterste Punkt bis zu 0,0001 Zoll unter dem Pfadrahmen
+      s.addShape(pres.shapes.CUSTOM_GEOMETRY, { x: r4(g.x0), y: r4(top), w: B, h: r4(Math.max(ya, yb) + h), fill: fuellung(r), line, objectName: on,
         points: [{ x: 0, y: ya },
           { x: B, y: yb, curve: { type: 'cubic', x1: r4(c), y1: ya, x2: r4(w - c), y2: yb } },
           { x: B, y: r4(yb + h) },

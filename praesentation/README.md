@@ -81,7 +81,8 @@ Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs, Schr
   Ausnahme ist der Kicker der Agenda (`KICKER_OHNE_ABSCHNITT`). Das Register der Agenda trägt die Seiten der Broschüre (`REGISTER`).
 - **Verweise:** „Folie n“ und „Anhang A n“ in Folientexten und Notizen müssen die Blattnummer der gemeinten Folie nennen
   (`VERWEISE`: Folie, Text, Kennung der gemeinten Folie). So fällt nach einer neuen Zählung jeder Verweis auf, der nicht folgt.
-- **Zahlen:** Jede Zahl braucht einen Beleg in `daten/werte.json`, in einer Datendatei oder in `daten/pruefung.json`. Die
+- **Zahlen:** Jede Zahl braucht einen Beleg in `daten/werte.json`, in einer Datendatei oder in `daten/pruefung.json`; das gilt
+  auch für die Alternativtexte der Diagramme und Flussdiagramme, die jeden Strom mit Betrag und Anteil nennen. Die
   Einheit zählt: Vor „%“ belegt nur ein Anteil oder eine Prozentangabe, vor „€“ und „Mio.“ nur ein Eurobetrag. Zahlen hinter
   einem Schrägstrich („5.330/5.550 €“) werden wie jede andere geprüft.
 - **Daten und Jahreszahlen** gelten nur, wenn eine Datendatei oder `daten/pruefung.json` sie führt. „Broschüre S. n“ gilt für
@@ -106,8 +107,9 @@ Zwei Auswege: die Mappe auf einem Rechner mit installierten Schriften einmal mit
 (Datei, Optionen, Speichern, „Schriftarten in der Datei einbetten“) oder das PDF zeigen.
 
 Gerendert und geprüft ist die Mappe mit LibreOffice. Vor dem ersten Vortrag einmal in PowerPoint öffnen und jede Folie ansehen,
-besonders die Flussdiagramme der Folien 15 und 16 (Freihandformen, Transparenz der hellen Bänder), die Agenda (Folie 6) und die
-Tabelle „Rechenweg“ der Folie 4.
+besonders die Flussdiagramme der Folien 15 und 16 (Freihandformen, Transparenz der hellen Bänder, gestrichelter Umriss an der Quelle
+der Folie 15), die Agenda (Folie 6) und die Tabelle „Rechenweg“ der Folie 4. Einzeilige Beschriftungen brechen nicht um: Ist eine
+Schrift auf dem Vortragsrechner breiter, läuft der Text über sein Feld, statt in eine zweite Zeile zu fallen.
 Das PDF aus LibreOffice trägt die Sprache Deutsch und kennzeichnet Linien und Flächen als Schmuck; die Alternativtexte der
 Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten braucht, exportiert die Endfassung aus PowerPoint.
 
@@ -140,12 +142,13 @@ auf der Anhangfolie A7, nicht als Fußzeile.
 ## Ungeprüfte Angaben aus der Altfassung
 
 Diese Angaben stammen aus der Präsentation vom 26.10.2026 und sind nicht nachgeprüft. In den Datendateien tragen sie
-`"geprueft": false`, in den Notizen der Folien 2 bis 5, 20, 21 und A7 den Vermerk. Seit dem Umbau stehen sie im Hauptteil, auf den
-Folien 2, 4, 5 und 20 auch im Titel. Vor dem ersten Vortrag bestätigt PGN sie oder nimmt sie heraus.
+`"geprueft": false`, in den Notizen der Folien 2 bis 5, 20, 21 und A7 den Vermerk (auf den Folien 2 bis 5 und 20 als Regie-Hinweis,
+dazu in jeder Quellenzeile). Seit dem Umbau stehen sie im Hauptteil, auf den Folien 2 bis 5 und 20 auch im Titel. Vor dem ersten
+Vortrag bestätigt PGN sie oder nimmt sie heraus.
 
 - Folie 2: ARGE-Mediane deutscher Großstädte, Bruttokosten je m² Wohnfläche, Q1 2020 und Q4 2025: Herstellung 3.028 und 4.631 € (+52,9 %), Grundstück 726 und 761 € (+4,8 %); in den Notizen Bauwerk +52,2 % und Baunebenkosten +57,1 % (Altfassung Folie 23).
 - Folie 3: Zinsreihe „Sollzins p. a. nach Zinsbindung“, 127 Monatswerte 01/2016 bis 07/2026 für 10, 20 und 30 Jahre, Bezeichnung „Top-Konditionen Wohnungswirtschaft“ (Altfassung Folie 24; Quelle dort: Dr. Klein Wowi Finanz AG).
-- Folie 3: Ø Q1 2020 0,46 | 0,87 | 0,98 %; Ø Q4 2025 3,49 | 3,74 | 3,87 %; Juli 2026 3,74 | 4,02 | 4,15 %; in den Notizen Tiefstwert 0,33 % (10/2020) und Höchstwert 3,86 % (10/2023).
+- Folie 3: Ø Q1 2020 0,46 | 0,87 | 0,98 %; Ø Q4 2025 3,49 | 3,74 | 3,87 %; Juli 2026 3,74 | 4,02 | 4,15 %; im Titel 3,74 und 0,46 % (10 Jahre Zinsbindung); in den Notizen Tiefstwert 0,33 % (10/2020) und Höchstwert 3,86 % (10/2023).
 - Folie 4: Kapitaldienst je m² und Monat 8,95 € (Q1 2020) und 20,14 € (heute), Anstieg 11,19 € mit den Anteilen 3,91 | 5,07 | 2,21 €. Neu gerechnet nach der Methode der Rechenmappe (80 % Fremdkapital, jährliche Annuität über 30 Jahre), aber auf ungeprüften Eingangswerten: Kosten 3.754 und 5.392 € je m² (ARGE), Zins 0,46 % (Dr. Klein Wowi Finanz AG); der Fremdkapitalanteil von 80 % ist die Annahme der Altfassung Folie 5.
 - Folie 5: Bestand an Mietwohnungen mit Miet- und Belegungsbindung in Niedersachsen zum 31.12., 2016 bis 2025 (85.766 bis 50.920, Rückgang 40,6 %; Altfassung Folie 4; Quelle dort: BT-Drs. 21/7303, Antwort der Bundesregierung vom 21.07.2026). Geprüft sind auf dieser Folie die Zahlen der Broschüre S. 3 (58.024, rund 16.000, 28 %, Bestand 2024 50.495).
 - Folien 20 und 21: Herstellungskosten 3.579 € je m² (Median aus fünf PGN-Projekten, Kostengruppen 200–700, Kostenstand Q4 2025; Altfassung Folien 11 und 12).

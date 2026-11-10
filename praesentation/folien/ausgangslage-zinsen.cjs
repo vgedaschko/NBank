@@ -1,14 +1,16 @@
-// Folie 2 · PGN_DIAGRAMM: Sollzins p. a. nach Zinsbindung als natives Liniendiagramm mit drei Reihen zu je 127 Monatswerten (01/2016 bis 07/2026),
-// Jahresbeschriftung an jedem zwölften Punkt, zwei senkrechte Marken mit den Quartalsmitteln, Endwerte an den Linienenden; rechts die Kommentarspalte.
-// Zinsreihe aus daten/markt.json (Altfassung Folie 24, nicht nachgeprüft), Satz der Broschüre S. 2, Zins des Bankdarlehens aus daten/werte.json.
+// Folie 3 · PGN_DIAGRAMM: Sollzins p. a. nach Zinsbindung als natives Liniendiagramm mit drei Reihen zu je 127 Monatswerten (01/2016 bis 07/2026),
+// Jahresbeschriftung an jedem zwölften Punkt, zwei senkrechte Marken mit den Quartalsmitteln, Endwerte an den Linienenden. Rechts wie auf den
+// Folien 2, 4 und 5 die Hauptzahl (Sollzins im letzten Monat der Reihe, 10 Jahre Zinsbindung) und darunter der Wert für Q1 2020; mit beiden
+// rechnet die Folie 4.
+// Zinsreihe aus daten/markt.json (Altfassung Folie 24, nicht nachgeprüft), Zins des Bankdarlehens und Zinsbindung aus daten/werte.json.
 // Kein Rot im Diagramm: 10 Jahre in Tinte, 20 Jahre in Tinte gestrichelt, 30 Jahre in Referenzgrau.
 'use strict';
-const { lies, monatKurz, monatWort, mittel } = require('./_ueberblick.cjs');
+const E = require('./_einstieg.cjs');
 
 module.exports = {
   id: 'ausgangslage-zinsen',
   bau(ctx) {
-    const { B, D, X, W, fmt, colX, ZONE, P } = ctx, s = ctx.folie(), U = lies(ctx), T = k => ctx.wortlaut(U('zinsen.texte.' + k), k);
+    const { B, D, X, W, fmt, colX, ZONE, P, mittel } = ctx, { monatKurz, monatWort } = fmt, s = ctx.folie(), U = E.lies(ctx), T = k => ctx.wortlaut(U('zinsen.texte.' + k), k);
     const monate = X('markt', 'zinsen.monate'), n = monate.length - 1, K = ['z10', 'z20', 'z30'];
     const reihen = [{ k: 'z10', art: 'tinte', strich: 'solid' }, { k: 'z20', art: 'tinte', strich: 'dash' }, { k: 'z30', art: 'referenz', strich: 'solid' }]
       .map(r => ({ ...r, name: ctx.wortlaut(X('markt', `zinsen.${r.k}.name`), 'Legende'), werte: X('markt', `zinsen.${r.k}`) }));
@@ -29,19 +31,19 @@ module.exports = {
     B.text(s, ctx.wortlaut(monatWort(monate[n]), 'Bezeichnung der Endwerte'), { x: xEnde, y: Math.min(...enden) - 0.11 - 0.20, w: 0.74, h: 0.18, rolle: 'label', valign: 'middle', einzeilig: true, name: 'Endwerte Monat' });
 
     // Marken mit den Quartalsmitteln; die Mittel sind aus den Monatswerten nachgerechnet
-    for (const m of X('markt', 'zinsen.marken')) {
+    const marken = X('markt', 'zinsen.marken');
+    for (const m of marken) {
       for (const r of reihen) ctx.gleich(`${m.bezeichnung}, ${r.name}`, mittel(monate, r.werte, m.monate), m[r.k]);
       const text = ctx.wortlaut(U('zinsen.texte.marke', { bezeichnung: m.bezeichnung, ...Object.fromEntries(K.map(k => [k, fmt.dez(m[k])])) }), 'Marke');
       B.marke(s, { x: d.katMitte(monate.indexOf(m.monat)), y: d.plot.y, h: d.plot.h, art: 'mass', text, textSeite: 'links', textBreite: 2.6 });
     }
 
-    // Kommentarspalte. Der Zins des Bankdarlehens kommt aus der Mappe und ist der letzte Wert der Reihe „10 Jahre“.
+    // Rechte Spalte. Der Zins des Bankdarlehens kommt aus der Mappe und ist der letzte Wert der Reihe „10 Jahre“.
     const zinsBank = W('modellhaus', 'eingabe.zins_bank');
     ctx.gleich('Zins des Bankdarlehens (Mappe) gegen den letzten Monatswert der Reihe „10 Jahre“', zinsBank * 100, reihen[0].werte[n]);
-    const ende2025 = X('markt', 'zinsen.marken')[1];
+    const ende2025 = marken[1];
     if (K.some(k => ende2025[k] < 3 || ende2025[k] > 4)) P.melde('Titel „drei bis vier Prozent“: Ein Quartalsmittel Q4 2025 liegt außerhalb von 3 bis 4 %.');
-    B.planlegende(s, { platzhalter: 'kommentar', eintraege: [
-      { titel: T('ausgangslage_titel'), text: T('ausgangslage') },
-      { titel: ctx.wortlaut(fmt.prozent(zinsBank, 2), 'Modultitel'), text: T('zins_bank') }] });
+    B.hauptzahl(s, { gross: true, vorsatz: ctx.wortlaut(monatWort(monate[n]), 'Vorsatz'), zahl: ctx.wortlaut(fmt.dez(zinsBank * 100), 'Kennzahl'), einheit: '%', label: T('kennzahl_label') });
+    B.nebenzahl(s, { vorsatz: ctx.wortlaut(marken[0].bezeichnung, 'Vorsatz'), zahl: ctx.wortlaut(fmt.dez(marken[0].z10), 'Kennzahl'), einheit: '%', label: T('kennzahl_label') });
   },
 };

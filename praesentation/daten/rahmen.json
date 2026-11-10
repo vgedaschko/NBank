@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Werte der Baugruppe rahmen (Titel, Trenner, Kontakt, Quellen), die nicht in werte.json stehen. Je Eintrag wert, einheit, herkunft und geprueft. Angaben aus der Altfassung tragen geprueft: false. Zugriff im Folienmodul über ctx.X('rahmen', pfad).",
+  "_hinweis": "Werte der Baugruppen rahmen (Titel, Kontakt) und struktur (Agenda, Trenner, Quellen), die nicht in werte.json stehen. Je Eintrag wert, einheit, herkunft und geprueft. Angaben aus der Altfassung tragen geprueft: false. Zugriff im Folienmodul über ctx.X('rahmen', pfad).",
   "referenz": {
     "wohnungen": { "wert": 19, "einheit": "Anzahl", "herkunft": "Broschüre S. 1 (01-umschlag-titel.json, image.caption)", "geprueft": true }
   },
@@ -17,9 +17,39 @@
     "web": { "wert": "www.pgn-architekten.de", "einheit": "Text", "herkunft": "Broschüre S. 24 (24-umschlag-rueckseite.json, blocks[1].items[3].value)", "geprueft": true },
     "qr_ziel": { "wert": "https://www.pgn-architekten.de", "einheit": "Adresse", "herkunft": "Broschüre S. 24 (24-umschlag-rueckseite.json, blocks[1].qr.url)", "geprueft": true }
   },
+  "agenda": {
+    "_hinweis": "Folie 6 (agenda). Vier Abschnitte des Hauptteils an einer Achse, darunter das Register der sechs Programmteile mit dem Verweis auf Broschüre und Anhang. Die Namen der Abschnitte sind die des Feldes „abschnitt“ in daten/outline.json (das Folienmodul prüft Zahl, Reihenfolge und Namen). Die Namen der Programmteile kommen aus daten/markt.json (programmteile.zeilen, Broschüre S. 5); hier stehen nur Nummer und Verweis. Der Untertitel des Registers trägt eine Fettmarke („**…**“): Der erste Satz steht halbfett; im Konzept steht der Satz ohne Marke.",
+    "abschnitte": {
+      "wert": [
+        { "nr": "1", "name": "Ausgangslage", "inhalt": "Baukosten, Zinsen, Kapitaldienst, Bestand" },
+        { "nr": "2", "name": "Programmteil 2.1", "inhalt": "Neuerungen, Höchstmiete, Fördermix, Eckdaten" },
+        { "nr": "3", "name": "Ihre Rechnung", "inhalt": "Das Modellhaus, gefördert und frei finanziert" },
+        { "nr": "4", "name": "Umsetzung", "inhalt": "Antragsweg und Planung mit PGN" }
+      ],
+      "einheit": "Abschnitte des Hauptteils: Nummer im Achskreis, Name, eine Zeile Inhalt",
+      "herkunft": "Konzept (daten/outline.json): Abschnitte in der Reihenfolge der Folien; Festlegung U1 der Projektleitung zum Umbau; die Zeile Inhalt nennt die Themen der Folien des Abschnitts",
+      "geprueft": true
+    },
+    "register": {
+      "titel": "Die sechs Programmteile der Richtlinie",
+      "untertitel": { "wert": "**Der Vortrag behandelt 2.1.** Die Programmteile 2.2 bis 2.6 stehen in der Broschüre und im Anhang A1.", "einheit": "Text mit Fettmarke (erster Satz halbfett)", "herkunft": "Wunsch des Auftraggebers nach Durchsicht (Fokus auf Programmteil 2.1, Verweis auf die Broschüre); Festlegung U5 der Projektleitung", "geprueft": true },
+      "aktiv": "2.1",
+      "wert": [
+        { "nr": "2.1", "verweis": "in diesem Vortrag" },
+        { "nr": "2.2", "verweis": "Broschüre S. 13" },
+        { "nr": "2.3", "verweis": "Broschüre S. 15" },
+        { "nr": "2.4", "verweis": "Broschüre S. 14" },
+        { "nr": "2.5", "verweis": "Broschüre S. 17" },
+        { "nr": "2.6", "verweis": "Broschüre S. 17" }
+      ],
+      "einheit": "Programmteil und Fundstelle",
+      "herkunft": "Broschüre, Seiten der Programmteile: 13-programmteil-2-2-eh40.json (S. 13), 14-programmteil-2-4-inseln.json (S. 14), 15-programmteil-2-3-modernisierung.json (S. 15), 17-programmteil-2-5-2-6-bindungen.json (S. 17); Programmteil 2.1 steht in der Broschüre auf S. 8 bis 12",
+      "geprueft": true
+    }
+  },
   "quellen": {
-    "_hinweis": "Tabelle der Folie A9. Jede Zeile nennt ihre Angaben (Schlüssel unter „angaben“, verbunden mit Semikolon). Die Foliennummern rechnet das Modul aus dem Feld „quellen“ aller Folien in outline.json: Eine Folie zählt zu einer Zeile, wenn ihre Quellenzeile eine der Kennungen der Zeile enthält. „folien“: „alle“ setzt die Bezeichnung fest (Rechtsgrundlage des ganzen Vortrags). Rahmenfolien (Titel, Trenner, Schluss) zählen nicht mit.",
-    "rahmenfolien": { "wert": ["PGN_TITEL", "PGN_ABSCHNITT", "PGN_ABSCHNITT_ROT", "PGN_SCHLUSS"], "einheit": "Layouts", "herkunft": "Festlegung der Baugruppe rahmen: Titel, Trenner und Schluss tragen keine eigenen Angaben und stehen nicht in der Quellentabelle (Konzept: Zeile „8–15“ ohne den Trenner Folie 7)", "geprueft": true },
+    "_hinweis": "Tabelle der Folie A7. Jede Zeile nennt ihre Angaben (Schlüssel unter „angaben“, verbunden mit Semikolon). Die Foliennummern rechnet das Modul aus dem Feld „quellen“ aller Folien in outline.json: Eine Folie zählt zu einer Zeile, wenn ihre Quellenzeile eine der Kennungen der Zeile enthält. „folien“: „alle“ setzt die Bezeichnung fest (Rechtsgrundlage des ganzen Vortrags). Rahmenfolien (Titel, Trenner, Schluss) zählen nicht mit. Gilt eine Angabe nur für einen Teil der Folien ihrer Zeile, steht die Folie davor („Folien 20 und 21: …“, „Folie 4: …“, „Folie 5: …“); ändert sich die Zählung, sind diese drei Texte mitzuführen (das Modul rechnet die Nummern beim Bau gegen die Quellenzeilen des Konzepts nach und bricht bei einer Abweichung ab). Die Tabelle hat sieben Zeilen, drei davon zweizeilig: Mehr passt mit Hinweis und den beiden Sätzen darunter nicht in die Inhaltszone. Die Zeile der Modellrechnung nennt „12–22“, weil auch Folie 20 den Ansatz des Modellhauses (4.500 € je m²) aus der Rechenmappe zeigt und ihre Quellenzeile die Modellrechnung nennt; ohne diese Angabe hieße die Zeile „12–19, 21, 22“ und bräche in der schmalen Spalte „Folie“ in zwei Zeilen.",
+    "rahmenfolien": { "wert": ["PGN_TITEL", "PGN_ABSCHNITT", "PGN_ABSCHNITT_ROT", "PGN_SCHLUSS"], "einheit": "Layouts", "herkunft": "Festlegung der Baugruppe rahmen: Titel, Trenner und Schluss tragen keine eigenen Angaben und stehen nicht in der Quellentabelle (Konzept: Zeile „12–22“ ohne den Trenner Folie 11)", "geprueft": true },
     "ohne_zeile": { "wert": ["Broschüre", "keine eigenen Angaben", "Bild: Planungsgemeinschaft Nord GmbH", "Quellenangaben der Altfassung"], "einheit": "Kennungen", "herkunft": "Festlegung der Baugruppe rahmen: Teile der Quellenzeilen, die keine eigene Tabellenzeile bekommen (Verweise auf die Broschüre der PGN, der Bildnachweis steht als eigener Satz auf der Folie)", "geprueft": true },
     "angaben": {
       "richtlinie": { "wert": "RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtschaft, Verkehr und Bauen vom 25.06.2026 (Nds. MBl. 2026 Nr. 319), gültig vom 01.07.2026 bis 31.12.2031", "einheit": "Text", "herkunft": "Broschüre S. 23 (23-impressum-hinweise.json, blocks[3] Rechtsgrundlage)", "geprueft": true },
@@ -29,18 +59,20 @@
       "regeln_bis_2026": { "wert": "NBank-Produktinformation „Allgemeine Mietwohnraumförderung“, Stand 01.04.2026 (Förderregeln bis 30.06.2026)", "einheit": "Text", "herkunft": "Recherche zur Broschüre, broschuere/recherche/factbase.md, F018 (Produktinformation der NBank, Stand 01.04.2026: Darlehen bis 75 % der Gesamtkosten, Tilgungsnachlass 30 %, Bemessung 5.330/5.550 € je m²); Broschüre S. 4 führt die Werte ohne eigene Quellenzeile", "geprueft": true },
       "wohnungsmarktbericht": { "wert": "NBank-Wohnungsmarktbericht 2025", "einheit": "Text", "herkunft": "Broschüre S. 23 (23-impressum-hinweise.json, blocks[4] Quellen)", "geprueft": true },
       "modellrechnung": { "wert": "Modellrechnung der Planungsgemeinschaft Nord GmbH (Rechenmappe {version}, Stand {stand})", "einheit": "Text mit Feldern", "herkunft": "Konzept, Folie quellen; {version} aus werte.json meta.mappe, {stand} aus werte.json meta.mappe_stand", "geprueft": true },
-      "kosten_pgn": { "wert": "PGN (2026): eigene Auswertung von fünf Projekten, Kostenstand Q4 2025", "einheit": "Text", "herkunft": "Altfassung Folie 11 und 12 (Quellenzeile)", "geprueft": false },
-      "kosten_arge": { "wert": "A7: ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32 und 34", "einheit": "Text", "herkunft": "Altfassung Folie 12 und 23 (Quellenzeile). „A7:“ steht davor, weil die Zeile der Quellentabelle die Blätter 14 und A7 nennt, ARGE-Werte aber nur auf A7 stehen (Folie 14 zeigt nur den PGN-Median)", "geprueft": false },
+      "kosten_pgn": { "wert": "Folien 20 und 21: PGN (2026): eigene Auswertung von fünf Projekten, Kostenstand Q4 2025", "einheit": "Text", "herkunft": "Altfassung Folie 11 und 12 (Quellenzeile). „Folien 20 und 21:“ steht davor, weil die Zeile der Quellentabelle auch die Folien 2 und 4 nennt, dort aber nur ARGE-Werte stehen", "geprueft": false },
+      "kosten_arge": { "wert": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20, und S. 34, Abb. 23", "einheit": "Text", "herkunft": "Altfassung Folie 5, 12 und 23 (Quellenzeilen): S. 34, Abb. 23 für die Kosten Q1 2020 und Q4 2025 (Folien 2 und 4), S. 32, Abb. 20 für die Kostenspannen Q4 2025 (Folie 20)", "geprueft": false },
+      "eigene_rechnung": { "wert": "Folie 4: eigene Rechnung der PGN", "einheit": "Text", "herkunft": "Konzept, Folie einstieg-kapitaldienst; Rechnung nach der Methode der Rechenmappe, Formeln in daten/pruefung.json. Die Altfassung Folie 5 nannte „eigene Berechnung (Annuitätendarlehen, Volltilgung über 30 Jahre)“", "geprueft": true },
+      "bestand": { "wert": "Folie 5: BT-Drs. 21/7303, Antwort der Bundesregierung vom 21.07.2026 (Bestand zum 31.12.)", "einheit": "Text", "herkunft": "Altfassung Folie 4 (Quellenzeile)", "geprueft": false },
       "landkarte": { "wert": "NBank-Landkarte Wohnraumförderung, abgerufen am 21.10.2026", "einheit": "Text", "herkunft": "Broschüre S. 23 (23-impressum-hinweise.json, blocks[4] Quellen)", "geprueft": true },
       "landesregierung": { "wert": "Landesregierung, Pressemitteilung vom 25.11.2025", "einheit": "Text", "herkunft": "Broschüre S. 23 (23-impressum-hinweise.json, blocks[4] Quellen)", "geprueft": true }
     },
     "zeilen": [
       { "folien": "alle", "angaben": ["richtlinie", "gesetze"], "kennung": ["RL Mietwohnraum 2026", "NWoFG"] },
-      { "angaben": ["nbank_pressemitteilung", "zinsreihe"], "kennung": ["NBank-Pressemitteilung zur Wohnungsmarktbeobachtung", "Dr. Klein Wowi Finanz AG"] },
+      { "angaben": ["kosten_arge", "kosten_pgn"], "kennung": ["ARGE e. V.", "eigene Auswertung von fünf Projekten"] },
+      { "angaben": ["nbank_pressemitteilung", "zinsreihe", "eigene_rechnung"], "kennung": ["NBank-Pressemitteilung zur Wohnungsmarktbeobachtung", "Dr. Klein Wowi Finanz AG", "eigene Rechnung der PGN"] },
+      { "angaben": ["wohnungsmarktbericht", "bestand"], "kennung": ["NBank-Wohnungsmarktbericht 2025", "BT-Drs. 21/7303"] },
       { "angaben": ["regeln_bis_2026"], "kennung": ["NBank-Produktinformation „Allgemeine Mietwohnraumförderung“"] },
-      { "angaben": ["wohnungsmarktbericht"], "kennung": ["NBank-Wohnungsmarktbericht 2025"] },
       { "angaben": ["modellrechnung"], "kennung": ["Modellrechnung der PGN"] },
-      { "angaben": ["kosten_pgn", "kosten_arge"], "kennung": ["eigene Auswertung von fünf Projekten", "ARGE e. V."] },
       { "angaben": ["landkarte", "landesregierung"], "kennung": ["NBank-Landkarte Wohnraumförderung", "Landesregierung, Pressemitteilung"] }
     ],
     "hinweis": { "wert": "Alle Angaben ohne Gewähr, Stand 30.09.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind fiktive Beispiele, keine Förderzusage.", "einheit": "Text", "herkunft": "Broschüre S. 23 (23-impressum-hinweise.json, blocks[2].body; fester Wortlaut nach REDAKTIONSREGELN §2)", "geprueft": true },

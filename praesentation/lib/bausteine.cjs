@@ -200,6 +200,22 @@ function bausteine(pres, kx) {
     return +(zeilenzahl(t, st, o.w) * zeilenhoehe(st) + 0.04).toFixed(3);
   };
 
+  // Bricht einen Text, der nicht in eine Zeile der Breite w passt, an der Wortfuge mit den zwei ausgeglichensten Zeilen („\n“). Geschützte
+  // Leerzeichen (Zahl und Einheit) brechen nicht. nach: Muster für das Ende der ersten Zeile (etwa /[,;]$/: nur hinter Komma oder Semikolon).
+  // Passt keine Teilung in zwei Zeilen, bleibt der Text, wie er ist, und bricht im Textfeld von selbst. o: { w, rolle, pt, nach }
+  B.zweizeilig = (text, o) => {
+    brauche('B.zweizeilig', o, ['w']);
+    const st = stil(o.rolle || 'fliess', o), t = schutz(String(text)), mass = z => breite(z.replace(/\*\*/g, ''), st);
+    if (mass(t) <= o.w) return t;
+    let beste = null;
+    for (let i = t.indexOf(' '); i >= 0; i = t.indexOf(' ', i + 1)) {
+      if (o.nach && !o.nach.test(t.slice(0, i))) continue;
+      const a = mass(t.slice(0, i)), b = mass(t.slice(i + 1));
+      if (a <= o.w && b <= o.w && (!beste || Math.max(a, b) < beste.laenge)) beste = { i, laenge: Math.max(a, b) };
+    }
+    return beste ? `${t.slice(0, beste.i)}\n${t.slice(beste.i + 1)}` : t;
+  };
+
   // Einzeiliger Text auf der Plotfläche eines Diagramms (Summe am Balkenende, Wert an einer Säule): Dahinter liegt eine Fläche in der Grundfarbe,
   // so breit wie die Schrift, damit keine Gitterlinie durch die Zahl läuft. o wie bei B.text (x, y, w, h, rolle, pt, align, valign, farbe, name);
   // grund: Farbe der Fläche, wenn der Text nicht auf dem Grund der Folie steht (zum Beispiel auf einer hervorgehobenen Spalte).
@@ -328,15 +344,16 @@ function bausteine(pres, kx) {
   };
 
   // ---- 4.5 Achskreis ------------------------------------------------------------------------------------------
-  // o: { cx, cy, text, groesse: 'S' | 'M' | 'L' | 'XL', d, pt, variante: standard | akzent | gefuellt | signal | gruppe, gruppe: 'A' | 'B' | 'C' }
-  const KREIS = { S: [0.30, 10], M: [0.40, 12], L: [0.46, 14], XL: [1.40, 54] };
+  // o: { cx, cy, text, groesse: 'S' | 'M' | 'L' | 'G' | 'XL', d, pt, variante: standard | akzent | gefuellt | signal | gruppe, gruppe: 'A' | 'B' | 'C' }
+  // G und XL stehen in Montserrat Black mit Kontur 1,5 pt: XL trägt die Nummer des Abschnitts in Rot (Trenner), G die Ziffer in Tinte (Agenda)
+  const KREIS = { S: [0.30, 10], M: [0.40, 12], L: [0.46, 14], G: [0.90, 32], XL: [1.40, 54] };
   B.achskreis = (s, o) => {
     brauche('B.achskreis', o, ['cx', 'cy']);
     if (o.text === undefined || o.text === null) throw new Error('B.achskreis: text fehlt (Achskreise tragen immer ein Zeichen).');
-    if (!KREIS[o.groesse || 'M']) throw new Error(`B.achskreis: Größe „${o.groesse}“ gibt es nicht (S, M, L, XL).`);
-    const [d0, pt0] = KREIS[o.groesse || 'M'], d = o.d || d0, pt = o.pt || pt0, v = o.variante || 'standard', xl = o.groesse === 'XL';
-    let fill = { color: C.weiss }, line = { color: cs.linie, width: xl ? 1.5 : 0.75 }, col = xl ? C.rot : C.tinte;
-    if (kx.grund === 'rot') { fill = { color: C.rot }; line = { color: C.weiss, width: xl ? 1.5 : 0.75 }; col = C.weiss; }
+    if (!KREIS[o.groesse || 'M']) throw new Error(`B.achskreis: Größe „${o.groesse}“ gibt es nicht (S, M, L, G, XL).`);
+    const [d0, pt0] = KREIS[o.groesse || 'M'], d = o.d || d0, pt = o.pt || pt0, v = o.variante || 'standard', xl = o.groesse === 'XL', gross = xl || o.groesse === 'G';
+    let fill = { color: C.weiss }, line = { color: cs.linie, width: gross ? 1.5 : 0.75 }, col = xl ? C.rot : C.tinte;
+    if (kx.grund === 'rot') { fill = { color: C.rot }; line = { color: C.weiss, width: gross ? 1.5 : 0.75 }; col = C.weiss; }
     if (kx.grund === 'anthrazit') { fill = { color: C.anthrazit }; line = { color: C.weiss, width: 0.75 }; col = C.weiss; }
     if (v === 'akzent') { line = { color: C.rot, width: 1 }; col = C.rot; fill = { color: C.weiss }; }
     if (v === 'gefuellt') { fill = { color: kx.grund === 'rot' ? C.weiss : C.rot }; line = { color: kx.grund === 'rot' ? C.weiss : C.rot, width: 0.75 }; col = kx.grund === 'rot' ? C.rot : C.weiss; }
@@ -348,7 +365,7 @@ function bausteine(pres, kx) {
       fill = { color: HEX.gruppe[g] }; line = { color: HEX.gruppe[g], width: 0.75 }; col = HEX.gruppeText[g];
     }
     s.addText(String(o.text), { shape: ST.ellipse, x: o.cx - d / 2, y: o.cy - d / 2, w: d, h: d, margin: 0, align: 'center', valign: 'middle',
-      fontFace: xl ? F.black : F.xbold, fontSize: pt, color: col, fill, line, objectName: o.name || 'Achskreis ' + o.text });
+      fontFace: gross ? F.black : F.xbold, fontSize: pt, color: col, fill, line, objectName: o.name || 'Achskreis ' + o.text });
   };
 
   // ---- 4.6 Maßkette --------------------------------------------------------------------------------------------
@@ -378,6 +395,29 @@ function bausteine(pres, kx) {
       tick(s, px, o.y, col);
     }
     return { punkte };
+  };
+  // Senkrechte Maßkette von y0 bis y1 mit 45°-Strichen an beiden Enden (Anstieg zwischen zwei Säulen); der Wert steht mittig links oder rechts
+  // daneben auf einer Fläche in der Grundfarbe. o: { x, y0, y1, text, seite: 'links' | 'rechts', name }. Die Linie steht 0,07 über
+  B.massketteSenkrecht = (s, o) => {
+    brauche('B.massketteSenkrecht', o, ['x', 'y0', 'y1']);
+    const oben = Math.min(o.y0, o.y1), unten = Math.max(o.y0, o.y1), U = 0.07;
+    s.addShape(ST.line, { x: o.x, y: oben - U, w: 0, h: unten - oben + 2 * U, line: { color: cs.mass, width: 0.75 }, objectName: o.name || 'Maßkette senkrecht' });
+    for (const y of [oben, unten]) tick(s, o.x, y, cs.mass);
+    if (!o.text) return { oben, unten };
+    const w = 1.10, links = o.seite !== 'rechts';
+    B.textAufPlot(s, o.text, { x: links ? o.x - 0.11 - w : o.x + 0.11, y: (oben + unten) / 2 - 0.12, w, h: 0.24, rolle: 'wert', align: links ? 'right' : 'left', valign: 'middle', name: 'Maßkettenwert ' + o.text });
+    return { oben, unten };
+  };
+  // Zuleitung von der Kante eines Segments (x0, y0) zu seiner Beschriftung (x1, y1): Linie 0,75 pt in B4B0AB, waagerecht; liegen beide Enden
+  // auf verschiedener Höhe, läuft sie mit einem Knick bei xKnick (Vorgabe: Mitte). o: { x0, y0, x1, y1, xKnick, name }
+  B.zuleitung = (s, o) => {
+    brauche('B.zuleitung', o, ['x0', 'y0', 'x1', 'y1']);
+    const name = o.name || 'Zuleitung', strich = { art: 'haar', farbe: HEX.grau300, pt: 0.75 };
+    if (Math.abs(o.y1 - o.y0) < 0.012) { B.linie(s, { x: o.x0, y: o.y1, w: o.x1 - o.x0, ...strich, name }); return; }
+    const xk = o.xKnick ?? (o.x0 + o.x1) / 2;
+    B.linie(s, { x: o.x0, y: o.y0, w: xk - o.x0, ...strich, name: name + ' 1' });
+    B.linie(s, { x: xk, y: Math.min(o.y0, o.y1), h: Math.abs(o.y1 - o.y0), ...strich, name: name + ' 2' });
+    B.linie(s, { x: xk, y: o.y1, w: o.x1 - xk, ...strich, name: name + ' 3' });
   };
   // 80-%-Achse: Strichpunktlinie in Rot mit Achskreis „80“ auf der Maßkette. o: { x, yOben (Lage der Maßkette), yUnten, text }
   B.achse80 = (s, o) => {
@@ -434,7 +474,9 @@ function bausteine(pres, kx) {
   // Waagerechte Marke über einem Säulendiagramm: gestrichelte Linie in Referenzgrau von x0 bis x1, an den genannten Lücken unterbrochen
   // (dort stehen Datenbeschriftungen oder Säulen, die bis an die Linie reichen). Rechts der Plotfläche läuft die Linie weiter; die Beschriftung
   // steht auf dieser Verlängerung über oder unter der Linie, wie ein Maß auf der Maßlinie. Zeilen bricht man mit „\n“; „**fett**“ hebt den Wert hervor.
-  // o: { y, x0, x1, luecken: [[von, bis]], text, textX, textBreite, lage: 'ueber' | 'unter', name }. Rückgabe: { stuecke, textOben, textUnten }
+  // Mit lage „aussen“ steht der Text einzeilig rechts neben dem Linienende auf der Höhe der Linie (textX: Vorgabe x1 + 0,08), wenn die Marke
+  // nur über einem Teil der Plotfläche liegt.
+  // o: { y, x0, x1, luecken: [[von, bis]], text, textX, textBreite, lage: 'ueber' | 'unter' | 'aussen', name }. Rückgabe: { stuecke, textOben, textUnten }
   B.markeMitLuecken = (s, o) => {
     brauche('B.markeMitLuecken', o, ['y', 'x0', 'x1']);
     const name = o.name || 'Marke';
@@ -446,11 +488,13 @@ function bausteine(pres, kx) {
     if (o.x1 - x >= KURZ) stuecke.push([x, o.x1]);
     stuecke.forEach(([a, b], i) => B.linie(s, { x: a, y: o.y, w: b - a, art: 'referenz', strich: 'dash', pt: 1, name: `${name} Linie ${i + 1}` }));
     if (!o.text) return { stuecke };
-    brauche('B.markeMitLuecken', o, ['textX', 'textBreite']);
+    const aussen = o.lage === 'aussen', textX = aussen && typeof o.textX !== 'number' ? o.x1 + 0.08 : o.textX;
+    brauche('B.markeMitLuecken', { ...o, textX }, ['textX', 'textBreite']);
     const st = stil('achse', { farbe: 'sekundaer' }), zeilen = schutz(o.text).replace(/\*\*/g, '').split('\n');
+    if (aussen && zeilen.length > 1) throw new Error('B.markeMitLuecken: Mit lage „aussen“ steht der Text in einer Zeile.');
     if (P) for (const z of zeilen) P.zeile('Markentext', z, st, o.textBreite);
-    const h = +(zeilen.length * 0.19 + 0.03).toFixed(3), ueber = o.lage !== 'unter', y = ueber ? o.y - 0.03 - h : o.y + 0.04;
-    B.text(s, o.text, { x: o.textX, y, w: o.textBreite, h, rolle: 'achse', farbe: 'sekundaer', valign: ueber ? 'bottom' : 'top', name: `${name} Text` });
+    const h = +(zeilen.length * 0.19 + 0.03).toFixed(3), ueber = o.lage !== 'unter', y = aussen ? o.y - h / 2 : ueber ? o.y - 0.03 - h : o.y + 0.04;
+    B.text(s, o.text, { x: textX, y, w: o.textBreite, h, rolle: 'achse', farbe: 'sekundaer', valign: aussen ? 'middle' : ueber ? 'bottom' : 'top', name: `${name} Text` });
     return { stuecke, textOben: y, textUnten: y + h };
   };
 
@@ -554,6 +598,39 @@ function bausteine(pres, kx) {
     if (o.label) { const r = B.text(s, o.label, { x: o.x, y, w: o.w, rolle: 'kennlabel', pt: gross ? 16 : 14, name: 'Kennzahl Label' }); y = Math.max(r.unten + 0.02, y + 0.30); }
     if (o.text) { const r = B.text(s, o.text, { x: o.x, y, w: o.w, h: o.textH, rolle: 'dicht', name: 'Kennzahl Text' }); y = r.unten; }
     return { unten: y };
+  };
+  // ---- Rechte Spalte der Diagrammfolien mit Kennzahlen statt Kommentar (ZONE.diagramm.spalte: Spalte 9 bis 12, Hauptzahl ab y 2,10, zweites
+  //      Modul ab y 4,40). Der Platzhalter „kommentar“ bleibt leer; die Modulkopf-Linie des Layouts liegt unter der Oberlinie der Kachel.
+  // Hauptzahl der Folie: die Zahl des Titels als Kennzahl-Kachel. gross: true setzt 60 pt mit Vorsatz, Zahl und einer Zeile Label (für einen
+  // Text ist bis zum zweiten Modul kein Platz); ohne gross 44 pt, der Text darunter wird in zwei ausgeglichene Zeilen gebrochen.
+  // o: { vorsatz, zahl, einheit, label, text, gross }. Rückgabe: { x, w, unten }
+  B.hauptzahl = (s, o) => {
+    const g = ZONE.diagramm.spalte;
+    if (o.gross && o.text) throw new Error('B.hauptzahl: Die Kachel in 60 pt trägt Vorsatz, Zahl und Label; für einen Text ist bis zum zweiten Modul kein Platz.');
+    const r = B.kennzahl(s, { ...o, x: g.x, y: g.y1, w: g.w, text: o.text ? B.zweizeilig(o.text, { w: g.w, rolle: 'dicht' }) : undefined });
+    if (P && r.unten > g.y2 - 0.12) P.melde(`Hauptzahl endet bei y ${r.unten.toFixed(2)} und läuft in das zweite Modul (ab ${g.y2.toFixed(2)}). Label in eine Zeile, Text in höchstens zwei Zeilen fassen.`);
+    return { x: g.x, w: g.w, unten: r.unten };
+  };
+  // Zweite Kennzahl der rechten Spalte: 44 pt ab y 4,40. o: { vorsatz, zahl, einheit, label, text }. Rückgabe: { x, w, unten }
+  B.nebenzahl = (s, o) => {
+    const g = ZONE.diagramm.spalte, r = B.kennzahl(s, { ...o, x: g.x, y: g.y2, w: g.w, gross: false });
+    if (P && r.unten > g.ende + 0.005) P.melde(`Zweite Kennzahl endet bei y ${r.unten.toFixed(2)}, die Inhaltszone bei ${g.ende.toFixed(2)}. Text kürzen.`);
+    return { x: g.x, w: g.w, unten: r.unten };
+  };
+  // Zweites Modul der rechten Spalte ab y 4,40 statt einer zweiten Kennzahl: Oberlinie wie eine Kennzahl-Kachel (0,75 pt), darunter entweder
+  // Einträge aus Modultitel und Text in 14 pt (eintraege: [{ titel, text }]) oder nur ein Modultitel (titel), unter dem das Modul selbst
+  // weiterbaut (Tabelle ab y + 0,30, Text ab inhalt). o: { eintraege | titel, name }. Rückgabe: { x, w, y, inhalt, ende, unten }
+  B.zweitesModul = (s, o) => {
+    const g = ZONE.diagramm.spalte, name = o.name || 'Zweites Modul';
+    B.linie(s, { x: g.x, y: g.y2, w: g.w, art: 'tinte', name: name + ' Oberlinie' });
+    if (!o.eintraege) {
+      if (!o.titel) throw new Error('B.zweitesModul: eintraege (Liste aus { titel, text }) oder titel fehlt.');
+      B.text(s, o.titel, { x: g.x, y: g.y2 + 0.08, w: g.w, h: 0.26, rolle: 'modultitel', valign: 'middle', einzeilig: true, name: 'Modultitel ' + name });
+      return { x: g.x, w: g.w, y: g.y2, inhalt: g.y2 + 0.42, ende: g.ende, unten: g.y2 + 0.34 };
+    }
+    const r = B.planlegende(s, { x: g.x, y: g.y2 + 0.10, w: g.w, pt: 14, eintraege: o.eintraege, name: 'Planlegende ' + name });
+    if (P && r.unten > g.ende + 0.005) P.melde(`Rechte Spalte endet bei y ${r.unten.toFixed(2)}, die Inhaltszone bei ${g.ende.toFixed(2)}. Text kürzen.`);
+    return { x: g.x, w: g.w, y: g.y2, inhalt: g.y2 + 0.10, ende: g.ende, unten: r.unten };
   };
   // Kennzahl in den Platzhaltern des Layouts PGN_KENNZAHLEN(_MR). i = 0, 1, 2. Zahl 44 pt, Einheit 22 pt in Rot, Label 14 pt einzeilig,
   // Text 14 pt bis y 4,45 (höchstens drei Zeilen). o: { vorsatz, zahl, einheit, label, text }. Rückgabe: { unten: 4,45, darunter: 4,70 (Beginn einer Planlegende) }
@@ -1103,6 +1180,19 @@ function bausteine(pres, kx) {
   };
 
   // ---- Beschriftungen an Diagrammen (Formen über der Plotfläche; Lagen aus der Rückgabe von D.*) --------------------------------------------
+  // Bezeichnung (Work Sans SemiBold 12 pt) und Wert (Montserrat Bold 12 pt) in einer Zeile auf gemeinsamer Grundlinie, jede in ihrem Feld:
+  // Work Sans steht in gleich hohen, mittig verankerten Feldern 0,012 Zoll tiefer als Montserrat; die Bezeichnung rückt um dieses Maß nach oben.
+  // o: { y (Oberkante der Zeile), h: 0.22, bezeichnung: { text, x, w, align, name }, wert: { text, x, w, align, name },
+  //      grau: true (Zeile ohne Betrag: Bezeichnung in Work Sans Regular, beide in Grau) }. Beide Texte sind einzeilig und werden gegen ihr Feld geprüft.
+  const GRUNDLINIE_TEXT = 0.012;
+  B.bezeichnungMitWert = (s, o) => {
+    brauche('B.bezeichnungMitWert', o, ['y']);
+    const h = o.h || 0.22, b = o.bezeichnung, w = o.wert;
+    for (const [was, f] of [['bezeichnung', b], ['wert', w]]) { if (!f || f.text === undefined || f.text === null) throw new Error(`B.bezeichnungMitWert: ${was}.text fehlt.`); brauche(`B.bezeichnungMitWert, ${was}`, f, ['x', 'w']); }
+    B.text(s, b.text, { x: b.x, y: o.y - GRUNDLINIE_TEXT, w: b.w, h, rolle: o.grau ? 'klein' : 'bezeichnung', align: b.align, valign: 'middle', einzeilig: true, name: b.name || 'Bezeichnung ' + b.text });
+    B.text(s, w.text, { x: w.x, y: o.y, w: w.w, h, rolle: 'wert', farbe: o.grau ? 'sekundaer' : undefined, align: w.align, valign: 'middle', einzeilig: true, name: w.name || 'Wert ' + b.text });
+    return { unten: o.y + h };
+  };
   // Beschriftung in einem Segment eines gestapelten Balkens: Name (Work Sans SemiBold 11 pt) über Wert und Anteil (Montserrat Bold 12 pt),
   // mittig im Segment; weiß auf Zuschuss und Darlehen, Tinte auf der Schraffur der Eigenmittel. Ersetzt die Datenbeschriftung des Diagramms,
   // die nur den Wert zeigen kann (Diagramm mit labels: false). o: { x, y, w, h (Fläche des Segments), name, wert (fertiger Text), art }
@@ -1183,7 +1273,7 @@ function bausteine(pres, kx) {
     const w = d.katBreite - 0.10, y = d.plot.y + d.plot.h + 0.07;
     texte.forEach((t, i) => {
       if (P) P.zeile('Kategorie', schutz(t.name), { fontFace: F.semi, fontSize: 12 }, w);
-      B.text(s, [{ text: schutz(t.name), options: { fontFace: F.semi, color: cs.titel } }], { x: d.katMitte(i) - w / 2, y, w, h: 0.22, rolle: 'kleinText', align: 'center', valign: 'middle', pruefen: false, name: 'Kategorie ' + t.name });
+      B.text(s, t.name, { x: d.katMitte(i) - w / 2, y, w, h: 0.22, rolle: 'bezeichnung', align: 'center', valign: 'middle', pruefen: false, name: 'Kategorie ' + t.name });
       if (t.zusatz) B.text(s, t.zusatz, { x: d.katMitte(i) - w / 2, y: y + 0.21, w, h: 0.20, rolle: 'achse', align: 'center', valign: 'middle', einzeilig: true, name: 'Kategorie Zusatz ' + t.name });
     });
     return { unten: y + 0.41 };
@@ -1198,6 +1288,14 @@ function bausteine(pres, kx) {
       if (!bewegt) break;
     }
     return out;
+  };
+
+  // Alternativtext an einer Form (pptxgenjs schreibt ihn nur für Bilder und Diagramme): Die Form mit diesem objectName auf der Folie bekommt
+  // den Text in der Nachbearbeitung als „descr“ und gilt dann nicht als Schmuck. Der Name muss auf der Folie eindeutig sein.
+  B.altText = (s, name, text) => {
+    if (!name || !text || !String(text).trim()) throw new Error('B.altText(s, name, text): Objektname und Text sind Pflicht.');
+    if (typeof kx.altText !== 'function') throw new Error('B.altText: Der Bau nimmt keine Alternativtexte für Formen an (kx.altText fehlt).');
+    kx.altText(String(name), String(text));
   };
 
   B.schutz = schutz; B.versal = versal; B.stil = stil; B.farben = cs;

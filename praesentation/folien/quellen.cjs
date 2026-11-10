@@ -1,9 +1,9 @@
-// Folie A9 · Quellen und Hinweis (PGN_ANHANG): native Tabelle über zwölf Spalten (Folie | Quelle), darunter der Rechtshinweis im festen
+// Folie A7 · Quellen und Hinweis (PGN_ANHANG): native Tabelle über zwölf Spalten (Folie | Quelle), darunter der Rechtshinweis im festen
 // Wortlaut als Kasten auf Fläche mit Modulkopf-Linie und zwei Sätze zu Herausgeber und Bildnachweis.
-// Texte und Kennungen stehen in daten/rahmen.json (quellen.*); die Blattnummern rechnet _rahmen.cjs aus dem Feld „quellen“ aller Folien
+// Texte und Kennungen stehen in daten/rahmen.json (quellen.*); die Blattnummern rechnet _struktur.cjs aus dem Feld „quellen“ aller Folien
 // des Konzepts, Version und Stand der Mappe kommen aus werte.json (meta). Kein Prüfvermerk auf der Folienfläche (steht in den Notizen).
 'use strict';
-const R = require('./_rahmen.cjs');
+const S = require('./_struktur.cjs');
 
 module.exports = {
   id: 'quellen',
@@ -11,10 +11,11 @@ module.exports = {
     const { B, X, colX, Y, Raster } = ctx, s = ctx.folie(), Q = k => X('rahmen', 'quellen.' + k), wl = (t, was) => ctx.wortlaut(t, was);
     const x = colX(1), w = Raster.CW, spalte = Raster.PITCH;   // Spalte „Folie“: eine Rasterspalte, die Quelle beginnt auf colX(2)
 
-    const zeilen = R.quellenZeilen(ctx);
+    const zeilen = S.quellenZeilen(ctx);
     // dicht: Tabelle, Hinweis und die beiden Sätze füllen die Inhaltszone; mit dem Zuschlag je Zeile der gewöhnlichen Tabelle passten sieben Zeilen nicht
     const t = B.tabelle(s, { x, y: Y.anhangInhalt, w, pt: 12, dicht: true, name: 'Quellentabelle', schlusslinie: false,   // die Linie des Hinweis-Kastens schließt die Tabelle
-      spalten: [{ kopf: wl('Folie'), breite: spalte, art: 'stichwort' }, { kopf: wl('Quelle') }], zeilen: zeilen.map(z => [z.folien, z.text]) });
+      // schmaler rechter Zellrand in der Spalte „Folie“: „2, 4, 20, 21“ bleibt in einer Zeile (die Quelle beginnt mit eigenem Zellrand auf colX(2))
+      spalten: [{ kopf: wl('Folie'), breite: spalte, art: 'stichwort', randRechts: 0.02 }, { kopf: wl('Quelle') }], zeilen: zeilen.map(z => [z.folien, z.text]) });
 
     // Rechtshinweis: genau einmal im Vortrag, Wortlaut der Broschüre S. 23. Der Kasten schließt als Fuß an die Tabelle an (eine Linie statt
     // zweier dicht übereinander): Stichwort in der Spalte „Folie“, Text in der Spalte „Quelle“

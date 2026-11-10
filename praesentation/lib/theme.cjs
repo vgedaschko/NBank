@@ -35,6 +35,17 @@ const HEX = {
   matrix23: ['F4E7DB', 'E7CEBB', 'DAB79D', 'CC9F7E', 'BD875F', 'A0581A', '7E4A22'],
 };
 
+// Farbrollen der Ströme im Flussdiagramm (D.fluss): Tinte, Referenzgrau und zwei helle Töne. Die hellen Töne sind das Referenzgrau des Themes
+// mit Transparenz (50 % ergibt auf Papierton B4B0AB, 70 % CFCCC8) und folgen damit dem Theme. Kein Rot.
+// farbe, transparenz: Füllung des Bands · kontur: Linie um das Band (blasse Bänder auf Papierton) · linie: Farbe, wenn der Strom als Linie steht ·
+// knoten: Farbe des Balkens am Ziel, wenn sie von der Füllung abweicht (das blasse Band endet in einem dunkleren Balken)
+const FLUSSART = {
+  tinte: { farbe: C.tinte },
+  referenz: { farbe: C.referenz },
+  hell: { farbe: C.referenz, transparenz: 50 },
+  blass: { farbe: C.referenz, transparenz: 70, kontur: { farbe: C.referenz, transparenz: 45, pt: 0.5 }, linie: { farbe: C.referenz, transparenz: 25 }, knoten: { farbe: C.referenz, transparenz: 25 } },
+};
+
 const PROGRAMMTEILE = ['2.1', '2.2', '2.3', '2.4', '2.5', '2.6'];
 
 // Schriftfamilien, wie PowerPoint sie führt. „fett“ (bold: true) nur zu F.mont und F.text.
@@ -57,7 +68,9 @@ const Y = {
 const ZONE = {
   // Layout PGN_DIAGRAMM(_MR). Die Kommentarspalte beginnt 0,07 unter der Modulkopf-Linie: Ihr Modultitel (erste Zeile, oben verankert) steht dann
   // auf derselben Höhe wie der Diagrammtitel links (Feld 2,18 bis 2,44, mittig)
-  diagramm: { kopf: 2.10, titel: 2.18, sub: 2.44, legende: 2.70, chart: { x: colX(1), y: 2.95, w: span(8), h: 3.55 }, kommentar: { x: colX(9), y: 2.17, w: span(4), h: 4.33 } },
+  // spalte: rechte Spalte mit Kennzahlen statt Kommentar (Folien 2 bis 5 und 20): Hauptzahl ab y1, zweites Modul ab y2 (B.hauptzahl, B.nebenzahl, B.zweitesModul)
+  diagramm: { kopf: 2.10, titel: 2.18, sub: 2.44, legende: 2.70, chart: { x: colX(1), y: 2.95, w: span(8), h: 3.55 }, kommentar: { x: colX(9), y: 2.17, w: span(4), h: 4.33 },
+    spalte: { x: colX(9), w: span(4), y1: 2.10, y2: 4.40, ende: 6.50 } },
   // Layout PGN_TABELLE(_MR)
   tabelle: { kopf: 2.10, titel: 2.18, sub: 2.44, tabelle: 2.80, tabelleEnde: 6.20, notiz: { x: colX(1), y: 6.05, w: CW, h: 0.45 }, kommentar: { x: colX(9), y: 2.17, w: span(4), h: 4.33 } },
   // Layout PGN_ABLAUF
@@ -113,6 +126,7 @@ const SKALA = {
   label:         { fontFace: F.medium, fontSize: 10, farbe: 'sekundaer' },
   achse:         { fontFace: F.text, fontSize: 11, farbe: 'sekundaer' },
   legende:       { fontFace: F.text, fontSize: 11, farbe: 'text' },
+  bezeichnung:   { fontFace: F.semi, fontSize: 12, zeileMal: 1.12, farbe: 'titel' },
   wert:          { fontFace: F.mont, bold: true, fontSize: 12, farbe: 'titel' },
   wertGross:     { fontFace: F.mont, bold: true, fontSize: 16, farbe: 'titel' },
   kernwert:      { fontFace: F.xbold, fontSize: 24, zeile: 26, farbe: 'titel' },
@@ -131,7 +145,7 @@ const MIN = { fliess: 14, tabelle: 12, beschriftung: 10 };
 const ROLLENMIN = {
   vorspann: 14, fliess: 14, dicht: 14,
   klein: 12, kleinText: 12, sub: 12, tabellenkopf: 12, deck: 12, modultitel: 12, diagrammtitel: 12, station: 12, stationKlein: 12, zitatName: 12, zitatQuelle: 12,
-  wert: 12, wertGross: 12, kernwert: 12, vorsatz: 11, kennlabel: 12, kicker: 11, zitat: 14,
+  bezeichnung: 12, wert: 12, wertGross: 12, kernwert: 12, vorsatz: 11, kennlabel: 12, kicker: 11, zitat: 14,
   label: 10, achse: 10, legende: 10,
 };
 
@@ -144,4 +158,4 @@ function versal(s) {
 const PROJEKT = 'Mietwohnraumförderung Niedersachsen 2026';
 const FIRMA = 'Planungsgemeinschaft Nord GmbH';
 
-module.exports = { THEME, C, HEX, F, Raster, GRUND, SKALA, MIN, ROLLENMIN, PROGRAMMTEILE, versal, PROJEKT, FIRMA, W, H, X0, X1, CW, colX, span, Y, ZONE };
+module.exports = { THEME, C, HEX, F, Raster, GRUND, SKALA, MIN, ROLLENMIN, PROGRAMMTEILE, FLUSSART, versal, PROJEKT, FIRMA, W, H, X0, X1, CW, colX, span, Y, ZONE };

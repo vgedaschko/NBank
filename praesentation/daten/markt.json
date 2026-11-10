@@ -1,7 +1,7 @@
 {
-  "_hinweis": "Werte und Texte der Baugruppe „ueberblick“ (Folien 2, A1, A2, A7, A8), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft und geprueft. Broschüre: Seite, Datei unter broschuere/content/pages/ und JSON-Schlüssel. Altfassung: Präsentation vom 26.10.2026 mit Folie und Reihe, dazu die Quelle laut Altfassung; diese Werte sind aus der Altfassung übernommen und nicht nachgeprüft („geprueft“: false, „vermerk“: „nicht nachgeprüft“). Zahlen stehen genau einmal als Zahl; in den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul füllt (folien/_ueberblick.cjs, felder). Platzhalter mit dem Vorsatz „mappe_“ kommen aus daten/werte.json (Lauf modellhaus). Die gefüllten Texte prüft der Bau gegen das Feld „inhalt“ des Konzepts.",
+  "_hinweis": "Werte und Texte der Baugruppen „einstieg“ (Folien 2 bis 5), „ueberblick“ (A1, A2) und der Folie 20 (pgn-baukosten, Baugruppe „struktur“), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft und geprueft. Broschüre: Seite, Datei unter broschuere/content/pages/ und JSON-Schlüssel. Altfassung: Präsentation vom 26.10.2026 mit Folie und Reihe, dazu die Quelle laut Altfassung; diese Werte sind aus der Altfassung übernommen und nicht nachgeprüft („geprueft“: false, „vermerk“: „nicht nachgeprüft“). Zahlen stehen genau einmal als Zahl; in den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul füllt (felder in folien/_einstieg.cjs für die Folien 3 und 5, kostenFelder in folien/_struktur.cjs für die Folie 20, felder in folien/_ueberblick.cjs für A1 und A2). Platzhalter mit dem Vorsatz „mappe_“ kommen aus daten/werte.json (Lauf modellhaus). Die gefüllten Texte prüft der Bau gegen das Feld „inhalt“ des Konzepts.",
   "zinsen": {
-    "_hinweis": "Folie 2. Sollzins p. a. nach Zinsbindung, Top-Konditionen Wohnungswirtschaft. Die Altfassung führt die Werte nur im Zwischenspeicher des Diagramms (Verknüpfung auf eine lokale Datei des Erstellers). Zuordnung der Monate: Punkt 1 = 01/2016 (Jahreszahl an jedem zwölften Punkt der Achse), Punkt 127 = 07/2026. Die Quartalsmittel der Marken rechnet das Folienmodul aus den Monatswerten nach; die Endwerte sind die letzten Monatswerte.",
+    "_hinweis": "Folie 3. Sollzins p. a. nach Zinsbindung, Top-Konditionen Wohnungswirtschaft. Die Altfassung führt die Werte nur im Zwischenspeicher des Diagramms (Verknüpfung auf eine lokale Datei des Erstellers). Zuordnung der Monate: Punkt 1 = 01/2016 (Jahreszahl an jedem zwölften Punkt der Achse), Punkt 127 = 07/2026. Die Quartalsmittel der Marken rechnet das Folienmodul aus den Monatswerten nach; die Endwerte sind die letzten Monatswerte.",
     "quelle": { "wert": "Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung, Monatswerte 01/2016 bis 07/2026", "einheit": "Quellenangabe", "herkunft": "Altfassung Folie 24, Quellenzeile", "geprueft": false, "vermerk": "nicht nachgeprüft" },
     "monate": {
       "wert": [
@@ -93,17 +93,16 @@
       "vermerk": "nicht nachgeprüft"
     },
     "texte": {
-      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter.",
+      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter. Seit dem Umbau stehen rechts zwei Kennzahlen (Label: kennzahl_label; Vorsatz und Zahl aus der Reihe und den Marken). „ausgangslage“ steht in den Sprechernotizen der Folie 3 und belegt dort die Zahlen des Satzes; die übrigen Texte der früheren Kommentarspalte sind entfallen.",
       "diagrammtitel": "Sollzins p. a. nach Zinsbindung",
       "untertitel": "in %, Monatswerte {zins_von} bis {zins_bis}, Top-Konditionen Wohnungswirtschaft",
       "marke": "{bezeichnung}: {z10} | {z20} | {z30} %",
-      "ausgangslage_titel": "Ausgangslage",
       "ausgangslage": { "wert": "Bauen kostet mehr als doppelt so viel wie vor 25 Jahren, Kredite kosteten Ende 2025 drei bis vier Prozent, und die Zahl der Baugenehmigungen hat sich seit 2021 mehr als halbiert.", "einheit": "Text", "herkunft": "Broschüre S. 2, 02-editorial-inhalt.json, lead", "geprueft": true },
-      "zins_bank": "{zins_bis_wort}, {mappe_zinsbindung} Jahre Zinsbindung. Zins des Bankdarlehens in der Modellrechnung."
+      "kennzahl_label": "{mappe_zinsbindung} Jahre Zinsbindung"
     }
   },
   "kosten": {
-    "_hinweis": "Folie A7. Herstellungskosten je m² Wohnfläche, Bruttokosten, Kostenstand Q4 2025; PGN: fünf Projekte, ARGE: deutsche Großstädte. Ungerundete Werte der eingebetteten Arbeitsmappe; gerundet wird erst beim Formatieren. Die Mediane der Kostengruppen addieren sich nicht zum Median der Herstellung (Mediane sind nicht additiv).",
+    "_hinweis": "Folie 20 (pgn-baukosten; vor dem Umbau die Anhangfolie anhang-kosten). Herstellungskosten je m² Wohnfläche, Bruttokosten, Kostenstand Q4 2025; PGN: fünf Projekte, ARGE: deutsche Großstädte. Ungerundete Werte der eingebetteten Arbeitsmappe; gerundet wird erst beim Formatieren. Die PGN-Mediane der Kostengruppen addieren sich nicht zum PGN-Median der Herstellung (Mediane sind nicht additiv). Die ARGE-Mediane Q4 2025 stehen mit denselben Werten auch im Block „baukosten“ (Altfassung Folie 23); das Folienmodul prüft die Gleichheit (ctx.gleich).",
     "gruppen": {
       "wert": [
         { "name": "Herstellung", "kg": "KG 200–700" },
@@ -112,7 +111,7 @@
         { "name": "Außenanlagen", "kg": "KG 500" }
       ],
       "einheit": "Kostengruppen nach DIN 276 (2018-12)",
-      "herkunft": "Altfassung Folie 12, Tabelle unter dem Diagramm, Kopfzeile (Bezeichnung und Kostengruppe); Auswahl und Reihenfolge laut Konzept, Folie anhang-kosten",
+      "herkunft": "Altfassung Folie 12, Tabelle unter dem Diagramm, Kopfzeile (Bezeichnung und Kostengruppe); Auswahl und Reihenfolge laut Konzept, Folie pgn-baukosten",
       "geprueft": false,
       "vermerk": "nicht nachgeprüft"
     },
@@ -158,14 +157,19 @@
         }
       }
     },
-    "arge_median_q1_2020": { "wert": 3028.08, "einheit": "€ je m² Wohnfläche, brutto, Median, KG 200–700, Q1 2020", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Herstellung“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "quelle": { "wert": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20; PGN (2026): eigene Auswertung von fünf Projekten, Hochrechnung auf Q4 2025", "einheit": "Quellenangabe", "herkunft": "Altfassung Folie 12, Quellenzeile (dort: Kostenspannen min/Median/max, Kostenstand Q4 2025; KOFO-Kosten, Hochrechnung gem. Bauleistungspreisindex des LSN)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
     "texte": {
-      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter.",
+      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“, Folie pgn-baukosten); Zahlen als Platzhalter. Die Platzhalter füllt folien/_struktur.cjs (kostenFelder): {kg_herstellung}, {pgn_median}, {arge_median}, {pgn_min}, {pgn_max}, {arge_min} und {arge_max} aus den Werten dieses Blocks, {mappe_herstellungskosten_qm} aus daten/werte.json.",
       "diagrammtitel": "Herstellungskosten je m² Wohnfläche, Median",
-      "untertitel": "Bruttokosten, Kostenstand Q4 2025 · PGN: fünf Projekte · ARGE: deutsche Großstädte",
-      "tabellentitel": "Spanne {kg_herstellung}: Min / Median / Max",
-      "zeile_q1_2020": "ARGE-Median {kg_herstellung}, Q1 2020: {arge_q1_2020} €.",
-      "zeile_modellhaus": "Ansatz im Modellhaus: {mappe_herstellungskosten_qm} € je m²."
+      "untertitel": "in €, Bruttokosten, Kostenstand Q4 2025 · PGN: fünf Projekte · ARGE: deutsche Großstädte",
+      "marke_modellhaus": "Ansatz im Modellhaus: {mappe_herstellungskosten_qm} €",
+      "kennzahl_vorsatz": "PGN gegen ARGE, {kg_herstellung}",
+      "kennzahl_label": "Median der Herstellungskosten",
+      "kennzahl_text": "{pgn_median} € gegen {arge_median} € je m² Wohnfläche.",
+      "grundlage_titel": "Grundlage",
+      "grundlage": "PGN: eigene Auswertung von fünf Projekten. ARGE: deutsche Großstädte.",
+      "spanne_titel": "Spanne {kg_herstellung}",
+      "spanne": "PGN {pgn_min} bis {pgn_max} €, ARGE {arge_min} bis {arge_max} € je m²."
     }
   },
   "programmteile": {
@@ -250,7 +254,7 @@
     "zuschuss_2_3": { "nr": "2.3", "wert": "Programmteil 2.3 nach RL 2026: Zuschuss je nach Klassensprung und Einkommensgruppe bis zu 10–40 %, höchstens 9.000–31.000 € je gebundener Wohnung.", "einheit": "Text", "herkunft": "Broschüre S. 16, 16-stichtag-wahlrecht-fristen.json, blocks[2].columns[2] und blocks[2].rows[0][2]", "geprueft": true }
   },
   "markt": {
-    "_hinweis": "Folie A8. Markt in Niedersachsen nach Broschüre S. 3 (Quelle dort: NBank-Wohnungsmarktbericht 2025). Die Quote und die Zahl der Quadrate rechnet das Folienmodul aus den beiden Zahlen nach.",
+    "_hinweis": "Folie 5 (einstieg-bestand; vor dem Umbau die Anhangfolie anhang-markt). Markt in Niedersachsen nach Broschüre S. 3 (Quelle dort: NBank-Wohnungsmarktbericht 2025). Die Quote rechnet das Folienmodul aus den beiden Zahlen nach. „je_quadrat“ diente den Einheitenquadraten der früheren Anhangfolie und rundet jetzt nur noch „rund 16.000“; die Reihe 2016 bis 2025 steht im Block „bestand“.",
     "seit": { "wert": 2015, "einheit": "Jahr", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.message und units.period", "geprueft": true },
     "bis": { "wert": 2024, "einheit": "Jahr", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.units.period", "geprueft": true },
     "ausgelaufen": { "wert": 58024, "einheit": "Bindungen (Wohnungen), 31.12.2015 bis 31.12.2024", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.units.total.value", "geprueft": true },
@@ -260,13 +264,77 @@
     "bestand": { "wert": 50495, "einheit": "Sozialwohnungen", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.foot[1]", "geprueft": true },
     "bestand_jahr": { "wert": 2024, "einheit": "Jahr des Bestands", "herkunft": "Broschüre S. 3, 03-zahlen-zuerst.json, blocks[2].data.foot[1]", "geprueft": true },
     "texte": {
-      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter.",
-      "kennzahl_label": "der seit {seit} ausgelaufenen Bindungen neu gefördert",
-      "mass_neu": "rund {neu_rund} neu gefördert",
-      "mass_rest": "nicht ersetzt",
-      "legende": "1 Quadrat = {je_quadrat} Wohnungen · {seit}–{bis}: {ausgelaufen} Bindungen ausgelaufen",
-      "bestand_label": "Sozialwohnungen im Bestand {bestand_jahr}",
-      "bestand_text": "gegenüber {seit} nahezu halbiert"
+      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter. hauptzahl_…: Hauptzahl der Folie 5 (Rückgang der Reihe im Block „bestand“, {von_jahr} und {bis_jahr} aus bestand.von und bestand.bis). kennzahl_…: Kennzahl der Broschüre S. 3; das Label ist auf eine Zeile gekürzt (Broschüre: „der ausgelaufenen Sozialbindungen ersetzt“).",
+      "hauptzahl_vorsatz": "{von_jahr} bis {bis_jahr}",
+      "hauptzahl_label": "gebundene Mietwohnungen",
+      "kennzahl_vorsatz": "{seit} bis {bis}",
+      "kennzahl_label": "ausgelaufener Bindungen ersetzt",
+      "kennzahl_text": "{ausgelaufen} Bindungen ausgelaufen, rund {neu_rund} Wohnungen neu gefördert."
     }
+  },
+  "baukosten": {
+    "_hinweis": "Folie 2 (einstieg-baukosten) und Eingangswerte der Folie 4 (einstieg-kapitaldienst). Kosten je m² Wohnfläche in deutschen Großstädten, Bruttokosten, Median, Q1 2020 und Q4 2025, je Kostengruppe nach DIN 276 (2018-12). Ungerundete Werte der eingebetteten Arbeitsmappe der Altfassung Folie 23; gerundet wird erst beim Formatieren. Auf Folie 2 stehen Herstellung und Grundstück; die übrigen Kostengruppen belegen die Sprechernotizen (Bauwerk, Baunebenkosten) und liegen für Rückfragen bereit. Die fünf Kostengruppen 200 bis 700 addieren sich zum Wert der Herstellung (Q4 2025 genau, Q1 2020 bis auf 0,01 €). Veränderungen rechnet das Folienmodul (Q4 2025 ÷ Q1 2020 − 1); Belege mit Formel in daten/pruefung.json. Gegenprobe im Modul: herstellung.q4_2025 = kosten.arge.spanne_herstellung.median.",
+    "quelle": { "wert": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23", "einheit": "Quellenangabe", "herkunft": "Altfassung Folie 23, Quellenzeile (dort mit dem Zusatz: Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "von_jahr": { "wert": 2020, "einheit": "Jahr des ersten Kostenstands (Q1 2020); im Titel der Folien 2 und 4 „seit 2020“", "herkunft": "Altfassung Folie 23, Kopf („Entwicklung Q1 2020 bis Q4 2025“)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "bis_jahr": { "wert": 2025, "einheit": "Jahr des zweiten Kostenstands (Q4 2025)", "herkunft": "Altfassung Folie 23, Kopf („Entwicklung Q1 2020 bis Q4 2025“)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "reihen": { "wert": ["Q1 2020", "Q4 2025"], "einheit": "Kostenstände (Reihen des Diagramms, Legende)", "herkunft": "Altfassung Folie 23, Diagramm, Reihennamen", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "auf_der_folie": { "wert": ["herstellung", "grundstueck"], "einheit": "Kostengruppen der Folie 2 in Lesereihenfolge (Schlüssel dieses Blocks)", "herkunft": "Konzept, Folie einstieg-baukosten (Festlegung U2 der Projektleitung: Herstellung als Hauptzahl, dazu das Grundstück)", "geprueft": true },
+    "herstellung": {
+      "name": "Herstellung", "kg": "KG 200–700",
+      "q1_2020": { "wert": 3028.08, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Herstellung“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+      "q4_2025": { "wert": 4631.07, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Herstellung“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" }
+    },
+    "grundstueck": {
+      "name": "Grundstück", "kg": "KG 100",
+      "q1_2020": { "wert": 725.83, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Grundstück“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+      "q4_2025": { "wert": 760.72, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Grundstück“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" }
+    },
+    "vorbereitende_massnahmen": {
+      "name": "Vorbereitende Maßnahmen", "kg": "KG 200",
+      "q1_2020": { "wert": 72.45, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Vorbereitende Maßnahmen“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+      "q4_2025": { "wert": 113.46, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Vorbereitende Maßnahmen“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" }
+    },
+    "bauwerk": {
+      "name": "Bauwerk", "kg": "KG 300/400",
+      "q1_2020": { "wert": 2440.16, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Bauwerk“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+      "q4_2025": { "wert": 3712.84, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Bauwerk“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" }
+    },
+    "aussenanlagen": {
+      "name": "Außenanlagen und Freiflächen", "kg": "KG 500",
+      "q1_2020": { "wert": 113.32, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Außenanlagen“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+      "q4_2025": { "wert": 174.1, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Außenanlagen“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" }
+    },
+    "ausstattung": {
+      "name": "Ausstattung", "kg": "KG 600",
+      "q1_2020": { "wert": 48.85, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Ausstattung“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+      "q4_2025": { "wert": 75.77, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Ausstattung“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" }
+    },
+    "baunebenkosten": {
+      "name": "Baunebenkosten", "kg": "KG 700",
+      "q1_2020": { "wert": 353.29, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Baunebenkosten“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+      "q4_2025": { "wert": 554.9, "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025", "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Baunebenkosten“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)", "geprueft": false, "vermerk": "nicht nachgeprüft" }
+    }
+  },
+  "kapitaldienst": {
+    "_hinweis": "Folie 4 (einstieg-kapitaldienst). Eingangswerte der Rechnung „Kapitaldienst je m² Wohnfläche und Monat, Q1 2020 gegen heute“. Kosten je m²: baukosten.herstellung + baukosten.grundstueck (Q1 2020 und Q4 2025). Zins heute, Laufzeit und Zinsbindung kommen aus daten/werte.json (Lauf modellhaus: eingabe.zins_bank, eingabe.laufzeit_bank, eingabe.zinsbindung); „heute“ heißt: Kosten Q4 2025, Zins Juli 2026 (letzter Wert der Reihe zinsen.z10). Methode wie in der Rechenmappe, Blatt „Frei finanziert“: Annuitätendarlehen mit jährlicher Annuität, Annuitätenfaktor = i ÷ (1 − (1 + i)^−n), Kapitaldienst je m² und Monat = Kosten × Fremdkapitalanteil × Annuitätenfaktor ÷ 12. Probe: 5.600.000 € × Faktor(3,74 %; 30 Jahre) = 313.703 € (werte.json, frei.annuitaet). Die Altfassung Folie 5 rechnete mit monatlicher Annuität und gerundeten Kosten (8,93 und 19,95 €). Zerlegung des Anstiegs: Baukosten = neue Kosten zum alten Zins minus alt; Zins = alte Kosten zum neuen Zins minus alt; Wechselwirkung = Rest. Ergebnisse und Formeln stehen in daten/pruefung.json; das Folienmodul rechnet sie aus diesen Eingangswerten. Die Folie ist keine Modellrechnung (kein Stempel): Medianwerte deutscher Großstädte je m², kein einzelnes Haus.",
+    "fremdkapital": { "wert": 0.8, "einheit": "Anteil der Gesamtkosten (Grundstück und Herstellung), der als Bankdarlehen finanziert wird", "herkunft": "Altfassung Folie 5, Kasten „Finanzierung“ (80 % Fremdkapital, 20 % Eigenkapital der Gesamtkosten); derselbe Anteil wie im Modellhaus frei finanziert (werte.json: fin.bankdarlehen.Frei ÷ fin.gesamtkosten.Frei)", "geprueft": true },
+    "zins_q1_2020": { "wert": 0.46, "einheit": "% p. a., Sollzins bei 10 Jahren Zinsbindung, Mittel Q1 2020", "herkunft": "Derselbe Wert wie zinsen.marken[0].z10 (Ø Q1 2020; das Folienmodul prüft die Gleichheit). Altfassung Folie 5, Diagramm „Mini Chart Zins“ (Q1 2020: 0,46), und Folie 24, Marke „Ø Q1 2020“; Quelle laut Altfassung: Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "annuitaetenfaktor_q1_2020": { "wert": 0.03576270339115609, "einheit": "Faktor: jährliche Annuität je Euro Darlehen bei 0,46 % Zins und 30 Jahren Laufzeit", "herkunft": "Gerechnet: i ÷ (1 − (1 + i)^−30) mit i = zins_q1_2020 ÷ 100; Laufzeit wie in der Rechenmappe (werte.json, eingabe.laufzeit_bank). Nachgerechnet in daten/pruefung.json („Folie 4, Annuitätenfaktor Q1 2020“). Der Faktor für heute folgt aus der Mappe: frei.annuitaet ÷ fin.bankdarlehen.Frei. Beruht auf dem nicht nachgeprüften Zins Q1 2020", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "quelle": { "wert": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23; Dr. Klein Wowi Finanz AG (2026), Zinsentwicklung für die Wohnungswirtschaft; eigene Rechnung der PGN (Annuitätendarlehen über 30 Jahre, jährliche Annuität)", "einheit": "Quellenangabe", "herkunft": "Altfassung Folie 5, Quellenzeile (dort: eigene Berechnung, Annuitätendarlehen, Volltilgung über 30 Jahre); Rechnung neu nach der Methode der Rechenmappe", "geprueft": false, "vermerk": "nicht nachgeprüft" }
+  },
+  "bestand": {
+    "_hinweis": "Folie 5 (einstieg-bestand). Bestand an Mietwohnungen mit Miet- und Belegungsbindung in Niedersachsen, jeweils zum 31.12., 2016 bis 2025. Den Rückgang rechnet das Folienmodul (1 − Wert 2025 ÷ Wert 2016); Belege mit Formel in daten/pruefung.json. Gegenprobe im Modul: Wert 2024 = markt.bestand (Broschüre S. 3: 50.495). Die Zahlen der Broschüre S. 3 (2015 bis 2024: Bindungen ausgelaufen, neu gefördert, Quote) stehen im Block „markt“. Nicht übernommen aus der Altfassung Folie 4: neu bewilligte Wohnungen je Jahr (anders abgegrenzt als die Förderbilanz der NBank), „Landesziel 40.000“, „Pestel-Lücke“ und der Vergleich mit den 1990er-Jahren (nicht belegt).",
+    "quelle": { "wert": "BT-Drs. 21/7303, Antwort der Bundesregierung vom 21.07.2026 (Bestand zum 31.12.)", "einheit": "Quellenangabe", "herkunft": "Altfassung Folie 4, Quellenzeile (dort: Bestand zum 31.12. und neu bewilligte Wohnungen je Jahr, alle Wohnraum-Programme des Landes)", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "von": { "wert": 2016, "einheit": "Jahr des ersten Werts der Reihe (Stichtag 31.12.)", "herkunft": "Altfassung Folie 4, Diagramm „Chart Sozialwohnungsbestand“, erste Kategorie", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "bis": { "wert": 2025, "einheit": "Jahr des letzten Werts der Reihe (Stichtag 31.12.)", "herkunft": "Altfassung Folie 4, Diagramm „Chart Sozialwohnungsbestand“, letzte Kategorie", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "jahre": { "wert": ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"], "einheit": "Jahr (Stichtag 31.12.), Kategorien des Diagramms", "herkunft": "Altfassung Folie 4, Diagramm „Chart Sozialwohnungsbestand“, Kategorienachse", "geprueft": false, "vermerk": "nicht nachgeprüft" },
+    "reihe": {
+      "wert": { "2016": 85766, "2017": 82496, "2018": 74887, "2019": 67335, "2020": 60265, "2021": 55193, "2022": 52601, "2023": 51242, "2024": 50495, "2025": 50920 },
+      "einheit": "Wohnungen mit Miet- und Belegungsbindung, Bestand zum 31.12. des Jahres",
+      "herkunft": "Altfassung Folie 4, Diagramm „Chart Sozialwohnungsbestand“, eingebettete Arbeitsmappe (Sheet1), Spalte „Bestand an Sozialwohnungen (31.12.)“; Quelle laut Altfassung: BT-Drs. 21/7303, Antwort der Bundesregierung vom 21.07.2026 (Bestand zum 31.12., alle Wohnraum-Programme des Landes). Der Wert 2024 stimmt mit der Broschüre S. 3 überein (50.495)",
+      "geprueft": false,
+      "vermerk": "nicht nachgeprüft"
+    },
+    "beschriftet": { "wert": ["2016", "2024", "2025"], "einheit": "Jahre, deren Wert an der Säule steht", "herkunft": "Konzept, Folie einstieg-bestand (erster Wert, Wert der Broschüre S. 3, letzter Wert)", "geprueft": true }
   }
 }

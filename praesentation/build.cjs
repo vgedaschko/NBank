@@ -106,7 +106,7 @@ async function main() {
   pres.author = T.FIRMA; pres.company = T.FIRMA; pres.revision = '1';
   definiereLayouts(pres);
 
-  const P = new Pruefung(), anweisungen = {}, leer = {}, tabellen = {}, warnungen = [];
+  const P = new Pruefung(), anweisungen = {}, leer = {}, tabellen = {}, altTexte = {}, warnungen = [];
   const warnAlt = console.warn;
   console.warn = (...a) => { warnungen.push(a.join(' ')); };
   const abschnitte = new Set();
@@ -121,7 +121,13 @@ async function main() {
     const ausnahmen = new Map();   // Objektname → Grund (ctx.zoneAusnahme)
     const zuletzt = [];            // Rubrik und Blattnummer des Schriftfelds: nach dem Inhalt angelegt, damit sie in der Lesereihenfolge am Ende stehen
     // tabelle: Jede Tabelle meldet, ob sie eine Kopfzeile oder eine Kopfspalte hat (in der Reihenfolge, in der die Folie sie anlegt)
-    const kx = { grund: lay.grund, art: lay.art, P, layout: o.layout, merke: (datei, anw) => { anweisungen[datei] = anw; }, tabelle: t => { (tabellen[`slide${nr + 1}.xml`] = tabellen[`slide${nr + 1}.xml`] || []).push(t); } };
+    const kx = { grund: lay.grund, art: lay.art, P, layout: o.layout, merke: (datei, anw) => { anweisungen[datei] = anw; }, tabelle: t => { (tabellen[`slide${nr + 1}.xml`] = tabellen[`slide${nr + 1}.xml`] || []).push(t); },
+      // altText: Alternativtext für eine Form dieser Folie (Objektname → Text); die Nachbearbeitung schreibt ihn als „descr“ (B.altText, D.fluss)
+      altText: (name, text) => {
+        const a = altTexte[`slide${nr + 1}.xml`] = altTexte[`slide${nr + 1}.xml`] || {};
+        if (name in a) throw new Error(`Folie „${o.id}“: Der Alternativtext für die Form „${name}“ ist zweimal gesetzt. Objektnamen mit Alternativtext sind je Folie eindeutig.`);
+        a[name] = text;
+      } };
     const B = bausteine(pres, kx), D = diagramme(pres, kx), cs = T.GRUND[lay.grund], inh = o.inhalt || '';
 
     function folie(opt = {}) {
@@ -191,7 +197,7 @@ async function main() {
     const ctx = {
       pres, C: T.C, HEX: T.HEX, F: T.F, Raster: T.Raster, colX: T.colX, span: T.span, Y: T.Y, ZONE: T.ZONE,
       B, D, W: daten.W, fmt: daten.fmt, X: daten.X, o, outline, asset, P, grund: lay.grund, farben: cs, versal: T.versal, schutz, folie,
-      glatt: daten.glatt, zahlwort: daten.zahlwort, fuelle: daten.fuelle,
+      glatt: daten.glatt, zahlwort: daten.zahlwort, fuelle: daten.fuelle, mittel: daten.mittel,
       // Gegenprobe: Der Text steht so im Feld „inhalt“ des Konzepts (Groß- und Kleinschreibung, Fettmarken und geschützte Leerzeichen zählen nicht).
       // Zahlen aus werte.json und den Datendateien sind damit zugleich gegen das Konzept geprüft. Eine Abweichung bricht den Bau ab. Rückgabe: der Text
       wortlaut(text, was) {
@@ -235,10 +241,10 @@ async function main() {
   const st = String(daten.X('rahmen', 'titel.stand')).match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
   if (!st) throw new Error('daten/rahmen.json: titel.stand ist kein Datum der Form TT.MM.JJJJ.');
   const stat = await nachbearbeiten(ziel, { theme: T.THEME, firma: T.FIRMA, schraffur: { merkfarbe: T.HEX.schraffur, bg: T.HEX.eigenmittel, fg: T.HEX.schraffurLinie }, diagramme: anweisungen, leerePlatzhalter: leer,
-    folientitel: liste.map(e => e.o.titel), schriften: Object.values(T.F), layouts: layoutBeschreibung(pres), tabellen, datum: `${st[3]}-${st[2]}-${st[1]}T00:00:00Z` });
+    folientitel: liste.map(e => e.o.titel), schriften: Object.values(T.F), layouts: layoutBeschreibung(pres), tabellen, altTexte, datum: `${st[3]}-${st[2]}-${st[1]}T00:00:00Z` });
   console.log(`${path.relative(ROOT, ziel)} · ${liste.length} Folien · Abschnitte: ${[...abschnitte].join(', ')}`);
   console.log(`Nachbearbeitung: Theme „${T.THEME.name}“, Schraffur ${stat.formen} Formen und ${stat.reihen} Reihen, ${stat.striche} Stricharten, ${stat.labels} Beschriftungsfarben, ${stat.ausgeblendet} Beschriftungen ausgeblendet, ${stat.marker} Marker, ${stat.platzhalter} leere Platzhalter entfernt, ${stat.arbeitsmappen} Arbeitsmappen, ${stat.absaetze} Absätze bereinigt`);
-  console.log(`Datei: ${stat.layoutPlatzhalter} Platzhalter der Layouts mit Innenabstand und Anker, ${stat.idx} Platzhalternummern gesetzt, ${stat.diagrammSchema} Stellen der Diagramme nach Schema, ${stat.nullen} Nullwerte in Arbeitsmappen, ${stat.dekorativ} Formen dekorativ, ${stat.tabellen} Tabellen gekennzeichnet, ${stat.notizAbsaetze} Notizabsätze, ${stat.inhaltstypen} tote Inhaltstypen entfernt`);
+  console.log(`Datei: ${stat.layoutPlatzhalter} Platzhalter der Layouts mit Innenabstand und Anker, ${stat.idx} Platzhalternummern gesetzt, ${stat.diagrammSchema} Stellen der Diagramme nach Schema, ${stat.nullen} Nullwerte in Arbeitsmappen, ${stat.dekorativ} Formen dekorativ, ${stat.altTexte} Formen mit Alternativtext, ${stat.tabellen} Tabellen gekennzeichnet, ${stat.notizAbsaetze} Notizabsätze, ${stat.inhaltstypen} tote Inhaltstypen entfernt`);
   if (!stat.masterAbstand) { console.error('Nachbearbeitung: Der Absatzabstand im Master wurde nicht gefunden (bodyStyle). Text in Platzhaltern stünde mit 20 % Abstand vor jedem Absatz.'); process.exit(1); }
   for (const a of stat.absatzAbweichend) console.log(`Hinweis · ${a} – Die Läufe dieses Absatzes tragen verschiedene Absatzeigenschaften; es gilt die des ersten Laufs.`);
   if (warnungen.length) { console.error('Warnungen von pptxgenjs (gelten als Fehler; meist eine ungültige Farbe oder Option):\n' + [...new Set(warnungen)].map(w => '  ' + w).join('\n')); process.exit(1); }

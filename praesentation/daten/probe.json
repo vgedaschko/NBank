@@ -11,8 +11,8 @@
     "nachweis": { "wert": 96, "einheit": "Anzahl", "herkunft": "Konzept, Folie anhang-voraussetzungen (Broschüre S. 18)", "geprueft": true }
   },
   "markt": {
-    "ausgelaufen_tausend": { "wert": 58, "einheit": "Tausend Wohnungen", "herkunft": "Konzept, Folie anhang-markt (Broschüre S. 3)", "geprueft": true },
-    "neu_tausend": { "wert": 16, "einheit": "Tausend Wohnungen", "herkunft": "Konzept, Folie anhang-markt (Broschüre S. 3)", "geprueft": true },
-    "quote": { "wert": 0.28, "einheit": "Anteil", "herkunft": "Konzept, Folie anhang-markt (Broschüre S. 3)", "geprueft": true }
+    "ausgelaufen_tausend": { "wert": 58, "einheit": "Tausend Wohnungen", "herkunft": "Konzept, Folie einstieg-bestand (Broschüre S. 3)", "geprueft": true },
+    "neu_tausend": { "wert": 16, "einheit": "Tausend Wohnungen", "herkunft": "Konzept, Folie einstieg-bestand (Broschüre S. 3)", "geprueft": true },
+    "quote": { "wert": 0.28, "einheit": "Anteil", "herkunft": "Konzept, Folie einstieg-bestand (Broschüre S. 3)", "geprueft": true }
   }
 }

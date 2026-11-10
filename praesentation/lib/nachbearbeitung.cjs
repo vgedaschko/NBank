@@ -14,7 +14,8 @@
 // 12 Layouts: Platzhalter mit Innenabstand 0 und ihrem Anker, feste idx je Platzhaltername, lesbare Namen im Layout-Menü
 // 13 Diagramme schema-gerecht: grouping im Liniendiagramm, Reihenfolge von marker, dPt, dLbls und tickLblSkip, keine dritte Achsen-ID;
 //    Arbeitsmappen: Nullwerte als 0 statt leer, Tabellenbereich ohne Apostroph
-// 14 Barrierefreiheit: Formen ohne Text und ohne Alternativtext als dekorativ gekennzeichnet; Tabellen mit Kopfzeile oder Kopfspalte gekennzeichnet
+// 14 Barrierefreiheit: Alternativtexte an Formen (pptxgenjs schreibt sie nur für Bilder und Diagramme); Formen ohne Text und ohne Alternativtext
+//    als dekorativ gekennzeichnet; Tabellen mit Kopfzeile oder Kopfspalte gekennzeichnet
 // 15 Notizen: je Zeile ein Absatz
 // 16 Paket: [Content_Types].xml ohne tote Einträge und mit image/jpeg
 // 17 Wiederholbarkeit: festes Datum in den Eigenschaften und an den ZIP-Einträgen, Abschnitts-IDs aus dem Abschnittsnamen
@@ -50,11 +51,12 @@ function themeXml(xml, theme) {
 //      leerePlatzhalter: { 'slide3.xml': [104, 107] }, markerFarbe,
 //      layouts: { PGN_INHALT: { anzeige: 'Inhalt', platzhalter: { 101: { name: 'kicker', anker: 'middle', idx: 10 }, title: { name: 'title', anker: 'top' } } } },
 //      tabellen: { 'slide4.xml': [{ kopfzeile: false, kopfspalte: true }] } (in der Reihenfolge, in der die Folie sie anlegt),
+//      altTexte: { 'slide15.xml': { 'Objektname': 'Alternativtext' } } (Formen, die einen Alternativtext tragen; der Name ist je Folie eindeutig),
 //      datum: '2026-09-30T00:00:00Z' (Stand der Inhalte; steht in den Eigenschaften und an den ZIP-Einträgen) }
 async function nachbearbeiten(datei, o) {
   const zip = await JSZip.loadAsync(fs.readFileSync(datei));
   const stat = { theme: 0, formen: 0, reihen: 0, labels: 0, striche: 0, marker: 0, platzhalter: 0, arbeitsmappen: 0, ausgeblendet: 0, absaetze: 0, absatzAbweichend: [], masterAbstand: 0,
-    dekorativ: 0, tabellen: 0, layoutPlatzhalter: 0, idx: 0, diagrammSchema: 0, nullen: 0, notizAbsaetze: 0, inhaltstypen: 0 };
+    dekorativ: 0, altTexte: 0, tabellen: 0, layoutPlatzhalter: 0, idx: 0, diagrammSchema: 0, nullen: 0, notizAbsaetze: 0, inhaltstypen: 0 };
   const datum = o.datum || '2026-01-01T00:00:00Z', zipDatum = new Date(datum);
   if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(datum) || isNaN(zipDatum)) throw new Error(`Nachbearbeitung: datum „${datum}“ ist kein Zeitpunkt der Form 2026-09-30T00:00:00Z.`);
   const layoutVon = {};      // 'ppt/slideLayouts/slideLayout5.xml' → Beschreibung des Layouts aus o.layouts
@@ -134,6 +136,13 @@ async function nachbearbeiten(datei, o) {
         }
       }
       if (name.startsWith('ppt/slides/')) {
+        // 14 Alternativtexte an Formen: Die Form mit dem genannten Namen bekommt „descr“ (genau eine Form je Name, sonst Abbruch)
+        for (const [form, text] of Object.entries((o.altTexte || {})[kurz] || {})) {
+          let n = 0;
+          xml = xml.replace(/<p:cNvPr id="\d+" name="([^"]*)"(?=>)/g, (m, nm) => (entXml(nm) === form ? (n++, `${m} descr="${xmlAttr(text)}"`) : m));
+          if (n !== 1) throw new Error(`${name}: Der Alternativtext für „${form}“ trifft ${n} Formen; der Objektname muss auf der Folie genau einmal vorkommen.`);
+          stat.altTexte++;
+        }
         // 14 Formen ohne Text, ohne Platzhalter und ohne Alternativtext (Linien, Flächen, Kreise) sind Schmuck: als dekorativ kennzeichnen,
         //    damit Vorleseprogramme sie übergehen und die Barrierefreiheitsprüfung keinen fehlenden Alternativtext meldet
         xml = xml.replace(/<p:sp>[\s\S]*?<\/p:sp>/g, sp => {

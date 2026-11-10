@@ -1,8 +1,9 @@
 // Native Diagramme (addChart) nach den Diagramm-Regeln des Planwerks (Spezifikation Abschnitt 6).
 // Feste Farben je Reihenart, festgelegte Plotfläche, deutsches Zahlenformat ([$-407]), Schrift Work Sans und Montserrat.
 // Jede Funktion gibt die Lage der Plotfläche in Zoll zurück, damit Planzeichen (Maßkette, Achskreise, Marken) passgenau darüberliegen.
+// Dazu das Flussdiagramm (D.fluss): kein Diagrammtyp von PowerPoint, deshalb aus nativen Formen gebaut (Freihandformen mit Kurven).
 'use strict';
-const { C, HEX, F, GRUND, ZONE } = require('./theme.cjs');
+const { C, HEX, F, GRUND, ZONE, FLUSSART } = require('./theme.cjs');
 const { breite } = require('./passpruefung.cjs');
 const { zahl } = require('./daten.cjs').fmt;
 
@@ -23,7 +24,7 @@ const FORMAT = { ganz: '[$-407]#,##0', eins: '[$-407]0.0', zwei: '[$-407]0.00', 
 const STRICHE = ['solid', 'dash', 'lgDash', 'sysDash', 'sysDot', 'dashDot', 'lgDashDot'];
 const NUR_MAX = 40;   // katLabels.nur (leere Beschriftungen dazwischen) trägt bis zu dieser Zahl von Kategorien
 
-// kx: { grund, P, layout, merke(dateiname, anweisung) }
+// kx: { grund, P, layout, merke(dateiname, anweisung), altText(objektname, text) }
 function diagramme(pres, kx) {
   const cs = GRUND[kx.grund || 'hell'], P = kx.P, D = {};
   const hatChartFeld = /DIAGRAMM/.test(kx.layout || '');
@@ -169,6 +170,11 @@ function diagramme(pres, kx) {
     const optionen = { ...opt, ...basis(o, L, a, gestapelt ? 'Gestapeltes Säulendiagramm' : 'Säulendiagramm'), barDir: 'col', barGrouping: gestapelt ? 'stacked' : 'clustered', barGapWidthPct: luecke,
       catAxisLabelPos: 'low', showValue: o.labels !== false, dataLabelFormatCode: mitMinus(o.labelFormat || a.format),
       chartColors: o.reihen.map(r => art(r.art || 'tinte').farbe) };
+    // Eine Reihe mit eigener Farbe je Säule (frühere Stände grau, der letzte in Tinte): je Kategorie eine Reihenart, als Hex wie beim Balkenpaar
+    if (o.arten) {
+      if (!eine || gestapelt || o.arten.length !== n) throw new Error(`Säulendiagramm: arten gilt nur für eine einzelne Reihe und braucht je Kategorie eine Reihenart (${o.arten.length} für ${n} Kategorien).`);
+      optionen.chartColors = o.arten.map(x => art(x).hex);
+    }
     // katAchse false: Die Kategorien tragen Achskreise oder Texte als Formen (B.achskreis 0,28 unter der Plotfläche, B.kategorien);
     // die Achse selbst bleibt als Linie stehen, ihre Beschriftung ist abgeschaltet (kein unsichtbarer Text unter der Plotfläche)
     if (o.katAchse === false) optionen.catAxisLabelPos = 'none';
@@ -193,7 +199,8 @@ function diagramme(pres, kx) {
   }
   D.stapelSaeulen = (s, o) => saeulen(s, o, true);
   D.gruppierteSaeulen = (s, o) => saeulen(s, o, false);
-  // Säulen einer Reihe, auch mit Werten unter null (kräftige Nulllinie). o wie oben, statt reihen: { werte, art: 'tinte', reihenname }
+  // Säulen einer Reihe, auch mit Werten unter null (kräftige Nulllinie). o wie oben, statt reihen: { werte, art: 'tinte', reihenname,
+  // arten: ['bisher', …, 'tinte'] (eigene Farbe je Säule) }
   D.saeulen = (s, o) => saeulen(s, { ...o, reihen: [{ name: o.reihenname || 'Wert', werte: o.werte, art: o.art || 'tinte' }] }, false);
 
   // ---- Linien -----------------------------------------------------------------------------------------------------------
@@ -263,7 +270,98 @@ function diagramme(pres, kx) {
       punkt: (i, r = 1) => { const w = (mitten[i] - 90) * Math.PI / 180; return { x: cx + Math.cos(w) * radius * r, y: cy + Math.sin(w) * radius * r }; } };
   };
 
-  D.FORMAT = FORMAT; D.ART = ART;
+  // ---- Flussdiagramm aus nativen Formen ------------------------------------------------------------------------------------------------
+  // Knoten als schmale Rechtecke, Ströme als Freihandformen mit kubischen Kurven. Stärke = Betrag ÷ Maßstab (Einheiten je Zoll Höhe); zwei
+  // Diagramme mit demselben Maßstab lassen sich in der Höhe vergleichen. Ströme unter linieBis (pt) stehen als Linie in ihrer wahren Stärke,
+  // mindestens mindestPt. Ströme und Knoten mit dem Betrag 0 werden nicht gezeichnet; ihre Lage steht in der Rückgabe, damit die Beschriftung
+  // sie nennen kann. Ein Rahmen ohne Füllung und Linie trägt den Alternativtext des Diagramms; Bänder und Knoten gelten als Schmuck.
+  // Beschriftet wird mit B.text an den Lagen der Rückgabe; das Diagramm selbst trägt keinen Text.
+  // o: { name (Objektname des Rahmens, auf der Folie eindeutig), altText (Pflicht: Ströme mit Beträgen), massstab (Einheiten je Zoll Höhe),
+  //      knoten:  [{ id, x, y, name, art: 'tinte', wert }]   x, y: linke obere Ecke; ohne wert gilt die größere Summe aus Zu- und Abflüssen
+  //      stroeme: [{ von, nach, wert, art, name }]            Reihenfolge = Stapelfolge an beiden Knoten, von oben
+  //      arten (Farbrollen, Vorgabe FLUSSART aus theme.cjs: tinte, referenz, hell, blass), knotenBreite: 0.12, fuge: 0.02 (Abstand zwischen
+  //      Knoten und Band), spannung: 0.5 (Lage der Kurvenpunkte), mindestPt: 0.75, linieBis: 1.5 }
+  // Rückgabe: { zoll(wert), knoten: { id: { x, y, w, h, wert, mitte, rechts, unten } }, stroeme: [{ …, x0, x1, y0, y1, h, alsLinie, pt }], rahmen: { x, y, w, h } }
+  D.fluss = (s, o) => {
+    const arten = o.arten || FLUSSART, r4 = v => +v.toFixed(4);
+    if (!(o.massstab > 0)) throw new Error('D.fluss: massstab fehlt (Einheiten je Zoll Höhe).');
+    if (!o.altText) throw new Error('D.fluss: altText fehlt (Beschreibung des Diagramms für Vorleseprogramme: Ströme mit Beträgen).');
+    if (!Array.isArray(o.knoten) || !Array.isArray(o.stroeme)) throw new Error('D.fluss: knoten und stroeme fehlen (Listen).');
+    if (typeof kx.altText !== 'function') throw new Error('D.fluss: Der Bau nimmt keine Alternativtexte für Formen an (kx.altText fehlt).');
+    const kb = o.knotenBreite ?? 0.12, fuge = o.fuge ?? 0.02, sp = o.spannung ?? 0.5, minPt = o.mindestPt ?? 0.75, linieBis = o.linieBis ?? 1.5;
+    const zoll = v => v / o.massstab, name = o.name || 'Flussdiagramm';
+    const rolle = (a, wo) => arten[a] || (() => { throw new Error(`D.fluss: Farbrolle „${a}“ (${wo}) gibt es nicht: ${Object.keys(arten).join(', ')}`); })();
+    const fuellung = r => (r.transparenz ? { color: r.farbe, transparency: r.transparenz } : { color: r.farbe });
+
+    // Knoten: Höhe aus den Strömen; an einem Knoten mit Zu- und Abflüssen gehen beide auf
+    const K = {};
+    for (const k of o.knoten) {
+      for (const f of ['x', 'y']) if (typeof k[f] !== 'number' || !isFinite(k[f])) throw new Error(`D.fluss: Knoten „${k.id}“: „${f}“ fehlt oder ist keine Zahl.`);
+      K[k.id] = { ...k, ein: 0, aus: 0, offEin: 0, offAus: 0 };
+    }
+    for (const st of o.stroeme) {
+      for (const e of [st.von, st.nach]) if (!K[e]) throw new Error(`D.fluss: Strom „${st.name}“: Knoten „${e}“ gibt es nicht.`);
+      if (typeof st.wert !== 'number' || !isFinite(st.wert) || st.wert < 0) throw new Error(`D.fluss: Strom „${st.name}“: Betrag „${st.wert}“ ist keine Zahl ab 0.`);
+      K[st.von].aus += st.wert; K[st.nach].ein += st.wert;
+    }
+    for (const k of Object.values(K)) {
+      if (k.ein > 0 && k.aus > 0 && Math.abs(k.ein - k.aus) > 0.005) throw new Error(`D.fluss: Knoten „${k.id}“: Zuflüsse (${k.ein.toFixed(2)}) und Abflüsse (${k.aus.toFixed(2)}) gehen nicht auf.`);
+      const fluss = Math.max(k.ein, k.aus);
+      if (k.wert !== undefined && Math.abs(k.wert - fluss) > 0.005) throw new Error(`D.fluss: Knoten „${k.id}“: Betrag ${k.wert} gegen ${fluss.toFixed(2)} aus den Strömen.`);
+      k.wert = fluss; k.h = zoll(fluss);
+    }
+
+    // Ströme: Lage an beiden Knoten in wahrer Stärke gestapelt (auch Linien belegen nur ihre wahre Stärke)
+    const stroeme = [];
+    for (const st of o.stroeme) {
+      const a = K[st.von], b = K[st.nach], h = zoll(st.wert);
+      const g = { ...st, h, x0: a.x + kb + fuge, x1: b.x - fuge, y0: a.y + a.offAus, y1: b.y + b.offEin, alsLinie: h * 72 < linieBis, pt: Math.max(h * 72, minPt) };
+      a.offAus += h; b.offEin += h;
+      if (g.x1 <= g.x0) throw new Error(`D.fluss: Strom „${st.name}“ läuft nicht von links nach rechts (x ${g.x0.toFixed(2)} bis ${g.x1.toFixed(2)}).`);
+      stroeme.push(g);
+    }
+
+    // Rahmen mit dem Alternativtext: Hülle aller Knoten und Bänder; erste Form des Diagramms (Lesereihenfolge), ohne Füllung und ohne Linie
+    const gez = stroeme.filter(g => g.wert > 0), kn = Object.values(K).filter(k => k.wert > 0);
+    const xs = [...kn.flatMap(k => [k.x, k.x + kb]), ...gez.flatMap(g => [g.x0, g.x1])], ys = [...kn.flatMap(k => [k.y, k.y + k.h]), ...gez.flatMap(g => [g.y0, g.y0 + g.h, g.y1, g.y1 + g.h])];
+    if (!xs.length) throw new Error('D.fluss: Kein Strom mit einem Betrag über 0.');
+    const rahmen = { x: r4(Math.min(...xs)), y: r4(Math.min(...ys)), w: r4(Math.max(...xs) - Math.min(...xs)), h: r4(Math.max(...ys) - Math.min(...ys)) };
+    s.addShape(pres.shapes.RECTANGLE, { ...rahmen, line: { type: 'none' }, objectName: name });
+    kx.altText(name, o.altText);
+
+    // Bänder (unter den Knoten). Punkte der Freihandform in Zoll, bezogen auf die linke obere Ecke der Form
+    for (const g of gez) {
+      const r = rolle(g.art || 'tinte', `Strom „${g.name}“`), w = g.x1 - g.x0, c = w * sp, on = 'Band ' + g.name;
+      if (g.alsLinie) {
+        // Mittellinie des Stroms; die Form braucht eine Höhe über 0, auch wenn die Linie waagerecht läuft
+        const ya = g.y0 + g.h / 2, yb = g.y1 + g.h / 2, top = Math.min(ya, yb), hoehe = Math.max(Math.abs(yb - ya), 0.01), l = r.linie || r;
+        const line = { color: l.farbe, width: +g.pt.toFixed(2) };
+        if (l.transparenz) line.transparency = l.transparenz;
+        s.addShape(pres.shapes.CUSTOM_GEOMETRY, { x: r4(g.x0), y: r4(top), w: r4(w), h: r4(hoehe), line, objectName: on,
+          points: [{ x: 0, y: r4(ya - top) }, { x: r4(w), y: r4(yb - top), curve: { type: 'cubic', x1: r4(c), y1: r4(ya - top), x2: r4(w - c), y2: r4(yb - top) } }] });
+        continue;
+      }
+      const top = Math.min(g.y0, g.y1), ya = r4(g.y0 - top), yb = r4(g.y1 - top), h = r4(g.h), B = r4(w);
+      const line = r.kontur ? { color: r.kontur.farbe, width: r.kontur.pt, ...(r.kontur.transparenz ? { transparency: r.kontur.transparenz } : {}) } : { type: 'none' };
+      s.addShape(pres.shapes.CUSTOM_GEOMETRY, { x: r4(g.x0), y: r4(top), w: B, h: r4(Math.abs(g.y1 - g.y0) + g.h), fill: fuellung(r), line, objectName: on,
+        points: [{ x: 0, y: ya },
+          { x: B, y: yb, curve: { type: 'cubic', x1: r4(c), y1: ya, x2: r4(w - c), y2: yb } },
+          { x: B, y: r4(yb + h) },
+          { x: 0, y: r4(ya + h), curve: { type: 'cubic', x1: r4(w - c), y1: r4(yb + h), x2: r4(c), y2: r4(ya + h) } },
+          { close: true }] });
+    }
+    // Knoten: schmale Rechtecke in wahrer Höhe, mindestens so hoch wie die dünnste Linie
+    const knoten = {};
+    for (const k of Object.values(K)) {
+      const hz = Math.max(k.h, minPt / 72), y = k.y + k.h / 2 - hz / 2;
+      const kr = rolle(k.art || 'tinte', `Knoten „${k.id}“`);
+      if (k.wert > 0) s.addShape(pres.shapes.RECTANGLE, { x: r4(k.x), y: r4(y), w: kb, h: r4(hz), fill: fuellung(kr.knoten || kr), line: { type: 'none' }, objectName: 'Knoten ' + (k.name || k.id) });
+      knoten[k.id] = { x: k.x, y: k.y, w: kb, h: k.h, wert: k.wert, mitte: k.y + k.h / 2, rechts: k.x + kb, unten: k.y + k.h };
+    }
+    return { zoll, knoten, stroeme, rahmen };
+  };
+
+  D.FORMAT = FORMAT; D.ART = ART; D.FLUSSART = FLUSSART;
   return D;
 }
 

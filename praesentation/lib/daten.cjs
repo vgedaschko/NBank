@@ -36,13 +36,25 @@ W.laeufe = () => Object.keys(werte().laeufe);
 W.meta = () => werte().meta;
 
 // ---- Formatierer (deutsche Schreibweise, U+00A0 vor der Einheit, Minus U+2212) ---------------------------------
-function runde(v, nk) { return Number(Math.round(Number(Math.abs(v) + 'e' + nk)) + 'e-' + nk); }
+// Kaufmännisch runden über die Dezimalschreibweise (kein Binärfehler bei 1,005). Sehr kleine und sehr große Beträge schreibt JavaScript mit
+// Exponent („5.8e-11“); der Exponent wird dann verrechnet statt angehängt.
+function runde(v, nk) {
+  const teile = x => { const [m, e = '0'] = String(x).split('e'); return [m, Number(e)]; };
+  const [m, e] = teile(Math.abs(v)), [g, f] = teile(Math.round(Number(m + 'e' + (e + nk))));
+  return Number(g + 'e' + (f - nk));
+}
 function zahl(v, nk = 0) {
   if (typeof v !== 'number' || !isFinite(v)) throw new Error(`Formatierer: „${v}“ ist keine Zahl.`);
   const r = runde(v, nk), s = r.toFixed(nk);
   let [g, d] = s.split('.');
   g = g.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   return (v < 0 && r !== 0 ? MINUS : '') + g + (d ? ',' + d : '');
+}
+const MONATE = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+function monatsteile(monat) {
+  const m = /^(\d{4})-(\d{2})$/.exec(String(monat));
+  if (!m || +m[2] < 1 || +m[2] > 12) throw new Error(`Monat „${monat}“: erwartet wird JJJJ-MM.`);
+  return { jahr: m[1], monat: m[2] };
 }
 const fmt = {
   NBSP, MINUS,
@@ -58,7 +70,17 @@ const fmt = {
   euroDez: v => zahl(v, 2) + NBSP + '€',                       // 6.7659 → „6,77 €“
   qm: v => zahl(v, 0) + NBSP + 'm²',                           // 1400 → „1.400 m²“
   nb: s => String(s).replace(/ /g, NBSP),                      // alle Leerzeichen schützen: „35 Jahre“ bleibt zusammen
+  monatKurz: m => { const t = monatsteile(m); return `${t.monat}/${t.jahr}`; },             // „2020-02“ → „02/2020“
+  monatWort: m => { const t = monatsteile(m); return `${MONATE[+t.monat - 1]} ${t.jahr}`; },   // „2020-02“ → „Februar 2020“
 };
+
+// ---- Monatsreihen (Schlüssel JJJJ-MM) -------------------------------------------------------------------------------
+// Mittelwert einer Monatsreihe über die genannten Monate (Gegenprobe eines Quartalsmittels); bricht ab, wenn ein Monat in der Reihe fehlt
+function mittel(monate, werte, welche) {
+  const v = welche.map(m => { const i = monate.indexOf(m); if (i < 0) throw new Error(`mittel: Monat „${m}“ steht nicht in der Reihe.`); return werte[i]; });
+  if (!v.length) throw new Error('mittel: Kein Monat genannt.');
+  return v.reduce((a, b) => a + b, 0) / v.length;
+}
 
 // ---- Texte: Vergleichsform, Zahlwörter, Platzhalter --------------------------------------------------------------
 // Vergleichsform eines Textes: geschützte Leerzeichen und Fettmarken weg, Leerraum einfach (für Gegenproben gegen das Konzept)
@@ -118,4 +140,4 @@ function X(name, pfad) {
   return o !== null && typeof o === 'object' && !Array.isArray(o) && 'wert' in o ? o.wert : o;
 }
 
-module.exports = { W, fmt, outline, folieAusKonzept, datei, X, DATEIEN, NBSP, MINUS, glatt, zahlwort, fuelle };
+module.exports = { W, fmt, outline, folieAusKonzept, datei, X, DATEIEN, NBSP, MINUS, glatt, zahlwort, fuelle, mittel };

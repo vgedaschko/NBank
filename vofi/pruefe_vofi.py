@@ -67,6 +67,22 @@ Korrekturen am Prüfskript (09.11.2026, Nacharbeit Runde 2; Sollwerte der Refere
   Zahlungsreihen AO–AS, Block Förderbarwert Zeilen 172–177, Hilfswerte der Nullstellensuche Y–AB, Sprunglinks H2:M2,
   Druckwiederholung 2:3, Kasse und Restschulden auf Cent gerundet, IRR-Konstanten 0,6/0,05/0,0001, Eingabeformate
   ohne Nullabschnitt, Texte laut Abschnitt L.
+
+Erweiterung „Frei finanziert: Finanzierung, Mietwahl, Eigenkapitalebene“ (KONZEPT-v3.md, Abschnitt N)
+  Konzeptänderungen, denen das Skript folgt: Eingaben 10.1 (Miete frei finanziert) und 10.2 (DSCR-Ziel) in den Zeilen
+  53/54 (39 Eingaben, 66 Namen); Blatt Frei finanziert mit Bankdarlehen, Kapitaldienst, Projektkonto, EK-Reihen
+  (Zeitreihe A–Q, Zahlungsreihen R–AB, Blöcke in den Zeilen der Blätter Gefördert); Block „Miete für das DSCR-Ziel“
+  in den Zeilen 179–183 (Frei bis 186) auf allen vier Zeitreihenblättern; Übersicht mit Frei-Spalte G in Block 1–3
+  und 6, Block 8 „Miete für das DSCR-Ziel“ (Zeilen 108–114), Prüfblock in den Zeilen 116–122, Aufschlag der
+  gerechneten Frei-Miete in L74 und L87.
+  Sollwerte frei: RR.Lauf(…, "M") mit Bankdarlehen (ek_modell, Parameterkopie mit Eigenmittelquote = (Mindest-
+  Eigenmittel in Geld + Zusatz-EK + KG 800) ÷ zuwendungsfähige Kosten, wie der Bankpfad F8 für gefördert); der
+  EK-Teil (EK-IRR, VOFI-EK-Rendite, Endvermögen), den RR.kennzahlen für "M" nicht rechnet, wird hier nachgebildet.
+  Die nötige Miete für das DSCR-Ziel rechnet das Skript selbst; bei Schalter „Miete für DSCR-Ziel“ läuft die RR mit
+  dieser Miete als Marktmiete der Parameterkopie. Bei Laufzeit Bank ≠ 30 Jahre (RR fest 30) wird der Bankpfad frei
+  geschlossen gerechnet und mit Überschuss vor Kapitaldienst und Restwert der RR verbunden.
+  Regression (Entscheidung 7): Läufe L1 und L2 gegen den Stand vor der Erweiterung (--baseline, Standard siehe
+  BASELINE); fehlt die Datei, meldet das Skript einen HINWEIS.
 """
 import argparse
 import concurrent.futures as cf
@@ -102,6 +118,11 @@ PRUEF_DIR = BROSCH / "zulieferungen" / "vofi-pruefung"
 SEITEN_DIR = BROSCH / "content" / "pages"
 RECALC = Path("/root/.claude/skills/synced/d3ee7d9e-3f80-4516-b552-1e1c8f6a1a0c_"
               "1f3a70d5-7acd-4ad5-8e28-7b168d5d5595/xlsx/scripts/recalc.py")
+
+# Stand vor der Erweiterung „Frei finanziert“ (Konzept N), nur für die Regressionsprüfung; überschreibbar mit --baseline
+BASELINE = Path("/tmp/claude-0/-home-user-NBank/38410f5d-55fd-52ad-a777-dfea55772146/scratchpad/vofi-frei-ek/"
+                "baseline.xlsx")
+MIETWAHL = ("Marktmiete", "Miete für DSCR-Ziel")        # Eingabe 10.1
 
 TOL_EUR = 1.0          # Beträge
 TOL_CENT = 0.01        # Förderbeträge, Jahresrechnung Jahr 1, v2-1-Abgleich
@@ -505,11 +526,17 @@ EINGABEN = [
      _VG + " Best −0,30, Worst +0,60 Pp", lambda P: 0, lambda P: 0),
     ("9.4", 51, "Stress_GebRW", "Faktor Gebäude-Restwert", "Faktor", "faktor", ("decimal", 0, 1.5), "PGN-Annahme",
      lambda P: 1, lambda P: 1),
+    ("10.1", 53, "Miete_Frei", "Miete frei finanziert", "Liste", "text", ("list", "Marktmiete,Miete für DSCR-Ziel"),
+     "PGN-Annahme", lambda P: "Marktmiete", lambda P: "Marktmiete"),
+    ("10.2", 54, "DSCR_Ziel", "DSCR-Ziel für die nötige Miete", "Faktor", "faktor", ("decimal", 0.5, 3), "PGN-Annahme",
+     lambda P: 1, lambda P: 1),
 ]
+EINGABE_LETZTE = 54
 EIN = {e[0]: e for e in EINGABEN}
 GRUPPENZEILEN = {6: ("1", "Projekt"), 10: ("2", "Kosten und Grundstück"), 16: ("3", "Förderung NBank"),
                  21: ("4", "Miete"), 28: ("5", "Bewirtschaftung"), 34: ("6", "Bankdarlehen und Vergleichszins"),
-                 39: ("7", "Eigenkapital und Projektkonto (VOFI)"), 43: ("8", "Restwert"), 47: ("9", "Stresstest")}
+                 39: ("7", "Eigenkapital und Projektkonto (VOFI)"), 43: ("8", "Restwert"), 47: ("9", "Stresstest"),
+                 52: ("10", "Miete frei finanziert")}
 
 # Tabellen C: Tabelle 3 (Zeile, Nr., Festwert, Einheit, Quelle, Name, Sollwert aus RR-Parametern/Annahmen)
 TAB3 = [
@@ -558,17 +585,18 @@ NAMEN.update({t[5]: f"Tabellen!$D${t[0]}" for t in TAB3})
 EINGABE_NAMEN = {e[2] for e in EINGABEN}
 
 # Zellhyperlinks (Blatt, Zelle, Text, Ziel-Blatt, Ziel-Zelle)
-LINKS = [(UEB, "B3", "Prüfungen", UEB, "A108"), (UEB, "H2", "Projekt wählen", "Eingaben", "D3"),
+LINKS = [(UEB, "B3", "Prüfungen", UEB, "A116"), (UEB, "H2", "Projekt wählen", "Eingaben", "D3"),
          ("Eingaben", "G3", "Übersicht", UEB, "A1"), ("NBank", "I1", "Übersicht", UEB, "A1"),
          ("Tabellen", "G1", "Übersicht", UEB, "A1"), ("Hinweise", "C1", "Übersicht", UEB, "A1")]
 for _i, _b in enumerate(BLAETTER[1:]):
     LINKS.append((UEB, get_column_letter(4 + _i) + "6", _b, _b, "A1"))
 for _g_ in GRUPPEN:
     for _z, _t, _a in (("H2", "Übersicht", None), ("I2", "Finanzierung", "A88"), ("J2", "Restwert", "A116"),
-                       ("K2", "Renditen", "A131"), ("L2", "Liquidität", "A153"), ("M2", "Förderbarwert", "A172")):
+                       ("K2", "Renditen", "A131"), ("L2", "Liquidität", "A153"), ("M2", "Förderbarwert", "A172"),
+                       ("N2", "DSCR-Ziel", "A179")):
         LINKS.append((GEF[_g_], _z, _t, UEB if _a is None else GEF[_g_], _a or "A1"))
-for _z, _t, _a in (("I2", "Übersicht", None), ("J2", "Kosten", "A88"), ("K2", "Restwert", "A116"),
-                   ("L2", "Renditen", "A131")):
+for _z, _t, _a in (("H2", "Übersicht", None), ("I2", "Finanzierung", "A88"), ("J2", "Restwert", "A116"),
+                   ("K2", "Renditen", "A131"), ("L2", "Liquidität", "A153"), ("M2", "DSCR-Ziel", "A179")):
     LINKS.append((FREI, _z, _t, UEB if _a is None else FREI, _a or "A1"))
 
 FIXIERUNG = {UEB: "A7", "Eingaben": "D6", "Gefördert A": "C6", "Gefördert B": "C6", "Gefördert C": "C6",
@@ -579,7 +607,9 @@ TITEL = {UEB: "VOFI Mietwohnraum 2026: Übersicht", "Eingaben": "Eingaben",
          "NBank": "NBank: Orientierung zur Überkompensation", "Tabellen": "Tabellen", "Hinweise": None}
 SPALTENBREITE = {UEB: {"A": 6, "B": 42, "C": 17, **{c: 12 for c in "DEFGHIJK"}, "L": 38},
                  "Eingaben": {"A": 6, "B": 44, "C": 15, "D": 22, "E": 22, "F": 16, "G": 58},
-                 FREI: {"A": 5, "B": 7, "C": 10, **{c: 13 for c in "DEFGH"}, **{c: 12 for c in "IJOPQRS"}},
+                 FREI: {"A": 5, "B": 7, "C": 10, "D": 10, **{c: 13 for c in "EFGHI"}, **{c: 12 for c in "JKL"}, "M": 13,
+                        "N": 8, **{c: 13 for c in "OPQ"},
+                        **{get_column_letter(c): 12 for c in range(18, 29)}},
                  "NBank": {"A": 6, "B": 40, "C": 13, "D": 11, "E": 11, "F": 11, "G": 10, "H": 10, "I": 10},
                  "Tabellen": {"A": 6, "B": 44, "C": 18, "D": 12, "E": 12, "F": 12, "G": 56},
                  "Hinweise": {"A": 5, "B": 120}}
@@ -589,16 +619,16 @@ for _c in range(column_index_from_string("Y"), column_index_from_string("AS") + 
     _gb[get_column_letter(_c)] = 12
 for _g_ in GRUPPEN:
     SPALTENBREITE[GEF[_g_]] = _gb
-DRUCKBEREICH = {g: "A1:J48,K1:X48,A88:J177" for g in GEF.values()}
-DRUCKBEREICH[FREI] = "A1:H48,A88:J139"
+DRUCKBEREICH = {g: "A1:J48,K1:X48,A88:J183" for g in GEF.values()}
+DRUCKBEREICH[FREI] = "A1:I48,J1:Q48,A88:J186"
 WIEDERHOLZEILEN = {"Eingaben": "4:5", FREI: "2:3", **{g: "2:3" for g in GEF.values()}}
-WIEDERHOLSPALTEN = {g: "A:B" for g in GEF.values()}
-KOPFZEILEN = {"Eingaben": [5], UEB: [8, 28, 41, 54, 75, 88, 98, 108], "NBank": [4, 9, 26],
-              "Tabellen": [4, 8, 17, 35], FREI: [5, 89, 117, 132],
-              **{g: [5, 89, 117, 132, 154, 173] for g in GEF.values()}}
+WIEDERHOLSPALTEN = {FREI: "A:B", **{g: "A:B" for g in GEF.values()}}
+KOPFZEILEN = {"Eingaben": [5], UEB: [8, 28, 41, 54, 75, 88, 98, 108, 116], "NBank": [4, 9, 26],
+              "Tabellen": [4, 8, 17, 35], FREI: [5, 89, 117, 132, 154, 180],
+              **{g: [5, 89, 117, 132, 154, 173, 180] for g in GEF.values()}}
 GRUPPENZEILEN_BLATT = {"Eingaben": list(GRUPPENZEILEN), UEB: [74, 87, 97], "NBank": [10, 13, 16],
-                       "Tabellen": [3, 7, 16, 34], FREI: [88, 116, 131],
-                       **{g: [88, 116, 131, 153, 172] for g in GEF.values()}}
+                       "Tabellen": [3, 7, 16, 34], FREI: [88, 116, 131, 153, 179],
+                       **{g: [88, 116, 131, 153, 172, 179] for g in GEF.values()}}
 
 # Beschriftungen laut Konzept: {Blatt: {Zelle: Text}}
 BESCHRIFTUNG = {UEB: {}, "Eingaben": {}, "NBank": {}, "Tabellen": {}, "Hinweise": {}, FREI: {}}
@@ -608,13 +638,15 @@ _U.update({"B2": "Aktives Projekt", "B4": "Konventionen", "B5": "Legende", "B6":
            "D5": "Ändern nur auf „Eingaben“ (blau auf Gelb). Grün: Verweis auf ein anderes Blatt. "
                  "Weitere Zeilen: + am linken Rand.",
            "B8": "Projekt und Finanzierung bei Bezug", "G8": "Frei", "H8": "Bemerkung",
-           "A28": "Zeile", "B28": "Jahresrechnung Jahr 1, in € p. a.", "C28": "Satz", "H28": "Bemerkung",
-           "B41": "Liquidität", "H41": "Bemerkung",
+           "A28": "Zeile", "B28": "Jahresrechnung Jahr 1, in € p. a.", "C28": "Satz", "G28": "Frei", "H28": "Bemerkung",
+           "B41": "Liquidität", "G41": "Frei", "H41": "Bemerkung",
            "B54": "Zahlungsüberschuss Jahr 1 je Tilgungssatz", "G54": "höchster Überschuss", "H54": "Bemerkung",
            "B74": "Objektrendite vor Steuern", "D74": "Jahr 35", "H74": "Jahr 42", "G75": "Frei", "K75": "Frei",
-           "B87": "Eigenkapitalrendite vor Steuern", "D87": "Jahr 35", "H87": "Jahr 42", "G88": "", "K88": "",
+           "B87": "Eigenkapitalrendite vor Steuern", "D87": "Jahr 35", "H87": "Jahr 42", "G88": "Frei", "K88": "Frei",
            "B97": "Restwert (Ertragswert)", "G98": "Frei", "K98": "Frei",
-           "B108": "Prüfung", "C108": "Status", "D108": "A", "E108": "B", "F108": "C", "H108": "Bemerkung"})
+           "B108": "Miete für das DSCR-Ziel", "C108": "Einheit", "D108": "A", "E108": "B", "F108": "C", "G108": "Frei",
+           "H108": "Bemerkung",
+           "B116": "Prüfung", "C116": "Status", "D116": "A", "E116": "B", "F116": "C", "H116": "Bemerkung"})
 # Übersicht (Konzept D.5, Runde 2): Zeile -> (Nr., Bezeichnung, Einheit, Bemerkung|None, Spalte der Bemerkung)
 # Blöcke ohne Horizont (1–4, 8): Bemerkung in H; Blöcke 5–7: Bemerkung in L.
 _NST = "mehrere Nullstellen möglich"
@@ -626,13 +658,13 @@ UEB_ZEILEN = {
     15: ("1.7", "Förderung gesamt", "€", "Darlehen + Zuschuss"), 16: ("1.8", "Förderquote auf Gesamtkosten", "%", None),
     17: ("1.9", "Förderbarwert (Zuschuss + Barwertvorteil)", "€",
          "Zuschuss nach Entgelt + Zinsvorteil; steigt mit Eingabe 6.1"),
-    18: ("1.10", "Bankdarlehen", "€", "Restfinanzierung"),
+    18: ("1.10", "Bankdarlehen", "€", "Restfinanzierung; Frei: gleiche Eigenmittel, Rest Bank (Eingaben Block 6)"),
     19: ("1.11", "Eigenmittel (RL Nr. 5.2.6), ohne Entgelte", "€", None),
     20: ("1.12", "Eigenmittelquote", "%", "mindestens 20 %"), 21: ("1.13", "Bearbeitungsentgelte, einmalig", "€", None),
     22: ("1.14", "Eigenkapital (Grundstück + bar)", "€", "Eigenmittel + Entgelte"), 23: ("1.15", "davon bar", "€", None),
     24: ("1.16", "Zuschuss je Wohnung", "€", None), 25: ("1.17", "Eigenmittel je Wohnung", "€", None),
-    26: ("1.18", "Miete Jahr 1", "€/m² Monat", None),
-    29: ("1", "Sollmiete: Höchstmiete nettokalt", None, "Schema wie Broschüre S. 11"),
+    26: ("1.18", "Miete Jahr 1", "€/m² Monat", "Frei laut Eingabe 10.1"),
+    29: ("1", "Sollmiete: Höchstmiete nettokalt", None, "Schema wie Broschüre S. 11; Frei: Miete laut 1.18"),
     30: ("", "− Mietausfall/Leerstand", None, "der Sollmiete"),
     31: ("2", "− Objektverwaltung", None, "Satz 2026, fortgeschrieben laut Eingabe 5.5; Betriebskosten umgelegt"),
     32: ("3", "− Instandhaltung", None, "Satz 2026, fortgeschrieben laut Eingabe 5.5"),
@@ -644,7 +676,7 @@ UEB_ZEILEN = {
     38: ("8", "= Zahlungsüberschuss p. a.", None, None), 39: ("", "Einmalig: Bearbeitungsentgelte", None, "nicht in Zeile 8"),
     42: ("3.1", "Zahlungsüberschuss Jahr 10", "€", None), 43: ("3.2", "Zahlungsüberschuss Jahr 35", "€", None),
     44: ("3.3", "Zahlungsüberschuss Jahr 42", "€", None),
-    45: ("3.4", "Schuldendienstdeckung (DSCR) Jahr 1", "Faktor", "Zeile 4 ÷ Kapitaldienst"),
+    45: ("3.4", "Schuldendienstdeckung (DSCR) Jahr 1", "Faktor", "Zeile 4 ÷ Kapitaldienst; nötige Miete: 8.3"),
     46: ("3.5", "DSCR Minimum Jahr 1–35", "Faktor", None), 47: ("3.6", "Jahre mit Fehlbetrag, Jahr 1–35", "Jahre", None),
     48: ("3.7", "Größter kumulierter Fehlbetrag, Jahr 1–42", "€", "ohne Zinsen"),
     49: ("3.8", "Break-even-Tilgung Jahr 1", "%", "Tilgung, bei der Zeile 8 = 0; „–“: schon ohne Tilgung negativ"),
@@ -669,26 +701,41 @@ UEB_ZEILEN = {
     83: ("5.8", "Objekt-IRR ohne Zuschuss, nur Bodenwert", "%", None),
     84: ("5.9", "Objekt-IRR ohne Zuschuss, ohne Restwert", "%", _NST),
     85: ("5.10", "Hilfsgröße: Nettoanfangsrendite, statisch", "% (Jahr 1)", "ohne Zuschuss, ohne Restwert"),
-    89: ("6.1", "EK-IRR, mit Restwert", "%", None), 90: ("6.2", "EK-IRR, nur Bodenwert", "%", _NST),
+    89: ("6.1", "EK-IRR, mit Restwert", "%", "Frei: Eigenmittel wie gefördert, Rest Bank"),
+    90: ("6.2", "EK-IRR, nur Bodenwert", "%", _NST),
     91: ("6.3", "VOFI-EK-Rendite, mit Restwert", "%", "Kontozinsen laut Eingabe 7.2/7.3"),
     92: ("6.4", "VOFI-EK-Rendite, nur Bodenwert", "%", None), 93: ("6.5", "Restwertanteil am Endvermögen", "%", None),
     94: ("6.6", "EK-IRR, ohne Restwert", "%", _NST), 95: ("6.7", "VOFI-EK-Rendite, ohne Restwert", "%", None),
     99: ("7.1", "Restwert (Boden + Gebäude)", "€", "nach Eingabe 8.3 und 9.4"), 100: ("7.2", "Bodenwert", "€", None),
     101: ("7.3", "Gebäudeanteil", "€", None),
     102: ("7.4", "Ertragswert Bestand gegenüber Gesamtkosten", "% (Bezug)", "bei Bezug; negativ: unter Gesamtkosten"),
-    103: ("7.5", "Ertragswert Bestand", "€", "Frei: zur Marktmiete"),
+    103: ("7.5", "Ertragswert Bestand", "€", "Frei: zur gerechneten Miete"),
     104: ("7.6", "Abschlag Bestandsmiete unter Zielmiete", "€", None),
     105: ("7.7", "Liegenschaftszins", "%", "Standort Neu Wulmstorf"),
     106: ("7.8", "Ertragswert Zielmiete gegenüber Gesamtkosten", "% (Bezug)", "bei Bezug; nachrichtlich"),
-    109: ("P1", "Keine Überfinanzierung bei Bezug", None, "Kasse bei Bezug in €"),
-    110: ("P2", "Auswahlfelder 4.1, 4.2 und 8.2 gültig", None, None),
-    111: ("P3", "Bank: Anfangstilgung mind. 1 % (RL Nr. 5.3.6)", None, None),
-    112: ("P4", "Renditen mit Restwert berechnet", None, None),
-    113: ("P5", "Gebäudeanteil am Restwert positiv", None, None), 114: ("P6", "Eingaben vollständig", None, None),
+    109: ("8.1", "DSCR-Ziel", "Faktor", "Eingabe 10.2"),
+    110: ("8.2", "Kapitaldienst Jahr 1", "€", "Zeilen 5 bis 7 und Bankdarlehen"),
+    111: ("8.3", "Nötige Miete Jahr 1 für das DSCR-Ziel", "€/m² Monat",
+          "deckt DSCR-Ziel × Kapitaldienst und die Zeilen 2 und 3 nach Mietausfall"),
+    112: ("8.4", "Miete Jahr 1, gerechnet", "€/m² Monat", "wie 1.18"),
+    113: ("8.5", "Aufschlag Miete Jahr 1 gegenüber Marktmiete", "%", "Frei: gerechnete Miete laut Eingabe 10.1"),
+    114: ("8.6", "Aufschlag nötige Miete gegenüber Marktmiete", "%", None),
+    117: ("P1", "Keine Überfinanzierung bei Bezug", None, "Kasse bei Bezug in €"),
+    118: ("P2", "Auswahlfelder 4.1, 4.2, 8.2 und 10.1 gültig", None, None),
+    119: ("P3", "Bank: Anfangstilgung mind. 1 % (RL Nr. 5.3.6)", None, None),
+    120: ("P4", "Renditen mit Restwert berechnet", None, None),
+    121: ("P5", "Gebäudeanteil am Restwert positiv", None, None), 122: ("P6", "Eingaben vollständig", None, None),
 }
 UEB_HORIZONT_ZEILEN = range(76, 107)          # Bemerkung in L
-# Prüfblock (Konzept F.1): Zeilen 109–114, Status in C, Kasse bei Bezug in D109:F109, Gesamtstatus D3
-UEB_PRUEF = list(range(109, 115))
+# Block 8 Miete für das DSCR-Ziel (Konzept N): Zeilen 109–114; Zeile -> Zelle auf Gefördert (None = leer) und auf Frei
+UEB_BLOCK8 = {109: ("H181", "H181"), 110: ("H182", "H182"), 111: ("H183", "H183"), 112: ("H109", "H109"),
+              113: (None, "H185"), 114: (None, "H186")}
+# Aufschlag der gerechneten Frei-Miete bei den Renditen (Gruppenzeilen Block 5 und 6, Spalte L, Text im Zahlenformat)
+UEB_AUFSCHLAG = ("L74", "L87")
+F_AUFSCHLAG = '"Frei: Miete "0.0 %" über Marktmiete";"Frei: Miete "0.0 %" unter Marktmiete";"Frei: Miete = Marktmiete"'
+# Prüfblock (Konzept F.1): Zeilen 117–122, Status in C, Kasse bei Bezug in D117:F117, Gesamtstatus D3
+PZ = 117                                      # Zeile von P1
+UEB_PRUEF = list(range(PZ, PZ + 6))
 # Rasterzeilen Block 4 (4.1–4.8): Spalte B enthält den Tilgungssatz als Zahl (Format „Tilgung 0,00 %“), Zeile 62 = 3.1
 UEB_RASTER_ZEILEN = list(range(55, 63))
 UEB_RASTER = {55 + _k: (f"4.{_k + 1}", "€", "vor Tilgung" if _k == 0 else "Volltilgung in 42 Jahren" if _k == 4
@@ -707,7 +754,7 @@ for _r, (_a, _c, _l) in UEB_RASTER.items():
 # Übersicht: eingeklappte Zeilen (Konzept D.5) und Rasterformat Block 4
 UEB_EINGEKLAPPT = [(12, 12), (23, 23), (50, 52), (62, 62), (66, 72), (80, 85), (94, 95), (103, 106)]
 UEB_SICHTBAR = [9, 10, 11, 13, 17, 18, 22, 24, 25, 26, 42, 49, 55, 61, 63, 64, 65, 76, 77, 78, 79, 89, 90, 91, 92, 93,
-                99, 100, 101, 102] + UEB_PRUEF
+                99, 100, 101, 102, 109, 110, 111, 112, 113, 114] + UEB_PRUEF
 F_TILG, F_TILG_E = '"Tilgung "0.00 %', '"Tilgung "0.00 %" laut Eingabe 3.1"'
 
 _E = BESCHRIFTUNG["Eingaben"]
@@ -789,9 +836,11 @@ HINWEISE = [
     "um Jahre fort.",
     "Mieten: Höchstmiete (höchstens Marktmiete) in Jahr 1–3, dann alle 3 Jahre +6,15 % (ab Jahr 36 Kappungsgrenze) "
     "bis zur Vergleichsmiete; je m² ungerundet. Frei finanziert: Marktmiete wie bei Neuvermietung, ohne Grenze nach "
-    "§ 558 BGB; der Frei-IRR liegt dadurch rund 0,4–0,5 Prozentpunkte höher.",
+    "§ 558 BGB; der Frei-IRR liegt dadurch rund 0,4–0,5 Prozentpunkte höher. Eingabe 10.1 rechnet frei wahlweise "
+    "mit der Miete, die in Jahr 1 das DSCR-Ziel (Eingabe 10.2) erreicht; Aufschlag auf die Marktmiete: Übersicht 8.5.",
     "Finanzierung: Eigenkapital = Grundstück (Sacheinlage) + bar; Bank nur für die Lücke; NBank-Darlehen 0 % bis "
-    "Jahr 35, linear, Rest in Jahr 42.",
+    "Jahr 35, linear, Rest in Jahr 42. Frei finanziert: gleiche Eigenmittel wie gefördert, der Rest als Bankdarlehen "
+    "zu den Konditionen der Eingaben 6.1 bis 6.4.",
     "Restwert: Ertragswert im Stichjahr; Bestandsmiete je 3 Jahre höchstens um die Kappungsgrenze, bis Jahr 42 bis zur "
     "Vergleichs-, dann Zielmiete.",
     "Restwert-Varianten: mit Restwert = Boden + Gebäude; nur Bodenwert = ohne Gebäudeanteil; ohne Restwert = 0.",
@@ -874,6 +923,8 @@ GEF_BLOCK = {
     172: ("Förderbarwert und Objektrendite", None), 174: ("Förderbarwert (Zuschuss + Barwertvorteil)", "€"),
     175: ("Objekt-IRR nach Förderbarwert, mit Restwert", "%"), 176: ("Objekt-IRR nach Förderbarwert, nur Bodenwert", "%"),
     177: ("Objekt-IRR nach Förderbarwert, ohne Restwert", "%"),
+    179: ("Miete für das DSCR-Ziel", None), 181: ("DSCR-Ziel", "Faktor"), 182: ("Kapitaldienst Jahr 1", "€"),
+    183: ("Nötige Miete Jahr 1 für das DSCR-Ziel", "€/m² Monat"),
 }
 for _r, (_a, _u) in GEF_BLOCK.items():
     _GK[f"A{_r}"] = _a
@@ -882,22 +933,39 @@ for _r, (_a, _u) in GEF_BLOCK.items():
 for _g_ in GRUPPEN:
     BESCHRIFTUNG[GEF[_g_]] = dict(_GK, B2=_g_)
 _F = BESCHRIFTUNG[FREI]
-for _c, _k in zip("ABCDEFGHOPQRS", ["t", "Jahr", "Marktmiete", "Sollmiete", "Mietausfall/ Leerstand", "Objektverwaltung",
-                                    "Instandhaltung", "Überschuss vor Kapitaldienst", "Objekt, ohne Restwert",
-                                    "Objekt, mit Restwert, Jahr 35", "Objekt, nur Bodenwert, Jahr 35",
-                                    "Objekt, mit Restwert, Jahr 42", "Objekt, nur Bodenwert, Jahr 42"]):
-    _F[f"{_c}5"] = _k
-_F.update({"O4": "Zahlungsreihen für IRR", "I5": "", "N5": ""})
-for _r in [90, 91, 92, 93, 94, 116, 118, 119, 120, 121, 125, 126, 127, 131]:
+# Frei finanziert (Konzept D.4, N): Zeitreihe A–Q, Zahlungsreihen R–AB, Blöcke in den Zeilen der Blätter Gefördert
+FREI_KOEPFE = ["t", "Jahr", "Marktmiete", "Miete (gerechnet)", "Sollmiete", "Mietausfall/ Leerstand", "Objektverwaltung",
+               "Instandhaltung", "Überschuss vor Kapitaldienst", "Zins Bank", "Tilgung Bank", "Kapitaldienst",
+               "Zahlungsüberschuss", "DSCR", "Restschuld Bank", "Projektkonto (VOFI)", "Zahlungsüberschuss kumuliert",
+               "Objekt, ohne Restwert", "Objekt, mit Restwert, Jahr 35", "Objekt, nur Bodenwert, Jahr 35",
+               "Objekt, mit Restwert, Jahr 42", "Objekt, nur Bodenwert, Jahr 42",
+               "Eigenkapital, ohne Restwert, Jahr 42", "Eigenkapital, ohne Restwert, Jahr 35",
+               "Eigenkapital, mit Restwert, Jahr 35", "Eigenkapital, nur Bodenwert, Jahr 35",
+               "Eigenkapital, mit Restwert, Jahr 42", "Eigenkapital, nur Bodenwert, Jahr 42"]
+for _i, _k in enumerate(FREI_KOEPFE):
+    _F[f"{get_column_letter(1 + _i)}5"] = _k
+_F.update({"A3": _GK["A3"], "A4": "Zeit", "C4": "Miete", "E4": "Ertrag und Bewirtschaftung", "J4": "Kapitaldienst",
+           "M4": "Ergebnis", "O4": "Bestände Jahresende", "R4": "Zahlungsreihen für IRR", "AC5": ""})
+# Zeilen mit derselben Bezeichnung und Einheit wie Gefördert
+FREI_WIE_GEF = [88, 90, 91, 92, 93, 94, 95, 96, 102, 103, 105, 106, 109, 111, 112, 113, 114, 116, 118, 119, 120, 121, 125,
+                126, 127, 131, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 153, 155, 156, 157, 158, 159,
+                165, 166, 167, 169, 170, 179, 181, 182, 183]
+for _r in FREI_WIE_GEF:
     _F[f"A{_r}"] = GEF_BLOCK[_r][0]
     if GEF_BLOCK[_r][1]:
         _F[f"G{_r}"] = GEF_BLOCK[_r][1]
-_F.update({"A95": "Marktmiete Jahr 1", "A122": "Ertragswert zur Marktmiete", "G122": "€",
-           "A128": "Ertragswert Marktmiete gegenüber Gesamtkosten", "G128": "%",
-           "A123": "", "A124": "", "A129": "",          # Dubletten auf Frei leer (Konzept D.4)
+# Zeilen ohne Inhalt auf Frei (NBank-Größen, Dubletten, Förderbarwert): leer und ausgeblendet
+FREI_LEER = [97, 98, 99, 100, 101, 108, 110, 123, 124, 129, 133, 134, 135, 160, 161, 162, 163, 164, 168, 172, 173, 174,
+             175, 176, 177, 178]
+_F.update({f"A{_r}": "" for _r in FREI_LEER})
+_F.update({"A104": "Bares Eigenkapital, inkl. KG 800", "G104": "€", "A107": "Eigenmittelquote", "G107": "%",
+           "A122": "Ertragswert zur gerechneten Miete", "G122": "€",
+           "A128": "Ertragswert gegenüber Gesamtkosten", "G128": "%",
            "A136": "Objekt-IRR, mit Restwert", "A137": "Objekt-IRR, nur Bodenwert", "A138": "Objekt-IRR, ohne Restwert",
-           "A139": "Hilfsgröße: Nettoanfangsrendite, statisch", "O131": "Nullstellensuche IRR",
-           **{f"{_s}132": _t for _s, _t in zip("OPQR", ("Jahr 35: erster Treffer", "Jahr 35: zweiter Versuch",
+           "A151": "Restschuld Bank", "A184": "Marktmiete Jahr 1", "G184": "€/m² Monat",
+           "A185": "Aufschlag Miete Jahr 1 gegenüber Marktmiete", "G185": "%",
+           "A186": "Aufschlag nötige Miete gegenüber Marktmiete", "G186": "%", "R131": "Nullstellensuche IRR",
+           **{f"{_s}132": _t for _s, _t in zip("RSTU", ("Jahr 35: erster Treffer", "Jahr 35: zweiter Versuch",
                                                        "Jahr 42: erster Treffer", "Jahr 42: zweiter Versuch"))}})
 
 
@@ -947,9 +1015,13 @@ UEB_QUELLE_IJ = {76: 175, 77: 176, 78: 133, 79: 136, 80: 177, 81: 134, 82: 135, 
                  99: 126, 100: 121, 101: 125, 103: 123, 104: 124, 105: 120}
 UEB_QUELLE_H = {85: "H139", 102: "H128", 106: "H129"}
 # Frei-Spalten G/K: Zeile -> Zeile auf Frei finanziert (Frei in allen Objekt-IRR-Zeilen 5.1–5.9, Runde 2 F1;
-# 7.5 Ertragswert = Ertragswert zur Marktmiete, Zeile 122)
+# Block 6 EK-Rendite mit Frei, Konzept N; 7.5 Ertragswert = Ertragswert zur gerechneten Miete, Zeile 122)
 UEB_FREI_IJ = {76: 136, 77: 137, 78: 136, 79: 136, 80: 138, 81: 137, 82: 138, 83: 137, 84: 138,
+               89: 140, 90: 141, 91: 143, 92: 144, 93: 149, 94: 142, 95: 145,
                99: 126, 100: 121, 101: 125, 103: 122, 105: 120}
+# Frei-Spalte G in Block 1 und 3: Zeile -> Zelle auf Frei finanziert
+UEB_FREI_H = {9: "H93", 18: "H103", 19: "H106", 20: "H107", 22: "H106", 23: "H104", 26: "H109",
+              42: "H165", 43: "H166", 44: "H167", 45: "H156", 46: "H157", 47: "H158", 48: "H159", 52: "H170"}
 
 
 class Soll:
@@ -983,7 +1055,8 @@ class Soll:
         self.min_em = max(0.0, P["eigenmittel_quote"] * self.Z - P["grundstueck"])
         self.laufzeit_bank = int(e["6.4"])
         self.l = {g: self.lauf(g) for g in GRUPPEN}
-        self.l["M"] = RR.Lauf(P, "M", **self.opt)
+        self.dscr_ziel = float(e["10.2"])
+        self.l["M"] = self.lauf_frei()
         self.bank = any(self.l[g].bank0 > 0 for g in GRUPPEN)
         self.bank_geschlossen = self.bank and self.laufzeit_bank != 30   # RR rechnet nur 30 Jahre (A9)
         self.rw = {g: {H: self.l[g].restwert(H) for H in (0, 35, 42)} for g in GRUPPEN + ("M",)}
@@ -1002,6 +1075,58 @@ class Soll:
             P2["eigenmittel_quote"] = (D * P["be_d"] + Zu * P["be_z"] + self.min_em + self.e["7.1"] + P["kg800"]) / self.Z
             return RR.Lauf(P2, g, ek_modell=True, **opt)
         return RR.Lauf(P, g, **opt)
+
+    # ------------------------------------------------------------------ Frei finanziert (Konzept N)
+    def kd1_bank(self, B):
+        """Kapitaldienst Bank Jahr 1 (Zins + Tilgung) für ein Darlehen B zu den Konditionen 6.1/6.4."""
+        i = self.P["zins_bank"]
+        return B * i + max(0.0, min(pmt(i, self.laufzeit_bank, B) - B * i, B))
+
+    def noetige_miete(self, kd1):
+        """Nötige Miete Jahr 1 für das DSCR-Ziel: (Ziel × Kapitaldienst Jahr 1 + Objektverwaltung + Instandhaltung
+        Jahr 1) ÷ ((1 − Mietausfall) × Wohnfläche × 12)."""
+        P = self.P
+        vw, ih = self.kosten(1)
+        return (self.dscr_ziel * kd1 + vw + ih) / ((1 - P["mietausfall"]) * P["wfl"] * P["monate"])
+
+    def lauf_frei(self):
+        """RR.Lauf "M" mit der Finanzierung laut Konzept N: bares Eigenkapital = Mindest-Eigenmittel in Geld +
+        Zusatz-EK + KG 800, Bank = Herstellungskosten − Mindest-Eigenmittel in Geld − Zusatz-EK (Kasse 0); die Miete
+        ist die Marktmiete oder (Eingabe 10.1) die nötige Miete für das DSCR-Ziel als Marktmiete der Parameterkopie."""
+        P, e = self.P, self.e
+        PM = dict(P)
+        self.frei_bank = max(0.0, round(P["herstellung"] - self.min_em - e["7.1"], 2))
+        self.frei_kd1 = self.kd1_bank(self.frei_bank)
+        self.frei_noetig = self.noetige_miete(self.frei_kd1)
+        self.frei_dscr_miete = e["10.1"] != "Marktmiete"        # wie die Mappe: alles außer „Marktmiete“
+        if self.frei_dscr_miete:
+            PM["markt_start"] = self.frei_noetig
+        if self.frei_bank > 0 and self.Z > 0:
+            PM["eigenmittel_quote"] = (self.min_em + e["7.1"] + P["kg800"]) / self.Z
+            return RR.Lauf(PM, "M", ek_modell=True, **self.opt)
+        return RR.Lauf(PM, "M", **self.opt)
+
+    def frei_reihen(self):
+        """Zeitreihen frei t = 0 … 42: Überschuss vor Kapitaldienst aus der RR; Bank, Zahlungsüberschuss und
+        Projektkonto aus der RR bei Laufzeit 30 Jahre (dort gegen die geschlossene Bankrechnung geprüft), sonst
+        geschlossen (RR rechnet nur 30 Jahre, A9)."""
+        l, P, n = self.l["M"], self.P, self.P["n"]
+        L, br = l.L, self.bank_reihe("M")
+        if self.laufzeit_bank == 30:
+            for t in range(1, n + 1):
+                if abs(L["BZINS"][t] - br[t][0]) > 0.01 or abs(L["BTILG"][t] - br[t][1]) > 0.01 \
+                        or abs(L["W"][t] - br[t][2]) > 0.01:
+                    raise ValueError(f"Frei: Bankpfad RR ungleich geschlossene Rechnung in Jahr {t}")
+            return dict(RE=L["RE"], BZ=L["BZINS"], BT=L["BTILG"], KD=L["KD"], ZUE=L["ZUE"], W=L["W"], KONTO=L["KONTO"])
+        out = {k: [0.0] * (n + 1) for k in ("BZ", "BT", "KD", "ZUE", "W", "KONTO")}
+        out["RE"], out["W"][0] = L["RE"], l.bank0
+        for t in range(1, n + 1):
+            bz, bt, w = br[t]
+            out["BZ"][t], out["BT"][t], out["KD"][t], out["W"][t] = bz, bt, bz + bt, w
+            out["ZUE"][t] = L["RE"][t] - bz - bt
+            k = out["KONTO"][t - 1]
+            out["KONTO"][t] = k * (1 + (P["haben"] if k >= 0 else P["soll"])) + out["ZUE"][t]
+        return out
 
     # ------------------------------------------------------------------ Hilfsgrößen
     def ziel(self, l, t):
@@ -1229,6 +1354,13 @@ class Soll:
                   "H168": ("eur", l.foerderbarwert(P["zins_bank"])["darlehen"]),
                   "H174": ("eur", l.foerderbarwert(P["zins_bank"])["gesamt"]),
                   "H170": ("eur", L["W"][n] if fin else bankr[n][2])})
+        # Miete für das DSCR-Ziel (Konzept N): Kapitaldienst Jahr 1 aus VKB, Zins, Tilgung NBank (RR) und Bank
+        # (geschlossen, gilt für jede Laufzeit)
+        b1 = self.bank_reihe(g)[1]
+        kd1 = L["VKB"][1] + L["ZINS"][1] + L["TILG"][1] + b1[0] + b1[1]
+        if fin and abs(kd1 - L["KD"][1]) > 0.01:
+            raise ValueError(f"Gefördert {g}: Kapitaldienst Jahr 1 ungleich RR")
+        s.update({"H181": ("satz", self.dscr_ziel), "H182": ("cent", kd1), "H183": ("miete", self.noetige_miete(kd1))})
         return s
 
     # ------------------------------------------------------------------ Soll Blatt Frei finanziert
@@ -1237,41 +1369,112 @@ class Soll:
         s, n = {}, P["n"]
         ma, wfl = P["mietausfall"], P["wfl"]
         i0 = P["grundstueck"] + P["herstellung"]
+        markt = self.l["A"].markt                     # Marktmiete laut Eingabe 4.4 (l["M"] rechnet mit der Frei-Miete)
+        R = self.frei_reihen()
         re_ = {}
+        leer, nv = ("leer", None), ("nv", None)
         for t in range(1, P["gnd"] + 1):
             r = 6 + t
             vw, ih = self.kosten(t)
             S = l.markt(t) * wfl * P["monate"]
             re_[t] = S * (1 - ma) - vw - ih
             art = "cent" if t == 1 else "eur"
-            s.update({f"A{r}": ("zahl", t), f"B{r}": ("zahl", P["fj"] + t), f"C{r}": ("miete", l.markt(t)),
-                      f"D{r}": (art, S), f"E{r}": (art, -ma * S), f"F{r}": (art, -vw), f"G{r}": (art, -ih),
-                      f"H{r}": (art, re_[t])})
+            s.update({f"A{r}": ("zahl", t), f"B{r}": ("zahl", P["fj"] + t), f"C{r}": ("miete", markt(t)),
+                      f"D{r}": ("miete", l.markt(t)), f"E{r}": (art, S), f"F{r}": (art, -ma * S), f"G{r}": (art, -vw),
+                      f"H{r}": (art, -ih), f"I{r}": (art, re_[t])})
+            if t <= n and abs(re_[t] - R["RE"][t]) > 1e-6:
+                raise ValueError("Frei: Überschuss vor Kapitaldienst ungleich RR")
+        # Kapitaldienst, Ergebnis, Bestände (t = 0 … 42)
+        s.update({"A6": ("zahl", 0), "B6": ("zahl", P["fj"]), "O6": ("cent", l.bank0), "P6": ("cent", 0.0),
+                  "Q6": ("zahl", 0)})
+        kum, kmin = 0.0, 0.0
+        for t in range(1, n + 1):
+            r = 6 + t
+            art = "cent" if t == 1 else "eur"
+            kd = R["KD"][t]
+            kum += R["ZUE"][t]
+            kmin = min(kmin, kum)
+            s.update({f"J{r}": (art, -R["BZ"][t]), f"K{r}": (art, -R["BT"][t]), f"L{r}": (art, -kd),
+                      f"M{r}": (art, R["ZUE"][t]), f"N{r}": ("dscr", re_[t] / kd) if kd > 1 else leer,
+                      f"O{r}": ("eur", R["W"][t]), f"P{r}": ("eur", R["KONTO"][t]), f"Q{r}": ("eur", kum)})
+        # Zahlungsreihen für IRR: Objekt R–V, Eigenkapital W–AB (EK-Teil hier nachgebildet, RR.kennzahlen bricht
+        # für "M" vorher ab): t = 0 −Eigenkapital, t = 1 … H Zahlungsüberschuss, t = H + Restwert − Restschuld Bank
         for t in range(0, n + 1):
             r = 6 + t
             base = -i0 if t == 0 else re_[t]
-            s[f"O{r}"] = ("eur", base)
-            for col, H, v in (("P", 35, "mit"), ("Q", 35, "oG"), ("R", 42, "mit"), ("S", 42, "oG")):
-                s[f"{col}{r}"] = ("leer", None) if t > H else ("eur", base + (self.rw["M"][H][v] if t == H else 0.0))
+            s[f"R{r}"] = ("eur", base)
+            for col, H, v in (("S", 35, "mit"), ("T", 35, "oG"), ("U", 42, "mit"), ("V", 42, "oG")):
+                s[f"{col}{r}"] = leer if t > H else ("eur", base + (self.rw["M"][H][v] if t == H else 0.0))
+            for H, cols in ((42, ("W", "AA", "AB")), (35, ("X", "Y", "Z"))):
+                if t > H:
+                    for col in cols:
+                        s[f"{col}{r}"] = leer
+                    continue
+                basis = -l.EK if t == 0 else R["ZUE"][t] - (R["W"][H] if t == H else 0.0)
+                s[f"{cols[0]}{r}"] = ("eur", basis)
+                s[f"{cols[1]}{r}"] = ("eur", basis + (self.rw["M"][H]["mit"] if t == H else 0.0))
+                s[f"{cols[2]}{r}"] = ("eur", basis + (self.rw["M"][H]["oG"] if t == H else 0.0))
+        # Finanzierung bei Bezug: gleiche Eigenmittel wie gefördert, Rest Bank, Kasse 0
         gk = P["herstellung"] + P["kg800"] + P["grundstueck"]
+        b = self.bank_param("M")
+        if abs(l.bank0 - self.frei_bank) > 0.01 or abs(l.kasse0) > 1e-9:
+            raise ValueError("Frei: Bankdarlehen der RR ungleich Restfinanzierung laut Konzept N")
         s.update({"H90": ("cent", P["herstellung"]), "H91": ("cent", P["kg800"]), "H92": ("cent", P["grundstueck"]),
-                  "H93": ("cent", gk), "H94": ("cent", i0), "H95": ("miete", l.markt(1))})
+                  "H93": ("cent", gk), "H94": ("cent", i0), "H95": ("cent", P["bemessungsgrenze"][P["band"]]),
+                  "H96": ("cent", self.Z), "H102": ("cent", self.min_em), "H103": ("cent", self.frei_bank),
+                  "H104": ("cent", l.ek_bar), "H105": ("cent", 0.0), "H106": ("cent", l.EK),
+                  "H107": ("satz", l.EK / self.Z if self.Z else 0.0), "H109": ("miete", l.markt(1)),
+                  "H111": ("cent", b["ann"]), "H112": ("eur", b["rest_zb"]), "H113": ("satz", b["anf"]),
+                  "H114": ("eur", b["annp"])})
+        for z in (97, 98, 99, 100, 101, 108, 110, 160, 161, 162, 163, 164, 168, 174):
+            s[f"H{z}"] = leer
+        # Restwert (Ertragswert zur gerechneten Miete), Renditen
         for col, H in (("H", 0), ("I", 35), ("J", 42)):
             rw = self.rw["M"][H]
             s.update({f"{col}118": ("zahl", H), f"{col}119": ("zahl", P["gnd"] - H), f"{col}120": ("satz", rw["lz"]),
                       f"{col}121": ("eur", rw["boden"]), f"{col}122": ("eur", rw["ertragswert_vor_abschlag"]),
-                      f"{col}123": ("leer", None), f"{col}124": ("leer", None), f"{col}125": ("eur", rw["gebaeude"])})
+                      f"{col}123": leer, f"{col}124": leer, f"{col}125": ("eur", rw["gebaeude"])})
             if abs(rw["ertragswert_vor_abschlag"] - rw["voll"]) > 1e-6:
-                raise ValueError("Frei: Ertragswert zur Marktmiete ungleich Bestand (Dublette 123 nicht zulässig)")
+                raise ValueError("Frei: Ertragswert zur gerechneten Miete ungleich Bestand (Dublette 123 nicht zulässig)")
             if H:
                 s[f"{col}126"], s[f"{col}127"] = ("eur", rw["mit"]), ("eur", rw["oG"])
                 for z, v in ((136, "mit"), (137, "oG"), (138, "null")):
                     cf_ = [(0, -i0)] + [(t, re_[t]) for t in range(1, H + 1)]
                     cf_[-1] = (H, cf_[-1][1] + rw[v])
                     s[f"{col}{z}"] = self.irr(cf_)
+                rest = R["W"][H]
+                for z, v in ((140, "mit"), (141, "oG"), (142, "null")):
+                    cf_ = [(0, -l.EK)] + [(t, R["ZUE"][t]) for t in range(1, H + 1)]
+                    cf_[-1] = (H, cf_[-1][1] + rw[v] - rest)
+                    s[f"{col}{z}"] = self.irr(cf_)
+                for z, v in ((143, "mit"), (144, "oG"), (145, "null")):
+                    ev = R["KONTO"][H] + rw[v] - rest
+                    s[f"{col}{z}"] = ("vofi", (ev / l.EK) ** (1 / H) - 1 if ev > 0 and l.EK > 0 else None)
+                    s[f"{col}{z + 3}"] = ("eur", ev)
+                ev_mit = R["KONTO"][H] + rw["mit"] - rest
+                s[f"{col}149"] = nv if ev_mit <= 0 else ("satz", rw["mit"] / ev_mit)
+                s[f"{col}150"], s[f"{col}151"] = ("eur", R["KONTO"][H]), ("eur", rest)
+                for z in (133, 134, 135, 175, 176, 177):
+                    s[f"{col}{z}"] = leer
         s["H128"] = ("satz", self.rw["M"][0]["voll"] / gk - 1 if gk > 0 else 0.0)
-        s["H129"] = ("leer", None)
+        s["H129"] = leer
         s["H139"] = ("satz", re_[1] / i0 if i0 > 0 else 0.0)
+        # Liquidität
+        ds = [re_[t] / R["KD"][t] for t in range(1, P["bindung"] + 1) if R["KD"][t] > 1]
+        s.update({"H155": ("cent", R["ZUE"][1]),
+                  "H156": ("dscr", re_[1] / R["KD"][1]) if R["KD"][1] > 1 else leer,
+                  "H157": ("dscr", min(ds)) if ds else ("text", "–"),
+                  "H158": ("zahl", sum(1 for t in range(1, P["bindung"] + 1) if round(R["ZUE"][t], 2) < 0)),
+                  "H159": ("eur", kmin), "H165": ("eur", R["ZUE"][10]), "H166": ("eur", R["ZUE"][P["bindung"]]),
+                  "H167": ("eur", R["ZUE"][n]), "H169": ("eur", min(R["KONTO"][0:n + 1])), "H170": ("eur", R["W"][n])})
+        # Miete für das DSCR-Ziel: nötige Miete (im Prüfskript gerechnet), Marktmiete, Aufschläge
+        if abs(R["KD"][1] - self.frei_kd1) > 0.01:
+            raise ValueError("Frei: Kapitaldienst Jahr 1 ungleich geschlossene Rechnung")
+        m1 = markt(1)
+        s.update({"H181": ("satz", self.dscr_ziel), "H182": ("cent", self.frei_kd1),
+                  "H183": ("miete", self.frei_noetig), "H184": ("miete", m1),
+                  "H185": ("satz", l.markt(1) / m1 - 1 if m1 > 0 else 0.0),
+                  "H186": ("satz", self.frei_noetig / m1 - 1 if m1 > 0 else 0.0)})
         return s
 
     # ------------------------------------------------------------------ Soll Übersicht und NBank
@@ -1324,10 +1527,25 @@ class Soll:
                 if sp_(g, quelle) is not None:
                     s[f"{c}{z}"] = sp_(g, quelle)
                 s[f"{c42}{z}"] = leer
-        # Frei-Spalten G (Jahr 35) und K (Jahr 42); nicht zutreffende Frei-Zellen leer (Konzept D.5)
-        s["G9"], s["G26"] = sf["H93"], sf["H95"]
-        for z in list(range(10, 26)):
-            s[f"G{z}"] = leer
+        # Frei-Spalten G (Jahr 35) und K (Jahr 42); nicht zutreffende Frei-Zellen leer (Konzept D.5, N)
+        for z in list(range(9, 27)) + list(range(42, 53)):
+            s[f"G{z}"] = sf[UEB_FREI_H[z]] if z in UEB_FREI_H else leer
+        # Jahresrechnung Jahr 1 frei (Beträge positiv), Zeilen der NBank leer
+        RF = self.frei_reihen()
+        lf = self.l["M"].L
+        s.update({"G29": ("cent", lf["S"][1]), "G30": ("cent", lf["MA"][1]), "G31": ("cent", lf["VW"][1]),
+                  "G32": ("cent", lf["IH"][1]), "G33": ("cent", lf["RE"][1]), "G34": leer, "G35": leer, "G36": leer,
+                  "G37": ("cent", RF["KD"][1]), "G38": ("cent", RF["ZUE"][1]), "G39": leer})
+        # Block 8 Miete für das DSCR-Ziel (A/B/C/Frei), Aufschläge nur Frei; Aufschlag bei den Renditen (L74, L87)
+        for z, (zg, zf) in UEB_BLOCK8.items():
+            for i, g in enumerate(GRUPPEN):
+                if zg is None:
+                    s[f"{'DEF'[i]}{z}"] = leer
+                elif sp_(g, zg) is not None:
+                    s[f"{'DEF'[i]}{z}"] = sp_(g, zg)
+            s[f"G{z}"] = sf[zf]
+        for z in UEB_AUFSCHLAG:
+            s[z] = sf["H185"]
         for z, quelle in UEB_FREI_IJ.items():
             s[f"G{z}"], s[f"K{z}"] = sf[f"I{quelle}"], sf[f"J{quelle}"]
         for z in [z for z in UEB_QUELLE_IJ if z not in UEB_FREI_IJ]:
@@ -1361,14 +1579,14 @@ class Soll:
                 for z, quelle in ((67, 29), (68, 30), (69, 34), (71, 62), (72, 39)):
                     s[f"{c}{z}"] = ("cent", s[f"{c}{quelle}"][1] - s[f"D{quelle}"][1])
                 s[f"{c}70"] = ("cent", h160["BC"["EF".index(c)]] - h160["A"])
-        # Prüfstatus P1–P6 (C109:C114), Kasse bei Bezug (D109:F109) und Gesamtstatus D3
+        # Prüfstatus P1–P6 (C117:C122), Kasse bei Bezug (D117:F117) und Gesamtstatus D3
         for i, g in enumerate(GRUPPEN):
             if sg[g].get("H105") is not None:
-                s[f"{'DEF'[i]}109"] = sg[g]["H105"]
+                s[f"{'DEF'[i]}{PZ}"] = sg[g]["H105"]
         st = self.status(sg, sf)
         for k, v in enumerate(st):
             if v is not None:
-                s[f"C{109 + k}"] = ("text", v)
+                s[f"C{PZ + k}"] = ("text", v)
         if "prüfen" in st:
             s["D3"] = ("text", "prüfen")
         elif all(v == "OK" for v in st):
@@ -1376,17 +1594,18 @@ class Soll:
         return s
 
     def status(self, sg, sf):
-        """P1–P6 laut Konzept F.1 (Runde 2): P2 = Auswahlfelder gültig; P4 = alle Renditen mit Restwert Zahlen
-        (Zeilen 133, 136, 140, 143, 175 je Gruppe, Frei 136), nach der Nullstellenregel F8."""
+        """P1–P6 laut Konzept F.1 (Runde 2, N): P2 = Auswahlfelder gültig (mit 10.1); P4 = alle Renditen mit Restwert
+        Zahlen (Zeilen 133, 136, 140, 143, 175 je Gruppe, Frei 136, 140, 143), nach der Nullstellenregel F8."""
         e = self.e
         ls = [self.l[g] for g in GRUPPEN]
         p1 = all(l.kasse0 < 1 for l in ls)
-        p2 = e["4.1"] in MIETENSTUFEN and e["4.2"] in ("ja", "nein") and e["8.2"] in ("Marktmiete", "Vergleichsmiete")
+        p2 = e["4.1"] in MIETENSTUFEN and e["4.2"] in ("ja", "nein") and e["8.2"] in ("Marktmiete", "Vergleichsmiete") \
+            and e["10.1"] in MIETWAHL
         p3 = all(l.bank0 < 1 or self.bank_param(g)["anf"] >= 0.01 - 0.00005 for g, l in zip(GRUPPEN, ls))
         p4 = True
         unsicher = False
         specs = [sg[g].get(f"{col}{z}") for g in GRUPPEN for z in (133, 136, 140, 143, 175) for col in "IJ"]
-        specs += [sf[f"{col}136"] for col in "IJ"]
+        specs += [sf[f"{col}{z}"] for z in (136, 140, 143) for col in "IJ"]
         for sp in specs:
             if sp is None:
                 unsicher = True
@@ -1499,6 +1718,12 @@ LAEUFE = [
     ("L35", "M", {"9.1": 1.10}), ("L36", "M", {"9.2": 0.95}), ("L37", "M", {"9.3": 0.005}), ("L38", "M", {"9.4": 0.50}),
     # Nacharbeit Runde 1: Bankdarlehen mit negativen EK-Renditen (IRR-Kaskade, P4 mit VOFI), keine Nullstelle > −100 %
     ("L39", "M", {"2.1": 6000}), ("L40", "M", {"9.1": 2.0}), ("L41", "M", {"4.5": -0.05}),
+    # Konzept N (frei finanziert): Miete für DSCR-Ziel 1,0 und 1,25 in beiden Projekten; Bankzins 0 % und 6 %;
+    # Laufzeit Bank 20 und 42 Jahre; Zusatz-EK 1 Mio. €; Grundstück 500.000 €
+    ("L43", "M", {"10.1": "Miete für DSCR-Ziel"}), ("L44", "M", {"10.1": "Miete für DSCR-Ziel", "10.2": 1.25}),
+    ("L45", "T", {"10.1": "Miete für DSCR-Ziel"}), ("L46", "T", {"10.1": "Miete für DSCR-Ziel", "10.2": 1.25}),
+    ("L47", "M", {"6.1": 0.0}), ("L48", "M", {"6.1": 0.06}), ("L49", "M", {"6.4": 20}), ("L50", "M", {"6.4": 42}),
+    ("L51", "M", {"7.1": 1000000}), ("L52", "M", {"2.3": 500000}),
 ]
 # Fehlerlauf (Runde 2, R1): ungültige Mietenstufe per Einfügen (die Datenüberprüfung greift dabei nicht). Erwartet:
 # Fehlerwerte in der Mappe, aber Gesamtstatus und Prüfungen „prüfen“ (nie „OK“ aus Fehlerwerten), NBank-Lage „prüfen“.
@@ -1514,9 +1739,9 @@ def pruefe_fehlerlauf(b, lid, res, werte):
         p.fertig()
         return
     p.gleich("Übersicht!D3 Gesamtstatus", werte.get(UEB, "D3"), "prüfen")
-    for r in (109, 110, 111, 112, 113):
+    for r in UEB_PRUEF[:5]:
         p.gleich(f"Übersicht!C{r} ({UEB_ZEILEN[r][0]})", werte.get(UEB, f"C{r}"), "prüfen")
-    p.gleich("Übersicht!C114 (P6, Eingaben vollständig)", werte.get(UEB, "C114"), "OK")
+    p.gleich(f"Übersicht!C{PZ + 5} (P6, Eingaben vollständig)", werte.get(UEB, f"C{PZ + 5}"), "OK")
     for r in NB_MATRIX:
         for c in "GHI":
             p.gleich(f"NBank!{c}{r}", werte.get("NBank", f"{c}{r}"), "prüfen")
@@ -1663,10 +1888,10 @@ def pruefe_f3(b, mappe, wb, xml):
         p.check(True, f"{ws.title} geprüft")
     p.fertig()
 
-    p = b.pruefung("F3", "Definierte Namen: 64, Ziele laut Konzept, kein #REF")
+    p = b.pruefung("F3", "Definierte Namen: 66, Ziele laut Konzept, kein #REF")
     nz = name_ziele(wb)
     eigene = {n: v for n, v in nz.items() if not n.startswith("_xlnm")}
-    p.check(len(eigene) == len(NAMEN) == 64, "Anzahl Namen", len(eigene), 64)
+    p.check(len(eigene) == len(NAMEN) == 66, "Anzahl Namen", len(eigene), 66)
     for n, soll in NAMEN.items():
         if n not in eigene:
             p.check(False, f"Name {n}", "fehlt", soll)
@@ -1782,9 +2007,61 @@ def finde_zyklus(wb, nz):
 ZEITREIHEN = {**{g: [(["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "X"], 7, 86),
                      (["L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W"], 7, 48),
                      ([get_column_letter(c) for c in range(25, 46)], 6, 48)] for g in GEF.values()},
-              FREI: [(["A", "B", "C", "D", "E", "F", "G", "H"], 7, 86), (["O", "P", "Q", "R", "S"], 6, 48)]}
+              FREI: [(["A", "B", "C", "D", "E", "F", "G", "H", "I"], 7, 86),
+                     (["J", "K", "L", "M", "N", "O", "P", "Q"], 7, 48),
+                     ([get_column_letter(c) for c in range(18, 29)], 6, 48)]}
 # 0,1–0,7: IRR-Startwerte E10 (0,6 seit Runde 2); 0,05: zweiter Versuch; 0,0001: Barwert-Test „fallend“ (E10)
 ERLAUBTE_KONSTANTEN = [0.0, 1.0, 2.0, 10.0, 12.0, 0.03, 0.1, 0.3, 0.5, 0.6, 0.7, 0.05, 0.0001, 0.00005]
+
+# Frei finanziert rechnet Bank, Projektkonto, EK-Reihen und Kennzahlen mit den Formeln der Blätter Gefördert
+# (Konzept N: keine zweite Rechenvariante). Verglichen wird die Formel je Zelle nach Umsetzen der Spalten auf
+# gemeinsame Platzhalter; auf Gefördert entfallen dabei die NBank-Anteile (Restschuld NBank T) und die Sperre E14.
+_SP_GEF = {"K": "RE", "O": "BZ", "P": "BT", "Q": "KD", "R": "ZUE", "S": "DSCR", "U": "W", "V": "KONTO", "W": "KUM",
+           "AI": "EK42", "AJ": "EK35", "AK": "EK35M", "AL": "EK35B", "AM": "EK42M", "AN": "EK42B", "Y": "H1", "Z": "H2",
+           "AA": "H3", "AB": "H4"}
+_SP_FREI = {"I": "RE", "J": "BZ", "K": "BT", "L": "KD", "M": "ZUE", "N": "DSCR", "O": "W", "P": "KONTO", "Q": "KUM",
+            "W": "EK42", "X": "EK35", "Y": "EK35M", "Z": "EK35B", "AA": "EK42M", "AB": "EK42B", "R": "H1", "S": "H2",
+            "T": "H3", "U": "H4"}
+_REF_RE = re.compile(r"(?<![A-Za-z_])(\$?)([A-Z]{1,2})(\$?)(\d+)(?![\d(A-Za-z_])")
+
+
+def _spalten_norm(f, karte):
+    """Zellbezüge der Zeitreihenspalten auf Platzhalter umsetzen; Bezüge auf die Blockspalten H/I/J (Zeilen ab 88)
+    und auf Spalte A bleiben stehen."""
+    def ers(m):
+        col, row = m.group(2), int(m.group(4))
+        if row >= 88 and col in ("H", "I", "J"):
+            return m.group(0)
+        return f"{m.group(1)}<{karte[col]}>{m.group(3)}{row}" if col in karte else m.group(0)
+    return _REF_RE.sub(ers, f.replace(" ", ""))
+
+
+def gef_formel_norm(f):
+    f = f.replace(" ", "")
+    if f.startswith('=IF($H$105>=1,"n.v.",') and f.endswith(")"):          # Sperre E14 (nur Gefördert)
+        f = "=" + f[len('=IF($H$105>=1,"n.v.",'):-1]
+    f = _spalten_norm(f, _SP_GEF)
+    f = re.sub(r"\$T(\d+)\+", "", f)                                       # Restschuld NBank in den EK-Reihen
+    f = re.sub(r"-INDEX\(\$T\$6:\$T\$48,([IJ])\$118\+1\)", "", f)           # … im Endvermögen
+    f = re.sub(r"INDEX\(\$T\$6:\$T\$48,([IJ])\$118\+1\)\+", "", f)          # … in Zeile 151
+    return f
+
+
+def frei_formel_norm(f):
+    return _spalten_norm(f, _SP_FREI)
+
+
+# (Zelle Frei, Zelle Gefördert A): Zeitreihe Zeile 7 und 48, Zahlungsreihen Zeile 6, 41 und 48, Kennzahlen I und J
+# Ausnahme: Zahlungsüberschuss frei (Spalte M) auf Cent gerundet, FREI_ZUE
+FREI_GLEICH_GEF = [(f"{cf_}{r}", f"{cg}{r}") for cf_, cg in (("J", "O"), ("K", "P"), ("N", "S"), ("O", "U"),
+                                                              ("P", "V"), ("Q", "W")) for r in (7, 48)]
+FREI_ZUE = "=ROUND(I{r}+L{r},2)"
+FREI_GLEICH_GEF += [(f"{cf_}{r}", f"{cg}{r}") for cf_, cg in (("W", "AI"), ("X", "AJ"), ("Y", "AK"), ("Z", "AL"),
+                                                               ("AA", "AM"), ("AB", "AN")) for r in (6, 41, 48)]
+FREI_GLEICH_GEF += [(f"{c}{z}", f"{c}{z}") for z in list(range(140, 152)) for c in "IJ"]
+FREI_GLEICH_GEF += [(f"{cf_}{z}", f"{cg}{z}") for z in (140, 141, 142)
+                    for cf_, cg in (("R", "Y"), ("S", "Z"), ("T", "AA"), ("U", "AB"))]
+FREI_GLEICH_GEF += [(f"H{z}", f"H{z}") for z in (111, 112, 113, 114, 155, 156, 157, 158, 159, 165, 166, 167, 169, 170)]
 
 
 def pruefe_f4(b, wb):
@@ -1828,6 +2105,19 @@ def pruefe_f4(b, wb):
     p.gleich("Gefördert A B2", wa["B2"].value, "A")
     p.fertig()
 
+    p = b.pruefung("F4", "Frei finanziert: Bank, Projektkonto, EK-Reihen, Kennzahlen mit den Formeln von Gefördert A")
+    wf = wb[FREI]
+    for zf, zg in FREI_GLEICH_GEF:
+        ff, fg = wf[zf].value, wa[zg].value
+        nf = frei_formel_norm(ff) if isinstance(ff, str) else ff
+        ng = gef_formel_norm(fg) if isinstance(fg, str) else fg
+        p.check(isinstance(ff, str) and nf == ng, f"Frei!{zf} wie Gefördert A!{zg}", nf, ng)
+    for r in (7, 48):
+        v = wf[f"M{r}"].value
+        p.check(isinstance(v, str) and v.replace(" ", "") == FREI_ZUE.format(r=r), f"Frei!M{r} Zahlungsüberschuss auf Cent",
+                v, FREI_ZUE.format(r=r))
+    p.fertig()
+
     p = b.pruefung("F4", "Zahlenkonstanten in Formeln nur 0, 1, 2, 10, 12, 0,03, IRR-Konstanten (E10), 0,00005")
     for s, c in alle_formeln(wb):
         for k in zahlkonstanten(c.value):
@@ -1838,8 +2128,8 @@ def pruefe_f4(b, wb):
     p.check(True, "alle Formeln durchsucht")
     p.fertig()
 
-    p = b.pruefung("F4", "Feste Zahlen außerhalb Eingaben/Tabellen nur A6, W6, H118 und Raster B55:B61")
-    erlaubt = {(g, z) for g in GEF.values() for z in ("A6", "W6", "H118")} | {(FREI, "A6"), (FREI, "H118")}
+    p = b.pruefung("F4", "Feste Zahlen außerhalb Eingaben/Tabellen nur A6, W6 (Frei Q6), H118 und Raster B55:B61")
+    erlaubt = {(g, z) for g in GEF.values() for z in ("A6", "W6", "H118")} | {(FREI, "A6"), (FREI, "Q6"), (FREI, "H118")}
     erlaubt |= {(UEB, f"B{r}") for r in range(55, 62) if r != 59}
     for ws in wb.worksheets:
         if ws.title in ("Eingaben", "Tabellen"):
@@ -1850,7 +2140,7 @@ def pruefe_f4(b, wb):
                     p.check(False, f"{ws.title}!{c.coordinate}", c.value, "keine feste Zahl")
     for (s, z) in sorted(erlaubt):
         v = wb[s][z].value
-        if z in ("A6", "W6", "H118"):
+        if z in ("A6", "W6", "Q6", "H118"):
             p.check(v == 0 and ist_zahl(v), f"{s}!{z}", v, 0)
     v59 = wb[UEB]["B59"].value
     p.check(isinstance(v59, str) and v59.replace(" ", "") == "=1/Laufzeit_max", "Übersicht!B59", v59, "=1/Laufzeit_max")
@@ -2047,7 +2337,7 @@ def pruefe_f5(b, wb, xml, nz):
         d = wu.row_dimensions[r]
         p.check(not d.hidden and not d.outline_level, f"Übersicht Zeile {r} sichtbar",
                 f"Ebene {d.outline_level}, verborgen={d.hidden}", "sichtbar")
-    for g, (c0, c1) in [(g, (25, 45)) for g in GEF.values()] + [(FREI, (15, 19))]:
+    for g, (c0, c1) in [(g, (25, 45)) for g in GEF.values()] + [(FREI, (18, 28))]:
         for c in range(c0, c1 + 1):
             lv, hid = spalten_gliederung(wb[g], get_column_letter(c))
             p.check(lv >= 1 and hid, f"{g} Spalte {get_column_letter(c)}", f"Ebene {lv}, verborgen={hid}",
@@ -2057,6 +2347,16 @@ def pruefe_f5(b, wb, xml, nz):
             p.check((d.outline_level or 0) == 1 and bool(d.hidden), f"{g} Zeile {r} (t = {r - 6})",
                     f"Ebene {d.outline_level}, verborgen={d.hidden}", "Ebene 1, zugeklappt")
         p.check(not wb[g].row_dimensions[48].hidden, f"{g} Zeile 48 sichtbar", wb[g].row_dimensions[48].hidden, False)
+    for c in range(1, 18):                         # Frei: Zeitreihe A–Q ohne Gliederung, ohne leere Platzhalterspalte
+        lv, hid = spalten_gliederung(wb[FREI], get_column_letter(c))
+        p.check(lv == 0 and not hid and wb[FREI].cell(5, c).value not in (None, ""), f"{FREI} Spalte {get_column_letter(c)}",
+                f"Ebene {lv}, verborgen={hid}, Kopf={wb[FREI].cell(5, c).value}", "sichtbar, mit Kopf")
+    for r in range(88, 187):                       # Frei: leere Zeilen ausgeblendet, belegte sichtbar
+        hid = bool(wb[FREI].row_dimensions[r].hidden)
+        if r in FREI_LEER:
+            p.check(hid, f"{FREI} Zeile {r} (leer) ausgeblendet", hid, True)
+        elif wb[FREI][f"A{r}"].value not in (None, ""):
+            p.check(not hid, f"{FREI} Zeile {r} sichtbar", hid, False)
     fehlt_sb = []
     for t in ("Eingaben", UEB) + tuple(GEF.values()) + (FREI,):
         sp = re.search(r"<sheetPr\b.*?</sheetPr>|<sheetPr\b[^>]*/>", xml.get(t, ""), re.S)
@@ -2106,10 +2406,10 @@ EMOJI_RE = re.compile("[\U0001F000-\U0001FAFF☀-➿️⬀-⯿]")
 
 def pruefe_f6(b, wb):
     p = b.pruefung("F6", "Textlängen: Bezeichnung ≤ 45, Quelle ≤ 60, sonst ≤ 120 (außer Hinweise)")
-    bez = {"Eingaben": ("B", 6, 51), UEB: ("B", 8, 114), "Tabellen": ("B", 3, 41), "NBank": ("B", 3, 31)}
+    bez = {"Eingaben": ("B", 6, EINGABE_LETZTE), UEB: ("B", 8, PZ + 5), "Tabellen": ("B", 3, 41), "NBank": ("B", 3, 31)}
     for g in list(GEF.values()) + [FREI]:
-        bez[g] = ("A", 88, 177)
-    quelle = {"Eingaben": ("G", 7, 51), "Tabellen": ("G", 5, 41), "NBank": ("G", 5, 7)}
+        bez[g] = ("A", 88, 186)
+    quelle = {"Eingaben": ("G", 7, EINGABE_LETZTE), "Tabellen": ("G", 5, 41), "NBank": ("G", 5, 7)}
     for ws in wb.worksheets:
         for row in ws.iter_rows():
             for c in row:
@@ -2223,8 +2523,14 @@ def pruefe_eingaben(b, wb, nz):
     labels = [we[f"B{e[1]}"].value for e in EINGABEN]
     doppelt = sorted({x for x in labels if labels.count(x) > 1})
     p.check(not doppelt, "jede Eingabe genau einmal (Bezeichnung)", doppelt, "keine Doppelungen")
-    belegt = [r for r in range(6, 52) if r not in GRUPPENZEILEN]
-    p.check(sorted(e[1] for e in EINGABEN) == belegt, "Eingabezeilen 7–51 lückenlos", len(EINGABEN), 37)
+    belegt = [r for r in range(6, EINGABE_LETZTE + 1) if r not in GRUPPENZEILEN]
+    p.check(sorted(e[1] for e in EINGABEN) == belegt and len(EINGABEN) == 39, "Eingabezeilen 7–54 lückenlos",
+            len(EINGABEN), 39)
+    # bestehende Eingaben behalten Nummer und Zeile (Konzept N: Block 10 angehängt, keine Verschiebung)
+    fest = {"3.1": 17, "5.1": 29, "5.2": 30, "5.3": 31, "6.1": 35, "6.2": 36, "6.3": 37, "6.4": 38, "7.1": 40, "7.2": 41,
+            "7.3": 42, "9.1": 48, "9.2": 49, "9.3": 50, "9.4": 51}
+    for nr, z in fest.items():
+        p.gleich(f"Eingabe {nr} in Zeile {z}", str(we[f"A{z}"].value), nr)
     p.check(not any(we[f"A{r}"].value for r in GRUPPENZEILEN), "Gruppenzeilen ohne Nr.", None, "Spalte A leer")
     for r, (k, kurz) in GRUPPENZEILEN.items():
         v = we[f"B{r}"].value or ""
@@ -2246,7 +2552,7 @@ def pruefe_eingaben(b, wb, nz):
             g = e[6]
             if g[0] == "list":
                 f1 = (dv.formula1 or "").lstrip("=").replace(" ", "")
-                ok = dv.type == "list" and (f1 == g[1] or f1 == f'"{g[1]}"')
+                ok = dv.type == "list" and f1.strip('"') == g[1].replace(" ", "")
                 p.check(ok, f"{zelle} ({e[2]})", f"{dv.type} {dv.formula1}", f"list {g[1]}")
             else:
                 f2 = (dv.formula2 or "").lstrip("=").strip()
@@ -2367,6 +2673,12 @@ def pruefe_uebersicht_formate(b, wb):
     p.check(norm_numfmt(wu["C32"].number_format) == norm_numfmt('0.00" €/m²"'), "Übersicht!C32", wu["C32"].number_format,
             '0.00" €/m²"')
     p.check(norm_numfmt(wu["C35"].number_format) == "0.00%", "Übersicht!C35", wu["C35"].number_format, "0.00 %")
+    for z in UEB_AUFSCHLAG:                       # Aufschlag der Frei-Miete bei den Renditen: Zahl, Text im Format
+        v = wu[z].value
+        p.check(isinstance(v, str) and v.replace(" ", "") == "='Freifinanziert'!H185", f"Übersicht!{z}", v,
+                "='Frei finanziert'!H185")
+        p.check(norm_numfmt(wu[z].number_format) == norm_numfmt(F_AUFSCHLAG), f"Übersicht!{z} Format",
+                wu[z].number_format, F_AUFSCHLAG)
     for r in UEB_RASTER_ZEILEN:
         soll = F_TILG_E if r == 62 else F_TILG
         p.check(norm_numfmt(wu[f"B{r}"].number_format) == norm_numfmt(soll), f"Übersicht!B{r}",
@@ -2449,10 +2761,55 @@ def pruefe_lauf(b, lid, proj, aend, res, werte, soll, specs):
         if ist_zahl(h103) and h103 > 0 and lfz <= 42:
             u = werte.get(x, f"U{6 + lfz}")
             p.check(ist_zahl(u) and u < 1, f"{x} Bank getilgt Ende Jahr {lfz}", u, "< 1")
-        if werte.get(UEB, "C109") == "OK":
+        if werte.get(UEB, f"C{PZ}") == "OK":
             k = werte.get(x, "H105")
             p.check(ist_zahl(k) and abs(k) < 0.01, f"{x} Kasse = 0 bei P1 OK", k, 0)
-    if soll.e["8.2"] == "Marktmiete":
+    # Frei finanziert (Konzept N): Kasse 0, Finanzierung geht auf, Mietwahl, DSCR-Ziel, Aufschläge, nötige Miete
+    fw = lambda z: werte.get(FREI, z)                                           # noqa: E731
+    zahlen = all(ist_zahl(fw(z)) for z in ("H90", "H91", "H92", "H103", "H104", "H105", "H106", "H109", "H181", "H182",
+                                           "H183", "H184", "H185", "H186", "C7", "D7", "G7", "H7"))
+    p.check(zahlen, "Frei: Finanzierung und Miete für das DSCR-Ziel sind Zahlen", zahlen, True)
+    if zahlen:
+        p.check(abs(fw("H105")) < 0.01, "Frei Kasse bei Bezug = 0", fw("H105"), 0)
+        p.check(abs(fw("H103") + fw("H104") - fw("H90") - fw("H91")) < 0.01, "Frei Bank + bares EK = KG 200–800",
+                fw("H103") + fw("H104"), fw("H90") + fw("H91"))
+        p.check(abs(fw("H106") - fw("H92") - fw("H104")) < 0.01, "Frei Eigenkapital = Grundstück + bar", fw("H106"),
+                fw("H92") + fw("H104"))
+        nb = werte.get("Eingaben", "F29"), werte.get("Eingaben", "F8")
+        noetig = (fw("H181") * fw("H182") - fw("G7") - fw("H7")) / ((1 - nb[0]) * nb[1] * 12)
+        p.check(abs(fw("H183") - noetig) < 1e-9, "Frei nötige Miete = (Ziel × Kapitaldienst + Kosten) ÷ Ertrag je €/m²",
+                fw("H183"), noetig)
+        p.check(abs(fw("H185") - (fw("H109") / fw("H184") - 1)) < 1e-12, "Frei Aufschlag gerechnete Miete", fw("H185"),
+                fw("H109") / fw("H184") - 1)
+        p.check(abs(fw("H186") - (fw("H183") / fw("H184") - 1)) < 1e-12, "Frei Aufschlag nötige Miete", fw("H186"),
+                fw("H183") / fw("H184") - 1)
+        p.check(abs(fw("D7") - fw("H109")) < 1e-12, "Frei Miete Jahr 1 der Zeitreihe = Miete Jahr 1", fw("D7"), fw("H109"))
+        if soll.e["10.1"] == "Marktmiete":
+            p.check(abs(fw("H109") - fw("C7")) < 1e-12 and fw("H185") == 0, "Frei Schalter Marktmiete: Miete = Marktmiete",
+                    fw("H109"), fw("C7"))
+        else:
+            p.check(abs(fw("H109") - fw("H183")) < 1e-12, "Frei Schalter DSCR-Ziel: Miete = nötige Miete", fw("H109"),
+                    fw("H183"))
+            if fw("H182") > 1:
+                p.check(ist_zahl(fw("H156")) and abs(fw("H156") - soll.dscr_ziel) < 1e-9,
+                        "Frei Schalter DSCR-Ziel: DSCR Jahr 1 = DSCR-Ziel", fw("H156"), soll.dscr_ziel)
+                p.check(ist_zahl(fw("H155")) and abs(fw("H155") - (soll.dscr_ziel - 1) * fw("H182")) < 0.01,
+                        "Frei Schalter DSCR-Ziel: Zahlungsüberschuss Jahr 1 = (Ziel − 1) × Kapitaldienst", fw("H155"),
+                        (soll.dscr_ziel - 1) * fw("H182"))
+        lfz = int(soll.e["6.4"])
+        if fw("H103") > 0 and lfz <= 42:
+            u = fw(f"O{6 + lfz}")
+            p.check(ist_zahl(u) and u < 1, f"Frei Bank getilgt Ende Jahr {lfz}", u, "< 1")
+    for g in GRUPPEN:                             # nötige Miete gefördert: dieselbe Formel mit dem Kapitaldienst Q7
+        x = GEF[g]
+        v = [werte.get(x, z) for z in ("H181", "H182", "H183", "Q7", "I7", "J7")]
+        if all(ist_zahl(a_) for a_ in v):
+            nb = werte.get("Eingaben", "F29"), werte.get("Eingaben", "F8")
+            p.check(abs(v[1] + v[3]) < 0.005 and abs(v[2] - (v[0] * v[1] - v[4] - v[5]) / ((1 - nb[0]) * nb[1] * 12)) < 1e-9,
+                    f"{x} nötige Miete aus Kapitaldienst Jahr 1", v[2], "(Ziel × Kapitaldienst + Kosten) ÷ Ertrag")
+        else:
+            p.check(False, f"{x} Miete für das DSCR-Ziel", v, "Zahlen")
+    if soll.e["8.2"] == "Marktmiete" and soll.e["10.1"] == "Marktmiete":
         a, f = werte.get(GEF["A"], "J122"), werte.get(FREI, "J122")
         p.check(ist_zahl(a) and ist_zahl(f) and abs(a - f) < 1, "Ertragswert gefördert = frei (Zielmiete Marktmiete)", a, f)
     if int(soll.e["3.2"]) == 0:
@@ -2474,7 +2831,7 @@ def pruefe_lauf(b, lid, proj, aend, res, werte, soll, specs):
 
 
 ERLAUBTE_TEXTE = {"OK", "prüfen", "über", "unter", "A", "B", "C", "n. v.", "–", "", "ja", "nein", "Marktmiete",
-                  "Vergleichsmiete"} | set(MIETENSTUFEN) | set(PROJEKT_NAME.values())
+                  "Vergleichsmiete", "Miete für DSCR-Ziel"} | set(MIETENSTUFEN) | set(PROJEKT_NAME.values())
 
 
 def pruefe_formeltexte(b, wb, laeufe):
@@ -2506,6 +2863,125 @@ def pruefe_gelieferte_werte(b, gel, l1):
                 fehler.append(f"{blatt}!{z}")
     p.check(not fehler, "Fehlerwerte im Zwischenspeicher", fehler[:5], "keine")
     p.fertig()
+
+
+REGRESSION_STATUS = ("OK", "prüfen", "n. v.", "–", "A", "B", "C")
+REGRESSION_UMBENANNT = {("P2", "Auswahlfelder 4.1, 4.2 und 8.2 gültig"): ("P2", "Auswahlfelder 4.1, 4.2, 8.2 und 10.1 gültig")}
+REGRESSION_FREI = {"Ertragswert zur Marktmiete": "Ertragswert zur gerechneten Miete",
+                   "Ertragswert Marktmiete gegenüber Gesamtkosten": "Ertragswert gegenüber Gesamtkosten"}
+
+
+def pruefe_regression(b, lid, alt, neu):
+    """Entscheidung 7 (Konzept N): Mit Schalter „Marktmiete“ sind alle Zellwerte der Blätter Gefördert A/B/C und
+    NBank, der Übersicht-Spalten D–F und H–J (Zeilen nach Nr. und Bezeichnung zugeordnet) und die bisherigen
+    Frei-Objektwerte (nach Spaltenkopf bzw. Bezeichnung zugeordnet) gleich dem Stand vorher (Toleranz 1e-9)."""
+    def gl(a, c):
+        if ist_zahl(a) and ist_zahl(c):
+            return abs(a - c) <= 1e-9 * max(1.0, abs(a))
+        return (norm_text(a) if isinstance(a, str) else a) == (norm_text(c) if isinstance(c, str) else c)
+
+    p = b.pruefung("N", f"{lid} Regression: Gefördert A/B/C und NBank zellgleich dem Stand vorher")
+    n = 0
+    for blatt in list(GEF.values()) + ["NBank"]:
+        for z, v in alt.blatt(blatt).items():
+            n += 1
+            if not gl(v, neu.get(blatt, z)):
+                p.check(False, f"{blatt}!{z}", neu.get(blatt, z), v)
+    p.check(n > 5000, "verglichene Zellen", n, "> 5000")
+    p.fertig()
+
+    p = b.pruefung("N", f"{lid} Regression: Übersicht Spalten D–F und H–J, Prüfstatus (Zuordnung nach Bezeichnung)")
+    ua, un = alt.blatt(UEB), neu.blatt(UEB)
+
+    def schluessel(u):
+        out = {}
+        for r in range(7, 200):
+            a_, b_ = u.get(f"A{r}"), u.get(f"B{r}")
+            if a_ is None and b_ is None:
+                continue
+            out.setdefault((str(a_) if a_ is not None else "", norm_text(b_) if isinstance(b_, str) else b_), []).append(r)
+        return out
+    ka, kn = schluessel(ua), schluessel(un)
+    n = 0
+    for k, rs in ka.items():
+        k2 = REGRESSION_UMBENANNT.get(k, k)
+        if k2 not in kn or len(kn[k2]) != len(rs):
+            p.check(False, f"Übersicht Zeile {rs} {k}", None, "eindeutige Zuordnung")
+            continue
+        for ra, rn in zip(rs, kn[k2]):
+            for col in "CDEFHIJ":
+                if col == "C" and not k[0].startswith("P"):
+                    continue                      # Einheit/Satz; Status nur in den Prüfzeilen
+                va, vn = ua.get(f"{col}{ra}"), un.get(f"{col}{rn}")
+                if any(isinstance(x, str) and x not in REGRESSION_STATUS for x in (va, vn)):
+                    continue                      # Bemerkungstext (Spalte H der Blöcke ohne Horizont), kein Ergebnis
+                n += 1
+                if not gl(va, vn):
+                    p.check(False, f"Übersicht!{col}{rn} ({k[0]} {k[1]})", vn, va)
+    p.check(gl(ua.get("D3"), un.get("D3")), "Übersicht!D3", un.get("D3"), ua.get("D3"))
+    p.check(n > 300, "verglichene Zellen", n, "> 300")
+    p.fertig()
+
+    p = b.pruefung("N", f"{lid} Regression: bisherige Frei-Objektwerte (Zeitreihe, Restwert, Objekt-IRR)")
+    fa, fn = alt.blatt(FREI), neu.blatt(FREI)
+    kopf = lambda f: {norm_text(v): re.match(r"[A-Z]+", z).group(0) for z, v in f.items()        # noqa: E731
+                      if re.fullmatch(r"[A-Z]+5", z) and isinstance(v, str)}
+    ka, kn = kopf(fa), kopf(fn)
+    n = 0
+    for k, ca in ka.items():
+        cn = kn.get(k)
+        if cn is None:
+            p.check(False, f"Frei Spalte „{k}“", None, "vorhanden")
+            continue
+        for r in range(6, 87):
+            va, vn = fa.get(f"{ca}{r}"), fn.get(f"{cn}{r}")
+            if va is None and vn is None:
+                continue
+            n += 1
+            if not gl(va, vn):
+                p.check(False, f"Frei!{cn}{r} ({k})", vn, va)
+    for r in range(7, 87):                        # Schalter „Marktmiete“: gerechnete Miete = Marktmiete vorher
+        n += 1
+        if not gl(fa.get(f"C{r}"), fn.get(f"D{r}")):
+            p.check(False, f"Frei!D{r} Miete (gerechnet)", fn.get(f"D{r}"), fa.get(f"C{r}"))
+    bez = {}
+    for z, v in fn.items():
+        if re.fullmatch(r"A\d+", z) and int(z[1:]) >= 88 and isinstance(v, str):
+            bez.setdefault(norm_text(v), []).append(int(z[1:]))
+    for z, v in fa.items():
+        if not (re.fullmatch(r"A\d+", z) and int(z[1:]) >= 88 and isinstance(v, str)):
+            continue
+        ra = int(z[1:])
+        if norm_text(v) in ("Größe", "Kennzahl") or not any(fa.get(f"{c}{ra}") is not None for c in "HIJ"):
+            continue
+        if norm_text(v) == "Marktmiete Jahr 1":
+            rn = [184]
+        else:
+            rn = bez.get(REGRESSION_FREI.get(norm_text(v), norm_text(v)))
+        if not rn or len(rn) != 1:
+            p.check(False, f"Frei Zeile {ra} „{v}“", rn, "eindeutige Zuordnung")
+            continue
+        for c in "HIJ":
+            va, vn = fa.get(f"{c}{ra}"), fn.get(f"{c}{rn[0]}")
+            if va is None:
+                continue
+            n += 1
+            if not gl(va, vn):
+                p.check(False, f"Frei!{c}{rn[0]} ({v})", vn, va)
+    p.check(n > 800, "verglichene Zellen", n, "> 800")
+    p.fertig()
+
+
+def baseline_lauf(baseline, ordner, proj, timeout):
+    """Stand vorher mit aktivem Projekt proj neu berechnen (Kopie) und lesen."""
+    ziel = Path(ordner) / f"baseline_{proj}.xlsx"
+    shutil.copy(baseline, ziel)
+    wb = openpyxl.load_workbook(ziel)
+    wb["Eingaben"]["D3"] = 1 if proj == "M" else 2
+    wb.save(ziel)
+    wb.close()
+    res = recalc(ziel, timeout)
+    return Werte(ziel) if res.get("status") == "success" and not res.get("total_errors") else None
 
 
 def pruefe_gleich_l1(b, lid, werte, l1):
@@ -2630,16 +3106,16 @@ _K += _abc(78, "4,34 %", "4,04 %", "3,95 %", spalten="HIJ")
 KONZEPT["L5"] += _abc(18, "0", "0", "0") + _abc(22, "1.063.934,12", "1.065.592,89", "1.066.422,27")
 KONZEPT["L5"] += _abc(38, "9.341,92", "3.068,92", "906,15") + _abc(91, "5,1727 %", "5,3065 %", "5,3813 %", spalten="HIJ")
 KONZEPT["L5"] += _abc(89, "5,7016 %", "5,7662 %", "5,8382 %", spalten="HIJ")
-KONZEPT["L7"] += [(UEB, "C111", "=OK")] + [(GEF[g], "U31", "<1") for g in GRUPPEN]
-KONZEPT["L8"] += _gef("H113", "0,74 %", "0,74 %", "0,74 %") + [(UEB, "C111", "=prüfen"), (UEB, "D3", "=prüfen")]
+KONZEPT["L7"] += [(UEB, f"C{PZ + 2}", "=OK")] + [(GEF[g], "U31", "<1") for g in GRUPPEN]
+KONZEPT["L8"] += _gef("H113", "0,74 %", "0,74 %", "0,74 %") + [(UEB, f"C{PZ + 2}", "=prüfen"), (UEB, "D3", "=prüfen")]
 _K = KONZEPT["L10"]
 _K += _abc(9, *("7.980.000",) * 3) + _abc(10, *("7.700.000",) * 3) + _abc(11, *("280.000",) * 3)
 _K += _abc(15, *("6.160.000",) * 3) + _abc(16, *("77,19 %",) * 3) + _gef("H102", *("840.000",) * 3)
 _K += _abc(18, *("280.000",) * 3) + _abc(19, *("1.540.000",) * 3) + _abc(22, "1.593.900", "1.597.750", "1.599.675")
-_K += _abc(38, "−23.629,97", "−46.780,37", "−56.709,17") + [(UEB, f"C{r}", "=OK") for r in range(109, 115)]
+_K += _abc(38, "−23.629,97", "−46.780,37", "−56.709,17") + [(UEB, f"C{r}", "=OK") for r in UEB_PRUEF]
 _K += [(UEB, "D3", "=OK")]
-KONZEPT["L11"] += _gef("H105", "281.900", "277.750", "275.675") + _abc(109, "281.900", "277.750", "275.675")
-KONZEPT["L11"] += [(UEB, "C109", "=prüfen"), (UEB, "C112", "=prüfen"), (UEB, "D3", "=prüfen")]
+KONZEPT["L11"] += _gef("H105", "281.900", "277.750", "275.675") + _abc(PZ, "281.900", "277.750", "275.675")
+KONZEPT["L11"] += [(UEB, f"C{PZ}", "=prüfen"), (UEB, f"C{PZ + 3}", "=prüfen"), (UEB, "D3", "=prüfen")]
 KONZEPT["L11"] += [("NBank", f"{c}{r}", "=–") for r in NB_MATRIX for c in "GHI"]
 KONZEPT["L11"] += [(UEB, f"{c}{r}", "#") for c in "GK" for r in (76, 78, 79)]
 KONZEPT["L12"] += [(UEB, "D18", "0"), (UEB, "D23", "849.000")]
@@ -2693,7 +3169,7 @@ def pruefe_v21_abgleich(b, ordner, werte, soll):
         p.zahl(f"{g} Nettoanfangsrendite", n(x, "H139"), a("Dashboard", f"{'CDE'[GRUPPEN.index(g)]}43"), 1e-9)
     for neu_z, alt_z in (("H122", "AC6"), ("I122", "AC41"), ("J122", "AC48")):
         p.zahl(f"A Ertragswert Marktmiete {neu_z}", n(GEF["A"], neu_z), a("Gefoerdert_A", alt_z), TOL_CENT)
-    p.zahl("Frei Reinertrag J1", n(FREI, "H7"), a("Frei_Marktmiete", "H7"), TOL_CENT)
+    p.zahl("Frei Reinertrag J1", n(FREI, "I7"), a("Frei_Marktmiete", "H7"), TOL_CENT)
     p.zahl("A Wertüberschuss vor Abschlag", n(GEF["A"], "H129"), a("Dashboard", "C44"), 1e-9)
     p.fertig()
 
@@ -2956,6 +3432,8 @@ def main():
     ap.add_argument("--ausfuehrlich", action="store_true", help="auch jeden OK-Einzelwert ausgeben")
     ap.add_argument("--arbeitsordner", default=None)
     ap.add_argument("--behalten", action="store_true", help="Kopien der Testläufe nicht löschen")
+    ap.add_argument("--baseline", default=str(BASELINE),
+                    help="Stand vor der Erweiterung „Frei finanziert“ für die Regression (Konzept N)")
     a = ap.parse_args()
     mappe = Path(a.mappe)
     if not mappe.exists():
@@ -3035,6 +3513,20 @@ def main():
             sicher(b, "F10", "v2-1", pruefe_v21_abgleich, b, ordner, w["L2"], None)
         if "L13" in w and "L1" in w:
             sicher(b, "F7", "L13 = L1", pruefe_gleich_l1, b, "L13", w["L13"], w["L1"])
+        # Regression laut Entscheidung 7 (Konzept N): L1 und L2 gegen den Stand vorher
+        if Path(a.baseline).exists():
+            for lid, proj in (("L1", "M"), ("L2", "T")):
+                if lid in w:
+                    alt = sicher(b, "N", f"{lid} Stand vorher berechnen", baseline_lauf, a.baseline, ordner, proj, a.timeout)
+                    if alt is None:
+                        p = b.pruefung("N", f"{lid} Regression: Stand vorher neu berechnet")
+                        p.check(False, "recalc Stand vorher", None, "success")
+                        p.fertig()
+                    else:
+                        sicher(b, "N", f"{lid} Regression", pruefe_regression, b, lid, alt, w[lid])
+        else:
+            b.hinweis("N", f"Stand vorher nicht gefunden ({a.baseline}): Regression laut Entscheidung 7 nicht geprüft "
+                           "(--baseline PFAD)")
         sicher(b, "F6", "Formeltexte", pruefe_formeltexte, b, wb, [(k, v) for k, v in sorted(w.items())])
         geaendert = {k for _l, _p, aend in laeufe for k in aend}
         offen = [e[0] for e in EINGABEN if e[0] not in geaendert]

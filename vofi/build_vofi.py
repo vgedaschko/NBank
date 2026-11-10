@@ -81,6 +81,8 @@ F_TILG = '"Tilgung "0.00 %'                # Rasterzeilen Übersicht Block 4 (Za
 F_TILG_E = '"Tilgung "0.00 %" laut Eingabe 3.1"'
 F_SATZ_VW = '#,##0" € je Wohnung"'          # Satz Objektverwaltung, Übersicht Jahresrechnung
 F_SATZ_IH = '0.00" €/m²"'                  # Satz Instandhaltung, Übersicht Jahresrechnung
+# Aufschlag der gerechneten Frei-Miete auf die Marktmiete bei den Renditen (Übersicht L74, L87): Zahl mit Text im Format
+F_AUFSCHLAG = '"Frei: Miete "0.0 %" über Marktmiete";"Frei: Miete "0.0 %" unter Marktmiete";"Frei: Miete = Marktmiete"'
 # Eingabespalten D–F (Eingaben): ohne Nullabschnitt, eine 0 bleibt als 0 sichtbar (Runde 2, V8)
 F_EIN = {F_EUR: '#,##0', F_EUR2: '#,##0.00', F_PCT: '0.00 %', F_PP: '+0.00 %;-0.00 %;0.00 %', F_FAKTOR: '0.00',
          F_JAHR: '0', F_ANZ: '#,##0', F_TEXT: '@'}
@@ -278,6 +280,7 @@ BLOECKE = [
     (39, "7 Eigenkapital und Projektkonto (VOFI)"),
     (43, "8 Restwert"),
     (47, "9 Stresstest (neutral: Faktor 1, Zuschlag 0)"),
+    (52, "10 Miete frei finanziert und DSCR-Ziel"),
 ]
 
 # Quellen: Sachquelle mit Stand; „Vorgängermappe“ = PGN-VOFI-Modell v2-1 (Fundstellen: KONZEPT-v3.md, B.2)
@@ -366,9 +369,14 @@ EINGABEN = [
      _VG + " Best −0,30, Worst +0,60 Pp", ("dez", -0.02, 0.02)),
     ("9.4", 51, "Faktor Gebäude-Restwert", "Stress_GebRW", "Faktor", F_FAKTOR, 1.0, 1.0,
      "PGN-Annahme", ("dez", 0, 1.5)),
+    # Block 10 Miete frei finanziert und DSCR-Ziel (Konzept N)
+    ("10.1", 53, "Miete frei finanziert", "Miete_Frei", "Liste", F_TEXT, "Marktmiete", "Marktmiete",
+     "PGN-Annahme", ("liste", '"Marktmiete,Miete für DSCR-Ziel"')),
+    ("10.2", 54, "DSCR-Ziel für die nötige Miete", "DSCR_Ziel", "Faktor", F_FAKTOR, 1.0, 1.0,
+     "PGN-Annahme", ("dez", 0.5, 3)),
 ]
 PROJEKTE = ("Modellhaus Broschüre", "Tarutinoer Str. 4, Neu Wulmstorf")
-EINGABE_ERSTE, EINGABE_LETZTE = 7, 51
+EINGABE_ERSTE, EINGABE_LETZTE = 7, 54
 
 
 def _zahl_de(x, fmt):
@@ -390,7 +398,8 @@ def dv_meldung(nr, einheit, fmt, gueltig):
     art = gueltig[0]
     if art == "liste":
         return {"4.1": "Zulässig: Mietenstufe I bis VII.", "4.2": "Zulässig: ja oder nein.",
-                "8.2": "Zulässig: Marktmiete oder Vergleichsmiete."}[nr]
+                "8.2": "Zulässig: Marktmiete oder Vergleichsmiete.",
+                "10.1": "Zulässig: Marktmiete oder Miete für DSCR-Ziel."}[nr]
     if gueltig[2] == "Aufschub_max":
         hoechst = next(w for nr_, _z, _t, _e, w, *_r in FESTWERTE if nr_ == "T14")
         return f"Zulässig: 0 bis {hoechst} Jahre (RL 2026 Nr. 5.3.5)."
@@ -452,8 +461,8 @@ QUELLE_LZ = "OGA Nds., Landesmodell MFH, 01.01.2026, BRW 600 €/m²"
 Z0, Z42, Z80 = 6, 48, 86
 # Mehrteilige Druckbereiche (Konzept G.4) in der gewollten Reihenfolge; LibreOffice sortiert sie beim Speichern um,
 # nachbearbeiten() stellt die Reihenfolge wieder her (sie bestimmt die Seitenfolge in Excel)
-DRUCK_GEF = f"A1:J{Z42},K1:X{Z42},A88:J177"
-DRUCK_FREI = f"A1:H{Z42},A88:J139"
+DRUCK_GEF = f"A1:J{Z42},K1:X{Z42},A88:J183"
+DRUCK_FREI = f"A1:I{Z42},J1:Q{Z42},A88:J186"
 DRUCKBEREICHE = {**{f"Gefördert {g}": DRUCK_GEF for g in "ABC"}, "Frei finanziert": DRUCK_FREI}
 
 # =====================================================================================================
@@ -462,7 +471,7 @@ DRUCKBEREICHE = {**{f"Gefördert {g}": DRUCK_GEF for g in "ABC"}, "Frei finanzie
 
 
 def blatt_eingaben(wb, ws):
-    """Konzept B: Auswahl Aktives Projekt, 37 Eingaben in 9 Blöcken, Spalte 'verwendet', Namen, Gültigkeit."""
+    """Konzept B: Auswahl Aktives Projekt, 39 Eingaben in 10 Blöcken, Spalte 'verwendet', Namen, Gültigkeit."""
     titel(ws, "Eingaben", "G")
     zelle(ws, "A2", "Blaue Werte auf Gelb ändern, auch die Projektnamen in Zeile 4. Gerechnet wird nur die "
                     "Spalte „verwendet“.")
@@ -715,12 +724,11 @@ _SPERRE = '=IF($H$105>=1,"n. v.",{f})'
 # IRR nach Konvention „größte Nullstelle mit fallendem Barwert“ (Konzept E10, Runde 2 R2):
 #   erster Treffer = Startwert-Kaskade (3 % bzw. VOFI, dann −10/−30/−50/−60/−70 %, nur Treffer über −100 %),
 #   zweiter Versuch = IRR ab erstem Treffer + 5 Prozentpunkte; beide stehen als Hilfswerte in den gegliederten
-#   Spalten der Zahlungsreihen (Gefördert Y–AB, Frei O–R) neben der Kennzahl.
+#   Spalten der Zahlungsreihen (Gefördert Y–AB, Frei R–U) neben der Kennzahl.
 #   Kennzahl = größerer Treffer, wenn der Barwert dort fällt (Barwert bei +0,01 Prozentpunkten < 0), sonst „n. v.“.
 IRR_STARTS = ("-0.1", "-0.3", "-0.5", "-0.6", "-0.7")
 IRR_SCHRITT, IRR_FALL = "0.05", "0.0001"
 HILFE_GEF = {"I": ("Y", "Z"), "J": ("AA", "AB")}          # Hilfswerte je Horizont: erster Treffer, zweiter Versuch
-HILFE_FREI = {"I": ("O", "P"), "J": ("Q", "R")}
 
 
 def irr_kaskade(bereich, start0):
@@ -759,15 +767,14 @@ IRR_ZEILEN_GEF = {133: ("AE", "AG", "obj"), 134: ("AF", "AH", "obj"), 135: ("AD"
                   136: ("Z", "AB", "obj"), 137: ("AA", "AC", "obj"), 138: ("Y", "Y", "obj"),
                   140: ("AK", "AM", 143), 141: ("AL", "AN", 144), 142: ("AJ", "AI", 145),
                   175: ("AP", "AR", "obj"), 176: ("AQ", "AS", "obj"), 177: ("AO", "AO", "obj")}
-IRR_ZEILEN_FREI = {136: ("P", "R", "obj"), 137: ("Q", "S", "obj"), 138: ("O", "O", "obj")}
 
 
 def _start(c, art):
     return "0.03" if art == "obj" else f"IF(ISNUMBER({c}{art}),{c}{art},0)"
 
 
-def _irr(z, zeilen=IRR_ZEILEN_GEF, hilfe=HILFE_GEF, sperre=True):
-    s35, s42, _art = zeilen[z]
+def _irr(z, zeilen=None, hilfe=HILFE_GEF, sperre=True):
+    s35, s42, _art = (zeilen or IRR_ZEILEN_GEF)[z]
     return {"I": irr_kennzahl(s35, "I", z, hilfe, sperre), "J": irr_kennzahl(s42, "J", z, hilfe, sperre)}
 
 
@@ -807,7 +814,21 @@ FOERDER_GEF = [
     (177, "Objekt-IRR nach Förderbarwert, ohne Restwert", "%", IJ, _irr(177), F_PCT),
 ]
 FETT_FOERDER = (174, 175)
-GEF_LETZTE = 177
+# Block Miete für das DSCR-Ziel (Konzept N): Zeilen 179-183 auf Gefördert A/B/C und Frei gleich. Nötige Miete Jahr 1 =
+# (DSCR-Ziel × Kapitaldienst Jahr 1 + Objektverwaltung + Instandhaltung Jahr 1) ÷ ((1 − Mietausfall) × Wohnfläche × 12).
+# {kd} = Spalte Kapitaldienst, {vw}/{ih} = Spalten Objektverwaltung/Instandhaltung (Auszahlungen negativ).
+_NOETIG = "=(H181*H182-{vw}7-{ih}7)/((1-Mietausfall)*Wohnflaeche*12)"
+
+
+def miete_dscr(kd, vw, ih):
+    return [(181, "DSCR-Ziel", "Faktor", "=DSCR_Ziel", F_FAKTOR),
+            (182, "Kapitaldienst Jahr 1", "€", f"=-{kd}7", F_EUR),
+            (183, "Nötige Miete Jahr 1 für das DSCR-Ziel", "€/m² Monat", _NOETIG.format(vw=vw, ih=ih), F_EUR2)]
+
+
+MIETE_DSCR_GEF = miete_dscr("Q", "I", "J")
+FETT_MIETE_DSCR = (183,)
+GEF_LETZTE = 183
 FETT_RENDITEN = (133, 140, 143)
 
 # Block Liquidität (Konzept D.3): Wert in H
@@ -868,34 +889,67 @@ FINANZIERUNG = [
      "=IF(H112<1,0,IF(Laufzeit_Bank<=Zinsbindung,H112,PMT(Zins_Anschluss,Laufzeit_Bank-Zinsbindung,-H112)))", F_EUR),
 ]
 
-# Frei finanziert (Konzept D.4)
+# Frei finanziert (Konzept D.4, N): gleiche Eigenmittel wie gefördert, Rest Bankdarlehen; Miete laut Eingabe 10.1.
+# Bank, Projektkonto, Zahlungsreihen und Kennzahlen mit den Formeln der Blätter Gefördert (andere Spalten, ohne NBank).
+_KOSTEN_VW = "=-Verwaltung_WE*Wohneinheiten*(1+Kostensteigerung)^(A{r}-1+Kosten_Vorlauf)"
+_KOSTEN_IH = "=-Instandhaltung_qm*Wohnflaeche*(1+Kostensteigerung)^(A{r}-1+Kosten_Vorlauf)"
 ZEITREIHE_FREI = [
     ("A", "t", "0", "=A{p}+1", F_JAHR, Z80),
     ("B", "Jahr", "=Bezugsjahr+A6", "=Bezugsjahr+A{r}", F_JAHR, Z80),
     ("C", "Marktmiete", None, "=Marktmiete_1*Stress_Miete*(1+Mietsteigerung)^(A{r}-1)", F_EUR2, Z80),
-    ("D", "Sollmiete", None, "=C{r}*Wohnflaeche*12", F_EUR, Z80),
-    ("E", "Mietausfall/\nLeerstand", None, "=-Mietausfall*D{r}", F_EUR, Z80),
-    ("F", "Objekt-\nverwaltung", None, "=-Verwaltung_WE*Wohneinheiten*(1+Kostensteigerung)^(A{r}-1+Kosten_Vorlauf)",
-     F_EUR, Z80),
-    ("G", "Instand-\nhaltung", None, "=-Instandhaltung_qm*Wohnflaeche*(1+Kostensteigerung)^(A{r}-1+Kosten_Vorlauf)",
-     F_EUR, Z80),
-    ("H", "Überschuss\nvor Kapital-\ndienst", None, "=SUM(D{r}:G{r})", F_EUR, Z80),
+    ("D", "Miete\n(gerechnet)", None, "=$H$109*(1+Mietsteigerung)^(A{r}-1)", F_EUR2, Z80),
+    ("E", "Sollmiete", None, "=D{r}*Wohnflaeche*12", F_EUR, Z80),
+    ("F", "Mietausfall/\nLeerstand", None, "=-Mietausfall*E{r}", F_EUR, Z80),
+    ("G", "Objekt-\nverwaltung", None, _KOSTEN_VW, F_EUR, Z80),
+    ("H", "Instand-\nhaltung", None, _KOSTEN_IH, F_EUR, Z80),
+    ("I", "Überschuss\nvor Kapital-\ndienst", None, "=SUM(E{r}:H{r})", F_EUR, Z80),
+    ("J", "Zins Bank", None, "=-O{p}*IF(A{r}<=Zinsbindung,Zins_Bank,Zins_Anschluss)", F_EUR, Z42),
+    ("K", "Tilgung Bank", None, "=-MAX(0,MIN(IF(A{r}<=Zinsbindung,$H$111,$H$114)+J{r},O{p}))", F_EUR, Z42),
+    ("L", "Kapitaldienst", None, "=SUM(J{r}:K{r})", F_EUR, Z42),
+    # Zahlungsüberschuss auf Cent: Die Miete für DSCR-Ziel 1,0 stellt Jahr 1 rechnerisch auf 0 (kein Rechenrest)
+    ("M", "Zahlungs-\nüberschuss", None, "=ROUND(I{r}+L{r},2)", F_EUR, Z42),
+    ("N", "DSCR", None, '=IF(-L{r}>1,I{r}/-L{r},"")', F_FAKTOR, Z42),
+    ("O", "Restschuld Bank", "=$H$103", "=MAX(0,ROUND(O{p}+K{r},2))", F_EUR, Z42),
+    ("P", "Projekt-\nkonto (VOFI)", "=$H$105", "=P{p}*(1+IF(P{p}>=0,Habenzins,Sollzins))+M{r}", F_EUR, Z42),
+    ("Q", "Zahlungs-\nüberschuss\nkumuliert", "0", "=Q{p}+M{r}", F_EUR, Z42),
 ]
-FETT_SPALTEN_FREI = ("H",)
-# Zahlungsreihen für IRR in O–S (gegliedert, zugeklappt; N bleibt frei), Blöcke darunter in A–J
-GRUPPEN_ZEILE4_FREI = {"A": "Zeit", "C": "Miete", "D": "Ertrag und Bewirtschaftung", "O": "Zahlungsreihen für IRR"}
-_FREI_RW = '=IF($A{{r}}>${h}$118,"",$O{{r}}+IF($A{{r}}=${h}$118,${h}${z},0))'
+FETT_SPALTEN_FREI = ("I", "M")
+FREI_ZEIT_LETZTE = "Q"
+# Zahlungsreihen für IRR in R–AB (gegliedert, zugeklappt), Blöcke darunter in A–J
+GRUPPEN_ZEILE4_FREI = {"A": "Zeit", "C": "Miete", "E": "Ertrag und Bewirtschaftung", "J": "Kapitaldienst",
+                       "M": "Ergebnis", "O": "Bestände Jahresende", "R": "Zahlungsreihen für IRR"}
+_FREI_RW = '=IF($A{{r}}>${h}$118,"",$R{{r}}+IF($A{{r}}=${h}$118,${h}${z},0))'
 IRR_FREI = [
-    ("O", "Objekt, ohne Restwert", "=IF($A{r}=0,-$H$94,$H{r})"),
-    ("P", "Objekt, mit Restwert, Jahr 35", _FREI_RW.format(h="I", z=126)),
-    ("Q", "Objekt, nur Bodenwert, Jahr 35", _FREI_RW.format(h="I", z=127)),
-    ("R", "Objekt, mit Restwert, Jahr 42", _FREI_RW.format(h="J", z=126)),
-    ("S", "Objekt, nur Bodenwert, Jahr 42", _FREI_RW.format(h="J", z=127)),
+    ("R", "Objekt, ohne Restwert", "=IF($A{r}=0,-$H$94,$I{r})"),
+    ("S", "Objekt, mit Restwert, Jahr 35", _FREI_RW.format(h="I", z=126)),
+    ("T", "Objekt, nur Bodenwert, Jahr 35", _FREI_RW.format(h="I", z=127)),
+    ("U", "Objekt, mit Restwert, Jahr 42", _FREI_RW.format(h="J", z=126)),
+    ("V", "Objekt, nur Bodenwert, Jahr 42", _FREI_RW.format(h="J", z=127)),
+    ("W", "Eigenkapital, ohne Restwert, Jahr 42", "=IF($A{r}=0,-$H$106+$H$105,$M{r}-IF($A{r}=$J$118,$O{r},0))"),
+    ("X", "Eigenkapital, ohne Restwert, Jahr 35",
+     '=IF($A{r}>$I$118,"",IF($A{r}=0,$W{r},$M{r}-IF($A{r}=$I$118,$O{r},0)))'),
+    ("Y", "Eigenkapital, mit Restwert, Jahr 35", '=IF($A{r}>$I$118,"",$X{r}+IF($A{r}=$I$118,$I$126,0))'),
+    ("Z", "Eigenkapital, nur Bodenwert, Jahr 35", '=IF($A{r}>$I$118,"",$X{r}+IF($A{r}=$I$118,$I$127,0))'),
+    ("AA", "Eigenkapital, mit Restwert, Jahr 42", "=$W{r}+IF($A{r}=$J$118,$J$126,0)"),
+    ("AB", "Eigenkapital, nur Bodenwert, Jahr 42", "=$W{r}+IF($A{r}=$J$118,$J$127,0)"),
 ]
-KOSTEN_FREI = [z for z in FINANZIERUNG if z[0] <= 94] + [(95, "Marktmiete Jahr 1", "€/m² Monat", "=C7", F_EUR2)]
-# Restwert frei: ohne Dubletten (Ertragswert Bestand = zur Marktmiete, Abschlag 0, Wert vor = nach Abschlag)
-_FREI_ERSATZ = {122: ("Ertragswert zur Marktmiete", _EW.format(s="H")), 125: ("Gebäudeanteil", "={c}122-{c}121"),
-                128: ("Ertragswert Marktmiete gegenüber Gesamtkosten", "=IF($H$93>0,{c}122/$H$93-1,0)")}
+IRR_ERSTE_FREI, IRR_LETZTE_FREI, IRR_SCHALTER_FREI = "R", "AB", "AC"      # Schalter über AC (Spalte 29)
+HILFE_FREI = {"I": ("R", "S"), "J": ("T", "U")}
+IRR_ZEILEN_FREI = {136: ("S", "U", "obj"), 137: ("T", "V", "obj"), 138: ("R", "R", "obj"),
+                   140: ("Y", "AA", 143), 141: ("Z", "AB", 144), 142: ("X", "W", 145)}
+# Finanzierung frei: Zeilen wie Gefördert; ohne NBank-Darlehen, Zuschuss und Entgelte (Zeilen 97-101, 108, 110 leer)
+_FIN = {z: (t, e, f, fmt) for z, t, e, f, fmt in FINANZIERUNG}
+FINANZIERUNG_FREI = [(z, *_FIN[z]) for z in (90, 91, 92, 93, 94, 95, 96, 102)] + [
+    (103, _FIN[103][0], "€", "=MAX(0,ROUND(H90-H102-EK_Zusatz,2))", F_EUR),
+    (104, "Bares Eigenkapital, inkl. KG 800", "€", "=MAX(0,H90+H91-H103)", F_EUR),
+    (105, _FIN[105][0], "€", "=ROUND(H103+H104-H90-H91,2)", F_EUR),
+    (106, *_FIN[106]),
+    (107, "Eigenmittelquote", "%", "=IF(H96>0,(H92+H104)/H96,0)", F_PCT1),
+    (109, "Miete Jahr 1", "€/m² Monat", '=IF(Miete_Frei="Marktmiete",C7,H183)', F_EUR2),
+] + [(z, *_FIN[z]) for z in (111, 112, 113, 114)]
+# Restwert frei: Ertragswert zur gerechneten Miete (Spalte I); ohne Dubletten (kein Abschlag, Wert vor = nach)
+_FREI_ERSATZ = {122: ("Ertragswert zur gerechneten Miete", _EW.format(s="I")), 125: ("Gebäudeanteil", "={c}122-{c}121"),
+                128: ("Ertragswert gegenüber Gesamtkosten", "=IF($H$93>0,{c}122/$H$93-1,0)")}
 RESTWERT_FREI = [(z, _FREI_ERSATZ[z][0], e, sp, _FREI_ERSATZ[z][1], fmt) if z in _FREI_ERSATZ
                  else (z, txt, e, sp, f, fmt) for z, txt, e, sp, f, fmt in RESTWERT_GEF if z not in (123, 124, 129)]
 
@@ -904,13 +958,51 @@ def _irr_frei(z):
     return _irr(z, IRR_ZEILEN_FREI, HILFE_FREI, sperre=False)
 
 
-RENDITEN_FREI = [  # ohne Sperre, ohne Finanzierung (Konzept D.4)
+# Renditen frei: Zeilen wie Gefördert, ohne Sperre (Kasse bei Bezug ist 0: bares Eigenkapital ist die Restgröße)
+_VOFI_FREI = '=IF(AND({{c}}{z}>0,$H$106>0),({{c}}{z}/$H$106)^(1/{{c}}$118)-1,"n. v.")'
+_EV_FREI = "=" + _ENDE.format(s="P") + "{rw}-" + _ENDE.format(s="O")
+RENDITEN_FREI = [
     (136, "Objekt-IRR, mit Restwert", "%", IJ, _irr_frei(136), F_PCT),
     (137, "Objekt-IRR, nur Bodenwert", "%", IJ, _irr_frei(137), F_PCT),
     (138, "Objekt-IRR, ohne Restwert", "%", IJ, _irr_frei(138), F_PCT),
-    (139, "Hilfsgröße: Nettoanfangsrendite, statisch", "%", H_, "=IF($H$94>0,H7/$H$94,0)", F_PCT),
+    (139, "Hilfsgröße: Nettoanfangsrendite, statisch", "%", H_, "=IF($H$94>0,I7/$H$94,0)", F_PCT),
+    (140, "EK-IRR, mit Restwert", "%", IJ, _irr_frei(140), F_PCT),
+    (141, "EK-IRR, nur Bodenwert", "%", IJ, _irr_frei(141), F_PCT),
+    (142, "EK-IRR, ohne Restwert", "%", IJ, _irr_frei(142), F_PCT),
+    (143, "VOFI-EK-Rendite, mit Restwert", "%", IJ, _VOFI_FREI.format(z=146), F_PCT),
+    (144, "VOFI-EK-Rendite, nur Bodenwert", "%", IJ, _VOFI_FREI.format(z=147), F_PCT),
+    (145, "VOFI-EK-Rendite, ohne Restwert", "%", IJ, _VOFI_FREI.format(z=148), F_PCT),
+    (146, "Endvermögen VOFI, mit Restwert", "€", IJ, _EV_FREI.replace("{rw}", "+{c}126"), F_EUR),
+    (147, "Endvermögen VOFI, nur Bodenwert", "€", IJ, _EV_FREI.replace("{rw}", "+{c}127"), F_EUR),
+    (148, "Endvermögen VOFI, ohne Restwert", "€", IJ, _EV_FREI.replace("{rw}", ""), F_EUR),
+    (149, "Restwertanteil am Endvermögen", "%", IJ, '=IF({c}146>0,{c}126/{c}146,"n. v.")', F_PCT),
+    (150, "Projektkonto (VOFI)", "€", IJ, "=" + _ENDE.format(s="P"), F_EUR),
+    (151, "Restschuld Bank", "€", IJ, "=" + _ENDE.format(s="O"), F_EUR),
 ]
-FETT_RENDITEN_FREI = (136,)
+FETT_RENDITEN_FREI = (136, 140, 143)
+LIQUIDITAET_FREI = [
+    (155, "Zahlungsüberschuss Jahr 1", "€", "=M7", F_EUR),
+    (156, "DSCR Jahr 1", "Faktor", "=N7", F_FAKTOR),
+    (157, "DSCR Minimum Jahr 1–35", "Faktor",
+     '=IF(COUNT($N$7:INDEX($N$7:$N$48,Bindung))=0,"–",MIN($N$7:INDEX($N$7:$N$48,Bindung)))', F_FAKTOR),
+    (158, "Jahre mit Fehlbetrag, Jahr 1–35", "Jahre", '=COUNTIF($M$7:INDEX($M$7:$M$48,Bindung),"<0")', F_ANZ),
+    (159, "Größter kumulierter Fehlbetrag, Jahr 1–42", "€", "=MIN(0,MIN($Q$7:$Q$48))", F_EUR),
+    (165, "Zahlungsüberschuss Jahr 10", "€", "=INDEX($M$7:$M$48,10)", F_EUR),
+    (166, "Zahlungsüberschuss Jahr 35", "€", "=INDEX($M$7:$M$48,Bindung)", F_EUR),
+    (167, "Zahlungsüberschuss Jahr 42", "€", "=INDEX($M$7:$M$48,Laufzeit_max)", F_EUR),
+    (169, "Tiefster Stand Projektkonto (VOFI)", "€", "=MIN($P$6:$P$48)", F_EUR),
+    (170, "Restschuld Bank Ende Jahr 42", "€", "=INDEX($O$6:$O$48,Laufzeit_max+1)", F_EUR),
+]
+# Miete für das DSCR-Ziel frei: wie Gefördert, dazu Marktmiete und Aufschläge (Zeilen 184-186)
+MIETE_DSCR_FREI = miete_dscr("L", "G", "H") + [
+    (184, "Marktmiete Jahr 1", "€/m² Monat", "=C7", F_EUR2),
+    (185, "Aufschlag Miete Jahr 1 gegenüber Marktmiete", "%", "=IF(H184>0,H109/H184-1,0)", F_PCT),
+    (186, "Aufschlag nötige Miete gegenüber Marktmiete", "%", "=IF(H184>0,H183/H184-1,0)", F_PCT),
+]
+FREI_LETZTE = 186
+# Zeilen ohne Inhalt auf Frei (NBank-Größen, Dubletten, Förderbarwert): ausgeblendet
+FREI_AUSGEBLENDET = (97, 98, 99, 100, 101, 108, 110, 123, 124, 129, 133, 134, 135, 160, 161, 162, 163, 164, 168,
+                     172, 173, 174, 175, 176, 177, 178)
 
 HINWEIS_ZEITREIHE = "€ p. a.; Mieten in €/m² Monat; Auszahlungen negativ; ab Jahr 43 nur Werte für den Restwert."
 
@@ -1016,7 +1108,8 @@ def blatt_gefoerdert(wb, ws, gruppe, bis_t):
                     ("J", "Restwert", f"'{ws.title}'!A116"),
                     ("K", "Renditen", f"'{ws.title}'!A131"),
                     ("L", "Liquidität", f"'{ws.title}'!A153"),
-                    ("M", "Förderbarwert", f"'{ws.title}'!A172")])
+                    ("M", "Förderbarwert", f"'{ws.title}'!A172"),
+                    ("N", "DSCR-Ziel", f"'{ws.title}'!A179")])
     zelle(ws, "A2", "Gruppe")
     zelle(ws, "B2", gruppe, "wert", fett=True, h="center")
     for s, _k, _f in IRR_GEF:                 # Köpfe der Zahlungsreihen zentriert (mehrzeilig)
@@ -1028,6 +1121,7 @@ def blatt_gefoerdert(wb, ws, gruppe, bis_t):
     block(ws, 131, "Renditen vor Steuern", KOPF_RENDITEN, RENDITEN_GEF, fett=FETT_RENDITEN)
     block(ws, 153, "Liquidität", KOPF_WERT, _finanzierung_zeilen(LIQUIDITAET), fett=FETT_LIQUIDITAET)
     block(ws, 172, "Förderbarwert und Objektrendite", KOPF_RESTWERT, FOERDER_GEF, fett=FETT_FOERDER)
+    block(ws, 179, "Miete für das DSCR-Ziel", KOPF_WERT, _finanzierung_zeilen(MIETE_DSCR_GEF), fett=FETT_MIETE_DSCR)
     irr_hilfswerte(ws, IRR_ZEILEN_GEF, HILFE_GEF, [(131, 132), (172, 173)])
     breiten(ws, {"A": 6, "B": 7, "C:F": 11, "G:K": 13, "L": 13, "M:Q": 12, "R": 13, "S": 8, "T:W": 13,
                  "X": 13, f"Y:{IRR_LETZTE_GEF}": 12})
@@ -1047,31 +1141,37 @@ def blatt_gefoerdert(wb, ws, gruppe, bis_t):
 def blatt_frei(wb, ws, bis_t):
     koepfe = {s: kopf for s, kopf, *_ in ZEITREIHE_FREI}
     koepfe.update({s: kopf for s, kopf, _f in IRR_FREI})
-    kopf_zeitreihe(ws, "Frei finanziert: Zeitreihe und Ergebnisse", "H", "H", GRUPPEN_ZEILE4_FREI, koepfe,
-                   [("I", "Übersicht", "'Übersicht'!A1"),
-                    ("J", "Kosten", f"'{ws.title}'!A88"),
-                    ("K", "Restwert", f"'{ws.title}'!A116"),
-                    ("L", "Renditen", f"'{ws.title}'!A131")])
-    # Kopf der Zahlungsreihen O–S (Gruppe Zeile 4, Spaltenköpfe Zeile 5)
-    for s in ("O", "P", "Q", "R", "S"):
-        zelle(ws, f"{s}4", GRUPPEN_ZEILE4_FREI.get(s), "gruppe")
-    kopfzeile(ws, 5, {s: k for s, k, _f in IRR_FREI}, "O", "S", hoehe=56, mitte=("O", "P", "Q", "R", "S"))
-    zeitreihe(ws, ZEITREIHE_FREI, FETT_SPALTEN_FREI, "H", bis_t)
+    kopf_zeitreihe(ws, "Frei finanziert: Zeitreihe und Ergebnisse", "I", IRR_LETZTE_FREI, GRUPPEN_ZEILE4_FREI,
+                   koepfe,
+                   [("H", "Übersicht", "'Übersicht'!A1"),
+                    ("I", "Finanzierung", f"'{ws.title}'!A88"),
+                    ("J", "Restwert", f"'{ws.title}'!A116"),
+                    ("K", "Renditen", f"'{ws.title}'!A131"),
+                    ("L", "Liquidität", f"'{ws.title}'!A153"),
+                    ("M", "DSCR-Ziel", f"'{ws.title}'!A179")])
+    for s, _k, _f in IRR_FREI:                # Köpfe der Zahlungsreihen zentriert (mehrzeilig)
+        ws[f"{s}5"].alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
+    zeitreihe(ws, ZEITREIHE_FREI, FETT_SPALTEN_FREI, FREI_ZEIT_LETZTE, bis_t)
     irr_spalten(ws, IRR_FREI, bis_t)
-    block(ws, 88, "Kosten bei Bezug", KOPF_WERT, _finanzierung_zeilen(KOSTEN_FREI))
+    block(ws, 88, "Finanzierung bei Bezug", KOPF_WERT, _finanzierung_zeilen(FINANZIERUNG_FREI), fett=(106,))
     block(ws, 116, "Restwert (Ertragswert)", KOPF_RESTWERT, RESTWERT_FREI, fett=FETT_RESTWERT)
     block(ws, 131, "Renditen vor Steuern", KOPF_RENDITEN, RENDITEN_FREI, fett=FETT_RENDITEN_FREI)
+    block(ws, 153, "Liquidität", KOPF_WERT, _finanzierung_zeilen(LIQUIDITAET_FREI), fett=FETT_LIQUIDITAET)
+    block(ws, 179, "Miete für das DSCR-Ziel", KOPF_WERT, _finanzierung_zeilen(MIETE_DSCR_FREI), fett=FETT_MIETE_DSCR)
     irr_hilfswerte(ws, IRR_ZEILEN_FREI, HILFE_FREI, [(131, 132)])
-    for r in (123, 124, 129, 133, 134, 135):  # leer wie Konzept D.4 (Zeilen wie Gefördert), ausgeblendet
+    for r in FREI_AUSGEBLENDET:               # leer (Zeilen wie Gefördert), ausgeblendet
         ws.row_dimensions[r].hidden = True
-    breiten(ws, {"A": 6, "B": 7, "C": 10, "D:H": 13, "I:J": 12, "O:S": 12})
-    # Zahlungsreihen O–S: Spaltengliederung, zugeklappt (Schalter über Spalte T); t = 43 … 80 zugeklappt
-    ws.column_dimensions.group("O", "S", outline_level=1, hidden=True)
-    ws.column_dimensions["T"].collapsed = True
+    breiten(ws, {"A": 6, "B": 7, "C:D": 10, "E:I": 13, "J:L": 12, "M": 13, "N": 8, "O:Q": 13,
+                 f"{IRR_ERSTE_FREI}:{IRR_LETZTE_FREI}": 12})
+    # Zahlungsreihen und Nullstellensuche R–AB: Spaltengliederung, zugeklappt (Schalter über AC); t = 43 … 80 zugeklappt
+    ws.column_dimensions.group(IRR_ERSTE_FREI, IRR_LETZTE_FREI, outline_level=1, hidden=True)
+    ws.column_dimensions[IRR_SCHALTER_FREI].collapsed = True
     ws.sheet_properties.outlinePr.summaryBelow = False
     ws.row_dimensions.group(Z42 + 1, Z80, outline_level=1, hidden=True)
     ws.row_dimensions[Z42].collapsed = True
-    druck(ws, titelzeilen="2:3", bereich=DRUCK_FREI)
+    # Druck wie Gefördert: Zeitreihe in zwei Bereichen (A–I | J–Q, Spalten A:B wiederholt), Blöcke A–J
+    druck(ws, titelzeilen="2:3", bereich=DRUCK_FREI, umbrueche=[129], titelspalten="A:B")
+    ws.page_setup.pageOrder = "overThenDown"
 
 
 # ---------------------------------------------------------------------------------------------------
@@ -1106,22 +1206,27 @@ UEB_BLOCK1 = [
      None),
     (17, "1.9", "Förderbarwert (Zuschuss + Barwertvorteil)", "€", "={x}H174", None, F_EUR,
      "Zuschuss nach Entgelt + Zinsvorteil; steigt mit Eingabe 6.1"),
-    (18, "1.10", "Bankdarlehen", "€", "={x}H103", None, F_EUR, "Restfinanzierung"),
-    (19, "1.11", "Eigenmittel (RL Nr. 5.2.6), ohne Entgelte", "€", "={x}H106-{x}H101", None, F_EUR, None),
-    (20, "1.12", "Eigenmittelquote", "%", "={x}H107", None, F_PCT1, "mindestens 20 %"),
+    (18, "1.10", "Bankdarlehen", "€", "={x}H103", "=" + FREI_BLATT + "H103", F_EUR,
+     "Restfinanzierung; Frei: gleiche Eigenmittel, Rest Bank (Eingaben Block 6)"),
+    (19, "1.11", "Eigenmittel (RL Nr. 5.2.6), ohne Entgelte", "€", "={x}H106-{x}H101", "=" + FREI_BLATT + "H106",
+     F_EUR, None),
+    (20, "1.12", "Eigenmittelquote", "%", "={x}H107", "=" + FREI_BLATT + "H107", F_PCT1, "mindestens 20 %"),
     (21, "1.13", "Bearbeitungsentgelte, einmalig", "€", "={x}H101", None, F_EUR, None),
-    (22, "1.14", "Eigenkapital (Grundstück + bar)", "€", "={x}H106", None, F_EUR, "Eigenmittel + Entgelte"),
-    (23, "1.15", "davon bar", "€", "={x}H104", None, F_EUR, None),
+    (22, "1.14", "Eigenkapital (Grundstück + bar)", "€", "={x}H106", "=" + FREI_BLATT + "H106", F_EUR,
+     "Eigenmittel + Entgelte"),
+    (23, "1.15", "davon bar", "€", "={x}H104", "=" + FREI_BLATT + "H104", F_EUR, None),
     (24, "1.16", "Zuschuss je Wohnung", "€", "=IF(Wohneinheiten>0,{x}H100/Wohneinheiten,0)", None, F_EUR, None),
     (25, "1.17", "Eigenmittel je Wohnung", "€", "=IF(Wohneinheiten>0,({x}H106-{x}H101)/Wohneinheiten,0)", None,
      F_EUR, None),
-    (26, "1.18", "Miete Jahr 1", "€/m² Monat", "={x}H109", "=" + FREI_BLATT + "H95", F_EUR2, None),
+    (26, "1.18", "Miete Jahr 1", "€/m² Monat", "={x}H109", "=" + FREI_BLATT + "H109", F_EUR2,
+     "Frei laut Eingabe 10.1"),
 ]
 # Block 2 Jahresrechnung Jahr 1 (wie Broschüre S. 11): Zeile, Nr., Bezeichnung, Satz (Formel, Format), Formel {x},
 # Format, Bemerkung, fett. Sätze 2 und 3 fortgeschrieben laut Eingabe 5.5 (Satz × Menge = Betrag).
 _FORTGESCHRIEBEN = "*(1+Kostensteigerung)^Kosten_Vorlauf"
 UEB_BLOCK2 = [
-    (29, "1", "Sollmiete: Höchstmiete nettokalt", None, "={x}G7", F_EUR, "Schema wie Broschüre S. 11", False),
+    (29, "1", "Sollmiete: Höchstmiete nettokalt", None, "={x}G7", F_EUR, "Schema wie Broschüre S. 11; Frei: Miete laut 1.18",
+     False),
     (30, "", MINUS + " Mietausfall/Leerstand", ("=Mietausfall", F_PCT), "=-{x}H7", F_EUR_KOST, "der Sollmiete", False),
     (31, "2", MINUS + " Objektverwaltung", ("=Verwaltung_WE" + _FORTGESCHRIEBEN, F_SATZ_VW), "=-{x}I7", F_EUR_KOST,
      "Satz 2026, fortgeschrieben laut Eingabe 5.5; Betriebskosten umgelegt", False),
@@ -1139,12 +1244,16 @@ UEB_BLOCK2 = [
     (38, "8", "= Zahlungsüberschuss p. a.", None, "={x}R7", F_EUR, None, True),
     (39, "", "Einmalig: Bearbeitungsentgelte", None, "={x}H101", F_EUR, "nicht in Zeile 8", False),
 ]
+# Frei in der Jahresrechnung (Spalte G): Zeile -> Formel; Zeilen der NBank (34-36, 39) bleiben leer
+UEB_BLOCK2_FREI = {29: "={f}E7", 30: "=-{f}F7", 31: "=-{f}G7", 32: "=-{f}H7", 33: "={f}I7", 37: "=-({f}J7+{f}K7)",
+                   38: "={f}M7"}
 # Block 3 Liquidität: Zeile, Nr., Bezeichnung, Einheit, Formel mit {x}, Format, Bemerkung
 UEB_BLOCK3 = [
     (42, "3.1", "Zahlungsüberschuss Jahr 10", "€", "={x}H165", F_EUR, None),
     (43, "3.2", "Zahlungsüberschuss Jahr 35", "€", "={x}H166", F_EUR, None),
     (44, "3.3", "Zahlungsüberschuss Jahr 42", "€", "={x}H167", F_EUR, None),
-    (45, "3.4", "Schuldendienstdeckung (DSCR) Jahr 1", "Faktor", "={x}H156", F_FAKTOR, "Zeile 4 ÷ Kapitaldienst"),
+    (45, "3.4", "Schuldendienstdeckung (DSCR) Jahr 1", "Faktor", "={x}H156", F_FAKTOR,
+     "Zeile 4 ÷ Kapitaldienst; nötige Miete: 8.3"),
     (46, "3.5", "DSCR Minimum Jahr 1–35", "Faktor", "={x}H157", F_FAKTOR, None),
     (47, "3.6", "Jahre mit Fehlbetrag, Jahr 1–35", "Jahre", "={x}H158", F_ANZ, None),
     (48, "3.7", "Größter kumulierter Fehlbetrag, Jahr 1–42", "€", "={x}H159", F_EUR, "ohne Zinsen"),
@@ -1154,6 +1263,8 @@ UEB_BLOCK3 = [
     (51, "3.10", "Schlussrate NBank Jahr 42 über Regelrate", "€", "={x}H164", F_EUR, "Rest wird in Jahr 42 getilgt"),
     (52, "3.11", "Restschuld Bank Ende Jahr 42", "€", "={x}H170", F_EUR, "bei Laufzeit über 42 Jahre (Eingabe 6.4)"),
 ]
+# Frei in Block 3 (Spalte G): Zeilen der NBank (49-51) bleiben leer
+UEB_BLOCK3_FREI = {42: 165, 43: 166, 44: 167, 45: 156, 46: 157, 47: 158, 48: 159, 52: 170}
 # Block 4 Tilgungssatz: Rasterwerte B55:B61 (feste Hilfswerte, Anzeige „Tilgung x %“, B59 = Volltilgung in 42 Jahren),
 # B62 = Eingabe 3.1 (eingeklappt)
 UEB_KOPF4, UEB_RASTER_ERSTE = 54, 55
@@ -1190,8 +1301,8 @@ UEB_BLOCK4_VERGLEICH = [
      "Zeile 8: B − A, C − A"),
     (72, "4.18", "Einmalig: Mehr an Bearbeitungsentgelten", "€", _diff(39), F_EUR, None),
 ]
-# Blöcke 5-7 mit Horizont: Gruppenzeile, Text, Kopf G/K „Frei“ (Block 6 ohne Frei)
-UEB_GRUPPEN_H = [(74, "Objektrendite vor Steuern", True), (87, "Eigenkapitalrendite vor Steuern", False),
+# Blöcke 5-7 mit Horizont: Gruppenzeile, Text, Kopf G/K „Frei“
+UEB_GRUPPEN_H = [(74, "Objektrendite vor Steuern", True), (87, "Eigenkapitalrendite vor Steuern", True),
                  (97, "Restwert (Ertragswert)", True)]
 # Zeile, Nr., Bezeichnung, Einheit, Zeile auf Gefördert (I/J bzw. H), Frei: Zeile (I/J bzw. H) oder None (leer),
 # Format, Bemerkung (Spalte L), nur_bezug (Wert aus Spalte H, nur D-G)
@@ -1211,50 +1322,70 @@ UEB_HORIZONT = [
     (84, "5.9", "Objekt-IRR ohne Zuschuss, ohne Restwert", "%", 138, 138, F_PCT, _NULLST, False),
     (85, "5.10", "Hilfsgröße: Nettoanfangsrendite, statisch", "% (Jahr 1)", 139, None, F_PCT,
      "ohne Zuschuss, ohne Restwert", True),
-    (89, "6.1", "EK-IRR, mit Restwert", "%", 140, None, F_PCT, None, False),
-    (90, "6.2", "EK-IRR, nur Bodenwert", "%", 141, None, F_PCT, _NULLST, False),
-    (91, "6.3", "VOFI-EK-Rendite, mit Restwert", "%", 143, None, F_PCT, "Kontozinsen laut Eingabe 7.2/7.3", False),
-    (92, "6.4", "VOFI-EK-Rendite, nur Bodenwert", "%", 144, None, F_PCT, None, False),
-    (93, "6.5", "Restwertanteil am Endvermögen", "%", 149, None, F_PCT, None, False),
-    (94, "6.6", "EK-IRR, ohne Restwert", "%", 142, None, F_PCT, _NULLST, False),
-    (95, "6.7", "VOFI-EK-Rendite, ohne Restwert", "%", 145, None, F_PCT, None, False),
+    (89, "6.1", "EK-IRR, mit Restwert", "%", 140, 140, F_PCT, "Frei: Eigenmittel wie gefördert, Rest Bank", False),
+    (90, "6.2", "EK-IRR, nur Bodenwert", "%", 141, 141, F_PCT, _NULLST, False),
+    (91, "6.3", "VOFI-EK-Rendite, mit Restwert", "%", 143, 143, F_PCT, "Kontozinsen laut Eingabe 7.2/7.3", False),
+    (92, "6.4", "VOFI-EK-Rendite, nur Bodenwert", "%", 144, 144, F_PCT, None, False),
+    (93, "6.5", "Restwertanteil am Endvermögen", "%", 149, 149, F_PCT, None, False),
+    (94, "6.6", "EK-IRR, ohne Restwert", "%", 142, 142, F_PCT, _NULLST, False),
+    (95, "6.7", "VOFI-EK-Rendite, ohne Restwert", "%", 145, 145, F_PCT, None, False),
     (99, "7.1", "Restwert (Boden + Gebäude)", "€", 126, 126, F_EUR, "nach Eingabe 8.3 und 9.4", False),
     (100, "7.2", "Bodenwert", "€", 121, 121, F_EUR, None, False),
     (101, "7.3", "Gebäudeanteil", "€", 125, 125, F_EUR, None, False),
     (102, "7.4", "Ertragswert Bestand gegenüber Gesamtkosten", "% (Bezug)", 128, 128, F_PCT,
      "bei Bezug; negativ: unter Gesamtkosten", True),
-    (103, "7.5", "Ertragswert Bestand", "€", 123, 122, F_EUR, "Frei: zur Marktmiete", False),
+    (103, "7.5", "Ertragswert Bestand", "€", 123, 122, F_EUR, "Frei: zur gerechneten Miete", False),
     (104, "7.6", "Abschlag Bestandsmiete unter Zielmiete", "€", 124, None, F_EUR, None, False),
     (105, "7.7", "Liegenschaftszins", "%", 120, 120, F_PCT, "Standort Neu Wulmstorf", False),
     (106, "7.8", "Ertragswert Zielmiete gegenüber Gesamtkosten", "% (Bezug)", 129, None, F_PCT,
      "bei Bezug; nachrichtlich", True),
 ]
 FETT_UEB = (76, 89, 91, 99)
-# Block 8 Prüfungen P1-P6 (Konzept F.1), sichtbar: Status in C, Kasse bei Bezug A/B/C in D109:F109.
+# Block 8 Miete für das DSCR-Ziel (Konzept N): Zeile, Nr., Bezeichnung, Einheit, Zelle auf Gefördert (oder None),
+# Zelle auf Frei, Format, Bemerkung (Spalte H)
+UEB_KOPF8 = 108
+UEB_BLOCK8 = [
+    (109, "8.1", "DSCR-Ziel", "Faktor", "H181", "H181", F_FAKTOR, "Eingabe 10.2"),
+    (110, "8.2", "Kapitaldienst Jahr 1", "€", "H182", "H182", F_EUR, "Zeilen 5 bis 7 und Bankdarlehen"),
+    (111, "8.3", "Nötige Miete Jahr 1 für das DSCR-Ziel", "€/m² Monat", "H183", "H183", F_EUR2,
+     "deckt DSCR-Ziel × Kapitaldienst und die Zeilen 2 und 3 nach Mietausfall"),
+    (112, "8.4", "Miete Jahr 1, gerechnet", "€/m² Monat", "H109", "H109", F_EUR2, "wie 1.18"),
+    (113, "8.5", "Aufschlag Miete Jahr 1 gegenüber Marktmiete", "%", None, "H185", F_PCT,
+     "Frei: gerechnete Miete laut Eingabe 10.1"),
+    (114, "8.6", "Aufschlag nötige Miete gegenüber Marktmiete", "%", None, "H186", F_PCT, None),
+]
+FETT_BLOCK8 = (111,)
+# Aufschlag der gerechneten Frei-Miete bei den Renditen: Gruppenzeilen Block 5 und 6, Spalte L
+UEB_AUFSCHLAG_ZEILEN = (74, 87)
+# Block 9 Prüfungen P1-P6 (Konzept F.1), sichtbar: Status in C, Kasse bei Bezug A/B/C in D117:F117.
 # Jede Prüfung in IFERROR: ein Fehlerwert ergibt „prüfen“ (Runde 2, R1).
-UEB_PRUEF_KOPF, UEB_PRUEF_ERSTE, UEB_LETZTE = 108, 109, 114
+UEB_PRUEF_KOPF, UEB_PRUEF_ERSTE, UEB_LETZTE = 116, 117, 122
 _IRR_MIT_RW = (133, 136, 140, 143, 175)       # Renditen mit Restwert je Blatt Gefördert (P4)
+_IRR_MIT_RW_FREI = (136, 140, 143)           # Renditen mit Restwert auf Frei finanziert (P4)
+_EIN_A, _EIN_Z = f"${EINGABE_ERSTE}", f"${EINGABE_LETZTE}"
 PRUEFUNGEN = [
-    (109, "P1", "Keine Überfinanzierung bei Bezug",
+    (117, "P1", "Keine Überfinanzierung bei Bezug",
      "AND(" + ",".join(f"{_x(g)}H105<1" for g in GEF_ABC) + ")"),
-    (110, "P2", "Auswahlfelder 4.1, 4.2 und 8.2 gültig",
+    (118, "P2", "Auswahlfelder 4.1, 4.2, 8.2 und 10.1 gültig",
      'AND(COUNTIF(Mietenstufen,Mietenstufe)=1,OR(Effizienz_EH40="ja",Effizienz_EH40="nein"),'
-     'OR(Zielmiete="Marktmiete",Zielmiete="Vergleichsmiete"))'),
-    (111, "P3", "Bank: Anfangstilgung mind. 1 % (RL Nr. 5.3.6)",
+     'OR(Zielmiete="Marktmiete",Zielmiete="Vergleichsmiete"),'
+     'OR(Miete_Frei="Marktmiete",Miete_Frei="Miete für DSCR-Ziel"))'),
+    (119, "P3", "Bank: Anfangstilgung mind. 1 % (RL Nr. 5.3.6)",
      "AND(" + ",".join(f"OR({_x(g)}H103<1,{_x(g)}H113>=Tilgung_Bank_min-0.00005)" for g in GEF_ABC) + ")"),
-    (112, "P4", "Renditen mit Restwert berechnet",
+    (120, "P4", "Renditen mit Restwert berechnet",
      "AND(" + ",".join([f"COUNT({_x(g)}I{z}:J{z})=2" for g in GEF_ABC for z in _IRR_MIT_RW]
-                       + [f"COUNT({FREI_BLATT}I136:J136)=2"]) + ")"),
-    (113, "P5", "Gebäudeanteil am Restwert positiv",
+                       + [f"COUNT({FREI_BLATT}I{z}:J{z})=2" for z in _IRR_MIT_RW_FREI]) + ")"),
+    (121, "P5", "Gebäudeanteil am Restwert positiv",
      "MIN(" + ",".join(f"{_x(g)}I125:J125" for g in GEF_ABC) + "," + FREI_BLATT + "I125:J125)>0"),
-    (114, "P6", "Eingaben vollständig",
-     "IF(Projekt_Nr=1,SUMPRODUCT((LEN(Eingaben!$A$7:$A$51)>0)*(LEN(Eingaben!$D$7:$D$51)=0)),"
-     "SUMPRODUCT((LEN(Eingaben!$A$7:$A$51)>0)*(LEN(Eingaben!$E$7:$E$51)=0)))=0"),
+    (122, "P6", "Eingaben vollständig",
+     f"IF(Projekt_Nr=1,SUMPRODUCT((LEN(Eingaben!$A{_EIN_A}:$A{_EIN_Z})>0)*(LEN(Eingaben!$D{_EIN_A}:$D{_EIN_Z})=0)),"
+     f"SUMPRODUCT((LEN(Eingaben!$A{_EIN_A}:$A{_EIN_Z})>0)*(LEN(Eingaben!$E{_EIN_A}:$E{_EIN_Z})=0)))=0"),
 ]
 # Zeilengliederung Übersicht: Nebenwerte und Details eingeklappt (Schalter an der Zeile darüber)
 UEB_EINGEKLAPPT = [(12, 12), (23, 23), (50, 52), (62, 62), (66, 72), (80, 85), (94, 95), (103, 106)]
 UEB_KOPFZEILEN = {8: "Projekt und Finanzierung bei Bezug", 28: "Jahresrechnung Jahr 1, in € p. a.",
-                  41: "Liquidität", UEB_KOPF4: "Zahlungsüberschuss Jahr 1 je Tilgungssatz"}
+                  41: "Liquidität", UEB_KOPF4: "Zahlungsüberschuss Jahr 1 je Tilgungssatz",
+                  UEB_KOPF8: "Miete für das DSCR-Ziel"}
 UEB_RECHTS = tuple("DEFGHIJK")
 
 
@@ -1313,22 +1444,26 @@ def blatt_uebersicht(wb, ws):
         ueb_wert(ws, f"G{r}", frei, fmt)
 
     # Block 2 Jahresrechnung Jahr 1
-    ueb_kopf(ws, 28, dict(abc, A="Zeile", B=UEB_KOPFZEILEN[28], C="Satz"))
+    ueb_kopf(ws, 28, dict(abc, A="Zeile", B=UEB_KOPFZEILEN[28], C="Satz", G="Frei"))
     for r, nr, text, satz, f, fmt, bem, fett in UEB_BLOCK2:
         ueb_text(ws, r, nr, text, None, bem, fett=fett)
         if satz:
             zelle(ws, f"C{r}", satz[0], "formel", satz[1], h="right")
         for s, g in zip("DEF", GEF_ABC):
             ueb_wert(ws, f"{s}{r}", f.format(x=_x(g)), fmt, fett=fett)
+        if r in UEB_BLOCK2_FREI:
+            ueb_wert(ws, f"G{r}", UEB_BLOCK2_FREI[r].format(f=FREI_BLATT), fmt, fett=fett)
         if fett:
-            rahmen_oben(ws, r, "B", "F", ERGEBNIS_LINIE)
+            rahmen_oben(ws, r, "B", "G", ERGEBNIS_LINIE)
 
     # Block 3 Liquidität
-    ueb_kopf(ws, 41, dict(abc, B=UEB_KOPFZEILEN[41]))
+    ueb_kopf(ws, 41, dict(abc, B=UEB_KOPFZEILEN[41], G="Frei"))
     for r, nr, text, einheit, f, fmt, bem in UEB_BLOCK3:
         ueb_text(ws, r, nr, text, einheit, bem)
         for s, g in zip("DEF", GEF_ABC):
             ueb_wert(ws, f"{s}{r}", f.format(x=_x(g)), fmt)
+        if r in UEB_BLOCK3_FREI:
+            ueb_wert(ws, f"G{r}", f"={FREI_BLATT}H{UEB_BLOCK3_FREI[r]}", fmt)
 
     # Block 4 Tilgungssatz: Zahlungsüberschuss Jahr 1 je Tilgungssatz (Tilgung ab Jahr 1), Vergleich der Gruppen
     ueb_kopf(ws, UEB_KOPF4, dict(abc, B=UEB_KOPFZEILEN[UEB_KOPF4], G="höchster Überschuss"), mitte=("G",), hoehe=27)
@@ -1372,13 +1507,28 @@ def blatt_uebersicht(wb, ws):
             ueb_wert(ws, f"K{r}", f"={FREI_BLATT}J{zf}", fmt, fett)
     for i, (gz, _t, _f) in enumerate(UEB_GRUPPEN_H):    # Jahr 42 optisch absetzen
         bis = max(r for r, *_ in UEB_HORIZONT if gz < r < (UEB_GRUPPEN_H[i + 1][0] if i + 1 < len(UEB_GRUPPEN_H)
-                                                          else UEB_PRUEF_KOPF))
+                                                          else UEB_KOPF8))
         for rr in range(gz + 1, bis + 1):
             c = ws[f"H{rr}"]
             b = c.border
             c.border = Border(left=DUENN, right=b.right, top=b.top, bottom=b.bottom)
 
-    # Block 8 Prüfungen (sichtbar): Status in C, Kasse bei Bezug A/B/C in D-F neben P1
+    # Aufschlag der gerechneten Frei-Miete auf die Marktmiete, sichtbar bei den Renditen (Gruppenzeilen Block 5, 6)
+    for gz in UEB_AUFSCHLAG_ZEILEN:
+        c = zelle(ws, f"L{gz}", f"={FREI_BLATT}H185", "formel", F_AUFSCHLAG, fett=True, h="left", einzug=1)
+        c.fill = fuellung(GRUPPE)
+
+    # Block 8 Miete für das DSCR-Ziel: nötige Miete A/B/C/Frei, Aufschläge nur Frei
+    ueb_kopf(ws, UEB_KOPF8, dict(abc, B=UEB_KOPFZEILEN[UEB_KOPF8], G="Frei"))
+    for r, nr, text, einheit, zg, zf, fmt, bem in UEB_BLOCK8:
+        fett = r in FETT_BLOCK8
+        ueb_text(ws, r, nr, text, einheit, bem, fett=fett)
+        if zg:
+            for s, g in zip("DEF", GEF_ABC):
+                ueb_wert(ws, f"{s}{r}", f"={_x(g)}{zg}", fmt, fett)
+        ueb_wert(ws, f"G{r}", f"={FREI_BLATT}{zf}", fmt, fett)
+
+    # Block 9 Prüfungen (sichtbar): Status in C, Kasse bei Bezug A/B/C in D-F neben P1
     ueb_kopf(ws, UEB_PRUEF_KOPF, {"A": "Nr.", "B": "Prüfung", "C": "Status", "D": "A", "E": "B", "F": "C",
                                   "H": "Bemerkung"}, mitte=("C",))
     for r, nr, text, bed in PRUEFUNGEN:
@@ -1506,9 +1656,11 @@ HINWEISE = [
     "um Jahre fort.",
     "Mieten: Höchstmiete (höchstens Marktmiete) in Jahr 1–3, dann alle 3 Jahre +6,15 % (ab Jahr 36 Kappungsgrenze) "
     "bis zur Vergleichsmiete; je m² ungerundet. Frei finanziert: Marktmiete wie bei Neuvermietung, ohne Grenze nach "
-    "§ 558 BGB; der Frei-IRR liegt dadurch rund 0,4–0,5 Prozentpunkte höher.",
+    "§ 558 BGB; der Frei-IRR liegt dadurch rund 0,4–0,5 Prozentpunkte höher. Eingabe 10.1 rechnet frei wahlweise "
+    "mit der Miete, die in Jahr 1 das DSCR-Ziel (Eingabe 10.2) erreicht; Aufschlag auf die Marktmiete: Übersicht 8.5.",
     "Finanzierung: Eigenkapital = Grundstück (Sacheinlage) + bar; Bank nur für die Lücke; NBank-Darlehen 0 % bis "
-    "Jahr 35, linear, Rest in Jahr 42.",
+    "Jahr 35, linear, Rest in Jahr 42. Frei finanziert: gleiche Eigenmittel wie gefördert, der Rest als Bankdarlehen "
+    "zu den Konditionen der Eingaben 6.1 bis 6.4.",
     "Restwert: Ertragswert im Stichjahr; Bestandsmiete je 3 Jahre höchstens um die Kappungsgrenze, bis Jahr 42 bis zur "
     "Vergleichs-, dann Zielmiete.",
     "Restwert-Varianten: mit Restwert = Boden + Gebäude; nur Bodenwert = ohne Gebäudeanteil; ohne Restwert = 0.",
@@ -1607,7 +1759,7 @@ def neu_berechnen(ziel):
 GLIEDERUNG_OBEN = ("Eingaben", "Übersicht", "Gefördert A", "Gefördert B", "Gefördert C", "Frei finanziert")
 # Schalter zugeklappter Gruppen: Übersicht Zeilen über den Details, Gefördert Spalte AO (rechts von Y-AN)
 ZUGEKLAPPT = {"Übersicht": ("row", tuple(a - 1 for a, _b in UEB_EINGEKLAPPT)),
-              **{f"Gefördert {g}": ("col", (46,)) for g in "ABC"}, "Frei finanziert": ("col", (20,))}
+              **{f"Gefördert {g}": ("col", (46,)) for g in "ABC"}, "Frei finanziert": ("col", (29,))}
 # Zeilengliederung t = 43 … 80 (Schalter an Zeile 48 = t 42) auf allen Zeitreihenblättern
 ZUGEKLAPPT_ZEILE = {**{f"Gefördert {g}": (Z42,) for g in "ABC"}, "Frei finanziert": (Z42,)}
 DOK_AUTOR, DOK_TITEL, DOK_SPRACHE = "PGN", "VOFI Mietwohnraum 2026", "de-DE"
@@ -1644,7 +1796,7 @@ def nachbearbeiten(ziel):
         teile[teil] = x.encode("utf-8")
     # Zugeklappte Gruppen: LibreOffice schreibt an der Schalterzeile/-spalte collapsed="false"; Excel zeigte dann
     # an einer geschlossenen Gruppe den Schalter "−". Schalterzeilen Übersicht, Schalterspalte AT (46) Gefördert,
-    # T (20) Frei, Schalterzeile 48 (Gruppe t = 43 … 80) auf den Zeitreihenblättern.
+    # AC (29) Frei, Schalterzeile 48 (Gruppe t = 43 … 80) auf den Zeitreihenblättern.
     auftraege = [(nm, art, nummern) for nm, (art, nummern) in ZUGEKLAPPT.items()]
     auftraege += [(nm, "row", nummern) for nm, nummern in ZUGEKLAPPT_ZEILE.items()]
     blatt_teil = {}

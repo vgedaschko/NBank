@@ -7,7 +7,7 @@ Aufruf im Ordner praesentation:
     python pruefe_folien.py --zahlen             listet zusätzlich jede Zahl mit ihrem Beleg
 
 Was geprüft wird (eine Zeile je Prüfung, am Ende die Summe; Rückgabewert 1 bei Fehlern):
-  Aufbau     33 Folien (25 im Hauptteil, 8 im Anhang) mit Kennung, Blattnummer und Abschnitt wie festgelegt (AUFBAU), in der Reihenfolge des
+  Aufbau     36 Folien (28 im Hauptteil, 8 im Anhang) mit Kennung, Blattnummer und Abschnitt wie festgelegt (AUFBAU), in der Reihenfolge des
              Konzepts; Titel-Platzhalter, Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs; Kicker, Rubrik, Agenda
              und Trenner mit denselben Abschnittsnamen und derselben Zählung
   Form       nur Montserrat und Work Sans, Mindestgrößen (E3), Alternativtexte (Bilder, Diagramme, Flussdiagramme), keine Folie als Bild,
@@ -52,23 +52,24 @@ REL = "{http://schemas.openxmlformats.org/package/2006/relationships}"
 
 NBSP, MINUS = " ", "−"
 # ---- Aufbau der Mappe nach der Festlegung zum Umbau: Blattnummer, Kennung der Folie, Abschnitt; in dieser Reihenfolge ---------------------
-# Titel und Schluss tragen keine Blattnummer auf der Folie, zählen aber mit (1 und 25). Der Anhang heißt A0 bis A7.
+# Titel und Schluss tragen keine Blattnummer auf der Folie, zählen aber mit (1 und 28). Der Anhang heißt A0 bis A7.
 AUFBAU = [
-    ("1", "titel", "Ausgangslage"), ("2", "einstieg-baukosten", "Ausgangslage"), ("3", "ausgangslage-zinsen", "Ausgangslage"),
-    ("4", "einstieg-kapitaldienst", "Ausgangslage"), ("5", "einstieg-bestand", "Ausgangslage"), ("6", "agenda", "Ausgangslage"),
-    ("7", "neu-seit-juli", "Programmteil 2.1"), ("8", "hoechstmiete", "Programmteil 2.1"), ("9", "foerdermix", "Programmteil 2.1"),
-    ("10", "eckdaten-zeitstrahl", "Programmteil 2.1"),
-    ("11", "trenner-rechnung", "Ihre Rechnung"), ("12", "rechnung-finanzierung", "Ihre Rechnung"), ("13", "rechnung-jahr1", "Ihre Rechnung"),
-    ("14", "rechnung-kapitaldienst", "Ihre Rechnung"), ("15", "rechnung-fluss-gefoerdert", "Ihre Rechnung"), ("16", "rechnung-fluss-frei", "Ihre Rechnung"),
-    ("17", "rechnung-miete", "Ihre Rechnung"), ("18", "rechnung-tilgung", "Ihre Rechnung"), ("19", "rechnung-verlauf", "Ihre Rechnung"),
-    ("20", "pgn-baukosten", "Ihre Rechnung"), ("21", "rechnung-kosten", "Ihre Rechnung"), ("22", "fazit", "Ihre Rechnung"),
-    ("23", "antragsweg", "Umsetzung"), ("24", "pgn-leistungen", "Umsetzung"), ("25", "kontakt", "Umsetzung"),
+    ("1", "titel", "Ausgangslage"), ("2", "trenner-ausgangslage", "Ausgangslage"), ("3", "einstieg-baukosten", "Ausgangslage"),
+    ("4", "ausgangslage-zinsen", "Ausgangslage"), ("5", "einstieg-kapitaldienst", "Ausgangslage"), ("6", "einstieg-bestand", "Ausgangslage"),
+    ("7", "agenda", "Ausgangslage"),
+    ("8", "trenner-programmteil", "Programmteil 2.1"), ("9", "neu-seit-juli", "Programmteil 2.1"), ("10", "hoechstmiete", "Programmteil 2.1"),
+    ("11", "foerdermix", "Programmteil 2.1"), ("12", "eckdaten-zeitstrahl", "Programmteil 2.1"),
+    ("13", "trenner-rechnung", "Ihre Rechnung"), ("14", "rechnung-finanzierung", "Ihre Rechnung"), ("15", "rechnung-jahr1", "Ihre Rechnung"),
+    ("16", "rechnung-kapitaldienst", "Ihre Rechnung"), ("17", "rechnung-fluss-gefoerdert", "Ihre Rechnung"), ("18", "rechnung-fluss-frei", "Ihre Rechnung"),
+    ("19", "rechnung-miete", "Ihre Rechnung"), ("20", "rechnung-tilgung", "Ihre Rechnung"), ("21", "rechnung-verlauf", "Ihre Rechnung"),
+    ("22", "pgn-baukosten", "Ihre Rechnung"), ("23", "rechnung-kosten", "Ihre Rechnung"), ("24", "fazit", "Ihre Rechnung"),
+    ("25", "trenner-umsetzung", "Umsetzung"), ("26", "antragsweg", "Umsetzung"), ("27", "pgn-leistungen", "Umsetzung"), ("28", "kontakt", "Umsetzung"),
     ("A0", "anhang-trenner", "Anhang"), ("A1", "anhang-programmteile", "Anhang"), ("A2", "anhang-frist", "Anhang"), ("A3", "anhang-voraussetzungen", "Anhang"),
     ("A4", "anhang-vertraege", "Anhang"), ("A5", "anhang-mieterkreis", "Anhang"), ("A6", "anhang-eckdaten", "Anhang"), ("A7", "quellen", "Anhang"),
 ]
-FOLIENZAHL = len(AUFBAU)          # 33: 25 im Hauptteil, 8 im Anhang
-HAUPTTEIL, ANHANG = 25, 8
-# Folien der Modellrechnung: nur sie tragen den Stempel (Layouts mit „_MR“). Kein Stempel im Einstieg (Folien 2 bis 5: Medianwerte je m²)
+FOLIENZAHL = len(AUFBAU)          # 36: 28 im Hauptteil, 8 im Anhang
+HAUPTTEIL, ANHANG = 28, 8
+# Folien der Modellrechnung: nur sie tragen den Stempel (Layouts mit „_MR“). Kein Stempel im Einstieg (Folien 3 bis 6: Medianwerte je m²)
 # und auf pgn-baukosten (Kostenkennwerte, kein Modellhaus).
 STEMPEL = ["rechnung-finanzierung", "rechnung-jahr1", "rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-fluss-frei", "rechnung-miete",
            "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten", "fazit"]
@@ -104,7 +105,7 @@ VERBOTEN = [
     (re.compile(r"Rendite", re.I), "Rendite"),
 ]
 # „Rendite“ ist nur in diesen zwei Wendungen zugelassen. Beide nennen keine Rendite des Modellhauses: Die erste grenzt die Rechnung ab
-# (Wortlaut des Konzepts, Folie 9), die zweite ist die Beihilferegel der Richtlinie (Anhang A6, Broschüre S. 9).
+# (Wortlaut des Konzepts, Folie 11), die zweite ist die Beihilferegel der Richtlinie (Anhang A6, Broschüre S. 9).
 RENDITE_ERLAUBT = [re.compile(r"keine Rendite"), re.compile(r"Eine Eigenkapitalrendite bis 1 Prozentpunkt über dem 30-jährigen Swapsatz gilt stets als angemessen")]
 
 # ---- E6: Gedankenstrich als Einschub -----------------------------------------------------------------------------------
@@ -131,7 +132,7 @@ KERNWERTE = [
     ("fin.foerderung.A", "mio", "5,6 Mio. €", ["rechnung-finanzierung", "fazit"]),
     ("fin.gesamtkosten.A", "mio", "7,0 Mio. €", ["rechnung-finanzierung", "fazit"]),
     ("fin.miete_jahr1.A", "euro2", "6,80 €", ["hoechstmiete", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
-    # Zahlungsfluss in Jahr 1 (Folien 15 und 16)
+    # Zahlungsfluss in Jahr 1 (Folien 17 und 18)
     ("jr1.sollmiete.A", "euro", "114.240 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
     ("jr1.ueberschuss_vor_kapitaldienst.A", "euro", "84.455 €", ["rechnung-fluss-gefoerdert"]),
     ("jr1.tilgung_nbank.A", "euro", "70.000 €", ["rechnung-fluss-gefoerdert"]),
@@ -140,12 +141,12 @@ KERNWERTE = [
     ("jr1.objektverwaltung.A", "euro", "7.340 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
     ("jr1.mietausfall.A", "euro", "2.285 €", ["rechnung-fluss-gefoerdert"]),
     ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1", "61,3 %", ["rechnung-fluss-gefoerdert"]),
-    (SOLLMIETE_FREI, "euro", "348.167 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),   # auf Folie 15 am Umriss der Quelle
+    (SOLLMIETE_FREI, "euro", "348.167 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),   # auf Folie 17 am Umriss der Quelle
     ("modellhaus:eingabe.mietausfall * " + SOLLMIETE_FREI, "euro", "6.963 €", ["rechnung-fluss-frei"]),
     ("-modellhaus:frei.zins_jahr1", "euro", "209.440 €", ["rechnung-fluss-frei"]),
     ("-modellhaus:frei.tilgung_jahr1", "euro", "104.263 €", ["rechnung-fluss-frei"]),
     ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1", "60,2 %", ["rechnung-fluss-frei"]),
-    # Herstellungskosten je m²: Ansatz des Modellhauses und PGN-Median (Folien 20 und 21)
+    # Herstellungskosten je m²: Ansatz des Modellhauses und PGN-Median (Folien 22 und 23)
     ("eingabe.herstellungskosten_qm", "euro", "4.500 €", ["pgn-baukosten", "rechnung-kosten"]),
     ("modellhaus_pgn_kosten:eingabe.herstellungskosten_qm", "euro", "3.579 €", ["pgn-baukosten", "rechnung-kosten"]),
     ("eingabe.zins_bank", "prozent2", "3,74 %", ["ausgangslage-zinsen", "einstieg-kapitaldienst", "rechnung-kapitaldienst"]),
@@ -316,7 +317,7 @@ DATUM = re.compile(r"\b(\d{1,2})\.(\d{1,2})\.(\d{4})?(?!\d)")
 JAHR = re.compile(r"(?<![\d.,/])(?:19|20)\d{2}(?![\d]|[.,]\d)")
 BROSCHUERE_S = re.compile(r"\bBroschüre\s+S\.\s+(\d+(?:(?:,\s+|\s+und\s+|\s+bis\s+|–)\d+)*)")
 FOLIE_NR = re.compile(r"\b(?:Folien?|Anhang)\s+(A?\d+(?:(?:,\s+|\s+und\s+|\s+bis\s+|–|\s+oder\s+)A?\d+)*)|\b(A\d\b(?:(?:,\s+|\s+und\s+|\s+bis\s+)A\d\b)*)")
-FOLIEN_NUMMERN = set()   # Blattnummern des Konzepts (1 bis 25, A0 bis A7); main() füllt die Menge
+FOLIEN_NUMMERN = set()   # Blattnummern des Konzepts (1 bis 28, A0 bis A7); main() füllt die Menge
 # Kleine ganze Zahlen als Zähler: Jahr der Rechnung, Zeile, Schritt, Gruppe. Nur wenn die Zahl sonst keinen Beleg hat.
 ZAEHLER = re.compile(r"\b(?:Jahr(?:e|en)?|Zeilen?|Schritte?|Station(?:en)?|Punkte?|Größen)\s+(\d{1,2})(?:(?:\s+bis\s+|–|\s+und\s+)(\d{1,2}))?")
 ZAEHLER_GRUND = "Zähler im Satz (Jahr der Rechnung, Zeile, Schritt), höchstens zweistellig"

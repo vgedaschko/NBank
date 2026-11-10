@@ -1,5 +1,5 @@
-// Folie 6 · PGN_INHALT: Inhalt des Vortrags. Oben die Achse mit vier Achskreisen, je Abschnitt des Hauptteils einer, mit senkrechter Achslinie,
-// Name und einer Zeile Inhalt; dieselbe Zählung trägt die Achsleiste der Trennerfolie (Folie 11). Darunter das Register der sechs Programmteile:
+// Folie 7 · PGN_INHALT: Inhalt des Vortrags. Oben die Achse mit vier Achskreisen, je Abschnitt des Hauptteils einer, mit senkrechter Achslinie,
+// Name und einer Zeile Inhalt; dieselbe Zählung trägt die Achsleiste der Trenner (Folien 2, 8, 13, 25). Darunter das Register der sechs Programmteile:
 // Der Vortrag behandelt 2.1 (Feld auf dem Ton seiner Programmfarbe), die Felder 2.2 bis 2.6 nennen die Seite der Broschüre.
 // Texte aus daten/rahmen.json (Block agenda), Namen der Programmteile aus daten/markt.json (programmteile.zeilen, Broschüre S. 5).
 // Der Satz unter dem Modultitel trägt den Fokus und den Verweis auf die Broschüre; sein erster Satz steht halbfett (Fettmarke in der Datendatei).

@@ -1,4 +1,4 @@
-// Folie 18 · PGN_DIAGRAMM_MR: Zahlungsüberschuss in Jahr 1 je Tilgungssatz als drei Geraden (A durchgezogen in Tinte, B gestrichelt in
+// Folie 20 · PGN_DIAGRAMM_MR: Zahlungsüberschuss in Jahr 1 je Tilgungssatz als drei Geraden (A durchgezogen in Tinte, B gestrichelt in
 // Tinte, C in Referenzgrau) wie Block 4 der Mappe. Maßkette mit Teilung bei der Schwelle C gegen A, Marke beim Tilgungssatz der
 // Jahresrechnung mit den drei Werten, Achskreise an den Linienenden. Kein Rot im Diagramm.
 // Stützpunkte: Zahlungsüberschuss vor Tilgung − Satz × NBank-Darlehen (werte.json, Lauf modellhaus), gegen das Raster der Mappe geprüft.
@@ -21,9 +21,9 @@ module.exports = {
     let gleich = 0;
     saetze.forEach(t => { const k = raster.findIndex(r => Math.abs(r - t) < 1e-9); if (k < 0) return; gleich++;
       for (const g of G) R.pruefe(Math.abs(M(`tilg.raster.zahlungsueberschuss.${g}`)[k] - bei(g, t)) < 0.005, `Stützpunkt ${g} bei ${fmt.prozent(t, 1)} weicht vom Raster der Mappe ab.`); });
-    R.pruefe(gleich >= 5, 'Das Raster der Mappe deckt weniger als fünf Stützpunkte der Folie 18.');
+    R.pruefe(gleich >= 5, 'Das Raster der Mappe deckt weniger als fünf Stützpunkte der Folie 20.');
     const tJahr = M('eingabe.tilgung_nbank'), schwelle = M('tilg.schwelle.C_gegen_A'), bester = M('tilg.raster.bester');
-    R.pruefe(saetze.includes(tJahr), 'Der Tilgungssatz der Jahresrechnung liegt nicht auf der Achsteilung der Folie 18.');
+    R.pruefe(saetze.includes(tJahr), 'Der Tilgungssatz der Jahresrechnung liegt nicht auf der Achsteilung der Folie 20.');
     for (const g of G) R.pruefe(Math.abs(bei(g, tJahr) - M(`jr1.zahlungsueberschuss.${g}`)) < 0.005, `Der Wert ${g} beim Satz der Jahresrechnung ist nicht Zeile 8 der Jahresrechnung.`);
     R.pruefe(bester[raster.indexOf(0)] === 'C' && !bester.includes('B') && Math.abs(bei('C', schwelle) - bei('A', schwelle)) < 1 && M('tilg.schwelle.B_gegen_A') < schwelle,
       'Die Aussagen „unter der Schwelle C, darüber A, B nie vorn“ treffen nicht mehr zu.');

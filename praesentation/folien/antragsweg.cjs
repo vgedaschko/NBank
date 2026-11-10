@@ -1,4 +1,4 @@
-// Folie 23 · PGN_ABLAUF: Antragsweg in acht Stationen (Broschüre S. 19). Zwei Achsleisten zu je vier Stationen über zwölf Spalten,
+// Folie 26 · PGN_ABLAUF: Antragsweg in acht Stationen (Broschüre S. 19). Zwei Achsleisten zu je vier Stationen über zwölf Spalten,
 // Station 4 (Entscheidung der NBank) mit gefülltem Achskreis in Dunkelrot; zwischen den Reihen das Warnband zur Bewilligung
 // (einziges Signalelement des Hauptteils), unter Reihe 2 die Zeile zum Vorhabenbeginn. Texte und Fristen aus daten/umsetzung.json.
 'use strict';

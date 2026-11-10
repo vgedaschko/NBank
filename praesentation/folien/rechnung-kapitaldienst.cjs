@@ -1,4 +1,4 @@
-// Folie 14 · PGN_DIAGRAMM_MR: Kapitaldienst in Jahr 1, gefördert (Gruppe A) gegen frei finanziert, als gestapelte Balken aus Tilgung,
+// Folie 16 · PGN_DIAGRAMM_MR: Kapitaldienst in Jahr 1, gefördert (Gruppe A) gegen frei finanziert, als gestapelte Balken aus Tilgung,
 // Zins und Verwaltungskostenbeitrag in Tinte, Referenzgrau und Hellgrau. Die Summen stehen als Kernwerte am Balkenende. Kein Rot im Diagramm.
 // Alle Zahlen aus werte.json (Lauf modellhaus); frei.zins_jahr1 und frei.tilgung_jahr1 stehen dort als Auszahlung negativ.
 'use strict';

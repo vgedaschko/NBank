@@ -1,4 +1,4 @@
-// Folie 21 · PGN_DIAGRAMM_MR mit freier Lage des Diagramms: Zahlungsüberschuss in Jahr 1 (Gruppe A) bei drei Herstellungskosten je m²
+// Folie 23 · PGN_DIAGRAMM_MR mit freier Lage des Diagramms: Zahlungsüberschuss in Jahr 1 (Gruppe A) bei drei Herstellungskosten je m²
 // als Säulen in Tinte mit kräftiger Nulllinie, passgenau darunter ein Rechenblatt mit drei Wertspalten; die Spalte des Modellhauses ist
 // vom Diagramm bis zur Tabelle weiß hinterlegt. Kein Rot im Diagramm.
 // Zahlen aus drei Läufen von werte.json (3.579, 4.500 und 5.200 € je m²); die Herkunft des Werts 3.579 € als Text aus daten/rechnung.json.
@@ -12,12 +12,12 @@ module.exports = {
     B.register(s, '2.1');
     const laeufe = R.KOSTENLAEUFE, L = k => laeufe.map(l => W(l, k)), iModell = laeufe.indexOf('modellhaus');
     const kosten = L('eingabe.herstellungskosten_qm'), kopf = kosten.map(v => fmt.euro(v)), grenze = W('modellhaus', 'fin.bemessungsgrenze_qm'), ueber = L('fin.ueber_bemessungsgrenze.A');
-    R.pruefe(kosten[0] < kosten[1] && kosten[1] < grenze && grenze < kosten[2] && ueber[0] === 0 && ueber[1] === 0 && ueber[2] > 0, 'Die drei Läufe der Folie 21 liegen nicht mehr unter, unter und über der Bemessungsgrenze.');
-    R.pruefe(new Set(L('eingabe.grundstueck')).size === 1 && new Set(L('fin.bemessungsgrenze_qm')).size === 1, 'Grundstück oder Bemessungsgrenze unterscheiden sich zwischen den drei Läufen der Folie 21.');
+    R.pruefe(kosten[0] < kosten[1] && kosten[1] < grenze && grenze < kosten[2] && ueber[0] === 0 && ueber[1] === 0 && ueber[2] > 0, 'Die drei Läufe der Folie 23 liegen nicht mehr unter, unter und über der Bemessungsgrenze.');
+    R.pruefe(new Set(L('eingabe.grundstueck')).size === 1 && new Set(L('fin.bemessungsgrenze_qm')).size === 1, 'Grundstück oder Bemessungsgrenze unterscheiden sich zwischen den drei Läufen der Folie 23.');
     // Über der Bemessungsgrenze finanziert die Mappe die nicht zuwendungsfähigen Kosten über ein Bankdarlehen; die beiden anderen Läufe haben keins.
     // An dieser Annahme hängen Zahlungsüberschuss und nötige Miete der Spalte 5.200 €; die Folie nennt sie deshalb.
     const bank = L('fin.bankdarlehen.A');
-    R.pruefe(bank[0] === 0 && bank[1] === 0 && Math.abs(bank[2] - ueber[2]) < 0.5, 'Das Bankdarlehen des Laufs über der Bemessungsgrenze ist nicht gleich den nicht zuwendungsfähigen Kosten, oder ein anderer Lauf der Folie 21 trägt ein Bankdarlehen.');
+    R.pruefe(bank[0] === 0 && bank[1] === 0 && Math.abs(bank[2] - ueber[2]) < 0.5, 'Das Bankdarlehen des Laufs über der Bemessungsgrenze ist nicht gleich den nicht zuwendungsfähigen Kosten, oder ein anderer Lauf der Folie 23 trägt ein Bankdarlehen.');
     const ueberschuss = L('jr1.zahlungsueberschuss.A');
     B.diagrammkopf(s, { titel: 'Zahlungsüberschuss Jahr 1, Gruppe A', sub: 'in € p. a. · nach Herstellungskosten je m² Wohnfläche' });
 

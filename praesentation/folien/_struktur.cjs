@@ -1,10 +1,11 @@
-// Hilfsfunktionen der Baugruppe „struktur“ (Folien 6, 11, 20, A0, A7). Kein Folienmodul: build.cjs lädt nur folien/<id>.cjs der Folien des Konzepts.
-//   abschnitte             Abschnitte des Hauptteils in der Reihenfolge des Konzepts: eine Zählung für Agenda (Folie 6) und Trenner (Folie 11)
+// Hilfsfunktionen der Baugruppe „struktur“ (Folien 2, 7, 8, 13, 22, 25, A0, A7). Kein Folienmodul: build.cjs lädt nur folien/<id>.cjs der Folien des Konzepts.
+//   abschnitte             Abschnitte des Hauptteils in der Reihenfolge des Konzepts: eine Zählung für Agenda (Folie 7) und Trenner (Folien 2, 8, 13, 25)
+//   trenner                Roter Trenner vor einem Abschnitt: Achskreis XL, Titel und Vorspann aus dem Konzept, Achsleiste
 //   achsreihe              Achse der Agenda: waagerechte Achse, je Abschnitt ein Achskreis mit senkrechter Achslinie, Name und Inhalt
 //   register               Register der sechs Programmteile: der Schlüsselplan in groß (Programm-Chip, Name, Verweis), ein Feld hervorgehoben
-//   kostenFelder, liesKosten  Texte der Folie 20 aus daten/markt.json (Block kosten) mit gefüllten Platzhaltern
+//   kostenFelder, liesKosten  Texte der Folie 22 aus daten/markt.json (Block kosten) mit gefüllten Platzhaltern
 //   bereiche, quellenZeilen   Quellentabelle der Folie A7: Blattnummern aus den Quellenzeilen aller Folien des Konzepts
-// Allgemeine Helfer stehen in lib/: B.achskreis mit der Größe G, B.zweizeilig, B.hauptzahl und B.zweitesModul (rechte Spalte der Folie 20),
+// Allgemeine Helfer stehen in lib/: B.achskreis mit der Größe G, B.zweizeilig, B.hauptzahl und B.zweitesModul (rechte Spalte der Folie 22),
 // B.hinweisKasten, B.hoehe. Hier steht keine Zahl mit Aussage: Werte kommen aus den Modulen (W, X), Lagen und Maße sind Angaben der Zeichnung.
 'use strict';
 const { zeilenzahl, zeilenhoehe } = require('../lib/passpruefung.cjs');
@@ -12,6 +13,18 @@ const { zeilenzahl, zeilenhoehe } = require('../lib/passpruefung.cjs');
 // ---- Abschnitte -------------------------------------------------------------------------------------------------------------------
 // Namen der Abschnitte des Hauptteils (Feld „abschnitt“ der Folien, ohne „Anhang“) in der Reihenfolge des Konzepts
 const abschnitte = ctx => [...new Set(ctx.outline.folien.map(f => f.abschnitt))].filter(a => a !== 'Anhang');
+
+// ---- Trenner ----------------------------------------------------------------------------------------------------------------------------
+// Roter Trenner vor einem Abschnitt des Hauptteils (PGN_ABSCHNITT_ROT): Achskreis XL mit der Nummer des Abschnitts, Titel und Vorspann aus dem
+// Konzept, Achsleiste mit einem Achskreis je Abschnitt, der eigene gefüllt. Die Nummer folgt aus dem Feld „abschnitt“; das Konzept muss sie im
+// Achskreis XL nennen. opt: { lead } für einen Vorspann mit Werten aus der Mappe (sonst der Wortlaut des Konzepts).
+function trenner(ctx, opt = {}) {
+  const { B, P, o } = ctx, alle = abschnitte(ctx), aktiv = alle.indexOf(o.abschnitt) + 1;
+  const s = ctx.folie(opt.lead === undefined ? {} : { lead: opt.lead });
+  if (!o.inhalt.includes(`Achskreis XL: „${aktiv}“`)) P.melde(`Abschnitt „${o.abschnitt}“ ist der ${aktiv}. des Hauptteils; das Konzept nennt im Achskreis XL eine andere Nummer.`);
+  B.abschnittsleiste(s, { n: alle.length, aktiv });
+  return s;
+}
 
 // ---- Agenda: Achse mit vier Achskreisen ---------------------------------------------------------------------------------------------
 // Die Achskreise haben die Größe G der Bibliothek (0,90 Zoll, Montserrat Black 32 pt, Kontur 1,5 pt, Ziffer in Tinte): Rot bleibt auf der
@@ -72,7 +85,7 @@ function register(ctx, s, o) {
   return { unten: o.y + o.h };
 }
 
-// ---- Folie 20: Texte ----------------------------------------------------------------------------------------------------------------------
+// ---- Folie 22: Texte ----------------------------------------------------------------------------------------------------------------------
 // Zahlen, die in den Texten des Blocks kosten (daten/markt.json) als Platzhalter stehen. Jede Zahl hat genau eine Quelle:
 // daten/markt.json (Altfassung, mit Herkunft) oder daten/werte.json (Vorsatz „mappe_“, Lauf modellhaus).
 function kostenFelder(ctx) {
@@ -101,7 +114,7 @@ function bereiche(ids, folien) {
 // Rahmenfolien (Titel, Trenner, Schluss) zählen nicht. „folien“ in der Datendatei setzt die Bezeichnung fest („alle“).
 // Geprüft wird: Jeder Teil jeder Quellenzeile des Konzepts gehört zu einer Tabellenzeile oder zu den Teilen ohne Zeile (Verweise auf die
 // Broschüre, Bildnachweis); jede Tabellenzeile hat mindestens eine Folie; Text und Blattnummern stehen so im Konzept der Folie; die
-// Foliennummern in den Texten („Folie 4: …“) sind die der Folien, deren Quellenzeile die Angabe nennt.
+// Foliennummern in den Texten („Folie 5: …“) sind die der Folien, deren Quellenzeile die Angabe nennt.
 function quellenZeilen(ctx) {
   const { X, P, W, outline, glatt } = ctx, Q = k => X('rahmen', 'quellen.' + k), gross = t => glatt(t).toLocaleUpperCase('de-DE');
   const rahmenfolien = new Set(Q('rahmenfolien')), ohne = Q('ohne_zeile'), zeilen = Q('zeilen');
@@ -118,7 +131,7 @@ function quellenZeilen(ctx) {
   // Folien einer Kennung in der Reihenfolge des Konzepts (ohne Rahmenfolien)
   const folienMit = kennung => outline.folien.filter(f => !rahmenfolien.has(f.layout) && String(f.quellen || '').includes(kennung));
   return zeilen.map(z => {
-    // Gilt eine Angabe nur für einen Teil der Folien ihrer Zeile, steht die Folie davor („Folie 4: …“, „Folien 20 und 21: …“). Diese Nummern
+    // Gilt eine Angabe nur für einen Teil der Folien ihrer Zeile, steht die Folie davor („Folie 5: …“, „Folien 22 und 23: …“). Diese Nummern
     // stehen als Text in der Datendatei; hier werden sie gegen die Quellenzeilen des Konzepts gerechnet, damit sie einer neuen Zählung folgen.
     for (const k of z.angaben) {
       const angabe = Q('angaben.' + k), vor = (angabe.match(/^(Folien? [^:]+): /) || [])[1];
@@ -138,4 +151,4 @@ function quellenZeilen(ctx) {
   });
 }
 
-module.exports = { abschnitte, achsreihe, register, kostenFelder, liesKosten, bereiche, quellenZeilen };
+module.exports = { abschnitte, trenner, achsreihe, register, kostenFelder, liesKosten, bereiche, quellenZeilen };

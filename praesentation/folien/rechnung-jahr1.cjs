@@ -1,4 +1,4 @@
-// Folie 13 · PGN_TABELLE_MR: Jahresrechnung Jahr 1 für A, B und C als Rechenblatt nach Broschüre S. 11 (Zeilennummern wie dort),
+// Folie 15 · PGN_TABELLE_MR: Jahresrechnung Jahr 1 für A, B und C als Rechenblatt nach Broschüre S. 11 (Zeilennummern wie dort),
 // Ergebniszeile 8 weiß auf Rot, Bearbeitungsentgelte als Notiz unter der Tabelle, rechts die Annahmen.
 // Alle Zahlen aus werte.json (Lauf modellhaus, jr1.*); das Jahr des Kostenstands aus daten/rechnung.json.
 'use strict';
@@ -23,7 +23,7 @@ module.exports = {
       { nr: 7, zeichen: fmt.MINUS, text: `Tilgung ${fmt.prozent(satz('tilgung_nbank'), 1)} p. a. (Annahme)`, werte: z('tilgung_nbank') },
       { nr: 8, zeichen: '=', text: 'Zahlungsüberschuss p. a.', werte: z('zahlungsueberschuss'), art: 'ergebnis' }] });
     B.notiz(s, `Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte ${z('bearbeitungsentgelte').join(' | ')} €`);
-    // Dass die NBank den Tilgungssatz festlegt, steht auf den Folien 10, 18 und 22; hier trägt Zeile 7 der Rechnung den Vermerk „Annahme“
+    // Dass die NBank den Tilgungssatz festlegt, steht auf den Folien 12, 20 und 24; hier trägt Zeile 7 der Rechnung den Vermerk „Annahme“
     B.planlegende(s, { platzhalter: 'kommentar', pt: 16, eintraege: [
       { titel: 'Annahmen', text: ctx.wortlaut(`Liquidität in Jahr 1 bei Kostenstand ${R.kostenstand(ctx)}, keine Rendite.`, 'Annahmen') },
       { text: ctx.wortlaut(`Tilgung auf ${G.map(g => fmt.mioZahl(M(`fin.darlehen_nbank.${g}`))).join(' | ')} Mio. € Darlehen.`, 'Annahmen') },

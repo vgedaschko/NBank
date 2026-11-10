@@ -1,4 +1,4 @@
-// Folie 10 · PGN_INHALT: Darlehen und Bindung im Zeitverlauf (Broschüre S. 9). Zeitstrahl über zwölf Spalten mit vier Bändern,
+// Folie 12 · PGN_INHALT: Darlehen und Bindung im Zeitverlauf (Broschüre S. 9). Zeitstrahl über zwölf Spalten mit vier Bändern,
 // Achskreisen an 0, 35 und 42 und der Maßkette 35 | 7; darunter im Raster 4 + 4 + 4 zwei Kennzahlen und die Tilgung. Kein Rot in den Bändern.
 'use strict';
 

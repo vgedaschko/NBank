@@ -1,4 +1,4 @@
-// Folie 8 · PGN_DIAGRAMM: Höchstmiete nach Einkommensgruppe und Mietenstufe als gruppierte Säulen (werte.json, tab.hoechstmiete.*),
+// Folie 10 · PGN_DIAGRAMM: Höchstmiete nach Einkommensgruppe und Mietenstufe als gruppierte Säulen (werte.json, tab.hoechstmiete.*),
 // zwei Marken der landesweiten Angebotsmieten und rechts der Mietpfad für Gruppe A (Broschüre S. 7 über daten/regeln.json). Kein Rot im Diagramm.
 'use strict';
 

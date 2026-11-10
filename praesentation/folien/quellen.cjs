@@ -14,7 +14,7 @@ module.exports = {
     const zeilen = S.quellenZeilen(ctx);
     // dicht: Tabelle, Hinweis und die beiden Sätze füllen die Inhaltszone; mit dem Zuschlag je Zeile der gewöhnlichen Tabelle passten sieben Zeilen nicht
     const t = B.tabelle(s, { x, y: Y.anhangInhalt, w, pt: 12, dicht: true, name: 'Quellentabelle', schlusslinie: false,   // die Linie des Hinweis-Kastens schließt die Tabelle
-      // schmaler rechter Zellrand in der Spalte „Folie“: „2, 4, 20, 21“ bleibt in einer Zeile (die Quelle beginnt mit eigenem Zellrand auf colX(2))
+      // schmaler rechter Zellrand in der Spalte „Folie“: „3, 5, 22, 23“ bleibt in einer Zeile (die Quelle beginnt mit eigenem Zellrand auf colX(2))
       spalten: [{ kopf: wl('Folie'), breite: spalte, art: 'stichwort', randRechts: 0.02 }, { kopf: wl('Quelle') }], zeilen: zeilen.map(z => [z.folien, z.text]) });
 
     // Rechtshinweis: genau einmal im Vortrag, Wortlaut der Broschüre S. 23. Der Kasten schließt als Fuß an die Tabelle an (eine Linie statt

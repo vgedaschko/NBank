@@ -1,7 +1,7 @@
-// Folie 3 · PGN_DIAGRAMM: Sollzins p. a. nach Zinsbindung als natives Liniendiagramm mit drei Reihen zu je 127 Monatswerten (01/2016 bis 07/2026),
+// Folie 4 · PGN_DIAGRAMM: Sollzins p. a. nach Zinsbindung als natives Liniendiagramm mit drei Reihen zu je 127 Monatswerten (01/2016 bis 07/2026),
 // Jahresbeschriftung an jedem zwölften Punkt, zwei senkrechte Marken mit den Quartalsmitteln, Endwerte an den Linienenden. Rechts wie auf den
-// Folien 2, 4 und 5 die Hauptzahl (Sollzins im letzten Monat der Reihe, 10 Jahre Zinsbindung) und darunter der Wert für Q1 2020; mit beiden
-// rechnet die Folie 4, und beide nennt der Titel.
+// Folien 3, 5 und 6 die Hauptzahl (Sollzins im letzten Monat der Reihe, 10 Jahre Zinsbindung) und darunter der Wert für Q1 2020; mit beiden
+// rechnet die Folie 5, und beide nennt der Titel.
 // Zinsreihe aus daten/markt.json (Altfassung Folie 24, nicht nachgeprüft), Zins des Bankdarlehens und Zinsbindung aus daten/werte.json.
 // Kein Rot im Diagramm: 10 Jahre in Tinte, 20 Jahre in Tinte gestrichelt, 30 Jahre in Referenzgrau.
 'use strict';

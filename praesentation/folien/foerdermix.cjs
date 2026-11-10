@@ -1,4 +1,4 @@
-// Folie 9 · PGN_DIAGRAMM: Signatur-Diagramm der Broschüre S. 8. Gestapelte Balken je Einkommensgruppe, Achskreise A, B, C,
+// Folie 11 · PGN_DIAGRAMM: Signatur-Diagramm der Broschüre S. 8. Gestapelte Balken je Einkommensgruppe, Achskreise A, B, C,
 // Maßkette über Balken A, 80-%-Achse, Maßstabsleiste; rechts die Planlegende. Alle Zahlen aus werte.json (tab.*).
 'use strict';
 module.exports = {

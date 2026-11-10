@@ -1,6 +1,6 @@
-// Folie 20 · PGN_DIAGRAMM: Herstellungskosten je m² Wohnfläche, Median, PGN gegen ARGE, als natives gruppiertes Säulendiagramm über acht
+// Folie 22 · PGN_DIAGRAMM: Herstellungskosten je m² Wohnfläche, Median, PGN gegen ARGE, als natives gruppiertes Säulendiagramm über acht
 // Spalten (vier Kostengruppen; PGN in Tinte, ARGE in Referenzgrau, Werte über den Säulen). Über dem Säulenpaar der Herstellung die Marke mit
-// dem Ansatz des Modellhauses. Rechts die Hauptzahl der Folie (Abstand der Mediane) in 60 pt wie auf den Folien 2 bis 5, darunter Grundlage und Spanne.
+// dem Ansatz des Modellhauses. Rechts die Hauptzahl der Folie (Abstand der Mediane) in 60 pt wie auf den Folien 3 bis 6, darunter Grundlage und Spanne.
 // Werte aus daten/markt.json, Block kosten (Altfassung Folie 12, nicht nachgeprüft); der Abstand ist im Modul gerechnet. Ansatz des Modellhauses
 // aus daten/werte.json. Weißer Grund und kein Stempel: Die Folie zeigt Kostenkennwerte und kein Modellhaus. Kein Rot im Diagramm.
 'use strict';
@@ -16,8 +16,8 @@ module.exports = {
     const [pgn, arge] = wer, ansatz = W('modellhaus', 'eingabe.herstellungskosten_qm'), unter = 1 - pgn.spanne.median / arge.spanne.median;
 
     // ---- Gegenproben ------------------------------------------------------------------------------------------------------------------
-    // Median der Herstellung steht in Reihe und Spanne gleich; der PGN-Median ist der Eingabewert der Folie 21; die ARGE-Mediane stehen mit
-    // denselben Werten im Block baukosten (Folie 2 und ihre Notizen)
+    // Median der Herstellung steht in Reihe und Spanne gleich; der PGN-Median ist der Eingabewert der Folie 23; die ARGE-Mediane stehen mit
+    // denselben Werten im Block baukosten (Folie 3 und ihre Notizen)
     for (const r of wer) if (r.median[0] !== r.spanne.median) P.melde(`${r.name}: Der Median der Herstellung steht in Reihe (${r.median[0]}) und Spanne (${r.spanne.median}) verschieden.`);
     ctx.gleich('PGN-Median gegen den Eingabewert des Laufs modellhaus_pgn_kosten', pgn.spanne.median, W('modellhaus_pgn_kosten', 'eingabe.herstellungskosten_qm'), 0);
     const baukosten = Object.values(ctx.daten.markt.baukosten || {}).filter(g => g && g.kg && g.q4_2025);

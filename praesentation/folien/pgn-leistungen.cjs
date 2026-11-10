@@ -1,4 +1,4 @@
-// Folie 24 · PGN_INHALT: Leistungen der PGN über die Leistungsphasen 1 bis 9 (Broschüre S. 20). Dominant der Balkenplan über acht Spalten
+// Folie 27 · PGN_INHALT: Leistungen der PGN über die Leistungsphasen 1 bis 9 (Broschüre S. 20). Dominant der Balkenplan über acht Spalten
 // mit der Bewilligungsmarke in Dunkelrot zwischen Leistungsphase 6 und 7; rechts über vier Spalten das Referenzbild Brauerstraße mit Bildecke,
 // Bildzeile und Konturstempel und ein Eintrag der Planlegende zur ersten Leistung. Texte, Phasen und Marke aus daten/umsetzung.json.
 'use strict';

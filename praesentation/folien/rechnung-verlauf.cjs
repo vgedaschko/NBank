@@ -1,5 +1,5 @@
-// Folie 19 · PGN_DIAGRAMM_MR: Zahlungsüberschuss Jahr 1 bis 35 für A, B und C aus den Zeitreihen der Mappe (Blätter Gefördert A, B, C).
-// Linien wie auf Folie 18, Werte für Jahr 1 an der Marke links und für Jahr 35 an den Linienenden, Marke im ersten Jahr, in dem alle
+// Folie 21 · PGN_DIAGRAMM_MR: Zahlungsüberschuss Jahr 1 bis 35 für A, B und C aus den Zeitreihen der Mappe (Blätter Gefördert A, B, C).
+// Linien wie auf Folie 20, Werte für Jahr 1 an der Marke links und für Jahr 35 an den Linienenden, Marke im ersten Jahr, in dem alle
 // drei Gruppen einen Überschuss haben. Kein Rot im Diagramm. Die Jahre 36 bis 42 werden nicht gezeigt (W.reihe liefert Jahr 1 bis 35).
 // Zahlen aus werte.json (Läufe modellhaus_zeitreihe und modellhaus); „ab Jahr 2“ aus daten/rechnung.json.
 'use strict';
@@ -22,7 +22,7 @@ module.exports = {
     const iAlle = jahre.findIndex((j, i) => G.every(g => reihe(g).slice(i).every(v => v >= 0))), jahrAlle = jahre[iAlle];
     const fehljahre = M('liq.jahre_mit_fehlbetrag.B');
     R.pruefe(ctx.o.titel.includes(`Ab Jahr ${jahrAlle} `) && fehljahre === M('liq.jahre_mit_fehlbetrag.C') && fehljahre === iAlle && M('liq.jahre_mit_fehlbetrag.A') === 0,
-      `Alle drei Gruppen haben ab Jahr ${jahrAlle} einen Überschuss; Titel oder Kommentar der Folie 19 nennen etwas anderes.`);
+      `Alle drei Gruppen haben ab Jahr ${jahrAlle} einen Überschuss; Titel oder Kommentar der Folie 21 nennen etwas anderes.`);
 
     // Die Jahre an der Achse stehen als Textfelder: Die Daten behalten die Kategorien 1 bis 35, und kein Programm dreht oder bricht die Beschriftung
     const d = D.linien(s, { kategorien: jahre, katLabels: { formen: [1, 5, 10, 15, 20, 25, 30, 35] }, rand: { r: 1.30 }, name: `Diagramm Zahlungsüberschuss Jahr ${jahre[0]} bis ${jahre[n]}`,

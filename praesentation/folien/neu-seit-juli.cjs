@@ -1,11 +1,11 @@
-// Folie 7 · PGN_VERGLEICH: Förderregeln bis 30.06.2026 und seit 01.07.2026 im Vergleich (Broschüre S. 4).
+// Folie 9 · PGN_VERGLEICH: Förderregeln bis 30.06.2026 und seit 01.07.2026 im Vergleich (Broschüre S. 4).
 // Links die Werte des alten Rechts aus daten/regeln.json, rechts die Werte der Richtlinie 2026 aus werte.json (tab.*).
 'use strict';
 module.exports = {
   id: 'neu-seit-juli',
   bau(ctx) {
     const { B, W, X, fmt, ZONE } = ctx, s = ctx.folie(), NB = '\u00A0';
-    B.register(s, '2.1');   // erste Folie des Abschnitts „Programmteil 2.1“: Daumenregister wie auf den Folien 8 bis 10
+    B.register(s, '2.1');   // erste Folie des Abschnitts „Programmteil 2.1“: Daumenregister wie auf den Folien 10 bis 12
     const T = k => W('modellhaus', 'tab.' + k), R = k => X('regeln', k);
     const paar = (a, b, nk = 0) => `**${fmt.zahl(a, nk)}/${fmt.zahl(b, nk)} €**`;       // Wertepaar Mietenstufe I–III / IV–VII, hervorgehoben
     const fett = v => `**${v}**`;

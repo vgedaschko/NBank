@@ -1,9 +1,9 @@
-// Hilfsfunktionen der Baugruppe „einstieg“ (Folien 2 bis 5). Kein Folienmodul: build.cjs lädt nur folien/<id>.cjs der Folien des Konzepts.
+// Hilfsfunktionen der Baugruppe „einstieg“ (Folien 3 bis 6). Kein Folienmodul: build.cjs lädt nur folien/<id>.cjs der Folien des Konzepts.
 // Die vier Folien haben denselben Aufbau: links über acht Spalten das Diagramm, rechts über vier Spalten die Hauptzahl (60 pt) an fester
 // Stelle und darunter ab y 4,40 ein zweites Modul (zweite Kennzahl oder Rechenweg). Lage und Bausteine dazu stehen in lib/:
 // ZONE.diagramm.spalte, B.hauptzahl, B.nebenzahl, B.zweitesModul; dazu B.massketteSenkrecht, B.zuleitung, D.saeulen mit arten,
 // fmt.monatKurz, fmt.monatWort und ctx.mittel.
-//   felder, lies   Zugriff auf daten/markt.json mit gefüllten Platzhaltern ({name}) für die Folien 3 und 5; „mappe_…“ kommt aus daten/werte.json
+//   felder, lies   Zugriff auf daten/markt.json mit gefüllten Platzhaltern ({name}) für die Folien 4 und 6; „mappe_…“ kommt aus daten/werte.json
 'use strict';
 
 // Zahlen, die in den Texten von daten/markt.json (Blöcke zinsen und markt) als Platzhalter stehen. Jede Zahl hat genau eine Quelle:
@@ -11,9 +11,9 @@
 function felder(ctx) {
   const { X, W, fmt } = ctx, K = p => X('markt', p), monate = K('zinsen.monate'), je = K('markt.je_quadrat');
   return {
-    // Folie 3
+    // Folie 4
     zins_von: fmt.monatKurz(monate[0]), zins_bis: fmt.monatKurz(monate[monate.length - 1]), mappe_zinsbindung: String(W('modellhaus', 'eingabe.zinsbindung')),
-    // Folie 5 (Jahreszahlen ohne Tausenderpunkt)
+    // Folie 6 (Jahreszahlen ohne Tausenderpunkt)
     seit: String(K('markt.seit')), bis: String(K('markt.bis')), von_jahr: String(K('bestand.von')), bis_jahr: String(K('bestand.bis')),
     ausgelaufen: fmt.zahl(K('markt.ausgelaufen')), neu_rund: fmt.zahl(Math.round(K('markt.neu_gefoerdert') / je) * je),
   };

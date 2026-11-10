@@ -1,4 +1,4 @@
-// Folie 25 · Schluss und Kontakt (PGN_SCHLUSS): Claim der Broschüre U4 mit der ersten Zeile in zweiter Stimme, Einladung zum Gespräch.
+// Folie 28 · Schluss und Kontakt (PGN_SCHLUSS): Claim der Broschüre U4 mit der ersten Zeile in zweiter Stimme, Einladung zum Gespräch.
 // Grundriss, Logo, Anschrift, Telefon, E-Mail, Web und QR-Code liegen im Layout; das Modul prüft die Texte gegen das Konzept.
 'use strict';
 

@@ -1,4 +1,4 @@
-// Baugruppe „fluss“ (Folien 15 und 16): gemeinsame Anlage der beiden Flussdiagramme. Kein Folienmodul: Der Build lädt nur folien/<id>.cjs
+// Baugruppe „fluss“ (Folien 17 und 18): gemeinsame Anlage der beiden Flussdiagramme. Kein Folienmodul: Der Build lädt nur folien/<id>.cjs
 // zu den IDs des Konzepts. Das Flussdiagramm selbst ist ein Baustein der Bibliothek (D.fluss in lib/diagramme.cjs).
 //   zahlungsfluss(ctx, s, o)   legt eine der beiden Folien an: Modulkopf, Diagramm und Beschriftung. Maßstab, Lage der drei Knotenspalten,
 //                              Oberkante, Zeilenabstand der Ziele und Farbrollen stehen hier einmal und gelten für beide Folien: Beim
@@ -10,7 +10,7 @@ const { breite } = require('../lib/passpruefung.cjs');
 
 // ---- Festlegungen für beide Folien ----------------------------------------------------------------------------------------------------------
 const MASSSTAB = 160000;   // Euro je Zoll Höhe: 348.167 € sind 2,18 Zoll, 114.240 € sind 0,71 Zoll
-// Farbrollen wie auf Folie 14: Tilgung in Tinte, Zins im Referenzgrau, Verwaltungskostenbeitrag hell, Bewirtschaftung blass (Töne der
+// Farbrollen wie auf Folie 16: Tilgung in Tinte, Zins im Referenzgrau, Verwaltungskostenbeitrag hell, Bewirtschaftung blass (Töne der
 // Bibliothek, FLUSSART in lib/theme.cjs). Kein Rot.
 const ROLLEN = { tilgung: 'tinte', zins: 'referenz', beitrag: 'hell', bewirtschaftung: 'blass', ueberschuss: 'tinte', knoten: 'tinte' };
 // Lagen in Zoll. Drei Knotenspalten (Quelle, Knoten, Ziele), rechts die Zeilen der Ziele mit Betrag und Anteil, ganz rechts die Klammer.
@@ -30,11 +30,11 @@ function betragUndAnteil(fmt, wert, bezug) {
   return fmt.zahl(wert) === '0' ? fmt.euro(0) : `${fmt.euro(wert)} · ${fmt.prozent(wert / bezug, 1)}`;
 }
 
-// ---- Teil 2: Zahlungsfluss in Jahr 1 (Folien 15 und 16) -------------------------------------------------------------------------------------
+// ---- Teil 2: Zahlungsfluss in Jahr 1 (Folien 17 und 18) -------------------------------------------------------------------------------------
 // o: { art: 'gefördert' | 'frei finanziert', titel, sub (Modulkopf),
 //      quelle: { name, wert, zusatz },                          Sollmiete links
-//      marke:  { wert, text: [Bezeichnung, Betrag] } (nur Folie 16)   senkrechte Maßkette links der Quelle von der Oberkante bis zur Höhe dieses Betrags
-//      umriss: { wert, text: [Bezeichnung, Betrag] } (nur Folie 15)   gestrichelter Umriss, der den Balken der Quelle bis zur Höhe dieses Betrags fortsetzt
+//      marke:  { wert, text: [Bezeichnung, Betrag] } (nur Folie 18)   senkrechte Maßkette links der Quelle von der Oberkante bis zur Höhe dieses Betrags
+//      umriss: { wert, text: [Bezeichnung, Betrag] } (nur Folie 17)   gestrichelter Umriss, der den Balken der Quelle bis zur Höhe dieses Betrags fortsetzt
 //      knoten: { name, wert },                                   Überschuss vor Kapitaldienst
 //      ziele:  [{ id, name, wert, rolle, ueberKnoten }]          von oben; ueberKnoten: Der Strom läuft über den Knoten in der Mitte
 //      klammer: { name, wert, ziele: [id, …] },                  fasst Ziele zum Kapitaldienst
@@ -77,7 +77,7 @@ function zahlungsfluss(ctx, s, o) {
   let qy = L.oben - 0.01;
   if (o.marke) {
     // Maßkette links der Quelle: Sie misst die Strecke von der Oberkante bis zur Höhe des Betrags, also den Teil der Quelle, den dieser Betrag
-    // deckt (auf Folie 16 die Sollmiete zur Höchstmiete; die Kette ist so hoch wie der Balken der Quelle auf Folie 15). Eine waagerechte Linie
+    // deckt (auf Folie 18 die Sollmiete zur Höchstmiete; die Kette ist so hoch wie der Balken der Quelle auf Folie 17). Eine waagerechte Linie
     // auf dieser Höhe läse sich als Grenze zwischen den Bändern daneben. Die zwei Zeilen stehen links der Kette, mittig zu ihr.
     const my = L.oben + zoll(o.marke.wert), [zeile1, zeile2] = o.marke.text, mx = L.quelle - 0.10, mw = mx - 0.06 - lx, mitte = (L.oben + my) / 2;
     wl(`${zeile1} ${zeile2}`, 'Maßkette an der Quelle');
@@ -91,8 +91,8 @@ function zahlungsfluss(ctx, s, o) {
   B.text(s, wl(fmt.euro(o.quelle.wert), 'Quelle'), { x: lx, y: qy + 0.21, w: lw, h: 0.37, rolle: 'kernwert', align: 'right', valign: 'middle', einzeilig: true, name: 'Quelle Betrag' });
   B.text(s, wl(o.quelle.zusatz, 'Quelle'), { x: lx, y: qy + 0.58, w: lw, h: 0.21, rolle: 'klein', align: 'right', valign: 'middle', einzeilig: true, name: 'Quelle Zusatz' });
   if (o.umriss) {
-    // Umriss an der Quelle: Er setzt den Balken im selben Maßstab nach unten fort bis zur Höhe des Betrags (auf Folie 15 die nötige Sollmiete
-    // frei finanziert, die Quelle der Folie 16). So steht der Bezug zum anderen Fall auf der Folie selbst. Gestrichelt im Referenzgrau, ohne
+    // Umriss an der Quelle: Er setzt den Balken im selben Maßstab nach unten fort bis zur Höhe des Betrags (auf Folie 17 die nötige Sollmiete
+    // frei finanziert, die Quelle der Folie 18). So steht der Bezug zum anderen Fall auf der Folie selbst. Gestrichelt im Referenzgrau, ohne
     // Füllung; die Bänder beginnen rechts neben dem Balken und bleiben frei. Die zwei Zeilen enden bündig mit der Unterkante des Umrisses.
     const y0 = L.oben + zoll(o.quelle.wert), y1 = L.oben + zoll(o.umriss.wert), [zeile1, zeile2] = o.umriss.text, uw = L.quelle - 0.14 - lx;
     wl(`${zeile1} ${zeile2}`, 'Umriss an der Quelle');
@@ -108,7 +108,7 @@ function zahlungsfluss(ctx, s, o) {
   const kx = L.knoten + L.knotenBreite / 2 - (bn + steg + bw) / 2, ky = L.oben - 0.30;
   B.bezeichnungMitWert(s, { y: ky + L.betragTiefer, bezeichnung: { text: kn, x: kx, w: bn, name: 'Knoten Bezeichnung' }, wert: { text: kw, x: kx + bn + steg, w: bw, name: 'Knoten Betrag' } });
 
-  // Anteil des Ziels aus dem Folientitel: als Kernwert weiß im Band, rechtsbündig vor dem Balken des Ziels (wie die Werte in den Balken der Folie 17)
+  // Anteil des Ziels aus dem Folientitel: als Kernwert weiß im Band, rechtsbündig vor dem Balken des Ziels (wie die Werte in den Balken der Folie 19)
   if (o.hervor) {
     const z = ziele.find(k => k.id === o.hervor);
     if (!z || !z.ueberKnoten) throw new Error(`zahlungsfluss: hervor „${o.hervor}“ ist kein Ziel hinter dem Knoten.`);

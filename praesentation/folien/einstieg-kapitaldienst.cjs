@@ -1,8 +1,8 @@
-// Folie 4 · PGN_DIAGRAMM mit freier Lage des Diagramms: Kapitaldienst je m² Wohnfläche und Monat, Q1 2020 gegen heute, frei finanziert.
+// Folie 5 · PGN_DIAGRAMM mit freier Lage des Diagramms: Kapitaldienst je m² Wohnfläche und Monat, Q1 2020 gegen heute, frei finanziert.
 // Links ein natives gestapeltes Säulendiagramm mit zwei Säulen: „Q1 2020“ und „Heute“; die zweite ist gestapelt aus dem Stand Q1 2020 und den
 // drei Ursachen des Anstiegs (Baukosten, Zins, Wechselwirkung). Eine senkrechte Maßlinie fasst den Anstieg, rechts der Säule steht je Ursache
 // Bezeichnung, Betrag, Anteil am Anstieg und eine Zeile Erklärung. Rechts die Hauptzahl der Folie und darunter der Rechenweg als kleine Tabelle
-// (Kosten, Fremdkapital, Sollzins: die Kette von den Folien 2 und 3 zum Kapitaldienst).
+// (Kosten, Fremdkapital, Sollzins: die Kette von den Folien 3 und 4 zum Kapitaldienst).
 // Gerechnet wird nach der Methode der Rechenmappe: Annuitätendarlehen mit jährlicher Annuität, Faktor = i ÷ (1 − (1 + i)^−n). Kosten und Zins
 // Q1 2020 aus daten/markt.json (ARGE-Mediane und Zinsreihe der Altfassung, nicht nachgeprüft), Zins heute und Laufzeit aus daten/werte.json.
 // Die Folie ist keine Modellrechnung (kein Stempel): Medianwerte deutscher Großstädte je m², kein einzelnes Haus. Kein Rot im Diagramm.
@@ -23,7 +23,7 @@ module.exports = {
     ctx.gleich('Annuitätenfaktor heute (Mappe gegen Formel)', faktor[1], af(iHeute), 9);
     ctx.gleich('Probe der Methode am Modellhaus: Bankdarlehen × Faktor gegen die Annuität der Mappe', M('fin.bankdarlehen.Frei') * af(iHeute), M('frei.annuitaet'), 2);
     const marken = K('zinsen.marken'), z10 = K('zinsen.z10');
-    ctx.gleich('Zins Q1 2020 gegen das Quartalsmittel der Folie 3', zins2020, marken[0].z10);
+    ctx.gleich('Zins Q1 2020 gegen das Quartalsmittel der Folie 4', zins2020, marken[0].z10);
     ctx.gleich('Zins heute (Mappe) gegen den letzten Monatswert der Reihe „10 Jahre“', iHeute * 100, z10[z10.length - 1]);
     ctx.gleich('Fremdkapitalanteil gegen das Modellhaus frei finanziert', fk, M('fin.bankdarlehen.Frei') / M('fin.gesamtkosten.Frei'), 4);
     const kd = kosten.map((k, i) => fk * k * faktor[i] / 12), mehr = kosten[1] - kosten[0], anstieg = kd[1] - kd[0];
@@ -39,7 +39,7 @@ module.exports = {
     // ---- Diagramm über acht Spalten ------------------------------------------------------------------------------------------
     const staende = [K('baukosten.reihen')[0], 'Heute'], x0 = colX(1), w8 = span(8);
     B.diagrammkopf(s, { titel: wl('Kapitaldienst je m² und Monat, frei finanziert', 'Diagrammtitel'), sub: wl(`in € · ARGE-Median deutscher Großstädte · Annuität ${n} Jahre · Anteile am Anstieg in %`, 'Untertitel') });   // ohne „über“: knapp 10 % Luft im einzeiligen Platzhalter
-    // Freie Lage bis zum Ende der Inhaltszone (die Grundlinie der Säulen liegt wie auf den Folien 3 und 5 bei y 6,04); die Plotfläche ist 3,30 Zoll
+    // Freie Lage bis zum Ende der Inhaltszone (die Grundlinie der Säulen liegt wie auf den Folien 4 und 6 bei y 6,04); die Plotfläche ist 3,30 Zoll
     // breit, rechts davon stehen die Ursachen des Anstiegs und die Notiz
     const PLOT_W = 3.30, ACHSE = { min: 0, max: 24, schritt: 4, format: 'roh' }, yD = 2.76, hD = ctx.Y.inhaltEnde - yD;
     const d = D.stapelSaeulen(s, { x: x0, y: yD, w: w8, h: hD, kategorien: staende, labels: false, rand: { r: w8 - 0.62 - PLOT_W, o: 0.22, u: 0.46 }, achse: ACHSE, name: 'Diagramm Kapitaldienst je m² und Monat',

@@ -68,7 +68,7 @@ const Y = {
 const ZONE = {
   // Layout PGN_DIAGRAMM(_MR). Die Kommentarspalte beginnt 0,07 unter der Modulkopf-Linie: Ihr Modultitel (erste Zeile, oben verankert) steht dann
   // auf derselben Höhe wie der Diagrammtitel links (Feld 2,18 bis 2,44, mittig)
-  // spalte: rechte Spalte mit Kennzahlen statt Kommentar (Folien 2 bis 5 und 20): Hauptzahl ab y1, zweites Modul ab y2 (B.hauptzahl, B.nebenzahl, B.zweitesModul)
+  // spalte: rechte Spalte mit Kennzahlen statt Kommentar (Folien 3 bis 6 und 22): Hauptzahl ab y1, zweites Modul ab y2 (B.hauptzahl, B.nebenzahl, B.zweitesModul)
   diagramm: { kopf: 2.10, titel: 2.18, sub: 2.44, legende: 2.70, chart: { x: colX(1), y: 2.95, w: span(8), h: 3.55 }, kommentar: { x: colX(9), y: 2.17, w: span(4), h: 4.33 },
     spalte: { x: colX(9), w: span(4), y1: 2.10, y2: 4.40, ende: 6.50 } },
   // Layout PGN_TABELLE(_MR)

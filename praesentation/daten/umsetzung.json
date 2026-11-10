@@ -1,8 +1,8 @@
 {
-  "_hinweis": "Werte und Texte der Baugruppe „umsetzung“ (Folien 23, 24, A3, A4), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft (Broschüre: Seite, Datei unter broschuere/content/pages/, JSON-Schlüssel) und geprueft. Zahlen stehen genau einmal als Zahl; in den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul füllt (folien/_umsetzung.cjs, felder): {name} setzt die Ziffern, {name:wort} das Zahlwort. {eigenmittel} kommt aus daten/werte.json (Lauf modellhaus, tab.eigenmittel_mindestens). Die gefüllten Texte prüft der Bau gegen das Feld „inhalt“ des Konzepts.",
+  "_hinweis": "Werte und Texte der Baugruppe „umsetzung“ (Folien 26, 27, A3, A4), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft (Broschüre: Seite, Datei unter broschuere/content/pages/, JSON-Schlüssel) und geprueft. Zahlen stehen genau einmal als Zahl; in den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul füllt (folien/_umsetzung.cjs, felder): {name} setzt die Ziffern, {name:wort} das Zahlwort. {eigenmittel} kommt aus daten/werte.json (Lauf modellhaus, tab.eigenmittel_mindestens). Die gefüllten Texte prüft der Bau gegen das Feld „inhalt“ des Konzepts.",
 
   "antragsweg": {
-    "_hinweis": "Folie 23. Acht Stationen in zwei Reihen, dazwischen das Warnband zur Bewilligung, darunter eine Zeile zum Vorhabenbeginn.",
+    "_hinweis": "Folie 26. Acht Stationen in zwei Reihen, dazwischen das Warnband zur Bewilligung, darunter eine Zeile zum Vorhabenbeginn.",
     "fristen": {
       "entscheidung_monate": { "wert": 3, "einheit": "Monate (Ziel für die Entscheidung der NBank, höchstens)", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[3].deadline", "geprueft": true },
       "baubeginn_monate": { "wert": 4, "einheit": "Monate nach Bekanntgabe der Förderentscheidung (spätestens)", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[4].deadline", "geprueft": true },
@@ -20,7 +20,7 @@
         { "nr": 8, "titel": "Verwendungsnachweis", "zustaendig": "Sie", "text": "innerhalb von {verwendungsnachweis_monate:wort} Monaten nach Erfüllung des Förderzwecks", "zeile": "stations[7]: title, lane, deadline" }
       ],
       "einheit": "Text mit Feldern",
-      "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[0..7] (title, lane, with, body, deadline), verdichtet wie im Konzept (Folie 23)",
+      "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[0..7] (title, lane, with, body, deadline), verdichtet wie im Konzept (Folie 26)",
       "geprueft": true
     },
     "reihen": { "wert": [4, 4], "einheit": "Stationen je Reihe", "herkunft": "Konzept, Folie antragsweg (darstellung): Die Teilung fällt auf die Bewilligung, Station 4 ist die Entscheidung der NBank", "geprueft": true },
@@ -33,14 +33,14 @@
   },
 
   "leistungen": {
-    "_hinweis": "Folie 24. Balkenplan der Leistungen der PGN über die Leistungsphasen 1 bis 9 der HOAI mit der Bewilligung zwischen 6 und 7.",
+    "_hinweis": "Folie 27. Balkenplan der Leistungen der PGN über die Leistungsphasen 1 bis 9 der HOAI mit der Bewilligung zwischen 6 und 7.",
     "deck": { "wert": "Leistungen der PGN nach Leistungsphasen 1 bis {phasen}", "einheit": "Text mit Feldern", "herkunft": "Konzept, Folie pgn-leistungen: Die Unterzeile beschreibt den Plan (Leistungen und Phasen nach Broschüre S. 20, 20-pgn-leistungen.json, blocks[0]). Die Unterzeile der Broschüre („Ein Ansprechpartner für alles, von der Machbarkeit bis zur Übergabe.“) steht in den Notizen der Folie.", "geprueft": true },
     "kopf": { "wert": "Leistungsphase", "einheit": "Text", "herkunft": "Konzept, Folie pgn-leistungen (Kopfleiste); Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale (kind hoai)", "geprueft": true },
     "phasen": { "wert": 9, "einheit": "Anzahl Leistungsphasen", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.phases (n 1 bis 9)", "geprueft": true },
     "marke": {
       "nach": { "wert": 6, "einheit": "Leistungsphase, nach der die Bewilligung liegt", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.between[0]", "geprueft": true },
       "text": { "wert": "Bewilligung", "einheit": "Text", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.label", "geprueft": true },
-      "zeichen": { "wert": "±0", "einheit": "Planzeichen im gefüllten Achskreis", "herkunft": "Konzept, Folie antragsweg (Warnband „±0 BEWILLIGUNG“); auf Folie 24 dasselbe Zeichen für dieselbe Stelle", "geprueft": true },
+      "zeichen": { "wert": "±0", "einheit": "Planzeichen im gefüllten Achskreis", "herkunft": "Konzept, Folie antragsweg (Warnband „±0 BEWILLIGUNG“); auf Folie 27 dasselbe Zeichen für dieselbe Stelle", "geprueft": true },
       "links": { "wert": "Planungsauftrag LPH 1–{lph_vor}: vor der Bewilligung möglich", "einheit": "Text mit Feldern", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.left", "geprueft": true },
       "rechts": { "wert": "ab LPH {lph_nach}: erst nach der Bewilligung", "einheit": "Text mit Feldern", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.right", "geprueft": true }
     },
@@ -65,7 +65,7 @@
   },
 
   "referenz": {
-    "_hinweis": "Folie 24, rechte Spalte. Bild assets/ref-brauerstrasse.jpg (Broschüre: src/assets/pgn/img/brauerstrasse-duplex.jpg).",
+    "_hinweis": "Folie 27, rechte Spalte. Bild assets/ref-brauerstrasse.jpg (Broschüre: src/assets/pgn/img/brauerstrasse-duplex.jpg).",
     "bild": { "wert": "ref-brauerstrasse.jpg", "einheit": "Datei in assets/", "herkunft": "Broschüre S. 22, 22-ueber-pgn.json, blocks[2].items[0].image; Visualisierung der Planungsgemeinschaft Nord GmbH", "geprueft": true },
     "alt_text": { "wert": "Visualisierung des Mehrfamilienhauses Brauerstraße in Rotenburg (Wümme): dreigeschossiger Klinkerbau mit Walmdach und Balkonen", "einheit": "Text", "herkunft": "Broschüre S. 1, 01-umschlag-titel.json, image.alt (gekürzt auf das Gebäude)", "geprueft": true },
     "anschrift": { "wert": "Brauerstraße, Rotenburg (Wümme)", "einheit": "Text", "herkunft": "Broschüre S. 22, 22-ueber-pgn.json, blocks[2].items[0].name und place; S. 1, 01-umschlag-titel.json, image.caption", "geprueft": true },

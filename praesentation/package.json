@@ -1,0 +1,13 @@
+{
+  "name": "pgn-praesentation-mietwohnraumfoerderung",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vortragsfassung Mietwohnraumförderung Niedersachsen 2026 (PGN), Design „Planwerk“",
+  "scripts": {
+    "build": "node build.cjs"
+  },
+  "dependencies": {
+    "pptxgenjs": "^3.12.0",
+    "sharp": "^0.33.5"
+  }
+}

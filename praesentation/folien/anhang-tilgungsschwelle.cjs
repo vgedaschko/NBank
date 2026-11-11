@@ -1,10 +1,13 @@
 // Folie A8 · PGN_ANHANG: Tilgungsschwelle gegenüber Gruppe A je Herstellungskosten. Antwort auf die Rückfrage zu Folie 20, ob die
 // Reihenfolge der Gruppen auch bei anderen Kosten gilt. Links über acht Spalten ein natives Liniendiagramm: zwei Linien (B gegenüber A
 // gestrichelt in Tinte, C gegenüber A in Referenzgrau, wie die Gruppen im ganzen Vortrag) über die Herstellungskosten von 2.500 € je m² bis
-// zur Bemessungsgrenze; waagerechte Marke beim Tilgungssatz der Jahresrechnung, Punkt am Schnitt mit der Linie C gegenüber A, Maßhilfslinien
+// zur Bemessungsgrenze; die Fläche über der Linie C gegenüber A (Gruppe A vorn) in Hauch; waagerechte Marke beim Tilgungssatz der
+// Jahresrechnung in Rot, Punkt am Schnitt mit der Linie C gegenüber A, Maßhilfslinien
 // und Werte bei den drei Kosten der Folie 23. Rechts über vier Spalten die Schwellen dieser drei Läufe als Tabelle (Spalten wie auf Folie 23)
 // und drei Absätze.
-// Kein Rot im Diagramm, kein Stempel, weißer Grund wie der übrige Anhang.
+// Farbe auf Wunsch des Auftraggebers (11.11.2026), anders als auf den Folien 16 bis 23: Hier steht kein Zuschuss, Rot ist frei. Rot tragen die
+// Marke der Jahresrechnung mit ihrer Beschriftung, der Punkt am Schnitt und das Feld „Gruppe A vorn“; die Fläche dazu ist Hauch F7E3E7.
+// Kein Stempel, weißer Grund wie der übrige Anhang.
 // Stützpunkte: Schwelle = (Mehr-Sollmiete − Mehr an Mietausfall) ÷ Mehrschuld − Verwaltungskostenbeitrag (Übersicht 4.9 bis 4.15). Die Mehrmiete
 // hängt nicht von den Kosten ab, die Mehrschuld wächst im Verhältnis der Kosten: Das Modul rechnet die Stützpunkte aus dem Lauf modellhaus
 // und prüft sie gegen die Schwellen der Läufe mit 4.631 € und 5.000 € je m² (werte.json).
@@ -14,7 +17,7 @@ const R = require('./_rechnung.cjs');
 module.exports = {
   id: 'anhang-tilgungsschwelle',
   bau(ctx) {
-    const { B, D, W, fmt, colX, span, Y, P } = ctx, s = ctx.folie(), wl = (t, was) => ctx.wortlaut(t, was), M = k => W('modellhaus', k);
+    const { B, D, W, fmt, colX, span, Y, P, HEX } = ctx, s = ctx.folie(), wl = (t, was) => ctx.wortlaut(t, was), M = k => W('modellhaus', k);
     const laeufe = R.KOSTENLAEUFE, kostenLauf = laeufe.map(l => W(l, 'eingabe.herstellungskosten_qm')), K0 = kostenLauf[0];
     const vkb = M('tab.verwaltungskostenbeitrag'), tJahr = M('eingabe.tilgung_nbank'), grenze = M('fin.bemessungsgrenze_qm');
 
@@ -46,20 +49,29 @@ module.exports = {
       sub: wl('Tilgungssatz p. a., bis zu dem B oder C in Jahr 1 vor A liegt · Kosten in € je m²', 'Untertitel') });
     const LINIE = { B: R.LINIEN.B, C: R.LINIEN.C }, name = g => wl(`${g} gegenüber A`, 'Legende');
     B.legende(s, { x: x0, y: yL + 0.04, eintraege: ['B', 'C'].map(g => ({ text: name(g), art: LINIE[g].art, strich: LINIE[g].strich })) });
-    const yD = yL + 0.36, kat = kosten.map(k => fmt.zahl(k));
-    const d = D.linien(s, { x: x0, y: yD, w: w0, h: Y.inhaltEnde - yD, kategorien: kat, katLabels: { nur: kat.filter((_, i) => i % 2 === 0) }, name: 'Diagramm Tilgungsschwelle je Herstellungskosten',
+    const yD = yL + 0.36, hD = Y.inhaltEnde - yD, kat = kosten.map(k => fmt.zahl(k)), RAND = { l: 0.86, r: 0.62, o: 0.20, u: 0.46 };
+    // Plotfläche vorab, wie D.linien sie rechnet: Die Fläche „Gruppe A vorn“ liegt unter dem Diagramm und wird deshalb vor ihm angelegt
+    const plot = { x: x0 + RAND.l, y: yD + RAND.o, w: w0 - RAND.l - RAND.r, h: hD - RAND.o - RAND.u }, kb = plot.w / kat.length;
+    const xK = k => plot.x + kb * ((k - kosten[0]) / SCHRITT + 0.5), yS = v => plot.y + plot.h * (1 - (v * 100 - ACHSE.min) / (ACHSE.max - ACHSE.min)), unten = plot.y + plot.h;
+    const xA = xK(kosten[0]), xE = xK(grenze);
+    // Fläche über der Linie C gegenüber A, vom ersten bis zum letzten Stützpunkt: dort hat Gruppe A den höchsten Zahlungsüberschuss
+    B.vieleck(s, { farbe: HEX.hauch, name: 'Fläche Gruppe A vorn', punkte: [{ x: xA, y: plot.y }, { x: xE, y: plot.y }, ...[...kosten].reverse().map(k => ({ x: xK(k), y: yS(schwelle('C', k)) }))] });
+    const d = D.linien(s, { x: x0, y: yD, w: w0, h: hD, kategorien: kat, katLabels: { nur: kat.filter((_, i) => i % 2 === 0) }, name: 'Diagramm Tilgungsschwelle je Herstellungskosten',
       altText: `Liniendiagramm: Die Tilgungsschwelle gegenüber A fällt mit den Herstellungskosten, für C von ${p2(W(laeufe[0], 'tilg.schwelle.C_gegen_A'))} bei ${fmt.euro(K0)} auf ${p2(W(laeufe[2], 'tilg.schwelle.C_gegen_A'))} bei ${fmt.euro(grenze)} je m². Die Linie für B liegt darunter.`,
-      rand: { r: 0.62 }, achse: ACHSE, reihen: ['B', 'C'].map(g => ({ name: name(g), werte: reihe(g), art: LINIE[g].art, strich: LINIE[g].strich })) });
-    const xK = k => d.katMitte((k - kosten[0]) / SCHRITT), yS = v => d.yWert(v * 100), unten = d.plot.y + d.plot.h;
+      rand: RAND, achse: ACHSE, reihen: ['B', 'C'].map(g => ({ name: name(g), werte: reihe(g), art: LINIE[g].art, strich: LINIE[g].strich })) });
+    if (['x', 'y', 'w', 'h'].some(k => Math.abs(d.plot[k] - plot[k]) > 1e-6) || Math.abs(d.katMitte(N) - xE) > 1e-6 || Math.abs(d.yWert(2) - yS(0.02)) > 1e-6) throw new Error('Folie A8: Die vorab gerechnete Plotfläche weicht von der des Diagramms ab; die Fläche „Gruppe A vorn“ läge neben den Linien.');
     const band = oben => (d.yWert(oben) + d.yWert(oben - ACHSE.schritt)) / 2;                                      // Mitte des Bandes unter der Gitterlinie „oben“
 
     // Welche Gruppe vorn liegt: über der Linie C gegenüber A die Gruppe A (oberstes Band, rechts vom Schnitt), darunter C (unterstes Band, links)
-    B.text(s, wl('Gruppe A vorn', 'Feld über der Linie'), { x: xK(rund) + 0.10, y: band(ACHSE.max) - 0.12, w: 1.80, h: 0.24, rolle: 'bezeichnung', valign: 'middle', einzeilig: true, name: 'Feld Gruppe A vorn' });
-    B.text(s, wl('Gruppe C vorn', 'Feld unter der Linie'), { x: d.plot.x + 0.14, y: band(ACHSE.min + ACHSE.schritt) - 0.12, w: 1.80, h: 0.24, rolle: 'bezeichnung', valign: 'middle', einzeilig: true, name: 'Feld Gruppe C vorn' });
+    // Rote Schrift im Diagramm nur in Montserrat Bold ab 12 pt: beide Felder in der Rolle „wert“, das Feld der Gruppe A in Rot
+    B.text(s, wl('Gruppe A vorn', 'Feld über der Linie'), { x: xK(rund) + 0.10, y: band(ACHSE.max) - 0.12, w: 1.80, h: 0.24, rolle: 'wert', farbe: 'akzent', valign: 'middle', einzeilig: true, name: 'Feld Gruppe A vorn' });
+    B.text(s, wl('Gruppe C vorn', 'Feld unter der Linie'), { x: d.plot.x + 0.14, y: band(ACHSE.min + ACHSE.schritt) - 0.12, w: 1.80, h: 0.24, rolle: 'wert', valign: 'middle', einzeilig: true, name: 'Feld Gruppe C vorn' });
 
-    // Tilgungssatz der Jahresrechnung als waagerechte Marke; am Schnitt mit der Linie C gegenüber A ein Punkt und die gerundeten Kosten
-    B.marke(s, { x: d.plot.x, y: yS(tJahr), w: d.plot.w, art: 'mass', text: wl(`Jahresrechnung: ${p2(tJahr)}`, 'Markentext'), textSeite: 'rechts' });
-    B.punkt(s, { cx: xK(kSchnitt), cy: yS(tJahr), art: LINIE.C.art, name: 'Punkt am Schnitt' });
+    // Tilgungssatz der Jahresrechnung als waagerechte Marke in Rot, so lang wie die Linien; am Schnitt mit der Linie C gegenüber A ein Punkt
+    // und die gerundeten Kosten
+    B.linie(s, { x: xA, y: yS(tJahr), w: xE - xA, art: 'akzent', name: 'Marke Jahresrechnung' });
+    B.text(s, wl(`Jahresrechnung: ${p2(tJahr)}`, 'Markentext'), { x: xE - 2.60, y: yS(tJahr) - 0.27, w: 2.60, h: 0.24, rolle: 'wert', farbe: 'akzent', align: 'right', valign: 'middle', einzeilig: true, name: 'Markentext' });
+    B.punkt(s, { cx: xK(kSchnitt), cy: yS(tJahr), art: 'akzent', name: 'Punkt am Schnitt' });
     B.text(s, wl(`ab rund ${fmt.euro(rund)}`, 'Wert am Schnitt'), { x: xK(kSchnitt) + 0.10, y: yS(tJahr) - 0.27, w: 1.70, h: 0.24, rolle: 'wert', valign: 'middle', einzeilig: true, name: 'Wert am Schnitt' });
 
     // Die drei Kosten der Folie 23: Maßhilfslinie von der Achse bis zur Linie C gegenüber A, Punkt und Schwelle; unter der Linie stehen die Kosten

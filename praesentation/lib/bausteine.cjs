@@ -262,6 +262,18 @@ function bausteine(pres, kx) {
     s.addShape(ST.line, { x: o.x, y: o.y, w: o.w || 0, h: o.h || 0, line, objectName: o.name || 'Linie ' + (o.art || 'haar') });
   };
 
+  // Vieleck als Fläche ohne Kontur (natives Freihandformat): füllt auf der Plotfläche eines Diagramms einen Bereich, den das Diagramm nicht
+  // selbst füllt, etwa über einer Linie. Vor dem Diagramm anlegen: Das Diagramm liegt dann darüber, Gitter und Linien bleiben sichtbar.
+  // o: { punkte: [{ x, y }] (Ecken in Zoll auf der Folie, im Umlauf), farbe: Hex (Vorgabe Hauch F7E3E7), name }
+  B.vieleck = (s, o) => {
+    const pk = o.punkte;
+    if (!Array.isArray(pk) || pk.length < 3 || pk.some(p => !p || typeof p.x !== 'number' || typeof p.y !== 'number' || !isFinite(p.x) || !isFinite(p.y))) throw new Error('B.vieleck: punkte fehlt (mindestens drei Ecken { x, y } in Zoll).');
+    const r4 = v => +v.toFixed(4), x0 = Math.min(...pk.map(p => p.x)), y0 = Math.min(...pk.map(p => p.y)), pt = pk.map(p => ({ x: r4(p.x - x0), y: r4(p.y - y0) }));
+    // Breite und Höhe aus den gerundeten Punkten: Getrennt gerundet läge eine Ecke bis zu 0,0001 Zoll außerhalb des Pfadrahmens
+    s.addShape(pres.shapes.CUSTOM_GEOMETRY, { x: r4(x0), y: r4(y0), w: Math.max(...pt.map(p => p.x)), h: Math.max(...pt.map(p => p.y)), fill: { color: o.farbe || HEX.hauch }, line: { type: 'none' },
+      objectName: o.name || 'Fläche', points: [...pt, { close: true }] });
+  };
+
   // Kasten. art: kasten (Papier auf Weiß, Weiß auf Papier) | rahmen (ohne Füllung, Linie 0,75 pt) | hauch (FBF1F3)
   B.kasten = (s, o) => {
     const art = o.art || 'kasten';
@@ -1329,11 +1341,12 @@ function bausteine(pres, kx) {
     });
     return { rechts: o.x + d + 0.87 };
   };
-  // Punkt auf einer Linie (Schnitt mit einer Marke): Scheibe 0,10 Zoll in der Farbe der Linie mit schmalem Rand in der Grundfarbe. o: { cx, cy, art: tinte | referenz, name }
+  // Punkt auf einer Linie (Schnitt mit einer Marke): Scheibe 0,10 Zoll in der Farbe der Linie mit schmalem Rand in der Grundfarbe.
+  // o: { cx, cy, art: tinte | referenz | akzent (PGN-Rot, nur am Schnitt mit einer roten Marke: Folie A8), name }
   B.punkt = (s, o) => {
     brauche('B.punkt', o, ['cx', 'cy']);
     const d = 0.10;
-    s.addShape(ST.ellipse, { x: o.cx - d / 2, y: o.cy - d / 2, w: d, h: d, fill: { color: o.art === 'referenz' ? C.referenz : C.tinte }, line: { color: cs.fuge, width: 0.75 }, objectName: o.name || 'Punkt auf der Linie' });
+    s.addShape(ST.ellipse, { x: o.cx - d / 2, y: o.cy - d / 2, w: d, h: d, fill: { color: o.art === 'referenz' ? C.referenz : o.art === 'akzent' ? C.rot : C.tinte }, line: { color: cs.fuge, width: 0.75 }, objectName: o.name || 'Punkt auf der Linie' });
   };
   // Achskreise S an den Linienenden, auf Mindestabstand entzerrt; wahlweise mit dem Endwert daneben (Montserrat Bold 12 pt).
   // o: { x (Mitte der Kreise), eintraege: [{ kreis, y (Lage des Linienendes), wert (fertiger Text, wahlfrei) }], abstand: 0.32 }. Rückgabe: Lagen der Kreise

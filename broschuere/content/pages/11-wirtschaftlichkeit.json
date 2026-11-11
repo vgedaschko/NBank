@@ -4,8 +4,8 @@
   "layout_type": "chart-focus",
   "running_title": "Modellrechnung · Wirtschaftlichkeit",
   "kicker": "Modellrechnung · Wirtschaftlichkeit",
-  "headline": "Mehr Miete, mehr Darlehen: Überschuss je Jahr",
-  "lead": "Das Modellhaus von S. 10 in drei Varianten, jeweils mit 80 % Förderung: Von A nach C wird Zuschuss zu Darlehen, und die zulässige Höchstmiete steigt. B und C setzen eine Zulassung in der Förderentscheidung voraus (→ S. 6); im Modell ist sie möglich, weil der Standort per Verordnung als angespannter Wohnungsmarkt gilt.",
+  "headline": "Gruppe A trägt sich ab Jahr 1: 3.789 € Zahlungsüberschuss",
+  "lead": "Das Modellhaus von S. 10 in drei Varianten, jede mit 80 % Förderung. B und C erhalten weniger Zuschuss und mehr Darlehen als A. Die Höchstmiete ist höher. Beide setzen eine Zulassung in der Förderentscheidung voraus (→ S. 6). Im Modell ist sie möglich, weil der Standort per Verordnung als angespannter Wohnungsmarkt gilt.",
   "blocks": [
     {
       "type": "chart",
@@ -195,18 +195,18 @@
           "313.703 €"
         ],
         [
-          "Miete je m², bei der Zeile 8 null ist",
+          "Miete je m² und Monat, bei der Zeile 8 null ist",
           "6,57 €",
           "20,72 €"
         ]
       ],
-      "result_row": "Miete je m², bei der Zeile 8 null ist",
+      "result_row": "Miete je m² und Monat, bei der Zeile 8 null ist",
       "values_source": "VOFI-Mappe v3 (PGN_VOFI_Mietwohnraum_2026_v3.xlsx): Übersicht 8.2 Kapitaldienst Jahr 1 und 8.3 nötige Miete für DSCR-Ziel 1,0 (A und Frei), 1.10 Bankdarlehen frei; Eingaben 6.1 Zins Bank 3,74 %, 6.4 Laufzeit 30 Jahre (PGN-Annahmen); Eigenmittel frei wie gefördert (1.11)."
     },
     {
       "type": "text",
       "heading": "Annahmen",
-      "body": "Frei finanziert: gleiches Haus, Eigenmittel 1,4 Mio. €, Bankdarlehen 5,6 Mio. € zu 3,74 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, keine Rendite. Gefördert wird gleichmäßig über die Höchstlaufzeit von 42 Jahren getilgt; den Satz legt die NBank fest (→ S. 9). B und C im Vergleich: → S. 12"
+      "body": "Frei finanziert: gleiches Haus, Eigenmittel 1,4 Mio. €, Bankdarlehen 5,6 Mio. € zu 3,74 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern. In den geförderten Varianten ist die Tilgung gleichmäßig auf die Höchstlaufzeit von 42 Jahren verteilt. Den Satz legt die NBank fest (→ S. 9). B und C gegenüber A → S. 12"
     }
   ],
   "footnotes": [],

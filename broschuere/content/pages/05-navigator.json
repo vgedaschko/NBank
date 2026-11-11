@@ -4,8 +4,8 @@
   "layout_type": "decision-tree",
   "running_title": "Überblick · Navigator",
   "kicker": "Navigator",
-  "headline": "Vom Vorhaben zum passenden Programmteil",
-  "lead": "Vier Ausgangslagen führen zu sechs Programmteilen. Den Antrag stellen Sie bei Ihrer kommunalen Wohnraumförderstelle, die NBank bewilligt.",
+  "headline": "Programmteil nach Vorhaben",
+  "lead": "Den Antrag stellen Sie bei der Wohnraumförderstelle am Bauort, die NBank bewilligt.",
   "blocks": [
     {
       "type": "chart",
@@ -24,7 +24,7 @@
                 "no": "weiter"
               },
               {
-                "q": "Neubau ab EH-40-Niveau, nur Zuschuss gewünscht?",
+                "q": "Neubau ab Effizienzhaus 40, nur Zuschuss gewünscht?",
                 "yes": "2.2",
                 "no": "2.1"
               }
@@ -87,7 +87,7 @@
     {
       "type": "chart",
       "chart": "grid",
-      "title": "Die sechs Programmteile auf einen Blick",
+      "title": "Die sechs Programmteile",
       "data": {
         "kind": "target-tiles",
         "fields": {
@@ -114,7 +114,7 @@
             "token": "--baustein-22",
             "name": "Energetisch hochwertiger Neubau",
             "instrument": "nur Zuschuss",
-            "max": "A 50 · B 40 · C 30 %, max. 90.000/75.000/60.000 € je Wohnung",
+            "max": "A 50 · B 40 · C 30 %, höchstens 90.000/75.000/60.000 € je Wohnung",
             "binding": "35 Jahre",
             "equity": "mind. 20 %",
             "page": "S. 13"
@@ -137,7 +137,7 @@
             "name": "Klimagerechte Modernisierung",
             "instrument": "Zuschuss je gebundener Wohnung",
             "max": "10–40 %, höchstens 9.000–31.000 €",
-            "binding": "25 Jahre; vermietete Wohnungen ohne WBS-Nachweis 35 Jahre",
+            "binding": "25 Jahre; vermietete Wohnungen ohne Wohnberechtigungsschein 35 Jahre",
             "equity": "mind. 20 %",
             "page": "S. 15"
           },
@@ -171,7 +171,7 @@
     {
       "type": "text",
       "role_hint": "achtung-einzeiler",
-      "body": "**Erst Bewilligung, dann Vorhabenbeginn** → S. 19"
+      "body": "**Erst Bewilligung, dann Vertrag** → S. 19"
     },
     {
       "type": "bullets",
@@ -179,7 +179,7 @@
       "heading": "Nicht förderfähig",
       "items": [
         "Ferienwohnungen, Ferien- und Wochenendhäuser",
-        "Heime im Sinne des NuWG",
+        "Heime nach Heimrecht (NuWG)",
         "Wohnraum für stationäre oder quasistationäre Versorgung",
         "an Pflege- oder Betreuungsvertrag gekoppelter Wohnraum",
         "Gemeinschaftsunterkünfte",

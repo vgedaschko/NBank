@@ -6,13 +6,13 @@
   "kicker": "Programmteil 2.2 · Energetisch hochwertiger Neubau",
   "headline": "Reiner Zuschuss statt Darlehen",
   "subline": "Bis zu 50 % der zuwendungsfähigen Kosten, höchstens 90.000 € je Wohnung (Gruppe A)",
-  "lead": "Wer ab KfW-Effizienzhaus-40-Niveau neu baut, erhält einen reinen Zuschuss ohne Darlehen und ohne Verwaltungskostenbeitrag; es gilt der niedrigere Wert aus Satz und Höchstbetrag. 2.2 lässt sich nicht mit 2.1 und nicht mit anderen Förderdarlehen der Richtlinie kombinieren. In 2.1 bringt EH-40-Niveau keinen Zuschlag zum Zuschuss, nur eine um bis zu 0,30 € je m² höhere Höchstmiete.",
+  "lead": "Wer ab KfW-Effizienzhaus-40-Niveau neu baut, erhält den Zuschuss ohne Darlehen und ohne Verwaltungskostenbeitrag. Es gilt der niedrigere Wert aus Satz und Höchstbetrag. 2.2 lässt sich nicht mit 2.1 und nicht mit anderen Förderdarlehen der Richtlinie kombinieren. In 2.1 gibt es für EH-40-Niveau keinen Zuschlag zum Zuschuss, nur eine um bis zu 0,30 € je m² höhere Höchstmiete.",
   "blocks": [
     {
       "type": "chart",
       "chart": "bar",
       "role_hint": "dominant",
-      "title": "Zuschuss je Wohnung nach Kosten je Wohnung",
+      "title": "Zuschuss nach Kosten, je Wohnung",
       "subtitle": "Höchstsätze · B und C nur mit Zulassung (→ S. 6)",
       "data": {
         "kind": "capped-lines",
@@ -69,13 +69,13 @@
         },
         "direct_labels": "rechts je Linie unter dem Kopf „Satz · Höchstbetrag“: Gruppe · bis zu Satz · Höchstbetrag (A · bis zu 50 % · 90.000 €, B · bis zu 40 % · 75.000 €, C · bis zu 30 % · 60.000 €), keine Legende"
       },
-      "note": "Das Modellhaus von S. 10 (350.000 € je Wohnung) erhielte als EH-40-Neubau 1,8 Mio. € Zuschuss, nach 2.1 dagegen 2,8 Mio. € Zuschuss und 2,8 Mio. € Darlehen.\n\n2.2 bringt mehr Zuschuss als 2.1, solange die zuwendungsfähigen Kosten je Wohnung unter 225.000 € (A), 375.000 € (B) bzw. 600.000 € (C) liegen."
+      "note": "Das Modellhaus von S. 10 (350.000 € je Wohnung) erhielte als EH-40-Neubau 1,8 Mio. € Zuschuss, nach 2.1 dagegen 2,8 Mio. € Zuschuss und 2,8 Mio. € Darlehen.\n\nIn 2.2 ist der Zuschuss höher als in 2.1, solange die zuwendungsfähigen Kosten je Wohnung unter 225.000 € (A), 375.000 € (B) bzw. 600.000 € (C) liegen."
     },
     {
       "type": "bullets",
       "heading": "Förderbedingungen",
       "items": [
-        "Höchstmiete Jahre 1–3: 6,80–9,30 € je m² nettokalt je nach Gruppe und Mietenstufe, also 0,30 € über 2.1 (→ S. 7); danach höchstens +6,15 % in drei Jahren",
+        "Höchstmiete Jahre 1–3: 6,80–9,30 € je m² und Monat nettokalt je nach Gruppe und Mietenstufe, also 0,30 € über 2.1 (→ S. 7); danach höchstens +6,15 % in drei Jahren",
         "Bindung 35 Jahre ab Bezugsfertigkeit, grundsätzlich per Dienstbarkeit im Grundbuch gesichert",
         "Auszahlung in vier Raten nach Baufortschritt (→ S. 9); Bearbeitungsentgelt 0,75 % (675 € bei 90.000 €)",
         "Brand- und Sturmversicherung bis Bindungsende"
@@ -94,7 +94,7 @@
     {
       "type": "text",
       "heading": "Kombinierbar mit",
-      "body": "KfW 298 (Kommunen: 498) oder 296, je Wohnung eines (→ S. 8). Die KfW-Stufe „Klimafreundliches Wohngebäude“ verlangt über EH 40 hinaus Lebenszyklus-Anforderungen; EH 55 nur bei KfW-Antrag bis 31.12.2026. Alle Förderungen zusammen dürfen die förderfähigen KfW-Kosten ohne Grundstück nicht übersteigen."
+      "body": "KfW 298 (Kommunen: 498) oder 296 wie in 2.1 (→ S. 8). Die KfW-Stufe „Klimafreundliches Wohngebäude“ verlangt über EH 40 hinaus Lebenszyklus-Anforderungen."
     }
   ],
   "footnotes": [],

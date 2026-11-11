@@ -4,7 +4,7 @@
   "layout_type": "key-figures",
   "running_title": "Überblick · Kennzahlen",
   "kicker": "Kennzahlen",
-  "headline": "Die Förderung in sieben Zahlen",
+  "headline": "Die Förderung in Zahlen",
   "blocks": [
     {
       "type": "key_figures",
@@ -85,7 +85,7 @@
       "chart": "units",
       "title": "Markt in Niedersachsen",
       "data": {
-        "message": "Seit 2015 hat die Neuförderung nur 28 % der ausgelaufenen Sozialbindungen ersetzt.",
+        "message": "Von 2015 bis 2024 hat die Neuförderung 28 % der ausgelaufenen Sozialbindungen ersetzt.",
         "message_highlight": "28 %",
         "units": {
           "period": "2015–2024 (31.12.2015–31.12.2024)",
@@ -115,7 +115,7 @@
           "1 Quadrat = 1.000 Wohnungen",
           "Bestand 2024: 50.495 Sozialwohnungen, gegenüber 2015 nahezu halbiert"
         ],
-        "ref": "Wo Bedarf gilt → S. 18"
+        "ref": "Bedarf am Standort → S. 18"
       }
     }
   ],

@@ -42,7 +42,7 @@
           ],
           "cells": [
             "Zuschuss je m² Wohnfläche und Monat der Bindung: ab 5 Jahren **2,00 €**, ab 10 Jahren **2,50 €**, 15–20 Jahre **3,00 €**; 60 m² über 20 Jahre: **43.200 €**",
-            "Zinsverbilligung für bis zu **100 %** der Restschuld, solange das NBank-Darlehen läuft, längstens **20 Jahre**; nicht rückzahlbar, kein neues Darlehen"
+            "Zins auf bis zu **100 %** der Restschuld, solange das NBank-Darlehen läuft, längstens **20 Jahre**; nicht rückzahlbar, kein neues Darlehen"
           ]
         },
         {
@@ -66,27 +66,27 @@
         {
           "label": "Mieterkreis",
           "cells": [
-            "nur Einkommensgruppe A; bei Bindung für eine besondere Bedarfsgruppe ausschließlich an diese (wohnungsbezogener WBS)",
+            "nur Einkommensgruppe A; bei Bindung für eine besondere Bedarfsgruppe (z. B. wohnungslose Menschen) nur an diese; Nachweis: wohnungsbezogener WBS",
             "bestehende Belegungs- und Mietbindung läuft unverändert weiter"
           ]
         },
         {
           "label": "Bindung",
           "cells": [
-            "5 bis 20 Jahre ab der ersten Belegung mit einem WBS-Haushalt; grundsätzlich per Dienstbarkeit im Grundbuch gesichert",
+            "5–20 Jahre ab der ersten Belegung mit einem WBS-Haushalt; grundsätzlich per Dienstbarkeit im Grundbuch gesichert",
             "verlängert bis zum Monatsende der letzten Darlehensrate, spätestens 20 Jahre nach dem ursprünglichen Bindungsende"
           ]
         },
         {
-          "label": "Miete Jahr 1–3",
+          "label": "Miete Jahre 1–3",
           "cells": [
-            "höchstens **6,50 €** (Mietenstufe I–III) bzw. **6,80 €** (IV–VII) je m², ab EH-40-Niveau bis zu +0,30 €; keine Erhöhung",
+            "höchstens **6,50 €** (Mietenstufe I–III) bzw. **6,80 €** (IV–VII) je m² und Monat, ab EH-40-Niveau bis zu +0,30 €; keine Erhöhung",
             "bisherige Nettokaltmiete; keine Erhöhung, auch nicht bei Wiedervermietung"
           ]
         },
         {
           "label": "Miete ab Jahr 4",
-          "both": "Erhöhung höchstens **+6,15 %** in drei Jahren (Betriebskosten ausgenommen); die Grenze gilt auch bei Wiedervermietung; keine Staffel- oder Indexmiete (→ S. 7)"
+          "both": "wie in 2.1: höchstens **+6,15 %** in drei Jahren, auch bei Wiedervermietung; keine Staffel- oder Indexmiete (→ S. 7)"
         },
         {
           "label": "Auszahlung",

@@ -4,8 +4,8 @@
   "layout_type": "services",
   "running_title": "Umsetzung · Mit PGN",
   "kicker": "Mit PGN",
-  "headline": "So begleiten wir Ihr Förderprojekt",
-  "subline": "Ein Ansprechpartner für alles, von der Machbarkeit bis zur Übergabe.",
+  "headline": "Unsere Leistungen im Förderprojekt",
+  "subline": "Ein Ansprechpartner für alles",
   "lead": "",
   "blocks": [
     {
@@ -117,13 +117,13 @@
       "type": "text",
       "role_hint": "modul-gruen",
       "heading": "Schlüsselfertig",
-      "body": "Über die PGN Projektgesellschaft Nord GmbH bauen wir auch schlüsselfertig als Generalübernehmer. Förderfähig ist das, wenn Sie mindestens drei Unternehmen zum Angebot auffordern, erst nach der Bewilligung beauftragen und die Gesellschaft vorab schriftlich der Prüfung von Kalkulation, Nachunternehmervergabe und Abrechnung zustimmt."
+      "body": "Über die PGN Projektgesellschaft Nord GmbH bauen wir auch schlüsselfertig als Generalübernehmer. Förderfähig ist das, wenn Sie mindestens drei Unternehmen zum Angebot auffordern, erst nach der Bewilligung beauftragen und der Generalübernehmer vorab schriftlich der Prüfung von Kalkulation, Nachunternehmervergabe und Abrechnung zustimmt."
     },
     {
       "type": "text",
       "role_hint": "modul-flaeche",
       "heading": "Für Kommunen",
-      "body": "Unsere Stadtplanung erarbeitet Bebauungspläne, auch mit Festlegungen für geförderten Mietwohnraum. Für die so festgelegten Wohnungen gilt der Bedarf als gegeben (→ S. 18)."
+      "body": "Unsere Stadtplanung erarbeitet Bebauungspläne, auch mit Festlegungen für geförderten Mietwohnraum (→ S. 18)."
     }
   ],
   "footnotes": [],

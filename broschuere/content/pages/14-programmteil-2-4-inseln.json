@@ -6,7 +6,7 @@
   "kicker": "Programmteil 2.4 · Ostfriesische Inseln",
   "headline": "Höhere Kostengrenze, 10 % Eigenmittel",
   "subline": "Bis zu 90 % der Herstellungskosten bis zur Kostengrenze, bis zu 100 % der Grundstückskosten",
-  "lead": "Gefördert werden gebundene Mietwohnungen in Mehrfamilienhäusern auf allen sieben bewohnten Inseln: Neubau, Änderung oder Erweiterung und Ersterwerb bis zwei Jahre nach Fertigstellung. Kein Bedarfsnachweis.",
+  "lead": "Gefördert werden gebundene Mietwohnungen in Mehrfamilienhäusern auf allen sieben bewohnten Inseln: Neubau, Änderung und Erweiterung sowie Ersterwerb bis zwei Jahre nach Fertigstellung. Kein Bedarfsnachweis.",
   "blocks": [
     {
       "type": "chart",
@@ -149,7 +149,7 @@
     {
       "type": "text",
       "heading": "Konditionen wie in 2.1",
-      "body": "**Zuschuss nur zusammen mit dem Darlehen.** 0 % Zins bis zum Ende des 35. Jahres, 0,5 % Verwaltungskostenbeitrag p. a. auf das Restkapital, einmalig 1 % (Darlehen) bzw. 0,75 % (Zuschuss) Bearbeitungsentgelt (→ S. 9). **35 Jahre** Belegungs- und Mietbindung ab Bezugsfertigkeit, beim Ersterwerb ab Eigentumsübergang."
+      "body": "**Zuschuss nur zusammen mit dem Darlehen.** Zins, Verwaltungskostenbeitrag, Bearbeitungsentgelte, Laufzeit und Bindung wie in 2.1 (→ S. 9)."
     },
     {
       "type": "bullets",
@@ -158,7 +158,7 @@
         "Eigentum oder Erbbaurecht (mindestens 60 Jahre); gesicherter Erwerb genügt",
         "mindestens zwei gebundene Mietwohnungen je Neubau",
         "nicht gefördert: Ferienwohnungen, Ferien- und Wochenendhäuser, zur Vermietung bestimmte Eigentumswohnungen",
-        "kombinierbar mit KfW 298 oder 296 wie in 2.1 (→ S. 8), Kommunen selbst KfW 498; für Neubau und Ersterwerb bis zwölf Monate nach Bauabnahme"
+        "kombinierbar mit KfW 298 oder 296 wie in 2.1 (→ S. 8)"
       ]
     }
   ],

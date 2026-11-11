@@ -63,13 +63,11 @@
     .page[data-page="16"] .p16-w-old-h { fill: var(--old); }
     .page[data-page="16"] .p16-w-new-h { fill: var(--bs); }
 
-    /* Prüffragen: drei Ankreuzkästchen, zweispaltig – links die beiden Fragen zum alten Recht (Baujahr, Antrag),
-       rechts die Effizienzklassen-Frage zur RL 2026 über beide Zeilen; schließt unten am Satzspiegel */
+    /* Prüffragen: drei Ankreuzkästchen nebeneinander (je vier Spalten): Baujahr, Antrag, Effizienzklassen;
+       schließt unten am Satzspiegel */
     .page[data-page="16"] .p16-checks { padding-top: var(--sp-4); }
-    .page[data-page="16"] .p16-check { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start; }
-    .page[data-page="16"] .p16-check > .checklist__item { border-top: 0; font-size: var(--fs-module); line-height: 1.34; padding: 1.6mm 0 1.8mm; }
-    .page[data-page="16"] .p16-check > .p16-check--rl { grid-column: 2; grid-row: 1 / span 2; border-bottom: 0; }
-    .page[data-page="16"] .p16-check > .checklist__item:last-child { grid-column: 1; grid-row: 2; border-bottom: 0; }
+    .page[data-page="16"] .p16-check { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start; }
+    .page[data-page="16"] .p16-check > .checklist__item { border-top: 0; border-bottom: 0; font-size: var(--fs-module); line-height: 1.34; padding: 1.6mm 0 1.8mm; }
     .page[data-page="16"] .p16-check .checklist__item b { color: var(--fg); }
   </style>
 
@@ -85,7 +83,6 @@
   <header class="p16-head">
     <p class="kicker kicker--plain">Stichtag 31.12.2026</p>
     <h1 class="h1"><em>Wahlrecht</em> für Modernisierungs&shy;anträge</h1>
-    <p class="deck deck--s"><b>Altes Recht</b> oder <b>RL&nbsp;2026</b>: Wahl einmalig mit dem Antrag</p>
   </header>
 
   <div class="module p16-tl">
@@ -95,7 +92,7 @@
         <p class="callout__date">31.12.2026</p>
         <p class="p16-frist__ev"><b class="u-nohyphens">Wahlrecht Modernisierung</b>Antragseingang bei der Wohnraumförderstelle</p>
       </div>
-      <p class="callout__body">Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. <b class="p16-bind">Die Wahl ist bindend</b>; das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026; Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert.</p>
+      <p class="callout__body">Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. <b class="p16-bind">Die Wahl ist bindend.</b> Das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026. Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert.</p>
     </aside>
     <div class="p16-tl__side">
       <h2 class="chart__title" id="p16-tl-h">Stichtage Juni 2026 bis Dezember 2031</h2>
@@ -155,20 +152,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr><th scope="row">Förderart</th><td>anfangs zinsloses Darlehen bis zu 75 % der Kosten, max. zwei Drittel eines vergleichbaren Neubaus; 30 % Tilgungsnachlass bei geringen Einkommen</td><td class="p16-new">Zuschuss je nach Klassensprung und Einkommens&shy;gruppe bis zu <span class="u-nowrap">10–40 %</span>, <span class="u-nohyphens">höchstens</span> <span class="u-nowrap">9.000–31.000 €</span> je gebundener Wohnung</td></tr>
+      <tr><th scope="row">Förderart</th><td>anfangs zinsloses Darlehen bis zu 75 % der Kosten, höchstens zwei Drittel eines vergleichbaren Neubaus; 30 % Tilgungsnachlass bei geringen Einkommen</td><td class="p16-new">Zuschuss mit Höchstsatz <span class="u-nowrap">10–40 %</span> je nach Klassensprung und Einkommens&shy;gruppe, <span class="u-nohyphens">höchstens</span> <span class="u-nowrap">9.000–31.000 €</span> je gebundener Wohnung</td></tr>
       <tr><th scope="row">Zins und Kosten</th><td>0 % Zins für 35 Jahre (geringe Einkommen) bzw. 30 Jahre (mittlere), danach marktüblich; 0,5 % Verwaltungskostenbeitrag p. a.</td><td class="p16-new">kein Darlehen; 0,75 % Bearbeitungsentgelt</td></tr>
       <tr><th scope="row">Barrierefreiheit</th><td>+5.000 € Zuschuss je barrierefreier Wohnung</td><td class="p16-new">Teil der Gesamtmaßnahme, kein <span class="u-nohyphens">gesonderter</span> Zuschuss</td></tr>
       <tr><th scope="row">Höhere Einkommen</th><td>mittlere Einkommen: nur energetisch, ohne Tilgungsnachlass</td><td class="p16-new">Gruppen B und C mit niedrigeren Sätzen</td></tr>
-      <tr><th scope="row">Kombination</th><td>ausgeschlossen, wenn dieselbe Maßnahme nach RL Mietwohnraum, Junges Wohnen oder Wohneigentum 2026 gefördert wird</td><td class="p16-new">BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen <span class="u-nowrap">(<a class="pageref" href="#seite-15">→&nbsp;S.&nbsp;15</a>)</span></td></tr>
+      <tr><th scope="row">Kombination</th><td>nicht für eine Maßnahme, die nach RL Mietwohnraum, Junges Wohnen oder Wohneigentum 2026 gefördert wird</td><td class="p16-new">mit BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen <span class="u-nowrap">(<a class="pageref" href="#seite-15">→&nbsp;S.&nbsp;15</a>)</span></td></tr>
     </tbody>
   </table>
 
   <section class="p16-checks l-bottom" aria-labelledby="p16-check-h">
     <h2 class="bullets__title" id="p16-check-h">Drei Prüffragen</h2>
     <ul class="checklist p16-check">
-      <li class="checklist__item"><span class="checklist__box"></span><span><b>Fertiggestellt zwischen 01.02.2002 und 07.12.2004?</b> Dann nur RL 2026: Das alte Recht setzt die Fertigstellung vor dem 01.02.2002 voraus.</span></li>
-      <li class="checklist__item p16-check--rl"><span class="checklist__box"></span><span><b>Zwei Effizienzklassen erreichbar?</b> Die RL 2026 setzt eine Verbesserung um zwei Energieeffizienzklassen voraus. Ist das aus technischen, funktionalen oder wirtschaftlichen Gründen nicht oder nur mit unverhältnismäßigem Aufwand möglich, etwa bei Baudenkmalen, kann die NBank nach Einzelfallprüfung auch eine Klasse zulassen <span class="u-nowrap">(<a class="pageref" href="#seite-15">→&nbsp;S.&nbsp;15</a>).</span></span></li>
-      <li class="checklist__item"><span class="checklist__box"></span><span><b>Antrag mit ausdrücklicher Wahl bis 31.12.2026</b> bei der Wohnraumförderstelle?</span></li>
+      <li class="checklist__item"><span class="checklist__box"></span><span><b>Fertiggestellt zwischen 01.02.2002 und 07.12.2004?</b> Dann nur RL 2026. Das alte Recht setzt die Fertigstellung vor dem 01.02.2002 voraus.</span></li>
+      <li class="checklist__item"><span class="checklist__box"></span><span><b>Antrag mit ausdrücklicher Wahl bis 31.12.2026</b> bei der Wohnraumförderstelle? Sonst gilt die RL 2026.</span></li>
+      <li class="checklist__item"><span class="checklist__box"></span><span><b>Zwei Effizienzklassen erreichbar?</b> Die RL 2026 verlangt mindestens zwei, in Ausnahmen eine <span class="u-nowrap">(<a class="pageref" href="#seite-15">→&nbsp;S.&nbsp;15</a>).</span></span></li>
     </ul>
   </section>
 

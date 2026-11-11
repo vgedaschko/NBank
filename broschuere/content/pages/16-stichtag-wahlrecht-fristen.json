@@ -5,14 +5,14 @@
   "running_title": "Bestand · Stichtag 31.12.2026",
   "kicker": "Stichtag 31.12.2026",
   "headline": "Wahlrecht für Modernisierungsanträge",
-  "subline": "Altes Recht oder RL 2026: Wahl einmalig mit dem Antrag",
+  "subline": "",
   "blocks": [
     {
       "type": "callout",
       "variant": "achtung",
       "role_hint": "frist",
       "title": "Frist 31.12.2026",
-      "body": "Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. **Die Wahl ist bindend**; das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026; Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert."
+      "body": "Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. **Die Wahl ist bindend.** Das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026. Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert."
     },
     {
       "type": "chart",
@@ -81,8 +81,8 @@
       "rows": [
         [
           "Förderart",
-          "anfangs zinsloses Darlehen bis zu 75 % der Kosten, max. zwei Drittel eines vergleichbaren Neubaus; 30 % Tilgungsnachlass bei geringen Einkommen",
-          "Zuschuss je nach Klassensprung und Einkommensgruppe bis zu 10–40 %, höchstens 9.000–31.000 € je gebundener Wohnung"
+          "anfangs zinsloses Darlehen bis zu 75 % der Kosten, höchstens zwei Drittel eines vergleichbaren Neubaus; 30 % Tilgungsnachlass bei geringen Einkommen",
+          "Zuschuss mit Höchstsatz 10–40 % je nach Klassensprung und Einkommensgruppe, höchstens 9.000–31.000 € je gebundener Wohnung"
         ],
         [
           "Zins und Kosten",
@@ -101,8 +101,8 @@
         ],
         [
           "Kombination",
-          "ausgeschlossen, wenn dieselbe Maßnahme nach RL Mietwohnraum, Junges Wohnen oder Wohneigentum 2026 gefördert wird",
-          "BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen (→ S. 15)"
+          "nicht für eine Maßnahme, die nach RL Mietwohnraum, Junges Wohnen oder Wohneigentum 2026 gefördert wird",
+          "mit BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen (→ S. 15)"
         ]
       ],
       "layout_note": "Spaltenraster wie die Eckdaten auf S. 17: Zeilenkopf 2 Spalten + Steg, „Altes Recht“ Spalten 3–7 + Steg, „RL 2026“ Spalten 8–12 (Korrekturlauf 1: Abstand der Spalte „Altes Recht“ zum Zeilenkopf)."
@@ -111,9 +111,9 @@
       "type": "checklist",
       "heading": "Drei Prüffragen",
       "items": [
-        "Fertiggestellt zwischen 01.02.2002 und 07.12.2004? Dann nur RL 2026: Das alte Recht setzt die Fertigstellung vor dem 01.02.2002 voraus.",
-        "Zwei Effizienzklassen erreichbar? Die RL 2026 setzt eine Verbesserung um zwei Energieeffizienzklassen voraus. Ist das aus technischen, funktionalen oder wirtschaftlichen Gründen nicht oder nur mit unverhältnismäßigem Aufwand möglich, etwa bei Baudenkmalen, kann die NBank nach Einzelfallprüfung auch eine Klasse zulassen (→ S. 15).",
-        "Antrag mit ausdrücklicher Wahl bis 31.12.2026 bei der Wohnraumförderstelle?"
+        "Fertiggestellt zwischen 01.02.2002 und 07.12.2004? Dann nur RL 2026. Das alte Recht setzt die Fertigstellung vor dem 01.02.2002 voraus.",
+        "Antrag mit ausdrücklicher Wahl bis 31.12.2026 bei der Wohnraumförderstelle? Sonst gilt die RL 2026.",
+        "Zwei Effizienzklassen erreichbar? Die RL 2026 verlangt mindestens zwei, in Ausnahmen eine (→ S. 15)."
       ]
     }
   ],

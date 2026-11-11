@@ -6,7 +6,7 @@
   "kicker": "Antragsweg",
   "headline": "Vom Vorgespräch bis zum Verwendungsnachweis",
   "subline": "",
-  "lead": "Acht Schritte: Sie beantragen bei der Wohnraumförderstelle am Bauort, die NBank entscheidet.",
+  "lead": "",
   "blocks": [
     {
       "type": "chart",
@@ -98,7 +98,7 @@
       "variant": "achtung",
       "role_hint": "stopp",
       "title": "Erst Bewilligung, dann Vertrag",
-      "body": "Vor der Bewilligung begonnene Vorhaben werden nicht gefördert. Als Beginn gilt ein Bau-, Liefer- oder Kaufvertrag (außer für das Baugrundstück) oder der erste Spatenstich. Bewilligt wird durch Fördervertrag oder Bescheid der NBank."
+      "body": "Vor der Bewilligung begonnene Vorhaben werden nicht gefördert. Bewilligt ist erst mit Fördervertrag oder Bescheid der NBank."
     },
     {
       "type": "chart",
@@ -132,7 +132,7 @@
             "symbol": "✗",
             "title": "Förderschädlich",
             "items": [
-              "Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück)",
+              "Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück)",
               "beim Ersterwerb: bindender Kaufvertrag über die Wohnungen",
               "Beauftragung ab Leistungsphase 7 HOAI",
               "erster Spatenstich",

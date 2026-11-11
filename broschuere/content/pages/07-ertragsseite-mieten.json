@@ -5,7 +5,7 @@
   "running_title": "Ertragsseite · Mieten",
   "kicker": "Ertragsseite",
   "headline": "Höchstmieten und Mietentwicklung",
-  "lead": "Programmteil, Einkommensgruppe und Mietenstufe legen die Höchstmiete fest. Sie gilt drei Jahre lang, danach darf die Miete begrenzt steigen.",
+  "lead": "Programmteil, Einkommensgruppe und Mietenstufe legen die Höchstmiete fest (Mietbindung). Sie gilt drei Jahre lang, danach darf die Miete begrenzt steigen.",
   "blocks": [
     {
       "type": "table",
@@ -70,17 +70,17 @@
         [
           "2.6",
           "alle",
-          "bisherige Miete, drei Jahre ab Verlängerung eingefroren, auch bei Wiedervermietung",
+          "bisherige Miete; drei Jahre ab Verlängerung keine Erhöhung, auch nicht bei Wiedervermietung",
           "",
           ""
         ]
       ],
-      "note": "Ab EH-40-Niveau bis zu +0,30 € (2.1, 2.3, 2.5); in 2.2 enthalten. 2.3 mit verlängerter Bindung: Jahre 1–3 ab der ersten WBS-Belegung → S. 15."
+      "note": "Ab EH-40-Niveau bis zu +0,30 € (2.1, 2.3, 2.5); in 2.2 enthalten."
     },
     {
       "type": "chart",
       "chart": "line",
-      "title": "Mietpfad und Markt, € je m² nettokalt",
+      "title": "Mietentwicklung und Markt, € je m² nettokalt",
       "subtitle": "Programmteil 2.1 · Gruppe A · Mietenstufe IV–VII",
       "data": {
         "kind": "step",
@@ -92,7 +92,7 @@
         },
         "points": [
           {
-            "period": "Jahr 1–3",
+            "period": "Jahre 1–3",
             "value": 6.8,
             "label": "6,80"
           },
@@ -103,8 +103,8 @@
           },
           {
             "period": "ab Jahr 7",
-            "value": 7.65,
-            "label": "höchstens 7,65"
+            "value": 7.66,
+            "label": "höchstens 7,66"
           }
         ],
         "reference_lines": [
@@ -114,7 +114,7 @@
             "value_label": "9,00",
             "style": "dashed",
             "span": [
-              "Jahr 1–3"
+              "Jahre 1–3"
             ]
           },
           {
@@ -123,17 +123,17 @@
             "value_label": "11,22",
             "style": "dashed",
             "span": [
-              "Jahr 1–3"
+              "Jahre 1–3"
             ]
           }
         ]
       },
-      "note": "Ab Jahr 4 höchstens +6,15 % in drei Jahren, auch bei Wiedervermietung; keine Staffel- oder Indexmiete."
+      "note": "Ab Jahr 4 höchstens +6,15 % in drei Jahren (Betriebskosten ausgenommen), auch bei Wiedervermietung; keine Staffel- oder Indexmiete."
     },
     {
       "type": "text",
       "heading": "Mietenstufe",
-      "body": "Die Mietenstufe Ihrer Gemeinde bestimmt Höchstmiete und Bemessungsgrenze.\n\n**VI** Buchholz i. d. Nordheide, Neu Wulmstorf\n\n**V** Hannover, Buxtehude, Seevetal, die sieben Inselgemeinden\n\n**IV** Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg\n\n**I–III** übrige Festlandgemeinden\n\nStufe VII gibt es in Niedersachsen nicht. Zuordnung nach Wohngeldrecht seit 2023; neue Stufen sind ab 2027 geplant → S. 16."
+      "body": "Die Mietenstufe der Standortgemeinde bestimmt Höchstmiete und Bemessungsgrenze.\n\n**VI** Buchholz i. d. Nordheide, Neu Wulmstorf\n\n**V** Hannover, Buxtehude, Seevetal, die sieben Inselgemeinden\n\n**IV** Adendorf, Braunschweig, Garbsen, Göttingen, Hemmingen, Jork, Laatzen, Langenhagen, Lüneburg, Oldenburg (Oldb), Osnabrück, Ronnenberg, Rosengarten, Stade, Stelle, Winsen (Luhe), Wolfsburg\n\n**I–III** übrige Festlandgemeinden\n\nStufe VII gibt es in Niedersachsen nicht. Zuordnung nach Wohngeldrecht seit 2023; neue Stufen sind ab 2027 geplant."
     },
     {
       "type": "bullets",
@@ -148,7 +148,7 @@
         "signal"
       ],
       "items": [
-        "nur an Haushalte mit WBS, auch bei Wiedervermietung",
+        "Belegungsbindung: nur an Haushalte mit WBS, auch bei Wiedervermietung",
         "unbefristeter Mietvertrag, der die Förderbestimmungen zur Mietbindung wiedergibt; Wohnung bezugsfertig übergeben",
         "Stellplätze getrennt vermietbar, nicht an die Wohnung gekoppelt",
         "keine Zuschläge (Ausstattung, Keller, Energie- und Wärmeeinrichtungen); Zusatzleistungen nur freiwillig",

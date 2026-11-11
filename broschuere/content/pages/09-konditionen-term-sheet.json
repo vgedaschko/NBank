@@ -4,7 +4,7 @@
   "layout_type": "term-sheet",
   "running_title": "Finanzierung · Eckdaten",
   "kicker": "Eckdaten · Programmteil 2.1",
-  "headline": "Konditionen im Überblick",
+  "headline": "Konditionen und Kosten",
   "subline": "",
   "lead": "",
   "blocks": [
@@ -96,7 +96,7 @@
         ],
         [
           "Eigenmittel",
-          "mindestens 20 % der zuwendungsfähigen Kosten, mit Zuschlag entsprechend weniger; mindestens die Hälfte als Geld oder lastenfreies Grundstück"
+          "mindestens 20 % der zuwendungsfähigen Kosten, mit Zuschlag entsprechend weniger; davon soll mindestens die Hälfte Geld oder lastenfreies Grundstück sein"
         ],
         [
           "Zins",
@@ -104,7 +104,7 @@
         ],
         [
           "Tilgung",
-          "Satz legt die NBank fest; Beginn nach vollständiger Auszahlung, spätestens zwei Jahre nach dem auf die Bekanntgabe der Förderentscheidung folgenden Monat → S. 21"
+          "Satz legt die NBank fest; Beginn nach vollständiger Auszahlung, spätestens zwei Jahre nach dem Monat, der auf die Bekanntgabe der Förderentscheidung folgt → S. 21"
         ],
         [
           "Kosten, laufend",
@@ -120,7 +120,7 @@
         ],
         [
           "Sicherheiten",
-          "nachrangige Grundschuld direkt nach den Kapitalmarktmitteln; Details → S. 21"
+          "nachrangige Grundschuld direkt nach dem Bankdarlehen; Details → S. 21"
         ],
         [
           "Versicherung",
@@ -132,7 +132,7 @@
         ],
         [
           "Beihilferecht",
-          "Die NBank prüft jede Förderung auf Überkompensation. Eine Eigenkapitalrendite bis 1 Prozentpunkt über dem 30-jährigen Swapsatz gilt stets als angemessen."
+          "Die NBank begrenzt jede Förderung so, dass die Eigenkapitalrendite angemessen bleibt (Prüfung auf Überkompensation). Bis 1 Prozentpunkt über dem 30-jährigen Swapsatz gilt sie stets als angemessen"
         ]
       ],
       "row_emphasis": {

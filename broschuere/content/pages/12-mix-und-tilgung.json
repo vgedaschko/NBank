@@ -4,8 +4,8 @@
   "layout_type": "chart-focus",
   "running_title": "Modellrechnung · Mix und Tilgung",
   "kicker": "Modellrechnung · Mix und Tilgung",
-  "headline": "Welcher Mix rechnet sich?",
-  "lead": "Wohnungen für B und C erlauben höhere Mieten bei weniger Zuschuss und mehr Darlehen. Ob das den Zahlungsüberschuss erhöht, entscheidet vor allem der Tilgungssatz: Die Mehrschuld ist bis Ende Jahr 35 zinsfrei, kostet aber 0,5 % Verwaltungskostenbeitrag und wird getilgt.",
+  "headline": "Über 1,22 % Tilgung liegt Gruppe A vorn",
+  "lead": "In B und C sind Miete und Darlehen höher als in A. Die Mehrschuld ist bis Ende Jahr 35 zinsfrei, kostet 0,5 % Verwaltungskostenbeitrag im Jahr und wird getilgt.",
   "blocks": [
     {
       "type": "chart",
@@ -79,12 +79,12 @@
           {
             "from": 0,
             "to": 1.22,
-            "label": "höchster Überschuss: C"
+            "label": "höchster Zahlungsüberschuss: C"
           },
           {
             "from": 1.22,
             "to": 2.5,
-            "label": "höchster Überschuss: A"
+            "label": "höchster Zahlungsüberschuss: A"
           }
         ],
         "zones": [
@@ -94,7 +94,7 @@
         "check": "C liegt über B, solange t < (25.721 − 16.050) ÷ (2.100.000 − 1.400.000) = 1,38 %; B liegt über A nur bis 1,15 % – B ist daher in keinem Bereich die beste Variante.",
         "geometry": "Linien aus den ungerundeten Werten (B 16.049,6 €, C 25.720,8 €); Nulldurchgänge B 1,1464 %, C 1,2248 % (Teilung der Maßkette); Achsen x = 13 + 42,8 × t, y = 45,35 − 0,001045 × € (mm im SVG)"
       },
-      "note": "Unter **1,22 %** Tilgung bringt **C** den höchsten Zahlungsüberschuss, darüber **A**.\n\n**B** liegt in dieser Rechnung nie vorn: Unter 1,15 % bringt C mehr, darüber A. Ein Mix aus A, B und C liegt anteilig dazwischen.\n\nBei 0 % zeigt das Diagramm den Mehrüberschuss vor Tilgung. Jeder Prozentpunkt Tilgung mindert den Mehrüberschuss von B um 14.000 €, von C um 21.000 €."
+      "note": "Unter **1,22 %** Tilgung hat **C** den höchsten Zahlungsüberschuss, darüber **A**.\n\n**B** liegt in dieser Rechnung nie vorn. Unter 1,15 % liegt C vor B, darüber A. Ein Mix aus A, B und C liegt anteilig dazwischen.\n\nBei 0 % zeigt das Diagramm den Mehrüberschuss vor Tilgung. Jeder Prozentpunkt Tilgung mindert den Mehrüberschuss von B um 14.000 €, von C um 21.000 €."
     },
     {
       "type": "table",
@@ -155,12 +155,12 @@
         "5.250"
       ],
       "row_note": "Zeile 2 = Mehr-Sollmiete abzüglich Mietausfall 2 % (Unterzeile ohne eigene Nummer, wie S. 11, Zeile 1)",
-      "note": "Ein Mietausfall über 2 % und höhere zuwendungsfähige Kosten je m² senken beide Schwellen: Die zulässige Mehrmiete je m² ist fest vorgegeben, die Mehrschuld wächst mit den Kosten."
+      "note": "Ein Mietausfall über 2 % und höhere zuwendungsfähige Kosten je m² senken beide Schwellen, denn die Mehrmiete je m² ist fest vorgegeben und die Mehrschuld wächst mit den Kosten."
     },
     {
       "type": "text",
       "heading": "Zulassung von B und C",
-      "body": "Grundsatz ist Gruppe A; B und C muss die NBank in der Förderentscheidung zulassen. Bis 60 % über der Einkommensgrenze setzt das eine besondere Lage oder Zweckbindung voraus, etwa einen angespannten Wohnungsmarkt; sonst sind bei Vorhaben ab zwölf zusammenhängenden Wohnungen bis +20 % für höchstens die Hälfte der Wohnungen möglich; C entfällt dann (→ S. 6)."
+      "body": "Grundsatz ist Gruppe A. B und C muss die NBank in der Förderentscheidung zulassen (Voraussetzungen → S. 6)."
     },
     {
       "type": "text",

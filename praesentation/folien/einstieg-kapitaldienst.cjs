@@ -5,7 +5,9 @@
 // Eine senkrechte Maßlinie fasst den Anstieg, rechts der Plotfläche steht je Ursache Bezeichnung, Betrag, Anteil am Anstieg und eine Zeile
 // Erklärung. Rechts die Hauptzahl der Folie und darunter der Rechenweg als kleine Tabelle (Kosten, Fremdkapital, Sollzins: die Kette von den
 // Folien 3 und 4 zum Kapitaldienst).
-// Gerechnet wird nach der Methode der Rechenmappe: Annuitätendarlehen mit jährlicher Annuität, Faktor = i ÷ (1 − (1 + i)^−n). Kosten und Zins
+// Gerechnet wird ein Annuitätendarlehen mit monatlicher Rate, wie es Banken bedienen und wie die Altfassung Folie 5 rechnete:
+// Rate je Euro Darlehen = (i ÷ 12) ÷ (1 − (1 + i ÷ 12)^−(12 × n)). Die Modellrechnung (Folien 14 bis 24) rechnet wie die Rechenmappe mit einer
+// Jahresrate; die Werte dieser Folie liegen deshalb etwas unter einer Rechnung nach der Mappe (19,95 statt 20,14 €). Kosten und Zins
 // Q1 2020 aus daten/markt.json (ARGE-Mediane und Zinsreihe der Altfassung, nicht nachgeprüft), Zins heute und Laufzeit aus daten/werte.json.
 // Die Folie ist keine Modellrechnung (weißer Grund, kein Papierton): Medianwerte deutscher Großstädte je m², kein einzelnes Haus. Rot im Diagramm nur an der
 // Summe von heute: Das ist die Zahl, die das Signaturwort des Titels nennt.
@@ -18,23 +20,20 @@ module.exports = {
 
     // ---- Rechnung ---------------------------------------------------------------------------------------------------------------
     const n = M('eingabe.laufzeit_bank'), iHeute = M('eingabe.zins_bank'), zins2020 = K('kapitaldienst.zins_q1_2020'), fk = K('kapitaldienst.fremdkapital');
-    const af = i => i / (1 - Math.pow(1 + i, -n));
+    // Monatsrate je Euro Darlehen bei Zins i p. a. und n Jahren Laufzeit (dieselbe Formel wie monatsrate() in pruefe_folien.py und daten/pruefung.json)
+    const rate = i => (i / 12) / (1 - Math.pow(1 + i / 12, -12 * n));
     const kosten = ['q1_2020', 'q4_2025'].map(q => K(`baukosten.herstellung.${q}`) + K(`baukosten.grundstueck.${q}`));
-    // Faktoren wie in daten/pruefung.json: Q1 2020 aus der Datendatei, heute aus der Mappe (Annuität ÷ Bankdarlehen); beide gegen die Formel geprüft
-    const faktor = [K('kapitaldienst.annuitaetenfaktor_q1_2020'), M('frei.annuitaet') / M('fin.bankdarlehen.Frei')];
-    ctx.gleich('Annuitätenfaktor Q1 2020 (Datendatei gegen Formel)', faktor[0], af(zins2020 / 100), 9);
-    ctx.gleich('Annuitätenfaktor heute (Mappe gegen Formel)', faktor[1], af(iHeute), 9);
-    ctx.gleich('Probe der Methode am Modellhaus: Bankdarlehen × Faktor gegen die Annuität der Mappe', M('fin.bankdarlehen.Frei') * af(iHeute), M('frei.annuitaet'), 2);
+    const faktor = [rate(zins2020 / 100), rate(iHeute)];
     const marken = K('zinsen.marken'), z10 = K('zinsen.z10');
     ctx.gleich('Zins Q1 2020 gegen das Quartalsmittel der Folie 4', zins2020, marken[0].z10);
     ctx.gleich('Zins heute (Mappe) gegen den letzten Monatswert der Reihe „10 Jahre“', iHeute * 100, z10[z10.length - 1]);
     ctx.gleich('Fremdkapitalanteil gegen das Modellhaus frei finanziert', fk, M('fin.bankdarlehen.Frei') / M('fin.gesamtkosten.Frei'), 4);
-    const kd = kosten.map((k, i) => fk * k * faktor[i] / 12), mehr = kosten[1] - kosten[0], anstieg = kd[1] - kd[0];
+    const kd = kosten.map((k, i) => fk * k * faktor[i]), mehr = kosten[1] - kosten[0], anstieg = kd[1] - kd[0];
     // Der Stand von früher ist der Bezugswert (helle Fläche); die drei Ursachen des Anstiegs stehen darüber in drei Grautönen, von unten nach oben heller
     const teile = [
-      { name: 'Baukosten', art: 'referenz', wert: fk * mehr * faktor[0] / 12, text: 'höhere Kosten zum Zins von 2020' },
-      { name: 'Zins', art: 'bisher', wert: fk * kosten[0] * (faktor[1] - faktor[0]) / 12, text: 'höherer Zins auf die Kosten von 2020' },
-      { name: 'Wechselwirkung', art: 'licht', wert: fk * mehr * (faktor[1] - faktor[0]) / 12, text: 'höherer Zins auf die höheren Kosten' }];
+      { name: 'Baukosten', art: 'referenz', wert: fk * mehr * faktor[0], text: 'höhere Kosten zum Zins von 2020' },
+      { name: 'Zins', art: 'bisher', wert: fk * kosten[0] * (faktor[1] - faktor[0]), text: 'höherer Zins auf die Kosten von 2020' },
+      { name: 'Wechselwirkung', art: 'licht', wert: fk * mehr * (faktor[1] - faktor[0]), text: 'höherer Zins auf die höheren Kosten' }];
     ctx.gleich('Baukosten, Zins und Wechselwirkung gegen den Anstieg', teile.reduce((a, t) => a + t.wert, 0), anstieg, 9);
     if (teile.reduce((a, t) => a + Math.round(t.wert / anstieg * 100), 0) !== 100) P.melde('Die gerundeten Anteile am Anstieg ergeben nicht 100 %.');
     for (const v of kd) if (!ctx.glatt(ctx.o.titel).includes(fmt.dez(v))) P.melde(`Titel der Folie nennt den Kapitaldienst nicht mit ${fmt.dez(v)}.`);

@@ -156,13 +156,13 @@ KERNWERTE = [
 # ---- Kernwerte der Ausgangslage und des Kostenvergleichs: Werte der Datendateien und daraus gerechnete Größen, in derselben Schreibweise ----
 KOSTEN_2020 = "(markt#baukosten.herstellung.q1_2020 + markt#baukosten.grundstueck.q1_2020)"
 KOSTEN_HEUTE = "(markt#baukosten.herstellung.q4_2025 + markt#baukosten.grundstueck.q4_2025)"
-FAKTOR_2020 = "markt#kapitaldienst.annuitaetenfaktor_q1_2020"                      # jährliche Annuität je Euro Darlehen bei 0,46 % über 30 Jahre
-FAKTOR_HEUTE = "(modellhaus:frei.annuitaet / modellhaus:fin.bankdarlehen.Frei)"    # dasselbe bei 3,74 %: wie die Rechenmappe
-KD_2020 = f"markt#kapitaldienst.fremdkapital * {KOSTEN_2020} * {FAKTOR_2020} / 12"     # Kapitaldienst je m² und Monat
-KD_HEUTE = f"markt#kapitaldienst.fremdkapital * {KOSTEN_HEUTE} * {FAKTOR_HEUTE} / 12"
-KD_BAUKOSTEN = f"markt#kapitaldienst.fremdkapital * ({KOSTEN_HEUTE} - {KOSTEN_2020}) * {FAKTOR_2020} / 12"
-KD_ZINS = f"markt#kapitaldienst.fremdkapital * {KOSTEN_2020} * ({FAKTOR_HEUTE} - {FAKTOR_2020}) / 12"
-KD_WECHSELWIRKUNG = f"markt#kapitaldienst.fremdkapital * ({KOSTEN_HEUTE} - {KOSTEN_2020}) * ({FAKTOR_HEUTE} - {FAKTOR_2020}) / 12"
+FAKTOR_2020 = "monatsrate(markt#kapitaldienst.zins_q1_2020 / 100, modellhaus:eingabe.laufzeit_bank)"   # Monatsrate je Euro Darlehen bei 0,46 % über 30 Jahre
+FAKTOR_HEUTE = "monatsrate(modellhaus:eingabe.zins_bank, modellhaus:eingabe.laufzeit_bank)"            # dasselbe bei 3,74 %
+KD_2020 = f"markt#kapitaldienst.fremdkapital * {KOSTEN_2020} * {FAKTOR_2020}"     # Kapitaldienst je m² und Monat
+KD_HEUTE = f"markt#kapitaldienst.fremdkapital * {KOSTEN_HEUTE} * {FAKTOR_HEUTE}"
+KD_BAUKOSTEN = f"markt#kapitaldienst.fremdkapital * ({KOSTEN_HEUTE} - {KOSTEN_2020}) * {FAKTOR_2020}"
+KD_ZINS = f"markt#kapitaldienst.fremdkapital * {KOSTEN_2020} * ({FAKTOR_HEUTE} - {FAKTOR_2020})"
+KD_WECHSELWIRKUNG = f"markt#kapitaldienst.fremdkapital * ({KOSTEN_HEUTE} - {KOSTEN_2020}) * ({FAKTOR_HEUTE} - {FAKTOR_2020})"
 BESTAND_RUECKGANG = "markt#bestand.reihe.wert.2025 / markt#bestand.reihe.wert.2016 - 1"
 PGN_UNTER_ARGE = "markt#kosten.pgn.spanne_herstellung.median / markt#kosten.arge.spanne_herstellung.median - 1"
 KERNWERTE_MARKT = [
@@ -184,12 +184,12 @@ KERNWERTE_MARKT = [
     (KOSTEN_2020, "euro", "3.754 €", ["einstieg-kapitaldienst"]),
     (KOSTEN_HEUTE, "euro", "5.392 €", ["einstieg-kapitaldienst"]),
     ("markt#kapitaldienst.fremdkapital", "prozent0", "80 %", ["einstieg-kapitaldienst"]),
-    (KD_2020, "euro2", "8,95 €", ["einstieg-kapitaldienst"]),
-    (KD_HEUTE, "euro2", "20,14 €", ["einstieg-kapitaldienst"]),
-    (f"{KD_HEUTE} - {KD_2020}", "euro2vz", "+11,19 €", ["einstieg-kapitaldienst"]),
-    (KD_BAUKOSTEN, "euro2vz", "+3,91 €", ["einstieg-kapitaldienst"]),
-    (KD_ZINS, "euro2vz", "+5,07 €", ["einstieg-kapitaldienst"]),
-    (KD_WECHSELWIRKUNG, "euro2vz", "+2,21 €", ["einstieg-kapitaldienst"]),
+    (KD_2020, "euro2", "8,93 €", ["einstieg-kapitaldienst"]),
+    (KD_HEUTE, "euro2", "19,95 €", ["einstieg-kapitaldienst"]),
+    (f"{KD_HEUTE} - {KD_2020}", "euro2vz", "+11,02 €", ["einstieg-kapitaldienst"]),
+    (KD_BAUKOSTEN, "euro2vz", "+3,90 €", ["einstieg-kapitaldienst"]),
+    (KD_ZINS, "euro2vz", "+4,96 €", ["einstieg-kapitaldienst"]),
+    (KD_WECHSELWIRKUNG, "euro2vz", "+2,16 €", ["einstieg-kapitaldienst"]),
     ("markt#bestand.reihe.wert.2016", "zahl", "85.766", ["einstieg-bestand"]),
     ("markt#bestand.reihe.wert.2024", "zahl", "50.495", ["einstieg-bestand"]),
     ("markt#bestand.reihe.wert.2025", "zahl", "50.920", ["einstieg-bestand"]),
@@ -747,7 +747,7 @@ class Belege:
         else:
             self._nimm(self.dateien, o, f"{datei} {pfad}", art)
 
-    # Formeln in daten/pruefung.json: Grundrechenarten, Klammern, runde(x, n) und Verweise.
+    # Formeln in daten/pruefung.json: Grundrechenarten, Klammern, runde(x, n), monatsrate(i, jahre) und Verweise.
     #   lauf:schluessel oder lauf:schluessel[i]   Wert aus daten/werte.json
     #   datei#pfad                                 Wert aus einer Datendatei (daten/<datei>.json, Punktpfad; Feld „wert“; in Listen die Stelle ab 0)
     def rechne(self, formel):
@@ -782,7 +782,10 @@ class Belege:
                 return ops[type(n.op)](wert(n.operand))
             if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == "runde" and len(n.args) == 2:
                 return runde(wert(n.args[0]), int(wert(n.args[1])))
-            raise ValueError("nur Zahlen, Verweise, + − × ÷, Klammern und runde(x, n)")
+            if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == "monatsrate" and len(n.args) == 2:
+                i, jahre = wert(n.args[0]), wert(n.args[1])      # Rate je Euro Annuitätendarlehen bei monatlicher Zahlung
+                return (i / 12) / (1 - (1 + i / 12) ** (-12 * jahre))
+            raise ValueError("nur Zahlen, Verweise, + − × ÷, Klammern, runde(x, n) und monatsrate(i, jahre)")
         return wert(ast.parse(ausdruck, mode="eval").body)
 
     def beleg(self, v, nk, prozent=False, mio=False, euro=False):

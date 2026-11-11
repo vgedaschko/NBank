@@ -48,16 +48,16 @@ Doppelseite 10|11 „Modellrechnung“ trägt Finanzierung und Wirtschaftlichkei
 
 | S. | Kolumnentitel | Überschrift |
 |---:|---|---|
-| 3 | Überblick · Kennzahlen | Die Förderung in sieben Zahlen |
+| 3 | Überblick · Kennzahlen | Die Förderung in Zahlen |
 | 4 | Überblick · Neuerungen und Grundcheck | Richtlinie 2026: Neuerungen und Voraussetzungen |
-| 5 | Überblick · Navigator | Vom Vorhaben zum passenden Programmteil |
+| 5 | Überblick · Navigator | Programmteil nach Vorhaben |
 | 6 | Ertragsseite · Mieterkreis | Ihr Mieterkreis: drei Einkommensgruppen |
 | 7 | Ertragsseite · Mieten | Höchstmieten und Mietentwicklung |
 | 8 | Finanzierung · Programmteil 2.1 | Bis zu 80 % Förderquote |
-| 9 | Finanzierung · Eckdaten | Konditionen im Überblick |
+| 9 | Finanzierung · Eckdaten | Konditionen und Kosten |
 | 10 | Modellrechnung · Finanzierung | 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung |
-| 11 | Modellrechnung · Wirtschaftlichkeit | Mehr Miete, mehr Darlehen: Überschuss je Jahr |
-| 12 | Modellrechnung · Mix und Tilgung | Welcher Mix rechnet sich? |
+| 11 | Modellrechnung · Wirtschaftlichkeit | Gruppe A trägt sich ab Jahr 1: 3.789 € Zahlungsüberschuss |
+| 12 | Modellrechnung · Mix und Tilgung | Über 1,22 % Tilgung liegt Gruppe A vorn |
 | 13 | Neubau · Programmteil 2.2 | Reiner Zuschuss statt Darlehen |
 | 14 | Neubau · Programmteil 2.4 | Höhere Kostengrenze, 10 % Eigenmittel |
 | 15 | Bestand · Programmteil 2.3 | Zuschuss nach Effizienzsteigerung |
@@ -65,7 +65,7 @@ Doppelseite 10|11 „Modellrechnung“ trägt Finanzierung und Wirtschaftlichkei
 | 17 | Bestand · Programmteile 2.5 und 2.6 | Bindungen erwerben oder verlängern |
 | 18 | Umsetzung · Standort und Kommune | Bedarf am Standort und die Rolle der Kommune |
 | 19 | Umsetzung · Antragsweg | Vom Vorgespräch bis zum Verwendungsnachweis |
-| 20 | Umsetzung · Mit PGN | So begleiten wir Ihr Förderprojekt |
+| 20 | Umsetzung · Mit PGN | Unsere Leistungen im Förderprojekt |
 | 21 | Umsetzung · Unterlagen und Kontakte | Unterlagen, Kontakte und Verfahrensdetails |
 | 22 | PGN · Über uns | Ihre Generalplaner aus dem Norden. Seit 1981. |
 
@@ -95,7 +95,7 @@ U3 trägt seit Korrekturlauf 1 keine Platzhalter mehr: „Verantwortlich für de
 
 Außerdem vor dem Druck zu bestätigen oder freizugeben (ohne Platzhalter im Heft, Details in Anhang B):
 Schlussabgleich S. 11/12 mit VOFI-Mappe und Präsentation, Kostenstand 2026, „Betriebskosten voll umgelegt“, Tilgungssatz
-2,5 % (NBank abgestimmt?) sowie Tenor S. 11, Tilgungsaufschub-Hinweis und Verweis S. 4 → S. 11 (Entscheidung PGN);
+2,5 % (NBank abgestimmt?) sowie Tilgungsaufschub-Hinweis S. 11 (Entscheidung PGN; der Tenor S. 11 ist seit 11.11.2026 entschieden, der Verweis S. 4 → S. 11 gestrichen);
 Geschäftsführung, Herausgeberzeile und PDF-Metadaten (U3); Formulierung „Seit 1981“ (S. 2, 22); Bildrechte und
 hochaufgelöste Originale (U1, S. 20, 22); Negativ-Logo, CMYK-/Pantone-Werte und CI-Anwendung; Zitate Tonne (S. 2) und
 Kiesewetter (S. 6); PGN-Claims, Leistungsaussagen S. 20, Referenzen S. 22 und eine mögliche Ansprechperson auf U4.

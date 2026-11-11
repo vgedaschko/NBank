@@ -1,6 +1,6 @@
 # Wohnraum, der sich rechnet. – Mietwohnraumförderung Niedersachsen 2026 · Broschürentext zur Freigabe
 
-**PGN-Fassung, Korrekturlauf 1** · Herausgeberin: Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme) · Bewilligungsstelle: NBank · Antragsstelle: kommunale Wohnraumförderstelle · Rechtsgrundlage: RL Mietwohnraum 2026 (RdErl. d. MW v. 25.06.2026, Nds. MBl. 2026 Nr. 319, in Kraft seit 01.07.2026) · DIN A4 hoch, 24 Seiten (U1–U4 + 20 Innenseiten), Rückendraht · **Stand der Inhalte: 30.09.2026** (U1 und U3) · Redaktionsstand: 09.11.2026 (Korrekturlauf 1; PGN-Werte S. 11/12 vorläufig eingesetzt)
+**PGN-Fassung, Korrekturlauf 1** · Herausgeberin: Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme) · Bewilligungsstelle: NBank · Antragsstelle: kommunale Wohnraumförderstelle · Rechtsgrundlage: RL Mietwohnraum 2026 (RdErl. d. MW v. 25.06.2026, Nds. MBl. 2026 Nr. 319, in Kraft seit 01.07.2026) · DIN A4 hoch, 24 Seiten (U1–U4 + 20 Innenseiten), Rückendraht · **Stand der Inhalte: 30.09.2026** (U1 und U3) · Redaktionsstand: 11.11.2026 (Korrekturlauf 1; PGN-Werte S. 11/12 vorläufig eingesetzt; Lektorat vom 11.11.2026 eingearbeitet)
 
 Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive Tabellen, Diagrammdaten und Kästen – zur fachlichen und redaktionellen Freigabe. Maßgeblich für Text und Daten sind die Seiten-JSONs in `content/pages/`; diese Datei ist daraus erzeugt. Gestaltung, Farben und Icons (Feld `visual_idea`) sind hier nicht abgebildet. Verbindliche Regeln: `content/REDAKTIONSREGELN.md` (§8: Regeln aus Korrekturlauf 1) und `korrektur/lauf-1/ENTSCHEIDUNGEN.md`.
 
@@ -23,7 +23,7 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 | Element | Regel | Ist | Fundstellen im Heft |
 |---|---|---|---|
 | Zentraler Rechtshinweis | genau 1× (U3), Wortlaut fest | 1 | S. 23 |
-| Achtung-Kästen | genau 2 | 2 | S. 19 „Erst Bewilligung, dann Vertrag“ (+ Einzeiler S. 5 „Erst Bewilligung, dann Vorhabenbeginn“) · S. 16 „Frist 31.12.2026“ |
+| Achtung-Kästen | genau 2 | 2 | S. 19 „Erst Bewilligung, dann Vertrag“ (+ Einzeiler S. 5 „Erst Bewilligung, dann Vertrag“) · S. 16 „Frist 31.12.2026“ |
 | Kalkulationsnotizen | entfallen (§8.1) | 0 | – |
 | Überkompensation / Beihilferecht | nur S. 9 und U3 | 2 | S. 9 (Eckdaten-Zeile), S. 23 |
 | Fußnoten | höchstens 1 je Seite | 0 | – |
@@ -67,11 +67,13 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 | 24 | U4 | Umschlag · Rückseite (U4) | 25 | 0 | 17 | 45 | 0 |
 | | | **Summe** | **3454** | **2340** | **195** | | **0** |
 
+Stand der Zählung: Korrekturlauf 1 (24.10.2026). Nach dem Lektorat vom 11.11.2026 ist nicht neu gezählt; die Angaben „Wörter“ in dieser Tabelle und in den Seitenköpfen unten geben den Stand davor wieder.
+
 Anmerkungen: Fachseiten unter 180 Wörtern Fließtext (S. 3, 4, 5, 6, 9, 10, 11, 16, 17, 18, 19) tragen ihren Inhalt überwiegend in Kacheln, Tabellen und Diagrammen – Vergleichstabelle, Entscheidungsbaum, Eckdaten, Rechenweg, Zeitleiste, Swimlane. S. 21 ist Service-Sammelseite der PGN-Strecke und nimmt die Pflicht-Sonderfälle von S. 4, 9 und 19 auf (256 Wörter Fließtext, davon rund 60 in der Unterlagen-Checkliste; Korrekturlauf 1: Beispiel zur vorzeitigen Rückzahlung ergänzt). Die Zählung ist maschinell aus den JSONs erzeugt (Korrekturlauf 1 neu gezählt).
 
 **Abweichungen vom Seitenplan und Entscheidungen aus Korrekturlauf 1** (Kunde PGN, 58 Kommentare; `korrektur/lauf-1/ENTSCHEIDUNGEN.md`)
 
-- Seitenstruktur: neue S. 12 „Welcher Mix rechnet sich?“ (Kapitel „Modellrechnung“, S. 10–12); 2.2, 2.4, 2.3 und Stichtag rücken auf S. 13–16; 2.5 und 2.6 stehen kompakt zusammen auf S. 17 („der Vollständigkeit halber“). 2.1 bleibt vor den übrigen Programmteilen (Kundenentscheidung).
+- Seitenstruktur: neue S. 12 (Kapitel „Modellrechnung“, S. 10–12; Headline seit dem Lektorat vom 11.11.2026 „Über 1,22 % Tilgung liegt Gruppe A vorn“, vorher „Welcher Mix rechnet sich?“); 2.2, 2.4, 2.3 und Stichtag rücken auf S. 13–16; 2.5 und 2.6 stehen kompakt zusammen auf S. 17 („der Vollständigkeit halber“). 2.1 bleibt vor den übrigen Programmteilen (Kundenentscheidung).
 - Inhaltsverzeichnis U2 mit acht Kapitel-Linien; Einträge = Kolumnentitel (S. 4 „Neuerungen und Grundcheck“, S. 9 „Eckdaten“, S. 12 „Mix und Tilgung“). Kolumnentitel S. 2 „Editorial“.
 - Begriffe: „Spielregeln“ → „Förderbedingungen“ (S. 13) bzw. „Vermietungsbedingungen“ (S. 7); „Term Sheet“ → „Eckdaten“ (S. 9). Kalkulationsnotizen, Belehrungen, Teaser und Detailversprechen sind gestrichen (§8.1–8.3).
 - Headlines: S. 4 „Richtlinie 2026: Neuerungen und Voraussetzungen“, S. 16 „Wahlrecht für Modernisierungsanträge“, S. 17 „Bindungen erwerben oder verlängern“.
@@ -79,11 +81,12 @@ Anmerkungen: Fachseiten unter 180 Wörtern Fließtext (S. 3, 4, 5, 6, 9, 10, 11,
 - S. 2, 10–12 (10.11.2026): Das Kapitel S. 10–12 heißt „Modellrechnung“ (Inhaltsverzeichnis, Kicker, Kolumnentitel). Der Stempel im Kopf entfällt; S. 10 trägt neben dem Kicker den Hinweis „Fiktives Beispiel, keine Förderzusage“ als schlichten Text. Editorial S. 2: „Die Modellrechnung auf S. 10–12 zeigt für 20 Wohnungen …“.
 - S. 11 (10.11.2026): Kasten „B und C gegenüber A“ ersetzt durch „Zum Vergleich: frei finanziert“ (Werte aus der VOFI-Mappe v3; keine Renditen, keine Marktmiete). Ton-Durchgang über alle Seiten nach REDAKTIONSREGELN §9.
 - S. 11/12 (09.11.2026): Werte der PGN-Beispielrechnung vorläufig eingesetzt (Schlussabgleich offen, → Anhang B, Nr. 1) – Mietausfall 2 %, Objektverwaltung 367 € je Wohnung, Instandhaltung 14,40 € je m² (Kostenstand 2026), Tilgung 2,38 % als Annahme (seit 10.11.2026: linear über die Höchstlaufzeit von 42 Jahren, vorher 2,5 %); Jahresrechnung zeigt Jahr 1; Tilgungsschwellen mit Mietausfall 1,15 % (B) und 1,22 % (C).
-- S. 5 trägt den Achtung-Einzeiler „Erst Bewilligung, dann Vorhabenbeginn → S. 19“; S. 18 trägt das Modul „Freistellung von der Belegungsbindung“.
+- S. 5 trägt den Achtung-Einzeiler „Erst Bewilligung, dann Vertrag → S. 19“ (Wortlaut seit dem Lektorat vom 11.11.2026 wie der Kasten S. 19); S. 18 trägt das Modul „Freistellung von der Belegungsbindung“.
 - Umschlag: U1 auf PGN-Rot wie U4 („Rotpause“), U4|U1 durchgehend rot; Bildzeile U1 mit Informationswert („Referenzprojekt Brauerstraße … 19 barrierefreie Wohnungen · mit Förderung der NBank“); keine Blattnummer auf U1 und U4; U4-Schriftfeld „Informationsbroschüre“.
 - Stand 30.09.2026 nur auf U1 und im Hinweis U3; Fußzeilen der Innenseiten ohne Stand.
 - U3: „Verantwortlich für den Inhalt“ und „Druck“ entfallen (§ 8 Abs. 2, § 7 Abs. 3 NPresseG); Bildnachweis „Planungsgemeinschaft Nord GmbH“; Rolle der Stellen nur im zentralen Hinweis; als Vorspann bleibt „NBank und Land Niedersachsen sind nicht Herausgeber dieser Broschüre.“
 - Schraffuren als Vektorschraffur (keine gerasterten SVG-Muster im PDF); rote Achs- und Kappenlinien in 0,25 mm (S. 8, 10, 11, 14).
+- Lektorat (11.11.2026): 73 Befunde und die Muster M1 bis M11 eingearbeitet, soweit nicht dem Kunden vorbehalten (Maßkette U1, Kasten „Über die Laufzeit“ S. 12, Headlines U1 und S. 2). Neue Headlines: S. 3 „Die Förderung in Zahlen“, S. 5 „Programmteil nach Vorhaben“, S. 9 „Konditionen und Kosten“, S. 11 „Gruppe A trägt sich ab Jahr 1: 3.789 € Zahlungsüberschuss“ (Kunde), S. 12 „Über 1,22 % Tilgung liegt Gruppe A vorn“ (Kunde), S. 20 „Unsere Leistungen im Förderprojekt“. Entfallen: Unterzeile S. 16, Vorspann S. 19, Block „Eigenmittel“ S. 8 (Regel steht in den Eckdaten S. 9), Verweise S. 4 → S. 11, S. 7 → S. 15 und S. 16, S. 21 → S. 11. Mietentwicklung S. 7: ab Jahr 7 höchstens 7,66 € (vorher 7,65 €).
 
 ---
 
@@ -1159,9 +1162,9 @@ Noch zu bestätigen (ohne Platzhalter im Heft):
 
 Zur Entscheidung durch PGN (PRUEFBERICHT 5.4 Nr. 1 und 3; im Heft bisher nicht umgesetzt):
 
-- **(a) Tenor S. 11:** Bei 2,38 % Tilgung zeigt Zeile 8 für B und C Fehlbeträge (Jahr 1: −13.495 / −20.491 €; B negativ in Jahr 1 bis 6, C in Jahr 1 bis 9; größter kumulierter Fehlbetrag B rund 57.000 €, C rund 100.000 €). Die Headline „Mehr Miete, mehr Darlehen: Überschuss je Jahr“ ist nicht falsch, lässt aber einen positiven Überschuss erwarten. Headline so lassen oder neutraler fassen?
+- **(a) Tenor S. 11:** Bei 2,38 % Tilgung zeigt Zeile 8 für B und C Fehlbeträge (Jahr 1: −13.495 / −20.491 €; B negativ in Jahr 1 bis 6, C in Jahr 1 bis 9; größter kumulierter Fehlbetrag B rund 57.000 €, C rund 100.000 €). Entschieden (Kunde, 11.11.2026): Gruppe A ist der Regelfall und trägt die Überschrift; Headline jetzt „Gruppe A trägt sich ab Jahr 1: 3.789 € Zahlungsüberschuss“ (vorher „Mehr Miete, mehr Darlehen: Überschuss je Jahr“).
 - **(b) Tilgungsaufschub:** Bei einem vorübergehenden Fehlbetrag kann die NBank den Beginn der Tilgung bis zu fünf Jahre hinausschieben (RL Nr. 5.3.5, Ermessen, kein Anspruch; im Heft auf S. 21 unter „Tilgungsaufschub?“). Auf S. 11 neutral darauf hinweisen – ja oder nein? Ein zusätzlicher Satz kostet im unteren Band eine Zeile; damit dessen Oberkante weiter mit dem Band „Sensitivität“ auf S. 10 übereinstimmt, müsste an anderer Stelle der Seite gekürzt werden.
-- **(c) Verweis S. 4 → S. 11:** Der Grundcheck auf S. 4 sagt „die erzielbare Miete muss Finanzierung und Bewirtschaftung auf Dauer decken → S. 11“. Auf S. 11 erfüllen B und C das in Jahr 1 nicht. Verweis so lassen oder auf S. 9 bzw. S. 21 umlenken?
+- **(c) Verweis S. 4 → S. 11:** Der Grundcheck auf S. 4 sagte „die erzielbare Miete muss Finanzierung und Bewirtschaftung auf Dauer decken → S. 11“. Auf S. 11 erfüllen B und C das in Jahr 1 nicht. Der Verweis ist im Lektorat vom 11.11.2026 gestrichen (Befund Nr. 11); der Satz selbst bleibt. Soll stattdessen auf S. 9 oder S. 21 verwiesen werden, entscheidet PGN.
 
 ### 2. Impressum und Geschäftsführung (U3)
 
@@ -1194,7 +1197,7 @@ Das Heft schreibt wörtlich nach der Website „Seit 1981“ (S. 2 Editorial, S.
 
 ### 7. Leistungsaussagen, Referenzen, Kontakt
 
-- S. 20/24: Bezeichnung „Förder-Check“ freigeben (auf der Website nicht belegt). Bis dahin steht neutral „Förderung und Machbarkeit“ (S. 20); U4 nennt nach Korrekturlauf 1 (Regel B3) keinen Angebotsnamen („Planung aus einer Hand … von der ersten Idee bis zur Fertigstellung“).
+- S. 20/24: Bezeichnung „Förder-Check“ freigeben (auf der Website nicht belegt). Bis dahin steht neutral „Förderung und Machbarkeit“ (S. 20); U4 nennt nach Korrekturlauf 1 (Regel B3) keinen Angebotsnamen („Wir planen Ihr Vorhaben im geförderten Mietwohnungsbau, in allen Leistungsphasen. Sprechen Sie uns an.“).
 - S. 20, Station 1: „… ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung“ ersetzt die gestrichene Rechen-Zusage – als Leistung bestätigen.
 - S. 20, Station 5: „Wir schreiben die Bauleistungen richtlinienkonform aus und vergeben sie nach der Bewilligung“ (Kundenwortlaut). Rechtlich vergibt der Bauherr als Zuwendungsempfänger; PGN führt Ausschreibung und Vergabe für ihn durch – Formulierung bestätigen.
 - S. 20: gestufte Beauftragung bestätigen (LPH 1–6 vor, ab LPH 7 nach der Bewilligung); Zulieferung für den Verwendungsnachweis (Station 7) als Leistung bestätigen – übernimmt PGN den Verwendungsnachweis selbst, Text anpassen.
@@ -1210,4 +1213,4 @@ Das Heft schreibt wörtlich nach der Website „Seit 1981“ (S. 2 Editorial, S.
 - **U1/U4, Ermessensentscheidungen:** Blattnummer auch auf U4 entfernt (Vorgabe nur für U1); U4-Schriftfeld ebenfalls rot, damit U4|U1 aufgeklappt durchgehend rot ist – bestätigen.
 - **S. 2, Headline** „Damit sich Investieren wieder rechnet“ bleibt. Falls PGN sie als Versprechen liest: sachliche Alternative „Zuschuss statt Tilgungsnachlass“.
 - **S. 3/17, Umfang 2.5 und 2.6:** Beide stehen kompakt auf S. 17; die Kachel „3,00 € Zuschuss für den Bindungserwerb (2.5)“ auf S. 3 bleibt. Soll 2.5/2.6 weiter zurücktreten, wäre dort eine andere Kennzahl möglich (z. B. 2.4) – Kundenentscheidung.
-- **S. 12 (neu), „Welcher Mix rechnet sich?“:** Seite freigeben – Entscheidungslogik ohne Empfehlung, Rechnung aus den Zahlen von S. 10/11, Schwellen mit 2 % Mietausfall (1,15 % / 1,22 %, → Nr. 1).
+- **S. 12 (neu), „Über 1,22 % Tilgung liegt Gruppe A vorn“** (vorher „Welcher Mix rechnet sich?“): Seite freigeben – Entscheidungslogik ohne Empfehlung, Rechnung aus den Zahlen von S. 10/11, Schwellen mit 2 % Mietausfall (1,15 % / 1,22 %, → Nr. 1).

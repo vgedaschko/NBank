@@ -22,7 +22,7 @@
     "abschnitte": {
       "wert": [
         { "nr": "1", "name": "Ausgangslage", "inhalt": "Baukosten, Zinsen, Kapitaldienst, Bestand" },
-        { "nr": "2", "name": "Programmteil 2.1", "inhalt": "Neuerungen, Höchstmiete, Fördermix, Eckdaten" },
+        { "nr": "2", "name": "Programmteil 2.1", "inhalt": "Neuerungen, Höchstmiete, Fördersätze, Eckdaten" },
         { "nr": "3", "name": "Modellrechnung", "inhalt": "20 Wohnungen, gefördert und frei finanziert" },
         { "nr": "4", "name": "Umsetzung", "inhalt": "Antragsweg und Planung mit PGN" }
       ],
@@ -62,7 +62,7 @@
       "kosten_arge": { "wert": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20, und S. 34, Abb. 23", "einheit": "Text", "herkunft": "Altfassung Folie 5, 12 und 23 (Quellenzeilen): S. 34, Abb. 23 für die Kosten Q1 2020 und Q4 2025 (Folien 3 und 5), S. 32, Abb. 20 für die Kostenspannen Q4 2025 (Folie 22)", "geprueft": false },
       "eigene_rechnung": { "wert": "Folie 5: eigene Rechnung der PGN", "einheit": "Text", "herkunft": "Konzept, Folie einstieg-kapitaldienst; Rechnung nach der Methode der Rechenmappe, Formeln in daten/pruefung.json. Die Altfassung Folie 5 nannte „eigene Berechnung (Annuitätendarlehen, Volltilgung über 30 Jahre)“", "geprueft": true },
       "bestand": { "wert": "Folie 6: BT-Drs. 21/7303, Antwort der Bundesregierung vom 21.07.2026", "einheit": "Text", "herkunft": "Altfassung Folie 4 (Quellenzeile); der Zusatz „Bestand zum 31.12.“ steht auf Folie 6 im Untertitel des Diagramms und in ihrer Quellenzeile, in der Tabelle ist er gestrichen, damit die Zeile einzeilig bleibt", "geprueft": false },
-      "landkarte": { "wert": "NBank-Landkarte Wohnraumförderung, abgerufen am 21.10.2026", "einheit": "Text", "herkunft": "Broschüre S. 23 (23-impressum-hinweise.json, blocks[4] Quellen)", "geprueft": true },
+      "landkarte": { "wert": "NBank-Landkarte Wohnraumförderung, abgerufen am 21.10.2026", "einheit": "Text", "herkunft": "Broschüre S. 23 (23-impressum-hinweise.json, blocks[4] Quellen; dort seit dem Lektorat vom 11.11.2026 ohne Abrufdatum). Abrufdatum nach der Faktenbasis der Broschüre (broschuere/recherche/factbase.md, G2-26); die Notiz zu A8 erklärt die drei Stände", "geprueft": true },
       "landesregierung": { "wert": "Landesregierung, Pressemitteilung vom 25.11.2025", "einheit": "Text", "herkunft": "Broschüre S. 23 (23-impressum-hinweise.json, blocks[4] Quellen)", "geprueft": true }
     },
     "zeilen": [

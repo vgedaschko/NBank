@@ -1,5 +1,5 @@
 // Folie 10 · PGN_DIAGRAMM: Höchstmiete nach Einkommensgruppe und Mietenstufe als gruppierte Säulen (werte.json, tab.hoechstmiete.*),
-// zwei Marken der landesweiten Angebotsmieten und rechts der Mietpfad für Gruppe A (Broschüre S. 7 über daten/regeln.json). Kein Rot im Diagramm.
+// zwei Marken der landesweiten Angebotsmieten und rechts die Mietentwicklung für Gruppe A (Broschüre S. 7 über daten/regeln.json, Block mietpfad). Kein Rot im Diagramm.
 'use strict';
 
 module.exports = {
@@ -39,20 +39,22 @@ module.exports = {
 
     B.text(s, `Ab Effizienzhaus-40-Niveau bis zu +${fmt.dez(T('zuschlag_hoechstmiete_eh40'))} €.`, { x: colX(1), y: 6.26, w: span(8), h: 0.24, rolle: 'klein', valign: 'middle', einzeilig: true, name: 'Zeile unter dem Diagramm' });
 
-    // ---- Kommentarspalte: Mietpfad als drei Stufenwerte, darunter Regel und Gruppen ------------------------------------
-    // Der Modultitel „Mietpfad“ (Feld 0,24 hoch, mittig) steht auf der Höhe des Diagrammtitels links (Feld 2,18 bis 2,44)
+    // ---- Kommentarspalte: Mietentwicklung als drei Stufenwerte, darunter Regel und Gruppen ------------------------------
+    // Der Modultitel „Mietentwicklung“ (Wort der Broschüre S. 7; Feld 0,24 hoch, mittig) steht auf der Höhe des Diagrammtitels links (Feld 2,18 bis 2,44)
     const kx = colX(9), kw = span(4), k0 = ZONE.diagramm.titel + 0.01;
     const erste = fest + 1, zweite = erste + T('abstand_mieterhoehungen');
-    B.text(s, 'Mietpfad', { x: kx, y: k0, w: kw, h: 0.24, rolle: 'modultitel', valign: 'middle', einzeilig: true, name: 'Modultitel Mietpfad' });
-    B.text(s, 'Gruppe A · Mietenstufe IV–VII', { x: kx, y: k0 + 0.26, w: kw, h: 0.24, rolle: 'sub', valign: 'middle', einzeilig: true, name: 'Modul-Untertitel Mietpfad' });
+    B.text(s, 'Mietentwicklung', { x: kx, y: k0, w: kw, h: 0.24, rolle: 'modultitel', valign: 'middle', einzeilig: true, name: 'Modultitel Mietentwicklung' });
+    B.text(s, 'Gruppe A · Mietenstufe IV–VII', { x: kx, y: k0 + 0.26, w: kw, h: 0.24, rolle: 'sub', valign: 'middle', einzeilig: true, name: 'Modul-Untertitel Mietentwicklung' });
     const rechts = t => ({ text: t, align: 'right' });
-    const pfad = B.tabelle(s, { x: kx, y: k0 + 0.56, w: kw, pt: 14, kopf: false, name: 'Tabelle Mietpfad',
+    const pfad = B.tabelle(s, { x: kx, y: k0 + 0.56, w: kw, pt: 14, kopf: false, name: 'Tabelle Mietentwicklung',
       spalten: [{ art: 'text' }, { breite: 1.32, art: 'text' }, { breite: 1.05, art: 'zahl' }], zeilen: [
         [`Jahre 1–${fest}`, '', fmt.euroDez(m('IV', 'A'))],
         [`ab Jahr ${erste}`, rechts('höchstens'), fmt.euroDez(R('mietpfad.jahr4'))],
         [`ab Jahr ${zweite}`, rechts('höchstens'), fmt.euroDez(R('mietpfad.jahr7'))]] });
-    B.planlegende(s, { x: kx, y: pfad.unten + 0.20, w: kw, pt: 14, name: 'Planlegende Regel und Gruppen', eintraege: [
-      { titel: 'Regel', text: `Ab Jahr ${erste} höchstens +${fmt.prozent(T('mieterhoehung_in_der_bindung'), 2)} in drei Jahren, auch bei Wiedervermietung; keine Staffel- oder Indexmiete.` },
+    // Die Regel steht seit dem Zusatz zu den Betriebskosten in vier Zeilen: engerer Abstand zur Tabelle und vor dem Zwischentitel, damit die Spalte in der Inhaltszone bleibt
+    B.planlegende(s, { x: kx, y: pfad.unten + 0.10, w: kw, pt: 14, titelAbstand: 4, name: 'Planlegende Regel und Gruppen', eintraege: [
+      // „(Betriebskosten ausgenommen)“ wie die Broschüre S. 7 (RL Nr. 5.4.5)
+      { titel: 'Regel', text: `Ab Jahr ${erste} höchstens +${fmt.prozent(T('mieterhoehung_in_der_bindung'), 2)} in drei Jahren (Betriebskosten ausgenommen), auch bei Wiedervermietung; keine Staffel- oder Indexmiete.` },
       // Was A, B und C sind, steht hier zum ersten Mal auf einer Folie; die Zuschläge kommen aus daten/regeln.json (Broschüre S. 6)
       { titel: 'Gruppen', text: `A bis Einkommensgrenze, B bis +${fmt.prozent(R('einkommensgrenze.zuschlag_B'))}, C bis +${fmt.prozent(R('einkommensgrenze.zuschlag_C'))}. B und C nur mit Zulassung.` }] });
   },

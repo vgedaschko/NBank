@@ -111,8 +111,9 @@ VERBOTEN = [
     (re.compile(r"Rendite", re.I), "Rendite"),
 ]
 # „Rendite“ ist auf den übrigen Folien nur in dieser einen Wendung zugelassen: der Beihilferegel der Richtlinie (Anhang A6, Broschüre S. 9).
-# Sie nennt keine Rendite des Modellhauses.
-RENDITE_ERLAUBT = [re.compile(r"Eine Eigenkapitalrendite bis 1 Prozentpunkt über dem 30-jährigen Swapsatz gilt stets als angemessen")]
+# Sie nennt keine Rendite des Modellhauses. Gebunden ist der ganze Wortlaut der Zeile, wie ihn die Broschüre seit ihrem Lektorat vom 11.11.2026 führt.
+RENDITE_ERLAUBT = [re.compile(r"^Die NBank begrenzt jede Förderung so, dass die Eigenkapitalrendite angemessen bleibt \(Prüfung auf Überkompensation\)\. "
+                              r"Bis 1 Prozentpunkt über dem 30-jährigen Swapsatz gilt sie stets als angemessen$")]
 # Ausnahme von E5 auf Wunsch des Auftraggebers (11.11.2026): Die Anhangfolie zur Eigenkapitalrendite, und nur sie, trägt die Wörter „Rendite“ und
 # „Marktmiete“ und Zahlen des Laufs modellhaus_rendite. „IRR“, „DSCR“ und „Safe Harbour“ stehen auch dort nicht.
 RENDITE_FOLIE, RENDITE_LAUF = "anhang-rendite", "modellhaus_rendite"

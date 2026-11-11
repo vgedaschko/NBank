@@ -50,13 +50,13 @@ module.exports = {
     const { B, D, W, fmt, colX, ZONE } = ctx;
     const s = ctx.folie();                      // Rahmen aus dem Konzept
     B.schluesselplan(s, '2.1'); B.register(s, '2.1');
-    B.diagrammkopf(s, { titel: 'Fördermix je Einkommensgruppe', sub: 'Höchstsätze in % der zuwendungsfähigen Kosten' });   // Versalien und Schutz der Einheiten setzt der Baustein
+    B.diagrammkopf(s, { titel: 'Fördersätze je Einkommensgruppe', sub: 'Höchstsätze in % der zuwendungsfähigen Kosten' });   // Versalien und Schutz der Einheiten setzt der Baustein
     B.legende(s, { x: colX(1), y: ZONE.diagramm.legende, eintraege: [{ text: 'Zuschuss', art: 'zuschuss' }, { text: 'Darlehen', art: 'darlehen' }, { text: 'Eigenmittel, mind.', art: 'eigenmittel' }] });
 
     const G = ['A', 'B', 'C'], M = k => W('modellhaus', k);            // Zahlen nur über W(lauf, schluessel)
     const q = (art, g) => Math.round(M(`tab.quote_${art}.${g}`) * 100), em = Math.round(M('tab.eigenmittel_mindestens') * 100);
     const d = D.stapelBalken(s, {               // ohne x, y, w, h: Platzhalter „chart“ des Layouts; Kategorien in Lesereihenfolge (A oben)
-      kategorien: G, name: 'Diagramm Fördermix', achse: { min: 0, max: 100, schritt: 20, format: 'roh' }, labelFormat: 'prozent',
+      kategorien: G, name: 'Diagramm Fördersätze', achse: { min: 0, max: 100, schritt: 20, format: 'roh' }, labelFormat: 'prozent',
       reihen: [{ name: 'Zuschuss', art: 'zuschuss', werte: G.map(g => q('zuschuss', g)) }, { name: 'Darlehen', art: 'darlehen', werte: G.map(g => q('darlehen', g)) }, { name: 'Eigenmittel, mind.', art: 'eigenmittel', werte: G.map(() => em) }] });
 
     G.forEach((g, i) => B.achskreis(s, { cx: d.plot.x - 0.36, cy: d.katMitte(i), d: 0.42, pt: 14, text: g }));   // Planzeichen aus der Rückgabe
@@ -67,7 +67,7 @@ module.exports = {
 
     B.planlegende(s, { platzhalter: 'kommentar', pt: 14, eintraege: [
       { titel: 'Zuschuss', text: 'Nicht rückzahlbar. Er wird nur zusammen mit dem Darlehen gewährt.' },
-      { titel: 'Eigenmittel', text: `Mindestens ${fmt.prozentWert(em)} der zuwendungsfähigen Kosten. Die Hälfte soll Geld oder lastenfreies Grundstück sein.` },
+      { titel: 'Eigenmittel', text: `Mindestens ${fmt.prozentWert(em)} der zuwendungsfähigen Kosten. Davon soll mindestens die Hälfte Geld oder lastenfreies Grundstück sein.` },
       { titel: 'Bemessungsgrenze', text: `Ausgangswerte: ${fmt.zahl(M('tab.bemessungsgrenze.I'))} € je m² Wohnfläche in Mietenstufe I–III, ${fmt.zahl(M('tab.bemessungsgrenze.IV'))} € in IV–VII.` }] });
   },
 };

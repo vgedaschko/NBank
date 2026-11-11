@@ -114,7 +114,7 @@ Alle sechs Werte in der Spalte des aktiven Projekts eintragen. 9.3 ist ein Zusch
 3. Grundstück Tarutinoer 0 € oder 731.325 €? Mit Verkehrswert 309.386 € Bank, Jahr 1 A −7.989 €.
 4. Modellhaus: Marktmiete (Eingabe 4.4) und Liegenschaftszins sind seit 11.11.2026 amtliche Werte für Rotenburg (Wümme); die Vergleichsmiete (Eingabe 4.3) ist eine Annahme der PGN. Renditen mit Restwert und der Vergleich mit frei finanziert hängen daran; für einen anderen Standort ersetzen (Abschnitt 9).
 5. NBank: Renditegröße, Horizont, Restwert, Swap-Stichtag; Zins ab Jahr 36 (3,74 % oder Basiszins + 3 Pp)?
-6. Präsentation: Abgleich nach der Neugestaltung; die Anhangfolie zur Eigenkapitalrendite nennt noch die Werte bis 10.11.2026. Druck in Excel ansehen (geprüft nur mit LibreOffice).
+6. Präsentation: Die Anhangfolie zur Eigenkapitalrendite führt die Werte seit 11.11.2026 (abgeglichen). Druck in Excel ansehen (geprüft nur mit LibreOffice).
 7. Frei: Konditionen Block 6 auch für ein Bankdarlehen über 80 % der Kosten? 7.1 frei voll anrechnen?
 8. Aus dem Lektorat: Stand der Bundesbank-Statistik zur Quelle von Eingabe 6.1 nachtragen; Bandbreite des Liegenschaftszinses festlegen (Hinweis 13 nennt ±0,5 Prozentpunkte, die amtliche Quelle für Rotenburg streut um ±1,2 Prozentpunkte); „RL Nr. 11.10 Abs. 3“ und „Abs. 4“ am Richtlinientext gegenlesen; Hinweis in Zeile 3 der Zeitreihenblätter bricht auf der zweiten Druckseite ab (hinnehmen oder in die Fußzeile setzen).
 

@@ -10,7 +10,7 @@ Broschüre und in Kurzform auf der Anhangfolie A1.
 | Abschnitt | Folien | Inhalt |
 |---|---|---|
 | 1 Ausgangslage | 1 bis 7 | Titel; Trenner; Einstieg in vier Folien: Baukosten seit 2020, Bauzinsen, Kapitaldienst je m² und Monat, Bestand gebundener Wohnungen in Niedersachsen; Agenda mit dem Fokus auf Programmteil 2.1 |
-| 2 Programmteil 2.1 | 8 bis 12 | Trenner; Neuerungen seit 01.07.2026, Höchstmiete, Fördermix, Eckdaten |
+| 2 Programmteil 2.1 | 8 bis 12 | Trenner; Neuerungen seit 01.07.2026, Höchstmiete, Fördersätze, Eckdaten |
 | 3 Modellrechnung | 13 bis 24 | Trenner; Finanzierung, Jahresrechnung, Kapitaldienst; Zahlungsfluss gefördert und frei finanziert als Flussdiagramme im selben Maßstab; nötige Miete, Tilgungssatz, Verlauf; Herstellungskosten der PGN gegen ARGE, Kostenszenario; Zusammenfassung |
 | 4 Umsetzung | 25 bis 28 | Trenner; Antragsweg, Leistungen der PGN, Kontakt |
 | Anhang | A0 bis A8 | Trenner, Programmteile, Frist, Voraussetzungen, Verträge vor der Bewilligung, Mieterkreis, Eckdaten, Eigenkapitalrendite des Modellhauses, Quellen und Hinweis |
@@ -229,3 +229,5 @@ Offene Fragen an PGN (Tenor der Jahresrechnung, Tilgungssatz 2,38 %, Titel der Z
 Dauer des Vortrags, Ort und Datum, Bildrechte) stehen am Ende von `INHALT.md`.
 
 Das Textlektorat vom 11.11.2026 ist eingearbeitet; welche Befunde der Auftraggeber ausgenommen hat, nennt Entscheidung 27 des Konzepts.
+Der Abgleich mit Broschüre und Rechenmappe vom 11.11.2026 ist ebenfalls eingearbeitet: Wo die Broschüre nach ihrem Lektorat anders lautet,
+folgt der Vortrag (Entscheidung 28 des Konzepts). Die Kennung der Folie 11 bleibt `foerdermix`, auf der Folie steht „Fördersätze“.

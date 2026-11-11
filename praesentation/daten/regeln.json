@@ -39,7 +39,7 @@
     "zuschlag_C": { "wert": 0.60, "einheit": "Anteil über der Einkommensgrenze", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[0].data.series[2].label", "geprueft": true }
   },
   "zulassung": {
-    "text": { "wert": "Grundsatz ist Gruppe A. B und C muss die NBank in der Förderentscheidung zulassen. Das setzt eine besondere Lage oder Zweckbindung voraus, etwa einen angespannten Wohnungsmarkt. Sonst sind höchstens 20 % über der Einkommensgrenze möglich, nur bei Vorhaben ab zwölf zusammenhängenden Wohnungen und nur für die Hälfte davon.", "einheit": "Text", "herkunft": "Broschüre S. 12, 12-mix-und-tilgung.json, blocks[2].body (die ersten beiden Sätze), und S. 6, 06-mieterkreis-einkommensgruppen.json (Voraussetzungen der Zulassung: bis +60 % bei besonderer Lage oder Zweckbindung, sonst bis +20 % ab zwölf zusammenhängenden Wohnungen für höchstens die Hälfte davon; § 4 Abs. 1 und 2 DVO-NWoFG). Wortlaut in vier Sätzen nach dem Lektorat des Vortrags vom 11.11.2026", "geprueft": true },
+    "text": { "wert": "Grundsatz ist Gruppe A. B und C muss die NBank in der Förderentscheidung zulassen. Das setzt eine besondere Lage oder Zweckbindung voraus, etwa einen angespannten Wohnungsmarkt. Sonst sind höchstens 20 % über der Einkommensgrenze möglich, nur bei Vorhaben ab zwölf zusammenhängenden Wohnungen und für höchstens die Hälfte davon.", "einheit": "Text", "herkunft": "Broschüre S. 12, 12-mix-und-tilgung.json, blocks[2].body (die ersten beiden Sätze), und S. 6, 06-mieterkreis-einkommensgruppen.json (Voraussetzungen der Zulassung: bis +60 % bei besonderer Lage oder Zweckbindung, sonst bis +20 % ab zwölf zusammenhängenden Wohnungen für höchstens die Hälfte davon; § 4 Abs. 1 und 2 DVO-NWoFG). Wortlaut in vier Sätzen nach dem Lektorat des Vortrags vom 11.11.2026", "geprueft": true },
     "nachweis": { "wert": "Wohnberechtigungsschein (WBS) der Kommune.", "einheit": "Text", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[1].body, verdichtet wie im Konzept (Folie A5)", "geprueft": true }
   },
   "eckdaten": {
@@ -50,14 +50,14 @@
         { "stichwort": "Sätze (Höchstwerte)", "text": "Darlehen {darlehen_abc} % plus Zuschuss {zuschuss_abc} % (Gruppe A/B/C), zusammen {foerderquote} der zuwendungsfähigen Kosten; Zuschuss nur mit Darlehen, B und C nur mit Zulassung", "zeile": "blocks[1].rows[1]" },
         { "stichwort": "Eigenmittel", "text": "mindestens {eigenmittel} der zuwendungsfähigen Kosten; davon soll mindestens die Hälfte Geld oder lastenfreies Grundstück sein", "zeile": "blocks[1].rows[2]" },
         { "stichwort": "Zins", "text": "{zins} bis Ende des {zinsfreie_jahre}. Jahres nach Bezugsfertigkeit; danach bis zu 3 Prozentpunkte über dem Basiszinssatz, höchstens marktüblich", "zeile": "blocks[1].rows[3]" },
-        { "stichwort": "Tilgung", "text": "Satz legt die NBank fest; Beginn nach vollständiger Auszahlung, spätestens zwei Jahre nach dem auf die Bekanntgabe der Förderentscheidung folgenden Monat", "zeile": "blocks[1].rows[4]" },
+        { "stichwort": "Tilgung", "text": "Satz legt die NBank fest; Beginn nach vollständiger Auszahlung, spätestens zwei Jahre nach dem Monat, der auf die Bekanntgabe der Förderentscheidung folgt", "zeile": "blocks[1].rows[4]" },
         { "stichwort": "Kosten, laufend", "text": "Verwaltungskostenbeitrag {verwaltungskostenbeitrag} p. a. auf das Restkapital, ab Auszahlungsbeginn", "zeile": "blocks[1].rows[5]" },
         { "stichwort": "Kosten, einmalig", "text": "Bearbeitungsentgelt {entgelt_darlehen} des bewilligten Darlehens und {entgelt_zuschuss} des bewilligten Zuschusses", "zeile": "blocks[1].rows[6]" },
         { "stichwort": "Auszahlung", "text": "in Raten nach Baufortschritt; Darlehen und Zuschuss je Rate anteilig, Ihre Eigenmittel in der Regel zuerst", "zeile": "blocks[1].rows[7]" },
-        { "stichwort": "Sicherheiten", "text": "nachrangige Grundschuld direkt nach den Kapitalmarktmitteln", "zeile": "blocks[1].rows[8]" },
+        { "stichwort": "Sicherheiten", "text": "nachrangige Grundschuld direkt nach dem Bankdarlehen", "zeile": "blocks[1].rows[8]" },
         { "stichwort": "Versicherung", "text": "Brand ab Baubeginn, Sturm ab Bezugsfertigkeit, jeweils gleitender Neuwert, bis zur vollständigen Rückzahlung", "zeile": "blocks[1].rows[9]" },
         { "stichwort": "Vorzeitige Rückzahlung", "text": "Zuschuss anteilig für die restliche Bindungsdauer zurückzuzahlen; die Bindungen enden frühestens 20 Jahre nach Bindungsbeginn", "zeile": "blocks[1].rows[10]" },
-        { "stichwort": "Beihilferecht", "text": "Die NBank prüft jede Förderung auf Überkompensation. Eine Eigenkapitalrendite bis 1 Prozentpunkt über dem 30-jährigen Swapsatz gilt stets als angemessen.", "zeile": "blocks[1].rows[11]", "flaeche": true }
+        { "stichwort": "Beihilferecht", "text": "Die NBank begrenzt jede Förderung so, dass die Eigenkapitalrendite angemessen bleibt (Prüfung auf Überkompensation). Bis 1 Prozentpunkt über dem 30-jährigen Swapsatz gilt sie stets als angemessen", "zeile": "blocks[1].rows[11]", "flaeche": true }
       ],
       "einheit": "Text",
       "herkunft": "Broschüre S. 9, 09-konditionen-term-sheet.json, blocks[1].rows[0] bis [11] (je Zeile im Feld „zeile“); Hervorhebung der letzten Zeile nach blocks[1].row_emphasis",

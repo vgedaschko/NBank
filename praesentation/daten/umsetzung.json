@@ -29,7 +29,7 @@
       "wort": { "wert": "Bewilligung", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].title („Erst Bewilligung, dann Vertrag“); Wortlaut des Konzepts", "geprueft": true },
       "text": { "wert": "Vor der Bewilligung begonnene Vorhaben werden nicht gefördert.", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].body, Satz 1", "geprueft": true }
     },
-    "beginn": { "wert": "Als Vorhabenbeginn gilt ein Bau-, Liefer- oder Kaufvertrag (außer für das Baugrundstück) oder der erste Spatenstich.", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].body, Satz 2 („Als Beginn gilt …“, dort direkt hinter dem Satz zum Vorhabenbeginn; auf der Folie steht der Satz unter Station 5 „Baubeginn“, deshalb „Vorhabenbeginn“ ausgeschrieben)", "geprueft": true }
+    "beginn": { "wert": "Als Vorhabenbeginn gilt ein Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer für das Baugrundstück) oder der erste Spatenstich.", "einheit": "Text", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[1].items[1] (Vertragsarten und Baubeginn), und S. 19, 19-antragsweg.json, blocks[2].data.columns[2].items[0] und [3] (Vertragsarten, erster Spatenstich). Der Satz „Als Beginn gilt …“ im Achtung-Kasten der S. 19 ist seit dem Lektorat der Broschüre vom 11.11.2026 gestrichen; die Liste der Verträge folgt S. 4 und S. 19. Auf der Folie steht der Satz unter Station 5 „Baubeginn“, deshalb „Vorhabenbeginn“ ausgeschrieben", "geprueft": true }
   },
 
   "leistungen": {
@@ -94,7 +94,7 @@
   },
 
   "bedarf": {
-    "_hinweis": "Folie A3, rechte Seite. Ringdiagramm mit zwei Segmenten; Stand der Karte: abgerufen am 21.10.2026 (Broschüre S. 23).",
+    "_hinweis": "Folie A3, rechte Seite. Ringdiagramm mit zwei Segmenten; Stand der Karte: abgerufen am 21.10.2026 (Faktenbasis der Broschüre, broschuere/recherche/factbase.md, G2-26; die Broschüre S. 23 nennt die Karte seit ihrem Lektorat vom 11.11.2026 ohne Abrufdatum).",
     "titel": { "wert": "Bedarfslage auf der NBank-Karte", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].title", "geprueft": true },
     "bezug": { "wert": "Einheits- und Samtgemeinden", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.unit", "geprueft": true },
     "gegeben": { "wert": 306, "einheit": "Einheits- und Samtgemeinden", "bezeichnung": "Bedarf gegeben", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.segments[0] (value, label)", "geprueft": true },
@@ -115,7 +115,7 @@
           "Vertrag mit eindeutigem, folgenlosem Rücktrittsrecht oder eindeutiger Bedingung für den Fall, dass die Förderung ausbleibt; die NBank prüft die Klausel im Einzelfall",
           "vorzeitiger Vorhabenbeginn nach Zulassung durch die NBank" ], "zeile": "columns[1], ohne den Seitenverweis" },
         { "titel": "Förderschädlich", "icon": "stopp", "icon_text": "Stoppzeichen", "signal": true, "punkte": [
-          "Bau-, Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück)",
+          "Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück)",
           "beim Ersterwerb: bindender Kaufvertrag über die Wohnungen",
           "Beauftragung ab Leistungsphase {lph_nach} HOAI",
           "erster Spatenstich",

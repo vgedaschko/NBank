@@ -7,7 +7,7 @@ const S = require('./_struktur.cjs');
 module.exports = {
   id: 'trenner-programmteil',
   bau(ctx) {
-    const zeilen = ['Was neu ist, dazu Höchstmiete, Fördermix', 'und Eckdaten des Darlehens.'];
+    const zeilen = ['Was neu ist, dazu Höchstmiete, Fördersätze', 'und Eckdaten des Darlehens.'];
     ctx.wortlaut(zeilen.join(' '), 'Vorspann');
     S.trenner(ctx, { lead: zeilen.join('\n') });
   },

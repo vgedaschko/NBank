@@ -184,13 +184,13 @@
         { "text": "Bindung verlängern", "teile": ["2.6"] }
       ],
       "einheit": "Ausgangslage und zugehörige Programmteile",
-      "herkunft": "Broschüre S. 5, 05-navigator.json, lead und blocks[0].data.branches[0..3] (label, questions[].yes); Kurzform der Ausgangslagen laut Konzept, Folie anhang-programmteile",
+      "herkunft": "Broschüre S. 5, 05-navigator.json, blocks[0].data.branches[0..3] (label, questions[].yes); Kurzform der Ausgangslagen laut Konzept, Folie anhang-programmteile",
       "geprueft": true
     },
     "zeilen": {
       "wert": [
         { "nr": "2.1", "name": "Neubau, Änderung und Erweiterung, Ersterwerb", "instrument": "Darlehen + Zuschuss (Zuschuss nur mit Darlehen)", "bis_zu": "zusammen {mappe_quote} %: A {mappe_darlehen_A} + {mappe_zuschuss_A} · B {mappe_darlehen_B} + {mappe_zuschuss_B} · C {mappe_darlehen_C} + {mappe_zuschuss_C} %", "bindung": "{mappe_bindung} Jahre", "eigenmittel": "mind. {mappe_eigenmittel} %", "schluessel": "tiles[0]" },
-        { "nr": "2.2", "name": "Energetisch hochwertiger Neubau", "instrument": "nur Zuschuss; nicht mit 2.1 kombinierbar", "bis_zu": "A 50 · B 40 · C 30 %, max. 90.000/75.000/60.000 € je Wohnung", "bindung": "35 Jahre", "eigenmittel": "mind. 20 %", "schluessel": "tiles[1]; Pin branches[0].pins[0]" },
+        { "nr": "2.2", "name": "Energetisch hochwertiger Neubau", "instrument": "nur Zuschuss; nicht mit 2.1 kombinierbar", "bis_zu": "A 50 · B 40 · C 30 %, höchstens 90.000/75.000/60.000 € je Wohnung", "bindung": "35 Jahre", "eigenmittel": "mind. 20 %", "schluessel": "tiles[1]; Pin branches[0].pins[0]" },
         {
           "nr": "2.4",
           "name": "Ostfriesische Inseln",
@@ -213,7 +213,7 @@
           "schluessel": "tiles[3]; Pin branches[1].pins[0]",
           "trennlinie": true,
           "gekuerzt": ["bindung"],
-          "broschuere": { "bindung": "25 Jahre; vermietete Wohnungen ohne WBS-Nachweis 35 Jahre" }
+          "broschuere": { "bindung": "25 Jahre; vermietete Wohnungen ohne Wohnberechtigungsschein 35 Jahre" }
         },
         { "nr": "2.5", "name": "Belegungsbindungen erwerben", "instrument": "Zuschuss", "bis_zu": "Festbetrag 2,00–3,00 € je m² und Monat, nach Bindungsdauer gestaffelt", "bindung": "5–20 Jahre", "eigenmittel": "–", "schluessel": "tiles[4] (max_label, max)", "trennlinie": true },
         { "nr": "2.6", "name": "Auslaufende Bindungen verlängern", "instrument": "Zuschuss zur Zinsverbilligung; Antrag erst nach Prolongationsangebot der NBank", "bis_zu": "Zins 0 % auf bis zu 100 % der Restschuld, längstens 20 Jahre", "bindung": "+ bis zu 20 Jahre", "eigenmittel": "–", "schluessel": "tiles[5] (max_label, max); Pin branches[3].pins[0]" }
@@ -227,14 +227,14 @@
       "tabellentitel": "Die sechs Programmteile",
       "untertitel": "Höchstsätze · B und C nur mit Zulassung",
       "spalten": ["Programmteil", "Instrument", "Bis zu", "Bindung", "Eigenmittel"],
-      "fusszeile": { "wert": "Den Antrag stellen Sie bei Ihrer kommunalen Wohnraumförderstelle, die NBank bewilligt.", "einheit": "Text", "herkunft": "Broschüre S. 5, 05-navigator.json, lead (zweiter Satz)", "geprueft": true }
+      "fusszeile": { "wert": "Den Antrag stellen Sie bei der Wohnraumförderstelle am Bauort, die NBank bewilligt.", "einheit": "Text", "herkunft": "Broschüre S. 5, 05-navigator.json, lead", "geprueft": true }
     }
   },
   "frist": {
     "_hinweis": "Folie A2. Wahlrecht für Modernisierungsanträge und Stichtage nach Broschüre S. 16.",
     "achtung": {
       "label": "Frist 31.12.2026",
-      "wert": "Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. **Die Wahl ist bindend**; das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026; Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert.",
+      "wert": "Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. **Die Wahl ist bindend**. Das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026. Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert.",
       "einheit": "Text; „**…**“ ist die Hervorhebung der Broschüre",
       "herkunft": "Broschüre S. 16, 16-stichtag-wahlrecht-fristen.json, blocks[0] (title, body)",
       "geprueft": true
@@ -253,7 +253,7 @@
       "herkunft": "Broschüre S. 16, 16-stichtag-wahlrecht-fristen.json, blocks[1].title und blocks[1].data.events[0..5] (date, label, detail; style „signal“)",
       "geprueft": true
     },
-    "zuschuss_2_3": { "nr": "2.3", "wert": "Programmteil 2.3 nach RL 2026: Zuschuss je nach Klassensprung und Einkommensgruppe bis zu 10–40 %, höchstens 9.000–31.000 € je gebundener Wohnung.", "einheit": "Text", "herkunft": "Broschüre S. 16, 16-stichtag-wahlrecht-fristen.json, blocks[2].columns[2] und blocks[2].rows[0][2]", "geprueft": true }
+    "zuschuss_2_3": { "nr": "2.3", "wert": "Programmteil 2.3 nach RL 2026: Zuschuss mit Höchstsatz 10–40 % je nach Klassensprung und Einkommensgruppe, höchstens 9.000–31.000 € je gebundener Wohnung.", "einheit": "Text", "herkunft": "Broschüre S. 16, 16-stichtag-wahlrecht-fristen.json, blocks[2].columns[2] und blocks[2].rows[0][2]", "geprueft": true }
   },
   "markt": {
     "_hinweis": "Folie 6 (einstieg-bestand; vor dem Umbau die Anhangfolie anhang-markt). Markt in Niedersachsen nach Broschüre S. 3 (Quelle dort: NBank-Wohnungsmarktbericht 2025). Die Quote rechnet das Folienmodul aus den beiden Zahlen nach. „je_quadrat“ diente den Einheitenquadraten der früheren Anhangfolie und rundet jetzt nur noch „rund 16.000“; die Reihe 2016 bis 2025 steht im Block „bestand“.",

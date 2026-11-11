@@ -52,5 +52,8 @@ module.exports = {
     // ---- Rechte Spalte: Hauptzahl und Kennzahl der Broschüre ----------------------------------------------------------------------
     B.hauptzahl(s, { gross: true, vorsatz: T('hauptzahl_vorsatz'), zahl: minus, einheit: '%', label: T('hauptzahl_label') });
     B.nebenzahl(s, { vorsatz: T('kennzahl_vorsatz'), zahl: wl(fmt.zahl(quote * 100), 'Kennzahl'), einheit: '%', label: T('kennzahl_label'), text: T('kennzahl_text') });
+
+    // ---- Schriftfeld: Quellenzeile in Kurzform (daten/markt.json, bestand.quelle_kurz); die volle Angabe steht auf der Quellenfolie im Anhang ----
+    B.quelle(s, ctx.wortlaut(X('markt', 'bestand.quelle_kurz'), 'Quellenzeile'));
   },
 };

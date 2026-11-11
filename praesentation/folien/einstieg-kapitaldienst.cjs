@@ -88,5 +88,8 @@ module.exports = {
         [wl('× Fremdkapital', 'Rechenweg'), fmt.prozent(fk), fmt.prozent(fk)],
         [wl('Sollzins p. a.', 'Rechenweg'), wl(fmt.prozentWert(zins2020, 2), 'Rechenweg'), wl(fmt.prozent(iHeute, 2), 'Rechenweg')]] });
     if (tab.unten > g.ende + 0.005) P.melde(`Tabelle Rechenweg endet bei y ${tab.unten.toFixed(2)}, die Inhaltszone bei ${g.ende.toFixed(2)}.`);
+
+    // ---- Schriftfeld: Quellenzeile in Kurzform (daten/markt.json, kapitaldienst.quelle_kurz); die volle Angabe steht auf der Quellenfolie im Anhang ----
+    B.quelle(s, ctx.wortlaut(X('markt', 'kapitaldienst.quelle_kurz'), 'Quellenzeile'));
   },
 };

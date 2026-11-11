@@ -18,6 +18,13 @@ function schutz(s) {
     .replace(/Nds\. MBl\. \d{4} Nr\.\s\d+/g, m => m.replace(/\s/g, NBSP));   // Fundstelle „Nds. MBl. 2026 Nr. 319“ bleibt in einer Zeile
 }
 
+// Schriftfeld der Inhalts- und Anhangfolien: Lage der Teilungen (lib/theme.cjs) und Schrift der beiden Zeilen links. Layout (RAHMEN.schriftfeld)
+// und Quellenzeile (B.quelle) rechnen mit denselben Angaben.
+const SF = ZONE.schriftfeld;
+const SF_PROJEKT = { fontFace: F.medium, fontSize: 10 }, SF_RUBRIK = { fontFace: F.mont, bold: true, fontSize: 10, weite: 0.6 };
+// Quellenzeile im Schriftfeld (B.quelle): Work Sans 10 pt in Grau, höchstens zwei Zeilen
+const QUELLE = { fontFace: F.text, fontSize: 10, zeileMal: 1.1 }, QUELLE_NAME = 'Quellenzeile';
+
 // ================================================================================================================
 // Teil 1: Rahmenteile für die Layouts (Objekte für defineSlideMaster)
 // ================================================================================================================
@@ -54,15 +61,15 @@ const RAHMEN = {
     return [
       { line: { x: X0, y: Y.fuss, w: CW, h: 0, line: { color: cs.linie, width: 0.75 }, objectName: 'Schriftfeld Oberlinie' } },
       { line: { x: X0, y: Y.fuss + Y.fussH, w: CW, h: 0, line: { color: cs.haar, width: 0.5 }, objectName: 'Schriftfeld Unterlinie' } },
-      { rect: { x: 11.817, y: Y.fuss + 0.01, w: 0.85, h: Y.fussH - 0.015, fill: { color: zelle }, line: { type: 'none' }, objectName: 'Blatt-Zelle' } },
-      ...(dunkel ? [{ rect: { x: 10.867, y: Y.fuss + 0.01, w: 0.95, h: Y.fussH - 0.015, fill: { color: C.weiss }, line: { type: 'none' }, objectName: 'Logofeld' } }] : []),
-      { line: { x: 10.867, y: Y.fuss, w: 0, h: Y.fussH, line: { color: cs.haar, width: 0.5 }, objectName: 'Schriftfeld Teilung 1' } },
-      { line: { x: 11.817, y: Y.fuss, w: 0, h: Y.fussH, line: { color: cs.haar, width: 0.5 }, objectName: 'Schriftfeld Teilung 2' } },
-      { text: { text: PROJEKT, options: { x: X0, y: Y.fuss + 0.045, w: 8, h: 0.17, margin: 0, fontFace: F.medium, fontSize: 10, color: sek, valign: 'middle', objectName: 'Schriftfeld Projekt' } } },
-      { placeholder: { options: { name: 'rubrik', type: 'body', objectName: 'Rubrik', x: X0, y: Y.fuss + 0.225, w: 8, h: 0.17, margin: 0, fontFace: F.mont, bold: true, fontSize: 10, charSpacing: 0.6, color: cs.titel, valign: 'middle' }, text: 'RUBRIK' } },
+      { rect: { x: SF.blatt, y: Y.fuss + 0.01, w: 0.85, h: Y.fussH - 0.015, fill: { color: zelle }, line: { type: 'none' }, objectName: 'Blatt-Zelle' } },
+      ...(dunkel ? [{ rect: { x: SF.logo, y: Y.fuss + 0.01, w: 0.95, h: Y.fussH - 0.015, fill: { color: C.weiss }, line: { type: 'none' }, objectName: 'Logofeld' } }] : []),
+      { line: { x: SF.logo, y: Y.fuss, w: 0, h: Y.fussH, line: { color: cs.haar, width: 0.5 }, objectName: 'Schriftfeld Teilung 1' } },
+      { line: { x: SF.blatt, y: Y.fuss, w: 0, h: Y.fussH, line: { color: cs.haar, width: 0.5 }, objectName: 'Schriftfeld Teilung 2' } },
+      { text: { text: PROJEKT, options: { x: X0, y: Y.fuss + 0.045, w: 8, h: 0.17, margin: 0, fontFace: SF_PROJEKT.fontFace, fontSize: SF_PROJEKT.fontSize, color: sek, valign: 'middle', objectName: 'Schriftfeld Projekt' } } },
+      { placeholder: { options: { name: 'rubrik', type: 'body', objectName: 'Rubrik', x: X0, y: Y.fuss + 0.225, w: 8, h: 0.17, margin: 0, fontFace: SF_RUBRIK.fontFace, bold: SF_RUBRIK.bold, fontSize: SF_RUBRIK.fontSize, charSpacing: SF_RUBRIK.weite, color: cs.titel, valign: 'middle' }, text: 'RUBRIK' } },
       { image: { path: asset('logo-mark-rot.png'), x: 11.032, y: Y.fuss + 0.124, w: 0.62, h: 0.192, objectName: 'Wortmarke PGN', altText: 'PGN' } },
       { text: { text: label, options: { x: 11.90, y: Y.fuss + 0.04, w: 0.70, h: 0.15, margin: 0, fontFace: F.medium, fontSize: 10, color: sek, align: 'right', valign: 'middle', objectName: 'Schriftfeld ' + label } } },
-      // Foliennummer als Text aus dem Konzept (1 bis 25, A0 bis A7); ein Feld „Foliennummer“ könnte „A3“ nicht zeigen
+      // Foliennummer als Text aus dem Konzept (1 bis 28, A0 bis A8); ein Feld „Foliennummer“ könnte „A3“ nicht zeigen
       { placeholder: { options: { name: 'blatt', type: 'body', objectName: 'Blattnummer', x: 11.90, y: Y.fuss + 0.19, w: 0.70, h: 0.23, margin: 0, fontFace: F.black, fontSize: 15, color: cs.titel, align: 'right', valign: 'middle' }, text: 'Nr.' } },
     ];
   },
@@ -548,6 +555,55 @@ function bausteine(pres, kx) {
     s.addText('MODELLRECHNUNG', { x: x + 0.04, y: y + 0.04, w: 2.04, h: 0.29, margin: 0, fontFace: F.xbold, fontSize: 11, charSpacing: 1.3, color: C.rot, align: 'center', valign: 'middle', line: { color: C.rot, width: 0.75 }, isTextBox: true, objectName: 'Stempel Modellrechnung' });
     if (o.zusatz) B.stempelZusatz(s, { x, y });
   };
+  // ---- Quellenzeile im Schriftfeld --------------------------------------------------------------------------------
+  // Kurze Quellenangabe auf Folien mit fremden Daten (Folien 3 bis 6 und 22); die volle Angabe steht auf der Quellenfolie im Anhang.
+  // Sie steht im freien Feld des Schriftfelds zwischen den beiden Zeilen links (Projekt, Rubrik) und dem Logo-Feld: rechtsbündig mit
+  // 0,16 Zoll Abstand vor dem Logo-Feld, senkrecht mittig, Work Sans 10 pt in Grau, eine Zeile oder zwei. Passt der Text nicht in eine
+  // Zeile, bricht der Baustein ihn in zwei ausgeglichene Zeilen: zuerst hinter einem Semikolon, sonst hinter einem Komma, sonst an einer
+  // Wortfuge (geschützte Leerzeichen brechen nicht). Geprüft wird: höchstens zwei Zeilen; mindestens 0,30 Zoll Abstand zur längeren der
+  // beiden Zeilen links (die Breite der Rubrik ist gerechnet); die Zeilen passen in die Höhe des Schriftfelds. Höchstens eine je Folie.
+  // Die Form heißt „Quellenzeile“; die Zonenprüfung lässt sie im Schriftfeld zu (lib/zonenpruefung.cjs).
+  // Rückgabe: { x, y, w, h, zeilen: [Text je Zeile], links (Ende der Zeilen links), breite (längste Zeile) }
+  B.quelle = (s, text) => {
+    if (!['inhalt', 'anhang'].includes(kx.art)) throw new Error(`B.quelle: Das Layout ${kx.layout} hat kein Schriftfeld mit freiem Feld (nur Inhalts- und Anhangfolien).`);
+    if (typeof text !== 'string' || !text.trim()) throw new Error('B.quelle(s, text): Der Text fehlt.');
+    if (typeof kx.rubrik !== 'string') throw new Error('B.quelle: Die Rubrik der Folie ist nicht bekannt; erst ctx.folie() aufrufen.');
+    if (kx.quelle) throw new Error('B.quelle: Die Folie trägt schon eine Quellenzeile.');
+    kx.quelle = true;
+    const t = schutz(text.trim()), mass = z => breite(z, QUELLE), zh = zeilenhoehe(QUELLE);
+    const links = X0 + Math.max(breite(PROJEKT, SF_PROJEKT), breite(kx.rubrik, SF_RUBRIK)), rechts = SF.logo - SF.quelleRand, feld = +(rechts - links - SF.quelleAbstand).toFixed(3);
+    // Teilung in zwei Zeilen: die ausgeglichenste, deren erste Zeile auf das Muster endet
+    const teile = muster => {
+      let beste = null;
+      for (let i = t.indexOf(' '); i >= 0; i = t.indexOf(' ', i + 1)) {
+        if (muster && !muster.test(t.slice(0, i))) continue;
+        const a = mass(t.slice(0, i)), b = mass(t.slice(i + 1));
+        if (a <= feld && b <= feld && (!beste || Math.max(a, b) < beste.laenge)) beste = { i, laenge: Math.max(a, b) };
+      }
+      return beste;
+    };
+    let zeilen = [t];
+    if (mass(t) > feld) {
+      const b = teile(/;$/) || teile(/,$/) || teile(null);
+      if (b) zeilen = [t.slice(0, b.i), t.slice(b.i + 1)];
+    }
+    const laenge = Math.max(...zeilen.map(mass)), hoehe = zeilen.length * zh;
+    if (P) {
+      const u = new Set(); zeilen.forEach(z => breite(z, QUELLE, u)); P.zeichen(u, QUELLE_NAME, t);
+      if (feld < 1) P.melde(`${QUELLE_NAME}: Neben der Rubrik „${kx.rubrik}“ bleiben im Schriftfeld nur ${feld.toFixed(2)} Zoll. Rubrik kürzen.`);
+      else if (laenge > feld + 0.005) P.melde(`${QUELLE_NAME}: „${t}“ passt nicht in zwei Zeilen zu ${feld.toFixed(2)} Zoll (frei zwischen Rubrik und Logo-Feld; die Zeile misst ${mass(t).toFixed(2)} Zoll). Kürzen; die volle Angabe steht auf der Quellenfolie.`);
+      if (links + SF.quelleAbstand > rechts - laenge + 0.005) P.melde(`${QUELLE_NAME}: stößt an die Rubrik (Rubrik und Projektzeile enden bei x ${links.toFixed(2)}, die Quellenzeile beginnt bei x ${(rechts - laenge).toFixed(2)}; verlangt sind ${SF.quelleAbstand.toFixed(2)} Zoll Abstand).`);
+      if (hoehe > Y.fussH - 0.04) P.melde(`${QUELLE_NAME}: ${zeilen.length} Zeilen brauchen ${hoehe.toFixed(2)} Zoll, das Schriftfeld ist ${Y.fussH.toFixed(2)} Zoll hoch.`);
+      P.mindest(QUELLE_NAME, QUELLE.fontSize, 10);
+    }
+    // Das Textfeld reicht vom Ende der Zeilen links (plus Abstand) bis vor das Logo-Feld und bricht nicht um: Die Zeilen stehen fest
+    const x = +(links + SF.quelleAbstand).toFixed(3), w = +(rechts - x).toFixed(3), sek = kx.grund === 'anthrazit' ? HEX.dunkel.text2 : cs.sekundaer;
+    const runs = zeilen.map((z, i) => ({ text: z, options: { breakLine: i < zeilen.length - 1 } }));
+    s.addText(runs, { x, y: Y.fuss, w, h: Y.fussH, margin: 0, isTextBox: true, fontFace: QUELLE.fontFace, fontSize: QUELLE.fontSize, lineSpacingMultiple: QUELLE.zeileMal, color: sek,
+      align: 'right', valign: 'middle', wrap: false, objectName: QUELLE_NAME });
+    return { x, y: Y.fuss, w, h: Y.fussH, zeilen, links, breite: laenge };
+  };
+
   // Fördervermerk und andere Konturstempel. o: { x, y, w, text }
   B.konturstempel = (s, o) => {
     brauche('B.konturstempel', o, ['x', 'y', 'w']);
@@ -743,23 +799,27 @@ function bausteine(pres, kx) {
 
   // 4.10 Rechenblatt mit Nummernstreifen, Rechenzeichen, Summen- und roter Ergebniszeile.
   // o: { x, y, w, kopf: ['Position', 'A', 'B', 'C'] (Einträge als Text oder { kreis: 'A' }), zeilen: [{ nr, zeichen, text, werte: [], art }],
-  //      wertBreite: 1.20, dicht: false (14 pt, Zeile 0,42) | true (12 pt, Zeile 0,34), hervor: Index der hervorgehobenen Wertspalte, zeichenSpalte }
+  //      wertBreite: 1.20 (oder je Wertspalte eine Breite: [1.06, 1.06, 1.06, 1.22]), dicht: false (14 pt, Zeile 0,42) | true (12 pt, Zeile 0,34),
+  //      zeilenH, ergebnisH (Mindesthöhe der Zeilen und der Ergebniszeile), hervor: Index der hervorgehobenen Wertspalte, zeichenSpalte }
   // art: normal | summe (Oberlinie, halbfett) | ergebnis (weiß auf Rot) | notiz (12 pt, ohne Linie, für Zusätze unter dem Ergebnis)
   // Rückgabe: { x, y, w, h, unten, spalten: [{ x, w }] (nur Wertspalten), zeilen: [{ y, h }], kopfH }
   B.rechenblatt = (s, o) => {
     brauche('B.rechenblatt', o, ['x', 'y', 'w']);
     if (!Array.isArray(o.zeilen) || !o.zeilen.length) throw new Error('B.rechenblatt: zeilen fehlt.');
     const dicht = !!o.dicht, pt = dicht ? 12 : 14, zh = o.zeilenH || (dicht ? 0.34 : 0.42), kh = dicht ? 0.30 : 0.34, eh = o.ergebnisH || (dicht ? 0.38 : 0.46);
-    const nW = o.werte ?? Math.max(...o.zeilen.map(z => (z.werte || []).length)), wb = o.wertBreite || 1.20;
+    const nW = o.werte ?? Math.max(...o.zeilen.map(z => (z.werte || []).length)), je = Array.isArray(o.wertBreite), wb = je ? null : o.wertBreite || 1.20;
+    // Breite je Wertspalte: eine für alle oder eine Liste (eine Spalte mit längeren Werten bekommt mehr, die Position behält ihre Zeile)
+    const wbs = je ? o.wertBreite : Array(nW).fill(wb);
+    if (wbs.length !== nW || wbs.some(b => typeof b !== 'number' || !(b > 0))) throw new Error(`Rechenblatt: wertBreite nennt ${wbs.length} Breiten, die Tabelle hat ${nW} Wertspalten.`);
     const mitZeichen = o.zeichenSpalte ?? o.zeilen.some(z => z.zeichen), nrW = 0.42, zW = mitZeichen ? 0.30 : 0;
-    const posW = +(o.w - nrW - zW - nW * wb).toFixed(3);
+    const posW = +(o.w - nrW - zW - (je ? wbs.reduce((a, b) => a + b, 0) : nW * wb)).toFixed(3);
     if (posW < 1.5) throw new Error(`Rechenblatt: Für die Position bleiben nur ${posW} Zoll. Breite erhöhen oder wertBreite senken.`);
     const kopf = o.kopf || [], rows = [];
     const khoch = kopfHoehe(kopf, kh), rowH = [khoch];
     const kz = [kopfzelle('', 'center')];
     if (mitZeichen) kz.push(kopfzelle('', 'center'));
     const k0 = kopf[0]; pruefeKopf(typeof k0 === 'string' ? k0 : '', posW); kz.push(kopfzelle(typeof k0 === 'string' ? k0 : '', 'left'));
-    for (let i = 0; i < nW; i++) { const k = kopf[i + 1]; const t = typeof k === 'string' ? k : ''; pruefeKopf(t, wb); kz.push(kopfzelle(t, 'right', { fill: o.hervor === i ? cs.hervor : null, farbe: o.hervor === i ? cs.akzent : null })); }
+    for (let i = 0; i < nW; i++) { const k = kopf[i + 1]; const t = typeof k === 'string' ? k : ''; pruefeKopf(t, wbs[i]); kz.push(kopfzelle(t, 'right', { fill: o.hervor === i ? cs.hervor : null, farbe: o.hervor === i ? cs.akzent : null })); }
     rows.push(kz);
     o.zeilen.forEach((z, zi) => {
       const art = z.art || 'normal', erg = art === 'ergebnis', sum = art === 'summe', notiz = art === 'notiz', letzte = zi === o.zeilen.length - 1;
@@ -774,19 +834,21 @@ function bausteine(pres, kx) {
       row.push({ text: t, options: { fontFace: erg ? F.mont : sum ? F.semi : F.text, bold: erg, fontSize: notiz ? 12 : pt, color: erg ? 'FFFFFF' : sum ? cs.titel : notiz ? cs.sekundaer : cs.text, align: 'left', border: b(), ...fill } });
       for (let i = 0; i < nW; i++) {
         const v = (z.werte || [])[i];
+        // ein Wert, der breiter ist als seine Zelle, bräche in der Zelle um und höbe die Zeile
+        if (P && v !== undefined && v !== null && v !== '') P.zeile(`Rechenblatt, Wert in Zeile ${zi + 1}, Spalte ${i + 1}`, String(v), { fontFace: F.mont, bold: !notiz, fontSize: notiz ? 12 : pt }, wbs[i] - 0.16);
         const zelle = { text: v === undefined || v === null ? '' : String(v), options: { fontFace: F.mont, bold: !notiz, fontSize: notiz ? 12 : pt, color: erg ? 'FFFFFF' : notiz ? cs.sekundaer : cs.titel, align: 'right', border: b(), ...fill } };
         if (!erg && o.hervor === i) zelle.options.fill = { color: cs.hervor };
         row.push(zelle);
       }
       rows.push(row); rowH.push(z.h || hoch);
     });
-    const colW = [nrW, ...(mitZeichen ? [zW] : []), posW, ...Array(nW).fill(wb)];
+    const colW = [nrW, ...(mitZeichen ? [zW] : []), posW, ...wbs];
     const h = rowH.reduce((a, b) => a + b, 0), x0 = o.x + nrW + zW + posW;
     s.addTable(rows, { x: o.x, y: o.y, w: o.w, h, colW, rowH, margin: [0.04, 0.08, 0.04, 0.08], valign: 'middle', objectName: o.name || 'Rechenblatt' });
     if (kx.tabelle) kx.tabelle({ kopfzeile: true });
-    const spalten = Array.from({ length: nW }, (_, i) => ({ x: +(x0 + i * wb).toFixed(3), w: wb }));
+    const spalten = Array.from({ length: nW }, (_, i) => ({ x: +(x0 + (je ? wbs.slice(0, i).reduce((a, b) => a + b, 0) : i * wb)).toFixed(3), w: wbs[i] }));
     const zeilen = []; let yy = o.y + khoch; for (let i = 1; i < rowH.length; i++) { zeilen.push({ y: +yy.toFixed(3), h: rowH[i] }); yy += rowH[i]; }
-    kopf.slice(1).forEach((k, i) => { if (k && typeof k === 'object' && k.kreis) B.achskreis(s, { cx: spalten[i].x + wb - 0.08 - 0.13, cy: o.y + khoch - 0.17, d: 0.26, pt: 10, text: k.kreis, name: 'Spaltenkopf ' + k.kreis }); });
+    kopf.slice(1).forEach((k, i) => { if (k && typeof k === 'object' && k.kreis) B.achskreis(s, { cx: spalten[i].x + spalten[i].w - 0.08 - 0.13, cy: o.y + khoch - 0.17, d: 0.26, pt: 10, text: k.kreis, name: 'Spaltenkopf ' + k.kreis }); });
     return { x: o.x, y: o.y, w: o.w, h, unten: o.y + h, spalten, zeilen, kopfH: khoch, positionX: o.x + nrW + zW, positionW: posW };
   };
 

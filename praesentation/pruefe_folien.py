@@ -7,12 +7,14 @@ Aufruf im Ordner praesentation:
     python pruefe_folien.py --zahlen             listet zusätzlich jede Zahl mit ihrem Beleg
 
 Was geprüft wird (eine Zeile je Prüfung, am Ende die Summe; Rückgabewert 1 bei Fehlern):
-  Aufbau     36 Folien (28 im Hauptteil, 8 im Anhang) mit Kennung, Blattnummer und Abschnitt wie festgelegt (AUFBAU), in der Reihenfolge des
+  Aufbau     37 Folien (28 im Hauptteil, 9 im Anhang) mit Kennung, Blattnummer und Abschnitt wie festgelegt (AUFBAU), in der Reihenfolge des
              Konzepts; Titel-Platzhalter, Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs; Kicker, Rubrik, Agenda
              und Trenner mit denselben Abschnittsnamen und derselben Zählung
   Form       nur Montserrat und Work Sans, Mindestgrößen (E3), Alternativtexte (Bilder, Diagramme, Flussdiagramme), keine Folie als Bild,
              keine Animationen
-  Wortlaut   verbotene Wörter (E5), kein Gedankenstrich als Einschub (E6), das Wort „Modellrechnung“ im Kopf genau der festgelegten Folien, je einmal (E7)
+  Wortlaut   verbotene Wörter (E5; „Rendite“ und „Marktmiete“ nur auf der Anhangfolie zur Rendite), kein Gedankenstrich als Einschub (E6), das Wort
+             „Modellrechnung“ im Kopf genau der festgelegten Folien, je einmal (E7); Quellenzeile im Schriftfeld genau der festgelegten Folien im
+             Wortlaut von daten/markt.json (QUELLENZEILEN)
   Zahlen     jede Zahl in Folientexten, Tabellen, Alternativtexten, Diagrammdaten und Notizen hat einen Beleg; die Diagrammdaten stehen gleich im Zwischenspeicher
              und in der eingebetteten Arbeitsmappe; Kernwerte und Kernsätze stehen an ihren Folien, mit Einheit und Vorzeichen; Werte an
              den Diagrammen der Folien 3 bis 6 und 22 stehen in ihrer Form oder Tabellenzelle (KERNWERTE_FORM), Zeitreihen Wert für
@@ -24,6 +26,7 @@ Beleg einer Zahl, in dieser Reihenfolge:
     als Wert, als Prozent (Wert × 100) oder in Millionen (Wert ÷ 1.000.000)
   2 Datendateien der Baugruppen (daten/regeln.json, markt.json, umsetzung.json, rahmen.json, rechnung.json): Zahlen mit Herkunft
   3 daten/pruefung.json: gerechnete Größen (die Formel wird hier nachgerechnet) und Zahlen der Sprechernotizen mit Herkunft
+  Der Lauf modellhaus_rendite der Rechenmappe und Einträge mit „nur_folie“ in daten/pruefung.json belegen nur Zahlen ihrer einen Folie (E5).
   4 Freiliste (unten, FREI): Angaben, die keine Rechengrößen sind, jede Regel mit Begründung
 Die Einheit zählt: Folgt der Zahl ein Prozentzeichen, belegt sie nur ein Anteil oder eine Prozentangabe; folgt „€“ oder „Mio.“, nur ein Eurobetrag.
 Daten und Jahreszahlen stehen nicht auf der Freiliste: Sie gelten nur, wenn eine Datendatei oder daten/pruefung.json sie führt. Seiten der
@@ -54,7 +57,7 @@ REL = "{http://schemas.openxmlformats.org/package/2006/relationships}"
 
 NBSP, MINUS = " ", "−"
 # ---- Aufbau der Mappe nach der Festlegung zum Umbau: Blattnummer, Kennung der Folie, Abschnitt; in dieser Reihenfolge ---------------------
-# Titel und Schluss tragen keine Blattnummer auf der Folie, zählen aber mit (1 und 28). Der Anhang heißt A0 bis A7.
+# Titel und Schluss tragen keine Blattnummer auf der Folie, zählen aber mit (1 und 28). Der Anhang heißt A0 bis A8.
 AUFBAU = [
     ("1", "titel", "Ausgangslage"), ("2", "trenner-ausgangslage", "Ausgangslage"), ("3", "einstieg-baukosten", "Ausgangslage"),
     ("4", "ausgangslage-zinsen", "Ausgangslage"), ("5", "einstieg-kapitaldienst", "Ausgangslage"), ("6", "einstieg-bestand", "Ausgangslage"),
@@ -67,10 +70,11 @@ AUFBAU = [
     ("22", "pgn-baukosten", "Modellrechnung"), ("23", "rechnung-kosten", "Modellrechnung"), ("24", "fazit", "Modellrechnung"),
     ("25", "trenner-umsetzung", "Umsetzung"), ("26", "antragsweg", "Umsetzung"), ("27", "pgn-leistungen", "Umsetzung"), ("28", "kontakt", "Umsetzung"),
     ("A0", "anhang-trenner", "Anhang"), ("A1", "anhang-programmteile", "Anhang"), ("A2", "anhang-frist", "Anhang"), ("A3", "anhang-voraussetzungen", "Anhang"),
-    ("A4", "anhang-vertraege", "Anhang"), ("A5", "anhang-mieterkreis", "Anhang"), ("A6", "anhang-eckdaten", "Anhang"), ("A7", "quellen", "Anhang"),
+    ("A4", "anhang-vertraege", "Anhang"), ("A5", "anhang-mieterkreis", "Anhang"), ("A6", "anhang-eckdaten", "Anhang"), ("A7", "anhang-rendite", "Anhang"),
+    ("A8", "quellen", "Anhang"),
 ]
-FOLIENZAHL = len(AUFBAU)          # 36: 28 im Hauptteil, 8 im Anhang
-HAUPTTEIL, ANHANG = 28, 8
+FOLIENZAHL = len(AUFBAU)          # 37: 28 im Hauptteil, 9 im Anhang
+HAUPTTEIL, ANHANG = 28, 9
 # Folien der Modellrechnung (Layouts mit „_MR“, Papierton): Im Kopf steht das Wort „Modellrechnung“ genau einmal, im Kicker oder als Stempel des
 # Layouts, nie beides. Kein Papierton und kein Stempel im Einstieg (Folien 3 bis 6: Medianwerte je m²) und auf pgn-baukosten (Kostenkennwerte).
 STEMPEL = ["rechnung-finanzierung", "rechnung-jahr1", "rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-fluss-frei", "rechnung-miete",
@@ -106,9 +110,18 @@ VERBOTEN = [
     (re.compile(r"Marktmiete", re.I), "Marktmiete"),
     (re.compile(r"Rendite", re.I), "Rendite"),
 ]
-# „Rendite“ ist nur in diesen zwei Wendungen zugelassen. Beide nennen keine Rendite des Modellhauses: Die erste grenzt die Rechnung ab
-# (Wortlaut des Konzepts, Folie 11), die zweite ist die Beihilferegel der Richtlinie (Anhang A6, Broschüre S. 9).
-RENDITE_ERLAUBT = [re.compile(r"keine Rendite"), re.compile(r"Eine Eigenkapitalrendite bis 1 Prozentpunkt über dem 30-jährigen Swapsatz gilt stets als angemessen")]
+# „Rendite“ ist auf den übrigen Folien nur in dieser einen Wendung zugelassen: der Beihilferegel der Richtlinie (Anhang A6, Broschüre S. 9).
+# Sie nennt keine Rendite des Modellhauses.
+RENDITE_ERLAUBT = [re.compile(r"Eine Eigenkapitalrendite bis 1 Prozentpunkt über dem 30-jährigen Swapsatz gilt stets als angemessen")]
+# Ausnahme von E5 auf Wunsch des Auftraggebers (11.11.2026): Die Anhangfolie zur Eigenkapitalrendite, und nur sie, trägt die Wörter „Rendite“ und
+# „Marktmiete“ und Zahlen des Laufs modellhaus_rendite. „IRR“, „DSCR“ und „Safe Harbour“ stehen auch dort nicht.
+RENDITE_FOLIE, RENDITE_LAUF = "anhang-rendite", "modellhaus_rendite"
+VERBOTEN_AUSNAHME = {RENDITE_FOLIE: ("Rendite", "Marktmiete")}
+
+# ---- Quellenzeile im Schriftfeld: Folie → Block in daten/markt.json (Feld quelle_kurz). Die Form „Quellenzeile“ trägt genau diesen Wortlaut,
+# in höchstens zwei Zeilen; auf keiner anderen Folie gibt es eine solche Form ----------------------------------------------------------------
+QUELLENZEILEN = {"einstieg-baukosten": "baukosten", "ausgangslage-zinsen": "zinsen", "einstieg-kapitaldienst": "kapitaldienst",
+                 "einstieg-bestand": "bestand", "pgn-baukosten": "kosten"}
 
 # ---- E6: Gedankenstrich als Einschub -----------------------------------------------------------------------------------
 # Ein Halbgeviertstrich zwischen Leerzeichen ist ein Einschub. Bis-Striche stehen ohne Leerzeichen („1–3“, „IV–VII“); ein Strich allein in
@@ -121,6 +134,7 @@ CLAIMS = [re.compile(r"Aus Ihrer guten Idee – machen wir den besten Plan", re.
 # Datendateien an ihre Folie gebunden. Der Wert steht mit Einheit und Vorzeichen (Minus U+2212, Plus bei den Schreibweisen mit „vz“) an
 # seiner Folie, in einem Folientext oder einer Tabellenzelle.
 SOLLMIETE_FREI = "modellhaus:dscr.noetige_miete.Frei * modellhaus:eingabe.wohnflaeche * 12"   # nötige Sollmiete frei finanziert, € p. a.
+RENDITE = RENDITE_LAUF + ":rendite."                                                            # Schlüssel der Anhangfolie zur Eigenkapitalrendite
 KERNWERTE = [
     ("dscr.kapitaldienst_jahr1.A", "euro", "80.667 €", ["rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
     ("dscr.kapitaldienst_jahr1.Frei", "euro", "313.703 €", ["rechnung-kapitaldienst", "rechnung-fluss-frei", "rechnung-miete", "fazit"]),
@@ -152,6 +166,9 @@ KERNWERTE = [
     ("eingabe.herstellungskosten_qm", "euro", "4.500 €", ["pgn-baukosten", "rechnung-kosten"]),
     ("modellhaus_pgn_kosten:eingabe.herstellungskosten_qm", "euro", "3.579 €", ["pgn-baukosten", "rechnung-kosten"]),
     ("eingabe.zins_bank", "prozent2", "3,74 %", ["ausgangslage-zinsen", "einstieg-kapitaldienst", "rechnung-kapitaldienst"]),
+    # Anhangfolie zur Eigenkapitalrendite (A7): Titelzahl und der tiefste Stand des Projektkontos frei finanziert
+    (RENDITE + "vofi_mit_restwert.A", "prozent1", "5,7 %", [RENDITE_FOLIE]),
+    (RENDITE + "projektkonto_tiefststand.Frei", "zahl", "−3.192.817", [RENDITE_FOLIE]),
 ]
 # ---- Kernwerte der Ausgangslage und des Kostenvergleichs: Werte der Datendateien und daraus gerechnete Größen, in derselben Schreibweise ----
 KOSTEN_2020 = "(markt#baukosten.herstellung.q1_2020 + markt#baukosten.grundstueck.q1_2020)"
@@ -252,6 +269,17 @@ KERNSAETZE = [
     ("pgn-baukosten", "PGN {a} bis {b},", {"a": ("markt#kosten.pgn.spanne_herstellung.min", "zahl"), "b": ("markt#kosten.pgn.spanne_herstellung.max", "euro")}),
     ("pgn-baukosten", "ARGE {a} bis {b} je m²", {"a": ("markt#kosten.arge.spanne_herstellung.min", "zahl"), "b": ("markt#kosten.arge.spanne_herstellung.max", "euro")}),
     ("pgn-baukosten", "Spanne KG 200–700: Minimum bis Maximum", {}),   # Legende zum Maßzeichen der Spanne neben den Säulen der Herstellung
+    # Anhangfolie zur Eigenkapitalrendite (A7): Titel, Annahmen und das Paar, in dem die Rechenmappe Renditen nach außen verlangt
+    (RENDITE_FOLIE, "Eigenkapitalrendite über {a} Jahre: {b} in Gruppe A", {"a": ("tab.zinsfreie_jahre", "zahl"), "b": (RENDITE + "vofi_mit_restwert.A", "prozent1")}),
+    (RENDITE_FOLIE, "Modellhaus über {a} Jahre, vor Steuern", {"a": ("tab.zinsfreie_jahre", "zahl")}),
+    (RENDITE_FOLIE, "Rendite mit Restwert", {}),
+    (RENDITE_FOLIE, "Rendite, nur Bodenwert", {}),
+    (RENDITE_FOLIE, "Anteil des Restwerts am Endvermögen", {}),
+    (RENDITE_FOLIE, "Vor Steuern: ohne Abschreibung und Sonder-AfA.", {}),
+    (RENDITE_FOLIE, "Frei finanziert zur Marktmiete: {a} je m², +{b} im Jahr.", {"a": (RENDITE + "annahme.marktmiete_jahr1", "euro2"), "b": (RENDITE + "annahme.mietsteigerung", "prozent0")}),
+    (RENDITE_FOLIE, "Liegenschaftszins {a}; Boden +{b} im Jahr.", {"a": (RENDITE + "liegenschaftszins.A", "prozent1"), "b": (RENDITE + "annahme.bodenwertsteigerung", "prozent1")}),
+    (RENDITE_FOLIE, "Fehlbeträge trägt ein Projektkonto zu {a} Sollzins.", {"a": (RENDITE + "annahme.sollzins", "prozent0")}),
+    ("rechnung-jahr1", "Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern.", {}),
 ]
 # ---- Kernwerte in den Diagrammdaten: Quelle (wie bei den Kernwerten), Folie, Reihe, Kategorie. Der Wert steht dort ungerundet und mit Vorzeichen ----
 KERNWERTE_DIAGRAMM = [
@@ -349,6 +377,21 @@ KERNWERTE_FORM = [
     (f"{KD_HEUTE} - {KD_2020}", "euro2vz", "einstieg-kapitaldienst", "Maßkettenwert {a}", None, "{a}"),
     (BESTAND_RUECKGANG, "prozent1vz", "einstieg-bestand", "Maßkettenwert {a}", None, "{a}"),
 ]
+# Rechenblatt der Anhangfolie zur Eigenkapitalrendite (A7): Zeile 0 ist der Kopf, Spalte 0 die Zeilennummer, Spalte 1 die Position; die Werte
+# stehen in den Spalten 2 bis 5 (A, B, C, frei). Jede Zahl der Tabelle ist an ihre Zelle der Rechenmappe gebunden.
+_RT, _SP = "Rechenblatt Rendite", {"A": 2, "B": 3, "C": 4, "Frei": 5}
+KERNWERTE_FORM += (
+    [("fin.eigenkapital." + g, "zahl", RENDITE_FOLIE, _RT, (1, sp), "{a}") for g, sp in _SP.items()]
+    + [("liq.jahre_mit_fehlbetrag." + g, "zahl", RENDITE_FOLIE, _RT, (2, _SP[g]), "{a}") for g in "ABC"]
+    + [(RENDITE + "jahre_mit_fehlbetrag.Frei", "zahl", RENDITE_FOLIE, _RT, (2, _SP["Frei"]), "{a}")]
+    + [(RENDITE + "projektkonto_tiefststand." + g, "zahl", RENDITE_FOLIE, _RT, (3, sp), "{a}") for g, sp in _SP.items()]
+    + [(RENDITE + "restwert_jahr35." + g, "miozahl2", RENDITE_FOLIE, _RT, (4, sp), "{a}") for g, sp in _SP.items()]
+    + [(RENDITE + "vofi_mit_restwert." + g, "prozent1", RENDITE_FOLIE, _RT, (5, sp), "{a}") for g, sp in _SP.items()]
+    + [(RENDITE + "vofi_nur_bodenwert." + g, "prozent1", RENDITE_FOLIE, _RT, (6, _SP[g]), "{a}") for g in "ABC"]
+    + [(RENDITE + "vofi_nur_bodenwert.Frei", "strich_wenn_nv", RENDITE_FOLIE, _RT, (6, _SP["Frei"]), "{a}")]
+    + [(RENDITE + "restwertanteil." + g, "prozent0", RENDITE_FOLIE, _RT, (7, _SP[g]), "{a}") for g in "ABC"]
+    + [(RENDITE + "restwertanteil.Frei", "ueber100", RENDITE_FOLIE, _RT, (7, _SP["Frei"]), "{a}")]
+)
 # ---- Verweise: Folie, Ort („folie“ für Folientext, „notizen“), Text mit Feldern, je Feld die Kennung der gemeinten Folie ------------------------
 # Der Text steht so auf der Folie oder in ihren Notizen, und das Feld trägt die Blattnummer der gemeinten Folie aus dem Konzept. Ändert sich
 # die Zählung, fällt jeder Verweis auf, der nicht mitgeführt wurde.
@@ -360,7 +403,9 @@ VERWEISE = [
     ("eckdaten-zeitstrahl", "notizen", "Alle Eckdaten im Anhang {a}.", {"a": "anhang-eckdaten"}),
     ("rechnung-jahr1", "notizen", "neun Jahre Fehlbetrag (Folie {a})", {"a": "rechnung-verlauf"}),
     ("rechnung-jahr1", "notizen", "B und C folgen auf den Folien {a} und {b}.", {"a": "rechnung-tilgung", "b": "rechnung-verlauf"}),
+    ("rechnung-jahr1", "notizen", "Die Rendite über 35 Jahre steht im Anhang (Folie {a}).", {"a": RENDITE_FOLIE}),
     ("rechnung-kapitaldienst", "notizen", "den Zinsverlauf zeigt Folie {a}.", {"a": "ausgangslage-zinsen"}),
+    ("rechnung-kapitaldienst", "notizen", "Die Rendite über 35 Jahre steht im Anhang (Folie {a}).", {"a": RENDITE_FOLIE}),
     ("rechnung-fluss-gefoerdert", "notizen", "Der Kapitaldienst ist der von Folie {a}:", {"a": "rechnung-kapitaldienst"}),
     ("rechnung-fluss-frei", "notizen", "gehen in den Kapitaldienst, wie auf Folie {a}.", {"a": "rechnung-kapitaldienst"}),
     ("rechnung-miete", "notizen", "Die Annahmen stehen auf Folie {a}.", {"a": "rechnung-kapitaldienst"}),
@@ -368,13 +413,15 @@ VERWEISE = [
     ("rechnung-kosten", "notizen", "dem PGN-Median der Folie {a},", {"a": "pgn-baukosten"}),
     ("antragsweg", "notizen", "erster Spatenstich (Anhang {a}).", {"a": "anhang-vertraege"}),
     ("antragsweg", "notizen", "die Bedarfslage am Standort stehen im Anhang {a}.", {"a": "anhang-voraussetzungen"}),
-    ("anhang-trenner", "notizen", "{a} und {b}: Programmteile und Frist. {c} und {d}: Voraussetzungen und Verträge vor der Bewilligung. {e} und {f}: Mieterkreis und Eckdaten. {g}: Quellen und Hinweis.",
-     {"a": "anhang-programmteile", "b": "anhang-frist", "c": "anhang-voraussetzungen", "d": "anhang-vertraege", "e": "anhang-mieterkreis", "f": "anhang-eckdaten", "g": "quellen"}),
+    ("anhang-trenner", "notizen", "{a} und {b}: Programmteile und Frist. {c} und {d}: Voraussetzungen und Verträge vor der Bewilligung. {e} und {f}: Mieterkreis und Eckdaten. {g}: Eigenkapitalrendite. {h}: Quellen und Hinweis.",
+     {"a": "anhang-programmteile", "b": "anhang-frist", "c": "anhang-voraussetzungen", "d": "anhang-vertraege", "e": "anhang-mieterkreis", "f": "anhang-eckdaten", "g": RENDITE_FOLIE, "h": "quellen"}),
     ("anhang-eckdaten", "notizen", "verdichtet auf den Folien {a} und {b}, Antrag und Bewilligung auf Folie {c};", {"a": "foerdermix", "b": "eckdaten-zeitstrahl", "c": "antragsweg"}),
     ("anhang-eckdaten", "notizen", "im Hinweis auf {a}.", {"a": "quellen"}),
     ("quellen", "folie", "Folien {a} und {b}: PGN (2026): eigene Auswertung von fünf Projekten", {"a": "pgn-baukosten", "b": "rechnung-kosten"}),
     ("quellen", "folie", "Folie {a}: eigene Rechnung der PGN", {"a": "einstieg-kapitaldienst"}),
     ("quellen", "folie", "Folie {a}: BT-Drs. 21/7303", {"a": "einstieg-bestand"}),
+    ("quellen", "folie", "{a}–{b}, {c}", {"a": "rechnung-finanzierung", "b": "fazit", "c": RENDITE_FOLIE}),   # Zeile der Modellrechnung in der Spalte „Folie“
+    ("quellen", "notizen", "alle Zahlen der Folien {a} bis {b}, {c}, {d} und {e}.", {"a": "rechnung-finanzierung", "b": "rechnung-verlauf", "c": "rechnung-kosten", "d": "fazit", "e": RENDITE_FOLIE}),
     ("quellen", "notizen", "Baukosten (Folien {a} und {b}), Zinsreihe (Folie {c}), Bestandsreihe (Folie {d}) und der PGN-Median der Herstellungskosten (Folien {b} und {e}). Folie {f} rechnet mit diesen Werten.",
      {"a": "einstieg-baukosten", "b": "pgn-baukosten", "c": "ausgangslage-zinsen", "d": "einstieg-bestand", "e": "rechnung-kosten", "f": "einstieg-kapitaldienst"}),
 ]
@@ -403,13 +450,14 @@ DATUM = re.compile(r"\b(\d{1,2})\.(\d{1,2})\.(\d{4})?(?!\d)")
 JAHR = re.compile(r"(?<![\d.,/])(?:19|20)\d{2}(?![\d]|[.,]\d)")
 BROSCHUERE_S = re.compile(r"\bBroschüre\s+S\.\s+(\d+(?:(?:,\s+|\s+und\s+|\s+bis\s+|–)\d+)*)")
 FOLIE_NR = re.compile(r"\b(?:Folien?|Anhang)\s+(A?\d+(?:(?:,\s+|\s+und\s+|\s+bis\s+|–|\s+oder\s+)A?\d+)*)|\b(A\d\b(?:(?:,\s+|\s+und\s+|\s+bis\s+)A\d\b)*)")
-FOLIEN_NUMMERN = set()   # Blattnummern des Konzepts (1 bis 28, A0 bis A7); main() füllt die Menge
+FOLIEN_NUMMERN = set()   # Blattnummern des Konzepts (1 bis 28, A0 bis A8); main() füllt die Menge
 # Kleine ganze Zahlen als Zähler: Jahr der Rechnung, Zeile, Schritt, Gruppe. Nur wenn die Zahl sonst keinen Beleg hat.
 ZAEHLER = re.compile(r"\b(?:Jahr(?:e|en)?|Zeilen?|Schritte?|Station(?:en)?|Punkte?|Größen)\s+(\d{1,2})(?:(?:\s+bis\s+|–|\s+und\s+)(\d{1,2}))?")
 ZAEHLER_GRUND = "Zähler im Satz (Jahr der Rechnung, Zeile, Schritt), höchstens zweistellig"
 NUR_ZAHL_GRUND = "Ordnungszahl in eigener Form oder Zelle (Achskreis, Zeilennummer, Blattnummer, Achsteilung), höchstens zweistellig"
 
-# Läufe der Rechenmappe, deren Werte auf Folien stehen dürfen (die Läufe projekt2 und modellhaus_dscr125 erscheinen nicht: Konzept und E5)
+# Läufe der Rechenmappe, deren Werte auf Folien stehen dürfen (die Läufe projekt2 und modellhaus_dscr125 erscheinen nicht: Konzept und E5).
+# Der Lauf modellhaus_rendite (RENDITE_LAUF) steht nicht in dieser Liste: Er belegt nur Zahlen der Anhangfolie zur Rendite (RENDITE_FOLIE).
 LAEUFE = ("modellhaus", "modellhaus_zeitreihe", "modellhaus_pgn_kosten", "modellhaus_kosten_5200")
 # Schlüssel, die kein Beleg sind: Deckungsgrade (E5; erlaubt sind nur Kapitaldienst und nötige Miete aus dem Block dscr) und reine Zähler
 KEIN_BELEG = re.compile(r"(^|\.)dscr(?!\.kapitaldienst_jahr1|\.noetige_miete)|^zr\.jahr$|projekt_nr|^meta\.")
@@ -640,10 +688,16 @@ class Belege:
 
     def __init__(self):
         self.mappe, self.dateien, self.fehler = [], [], []
+        # Belege, die nur für eine Folie gelten (Kennung der Folie → Mappe, Datei); folie: Kennung der Folie, deren Text gerade geprüft wird
+        self.nur_mappe, self.nur_datei, self.folie = defaultdict(list), defaultdict(list), None
         self.daten_erlaubt, self.jahre, self.jahre_reihe = set(), set(), set()
         self.werte = json.loads((DATEN / "werte.json").read_text(encoding="utf-8"))
         self._angaben(self.werte.get("meta", {}).get("mappe_stand", ""))
         for lauf, L in self.werte["laeufe"].items():
+            if lauf == RENDITE_LAUF:
+                for k, e in L["werte"].items():
+                    self._nimm(self.nur_mappe[RENDITE_FOLIE], e.get("wert") if isinstance(e.get("wert"), (int, float)) else None, f"werte.json {lauf}:{k}", art_von(e.get("einheit")), alle=True)
+                continue
             if lauf not in LAEUFE:
                 continue
             for k, e in L["werte"].items():
@@ -670,7 +724,10 @@ class Belege:
                 except Exception as ex:  # noqa: BLE001
                     self.fehler.append(f"pruefung.json, gerechnet ({wo}): Formel „{e.get('formel')}“ lässt sich nicht rechnen ({ex})")
                     continue
-                self.dateien.insert(0, (float(v), f"pruefung.json gerechnet: {e['formel']}", e.get("art", "sonst"), True))   # vor den Zufallstreffern kleiner Zahlen
+                if e.get("nur_folie"):      # Beleg nur für diese eine Folie (Zahlen der Anhangfolie zur Rendite)
+                    self.nur_datei[e["nur_folie"]].insert(0, (float(v), f"pruefung.json gerechnet: {e['formel']}", e.get("art", "sonst"), True))
+                else:
+                    self.dateien.insert(0, (float(v), f"pruefung.json gerechnet: {e['formel']}", e.get("art", "sonst"), True))   # vor den Zufallstreffern kleiner Zahlen
                 if "wert" not in e:
                     self.fehler.append(f"pruefung.json, gerechnet ({wo}): „wert“ fehlt (die Zahl, wie sie auf der Folie oder in den Notizen steht)")
                 elif abs(runde(v * (100 if e.get("art") == "anteil" else 1), e.get("nk", 0)) - e["wert"]) > 1e-9:
@@ -796,7 +853,8 @@ class Belege:
         „6,77“ aus 6,7724). So belegt 6,8 nicht „7“ und 85,3 nicht „85“."""
         v = abs(v)
         ziffern = len(re.sub(r"^0+", "", f"{v:.{nk}f}".replace(".", "")))
-        for quelle, name in ((self.mappe, "Mappe"), (self.dateien, "Datei")):
+        # Belege der Folie, deren Text gerade geprüft wird, zuerst (pruefung.json mit „nur_folie“, dann der Lauf der Renditefolie)
+        for quelle, name in ((self.nur_datei.get(self.folie, []), "Datei"), (self.nur_mappe.get(self.folie, []), "Mappe"), (self.mappe, "Mappe"), (self.dateien, "Datei")):
             for x, woher, art, im_text in quelle:
                 if not im_text:
                     continue
@@ -1170,19 +1228,55 @@ def main(argv):
 
     # ---- Wortlaut --------------------------------------------------------------------------------------------------------
     m = []
-    rendite = []
+    rendite, ausnahme = [], []
     for i, f in enumerate(F):
         texte = [a["text"] for _, a in folientext(f)] + f["layout"]["texte"] + [d["name"] + " " + " ".join(r["name"] + " " + " ".join(r["kategorien"]) for r in d["reihen"]) for d in f["diagramme"]]
+        fid = K[i]["id"] if i < len(K) else None
         for t in texte:
             for muster, wort in VERBOTEN:
                 for tr in muster.finditer(t):
+                    # Ausnahme nach Kennung der Folie: nur die Anhangfolie zur Rendite, nur die dort genannten Wörter
+                    if wort in VERBOTEN_AUSNAHME.get(fid, ()):
+                        ausnahme.append(nr(i))
+                        continue
                     if wort == "Rendite":
-                        if any(e.start() <= tr.start() and tr.end() <= e.end() for er in RENDITE_ERLAUBT for e in er.finditer(glatt(t))) or any(er.search(glatt(t)) for er in RENDITE_ERLAUBT):
+                        if any(er.search(glatt(t)) for er in RENDITE_ERLAUBT):
                             rendite.append(nr(i))
                             continue
                     m.append(f"Folie {nr(i)}: „{wort}“ in „{glatt(t)[:90]}“")
+    m += [f"Folie „{fid}“ (VERBOTEN_AUSNAHME) fehlt im Konzept" for fid in VERBOTEN_AUSNAHME if fid not in {k["id"] for k in K}]
     ber.pruefung("Verbotene Wörter (E5): Rendite, IRR, DSCR, Safe Harbour, Marktmiete", m,
-                 f"„Rendite“ nur in den zwei zugelassenen Wendungen (Folien {', '.join(dict.fromkeys(rendite)) or 'keine'})")
+                 f"„Rendite“ und „Marktmiete“ nur auf der Anhangfolie zur Rendite (Folie {', '.join(dict.fromkeys(ausnahme)) or 'keine'}); "
+                 f"sonst „Rendite“ nur in der Beihilferegel (Folie {', '.join(dict.fromkeys(rendite)) or 'keine'})")
+
+    # Quellenzeile im Schriftfeld: genau auf den festgelegten Folien, im Wortlaut der Datendatei, höchstens zwei Zeilen
+    m = []
+    markt = json.loads((DATEN / "markt.json").read_text(encoding="utf-8"))
+    for i, (f, k) in enumerate(paare):
+        formen = [fo for fo in f["formen"] if fo["name"] == "Quellenzeile"]
+        block = QUELLENZEILEN.get(k["id"])
+        if not block:
+            if formen:
+                m.append(f"Folie {nr(i)} ({k['id']}): trägt eine Quellenzeile im Schriftfeld, ist dafür aber nicht festgelegt (QUELLENZEILEN)")
+            continue
+        soll = glatt((markt.get(block, {}).get("quelle_kurz") or {}).get("wert", ""))
+        if not soll:
+            m.append(f"Folie {nr(i)} ({k['id']}): daten/markt.json führt {block}.quelle_kurz nicht")
+            continue
+        if len(formen) != 1:
+            m.append(f"Folie {nr(i)} ({k['id']}): {len(formen)} Formen „Quellenzeile“, erwartet wird eine mit „{soll}“")
+            continue
+        zeilen = [a["text"] for a in formen[0]["absaetze"] if a["text"].strip()]
+        ist = glatt(" ".join(zeilen))
+        if ist != soll:
+            m.append(f"Folie {nr(i)} ({k['id']}): Quellenzeile „{ist}“ statt „{soll}“ (daten/markt.json, {block}.quelle_kurz)")
+        if len(zeilen) > 2:
+            m.append(f"Folie {nr(i)} ({k['id']}): Quellenzeile in {len(zeilen)} Zeilen (höchstens zwei)")
+        if soll not in glatt(k["inhalt"]):
+            m.append(f"Folie {nr(i)} ({k['id']}): Die Quellenzeile steht nicht im Feld „inhalt“ des Konzepts")
+    m += [f"Folie „{fid}“ (QUELLENZEILEN) fehlt im Konzept" for fid in QUELLENZEILEN if fid not in {k["id"] for k in K}]
+    ber.pruefung("Quellenzeile im Schriftfeld: festgelegte Folien, Wortlaut der Datendatei, höchstens zwei Zeilen", m,
+                 "Folien " + ", ".join(str(k["nr"]) for k in K if k["id"] in QUELLENZEILEN))
 
     m = []
     for i, f in enumerate(F):
@@ -1226,6 +1320,7 @@ def main(argv):
 
     def nimm(i, wo, text, nur_zahl=False, zusatz=(), reihe=False):
         bef = []
+        B.folie = K[i]["id"] if i < len(K) else None      # Belege, die nur für diese Folie gelten (Anhangfolie zur Rendite)
         for roh, art, woher in pruefe_text(text, B, nur_zahl, zusatz, reihe):
             stat[art.split(":")[0] if art else "ohne"] += 1
             if art and art.startswith("frei"):
@@ -1322,7 +1417,10 @@ def main(argv):
            "mio": lambda v: zahl_de(v / 1e6, 1) + " Mio. €", "prozent0": lambda v: zahl_de(v * 100, 0) + " %", "prozent1": lambda v: zahl_de(v * 100, 1) + " %",
            "prozent2": lambda v: zahl_de(v * 100, 2) + " %",
            # Wert steht schon in Prozent · mit Vorzeichen: Plus vor positiven Werten, Minus U+2212 vor negativen
-           "prozentwert2": lambda v: zahl_de(v, 2) + " %", "prozent1vz": lambda v: plus(v, zahl_de(v * 100, 1) + " %"), "euro2vz": lambda v: plus(v, zahl_de(v, 2) + " €")}
+           "prozentwert2": lambda v: zahl_de(v, 2) + " %", "prozent1vz": lambda v: plus(v, zahl_de(v * 100, 1) + " %"), "euro2vz": lambda v: plus(v, zahl_de(v, 2) + " €"),
+           # Tabelle der Renditefolie: Millionen ohne Einheit in der Zelle · Strich, wo die Mappe „n. v.“ führt · „über 100 %“ für einen Anteil über 1
+           "miozahl2": lambda v: zahl_de(v / 1e6, 2), "strich_wenn_nv": lambda v: "–" if v == "n. v." else zahl_de(v * 100, 1) + " %",
+           "ueber100": lambda v: "über 100 %" if v > 1 else zahl_de(v * 100, 0) + " %"}
     je_id = {k["id"]: (i, f) for i, (f, k) in enumerate(paare)}
 
     def pruefe_kernwerte(liste, woher):

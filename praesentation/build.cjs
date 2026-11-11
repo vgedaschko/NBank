@@ -22,6 +22,9 @@ const { asset } = require('./lib/assets.cjs');
 const ROOT = __dirname;
 const ZIEL = 'dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Vortrag.pptx';
 const BEHALTEN = ['anlass'];   // leere Platzhalter, die als Eingabefeld stehen bleiben (Titelfolie: „Ort, Datum“)
+// E5: Läufe der Rechenmappe, die nur bestimmte Folien lesen dürfen. Der Lauf modellhaus_rendite (Renditen, Restwert, Marktmiete) gehört allein der
+// Anhangfolie zur Eigenkapitalrendite; jede andere Folie bricht den Bau ab.
+const LAUF_NUR_FUER = { modellhaus_rendite: ['anhang-rendite'] };
 const TITEL_LUFT = 5;          // Zuschlag in pt auf den Schriftgrad für eine Titelzeile, über deren Umlaut ein Zeichen mit Unterlänge steht
 
 function argumente(argv) {
@@ -167,6 +170,7 @@ async function main() {
       if (hat('rubrik')) {
         const r = T.versal(opt.rubrik !== undefined ? opt.rubrik : zitat(inh, /Rubrik[^:„“]*: „([^“]+)“/) || kicker || o.abschnitt);
         P.zeile('Rubrik im Schriftfeld', r, { fontFace: T.F.mont, bold: true, fontSize: 10, weite: 0.6 }, lay.art === 'abschnitt' ? 7.0 : 8.0);
+        kx.rubrik = r;   // B.quelle rechnet die Breite der Rubrik: Die Quellenzeile steht im selben Schriftfeld rechts davon
         zuletzt.push(() => slide.addText(r, { placeholder: 'rubrik' }));
       }
       if (hat('blatt')) zuletzt.push(() => slide.addText(String(o.nr), { placeholder: 'blatt' }));
@@ -194,9 +198,12 @@ async function main() {
 
     // Vergleichsform für die Gegenprobe gegen das Konzept: ohne geschützte Leerzeichen und Fettmarken, in Großbuchstaben (Versalien setzt erst die Bibliothek)
     const gross = t => daten.glatt(t).toLocaleUpperCase('de-DE');
+    // Zugriff auf die Rechenmappe wie daten.W, mit der Sperre für Läufe, die nur einzelne Folien lesen dürfen (LAUF_NUR_FUER)
+    const erlaubt = lauf => { if (LAUF_NUR_FUER[lauf] && !LAUF_NUR_FUER[lauf].includes(o.id)) throw new Error(`Der Lauf „${lauf}“ der Rechenmappe ist nur für ${LAUF_NUR_FUER[lauf].map(f => '„' + f + '“').join(', ')} freigegeben (E5: keine Renditen und keine Marktmiete des Modellhauses auf anderen Folien).`); return lauf; };
+    const W = Object.assign((lauf, k) => daten.W(erlaubt(lauf), k), { eintrag: (lauf, k) => daten.W.eintrag(erlaubt(lauf), k), reihe: (lauf, ...a) => daten.W.reihe(erlaubt(lauf), ...a), laeufe: daten.W.laeufe, meta: daten.W.meta });
     const ctx = {
       pres, C: T.C, HEX: T.HEX, F: T.F, Raster: T.Raster, colX: T.colX, span: T.span, Y: T.Y, ZONE: T.ZONE,
-      B, D, W: daten.W, fmt: daten.fmt, X: daten.X, o, outline, asset, P, grund: lay.grund, farben: cs, versal: T.versal, schutz, folie,
+      B, D, W, fmt: daten.fmt, X: daten.X, o, outline, asset, P, grund: lay.grund, farben: cs, versal: T.versal, schutz, folie,
       glatt: daten.glatt, zahlwort: daten.zahlwort, fuelle: daten.fuelle, mittel: daten.mittel,
       // Gegenprobe: Der Text steht so im Feld „inhalt“ des Konzepts (Groß- und Kleinschreibung, Fettmarken und geschützte Leerzeichen zählen nicht).
       // Zahlen aus werte.json und den Datendateien sind damit zugleich gegen das Konzept geprüft. Eine Abweichung bricht den Bau ab. Rückgabe: der Text

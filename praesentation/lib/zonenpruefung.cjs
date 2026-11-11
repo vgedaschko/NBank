@@ -6,13 +6,16 @@
 //   Inhalt und Anhang     Satzspiegel x 0,667 bis 12,667 · unten bis y 6,50 (0,28 Abstand zum Schriftfeld) · oben ab y 1,90 (Anhang 1,50)
 // Ausnahmen über den Objektnamen: Daumenregister (rechter Rand); in der Kickerzeile Schlüsselplan, Zusatz der ersten Folie der Modellrechnung und
 // Stempel (ein frei gesetzter Stempel in der Inhaltszone ist damit ebenfalls ausgenommen). Maßketten und Beschnittmarken
-// dürfen 0,08 Zoll überstehen. Weitere Ausnahmen meldet ein Modul mit ctx.zoneAusnahme(name, grund) an; der Build nennt sie als Hinweis.
+// dürfen 0,08 Zoll überstehen. Die Quellenzeile (B.quelle, Name „Quellenzeile“) steht im Schriftfeld: Für sie gilt statt der Inhaltszone das freie
+// Feld zwischen Satzspiegel und Logo-Feld in der Höhe des Schriftfelds. Weitere Ausnahmen meldet ein Modul mit ctx.zoneAusnahme(name, grund) an;
+// der Build nennt sie als Hinweis.
 'use strict';
-const { W, H, X0, X1, Y, F } = require('./theme.cjs');
+const { W, H, X0, X1, Y, F, ZONE } = require('./theme.cjs');
 const { breite } = require('./passpruefung.cjs');
 
 const AUSSEN = /^(Daumenregister|Schlüsselplan|Stempel|Zusatz Modellrechnung)/;
 const KNAPP = /^(Maßkette|Maßstrich|Maßhilfslinie|Beschnittmarke)/;
+const IM_SCHRIFTFELD = /^Quellenzeile$/;
 const SCHRIFTEN = new Set(Object.values(F));
 const istZahl = v => typeof v === 'number' && isFinite(v);
 const k2 = v => v.toFixed(2).replace('.', ',');
@@ -106,6 +109,12 @@ function pruefeZonen(liste, lay, P, ausnahmen = new Map()) {
     if (r.ink) { xl = r.ink.align === 'center' ? r.x + (r.w - r.ink.b) / 2 : r.ink.align === 'right' ? x1 - r.ink.b : r.x; xr = xl + r.ink.b; }
     if (xl < -0.005 || xr > W + 0.005 || r.y < -0.005 || y1 > H + 0.005) { P.melde(`${was}: liegt mit x ${k2(xl)} bis ${k2(xr)}, y ${k2(r.y)} bis ${k2(y1)} außerhalb der Folie (13,33 × 7,50).`); return; }
     if (!inhalt || !r.name || AUSSEN.test(r.name)) return;
+    if (IM_SCHRIFTFELD.test(r.name)) {
+      // Quellenzeile: im Schriftfeld, links im Satzspiegel, rechts vor dem Logo-Feld
+      if (r.y < Y.fuss - 0.005 || y1 > Y.fuss + Y.fussH + 0.005 || xl < X0 - 0.02 || xr > ZONE.schriftfeld.logo + 0.005)
+        P.melde(`${was}: liegt mit x ${k2(xl)} bis ${k2(xr)}, y ${k2(r.y)} bis ${k2(y1)} nicht im freien Feld des Schriftfelds (x ${k2(X0)} bis ${k2(ZONE.schriftfeld.logo)}, y ${k2(Y.fuss)} bis ${k2(Y.fuss + Y.fussH)}).`);
+      return;
+    }
     if (ausnahmen.has(r.name)) { benutzt.add(r.name); return; }
     const tol = KNAPP.test(r.name) ? 0.085 : 0.02;
     if (xl < X0 - tol || xr > X1 + tol) P.melde(`${was}: liegt mit x ${k2(xl)} bis ${k2(xr)} außerhalb des Satzspiegels (0,667 bis 12,667).`);

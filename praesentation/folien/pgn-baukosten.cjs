@@ -86,5 +86,8 @@ module.exports = {
     // Die Spanne bricht hinter dem Komma: je Zeile ein Absender
     B.zweitesModul(s, { name: 'Grundlage und Spanne', eintraege: [{ titel: T('grundlage_titel'), text: T('grundlage') },
       { titel: T('spanne_titel'), text: B.zweizeilig(T('spanne'), { w: h.w, rolle: 'dicht', nach: /[,;]$/ }) }] });
+
+    // ---- Schriftfeld: Quellenzeile in Kurzform (daten/markt.json, kosten.quelle_kurz); die volle Angabe steht auf der Quellenfolie im Anhang ----
+    B.quelle(s, ctx.wortlaut(X('markt', 'kosten.quelle_kurz'), 'Quellenzeile'));
   },
 };

@@ -66,5 +66,8 @@ module.exports = {
     if (/drei bis vier Prozent/.test(ctx.o.notizen) && K.some(k => ende2025[k] < 3 || ende2025[k] > 4)) P.melde('Notizen „Ende 2025 drei bis vier Prozent“: Ein Quartalsmittel Q4 2025 liegt außerhalb von 3 bis 4 %.');
     B.hauptzahl(s, { gross: true, vorsatz: ctx.wortlaut(monatWort(monate[n]), 'Vorsatz'), zahl: ctx.wortlaut(hauptzahl, 'Kennzahl'), einheit: '%', label: T('kennzahl_label') });
     B.nebenzahl(s, { vorsatz: ctx.wortlaut(marken[0].bezeichnung, 'Vorsatz'), zahl: ctx.wortlaut(zweite, 'Kennzahl'), einheit: '%', label: T('kennzahl_label') });
+
+    // ---- Schriftfeld: Quellenzeile in Kurzform (daten/markt.json, zinsen.quelle_kurz); die volle Angabe steht auf der Quellenfolie im Anhang ----
+    B.quelle(s, ctx.wortlaut(X('markt', 'zinsen.quelle_kurz'), 'Quellenzeile'));
   },
 };

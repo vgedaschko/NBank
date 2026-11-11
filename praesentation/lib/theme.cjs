@@ -93,6 +93,10 @@ const ZONE = {
   // Stelle des Stempels in der Kickerzeile der Layouts mit „_MR“ (rechts am Satzspiegel). Ohne Stempel im Kopf (STEMPEL_IM_KOPF aus) bleibt sie frei;
   // nur die erste Folie der Modellrechnung setzt dort ihren Zusatz (B.stempelZusatz)
   stempel: { x: 10.547, y: 0.385, w: 2.12, h: 0.37 },
+  // Schriftfeld der Inhalts- und Anhangfolien (Y.fuss, Höhe Y.fussH): links Projektzeile und Rubrik, ab „logo“ das Logo-Feld, ab „blatt“ die Blatt-Zelle.
+  // Dazwischen liegt das freie Feld für die Quellenzeile (B.quelle): rechtsbündig, „quelleRand“ vor dem Logo-Feld, mindestens „quelleAbstand“
+  // hinter der längeren der beiden Zeilen links
+  schriftfeld: { logo: 10.867, blatt: 11.817, quelleRand: 0.16, quelleAbstand: 0.30 },
   register: { x: W - 0.42, w: 0.42, h: 0.62, y0: 2.10, schritt: 0.74 },
 };
 const Raster = { W, H, X0, X1, CW, PITCH, GUT, colX, span, Y, ZONE };

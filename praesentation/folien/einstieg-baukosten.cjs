@@ -50,5 +50,8 @@ module.exports = {
     const kachel = g => ({ vorsatz: wl(`${g.name}, ${g.kg}`, 'Vorsatz'), zahl: wl(g.aenderung, 'Kennzahl'), einheit: '%', label: wl(`${staende[0]} bis ${staende[1]}`, 'Label') });
     B.hauptzahl(s, { ...kachel(gruppen[0]), gross: true });
     B.nebenzahl(s, kachel(gruppen[1]));
+
+    // ---- Schriftfeld: Quellenzeile in Kurzform (daten/markt.json, baukosten.quelle_kurz); die volle Angabe steht auf der Quellenfolie im Anhang ----
+    B.quelle(s, ctx.wortlaut(X('markt', 'baukosten.quelle_kurz'), 'Quellenzeile'));
   },
 };

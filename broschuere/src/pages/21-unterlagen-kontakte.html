@@ -2,7 +2,7 @@
   <style>
     /* Seite 21 · Unterlagen, Kontakte und Verfahrensdetails · Planwerk. Rechte Seite der Doppelseite 20|21 „Umsetzung“.
        12er-Raster: Lesefeld Spalten 1–8 (zwei Spalten à 4, Haarlinie in der Stegmitte: Ankreuzliste → Verfahrensdetails
-       im Telegrammstil mit Run-in-Fragen) · dominant: Kontaktspalte 9–12 als Papierfeld über die volle Höhe des
+       im Telegrammstil mit Run-in-Stichwörtern) · dominant: Kontaktspalte 9–12 als Papierfeld über die volle Höhe des
        Lesefelds bis 273 mm, vier gleich hohe, gleichrangige Felder. Gemeinsamer Horizont: Modulkopf-Linie links = Oberkante
        Kontaktspalte. Rot nur: Kicker, Titellinie, Kontakt-Labels, Seitenverweise, Programmnummer 2.1. Farben nur über Tokens. */
 
@@ -24,7 +24,7 @@
     .page[data-page="21"] .p21-check__list b:not(.bs-no) { color: var(--fg); }
     .page[data-page="21"] .p21-check__list .p21-in-paren { margin: 0 .3mm; }
 
-    /* Verfahrensdetails: Gruppen fließen; Frage als Run-in */
+    /* Verfahrensdetails: Gruppen fließen; Stichwort als Run-in */
     .page[data-page="21"] .p21-faq { margin-top: 5.45mm; padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); }   /* Oberkante 188,7 mm = Bewilligungsmarke S. 20 */
     .page[data-page="21"] .p21-grp__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 2mm; margin-top: 2.6mm; padding-bottom: 1.4mm; border-bottom: var(--rule-w) solid var(--rule-strong); break-after: avoid; break-inside: avoid; }
     .page[data-page="21"] .p21-grp__title { padding-top: .5mm; font: 700 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
@@ -57,7 +57,7 @@
     <ul class="checklist p21-check__list">
       <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span><b>Antrag:</b> <span class="badge badge--s badge--form">1011</span> <span class="u-nowrap">(<b class="bs-no bs-21">2.1</b>–<b class="bs-no bs-24">2.4</b>)</span> · <span class="badge badge--s">1011a</span> + <span class="badge badge--s">1012</span> je Wohnung (<b class="bs-no bs-25">2.5</b>) · <span class="badge badge--s">1011b</span> (<b class="bs-no bs-26">2.6</b>)</span></li>
       <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span><b>Natürliche Personen</b>, auch Gesellschafterinnen und Gesellschafter: Selbstauskunft <span class="u-nowrap">(<span class="badge badge--s badge--form p21-in-paren">3076</span>),</span> SCHUFA-Auskunft, Identitätsfeststellung nach Geldwäschegesetz</span></li>
-      <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span><b>Unternehmen:</b> Jahresabschlüsse (zwei Jahre), BWA (höchstens drei Monate alt), Handels- und Transparenzregisterauszug, Ertrags-, Finanz- und Liquiditätsplanung <span class="u-nowrap">(<a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;11</a>)</span></span></li>
+      <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span><b>Unternehmen:</b> Jahresabschlüsse (zwei Jahre), BWA (höchstens drei Monate alt), Handels- und Transparenzregisterauszug, Ertrags-, Finanz- und Liquiditätsplanung</span></li>
       <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span>Grundbuchauszug, Lageplan, Bauzeichnungen, Baubeschreibung <span class="u-nowrap">(<span class="badge badge--s badge--form p21-in-paren">1021</span>)</span></span></li>
       <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span>Wohnflächenberechnung (WoFlV), umbauter Raum (DIN 277), Kosten-Finanzierungsaufteilung</span></li>
       <li class="checklist__item"><span class="checklist__box" aria-hidden="true"></span><span><b>Bei <span class="bs-no bs-23">2.3</span>:</b> Energiebedarfsausweis mit Ausgangsklasse</span></li>
@@ -69,25 +69,25 @@
       <section class="p21-grp" aria-labelledby="p21-g1">
         <div class="p21-grp__head"><h3 class="p21-grp__title" id="p21-g1">Ausnahmen zum Grundcheck</h3><a class="pageref" href="#seite-04">zu S.&nbsp;4</a></div>
         <dl class="p21-qa">
-          <div class="p21-qa__item"><dt>Weitere Antragsberechtigte?</dt> <dd>Auch rechtsfähige Baugemeinschaften; beim Ersterwerb die Käuferseite.</dd></div>
-          <div class="p21-qa__item"><dt>Kein Mehrfamilienhaus?</dt> <dd>Gemeinschaftliche Wohnformen, im Einzelfall auch Reihen- oder Doppelhäuser. In <b class="bs-no bs-21">2.1</b>, <b class="bs-no bs-22">2.2</b> und <b class="bs-no bs-24">2.4</b>: je neuem Gebäude mindestens zwei gebundene Wohnungen.</dd></div>
-          <div class="p21-qa__item"><dt>Grundstück und Eigenmittel?</dt> <dd>Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung zählt bis zur Hälfte der Eigenmittel.</dd></div>
+          <div class="p21-qa__item"><dt>Weitere Antragsberechtigte.</dt> <dd>Auch rechtsfähige Baugemeinschaften; beim Ersterwerb, wer die Wohnungen kauft.</dd></div>
+          <div class="p21-qa__item"><dt>Kein Mehrfamilienhaus.</dt> <dd>Gemeinschaftliche Wohnformen, im Einzelfall auch Reihen- oder Doppelhäuser. In <b class="bs-no bs-21">2.1</b>, <b class="bs-no bs-22">2.2</b> und <b class="bs-no bs-24">2.4</b>: je neuem Gebäude mindestens zwei gebundene Wohnungen.</dd></div>
+          <div class="p21-qa__item"><dt>Grundstück und Eigenmittel.</dt> <dd>Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung soll höchstens die Hälfte der Eigenmittel ausmachen.</dd></div>
         </dl>
       </section>
       <section class="p21-grp" aria-labelledby="p21-g2">
         <div class="p21-grp__head"><h3 class="p21-grp__title" id="p21-g2">Finanzierung und Sicherheiten</h3><a class="pageref" href="#seite-09">zu S.&nbsp;9</a></div>
         <dl class="p21-qa">
-          <div class="p21-qa__item"><dt>Sicherheiten?</dt> <dd>Grundschuld direkt hinter den Kapitalmarktmitteln; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne Revalutierung. Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft; bei reinen Objektgesellschaften immer.</dd></div>
-          <div class="p21-qa__item"><dt>Tilgungsaufschub?</dt> <dd>Bei vorübergehendem Fehlbetrag im Objekt kann die NBank den Tilgungsbeginn um bis zu fünf Jahre <span class="u-nohyphens">hinausschieben.</span></dd></div>
-          <div class="p21-qa__item"><dt>Vorzeitige Rückzahlung?</dt> <dd>Bei freiwilliger Rückzahlung in voller Höhe ist der Zuschuss anteilig zurückzuzahlen. Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20&nbsp;Jahre nach Bindungs&shy;beginn, spätestens zum regulären Ende.<br>Beispiel: Bindungsbeginn 2028, Rückzahlung 2040: Ende 31.12.2050; bei Rückzahlung 2032 erst 2048.</dd></div>
+          <div class="p21-qa__item"><dt>Sicherheiten.</dt> <dd>Grundschuld direkt nach dem Bankdarlehen; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne Revalutierung. Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft; bei reinen Objektgesellschaften immer.</dd></div>
+          <div class="p21-qa__item"><dt>Tilgungsaufschub.</dt> <dd>Bei vorübergehendem Fehlbetrag im Objekt kann die NBank den Tilgungsbeginn um bis zu fünf Jahre <span class="u-nohyphens">hinausschieben.</span></dd></div>
+          <div class="p21-qa__item"><dt>Vorzeitige Rückzahlung.</dt> <dd>Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20&nbsp;Jahre nach Bindungs&shy;beginn, spätestens zum regulären Ende.<br>Beispiel: Bindungsbeginn 2028, Rückzahlung 2040: Ende 31.12.2050; bei Rückzahlung 2032 erst 2048.</dd></div>
         </dl>
       </section>
       <section class="p21-grp" aria-labelledby="p21-g3">
         <div class="p21-grp__head"><h3 class="p21-grp__title" id="p21-g3">Beginn, Vergabe, Anzeigen</h3><a class="pageref" href="#seite-19">zu S.&nbsp;19</a></div>
         <dl class="p21-qa">
-          <div class="p21-qa__item"><dt>Vorzeitiger Vorhabenbeginn?</dt> <dd>Nur nach Zulassung durch die NBank, beantragt frühestens mit dem Förderantrag, auf eigenes Risiko.</dd></div>
-          <div class="p21-qa__item"><dt>Vergabe?</dt> <dd>Mindestens drei Unternehmen zum Angebot auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis 25.000 € netto. Kommunen: zusätzlich <span class="u-nohyphens">Vergaberecht.</span></dd></div>
-          <div class="p21-qa__item"><dt>Anzeigen?</dt> <dd>Baubeginn erst anzeigen, wenn er erfolgt ist; für Unternehmen subventionserheblich. Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis.</dd></div>
+          <div class="p21-qa__item"><dt>Vorzeitiger Vorhabenbeginn.</dt> <dd>Nur nach Zulassung durch die NBank, beantragt frühestens mit dem Förderantrag, auf eigenes Risiko.</dd></div>
+          <div class="p21-qa__item"><dt>Vergabe.</dt> <dd>Mindestens drei Unternehmen zum Angebot auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis 25.000 € netto.</dd></div>
+          <div class="p21-qa__item"><dt>Anzeigen.</dt> <dd>Baubeginn erst nach dem Beginn anzeigen; für Unternehmen ist die Angabe subventionserheblich (§ 264 StGB). Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis.</dd></div>
         </dl>
       </section>
   </section>
@@ -109,7 +109,7 @@
     <li class="p21-ct">
       <p class="contact__label contact__label--tight">Aktuelle Informationen</p>
       <p class="p21-ct__name u-nohyphens"><a href="https://www.nbank.de">nbank.de</a></p>
-      <p class="p21-ct__text">Förderstellen-Verzeichnis, Bemessungsgrenzen, Bedarfskarte, Vordrucke, Arbeitshilfen, Entgeltkatalog, Bauschild-Vorgaben</p>
+      <p class="p21-ct__text">Verzeichnis der Wohnraumförderstellen, Bemessungsgrenzen, NBank-Karte, Vordrucke, Arbeitshilfen, Entgeltkatalog, Bauschild-Vorgaben</p>
     </li>
     <li class="p21-ct">
       <p class="contact__label contact__label--tight">Planung und Unterlagen</p>

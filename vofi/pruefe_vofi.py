@@ -504,10 +504,10 @@ EINGABEN = [
      "PGN-Annahme: linear über die Höchstlaufzeit von 42 Jahren", lambda P: 1 / 42,
      lambda P: 1 / 42),   # beide Projekte: 1/Höchstlaufzeit (RL 2026 Nr. 5.3.5); die Vorgängermappe v2-1 rechnete mit 1/40
     ("3.2", 18, "Tilgungsaufschub", "Tilgungsaufschub", "Jahre", "ganz", ("whole", 0, "Aufschub_max"),
-     "PGN-Annahme (Rahmen RL 2026 Nr. 5.3.5)", _g("tilgungsfrei"), _g("tilgungsfrei")),
+     "PGN-Annahme (Rahmen RL Nr. 5.3.5)", _g("tilgungsfrei"), _g("tilgungsfrei")),
     ("3.3", 19, "Zins_NBank_ab36", "Zins NBank-Darlehen ab Jahr 36", "% p. a.", "pct", ("decimal", 0, 0.10),
-     "PGN-Annahme (Rahmen RL 2026 Nr. 5.3.4)", _g("zins_ab36"), _g("zins_ab36")),
-    ("3.4", 20, "Swapsatz_30J", "Swapsatz 30 Jahre", "%", "pct", ("decimal", 0, 0.10),
+     "PGN-Annahme (Rahmen RL Nr. 5.3.4)", _g("zins_ab36"), _g("zins_ab36")),
+    ("3.4", 20, "Swapsatz_30J", "Swapsatz 30 Jahre", "% p. a.", "pct", ("decimal", 0, 0.10),
      "EUR-Swapsatz 30 Jahre, Stand 19.08.2026", _g("swap"), _g("swap")),
     ("4.1", 22, "Mietenstufe", "Mietenstufe", "Liste", "text", ("list", "Mietenstufen"),
      "Broschüre S. 10 / Projektdaten PGN", _g("mietenstufe"), _g("mietenstufe")),
@@ -515,12 +515,12 @@ EINGABEN = [
      "Broschüre S. 11 (ohne EH-40-Zuschlag) / Planung PGN (EH 55)", lambda P: "ja" if P["effizienz"] in ("EH 40", "EH 40 QNG") else "nein",
      lambda P: "ja" if P["effizienz"] in ("EH 40", "EH 40 QNG") else "nein"),
     ("4.3", 24, "Vergleichsmiete_1", "Ortsübliche Vergleichsmiete, Jahr 1", "€/m² Monat", "eur2",
-     ("decimal", 0, 50), "Platzhalter / PGN-Mietband Neu Wulmstorf, fortgeschrieben", lambda P: 12.92,
+     ("decimal", 0, 50), "PGN-Annahme / PGN-Mietband Neu Wulmstorf, fortgeschrieben", lambda P: OVM_ROTENBURG,
      _g("ovm_start")),
     ("4.4", 25, "Marktmiete_1", "Marktmiete Neuvermietung, Jahr 1", "€/m² Monat", "eur2", ("decimal", 0, 50),
-     "Platzhalter / PGN-Mietband Neu Wulmstorf, fortgeschrieben", lambda P: 14.48, _g("markt_start")),
+     "Mietübersicht Landkreis Rotenburg 2026 / wie Eingabe 4.3", lambda P: MARKT_ROTENBURG, _g("markt_start")),
     ("4.5", 26, "Mietsteigerung", "Steigerung Markt- und Vergleichsmiete", "% p. a.", "pct", ("decimal", -0.05, 0.10),
-     "PGN-Annahme, langfristiger Mittelwert", _g("miet_wachstum"), _g("miet_wachstum")),
+     "PGN-Annahme", _g("miet_wachstum"), _g("miet_wachstum")),
     ("4.6", 27, "Kappungsgrenze", "Kappungsgrenze nach Bindungsende", "% in 3 Jahren", "pct", ("decimal", 0, 0.20),
      "§ 558 Abs. 3 BGB", _g("kapp_norm"), _g("kapp_norm")),
     ("5.1", 29, "Mietausfall", "Mietausfall/Leerstand", "% der Sollmiete", "pct", ("decimal", 0, 0.20),
@@ -533,23 +533,23 @@ EINGABEN = [
      _VG + " Best 1,5 %, Worst 2,5 %", _g("kosten_wachstum"), _g("kosten_wachstum")),
     ("5.5", 33, "Kosten_Vorlauf", "Kostensätze 2026 fortschreiben um", "Jahre", "ganz", ("whole", 0, 10),
      "Broschüre S. 11 (Kostenstand 2026)", lambda P: 0, lambda P: 0),
-    ("6.1", 35, "Zins_Bank", "Zins Bank, zugleich Abzinsung Förderbarwert", "% p. a.", "pct", ("decimal", 0, 0.15),
-     "PGN-Annahme (Marktmittel Bundesbank, bisheriger Ansatz)", _g("zins_bank"), _g("zins_bank")),
-    ("6.2", 36, "Zinsbindung", "Zinsbindung", "Jahre", "ganz", ("whole", 1, 42), "PGN-Annahme (bisheriger Ansatz)",
+    ("6.1", 35, "Zins_Bank", "Zins Bank; Vergleichszins Förderbarwert", "% p. a.", "pct", ("decimal", 0, 0.15),
+     "PGN-Annahme (Bundesbank-Statistik, Vorgängermappe)", _g("zins_bank"), _g("zins_bank")),
+    ("6.2", 36, "Zinsbindung", "Zinsbindung", "Jahre", "ganz", ("whole", 1, 42), "PGN-Annahme (Vorgängermappe)",
      _g("zinsbindung"), _g("zinsbindung")),
     ("6.3", 37, "Zins_Anschluss", "Anschlusszins", "% p. a.", "pct", ("decimal", 0, 0.15),
      _VG + " Best 2,74 %, Worst 4,74 %", _g("zins_anschluss"), _g("zins_anschluss")),
     ("6.4", 38, "Laufzeit_Bank", "Laufzeit Bankdarlehen (Annuität)", "Jahre", "ganz", ("whole", 1, 60),
-     "PGN-Annahme (bisheriger Ansatz)", lambda P: 30, lambda P: 30),
+     "PGN-Annahme (Vorgängermappe)", lambda P: 30, lambda P: 30),
     ("7.1", 40, "EK_Zusatz", "Zusätzliches Eigenkapital bar, mindert Bank", "€", "eur0", ("decimal", 0, 1e9),
      "PGN-Annahme", lambda P: 0, lambda P: 0),
     ("7.2", 41, "Habenzins", "Guthabenzins Projektkonto (VOFI)", "% p. a.", "pct", ("decimal", 0, 0.10),
-     "PGN-Annahme (bisheriger Ansatz)", _g("haben"), _g("haben")),
+     "PGN-Annahme (Vorgängermappe)", _g("haben"), _g("haben")),
     ("7.3", 42, "Sollzins", "Sollzins Projektkonto (VOFI)", "% p. a.", "pct", ("decimal", 0, 0.20),
-     "PGN-Annahme (bisheriger Ansatz)", _g("soll"), _g("soll")),
+     "PGN-Annahme (Vorgängermappe)", _g("soll"), _g("soll")),
     ("8.1", 44, "Bodenwertsteigerung", "Bodenwertsteigerung", "% p. a.", "pct", ("decimal", -0.05, 0.10),
-     "PGN-Annahme (bisheriger Ansatz)", _g("bodenwert_wachstum"), _g("bodenwert_wachstum")),
-    ("8.2", 45, "Zielmiete", "Zielmiete nach Bindungsende", "Liste", "text", ("list", "Marktmiete,Vergleichsmiete"),
+     "PGN-Annahme (Vorgängermappe)", _g("bodenwert_wachstum"), _g("bodenwert_wachstum")),
+    ("8.2", 45, "Zielmiete", "Zielmiete nach Jahr 42", "Liste", "text", ("list", "Marktmiete,Vergleichsmiete"),
      "PGN-Annahme", lambda P: "Marktmiete", lambda P: "Marktmiete"),
     ("8.3", 46, "Veraeusserungskosten", "Veräußerungskosten", "% des Restwerts", "pct", ("decimal", 0, 0.20),
      "PGN-Annahme", lambda P: 0, lambda P: 0),
@@ -558,7 +558,7 @@ EINGABEN = [
     ("9.2", 49, "Stress_Miete", "Faktor Markt- und Vergleichsmiete", "Faktor", "faktor", ("decimal", 0.5, 2),
      _VG + " Best 1,05, Worst 0,95", lambda P: 1, lambda P: 1),
     ("9.3", 50, "Stress_LZ", "Zuschlag Liegenschaftszins (Standort)", "Prozentpunkte", "pp", ("decimal", -0.02, 0.02),
-     _VG + " Best −0,30, Worst +0,60 Pp", lambda P: 0, lambda P: 0),
+     "Vorgängermappe: Best −0,30, Worst +0,60 Prozentpunkte", lambda P: 0, lambda P: 0),
     ("9.4", 51, "Stress_GebRW", "Faktor Gebäude-Restwert", "Faktor", "faktor", ("decimal", 0, 1.5), "PGN-Annahme",
      lambda P: 1, lambda P: 1),
     ("10.1", 53, "Miete_Frei", "Miete frei finanziert", "Liste", "text", ("list", "Marktmiete,Miete für DSCR-Ziel"),
@@ -575,46 +575,60 @@ GRUPPENZEILEN = {6: ("1", "Projekt"), 10: ("2", "Kosten und Grundstück"), 16: (
 
 # Tabellen C: Tabelle 3 (Zeile, Nr., Festwert, Einheit, Quelle, Name, Sollwert aus RR-Parametern/Annahmen)
 TAB3 = [
-    (18, "T10", "Eigenmittel, mindestens", "% der zuw. Kosten", "RL 2026 Nr. 5.2.6", "Eigenmittelquote",
+    (18, "T10", "Eigenmittel, mindestens", "% der zuw. Kosten", "RL Nr. 5.2.6", "Eigenmittelquote",
      lambda P, A: P["eigenmittel_quote"]),
-    (19, "T11", "Zins NBank bis Ende Jahr 35", "% p. a.", "RL 2026 Nr. 5.3.4", "Zins_NBank_1_35",
+    (19, "T11", "Zins NBank bis Ende Jahr 35", "% p. a.", "RL Nr. 5.3.4", "Zins_NBank_1_35",
      lambda P, A: P["zins_1_35"]),
-    (20, "T12", "Zinsfreie Jahre", "Jahre", "RL 2026 Nr. 5.3.4", "Zinsfreie_Jahre", lambda P, A: P["zinsfrei"]),
-    (21, "T13", "Höchstlaufzeit, Betrachtungsende", "Jahre", "RL 2026 Nr. 5.3.5", "Laufzeit_max",
+    (20, "T12", "Zinsfreie Jahre", "Jahre", "RL Nr. 5.3.4", "Zinsfreie_Jahre", lambda P, A: P["zinsfrei"]),
+    (21, "T13", "Höchstlaufzeit, Betrachtungsende", "Jahre", "RL Nr. 5.3.5", "Laufzeit_max",
      lambda P, A: P["n"]),
-    (22, "T14", "Tilgungsaufschub, höchstens", "Jahre", "RL 2026 Nr. 5.3.5", "Aufschub_max",
+    (22, "T14", "Tilgungsaufschub, höchstens", "Jahre", "RL Nr. 5.3.5", "Aufschub_max",
      lambda P, A: A.w("Hoechst_Tilgungsfrei")),
-    (23, "T15", "Verwaltungskostenbeitrag", "% p. a. vom Restkapital", "RL 2026 Nr. 12.7.1", "VKB_Satz",
+    (23, "T15", "Verwaltungskostenbeitrag", "% p. a. Restkapital", "RL Nr. 12.7.1", "VKB_Satz",
      lambda P, A: P["vkb"]),
-    (24, "T16", "Bearbeitungsentgelt Darlehen", "% einmalig", "RL 2026 Nr. 12.7.2", "BE_Darlehen",
+    (24, "T16", "Bearbeitungsentgelt Darlehen", "% einmalig", "RL Nr. 12.7.2", "BE_Darlehen",
      lambda P, A: P["be_d"]),
-    (25, "T17", "Bearbeitungsentgelt Zuschuss", "% einmalig", "RL 2026 Nr. 12.7.3", "BE_Zuschuss",
+    (25, "T17", "Bearbeitungsentgelt Zuschuss", "% einmalig", "RL Nr. 12.7.3", "BE_Zuschuss",
      lambda P, A: P["be_z"]),
-    (26, "T18", "Belegungs- und Mietbindung", "Jahre", "RL 2026 Nr. 5.4.1, 5.4.2", "Bindung",
+    (26, "T18", "Belegungs- und Mietbindung", "Jahre", "RL Nr. 5.4.1, 5.4.2", "Bindung",
      lambda P, A: P["bindung"]),
-    (27, "T19", "Jahre ohne Mieterhöhung", "Jahre", "RL 2026 Nr. 5.4.4, 5.4.5", "Mietruhe_Jahre",
+    (27, "T19", "Jahre ohne Mieterhöhung", "Jahre", "RL Nr. 5.4.4, 5.4.5", "Mietruhe_Jahre",
      lambda P, A: P["karenz"]),
-    (28, "T20", "Mieterhöhung in der Bindung, höchstens", "% in 3 Jahren", "RL 2026 Nr. 5.4.5",
+    (28, "T20", "Mieterhöhung in der Bindung, höchstens", "% in 3 Jahren", "RL Nr. 5.4.5",
      "Mietanpassung_Bindung", lambda P, A: P["kappung"]),
-    (29, "T21", "Abstand der Mieterhöhungen", "Jahre", "PGN-Konvention (Rahmen RL 2026 Nr. 5.4.5)", "Erhoehung_Rhythmus",
+    (29, "T21", "Abstand der Mieterhöhungen", "Jahre", "PGN-Konvention (Rahmen RL Nr. 5.4.5)", "Erhoehung_Rhythmus",
      lambda P, A: P["rhythmus"]),
-    (30, "T22", "Zuschlag Höchstmiete ab EH 40", "€/m² Monat", "RL 2026 Nr. 5.4.4 Satz 2", "Zuschlag_EH40",
+    (30, "T22", "Zuschlag Höchstmiete ab EH 40", "€/m² Monat", "RL Nr. 5.4.4 Satz 2", "Zuschlag_EH40",
      lambda P, A: P["zuschlag_eh40"]),
-    (31, "T23", "Tilgung Bankdarlehen, mindestens", "% p. a.", "RL 2026 Nr. 5.3.6", "Tilgung_Bank_min",
+    (31, "T23", "Tilgung Bankdarlehen, mindestens", "% p. a.", "RL Nr. 5.3.6", "Tilgung_Bank_min",
      lambda P, A: 0.01),
-    (32, "T24", "Aufschlag auf Swapsatz", "Prozentpunkte", "RL 2026 Nr. 11.10 Abs. 4", "Aufschlag_Swap",
+    (32, "T24", "Aufschlag auf Swapsatz", "Prozentpunkte", "RL Nr. 11.10 Abs. 4", "Aufschlag_Swap",
      lambda P, A: P["dawi_aufschlag"]),
     (33, "T25", "Gesamtnutzungsdauer Mehrfamilienhaus", "Jahre", "ImmoWertV Anlage 1", "GND",
      lambda P, A: P["gnd"]),
 ]
 MIETENSTUFEN = ["I", "II", "III", "IV", "V", "VI", "VII"]
-LZ_QUELLE = "OGA Nds., Landesmodell MFH, 01.01.2026, BRW 600 €/m²"
+LZ_QUELLE = "Oberer Gutachterausschuss Nds., Landesmodell MFH 01.01.2026"
+# Tabelle 4 (Konzept C, Q): Liegenschaftszins je Projekt. Restnutzungsdauern B36:B41, Projekt 1 in D (Rotenburg (Wümme),
+# Landesmodell Mehrfamilienhäuser 01.01.2026, mittlerer Bodenrichtwert 185 €/m²), Projekt 2 in E (Neu Wulmstorf, 600 €/m²,
+# gleich der Tabelle der Referenzrechnung), „verwendet“ in F (= Name LZ_Satz).
+LZ_RND = (30, 38, 40, 50, 60, 70)
+LZ_ROTENBURG = (0.033, 0.034, 0.034, 0.035, 0.035, 0.035)
+LZ_NEU_WULMSTORF = (0.025, 0.027, 0.027, 0.029, 0.030, 0.031)
+LZ_ZEILE = 36                                             # erste Zeile der Tabelle 4
+LZ_SPALTE = {"M": "D", "T": "E"}
+T4 = "T4"                                                 # Schlüssel in den Testläufen: Sätze der Projektspalte, Tabelle 4
+# Bewertungsansätze des Modellhauses (Entscheidung des Auftraggebers vom 11.11.2026): Marktmiete aus der Mietübersicht
+# des Gutachterausschusses für den Landkreis Rotenburg (Wümme), Vergleichsmiete als PGN-Annahme im Verhältnis 12,92 ÷ 14,48.
+# Bis 10.11.2026 standen dort die Platzhalter 12,92 / 14,48 €/m² (Abweichung A7) und die Kurve Neu Wulmstorf.
+OVM_ROTENBURG, MARKT_ROTENBURG = 11.87, 13.30
+OVM_PLATZHALTER, MARKT_PLATZHALTER = 12.92, 14.48
 
 NAMEN = {"Aktives_Projekt": "Eingaben!$F$4", "Projekt_Nr": "Eingaben!$D$3", "Projektliste": "Eingaben!$D$4:$E$4",
          "Gruppen": "Tabellen!$D$4:$F$4", "Quote_Darlehen": "Tabellen!$D$5:$F$5",
          "Quote_Zuschuss": "Tabellen!$D$6:$F$6", "Mietenstufen": "Tabellen!$B$9:$B$15",
          "Bemessungsgrenzen": "Tabellen!$C$9:$C$15", "Hoechstmieten": "Tabellen!$D$9:$F$15",
-         "LZ_RND": "Tabellen!$B$36:$B$41", "LZ_Satz": "Tabellen!$D$36:$D$41"}
+         "LZ_RND": "Tabellen!$B$36:$B$41", "LZ_Satz": "Tabellen!$F$36:$F$41"}
 NAMEN.update({e[2]: f"Eingaben!$F${e[1]}" for e in EINGABEN})
 NAMEN.update({t[5]: f"Tabellen!$D${t[0]}" for t in TAB3})
 EINGABE_NAMEN = {e[2] for e in EINGABEN}
@@ -642,20 +656,24 @@ TITEL = {UEB: "VOFI Mietwohnraum 2026: Übersicht", "Eingaben": "Eingaben",
          "NBank": "NBank: Orientierung zur Überkompensation", "Tabellen": "Tabellen", "Hinweise": None}
 SPALTENBREITE = {UEB: {"A": 6, "B": 42, "C": 17, **{c: 12 for c in "DEFGHIJK"}, "L": 38},
                  "Eingaben": {"A": 6, "B": 44, "C": 15, "D": 22, "E": 22, "F": 20, "G": 58},
-                 FREI: {"A": 5, "B": 7, "C": 11, "D": 11, **{c: 13 for c in "EFGHI"}, **{c: 12 for c in "JKL"}, "M": 13,
-                        "N": 8, **{c: 13 for c in "OPQ"},
-                        **{get_column_letter(c): 12 for c in range(18, 29)}},
+                 FREI: {"A": 7, "B": 7, "C": 11, "D": 11, **{c: 13 for c in "EFGHI"}, **{c: 12 for c in "JK"}, "L": 13,
+                        "M": 13, "N": 8, **{c: 13 for c in "OPQ"},
+                        **{get_column_letter(c): 15 for c in range(18, 29)}},
                  "NBank": {"A": 6, "B": 40, "C": 13, "D": 11, "E": 11, "F": 11, "G": 10, "H": 10, "I": 10},
                  "Tabellen": {"A": 6, "B": 44, "C": 18, "D": 12, "E": 12, "F": 12, "G": 56},
                  "Hinweise": {"A": 5, "B": 120}}
-_gb = {"A": 5, "B": 7, **{c: 10 for c in "CDEF"}, **{c: 13 for c in "GHIJK"}, **{c: 12 for c in "LMNOPQ"},
-       "R": 13, "S": 8, **{c: 14 for c in "TUVWX"}}
+# Breiten seit dem Lektorat (Nr. 06): A 7 („Gruppe“), M 13 (Link „Förderbarwert“), Q 13 (Kopf „Kapitaldienst“; Frei L),
+# Zahlungsreihen 15 (Köpfe in vier Zeilen)
+_gb = {"A": 7, "B": 7, **{c: 11 for c in "CDEF"}, **{c: 13 for c in "GHIJKLM"}, **{c: 12 for c in "NOP"},
+       "Q": 13, "R": 13, "S": 8, **{c: 14 for c in "TUVWX"}}
 for _c in range(column_index_from_string("Y"), column_index_from_string("AS") + 1):
-    _gb[get_column_letter(_c)] = 12
+    _gb[get_column_letter(_c)] = 15
 for _g_ in GRUPPEN:
     SPALTENBREITE[GEF[_g_]] = _gb
-DRUCKBEREICH = {g: "A1:J48,K1:X48,A88:J183" for g in GEF.values()}
+# Gefördert: Der zweite Bereich beginnt in Zeile 2 (ohne den Titel aus A1, der dort nach den Wiederholspalten abbräche)
+DRUCKBEREICH = {g: "A1:J48,K2:X48,A88:J183" for g in GEF.values()}
 DRUCKBEREICH[FREI] = "A1:Q48,A88:Q186"
+DRUCKBEREICH["Tabellen"] = "A1:G43"
 WIEDERHOLZEILEN = {"Eingaben": "4:5", FREI: "2:3", **{g: "2:3" for g in GEF.values()}}
 WIEDERHOLSPALTEN = {FREI: "", **{g: "A:B" for g in GEF.values()}}
 # Feste Seitenumbrüche nach Zeile (Konzept G.4): Blockgrenzen
@@ -671,9 +689,9 @@ GRUPPENZEILEN_BLATT = {"Eingaben": list(GRUPPENZEILEN), UEB: [74, 87, 98], "NBan
 BESCHRIFTUNG = {UEB: {}, "Eingaben": {}, "NBank": {}, "Tabellen": {}, "Hinweise": {}, FREI: {}}
 _U = BESCHRIFTUNG[UEB]
 _U.update({"B2": "Aktives Projekt", "B4": "Konventionen", "B5": "Legende", "B6": "Blätter",
-           "D4": "vor Steuern, nominal, T0 = Bezugsfertigkeit; Zeitreihen: Auszahlungen negativ",
-           "D5": "Ändern nur auf „Eingaben“ (blau auf Gelb). Grün: Verweis auf ein anderes Blatt. "
-                 "Weitere Zeilen: + am linken Rand.",
+           "D4": "vor Steuern, nominal, Jahr 0 = Bezugsfertigkeit; Zeitreihen: Auszahlungen < 0",
+           "D5": "Ändern nur auf „Eingaben“ (blau auf Gelb). Grün: von anderem Blatt. „–“: 0 oder kein Wert. "
+                 "Mehr Zeilen: + links.",
            "B8": "Projekt und Finanzierung bei Bezug", "G8": "Frei", "H8": "Bemerkung",
            "A28": "Zeile", "B28": "Jahresrechnung Jahr 1, in € p. a.", "C28": "Satz", "G28": "Frei", "H28": "Bemerkung",
            "B41": "Liquidität", "G41": "Frei", "H41": "Bemerkung",
@@ -686,7 +704,7 @@ _U.update({"B2": "Aktives Projekt", "B4": "Konventionen", "B5": "Legende", "B6":
            "B117": "Prüfung", "C117": "Status", "D117": "A", "E117": "B", "F117": "C", "H117": "Bemerkung"})
 # Übersicht (Konzept D.5, Runde 2): Zeile -> (Nr., Bezeichnung, Einheit, Bemerkung|None, Spalte der Bemerkung)
 # Blöcke ohne Horizont (1–4, 8): Bemerkung in H; Blöcke 5–7: Bemerkung in L.
-_NST = "mehrere Nullstellen möglich"
+_NST = "nicht eindeutig: Hinweis 11"
 UEB_ZEILEN = {
     9: ("1.1", "Gesamtkosten", "€", None), 10: ("1.2", "Zuwendungsfähige Kosten", "€", None),
     11: ("1.3", "Herstellung über Bemessungsgrenze", "€", "nicht zuwendungsfähig"),
@@ -694,8 +712,8 @@ UEB_ZEILEN = {
     13: ("1.5", "NBank-Darlehen", "€", None), 14: ("1.6", "Zuschuss", "€", None),
     15: ("1.7", "Förderung gesamt", "€", "Darlehen + Zuschuss"), 16: ("1.8", "Förderquote auf Gesamtkosten", "%", None),
     17: ("1.9", "Förderbarwert (Zuschuss + Barwertvorteil)", "€",
-         "Zuschuss nach Entgelt + Zinsvorteil; steigt mit Eingabe 6.1"),
-    18: ("1.10", "Bankdarlehen", "€", "Restfinanzierung; Frei: Rest nach Eigenmitteln 1.11 (Eingaben Block 6)"),
+         "Zuschuss nach Entgelt; Barwertvorteil steigt mit Eingabe 6.1"),
+    18: ("1.10", "Bankdarlehen", "€", "Restfinanzierung; Frei: Rest nach 1.11. Konditionen: Eingabe 6.1–6.4"),
     19: ("1.11", "Eigenmittel (RL Nr. 5.2.6), ohne Entgelte", "€",
          "Frei: Mindest-Eigenmittel wie gefördert zuzüglich Eingabe 7.1"),
     20: ("1.12", "Eigenmittelquote", "%", "mindestens 20 % der zuwendungsfähigen Kosten (1.2)"),
@@ -705,8 +723,8 @@ UEB_ZEILEN = {
     26: ("1.18", "Miete Jahr 1", "€/m² Monat", "Frei laut Eingabe 10.1"),
     29: ("1", "Sollmiete: Höchstmiete nettokalt", None, "Schema wie Broschüre S. 11; Frei: Miete laut 1.18"),
     30: ("", "− Mietausfall/Leerstand", None, "der Sollmiete"),
-    31: ("2", "− Objektverwaltung", None, "Satz 2026, fortgeschrieben laut Eingabe 5.5; Betriebskosten umgelegt"),
-    32: ("3", "− Instandhaltung", None, "Satz 2026, fortgeschrieben laut Eingabe 5.5"),
+    31: ("2", "− Objektverwaltung", None, "Stand 2026 + Eingabe 5.5 Jahre; Betriebskosten umgelegt"),
+    32: ("3", "− Instandhaltung", None, "Stand 2026 + Eingabe 5.5 Jahre"),
     33: ("4", "= Überschuss vor Kapitaldienst", None, None),
     34: ("5", "− Verwaltungskostenbeitrag", None, "des Restkapitals"),
     35: ("6", "− Zins NBank-Darlehen", None, "bis Ende Jahr 35"),
@@ -717,10 +735,10 @@ UEB_ZEILEN = {
     44: ("3.3", "Zahlungsüberschuss Jahr 42", "€", None),
     45: ("3.4", "Schuldendienstdeckung (DSCR) Jahr 1", "Faktor", "Zeile 4 ÷ Kapitaldienst; nötige Miete: 8.3"),
     46: ("3.5", "DSCR Minimum Jahr 1–35", "Faktor", None), 47: ("3.6", "Jahre mit Fehlbetrag, Jahr 1–35", "Jahre", None),
-    48: ("3.7", "Größter kumulierter Fehlbetrag, Jahr 1–42", "€", "ohne Zinsen"),
-    49: ("3.8", "Break-even-Tilgung Jahr 1", "%", "Tilgung, bei der Zeile 8 = 0; „–“: schon ohne Tilgung negativ"),
+    48: ("3.7", "Größter kumulierter Fehlbetrag, Jahr 1–42", "€", "unverzinst"),
+    49: ("3.8", "Tragbare Tilgung Jahr 1", "%", "Tilgung, bei der Zeile 8 = 0; „–“: schon ohne Tilgung negativ"),
     50: ("3.9", "Restschuld NBank Ende Jahr 35", "€", None),
-    51: ("3.10", "Schlussrate NBank Jahr 42 über Regelrate", "€", "Rest wird in Jahr 42 getilgt"),
+    51: ("3.10", "Schlussrate NBank über Regeltilgung", "€", "Rest wird in Jahr 42 getilgt"),
     52: ("3.11", "Restschuld Bank Ende Jahr 42", "€", "bei Laufzeit über 42 Jahre (Eingabe 6.4)"),
     63: ("4.9", "Tilgungsschwelle B gegenüber A", "%", "Rechenweg wie Broschüre S. 12"),
     64: ("4.10", "Tilgungsschwelle C gegenüber A", "%", None),
@@ -728,11 +746,11 @@ UEB_ZEILEN = {
     66: ("4.12", "Mehrschuld gegenüber A", "€", None), 67: ("4.13", "Mehr-Sollmiete p. a.", "€", None),
     68: ("4.14", "− Mietausfall/Leerstand", "€", None), 69: ("4.15", "− Verwaltungskostenbeitrag", "€", None),
     70: ("4.16", "= Mehrüberschuss vor Tilgung", "€", "Schwelle = 4.16 ÷ 4.12"),
-    71: ("4.17", "Mehrüberschuss bei Tilgung laut Eingabe 3.1", "€", "Zeile 8: B − A, C − A"),
+    71: ("4.17", "Mehrüberschuss bei Tilgung laut Eingabe 3.1", "€", "4.8: B − A, C − A"),
     72: ("4.18", "Einmalig: Mehr an Bearbeitungsentgelten", "€", None),
     76: ("5.1", "Objekt-IRR nach Förderbarwert, mit Restwert", "%", "Frei ohne Förderung; Förderbarwert 1.9"),
     77: ("5.2", "Objekt-IRR nach Förderbarwert, nur Bodenwert", "%", None),
-    78: ("5.3", "Objekt-IRR nach Zuschuss, mit Restwert", "%", "gefördert ohne Zinsvorteil Darlehen"),
+    78: ("5.3", "Objekt-IRR nach Zuschuss, mit Restwert", "%", "ohne Barwertvorteil des Darlehens"),
     79: ("5.4", "Objekt-IRR ohne Zuschuss, mit Restwert", "%", "Abstand zu Frei (Marktmiete): Bindung"),
     80: ("5.5", "Objekt-IRR nach Förderbarwert, ohne Restwert", "%", _NST),
     81: ("5.6", "Objekt-IRR nach Zuschuss, nur Bodenwert", "%", None),
@@ -740,33 +758,33 @@ UEB_ZEILEN = {
     83: ("5.8", "Objekt-IRR ohne Zuschuss, nur Bodenwert", "%", None),
     84: ("5.9", "Objekt-IRR ohne Zuschuss, ohne Restwert", "%", _NST),
     85: ("5.10", "Hilfsgröße: Nettoanfangsrendite, statisch", "% (Jahr 1)", "ohne Zuschuss, ohne Restwert"),
-    89: ("6.1", "EK-IRR, mit Restwert", "%", "Frei: Eigenmittel wie 1.11, Rest Bank"),
+    89: ("6.1", "EK-IRR, mit Restwert", "%", None),
     90: ("6.2", "EK-IRR, nur Bodenwert", "%", _NST),
     91: ("6.3", "VOFI-EK-Rendite, mit Restwert", "%", "Kontozinsen laut Eingabe 7.2/7.3"),
     92: ("6.4", "VOFI-EK-Rendite, nur Bodenwert", "%", "„n. v.“: Endvermögen ≤ 0"),
-    93: ("6.5", "Restwertanteil am Endvermögen", "%", "über 100 %: Konto nach Restschuld < 0"),
-    94: ("6.6", "EK-IRR, ohne Restwert", "%", _NST), 95: ("6.7", "VOFI-EK-Rendite, ohne Restwert", "%", "„n. v.“: Endvermögen ≤ 0"),
-    96: ("6.8", "Tiefster Stand Projektkonto (VOFI)", "€ (Jahr 0–42)", "negativ: Soll zu 7.3; EK-IRR: Nachschuss"),
+    93: ("6.5", "Restwertanteil am Endvermögen", "%", "über 100 %: Konto − Restschuld < 0"),
+    94: ("6.6", "EK-IRR, ohne Restwert", "%", _NST), 95: ("6.7", "VOFI-EK-Rendite, ohne Restwert", "%", None),
+    96: ("6.8", "Tiefster Stand Projektkonto (VOFI)", "€ (Jahr 0–42)", "negativ: Sollzins laut Eingabe 7.3"),
     100: ("7.1", "Restwert (Boden + Gebäude)", "€", "nach Eingabe 8.3 und 9.4"), 101: ("7.2", "Bodenwert", "€", None),
     102: ("7.3", "Gebäudeanteil", "€", None),
-    103: ("7.4", "Ertragswert Bestand gegenüber Gesamtkosten", "% (Bezug)", "bei Bezug; negativ: unter Gesamtkosten"),
-    104: ("7.5", "Ertragswert Bestand", "€", "Frei: zur gerechneten Miete"),
+    103: ("7.4", "Ertragswert Bestand gegenüber Gesamtkosten", "% (Bezug)", "negativ: unter Gesamtkosten"),
+    104: ("7.5", "Ertragswert zur Bestandsmiete", "€", "Frei: zur gerechneten Miete"),
     105: ("7.6", "Abschlag Bestandsmiete unter Zielmiete", "€", None),
-    106: ("7.7", "Liegenschaftszins", "%", "Standort Neu Wulmstorf"),
-    107: ("7.8", "Ertragswert Zielmiete gegenüber Gesamtkosten", "% (Bezug)", "bei Bezug; nachrichtlich"),
+    106: ("7.7", "Liegenschaftszins", "%", "Standort je Projekt: Tabellen, Tabelle 4"),
+    107: ("7.8", "Ertragswert Zielmiete gegenüber Gesamtkosten", "% (Bezug)", "nachrichtlich"),
     110: ("8.1", "DSCR-Ziel", "Faktor", "Eingabe 10.2"),
     111: ("8.2", "Kapitaldienst Jahr 1, mit Regeltilgung", "€",
-          "Zeilen 5 bis 7 und Bankdarlehen; bei Tilgungsaufschub (3.2) mit Regeltilgung NBank"),
+          "Zeilen 5 bis 7 und Bankdarlehen; bei Aufschub (Eingabe 3.2) mit Regeltilgung NBank"),
     112: ("8.3", "Nötige Miete Jahr 1 für das DSCR-Ziel", "€/m² Monat",
-          "deckt in Jahr 1 DSCR-Ziel × Kapitaldienst und die Zeilen 2 und 3; Folgejahre: 3.5"),
+          "deckt in Jahr 1 DSCR-Ziel × Kapitaldienst, Mietausfall und die Zeilen 2 und 3"),
     113: ("8.4", "Miete Jahr 1, gerechnet", "€/m² Monat", "wie 1.18"),
     114: ("8.5", "Aufschlag Miete Jahr 1 gegenüber Marktmiete", "%", "Frei: gerechnete Miete laut Eingabe 10.1"),
     115: ("8.6", "Aufschlag nötige Miete gegenüber Marktmiete", "%",
           "Frei ohne Bankdarlehen: 8.3 deckt nur die Zeilen 2 und 3"),
     118: ("P1", "Keine Überfinanzierung bei Bezug", None, "Kasse bei Bezug in €"),
-    119: ("P2", "Auswahlfelder 4.1, 4.2, 8.2 und 10.1 gültig", None, None),
+    119: ("P2", "Eingabe 4.1, 4.2, 8.2, 10.1: Auswahl gültig", None, None),
     120: ("P3", "Bank: Anfangstilgung mind. 1 % (RL Nr. 5.3.6)", None, None),
-    121: ("P4", "Renditen mit Restwert berechnet", None, "A, B, C und Frei; „n. v.“ bei Endvermögen ≤ 0"),
+    121: ("P4", "Renditen mit Restwert berechnet", None, "A, B, C und Frei; „n. v.“: Hinweis 11"),
     122: ("P5", "Gebäudeanteil am Restwert positiv", None, "A, B, C und Frei (Miete laut Eingabe 10.1)"),
     123: ("P6", "Eingaben vollständig", None, None),
 }
@@ -793,7 +811,7 @@ UEB_PRUEF = list(range(PZ, PZ + 6))
 # Rasterzeilen Block 4 (4.1–4.8): Spalte B enthält den Tilgungssatz als Zahl (Format „Tilgung 0,00 %“), Zeile 62 = 3.1
 UEB_RASTER_ZEILEN = list(range(55, 63))
 UEB_RASTER = {55 + _k: (f"4.{_k + 1}", "€", "vor Tilgung" if _k == 0 else "Volltilgung in 42 Jahren" if _k == 4
-                        else "gleich Zeile 8, ohne Aufschub" if _k == 7 else None) for _k in range(8)}
+                        else "= Zeile 8, wenn kein Aufschub" if _k == 7 else None) for _k in range(8)}
 for _r, (_a, _b, _c, _l) in UEB_ZEILEN.items():
     _U[f"A{_r}"] = _a
     _U[f"B{_r}"] = _b
@@ -801,6 +819,7 @@ for _r, (_a, _b, _c, _l) in UEB_ZEILEN.items():
         _U[f"C{_r}"] = _c
     if _l is not None:
         _U[f"{'L' if _r in UEB_HORIZONT_ZEILEN else 'H'}{_r}"] = _l
+_U.update({"L89": "", "L95": ""})             # Bemerkungen 6.1 und 6.7 gestrichen (Dopplung, Lektorat Nr. 17, 24)
 for _r, (_a, _c, _l) in UEB_RASTER.items():
     _U[f"A{_r}"], _U[f"C{_r}"] = _a, _c
     if _l is not None:
@@ -824,41 +843,45 @@ for _e in EINGABEN:
     _E[f"G{_e[1]}"] = _e[7]
 
 _T = BESCHRIFTUNG["Tabellen"]
-_T.update({"A2": "Festwerte RL Mietwohnraum 2026 und Bewertung. Bemessungsgrenzen ab 01.10.2026 halbjährlich "
-                 "fortgeschrieben (nbank.de).",
-           "A42": "Kurve geeicht auf Bodenrichtwert 600 €/m²; Tarutinoer 260 €/m², Modellhaus Platzhalter; "
-                  "Anpassung über Eingabe 9.3.",
+_T.update({"A2": "Festwerte RL Mietwohnraum 2026 und Bewertung. Bemessungsgrenzen: Ausgangswerte 01.07.2026; "
+                 "aktuell auf nbank.de.",
+           "A42": "Projekt 1: Rotenburg (Wümme), Bodenrichtwert 185 €/m². Projekt 2: Neu Wulmstorf, 600 €/m² "
+                  "(Tarutinoer: 260 €/m²).",
+           "A43": "Streubreite laut Quelle für Projekt 1: ±1,2 Prozentpunkte. Anpassung an den Standort: Eingabe 9.3.",
+           "B35": "Restnutzungsdauer", "C35": "Einheit", "D35": "Projekt 1", "E35": "Projekt 2", "F35": "verwendet",
+           "G35": "Quelle",
            "B3": None, "D4": "A", "E4": "B", "F4": "C",
-           "A5": "T1", "B5": "Darlehen, höchstens", "C5": "% der zuw. Kosten", "G5": "RL 2026 Nr. 5.3.3.1",
-           "A6": "T2", "B6": "Zuschuss, höchstens", "C6": "% der zuw. Kosten", "G6": "RL 2026 Nr. 5.3.3.2"})
+           "A5": "T1", "B5": "Darlehen, höchstens", "C5": "% der zuw. Kosten", "G5": "RL Nr. 5.3.3.1",
+           "A6": "T2", "B6": "Zuschuss, höchstens", "C6": "% der zuw. Kosten", "G6": "RL Nr. 5.3.3.2"})
 del _T["B3"]
 for _i, _m in enumerate(MIETENSTUFEN):
     _T[f"A{9 + _i}"] = f"T{3 + _i}"
     _T[f"B{9 + _i}"] = _m
-    _T[f"G{9 + _i}"] = "RL 2026 Nr. 5.3.2.2 (Ausgangswert 01.07.2026), 5.4.4"
+    _T[f"G{9 + _i}"] = "RL Nr. 5.3.2.2 (Ausgangswert 01.07.2026), 5.4.4" if _i == 0 else ""   # Quelle einmal je Tabelle
 for _t in TAB3:
     _T[f"A{_t[0]}"], _T[f"B{_t[0]}"], _T[f"C{_t[0]}"], _T[f"G{_t[0]}"] = _t[1], _t[2], _t[3], _t[4]
 for _i in range(6):
     _T[f"A{36 + _i}"] = f"T{26 + _i}"
     _T[f"C{36 + _i}"] = "Jahre"
-    _T[f"G{36 + _i}"] = LZ_QUELLE
-TAB_TITEL = {3: "1 Förderquoten", 7: "2 Mietenstufen", 16: "3 Festwerte RL 2026 und ImmoWertV",
-             34: "4 Bewertung, Standort Neu Wulmstorf"}
+    _T[f"G{36 + _i}"] = LZ_QUELLE if _i == 0 else ""
+TAB_TITEL = {3: "1 Förderquoten", 7: "2 Mietenstufen, Höchstmiete in €/m² Monat", 16: "3 Festwerte RL 2026 und ImmoWertV",
+             34: "4 Bewertung, Liegenschaftszins je Projekt"}
 
 _N = BESCHRIFTUNG["NBank"]
 _N.update({"A2": "Die NBank rechnet selbst (RL Nr. 11.10). Die Werte sind eine interne Orientierung.",
-           "B3": "Projekt", "A5": "N1", "B5": "Swapsatz 30 Jahre", "C5": "%", "G5": "Eingabe 3.4",
-           "A6": "N2", "B6": "Aufschlag", "C6": "Prozentpunkte", "G6": "RL 2026 Nr. 11.10 Abs. 4",
-           "A7": "N3", "B7": "Orientierungswert", "C7": "%",
-           "B10": "Primärgröße VOFI (RL Nr. 11.10 Abs. 3)", "B13": "Gegenrechnung EK-IRR (DAWI Art. 6 Abs. 1)",
+           "B3": "Projekt", "A5": "N1", "B5": "Swapsatz 30 Jahre", "C5": "% p. a.", "G5": "Eingabe 3.4",
+           "A6": "N2", "B6": "Aufschlag", "C6": "Prozentpunkte", "G6": "RL Nr. 11.10 Abs. 4",
+           "A7": "N3", "B7": "Orientierungswert", "C7": "% p. a.",
+           "B10": "Primärgröße VOFI (RL Nr. 11.10 Abs. 3)", "B13": "Gegenprobe EK-IRR (DAWI-Beschluss Art. 6)",
            "B16": "nachrichtlich",
            "D8": "Rendite", "G8": "Lage zum Orientierungswert", "G9": "A", "H9": "B", "I9": "C",
            "A33": "„über“: Die NBank prüft den angemessenen Gewinn ergänzend (RL Nr. 11.10 Abs. 4); "
                   "Gleichstand gilt als „unter“.",
-           "A34": "Horizont, Wiederanlage, Restwert und Swap-Stichtag legt die NBank fest.",
-           "A35": "Barwertvorteil: Darlehen nach Entgelt abzüglich Barwert von Zins, Tilgung und VKB zum Zins "
-                  "laut Eingabe 6.1.",
-           "A36": "EK-IRR nur Bodenwert und ohne Restwert: mehrere Nullstellen möglich; VOFI-EK-Rendite maßgeblich."})
+           "A34": "Zeitraum, Wiederanlage, Restwert und Swap-Stichtag legt die NBank fest.",
+           "A35": "Barwertvorteil: Darlehen nach Entgelt − Barwert von Zins, Tilgung, Verwaltungskostenbeitrag "
+                  "(Eingabe 6.1).",
+           "A36": "N10, N11, N14, N15: EK-IRR nicht eindeutig (Hinweis 11); maßgeblich ist die VOFI-EK-Rendite.",
+           "B26": "Grundlagen"})
 # NBank-Matrix: Zeile -> (Nr., Bezeichnung, Horizont, Zeile auf Gefördert)
 NB_MATRIX = {11: ("N4", "VOFI-EK-Rendite, mit Restwert", 35, 143), 12: ("N5", "VOFI-EK-Rendite, mit Restwert", 42, 143),
              14: ("N6", "EK-IRR, mit Restwert", 35, 140), 15: ("N7", "EK-IRR, mit Restwert", 42, 140),
@@ -872,46 +895,44 @@ for _r, (_a, _b, _h, _z) in NB_MATRIX.items():
     _N[f"A{_r}"], _N[f"B{_r}"] = _a, _b
 NB_BEZUG = {27: ("N16", "Eigenkapital (Grundstück + bar)", "H106"), 28: ("N17", "NBank-Darlehen, Nennwert", "H99"),
             29: ("N18", "Zuschuss nach Bearbeitungsentgelt", "H108"),
-            30: ("N19", "Barwertvorteil Darlehen zum Vergleichszins", "H168"),
-            31: ("N20", "Ausgleichsleistung, Barwert", None)}
+            30: ("N19", "Barwertvorteil NBank-Darlehen", "H168"),
+            31: ("N20", "Förderbarwert (N18 + N19)", None)}
 for _r, (_a, _b, _z) in NB_BEZUG.items():
     _N[f"A{_r}"], _N[f"B{_r}"], _N[f"C{_r}"] = _a, _b, "€"
 
 HINWEISE = [
     "Zweck: Wirtschaftlichkeit geförderter Mietwohnungen nach RL Mietwohnraum 2026, Programmteil 2.1; Gruppen A, B, C "
     "und frei finanziert.",
-    "Bedienung: Projekt auf „Eingaben“ wählen (1 oder 2), nur blaue Werte auf Gelb ändern, Ergebnisse auf „Übersicht“; "
-    "weitere Zeilen über +.",
-    "Konventionen: vor Steuern, nominal, jährlich nachschüssig; T0 = Bezugsfertigkeit; Zeitreihen mit Auszahlungen "
-    "negativ.",
+    "Kürzel: VOFI = vollständiger Finanzplan; IRR = interner Zinsfuß; EK = Eigenkapital; DSCR = Schuldendienstdeckung; "
+    "n. v. = kein Wert.",
+    "Konventionen: vor Steuern, nominal, jährlich nachschüssig; Jahr 0 = Bezugsfertigkeit.",
     "Bauphase nicht abgebildet: Kosten, Eigenkapital, Entgelte und Verwaltungskostenbeitrag (RL Nr. 12.7.1) erst ab "
-    "Bezug; alle Renditen eher zu hoch.",
-    "Kostenstand: Die Sätze 5.2 und 5.3 (Stand 2026) gelten in Jahr 1, Steigerung ab Jahr 2; Eingabe 5.5 schreibt sie "
-    "um Jahre fort.",
-    "Mieten: Höchstmiete (höchstens Marktmiete) in Jahr 1–3, dann alle 3 Jahre +6,15 % (ab Jahr 36 Kappungsgrenze) "
-    "bis zur Vergleichsmiete; je m² ungerundet. Frei finanziert: Marktmiete wie bei Neuvermietung, ohne Grenze nach "
-    "§ 558 BGB; der Frei-IRR zur Marktmiete liegt dadurch rund 0,4–0,5 Prozentpunkte höher. Eingabe 10.1 rechnet "
-    "frei wahlweise mit der Miete, die in Jahr 1 das DSCR-Ziel (Eingabe 10.2) erreicht; Aufschlag auf die Marktmiete: "
-    "Übersicht 1.18 und 8.5. Jahresrechnung, Renditen und Restwert frei zu dieser Miete nur zusammen mit dem "
-    "Aufschlag nennen.",
-    "Finanzierung: Eigenkapital = Grundstück (Sacheinlage) + bar; Bank nur für die Lücke; NBank-Darlehen 0 % bis "
-    "Jahr 35, linear, Rest in Jahr 42. Frei finanziert: Mindest-Eigenmittel wie gefördert zuzüglich Eingabe 7.1, "
-    "der Rest als Bankdarlehen zu den Konditionen der Eingaben 6.1 bis 6.4; gefördert nimmt 7.1 nur bis zur Höhe "
-    "des Bankdarlehens auf.",
-    "Restwert: Ertragswert im Stichjahr; Bestandsmiete je 3 Jahre höchstens um die Kappungsgrenze, bis Jahr 42 bis zur "
-    "Vergleichs-, dann Zielmiete.",
+    "Bezug; Renditen dadurch zu hoch.",
+    "Kostenstand: Eingabe 5.2 und 5.3 (Stand 2026) gelten in Jahr 1 und steigen ab Jahr 2; Eingabe 5.5 schreibt sie "
+    "vorab fort.",
+    "Mieten gefördert: Höchstmiete (höchstens Marktmiete) in Jahr 1–3, dann alle 3 Jahre höchstens +6,15 %, ab Jahr 36 "
+    "höchstens um die Kappungsgrenze; Obergrenze bis Jahr 42 die Vergleichsmiete, danach die Zielmiete (Eingabe 8.2); "
+    "je m² ungerundet. Mieten frei: Marktmiete oder Miete für das DSCR-Ziel (Eingabe 10.1, 10.2), jährlich steigend "
+    "mit Eingabe 4.5, ohne Grenze nach § 558 BGB; mit Grenze läge der Objekt-IRR zur Marktmiete beim Modellhaus rund "
+    "0,4–0,5 Prozentpunkte tiefer. Werte zur Miete für das DSCR-Ziel nur mit dem Aufschlag nennen (Übersicht 8.5).",
+    "Finanzierung: Eigenkapital = Grundstück (Sacheinlage) + bar; Bankdarlehen nur als Restfinanzierung. "
+    "NBank-Darlehen: 0 % Zins bis Ende Jahr 35, Tilgung linear, Rest in Jahr 42. Frei finanziert: Mindest-Eigenmittel "
+    "wie gefördert plus Eingabe 7.1, Rest Bankdarlehen (Eingabe 6.1 bis 6.4). Gefördert mindert Eingabe 7.1 nur das "
+    "Bankdarlehen.",
+    "Restwert: Ertragswert im Stichjahr (Jahr 35 und Jahr 42), gerechnet bis Jahr 80; Mietpfad wie Hinweis 6.",
     "Restwert-Varianten: mit Restwert = Boden + Gebäude; nur Bodenwert = ohne Gebäudeanteil; ohne Restwert = 0.",
-    "Objekt-IRR ohne Finanzierung: ohne Zuschuss, nach Zuschuss, nach Förderbarwert (Zuschuss + Barwertvorteil "
-    "Darlehen zum Zins 6.1).",
-    "IRR bei mehreren Nullstellen: größte mit fallendem Barwert, maßgeblich dann die VOFI-EK-Rendite. „n. v.“: keine "
-    "Lösung gefunden, Endvermögen ≤ 0 oder gesperrt (P1). Fehlbeträge über Jahre: Der EK-IRR rechnet sie als Nachschuss zum internen Zins, die "
-    "VOFI-EK-Rendite führt sie zum Sollzins 7.3 und bezieht auf das Eigenkapital bei Bezug; maßgeblich ist dann die "
-    "VOFI-EK-Rendite.",
-    "Nach außen: Jahresrechnung, Tilgungsvergleich, Annahmen. Renditen nur in der Beratung, als Paar mit Restwert / "
-    "nur Bodenwert und Restwertanteil.",
-    "Bandbreite zu jeder Rendite in der Beratung: Eingabe 9.3 ±0,5 %, 9.4 = 0,50, 8.3 = 5 %, 8.2 = Vergleichsmiete.",
-    "Nicht nach außen: Blatt NBank, Renditen ohne Paar, Platzhalter (Modellhaus: Mieten 4.3/4.4, Liegenschaftszins "
-    "Neu Wulmstorf).",
+    "Objekt-IRR (ohne Darlehen gerechnet) in drei Stufen: ohne Zuschuss, nach Zuschuss, nach Förderbarwert "
+    "(Übersicht 1.9).",
+    "IRR: Bei mehreren Nullstellen zeigt die Mappe die größte mit fallendem Barwert. „n. v.“: keine Lösung, "
+    "Endvermögen ≤ 0 oder gesperrt (P1). Fehlbeträge: Der EK-IRR rechnet sie als Nachschuss zum internen Zins; die "
+    "VOFI-EK-Rendite verzinst sie zum Sollzins (Eingabe 7.3) und bezieht das Endvermögen auf das Eigenkapital bei "
+    "Bezug. In beiden Fällen gilt die VOFI-EK-Rendite.",
+    "Nach außen: Jahresrechnung, Tilgungsvergleich, Annahmen. Renditen nur in der Beratung, je mit Restwert und nur "
+    "Bodenwert, dazu Restwertanteil.",
+    "Bandbreite je Rendite, Beratung: Eingabe 9.3 ±0,5 Prozentpunkte, 9.4 = 0,50, 8.3 = 5 %, 8.2 = Vergleichsmiete.",
+    "Nicht nach außen: Blatt NBank. Modellhaus: Marktmiete (Eingabe 4.4) und Liegenschaftszins (Tabellen, Tabelle 4) "
+    "sind amtliche Werte der Gutachterausschüsse für Rotenburg (Wümme), Stand 01.01.2026; die Vergleichsmiete "
+    "(Eingabe 4.3) ist eine Annahme der PGN. Für einen anderen Standort ersetzen.",
     "Tarutinoer: Grundstück 0 € wie Vorgängermappe; Renditen ohne Grundstückskosten, nur Bodenwert = ohne Restwert; "
     "nicht mit Modellhaus vergleichbar.",
 ]
@@ -919,17 +940,17 @@ for _i, _t in enumerate(HINWEISE):
     BESCHRIFTUNG["Hinweise"][f"B{3 + _i}"] = _t
 
 # Gefördert: Kopf, Spaltenköpfe, Blockbeschriftungen (Spalte A) und Einheiten (Spalte G)
-_GK = {"A2": "Gruppe", "A3": "€ p. a.; Mieten in €/m² Monat; Auszahlungen negativ; ab Jahr 43 nur Werte für den Restwert.",
+_GK = {"A2": "Gruppe", "A3": "Zeitreihe: € p. a., Mieten €/m² Monat, Auszahlungen negativ; ab Jahr 43 nur für Restwert.",
        "Y131": "Nullstellensuche IRR", "Y172": "Nullstellensuche IRR",
        **{f"{_s}{_z}": _t for _z in (132, 173) for _s, _t in zip(("Y", "Z", "AA", "AB"),
           ("Jahr 35: erster Treffer", "Jahr 35: zweiter Versuch", "Jahr 42: erster Treffer", "Jahr 42: zweiter Versuch"))},
        "A4": "Zeit", "C4": "Miete", "G4": "Ertrag und Bewirtschaftung", "L4": "Kapitaldienst", "R4": "Ergebnis",
        "T4": "Bestände Jahresende", "X4": "Restwert", "Y4": "Zahlungsreihen für IRR"}
-_KOEPFE = ["t", "Jahr", "Vergleichsmiete", "Marktmiete", "Zielmiete", "Miete (gebunden, ab Jahr 36 Bestand)", "Sollmiete",
+_KOEPFE = ["t", "Jahr", "Vergleichsmiete", "Marktmiete", "Zielmiete", "Miete gerechnet", "Sollmiete",
            "Mietausfall/ Leerstand", "Objektverwaltung", "Instandhaltung", "Überschuss vor Kapitaldienst",
            "Verwaltungskostenbeitrag", "Zins NBank", "Tilgung NBank", "Zins Bank", "Tilgung Bank", "Kapitaldienst",
            "Zahlungsüberschuss", "DSCR", "Restschuld NBank", "Restschuld Bank", "Projektkonto (VOFI)",
-           "Zahlungsüberschuss kumuliert", "Überschuss zur Zielmiete (Restwert)",
+           "Zahlungsüberschuss kumuliert", "Überschuss zur Zielmiete",
            "Objekt ohne Zuschuss, ohne Restwert", "Objekt ohne Zuschuss, mit Restwert, Jahr 35",
            "Objekt ohne Zuschuss, nur Bodenwert, Jahr 35", "Objekt ohne Zuschuss, mit Restwert, Jahr 42",
            "Objekt ohne Zuschuss, nur Bodenwert, Jahr 42", "Objekt nach Zuschuss, ohne Restwert",
@@ -949,16 +970,16 @@ GEF_BLOCK = {
     94: ("Objektinvestition (ohne KG 800)", "€"), 95: ("Bemessungsgrenze", "€/m²"),
     96: ("Zuwendungsfähige Kosten", "€"), 97: ("Darlehensquote", "%"), 98: ("Zuschussquote", "%"),
     99: ("NBank-Darlehen", "€"), 100: ("Zuschuss", "€"), 101: ("Bearbeitungsentgelte", "€"),
-    102: ("Eigenmittel bar (20 % abzüglich Grundstück)", "€"), 103: ("Bankdarlehen (Restfinanzierung)", "€"),
-    104: ("Bares Eigenkapital, inkl. Entgelte", "€"), 105: ("Kasse bei Bezug", "€"),
+    102: ("Mindest-Eigenmittel bar (20 % − Grundstück)", "€"), 103: ("Bankdarlehen (Restfinanzierung)", "€"),
+    104: ("Bares Eigenkapital (Restgröße)", "€"), 105: ("Kasse bei Bezug", "€"),
     106: ("Eigenkapital (Grundstück + bar)", "€"), 107: ("Eigenmittelquote, ohne Entgelte", "%"),
     108: ("Zuschuss nach Bearbeitungsentgelt", "€"), 109: ("Miete Jahr 1", "€/m² Monat"),
-    110: ("Tilgungsrate NBank", "€ p. a."), 111: ("Annuität Bank", "€ p. a."),
+    110: ("Regeltilgung NBank", "€ p. a."), 111: ("Annuität Bank", "€ p. a."),
     112: ("Restschuld Bank Ende Zinsbindung", "€"), 113: ("Anfangstilgung Bankdarlehen", "%"),
     114: ("Annuität Bank nach Zinsbindung", "€ p. a."),
     116: ("Restwert (Ertragswert)", None), 118: ("Stichjahr", "Jahr"), 119: ("Restnutzungsdauer", "Jahre"),
     120: ("Liegenschaftszins", "%"), 121: ("Bodenwert", "€"), 122: ("Ertragswert zur Zielmiete", "€"),
-    123: ("Ertragswert Bestand", "€"), 124: ("Abschlag Bestandsmiete unter Zielmiete", "€"),
+    123: ("Ertragswert zur Bestandsmiete", "€"), 124: ("Abschlag Bestandsmiete unter Zielmiete", "€"),
     125: ("Gebäudeanteil", "€"), 126: ("Restwert (Boden + Gebäude)", "€"), 127: ("Restwert nur Bodenwert", "€"),
     128: ("Ertragswert Bestand gegenüber Gesamtkosten", "%"), 129: ("Ertragswert Zielmiete gegenüber Gesamtkosten", "%"),
     131: ("Renditen vor Steuern", None), 133: ("Objekt-IRR nach Zuschuss, mit Restwert", None),
@@ -974,8 +995,8 @@ GEF_BLOCK = {
     155: ("Zahlungsüberschuss Jahr 1", "€"), 156: ("DSCR Jahr 1", "Faktor"),
     157: ("DSCR Minimum Jahr 1–35", "Faktor"), 158: ("Jahre mit Fehlbetrag, Jahr 1–35", "Jahre"),
     159: ("Größter kumulierter Fehlbetrag, Jahr 1–42", "€"), 160: ("Zahlungsüberschuss vor NBank-Tilgung, Jahr 1", "€"),
-    161: ("Break-even-Tilgung Jahr 1", "%"), 162: ("Restschuld NBank Ende Jahr 35", "€"),
-    163: ("Summe Tilgung NBank", "€"), 164: ("Schlussrate NBank über Regelrate", "€"),
+    161: ("Tragbare Tilgung Jahr 1", "%"), 162: ("Restschuld NBank Ende Jahr 35", "€"),
+    163: ("Summe Tilgung NBank", "€"), 164: ("Schlussrate NBank über Regeltilgung", "€"),
     165: ("Zahlungsüberschuss Jahr 10", "€"), 166: ("Zahlungsüberschuss Jahr 35", "€"),
     167: ("Zahlungsüberschuss Jahr 42", "€"), 168: ("Barwertvorteil NBank-Darlehen", "€"),
     169: ("Tiefster Stand Projektkonto (VOFI)", "€"), 170: ("Restschuld Bank Ende Jahr 42", "€"),
@@ -1006,9 +1027,9 @@ for _i, _k in enumerate(FREI_KOEPFE):
 _F.update({"A3": _GK["A3"], "A4": "Zeit", "C4": "Miete", "E4": "Ertrag und Bewirtschaftung", "J4": "Kapitaldienst",
            "M4": "Ergebnis", "O4": "Bestände Jahresende", "R4": "Zahlungsreihen für IRR", "AC5": ""})
 # Zeilen mit derselben Bezeichnung und Einheit wie Gefördert
-FREI_WIE_GEF = [88, 90, 91, 92, 93, 94, 95, 96, 102, 103, 105, 106, 109, 111, 112, 113, 114, 116, 118, 119, 120, 121, 125,
+FREI_WIE_GEF = [88, 90, 91, 92, 93, 94, 95, 96, 102, 103, 104, 105, 106, 109, 111, 112, 113, 114, 116, 118, 119, 120, 121, 125,
                 126, 127, 131, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 153, 155, 156, 157, 158, 159,
-                165, 166, 167, 169, 170, 179, 181, 182, 183]
+                165, 166, 167, 169, 170, 179, 181, 183]
 for _r in FREI_WIE_GEF:
     _F[f"A{_r}"] = GEF_BLOCK[_r][0]
     if GEF_BLOCK[_r][1]:
@@ -1017,7 +1038,7 @@ for _r in FREI_WIE_GEF:
 FREI_LEER = [97, 98, 99, 100, 101, 108, 110, 123, 124, 129, 133, 134, 135, 160, 161, 162, 163, 164, 168, 172, 173, 174,
              175, 176, 177, 178]
 _F.update({f"A{_r}": "" for _r in FREI_LEER})
-_F.update({"A104": "Bares Eigenkapital, inkl. KG 800", "G104": "€", "A107": "Eigenmittelquote (zuwendungsfähige Kosten)", "G107": "%",
+_F.update({"A182": "Kapitaldienst Jahr 1", "G182": "€", "A107": "Eigenmittelquote (zuwendungsfähige Kosten)", "G107": "%",
            "A122": "Ertragswert zur gerechneten Miete", "G122": "€",
            "A128": "Ertragswert gegenüber Gesamtkosten", "G128": "%",
            "A136": "Objekt-IRR, mit Restwert", "A137": "Objekt-IRR, nur Bodenwert", "A138": "Objekt-IRR, ohne Restwert",
@@ -1046,13 +1067,25 @@ def lade_referenz():
     RR = rr
     ANN = rr.Annahmen(str(PRUEF_DIR / "annahmen.json"))
     pb = rr.parameter_broschuere(ANN)
-    pb["ovm_start"], pb["markt_start"] = 12.92, 14.48           # Abweichung A7 (Konzept D.2)
+    # Bewertungsansätze des Modellhauses seit 11.11.2026 (Konzept Q, Abweichung A7): Markt- und Vergleichsmiete und
+    # Liegenschaftszins für Rotenburg (Wümme). Die RR rechnet damit; ihre eigene Tabelle (Neu Wulmstorf) gilt für
+    # Projekt 2 und für die Läufe L63 und L68 (Stand bis 10.11.2026).
+    pb["ovm_start"], pb["markt_start"] = OVM_ROTENBURG, MARKT_ROTENBURG
+    pb["lz_tab"] = list(zip(LZ_RND, LZ_ROTENBURG))
     BASIS["M"], BASIS["T"] = pb, rr.parameter_referenzprojekt(ANN)
 
 
 def standard_eingaben(proj):
+    """Eingaben 1.1 bis 10.2 des Projekts im Standard, dazu unter "T4" der Liegenschaftszins des Projekts aus
+    Tabelle 4 (Sätze zu den Restnutzungsdauern LZ_RND)."""
     P = BASIS[proj]
-    return {e[0]: (e[8] if proj == "M" else e[9])(P) for e in EINGABEN}
+    e = {e[0]: (e[8] if proj == "M" else e[9])(P) for e in EINGABEN}
+    e[T4] = tuple(lz for _rnd, lz in P["lz_tab"])
+    return e
+
+
+def eingabe_name(nr):
+    return "Liegenschaftszins Tabelle 4" if nr == T4 else EIN[nr][2]
 
 
 def pmt(i, n, pv):
@@ -1102,7 +1135,8 @@ class Soll:
                  kapp_norm=e["4.6"], kapp_ang=e["4.6"], mietausfall=e["5.1"], mietausfall_frei=e["5.1"],
                  verwaltung_we=e["5.2"], instandhaltung_qm=e["5.3"], kosten_wachstum=e["5.4"],
                  zins_bank=e["6.1"], zinsbindung=min(int(e["6.2"]), 29), zins_anschluss=e["6.3"], prolongation=2,
-                 haben=e["7.2"], soll=e["7.3"], bodenwert_wachstum=e["8.1"], lz_zuschlag=0.0)
+                 haben=e["7.2"], soll=e["7.3"], bodenwert_wachstum=e["8.1"], lz_zuschlag=0.0,
+                 lz_tab=list(zip(LZ_RND, e[T4])))
         brw, gfl = float(e["2.4"]), float(e["2.5"])
         P["brw"], P["gfl"] = (brw if brw * gfl > 0 else None), gfl
         RR.finalisiere(P)
@@ -1771,6 +1805,8 @@ def vergleiche(p, was, ist, spec, werte_blatt=None):
 # =====================================================================================================
 # 6. Testläufe in Excel (Kopie, Eingaben setzen, recalc.py, lesen)
 # =====================================================================================================
+# Bewertungsansätze des Modellhauses bis 10.11.2026 (Platzhalter aus Neu Wulmstorf), für L63 und L68
+BEWERTUNG_BIS_10_11 = {"4.3": OVM_PLATZHALTER, "4.4": MARKT_PLATZHALTER, T4: LZ_NEU_WULMSTORF}
 LAEUFE = [
     ("L1", "M", {}), ("L2", "T", {}), ("L3", "T", {"2.3": 354120}), ("L4", "T", {"2.3": 731325}),
     ("L5", "T", {"2.3": 731325, "7.1": 309386.40}),
@@ -1805,13 +1841,18 @@ LAEUFE = [
     # mit Miete für DSCR-Ziel (Aufschläge „–“)
     ("L59", "M", {"6.4": 10}), ("L60", "T", {"2.3": 731325, "6.4": 5}), ("L61", "M", {"6.2": 30}),
     ("L62", "M", {"4.4": 0, "10.1": "Miete für DSCR-Ziel"}),
-    # Vorgabe 3.1 des Modellhauses seit 10.11.2026: 1/42 (linear über die Höchstlaufzeit). L63 rechnet das Modellhaus mit dem
-    # früheren Satz 2,5 %: Träger der Regression gegen den Stand vorher und der bisherigen Sollwerte des Konzepts
-    ("L63", "M", {"3.1": 0.025}),
+    # Vorgabe 3.1 des Modellhauses seit 10.11.2026: 1/42 (linear über die Höchstlaufzeit); Bewertungsansätze seit 11.11.2026:
+    # Rotenburg (Wümme). L63 rechnet das Modellhaus mit dem früheren Satz 2,5 % und den früheren Bewertungsansätzen
+    # (12,92 / 14,48 €/m², Liegenschaftszins Neu Wulmstorf): Träger der Regression gegen den Stand vorher und der
+    # Sollwerte des Konzepts aus F.3
+    ("L63", "M", {"3.1": 0.025, **BEWERTUNG_BIS_10_11}),
     # Tarutinoer mit dem früheren Satz 2,5 % (1/40 wie v2-1): L64 trägt den Abgleich mit v2-1, die Überleitung E.3, die Regression
     # und die bisherigen Sollwerte von L2; L65 bis L67 tragen die bisherigen Sollwerte von L3 bis L5
     ("L64", "T", {"3.1": 0.025}), ("L65", "T", {"2.3": 354120, "3.1": 0.025}), ("L66", "T", {"2.3": 731325, "3.1": 0.025}),
     ("L67", "T", {"2.3": 731325, "7.1": 309386.40, "3.1": 0.025}),
+    # Modellhaus im Stand vom 10.11.2026 (Tilgung 1/42, Bewertungsansätze 12,92 / 14,48 €/m² und Liegenschaftszins Neu
+    # Wulmstorf): trägt die Sollwerte, die bis dahin für L1 galten (Konzept Q)
+    ("L68", "M", dict(BEWERTUNG_BIS_10_11)),
 ]
 # Fehlerlauf (Runde 2, R1): ungültige Mietenstufe per Einfügen (die Datenüberprüfung greift dabei nicht). Erwartet:
 # Fehlerwerte in der Mappe, aber Gesamtstatus und Prüfungen „prüfen“ (nie „OK“ aus Fehlerwerten), NBank-Lage „prüfen“.
@@ -1879,7 +1920,11 @@ def excel_lauf(mappe, ordner, lid, proj, aend, timeout):
     ws = wb["Eingaben"]
     ws["D3"] = 1 if proj == "M" else 2
     for nr, v in aend.items():
-        ws[f"{PROJEKT_SPALTE[proj]}{EIN[nr][1]}"] = v
+        if nr == T4:                                  # Liegenschaftszins des aktiven Projekts, Tabelle 4
+            for k, lz in enumerate(v):
+                wb["Tabellen"][f"{LZ_SPALTE[proj]}{LZ_ZEILE + k}"] = lz
+        else:
+            ws[f"{PROJEKT_SPALTE[proj]}{EIN[nr][1]}"] = v
     wb.save(ziel)
     wb.close()
     t0 = time.time()
@@ -2555,7 +2600,7 @@ def pruefe_f5(b, wb, xml, nz):
                         "build_vofi.py --nachbearbeiten DATEI stellt die Angabe wieder her")
 
 
-FLEX_GRUPPE = {("NBank", 10): "Primärgröße VOFI (RL Nr. 11.10 Abs. 3)", ("NBank", 13): "Gegenrechnung EK-IRR (DAWI Art. 6 Abs. 1)",
+FLEX_GRUPPE = {("NBank", 10): "Primärgröße VOFI (RL Nr. 11.10 Abs. 3)", ("NBank", 13): "Gegenprobe EK-IRR (DAWI-Beschluss Art. 6)",
                ("NBank", 16): "nachrichtlich", (UEB, 74): "Objektrendite vor Steuern",
                (UEB, 87): "Eigenkapitalrendite vor Steuern", (UEB, 98): "Restwert (Ertragswert)"}
 FLEX_GRUPPE.update({("Tabellen", r): t for r, t in TAB_TITEL.items()})
@@ -2806,9 +2851,25 @@ def pruefe_tabellen(b, wb):
             p.zahl(f"Höchstmiete {m} {g}", wt[f"{'DEF'[i]}{r}"].value, P["hoechstmiete"][g][band], 1e-9)
     for t in TAB3:
         p.zahl(f"{t[1]} {t[5]}", wt[f"D{t[0]}"].value, float(t[6](P, ANN)), 1e-12)
-    for k, (rnd, lz) in enumerate(P["lz_tab"]):
-        p.zahl(f"LZ RND {rnd}", wt[f"B{36 + k}"].value, rnd, 0)
-        p.zahl(f"LZ Satz {rnd}", wt[f"D{36 + k}"].value, lz, 1e-12)
+    # Tabelle 4: Projekt 1 (D) = Rotenburg (Wümme), Projekt 2 (E) = Tabelle der Referenzrechnung (Neu Wulmstorf),
+    # „verwendet“ (F) = INDEX auf die Projektspalte wie auf „Eingaben“
+    p.check([lz for _r, lz in BASIS["T"]["lz_tab"]] == list(LZ_NEU_WULMSTORF)
+            and [r_ for r_, _lz in BASIS["T"]["lz_tab"]] == list(LZ_RND),
+            "Liegenschaftszins Neu Wulmstorf = Tabelle der Referenzrechnung", BASIS["T"]["lz_tab"],
+            list(zip(LZ_RND, LZ_NEU_WULMSTORF)))
+    for k, rnd in enumerate(LZ_RND):
+        r = LZ_ZEILE + k
+        p.zahl(f"LZ RND {rnd}", wt[f"B{r}"].value, rnd, 0)
+        p.zahl(f"LZ Satz {rnd} Projekt 1", wt[f"D{r}"].value, BASIS["M"]["lz_tab"][k][1], 1e-12)
+        p.zahl(f"LZ Satz {rnd} Projekt 2", wt[f"E{r}"].value, BASIS["T"]["lz_tab"][k][1], 1e-12)
+        v = (wt[f"F{r}"].value or "")
+        p.check(isinstance(v, str) and v.replace(" ", "").upper() == f"=INDEX($D{r}:$E{r},PROJEKT_NR)", f"Tabellen!F{r}", v,
+                f"=INDEX($D{r}:$E{r},Projekt_Nr)")
+        p.check(fill6(wt[f"F{r}"]) == GRAU_F and rgb6(wt[f"F{r}"].font.color) in (SCHWARZ, None), f"Tabellen!F{r} Optik",
+                f"{rgb6(wt[f'F{r}'].font.color)}/{fill6(wt[f'F{r}'])}", f"{SCHWARZ}/{GRAU_F}")
+    andere = [c.coordinate for row in wt.iter_rows(min_row=3) for c in row
+              if ist_formelzelle(c) and not (c.column_letter == "F" and LZ_ZEILE <= c.row < LZ_ZEILE + len(LZ_RND))]
+    p.check(not andere, "Tabellen: Formeln nur in F36:F41", andere[:5], "keine weiteren")
     for row in wt.iter_rows(min_row=3):
         for c in row:
             if ist_zahl(c.value):
@@ -2892,9 +2953,17 @@ def pruefe_lauf(b, lid, proj, aend, res, werte, soll, specs):
             p.gleich(f"F{e[1]} {e[2]}", ist, s)
         else:
             p.zahl(f"F{e[1]} {e[2]}", ist, float(s), 1e-9 * max(1.0, abs(s)))
+    # Tabelle 4: „verwendet“ (F) = Liegenschaftszins des aktiven Projekts; die Spalte des anderen Projekts bleibt Standard
+    anderes = "T" if proj == "M" else "M"
+    for k, rnd in enumerate(LZ_RND):
+        r = LZ_ZEILE + k
+        p.zahl(f"Tabellen!B{r} Restnutzungsdauer", werte.get("Tabellen", f"B{r}"), rnd, 0)
+        p.zahl(f"Tabellen!F{r} Liegenschaftszins verwendet", werte.get("Tabellen", f"F{r}"), soll.e[T4][k], 1e-12)
+        p.zahl(f"Tabellen!{LZ_SPALTE[anderes]}{r} anderes Projekt unverändert",
+               werte.get("Tabellen", f"{LZ_SPALTE[anderes]}{r}"), BASIS[anderes]["lz_tab"][k][1], 1e-12)
     p.fertig()
     titel = {"Gefördert": "Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität)",
-             FREI: "Frei finanziert", UEB: "Übersicht (Blöcke 1–8, Prüfstatus)", "NBank": "NBank (Lage, Bezugsgrößen)"}
+             FREI: "Frei finanziert", UEB: "Übersicht (Blöcke 1–8, Prüfstatus)", "NBank": "NBank (Lage, Grundlagen)"}
     gruppen = {"Gefördert": [GEF[g] for g in GRUPPEN], FREI: [FREI], UEB: [UEB], "NBank": ["NBank"]}
     for k, blaetter in gruppen.items():
         p = b.pruefung("F8", f"{lid} {titel[k]} gegen Referenzrechnung")
@@ -3085,7 +3154,38 @@ def pruefe_gelieferte_werte(b, gel, l1):
 
 
 REGRESSION_STATUS = ("OK", "prüfen", "n. v.", "–", "A", "B", "C")
-REGRESSION_UMBENANNT = {("P2", "Auswahlfelder 4.1, 4.2 und 8.2 gültig"): ("P2", "Auswahlfelder 4.1, 4.2, 8.2 und 10.1 gültig")}
+# Zeilen der Übersicht, die seit dem Stand vorher anders heißen (Konzept N: P2 mit Eingabe 10.1; Lektorat vom 11.11.2026)
+REGRESSION_UMBENANNT = {("P2", "Auswahlfelder 4.1, 4.2 und 8.2 gültig"): ("P2", "Eingabe 4.1, 4.2, 8.2, 10.1: Auswahl gültig"),
+                        ("3.8", "Break-even-Tilgung Jahr 1"): ("3.8", "Tragbare Tilgung Jahr 1"),
+                        ("3.10", "Schlussrate NBank Jahr 42 über Regelrate"): ("3.10", "Schlussrate NBank über Regeltilgung"),
+                        ("7.5", "Ertragswert Bestand"): ("7.5", "Ertragswert zur Bestandsmiete")}
+# Texte der Blätter Gefördert A/B/C und NBank, die das Lektorat vom 11.11.2026 geändert hat (Konzept Q): alt -> neu. Die
+# Regression vergleicht diese Zellen mit dem neuen Wortlaut; alle Zahlen und alle übrigen Texte bleiben zellgleich.
+REGRESSION_TEXTE = {
+    "€ p. a.; Mieten in €/m² Monat; Auszahlungen negativ; ab Jahr 43 nur Werte für den Restwert.":
+        "Zeitreihe: € p. a., Mieten €/m² Monat, Auszahlungen negativ; ab Jahr 43 nur für Restwert.",
+    "Miete (gebunden, ab Jahr 36 Bestand)": "Miete gerechnet",
+    "Überschuss zur Zielmiete (Restwert)": "Überschuss zur Zielmiete",
+    "Eigenmittel bar (20 % abzüglich Grundstück)": "Mindest-Eigenmittel bar (20 % − Grundstück)",
+    "Bares Eigenkapital, inkl. Entgelte": "Bares Eigenkapital (Restgröße)",
+    "Tilgungsrate NBank": "Regeltilgung NBank",
+    "Ertragswert Bestand": "Ertragswert zur Bestandsmiete",
+    "Break-even-Tilgung Jahr 1": "Tragbare Tilgung Jahr 1",
+    "Schlussrate NBank über Regelrate": "Schlussrate NBank über Regeltilgung",
+    "%": "% p. a.",                                     # nur NBank C5, C7 (REGRESSION_PROZENT)
+    "RL 2026 Nr. 11.10 Abs. 4": "RL Nr. 11.10 Abs. 4",
+    "Gegenrechnung EK-IRR (DAWI Art. 6 Abs. 1)": "Gegenprobe EK-IRR (DAWI-Beschluss Art. 6)",
+    "Bezugsgrößen": "Grundlagen",
+    "Barwertvorteil Darlehen zum Vergleichszins": "Barwertvorteil NBank-Darlehen",
+    "Ausgleichsleistung, Barwert": "Förderbarwert (N18 + N19)",
+    "Horizont, Wiederanlage, Restwert und Swap-Stichtag legt die NBank fest.":
+        "Zeitraum, Wiederanlage, Restwert und Swap-Stichtag legt die NBank fest.",
+    "Barwertvorteil: Darlehen nach Entgelt abzüglich Barwert von Zins, Tilgung und VKB zum Zins laut Eingabe 6.1.":
+        "Barwertvorteil: Darlehen nach Entgelt − Barwert von Zins, Tilgung, Verwaltungskostenbeitrag (Eingabe 6.1).",
+    "EK-IRR nur Bodenwert und ohne Restwert: mehrere Nullstellen möglich; VOFI-EK-Rendite maßgeblich.":
+        "N10, N11, N14, N15: EK-IRR nicht eindeutig (Hinweis 11); maßgeblich ist die VOFI-EK-Rendite.",
+}
+REGRESSION_PROZENT = {("NBank", "C5"), ("NBank", "C7")}
 REGRESSION_FREI = {"Ertragswert zur Marktmiete": "Ertragswert zur gerechneten Miete",
                    "Ertragswert Marktmiete gegenüber Gesamtkosten": "Ertragswert gegenüber Gesamtkosten"}
 
@@ -3094,17 +3194,21 @@ def pruefe_regression(b, lid, alt, neu):
     """Entscheidung 7 (Konzept N): Mit Schalter „Marktmiete“ sind alle Zellwerte der Blätter Gefördert A/B/C und
     NBank, der Übersicht-Spalten D–F und H–J (Zeilen nach Nr. und Bezeichnung zugeordnet) und die bisherigen
     Frei-Objektwerte (nach Spaltenkopf bzw. Bezeichnung zugeordnet) gleich dem Stand vorher (Toleranz 1e-9)."""
-    def gl(a, c):
+    def gl(a, c, ort=None):
         if ist_zahl(a) and ist_zahl(c):
             return abs(a - c) <= 1e-9 * max(1.0, abs(a))
-        return (norm_text(a) if isinstance(a, str) else a) == (norm_text(c) if isinstance(c, str) else c)
+        ta, tc = (norm_text(a) if isinstance(a, str) else a), (norm_text(c) if isinstance(c, str) else c)
+        if ta == tc:
+            return True
+        # umbenannte Texte; „%“ → „% p. a.“ gilt nur für die Einheiten der Zinssätze auf dem Blatt NBank (C5, C7)
+        return isinstance(ta, str) and REGRESSION_TEXTE.get(ta) == tc and (ta != "%" or ort in REGRESSION_PROZENT)
 
     p = b.pruefung("N", f"{lid} Regression: Gefördert A/B/C und NBank zellgleich dem Stand vorher")
     n = 0
     for blatt in list(GEF.values()) + ["NBank"]:
         for z, v in alt.blatt(blatt).items():
             n += 1
-            if not gl(v, neu.get(blatt, z)):
+            if not gl(v, neu.get(blatt, z), (blatt, z)):
                 p.check(False, f"{blatt}!{z}", neu.get(blatt, z), v)
     p.check(n > 5000, "verglichene Zellen", n, "> 5000")
     p.fertig()
@@ -3401,6 +3505,53 @@ _L1_TILGUNG_42 = {
     ("NBank", "F31"): "2.736.049,81", ("Übersicht", "E94"): "=n. v.", ("Übersicht", "F94"): "=n. v.", ("NBank", "H23"): "=–", ("NBank", "I23"): "=–",
 }
 KONZEPT["L1"] = [(_bl, _z, _L1_TILGUNG_42.get((_bl, _z), _v)) for _bl, _z, _v in KONZEPT["L1"]]
+
+
+# ---- Bewertungsansätze seit 11.11.2026: Modellhaus mit Markt- und Vergleichsmiete und Liegenschaftszins Rotenburg (Wümme) ---
+# Die Werte bis hier (Tilgung 1/42, 12,92 / 14,48 €/m², Liegenschaftszins Neu Wulmstorf) gelten unverändert für L68. Für L1
+# weichen die Zellen ab, die an Marktmiete, Vergleichsmiete oder Liegenschaftszins hängen (Renditen, Restwert, frei
+# finanziert); Finanzierung, Jahresrechnung, Liquidität A/B/C und Tilgungsvergleich bleiben. Die Werte kommen aus der
+# Referenzrechnung mit den neuen Parametern (Soll("M", {}), Anzeige in der Schreibweise des Konzepts), nicht aus der Mappe;
+# F8 prüft dieselben Zellen in jedem Lauf gegen die Referenzrechnung.
+KONZEPT["L68"] = list(KONZEPT["L1"])
+_L1_ROTENBURG = {
+    ("Übersicht", "D76"): "5,0242 %", ("Übersicht", "E76"): "4,7692 %", ("Übersicht", "F76"): "4,6974 %",
+    ("Übersicht", "H76"): "5,0808 %", ("Übersicht", "I76"): "4,8470 %", ("Übersicht", "J76"): "4,7789 %",
+    ("Übersicht", "G76"): "3,9919 %", ("Übersicht", "K76"): "4,1198 %", ("Übersicht", "G77"): "2,1189 %",
+    ("Übersicht", "K77"): "2,8712 %", ("Übersicht", "D78"): "3,6514 %", ("Übersicht", "E78"): "3,1731 %",
+    ("Übersicht", "F78"): "3,0134 %", ("Übersicht", "H78"): "3,8648 %", ("Übersicht", "I78"): "3,4285 %",
+    ("Übersicht", "J78"): "3,2783 %", ("Übersicht", "G78"): "3,9919 %", ("Übersicht", "K78"): "4,1198 %",
+    ("Übersicht", "G81"): "2,1189 %", ("Übersicht", "K81"): "2,8712 %", ("Übersicht", "G82"): "1,6450 %",
+    ("Übersicht", "K82"): "2,5770 %", ("Übersicht", "D79"): "1,7095 %", ("Übersicht", "E79"): "2,2986 %",
+    ("Übersicht", "F79"): "2,5927 %", ("Übersicht", "H79"): "2,1676 %", ("Übersicht", "I79"): "2,6595 %",
+    ("Übersicht", "J79"): "2,9069 %", ("Übersicht", "G79"): "3,9919 %", ("Übersicht", "K79"): "4,1198 %",
+    ("Übersicht", "G83"): "2,1189 %", ("Übersicht", "K83"): "2,8712 %", ("Übersicht", "G84"): "1,6450 %",
+    ("Übersicht", "K84"): "2,5770 %", ("Frei finanziert", "H139"): "2,7353 %", ("Übersicht", "D89"): "5,6134 %",
+    ("Übersicht", "E89"): "5,4258 %", ("Übersicht", "F89"): "5,3898 %", ("Übersicht", "H89"): "5,6126 %",
+    ("Übersicht", "I89"): "5,4511 %", ("Übersicht", "J89"): "5,4202 %", ("Übersicht", "G89"): "4,2038 %",
+    ("Übersicht", "K89"): "4,3876 %", ("Übersicht", "G90"): "−0,0680 %", ("Übersicht", "K90"): "2,0300 %",
+    ("Übersicht", "G94"): "−1,8376 %", ("Übersicht", "K94"): "1,3242 %", ("Übersicht", "D91"): "5,2495 %",
+    ("Übersicht", "E91"): "5,2578 %", ("Übersicht", "F91"): "5,2708 %", ("Übersicht", "H91"): "5,1689 %",
+    ("Übersicht", "I91"): "5,1993 %", ("Übersicht", "J91"): "5,2161 %", ("Übersicht", "G91"): "3,5732 %",
+    ("Übersicht", "K91"): "3,9481 %", ("Übersicht", "K92"): "=n. v.", ("Übersicht", "K95"): "=n. v.",
+    ("Übersicht", "D93"): "83,75 %", ("Übersicht", "E93"): "90,74 %", ("Übersicht", "F93"): "93,29 %",
+    ("Übersicht", "H93"): "73,58 %", ("Übersicht", "I93"): "76,39 %", ("Übersicht", "J93"): "76,77 %",
+    ("Übersicht", "G93"): "186,94 %", ("Übersicht", "K93"): "135,87 %", ("Übersicht", "G96"): "−4.818.629",
+    ("Übersicht", "D100"): "7.273.476,28", ("Übersicht", "E100"): "7.921.310,90", ("Übersicht", "F100"): "8.189.330,80",
+    ("Übersicht", "H100"): "8.853.745,18", ("Übersicht", "I100"): "9.326.335,18", ("Übersicht", "J100"): "9.447.166,43",
+    ("Übersicht", "G100"): "8.943.115,44", ("Übersicht", "K100"): "9.672.926,83", ("Übersicht", "D104"): "7.273.476,28",
+    ("Übersicht", "E104"): "7.921.310,90", ("Übersicht", "F104"): "8.189.330,80", ("Übersicht", "H104"): "8.853.745,18",
+    ("Übersicht", "I104"): "9.326.335,18", ("Übersicht", "J104"): "9.447.166,43", ("Übersicht", "G104"): "8.943.115,44",
+    ("Übersicht", "K104"): "9.672.926,83", ("Übersicht", "D105"): "1.669.639,16", ("Übersicht", "E105"): "1.021.804,55",
+    ("Übersicht", "F105"): "753.784,64", ("Übersicht", "H105"): "819.181,65", ("Übersicht", "I105"): "346.591,65",
+    ("Übersicht", "J105"): "225.760,40", ("Übersicht", "D106"): "3,45 %", ("Übersicht", "E106"): "3,45 %",
+    ("Übersicht", "F106"): "3,45 %", ("Übersicht", "H106"): "3,40 %", ("Übersicht", "I106"): "3,40 %",
+    ("Übersicht", "J106"): "3,40 %", ("Übersicht", "G106"): "3,45 %", ("Übersicht", "K106"): "3,40 %",
+    ("Übersicht", "D103"): "−60,90 %", ("Übersicht", "E103"): "−53,05 %", ("Übersicht", "F103"): "−48,78 %",
+    ("Übersicht", "G103"): "−26,20 %", ("Übersicht", "D107"): "−26,20 %", ("Übersicht", "E107"): "−26,20 %",
+    ("Übersicht", "F107"): "−26,20 %",
+}
+KONZEPT["L1"] = [(_bl, _z, _L1_ROTENBURG.get((_bl, _z), _v)) for _bl, _z, _v in KONZEPT["L1"]]
 
 
 # Tarutinoer seit 10.11.2026 ebenfalls mit Tilgung 1/42: Die Tabellen oben gelten für L64 bis L67 (3.1 = 2,5 %, der Satz der
@@ -3824,7 +3975,9 @@ def main():
         for lid, proj, aend in laeufe:
             res, werte = ergebnisse.get(lid, ({"error": "nicht gelaufen"}, None))
             b.abschnitt(f"Lauf {lid}: {PROJEKT_NAME[proj]}, "
-                        + (", ".join(f"{EIN[k][2]} = {fmt(v)}" for k, v in aend.items()) or "Standard"))
+                        + (", ".join(f"{eingabe_name(k)} = "
+                                     + (" / ".join(fmt(x) for x in v) if isinstance(v, tuple) else fmt(v))
+                                     for k, v in aend.items()) or "Standard"))
             if lid in fehlerlaeufe:
                 sicher(b, "F7", f"{lid} Fehlerlauf", pruefe_fehlerlauf, b, lid, res, werte)
                 continue
@@ -3850,7 +4003,9 @@ def main():
         if not a.baseline:
             a.baseline = str(hole_baseline(ordner) or "")
         if a.baseline and Path(a.baseline).exists():
-            for lid, proj in (("L63", "M"), ("L64", "T")):   # L63, L64: beide Projekte mit Tilgung 2,5 % wie im Stand vorher
+            # L63, L64: beide Projekte mit Tilgung 2,5 % wie im Stand vorher; L63 dazu mit den Bewertungsansätzen des
+            # Modellhauses im Stand vorher (12,92 / 14,48 €/m², Liegenschaftszins Neu Wulmstorf)
+            for lid, proj in (("L63", "M"), ("L64", "T")):
                 if lid in w:
                     alt = sicher(b, "N", f"{lid} Stand vorher berechnen", baseline_lauf, a.baseline, ordner, proj, a.timeout)
                     if alt is None:

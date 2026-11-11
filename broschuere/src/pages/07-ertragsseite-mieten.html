@@ -21,11 +21,11 @@
     .page[data-page="07"] .p07-table thead .num { text-align: right; }
     .page[data-page="07"] .p07-table th, .page[data-page="07"] .p07-table td { border-bottom: 0; vertical-align: middle; }
     .page[data-page="07"] .p07-table thead th { vertical-align: bottom; }
-    .page[data-page="07"] .p07-table tbody td { padding-top: 2.35mm; padding-bottom: 2.35mm; }
+    .page[data-page="07"] .p07-table tbody td { padding-top: 2.9mm; padding-bottom: 2.9mm; }   /* je Zeile 1,1 mm mehr (vorher 2,35 mm): der Tabellenfuß hat eine Zeile statt drei, seine Unterkante fluchtet so weiter mit der Bildunterschrift rechts */
     .page[data-page="07"] .p07-table tr.is-end > * , .page[data-page="07"] .p07-table th.is-end { border-bottom: var(--hair) solid var(--rule); }
     .page[data-page="07"] .p07-table tbody tr:last-child > * { border-bottom: var(--rule-w) solid var(--rule-strong); }
     .page[data-page="07"] .p07-table tbody td.num.is-a { font-weight: 800; }
-    .page[data-page="07"] .p07-table .p07-stufe { padding-top: 2.8mm; padding-bottom: 1.9mm; font: 600 var(--fs-small)/1.2 var(--font-display); color: var(--fg-2); }   /* auf die Grundlinie der 13-pt-Ziffern gesetzt */
+    .page[data-page="07"] .p07-table .p07-stufe { padding-top: 3.35mm; padding-bottom: 2.45mm; font: 600 var(--fs-small)/1.2 var(--font-display); color: var(--fg-2); }   /* auf die Grundlinie der 13-pt-Ziffern gesetzt */
     .page[data-page="07"] .p07-table tr.p07-r26 > * { vertical-align: top; }
     .page[data-page="07"] .p07-table tr.p07-r26 > th { vertical-align: middle; }
     .page[data-page="07"] .p07-table .p07-dash { color: var(--fg-3); font-weight: 500; }
@@ -54,7 +54,7 @@
     .page[data-page="07"] .p07-ms__row { display: grid; grid-template-columns: 7.6mm minmax(0, 1fr); column-gap: 1.8mm; align-items: baseline; padding: .5mm 0 .6mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg); }
     .page[data-page="07"] .p07-ms__row > dt { justify-self: start; box-sizing: border-box; min-width: 5.6mm; text-align: center; padding: .5mm 1mm .4mm; border: var(--hair) solid var(--rule-strong); font: 700 var(--fs-micro)/1 var(--font-display); color: var(--fg); white-space: nowrap; }   /* gleiche Kastenbreite für V, VI, IV (vorher je nach Ziffernbreite 4,6 / 5,5 mm) */
     .page[data-page="07"] .p07-ms__row > dd { -webkit-hyphens: none; hyphens: none; }
-    .page[data-page="07"] .p07-ms__end { margin-top: 1.5mm; }
+    .page[data-page="07"] .p07-ms .p07-ms__end { margin-top: 1.4mm; }   /* Vorsatz hat drei Zeilen; Modul endet bei 272,9 mm */
     .page[data-page="07"] .p07-rules__list { margin-top: 2mm; }
     /* Marken 3,4 mm (Kreis r 1,7 mm) in einem 4-mm-Feld, Raute 4 mm Diagonale – alle Mittelpunkte auf einer Achse.
        Feld 0,3 mm nach links versetzt (Kreis bündig mit der Spalte) und auf die Mitte der ersten Textzeile gesetzt. */
@@ -98,7 +98,7 @@
           <tr class="is-end"><th scope="row" class="p07-prog"><span class="bs-badge bs-24"><b class="bs-badge__no">2.4</b></span></th>
             <td class="p07-stufe">alle</td><td class="num is-a">9,50</td><td class="num">11,50</td><td class="num">12,50</td></tr>
           <tr class="p07-r26"><th scope="row" class="p07-prog"><span class="bs-badge bs-26"><b class="bs-badge__no">2.6</b></span></th>
-            <td class="p07-stufe">alle</td><td colspan="3" class="p07-freeze">bisherige Miete; drei Jahre ab Verlängerung keine Erhöhung, auch nicht bei Wiedervermietung</td></tr>
+            <td class="p07-stufe">alle</td><td colspan="3" class="p07-freeze">bisherige Miete; drei Jahre ab Verlängerung keine Erhöhung, auch bei Wiedervermietung</td></tr>
         </tbody>
       </table>
       <p class="chart__note">Ab EH-40-Niveau bis zu +0,30&nbsp;€ (2.1, 2.3, 2.5); in 2.2 enthalten.</p>
@@ -119,7 +119,7 @@
   <div class="l-grid p07-c">
     <section class="module l-span-5 p07-ms" aria-labelledby="p07-ms-h">
       <h2 class="chart__title" id="p07-ms-h">Mietenstufe</h2>
-      <p class="facts__text">Die Mietenstufe der Standortgemeinde bestimmt Höchstmiete und Bemessungsgrenze.</p>
+      <p class="facts__text">Die Mietenstufe der Standortgemeinde bestimmt Höchstmiete <span class="u-nowrap">und Bemessungsgrenze.</span></p>
       <dl class="p07-ms__list">
         <div class="p07-ms__row"><dt>VI</dt><dd>Buchholz i.&nbsp;d. Nordheide, Neu Wulmstorf</dd></div>
         <div class="p07-ms__row"><dt>V</dt><dd>Hannover, Buxtehude, Seevetal, die sieben Inselgemeinden</dd></div>

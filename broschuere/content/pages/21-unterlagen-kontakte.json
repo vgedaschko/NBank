@@ -25,7 +25,7 @@
         {
           "label": "Aktuelle Informationen",
           "name": "nbank.de",
-          "value": "Förderstellen-Verzeichnis, Bemessungsgrenzen, Bedarfskarte, Vordrucke, Arbeitshilfen, Entgeltkatalog, Bauschild-Vorgaben"
+          "value": "Verzeichnis der Wohnraumförderstellen, Bemessungsgrenzen, NBank-Karte, Vordrucke, Arbeitshilfen, Entgeltkatalog, Bauschild-Vorgaben"
         },
         {
           "label": "Planung und Unterlagen",
@@ -41,7 +41,7 @@
       "items": [
         "**Antrag:** Vordruck 1011 (2.1–2.4) · 1011a + 1012 je Wohnung (2.5) · 1011b (2.6)",
         "**Natürliche Personen**, auch Gesellschafterinnen und Gesellschafter: Selbstauskunft (Vordruck 3076), SCHUFA-Auskunft, Identitätsfeststellung nach Geldwäschegesetz",
-        "**Unternehmen:** Jahresabschlüsse (zwei Jahre), BWA (höchstens drei Monate alt), Handels- und Transparenzregisterauszug, Ertrags-, Finanz- und Liquiditätsplanung (→ S. 11)",
+        "**Unternehmen:** Jahresabschlüsse (zwei Jahre), BWA (höchstens drei Monate alt), Handels- und Transparenzregisterauszug, Ertrags-, Finanz- und Liquiditätsplanung",
         "Grundbuchauszug, Lageplan, Bauzeichnungen, Baubeschreibung (Vordruck 1021)",
         "Wohnflächenberechnung (WoFlV), umbauter Raum (DIN 277), Kosten-Finanzierungsaufteilung",
         "**Bei 2.3:** Energiebedarfsausweis mit Ausgangsklasse"
@@ -60,16 +60,16 @@
           ],
           "items": [
             {
-              "q": "Weitere Antragsberechtigte?",
-              "a": "Auch rechtsfähige Baugemeinschaften; beim Ersterwerb die Käuferseite."
+              "q": "Weitere Antragsberechtigte.",
+              "a": "Auch rechtsfähige Baugemeinschaften; beim Ersterwerb, wer die Wohnungen kauft."
             },
             {
-              "q": "Kein Mehrfamilienhaus?",
+              "q": "Kein Mehrfamilienhaus.",
               "a": "Gemeinschaftliche Wohnformen, im Einzelfall auch Reihen- oder Doppelhäuser. In 2.1, 2.2 und 2.4: je neuem Gebäude mindestens zwei gebundene Wohnungen."
             },
             {
-              "q": "Grundstück und Eigenmittel?",
-              "a": "Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung zählt bis zur Hälfte der Eigenmittel."
+              "q": "Grundstück und Eigenmittel.",
+              "a": "Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung soll höchstens die Hälfte der Eigenmittel ausmachen."
             }
           ]
         },
@@ -81,16 +81,16 @@
           ],
           "items": [
             {
-              "q": "Sicherheiten?",
-              "a": "Grundschuld direkt hinter den Kapitalmarktmitteln; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne Revalutierung. Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft; bei reinen Objektgesellschaften immer."
+              "q": "Sicherheiten.",
+              "a": "Grundschuld direkt nach dem Bankdarlehen; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne Revalutierung. Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft; bei reinen Objektgesellschaften immer."
             },
             {
-              "q": "Tilgungsaufschub?",
+              "q": "Tilgungsaufschub.",
               "a": "Bei vorübergehendem Fehlbetrag im Objekt kann die NBank den Tilgungsbeginn um bis zu fünf Jahre hinausschieben."
             },
             {
-              "q": "Vorzeitige Rückzahlung?",
-              "a": "Bei freiwilliger Rückzahlung in voller Höhe ist der Zuschuss anteilig zurückzuzahlen. Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende.\nBeispiel: Bindungsbeginn 2028, Rückzahlung 2040: Ende 31.12.2050; bei Rückzahlung 2032 erst 2048."
+              "q": "Vorzeitige Rückzahlung.",
+              "a": "Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende.\nBeispiel: Bindungsbeginn 2028, Rückzahlung 2040: Ende 31.12.2050; bei Rückzahlung 2032 erst 2048."
             }
           ]
         },
@@ -102,16 +102,16 @@
           ],
           "items": [
             {
-              "q": "Vorzeitiger Vorhabenbeginn?",
+              "q": "Vorzeitiger Vorhabenbeginn.",
               "a": "Nur nach Zulassung durch die NBank, beantragt frühestens mit dem Förderantrag, auf eigenes Risiko."
             },
             {
-              "q": "Vergabe?",
-              "a": "Mindestens drei Unternehmen zum Angebot auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis 25.000 € netto. Kommunen: zusätzlich Vergaberecht."
+              "q": "Vergabe.",
+              "a": "Mindestens drei Unternehmen zum Angebot auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis 25.000 € netto."
             },
             {
-              "q": "Anzeigen?",
-              "a": "Baubeginn erst anzeigen, wenn er erfolgt ist; für Unternehmen subventionserheblich. Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis."
+              "q": "Anzeigen.",
+              "a": "Baubeginn erst nach dem Beginn anzeigen; für Unternehmen ist die Angabe subventionserheblich (§ 264 StGB). Beim Ersterwerb keine Baubeginn- und Fertigstellungsanzeige. Bauschild mit Förderhinweis."
             }
           ]
         }

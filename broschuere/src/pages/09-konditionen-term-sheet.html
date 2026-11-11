@@ -19,9 +19,10 @@
     .page[data-page="09"] .p09-ts .table thead th { padding-bottom: 1.5mm; }
     .page[data-page="09"] .p09-ts caption { text-align: left; padding-bottom: 2.4mm; }
     .page[data-page="09"] .p09-ts .table .pageref { margin-left: .6mm; }
-    /* ohne Unterzeile (Korrekturlauf 1) mehr Luft: Zeilen je 0,8 mm höher, Tabelle endet auf Höhe der Module von S. 8 */
-    .page[data-page="09"] .p09-ts .table--terms th[scope="row"] { padding-top: 2.25mm; padding-bottom: 1.95mm; }
-    .page[data-page="09"] .p09-ts .table--terms td { padding-top: 1.8mm; padding-bottom: 1.95mm; }
+    /* ohne Unterzeile (Korrekturlauf 1) mehr Luft: Zeilen je 0,5 mm höher (vorher 0,8 mm; die Zeile „Beihilferecht“ hat
+       seit dem Lektorat 11/2026 drei Zeilen), Tabelle endet an der Satzspiegel-Unterkante */
+    .page[data-page="09"] .p09-ts .table--terms th[scope="row"] { padding-top: 2.1mm; padding-bottom: 1.8mm; }
+    .page[data-page="09"] .p09-ts .table--terms td { padding-top: 1.65mm; padding-bottom: 1.8mm; }
     /* Beihilferecht: Zeile auf Papier, Fläche 2,4 mm über die Spaltenkanten gezogen */
     .page[data-page="09"] .p09-ts tr.is-key > th { box-shadow: -2.4mm 0 0 var(--surface-2); }
     .page[data-page="09"] .p09-ts tr.is-key > td { box-shadow: 2.4mm 0 0 var(--surface-2); }

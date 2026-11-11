@@ -5,7 +5,7 @@
     .page[data-page="16"] .p16-head .deck { margin-top: 2.6mm; }
 
     /* Stichtage: links Titel + vergangene Termine, rechts der Frist-Kasten (hängt am Stichtag-Pin), darunter die Achse */
-    .page[data-page="16"] .p16-tl { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: var(--sp-5); }
+    .page[data-page="16"] .p16-tl { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: 12mm; }   /* 12 statt 5 mm: Unterzeile entfällt und die Prüffragen sind kürzer (Lektorat 11/2026); die frei gewordene Höhe ist auf die drei Abstände der Seite verteilt */
     .page[data-page="16"] .p16-tl__side { grid-column: 1 / span 3; grid-row: 1; display: flex; flex-direction: column; }
     .page[data-page="16"] .p16-frist { grid-column: 4 / span 9; grid-row: 1; }
     .page[data-page="16"] .p16-tl__fig { grid-column: 1 / -1; grid-row: 2; }
@@ -39,7 +39,7 @@
        Spaltenraster wie die Eckdaten auf S. 17: Bezeichnung 2 Spalten + Steg | Altes Recht Spalten 3–7 + Steg | RL 2026 Spalten 8–12.
        Korrekturlauf 1: Zwischen Zeilenkopf und Spalte „Altes Recht“ steht ein voller Steg (5 mm); der graue Kopfbalken
        läuft nur über die Textbreite, der Steg vor dem RL-2026-Kasten bleibt frei. */
-    .page[data-page="16"] .p16-cmp { margin-top: var(--sp-5); table-layout: fixed; font-size: var(--fs-module); line-height: 1.3; }
+    .page[data-page="16"] .p16-cmp { margin-top: 12mm; table-layout: fixed; font-size: var(--fs-module); line-height: 1.3; }
     .page[data-page="16"] .p16-cmp .p16-c1 { width: calc(2 * var(--col) + 2 * var(--gutter)); }
     .page[data-page="16"] .p16-cmp .p16-c2 { width: calc(5 * var(--col) + 5 * var(--gutter)); }
     .page[data-page="16"] .p16-cmp tr > :first-child { padding-right: var(--gutter); }
@@ -92,7 +92,7 @@
         <p class="callout__date">31.12.2026</p>
         <p class="p16-frist__ev"><b class="u-nohyphens">Wahlrecht Modernisierung</b>Antragseingang bei der Wohnraumförderstelle</p>
       </div>
-      <p class="callout__body">Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. <b class="p16-bind">Die Wahl ist bindend.</b> Das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026. Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert.</p>
+      <p class="callout__body">Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. <b class="p16-bind">Die Wahl ist bindend</b>. Das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026. Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert.</p>
     </aside>
     <div class="p16-tl__side">
       <h2 class="chart__title" id="p16-tl-h">Stichtage Juni 2026 bis Dezember 2031</h2>
@@ -165,7 +165,7 @@
     <ul class="checklist p16-check">
       <li class="checklist__item"><span class="checklist__box"></span><span><b>Fertiggestellt zwischen 01.02.2002 und 07.12.2004?</b> Dann nur RL 2026. Das alte Recht setzt die Fertigstellung vor dem 01.02.2002 voraus.</span></li>
       <li class="checklist__item"><span class="checklist__box"></span><span><b>Antrag mit ausdrücklicher Wahl bis 31.12.2026</b> bei der Wohnraumförderstelle? Sonst gilt die RL 2026.</span></li>
-      <li class="checklist__item"><span class="checklist__box"></span><span><b>Zwei Effizienzklassen erreichbar?</b> Die RL 2026 verlangt mindestens zwei, in Ausnahmen eine <span class="u-nowrap">(<a class="pageref" href="#seite-15">→&nbsp;S.&nbsp;15</a>).</span></span></li>
+      <li class="checklist__item"><span class="checklist__box"></span><span><b>Zwei Effizienzklassen <span class="u-nohyphens">erreichbar?</span></b> Die RL 2026 verlangt mindestens zwei, in Ausnahmen eine <span class="u-nowrap">(<a class="pageref" href="#seite-15">→&nbsp;S.&nbsp;15</a>).</span></span></li>
     </ul>
   </section>
 

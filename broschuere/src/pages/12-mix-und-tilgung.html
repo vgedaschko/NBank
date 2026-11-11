@@ -9,8 +9,8 @@
        y = 45,35 − 0,001045 × €; Linien aus den ungerundeten Werten (B 16.049,6 €, C 25.720,8 €), Nulldurchgänge B 1,1464 %, C 1,2248 %.
        Diagramm: Linien in Tinte (B gestrichelt, C durchgezogen), Gruppen als Achskreise c-grp-b/-c; kein Rot im Diagramm
        (Rot = Zuschuss). Rechenweg: Unterzeile Mietausfall ohne eigene Nummer (wie S. 11, Zeile 1). */
-    .page[data-page="12"] .mix-lead { margin-top: 3.2mm; max-width: 133.75mm; }
-    .page[data-page="12"] .mix-fig { margin-top: var(--sp-6); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: var(--gutter); align-items: start; }
+    .page[data-page="12"] .mix-lead { margin-top: 5.2mm; max-width: 133.75mm; }   /* Vorspann dreizeilig (Lektorat 11/2026): 2 mm mehr davor, 3,2 mm mehr danach – Unterkante Diagramm und Oberkante unteres Band bleiben auf den Horizonten von S. 13 */
+    .page[data-page="12"] .mix-fig { margin-top: 9.2mm; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: var(--gutter); align-items: start; }
     .page[data-page="12"] .mix-fig > .chart__head { grid-column: 4 / span 9; grid-row: 1; }
     .page[data-page="12"] .mix-fig > .chart__svg { grid-column: 4 / span 9; grid-row: 2; margin-top: 3.6mm; }
     .page[data-page="12"] .mix-note { grid-column: 1 / span 3; grid-row: 1 / span 2; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
@@ -23,7 +23,7 @@
     .page[data-page="12"] .mix-ext { fill: none; stroke: var(--fg-3); stroke-width: .2; stroke-dasharray: .9 .7; }
     .page[data-page="12"] .mix-dot { fill: var(--fg); }
     .page[data-page="12"] .mix-tk { fill: none; stroke: var(--fg); stroke-width: .3; }
-    /* Unteres Band: Rechenweg + Einflüsse (7, außen) | Zulassung und Laufzeit (5, am Bund) */
+    /* Unteres Band: Rechenweg (7, außen) | Zulassung und Laufzeit (5, am Bund); darunter die Einflüsse über die volle Breite */
     .page[data-page="12"] .mix-low { --row-gap: 0; margin-top: var(--sp-4); align-items: start; }
     .page[data-page="12"] .mix-rw caption { caption-side: top; text-align: left; padding-bottom: 2mm; }
     .page[data-page="12"] .mix-rw col.mix-c-val { width: 20.5mm; }
@@ -37,7 +37,7 @@
     .page[data-page="12"] .mix-rw tbody td:not(.num) { padding-right: .8mm; }   /* Positionsspalte: Zeile 1 in zwei Zeilen (Abstand zu den Werten bleibt ≥ 2,5 mm) */
     .page[data-page="12"] .mix-rw tfoot td { padding-top: 2mm; white-space: nowrap; border-bottom: 0; font-size: var(--fs-module); line-height: 1.3; color: var(--fg-3); }
     .page[data-page="12"] .mix-rw tfoot td.num { color: var(--fg-2); }
-    .page[data-page="12"] .mix-infl { margin-top: 3mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="12"] .mix-infl { margin-top: 4mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
     .page[data-page="12"] .mix-txt > .module + .module { margin-top: var(--sp-5); }
     .page[data-page="12"] .mix-txt .body { margin-top: 2.2mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--text); }
   </style>
@@ -64,7 +64,7 @@
     </div>
   </figure>
 
-  <!-- Unteres Band · Rechenweg und Einflüsse (7, außen) | Zulassung von B und C, Über die Laufzeit (5, am Bund) -->
+  <!-- Unteres Band · Rechenweg (7, außen) | Zulassung von B und C, Über die Laufzeit (5, am Bund) · Einflüsse (12) -->
   <div class="l-grid mix-low">
     <div class="l-span-7 module mix-rw">
       <table class="table table--compact table--sheet">
@@ -83,7 +83,6 @@
           <tr><td colspan="2">Einmalig: Mehr an Bearbeitungsentgelten</td><td class="num">3.500</td><td class="num">5.250</td></tr>
         </tfoot>
       </table>
-      <p class="mix-infl">Ein Mietausfall über 2 % und höhere zuwendungsfähige Kosten je m² senken beide Schwellen, denn die Mehrmiete je m² ist fest vorgegeben und die Mehrschuld wächst mit den Kosten.</p>
     </div>
     <div class="l-span-5 mix-txt">
       <section class="module" aria-labelledby="mix-zul-h">
@@ -95,6 +94,7 @@
         <p class="body">Der Zuschuss ist nicht rückzahlbar; das Darlehen ist bis Ende Jahr 35 zinsfrei und nach höchstens 42 Jahren getilgt. A trägt 1,4 Mio. € weniger Schulden als B und 2,1 Mio. € weniger als C. Den Tilgungssatz legt die NBank fest; linear über 42&nbsp;Jahre sind es rechnerisch mindestens 2,38&nbsp;% im Jahr <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span></p>
       </section>
     </div>
+    <p class="l-span-12 mix-infl">Ein Mietausfall über 2 % und höhere zuwendungsfähige Kosten je m² senken beide Schwellen, denn die Mehrmiete je m² ist fest vorgegeben und die Mehrschuld wächst mit den Kosten.</p>
   </div>
 
   <footer class="page__foot" aria-hidden="true"><span class="page__folio">12</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Modellrechnung · Mix und Tilgung</b></span></span></footer>

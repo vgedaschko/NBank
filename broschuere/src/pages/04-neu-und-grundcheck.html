@@ -40,7 +40,7 @@
     .page[data-page="04"] .p04-legend { grid-column: 10 / span 3; padding-bottom: .4mm; }
     .page[data-page="04"] .p04-list .checklist__item { grid-template-columns: 7mm minmax(0, 1fr) calc(3 * var(--col) + 2 * var(--gutter)); column-gap: 0; padding: 2.2mm 0 2.4mm; font-size: var(--fs-small); line-height: 1.42; }
     .page[data-page="04"] .p04-list .checklist__box { width: 4.2mm; height: 4.2mm; margin-top: 0; border-color: var(--fg-2); }
-    .page[data-page="04"] .p04-list p { padding-right: var(--gutter); }
+    .page[data-page="04"] .p04-list p { padding-right: 4mm; }   /* 4 statt 5 mm: „Bedarf am Standort?“ bleibt mit „gegeben“ zweizeilig, der Seitenverweis steht nicht allein */
     .page[data-page="04"] .p04-list b { color: var(--fg); }
 
     /* Schlusssatz: einfache Textzeile, kein Kasten */
@@ -81,7 +81,7 @@
           <td class="col-new is-hl">Ausgangswerte <b class="p04-fig">4.800/5.000&nbsp;€</b> Herstellungskosten; Grundstück separat bis Bodenrichtwert</td>
         </tr>
         <tr>
-          <th scope="row">Mieterkreis und Höchstmiete <small>Jahre 1–3 (nettokalt je m² und Monat)</small></th>
+          <th scope="row">Mieterkreis und Höchstmiete <small>Jahre 1–3 (nettokalt je m²)</small></th>
           <td class="col-old">geringe und mittlere Einkommen; <b class="p04-fig">6,30/6,60&nbsp;€</b> (geringe)</td>
           <td class="table__arrow" aria-hidden="true">→</td>
           <td class="col-new is-hl">Gruppen A, B, C (B/C nur mit <span class="u-nohyphens">Zulassung</span>); A:&nbsp;<b class="p04-fig">6,50/6,80&nbsp;€</b></td>

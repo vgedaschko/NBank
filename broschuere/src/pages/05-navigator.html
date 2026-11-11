@@ -3,6 +3,9 @@
     /* Seite 05 · Navigator · Planwerk. Dominant: Entscheidungsbaum (SVG, 1 Einheit = 1 mm) mit sechs Ziel-Kacheln.
        Baum 5 Spalten (= 72,08 mm = viewBox-Breite, keine Skalierung), Kacheln 7 Spalten; Programmteil-Namen stehen auf den Ja-Pfeilen; die Ja-Pfeile laufen durch den Steg genau auf die Programmnummer.
        Kachel-Lagen (top/height/--ny) und Baumgeometrie sind gemeinsam gerechnet. Farben nur über Tokens.
+       Lektorat 11/2026: Kachel 2.3 eine Zeile höher (+4,3 mm, „Wohnberechtigungsschein“ statt „WBS-Nachweis“); die Äste C und D
+       des Baums und die Kacheln 2.5 und 2.6 sind um dasselbe Maß nach unten gerückt. Die Headline ist zweizeilig; der Abstand
+       über dem Kurzverweis ist so gesetzt, dass er dem Abstand zur Wortleiste „Nicht förderfähig“ gleicht (je 7,6 mm).
        Rauten: Ja-Ausgang rechts, Nein-Ausgang senkrecht; beide Etiketten (.p05-yn) stehen auf ihrem Pfad direkt an der Raute. */
     .page[data-page="05"] .p05-title { align-items: end; }
     .page[data-page="05"] .p05-title > .lead { padding-bottom: .5mm; text-wrap: balance; }
@@ -52,6 +55,7 @@
     .page[data-page="05"] .p05-pin a { font-weight: 700; color: var(--signal-text); }
 
     /* Kurzverweis Vorhabenbeginn: global .callout--ref; Wortleiste mit Run-in-Titel (.runin) */
+    .page[data-page="05"] .callout--ref { margin-top: 7.6mm; }
     .page[data-page="05"] .p05-nf { margin-top: var(--sp-5); padding: 3mm 5mm 3.3mm; background: var(--surface-2); border-top: var(--rule-w) solid var(--rule-strong); font-size: var(--fs-module); line-height: 1.42; color: var(--fg); }
     .page[data-page="05"] .p05-nf__title, .page[data-page="05"] .p05-nf__list, .page[data-page="05"] .p05-nf__list > li { display: inline; }
     /* Trennmarke als Hintergrund im Endabstand des Begriffs: bleibt am Begriff, nie am Zeilenanfang */
@@ -69,20 +73,20 @@
   <div class="module p05-nav">
     <figure class="chart p05-tree" role="group" aria-labelledby="p05-tree-h">
       <figcaption class="chart__head"><h2 class="chart__title" id="p05-tree-h">Was haben Sie vor?</h2></figcaption>
-      <svg class="chart__svg p05-svg" viewBox="0 0 72.08 160.47" width="72.08mm" height="160.47mm" role="img" aria-label="Entscheidungsbaum „Was haben Sie vor?“ mit vier Ausgangslagen. A – Wohnraum im Mehrfamilienhaus neu schaffen oder bis zwei Jahre nach Fertigstellung erstmals erwerben: Auf Borkum, Norderney, Juist, Wangerooge, Baltrum, Langeoog oder Spiekeroog? Ja: Programmteil 2.4; Nein: nächste Frage. Neubau ab Effizienzhaus 40, nur Zuschuss gewünscht? Ja: Programmteil 2.2; Nein: Programmteil 2.1. B – Bestand klimagerecht modernisieren: Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt und nach der Modernisierung mindestens zwei Energieeffizienzklassen besser (ausnahmsweise eine, wenn die NBank das zulässt)? Ja: Programmteil 2.3. C – Freie Bestandswohnung für Gruppe A binden: Frei, ungebunden, vor der Bewilligung weder vermietet noch überlassen? Ja: Programmteil 2.5. D – Auslaufende Landesbindung verlängern: Bindung aus Landesförderung nach altem Recht läuft planmäßig aus, NBank-Darlehen läuft noch? Ja: Programmteil 2.6.">
+      <svg class="chart__svg p05-svg" viewBox="0 0 72.08 164.77" width="72.08mm" height="164.77mm" role="img" aria-label="Entscheidungsbaum „Was haben Sie vor?“ mit vier Ausgangslagen. A – Wohnraum im Mehrfamilienhaus neu schaffen oder bis zwei Jahre nach Fertigstellung erstmals erwerben: Auf Borkum, Norderney, Juist, Wangerooge, Baltrum, Langeoog oder Spiekeroog? Ja: Programmteil 2.4; Nein: nächste Frage. Neubau ab Effizienzhaus 40, nur Zuschuss gewünscht? Ja: Programmteil 2.2; Nein: Programmteil 2.1. B – Bestand klimagerecht modernisieren: Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt und nach der Modernisierung mindestens zwei Energieeffizienzklassen besser (ausnahmsweise eine, wenn die NBank das zulässt)? Ja: Programmteil 2.3. C – Freie Bestandswohnung für Gruppe A binden: Frei, ungebunden, vor der Bewilligung weder vermietet noch überlassen? Ja: Programmteil 2.5. D – Auslaufende Landesbindung verlängern: Bindung aus Landesförderung nach altem Recht läuft planmäßig aus, NBank-Darlehen läuft noch? Ja: Programmteil 2.6.">
         <circle class="p05-start" cx="1.4" cy="1.2" r="1.2"/>
-        <path class="p05-trunk" d="M1.4 1.2V133.5H3.6"/>
+        <path class="p05-trunk" d="M1.4 1.2V137.8H3.6"/>
         <path class="p05-trunk" d="M1.4 4.6H3.6"/>
         <circle class="axb-c p05-axc" cx="6.1" cy="4.6" r="2.5"/>
         <text x="6.1" y="5.8" class="p05-ax t-mid">A</text>
         <path class="p05-trunk" d="M1.4 74.41H3.6"/>
         <circle class="axb-c p05-axc" cx="6.1" cy="74.41" r="2.5"/>
         <text x="6.1" y="75.61" class="p05-ax t-mid">B</text>
-        <path class="p05-trunk" d="M1.4 109.58H3.6"/>
-        <circle class="axb-c p05-axc" cx="6.1" cy="109.58" r="2.5"/>
-        <text x="6.1" y="110.78" class="p05-ax t-mid">C</text>
-        <circle class="axb-c p05-axc" cx="6.1" cy="133.5" r="2.5"/>
-        <text x="6.1" y="134.7" class="p05-ax t-mid">D</text>
+        <path class="p05-trunk" d="M1.4 113.88H3.6"/>
+        <circle class="axb-c p05-axc" cx="6.1" cy="113.88" r="2.5"/>
+        <text x="6.1" y="115.08" class="p05-ax t-mid">C</text>
+        <circle class="axb-c p05-axc" cx="6.1" cy="137.8" r="2.5"/>
+        <text x="6.1" y="139" class="p05-ax t-mid">D</text>
         <text x="10.8" y="5.77" class="p05-label">Wohnraum im Mehrfamilienhaus neu</text>
         <text x="10.8" y="9.72" class="p05-label">schaffen oder bis zwei Jahre nach</text>
         <text x="10.8" y="13.67" class="p05-label">Fertigstellung erstmals erwerben</text>
@@ -123,32 +127,32 @@
         <text x="68.88" y="104.28" class="p05-name t-end">Klimagerechte Modernisierung</text>
         <path class="p05-yes" d="M14.38 103.18H22.89M69.68 103.18H70.18"/>
         <path class="p05-tip" d="M72.08 103.18l-2.2 -1.1v2.2z"/>
-        <text x="10.8" y="110.75" class="p05-label">Freie Bestandswohnung für Gruppe A</text>
-        <text x="10.8" y="114.7" class="p05-label">binden</text>
-        <text x="10.8" y="119.6" class="p05-q">Frei, ungebunden, vor der Bewilligung</text>
-        <text x="10.8" y="123.4" class="p05-q">weder vermietet noch überlassen?</text>
-        <path class="p05-rail" d="M6.1 112.08V125.1"/>
-        <path class="fl-diamond p05-dia" d="M6.1 125.1l2 2l-2 2l-2 -2z"/>
-        <text x="9.6" y="128.15" class="p05-yn">Ja</text>
-        <text x="68.88" y="128.2" class="p05-name t-end">Belegungsbindungen erwerben</text>
-        <path class="p05-yes" d="M14.38 127.1H22.53M69.68 127.1H70.18"/>
-        <path class="p05-tip" d="M72.08 127.1l-2.2 -1.1v2.2z"/>
-        <text x="10.8" y="134.67" class="p05-label">Auslaufende Landesbindung</text>
-        <text x="10.8" y="138.62" class="p05-label">verlängern</text>
-        <text x="10.8" y="143.52" class="p05-q">Bindung aus Landesförderung nach</text>
-        <text x="10.8" y="147.32" class="p05-q">altem Recht läuft planmäßig aus,</text>
-        <text x="10.8" y="151.12" class="p05-q">NBank-Darlehen läuft noch?</text>
-        <path class="p05-rail" d="M6.1 136V152.82"/>
-        <path class="fl-diamond p05-dia" d="M6.1 152.82l2 2l-2 2l-2 -2z"/>
-        <text x="9.6" y="155.87" class="p05-yn">Ja</text>
-        <text x="68.88" y="155.92" class="p05-name t-end">Auslaufende Bindungen verlängern</text>
-        <path class="p05-yes" d="M14.38 154.82H16.57M69.68 154.82H70.18"/>
-        <path class="p05-tip" d="M72.08 154.82l-2.2 -1.1v2.2z"/>
+        <text x="10.8" y="115.05" class="p05-label">Freie Bestandswohnung für Gruppe A</text>
+        <text x="10.8" y="119" class="p05-label">binden</text>
+        <text x="10.8" y="123.9" class="p05-q">Frei, ungebunden, vor der Bewilligung</text>
+        <text x="10.8" y="127.7" class="p05-q">weder vermietet noch überlassen?</text>
+        <path class="p05-rail" d="M6.1 116.38V129.4"/>
+        <path class="fl-diamond p05-dia" d="M6.1 129.4l2 2l-2 2l-2 -2z"/>
+        <text x="9.6" y="132.45" class="p05-yn">Ja</text>
+        <text x="68.88" y="132.5" class="p05-name t-end">Belegungsbindungen erwerben</text>
+        <path class="p05-yes" d="M14.38 131.4H22.53M69.68 131.4H70.18"/>
+        <path class="p05-tip" d="M72.08 131.4l-2.2 -1.1v2.2z"/>
+        <text x="10.8" y="138.97" class="p05-label">Auslaufende Landesbindung</text>
+        <text x="10.8" y="142.92" class="p05-label">verlängern</text>
+        <text x="10.8" y="147.82" class="p05-q">Bindung aus Landesförderung nach</text>
+        <text x="10.8" y="151.62" class="p05-q">altem Recht läuft planmäßig aus,</text>
+        <text x="10.8" y="155.42" class="p05-q">NBank-Darlehen läuft noch?</text>
+        <path class="p05-rail" d="M6.1 140.3V157.12"/>
+        <path class="fl-diamond p05-dia" d="M6.1 157.12l2 2l-2 2l-2 -2z"/>
+        <text x="9.6" y="160.17" class="p05-yn">Ja</text>
+        <text x="68.88" y="160.22" class="p05-name t-end">Auslaufende Bindungen verlängern</text>
+        <path class="p05-yes" d="M14.38 159.12H16.57M69.68 159.12H70.18"/>
+        <path class="p05-tip" d="M72.08 159.12l-2.2 -1.1v2.2z"/>
       </svg>
     </figure>
     <figure class="chart p05-tiles" role="group" aria-labelledby="p05-tiles-h">
       <figcaption class="chart__head"><h2 class="chart__title" id="p05-tiles-h">Die sechs Programmteile</h2></figcaption>
-      <div class="p05-tiles__list is-placed" style="height:160.47mm">
+      <div class="p05-tiles__list is-placed" style="height:164.77mm">
         <article class="p05-tile bs-24 p05-tile--up" data-tile="2.4" style="top:0mm;height:32.87mm;--ny:29.87mm" aria-label="2.4 Ostfriesische Inseln">
           <p class="p05-tile__no"><b>2.4</b><a href="#seite-14">S.&nbsp;14</a></p>
           <div class="p05-tile__body">
@@ -183,7 +187,7 @@
             </dl>
           </div>
         </article>
-        <article class="p05-tile bs-23" data-tile="2.3" style="top:90.68mm;height:26.74mm;--ny:12.5mm" aria-label="2.3 Klimagerechte Modernisierung">
+        <article class="p05-tile bs-23" data-tile="2.3" style="top:90.68mm;height:31.04mm;--ny:12.5mm" aria-label="2.3 Klimagerechte Modernisierung">
           <p class="p05-tile__no"><b>2.3</b><a href="#seite-15">S.&nbsp;15</a></p>
           <div class="p05-tile__body">
             <dl class="p05-spec">
@@ -195,7 +199,7 @@
             <p class="p05-pin p05-pin--frist">Wahlrecht bis 31.12.2026 <a href="#seite-16">→&nbsp;S.&nbsp;16</a></p>
           </div>
         </article>
-        <article class="p05-tile bs-25" data-tile="2.5" style="top:119.42mm;height:16.56mm;--ny:7.68mm" aria-label="2.5 Belegungsbindungen erwerben">
+        <article class="p05-tile bs-25" data-tile="2.5" style="top:123.72mm;height:16.56mm;--ny:7.68mm" aria-label="2.5 Belegungsbindungen erwerben">
           <p class="p05-tile__no"><b>2.5</b><a href="#seite-17">S.&nbsp;17</a></p>
           <div class="p05-tile__body">
             <dl class="p05-spec">
@@ -205,7 +209,7 @@
             </dl>
           </div>
         </article>
-        <article class="p05-tile bs-26 p05-tile--up" data-tile="2.6" style="top:137.98mm;height:22.49mm;--ny:16.84mm" aria-label="2.6 Auslaufende Bindungen verlängern">
+        <article class="p05-tile bs-26 p05-tile--up" data-tile="2.6" style="top:142.28mm;height:22.49mm;--ny:16.84mm" aria-label="2.6 Auslaufende Bindungen verlängern">
           <p class="p05-tile__no"><b>2.6</b><a href="#seite-17">S.&nbsp;17</a></p>
           <div class="p05-tile__body">
             <dl class="p05-spec">
@@ -227,7 +231,7 @@
 
   <section class="p05-nf l-bottom" aria-labelledby="p05-nf-h">
     <h2 class="runin p05-nf__title" id="p05-nf-h">Nicht förderfähig</h2>
-    <ul class="p05-nf__list u-nohyphens"><li>Ferienwohnungen, Ferien- und Wochenendhäuser</li> <li>Heime nach Heimrecht (NuWG)</li> <li>Wohnraum für stationäre oder quasistationäre Versorgung</li> <li>an Pflege- oder Betreuungsvertrag gekoppelter Wohnraum</li> <li>Gemeinschaftsunterkünfte</li> <li>Wohnungen ohne Bindung</li> <li>Eigentumswohnungen zur Vermietung (2.1, 2.2, 2.4)</li> <li>Standorte außerhalb Niedersachsens</li></ul>
+    <ul class="p05-nf__list u-nohyphens"><li>Ferienwohnungen, Ferien- und Wochenendhäuser</li> <li>Heime nach Heimrecht&nbsp;(NuWG)</li> <li>Wohnraum für stationäre oder quasistationäre Versorgung</li> <li>an Pflege- oder Betreuungsvertrag gekoppelter Wohnraum</li> <li>Gemeinschaftsunterkünfte</li> <li>Wohnungen ohne Bindung</li> <li>Eigentumswohnungen zur Vermietung (2.1, 2.2, 2.4)</li> <li>Standorte außerhalb Niedersachsens</li></ul>
   </section>
 
   <footer class="page__foot" aria-hidden="true">

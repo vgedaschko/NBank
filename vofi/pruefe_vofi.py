@@ -106,6 +106,23 @@ Nacharbeit Prüfrunde 2 zur Erweiterung „Frei finanziert“ (KONZEPT-v3.md, Ab
   bei Zinsbindung ≥ 30 Jahre durch die Restlaufzeit 0; sie läuft dann mit Zinsbindung 29 Jahre, der Bankpfad wird
   geschlossen gerechnet (wie bei Laufzeit ≠ 30 Jahre, A9).
   Neue Prüfung F5: Seitenreserve je Druckseite nach der Breitenregel von Excel (ECMA-376), mindestens 10 pt.
+
+Bewertungsansätze des Modellhauses für Rotenburg (Wümme) und Lektorat der Texte (KONZEPT-v3.md, Abschnitt Q, 11.11.2026)
+  Konzeptänderungen, denen das Skript folgt: Eingaben 4.3 und 4.4 des Modellhauses 11,87 und 13,30 €/m² (vorher die
+  Platzhalter 12,92 und 14,48); Tabelle 4 „Liegenschaftszins je Projekt“ mit Projekt 1 in D36:D41 (Rotenburg (Wümme)),
+  Projekt 2 in E36:E41 (Neu Wulmstorf, die Tabelle der Referenzrechnung) und „verwendet“ in F36:F41 (Name LZ_Satz),
+  zweite Fußnote in A43, Druckbereich A1:G43; Texte laut Lektorat (63 Befunde) in den Tabellen dieses Skripts;
+  Druckbereich Gefördert A1:J48, K2:X48, A88:J183; Spaltenbreiten Gefördert A 8, L 14, M 13, Q 13, Y–AS 15, Frei A 8,
+  L 13, R–AB 15, Tabellen D–F 13, NBank C 14 (Toleranz der Breitenprüfung 0,5 statt 1,0).
+  Sollwerte: Die Referenzrechnung läuft für das Modellhaus mit ovm_start = 11,87, markt_start = 13,30 und der Tabelle
+  lz_tab für Rotenburg (lade_referenz); jeder Lauf übergibt der RR die Sätze der Tabelle 4 des aktiven Projekts
+  (Schlüssel "T4"). Die Konzeptwerte für L1 (_L1_ROTENBURG) sind aus dieser Rechnung erzeugt, nicht aus der Mappe.
+  Läufe: L63 (Modellhaus mit Tilgung 2,5 %) rechnet zusätzlich mit 12,92 / 14,48 €/m² und dem Liegenschaftszins Neu
+  Wulmstorf und trägt weiter die Regression gegen den Stand vorher und die Sollwerte aus F.3; neuer Lauf L68 (Modellhaus
+  mit Tilgung 1/42 und denselben früheren Bewertungsansätzen) trägt die Sollwerte, die bis 10.11.2026 für L1 galten.
+  Jeder Lauf prüft, dass Tabelle 4 „verwendet“ die Spalte des aktiven Projekts zeigt und die andere Spalte unverändert
+  ist. Regression: Texte, die das Lektorat auf den Blättern Gefördert A/B/C und NBank geändert hat, gelten mit dem
+  neuen Wortlaut als gleich (REGRESSION_TEXTE, REGRESSION_UMBENANNT); Zahlen bleiben zellgleich.
 """
 import argparse
 import concurrent.futures as cf
@@ -502,7 +519,7 @@ EINGABEN = [
      "Broschüre S. 10: Deckel greift nicht / Projektdaten PGN", lambda P: P["gfl"] or 0, lambda P: P["gfl"] or 0),
     ("3.1", 17, "Tilgung_NBank", "Tilgung NBank-Darlehen, linear", "% p. a.", "pct", ("decimal", 0, 0.10),
      "PGN-Annahme: linear über die Höchstlaufzeit von 42 Jahren", lambda P: 1 / 42,
-     lambda P: 1 / 42),   # beide Projekte: 1/Höchstlaufzeit (RL 2026 Nr. 5.3.5); die Vorgängermappe v2-1 rechnete mit 1/40
+     lambda P: 1 / 42),   # beide Projekte: 1/Höchstlaufzeit (RL Nr. 5.3.5); die Vorgängermappe v2-1 rechnete mit 1/40
     ("3.2", 18, "Tilgungsaufschub", "Tilgungsaufschub", "Jahre", "ganz", ("whole", 0, "Aufschub_max"),
      "PGN-Annahme (Rahmen RL Nr. 5.3.5)", _g("tilgungsfrei"), _g("tilgungsfrei")),
     ("3.3", 19, "Zins_NBank_ab36", "Zins NBank-Darlehen ab Jahr 36", "% p. a.", "pct", ("decimal", 0, 0.10),
@@ -608,7 +625,7 @@ TAB3 = [
      lambda P, A: P["gnd"]),
 ]
 MIETENSTUFEN = ["I", "II", "III", "IV", "V", "VI", "VII"]
-LZ_QUELLE = "Oberer Gutachterausschuss Nds., Landesmodell MFH 01.01.2026"
+LZ_QUELLE = "Gutachterausschuss Nds., Landesmodell MFH 01.01.2026"
 # Tabelle 4 (Konzept C, Q): Liegenschaftszins je Projekt. Restnutzungsdauern B36:B41, Projekt 1 in D (Rotenburg (Wümme),
 # Landesmodell Mehrfamilienhäuser 01.01.2026, mittlerer Bodenrichtwert 185 €/m²), Projekt 2 in E (Neu Wulmstorf, 600 €/m²,
 # gleich der Tabelle der Referenzrechnung), „verwendet“ in F (= Name LZ_Satz).
@@ -655,16 +672,16 @@ TITEL = {UEB: "VOFI Mietwohnraum 2026: Übersicht", "Eingaben": "Eingaben",
          "Gefördert C": "Gefördert C: Zeitreihe und Ergebnisse", FREI: "Frei finanziert: Zeitreihe und Ergebnisse",
          "NBank": "NBank: Orientierung zur Überkompensation", "Tabellen": "Tabellen", "Hinweise": None}
 SPALTENBREITE = {UEB: {"A": 6, "B": 42, "C": 17, **{c: 12 for c in "DEFGHIJK"}, "L": 38},
-                 "Eingaben": {"A": 6, "B": 44, "C": 15, "D": 22, "E": 22, "F": 20, "G": 58},
-                 FREI: {"A": 7, "B": 7, "C": 11, "D": 11, **{c: 13 for c in "EFGHI"}, **{c: 12 for c in "JK"}, "L": 13,
+                 "Eingaben": {"A": 6, "B": 44, "C": 16, "D": 22, "E": 22, "F": 20, "G": 58},
+                 FREI: {"A": 8, "B": 7, "C": 11, "D": 11, **{c: 13 for c in "EFGHI"}, **{c: 12 for c in "JK"}, "L": 13,
                         "M": 13, "N": 8, **{c: 13 for c in "OPQ"},
                         **{get_column_letter(c): 15 for c in range(18, 29)}},
-                 "NBank": {"A": 6, "B": 40, "C": 13, "D": 11, "E": 11, "F": 11, "G": 10, "H": 10, "I": 10},
-                 "Tabellen": {"A": 6, "B": 44, "C": 18, "D": 12, "E": 12, "F": 12, "G": 56},
+                 "NBank": {"A": 6, "B": 40, "C": 14, "D": 11, "E": 11, "F": 11, "G": 10, "H": 10, "I": 10},
+                 "Tabellen": {"A": 6, "B": 44, "C": 19, "D": 13, "E": 13, "F": 13, "G": 56},
                  "Hinweise": {"A": 5, "B": 120}}
-# Breiten seit dem Lektorat (Nr. 06): A 7 („Gruppe“), M 13 (Link „Förderbarwert“), Q 13 (Kopf „Kapitaldienst“; Frei L),
-# Zahlungsreihen 15 (Köpfe in vier Zeilen)
-_gb = {"A": 7, "B": 7, **{c: 11 for c in "CDEF"}, **{c: 13 for c in "GHIJKLM"}, **{c: 12 for c in "NOP"},
+# Breiten seit dem Lektorat (Nr. 06): A 8 („Gruppe“), L 14 (Kopf „Verwaltungs-↵kostenbeitrag“), M 13 (Link
+# „Förderbarwert“), Q 13 (Kopf „Kapitaldienst“; Frei L), Zahlungsreihen 15 (Köpfe in vier Zeilen)
+_gb = {"A": 8, "B": 7, **{c: 11 for c in "CDEF"}, **{c: 13 for c in "GHIJK"}, "L": 14, "M": 13, **{c: 12 for c in "NOP"},
        "Q": 13, "R": 13, "S": 8, **{c: 14 for c in "TUVWX"}}
 for _c in range(column_index_from_string("Y"), column_index_from_string("AS") + 1):
     _gb[get_column_letter(_c)] = 15
@@ -850,6 +867,8 @@ _T.update({"A2": "Festwerte RL Mietwohnraum 2026 und Bewertung. Bemessungsgrenze
            "A43": "Streubreite laut Quelle für Projekt 1: ±1,2 Prozentpunkte. Anpassung an den Standort: Eingabe 9.3.",
            "B35": "Restnutzungsdauer", "C35": "Einheit", "D35": "Projekt 1", "E35": "Projekt 2", "F35": "verwendet",
            "G35": "Quelle",
+           "B8": "Mietenstufe", "C8": "Bemessungsgrenze €/m²", "D8": "Höchstmiete A", "E8": "Höchstmiete B",
+           "F8": "Höchstmiete C", "G8": "Quelle",
            "B3": None, "D4": "A", "E4": "B", "F4": "C",
            "A5": "T1", "B5": "Darlehen, höchstens", "C5": "% der zuw. Kosten", "G5": "RL Nr. 5.3.3.1",
            "A6": "T2", "B6": "Zuschuss, höchstens", "C6": "% der zuw. Kosten", "G6": "RL Nr. 5.3.3.2"})
@@ -2518,7 +2537,7 @@ def pruefe_f5(b, wb, xml, nz):
         p.gleich(f"{t} Registerfarbe", tc, soll)
         for col, w in SPALTENBREITE.get(t, {}).items():
             ist = breite(ws, col)
-            p.check(ist is not None and abs(ist - w) <= 1.0, f"{t} Breite {col}", ist, w)
+            p.check(ist is not None and abs(ist - w) <= 0.5, f"{t} Breite {col}", ist, w)
     p.fertig()
 
     p = b.pruefung("F5", "Gliederung: Eingaben-Blöcke, Übersicht Details, Zahlungsreihen, Jahre 43–80")

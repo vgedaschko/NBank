@@ -993,9 +993,9 @@ Unsere Stadtplanung erarbeitet Bebauungspläne, auch mit Festlegungen für gefö
 
 **Ausnahmen zum Grundcheck** *(zu S. 4)*
 
-- **Weitere Antragsberechtigte.** Auch rechtsfähige Baugemeinschaften; beim Ersterwerb, wer die Wohnungen kauft.
+- **Weitere Antragsberechtigte.** Auch rechtsfähige Baugemeinschaften; beim Ersterwerb, wer kauft.
 - **Kein Mehrfamilienhaus.** Gemeinschaftliche Wohnformen, im Einzelfall auch Reihen- oder Doppelhäuser. In 2.1, 2.2 und 2.4: je neuem Gebäude mindestens zwei gebundene Wohnungen.
-- **Grundstück und Eigenmittel.** Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung soll höchstens die Hälfte der Eigenmittel ausmachen.
+- **Grundstück und Eigenmittel.** Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung soll höchstens die Hälfte ausmachen.
 
 **Finanzierung und Sicherheiten** *(zu S. 9)*
 

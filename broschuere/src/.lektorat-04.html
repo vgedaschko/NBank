@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PDF-Metadaten: scripts/render.cjs übernimmt title (Titel), meta author (Autor), meta description (Thema) und meta keywords (Stichwörter) in Info-Dictionary und XMP -->
+  <title>Wohnraum, der sich rechnet. Mietwohnraumförderung Niedersachsen 2026</title>
+  <meta name="author" content="Planungsgemeinschaft Nord GmbH">
+  <meta name="description" content="Konditionen und Modellrechnungen zur RL Mietwohnraum 2026 für Wohnungswirtschaft, Investorinnen und Investoren, Projektentwicklung und Kommunen. Stand: 30.09.2026">
+  <meta name="keywords" content="Mietwohnraumförderung, Niedersachsen, RL Mietwohnraum 2026, Wohnraumförderung, Sozialer Wohnungsbau, Generalplanung, PGN">
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- 04-neu-und-grundcheck.html -->
+<section class="page" data-page="04" id="seite-04">
+  <style>
+    /* Seite 04 · Neuerungen und Grundcheck · Planwerk. Dominant: Vorher/Nachher-Tabelle 2.1 (obere Hälfte);
+       darunter der Grundcheck als Ankreuzliste mit Programmteil-Matrix. Farben nur über Tokens.
+       Raster: Tabelle 3 + 4 + 5 Spalten (Zeilenkopf · bisher · neu), Chipspalte = Spalten 10–12. */
+
+    /* Titelblock wie S. 5 (H1 7 Spalten, dreizeilig) → gemeinsame Horizontlinie der Doppelseite; rechts bewusst Luft */
+
+    /* Vergleichstabelle ------------------------------------------------------- */
+    .page[data-page="04"] .p04-cmp { margin-top: var(--sp-8); }
+    .page[data-page="04"] .p04-table { table-layout: fixed; margin-top: 3.6mm; font-size: var(--fs-body); line-height: 1.42; }
+    .page[data-page="04"] .p04-c-label { width: calc(3 * var(--col) + 3 * var(--gutter)); }
+    .page[data-page="04"] .p04-c-old { width: calc(4 * var(--col) + 3 * var(--gutter)); }
+    .page[data-page="04"] .p04-c-arrow { width: var(--gutter); }
+    .page[data-page="04"] .p04-table th, .page[data-page="04"] .p04-table td { padding-top: 2.2mm; padding-bottom: 2.4mm; }
+    .page[data-page="04"] .p04-table thead th, .page[data-page="04"] .p04-table thead td { padding-top: 2.4mm; padding-bottom: 2.2mm; vertical-align: bottom; text-transform: none; letter-spacing: 0; }
+    .page[data-page="04"] .p04-table .col-new { padding-left: 3mm; padding-right: 3mm; }
+    .page[data-page="04"] .p04-when { display: block; font: 700 var(--fs-micro)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
+    .page[data-page="04"] .p04-date { display: block; margin-top: 1mm; font: 800 var(--fs-fig-s)/1 var(--font-display); letter-spacing: -.01em; font-variant-numeric: lining-nums tabular-nums; color: var(--fg-3); }
+    .page[data-page="04"] thead .col-new .p04-when { color: var(--fg); }
+    .page[data-page="04"] thead .col-new .p04-date { color: var(--accent-text); }
+    .page[data-page="04"] .p04-table tbody th { font: 700 var(--fs-small)/1.32 var(--font-display); color: var(--fg); }
+    .page[data-page="04"] .p04-table tbody th small { display: block; margin-top: .6mm; font: 500 var(--fs-micro)/1.3 var(--font-text); color: var(--fg-3); }
+    .page[data-page="04"] .p04-table td.col-old { color: var(--fg-3); }
+    .page[data-page="04"] .p04-fig { font: 700 1.04em/1 var(--font-display); letter-spacing: -.005em; font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
+    .page[data-page="04"] .col-old .p04-fig { color: var(--fg-2); }
+    .page[data-page="04"] .col-new .p04-fig { color: var(--fg); }
+    .page[data-page="04"] .p04-table .table__arrow { padding-left: 0; padding-right: 0 !important; color: var(--fg-3); font: 400 11pt/1.2 var(--font-text); }
+    .page[data-page="04"] .p04-table thead .table__arrow { padding-bottom: 2.6mm; }
+    /* Lesehinweis in der leeren Kopfzelle: dort, wo das Auge in die Tabelle einsteigt */
+    .page[data-page="04"] .p04-key { padding-right: 4mm; font: 500 var(--fs-micro)/1.38 var(--font-text); color: var(--fg-3); text-wrap: balance; }
+    /* Programmteil-Chip im Tabellentitel (Text „2.1“ bleibt Teil des Titels) */
+    .page[data-page="04"] .p04-chip { vertical-align: .3mm; }
+    .page[data-page="04"] .p04-chip .bs-badge__no { padding: .9mm 1.5mm .8mm; font-size: var(--fs-label-accent); letter-spacing: .02em; }
+
+    /* Grundcheck ------------------------------------------------------------ */
+    .page[data-page="04"] .p04-check { margin-top: calc(var(--sp-8) + var(--sp-1)); }   /* Oberkante = Kachel 2.3 auf S. 5 (Horizontlinie) */
+    .page[data-page="04"] .p04-check__head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: end; padding-bottom: 2.4mm; }
+    .page[data-page="04"] .p04-check__head .h2 { grid-column: 1 / span 9; }
+    .page[data-page="04"] .p04-legend { grid-column: 10 / span 3; padding-bottom: .4mm; }
+    .page[data-page="04"] .p04-list .checklist__item { grid-template-columns: 7mm minmax(0, 1fr) calc(3 * var(--col) + 2 * var(--gutter)); column-gap: 0; padding: 2.2mm 0 2.4mm; font-size: var(--fs-small); line-height: 1.42; }
+    .page[data-page="04"] .p04-list .checklist__box { width: 4.2mm; height: 4.2mm; margin-top: 0; border-color: var(--fg-2); }
+    .page[data-page="04"] .p04-list p { padding-right: 4mm; }   /* 4 statt 5 mm: „Bedarf am Standort?“ bleibt mit „gegeben“ zweizeilig, der Seitenverweis steht nicht allein */
+    .page[data-page="04"] .p04-list b { color: var(--fg); }
+
+    /* Schlusssatz: einfache Textzeile, kein Kasten */
+    .page[data-page="04"] .p04-close { margin-top: var(--sp-5); padding-left: 7mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
+    .page[data-page="04"] .p04-close b { font: 800 var(--fs-body)/1 var(--font-display); letter-spacing: .02em; text-transform: uppercase; color: var(--fg); margin-right: 1mm; }
+  </style>
+
+  <div class="title-block title-block--split p04-title">
+    <div class="title-block__main">
+      <p class="kicker">Vergleich und Grundcheck</p>
+      <h1 class="h1">Richtlinie 2026: <em>Neuerungen</em> und Voraussetzungen</h1>
+    </div>
+  </div>
+
+  <figure class="module p04-cmp" role="group" aria-labelledby="p04-cap">
+    <figcaption class="chart__head"><h2 class="chart__title" id="p04-cap">Programmteil <span class="bs-badge bs-21 p04-chip"><b class="bs-badge__no">2.1</b></span> im Vergleich&nbsp;· Höchstsätze</h2></figcaption>
+    <table class="table table--compare p04-table">
+      <colgroup><col class="p04-c-label"><col class="p04-c-old"><col class="p04-c-arrow"><col class="p04-c-new"></colgroup>
+      <thead>
+        <tr>
+          <td class="p04-corner"><p class="p04-key">Wertepaare: Mietenstufe <span class="u-nowrap">I–III</span>/<span class="u-nowrap">IV–VII</span>&nbsp;· Bemessung nicht direkt vergleichbar</p></td>
+          <th scope="col" class="col-old"><span class="p04-when">bis</span> <span class="p04-date">30.06.2026</span></th>
+          <th class="table__arrow" aria-hidden="true">→</th>
+          <th scope="col" class="col-new is-hl"><span class="p04-when">seit</span> <span class="p04-date">01.07.2026</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Instru­ment</th>
+          <td class="col-old">zins­lo­ses Dar­le­hen, <b class="p04-fig">75&nbsp;%</b> der Gesamt­kos­ten; Til­gungs­nach­lass <b class="p04-fig">30&nbsp;%</b> des Dar­le­hens nur bei gerin­gen Einkommen</td>
+          <td class="table__arrow" aria-hidden="true">→</td>
+          <td class="col-new is-hl">Dar­le­hen + Zuschuss statt Til­gungs­nach­lass; zusam­men <b class="p04-fig">80&nbsp;%</b> der zuwendungs­fähigen Kosten (Gruppe A: je <b class="p04-fig">40&nbsp;%</b>)</td>
+        </tr>
+        <tr>
+          <th scope="row">Bemes­sung je m² Wohn­flä­che</th>
+          <td class="col-old"><b class="p04-fig">5.330/5.550&nbsp;€</b> Gesamt­kos­ten, Neubau inkl. Grund­stück</td>
+          <td class="table__arrow" aria-hidden="true">→</td>
+          <td class="col-new is-hl">Aus­gangs­werte <b class="p04-fig">4.800/5.000&nbsp;€</b> Her­stel­lungs­kos­ten; Grund­stück separat bis Boden­richt­wert</td>
+        </tr>
+        <tr>
+          <th scope="row">Mie­ter­kreis und Höchst­miete <small>Jahre <span class="u-nowrap">1–3</span> (net­to­kalt je m²)</small></th>
+          <td class="col-old">geringe und mitt­lere Einkommen; <b class="p04-fig">6,30/6,60&nbsp;€</b> (geringe)</td>
+          <td class="table__arrow" aria-hidden="true">→</td>
+          <td class="col-new is-hl">Gruppen A, B, C (B/C nur mit <span class="u-nohyphens">Zulassung</span>); A:&nbsp;<b class="p04-fig">6,50/6,80&nbsp;€</b></td>
+        </tr>
+      </tbody>
+    </table>
+  </figure>
+
+  <section class="module p04-check" aria-labelledby="p04-check-h">
+    <div class="p04-check__head">
+      <h2 class="h2" id="p04-check-h">Grundcheck: sechs Voraussetzungen</h2>
+      <p class="label p04-legend">gilt für</p>
+    </div>
+    <ul class="checklist p04-list">
+      <li class="checklist__item">
+        <span class="checklist__box" aria-hidden="true"></span>
+        <p><b>Antrags­be­rech­tigt, Finan­zie­rung gesi­chert?</b> Pri­vat­per­so­nen, Unter­neh­men mit eigener Rechts­per­sön­lich­keit, Genos­sen­schaf­ten, Kom­mu­nen; die erziel­bare Miete muss Finan­zie­rung und Bewirt­schaf­tung auf Dauer decken.</p>
+        <span class="bs-matrix" role="img" aria-label="gilt für alle Programmteile"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="bs-25">2.5</i><i class="bs-26">2.6</i></span>
+      </li>
+      <li class="checklist__item">
+        <span class="checklist__box" aria-hidden="true"></span>
+        <p><b>Vor der Bewil­li­gung nicht begon­nen?</b> Als Beginn zählen Bau­be­ginn sowie Werk-, Liefer-, Leis­tungs- oder Kauf­ver­trag (außer Bau­grund­stück), nicht Planung bis Leis­tungs­phase&nbsp;6 HOAI; bei 2.5 Miet­ver­trag oder Über­las­sung <a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;19</a>.</p>
+        <span class="bs-matrix" role="img" aria-label="gilt für alle Programmteile"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="bs-25">2.5</i><i class="bs-26">2.6</i></span>
+      </li>
+      <li class="checklist__item">
+        <span class="checklist__box" aria-hidden="true"></span>
+        <p><b>Mehr­familien­haus ab drei Woh­nun­gen?</b> Bei Moder­ni­sie­rung: fer­tig­ge­stellt vor dem 08.12.2004.</p>
+        <span class="bs-matrix" role="img" aria-label="gilt für 2.1 bis 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span>
+      </li>
+      <li class="checklist__item">
+        <span class="checklist__box" aria-hidden="true"></span>
+        <p><b>Bedarf am Stand­ort?</b> In sechs Gebiets­ar­ten gilt er als gegeben, sonst wird er ver­mu­tet, sofern die NBank-Karte keinen geson­der­ten Nach­weis ver­langt <a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>.</p>
+        <span class="bs-matrix" role="img" aria-label="gilt für 2.1, 2.2 und 2.6"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="is-off">2.4</i><i class="is-off">2.5</i><i class="bs-26">2.6</i></span>
+      </li>
+      <li class="checklist__item">
+        <span class="checklist__box" aria-hidden="true"></span>
+        <p><b>Min­des­tens 20&nbsp;% Eigen­mit­tel?</b> Bezogen auf die zuwendungs­fähigen Kosten; auf den Inseln 10&nbsp;% der zuwendungs­fähigen Her­stel­lungs­kos­ten.</p>
+        <span class="bs-matrix" role="img" aria-label="gilt für 2.1 bis 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="bs-23">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span>
+      </li>
+      <li class="checklist__item">
+        <span class="checklist__box" aria-hidden="true"></span>
+        <p><b>Grund­stück gesi­chert?</b> Eigen­tum, Erb­bau­recht oder gesi­cher­ter Erwerb.</p>
+        <span class="bs-matrix" role="img" aria-label="gilt für 2.1, 2.2 und 2.4"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="bs-24">2.4</i><i class="is-off">2.5</i><i class="is-off">2.6</i></span>
+      </li>
+    </ul>
+    <p class="p04-close"><b>Aus­nah­men</b> für gemein­schaft­li­che Wohn­for­men, Reihen- und Dop­pel­häu­ser <a class="pageref" href="#seite-21">→&nbsp;S.&nbsp;21</a>.</p>
+  </section>
+
+  <footer class="page__foot" aria-hidden="true">
+    <span class="page__folio">4</span>
+    <span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Überblick · Neuerungen und Grundcheck</b></span></span>
+  </footer>
+</section>
+</body>
+</html>

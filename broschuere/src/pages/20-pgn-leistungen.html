@@ -13,7 +13,7 @@
     .page[data-page="20"] .p20-head .deck { margin-top: 3mm; letter-spacing: .02em; }
 
     /* Stationen: Phase (rechtsbündig zur Weglinie) · Marke auf der Weglinie · Titel als Run-in + Text (Spalten 4–12) */
-    .page[data-page="20"] .p20-way { margin-top: var(--sp-8); border-top: var(--rule-heavy) solid var(--rule-strong); }
+    .page[data-page="20"] .p20-way { margin-top: 10.5mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
     .page[data-page="20"] .p20-st { position: relative; display: grid; grid-template-columns: 37.6mm 2.2mm var(--station-mk) 2.05mm minmax(0, 1fr); padding: 3.5mm 0 3.43mm; }
     .page[data-page="20"] .p20-st__phase { grid-column: 1; }
     .page[data-page="20"] .p20-st__mk { grid-column: 3; }
@@ -29,7 +29,7 @@
     .page[data-page="20"] .p20-st__text { font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
 
     /* HOAI-Skala (Inline-SVG, 1 Einheit = 1 mm) ------------------------------------------------------------------- */
-    .page[data-page="20"] .p20-hoai { margin-top: 8.6mm; }   /* Oberkante Bewilligungsmarke = Oberkante Verfahrensdetails S. 21 (188,7 mm) */
+    .page[data-page="20"] .p20-hoai { margin-top: 11mm; }   /* Oberkante Bewilligungsmarke = Oberkante Verfahrensdetails S. 21 (188,7 mm); Unterzeile einzeilig (Lektorat 11/2026): 4,9 mm auf die Abstände vor Stationen (10,5 statt 8 mm) und Skala (11 statt 8,6 mm) verteilt */
     .page[data-page="20"] .p20-hoai .chart__svg { margin-top: 0; }
     .page[data-page="20"] .p20-field { fill: var(--surface-2); }
     .page[data-page="20"] .p20-field--after { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }
@@ -140,7 +140,7 @@
   <!-- Module unten -->
   <div class="l-grid l-bottom p20-mods" style="--row-gap:0">
     <aside class="l-span-7 offer-box offer-box--dark on-dark" aria-labelledby="p20-sf"><h2 class="offer-box__title" id="p20-sf">Schlüsselfertig</h2><p class="offer-box__text">Über die PGN Projektgesellschaft Nord GmbH bauen wir auch schlüsselfertig als Generalübernehmer. Förderfähig ist das, wenn Sie mindestens drei Unternehmen zum Angebot auffordern, erst nach der Bewilligung beauftragen und der Generalübernehmer vorab schriftlich der Prüfung von Kalkulation, Nachunternehmervergabe und Abrechnung zustimmt.</p></aside>
-    <aside class="l-span-5 offer-box" aria-labelledby="p20-ko"><h2 class="offer-box__title" id="p20-ko">Für Kommunen</h2><p class="offer-box__text">Unsere Stadtplanung erarbeitet Bebauungspläne, auch mit Festlegungen für geförderten Mietwohnraum <span class="u-nowrap">(<a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>).</span></p></aside>
+    <aside class="l-span-5 offer-box" aria-labelledby="p20-ko"><h2 class="offer-box__title" id="p20-ko">Für Kommunen</h2><p class="offer-box__text">Unsere Stadtplanung erarbeitet <span class="u-nohyphens">Bebauungspläne,</span> auch mit Festlegungen für geförderten Mietwohnraum <span class="u-nowrap">(<a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>).</span></p></aside>
   </div>
 
   <footer class="page__foot" aria-hidden="true"><span class="page__folio">20</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Mit PGN</b></span></span></footer>

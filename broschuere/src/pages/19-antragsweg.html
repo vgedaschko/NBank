@@ -12,7 +12,7 @@
     .page[data-page="19"] .p19-head .lead { margin-top: 3.4mm; max-width: none; }
 
     /* Swimlane ------------------------------------------------------------------------------------------------- */
-    .page[data-page="19"] .p19-lane { margin-top: 4.4mm; }
+    .page[data-page="19"] .p19-lane { margin-top: 7.9mm; }   /* Vorspann entfällt (Lektorat 11/2026): die 8,7 mm sind auf die Abstände vor Swimlane (+3,5), Achtung-Kasten (+2,6) und Ampel (+2,6) verteilt; Ampel-Oberkante bleibt bei 195,9 mm */
     .page[data-page="19"] .p19-lane .chart__head { align-items: baseline; }
     .page[data-page="19"] .p19-lane .offer { grid-column: 2; margin-top: 0; }
     .page[data-page="19"] .p19-ref { font-weight: 600; color: var(--fg-2); }
@@ -42,13 +42,13 @@
     .page[data-page="19"] .p19-st__due .icon { width: 3.6mm; height: 3.6mm; margin-top: .1mm; color: var(--signal-text); }
 
     /* Achtung-Kasten (einer von zwei im Heft): Stopp-Marke + Titel links (4 Spalten), Text ab Spalte 5 ---------------- */
-    .page[data-page="19"] .p19-stop { display: grid; grid-template-columns: 34.6mm minmax(0, 1fr); column-gap: 4.6mm; align-items: start; margin-top: 4.3mm; padding: 3.6mm 4mm 4.2mm; }   /* Ampel-Oberkante = Werkzeugkasten S. 18 (195,9 mm) */
+    .page[data-page="19"] .p19-stop { display: grid; grid-template-columns: 34.6mm minmax(0, 1fr); column-gap: 4.6mm; align-items: start; margin-top: 6.9mm; padding: 3.6mm 4mm 4.2mm; }   /* Ampel-Oberkante = Werkzeugkasten S. 18 (195,9 mm) */
     .page[data-page="19"] .p19-stop__title { font: 900 var(--fs-h3)/1.14 var(--font-display); letter-spacing: .01em; text-transform: uppercase; color: var(--fg); }
     .page[data-page="19"] .p19-stop__title .icon { width: 4.6mm; height: 4.6mm; margin-left: -.575mm; margin-right: 2.175mm; vertical-align: -.75mm; color: var(--accent); }   /* Achteck (x 3–21 von 24) bündig mit der Textkante der Folgezeilen; Textlage unverändert */
     .page[data-page="19"] .p19-stop .callout__body { margin-top: .2mm; }
 
     /* Ampel: drei gleich breite Spalten, Köpfe hell · mittel · dunkel (graustufenfest, Symbol zusätzlich zur Fläche) -- */
-    .page[data-page="19"] .p19-ampel { margin-top: 4.5mm; }
+    .page[data-page="19"] .p19-ampel { margin-top: 7.1mm; }
     .page[data-page="19"] .p19-amp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: 3mm; }
     .page[data-page="19"] .p19-amp__list { margin-top: .6mm; }
     .page[data-page="19"] .p19-amp__head { display: flex; align-items: center; gap: 2mm; height: 6.6mm; padding: 0 2.6mm; font: 800 9pt/1.2 var(--font-display); letter-spacing: .05em; text-transform: uppercase; }

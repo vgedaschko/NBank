@@ -61,7 +61,7 @@
           "items": [
             {
               "q": "Weitere Antragsberechtigte.",
-              "a": "Auch rechtsfähige Baugemeinschaften; beim Ersterwerb, wer die Wohnungen kauft."
+              "a": "Auch rechtsfähige Baugemeinschaften; beim Ersterwerb, wer kauft."
             },
             {
               "q": "Kein Mehrfamilienhaus.",
@@ -69,7 +69,7 @@
             },
             {
               "q": "Grundstück und Eigenmittel.",
-              "a": "Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung soll höchstens die Hälfte der Eigenmittel ausmachen."
+              "a": "Erbbaurecht mit mindestens 60 Jahren Restlaufzeit. Eigenleistung soll höchstens die Hälfte ausmachen."
             }
           ]
         },

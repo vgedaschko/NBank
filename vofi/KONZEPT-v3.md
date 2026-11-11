@@ -587,8 +587,8 @@ Muster: Spalte D/E/F = `'Gefördert A'!x`, `'Gefördert B'!x`, `'Gefördert C'!x
 | 1 | Titel „VOFI Mietwohnraum 2026: Übersicht“ (A1:L1 verbunden) |
 | 2 | B2 „Aktives Projekt“; D2 `=Aktives_Projekt`; H2 „Projekt wählen“, Zellhyperlink → `'Eingaben'!D3` |
 | 3 | B3 „Prüfungen“, Zellhyperlink → `'Übersicht'!A117`; D3 `=IF(COUNTIF($C$118:$C$123,"OK")=ROWS($C$118:$C$123),"OK","prüfen")` |
-| 4 | B4 „Konventionen“; D4 „vor Steuern, nominal, T0 = Bezugsfertigkeit; Zeitreihen: Auszahlungen negativ“ |
-| 5 | B5 „Legende“; D5 „Ändern nur auf „Eingaben“ (blau auf Gelb). Grün: Verweis auf ein anderes Blatt. Weitere Zeilen: + am linken Rand.“ |
+| 4 | B4 „Konventionen“; D4 „vor Steuern, nominal, Jahr 0 = Bezugsfertigkeit; Zeitreihen: Auszahlungen < 0“ |
+| 5 | B5 „Legende“; D5 „Ändern nur auf „Eingaben“ (blau auf Gelb). Grün: von anderem Blatt. „–“: 0 oder kein Wert. Mehr Zeilen: + links.“ |
 | 6 | B6 „Blätter“; D6:K6 Zellhyperlinks: Eingaben · Gefördert A · Gefördert B · Gefördert C · Frei finanziert · NBank · Tabellen · Hinweise |
 
 **Block 1 Projekt und Finanzierung bei Bezug** (Kopf Zeile 8: Nr. · Projekt und Finanzierung bei Bezug · Einheit · A · B · C · Frei · Bemerkung (H))
@@ -603,8 +603,8 @@ Muster: Spalte D/E/F = `'Gefördert A'!x`, `'Gefördert B'!x`, `'Gefördert C'!x
 | 14 | 1.6 | Zuschuss | € | H100 |  | sichtbar |
 | 15 | 1.7 | Förderung gesamt | € | `=x!H99+x!H100` | Darlehen + Zuschuss | sichtbar |
 | 16 | 1.8 | Förderquote auf Gesamtkosten | % | `=IF(x!H93>0,(x!H99+x!H100)/x!H93,0)` |  | sichtbar |
-| 17 | 1.9 | Förderbarwert (Zuschuss + Barwertvorteil) | € | H174 | Zuschuss nach Entgelt + Zinsvorteil; steigt mit Eingabe 6.1 | sichtbar |
-| 18 | 1.10 | Bankdarlehen | € | H103 (G: Frei H103) | Restfinanzierung; Frei: Rest nach Eigenmitteln 1.11 (Eingaben Block 6) | sichtbar |
+| 17 | 1.9 | Förderbarwert (Zuschuss + Barwertvorteil) | € | H174 | Zuschuss nach Entgelt; Barwertvorteil steigt mit Eingabe 6.1 | sichtbar |
+| 18 | 1.10 | Bankdarlehen | € | H103 (G: Frei H103) | Restfinanzierung; Frei: Rest nach 1.11. Konditionen: Eingabe 6.1–6.4 | sichtbar |
 | 19 | 1.11 | Eigenmittel (RL Nr. 5.2.6), ohne Entgelte | € | `=x!H106-x!H101` (G: Frei H106) | Frei: Mindest-Eigenmittel wie gefördert zuzüglich Eingabe 7.1 | sichtbar |
 | 20 | 1.12 | Eigenmittelquote | % | H107 (G: Frei H107) | mindestens 20 % der zuwendungsfähigen Kosten (1.2) | sichtbar |
 | 21 | 1.13 | Bearbeitungsentgelte, einmalig | € | H101 |  | sichtbar |
@@ -620,8 +620,8 @@ Muster: Spalte D/E/F = `'Gefördert A'!x`, `'Gefördert B'!x`, `'Gefördert C'!x
 |---|---|---|---|---|---|
 | 29 | 1 | Sollmiete: Höchstmiete nettokalt |  | G7 | Schema wie Broschüre S. 11; Frei: Miete laut 1.18 |
 | 30 |  | − Mietausfall/Leerstand | `=Mietausfall` | `=-x!H7` | der Sollmiete |
-| 31 | 2 | − Objektverwaltung | `=Verwaltung_WE*(1+Kostensteigerung)^Kosten_Vorlauf` (`#,##0" € je Wohnung"`) | `=-x!I7` | Satz 2026, fortgeschrieben laut Eingabe 5.5; Betriebskosten umgelegt |
-| 32 | 3 | − Instandhaltung | `=Instandhaltung_qm*(1+Kostensteigerung)^Kosten_Vorlauf` (`0.00" €/m²"`) | `=-x!J7` | Satz 2026, fortgeschrieben laut Eingabe 5.5 |
+| 31 | 2 | − Objektverwaltung | `=Verwaltung_WE*(1+Kostensteigerung)^Kosten_Vorlauf` (`#,##0" € je Wohnung"`) | `=-x!I7` | Stand 2026 + Eingabe 5.5 Jahre; Betriebskosten umgelegt |
+| 32 | 3 | − Instandhaltung | `=Instandhaltung_qm*(1+Kostensteigerung)^Kosten_Vorlauf` (`0.00" €/m²"`) | `=-x!J7` | Stand 2026 + Eingabe 5.5 Jahre |
 | 33 | 4 | = Überschuss vor Kapitaldienst |  | K7 |  |
 | 34 | 5 | − Verwaltungskostenbeitrag | `=VKB_Satz` | `=-x!L7` | des Restkapitals |
 | 35 | 6 | − Zins NBank-Darlehen | `=Zins_NBank_1_35` | `=-x!M7` | bis Ende Jahr 35 |
@@ -640,10 +640,10 @@ Muster: Spalte D/E/F = `'Gefördert A'!x`, `'Gefördert B'!x`, `'Gefördert C'!x
 | 45 | 3.4 | Schuldendienstdeckung (DSCR) Jahr 1 | Faktor | H156 | Zeile 4 ÷ Kapitaldienst; nötige Miete: 8.3 | sichtbar |
 | 46 | 3.5 | DSCR Minimum Jahr 1–35 | Faktor | H157 |  | sichtbar |
 | 47 | 3.6 | Jahre mit Fehlbetrag, Jahr 1–35 | Jahre | H158 |  | sichtbar |
-| 48 | 3.7 | Größter kumulierter Fehlbetrag, Jahr 1–42 | € | H159 | ohne Zinsen | sichtbar |
-| 49 | 3.8 | Break-even-Tilgung Jahr 1 | % | `=MAX(0,x!H161)` | Tilgung, bei der Zeile 8 = 0; „–“: schon ohne Tilgung negativ | sichtbar |
+| 48 | 3.7 | Größter kumulierter Fehlbetrag, Jahr 1–42 | € | H159 | unverzinst | sichtbar |
+| 49 | 3.8 | Tragbare Tilgung Jahr 1 | % | `=MAX(0,x!H161)` | Tilgung, bei der Zeile 8 = 0; „–“: schon ohne Tilgung negativ | sichtbar |
 | 50 | 3.9 | Restschuld NBank Ende Jahr 35 | € | H162 |  | eingeklappt |
-| 51 | 3.10 | Schlussrate NBank Jahr 42 über Regelrate | € | H164 | Rest wird in Jahr 42 getilgt | eingeklappt |
+| 51 | 3.10 | Schlussrate NBank über Regeltilgung | € | H164 | Rest wird in Jahr 42 getilgt | eingeklappt |
 | 52 | 3.11 | Restschuld Bank Ende Jahr 42 | € | H170 | bei Laufzeit über 42 Jahre (Eingabe 6.4) | eingeklappt |
 
 **Block 4 Tilgungssatz** (Kopf Zeile 54: Nr. · Zahlungsüberschuss Jahr 1 je Tilgungssatz · Einheit · A · B · C · höchster Überschuss (zentriert, zweizeilig) · Bemerkung (H)). Die Rasterwerte stehen als Zahl in Spalte B (Format `"Tilgung "0.00 %`, Anzeige „Tilgung 1,00 %“; feste Hilfswerte, schwarz, keine Eingabe), außer B59 `=1/Laufzeit_max` und B62 `=Tilgung_NBank` (Format `"Tilgung "0.00 %" laut Eingabe 3.1"`). C = „€“. Zwischenwerte 1,25 / 1,75 / 2,25 / 2,75 % gestrichen (Runde 2 V5).
@@ -651,7 +651,7 @@ Muster: Spalte D/E/F = `'Gefördert A'!x`, `'Gefördert B'!x`, `'Gefördert C'!x
 | Zeile | Nr. | B | D–F, G | H Bemerkung | Gliederung |
 |---|---|---|---|---|---|
 | 55–61 | 4.1–4.7 | 0,00 · 1,00 · 1,50 · 2,00 · `=1/Laufzeit_max` · 2,50 · 3,00 % | D `='Gefördert A'!$H$160-$B55*'Gefördert A'!$H$99`, E/F analog; G `=INDEX($D$54:$F$54,MATCH(MAX(D55:F55),D55:F55,0))` | Zeile 55: „vor Tilgung“; Zeile 59: „Volltilgung in 42 Jahren“ | sichtbar |
-| 62 | 4.8 | `=Tilgung_NBank` | wie 55 | „gleich Zeile 8, ohne Aufschub“ (3.2 = 0) | eingeklappt |
+| 62 | 4.8 | `=Tilgung_NBank` | wie 55 | „= Zeile 8, wenn kein Aufschub“ (Eingabe 3.2 = 0; Text mit führendem „=“, keine Formel) | eingeklappt |
 
 Vergleich der Gruppen, Schema Broschüre S. 12 (oberer Rahmen Ergebnislinie an Zeile 63; Schwellen sichtbar, Rechenweg darunter eingeklappt; D der Zeilen 66–72 „–“):
 
@@ -665,7 +665,7 @@ Vergleich der Gruppen, Schema Broschüre S. 12 (oberer Rahmen Ergebnislinie an Z
 | 68 | 4.14 | − Mietausfall/Leerstand | € | `=E30-D30` / `=F30-D30` (Kostenformat) |  | eingeklappt |
 | 69 | 4.15 | − Verwaltungskostenbeitrag | € | `=E34-D34` / `=F34-D34` (Kostenformat) |  | eingeklappt |
 | 70 | 4.16 | = Mehrüberschuss vor Tilgung | € | `='Gefördert B'!$H$160-'Gefördert A'!$H$160` / C analog | Schwelle = 4.16 ÷ 4.12 | eingeklappt |
-| 71 | 4.17 | Mehrüberschuss bei Tilgung laut Eingabe 3.1 | € | `=E62-D62` / `=F62-D62` | Zeile 8: B − A, C − A | eingeklappt |
+| 71 | 4.17 | Mehrüberschuss bei Tilgung laut Eingabe 3.1 | € | `=E62-D62` / `=F62-D62` | 4.8: B − A, C − A | eingeklappt |
 | 72 | 4.18 | Einmalig: Mehr an Bearbeitungsentgelten | € | `=E39-D39` / `=F39-D39` |  | eingeklappt |
 
 H160 = R7 − N7; bei Aufschub > 0 ist N7 = 0 und das Raster zeigt den Zahlungsüberschuss mit Tilgung ab Jahr 1 und Kosten Jahr 1. 4.13 − 4.14 − 4.15 = 4.16 (Prüfskript F13).
@@ -676,27 +676,27 @@ H160 = R7 − N7; bei Aufschub > 0 ist N7 = 0 und das Raster zeigt den Zahlungs�
 |---|---|---|---|---|---|---|---|
 | 76 | 5.1 | Objekt-IRR nach Förderbarwert, mit Restwert | % | I175 (J175) | Frei I136 (J136) | Frei ohne Förderung; Förderbarwert 1.9 | sichtbar, fett |
 | 77 | 5.2 | Objekt-IRR nach Förderbarwert, nur Bodenwert | % | I176 (J176) | Frei I137 (J137) |  | sichtbar |
-| 78 | 5.3 | Objekt-IRR nach Zuschuss, mit Restwert | % | I133 (J133) | Frei I136 (J136) | gefördert ohne Zinsvorteil Darlehen | sichtbar |
+| 78 | 5.3 | Objekt-IRR nach Zuschuss, mit Restwert | % | I133 (J133) | Frei I136 (J136) | ohne Barwertvorteil des Darlehens | sichtbar |
 | 79 | 5.4 | Objekt-IRR ohne Zuschuss, mit Restwert | % | I136 (J136) | Frei I136 (J136) | Abstand zu Frei (Marktmiete): Bindung | sichtbar |
-| 80 | 5.5 | Objekt-IRR nach Förderbarwert, ohne Restwert | % | I177 (J177) | Frei I138 (J138) | mehrere Nullstellen möglich | eingeklappt |
+| 80 | 5.5 | Objekt-IRR nach Förderbarwert, ohne Restwert | % | I177 (J177) | Frei I138 (J138) | nicht eindeutig: Hinweis 11 | eingeklappt |
 | 81 | 5.6 | Objekt-IRR nach Zuschuss, nur Bodenwert | % | I134 (J134) | Frei I137 (J137) |  | eingeklappt |
-| 82 | 5.7 | Objekt-IRR nach Zuschuss, ohne Restwert | % | I135 (J135) | Frei I138 (J138) | mehrere Nullstellen möglich | eingeklappt |
+| 82 | 5.7 | Objekt-IRR nach Zuschuss, ohne Restwert | % | I135 (J135) | Frei I138 (J138) | nicht eindeutig: Hinweis 11 | eingeklappt |
 | 83 | 5.8 | Objekt-IRR ohne Zuschuss, nur Bodenwert | % | I137 (J137) | Frei I137 (J137) |  | eingeklappt |
-| 84 | 5.9 | Objekt-IRR ohne Zuschuss, ohne Restwert | % | I138 (J138) | Frei I138 (J138) | mehrere Nullstellen möglich | eingeklappt |
+| 84 | 5.9 | Objekt-IRR ohne Zuschuss, ohne Restwert | % | I138 (J138) | Frei I138 (J138) | nicht eindeutig: Hinweis 11 | eingeklappt |
 | 85 | 5.10 | Hilfsgröße: Nettoanfangsrendite, statisch | % (Jahr 1) | H139; H–J leer | leer | ohne Zuschuss, ohne Restwert | eingeklappt |
 
 **Block 6 EK-Rendite** (Gruppenzeile 87 „Eigenkapitalrendite vor Steuern“, D87 „Jahr 35“, H87 „Jahr 42“; Kopf Zeile 88: Nr. · Kennzahl · Einheit · A · B · C · Frei · A · B · C · Frei · Bemerkung). Frei in G (Jahr 35) und K (Jahr 42) aus derselben Zeile des Blatts Frei finanziert (I/J 140, 141, 143, 144, 149, 142, 145; Abschnitt N); 6.8 mit einem Wert je Variante aus Spalte H (Zeile 169), D–G, H–K leer
 
 | Zeile | Nr. | Inhalt B | C | D–F (H–J) | L Bemerkung | Gliederung |
 |---|---|---|---|---|---|---|
-| 89 | 6.1 | EK-IRR, mit Restwert | % | I140 (J140) | Frei: Eigenmittel wie 1.11, Rest Bank | sichtbar, fett |
-| 90 | 6.2 | EK-IRR, nur Bodenwert | % | I141 (J141) | mehrere Nullstellen möglich | sichtbar |
+| 89 | 6.1 | EK-IRR, mit Restwert | % | I140 (J140) |  | sichtbar, fett |
+| 90 | 6.2 | EK-IRR, nur Bodenwert | % | I141 (J141) | nicht eindeutig: Hinweis 11 | sichtbar |
 | 91 | 6.3 | VOFI-EK-Rendite, mit Restwert | % | I143 (J143) | Kontozinsen laut Eingabe 7.2/7.3 | sichtbar, fett |
 | 92 | 6.4 | VOFI-EK-Rendite, nur Bodenwert | % | I144 (J144) | „n. v.“: Endvermögen ≤ 0 | sichtbar |
-| 93 | 6.5 | Restwertanteil am Endvermögen | % | I149 (J149) | über 100 %: Konto nach Restschuld < 0 | sichtbar |
-| 94 | 6.6 | EK-IRR, ohne Restwert | % | I142 (J142) | mehrere Nullstellen möglich | eingeklappt |
-| 95 | 6.7 | VOFI-EK-Rendite, ohne Restwert | % | I145 (J145) | „n. v.“: Endvermögen ≤ 0 | eingeklappt |
-| 96 | 6.8 | Tiefster Stand Projektkonto (VOFI) | € (Jahr 0–42) | H169 (G: Frei H169); H–K leer | negativ: Soll zu 7.3; EK-IRR: Nachschuss | sichtbar |
+| 93 | 6.5 | Restwertanteil am Endvermögen | % | I149 (J149) | über 100 %: Konto − Restschuld < 0 | sichtbar |
+| 94 | 6.6 | EK-IRR, ohne Restwert | % | I142 (J142) | nicht eindeutig: Hinweis 11 | eingeklappt |
+| 95 | 6.7 | VOFI-EK-Rendite, ohne Restwert | % | I145 (J145) |  | eingeklappt |
+| 96 | 6.8 | Tiefster Stand Projektkonto (VOFI) | € (Jahr 0–42) | H169 (G: Frei H169); H–K leer | negativ: Sollzins laut Eingabe 7.3 | sichtbar |
 
 6.8 zeigt den tiefsten Stand des Projektkontos (VOFI) der Jahre 0 bis 42 (Nacharbeit N.7): Die EK-Renditen frei zur Marktmiete setzen voraus, dass das Projektkonto über Jahre im Soll geführt wird (Modellhaus −3.192.817 €, Jahr 1–39); ohne diese Zeile wäre das auf der Übersicht nicht zu sehen (3.7 zeigt den Fehlbetrag ohne Zinsen). Die Zeile steht sichtbar unter den eingeklappten Zeilen 94–95; die Nummern 6.1–6.7 bleiben. Ein Restwertanteil über 100 % (6.5) heißt: Projektkonto abzüglich Restschuld am Horizont negativ. EK-IRR und VOFI-EK-Rendite behandeln Fehlbeträge verschieden (N.8): Der EK-IRR rechnet jeden Fehlbetrag als Nachschuss, verzinst zum internen Zins; die VOFI-EK-Rendite führt ihn auf dem Projektkonto zum Sollzins 7.3 und bezieht das Endvermögen nur auf das Eigenkapital bei Bezug. „Eigenmittel wie 1.11“ gilt für den EK-IRR frei deshalb nur zum Bezug. Bei Fehlbeträgen über viele Jahre laufen beide weit auseinander (Modellhaus mit den Worst-Werten aus E.4, Jahr 42: EK-IRR frei +3,36 %, VOFI-EK-Rendite frei −1,49 %; Standard 5,31 % und 5,42 % bei Fehlbeträgen von zusammen 1.150.103 € in Jahr 1–21); maßgeblich ist dann die VOFI-EK-Rendite (Bemerkung 6.8, Hinweis 11).
 
@@ -709,24 +709,24 @@ Aufschlag der gerechneten Frei-Miete (Abschnitt N, N.7, N.8), immer in Spalte L,
 | 100 | 7.1 | Restwert (Boden + Gebäude) | € | I126 (J126) | Frei I126 (J126) | nach Eingabe 8.3 und 9.4 | sichtbar, fett |
 | 101 | 7.2 | Bodenwert | € | I121 (J121) | Frei I121 (J121) |  | sichtbar |
 | 102 | 7.3 | Gebäudeanteil | € | I125 (J125) | Frei I125 (J125) |  | sichtbar |
-| 103 | 7.4 | Ertragswert Bestand gegenüber Gesamtkosten | % (Bezug) | H128; H–J leer | Frei H128; K leer | bei Bezug; negativ: unter Gesamtkosten | sichtbar |
-| 104 | 7.5 | Ertragswert Bestand | € | I123 (J123) | Frei I122 (J122) | Frei: zur gerechneten Miete | eingeklappt |
+| 103 | 7.4 | Ertragswert Bestand gegenüber Gesamtkosten | % (Bezug) | H128; H–J leer | Frei H128; K leer | negativ: unter Gesamtkosten | sichtbar |
+| 104 | 7.5 | Ertragswert zur Bestandsmiete | € | I123 (J123) | Frei I122 (J122) | Frei: zur gerechneten Miete | eingeklappt |
 | 105 | 7.6 | Abschlag Bestandsmiete unter Zielmiete | € | I124 (J124) | leer |  | eingeklappt |
-| 106 | 7.7 | Liegenschaftszins | % | I120 (J120) | Frei I120 (J120) | Standort Neu Wulmstorf | eingeklappt |
-| 107 | 7.8 | Ertragswert Zielmiete gegenüber Gesamtkosten | % (Bezug) | H129; H–J leer | leer | bei Bezug; nachrichtlich | eingeklappt |
+| 106 | 7.7 | Liegenschaftszins | % | I120 (J120) | Frei I120 (J120) | Standort je Projekt: Tabellen, Tabelle 4 | eingeklappt |
+| 107 | 7.8 | Ertragswert Zielmiete gegenüber Gesamtkosten | % (Bezug) | H129; H–J leer | leer | nachrichtlich | eingeklappt |
 
 **Block 8 Miete für das DSCR-Ziel** (Abschnitt N; Kopf Zeile 109: Nr. · Miete für das DSCR-Ziel · Einheit · A · B · C · Frei · Bemerkung (H); alle Zeilen sichtbar, 8.3 fett; reine Verweise, grün)
 
 | Zeile | Nr. | Inhalt B | C | D–F | G Frei | H Bemerkung |
 |---|---|---|---|---|---|---|
 | 110 | 8.1 | DSCR-Ziel | Faktor | H181 | Frei H181 | Eingabe 10.2 |
-| 111 | 8.2 | Kapitaldienst Jahr 1 | € | H182 | Frei H182 | Zeilen 5 bis 7 und Bankdarlehen; bei Tilgungsaufschub (3.2) ohne Tilgung NBank |
-| 112 | 8.3 | Nötige Miete Jahr 1 für das DSCR-Ziel | €/m² Monat | H183 | Frei H183 | deckt in Jahr 1 DSCR-Ziel × Kapitaldienst und die Zeilen 2 und 3; Folgejahre: 3.5 |
+| 111 | 8.2 | Kapitaldienst Jahr 1, mit Regeltilgung | € | H182 | Frei H182 | Zeilen 5 bis 7 und Bankdarlehen; bei Aufschub (Eingabe 3.2) mit Regeltilgung NBank |
+| 112 | 8.3 | Nötige Miete Jahr 1 für das DSCR-Ziel | €/m² Monat | H183 | Frei H183 | deckt in Jahr 1 DSCR-Ziel × Kapitaldienst, Mietausfall und die Zeilen 2 und 3 |
 | 113 | 8.4 | Miete Jahr 1, gerechnet | €/m² Monat | H109 | Frei H109 | wie 1.18 |
 | 114 | 8.5 | Aufschlag Miete Jahr 1 gegenüber Marktmiete | % | leer | Frei H185 | Frei: gerechnete Miete laut Eingabe 10.1 |
 | 115 | 8.6 | Aufschlag nötige Miete gegenüber Marktmiete | % | leer | Frei H186 | Frei ohne Bankdarlehen: 8.3 deckt nur die Zeilen 2 und 3 |
 
-**Block 9 Prüfungen** (Kopf Zeile 117: Nr. · Prüfung · Status (C, zentriert) · A · B · C · Bemerkung (H); Zeilen 118–123 = P1–P6 aus F.1, sichtbar; Gesamtstatus in D3). D118:F118 zeigen die Kasse bei Bezug A/B/C (`='Gefördert x'!H105`, grün, Euro), H118 „Kasse bei Bezug in €“; H121 „A, B, C und Frei; „n. v.“ bei Endvermögen ≤ 0“ und H122 „A, B, C und Frei (Miete laut Eingabe 10.1)“ nennen, dass P4 und P5 auch an Frei hängen (N.7); A/B/C stehen damit in denselben Spalten wie in allen Blöcken (Runde 2 V6). Bis Abschnitt N stand der Prüfblock als Block 8 in den Zeilen 108–114, bis zur Nacharbeit N.7 in 116–122 (Block 7 in 97–106, Block 8 in 108–114); die Abschnitte J–M und N.1–N.6 nennen die Adressen ihres Stands.
+**Block 9 Prüfungen** (Kopf Zeile 117: Nr. · Prüfung · Status (C, zentriert) · A · B · C · Bemerkung (H); Zeilen 118–123 = P1–P6 aus F.1, sichtbar; Gesamtstatus in D3). D118:F118 zeigen die Kasse bei Bezug A/B/C (`='Gefördert x'!H105`, grün, Euro), H118 „Kasse bei Bezug in €“; H121 „A, B, C und Frei; „n. v.“: Hinweis 11“ und H122 „A, B, C und Frei (Miete laut Eingabe 10.1)“ nennen, dass P4 und P5 auch an Frei hängen (N.7); A/B/C stehen damit in denselben Spalten wie in allen Blöcken (Runde 2 V6). Bis Abschnitt N stand der Prüfblock als Block 8 in den Zeilen 108–114, bis zur Nacharbeit N.7 in 116–122 (Block 7 in 97–106, Block 8 in 108–114); die Abschnitte J–M und N.1–N.6 nennen die Adressen ihres Stands.
 
 Gliederung Übersicht: Zeilen 12, 23, 50–52, 62, 66–72, 80–85, 94–95, 104–107 Ebene 1, zugeklappt (`hidden`), Schalter an der Zeile darüber (`summaryBelow = False`). Zeile 96 (6.8) ist sichtbar. Der Prüfblock ist nicht gegliedert. Bemerkungen in Spalte L (Blöcke 5–7) höchstens 40 Zeichen, damit sie in die Spalte passen (Breite 38). Spaltenbreiten G.3; Druck zwei Seiten (Umbruch nach Zeile 52), Wiederholzeilen 1:2; Abstandszeilen 6 pt (G.4).
 
@@ -738,32 +738,32 @@ Gliederung Übersicht: Zeilen 12, 23, 50–52, 62, 66–72, 80–85, 94–95, 10
 | 2 | | A2: „Die NBank rechnet selbst (RL Nr. 11.10). Die Werte sind eine interne Orientierung.“ | | | |
 | 3 | | B3 „Projekt“, D3 `=Aktives_Projekt` (grün, fett) | | | |
 | 4 | | Kopf: Nr. · Größe · Einheit · Wert · – · – · Quelle | | | |
-| 5 | N1 | Swapsatz 30 Jahre | % | D `=Swapsatz_30J` | G: Eingabe 3.4 |
-| 6 | N2 | Aufschlag | Prozentpunkte | D `=Aufschlag_Swap` (Format `+0.00 %`) | G: RL 2026 Nr. 11.10 Abs. 4 |
-| 7 | N3 | Orientierungswert | % | D `=D5+D6` | |
+| 5 | N1 | Swapsatz 30 Jahre | % p. a. | D `=Swapsatz_30J` | G: Eingabe 3.4 |
+| 6 | N2 | Aufschlag | Prozentpunkte | D `=Aufschlag_Swap` (Format `+0.00 %`) | G: RL Nr. 11.10 Abs. 4 |
+| 7 | N3 | Orientierungswert | % p. a. | D `=D5+D6` | |
 | 8 | | Gruppenzeile A8:I8: D8 „Rendite“, G8 „Lage zum Orientierungswert“ | | | |
 | 9 | | Kopf: Nr. · EK-Rendite vor Steuern · Jahr · A · B · C · A · B · C | | | |
 | 10 | | Gruppenzeile „Primärgröße VOFI (RL Nr. 11.10 Abs. 3)“ | | | |
 | 11 / 12 | N4 / N5 | VOFI-EK-Rendite, mit Restwert | 35 / 42 | `'Gefördert x'!I143` / `J143` | `=IF(ISERROR(D11),"prüfen",IF(ISNUMBER(D11),IF(D11>$D$7,"über","unter"),"–"))` |
-| 13 | | Gruppenzeile „Gegenrechnung EK-IRR (DAWI Art. 6 Abs. 1)“ | | | |
+| 13 | | Gruppenzeile „Gegenprobe EK-IRR (DAWI-Beschluss Art. 6)“ | | | |
 | 14 / 15 | N6 / N7 | EK-IRR, mit Restwert | 35 / 42 | I140 / J140 | wie oben |
 | 16 | | Gruppenzeile „nachrichtlich“ | | | |
 | 17 / 18 | N8 / N9 | VOFI-EK-Rendite, nur Bodenwert | 35 / 42 | I144 / J144 | wie oben |
 | 19 / 20 | N10 / N11 | EK-IRR, nur Bodenwert | 35 / 42 | I141 / J141 | wie oben |
 | 21 / 22 | N12 / N13 | VOFI-EK-Rendite, ohne Restwert | 35 / 42 | I145 / J145 | wie oben |
 | 23 / 24 | N14 / N15 | EK-IRR, ohne Restwert | 35 / 42 | I142 / J142 | wie oben |
-| 26 | | Kopf: Nr. · Bezugsgrößen · Einheit · A · B · C | | | |
+| 26 | | Kopf: Nr. · Grundlagen · Einheit · A · B · C | | | |
 | 27 | N16 | Eigenkapital (Grundstück + bar) | € | H106 | |
 | 28 | N17 | NBank-Darlehen, Nennwert | € | H99 | |
 | 29 | N18 | Zuschuss nach Bearbeitungsentgelt | € | H108 | |
-| 30 | N19 | Barwertvorteil Darlehen zum Vergleichszins | € | H168 | |
-| 31 | N20 | Ausgleichsleistung, Barwert | € | `=D29+D30` | |
+| 30 | N19 | Barwertvorteil NBank-Darlehen | € | H168 | |
+| 31 | N20 | Förderbarwert (N18 + N19) | € | `=D29+D30` | |
 | 33 | | A33: „„über“: Die NBank prüft den angemessenen Gewinn ergänzend (RL Nr. 11.10 Abs. 4); Gleichstand gilt als „unter“.“ | | | |
-| 34 | | A34: „Horizont, Wiederanlage, Restwert und Swap-Stichtag legt die NBank fest.“ | | | |
-| 35 | | A35: „Barwertvorteil: Darlehen nach Entgelt abzüglich Barwert von Zins, Tilgung und VKB zum Zins laut Eingabe 6.1.“ | | | |
-| 36 | | A36: „EK-IRR nur Bodenwert und ohne Restwert: mehrere Nullstellen möglich; VOFI-EK-Rendite maßgeblich.“ | | | |
+| 34 | | A34: „Zeitraum, Wiederanlage, Restwert und Swap-Stichtag legt die NBank fest.“ | | | |
+| 35 | | A35: „Barwertvorteil: Darlehen nach Entgelt − Barwert von Zins, Tilgung, Verwaltungskostenbeitrag (Eingabe 6.1).“ | | | |
+| 36 | | A36: „N10, N11, N14, N15: EK-IRR nicht eindeutig (Hinweis 11); maßgeblich ist die VOFI-EK-Rendite.“ | | | |
 
-Kein Abstand in Prozentpunkten, nur die Lage „über/unter“ (Vorgabe 8); „über“ heißt nicht Überkompensation, sondern Anlass für ergänzende Ermittlungen der NBank (A33). Kein Text „Safe Harbour“, „eingehalten“, „erfüllt“. Bei gesperrten Renditen (E14) zeigen D–F „n. v.“ und G–I „–“; bei Fehlerwerten zeigen G–I „prüfen“ (Runde 2 R1). N20 „Ausgleichsleistung, Barwert“ ist derselbe Betrag wie der Förderbarwert (Gefördert H174, Übersicht 1.9). Spaltenbreiten A 6 · B 40 · C 13 · D–F 11 · G–I 10; Abstandszeilen 25, 32 Höhe 6; Druckbereich A1:I36.
+Kein Abstand in Prozentpunkten, nur die Lage „über/unter“ (Vorgabe 8); „über“ heißt nicht Überkompensation, sondern Anlass für ergänzende Ermittlungen der NBank (A33). Kein Text „Safe Harbour“, „eingehalten“, „erfüllt“. Bei gesperrten Renditen (E14) zeigen D–F „n. v.“ und G–I „–“; bei Fehlerwerten zeigen G–I „prüfen“ (Runde 2 R1). N20 „Förderbarwert (N18 + N19)“ ist derselbe Betrag wie der Förderbarwert auf Gefördert H174 und Übersicht 1.9 und heißt seit dem Lektorat auch so (Abschnitt Q). Spaltenbreiten A 6 · B 40 · C 14 · D–F 11 · G–I 10; Abstandszeilen 25, 32 Höhe 6; Druckbereich A1:I36.
 
 ### D.7 Blatt Hinweise (15 Zeilen, A3:B17)
 
@@ -882,9 +882,9 @@ Nur Zustände, die ein falsches oder unzulässiges Ergebnis anzeigen und anschla
 | Nr. | Zeile | Prüfung (B) | Formelkern |
 |---|---|---|---|
 | P1 | 118 | Keine Überfinanzierung bei Bezug | `x!H105 < 1`; Kasse A/B/C in D118:F118 (Frei: Kasse immer 0) |
-| P2 | 119 | Auswahlfelder 4.1, 4.2, 8.2 und 10.1 gültig | `AND(COUNTIF(Mietenstufen,Mietenstufe)=1,OR(Effizienz_EH40="ja",Effizienz_EH40="nein"),OR(Zielmiete="Marktmiete",Zielmiete="Vergleichsmiete"),OR(Miete_Frei="Marktmiete",Miete_Frei="Miete für DSCR-Ziel"))` (Einfügen umgeht die Datenüberprüfung; Runde 2 R3 ersetzt die frühere P2 „Eigenmittel mind. 20 %“, die wegen H102 nie anschlagen konnte) |
+| P2 | 119 | Eingabe 4.1, 4.2, 8.2, 10.1: Auswahl gültig | `AND(COUNTIF(Mietenstufen,Mietenstufe)=1,OR(Effizienz_EH40="ja",Effizienz_EH40="nein"),OR(Zielmiete="Marktmiete",Zielmiete="Vergleichsmiete"),OR(Miete_Frei="Marktmiete",Miete_Frei="Miete für DSCR-Ziel"))` (Einfügen umgeht die Datenüberprüfung; Runde 2 R3 ersetzt die frühere P2 „Eigenmittel mind. 20 %“, die wegen H102 nie anschlagen konnte) |
 | P3 | 120 | Bank: Anfangstilgung mind. 1 % (RL Nr. 5.3.6) | `OR(x!H103<1,x!H113>=Tilgung_Bank_min-0.00005)` |
-| P4 | 121 | Renditen mit Restwert berechnet | `COUNT(x!I z:J z)=2` für z = 133, 136, 140, 143, 175 und A, B, C sowie `COUNT('Frei finanziert'!I z:J z)=2` für z = 136, 140, 143 (Abschnitt N: auch EK-IRR und VOFI-EK-Rendite frei) (Zahlen verlangt; „n. v.“ und Fehlerwerte schlagen an; Bemerkung H121 „A, B, C und Frei; „n. v.“ bei Endvermögen ≤ 0“) |
+| P4 | 121 | Renditen mit Restwert berechnet | `COUNT(x!I z:J z)=2` für z = 133, 136, 140, 143, 175 und A, B, C sowie `COUNT('Frei finanziert'!I z:J z)=2` für z = 136, 140, 143 (Abschnitt N: auch EK-IRR und VOFI-EK-Rendite frei) (Zahlen verlangt; „n. v.“ und Fehlerwerte schlagen an; Bemerkung H121 „A, B, C und Frei; „n. v.“: Hinweis 11“) |
 | P5 | 122 | Gebäudeanteil am Restwert positiv | `MIN(x!I125:J125,'Frei finanziert'!I125:J125) > 0` (Bemerkung H122 „A, B, C und Frei (Miete laut Eingabe 10.1)“) |
 | P6 | 123 | Eingaben vollständig | `IF(Projekt_Nr=1,SUMPRODUCT((LEN(Eingaben!$A$7:$A$54)>0)*(LEN(Eingaben!$D$7:$D$54)=0)),SUMPRODUCT((LEN(Eingaben!$A$7:$A$54)>0)*(LEN(Eingaben!$E$7:$E$54)=0))) = 0` |
 
@@ -1235,7 +1235,7 @@ Eingaben, Zeile 30:
 
 | A | B | C | D | E | F | H |
 |---|---|---|---|---|---|---|
-| 2 | − Objektverwaltung | `=Verwaltung_WE*(1+Kostensteigerung)^Kosten_Vorlauf` → 367 € je Wohnung | `=-'Gefördert A'!I7` → 7.340 (schwarz) | → 7.340 | → 7.340 | Satz 2026, fortgeschrieben laut Eingabe 5.5; Betriebskosten umgelegt |
+| 2 | − Objektverwaltung | `=Verwaltung_WE*(1+Kostensteigerung)^Kosten_Vorlauf` → 367 € je Wohnung | `=-'Gefördert A'!I7` → 7.340 (schwarz) | → 7.340 | → 7.340 | Stand 2026 + Eingabe 5.5 Jahre; Betriebskosten umgelegt |
 | 8 | = Zahlungsüberschuss p. a. | | `='Gefördert A'!R7` → 455 (grün, fett) | → −18.495 (rot) | → −26.324 (rot) | |
 
 Gefördert A, Zeile 7 (t = 1, Modellhaus): C 12,92 · D 14,48 · E 14,48 · F 6,80 · G 114.240 · H −2.285 · I −7.340 · J −20.160 · K 84.455 · L −14.000 · M – · N −70.000 · O – · P – · Q −84.000 · R 455 · S 1,01 · T 2.730.000 · U – · V 455 · W 455 · X 210.899.

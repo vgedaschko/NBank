@@ -474,7 +474,7 @@ FESTWERTE = [
 # Bodenrichtwert 185 €/m²), Projekt 2 (Neu Wulmstorf, 600 €/m²). Gerechnet wird die Spalte „verwendet“ (F).
 LIEGENSCHAFTSZINS = [("T26", 30, 0.033, 0.025), ("T27", 38, 0.034, 0.027), ("T28", 40, 0.034, 0.027),
                      ("T29", 50, 0.035, 0.029), ("T30", 60, 0.035, 0.030), ("T31", 70, 0.035, 0.031)]
-QUELLE_LZ = "Oberer Gutachterausschuss Nds., Landesmodell MFH 01.01.2026"
+QUELLE_LZ = "Gutachterausschuss Nds., Landesmodell MFH 01.01.2026"
 LZ_FUSSNOTEN = [
     ("A42", "Projekt 1: Rotenburg (Wümme), Bodenrichtwert 185 €/m². Projekt 2: Neu Wulmstorf, 600 €/m² "
             "(Tarutinoer: 260 €/m²)."),
@@ -594,8 +594,8 @@ def blatt_tabellen(wb, ws):
 
     # Tabelle 2 Mietenstufen (Quelle einmal, in der ersten Zeile: sie gilt für alle Zeilen)
     gruppenzeile(ws, 7, "2 Mietenstufen, Höchstmiete in €/m² Monat", "A", "G", text_spalte="B")
-    kopfzeile(ws, 8, {"A": "Nr.", "B": "Mietenstufe", "C": "Bemessungsgrenze €/m²", "D": "Höchstmiete A",
-                      "E": "Höchstmiete B", "F": "Höchstmiete C", "G": "Quelle"}, "A", "G", einzug={"G": 2},
+    kopfzeile(ws, 8, {"A": "Nr.", "B": "Mietenstufe", "C": "Bemessungsgrenze €/m²", "D": "Höchstmiete\nA",
+                      "E": "Höchstmiete\nB", "F": "Höchstmiete\nC", "G": "Quelle"}, "A", "G", einzug={"G": 2},
               rechts=("C", "D", "E", "F"))
     for i, (nr, stufe, grenze, ma, mb, mc) in enumerate(MIETENSTUFEN):
         z = 9 + i
@@ -647,7 +647,8 @@ def blatt_tabellen(wb, ws):
     for ref, text in LZ_FUSSNOTEN:
         zelle(ws, ref, text)
 
-    breiten(ws, {"A": 6, "B": 44, "C": 19, "D:F": 12, "G": 56})
+    # D:F 13: der Kopf „Höchstmiete“ (fett) passt nicht in 12 (Lektorat Nr. 06)
+    breiten(ws, {"A": 6, "B": 44, "C": 19, "D:F": 13, "G": 56})
     ws.freeze_panes = "A3"
     druck(ws, bereich="A1:G43", umbrueche=[33])
 
@@ -1169,9 +1170,9 @@ def blatt_gefoerdert(wb, ws, gruppe, bis_t):
     block(ws, 172, "Förderbarwert und Objektrendite", KOPF_RESTWERT, FOERDER_GEF, fett=FETT_FOERDER)
     block(ws, 179, "Miete für das DSCR-Ziel", KOPF_WERT, _finanzierung_zeilen(MIETE_DSCR_GEF), fett=FETT_MIETE_DSCR)
     irr_hilfswerte(ws, IRR_ZEILEN_GEF, HILFE_GEF, [(131, 132), (172, 173)])
-    # Breiten (Lektorat Nr. 06): A 7 („Gruppe“ neben B2), M 13 (Link „Förderbarwert“ neben N2), Q 13 (Kopf
-    # „Kapitaldienst“), Zahlungsreihen 15 (Köpfe mit „Förderbarwert,“ in vier Zeilen)
-    breiten(ws, {"A": 7, "B": 7, "C:F": 11, "G:K": 13, "L:M": 13, "N:P": 12, "Q:R": 13, "S": 8, "T:X": 14,
+    # Breiten (Lektorat Nr. 06): A 8 („Gruppe“ neben B2), L 14 (Kopf „Verwaltungs-↵kostenbeitrag“), M 13 (Link
+    # „Förderbarwert“ neben N2), Q 13 (Kopf „Kapitaldienst“), Zahlungsreihen 15 (Köpfe mit „Förderbarwert,“ in vier Zeilen)
+    breiten(ws, {"A": 8, "B": 7, "C:F": 11, "G:K": 13, "L": 14, "M": 13, "N:P": 12, "Q:R": 13, "S": 8, "T:X": 14,
                  f"Y:{IRR_LETZTE_GEF}": 15})
     # Zahlungsreihen und Nullstellensuche Y-AS: Spaltengliederung Ebene 1, zugeklappt (Schalter über Spalte AT)
     ws.column_dimensions.group("Y", IRR_LETZTE_GEF, outline_level=1, hidden=True)
@@ -1215,7 +1216,8 @@ def blatt_frei(wb, ws, bis_t):
         c.fill = fuellung(GRUPPE)
     for r in FREI_AUSGEBLENDET:               # leer (Zeilen wie Gefördert), ausgeblendet
         ws.row_dimensions[r].hidden = True
-    breiten(ws, {"A": 7, "B": 7, "C:D": 11, "E:I": 13, "J:K": 12, "L:M": 13, "N": 8, "O:Q": 13,
+    # Breiten wie Gefördert (Lektorat Nr. 06): A 8, L 13 (Kopf „Kapitaldienst“), Zahlungsreihen 15
+    breiten(ws, {"A": 8, "B": 7, "C:D": 11, "E:I": 13, "J:K": 12, "L:M": 13, "N": 8, "O:Q": 13,
                  f"{IRR_ERSTE_FREI}:{IRR_LETZTE_FREI}": 15})
     # Zahlungsreihen und Nullstellensuche R–AB: Spaltengliederung, zugeklappt (Schalter über AC); t = 43 … 80 zugeklappt
     ws.column_dimensions.group(IRR_ERSTE_FREI, IRR_LETZTE_FREI, outline_level=1, hidden=True)
@@ -1715,7 +1717,8 @@ def blatt_nbank(wb, ws):
         zelle(ws, ref, text)
     for r in (25, 32):
         ws.row_dimensions[r].height = 6
-    breiten(ws, {"A": 6, "B": 40, "C": 13, "D:F": 11, "G:I": 10})
+    # C 14: „Prozentpunkte“ steht neben einer belegten Zelle und füllt 13 ganz aus (Lektorat Nr. 06)
+    breiten(ws, {"A": 6, "B": 40, "C": 14, "D:F": 11, "G:I": 10})
     ws.freeze_panes = "A10"
     druck(ws, bereich="A1:I36")
 

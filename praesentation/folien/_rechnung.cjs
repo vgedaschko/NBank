@@ -1,4 +1,4 @@
-// Festlegungen und Hilfsfunktionen der Baugruppe „rechnung“ (Folien 14 bis 16, 19 bis 21 und 23): Reihenfolge der Gruppen und Läufe, Linien der Gruppen,
+// Festlegungen und Hilfsfunktionen der Baugruppe „rechnung“ (Folien 14 bis 16, 19 bis 21, 23, A7 und A8): Reihenfolge der Gruppen und Läufe, Linien der Gruppen,
 // Gegenproben des Wortlauts gegen die Mappe. Kein Folienmodul: Der Build lädt nur folien/<id>.cjs zu den IDs des Konzepts.
 // Zahlen der Mappe kommen in den Modulen über W(lauf, schluessel); hier steht keine Zahl mit Aussage.
 // Beschriftungen an Diagrammen stehen in lib/: B.segmenttext, B.textAufPlot, B.wertzeilen, B.punkt, B.linienenden; Zahlwörter: ctx.zahlwort.

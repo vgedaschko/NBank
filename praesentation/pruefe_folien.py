@@ -7,7 +7,7 @@ Aufruf im Ordner praesentation:
     python pruefe_folien.py --zahlen             listet zusätzlich jede Zahl mit ihrem Beleg
 
 Was geprüft wird (eine Zeile je Prüfung, am Ende die Summe; Rückgabewert 1 bei Fehlern):
-  Aufbau     37 Folien (28 im Hauptteil, 9 im Anhang) mit Kennung, Blattnummer und Abschnitt wie festgelegt (AUFBAU), in der Reihenfolge des
+  Aufbau     38 Folien (28 im Hauptteil, 10 im Anhang) mit Kennung, Blattnummer und Abschnitt wie festgelegt (AUFBAU), in der Reihenfolge des
              Konzepts; Titel-Platzhalter, Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs; Kicker, Rubrik, Agenda
              und Trenner mit denselben Abschnittsnamen und derselben Zählung
   Form       nur Montserrat und Work Sans, Mindestgrößen (E3), Alternativtexte (Bilder, Diagramme, Flussdiagramme), keine Folie als Bild,
@@ -57,7 +57,7 @@ REL = "{http://schemas.openxmlformats.org/package/2006/relationships}"
 
 NBSP, MINUS = " ", "−"
 # ---- Aufbau der Mappe nach der Festlegung zum Umbau: Blattnummer, Kennung der Folie, Abschnitt; in dieser Reihenfolge ---------------------
-# Titel und Schluss tragen keine Blattnummer auf der Folie, zählen aber mit (1 und 28). Der Anhang heißt A0 bis A8.
+# Titel und Schluss tragen keine Blattnummer auf der Folie, zählen aber mit (1 und 28). Der Anhang heißt A0 bis A9.
 AUFBAU = [
     ("1", "titel", "Ausgangslage"), ("2", "trenner-ausgangslage", "Ausgangslage"), ("3", "einstieg-baukosten", "Ausgangslage"),
     ("4", "ausgangslage-zinsen", "Ausgangslage"), ("5", "einstieg-kapitaldienst", "Ausgangslage"), ("6", "einstieg-bestand", "Ausgangslage"),
@@ -71,10 +71,10 @@ AUFBAU = [
     ("25", "trenner-umsetzung", "Umsetzung"), ("26", "antragsweg", "Umsetzung"), ("27", "pgn-leistungen", "Umsetzung"), ("28", "kontakt", "Umsetzung"),
     ("A0", "anhang-trenner", "Anhang"), ("A1", "anhang-programmteile", "Anhang"), ("A2", "anhang-frist", "Anhang"), ("A3", "anhang-voraussetzungen", "Anhang"),
     ("A4", "anhang-vertraege", "Anhang"), ("A5", "anhang-mieterkreis", "Anhang"), ("A6", "anhang-eckdaten", "Anhang"), ("A7", "anhang-rendite", "Anhang"),
-    ("A8", "quellen", "Anhang"),
+    ("A8", "anhang-tilgungsschwelle", "Anhang"), ("A9", "quellen", "Anhang"),
 ]
-FOLIENZAHL = len(AUFBAU)          # 37: 28 im Hauptteil, 9 im Anhang
-HAUPTTEIL, ANHANG = 28, 9
+FOLIENZAHL = len(AUFBAU)          # 38: 28 im Hauptteil, 10 im Anhang
+HAUPTTEIL, ANHANG = 28, 10
 # Folien der Modellrechnung (Layouts mit „_MR“, Papierton): Im Kopf steht das Wort „Modellrechnung“ genau einmal, im Kicker oder als Stempel des
 # Layouts, nie beides. Kein Papierton und kein Stempel im Einstieg (Folien 3 bis 6: Medianwerte je m²) und auf pgn-baukosten (Kostenkennwerte).
 # Der Zusatz der ersten Modellfolie lautet seit 11.11.2026 „Rechenbeispiel, …“ (vorher „Fiktives Beispiel, …“): Das Modellhaus ist ein Projekt der PGN.
@@ -120,6 +120,8 @@ RENDITE_ERLAUBT = [re.compile(r"^Die NBank begrenzt jede Förderung so, dass die
 # „Marktmiete“ und Zahlen des Laufs modellhaus_rendite. „IRR“, „DSCR“ und „Safe Harbour“ stehen auch dort nicht.
 RENDITE_FOLIE, RENDITE_LAUF = "anhang-rendite", "modellhaus_rendite"
 VERBOTEN_AUSNAHME = {RENDITE_FOLIE: ("Rendite", "Marktmiete")}
+# Anhangfolie zur Tilgungsschwelle je Herstellungskosten (Rückfrage zu Folie 20; auf Wunsch des Auftraggebers, 11.11.2026)
+SCHWELLE_FOLIE = "anhang-tilgungsschwelle"
 
 # ---- Quellenzeile im Schriftfeld: Folie → Block in daten/markt.json (Feld quelle_kurz). Die Form „Quellenzeile“ trägt genau diesen Wortlaut,
 # in höchstens zwei Zeilen; auf keiner anderen Folie gibt es eine solche Form ----------------------------------------------------------------
@@ -149,6 +151,9 @@ JAHRE_MIT_FEHLBETRAG = "modellhaus:liq.jahre_mit_fehlbetrag.A + modellhaus:liq.j
 # Folie 23: Rückgang des Zahlungsüberschusses in A je 100 € Herstellungskosten je m² (wie in daten/pruefung.json)
 JE_100_EURO = ("(modellhaus:jr1.zahlungsueberschuss.A - modellhaus_kosten_5000:jr1.zahlungsueberschuss.A)"
                " / (modellhaus_kosten_5000:eingabe.herstellungskosten_qm - modellhaus:eingabe.herstellungskosten_qm) * 100")
+# Anhangfolie zur Tilgungsschwelle: Kosten je m², bei denen die Schwelle C gegenüber A gleich dem Tilgungssatz der Jahresrechnung ist (wie in daten/pruefung.json)
+KOSTEN_AM_SCHNITT = ("(modellhaus:tilg.mehr_sollmiete.C - modellhaus:tilg.mehr_mietausfall.C) * modellhaus:eingabe.herstellungskosten_qm"
+                     " / (modellhaus:tilg.mehrschuld.C * (modellhaus:eingabe.tilgung_nbank + modellhaus:tab.verwaltungskostenbeitrag))")
 KERNWERTE = [
     ("dscr.kapitaldienst_jahr1.A", "euro", "34.150 €", ["rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
     ("dscr.kapitaldienst_jahr1.Frei", "euro", "132.805 €", ["rechnung-kapitaldienst", "rechnung-fluss-frei", "rechnung-miete", "fazit"]),
@@ -199,6 +204,11 @@ KERNWERTE = [
     ("liq.zahlungsueberschuss_jahr35.A", "euro", "64.860 €", ["rechnung-verlauf"]),
     ("liq.zahlungsueberschuss_jahr35.B", "zahl", "76.468", ["rechnung-verlauf"]),
     ("liq.zahlungsueberschuss_jahr35.C", "zahl", "84.149", ["rechnung-verlauf"]),
+    # Anhangfolie zur Tilgungsschwelle (A8): Schwelle C gegenüber A der drei Läufe, im Diagramm und in der Tabelle; Kosten am Schnitt auf 100 € gerundet
+    ("tilg.schwelle.C_gegen_A", "prozent2", "1,91 %", [SCHWELLE_FOLIE]),
+    (K_ARGE + "tilg.schwelle.C_gegen_A", "prozent2", "1,36 %", [SCHWELLE_FOLIE]),
+    (K_GRENZE + "tilg.schwelle.C_gegen_A", "prozent2", "1,22 %", [SCHWELLE_FOLIE]),
+    (f"runde({KOSTEN_AM_SCHNITT}, -2)", "euro", "3.000 €", [SCHWELLE_FOLIE]),
     # Anhangfolie zur Eigenkapitalrendite (A7): die beiden Titelzahlen (mit Restwert, ohne Restwert) und der tiefste Stand des Projektkontos
     # frei finanziert. Renditen mit zwei Nachkommastellen wie in der Rechenmappe. „Ohne Restwert“ ist die Zeile 6.4 der Übersicht („nur Bodenwert“):
     # Das Grundstück des Modellhauses ist nicht angesetzt, der Bodenwert ist null (Rechenmappe, Blatt Hinweise Nr. 15)
@@ -340,6 +350,13 @@ KERNSAETZE = [
     # Bis 11.11.2026 „Marktmiete +2 %, Boden +1,5 % p. a.“: Ohne angesetztes Grundstück gibt es keinen Bodenwert, die Annahme steht nicht mehr auf der Folie
     (RENDITE_FOLIE, "Marktmiete +{a} p. a.", {"a": (RENDITE + "annahme.mietsteigerung", "prozent0")}),
     (RENDITE_FOLIE, "Fehlbeträge laufen auf ein Projektkonto zu {a} Sollzins.", {"a": (RENDITE + "annahme.sollzins", "prozent0")}),
+    # Anhangfolie zur Tilgungsschwelle (A8): Titel, Marke und die beiden Absätze
+    (SCHWELLE_FOLIE, "Bei {a} Tilgung liegt Gruppe A ab rund {b} je m² vorn", {"a": ("eingabe.tilgung_nbank", "prozent2"), "b": (f"runde({KOSTEN_AM_SCHNITT}, -2)", "euro")}),
+    (SCHWELLE_FOLIE, "Jahresrechnung: {a}", {"a": ("eingabe.tilgung_nbank", "prozent2")}),
+    (SCHWELLE_FOLIE, "Modellhaus: {a}. ARGE-Median: {b}. Ausgangswert der Bemessungsgrenze: {c}.",
+     {"a": ("eingabe.herstellungskosten_qm", "euro"), "b": (K_ARGE + "eingabe.herstellungskosten_qm", "euro"), "c": (K_GRENZE + "eingabe.herstellungskosten_qm", "euro")}),
+    (SCHWELLE_FOLIE, "Über der Linie „C gegenüber A“ ist das A, darunter C, B in keinem Fall.", {}),
+    (SCHWELLE_FOLIE, "Die Schwelle sinkt mit den Kosten: Die Mehrmiete je m² ist fest vorgegeben, die Mehrschuld wächst mit den Kosten.", {}),
     ("rechnung-jahr1", "Gerechnet ist Jahr 1 zum Kostenstand 2026, vor Steuern.", {}),
     # Folien 20 und 24: Annahme der Rechnung und die Sätze, bei denen der Zahlungsüberschuss null ist (Übersicht 3.8); Schwelle C gegen A.
     # Bis 11.11.2026 hieß der erste Satz „Bei … bleibt nur in A ein Zahlungsüberschuss. Ab … ist er auch dort null.“; beim neuen Modellhaus
@@ -377,6 +394,9 @@ KERNWERTE_DIAGRAMM = [
     # Folie 20: Die Jahresrechnung (Tilgung 1/42) liegt zwischen zwei Achsteilungen; gebunden ist der Stützpunkt 2,5 % der Geraden
     ("modellhaus:tilg.ueberschuss_vor_tilgung.B - 0.025 * modellhaus:fin.darlehen_nbank.B", "rechnung-tilgung", "Gruppe B", "2,5 %"),
     ("modellhaus:tilg.ueberschuss_vor_tilgung.C - 0.025 * modellhaus:fin.darlehen_nbank.C", "rechnung-tilgung", "Gruppe C", "2,5 %"),
+    # Folie A8: Die Linien enden an der Bemessungsgrenze mit der Schwelle des Laufs modellhaus_kosten_5000 (Diagrammdaten in Prozent)
+    (K_GRENZE + "tilg.schwelle.B_gegen_A * 100", SCHWELLE_FOLIE, "B gegenüber A", "5.000"),
+    (K_GRENZE + "tilg.schwelle.C_gegen_A * 100", SCHWELLE_FOLIE, "C gegenüber A", "5.000"),
     # Folien des Umbaus
     ("markt#baukosten.herstellung.q1_2020", "einstieg-baukosten", "Q1 2020", "Herstellung KG 200–700"),
     ("markt#baukosten.herstellung.q4_2025", "einstieg-baukosten", "Q4 2025", "Herstellung KG 200–700"),
@@ -459,6 +479,11 @@ KERNWERTE_FORM = [
     (f"{KD_HEUTE} - {KD_2020}", "euro2vz", "einstieg-kapitaldienst", "Maßkettenwert {a}", None, "{a}"),
     (BESTAND_RUECKGANG, "prozent1vz", "einstieg-bestand", "Maßkettenwert {a}", None, "{a}"),
 ]
+# Tabelle der Anhangfolie zur Tilgungsschwelle (A8): Zeile 0 ist der Kopf mit den Herstellungskosten je m² der drei Läufe (Spalten 1 bis 3),
+# Zeile 1 die Schwelle B gegenüber A, Zeile 2 die Schwelle C gegenüber A. Jede Zahl ist an ihren Lauf der Rechenmappe gebunden.
+KERNWERTE_FORM += [(lauf + key, art, SCHWELLE_FOLIE, "Tabelle Schwellen", (zeile, sp), "{a}")
+                   for sp, lauf in enumerate(("modellhaus:", K_ARGE, K_GRENZE), start=1)
+                   for zeile, key, art in ((0, "eingabe.herstellungskosten_qm", "euro"), (1, "tilg.schwelle.B_gegen_A", "prozent2"), (2, "tilg.schwelle.C_gegen_A", "prozent2"))]
 # Rechenblatt der Anhangfolie zur Eigenkapitalrendite (A7): Zeile 0 ist der Kopf, Spalte 0 die Zeilennummer, Spalte 1 die Position; die Werte
 # stehen in den Spalten 2 bis 5 (A, B, C, frei). Jede Zahl der Tabelle ist an ihre Zelle der Rechenmappe gebunden. Zeile 6 („Rendite ohne
 # Restwert“) liest die Zeile 6.4 der Übersicht; führt die Mappe dort „n. v.“, steht ein Strich, und ein Restwertanteil über 1 heißt „über 100 %“.
@@ -504,8 +529,10 @@ VERWEISE = [
     ("rechnung-kosten", "notizen", "ist der PGN-Median der Folie {a},", {"a": "pgn-baukosten"}),
     ("antragsweg", "notizen", "der erste Spatenstich (Anhang {a}).", {"a": "anhang-vertraege"}),
     ("antragsweg", "notizen", "die Bedarfslage am Standort stehen im Anhang {a}.", {"a": "anhang-voraussetzungen"}),
-    ("anhang-trenner", "notizen", "{a} und {b} zeigen Programmteile und Frist, {c} und {d} Voraussetzungen und Verträge vor der Bewilligung, {e} und {f} Mieterkreis und Eckdaten, {g} die Eigenkapitalrendite, {h} Quellen und Hinweis.",
-     {"a": "anhang-programmteile", "b": "anhang-frist", "c": "anhang-voraussetzungen", "d": "anhang-vertraege", "e": "anhang-mieterkreis", "f": "anhang-eckdaten", "g": RENDITE_FOLIE, "h": "quellen"}),
+    ("anhang-trenner", "notizen", "{a} und {b} zeigen Programmteile und Frist, {c} und {d} Voraussetzungen und Verträge vor der Bewilligung, {e} und {f} Mieterkreis und Eckdaten, {g} die Eigenkapitalrendite, {i} die Tilgungsschwelle je Herstellungskosten, {h} Quellen und Hinweis.",
+     {"a": "anhang-programmteile", "b": "anhang-frist", "c": "anhang-voraussetzungen", "d": "anhang-vertraege", "e": "anhang-mieterkreis", "f": "anhang-eckdaten", "g": RENDITE_FOLIE, "i": SCHWELLE_FOLIE, "h": "quellen"}),
+    ("rechnung-tilgung", "notizen", "Wie die Schwelle von den Herstellungskosten abhängt, zeigt Anhang {a}.", {"a": SCHWELLE_FOLIE}),
+    (SCHWELLE_FOLIE, "notizen", "auch bei anderen Kosten gilt (Folie {a}).", {"a": "rechnung-tilgung"}),
     ("anhang-eckdaten", "notizen", "verdichtet auf den Folien {a} und {b}, Antrag und Bewilligung auf Folie {c};", {"a": "foerdermix", "b": "eckdaten-zeitstrahl", "c": "antragsweg"}),
     ("anhang-eckdaten", "notizen", "im Hinweis auf {a}.", {"a": "quellen"}),
     ("quellen", "folie", "Folien {a} und {b}: PGN (2026): eigene Auswertung von fünf Projekten", {"a": "pgn-baukosten", "b": "rechnung-kosten"}),
@@ -513,8 +540,8 @@ VERWEISE = [
     ("quellen", "folie", "Folie {a}: BT-Drs. 21/7303", {"a": "einstieg-bestand"}),
     (RENDITE_FOLIE, "notizen", "über Swapsatz plus 1 Prozentpunkt ({a});", {"a": "anhang-eckdaten"}),
     (RENDITE_FOLIE, "notizen", "kein Jahr mit Fehlbetrag (Folie {a})", {"a": "rechnung-verlauf"}),
-    ("quellen", "folie", "{a}–{b}, {c}", {"a": "rechnung-finanzierung", "b": "fazit", "c": RENDITE_FOLIE}),   # Zeile der Modellrechnung in der Spalte „Folie“
-    ("quellen", "notizen", "alle Zahlen der Folien {a} bis {b}, {c}, {d} und {e}.", {"a": "rechnung-finanzierung", "b": "rechnung-verlauf", "c": "rechnung-kosten", "d": "fazit", "e": RENDITE_FOLIE}),
+    ("quellen", "folie", "{a}–{b}, {c}, {d}", {"a": "rechnung-finanzierung", "b": "fazit", "c": RENDITE_FOLIE, "d": SCHWELLE_FOLIE}),   # Zeile der Modellrechnung in der Spalte „Folie“
+    ("quellen", "notizen", "alle Zahlen der Folien {a} bis {b}, {c}, {d}, {e} und {f}.", {"a": "rechnung-finanzierung", "b": "rechnung-verlauf", "c": "rechnung-kosten", "d": "fazit", "e": RENDITE_FOLIE, "f": SCHWELLE_FOLIE}),
     ("quellen", "notizen", "Baukosten (Folien {a} und {b}), Zinsreihe (Folie {c}), Bestandsreihe (Folie {d}) und der PGN-Median der Herstellungskosten (Folien {b} und {e}). Folie {f} rechnet mit diesen Werten.",
      {"a": "einstieg-baukosten", "b": "pgn-baukosten", "c": "ausgangslage-zinsen", "d": "einstieg-bestand", "e": "rechnung-kosten", "f": "einstieg-kapitaldienst"}),
 ]
@@ -543,7 +570,7 @@ DATUM = re.compile(r"\b(\d{1,2})\.(\d{1,2})\.(\d{4})?(?!\d)")
 JAHR = re.compile(r"(?<![\d.,/])(?:19|20)\d{2}(?![\d]|[.,]\d)")
 BROSCHUERE_S = re.compile(r"\bBroschüre\s+S\.\s+(\d+(?:(?:,\s+|\s+und\s+|\s+bis\s+|–)\d+)*)")
 FOLIE_NR = re.compile(r"\b(?:Folien?|Anhang)\s+(A?\d+(?:(?:,\s+|\s+und\s+|\s+bis\s+|–|\s+oder\s+)A?\d+)*)|\b(A\d\b(?:(?:,\s+|\s+und\s+|\s+bis\s+)A\d\b)*)")
-FOLIEN_NUMMERN = set()   # Blattnummern des Konzepts (1 bis 28, A0 bis A8); main() füllt die Menge
+FOLIEN_NUMMERN = set()   # Blattnummern des Konzepts (1 bis 28, A0 bis A9); main() füllt die Menge
 # Kleine ganze Zahlen als Zähler: Jahr der Rechnung, Zeile, Schritt, Gruppe. Nur wenn die Zahl sonst keinen Beleg hat.
 ZAEHLER = re.compile(r"\b(?:Jahr(?:e|en)?|Zeilen?|Schritte?|Station(?:en)?|Punkte?|Größen)\s+(\d{1,2})(?:(?:\s+bis\s+|–|\s+und\s+)(\d{1,2}))?")
 ZAEHLER_GRUND = "Zähler im Satz (Jahr der Rechnung, Zeile, Schritt), höchstens zweistellig"

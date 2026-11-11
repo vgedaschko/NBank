@@ -1,6 +1,6 @@
 # Planwerk 16:9: Bibliothek der Vortragsmappe
 
-Stand: Die 37 Folien sind zusammengeführt (`folien/`), die Musterfolien bauen mit derselben Bibliothek (`probe/`, 33 Folien,
+Stand: Die 38 Folien sind zusammengeführt (`folien/`), die Musterfolien bauen mit derselben Bibliothek (`probe/`, 33 Folien,
 alle 19 Layouts). Ein Folienmodul baut nur seine Inhaltszone; Rahmen, Notizen und Prüfungen kommen aus `build.cjs` und `lib/`.
 Was mehrere Folien brauchen, steht in `lib/` (Bausteine `B`, Diagramme `D`, Helfer im `ctx`); was nur eine Baugruppe braucht,
 in `folien/_<gruppe>.cjs`. Zahlen der Rechenmappe stehen nur in `daten/werte.json`; diese Datei wird erzeugt und nie von Hand
@@ -38,7 +38,7 @@ sieht aber keine Überlagerung von Formen untereinander.
 
 `folien/<id>.cjs` exportiert `{ id, bau(ctx) }`. `bau` ruft genau einmal `ctx.folie()` auf und baut danach die Inhaltszone.
 `ctx.folie()` legt aus `daten/outline.json` an: Layout, Abschnitt, Kicker, Titel mit Signaturwort, Rubrik im Schriftfeld,
-Blattnummer (`nr` des Konzepts: 1 bis 28, A0 bis A8; Titel und Schluss zählen mit, zeigen aber keine) und die Notizen (`notizen`, Leerzeile, `quellen`). Kein `addNotes`,
+Blattnummer (`nr` des Konzepts: 1 bis 28, A0 bis A9; Titel und Schluss zählen mit, zeigen aber keine) und die Notizen (`notizen`, Leerzeile, `quellen`). Kein `addNotes`,
 keine eigene Foliennummer, kein eigener Abschnitt.
 
 ```js
@@ -104,7 +104,7 @@ Ohne Optionen liest die Funktion den Rahmen aus dem Feld `inhalt` des Konzepts:
 `Kicker: „…“` · `Titelzeilen: „Zeile 1“ | „Zeile 2“ (Signaturwort: „…“)` · `Titel in drei Zeilen: „…“ | „…“ | „…“` ·
 `Rubrik im Schriftfeld: „…“` · `Achskreis XL: „4“` · `Lead: „…“` · `Untertitel: „…“`. Der Zusatz `(zweite Stimme …)` hinter
 einer Titelzeile setzt sie in Montserrat Light 20 pt. Anhangfolien (`PGN_ANHANG`) nehmen `o.titel` als einzeilige Überschrift.
-Das Konzept passt für alle 37 Folien; Optionen sind nur für Abweichungen da.
+Das Konzept passt für alle 38 Folien; Optionen sind nur für Abweichungen da.
 
 | Option | Wirkung |
 |---|---|
@@ -241,7 +241,7 @@ und Einheit schützt die Bibliothek selbst („5,6 Mio. €“, „80 %“, „S
 
 - **E10:** Zahlen der Mappe nur über `W(lauf, schluessel)`. Das Modellhaus ist Projekt 2 der Rechenmappe (PGN-Projekt in Neu Wulmstorf,
   3.579 € je m², Grundstück nicht angesetzt); jeder Lauf setzt Eingaben!D3 auf 2. Läufe: `modellhaus`, `modellhaus_zeitreihe`,
-  `modellhaus_kosten_4631` (ARGE-Median) und `modellhaus_kosten_5000` (Ausgangswert der Bemessungsgrenze; beide für Folie 23),
+  `modellhaus_kosten_4631` (ARGE-Median) und `modellhaus_kosten_5000` (Ausgangswert der Bemessungsgrenze; beide für die Folien 23 und A8),
   `modellhaus_rendite` (Renditen, Restwert und Marktmiete; nur für die Folie `anhang-rendite`), `projekt2` (Stand der Altfassung mit
   Tilgung 2,5 %), `modellhaus_dscr125` (die beiden letzten erscheinen nicht auf Folien).
   Anteile sind Dezimalbrüche (0,025 = 2,5 %). `zr.*` und `frei.*` führen Auszahlungen negativ: Vorzeichen drehen.
@@ -285,7 +285,7 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 | Funktion | Parameter und Maße |
 |---|---|
 | `B.text(s, text, { x, y, w, h, rolle, pt, farbe, align, valign, einzeilig, name })` | Text in einer Rolle der Schriftskala. Ohne `h` folgt die Höhe dem Text. `einzeilig: true` prüft die Breite, sonst Breite und Höhe; ein einzeiliges Feld bricht nie um (`wrap="none"`): Mit einer breiteren Schrift läuft der Text über sein Feld, statt in eine zweite Zeile zu fallen. `farbe`: Hex, `C.*` oder Schlüssel des Farbsatzes (`titel`, `text`, `sekundaer`, `akzent`). Die Mindestgröße der Rolle wird geprüft. → `{ x, y, w, h, unten }` |
-| `B.hoehe(text, { w, rolle, pt })` | Höhe eines Textes in einer Rolle bei gegebener Breite, gerechnet wie `B.text` ohne `h`. Zum Ausrichten an einer Unterkante, bevor gezeichnet wird (Folie A8) |
+| `B.hoehe(text, { w, rolle, pt })` | Höhe eines Textes in einer Rolle bei gegebener Breite, gerechnet wie `B.text` ohne `h`. Zum Ausrichten an einer Unterkante, bevor gezeichnet wird (Folie A9) |
 | `B.zweizeilig(text, { w, rolle, pt, nach })` | bricht einen Text, der nicht in eine Zeile der Breite `w` passt, an der Wortfuge mit den zwei ausgeglichensten Zeilen („\n“); geschützte Leerzeichen brechen nicht. `nach`: Muster für das Ende der ersten Zeile (`/[,;]$/`: nur hinter Komma oder Semikolon). Passt keine Teilung in zwei Zeilen, bleibt der Text unverändert (Folien 7 und 22) |
 | `B.altText(s, name, text)` | Alternativtext an einer Form: Die Form mit diesem `objectName` bekommt ihn in der Nachbearbeitung und gilt dann nicht als Schmuck (pptxgenjs schreibt Alternativtexte nur für Bilder und Diagramme). Der Name muss auf der Folie eindeutig sein |
 | `B.textAufPlot(s, text, { x, y, w, h, rolle, pt, align, valign, farbe, grund, name })` | einzeiliger Text auf der Plotfläche eines Diagramms (Summe am Balkenende, Wert an einer Säule) mit einer Fläche in der Grundfarbe dahinter, so breit wie die Schrift: Keine Gitterlinie läuft durch die Zahl. `grund`: Farbe der Fläche auf einer hervorgehobenen Spalte (Folien 16, 19, 23) |
@@ -351,8 +351,8 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 |---|---|
 | `B.rechenblatt(s, { x, y, w, kopf, zeilen, wertBreite, dicht, hervor, zeilenH, ergebnisH })` | `kopf: ['Position', 'A', 'B', 'C']`, Einträge als Text oder `{ kreis: 'A' }` (Achskreis als Spaltenkopf). `zeilen: [{ nr, zeichen, text, werte: [], art, h }]` mit `art`: `normal` · `summe` (Oberlinie, halbfett) · `ergebnis` (weiß auf Rot; auch mitten in der Tabelle: Folie A7) · `notiz` (12 pt grau, ohne Linie; unter dem Ergebnis oder als Hinweis ohne Nummer und Betrag zwischen zwei Zeilen: „Grundstück im Bestand, nicht angesetzt“ auf Folie 14; `h` setzt die Höhe einer einzelnen Zeile). Nummernstreifen 0,42, Rechenzeichen 0,30, Wertspalten je `wertBreite` (1,20) oder je Spalte eine Breite als Liste (`[1.06, 1.06, 1.06, 1.22]`: Folie A7), Position nimmt den Rest. `zeilenH`, `ergebnisH`: Mindesthöhe der Zeilen und der Ergebniszeile (gleich hohe Zeilen, wenn einzelne Positionen zwei Zeilen brauchen). Jeder Wert wird gegen die Breite seiner Zelle gerechnet. 14 pt mit Zeile 0,42, Kopf 0,34, Ergebnis 0,46; `dicht: true` 12 pt mit Zeile 0,34, Kopf 0,30, Ergebnis 0,38 (neun Zeilen ab y 2,80 enden bei 6,20). Positionen höchstens zweizeilig. `hervor: i` hebt eine Wertspalte hervor. → `{ unten, spalten: [{ x, w }], zeilen: [{ y, h }], kopfH, positionX, positionW }` |
 | `B.vergleichstabelle(s, { x, y, w, kopf: [3], zeilen: [{ text, wert, vergleich, kern }], wertBreite, dicht })` | hervorgehobene Spalte und Vergleichsspalte je `wertBreite` (2,20). Zeile 0,50 bei 16 pt; `dicht` 0,44 bei 14 pt; die Zeile wächst mit dem Text der Position. `kern: true`: Oberlinie, Werte Montserrat ExtraBold 24 pt (höchstens zwei). Reihenfolge: gefördert vor frei finanziert |
-| `B.tabelle(s, { x, y, w, spalten: [{ kopf, breite, art, randRechts }], zeilen, pt, kopf, dicht, zeilenH, zielHoehe, schlusslinie, messen })` | allgemeine Tabelle. Spalte `art`: `text` · `zahl` (rechts, Montserrat Bold) · `stichwort`. Zeile als Liste von Zellen oder `{ zellen, trennlinie: true, flaeche: true }`; Zelle als Text (mit „**fett**“) oder `{ text, fett, farbe, align }`. Zeilenhöhe folgt dem Text; ein Wort, das breiter ist als seine Zelle, meldet die Prüfung. `pt` 12 oder 14; `kopf: false` lässt die Kopfzeile weg. `dicht: true`: Zeilenhöhe Zeilenzahl × Zeilenmaß + Zellränder + 0,01, für Tabellen, die die Inhaltszone füllen (Folien A1, A8). Kopfzeile 0,33 Zoll (aus der Schrift gerechnet), je weitere Kopfzeile 0,20. `zeilenH`: Mindesthöhe je Zeile. `zielHoehe`: Gesamthöhe mit Kopf; kurze Zeilen bekommen dafür eine gemeinsame Mindesthöhe. `messen: true` rechnet nur und zeichnet nichts (zwei Tabellen auf gleiche Höhe bringen: Folie A6). `schlusslinie: false` lässt die Linie unter der letzten Zeile weg, wenn ein Kasten anschließt (Folie A8). `randRechts`: rechter Zellrand einer Spalte. → `{ unten, h, kopfH, zeilen: [{ y, h, n }], spalten: [{ x, w }], zeilenzahl, zeilenmass, rand }` (damit lassen sich Chips oder Icons in eine Zelle setzen) |
-| `B.hinweisKasten(s, { x, y, w, stichwort, text, spalte, pt })` | Hinweis als Kasten auf Fläche mit Modulkopf-Linie: Stichwort links in einer Spalte der Breite `spalte`, Text rechts (14 pt). Schließt als Fuß an eine Tabelle an, deren erste Spalte so breit ist (Folie A8). → `{ h, unten }` |
+| `B.tabelle(s, { x, y, w, spalten: [{ kopf, breite, art, randRechts }], zeilen, pt, kopf, dicht, zeilenH, zielHoehe, schlusslinie, messen })` | allgemeine Tabelle. Spalte `art`: `text` · `zahl` (rechts, Montserrat Bold) · `stichwort`. Zeile als Liste von Zellen oder `{ zellen, trennlinie: true, flaeche: true }`; Zelle als Text (mit „**fett**“) oder `{ text, fett, farbe, align }`. Zeilenhöhe folgt dem Text; ein Wort, das breiter ist als seine Zelle, meldet die Prüfung. `pt` 12 oder 14; `kopf: false` lässt die Kopfzeile weg. `dicht: true`: Zeilenhöhe Zeilenzahl × Zeilenmaß + Zellränder + 0,01, für Tabellen, die die Inhaltszone füllen (Folien A1, A9). Kopfzeile 0,33 Zoll (aus der Schrift gerechnet), je weitere Kopfzeile 0,20. `zeilenH`: Mindesthöhe je Zeile. `zielHoehe`: Gesamthöhe mit Kopf; kurze Zeilen bekommen dafür eine gemeinsame Mindesthöhe. `messen: true` rechnet nur und zeichnet nichts (zwei Tabellen auf gleiche Höhe bringen: Folie A6). `schlusslinie: false` lässt die Linie unter der letzten Zeile weg, wenn ein Kasten anschließt (Folie A9). `randRechts`: rechter Zellrand einer Spalte. → `{ unten, h, kopfH, zeilen: [{ y, h, n }], spalten: [{ x, w }], zeilenzahl, zeilenmass, rand }` (damit lassen sich Chips oder Icons in eine Zelle setzen) |
+| `B.hinweisKasten(s, { x, y, w, stichwort, text, spalte, pt })` | Hinweis als Kasten auf Fläche mit Modulkopf-Linie: Stichwort links in einer Spalte der Breite `spalte`, Text rechts (14 pt). Schließt als Fuß an eine Tabelle an, deren erste Spalte so breit ist (Folie A9). → `{ h, unten }` |
 
 Ein Kopf mit `\n` bricht in zwei Zeilen. Die Köpfe werden gegen die Spaltenbreite gerechnet; ein Wort, das breiter ist als
 seine Zelle, meldet die Passprüfung.
@@ -498,7 +498,7 @@ Rot) · `bg-*.png` (Hintergründe der Layouts). Keine Bilder von anderswo, kein 
 
 ## 8 · Vorlagen: die Folien selbst (`folien/`) und die Musterfolien (`probe/`)
 
-Die 37 Folienmodule sind die besten Beispiele. Zum Nachschlagen: Diagramm mit Hauptzahl und zweiter Kennzahl `einstieg-baukosten`,
+Die 38 Folienmodule sind die besten Beispiele. Zum Nachschlagen: Diagramm mit Hauptzahl und zweiter Kennzahl `einstieg-baukosten`,
 `ausgangslage-zinsen`, `einstieg-bestand` · feine Säulenpaare mit Maßkette je Paar `einstieg-baukosten` · feine Linien mit weicher
 Fläche, Legende mit Werten und Werteblöcken an den Marken `ausgangslage-zinsen` · schmale gestapelte Säulen mit feiner Kontur, ohne
 Achse und Gitter, mit senkrechter Maßkette, Zuleitungen und Tabelle `einstieg-kapitaldienst` · feine Säulen mit eigener Farbe je

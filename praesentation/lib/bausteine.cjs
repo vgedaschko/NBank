@@ -69,7 +69,7 @@ const RAHMEN = {
       { placeholder: { options: { name: 'rubrik', type: 'body', objectName: 'Rubrik', x: X0, y: Y.fuss + 0.225, w: 8, h: 0.17, margin: 0, fontFace: SF_RUBRIK.fontFace, bold: SF_RUBRIK.bold, fontSize: SF_RUBRIK.fontSize, charSpacing: SF_RUBRIK.weite, color: cs.titel, valign: 'middle' }, text: 'RUBRIK' } },
       { image: { path: asset('logo-mark-rot.png'), x: 11.032, y: Y.fuss + 0.124, w: 0.62, h: 0.192, objectName: 'Wortmarke PGN', altText: 'PGN' } },
       { text: { text: label, options: { x: 11.90, y: Y.fuss + 0.04, w: 0.70, h: 0.15, margin: 0, fontFace: F.medium, fontSize: 10, color: sek, align: 'right', valign: 'middle', objectName: 'Schriftfeld ' + label } } },
-      // Foliennummer als Text aus dem Konzept (1 bis 28, A0 bis A8); ein Feld „Foliennummer“ könnte „A3“ nicht zeigen
+      // Foliennummer als Text aus dem Konzept (1 bis 28, A0 bis A9); ein Feld „Foliennummer“ könnte „A3“ nicht zeigen
       { placeholder: { options: { name: 'blatt', type: 'body', objectName: 'Blattnummer', x: 11.90, y: Y.fuss + 0.19, w: 0.70, h: 0.23, margin: 0, fontFace: F.black, fontSize: 15, color: cs.titel, align: 'right', valign: 'middle' }, text: 'Nr.' } },
     ];
   },

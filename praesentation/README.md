@@ -1,6 +1,6 @@
 # Mietwohnraumförderung Niedersachsen 2026: Vortragsfassung
 
-Vortrag der Planungsgemeinschaft Nord GmbH zur RL Mietwohnraum 2026. 37 Folien im Format 16:9: 28 im Hauptteil, 9 im Anhang.
+Vortrag der Planungsgemeinschaft Nord GmbH zur RL Mietwohnraum 2026. 38 Folien im Format 16:9: 28 im Hauptteil, 10 im Anhang.
 Zahlen und das Design „Planwerk“ folgen der Broschüre. Einziges Rechenbeispiel ist das Modellhaus: seit 11.11.2026 ein PGN-Projekt in
 Neu Wulmstorf (14 Wohnungen, 828 m², 3,0 Mio. €; Grundstück im Bestand und nicht angesetzt), in der Rechenmappe „Projekt 2“
 (Entscheidung 29 des Konzepts). Die Straße nennt der Vortrag nicht. Stand der Inhalte: 30.09.2026.
@@ -14,7 +14,7 @@ Broschüre und in Kurzform auf der Anhangfolie A1.
 | 2 Programmteil 2.1 | 8 bis 12 | Trenner; Neuerungen seit 01.07.2026, Höchstmiete, Fördersätze, Eckdaten |
 | 3 Modellrechnung | 13 bis 24 | Trenner; Finanzierung, Jahresrechnung, Kapitaldienst; Zahlungsfluss gefördert und frei finanziert als Flussdiagramme im selben Maßstab; nötige Miete, Tilgungssatz, Verlauf; Herstellungskosten der PGN gegen ARGE, Kostenszenario; Zusammenfassung |
 | 4 Umsetzung | 25 bis 28 | Trenner; Antragsweg, Leistungen der PGN, Kontakt |
-| Anhang | A0 bis A8 | Trenner, Programmteile, Frist, Voraussetzungen, Verträge vor der Bewilligung, Mieterkreis, Eckdaten, Eigenkapitalrendite des Modellhauses, Quellen und Hinweis |
+| Anhang | A0 bis A9 | Trenner, Programmteile, Frist, Voraussetzungen, Verträge vor der Bewilligung, Mieterkreis, Eckdaten, Eigenkapitalrendite des Modellhauses, Tilgungsschwelle je Herstellungskosten, Quellen und Hinweis |
 
 Die Folien des Modellhauses (14 bis 21, 23 und 24) stehen auf Papierton; das Wort „Modellrechnung“ steht im Kicker. Folie 14 trägt oben rechts
 den Zusatz „Rechenbeispiel, keine Förderzusage“. Die Folien 3 bis 6 und 22 rechnen mit Medianwerten und Kostenkennwerten, nicht mit dem
@@ -207,14 +207,14 @@ Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten 
 Nicht auf die Folien gehören Deckungsgrade. Renditen und eine Marktmiete des Modellhauses stehen nur auf der Anhangfolie A7, die Rendite
 dort als Paar „mit Restwert“ und „ohne Restwert“ mit dem Restwertanteil (Entscheidung 24 des Konzepts). Auf alle anderen Folien gehören
 sie nicht.
-Quellen stehen in den Notizen und auf der Anhangfolie A8. Die Folien 3 bis 6 und 22 tragen dazu eine kurze Quellenzeile im Schriftfeld
-(Entscheidung 25); die volle Angabe bleibt auf A8.
+Quellen stehen in den Notizen und auf der Anhangfolie A9. Die Folien 3 bis 6 und 22 tragen dazu eine kurze Quellenzeile im Schriftfeld
+(Entscheidung 25); die volle Angabe bleibt auf A9.
 
 ## Ungeprüfte Angaben
 
 Diese Angaben stammen aus der Präsentation vom 26.10.2026 (Altfassung) oder, zum Modellhaus, aus der Rechenmappe und der Entscheidung des
 Auftraggebers vom 11.11.2026. Sie sind nicht nachgeprüft. In den Datendateien tragen sie
-`"geprueft": false`, in den Notizen der Folien 3 bis 6, 22, 23 und A8 den Vermerk (auf den Folien 3 bis 6 und 22 als Regie-Hinweis,
+`"geprueft": false`, in den Notizen der Folien 3 bis 6, 22, 23 und A9 den Vermerk (auf den Folien 3 bis 6 und 22 als Regie-Hinweis,
 dazu in jeder Quellenzeile der Notizen; die Quellenzeile im Schriftfeld steht ohne Vermerk). Seit dem Umbau stehen sie im Hauptteil, auf den Folien 3 bis 6 und 22 auch im Titel. Vor dem ersten
 Vortrag bestätigt PGN sie oder nimmt sie heraus.
 
@@ -237,7 +237,7 @@ seit 11.11.2026 der Ansatz des Modellhauses.
 
 Offene Fragen an PGN (Tilgungssatz 2,38 %, Titel der Zusammenfassung, Herkunft der Herstellungskosten, Daten der Altfassung im Einstieg,
 Dauer des Vortrags, Ort und Datum, Bildrechte; zum neuen Modellhaus: Rendite frei finanziert auf A7, Grundstück, Standort Neu Wulmstorf,
-Wohnungsmix, Hinweis auf A8) stehen am Ende von `INHALT.md`.
+Wohnungsmix, Hinweis auf A9) stehen am Ende von `INHALT.md`.
 
 Das Textlektorat vom 11.11.2026 ist eingearbeitet; welche Befunde der Auftraggeber ausgenommen hat, nennt Entscheidung 27 des Konzepts.
 Der Abgleich mit Broschüre und Rechenmappe vom 11.11.2026 ist ebenfalls eingearbeitet: Wo die Broschüre nach ihrem Lektorat anders lautet,
@@ -245,5 +245,8 @@ folgt der Vortrag (Entscheidung 28 des Konzepts). Die Kennung der Folie 11 bleib
 
 Modellhaus seit 11.11.2026 (Entscheidung 29 des Konzepts): ein PGN-Projekt in Neu Wulmstorf statt des gesetzten Beispiels. Neu sind Titel,
 Texte, Zahlen und Notizen der Folien 13 bis 24 und A7; dazu die Stellen, die das Modellhaus nennen (Notizen der Folien 1, 5, 7, A1 und A5,
-Agenda, Hinweis auf A8). In allen drei Einkommensgruppen bleibt ab Jahr 1 ein Zahlungsüberschuss; die Titel nennen das Ergebnis aller drei
+Agenda, Hinweis auf A9). In allen drei Einkommensgruppen bleibt ab Jahr 1 ein Zahlungsüberschuss; die Titel nennen das Ergebnis aller drei
 Gruppen und die Zahl der Gruppe A. `daten/pruefe_werte.py` gleicht dieselben Werte mit der Broschüre S. 10 bis 12 ab.
+
+Anhangfolie A8 seit 11.11.2026 (Entscheidung 30 des Konzepts): Tilgungsschwelle gegenüber A je Herstellungskosten, als Antwort auf die
+Rückfrage zu Folie 20, ob die Reihenfolge der Gruppen auch bei anderen Kosten gilt. Die Quellenfolie ist seitdem A9.

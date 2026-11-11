@@ -591,8 +591,8 @@ function bausteine(pres, kx) {
     if (P) {
       const u = new Set(); zeilen.forEach(z => breite(z, QUELLE, u)); P.zeichen(u, QUELLE_NAME, t);
       if (feld < 1) P.melde(`${QUELLE_NAME}: Neben der Rubrik „${kx.rubrik}“ bleiben im Schriftfeld nur ${feld.toFixed(2)} Zoll. Rubrik kürzen.`);
-      else if (laenge > feld + 0.005) P.melde(`${QUELLE_NAME}: „${t}“ passt nicht in zwei Zeilen zu ${feld.toFixed(2)} Zoll (frei zwischen Rubrik und Logo-Feld; die Zeile misst ${mass(t).toFixed(2)} Zoll). Kürzen; die volle Angabe steht auf der Quellenfolie.`);
-      if (links + SF.quelleAbstand > rechts - laenge + 0.005) P.melde(`${QUELLE_NAME}: stößt an die Rubrik (Rubrik und Projektzeile enden bei x ${links.toFixed(2)}, die Quellenzeile beginnt bei x ${(rechts - laenge).toFixed(2)}; verlangt sind ${SF.quelleAbstand.toFixed(2)} Zoll Abstand).`);
+      // Jede Zeile ist höchstens so breit wie das Feld; damit bleibt der Abstand zur Rubrik gewahrt (das Feld beginnt quelleAbstand hinter ihr)
+      else if (laenge > feld + 0.005) P.melde(`${QUELLE_NAME}: „${t}“ passt nicht in zwei Zeilen zu ${feld.toFixed(2)} Zoll und stieße an die Rubrik (Rubrik und Projektzeile enden bei x ${links.toFixed(2)}, verlangt sind ${SF.quelleAbstand.toFixed(2)} Zoll Abstand; die Zeile misst ${mass(t).toFixed(2)} Zoll). Kürzen; die volle Angabe steht auf der Quellenfolie.`);
       if (hoehe > Y.fussH - 0.04) P.melde(`${QUELLE_NAME}: ${zeilen.length} Zeilen brauchen ${hoehe.toFixed(2)} Zoll, das Schriftfeld ist ${Y.fussH.toFixed(2)} Zoll hoch.`);
       P.mindest(QUELLE_NAME, QUELLE.fontSize, 10);
     }

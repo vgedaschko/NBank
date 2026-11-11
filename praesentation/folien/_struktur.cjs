@@ -1,10 +1,10 @@
-// Hilfsfunktionen der Baugruppe „struktur“ (Folien 2, 7, 8, 13, 22, 25, A0, A7). Kein Folienmodul: build.cjs lädt nur folien/<id>.cjs der Folien des Konzepts.
+// Hilfsfunktionen der Baugruppe „struktur“ (Folien 2, 7, 8, 13, 22, 25, A0, A8). Kein Folienmodul: build.cjs lädt nur folien/<id>.cjs der Folien des Konzepts.
 //   abschnitte             Abschnitte des Hauptteils in der Reihenfolge des Konzepts: eine Zählung für Agenda (Folie 7) und Trenner (Folien 2, 8, 13, 25)
 //   trenner                Roter Trenner vor einem Abschnitt: Achskreis XL, Titel und Vorspann aus dem Konzept, Achsleiste
 //   achsreihe              Achse der Agenda: waagerechte Achse, je Abschnitt ein Achskreis mit senkrechter Achslinie, Name und Inhalt
 //   register               Register der sechs Programmteile: der Schlüsselplan in groß (Programm-Chip, Name, Verweis), ein Feld hervorgehoben
 //   kostenFelder, liesKosten  Texte der Folie 22 aus daten/markt.json (Block kosten) mit gefüllten Platzhaltern
-//   bereiche, quellenZeilen   Quellentabelle der Folie A7: Blattnummern aus den Quellenzeilen aller Folien des Konzepts
+//   bereiche, quellenZeilen   Quellentabelle der Folie A8: Blattnummern aus den Quellenzeilen aller Folien des Konzepts
 // Allgemeine Helfer stehen in lib/: B.achskreis mit der Größe G, B.zweizeilig, B.hauptzahl und B.zweitesModul (rechte Spalte der Folie 22),
 // B.hinweisKasten, B.hoehe. Hier steht keine Zahl mit Aussage: Werte kommen aus den Modulen (W, X), Lagen und Maße sind Angaben der Zeichnung.
 'use strict';
@@ -95,7 +95,7 @@ function kostenFelder(ctx) {
 }
 const liesKosten = ctx => { const U = ctx.lies('markt', kostenFelder(ctx)); return k => U('kosten.texte.' + k); };
 
-// ---- Folie A7: Quellentabelle ---------------------------------------------------------------------------------------------------------
+// ---- Folie A8: Quellentabelle ---------------------------------------------------------------------------------------------------------
 // Blattnummern in der Reihenfolge des Konzepts zusammenfassen: drei und mehr aufeinanderfolgende Blätter als Bereich mit Halbgeviertstrich,
 // Hauptteil und Anhang getrennt („12–22“, „2, 4, 20, 21“). ids: Folien-IDs; folien: Folienliste des Konzepts.
 function bereiche(ids, folien) {

@@ -1,5 +1,6 @@
 // Folie 15 · PGN_TABELLE_MR: Jahresrechnung Jahr 1 für A, B und C als Rechenblatt nach Broschüre S. 11 (Zeilennummern wie dort),
-// Ergebniszeile 8 weiß auf Rot, Bearbeitungsentgelte als Notiz unter der Tabelle, rechts die Annahmen.
+// Ergebniszeile 8 weiß auf Rot, Bearbeitungsentgelte als Notiz unter der Tabelle, rechts die Annahmen. Die Rechnung ist vor Steuern; die
+// Rendite über 35 Jahre steht auf der Anhangfolie A7 (anhang-rendite), nicht hier.
 // Alle Zahlen aus werte.json (Lauf modellhaus, jr1.*); das Jahr des Kostenstands aus daten/rechnung.json.
 'use strict';
 const R = require('./_rechnung.cjs');
@@ -28,7 +29,7 @@ module.exports = {
     B.notiz(s, `Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte ${z('bearbeitungsentgelte').join(' | ')} €`);
     // Dass die NBank den Tilgungssatz festlegt, steht auf den Folien 12, 20 und 24; hier trägt Zeile 7 der Rechnung den Vermerk „Annahme“
     B.planlegende(s, { platzhalter: 'kommentar', pt: 16, eintraege: [
-      { titel: 'Annahmen', text: ctx.wortlaut(`Liquidität in Jahr 1 bei Kostenstand ${R.kostenstand(ctx)}, keine Rendite.`, 'Annahmen') },
+      { titel: 'Annahmen', text: ctx.wortlaut(`Liquidität in Jahr 1 bei Kostenstand ${R.kostenstand(ctx)}, vor Steuern.`, 'Annahmen') },
       // Der Satz der Jahresrechnung ist 1 ÷ Höchstlaufzeit: gleichmäßige Tilgung bis zum Ende der längsten Laufzeit (RL Nr. 5.3.5)
       { text: ctx.wortlaut(`Tilgung gleichmäßig über ${laufzeit} Jahre auf ${G.map(g => fmt.mioZahl(M(`fin.darlehen_nbank.${g}`))).join(' | ')} Mio. € Darlehen.`, 'Annahmen') },
       { text: ctx.wortlaut('B und C setzen eine Zulassung in der Förderentscheidung voraus.', 'Annahmen') }] });

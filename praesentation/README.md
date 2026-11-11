@@ -1,6 +1,6 @@
 # Mietwohnraumförderung Niedersachsen 2026: Vortragsfassung
 
-Vortrag der Planungsgemeinschaft Nord GmbH zur RL Mietwohnraum 2026. 36 Folien im Format 16:9: 28 im Hauptteil, 8 im Anhang.
+Vortrag der Planungsgemeinschaft Nord GmbH zur RL Mietwohnraum 2026. 37 Folien im Format 16:9: 28 im Hauptteil, 9 im Anhang.
 Zahlen und das Design „Planwerk“ folgen der Broschüre. Einziges Rechenbeispiel ist das Modellhaus der Broschüre
 (20 Wohnungen, 1.400 m², 7,0 Mio. €). Stand der Inhalte: 30.09.2026.
 
@@ -13,11 +13,15 @@ Broschüre und in Kurzform auf der Anhangfolie A1.
 | 2 Programmteil 2.1 | 8 bis 12 | Trenner; Neuerungen seit 01.07.2026, Höchstmiete, Fördermix, Eckdaten |
 | 3 Modellrechnung | 13 bis 24 | Trenner; Finanzierung, Jahresrechnung, Kapitaldienst; Zahlungsfluss gefördert und frei finanziert als Flussdiagramme im selben Maßstab; nötige Miete, Tilgungssatz, Verlauf; Herstellungskosten der PGN gegen ARGE, Kostenszenario; Zusammenfassung |
 | 4 Umsetzung | 25 bis 28 | Trenner; Antragsweg, Leistungen der PGN, Kontakt |
-| Anhang | A0 bis A7 | Trenner, Programmteile, Frist, Voraussetzungen, Verträge vor der Bewilligung, Mieterkreis, Eckdaten, Quellen und Hinweis |
+| Anhang | A0 bis A8 | Trenner, Programmteile, Frist, Voraussetzungen, Verträge vor der Bewilligung, Mieterkreis, Eckdaten, Eigenkapitalrendite des Modellhauses, Quellen und Hinweis |
 
 Die Folien des Modellhauses (14 bis 21, 23 und 24) stehen auf Papierton; das Wort „Modellrechnung“ steht im Kicker. Folie 14 trägt oben rechts
 den Zusatz „Fiktives Beispiel, keine Förderzusage“. Die Folien 3 bis 6 und 22 rechnen mit Medianwerten und Kostenkennwerten, nicht mit dem
-Modellhaus, und stehen auf weißem Grund. Den Stempel im Kopf schaltet `STEMPEL_IM_KOPF` in `lib/theme.cjs` wieder ein.
+Modellhaus, und stehen auf weißem Grund. Sie zeigen fremde Daten und tragen deshalb im Schriftfeld eine kurze Quellenzeile.
+Den Stempel im Kopf schaltet `STEMPEL_IM_KOPF` in `lib/theme.cjs` wieder ein.
+
+Die Anhangfolie A7 zeigt die Eigenkapitalrendite des Modellhauses über 35 Jahre, vor Steuern. Sie ist die einzige Folie mit Rendite und
+Marktmiete des Modellhauses und zeigt die Rendite als Paar „mit Restwert“ und „nur Bodenwert“ mit dem Anteil des Restwerts am Endvermögen.
 
 Ergebnis im Ordner `dist/`:
 
@@ -38,7 +42,7 @@ Die Mappe wird aus Code gebaut. Wer eine Folie in PowerPoint ändert, verliert d
 | `lib/` | Bibliothek: Theme, Layouts, Bausteine, Diagramme (auch das Flussdiagramm aus nativen Formen), Datenzugriff, Prüfungen beim Bau; Beschreibung in `lib/API.md`. `lib/layoutnamen.json`: Namen der Layouts im Layout-Menü |
 | `daten/outline.json` | Folienkonzept: Reihenfolge, Titel, Wortlaut, Sprechernotizen, Quellen. `INHALT.md` ist die Lesefassung dazu |
 | `daten/werte.json` | Zahlen der Rechenmappe, erzeugt aus `../vofi/PGN_VOFI_Mietwohnraum_2026_v3.xlsx` |
-| `daten/regeln.json`, `markt.json`, `umsetzung.json`, `rahmen.json`, `rechnung.json` | Zahlen und Texte, die nur die Broschüre oder die Altfassung hat, je Eintrag mit Herkunft und Prüfstand. `markt.json` führt die Daten des Einstiegs und des Kostenvergleichs (Blöcke `baukosten`, `zinsen`, `kapitaldienst`, `bestand`, `markt`, `kosten`), `rahmen.json` die Agenda (Abschnitte, Register der Programmteile) und die Quellentabelle |
+| `daten/regeln.json`, `markt.json`, `umsetzung.json`, `rahmen.json`, `rechnung.json` | Zahlen und Texte, die nur die Broschüre oder die Altfassung hat, je Eintrag mit Herkunft und Prüfstand. `markt.json` führt die Daten des Einstiegs und des Kostenvergleichs (Blöcke `baukosten`, `zinsen`, `kapitaldienst`, `bestand`, `markt`, `kosten`; je Block mit Daten einer fremden Quelle die Kurzform `quelle_kurz` für das Schriftfeld), `rahmen.json` die Agenda (Abschnitte, Register der Programmteile) und die Quellentabelle |
 | `daten/pruefung.json` | Belege für das Prüfskript: gerechnete Größen mit Formel, Zahlen der Sprechernotizen mit Herkunft |
 | `assets/` | Bilder aus den Assets der Broschüre (Logo, Hintergründe, Planzeichen, Icons); neu erzeugen mit `node lib/assets.cjs` |
 | `fonts/` | Montserrat und Work Sans als TTF mit Lizenztexten |
@@ -74,7 +78,7 @@ python pruefe_folien.py --zahlen     # dazu jede Zahl mit ihrem Beleg
 
 `pruefe_folien.py` liest Texte, Tabellen, Diagrammdaten und Notizen der fertigen Datei. Es prüft Folienzahl, Reihenfolge,
 Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs, Schriften und Mindestgrößen, Alternativtexte
-(Bilder, Diagramme, Flussdiagramme), verbotene Wörter und Gedankenstriche.
+(Bilder, Diagramme, Flussdiagramme), verbotene Wörter, Gedankenstriche und die Quellenzeilen im Schriftfeld.
 
 - **Aufbau:** Kennung, Blattnummer und Abschnitt jeder Folie stehen fest am Anfang des Skripts (`AUFBAU`), ebenso die Folien mit
   Stempel (`STEMPEL`). Wer eine Folie einfügt, streicht oder verschiebt, führt beide Listen und die Verweise mit. Kicker und Rubrik
@@ -82,6 +86,11 @@ Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs, Schr
   Ausnahme ist der Kicker der Agenda (`KICKER_OHNE_ABSCHNITT`). Das Register der Agenda trägt die Seiten der Broschüre (`REGISTER`).
 - **Verweise:** „Folie n“ und „Anhang A n“ in Folientexten und Notizen müssen die Blattnummer der gemeinten Folie nennen
   (`VERWEISE`: Folie, Text, Kennung der gemeinten Folie). So fällt nach einer neuen Zählung jeder Verweis auf, der nicht folgt.
+- **Rendite:** „Rendite“ und „Marktmiete“ stehen nur auf der Anhangfolie A7 (`VERBOTEN_AUSNAHME`, an die Kennung `anhang-rendite`
+  gebunden); „IRR“, „DSCR“ und „Safe Harbour“ stehen nirgends. Die Zahlen des Laufs `modellhaus_rendite` und Einträge mit `nur_folie` in
+  `daten/pruefung.json` belegen nur Zahlen dieser Folie. Jede Zahl ihrer Tabelle ist an ihre Zelle der Rechenmappe gebunden (`KERNWERTE_FORM`).
+- **Quellenzeilen:** Die Form „Quellenzeile“ steht genau auf den Folien der Liste `QUELLENZEILEN`, im Wortlaut von `daten/markt.json`
+  (`quelle_kurz` des Blocks), in höchstens zwei Zeilen. Die Prüfung „Rubrik gleich Kicker“ liest nur die Form „Rubrik“.
 - **Zahlen:** Jede Zahl braucht einen Beleg in `daten/werte.json`, in einer Datendatei oder in `daten/pruefung.json`; das gilt
   auch für die Alternativtexte der Diagramme und Flussdiagramme, die jeden Strom mit Betrag und Anteil nennen. Die
   Einheit zählt: Vor „%“ belegt nur ein Anteil oder eine Prozentangabe, vor „€“ und „Mio.“ nur ein Eurobetrag. Zahlen hinter
@@ -139,6 +148,10 @@ Beim Öffnen darf keine Meldung „Reparieren“ erscheinen. Geprüft ist bisher
 - **Folie 22:** Werte, Maßzeichen der Spanne, Pfeilspitze mit „Maximum 8.592“ und Marke sitzen neben und über den Säulen
   (Abstandsbreite 156 %, Überlappung −12 %); die gestrichelte Marke (1 pt) setzt an der Maßlinie der ARGE-Spanne aus; die Flächen in
   der Grundfarbe unterbrechen die Gitterlinien an 4.631 und 3.713 mit Absicht.
+- **Folien 3 bis 6 und 22, Schriftfeld:** Die Quellenzeile steht rechtsbündig vor dem Logo-Feld und bricht nicht von selbst um. Ist eine
+  Schrift auf dem Vortragsrechner breiter, läuft sie nach links auf die Rubrik zu; auf Folie 6 steht sie in zwei Zeilen.
+- **Folie A7:** Die Tabelle hat sieben gleich hohe Zeilen; die Bezeichnungen der Zeilen 3 und 7 stehen in zwei Zeilen. Rechnet PowerPoint
+  eine Bezeichnung breiter, bricht sie in ihrer Zeile um, die Tabelle wächst dabei nicht.
 - **Folien 4 bis 6 nacheinander zeigen:** Die Jahre der Folie 4 sind Textfelder, die Jahre der Folie 6 und die Kategorien der Folie 5
   Achsbeschriftung des Diagramms. In LibreOffice stehen beide auf einer Höhe; in PowerPoint kann der Abstand zur Achse anders ausfallen.
   Springt es beim Blättern sichtbar, die Jahre der Folie 6 als Textfelder setzen wie auf Folie 4.
@@ -156,9 +169,14 @@ Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten 
 - **Wortlaut, Titel, Notizen, Quellen:** `daten/outline.json`. Danach `python daten/inhalt_md.py` und `node build.cjs`. Viele
   Module prüfen ihren Text gegen das Konzept; weicht er ab, nennt der Bau die Stelle.
 - **Zahlen der Modellrechnung:** nur in der Rechenmappe unter `../vofi/`. Danach Schritt 1 und der Bau. `daten/werte.json` nie
-  von Hand ändern. Titel, die eine Zahl nennen, stehen im Konzept und folgen nicht von selbst; der Bau und das Prüfskript
+  von Hand ändern. Renditen, Restwert und Marktmiete stehen auf der Sperrliste von `daten/werte_aus_vofi.py`; die benannte Ausnahme
+  `anhang_rendite` (erlaubt vom Auftraggeber am 11.11.2026) öffnet genau die Zellen der Folie A7 für den Lauf `modellhaus_rendite`.
+  `daten/pruefe_werte.py` prüft, dass kein anderer Lauf einen solchen Wert führt. Titel, die eine Zahl nennen, stehen im Konzept und folgen nicht von selbst; der Bau und das Prüfskript
   melden die Abweichung.
 - **Regelwerte, Marktzahlen, Fristen, Kontaktdaten:** in der Datendatei der Baugruppe, mit `herkunft` und `geprueft`.
+- **Quellenzeile im Schriftfeld:** Wortlaut in `daten/markt.json` (`quelle_kurz` des Blocks) und im Feld `inhalt` der Folie im Konzept;
+  das Modul setzt sie mit `B.quelle`. Eine weitere Folie mit Quellenzeile braucht einen Eintrag in `QUELLENZEILEN` (`pruefe_folien.py`).
+  Der Bau bricht ab, wenn die Zeile mehr als zwei Zeilen braucht oder an die Rubrik stößt.
 - **Neue Zahl in einer Notiz oder ein neuer gerechneter Wert:** Eintrag in `daten/pruefung.json`, sonst meldet das Prüfskript
   sie als unbelegt.
 - **Aussehen:** Farben, Schriften und Raster in `lib/theme.cjs`, Folienrahmen in `lib/layouts.cjs`, Bausteine in
@@ -175,14 +193,17 @@ Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten 
   Abschnitte, Diagrammdaten und Alternativtexte.
 - **Ort und Datum des Vortrags:** Eingabefeld auf der Titelfolie, in PowerPoint ausfüllen.
 
-Nicht auf die Folien gehören Renditen, Deckungsgrade und eine Marktmiete des Modellhauses. Quellen stehen in den Notizen und
-auf der Anhangfolie A7, nicht als Fußzeile.
+Nicht auf die Folien gehören Deckungsgrade. Renditen und eine Marktmiete des Modellhauses stehen nur auf der Anhangfolie A7, die Rendite
+dort als Paar „mit Restwert“ und „nur Bodenwert“ mit dem Restwertanteil (Entscheidung 24 des Konzepts). Auf alle anderen Folien gehören
+sie nicht.
+Quellen stehen in den Notizen und auf der Anhangfolie A8. Die Folien 3 bis 6 und 22 tragen dazu eine kurze Quellenzeile im Schriftfeld
+(Entscheidung 25); die volle Angabe bleibt auf A8.
 
 ## Ungeprüfte Angaben aus der Altfassung
 
 Diese Angaben stammen aus der Präsentation vom 26.10.2026 und sind nicht nachgeprüft. In den Datendateien tragen sie
-`"geprueft": false`, in den Notizen der Folien 3 bis 6, 22, 23 und A7 den Vermerk (auf den Folien 3 bis 6 und 22 als Regie-Hinweis,
-dazu in jeder Quellenzeile). Seit dem Umbau stehen sie im Hauptteil, auf den Folien 3 bis 6 und 22 auch im Titel. Vor dem ersten
+`"geprueft": false`, in den Notizen der Folien 3 bis 6, 22, 23 und A8 den Vermerk (auf den Folien 3 bis 6 und 22 als Regie-Hinweis,
+dazu in jeder Quellenzeile der Notizen; die Quellenzeile im Schriftfeld steht ohne Vermerk). Seit dem Umbau stehen sie im Hauptteil, auf den Folien 3 bis 6 und 22 auch im Titel. Vor dem ersten
 Vortrag bestätigt PGN sie oder nimmt sie heraus.
 
 - Folie 3: ARGE-Mediane deutscher Großstädte, Bruttokosten je m² Wohnfläche, Q1 2020 und Q4 2025: Herstellung 3.028 und 4.631 € (+52,9 %), Grundstück 726 und 761 € (+4,8 %); in den Notizen Bauwerk +52,2 % und Baunebenkosten +57,1 % (Altfassung Folie 23).
@@ -194,7 +215,8 @@ Vortrag bestätigt PGN sie oder nimmt sie heraus.
 - Folie 23, Spalte 3.579 €: Gesamtkosten 5,71 Mio. €, Förderung 4,57 Mio. €, Zahlungsüberschuss 18.647 €, nötige Miete 5,67 €; in den Notizen Kapitaldienst 65.808 € und nötige Miete frei finanziert 17,21 €. Mit der Mappe gerechnet, aber auf dem ungeprüften Eingabewert.
 - Folie 22: PGN-Werte je Kostengruppe (Median Bauwerk 2.812 €, Baunebenkosten 458 €, Außenanlagen 221 €; Spanne Herstellung 3.321 bis 3.861 €; Altfassung Folie 12).
 - Folie 22: ARGE-Werte für deutsche Großstädte, Bruttokosten (Median Q4 2025: Herstellung 4.631 €, Bauwerk 3.713 €, Baunebenkosten 555 €, Außenanlagen 174 €; Spanne Herstellung 3.221 bis 8.592 €; Altfassung Folie 12) und der daraus gerechnete Abstand von 22,7 %.
-- Quellenangaben zu diesen Daten (ARGE e. V., Wohnungsbau in Deutschland 2026, S. 32 Abb. 20 und S. 34 Abb. 23; Dr. Klein Wowi Finanz AG; BT-Drs. 21/7303; PGN, eigene Auswertung von fünf Projekten) stammen aus den Quellenzeilen der Altfassung.
+- Quellenangaben zu diesen Daten (ARGE e. V., Wohnungsbau in Deutschland 2026, S. 32 Abb. 20 und S. 34 Abb. 23; Dr. Klein Wowi Finanz AG; BT-Drs. 21/7303; PGN, eigene Auswertung von fünf Projekten) stammen aus den Quellenzeilen der Altfassung. Sie stehen in Kurzform auch im Schriftfeld der Folien 3 bis 6 und 22.
+- Folie A7: Marktmiete 14,48 € je m² und Liegenschaftszins 2,8 % des Modellhauses sind Ansätze aus einem Projekt in Neu Wulmstorf (Rechenmappe, Blatt Hinweise Nr. 14; Eingabe 4.4 und Übersicht 7.7). An ihnen hängen der Restwert, die Rendite mit Restwert und alle Werte der Spalte „frei“. Nicht aus der Altfassung; für einen anderen Standort neu zu rechnen.
 
 Bestätigt PGN den Wert 3.579 € nicht, entfallen Folie 22 und die Spalte 3.579 € der Folie 23.
 

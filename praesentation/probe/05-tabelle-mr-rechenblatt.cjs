@@ -23,7 +23,7 @@ module.exports = {
       { nr: 8, zeichen: '=', text: 'Zahlungsüberschuss p. a.', werte: z('zahlungsueberschuss'), art: 'ergebnis' }] });
     B.notiz(s, `Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte ${z('bearbeitungsentgelte').join(' | ')} €`);
     B.planlegende(s, { platzhalter: 'kommentar', pt: 14, eintraege: [
-      { titel: 'Annahmen', text: 'Liquidität in Jahr 1 bei Kostenstand 2026, keine Rendite.' },
+      { titel: 'Annahmen', text: 'Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern.' },
       { text: `Tilgung auf ${G.map(g => fmt.mioZahl(W('modellhaus', `fin.darlehen_nbank.${g}`))).join(' | ')} Mio. € Darlehen. Den Tilgungssatz legt die NBank fest.` },
       { text: 'B und C setzen eine Zulassung in der Förderentscheidung voraus.' }] });
   },

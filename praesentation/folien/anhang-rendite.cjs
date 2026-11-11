@@ -33,16 +33,18 @@ module.exports = {
       sub: wl(`Endvermögen nach ${jahre} Jahren gegen Eigenkapital bei Bezug · frei finanziert zur Marktmiete`, 'Untertitel') });
     const zeile = (nr, text, werte, art) => ({ nr, text: wl(text, `Zeile ${nr}`), werte: werte.map(w => wl(w, `Zeile ${nr}`)), ...(art ? { art } : {}) });
     // Die Spalte „frei“ ist breiter: Dort stehen „−3.192.817“ und „über 100 %“; die Position behält so ihre Zeile bis auf zwei lange Bezeichnungen.
-    // Alle Zeilen sind gleich hoch (zwei Zeilen Bezeichnung passen in jede).
+    // Alle Zeilen sind gleich hoch (zwei Zeilen Bezeichnung passen in jede). Die beiden langen Bezeichnungen brechen an der Sinnfuge: Geschützte
+    // Leerzeichen halten „Projektkontos, in €“ und „am Endvermögen“ zusammen (sonst stünde „€“ allein in der zweiten Zeile).
+    const nb = t => t.split(' ').join(fmt.NBSP);
     B.rechenblatt(s, { x: colX(1), y: yT, w: span(8), dicht: true, wertBreite: [1.06, 1.06, 1.06, 1.22], zeilenH: 0.51, ergebnisH: 0.51, name: 'Rechenblatt Rendite',
       kopf: ['Position', { kreis: 'A' }, { kreis: 'B' }, { kreis: 'C' }, wl('frei', 'Spaltenkopf')], zeilen: [
         zeile(1, 'Eigenkapital bei Bezug, in €', ALLE.map(g => fmt.zahl(M(`fin.eigenkapital.${g}`)))),
         zeile(2, `Jahre mit Fehlbetrag, Jahr 1 bis ${jahre}`, fehljahre.map(v => fmt.zahl(v))),
-        zeile(3, 'Tiefster Stand des Projektkontos, in €', konto.map(v => fmt.zahl(v))),
+        zeile(3, `Tiefster Stand des ${nb('Projektkontos, in €')}`, konto.map(v => fmt.zahl(v))),
         zeile(4, `Restwert Ende Jahr ${jahre}, in Mio. €`, restwert.map(v => fmt.mioZahl(v, 2))),
         zeile(5, 'Rendite mit Restwert', mit.map(p1), 'ergebnis'),
         zeile(6, 'Rendite, nur Bodenwert', [...boden.map(p1), '–']),
-        zeile(7, 'Anteil des Restwerts am Endvermögen', [...G.map((g, i) => fmt.prozent(anteil[i])), 'über 100 %'])] });
+        zeile(7, `Anteil des Restwerts ${nb('am Endvermögen')}`, [...G.map((g, i) => fmt.prozent(anteil[i])), 'über 100 %'])] });
 
     // ---- Annahmen über vier Spalten ---------------------------------------------------------------------------------------------
     const A = k => V('annahme.' + k), plus = v => '+' + v;

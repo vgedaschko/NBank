@@ -1,5 +1,5 @@
 // Muster PGN_DIAGRAMM: gruppierte Säulen im Platzhalter „chart“, Achskreise als Kategorien, waagerechte Marke, Legende in der
-// dritten Kopfzeile, Kommentar im Platzhalter „kommentar“.
+// dritten Kopfzeile, Kommentar im Platzhalter „kommentar“. Im Schriftfeld eine Quellenzeile (B.quelle), hier in zwei Zeilen.
 'use strict';
 module.exports = {
   id: 'p03-diagramm-saeulen',
@@ -20,5 +20,7 @@ module.exports = {
       { titel: 'Drei Jahre fest', text: `In den ersten ${W('modellhaus', 'tab.jahre_ohne_mieterhoehung')} Jahren keine Mieterhöhung.` },
       { titel: 'Danach', text: `Höchstens ${fmt.prozent(W('modellhaus', 'tab.mieterhoehung_in_der_bindung'), 2)} in drei Jahren, solange die Bindung läuft.` },
       { titel: 'Effizienzhaus 40', text: `Zuschlag von ${fmt.dez(W('modellhaus', 'tab.zuschlag_hoechstmiete_eh40'))} € je m² auf die Höchstmiete.` }] });
+    // Quellenzeile im Schriftfeld: rechtsbündig vor dem Logo-Feld, 10 pt in Grau. Passt sie nicht in eine Zeile, bricht sie hinter dem Semikolon
+    B.quelle(s, 'Quellen: Musterverband e. V. (2026), Titel der Veröffentlichung mit Untertitel, S. 12; zweite Quelle mit Jahr und Fundstelle, eigene Rechnung');
   },
 };

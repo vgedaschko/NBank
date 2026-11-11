@@ -9,7 +9,7 @@ module.exports = {
   bau(ctx) {
     const { W } = ctx;
     // Titel im Wortlaut des Konzepts; die Zahl der Wohnungen kommt aus der Mappe. Der Vorspann steht im Konzept. Der Satz zur Liquidität
-    // („keine Rendite“) steht bei den Annahmen der Jahresrechnung (Folie 15) und nicht ein zweites Mal hier.
+    // („vor Steuern“) steht bei den Annahmen der Jahresrechnung (Folie 15) und nicht ein zweites Mal hier.
     const wohnungen = `${W('modellhaus', 'eingabe.wohnungen')} Wohnungen`, titel = ['Modellrechnung:', `Neubau mit ${wohnungen}`];
     titel.forEach((z, i) => ctx.wortlaut(`„${z}“`, `Titelzeile ${i + 1}`));
     ctx.wortlaut(`Signaturwort: „${wohnungen}“`, 'Signaturwort');

@@ -23,6 +23,8 @@ Liste in „wert“, die Zelle ist dann ein Bereich.
 
 Nicht exportiert werden Renditen, Restwerte, der Förderbarwert, das Blatt
 NBank sowie alles, was an der Markt- oder Vergleichsmiete hängt (Sperrliste).
+Einzige Ausnahme ist der Lauf „modellhaus_rendite“ für die Anhangfolie A7
+(AUSNAHMEN): Er liest genau die dort genannten Zellen und keine weitere.
 
 Abgleich mit der Broschüre S. 10–12, der Altfassung und einer Handrechnung:
     python daten/pruefe_werte.py
@@ -40,7 +42,7 @@ import tempfile
 from pathlib import Path
 
 import openpyxl
-from openpyxl.utils import column_index_from_string, range_boundaries
+from openpyxl.utils import column_index_from_string, get_column_letter, range_boundaries
 
 HIER = Path(__file__).resolve().parent
 MAPPE = HIER.parent.parent / "vofi" / "PGN_VOFI_Mietwohnraum_2026_v3.xlsx"
@@ -125,6 +127,91 @@ def gesperrt(blatt, zelle):
         if _in(zelle, bereich):
             return grund
     return None
+
+
+# --------------------------------------------------------------------------
+# Ausnahmen von der Sperrliste: benannt, an einen Lauf gebunden, Zelle für Zelle
+# --------------------------------------------------------------------------
+# Die Sperrliste gilt weiter. Eine Ausnahme öffnet genau die genannten Zellen
+# für genau einen Lauf; jede andere gesperrte Zelle bricht den Lauf ab, und
+# kein anderer Lauf liest eine dieser Zellen.
+#
+# anhang_rendite: Der Auftraggeber will eine Anhangfolie zur Eigenkapitalrendite,
+# weil Investoren danach fragen (erlaubt am 11.11.2026). E5 gilt für alle
+# anderen Folien weiter. Bedingung laut Blatt Hinweise der Mappe, Nr. 12:
+# Renditen nur als Paar „mit Restwert / nur Bodenwert“ mit dem Restwertanteil.
+# Marktmiete und Liegenschaftszins des Modellhauses sind Ansätze aus einem
+# Projekt in Neu Wulmstorf (Hinweise Nr. 14) und stehen deshalb als Annahme auf
+# der Folie.
+AUSNAHMEN = [
+    dict(
+        name="anhang_rendite",
+        lauf="modellhaus_rendite",
+        erlaubt_von="Auftraggeber",
+        erlaubt_am="11.11.2026",
+        zweck="Anhangfolie A7 „Eigenkapitalrendite“ (Folie anhang-rendite); auf keiner anderen Folie",
+        bedingung="Renditen nur als Paar „mit Restwert / nur Bodenwert“ mit dem Restwertanteil (Mappe, Blatt Hinweise, Nr. 12)",
+        zellen={
+            "Übersicht": [
+                ("G47", "Jahre mit Fehlbetrag, frei finanziert zur Marktmiete"),
+                ("D91:G91", "VOFI-EK-Rendite, mit Restwert"),
+                ("D92:G92", "VOFI-EK-Rendite, nur Bodenwert"),
+                ("D93:G93", "Restwertanteil am Endvermögen"),
+                ("D96:G96", "Tiefster Stand des Projektkontos"),
+                ("D100:G100", "Restwert Ende Jahr 35"),
+                ("D106:G106", "Liegenschaftszins"),
+            ],
+            "Eingaben": [
+                ("F25", "Marktmiete Neuvermietung, Jahr 1"),
+                ("F26", "Steigerung Markt- und Vergleichsmiete"),
+                ("F41", "Guthabenzins Projektkonto"),
+                ("F42", "Sollzins Projektkonto"),
+                ("F44", "Bodenwertsteigerung"),
+            ],
+        },
+    ),
+]
+
+
+def _innerhalb(zelle, bereich):
+    c1, r1, c2, r2 = range_boundaries(bereich)
+    zc1, zr1, zc2, zr2 = range_boundaries(zelle)
+    return c1 <= zc1 and zc2 <= c2 and r1 <= zr1 and zr2 <= r2
+
+
+def ausnahme(lauf, blatt, zelle):
+    """Name der Ausnahme, die diese Zelle für diesen Lauf öffnet, sonst None.
+    Die Zelle muss ganz in einem genannten Bereich liegen."""
+    for a in AUSNAHMEN:
+        if a["lauf"] != lauf:
+            continue
+        for bereich, _ in a["zellen"].get(blatt, []):
+            if _innerhalb(zelle, bereich):
+                return a["name"]
+    return None
+
+
+def pruefe_ausnahmen(laeufe):
+    """Jede Ausnahme nennt einen Lauf, den es gibt, und nur gesperrte Zellen;
+    der Lauf liest jede genannte Zelle (keine Ausnahme auf Vorrat)."""
+    namen = {l["lauf"]: l for l in laeufe}
+    for a in AUSNAHMEN:
+        if a["lauf"] not in namen:
+            sys.exit(f"Ausnahme {a['name']}: Den Lauf {a['lauf']} gibt es nicht.")
+        for feld in ("erlaubt_von", "erlaubt_am", "zweck", "bedingung"):
+            if not a.get(feld):
+                sys.exit(f"Ausnahme {a['name']}: „{feld}“ fehlt.")
+        gelesen = [(w["blatt"], w["zelle"]) for w in namen[a["lauf"]]["katalog"]]
+        for blatt, bereiche in a["zellen"].items():
+            for bereich, _ in bereiche:
+                if not gesperrt(blatt, bereich):
+                    sys.exit(f"Ausnahme {a['name']}: {blatt}!{bereich} ist nicht gesperrt; der Eintrag ist überflüssig.")
+                c1, r1, c2, r2 = range_boundaries(bereich)
+                for sp in range(c1, c2 + 1):
+                    for ze in range(r1, r2 + 1):
+                        einzel = f"{get_column_letter(sp)}{ze}"
+                        if not any(b == blatt and _innerhalb(einzel, z) for b, z in gelesen):
+                            sys.exit(f"Ausnahme {a['name']}: {blatt}!{einzel} ist geöffnet, aber der Lauf {a['lauf']} liest die Zelle nicht.")
 
 
 # --------------------------------------------------------------------------
@@ -364,6 +451,33 @@ def katalog_zeitreihe():
     return k
 
 
+def katalog_rendite():
+    """Werte der Anhangfolie A7 „Eigenkapitalrendite“. Jede Zelle steht auf der
+    Sperrliste und ist nur über die Ausnahme anhang_rendite lesbar (AUSNAHMEN).
+    Horizont Jahr 35: Spalten D bis G der Übersicht. Eigenkapital bei Bezug und
+    die Jahre mit Fehlbetrag der Gruppen A, B, C führt der Lauf modellhaus
+    (fin.eigenkapital.*, liq.jahre_mit_fehlbetrag.*)."""
+    alle = GRUPPEN + ("Frei",)
+    u = lambda k, z, einheit, b: W(f"rendite.{k}", "Übersicht", z, einheit, b)
+    e = lambda k, z, einheit, b: W(f"rendite.annahme.{k}", "Eingaben", z, einheit, b)
+    k = [u("jahre_mit_fehlbetrag.Frei", "G47", "Jahre", "Übersicht 3.6 Jahre mit Fehlbetrag, Jahr 1–35; frei finanziert zur Marktmiete")]
+    k += je_gruppe("rendite.vofi_mit_restwert", 91, "Anteil", "Übersicht 6.3 VOFI-EK-Rendite vor Steuern, mit Restwert, Horizont Jahr 35", alle)
+    k += je_gruppe("rendite.vofi_nur_bodenwert", 92, "Anteil", "Übersicht 6.4 VOFI-EK-Rendite vor Steuern, nur Bodenwert, Horizont Jahr 35")
+    k += [u("vofi_nur_bodenwert.Frei", "G92", "Text", "Übersicht 6.4 VOFI-EK-Rendite, nur Bodenwert; frei finanziert: „n. v.“, weil das Endvermögen nicht positiv ist (Hinweise Nr. 11)")]
+    k += je_gruppe("rendite.restwertanteil", 93, "Anteil", "Übersicht 6.5 Restwertanteil am Endvermögen, Horizont Jahr 35 (über 1, wenn ohne Restwert kein Vermögen bleibt)", alle)
+    k += je_gruppe("rendite.projektkonto_tiefststand", 96, "€", "Übersicht 6.8 Tiefster Stand des Projektkontos (VOFI), Jahr 0–42", alle)
+    k += je_gruppe("rendite.restwert_jahr35", 100, "€", "Übersicht 7.1 Restwert (Boden + Gebäude), Ertragswert Ende Jahr 35", alle)
+    k += je_gruppe("rendite.liegenschaftszins", 106, "Anteil", "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Ansatz aus Neu Wulmstorf)", alle)
+    k += [
+        e("marktmiete_jahr1", "F25", "€/m² Monat", "Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 (Ansatz aus Neu Wulmstorf)"),
+        e("mietsteigerung", "F26", "Anteil", "Eingabe 4.5 Steigerung Markt- und Vergleichsmiete p. a."),
+        e("guthabenzins", "F41", "Anteil", "Eingabe 7.2 Guthabenzins Projektkonto (VOFI) p. a."),
+        e("sollzins", "F42", "Anteil", "Eingabe 7.3 Sollzins Projektkonto (VOFI) p. a."),
+        e("bodenwertsteigerung", "F44", "Anteil", "Eingabe 8.1 Bodenwertsteigerung p. a."),
+    ]
+    return k
+
+
 KERN = (katalog_eingaben() + katalog_finanzierung() + katalog_jahr1() + katalog_liquiditaet()
         + katalog_tilgung() + katalog_dscr() + katalog_frei())
 
@@ -382,6 +496,15 @@ LAEUFE = [
                      "Zins NBank laut Eingabe 3.3, Mieterhöhung nach Bindungsende laut Eingabe 4.6.",
         aenderungen=[],
         katalog=katalog_zeitreihe(),
+    ),
+    dict(
+        lauf="modellhaus_rendite",
+        beschreibung="Modellhaus im Auslieferungsstand: Eigenkapitalrendite vor Steuern über 35 Jahre als Paar „mit "
+                     "Restwert / nur Bodenwert“ mit Restwertanteil, dazu Projektkonto, Restwert und die Annahmen "
+                     "dahinter. Nur für die Anhangfolie A7 (Folie anhang-rendite); Ausnahme anhang_rendite von der "
+                     "Sperrliste. Marktmiete und Liegenschaftszins sind Ansätze aus Neu Wulmstorf.",
+        aenderungen=[],
+        katalog=katalog_rendite(),
     ),
     dict(
         lauf="modellhaus_dscr125",
@@ -481,10 +604,10 @@ def kopie_rechnen(mappe, ordner, lauf, aenderungen, recalc):
     return openpyxl.load_workbook(kopie, data_only=True), methode
 
 
-def lies(wb, eintrag):
+def lies(wb, eintrag, lauf=None):
     blatt, zelle = eintrag["blatt"], eintrag["zelle"]
     grund = gesperrt(blatt, zelle)
-    if grund:
+    if grund and not ausnahme(lauf, blatt, zelle):
         sys.exit(f"Gesperrte Zelle im Katalog: {eintrag['schluessel']} → {blatt}!{zelle} ({grund})")
     ws = wb[blatt]
     if ":" in zelle:
@@ -612,6 +735,7 @@ def main():
         pruefe_voraussetzungen(original)
         stand = re.sub(r"^.*\((.*)\)\s*$", r"\1", str(original["Hinweise"]["B2"].value))
 
+        pruefe_ausnahmen(LAEUFE)
         laeufe = {}
         methode = None
         gerechnet = {}
@@ -631,8 +755,11 @@ def main():
                 if eintrag["schluessel"] in werte:
                     sys.exit(f"Schlüssel doppelt: {eintrag['schluessel']}")
                 werte[eintrag["schluessel"]] = dict(
-                    schluessel=eintrag["schluessel"], wert=lies(wb, eintrag), einheit=eintrag["einheit"],
+                    schluessel=eintrag["schluessel"], wert=lies(wb, eintrag, name), einheit=eintrag["einheit"],
                     blatt=eintrag["blatt"], zelle=eintrag["zelle"], bedeutung=eintrag["bedeutung"], lauf=name)
+                # Wert aus einer gesperrten Zelle: Die Ausnahme steht am Wert (meta.ausnahmen nennt, wer sie erlaubt hat und wofür)
+                if gesperrt(eintrag["blatt"], eintrag["zelle"]):
+                    werte[eintrag["schluessel"]]["ausnahme"] = ausnahme(name, eintrag["blatt"], eintrag["zelle"])
             laeufe[name] = dict(
                 beschreibung=lauf["beschreibung"],
                 aenderungen=[dict(a_) for a_ in lauf["aenderungen"]],
@@ -663,8 +790,15 @@ def main():
                     "für die Zeilen 4.1 bis 4.8.",
                     "Vor Steuern, nominal, T0 = Bezugsfertigkeit; Modellrechnung, keine Förderzusage.",
                 ],
+                ausnahmen=[
+                    dict(name=x["name"], lauf=x["lauf"], erlaubt_von=x["erlaubt_von"], erlaubt_am=x["erlaubt_am"],
+                         zweck=x["zweck"], bedingung=x["bedingung"],
+                         zellen=[f"{blatt}!{bereich}" for blatt, bereiche in x["zellen"].items() for bereich, _ in bereiche])
+                    for x in AUSNAHMEN
+                ],
                 nicht_exportiert=[
-                    "Renditen, Restwerte, Förderbarwert, Projektkonto (VOFI), Blatt NBank",
+                    "Renditen, Restwerte, Förderbarwert, Projektkonto (VOFI), Blatt NBank; ausgenommen sind allein die "
+                    "Zellen der Ausnahmen (meta.ausnahmen), und nur in ihrem Lauf",
                     "Markt- und Vergleichsmiete (Eingaben 4.3, 4.4) und alles, was daran hängt: Jahresrechnung, "
                     "Liquidität und Zeitreihe „frei finanziert“ zur Marktmiete, Aufschlag auf die Marktmiete",
                     "Projektnamen (Projekt 2 enthält einen Straßennamen)",

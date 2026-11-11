@@ -8,11 +8,14 @@
    Abweichungen hier sind Hinweise, kein Fehler: Es gilt die Mappe.
 3. Handrechnung: Die Kernwerte jedes Laufs werden aus den Eingaben und den
    Festwerten der Richtlinie neu gerechnet, ohne die Formeln der Mappe.
+4. Sperrliste: Renditen, Restwert und Marktmiete stehen nur im Lauf der
+   benannten Ausnahme (meta.ausnahmen), jeder dieser Werte liegt in einer dort
+   genannten Zelle, und kein anderer Lauf führt einen solchen Wert.
 
 Aufruf (im Ordner praesentation):
     python daten/pruefe_werte.py [--bericht DATEI.md]
 
-Rückgabewert 0, wenn 1 und 3 ohne Abweichung sind.
+Rückgabewert 0, wenn 1, 3 und 4 ohne Abweichung sind.
 """
 
 import argparse
@@ -429,6 +432,42 @@ def abgleich_handrechnung(w, b):
                          f"{n - abw} gleich", f"{n} Werte", lauf, "gleich" if abw == 0 else "ABWEICHUNG"))
 
 
+# ---------------------------------------------------------------- 4 Sperrliste
+
+def _zellen(bereich):
+    """„D91:G91“ → {'D91', 'E91', 'F91', 'G91'} (Spalten A bis Z reichen hier)."""
+    m = re.fullmatch(r"([A-Z])(\d+)(?::([A-Z])(\d+))?", bereich)
+    if not m:
+        sys.exit(f"Ausnahme: Bereich „{bereich}“ nicht lesbar.")
+    s1, z1, s2, z2 = m.group(1), int(m.group(2)), m.group(3) or m.group(1), int(m.group(4) or m.group(2))
+    return {f"{chr(sp)}{ze}" for sp in range(ord(s1), ord(s2) + 1) for ze in range(z1, z2 + 1)}
+
+
+def abgleich_sperre(w, b):
+    teil = "Sperrliste"
+    ausnahmen = w.daten["meta"].get("ausnahmen", [])
+    erlaubt = {a["lauf"]: a for a in ausnahmen}
+    for a in ausnahmen:
+        voll = all(a.get(k) for k in ("name", "lauf", "erlaubt_von", "erlaubt_am", "zweck", "bedingung", "zellen"))
+        b.zeilen.append((teil, f"Ausnahme {a.get('name')}: erlaubt von {a.get('erlaubt_von')}, {a.get('erlaubt_am')}; {a.get('zweck')}",
+                         "vollständig" if voll else "Angabe fehlt", "vollständig", "meta.ausnahmen", "gleich" if voll else "ABWEICHUNG"))
+    for lauf, daten in w.daten["laeufe"].items():
+        werte = daten["werte"]
+        heikel = [k for k, v in werte.items() if k.startswith("rendite.") or "ausnahme" in v]
+        if lauf not in erlaubt:
+            b.zeilen.append((teil, f"{lauf}: Werte aus gesperrten Zellen", str(len(heikel)), "0", lauf, "gleich" if not heikel else "ABWEICHUNG"))
+            continue
+        a = erlaubt[lauf]
+        offen = {(blatt, z) for eintrag in a["zellen"] for blatt, bereich in [eintrag.split("!")] for z in _zellen(bereich)}
+        gelesen = {(v["blatt"], v["zelle"]) for v in werte.values()}
+        fremd = sorted(k for k, v in werte.items() if v.get("ausnahme") != a["name"] or (v["blatt"], v["zelle"]) not in offen)
+        b.zeilen.append((teil, f"{lauf}: {len(werte)} Werte, alle aus den Zellen der Ausnahme {a['name']}",
+                         "ja" if not fremd else "nein: " + ", ".join(fremd), "ja", lauf, "gleich" if not fremd else "ABWEICHUNG"))
+        ungenutzt = sorted(f"{blatt}!{z}" for blatt, z in offen - gelesen)
+        b.zeilen.append((teil, f"{lauf}: jede geöffnete Zelle wird gelesen", "ja" if not ungenutzt else "nein: " + ", ".join(ungenutzt), "ja", lauf,
+                         "gleich" if not ungenutzt else "ABWEICHUNG"))
+
+
 # ---------------------------------------------------------------- Ausgabe
 
 def markdown(b):
@@ -455,6 +494,7 @@ def main():
     abgleich_broschuere(w, b)
     abgleich_altfassung(w, b)
     abgleich_handrechnung(w, b)
+    abgleich_sperre(w, b)
     if a.bericht:
         a.bericht.write_text(markdown(b), encoding="utf-8")
     fehler = 0

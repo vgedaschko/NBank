@@ -29,8 +29,32 @@
    "Reihen stehen als Liste in „wert“; zr.* hat 42 Werte für Jahr 1 bis 42, tilg.raster.* hat 8 Werte für die Zeilen 4.1 bis 4.8.",
    "Vor Steuern, nominal, T0 = Bezugsfertigkeit; Modellrechnung, keine Förderzusage."
   ],
+  "ausnahmen": [
+   {
+    "name": "anhang_rendite",
+    "lauf": "modellhaus_rendite",
+    "erlaubt_von": "Auftraggeber",
+    "erlaubt_am": "11.11.2026",
+    "zweck": "Anhangfolie A7 „Eigenkapitalrendite“ (Folie anhang-rendite); auf keiner anderen Folie",
+    "bedingung": "Renditen nur als Paar „mit Restwert / nur Bodenwert“ mit dem Restwertanteil (Mappe, Blatt Hinweise, Nr. 12)",
+    "zellen": [
+     "Übersicht!G47",
+     "Übersicht!D91:G91",
+     "Übersicht!D92:G92",
+     "Übersicht!D93:G93",
+     "Übersicht!D96:G96",
+     "Übersicht!D100:G100",
+     "Übersicht!D106:G106",
+     "Eingaben!F25",
+     "Eingaben!F26",
+     "Eingaben!F41",
+     "Eingaben!F42",
+     "Eingaben!F44"
+    ]
+   }
+  ],
   "nicht_exportiert": [
-   "Renditen, Restwerte, Förderbarwert, Projektkonto (VOFI), Blatt NBank",
+   "Renditen, Restwerte, Förderbarwert, Projektkonto (VOFI), Blatt NBank; ausgenommen sind allein die Zellen der Ausnahmen (meta.ausnahmen), und nur in ihrem Lauf",
    "Markt- und Vergleichsmiete (Eingaben 4.3, 4.4) und alles, was daran hängt: Jahresrechnung, Liquidität und Zeitreihe „frei finanziert“ zur Marktmiete, Aufschlag auf die Marktmiete",
    "Projektnamen (Projekt 2 enthält einen Straßennamen)"
   ]
@@ -2748,6 +2772,318 @@
      "zelle": "O6",
      "bedeutung": "Bankdarlehen bei Bezug (Jahr 0); frei finanziert",
      "lauf": "modellhaus_zeitreihe"
+    }
+   }
+  },
+  "modellhaus_rendite": {
+   "beschreibung": "Modellhaus im Auslieferungsstand: Eigenkapitalrendite vor Steuern über 35 Jahre als Paar „mit Restwert / nur Bodenwert“ mit Restwertanteil, dazu Projektkonto, Restwert und die Annahmen dahinter. Nur für die Anhangfolie A7 (Folie anhang-rendite); Ausnahme anhang_rendite von der Sperrliste. Marktmiete und Liegenschaftszins sind Ansätze aus Neu Wulmstorf.",
+   "aenderungen": [],
+   "pruefungen": {
+    "pruefblock_mappe": "OK",
+    "zellen_gleich_auslieferung": 11603,
+    "mieten_ohne_platzhalter": true
+   },
+   "anzahl_werte": 30,
+   "werte": {
+    "rendite.jahre_mit_fehlbetrag.Frei": {
+     "schluessel": "rendite.jahre_mit_fehlbetrag.Frei",
+     "wert": 21,
+     "einheit": "Jahre",
+     "blatt": "Übersicht",
+     "zelle": "G47",
+     "bedeutung": "Übersicht 3.6 Jahre mit Fehlbetrag, Jahr 1–35; frei finanziert zur Marktmiete",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.vofi_mit_restwert.A": {
+     "schluessel": "rendite.vofi_mit_restwert.A",
+     "wert": 0.0573528718565528,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "D91",
+     "bedeutung": "Übersicht 6.3 VOFI-EK-Rendite vor Steuern, mit Restwert, Horizont Jahr 35; Gruppe A",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.vofi_mit_restwert.B": {
+     "schluessel": "rendite.vofi_mit_restwert.B",
+     "wert": 0.0577948067178968,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "E91",
+     "bedeutung": "Übersicht 6.3 VOFI-EK-Rendite vor Steuern, mit Restwert, Horizont Jahr 35; Gruppe B",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.vofi_mit_restwert.C": {
+     "schluessel": "rendite.vofi_mit_restwert.C",
+     "wert": 0.058134018834779,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "F91",
+     "bedeutung": "Übersicht 6.3 VOFI-EK-Rendite vor Steuern, mit Restwert, Horizont Jahr 35; Gruppe C",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.vofi_mit_restwert.Frei": {
+     "schluessel": "rendite.vofi_mit_restwert.Frei",
+     "wert": 0.0551799814270411,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "G91",
+     "bedeutung": "Übersicht 6.3 VOFI-EK-Rendite vor Steuern, mit Restwert, Horizont Jahr 35; frei finanziert",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.vofi_nur_bodenwert.A": {
+     "schluessel": "rendite.vofi_nur_bodenwert.A",
+     "wert": 0.0167365686219019,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "D92",
+     "bedeutung": "Übersicht 6.4 VOFI-EK-Rendite vor Steuern, nur Bodenwert, Horizont Jahr 35; Gruppe A",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.vofi_nur_bodenwert.B": {
+     "schluessel": "rendite.vofi_nur_bodenwert.B",
+     "wert": 0.00899911871304404,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "E92",
+     "bedeutung": "Übersicht 6.4 VOFI-EK-Rendite vor Steuern, nur Bodenwert, Horizont Jahr 35; Gruppe B",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.vofi_nur_bodenwert.C": {
+     "schluessel": "rendite.vofi_nur_bodenwert.C",
+     "wert": 0.00559394536189961,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "F92",
+     "bedeutung": "Übersicht 6.4 VOFI-EK-Rendite vor Steuern, nur Bodenwert, Horizont Jahr 35; Gruppe C",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.vofi_nur_bodenwert.Frei": {
+     "schluessel": "rendite.vofi_nur_bodenwert.Frei",
+     "wert": "n. v.",
+     "einheit": "Text",
+     "blatt": "Übersicht",
+     "zelle": "G92",
+     "bedeutung": "Übersicht 6.4 VOFI-EK-Rendite, nur Bodenwert; frei finanziert: „n. v.“, weil das Endvermögen nicht positiv ist (Hinweise Nr. 11)",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.restwertanteil.A": {
+     "schluessel": "rendite.restwertanteil.A",
+     "wert": 0.861654427108343,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "D93",
+     "bedeutung": "Übersicht 6.5 Restwertanteil am Endvermögen, Horizont Jahr 35 (über 1, wenn ohne Restwert kein Vermögen bleibt); Gruppe A",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.restwertanteil.B": {
+     "schluessel": "rendite.restwertanteil.B",
+     "wert": 0.922082899390028,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "E93",
+     "bedeutung": "Übersicht 6.5 Restwertanteil am Endvermögen, Horizont Jahr 35 (über 1, wenn ohne Restwert kein Vermögen bleibt); Gruppe B",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.restwertanteil.C": {
+     "schluessel": "rendite.restwertanteil.C",
+     "wert": 0.943945583798352,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "F93",
+     "bedeutung": "Übersicht 6.5 Restwertanteil am Endvermögen, Horizont Jahr 35 (über 1, wenn ohne Restwert kein Vermögen bleibt); Gruppe C",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.restwertanteil.Frei": {
+     "schluessel": "rendite.restwertanteil.Frei",
+     "wert": 1.20516371253051,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "G93",
+     "bedeutung": "Übersicht 6.5 Restwertanteil am Endvermögen, Horizont Jahr 35 (über 1, wenn ohne Restwert kein Vermögen bleibt); frei finanziert",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.projektkonto_tiefststand.A": {
+     "schluessel": "rendite.projektkonto_tiefststand.A",
+     "wert": 0,
+     "einheit": "€",
+     "blatt": "Übersicht",
+     "zelle": "D96",
+     "bedeutung": "Übersicht 6.8 Tiefster Stand des Projektkontos (VOFI), Jahr 0–42; Gruppe A",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.projektkonto_tiefststand.B": {
+     "schluessel": "rendite.projektkonto_tiefststand.B",
+     "wert": -67599.6857581072,
+     "einheit": "€",
+     "blatt": "Übersicht",
+     "zelle": "E96",
+     "bedeutung": "Übersicht 6.8 Tiefster Stand des Projektkontos (VOFI), Jahr 0–42; Gruppe B",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.projektkonto_tiefststand.C": {
+     "schluessel": "rendite.projektkonto_tiefststand.C",
+     "wert": -133137.63259229,
+     "einheit": "€",
+     "blatt": "Übersicht",
+     "zelle": "F96",
+     "bedeutung": "Übersicht 6.8 Tiefster Stand des Projektkontos (VOFI), Jahr 0–42; Gruppe C",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.projektkonto_tiefststand.Frei": {
+     "schluessel": "rendite.projektkonto_tiefststand.Frei",
+     "wert": -3192817.19194099,
+     "einheit": "€",
+     "blatt": "Übersicht",
+     "zelle": "G96",
+     "bedeutung": "Übersicht 6.8 Tiefster Stand des Projektkontos (VOFI), Jahr 0–42; frei finanziert",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.restwert_jahr35.A": {
+     "schluessel": "rendite.restwert_jahr35.A",
+     "wert": 8792243.98664375,
+     "einheit": "€",
+     "blatt": "Übersicht",
+     "zelle": "D100",
+     "bedeutung": "Übersicht 7.1 Restwert (Boden + Gebäude), Ertragswert Ende Jahr 35; Gruppe A",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.restwert_jahr35.B": {
+     "schluessel": "rendite.restwert_jahr35.B",
+     "wert": 9570534.13355468,
+     "einheit": "€",
+     "blatt": "Übersicht",
+     "zelle": "E100",
+     "bedeutung": "Übersicht 7.1 Restwert (Boden + Gebäude), Ertragswert Ende Jahr 35; Gruppe B",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.restwert_jahr35.C": {
+     "schluessel": "rendite.restwert_jahr35.C",
+     "wert": 9919955.64328828,
+     "einheit": "€",
+     "blatt": "Übersicht",
+     "zelle": "F100",
+     "bedeutung": "Übersicht 7.1 Restwert (Boden + Gebäude), Ertragswert Ende Jahr 35; Gruppe C",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.restwert_jahr35.Frei": {
+     "schluessel": "rendite.restwert_jahr35.Frei",
+     "wert": 11056129.017302,
+     "einheit": "€",
+     "blatt": "Übersicht",
+     "zelle": "G100",
+     "bedeutung": "Übersicht 7.1 Restwert (Boden + Gebäude), Ertragswert Ende Jahr 35; frei finanziert",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.liegenschaftszins.A": {
+     "schluessel": "rendite.liegenschaftszins.A",
+     "wert": 0.028,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "D106",
+     "bedeutung": "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Ansatz aus Neu Wulmstorf); Gruppe A",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.liegenschaftszins.B": {
+     "schluessel": "rendite.liegenschaftszins.B",
+     "wert": 0.028,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "E106",
+     "bedeutung": "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Ansatz aus Neu Wulmstorf); Gruppe B",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.liegenschaftszins.C": {
+     "schluessel": "rendite.liegenschaftszins.C",
+     "wert": 0.028,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "F106",
+     "bedeutung": "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Ansatz aus Neu Wulmstorf); Gruppe C",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.liegenschaftszins.Frei": {
+     "schluessel": "rendite.liegenschaftszins.Frei",
+     "wert": 0.028,
+     "einheit": "Anteil",
+     "blatt": "Übersicht",
+     "zelle": "G106",
+     "bedeutung": "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Ansatz aus Neu Wulmstorf); frei finanziert",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.annahme.marktmiete_jahr1": {
+     "schluessel": "rendite.annahme.marktmiete_jahr1",
+     "wert": 14.48,
+     "einheit": "€/m² Monat",
+     "blatt": "Eingaben",
+     "zelle": "F25",
+     "bedeutung": "Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 (Ansatz aus Neu Wulmstorf)",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.annahme.mietsteigerung": {
+     "schluessel": "rendite.annahme.mietsteigerung",
+     "wert": 0.02,
+     "einheit": "Anteil",
+     "blatt": "Eingaben",
+     "zelle": "F26",
+     "bedeutung": "Eingabe 4.5 Steigerung Markt- und Vergleichsmiete p. a.",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.annahme.guthabenzins": {
+     "schluessel": "rendite.annahme.guthabenzins",
+     "wert": 0.02,
+     "einheit": "Anteil",
+     "blatt": "Eingaben",
+     "zelle": "F41",
+     "bedeutung": "Eingabe 7.2 Guthabenzins Projektkonto (VOFI) p. a.",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.annahme.sollzins": {
+     "schluessel": "rendite.annahme.sollzins",
+     "wert": 0.05,
+     "einheit": "Anteil",
+     "blatt": "Eingaben",
+     "zelle": "F42",
+     "bedeutung": "Eingabe 7.3 Sollzins Projektkonto (VOFI) p. a.",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
+    },
+    "rendite.annahme.bodenwertsteigerung": {
+     "schluessel": "rendite.annahme.bodenwertsteigerung",
+     "wert": 0.015,
+     "einheit": "Anteil",
+     "blatt": "Eingaben",
+     "zelle": "F44",
+     "bedeutung": "Eingabe 8.1 Bodenwertsteigerung p. a.",
+     "lauf": "modellhaus_rendite",
+     "ausnahme": "anhang_rendite"
     }
    }
   },

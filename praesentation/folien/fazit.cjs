@@ -28,9 +28,10 @@ module.exports = {
 
     // Planlegende über zwölf Spalten: Modulkopf-Linie und drei Einträge im Raster 4 + 4 + 4
     const y = B.modulkopf(s, { x: colX(1), y: ZONE.kennzahlen.darunter, w: Raster.CW });
-    // Tilgungssatz: Annahme der Rechnung und der Satz, bei dem der Zahlungsüberschuss in Gruppe A null ist (Übersicht 3.8)
-    if (!(M('liq.breakeven_tilgung.A') > M('eingabe.tilgung_nbank'))) P.melde('Der Tilgungssatz, bei dem der Zahlungsüberschuss in A null ist, liegt nicht mehr über der Annahme; Eintrag „Tilgungssatz“ der Folie 24 anpassen.');
-    [['Tilgungssatz', `Annahme ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)} p. a., null in A ab ${fmt.prozent(M('liq.breakeven_tilgung.A'), 2)}. Den Satz legt die NBank fest.`],
+    // Tilgungssatz: Annahme der Rechnung und die Sätze, bei denen der Zahlungsüberschuss in Jahr 1 null ist (Übersicht 3.8): zuerst in C, zuletzt in A
+    const nullA = M('liq.breakeven_tilgung.A'), nullB = M('liq.breakeven_tilgung.B'), nullC = M('liq.breakeven_tilgung.C');
+    if (!(M('eingabe.tilgung_nbank') < nullC && nullC < nullB && nullB < nullA)) P.melde('Die Tilgungssätze, bei denen der Zahlungsüberschuss null wird, liegen nicht mehr in der Reihenfolge C, B, A über der Annahme; Eintrag „Tilgungssatz“ der Folie 24 anpassen.');
+    [['Tilgungssatz', `Annahme ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)} p. a., null in C bei ${fmt.prozent(nullC, 2)}, in A bei ${fmt.prozent(nullA, 2)}. Den Satz legt die NBank fest.`],
       ['Herstellungskosten je m²', `Zuwendungsfähig bis zur Bemessungsgrenze, Ausgangswert ${fmt.zahl(M('fin.bemessungsgrenze_qm'))} € in Mietenstufe IV–VII.`],
       ['Höchstmiete', `Nach Einkommensgruppe und Mietenstufe; im Modellhaus ${fmt.euroDez(M('fin.miete_jahr1.A'))}.`]].forEach(([titel, text], i) =>
       B.planlegende(s, { x: colX(1 + 4 * i), y, w: span(4), pt: 14, eintraege: [{ titel: wl(titel, 'Planlegende'), text: wl(text, 'Planlegende') }], name: 'Planlegende ' + titel }));   // ohne h: Die Höhe folgt dem Text

@@ -527,18 +527,18 @@ function bausteine(pres, kx) {
   };
 
   // ---- 4.7 Stempel ----------------------------------------------------------------------------------------------
-  // Zusatz „Fiktives Beispiel, keine Förderzusage“ (nur erste Folie der Modellrechnung). Ohne Lage auf einem Layout mit „_MR“: schlichte Zeile
+  // Zusatz „Rechenbeispiel, keine Förderzusage“ (nur erste Folie der Modellrechnung; bis 11.11.2026 „Fiktives Beispiel, …“: Das Modellhaus ist seither ein Projekt der PGN). Ohne Lage auf einem Layout mit „_MR“: schlichte Zeile
   // ohne Rahmen an der Stelle des Stempels, in der Kickerzeile rechtsbündig am Satzspiegel. Mit STEMPEL_IM_KOPF (lib/theme.cjs) oder mit Lage
   // (o.x, o.y: Ecke eines frei gesetzten Stempels) steht er wie früher klein links neben dem Stempel. Rückgabe: { text }
   B.stempelZusatz = (s, o = {}) => {
     const neben = STEMPEL_IM_KOPF || o.x !== undefined, name = 'Zusatz Modellrechnung';
     if (neben) {
       const x = o.x ?? ZONE.stempel.x, y = o.y ?? ZONE.stempel.y;
-      const t = o.text || 'fiktives Beispiel, keine Förderzusage';
+      const t = o.text || 'Rechenbeispiel, keine Förderzusage';
       s.addText(t, opt(stil('label'), { x: x - 3.35, y: y + 0.035, w: 3.2, h: 0.30 }, { align: 'right', valign: 'middle', objectName: name }));
       return { text: t };
     }
-    const st = stil('label', { pt: ZUSATZ_PT }), t = o.text || 'Fiktives Beispiel, keine Förderzusage', w = 3.6;
+    const st = stil('label', { pt: ZUSATZ_PT }), t = o.text || 'Rechenbeispiel, keine Förderzusage', w = 3.6;
     if (P) { P.zeile(name, t, st, w); P.mindest(name, st.fontSize, ROLLENMIN.label); }
     s.addText(t, opt(st, { x: X1 - w, y: Y.kicker, w, h: Y.kickerH }, { align: 'right', valign: 'middle', wrap: false, objectName: name }));
     return { text: t };

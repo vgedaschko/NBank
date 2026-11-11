@@ -21,6 +21,12 @@ Jeder Wert in werte.json hat: schluessel, wert (roh, ungerundet), einheit,
 blatt, zelle, bedeutung, lauf. Reihen (Zeitreihe, Tilgungsraster) stehen als
 Liste in „wert“, die Zelle ist dann ein Bereich.
 
+Das Modellhaus ist Projekt 2 der Mappe (PGN-Projekt in Neu Wulmstorf, Grundstück
+im Bestand; Entscheidung des Auftraggebers vom 11.11.2026). Jeder Lauf setzt
+dafür Eingaben!D3 auf 2, gleich ob die Mappe mit Projekt 1 oder Projekt 2
+ausgeliefert ist. Die Eingaben von Projekt 2 stehen in Spalte E, die verwendeten
+Werte in Spalte F; Änderungen eines Laufs stehen deshalb in Spalte E.
+
 Nicht exportiert werden Renditen, Restwerte, der Förderbarwert, das Blatt
 NBank sowie alles, was an der Markt- oder Vergleichsmiete hängt (Sperrliste).
 Einzige Ausnahme ist der Lauf „modellhaus_rendite“ für die Anhangfolie A7
@@ -140,10 +146,13 @@ def gesperrt(blatt, zelle):
 # weil Investoren danach fragen (erlaubt am 11.11.2026). E5 gilt für alle
 # anderen Folien weiter. Bedingung laut Blatt Hinweise der Mappe, Nr. 12:
 # Renditen nur als Paar „mit Restwert / nur Bodenwert“ mit dem Restwertanteil.
-# Marktmiete und Liegenschaftszins des Modellhauses sind seit 11.11.2026 amtliche
-# Werte der Gutachterausschüsse für Rotenburg (Wümme), Stand 01.01.2026 (Hinweise
-# Nr. 14); die Vergleichsmiete ist eine Annahme der PGN. Beide Werte stehen als
-# Annahme mit ihrer Herkunft auf der Folie.
+# Das Modellhaus ist seit 11.11.2026 Projekt 2 der Mappe (Neu Wulmstorf). Seine
+# Marktmiete (Eingabe 4.4, Spalte Projekt 2) kommt aus dem Mietband der PGN für
+# Neu Wulmstorf, sein Liegenschaftszins aus dem Landesmodell Mehrfamilienhäuser
+# des Oberen Gutachterausschusses (Tabellen, Tabelle 4, Spalte Projekt 2). Beide
+# Werte stehen als Annahme mit ihrer Herkunft auf der Folie. Das Grundstück ist
+# nicht angesetzt: Die Lesart „nur Bodenwert“ rechnet deshalb ohne Restwert
+# (Hinweise Nr. 15).
 AUSNAHMEN = [
     dict(
         name="anhang_rendite",
@@ -235,13 +244,13 @@ def je_gruppe(praefix, zeile, einheit, bedeutung, gruppen=GRUPPEN):
 def katalog_eingaben():
     e = lambda k, z, einheit, b: W(f"eingabe.{k}", "Eingaben", z, einheit, b)
     return [
-        e("projekt_nr", "D3", "Nummer", "Aktives Projekt: 1 = Modellhaus der Broschüre, 2 = Projekt der Altfassung"),
+        e("projekt_nr", "D3", "Nummer", "Aktives Projekt: 2 = Modellhaus (PGN-Projekt in Neu Wulmstorf); 1 = früheres Rechenbeispiel"),
         e("bezugsjahr", "F7", "Jahr", "Eingabe 1.1 Bezugsjahr; T0 = Bezugsfertigkeit"),
         e("wohnflaeche", "F8", "m²", "Eingabe 1.2 Wohnfläche"),
         e("wohnungen", "F9", "Anzahl", "Eingabe 1.3 Wohnungen"),
         e("herstellungskosten_qm", "F11", "€/m²", "Eingabe 2.1 Herstellungskosten KG 200–700 je m² Wohnfläche"),
         e("finanzierungskosten_kg800", "F12", "€", "Eingabe 2.2 Finanzierungskosten KG 800 (Ansatz 0)"),
-        e("grundstueck", "F13", "€", "Eingabe 2.3 Grundstück, Verkehrswert (Sacheinlage)"),
+        e("grundstueck", "F13", "€", "Eingabe 2.3 Grundstück, Ansatz in Kosten und Förderung (Modellhaus: Grundstück im Bestand, Ansatz 0)"),
         e("tilgung_nbank", "F17", "Anteil", "Eingabe 3.1 Tilgung NBank-Darlehen, linear, p. a. (PGN-Annahme; den Satz legt die NBank fest)"),
         e("tilgungsaufschub", "F18", "Jahre", "Eingabe 3.2 Tilgungsaufschub"),
         e("zins_nbank_ab_jahr36", "F19", "Anteil", "Eingabe 3.3 Zins NBank-Darlehen ab Jahr 36, p. a. (PGN-Annahme)"),
@@ -463,14 +472,13 @@ def katalog_rendite():
     e = lambda k, z, einheit, b: W(f"rendite.annahme.{k}", "Eingaben", z, einheit, b)
     k = [u("jahre_mit_fehlbetrag.Frei", "G47", "Jahre", "Übersicht 3.6 Jahre mit Fehlbetrag, Jahr 1–35; frei finanziert zur Marktmiete")]
     k += je_gruppe("rendite.vofi_mit_restwert", 91, "Anteil", "Übersicht 6.3 VOFI-EK-Rendite vor Steuern, mit Restwert, Horizont Jahr 35", alle)
-    k += je_gruppe("rendite.vofi_nur_bodenwert", 92, "Anteil", "Übersicht 6.4 VOFI-EK-Rendite vor Steuern, nur Bodenwert, Horizont Jahr 35")
-    k += [u("vofi_nur_bodenwert.Frei", "G92", "Text", "Übersicht 6.4 VOFI-EK-Rendite, nur Bodenwert; frei finanziert: „n. v.“, weil das Endvermögen nicht positiv ist (Hinweise Nr. 11)")]
-    k += je_gruppe("rendite.restwertanteil", 93, "Anteil", "Übersicht 6.5 Restwertanteil am Endvermögen, Horizont Jahr 35 (über 1, wenn ohne Restwert kein Vermögen bleibt)", alle)
+    k += je_gruppe("rendite.vofi_nur_bodenwert", 92, "Anteil", "Übersicht 6.4 VOFI-EK-Rendite vor Steuern, nur Bodenwert, Horizont Jahr 35 (Modellhaus: Grundstück nicht angesetzt, der Bodenwert ist null und der Wert rechnet ohne Restwert; Hinweise Nr. 15)", alle)
+    k += je_gruppe("rendite.restwertanteil", 93, "Anteil", "Übersicht 6.5 Restwertanteil am Endvermögen, Horizont Jahr 35", alle)
     k += je_gruppe("rendite.projektkonto_tiefststand", 96, "€", "Übersicht 6.8 Tiefster Stand des Projektkontos (VOFI), Jahr 0–42", alle)
     k += je_gruppe("rendite.restwert_jahr35", 100, "€", "Übersicht 7.1 Restwert (Boden + Gebäude), Ertragswert Ende Jahr 35", alle)
-    k += je_gruppe("rendite.liegenschaftszins", 106, "Anteil", "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses, Rotenburg (Wümme), Stichtag 01.01.2026)", alle)
+    k += je_gruppe("rendite.liegenschaftszins", 106, "Anteil", "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses, Stichtag 01.01.2026; Tabellen, Tabelle 4, Spalte des aktiven Projekts)", alle)
     k += [
-        e("marktmiete_jahr1", "F25", "€/m² Monat", "Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 (Mietübersicht des Gutachterausschusses für den Landkreis Rotenburg (Wümme), Stichtag 01.01.2026)"),
+        e("marktmiete_jahr1", "F25", "€/m² Monat", "Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 (Modellhaus: Mietband der PGN für Neu Wulmstorf, fortgeschrieben)"),
         e("mietsteigerung", "F26", "Anteil", "Eingabe 4.5 Steigerung Markt- und Vergleichsmiete p. a."),
         e("guthabenzins", "F41", "Anteil", "Eingabe 7.2 Guthabenzins Projektkonto (VOFI) p. a."),
         e("sollzins", "F42", "Anteil", "Eingabe 7.3 Sollzins Projektkonto (VOFI) p. a."),
@@ -482,59 +490,80 @@ def katalog_rendite():
 KERN = (katalog_eingaben() + katalog_finanzierung() + katalog_jahr1() + katalog_liquiditaet()
         + katalog_tilgung() + katalog_dscr() + katalog_frei())
 
+# Das Modellhaus ist Projekt 2 der Mappe. Jeder Lauf setzt Eingaben!D3 auf 2; in
+# der Mappe darf dort 1 oder 2 stehen (kein fester alter Wert). Steht schon 2
+# dort, ändert der Lauf nichts. Alle weiteren Änderungen stehen in Spalte E
+# (Eingaben von Projekt 2) und nennen den Wert, den die Mappe dort führt.
+PROJEKT = 2
+PROJEKT_SETZEN = dict(blatt="Eingaben", zelle="D3", erlaubt=(1, 2), neu=PROJEKT,
+                      eingabe="Aktives Projekt: Projekt 2 (Modellhaus), gleich welcher Stand ausgeliefert ist")
+HERSTELLUNG = 3579  # Eingaben!E11: Herstellungskosten des Modellhauses, € je m² Wohnfläche
+
+
+def mit_projekt(*weitere):
+    """Änderungen eines Laufs: immer zuerst Projekt 2 setzen."""
+    return [dict(PROJEKT_SETZEN)] + [dict(a) for a in weitere]
+
+
+def kosten(neu):
+    return dict(blatt="Eingaben", zelle="E11", alt=HERSTELLUNG, neu=neu, eingabe="2.1 Herstellungskosten KG 200–700, Projekt 2")
+
+
 LAEUFE = [
     dict(
         lauf="modellhaus",
-        beschreibung="Auslieferungsstand der Mappe: Projekt 1 „Modellhaus Broschüre“ (20 Wohnungen, 1.400 m², "
-                     "7,0 Mio. €), Eingabe 10.1 = Marktmiete, Eingabe 10.2 = 1,0. Werte wie Broschüre S. 10–12.",
-        aenderungen=[],
+        beschreibung="Modellhaus: Projekt 2 der Mappe, ein PGN-Projekt in Neu Wulmstorf (14 Wohnungen, 828 m², "
+                     "Herstellungskosten 3.579 € je m², Grundstück im Bestand und nicht angesetzt, Mietenstufe VI, "
+                     "Tilgung 1/42 = 2,38 %), Eingabe 10.1 = Marktmiete, Eingabe 10.2 = 1,0.",
+        aenderungen=mit_projekt(),
         katalog=KERN + katalog_tabellen(),
     ),
     dict(
         lauf="modellhaus_zeitreihe",
-        beschreibung="Modellhaus im Auslieferungsstand, Jahr 1 bis 42 aus den Blättern Gefördert A, B, C; frei "
+        beschreibung="Modellhaus (Projekt 2), Jahr 1 bis 42 aus den Blättern Gefördert A, B, C; frei "
                      "finanziert nur Kapitaldienst und Restschuld. Jahr 36 bis 42 mit den Annahmen der Mappe: "
                      "Zins NBank laut Eingabe 3.3, Mieterhöhung nach Bindungsende laut Eingabe 4.6.",
-        aenderungen=[],
+        aenderungen=mit_projekt(),
         katalog=katalog_zeitreihe(),
     ),
     dict(
         lauf="modellhaus_rendite",
-        beschreibung="Modellhaus im Auslieferungsstand: Eigenkapitalrendite vor Steuern über 35 Jahre als Paar „mit "
+        beschreibung="Modellhaus (Projekt 2): Eigenkapitalrendite vor Steuern über 35 Jahre als Paar „mit "
                      "Restwert / nur Bodenwert“ mit Restwertanteil, dazu Projektkonto, Restwert und die Annahmen "
                      "dahinter. Nur für die Anhangfolie A7 (Folie anhang-rendite); Ausnahme anhang_rendite von der "
-                     "Sperrliste. Marktmiete und Liegenschaftszins sind amtliche Werte der Gutachterausschüsse für "
-                     "Rotenburg (Wümme), Stichtag 01.01.2026.",
-        aenderungen=[],
+                     "Sperrliste. Das Grundstück ist nicht angesetzt: „nur Bodenwert“ rechnet ohne Restwert "
+                     "(Hinweise Nr. 15). Marktmiete: Mietband der PGN für Neu Wulmstorf; Liegenschaftszins: "
+                     "Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses.",
+        aenderungen=mit_projekt(),
         katalog=katalog_rendite(),
     ),
     dict(
         lauf="modellhaus_dscr125",
-        beschreibung="Modellhaus, DSCR-Ziel 1,25 statt 1,0: nötige Miete in Jahr 1.",
-        aenderungen=[dict(blatt="Eingaben", zelle="D54", alt=1, neu=1.25, eingabe="10.2 DSCR-Ziel für die nötige Miete")],
+        beschreibung="Modellhaus (Projekt 2), DSCR-Ziel 1,25 statt 1,0: nötige Miete in Jahr 1.",
+        aenderungen=mit_projekt(dict(blatt="Eingaben", zelle="E54", alt=1, neu=1.25, eingabe="10.2 DSCR-Ziel für die nötige Miete, Projekt 2")),
         katalog=[w for w in katalog_eingaben() if w["schluessel"] in ("eingabe.projekt_nr", "eingabe.dscr_ziel")] + katalog_dscr(),
     ),
     dict(
-        lauf="modellhaus_pgn_kosten",
-        beschreibung="Modellhaus mit Herstellungskosten 3.579 € je m² (PGN-Median KG 200–700, aus der Altfassung "
-                     "der Präsentation übernommen, nicht nachgeprüft) statt 4.500 € je m².",
-        aenderungen=[dict(blatt="Eingaben", zelle="D11", alt=4500, neu=3579, eingabe="2.1 Herstellungskosten KG 200–700")],
+        lauf="modellhaus_kosten_4631",
+        beschreibung="Modellhaus (Projekt 2) mit Herstellungskosten 4.631 € je m² (ARGE-Median deutscher Großstädte, "
+                     "Q4 2025; aus der Altfassung der Präsentation übernommen, nicht nachgeprüft) statt 3.579 € je m²: "
+                     "Sensitivität der Folie 23.",
+        aenderungen=mit_projekt(kosten(4631)),
         katalog=KERN,
     ),
     dict(
-        lauf="modellhaus_kosten_5200",
-        beschreibung="Modellhaus mit Herstellungskosten 5.200 € je m² statt 4.500 € je m²: Sensitivität der "
-                     "Broschüre S. 10 (Kosten über der Bemessungsgrenze).",
-        aenderungen=[dict(blatt="Eingaben", zelle="D11", alt=4500, neu=5200, eingabe="2.1 Herstellungskosten KG 200–700")],
+        lauf="modellhaus_kosten_5000",
+        beschreibung="Modellhaus (Projekt 2) mit Herstellungskosten 5.000 € je m² (Ausgangswert der Bemessungsgrenze "
+                     "in Mietenstufe IV bis VII) statt 3.579 € je m²: Sensitivität der Folie 23.",
+        aenderungen=mit_projekt(kosten(5000)),
         katalog=KERN,
     ),
     dict(
         lauf="projekt2",
-        beschreibung="Projekt 2 der Mappe: Projekt der Altfassung der Präsentation (14 Wohnungen, 828 m², "
-                     "Herstellungskosten 3.579 € je m², ohne Grundstück, Mietenstufe VI). Tilgung 2,5 % wie in der "
-                     "Altfassung; die Mappe führt seit 10.11.2026 die Vorgabe 1/42.",
-        aenderungen=[dict(blatt="Eingaben", zelle="D3", alt=1, neu=2, eingabe="Aktives Projekt"),
-                     dict(blatt="Eingaben", zelle="E17", alt=1 / 42, neu=0.025, eingabe="3.1 Tilgung NBank-Darlehen, wie Altfassung")],
+        beschreibung="Projekt 2 der Mappe im Stand der früheren Präsentation vom 26.10.2026 (Altfassung): wie das "
+                     "Modellhaus, aber mit Tilgung 2,5 % statt 1/42. Nur für den Vergleich mit der Altfassung "
+                     "(daten/pruefe_werte.py); erscheint auf keiner Folie.",
+        aenderungen=mit_projekt(dict(blatt="Eingaben", zelle="E17", alt=1 / 42, neu=0.025, eingabe="3.1 Tilgung NBank-Darlehen, wie Altfassung")),
         katalog=KERN,
     ),
 ]
@@ -597,7 +626,10 @@ def kopie_rechnen(mappe, ordner, lauf, aenderungen, recalc):
     wb = openpyxl.load_workbook(kopie)
     for a in aenderungen:
         zelle = wb[a["blatt"]][a["zelle"]]
-        if not gleich(zelle.value, a["alt"]):
+        if "erlaubt" in a:
+            if not any(gleich(zelle.value, x) for x in a["erlaubt"]):
+                sys.exit(f"{lauf}: {a['blatt']}!{a['zelle']} enthält {zelle.value!r}, erlaubt ist {a['erlaubt']!r}. Mappe geändert?")
+        elif not gleich(zelle.value, a["alt"]):
             sys.exit(f"{lauf}: {a['blatt']}!{a['zelle']} enthält {zelle.value!r}, erwartet {a['alt']!r}. Mappe geändert?")
         zelle.value = a["neu"]
     wb.save(kopie)
@@ -666,17 +698,23 @@ def pruefe_auslieferung(original, wb):
 
 
 def pruefe_voraussetzungen(wb):
-    """Auslieferungsstand: Projekt 1, 10.1 = Marktmiete, 10.2 = 1,0, Stresstest neutral."""
+    """Auslieferungsstand: Projekt 1 oder 2 aktiv; 10.1 = Marktmiete, 10.2 = 1,0 und
+    Stresstest neutral, im aktiven Projekt (Spalte F) und in Projekt 2 (Spalte E),
+    mit dem die Läufe rechnen."""
     e = wb["Eingaben"]
-    soll = {"D3": 1, "F53": "Marktmiete", "F54": 1, "F48": 1, "F49": 1, "F50": 0, "F51": 1, "F18": 0, "F33": 0}
-    for zelle, wert in soll.items():
-        if not gleich(e[zelle].value, wert):
-            sys.exit(f"Mappe nicht im Auslieferungsstand: Eingaben!{zelle} = {e[zelle].value!r}, erwartet {wert!r}.")
+    if not any(gleich(e["D3"].value, x) for x in PROJEKT_SETZEN["erlaubt"]):
+        sys.exit(f"Mappe nicht im Auslieferungsstand: Eingaben!D3 = {e['D3'].value!r}, erwartet 1 oder 2.")
+    soll = {"53": "Marktmiete", "54": 1, "48": 1, "49": 1, "50": 0, "51": 1, "18": 0, "33": 0}
+    for spalte in ("F", "E"):
+        for zeile, wert in soll.items():
+            zelle = f"{spalte}{zeile}"
+            if not gleich(e[zelle].value, wert):
+                sys.exit(f"Mappe nicht im Auslieferungsstand: Eingaben!{zelle} = {e[zelle].value!r}, erwartet {wert!r}.")
 
 
 def pruefe_mieten(wb):
     """Die Mieten der geförderten Varianten dürfen bis Jahr 42 nicht an der
-    Markt- oder Vergleichsmiete hängen (beides Platzhalter im Modellhaus)."""
+    Markt- oder Vergleichsmiete hängen (beide stehen auf der Sperrliste)."""
     stufe = wb["Eingaben"]["F22"].value
     zeile = 9 + STUFEN.index(stufe)
     zuschlag = wb["Tabellen"]["D30"].value if wb["Eingaben"]["F23"].value == "ja" else 0
@@ -741,16 +779,29 @@ def main():
         laeufe = {}
         methode = None
         gerechnet = {}
+
+        def rechne(name, aenderungen):
+            """Rechnet je Satz wirksamer Änderungen eine Kopie. Wirksam ist eine
+            Änderung, wenn die Mappe an der Stelle nicht schon den neuen Wert führt."""
+            wirksam = [x for x in aenderungen if not gleich(original[x["blatt"]][x["zelle"]].value, x["neu"])]
+            signatur = json.dumps([(x["blatt"], x["zelle"], x["neu"]) for x in wirksam], sort_keys=True)
+            if signatur not in gerechnet:
+                gerechnet[signatur] = kopie_rechnen(mappe, ordner, name, aenderungen, a.recalc)
+            return gerechnet[signatur]
+
+        # Die Kopie ohne Änderung gibt die gespeicherten Ergebnisse der Mappe wieder,
+        # auch wenn kein Lauf den Auslieferungsstand selbst rechnet (Projekt 1 aktiv).
+        wb, methode = rechne("auslieferung", [])
+        auslieferung = dict(aktives_projekt=original["Eingaben"]["D3"].value,
+                            zellen_gleich_neuberechnung=pruefe_auslieferung(original, wb))
+
         for lauf in LAEUFE:
             name = lauf["lauf"]
-            signatur = json.dumps(lauf["aenderungen"], sort_keys=True)
-            if signatur not in gerechnet:
-                gerechnet[signatur] = kopie_rechnen(mappe, ordner, name, lauf["aenderungen"], a.recalc)
-            wb, methode = gerechnet[signatur]
+            wb, methode = rechne(name, lauf["aenderungen"])
             pruefe_eingaben(original, wb, lauf["aenderungen"], name)
+            if not gleich(wb["Eingaben"]["D3"].value, PROJEKT):
+                sys.exit(f"{name}: rechnet nicht mit Projekt {PROJEKT} (Eingaben!D3 = {wb['Eingaben']['D3'].value!r}).")
             pruefungen = {"pruefblock_mappe": wb["Übersicht"]["D3"].value}
-            if not lauf["aenderungen"]:
-                pruefungen["zellen_gleich_auslieferung"] = pruefe_auslieferung(original, wb)
             pruefungen["mieten_ohne_platzhalter"] = pruefe_mieten(wb)
             werte = {}
             for eintrag in lauf["katalog"]:
@@ -764,7 +815,7 @@ def main():
                     werte[eintrag["schluessel"]]["ausnahme"] = ausnahme(name, eintrag["blatt"], eintrag["zelle"])
             laeufe[name] = dict(
                 beschreibung=lauf["beschreibung"],
-                aenderungen=[dict(a_) for a_ in lauf["aenderungen"]],
+                aenderungen=[{k: (list(v) if isinstance(v, tuple) else v) for k, v in a_.items()} for a_ in lauf["aenderungen"]],
                 pruefungen=pruefungen,
                 anzahl_werte=len(werte),
                 werte=werte,
@@ -779,6 +830,8 @@ def main():
                 mappe=mappe.name,
                 mappe_sha256=pruefsumme,
                 mappe_stand=stand,
+                auslieferung=auslieferung,
+                modellhaus=f"Projekt {PROJEKT} der Mappe; jeder Lauf setzt Eingaben!D3 auf {PROJEKT}",
                 erzeugt_mit="daten/werte_aus_vofi.py",
                 neuberechnung=methode,
                 aufbau="laeufe.<lauf>.werte.<schluessel> = {schluessel, wert, einheit, blatt, zelle, bedeutung, lauf}",
@@ -803,7 +856,7 @@ def main():
                     "Zellen der Ausnahmen (meta.ausnahmen), und nur in ihrem Lauf",
                     "Markt- und Vergleichsmiete (Eingaben 4.3, 4.4) und alles, was daran hängt: Jahresrechnung, "
                     "Liquidität und Zeitreihe „frei finanziert“ zur Marktmiete, Aufschlag auf die Marktmiete",
-                    "Projektnamen (Projekt 2 enthält einen Straßennamen)",
+                    "Projektnamen (Projekt 2 enthält einen Straßennamen; der Vortrag nennt die Straße nicht)",
                 ],
             ),
             laeufe=laeufe,

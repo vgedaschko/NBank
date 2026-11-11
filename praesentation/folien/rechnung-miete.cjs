@@ -15,12 +15,14 @@ module.exports = {
     const yInhalt = B.modulkopf(s, { x: colX(1), y: Y.inhalt, w: span(6), titel: 'Nötige Miete in Jahr 1', sub: 'Miete je m² und Monat, bei der der Zahlungsüberschuss null ist' });
     const werte = [M('dscr.noetige_miete.A'), M('dscr.noetige_miete.Frei')];
     const d = D.balkenpaar(s, { x: colX(1), y: yInhalt + 0.10, w: span(6), h: 3.40, kategorien: ['Gefördert, Gruppe A', 'Frei finanziert'], werte, arten: ['tinte', 'referenz'], reihenname: 'Nötige Miete',
-      achse: { min: 0, max: 24, schritt: 4, format: 'roh' }, katBreite: 1.55, rand: { o: 0.52, r: 0.30 }, name: 'Diagramm Nötige Miete' });
+      achse: { min: 0, max: 18, schritt: 3, format: 'roh' }, katBreite: 1.55, rand: { o: 0.52, r: 0.30 }, name: 'Diagramm Nötige Miete' });
     // kurzer Balken: Wert rechts daneben (auf einer Fläche in der Grundfarbe, die die Gitterlinie hinter der Zahl unterbricht);
-    // langer Balken: Wert weiß im Balkenende
-    B.textAufPlot(s, fmt.euroDez(werte[0]), { x: d.xWert(werte[0]) + 0.14, y: d.katMitte(0) - 0.20, w: 1.5, h: 0.40, rolle: 'kernwert', valign: 'middle', name: 'Wert am Balken gefördert' });
+    // langer Balken: Wert weiß im Balkenende. Liegt die Höchstmiete so dicht rechts vom kurzen Balken, dass ihre Maßlinie durch die Zahl
+    // liefe, steht die Zahl rechts der Maßlinie.
+    const hm = M('fin.miete_jahr1.A'), xNeben = d.xWert(werte[0]) + 0.14, xWertA = d.xWert(hm) > xNeben - 0.06 && d.xWert(hm) < xNeben + 1.5 ? d.xWert(hm) + 0.12 : xNeben;
+    if (!(werte[0] < hm && hm < werte[1])) ctx.P.melde('Die Höchstmiete der Gruppe A liegt nicht zwischen der nötigen Miete gefördert und frei finanziert; Marke und Notizen der Folie 19 anpassen.');
+    B.textAufPlot(s, fmt.euroDez(werte[0]), { x: xWertA, y: d.katMitte(0) - 0.20, w: 1.5, h: 0.40, rolle: 'kernwert', valign: 'middle', name: 'Wert am Balken gefördert' });
     B.text(s, fmt.euroDez(werte[1]), { x: d.xWert(werte[1]) - 1.74, y: d.katMitte(1) - 0.20, w: 1.6, h: 0.40, rolle: 'kernwert', farbe: 'FFFFFF', align: 'right', valign: 'middle', einzeilig: true, name: 'Wert am Balken frei finanziert' });
-    const hm = M('fin.miete_jahr1.A');
     B.marke(s, { x: d.xWert(hm), y: d.plot.y - 0.32, h: d.plot.h + 0.32, art: 'mass', text: `Höchstmiete Gruppe A: ${fmt.euroDez(hm)}`, textSeite: 'rechts', textBreite: 2.4 });
 
     // Rechenweg über sechs Spalten; die Unterkante steht auf der Grundlinie des Diagramms. Der Untertitel nennt Zins und Laufzeit des

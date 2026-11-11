@@ -12,10 +12,13 @@ module.exports = {
     // Annahme der Jahresrechnung: Tilgung 1 ÷ Höchstlaufzeit. Weicht die Mappe davon ab, stimmt der Satz „gleichmäßig über … Jahre“ nicht mehr.
     const laufzeit = M('tab.laufzeit_hoechstens');
     R.pruefe(Math.abs(M('jr1.satz.tilgung_nbank') - 1 / laufzeit) < 1e-9, 'Der Tilgungssatz der Jahresrechnung ist nicht 1 ÷ Höchstlaufzeit; den Satz „Tilgung gleichmäßig über … Jahre“ auf Folie 15 anpassen.');
+    // Aussage des Titels: In allen drei Gruppen bleibt in Jahr 1 ein Zahlungsüberschuss; die Zahl im Titel ist die der Gruppe A
+    R.pruefe(G.every(g => M(`jr1.zahlungsueberschuss.${g}`) > 0) && ctx.glatt(ctx.o.titel).includes(ctx.glatt(fmt.euro(M('jr1.zahlungsueberschuss.A')))),
+      'Nicht mehr alle drei Gruppen haben in Jahr 1 einen Zahlungsüberschuss, oder der Titel der Folie 15 nennt nicht den Wert der Gruppe A.');
     B.register(s, '2.1');
     const z = k => G.map(g => fmt.zahl(M(`jr1.${k}.${g}`))), satz = k => M('jr1.satz.' + k);
     const miete = G.map(g => fmt.dez(M(`fin.miete_jahr1.${g}`))).join(' | ');
-    B.tabellenkopf(s, { titel: 'Jahresrechnung Jahr 1, in € p. a.', sub: `Höchstmiete nettokalt, Mietenstufe ${R.mietenstufeKlasse(M('eingabe.mietenstufe'))}: ${miete} € je m² und Monat (A | B | C)` });
+    B.tabellenkopf(s, { titel: 'Jahresrechnung Jahr 1, in € p. a.', sub: `Höchstmiete nettokalt, Mietenstufe ${M('eingabe.mietenstufe')}: ${miete} € je m² und Monat (A | B | C)` });   // die Stufe des Modellhauses, nicht die Klasse IV–VII
     B.rechenblatt(s, { x: colX(1), y: ZONE.tabelle.tabelle, w: span(8), dicht: true, name: 'Rechenblatt Jahresrechnung', kopf: ['Position', { kreis: 'A' }, { kreis: 'B' }, { kreis: 'C' }], zeilen: [
       { nr: 1, text: 'Sollmiete zur Höchstmiete', werte: z('sollmiete') },
       { zeichen: fmt.MINUS, text: `Mietausfall/Leerstand, ${fmt.prozent(satz('mietausfall'))}`, werte: z('mietausfall') },

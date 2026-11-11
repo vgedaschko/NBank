@@ -2,11 +2,11 @@
 // Spalten (vier Kostengruppen). Feine Zeichnung wie auf Folie 3 (D.gruppierteSaeulen mit fein: true): schlanke Säulen mit feiner Kontur, PGN in
 // Tinte, ARGE als helle Fläche, zwischen beiden eine schmale Fuge; die Werte stehen über den Säulen (PGN in Tinte, ARGE in Grau). Neben den
 // Säulen der Herstellung steht die Spanne als Maßzeichen (kleinster bis größter Wert, folien/_fein_pgn-baukosten.cjs); die Spanne der ARGE
-// reicht über die Größenachse hinaus, ihre Maßlinie endet in einer Pfeilspitze mit dem Wert. Über dem Säulenpaar der Herstellung die Marke mit
-// dem Ansatz des Modellhauses. Rechts die Hauptzahl der Folie (Abstand der Mediane) in 60 pt wie auf den Folien 3 bis 6, darunter Grundlage
-// und Spanne.
-// Werte aus daten/markt.json, Block kosten (Altfassung Folie 12, nicht nachgeprüft); der Abstand ist im Modul gerechnet. Ansatz des Modellhauses
-// aus daten/werte.json. Weißer Grund, kein Papierton: Die Folie zeigt Kostenkennwerte und kein Modellhaus. Kein Rot im Diagramm.
+// reicht über die Größenachse hinaus, ihre Maßlinie endet in einer Pfeilspitze mit dem Wert. Rechts die Hauptzahl der Folie (Abstand der Mediane)
+// in 60 pt wie auf den Folien 3 bis 6, darunter Grundlage und Spanne. Die Marke „Ansatz im Modellhaus“ über dem Säulenpaar der Herstellung ist
+// am 11.11.2026 entfallen: Das Modellhaus rechnet seither mit dem PGN-Median selbst (Gegenprobe unten).
+// Werte aus daten/markt.json, Block kosten (Altfassung Folie 12, nicht nachgeprüft); der Abstand ist im Modul gerechnet.
+// Weißer Grund, kein Papierton: Die Folie zeigt Kostenkennwerte und kein Modellhaus. Kein Rot im Diagramm.
 'use strict';
 const S = require('./_struktur.cjs');
 const FEIN = require('./_fein_pgn-baukosten.cjs');
@@ -19,16 +19,19 @@ module.exports = {
     // PGN ist die Aussage (Tinte), ARGE der Bezugswert (helle Fläche mit Kontur)
     const gruppen = K('gruppen'), wer = ['pgn', 'arge'].map((k, i) => ({ k, name: wl(K(`${k}.name`), 'Legende'), art: i ? 'bezug' : 'tinte',
       median: K(`${k}.median`), spanne: Object.fromEntries(['min', 'median', 'max'].map(m => [m, K(`${k}.spanne_herstellung.${m}`)])) }));
-    const [pgn, arge] = wer, ansatz = W('modellhaus', 'eingabe.herstellungskosten_qm'), unter = 1 - pgn.spanne.median / arge.spanne.median;
+    const [pgn, arge] = wer, unter = 1 - pgn.spanne.median / arge.spanne.median;
 
     // ---- Gegenproben ------------------------------------------------------------------------------------------------------------------
-    // Median der Herstellung steht in Reihe und Spanne gleich; der PGN-Median ist der Eingabewert der Folie 23; die ARGE-Mediane stehen mit
+    // Median der Herstellung steht in Reihe und Spanne gleich; der PGN-Median ist der Ansatz des Modellhauses, der ARGE-Median der Eingabewert des
+    // zweiten Laufs der Folie 23 (beide gerundet auf ganze Euro, wie die Rechenmappe sie führt); die ARGE-Mediane stehen mit
     // denselben Werten im Block baukosten (Folie 3 und ihre Notizen); jede Spanne ist geordnet (kleinster Wert, Median, größter Wert)
     for (const r of wer) {
       if (r.median[0] !== r.spanne.median) P.melde(`${r.name}: Der Median der Herstellung steht in Reihe (${r.median[0]}) und Spanne (${r.spanne.median}) verschieden.`);
       if (!(r.spanne.min <= r.spanne.median && r.spanne.median <= r.spanne.max)) P.melde(`${r.name}: Die Spanne der Herstellung ist nicht geordnet (${r.spanne.min}, ${r.spanne.median}, ${r.spanne.max}).`);
     }
-    ctx.gleich('PGN-Median gegen den Eingabewert des Laufs modellhaus_pgn_kosten', pgn.spanne.median, W('modellhaus_pgn_kosten', 'eingabe.herstellungskosten_qm'), 0);
+    ctx.gleich('PGN-Median gegen den Ansatz des Modellhauses (Lauf modellhaus, Eingabe 2.1)', pgn.spanne.median, W('modellhaus', 'eingabe.herstellungskosten_qm'), 0);
+    ctx.gleich('ARGE-Median gegen den Eingabewert des Laufs modellhaus_kosten_4631', arge.spanne.median, W('modellhaus_kosten_4631', 'eingabe.herstellungskosten_qm'), 0);
+    if (!ctx.glatt(ctx.o.notizen).includes('Das Modellhaus rechnet mit diesem Wert.')) P.melde('Notizen der Folie 22: Der Satz „Das Modellhaus rechnet mit diesem Wert.“ fehlt.');
     const baukosten = Object.values(ctx.daten.markt.baukosten || {}).filter(g => g && g.kg && g.q4_2025);
     gruppen.forEach((g, i) => {
       const b = baukosten.find(x => x.kg === g.kg);
@@ -64,21 +67,6 @@ module.exports = {
     if (arge.spanne.max <= ACHSE.max) P.melde('Die ARGE-Spanne endet in der Plotfläche; der Text „Maximum …“ an der Pfeilspitze entfiele. Konzept und Modul nachführen.');
     wer.forEach((r, j) => FEIN.spanne(ctx, s, { x: xSpanne[j], yMin: d.yWert(r.spanne.min), yMax: d.yWert(r.spanne.max), yGrenze: d.plot.y, name: `Spanne ${r.name}`,
       bis: j ? T('spanne_bis').replace(/ (\S+)$/, ' **$1**') : undefined, bisBreite: 1.3 }));
-
-    // ---- Marke: Ansatz des Modellhauses, nur über dem Säulenpaar der Herstellung ------------------------------------------------------------
-    // Die Linie setzt über einer Säule aus, die bis an die Linie reicht, und an einem Wert auf ihrer Höhe. An der Maßlinie der ARGE-Spanne setzt
-    // sie ebenfalls aus (0,06 Zoll beiderseits) und läuft dahinter 0,32 Zoll weiter bis zum Text: B.markeMitLuecken lässt Stücke unter 0,30 Zoll
-    // weg, und der Text stünde sonst ohne Linie da. Er steht rechts neben dem Linienende auf der Höhe der Linie.
-    const yM = d.yWert(ansatz), zoll = d.plot.h / (ACHSE.max - ACHSE.min);
-    const luecken = wer.map((r, j) => {
-      const dy = (ansatz - r.median[0]) * zoll, halb = P.zeile('Wert über der Säule', fmt.zahl(r.median[0]), { fontFace: ctx.F.mont, bold: true, fontSize: 12 }, breite + 0.4) / 2 + 0.09;
-      if (dy >= 0.30) return null;
-      return dy > 0.02 ? [d.reiheMitte(0, j) - halb, d.reiheMitte(0, j) + halb] : [d.reiheLinks(0, j) - 0.03, d.reiheLinks(0, j) + breite + 0.03];
-    }).filter(Boolean);
-    const x1 = xSpanne[1] + 0.06 + 0.32, xText = x1 + 0.08;
-    luecken.push([xSpanne[1] - 0.06, xSpanne[1] + 0.06]);
-    B.markeMitLuecken(s, { y: yM, x0: xSpanne[0] - 0.14, x1, luecken, lage: 'aussen', text: T('marke_modellhaus').replace(/: (.+)$/, ': **$1**'), textX: xText, textBreite: d.plot.x + d.plot.w - xText,
-      name: 'Marke Ansatz Modellhaus' });
 
     // ---- Rechte Spalte: Hauptzahl, darunter Grundlage und Spanne ---------------------------------------------------------------------------
     // 60 pt: „−22,7 %“ hat sieben Zeichen. Für einen Text unter dem Label ist in 60 pt kein Platz; das Label nennt deshalb das Wertepaar der Mediane.

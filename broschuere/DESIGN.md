@@ -165,7 +165,7 @@ liegen in den Pattern-Ressourcen); deshalb prüft `render.cjs` selbst und meldet
   `node scripts/schraffur.cjs --check` prüft Partials und `styles.css` (Exit 1 bei Befund).
 - Linien global verankert (wie `userSpaceOnUse`): benachbarte Flächen laufen bündig durch.
 - Klassen: `.hatch` (Linie `--equity-line`, 0,2 mm) · `.hatch--over` (Linie `--fg-2`, für „über der Bemessungsgrenze“,
-  mit `data-hatch-dir="\"`) · seitenlokal nur die Linienfarbe ändern (S. 9: `.p09-hatch-line` = `--loan`, verzinste Restlaufzeit).
+  mit `data-hatch-dir="\"`; seit 11/2026 im Heft nicht gesetzt, weil die Sensitivität S. 10 eine Tabelle ist) · seitenlokal nur die Linienfarbe ändern (S. 9: `.p09-hatch-line` = `--loan`, verzinste Restlaufzeit).
   Die Linienenden stehen bis 0,07 mm über das Rechteck (stumpfe Enden unter 45°) – deshalb `data-hatch` = Rechteck auf der
   **Mittellinie des Rahmens**, dann deckt der Rahmen die Enden. Der Rahmen liegt **innen** (um ½ Strichbreite eingerückt):
   seine Außenkante = Segmentkante, bündig mit den Nachbarsegmenten (früher stand er 0,1 mm über → Stufe an Ober-/Unterkante).
@@ -293,7 +293,7 @@ Linien: `--hair` 0,2 mm · `--rule-w` 0,3 mm · `--rule-heavy` 0,5 mm (Modulkopf
 <b class="runin">Kombinierbar mit</b> KfW 298 …                 <!-- Run-in-Label: 800 9 pt Versalien +0,05 em, 2 mm Abstand (Bänder, Zeilenlisten, Stationen) -->
 <b class="bs-no bs-23">2.3</b>                                  <!-- Programmnummer im Fließtext: 800, 1em, Programmfarbe -->
 <span class="ph">[PGN-Rechnung: … % der Miete]</span>            <!-- Platzhalter (s. 6.16) -->
-<div class="kicker-row"><p class="kicker kicker--plain">…</p><p class="stampline stampline--inline">…</p></div>   <!-- Kickerzeile 7 mm (S. 10–12); rechts auf S. 10 der Hinweis „Fiktives Beispiel, keine Förderzusage“ als Text, ohne Stempel -->
+<div class="kicker-row"><p class="kicker kicker--plain">…</p><p class="stampline stampline--inline">…</p></div>   <!-- Kickerzeile 7 mm (S. 10–12); rechts auf S. 10 der Hinweis „Rechenbeispiel, keine Förderzusage“ als Text, ohne Stempel -->
 <p class="lead lead--cols-2">…</p>                              <!-- langer Vorspann zweispaltig (dichte Seiten) -->
 ```
 
@@ -368,7 +368,7 @@ Varianten seit der CSS-Integration: `.key-figures--n` (Kachelzeile in einer Teil
 ```html
 <table class="table table--sheet">                             <!-- Rechenblatt (S. 10, 11): Zeilennummern-Streifen, hängende Rechenzeichen -->
   <colgroup><col class="col-no"><col><col></colgroup>
-  <tbody><tr><th scope="row">2</th><td class="is-hang"><span class="table__op">+</span> Grundstück</td><td class="num">700.000</td></tr>
+  <tbody><tr><th scope="row">3</th><td class="is-hang"><span class="table__op">−</span> Instandhaltung, 14,40 € je m² p. a.</td><td class="num">11.923</td></tr>
          <tr class="is-sum">…</tr>                               <!-- Summenstrich 0,3 mm, Text 600 -->
          <tr class="is-result on-red">…</tr></tbody>             <!-- Ergebniszeile Vollton PGN-Rot (kein Verlauf auf tr: setzt je Zelle neu an) -->
 </table>
@@ -476,7 +476,7 @@ Markup wie v1 (`dl.faq`, `ul.checklist`, `address.contact`, `ul.bullets`); `.che
 
 ### 6.9 Modellrechnung, Rechenblatt, Stempel
 
-`.stamp` (doppelte Kontur, 0,25 mm + Haarlinie, Montserrat 800 9 pt Rot), `.stamp--s` (Kurzstempel für die zweite Nennung derselben Modellrechnung: einfache Kontur, Schrift des Kickers – Redaktionsregeln: nur ein Vollstempel je Rechnung; im Heft zurzeit nicht gesetzt, die Klasse bleibt), `.stampline` (`--inline`: einzeilig neben dem Kicker in `.kicker-row`; S. 10 trägt dort nur den Hinweis „Fiktives Beispiel, keine Förderzusage“ als Text, ohne `.stamp`). Seit das Kapitel S. 10–12 „Modellrechnung“ heißt, steht das Wort im Kopf dieser Seiten nur im Kicker. `.formula--stack` (Grenze als eigene graue Zeile unter dem Term, 400), `.model` (Papier, `model__value` Montserrat 800 16 pt), `.formula` (**5-mm-Planraster** als Vektorzeichnung `--planraster`, s. 1.3.1, Operatoren `+ =` Montserrat 900 Rot, Ergebniszeile 0,3 mm). Markup wie v1.
+`.stamp` (doppelte Kontur, 0,25 mm + Haarlinie, Montserrat 800 9 pt Rot), `.stamp--s` (Kurzstempel für die zweite Nennung derselben Modellrechnung: einfache Kontur, Schrift des Kickers – Redaktionsregeln: nur ein Vollstempel je Rechnung; im Heft zurzeit nicht gesetzt, die Klasse bleibt), `.stampline` (`--inline`: einzeilig neben dem Kicker in `.kicker-row`; S. 10 trägt dort nur den Hinweis „Rechenbeispiel, keine Förderzusage“ als Text, ohne `.stamp`). Seit das Kapitel S. 10–12 „Modellrechnung“ heißt, steht das Wort im Kopf dieser Seiten nur im Kicker. `.formula--stack` (Grenze als eigene graue Zeile unter dem Term, 400), `.model` (Papier, `model__value` Montserrat 800 16 pt), `.formula` (**5-mm-Planraster** als Vektorzeichnung `--planraster`, s. 1.3.1, Operatoren `+ =` Montserrat 900 Rot, Ergebniszeile 0,3 mm). Markup wie v1.
 
 ### 6.10 Planzeichen
 

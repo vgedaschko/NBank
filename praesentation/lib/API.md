@@ -123,7 +123,7 @@ Modul ihn anlegt, zuletzt Rubrik und Blattnummer des Schriftfelds. Ein Modul leg
 Titel tragen wie jeder Text geschützte Leerzeichen zwischen Zahl und Einheit („84.000 €“, „80 %“, „7,0 Mio. €“); im Konzept
 stehen gewöhnliche Leerzeichen. Titel stehen eng (32 pt mit 33 pt Zeilenabstand). Steht in einer Zeile ein Komma, Semikolon oder eine Klammer genau über
 einem Ä, Ö oder Ü der nächsten Zeile, berührt die Unterlänge die Umlautpunkte. Der Build erkennt das, gibt der unteren
-Zeile 37 pt Zeilenabstand und nennt es als Hinweis; im Konzept trifft es nur Folie 14 („7,0“ über „Förderung“). Die erste
+Zeile 37 pt Zeilenabstand und nennt es als Hinweis; im Konzept trifft es nur Folie 14 („3,0“ über „Förderung“). Die erste
 Zeile und die Titellinie bleiben an ihrem Platz.
 
 ## 3 · Raster, Layouts, Farben, Schrift
@@ -208,7 +208,7 @@ B71E3F, `darlehen` 202020, `referenz` 77716B, `dunkelrot` 8B2939, `grau` 626160.
 - **Linienstärken in Diagrammen:** Kontur der feinen Säulen 0,5 pt Tinte · Gitter 0,5 pt CFCCC8 · Grundlinie 0,75 pt Tinte ·
   Maßlinie 0,75 pt Anthrazit mit Maßstrichen 1,25 pt · Maßhilfslinien, Bezugslinie und Zuleitungen 0,5 pt (Zuleitungen in Referenzgrau 77716B) · Linien im Liniendiagramm
   2,25 pt, fein 1,5 pt ohne Strichart (Folie 4) · Zeitmarken der Folie 4 0,5 pt gestrichelt in Referenzgrau · Marken über Säulen
-  1 pt gestrichelt in Referenzgrau (Folien 10 und 22).
+  1 pt gestrichelt in Referenzgrau (Folie 10).
 - **Flussdiagramm** (`D.fluss`): Farbrollen `tinte`, `referenz`, `hell` (Referenzgrau mit 50 % Transparenz) und `blass` (70 %, mit feiner
   Kontur), festgelegt in `lib/theme.cjs` (`FLUSSART`, auch als `D.FLUSSART`). Auf den Folien 17 und 18: Tilgung `tinte`, Zins `referenz`,
   Verwaltungskostenbeitrag `hell`, Bewirtschaftung `blass`.
@@ -239,9 +239,11 @@ und Einheit schützt die Bibliothek selbst („5,6 Mio. €“, „80 %“, „S
 
 ## 4 · Daten und Formatierer
 
-- **E10:** Zahlen der Mappe nur über `W(lauf, schluessel)`. Läufe: `modellhaus`, `modellhaus_zeitreihe`, `modellhaus_pgn_kosten`
-  (3.579 €), `modellhaus_kosten_5200`, `modellhaus_rendite` (Renditen, Restwert und Marktmiete; nur für die Folie `anhang-rendite`),
-  `projekt2`, `modellhaus_dscr125` (die beiden letzten erscheinen nicht auf Folien).
+- **E10:** Zahlen der Mappe nur über `W(lauf, schluessel)`. Das Modellhaus ist Projekt 2 der Rechenmappe (PGN-Projekt in Neu Wulmstorf,
+  3.579 € je m², Grundstück nicht angesetzt); jeder Lauf setzt Eingaben!D3 auf 2. Läufe: `modellhaus`, `modellhaus_zeitreihe`,
+  `modellhaus_kosten_4631` (ARGE-Median) und `modellhaus_kosten_5000` (Ausgangswert der Bemessungsgrenze; beide für Folie 23),
+  `modellhaus_rendite` (Renditen, Restwert und Marktmiete; nur für die Folie `anhang-rendite`), `projekt2` (Stand der Altfassung mit
+  Tilgung 2,5 %), `modellhaus_dscr125` (die beiden letzten erscheinen nicht auf Folien).
   Anteile sind Dezimalbrüche (0,025 = 2,5 %). `zr.*` und `frei.*` führen Auszahlungen negativ: Vorzeichen drehen.
 - **Zahlen, die nur Broschüre oder Altfassung haben,** stehen in der Datendatei der Baugruppe, je Eintrag
   `{ "wert": …, "einheit": "…", "herkunft": "Broschüre S. 6", "geprueft": true }`. Zugriff: `ctx.X('regeln', 'mietpfad.jahr4')`
@@ -308,7 +310,7 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 | `B.zuleitung(s, { x0, y0, x1, y1, xKnick, name })` | Haarlinie 0,5 pt in Referenzgrau 77716B (hält auch am Beamer) von der Kante eines Segments zu seiner Beschriftung; liegen die Enden auf verschiedener Höhe, läuft sie mit einem Knick bei `xKnick` (Vorgabe: Mitte) (Folie 5) |
 | `B.achse80(s, { x, yOben, yUnten, text })` | rote Strichpunktlinie mit Achskreis „80“ auf der Maßkette |
 | `B.massstab(s, { x, y, w })` | Maßstabsleiste, fünf Felder, 0,05 hoch; bei `plot.y + plot.h + 0,02` |
-| `B.markeMitLuecken(s, { y, x0, x1, luecken: [[von, bis]], text, textX, textBreite, lage, name })` | waagerechte Marke über einem Säulendiagramm: gestrichelte Linie 1 pt in Referenzgrau von `x0` bis `x1`, an den `luecken` unterbrochen (Datenbeschriftungen, Säulen bis an die Linie). Der Text steht auf der Verlängerung rechts der Plotfläche, `lage: 'ueber' \| 'unter'`; Zeilen bricht „\n“, „**fett**“ hebt den Wert hervor (Folie 10). `lage: 'aussen'`: Die Marke liegt nur über einem Teil der Plotfläche, der Text steht einzeilig rechts neben dem Linienende auf der Höhe der Linie (`textX`: Vorgabe `x1` + 0,08; Folie 22) |
+| `B.markeMitLuecken(s, { y, x0, x1, luecken: [[von, bis]], text, textX, textBreite, lage, name })` | waagerechte Marke über einem Säulendiagramm: gestrichelte Linie 1 pt in Referenzgrau von `x0` bis `x1`, an den `luecken` unterbrochen (Datenbeschriftungen, Säulen bis an die Linie). Der Text steht auf der Verlängerung rechts der Plotfläche, `lage: 'ueber' \| 'unter'`; Zeilen bricht „\n“, „**fett**“ hebt den Wert hervor (Folie 10). `lage: 'aussen'`: Die Marke liegt nur über einem Teil der Plotfläche, der Text steht einzeilig rechts neben dem Linienende auf der Höhe der Linie (`textX`: Vorgabe `x1` + 0,08; bis 11.11.2026 die Marke „Ansatz im Modellhaus“ der Folie 22, derzeit auf keiner Folie) |
 | `B.marke(s, { x, y, h \| w, text, art, strich, textSeite, textBreite, rolle })` | senkrechte (`h`) oder waagerechte (`w`) Marke. `art`: `mass`, `referenz`, `signal`. `textSeite` senkrecht `rechts` / `links` / `oben`, waagerecht `oben` / `rechts` / `aussen` (rechts neben dem Linienende; dafür `rand: { r }` im Diagramm vergrößern). Der Text bricht nur an „\n“ (das Textfeld trägt `wrap="none"`, wie die Texte der Legende); jede Zeile muss in `textBreite` (Vorgabe 2,4) passen, das Textfeld ist so breit wie die längste Zeile |
 | `B.kote(s, { x, y, text, seite, signal })` | Höhenkote: Dreieck mit Spitze auf (x, y), Wert daneben |
 | `B.schnittlinie(s, { x, y, w, text })` | Strichpunktlinie zwischen zwei Buchstaben; höchstens einmal je Folie |
@@ -321,7 +323,7 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 |---|---|
 | `B.register(s, '2.1')` | Daumenregister am rechten Rand, 0,42 × 0,62, y = 2,10 + i · 0,74 |
 | `B.schluesselplan(s, '2.1')` | sechs Felder in der Kickerzeile (x 9,367–12,667). Nicht auf `_MR`-Layouts (die Kickerzeile bleibt dort rechts frei) |
-| `B.stempelZusatz(s)` | „Fiktives Beispiel, keine Förderzusage“ als schlichte Zeile rechts in der Kickerzeile (11 pt, grau); nur auf Folie 14 |
+| `B.stempelZusatz(s)` | „Rechenbeispiel, keine Förderzusage“ als schlichte Zeile rechts in der Kickerzeile (11 pt, grau); nur auf Folie 14 (bis 11.11.2026 „Fiktives Beispiel, …“) |
 | `B.stempel(s, { x, y, kurz, zusatz })` | Stempel frei gesetzt (2,12 × 0,37) auf Layouts ohne `_MR`; `kurz: true` einfache Kontur 1,95 × 0,26 |
 | `B.konturstempel(s, { x, y, w, text })` | Fördervermerk, 0,36 hoch, Versalien in Rot |
 | `B.programmChip(s, { x, y, nr })` | 0,42 × 0,24 in der Programmfarbe. → `{ rechts }` |
@@ -347,7 +349,7 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 
 | Funktion | Parameter und Maße |
 |---|---|
-| `B.rechenblatt(s, { x, y, w, kopf, zeilen, wertBreite, dicht, hervor, zeilenH, ergebnisH })` | `kopf: ['Position', 'A', 'B', 'C']`, Einträge als Text oder `{ kreis: 'A' }` (Achskreis als Spaltenkopf). `zeilen: [{ nr, zeichen, text, werte: [], art, h }]` mit `art`: `normal` · `summe` (Oberlinie, halbfett) · `ergebnis` (weiß auf Rot; auch mitten in der Tabelle: Folie A7) · `notiz` (12 pt grau, ohne Linie). Nummernstreifen 0,42, Rechenzeichen 0,30, Wertspalten je `wertBreite` (1,20) oder je Spalte eine Breite als Liste (`[1.06, 1.06, 1.06, 1.22]`: Folie A7), Position nimmt den Rest. `zeilenH`, `ergebnisH`: Mindesthöhe der Zeilen und der Ergebniszeile (gleich hohe Zeilen, wenn einzelne Positionen zwei Zeilen brauchen). Jeder Wert wird gegen die Breite seiner Zelle gerechnet. 14 pt mit Zeile 0,42, Kopf 0,34, Ergebnis 0,46; `dicht: true` 12 pt mit Zeile 0,34, Kopf 0,30, Ergebnis 0,38 (neun Zeilen ab y 2,80 enden bei 6,20). Positionen höchstens zweizeilig. `hervor: i` hebt eine Wertspalte hervor. → `{ unten, spalten: [{ x, w }], zeilen: [{ y, h }], kopfH, positionX, positionW }` |
+| `B.rechenblatt(s, { x, y, w, kopf, zeilen, wertBreite, dicht, hervor, zeilenH, ergebnisH })` | `kopf: ['Position', 'A', 'B', 'C']`, Einträge als Text oder `{ kreis: 'A' }` (Achskreis als Spaltenkopf). `zeilen: [{ nr, zeichen, text, werte: [], art, h }]` mit `art`: `normal` · `summe` (Oberlinie, halbfett) · `ergebnis` (weiß auf Rot; auch mitten in der Tabelle: Folie A7) · `notiz` (12 pt grau, ohne Linie; unter dem Ergebnis oder als Hinweis ohne Nummer und Betrag zwischen zwei Zeilen: „Grundstück im Bestand, nicht angesetzt“ auf Folie 14; `h` setzt die Höhe einer einzelnen Zeile). Nummernstreifen 0,42, Rechenzeichen 0,30, Wertspalten je `wertBreite` (1,20) oder je Spalte eine Breite als Liste (`[1.06, 1.06, 1.06, 1.22]`: Folie A7), Position nimmt den Rest. `zeilenH`, `ergebnisH`: Mindesthöhe der Zeilen und der Ergebniszeile (gleich hohe Zeilen, wenn einzelne Positionen zwei Zeilen brauchen). Jeder Wert wird gegen die Breite seiner Zelle gerechnet. 14 pt mit Zeile 0,42, Kopf 0,34, Ergebnis 0,46; `dicht: true` 12 pt mit Zeile 0,34, Kopf 0,30, Ergebnis 0,38 (neun Zeilen ab y 2,80 enden bei 6,20). Positionen höchstens zweizeilig. `hervor: i` hebt eine Wertspalte hervor. → `{ unten, spalten: [{ x, w }], zeilen: [{ y, h }], kopfH, positionX, positionW }` |
 | `B.vergleichstabelle(s, { x, y, w, kopf: [3], zeilen: [{ text, wert, vergleich, kern }], wertBreite, dicht })` | hervorgehobene Spalte und Vergleichsspalte je `wertBreite` (2,20). Zeile 0,50 bei 16 pt; `dicht` 0,44 bei 14 pt; die Zeile wächst mit dem Text der Position. `kern: true`: Oberlinie, Werte Montserrat ExtraBold 24 pt (höchstens zwei). Reihenfolge: gefördert vor frei finanziert |
 | `B.tabelle(s, { x, y, w, spalten: [{ kopf, breite, art, randRechts }], zeilen, pt, kopf, dicht, zeilenH, zielHoehe, schlusslinie, messen })` | allgemeine Tabelle. Spalte `art`: `text` · `zahl` (rechts, Montserrat Bold) · `stichwort`. Zeile als Liste von Zellen oder `{ zellen, trennlinie: true, flaeche: true }`; Zelle als Text (mit „**fett**“) oder `{ text, fett, farbe, align }`. Zeilenhöhe folgt dem Text; ein Wort, das breiter ist als seine Zelle, meldet die Prüfung. `pt` 12 oder 14; `kopf: false` lässt die Kopfzeile weg. `dicht: true`: Zeilenhöhe Zeilenzahl × Zeilenmaß + Zellränder + 0,01, für Tabellen, die die Inhaltszone füllen (Folien A1, A8). Kopfzeile 0,33 Zoll (aus der Schrift gerechnet), je weitere Kopfzeile 0,20. `zeilenH`: Mindesthöhe je Zeile. `zielHoehe`: Gesamthöhe mit Kopf; kurze Zeilen bekommen dafür eine gemeinsame Mindesthöhe. `messen: true` rechnet nur und zeichnet nichts (zwei Tabellen auf gleiche Höhe bringen: Folie A6). `schlusslinie: false` lässt die Linie unter der letzten Zeile weg, wenn ein Kasten anschließt (Folie A8). `randRechts`: rechter Zellrand einer Spalte. → `{ unten, h, kopfH, zeilen: [{ y, h, n }], spalten: [{ x, w }], zeilenzahl, zeilenmass, rand }` (damit lassen sich Chips oder Icons in eine Zelle setzen) |
 | `B.hinweisKasten(s, { x, y, w, stichwort, text, spalte, pt })` | Hinweis als Kasten auf Fläche mit Modulkopf-Linie: Stichwort links in einer Spalte der Breite `spalte`, Text rechts (14 pt). Schließt als Fuß an eine Tabelle an, deren erste Spalte so breit ist (Folie A8). → `{ h, unten }` |
@@ -473,12 +475,12 @@ B.text(s, 'Zuschuss', { x: …, y: d.knoten.zuschuss.mitte - 0.22, … });      
 | Feld | Bedeutung |
 |---|---|
 | `name`, `altText` | Objektname des Rahmens (auf der Folie eindeutig) und Alternativtext des Diagramms: jeder Strom mit seinem Betrag (Pflicht). Ein Rahmen ohne Füllung und Linie trägt ihn; Bänder und Knoten gelten als Schmuck |
-| `massstab` | Einheiten je Zoll Höhe (Pflicht). Auf den Folien 17 und 18 gemeinsam 160.000 € je Zoll (`folien/_fluss.cjs`) |
+| `massstab` | Einheiten je Zoll Höhe (Pflicht). Auf den Folien 17 und 18 gemeinsam 68.000 € je Zoll (`folien/_fluss.cjs`; folgt der Größe des Modellhauses und ist dort von Hand gesetzt) |
 | `knoten: [{ id, x, y, name, art, wert }]` | `x`, `y`: linke obere Ecke in Zoll. Die Höhe folgt aus den Strömen; `wert` ist eine Gegenprobe. An einem Knoten mit Zu- und Abflüssen müssen beide aufgehen, sonst bricht der Baustein ab |
 | `stroeme: [{ von, nach, wert, art, name }]` | Reihenfolge = Stapelfolge an beiden Knoten, von oben. Ein Strom läuft von links nach rechts. Ströme mit dem Betrag 0 werden nicht gezeichnet |
 | `arten` | Farbrollen (Vorgabe `FLUSSART`: `tinte`, `referenz`, `hell`, `blass`); eigene Rollen ergänzt man als `{ ...D.FLUSSART, name: { farbe, transparenz, kontur, linie, knoten } }` |
 | `knotenBreite` 0,12 · `fuge` 0,02 · `spannung` 0,5 | Breite der Knoten, Abstand zwischen Knoten und Band, Lage der Kurvenpunkte (0,5: in der Mitte) |
-| `linieBis` 1,5 · `mindestPt` 0,75 | Ströme unter `linieBis` Punkt Stärke stehen als Linie in ihrer wahren Stärke, mindestens `mindestPt` (auf Folie 17 der Mietausfall von 2.285 €) |
+| `linieBis` 1,5 · `mindestPt` 0,75 | Ströme unter `linieBis` Punkt Stärke stehen als Linie in ihrer wahren Stärke, mindestens `mindestPt` (auf Folie 17 der Mietausfall von 1.351 €) |
 
 Rückgabe: `{ zoll(wert), knoten: { id: { x, y, w, h, wert, mitte, rechts, unten } }, stroeme: [{ …, x0, x1, y0, y1, h, alsLinie, pt }], rahmen }`.
 Das Diagramm trägt keinen Text: Bezeichnungen und Beträge setzt das Modul in Leserichtung mit `B.text` und `B.bezeichnungMitWert`
@@ -502,7 +504,7 @@ Fläche, Legende mit Werten und Werteblöcken an den Marken `ausgangslage-zinsen
 Achse und Gitter, mit senkrechter Maßkette, Zuleitungen und Tabelle `einstieg-kapitaldienst` · feine Säulen mit eigener Farbe je
 Säule und Maßkette über die ganze Reihe `einstieg-bestand` ·
 Achse mit großen Achskreisen und Register der Programmteile `agenda` · Flussdiagramm `rechnung-fluss-gefoerdert`, `rechnung-fluss-frei` ·
-feine Säulenpaare mit Maßzeichen der Spanne und Marke über einem Teil der Plotfläche `pgn-baukosten` · Vergleich `neu-seit-juli` · Säulen mit Marken `hoechstmiete` ·
+feine Säulenpaare mit Maßzeichen der Spanne `pgn-baukosten` · Vergleich `neu-seit-juli` · Säulen mit Marken `hoechstmiete` ·
 Fördermix `foerdermix` · Zeitstrahl `eckdaten-zeitstrahl` · Balken mit Segmenttext und Rechenblatt `rechnung-finanzierung` ·
 Rechenblatt `rechnung-jahr1` · Summen am Balken `rechnung-kapitaldienst` · Balkenpaar und Vergleichstabelle (Rechenweg der nötigen Miete) `rechnung-miete` ·
 Linien mit Marken und Werten `rechnung-tilgung`, `rechnung-verlauf` · Säulen über einer Tabelle `rechnung-kosten` · Ablauf
@@ -598,8 +600,9 @@ verbotene Wörter, Gedankenstriche und jede Zahl gegen `daten/werte.json`, die D
    und die Schlüssel `dscr.ziel` und `zr.dscr.*` erscheinen nicht; `dscr.kapitaldienst_jahr1.*` und `dscr.noetige_miete.*`
    sind erlaubt (Kapitaldienst und nötige Miete bei Überschuss null). **Eine Ausnahme** auf Wunsch des Auftraggebers (11.11.2026):
    Die Anhangfolie A7 (`anhang-rendite`) zeigt die Eigenkapitalrendite über 35 Jahre und nennt die Marktmiete, als Paar „mit Restwert“
-   und „nur Bodenwert“ mit dem Restwertanteil, wie die Rechenmappe es verlangt. Marktmiete und Liegenschaftszins sind seit 11.11.2026 amtliche Werte
-   für Rotenburg (Wümme); ihre Herkunft steht in `daten/rechnung.json` (Block `marktwerte`), die Annahmen der Folie nennen Quelle und Ort. Ihre Werte stehen im Lauf `modellhaus_rendite`
+   und „ohne Restwert“ mit dem Restwertanteil, wie die Rechenmappe es verlangt (ihre Lesart „nur Bodenwert“ rechnet beim Modellhaus ohne
+   Restwert, weil das Grundstück nicht angesetzt ist; das Modul prüft Eingabe 2.3 = 0). Marktmiete und Liegenschaftszins gelten für Neu Wulmstorf;
+   ihre Herkunft steht in `daten/rechnung.json` (Block `marktwerte`), die Annahmen der Folie nennen Wert und Herkunft. Ihre Werte stehen im Lauf `modellhaus_rendite`
    (`daten/werte_aus_vofi.py`: Katalog `katalog_rendite`, benannte Ausnahme `anhang_rendite` von der Sperrliste). Der Bau gibt den Lauf
    nur dieser Folie frei, `pruefe_folien.py` lässt „Rendite“ und „Marktmiete“ nur dort zu und nimmt die Zahlen des Laufs nur dort als
    Beleg. Für alle anderen Folien gilt E5 unverändert.

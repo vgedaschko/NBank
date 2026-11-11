@@ -77,6 +77,8 @@ FOLIENZAHL = len(AUFBAU)          # 37: 28 im Hauptteil, 9 im Anhang
 HAUPTTEIL, ANHANG = 28, 9
 # Folien der Modellrechnung (Layouts mit „_MR“, Papierton): Im Kopf steht das Wort „Modellrechnung“ genau einmal, im Kicker oder als Stempel des
 # Layouts, nie beides. Kein Papierton und kein Stempel im Einstieg (Folien 3 bis 6: Medianwerte je m²) und auf pgn-baukosten (Kostenkennwerte).
+# Der Zusatz der ersten Modellfolie lautet seit 11.11.2026 „Rechenbeispiel, …“ (vorher „Fiktives Beispiel, …“): Das Modellhaus ist ein Projekt der PGN.
+ZUSATZ_MODELLRECHNUNG = "Rechenbeispiel, keine Förderzusage"
 STEMPEL = ["rechnung-finanzierung", "rechnung-jahr1", "rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-fluss-frei", "rechnung-miete",
            "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten", "fazit"]
 # Kicker und Rubrik im Schriftfeld nennen den Abschnitt und das Thema der Folie („MODELLRECHNUNG · KAPITALDIENST“). Die Agenda nennt alle vier
@@ -140,46 +142,69 @@ RENDITE = RENDITE_LAUF + ":rendite."                                            
 BEWIRTSCHAFTUNG = "modellhaus:jr1.objektverwaltung.A + modellhaus:jr1.instandhaltung.A"
 BEWIRTSCHAFTUNG_FREI = "modellhaus:jr1.objektverwaltung.Frei + modellhaus:jr1.instandhaltung.Frei"
 MIETFLAECHE_JAHR = "(1 - modellhaus:eingabe.mietausfall) * modellhaus:eingabe.wohnflaeche * 12"
+# Sensitivität der Folie 23: dasselbe Haus mit dem ARGE-Median und mit dem Ausgangswert der Bemessungsgrenze als Herstellungskosten je m²
+K_ARGE, K_GRENZE = "modellhaus_kosten_4631:", "modellhaus_kosten_5000:"
+# Folie 21: Jahre mit Fehlbetrag in A, B und C zusammen (Übersicht 3.6); null heißt auf der Folie „Kein Jahr mit Fehlbetrag“
+JAHRE_MIT_FEHLBETRAG = "modellhaus:liq.jahre_mit_fehlbetrag.A + modellhaus:liq.jahre_mit_fehlbetrag.B + modellhaus:liq.jahre_mit_fehlbetrag.C"
+# Folie 23: Rückgang des Zahlungsüberschusses in A je 100 € Herstellungskosten je m² (wie in daten/pruefung.json)
+JE_100_EURO = ("(modellhaus:jr1.zahlungsueberschuss.A - modellhaus_kosten_5000:jr1.zahlungsueberschuss.A)"
+               " / (modellhaus_kosten_5000:eingabe.herstellungskosten_qm - modellhaus:eingabe.herstellungskosten_qm) * 100")
 KERNWERTE = [
-    ("dscr.kapitaldienst_jahr1.A", "euro", "80.667 €", ["rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
-    ("dscr.kapitaldienst_jahr1.Frei", "euro", "313.703 €", ["rechnung-kapitaldienst", "rechnung-fluss-frei", "rechnung-miete", "fazit"]),
-    ("dscr.noetige_miete.A", "euro2", "6,57 €", ["rechnung-miete", "rechnung-kosten", "fazit"]),
-    ("dscr.noetige_miete.Frei", "euro2", "20,72 €", ["rechnung-fluss-frei", "rechnung-miete", "fazit"]),
-    ("jr1.zahlungsueberschuss.A", "euro", "3.789 €", ["rechnung-jahr1", "rechnung-fluss-gefoerdert"]),
-    ("jr1.zahlungsueberschuss.A", "zahl", "3.789", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten"]),
-    ("jr1.zahlungsueberschuss.B", "zahl", "−13.495", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf"]),
-    ("jr1.zahlungsueberschuss.C", "zahl", "−20.491", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf"]),
-    ("modellhaus_kosten_5200:jr1.zahlungsueberschuss.A", "zahl", "−19.963", ["rechnung-kosten"]),
-    ("fin.foerderung.A", "mio", "5,6 Mio. €", ["rechnung-finanzierung", "fazit"]),
-    ("fin.gesamtkosten.A", "mio", "7,0 Mio. €", ["rechnung-finanzierung", "fazit"]),
+    ("dscr.kapitaldienst_jahr1.A", "euro", "34.150 €", ["rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
+    ("dscr.kapitaldienst_jahr1.Frei", "euro", "132.805 €", ["rechnung-kapitaldienst", "rechnung-fluss-frei", "rechnung-miete", "fazit"]),
+    ("dscr.noetige_miete.A", "euro2", "5,26 €", ["rechnung-miete", "rechnung-kosten", "fazit"]),
+    ("dscr.noetige_miete.Frei", "euro2", "15,39 €", ["rechnung-fluss-frei", "rechnung-miete", "fazit"]),
+    # Jahr 1: In allen drei Gruppen bleibt ein Zahlungsüberschuss (bis 11.11.2026 nur in A; B und C standen mit Minus)
+    ("jr1.zahlungsueberschuss.A", "euro", "15.003 €", ["rechnung-jahr1", "rechnung-fluss-gefoerdert", "rechnung-kosten"]),
+    ("jr1.zahlungsueberschuss.A", "zahl", "15.003", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten"]),
+    ("jr1.zahlungsueberschuss.B", "zahl", "11.560", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten"]),
+    ("jr1.zahlungsueberschuss.C", "zahl", "10.812", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten"]),
+    # Folie 23: Mit höheren Herstellungskosten bleibt nur in A ein Zahlungsüberschuss; B und C stehen mit Minus (Vorzeichen gebunden).
+    # Die Einträge stehen an der Stelle des früheren Laufs mit 5.200 € je m² (−19.963 € in A über der Bemessungsgrenze), den es nicht mehr gibt.
+    (K_ARGE + "jr1.zahlungsueberschuss.A", "zahl", "4.965", ["rechnung-kosten"]),
+    (K_GRENZE + "jr1.zahlungsueberschuss.A", "euro", "1.444 €", ["rechnung-kosten"]),
+    (K_ARGE + "jr1.zahlungsueberschuss.B", "euro", "−3.497 €", ["rechnung-kosten"]),
+    (K_GRENZE + "jr1.zahlungsueberschuss.B", "euro", "−8.778 €", ["rechnung-kosten"]),
+    (K_ARGE + "jr1.zahlungsueberschuss.C", "euro", "−6.754 €", ["rechnung-kosten"]),
+    (K_GRENZE + "jr1.zahlungsueberschuss.C", "euro", "−12.916 €", ["rechnung-kosten"]),
+    ("fin.foerderung.A", "mio", "2,4 Mio. €", ["rechnung-finanzierung", "fazit"]),
+    ("fin.gesamtkosten.A", "mio", "3,0 Mio. €", ["rechnung-finanzierung", "fazit"]),
     ("fin.miete_jahr1.A", "euro2", "6,80 €", ["hoechstmiete", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
     # Zahlungsfluss in Jahr 1 (Folien 17 und 18)
-    ("jr1.sollmiete.A", "euro", "114.240 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
-    ("jr1.ueberschuss_vor_kapitaldienst.A", "euro", "84.455 €", ["rechnung-fluss-gefoerdert"]),
-    ("jr1.tilgung_nbank.A", "euro", "66.667 €", ["rechnung-fluss-gefoerdert"]),
-    ("jr1.verwaltungskostenbeitrag.A", "euro", "14.000 €", ["rechnung-fluss-gefoerdert"]),
-    ("jr1.instandhaltung.A", "euro", "20.160 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
-    ("jr1.objektverwaltung.A", "euro", "7.340 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
-    ("jr1.mietausfall.A", "euro", "2.285 €", ["rechnung-fluss-gefoerdert"]),
-    ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1", "58,4 %", ["rechnung-fluss-gefoerdert"]),
-    (SOLLMIETE_FREI, "euro", "348.167 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),   # auf Folie 17 am Umriss der Quelle
-    ("modellhaus:eingabe.mietausfall * " + SOLLMIETE_FREI, "euro", "6.963 €", ["rechnung-fluss-frei"]),
-    ("-modellhaus:frei.zins_jahr1", "euro", "209.440 €", ["rechnung-fluss-frei"]),
-    ("-modellhaus:frei.tilgung_jahr1", "euro", "104.263 €", ["rechnung-fluss-frei"]),
-    ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1", "60,2 %", ["rechnung-fluss-frei"]),
-    # Herstellungskosten je m²: Ansatz des Modellhauses und PGN-Median (Folien 22 und 23)
-    ("eingabe.herstellungskosten_qm", "euro", "4.500 €", ["pgn-baukosten", "rechnung-kosten"]),
-    ("modellhaus_pgn_kosten:eingabe.herstellungskosten_qm", "euro", "3.579 €", ["pgn-baukosten", "rechnung-kosten"]),
+    ("jr1.sollmiete.A", "euro", "67.565 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
+    ("jr1.ueberschuss_vor_kapitaldienst.A", "euro", "49.152 €", ["rechnung-fluss-gefoerdert"]),
+    ("jr1.tilgung_nbank.A", "euro", "28.223 €", ["rechnung-fluss-gefoerdert"]),
+    ("jr1.verwaltungskostenbeitrag.A", "euro", "5.927 €", ["rechnung-fluss-gefoerdert"]),
+    ("jr1.instandhaltung.A", "euro", "11.923 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
+    ("jr1.objektverwaltung.A", "euro", "5.138 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
+    ("jr1.mietausfall.A", "euro", "1.351 €", ["rechnung-fluss-gefoerdert"]),
+    ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1", "41,8 %", ["rechnung-fluss-gefoerdert"]),
+    (SOLLMIETE_FREI, "euro", "152.924 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),   # auf Folie 17 am Umriss der Quelle
+    ("modellhaus:eingabe.mietausfall * " + SOLLMIETE_FREI, "euro", "3.058 €", ["rechnung-fluss-frei"]),
+    ("-modellhaus:frei.zins_jahr1", "euro", "88.665 €", ["rechnung-fluss-frei"]),
+    ("-modellhaus:frei.tilgung_jahr1", "euro", "44.139 €", ["rechnung-fluss-frei"]),
+    ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1", "58,0 %", ["rechnung-fluss-frei"]),
+    # Herstellungskosten je m²: Das Modellhaus rechnet mit dem PGN-Median (Folien 14, 22 und 23); dazu die beiden Werte der Sensitivität (Folie 23)
+    ("eingabe.herstellungskosten_qm", "euro", "3.579 €", ["rechnung-finanzierung", "pgn-baukosten", "rechnung-kosten"]),
+    (K_ARGE + "eingabe.herstellungskosten_qm", "euro", "4.631 €", ["pgn-baukosten", "rechnung-kosten"]),
+    (K_GRENZE + "eingabe.herstellungskosten_qm", "euro", "5.000 €", ["rechnung-kosten"]),
     ("eingabe.zins_bank", "prozent2", "3,74 %", ["ausgangslage-zinsen", "einstieg-kapitaldienst", "rechnung-kapitaldienst"]),
     # Folie 19: Bewirtschaftung im Rechenweg der nötigen Miete (Objektverwaltung und Instandhaltung, Übersicht D31 + D32)
-    (BEWIRTSCHAFTUNG, "euro", "27.500 €", ["rechnung-miete"]),
-    # Folien 20 und 24: Tilgungssatz, bei dem der Zahlungsüberschuss in Gruppe A null ist (Übersicht 3.8)
-    ("liq.breakeven_tilgung.A", "prozent2", "2,52 %", ["rechnung-tilgung", "fazit"]),
-    # Anhangfolie zur Eigenkapitalrendite (A7): die beiden Titelzahlen (mit Restwert, nur Bodenwert) und der tiefste Stand des Projektkontos
-    # frei finanziert. Renditen mit zwei Nachkommastellen wie in der Rechenmappe (5,2495 % stünde einstellig als 5,2 %, die Mappe zeigt 5,25 %)
-    (RENDITE + "vofi_mit_restwert.A", "prozent2", "5,25 %", [RENDITE_FOLIE]),
-    (RENDITE + "vofi_nur_bodenwert.A", "prozent2", "1,67 %", [RENDITE_FOLIE]),
-    (RENDITE + "projektkonto_tiefststand.Frei", "zahl", "−4.818.629", [RENDITE_FOLIE]),
+    (BEWIRTSCHAFTUNG, "euro", "17.061 €", ["rechnung-miete"]),
+    # Folien 20 und 24: Tilgungssatz, bei dem der Zahlungsüberschuss null ist (Übersicht 3.8), je Gruppe
+    ("liq.breakeven_tilgung.A", "prozent2", "3,65 %", ["rechnung-tilgung", "fazit"]),
+    ("liq.breakeven_tilgung.B", "prozent2", "3,03 %", ["rechnung-tilgung"]),
+    ("liq.breakeven_tilgung.C", "prozent2", "2,90 %", ["rechnung-tilgung", "fazit"]),
+    # Folie 21: Zahlungsüberschuss in Jahr 35 (Übersicht 3.2), im Titel der Wert der Gruppe A
+    ("liq.zahlungsueberschuss_jahr35.A", "euro", "64.860 €", ["rechnung-verlauf"]),
+    ("liq.zahlungsueberschuss_jahr35.B", "zahl", "76.468", ["rechnung-verlauf"]),
+    ("liq.zahlungsueberschuss_jahr35.C", "zahl", "84.149", ["rechnung-verlauf"]),
+    # Anhangfolie zur Eigenkapitalrendite (A7): die beiden Titelzahlen (mit Restwert, ohne Restwert) und der tiefste Stand des Projektkontos
+    # frei finanziert. Renditen mit zwei Nachkommastellen wie in der Rechenmappe. „Ohne Restwert“ ist die Zeile 6.4 der Übersicht („nur Bodenwert“):
+    # Das Grundstück des Modellhauses ist nicht angesetzt, der Bodenwert ist null (Rechenmappe, Blatt Hinweise Nr. 15)
+    (RENDITE + "vofi_mit_restwert.A", "prozent2", "6,95 %", [RENDITE_FOLIE]),
+    (RENDITE + "vofi_nur_bodenwert.A", "prozent2", "2,58 %", [RENDITE_FOLIE]),
+    (RENDITE + "projektkonto_tiefststand.Frei", "zahl", "−22.640", [RENDITE_FOLIE]),
 ]
 # ---- Kernwerte der Ausgangslage und des Kostenvergleichs: Werte der Datendateien und daraus gerechnete Größen, in derselben Schreibweise ----
 KOSTEN_2020 = "(markt#baukosten.herstellung.q1_2020 + markt#baukosten.grundstueck.q1_2020)"
@@ -257,6 +282,17 @@ KERNSAETZE = [
     ("anhang-eckdaten", "mindestens {a} der zuwendungsfähigen Kosten", {"a": ("tab.eigenmittel_mindestens", "prozent0")}),
     ("foerdermix", "Mindestens {a} der zuwendungsfähigen Kosten", {"a": ("tab.eigenmittel_mindestens", "prozent0")}),
     ("rechnung-jahr1", "{a} | {b} | {c} € je m² und Monat (A | B | C)", {"a": ("fin.miete_jahr1.A", "dez2"), "b": ("fin.miete_jahr1.B", "dez2"), "c": ("fin.miete_jahr1.C", "dez2")}),
+    # Modellhaus seit 11.11.2026: PGN-Projekt in Neu Wulmstorf, Mietenstufe VI, Grundstück im Bestand und nicht angesetzt (Eingabe 2.3 = 0).
+    # Die Titel der Folien 14 bis 16, 19, 21 und 23 nennen das Ergebnis aller drei Gruppen und die Zahl der Gruppe A
+    ("rechnung-finanzierung", "{a} Wohnungen, {b}: bis zu {c} Förderung", {"a": ("eingabe.wohnungen", "zahl"), "b": ("fin.gesamtkosten.A", "mio"), "c": ("fin.foerderung.A", "mio")}),
+    ("rechnung-finanzierung", "PGN-Projekt in Neu Wulmstorf · {a} Wohnungen · {b} m² Wohnfläche · Gruppe A · Mietenstufe {c}",
+     {"a": ("eingabe.wohnungen", "zahl"), "b": ("eingabe.wohnflaeche", "zahl"), "c": ("eingabe.mietenstufe", "text")}),
+    ("rechnung-finanzierung", "Grundstück im Bestand, {a}", {"a": ("eingabe.grundstueck", "nicht_angesetzt")}),
+    ("rechnung-finanzierung", "Herstellungskosten, {a} m² × {b}", {"a": ("eingabe.wohnflaeche", "zahl"), "b": ("eingabe.herstellungskosten_qm", "euro")}),
+    ("rechnung-jahr1", "Alle drei Gruppen tragen sich ab Jahr 1: {a} Zahlungsüberschuss in A", {"a": ("jr1.zahlungsueberschuss.A", "euro")}),
+    ("rechnung-jahr1", "Höchstmiete nettokalt, Mietenstufe {a}:", {"a": ("eingabe.mietenstufe", "text")}),
+    ("rechnung-kapitaldienst", "Kapitaldienst in Jahr 1: {a} statt {b} frei finanziert", {"a": ("dscr.kapitaldienst_jahr1.A", "euro"), "b": ("dscr.kapitaldienst_jahr1.Frei", "euro")}),
+    ("rechnung-miete", "Nötige Miete: {a} gefördert, {b} je m² frei finanziert", {"a": ("dscr.noetige_miete.A", "euro2"), "b": ("dscr.noetige_miete.Frei", "euro2")}),
     ("rechnung-jahr1", "Verwaltungskostenbeitrag, {a}", {"a": ("tab.verwaltungskostenbeitrag", "prozent1")}),
     ("rechnung-jahr1", "Zins NBank-Darlehen, {a}", {"a": ("tab.zins_nbank_bis_jahr35", "prozent0")}),
     ("rechnung-miete", "Höchstmiete Gruppe A: {a}", {"a": ("fin.miete_jahr1.A", "euro2")}),
@@ -278,32 +314,50 @@ KERNSAETZE = [
     ("rechnung-fluss-frei", "{a} · {b}", {"a": ("-modellhaus:frei.zins_jahr1", "euro"), "b": ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
     ("rechnung-fluss-frei", "{a} · {b}", {"a": ("-modellhaus:frei.tilgung_jahr1", "euro"), "b": ("-modellhaus:frei.tilgung_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
     ("pgn-baukosten", "Herstellungskosten der PGN: {a} unter dem ARGE-Median", {"a": ("-(" + PGN_UNTER_ARGE + ")", "prozent1")}),
-    ("pgn-baukosten", "Ansatz im Modellhaus: {a}", {"a": ("eingabe.herstellungskosten_qm", "euro")}),
+    # Bis 11.11.2026 stand hier die Marke „Ansatz im Modellhaus: 4.500 €“. Das Modellhaus rechnet seither mit dem PGN-Median selbst; gebunden ist
+    # jetzt das Wertepaar der Hauptzahl an die Rechenmappe: Ansatz des Modellhauses und Eingabewert des Laufs mit dem ARGE-Median (Folie 23)
+    ("pgn-baukosten", "{a} gegen {b} je m²", {"a": ("eingabe.herstellungskosten_qm", "euro"), "b": (K_ARGE + "eingabe.herstellungskosten_qm", "euro")}),
     ("pgn-baukosten", "{a} gegen {b} je m²", {"a": ("markt#kosten.pgn.spanne_herstellung.median", "euro"), "b": ("markt#kosten.arge.spanne_herstellung.median", "euro")}),   # Label der Hauptzahl
     ("pgn-baukosten", "PGN {a} bis {b},", {"a": ("markt#kosten.pgn.spanne_herstellung.min", "zahl"), "b": ("markt#kosten.pgn.spanne_herstellung.max", "euro")}),
     ("pgn-baukosten", "ARGE {a} bis {b} je m²", {"a": ("markt#kosten.arge.spanne_herstellung.min", "zahl"), "b": ("markt#kosten.arge.spanne_herstellung.max", "euro")}),
     ("pgn-baukosten", "Spanne KG 200–700: Minimum bis Maximum", {}),   # Legende zum Maßzeichen der Spanne neben den Säulen der Herstellung
     # Anhangfolie zur Eigenkapitalrendite (A7): Titel, Annahmen und das Paar, in dem die Rechenmappe Renditen nach außen verlangt
-    # Der Titel nennt für Gruppe A beide Lesarten: mit Restwert und nur Bodenwert (Rechenmappe, Blatt Hinweise Nr. 12)
-    (RENDITE_FOLIE, "Rendite in A: {a} mit Restwert, {b} nur Bodenwert", {"a": (RENDITE + "vofi_mit_restwert.A", "prozent2"), "b": (RENDITE + "vofi_nur_bodenwert.A", "prozent2")}),
+    # Der Titel nennt für Gruppe A beide Lesarten: mit Restwert und ohne Restwert (Rechenmappe, Blatt Hinweise Nr. 12; die Lesart „nur Bodenwert“
+    # der Mappe rechnet beim Modellhaus ohne Restwert, weil das Grundstück nicht angesetzt ist: Blatt Hinweise Nr. 15)
+    (RENDITE_FOLIE, "Rendite in A: {a} mit Restwert, {b} ohne Restwert", {"a": (RENDITE + "vofi_mit_restwert.A", "prozent2"), "b": (RENDITE + "vofi_nur_bodenwert.A", "prozent2")}),
     (RENDITE_FOLIE, "Eigenkapitalrendite über {a} Jahre, vor Steuern", {"a": ("tab.zinsfreie_jahre", "zahl")}),
     (RENDITE_FOLIE, "Rendite mit Restwert", {}),
-    (RENDITE_FOLIE, "Rendite, nur Bodenwert", {}),
+    (RENDITE_FOLIE, "Rendite ohne Restwert", {}),
     (RENDITE_FOLIE, "Anteil des Restwerts am Endvermögen", {}),
     (RENDITE_FOLIE, "Vor Steuern, ab Bezug: ohne Bauphase, Abschreibung und Sonder-AfA.", {}),
-    # Liegenschaftszins und Marktmiete des Modellhauses gelten für Rotenburg (Wümme): amtliche Werte der Gutachterausschüsse, Stichtag 01.01.2026
-    # (Blatt Hinweise Nr. 14). Der Liegenschaftszins steht mit zwei Nachkommastellen: 3,45 % stünde einstellig als 3,4 oder 3,5 %
-    (RENDITE_FOLIE, "Liegenschaftszins {a}, Marktmiete {b} je m²: Gutachterausschuss, Rotenburg (Wümme), 2026.", {"a": (RENDITE + "liegenschaftszins.A", "prozent2"), "b": (RENDITE + "annahme.marktmiete_jahr1", "euro2")}),
+    # Grundstück im Bestand, nicht angesetzt: an die Eingabe 2.3 der Rechenmappe gebunden (0 €)
+    (RENDITE_FOLIE, "Grundstück im Bestand, {a}: weder im Eigenkapital noch im Restwert.", {"a": ("eingabe.grundstueck", "nicht_angesetzt")}),
+    # Marktmiete und Liegenschaftszins des Modellhauses gelten für Neu Wulmstorf: Mietband der PGN und Landesmodell des Oberen Gutachterausschusses
+    # (Rechenmappe, Eingabe 4.4 und Blatt Tabellen, Tabelle 4, je Spalte Projekt 2). Der Liegenschaftszins steht mit zwei Nachkommastellen
+    (RENDITE_FOLIE, "Marktmiete {b} je m²: Mietband der PGN für Neu Wulmstorf. Liegenschaftszins {a}: Landesmodell des Oberen Gutachterausschusses.",
+     {"a": (RENDITE + "liegenschaftszins.A", "prozent2"), "b": (RENDITE + "annahme.marktmiete_jahr1", "euro2")}),
     (RENDITE_FOLIE, "Restwert: Ertragswert Ende Jahr {a}.", {"a": ("tab.zinsfreie_jahre", "zahl")}),
-    (RENDITE_FOLIE, "Marktmiete +{a}, Boden +{b} p. a.", {"a": (RENDITE + "annahme.mietsteigerung", "prozent0"), "b": (RENDITE + "annahme.bodenwertsteigerung", "prozent1")}),
+    # Bis 11.11.2026 „Marktmiete +2 %, Boden +1,5 % p. a.“: Ohne angesetztes Grundstück gibt es keinen Bodenwert, die Annahme steht nicht mehr auf der Folie
+    (RENDITE_FOLIE, "Marktmiete +{a} p. a.", {"a": (RENDITE + "annahme.mietsteigerung", "prozent0")}),
     (RENDITE_FOLIE, "Fehlbeträge laufen auf ein Projektkonto zu {a} Sollzins.", {"a": (RENDITE + "annahme.sollzins", "prozent0")}),
     ("rechnung-jahr1", "Gerechnet ist Jahr 1 zum Kostenstand 2026, vor Steuern.", {}),
-    # Folien 20 und 24: Annahme der Rechnung und der Satz, bei dem der Zahlungsüberschuss in Gruppe A null ist; Schwelle C gegen A
-    ("rechnung-tilgung", "Bei {a} Tilgung bleibt nur in A ein Zahlungsüberschuss. Ab {b} ist er auch dort null.", {"a": ("eingabe.tilgung_nbank", "prozent2"), "b": ("liq.breakeven_tilgung.A", "prozent2")}),
+    # Folien 20 und 24: Annahme der Rechnung und die Sätze, bei denen der Zahlungsüberschuss null ist (Übersicht 3.8); Schwelle C gegen A.
+    # Bis 11.11.2026 hieß der erste Satz „Bei … bleibt nur in A ein Zahlungsüberschuss. Ab … ist er auch dort null.“; beim neuen Modellhaus
+    # bleibt er in allen drei Gruppen, und jede Gruppe ist an ihren Satz gebunden
+    ("rechnung-tilgung", "Bei {a} Tilgung bleibt in allen drei Gruppen ein Zahlungsüberschuss. Am höchsten ist er in A.", {"a": ("eingabe.tilgung_nbank", "prozent2")}),
+    ("rechnung-tilgung", "Null wird er in C bei {c}, in B bei {b} und in A bei {a} Tilgung.",
+     {"a": ("liq.breakeven_tilgung.A", "prozent2"), "b": ("liq.breakeven_tilgung.B", "prozent2"), "c": ("liq.breakeven_tilgung.C", "prozent2")}),
     ("rechnung-tilgung", "Unter {a} läge C vorn, B in keinem Fall.", {"a": ("tilg.schwelle.C_gegen_A", "prozent2")}),
-    ("fazit", "Annahme {a} p. a., null in A ab {b}.", {"a": ("eingabe.tilgung_nbank", "prozent2"), "b": ("liq.breakeven_tilgung.A", "prozent2")}),
-    # Folie 21: Summe der Fehlbeträge je Gruppe (Übersicht 3.7), an ihre Gruppe gebunden
-    ("rechnung-verlauf", "in Summe {a}. In C neun Jahre, in Summe {b}.", {"a": ("-modellhaus:liq.groesster_kumulierter_fehlbetrag.B", "euro"), "b": ("-modellhaus:liq.groesster_kumulierter_fehlbetrag.C", "euro")}),
+    ("fazit", "Annahme {a} p. a., null in C bei {c}, in A bei {b}.", {"a": ("eingabe.tilgung_nbank", "prozent2"), "b": ("liq.breakeven_tilgung.A", "prozent2"), "c": ("liq.breakeven_tilgung.C", "prozent2")}),
+    # Folie 21: Bis 11.11.2026 stand hier die Summe der Fehlbeträge in B und C (Übersicht 3.7). Das neue Modellhaus hat kein Jahr mit Fehlbetrag;
+    # gebunden ist jetzt diese Aussage an die Jahre mit Fehlbetrag der drei Gruppen (Übersicht 3.6, Summe 0) und der Titel an den Wert in Jahr 35
+    ("rechnung-verlauf", "{a} Jahr mit Fehlbetrag.", {"a": (JAHRE_MIT_FEHLBETRAG, "kein")}),
+    ("rechnung-verlauf", "Zahlungsüberschuss wächst bis Jahr 35 in allen drei Gruppen, in A auf {a}", {"a": ("liq.zahlungsueberschuss_jahr35.A", "euro")}),
+    # Folie 23: Titel und der Satz, was die höheren Kosten am Zahlungsüberschuss ändern
+    ("rechnung-kosten", "Bei {a} je m² trägt sich nur noch A: {b} Zahlungsüberschuss statt {c}",
+     {"a": (K_GRENZE + "eingabe.herstellungskosten_qm", "euro"), "b": (K_GRENZE + "jr1.zahlungsueberschuss.A", "euro"), "c": ("jr1.zahlungsueberschuss.A", "euro")}),
+    ("rechnung-kosten", "Je 100 € je m² mehr sinkt der Zahlungsüberschuss in A um {a}.", {"a": (JE_100_EURO, "euro")}),
+    ("rechnung-kosten", "Bis hierher bleibt die Förderquote bei {a}.", {"a": (K_GRENZE + "fin.foerderquote.A", "prozent0")}),
 ]
 # ---- Kernwerte in den Diagrammdaten: Quelle (wie bei den Kernwerten), Folie, Reihe, Kategorie. Der Wert steht dort ungerundet und mit Vorzeichen ----
 KERNWERTE_DIAGRAMM = [
@@ -316,6 +370,10 @@ KERNWERTE_DIAGRAMM = [
     ("jr1.zahlungsueberschuss.A", "rechnung-verlauf", "Gruppe A", "1"),
     ("jr1.zahlungsueberschuss.B", "rechnung-verlauf", "Gruppe B", "1"),
     ("jr1.zahlungsueberschuss.C", "rechnung-verlauf", "Gruppe C", "1"),
+    # Folie 23: die drei Säulen (Zahlungsüberschuss in A je Lauf)
+    ("jr1.zahlungsueberschuss.A", "rechnung-kosten", "Zahlungsüberschuss Jahr 1", "3.579 € (Modellhaus)"),
+    (K_ARGE + "jr1.zahlungsueberschuss.A", "rechnung-kosten", "Zahlungsüberschuss Jahr 1", "4.631 €"),
+    (K_GRENZE + "jr1.zahlungsueberschuss.A", "rechnung-kosten", "Zahlungsüberschuss Jahr 1", "5.000 €"),
     # Folie 20: Die Jahresrechnung (Tilgung 1/42) liegt zwischen zwei Achsteilungen; gebunden ist der Stützpunkt 2,5 % der Geraden
     ("modellhaus:tilg.ueberschuss_vor_tilgung.B - 0.025 * modellhaus:fin.darlehen_nbank.B", "rechnung-tilgung", "Gruppe B", "2,5 %"),
     ("modellhaus:tilg.ueberschuss_vor_tilgung.C - 0.025 * modellhaus:fin.darlehen_nbank.C", "rechnung-tilgung", "Gruppe C", "2,5 %"),
@@ -402,7 +460,8 @@ KERNWERTE_FORM = [
     (BESTAND_RUECKGANG, "prozent1vz", "einstieg-bestand", "Maßkettenwert {a}", None, "{a}"),
 ]
 # Rechenblatt der Anhangfolie zur Eigenkapitalrendite (A7): Zeile 0 ist der Kopf, Spalte 0 die Zeilennummer, Spalte 1 die Position; die Werte
-# stehen in den Spalten 2 bis 5 (A, B, C, frei). Jede Zahl der Tabelle ist an ihre Zelle der Rechenmappe gebunden.
+# stehen in den Spalten 2 bis 5 (A, B, C, frei). Jede Zahl der Tabelle ist an ihre Zelle der Rechenmappe gebunden. Zeile 6 („Rendite ohne
+# Restwert“) liest die Zeile 6.4 der Übersicht; führt die Mappe dort „n. v.“, steht ein Strich, und ein Restwertanteil über 1 heißt „über 100 %“.
 _RT, _SP = "Rechenblatt Rendite", {"A": 2, "B": 3, "C": 4, "Frei": 5}
 KERNWERTE_FORM += (
     [("fin.eigenkapital." + g, "zahl", RENDITE_FOLIE, _RT, (1, sp), "{a}") for g, sp in _SP.items()]
@@ -431,10 +490,10 @@ KERNWERTE_FORM += [
 VERWEISE = [
     ("agenda", "folie", "stehen in der Broschüre und im Anhang {a}.", {"a": "anhang-programmteile"}),
     ("agenda", "notizen", "in Kurzform im Anhang {a}.", {"a": "anhang-programmteile"}),
-    ("einstieg-kapitaldienst", "notizen", "Die nötige Miete des Modellhauses (20,72 €, Folie {a})", {"a": "rechnung-miete"}),
+    ("einstieg-kapitaldienst", "notizen", "Die nötige Miete des Modellhauses (15,39 €, Folie {a})", {"a": "rechnung-miete"}),
     ("hoechstmiete", "notizen", "die Grenzen stehen im Anhang {a}.", {"a": "anhang-mieterkreis"}),
     ("eckdaten-zeitstrahl", "notizen", "Alle Eckdaten im Anhang {a}.", {"a": "anhang-eckdaten"}),
-    ("rechnung-jahr1", "notizen", "neun Jahre Fehlbetrag (Folie {a})", {"a": "rechnung-verlauf"}),
+    ("rechnung-jahr1", "notizen", "kein Jahr mit einem Fehlbetrag (Folie {a})", {"a": "rechnung-verlauf"}),
     ("rechnung-jahr1", "notizen", "B und C folgen auf den Folien {a} und {b}.", {"a": "rechnung-tilgung", "b": "rechnung-verlauf"}),
     ("rechnung-jahr1", "notizen", "Die Rendite über 35 Jahre steht im Anhang (Folie {a}).", {"a": RENDITE_FOLIE}),
     ("rechnung-kapitaldienst", "notizen", "den Zinsverlauf zeigt Folie {a}.", {"a": "ausgangslage-zinsen"}),
@@ -442,7 +501,7 @@ VERWEISE = [
     ("rechnung-fluss-frei", "notizen", "geht in den Kapitaldienst, wie auf Folie {a}.", {"a": "rechnung-kapitaldienst"}),
     ("rechnung-miete", "notizen", "Die Annahmen stehen auf Folie {a}.", {"a": "rechnung-kapitaldienst"}),
     ("rechnung-verlauf", "notizen", "Folie {a} nennt abgerundet", {"a": "hoechstmiete"}),
-    ("rechnung-kosten", "notizen", "dem PGN-Median der Folie {a},", {"a": "pgn-baukosten"}),
+    ("rechnung-kosten", "notizen", "ist der PGN-Median der Folie {a},", {"a": "pgn-baukosten"}),
     ("antragsweg", "notizen", "der erste Spatenstich (Anhang {a}).", {"a": "anhang-vertraege"}),
     ("antragsweg", "notizen", "die Bedarfslage am Standort stehen im Anhang {a}.", {"a": "anhang-voraussetzungen"}),
     ("anhang-trenner", "notizen", "{a} und {b} zeigen Programmteile und Frist, {c} und {d} Voraussetzungen und Verträge vor der Bewilligung, {e} und {f} Mieterkreis und Eckdaten, {g} die Eigenkapitalrendite, {h} Quellen und Hinweis.",
@@ -453,7 +512,7 @@ VERWEISE = [
     ("quellen", "folie", "Folie {a}: eigene Rechnung der PGN", {"a": "einstieg-kapitaldienst"}),
     ("quellen", "folie", "Folie {a}: BT-Drs. 21/7303", {"a": "einstieg-bestand"}),
     (RENDITE_FOLIE, "notizen", "über Swapsatz plus 1 Prozentpunkt ({a});", {"a": "anhang-eckdaten"}),
-    (RENDITE_FOLIE, "notizen", "daher die höheren Beträge als auf Folie {a}.", {"a": "rechnung-verlauf"}),
+    (RENDITE_FOLIE, "notizen", "kein Jahr mit Fehlbetrag (Folie {a})", {"a": "rechnung-verlauf"}),
     ("quellen", "folie", "{a}–{b}, {c}", {"a": "rechnung-finanzierung", "b": "fazit", "c": RENDITE_FOLIE}),   # Zeile der Modellrechnung in der Spalte „Folie“
     ("quellen", "notizen", "alle Zahlen der Folien {a} bis {b}, {c}, {d} und {e}.", {"a": "rechnung-finanzierung", "b": "rechnung-verlauf", "c": "rechnung-kosten", "d": "fazit", "e": RENDITE_FOLIE}),
     ("quellen", "notizen", "Baukosten (Folien {a} und {b}), Zinsreihe (Folie {c}), Bestandsreihe (Folie {d}) und der PGN-Median der Herstellungskosten (Folien {b} und {e}). Folie {f} rechnet mit diesen Werten.",
@@ -492,7 +551,7 @@ NUR_ZAHL_GRUND = "Ordnungszahl in eigener Form oder Zelle (Achskreis, Zeilennumm
 
 # Läufe der Rechenmappe, deren Werte auf Folien stehen dürfen (die Läufe projekt2 und modellhaus_dscr125 erscheinen nicht: Konzept und E5).
 # Der Lauf modellhaus_rendite (RENDITE_LAUF) steht nicht in dieser Liste: Er belegt nur Zahlen der Anhangfolie zur Rendite (RENDITE_FOLIE).
-LAEUFE = ("modellhaus", "modellhaus_zeitreihe", "modellhaus_pgn_kosten", "modellhaus_kosten_5200")
+LAEUFE = ("modellhaus", "modellhaus_zeitreihe", "modellhaus_kosten_4631", "modellhaus_kosten_5000")
 # Schlüssel, die kein Beleg sind: Deckungsgrade (E5; erlaubt sind nur Kapitaldienst und nötige Miete aus dem Block dscr) und reine Zähler
 KEIN_BELEG = re.compile(r"(^|\.)dscr(?!\.kapitaldienst_jahr1|\.noetige_miete)|^zr\.jahr$|projekt_nr|^meta\.")
 
@@ -1336,8 +1395,8 @@ def main(argv):
         zusatz = [a["text"].strip() for fo, a in folientext(f) if "keine Förderzusage" in a["text"] and fo["name"] == "Zusatz Modellrechnung"]
         if bool(zusatz) != (k["id"] == "rechnung-finanzierung"):
             m.append(f"Folie {nr(i)}: Zusatz „keine Förderzusage“ {'fehlt' if not zusatz else 'steht außerhalb der ersten Folie der Modellrechnung'}")
-        if zusatz and not stempel and zusatz != ["Fiktives Beispiel, keine Förderzusage"]:
-            m.append(f"Folie {nr(i)}: Zusatz lautet {zusatz} statt „Fiktives Beispiel, keine Förderzusage“")
+        if zusatz and not stempel and zusatz != [ZUSATZ_MODELLRECHNUNG]:
+            m.append(f"Folie {nr(i)}: Zusatz lautet {zusatz} statt „{ZUSATZ_MODELLRECHNUNG}“")
         if mr != soll:
             m.append(f"Folie {nr(i)}: Layout {f['layout']['name']}")
         if soll != (k["id"] in STEMPEL):
@@ -1453,8 +1512,10 @@ def main(argv):
            # Wert steht schon in Prozent · mit Vorzeichen: Plus vor positiven Werten, Minus U+2212 vor negativen
            "prozentwert2": lambda v: zahl_de(v, 2) + " %", "prozent1vz": lambda v: plus(v, zahl_de(v * 100, 1) + " %"), "euro2vz": lambda v: plus(v, zahl_de(v, 2) + " €"),
            # Tabelle der Renditefolie: Millionen ohne Einheit in der Zelle · Strich, wo die Mappe „n. v.“ führt · „über 100 %“ für einen Anteil über 1
-           "miozahl2": lambda v: zahl_de(v / 1e6, 2), "strich_wenn_nv": lambda v: "–" if v == "n. v." else zahl_de(v * 100, 1) + " %",
-           "ueber100": lambda v: "über 100 %" if v > 1 else zahl_de(v * 100, 0) + " %"}
+           "miozahl2": lambda v: zahl_de(v / 1e6, 2), "strich_wenn_nv": lambda v: "–" if v == "n. v." else zahl_de(v * 100, 2) + " %",
+           "ueber100": lambda v: "über 100 %" if v > 1 else zahl_de(v * 100, 0) + " %",
+           # Textwert der Mappe (Mietenstufe) · Zähler, der null sein muss („Kein Jahr mit Fehlbetrag“) · Eingabe 2.3: 0 € heißt „nicht angesetzt“
+           "text": lambda v: str(v), "kein": lambda v: "Kein" if v == 0 else zahl_de(v), "nicht_angesetzt": lambda v: "nicht angesetzt" if v == 0 else zahl_de(v) + " €"}
     je_id = {k["id"]: (i, f) for i, (f, k) in enumerate(paare)}
 
     def pruefe_kernwerte(liste, woher):

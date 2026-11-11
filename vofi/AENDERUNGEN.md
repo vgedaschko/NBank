@@ -4,7 +4,7 @@
 
 ## 1. Was ist neu
 
-Neun Blätter: Übersicht · Eingaben · Gefördert A, B, C · Frei finanziert · NBank (intern) · Tabellen (Festwerte RL 2026) · Hinweise. Zwei Projekte, Umschalten mit einer Zelle: Modellhaus Broschüre (voreingestellt) und Tarutinoer Str. 4, Neu Wulmstorf. Vier Ebenen:
+Neun Blätter: Übersicht · Eingaben · Gefördert A, B, C · Frei finanziert · NBank (intern) · Tabellen (Festwerte RL 2026) · Hinweise. Zwei Projekte, Umschalten mit einer Zelle: Projekt 1 „Vergleichshaus, 20 Wohnungen“ und Projekt 2 „Modellhaus, Tarutinoer Str. 4“ (Neu Wulmstorf, 14 Wohnungen). Projekt 2 ist seit 11.11.2026 das Modellhaus von Broschüre und Präsentation und voreingestellt (Abschnitt 10); bis dahin war es Projekt 1. Vier Ebenen:
 
 1. Liquidität: Jahresrechnung Jahr 1, Zahlungsüberschuss, DSCR, Fehlbetrag, Tilgungsvergleich.
 2. Objekt: Objekt-IRR ohne Zuschuss, nach Zuschuss, nach Förderbarwert; frei mit wählbarer Miete (10.1).
@@ -15,7 +15,7 @@ Ebenen 2 und 3 je mit Restwert, nur Bodenwert, ohne Restwert; Jahr 35 und 42. Fr
 
 ## 2. Umfang
 
-v2-1 → v3: Blätter 13 → 9; Eingaben 75 + Szenario-Umschalter → 39 je Projekt; Formeln 10.197 → 9.828; benannte Bereiche 384 → 66; Textzellen 1.104 (58.426 Zeichen, 116 über 120) → 1.856 (31.202; 10).
+v2-1 → v3: Blätter 13 → 9; Eingaben 75 + Szenario-Umschalter → 39 je Projekt; Formeln 10.197 → 9.828; benannte Bereiche 384 → 66; Textzellen 1.104 (58.426 Zeichen, 116 über 120) → 1.856 (31.592; 10).
 
 ## 3. Weggefallen oder vereinfacht
 
@@ -28,17 +28,17 @@ v2-1 → v3: Blätter 13 → 9; Eingaben 75 + Szenario-Umschalter → 39 je Proj
 
 ## 4. Korrekturen B1–B11
 
-Tarutinoer, Gruppe A, Jahr 42, v2-1 → v3 bei gleicher Tilgung (2,5 %); Förderung, Mieten, Bewirtschaftung, Tilgung Jahr 1: auf den Cent gleich.
+Tarutinoer (Projekt 2), Gruppe A, Jahr 42, v2-1 → v3 bei gleicher Tilgung (2,5 %); Förderung, Mieten, Bewirtschaftung, Tilgung Jahr 1: auf den Cent gleich.
 
 | Befund | Umsetzung | Wirkung |
 |---|---|---|
 | B1 keine Objektrendite | Objekt-IRR, drei Stufen | neu: 3,45 / 5,28 / 6,59 %; frei 6,17 % |
 | B2 EK-Renditen ungepaart | drei Restwert-Varianten | VOFI-EK 6,49 / 3,52 %; Restwertanteil 70 % |
 | B3 Überkompensation wertend | Blatt NBank neutral | nur „über“/„unter“ 4,39 % |
-| B4 Grundstück im Eigenkapital | Sacheinlage + bar | Modellhaus VOFI-EK 4,75 → 5,46 %; Tarutinoer 0 |
+| B4 Grundstück im Eigenkapital | Sacheinlage + bar | Vergleichshaus VOFI-EK 4,75 → 5,46 %; Tarutinoer 0 |
 | B5/B6 Restwert ohne Abschlag | Abschlag bis Zielmiete | Restwert 6,71 → 5,98 Mio. €; VOFI-EK −0,21 Pp |
 | B7 Vorlaufzeit im Exponenten | entfällt | VOFI-EK +0,39 Pp |
-| B8 Kostenstand | Eingabe 5.5 | 0; Modellhaus mit 5.5 = 2: A 455 → −656 € |
+| B8 Kostenstand | Eingabe 5.5 | 0; Vergleichshaus mit 5.5 = 2: A 455 → −656 € |
 | B9 Entnahmen, B10 „obere Kante“ | entfällt; B10: Auswahl 10.1 | Vergleich frei 7,59 → 6,17 % |
 | B11 Wertüberschuss vor Abschlag | nach Abschlag | +23,2 % → −38,7 % |
 | Bearbeitungsentgelte | aus Eigenkapital statt Bank | Zahlungsüberschuss Jahr 1 12.429 → 13.591 € |
@@ -46,20 +46,22 @@ Tarutinoer, Gruppe A, Jahr 42, v2-1 → v3 bei gleicher Tilgung (2,5 %); Förder
 
 Gesamt mit Restwert bei gleicher Tilgung (2,5 %): VOFI-EK 6,38 → 6,49 %, EK-IRR 7,92 → 7,68 %.
 
-Seit 10.11.2026 rechnen beide Projekte mit Tilgung 2,38 % (linear über die Höchstlaufzeit von 42 Jahren) statt 2,5 %. Tarutinoer: Zahlungsüberschuss Jahr 1 13.591 → 15.003 €, EK-IRR 7,68 → 7,77 %, VOFI-EK unverändert 6,49 %. Modellhaus gegenüber v2-1: VOFI-EK 4,75 → 5,52 %, EK-IRR 6,11 → 5,96 %. Seit 11.11.2026 rechnet das Modellhaus mit Bewertungsansätzen für Rotenburg (Wümme): VOFI-EK 5,17 %, EK-IRR 5,61 % (Abschnitt 9).
+Seit 10.11.2026 rechnen beide Projekte mit Tilgung 2,38 % (linear über die Höchstlaufzeit von 42 Jahren) statt 2,5 %. Tarutinoer: Zahlungsüberschuss Jahr 1 13.591 → 15.003 €, EK-IRR 7,68 → 7,77 %, VOFI-EK unverändert 6,49 %. Vergleichshaus (Projekt 1) gegenüber v2-1: VOFI-EK 4,75 → 5,52 %, EK-IRR 6,11 → 5,96 %. Seit 11.11.2026 rechnet das Vergleichshaus mit Bewertungsansätzen für Rotenburg (Wümme): VOFI-EK 5,17 %, EK-IRR 5,61 % (Abschnitt 9).
 
 ## 5. Bedienung
 
-1. Blatt „Eingaben“, Zelle D3: Projekt wählen (1 = Spalte D, 2 = Spalte E).
+1. Blatt „Eingaben“, Zelle D3: Projekt wählen (1 = Spalte D, 2 = Spalte E). Ausgeliefert mit 2, dem Modellhaus.
 2. Nur blaue Werte auf Gelb ändern; gerechnet wird mit Spalte „verwendet“. Weiteres Projekt: Dateikopie, eine Projektspalte und den Namen in Zeile 4 überschreiben, dazu auf „Tabellen“ den Liegenschaftszins des Standorts (Tabelle 4, Spalte des Projekts).
 3. Blatt „Übersicht“: Zeile 3 zeigt „OK“, sonst nennt der Prüfblock P1–P6 die Ursache (P4, P5 auch Frei).
 4. Stresstest: Block 9 sowie 3.1, 5.4, 6.3 ändern (Abschnitt 7), danach zurücksetzen.
 5. Frei: 10.1 „Marktmiete“ oder „Miete für DSCR-Ziel“ (Ziel 10.2); Aufschlag: Übersicht Spalte L und 8.5.
 6. Nach außen nur Ebene 1 und Annahmen; Renditen nur in der Beratung, je mit Restwert und nur Bodenwert, dazu Restwertanteil; frei nur mit Aufschlag.
 
-## 6. Ergebnisse Modellhaus
+## 6. Ergebnisse Vergleichshaus (Projekt 1, Eingaben D3 = 1)
 
-Jahresrechnung Jahr 1 in € (Übersicht Zeilen 29–38), gleich Broschüre S. 11; Zeile 6 Zins NBank: 0 bis Jahr 35.
+Bis 11.11.2026 war Projekt 1 das Modellhaus; die Ergebnisse des Modellhauses seit 11.11.2026 stehen in Abschnitt 10.
+
+Jahresrechnung Jahr 1 in € (Übersicht Zeilen 29–38), gleich Broschüre S. 11 im Stand bis 11.11.2026; Zeile 6 Zins NBank: 0 bis Jahr 35.
 
 | Zeile | A | B | C |
 |---|---:|---:|---:|
@@ -111,16 +113,16 @@ Alle sechs Werte in der Spalte des aktiven Projekts eintragen. 9.3 ist ein Zusch
 
 1. Tilgungssatz: Beide Projekte rechnen seit 10.11.2026 mit 2,38 % (linear über die Höchstlaufzeit von 42 Jahren), vorher 2,5 %. Welchen Satz setzt die NBank fest? (NBank)
 2. Kostenstand 2026 in Jahr 1 oder fortschreiben (5.5)? Nicht umlagefähige Betriebskosten = 0 bestätigen.
-3. Grundstück Tarutinoer 0 € oder 731.325 €? Mit Verkehrswert 309.386 € Bank, Jahr 1 A −7.989 €.
-4. Modellhaus: Marktmiete (Eingabe 4.4) und Liegenschaftszins sind seit 11.11.2026 amtliche Werte für Rotenburg (Wümme); die Vergleichsmiete (Eingabe 4.3) ist eine Annahme der PGN. Renditen mit Restwert und der Vergleich mit frei finanziert hängen daran; für einen anderen Standort ersetzen (Abschnitt 9).
+3. Grundstück Tarutinoer: entschieden am 11.11.2026, Grundstück im Bestand, Ansatz 0 € (Abschnitt 10). Zur Einordnung: Mit dem Verkehrswert 731.325 € als Sacheinlage entstünden 309.386 € Bankdarlehen und in Jahr 1 ein Fehlbetrag in Gruppe A von 6.410 €.
+4. Vergleichshaus (Projekt 1): Marktmiete (Eingabe 4.4) und Liegenschaftszins sind seit 11.11.2026 amtliche Werte für Rotenburg (Wümme); die Vergleichsmiete (Eingabe 4.3) ist eine Annahme der PGN. Renditen mit Restwert und der Vergleich mit frei finanziert hängen daran; für einen anderen Standort ersetzen (Abschnitt 9).
 5. NBank: Renditegröße, Horizont, Restwert, Swap-Stichtag; Zins ab Jahr 36 (3,74 % oder Basiszins + 3 Pp)?
-6. Präsentation: Die Anhangfolie zur Eigenkapitalrendite führt die Werte seit 11.11.2026 (abgeglichen). Druck in Excel ansehen (geprüft nur mit LibreOffice).
+6. Präsentation und Broschüre zeigen seit 11.11.2026 das Modellhaus Projekt 2 (Abschnitt 10). Die Broschüre S. 10 bis 12 gleicht das Prüfskript mit der Mappe ab; für die Präsentation gibt es diesen Abgleich im Prüfskript nicht. Druck in Excel ansehen (geprüft nur mit LibreOffice).
 7. Frei: Konditionen Block 6 auch für ein Bankdarlehen über 80 % der Kosten? 7.1 frei voll anrechnen?
 8. Aus dem Lektorat: Stand der Bundesbank-Statistik zur Quelle von Eingabe 6.1 nachtragen; Bandbreite des Liegenschaftszinses festlegen (Hinweis 13 nennt ±0,5 Prozentpunkte, die amtliche Quelle für Rotenburg streut um ±1,2 Prozentpunkte); „RL Nr. 11.10 Abs. 3“ und „Abs. 4“ am Richtlinientext gegenlesen; Hinweis in Zeile 3 der Zeitreihenblätter bricht auf der zweiten Druckseite ab (hinnehmen oder in die Fußzeile setzen).
 
-## 9. Änderung vom 11.11.2026: Bewertungsansätze des Modellhauses, Liegenschaftszins je Projekt, Lektorat
+## 9. Änderung vom 11.11.2026: Bewertungsansätze von Projekt 1, Liegenschaftszins je Projekt, Lektorat
 
-Auf Entscheidung des Auftraggebers rechnet das Modellhaus (Projekt 1) Restwert und „frei finanziert“ mit amtlichen Werten für Rotenburg (Wümme) statt mit Platzhaltern aus Neu Wulmstorf. Projekt 2 (Tarutinoer Straße) ist in jeder Zahl unverändert. Am Modellhaus bleibt sonst alles: Mietenstufe IV, Kosten, Förderung, Tilgung. Die Restwertmethode bleibt der Ertragswert.
+Auf Entscheidung des Auftraggebers rechnet Projekt 1 (damals das Modellhaus, seit Abschnitt 10 das Vergleichshaus) Restwert und „frei finanziert“ mit amtlichen Werten für Rotenburg (Wümme) statt mit Platzhaltern aus Neu Wulmstorf. Projekt 2 (Tarutinoer Straße) ist in jeder Zahl unverändert. An Projekt 1 bleibt sonst alles: Mietenstufe IV, Kosten, Förderung, Tilgung. Die Restwertmethode bleibt der Ertragswert.
 
 | Größe | bis 10.11.2026 | seit 11.11.2026 | Quelle |
 |---|---:|---:|---|
@@ -130,7 +132,7 @@ Auf Entscheidung des Auftraggebers rechnet das Modellhaus (Projekt 1) Restwert u
 
 Der Liegenschaftszins gilt jetzt je Projekt. Blatt Tabellen, Tabelle 4 „Bewertung, Liegenschaftszins je Projekt“: Spalte D Projekt 1 (Rotenburg), Spalte E Projekt 2 (Neu Wulmstorf, die bisherigen Werte), Spalte F „verwendet“ für das aktive Projekt. Keine Zeile und keine Spalte ist eingefügt oder verschoben; die Adressen der Blätter Übersicht, Eingaben, Gefördert A, B, C und Frei finanziert sind unverändert.
 
-Wirkung am Modellhaus, Jahr 35 (A / B / C / frei):
+Wirkung an Projekt 1, Jahr 35 (A / B / C / frei):
 
 | Kennzahl | bis 10.11.2026 | seit 11.11.2026 |
 |---|---|---|
@@ -148,4 +150,88 @@ Zu beachten: Die Vergleichsmiete ist bis Jahr 42 die Obergrenze der gebundenen M
 
 Lektorat der Texte: 63 Befunde eingearbeitet. Die Mappe erklärt ihre Kürzel (Hinweis 2), nennt jede Größe mit einem Namen (Regeltilgung NBank, Barwertvorteil, Förderbarwert, Tragbare Tilgung, Ertragswert zur Bestandsmiete), verweist auf Eingaben immer als „Eingabe x.y“ und schreibt die Richtlinie einheitlich „RL Nr.“. Keine Zahl ändert sich dadurch. Auf den Zeitreihenblättern sind einzelne Spalten breiter, damit Köpfe nicht im Wort umbrechen; die zweite Druckseite der Zeitreihe beginnt in Zeile 2.
 
-Abnahme am 11.11.2026: 599 Prüfungen ohne Fehler, 68 Testläufe gegen die Referenzrechnung.
+Abnahme dieses Stands: 599 Prüfungen ohne Fehler, 68 Testläufe gegen die Referenzrechnung.
+
+## 10. Änderung vom 11.11.2026: Modellhaus ist Projekt 2
+
+Entscheidung des Auftraggebers vom 11.11.2026: Das Modellhaus von Broschüre und Präsentation ist ab jetzt Projekt 2, das PGN-Projekt Tarutinoer Str. 4 in Neu Wulmstorf. Grund: Es rechnet mit den Baukosten, die PGN selbst ermittelt hat. Das Grundstück wird nicht angesetzt, Bezeichnung „Grundstück im Bestand“. Projekt 1 bleibt als zweites Projekt in der Mappe und heißt Vergleichshaus; bis 11.11.2026 war es das Modellhaus.
+
+| Eingabe | Projekt 1, Vergleichshaus | Projekt 2, Modellhaus |
+|---|---:|---:|
+| Wohnungen / Wohnfläche | 20 / 1.400 m² | 14 / 828 m² |
+| Herstellungskosten KG 200–700 | 4.500 €/m² | 3.579 €/m² |
+| Grundstück | 700.000 € | im Bestand, Ansatz 0 € |
+| Mietenstufe | IV | VI |
+| Vergleichsmiete / Marktmiete Jahr 1 | 11,87 / 13,30 €/m² (Rotenburg) | 12,92 / 14,48 €/m² (Neu Wulmstorf) |
+
+Geändert in der Mappe:
+
+- Auslieferung mit Projekt 2 (Eingaben D3 = 2, vorher 1). Umschalten wie bisher in D3.
+- Projektnamen in Zeile 4: „Vergleichshaus, 20 Wohnungen“ und „Modellhaus, Tarutinoer Str. 4“ (vorher „Modellhaus Broschüre“ und „Tarutinoer Str. 4, Neu Wulmstorf“).
+- Quellen der Eingaben 1.2, 1.3, 2.1, 2.3 bis 2.5, 4.1 und 4.2: Der Verweis auf die Broschüre steht jetzt bei Projekt 2, Projekt 1 trägt „früheres Modellhaus“. Quelle zu 2.3 für Projekt 2: „Grundstück im Bestand, Ansatz 0 €“.
+- Hinweise 6, 14 und 15 und die beiden Fußnoten unter Tabelle 4 (Blatt Tabellen) nennen die Projekte mit ihren neuen Namen. Hinweis 15 führt den Verkehrswert des Grundstücks (731.325 €) als Vermerk: nicht angesetzt.
+
+Das sind 16 Zellen: D3 und 15 Texte. Keine Zelle hat die Adresse gewechselt, keine Zeile und keine Spalte ist eingefügt. Die Rechenwerte beider Projekte sind gleich geblieben: Vor und nach der Änderung je mit D3 = 1 und D3 = 2 neu berechnet, stimmen alle Zahlen aller Blätter überein (9.669 Zahlen mit Projekt 1, 9.687 mit Projekt 2, ohne Toleranz).
+
+### Ergebnisse Modellhaus (Projekt 2, Auslieferungsstand)
+
+Jahresrechnung Jahr 1 in € (Übersicht Zeilen 29–38); Zeile 6 Zins NBank: 0 bis Jahr 35.
+
+| Zeile | A | B | C |
+|---|---:|---:|---:|
+| 1 Sollmiete (6,80 / 8,20 / 9,00 €/m²) | 67.565 | 81.475 | 89.424 |
+| − Mietausfall/Leerstand 2 % | 1.351 | 1.630 | 1.788 |
+| 2 − Objektverwaltung 367 € je WE | 5.138 | 5.138 | 5.138 |
+| 3 − Instandhaltung 14,40 €/m² | 11.923 | 11.923 | 11.923 |
+| 4 = Überschuss vor Kapitaldienst | 49.152 | 62.784 | 70.574 |
+| 5 − Verwaltungskostenbeitrag 0,5 % | 5.927 | 8.890 | 10.372 |
+| 7 − Tilgung 2,38 % (linear über 42 Jahre) | 28.223 | 42.334 | 49.390 |
+| 8 = Zahlungsüberschuss | 15.003 | 11.560 | 10.812 |
+
+Gesamtkosten 2.963.412 €, voll zuwendungsfähig. Darlehen 1,19 / 1,78 / 2,07 Mio. €, Zuschuss 1,19 / 0,59 / 0,30 Mio. €, Förderung 2,37 Mio. € (80 %), Eigenmittel 592.682 €, Entgelte 20.744 / 22.226 / 22.966 €. Je Wohnung in Gruppe A: Zuschuss 84.669 €, Eigenmittel 42.334 €. Tilgungsschwellen: B gegenüber A 1,80 %, C gegenüber A 1,91 %, C gegenüber B 2,13 %; unter 1,91 % Tilgung hat C den höchsten Zahlungsüberschuss, darüber A. DSCR Jahr 1: 1,44 / 1,23 / 1,18; kein Jahr mit Fehlbetrag in A, B, C; tragbare Tilgung Jahr 1 3,65 / 3,03 / 2,90 %.
+
+| Renditen in %, Jahr 42 (Jahr 35) | A | B | C | frei |
+|---|---:|---:|---:|---:|
+| Objekt-IRR ohne Zuschuss, mit Restwert | 3,45 (3,23) | 4,02 (3,89) | 4,31 (4,23) | 6,17 (6,27) |
+| Objekt-IRR nach Zuschuss, mit Restwert | 5,28 (5,31) | 4,85 (4,83) | 4,72 (4,68) | 6,17 (6,27) |
+| Objekt-IRR nach Förderbarwert, mit Restwert | 6,63 (6,81) | 6,43 (6,58) | 6,39 (6,53) | 6,17 (6,27) |
+| EK-IRR, mit Restwert | 7,77 (8,13) | 7,91 (8,29) | 8,05 (8,44) | 8,29 (8,67) |
+| EK-IRR, nur Bodenwert | 4,76 (3,13) | 5,05 (3,17) | 5,34 (3,44) | 6,36 (4,99) |
+| VOFI-EK-Rendite, mit Restwert | 6,49 (6,95) | 6,67 (7,17) | 6,76 (7,29) | 7,34 (8,03) |
+| VOFI-EK-Rendite, nur Bodenwert | 3,53 (2,58) | 3,76 (2,61) | 3,94 (2,75) | 5,15 (4,26) |
+| Restwertanteil am Endvermögen | 69 (77) | 69 (78) | 68 (78) | 58 (71) |
+
+Das Grundstück ist nicht angesetzt: Die Renditen tragen keine Grundstückskosten, „nur Bodenwert“ ist gleich „ohne Restwert“ (Hinweis 15). Mit dem Vergleichshaus sind sie deshalb nicht vergleichbar. NBank: mit Restwert „über“ 4,39 %, nur Bodenwert „unter“.
+
+Frei: Eigenkapital 592.682 €, Bank 2,37 Mio. € (3,74 %, 30 Jahre), Kapitaldienst 132.805 €; zur Marktmiete 14,48 €/m² Jahr 1 −8.867 €, DSCR 0,93, 4 Jahre Fehlbetrag (größter kumulierter Fehlbetrag −20.394 €, tiefster Stand Projektkonto −22.640 €).
+
+| Miete Jahr 1, €/m² | A | B | C | frei | Aufschlag frei | EK-IRR / VOFI-EK frei, Jahr 42 |
+|---|---:|---:|---:|---:|---:|---:|
+| gerechnet (Standard) | 6,80 | 8,20 | 9,00 | 14,48 | 0 | 8,29 / 7,34 % |
+| nötig für DSCR 1,0 | 5,26 | 7,01 | 7,89 | 15,39 | 6,3 % | 9,10 / 7,61 % |
+| nötig für DSCR 1,25 | 6,14 | 8,33 | 9,42 | 18,80 | 29,8 % | 12,44 / 8,45 % |
+
+Sensitivität der Broschüre S. 10, Herstellungskosten je m² (Gruppe A):
+
+| Größe in € | 3.579 (Modellhaus) | 4.631 (ARGE-Median) | 5.000 (Bemessungsgrenze) |
+|---|---:|---:|---:|
+| Gesamtkosten | 2.963.412 | 3.834.468 | 4.140.000 |
+| Förderung, 80 % | 2.370.730 | 3.067.574 | 3.312.000 |
+| Eigenmittel, 20 % | 592.682 | 766.894 | 828.000 |
+| Zahlungsüberschuss Jahr 1, A | 15.003 | 4.965 | 1.444 |
+| Zahlungsüberschuss Jahr 1, B / C | 11.560 / 10.812 | −3.497 / −6.754 | −8.778 / −12.916 |
+
+Alle Werte = Referenzrechnung (±0,01 Prozentpunkte, ±1 €).
+
+### Prüfung und offene Punkte
+
+Das Prüfskript rechnet Projekt 1 jetzt mit D3 = 1 und Projekt 2 im Auslieferungsstand. Die gelieferten Werte und die Broschüre S. 10 bis 12 vergleicht es mit Projekt 2; für die Sensitivität S. 10 gibt es zwei neue Testläufe (4.631 und 5.000 €/m²). Die Sollwerte aller bisherigen Läufe sind unverändert.
+
+Abnahme am 11.11.2026: 617 Prüfungen ohne Fehler, 70 Testläufe gegen die Referenzrechnung. Darin sind die vier Prüfungen der Broschüre S. 10 bis 12 gegen Projekt 2; sie bestehen mit den Seiten im Stand vom 11.11.2026. Sie lesen die Broschüre bei jedem Lauf neu und schlagen fehl, sobald dort ein Wert von der Mappe abweicht.
+
+Offen:
+
+1. Hinweis 6 nennt den Abstand „rund 0,4–0,5 Prozentpunkte“ (frei finanziert mit Grenze nach § 558 BGB) für das Vergleichshaus. Für das Modellhaus ist er nicht gerechnet.
+2. Präsentation: Der Abgleich mit der Mappe steht nicht im Prüfskript (Abschnitt 8 Nr. 6).
+3. Der Projektname „Modellhaus, Tarutinoer Str. 4“ nennt den Ort nicht, damit er in der Spalte „verwendet“ in zwei Zeilen passt. Der Ort steht in Hinweis 14 und 15.
+

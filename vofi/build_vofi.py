@@ -3,8 +3,8 @@
 """
 build_vofi.py: erzeugt PGN_VOFI_Mietwohnraum_2026_v3.xlsx nach KONZEPT-v3.md (verbindliche Bauvorlage,
 Fassung 6 mit Nacharbeit Runde 1 bis 3, Abschnitte K bis M, Erweiterung „Frei finanziert“, Abschnitt N mit
-Nacharbeit N.7 und N.8, und Abschnitt Q: Bewertungsansätze des Modellhauses für Rotenburg (Wümme), Liegenschaftszins
-je Projekt, Lektorat der Texte).
+Nacharbeit N.7 und N.8, Abschnitt Q: Bewertungsansätze für Rotenburg (Wümme), Liegenschaftszins je Projekt, Lektorat
+der Texte, und Abschnitt R: Modellhaus von Broschüre und Präsentation ist Projekt 2, Projekt 1 heißt Vergleichshaus).
 
 Aufruf
     python build_vofi.py                       # bauen, speichern, mit recalc.py neu berechnen, nachbearbeiten
@@ -284,7 +284,8 @@ def name(wb, nm, blatt, bezug):
 # 2. Daten
 # =====================================================================================================
 # Gültigkeit: ("ganz", min, max) | ("dez", min, max) | ("liste", formel)
-# Felder: Nr., Zeile, Eingabe (Excel), Name, Einheit, Format, Modellhaus, Tarutinoer, Quelle (Excel), Gültigkeit
+# Felder: Nr., Zeile, Eingabe (Excel), Name, Einheit, Format, Wert Projekt 1 (Vergleichshaus), Wert Projekt 2
+# (Modellhaus, Tarutinoer Str. 4), Quelle (Excel), Gültigkeit
 BLOECKE = [
     (6, "1 Projekt"),
     (10, "2 Kosten und Grundstück"),
@@ -298,27 +299,30 @@ BLOECKE = [
     (52, "10 Miete frei finanziert und DSCR-Ziel"),
 ]
 
-# Quellen: Sachquelle mit Stand; „Vorgängermappe“ = PGN-VOFI-Modell v2-1 (Fundstellen: KONZEPT-v3.md, B.2)
+# Quellen: Sachquelle mit Stand, links Projekt 1, rechts Projekt 2; „Vorgängermappe“ = PGN-VOFI-Modell v2-1 (Fundstellen:
+# KONZEPT-v3.md, B.2). Der Verweis auf die Broschüre gehört seit 11.11.2026 zu Projekt 2 (Konzept R); Projekt 1 ist das
+# frühere Modellhaus.
 _VG = "PGN-Annahme; Vorgängermappe"
+_FM = "früheres Modellhaus"
 EINGABEN = [
     # Block 1 Projekt
     ("1.1", 7, "Bezugsjahr (ändert nur Jahresangaben)", "Bezugsjahr", "Jahr", F_JAHR, 2027, 2027,
      "PGN-Annahme, Planungsstand 2026", ("ganz", 2020, 2060)),
     ("1.2", 8, "Wohnfläche", "Wohnflaeche", "m²", F_ANZ, 1400, 828,
-     "Broschüre S. 10 / Projektdaten PGN", ("dez", 1, 100000)),
+     _FM + " / Projektdaten PGN, Broschüre S. 10", ("dez", 1, 100000)),
     ("1.3", 9, "Wohnungen", "Wohneinheiten", "Anzahl", F_ANZ, 20, 14,
-     "Broschüre S. 10 / Projektdaten PGN", ("ganz", 1, 1000)),
+     _FM + " / Projektdaten PGN, Broschüre S. 10", ("ganz", 1, 1000)),
     # Block 2 Kosten und Grundstück
     ("2.1", 11, "Herstellungskosten KG 200–700", "Herstellungskosten_qm", "€/m² Wohnfläche", F_EUR, 4500, 3579,
-     "Broschüre S. 10 / Kostenansatz PGN", ("dez", 0, 20000)),
+     _FM + " / Kostenansatz PGN, Broschüre S. 10", ("dez", 0, 20000)),
     ("2.2", 12, "Finanzierungskosten KG 800", "KG_800", "€", F_EUR, 0, 0,
      "PGN-Annahme (Ansatz 0)", ("dez", 0, 100000000)),
     ("2.3", 13, "Grundstück, Verkehrswert (Sacheinlage)", "Grundstueck", "€", F_EUR, 700000, 0,
-     "Broschüre S. 10 / Ansatz 0 € (Verkehrswert 731.325 €)", ("dez", 0, 1000000000)),
+     _FM + " / Grundstück im Bestand, Ansatz 0 €", ("dez", 0, 1000000000)),
     ("2.4", 14, "Bodenrichtwert (0 = kein Deckel)", "Bodenrichtwert", "€/m²", F_EUR, 0, 260,
-     "Broschüre S. 10: Deckel greift nicht / Projektdaten PGN", ("dez", 0, 10000)),
+     _FM + ": Deckel greift nicht / Projektdaten PGN", ("dez", 0, 10000)),
     ("2.5", 15, "Grundstücksfläche (0 = kein Deckel)", "Grundstuecksflaeche", "m²", F_ANZ, 0, 1362,
-     "Broschüre S. 10: Deckel greift nicht / Projektdaten PGN", ("dez", 0, 1000000)),
+     _FM + ": Deckel greift nicht / Projektdaten PGN", ("dez", 0, 1000000)),
     # Block 3 Förderung NBank
     ("3.1", 17, "Tilgung NBank-Darlehen, linear", "Tilgung_NBank", "% p. a.", F_PCT, 1 / 42, 1 / 42,
      "PGN-Annahme: linear über die Höchstlaufzeit von 42 Jahren", ("dez", 0, 0.10)),
@@ -330,9 +334,9 @@ EINGABEN = [
      "EUR-Swapsatz 30 Jahre, Stand 19.08.2026", ("dez", 0, 0.10)),
     # Block 4 Miete
     ("4.1", 22, "Mietenstufe", "Mietenstufe", "Liste", F_TEXT, "IV", "VI",
-     "Broschüre S. 10 / Projektdaten PGN", ("liste", "Mietenstufen")),
+     _FM + " / Projektdaten PGN, Broschüre S. 10", ("liste", "Mietenstufen")),
     ("4.2", 23, "Effizienzhaus 40 erreicht", "Effizienz_EH40", "ja/nein", F_TEXT, "nein", "nein",
-     "Broschüre S. 11 (ohne EH-40-Zuschlag) / Planung PGN (EH 55)", ("liste", '"ja,nein"')),
+     _FM + " / Planung PGN (EH 55), Broschüre S. 11", ("liste", '"ja,nein"')),
     ("4.3", 24, "Ortsübliche Vergleichsmiete, Jahr 1", "Vergleichsmiete_1", "€/m² Monat", F_EUR2,
      11.87, 12.91774539744, "PGN-Annahme / PGN-Mietband Neu Wulmstorf, fortgeschrieben", ("dez", 0, 50)),
     ("4.4", 25, "Marktmiete Neuvermietung, Jahr 1", "Marktmiete_1", "€/m² Monat", F_EUR2,
@@ -390,7 +394,10 @@ EINGABEN = [
     ("10.2", 54, "DSCR-Ziel für die nötige Miete", "DSCR_Ziel", "Faktor", F_FAKTOR, 1.0, 1.0,
      "PGN-Annahme", ("dez", 0.5, 3)),
 ]
-PROJEKTE = ("Modellhaus Broschüre", "Tarutinoer Str. 4, Neu Wulmstorf")
+# Projekt 2 ist seit 11.11.2026 das Modellhaus von Broschüre und Präsentation und im Auslieferungsstand aktiv
+# (Entscheidung des Auftraggebers, Konzept R); Projekt 1 ist das frühere Modellhaus
+PROJEKTE = ("Vergleichshaus, 20 Wohnungen", "Modellhaus, Tarutinoer Str. 4")
+PROJEKT_STANDARD = 2
 EINGABE_ERSTE, EINGABE_LETZTE = 7, 54
 
 
@@ -470,15 +477,17 @@ FESTWERTE = [
     ("T24", 32, "Aufschlag auf Swapsatz", "Prozentpunkte", 0.01, F_PP, "RL Nr. 11.10 Abs. 4", "Aufschlag_Swap"),
     ("T25", 33, "Gesamtnutzungsdauer Mehrfamilienhaus", "Jahre", 80, F_JAHR, "ImmoWertV Anlage 1", "GND"),
 ]
-# Tabelle 4 Liegenschaftszins je Projekt (Konzept C, Q): Nr., Restnutzungsdauer, Projekt 1 (Rotenburg (Wümme), mittlerer
-# Bodenrichtwert 185 €/m²), Projekt 2 (Neu Wulmstorf, 600 €/m²). Gerechnet wird die Spalte „verwendet“ (F).
+# Tabelle 4 Liegenschaftszins je Projekt (Konzept C, Q, R): Nr., Restnutzungsdauer, Projekt 1 (Vergleichshaus: Rotenburg
+# (Wümme), mittlerer Bodenrichtwert 185 €/m²), Projekt 2 (Modellhaus: Neu Wulmstorf, 600 €/m²). Gerechnet wird die Spalte
+# „verwendet“ (F).
 LIEGENSCHAFTSZINS = [("T26", 30, 0.033, 0.025), ("T27", 38, 0.034, 0.027), ("T28", 40, 0.034, 0.027),
                      ("T29", 50, 0.035, 0.029), ("T30", 60, 0.035, 0.030), ("T31", 70, 0.035, 0.031)]
 QUELLE_LZ = "Gutachterausschuss Nds., Landesmodell MFH 01.01.2026"
 LZ_FUSSNOTEN = [
-    ("A42", "Projekt 1: Rotenburg (Wümme), Bodenrichtwert 185 €/m². Projekt 2: Neu Wulmstorf, 600 €/m² "
-            "(Tarutinoer: 260 €/m²)."),
-    ("A43", "Streubreite laut Quelle für Projekt 1: ±1,2 Prozentpunkte. Anpassung an den Standort: Eingabe 9.3."),
+    ("A42", "Projekt 1 (Vergleichshaus): Rotenburg (Wümme), Bodenrichtwert 185 €/m²; Streubreite laut Quelle "
+            "±1,2 Prozentpunkte."),
+    ("A43", "Projekt 2 (Modellhaus): Neu Wulmstorf, 600 €/m² (Grundstück: 260 €/m²). Anpassung an den Standort: "
+            "Eingabe 9.3."),
 ]
 
 # Zeitachse der Blätter Gefördert/Frei (Konzept D.3): Zeile 6 = t 0, Zeile 48 = t 42, Zeile 86 = t 80
@@ -500,14 +509,15 @@ DRUCKBEREICHE = {**{f"Gefördert {g}": DRUCK_GEF for g in "ABC"}, "Frei finanzie
 
 
 def blatt_eingaben(wb, ws):
-    """Konzept B: Auswahl Aktives Projekt, 39 Eingaben in 10 Blöcken, Spalte 'verwendet', Namen, Gültigkeit."""
+    """Konzept B: Auswahl Aktives Projekt (Standard Projekt 2, das Modellhaus), 39 Eingaben in 10 Blöcken, Spalte
+    'verwendet', Namen, Gültigkeit."""
     titel(ws, "Eingaben", "G")
     zelle(ws, "A2", "Blaue Werte auf Gelb ändern, auch die Projektnamen in Zeile 4. Gerechnet wird nur die "
                     "Spalte „verwendet“.")
     # Projektwahl über die Position (1 = Spalte D, 2 = Spalte E); Projektnamen sind Eingaben (Zeile 4)
     zelle(ws, "B3", "Aktives Projekt", fett=True)
     zelle(ws, "C3", "1 oder 2")
-    zelle(ws, "D3", 1, "eingabe", F_JAHR, h="right", einzug=1)
+    zelle(ws, "D3", PROJEKT_STANDARD, "eingabe", F_JAHR, h="right", einzug=1)
     link(ws, "G3", "Übersicht", "'Übersicht'!A1")
     zelle(ws, "B4", "Projektname")
     zelle(ws, "C4", "Text")
@@ -537,12 +547,12 @@ def blatt_eingaben(wb, ws):
         ws.conditional_formatting.add(f"{s}{EINGABE_ERSTE}:{s}{EINGABE_LETZTE}",
                                       FormulaRule(formula=[f"Projekt_Nr<>{nr}"], font=Font(color="8C8C8C")))
 
-    for nr, z, text, nm, einheit, fmt, w_mh, w_ta, quelle, gueltig in EINGABEN:
+    for nr, z, text, nm, einheit, fmt, w_p1, w_p2, quelle, gueltig in EINGABEN:
         zelle(ws, f"A{z}", nr, h="left")
         zelle(ws, f"B{z}", text)
         zelle(ws, f"C{z}", einheit)
-        zelle(ws, f"D{z}", w_mh, "eingabe", F_EIN[fmt], h="right", einzug=1)
-        zelle(ws, f"E{z}", w_ta, "eingabe", F_EIN[fmt], h="right", einzug=1)
+        zelle(ws, f"D{z}", w_p1, "eingabe", F_EIN[fmt], h="right", einzug=1)
+        zelle(ws, f"E{z}", w_p2, "eingabe", F_EIN[fmt], h="right", einzug=1)
         zelle(ws, f"F{z}", f"=INDEX($D{z}:$E{z},Projekt_Nr)", "verwendet", F_EIN[fmt], h="right", einzug=1)
         zelle(ws, f"G{z}", quelle, einzug=1)
         rahmen_unten(ws, z, "A", "C", HAAR)
@@ -620,7 +630,8 @@ def blatt_tabellen(wb, ws):
 
     # Tabelle 4 Bewertung, Liegenschaftszins je Projekt (abgesetzt durch mittleren Rahmen): D Projekt 1, E Projekt 2,
     # F „verwendet“ = Spalte des aktiven Projekts (wie auf „Eingaben“); gerechnet wird nur F (Name LZ_Satz).
-    # Quelle einmal, in der ersten Zeile: dasselbe Landesmodell für beide Projekte; Standort und Bodenrichtwert in A42.
+    # Quelle einmal, in der ersten Zeile: dasselbe Landesmodell für beide Projekte; Standort und Bodenrichtwert je
+    # Projekt in A42 (Projekt 1) und A43 (Projekt 2).
     gruppenzeile(ws, 34, "4 Bewertung, Liegenschaftszins je Projekt", "A", "G", text_spalte="B")
     rahmen_oben(ws, 34, "A", "G", MITTEL)
     kopfzeile(ws, 35, {"A": "Nr.", "B": "Restnutzungsdauer", "C": "Einheit", "D": "Projekt 1", "E": "Projekt 2",
@@ -1739,8 +1750,9 @@ HINWEISE = [
     "Mieten gefördert: Höchstmiete (höchstens Marktmiete) in Jahr 1–3, dann alle 3 Jahre höchstens +6,15 %, ab Jahr 36 "
     "höchstens um die Kappungsgrenze; Obergrenze bis Jahr 42 die Vergleichsmiete, danach die Zielmiete (Eingabe 8.2); "
     "je m² ungerundet. Mieten frei: Marktmiete oder Miete für das DSCR-Ziel (Eingabe 10.1, 10.2), jährlich steigend "
-    "mit Eingabe 4.5, ohne Grenze nach § 558 BGB; mit Grenze läge der Objekt-IRR zur Marktmiete beim Modellhaus rund "
-    "0,4–0,5 Prozentpunkte tiefer. Werte zur Miete für das DSCR-Ziel nur mit dem Aufschlag nennen (Übersicht 8.5).",
+    "mit Eingabe 4.5, ohne Grenze nach § 558 BGB; mit Grenze läge der Objekt-IRR zur Marktmiete beim Vergleichshaus "
+    "(Projekt 1) rund 0,4–0,5 Prozentpunkte tiefer. Werte zur Miete für das DSCR-Ziel nur mit dem Aufschlag nennen "
+    "(Übersicht 8.5).",
     "Finanzierung: Eigenkapital = Grundstück (Sacheinlage) + bar; Bankdarlehen nur als Restfinanzierung. "
     "NBank-Darlehen: 0 % Zins bis Ende Jahr 35, Tilgung linear, Rest in Jahr 42. Frei finanziert: Mindest-Eigenmittel "
     "wie gefördert plus Eingabe 7.1, Rest Bankdarlehen (Eingabe 6.1 bis 6.4). Gefördert mindert Eingabe 7.1 nur das "
@@ -1756,11 +1768,14 @@ HINWEISE = [
     "Nach außen: Jahresrechnung, Tilgungsvergleich, Annahmen. Renditen nur in der Beratung, je mit Restwert und nur "
     "Bodenwert, dazu Restwertanteil.",
     "Bandbreite je Rendite, Beratung: Eingabe 9.3 ±0,5 Prozentpunkte, 9.4 = 0,50, 8.3 = 5 %, 8.2 = Vergleichsmiete.",
-    "Nicht nach außen: Blatt NBank. Modellhaus: Marktmiete (Eingabe 4.4) und Liegenschaftszins (Tabellen, Tabelle 4) "
-    "sind amtliche Werte der Gutachterausschüsse für Rotenburg (Wümme), Stand 01.01.2026; die Vergleichsmiete "
-    "(Eingabe 4.3) ist eine Annahme der PGN. Für einen anderen Standort ersetzen.",
-    "Tarutinoer: Grundstück 0 € wie Vorgängermappe; Renditen ohne Grundstückskosten, nur Bodenwert = ohne Restwert; "
-    "nicht mit Modellhaus vergleichbar.",
+    "Nicht nach außen: Blatt NBank. Standortwerte Modellhaus (Projekt 2): Vergleichs- und Marktmiete (Eingabe 4.3, 4.4) "
+    "aus dem PGN-Mietband Neu Wulmstorf, Liegenschaftszins (Tabellen, Tabelle 4) für Neu Wulmstorf. Vergleichshaus "
+    "(Projekt 1, Modellhaus bis 11.11.2026): Marktmiete und Liegenschaftszins sind amtliche Werte der "
+    "Gutachterausschüsse für Rotenburg (Wümme), Stand 01.01.2026; die Vergleichsmiete ist eine Annahme der PGN. Für "
+    "einen anderen Standort ersetzen.",
+    "Modellhaus (Projekt 2, Neu Wulmstorf): Grundstück im Bestand, Ansatz 0 € (Verkehrswert 731.325 €, nicht "
+    "angesetzt); Renditen ohne Grundstückskosten, nur Bodenwert = ohne Restwert; nicht mit dem Vergleichshaus "
+    "(Projekt 1) vergleichbar.",
 ]
 
 

@@ -2,8 +2,9 @@
 
 > **Herausgeberin: Planungsgemeinschaft Nord GmbH (PGN), Rotenburg (Wümme).** Die NBank ist Bewilligungsstelle und wird
 > nur sachlich genannt, nie als Absender (kein Logo von NBank oder Land). Die Platzhalter `[PGN-Rechnung: …]` auf
-> S. 11/12 sind seit 09.11.2026 vorläufig durch die Werte der PGN-Beispielrechnung ersetzt; was PGN vor dem Druck noch
-> bestätigen oder entscheiden muss, steht unter [Platzhalter](#platzhalter--was-pgn-vor-dem-druck-liefert) und in
+> S. 11/12 sind seit 09.11.2026 vorläufig durch die Werte der PGN-Beispielrechnung ersetzt; seit 11.11.2026 rechnet das
+> Kapitel „Modellrechnung“ (S. 10–12) mit einem PGN-Projekt in Neu Wulmstorf (14 Wohnungen, Projekt 2 der Rechenmappe).
+> Was PGN vor dem Druck noch bestätigen oder entscheiden muss, steht unter [Platzhalter](#platzhalter--was-pgn-vor-dem-druck-liefert) und in
 > Anhang B von `content/copy.md`.
 >
 > **v1 = Commit `b347308`:** Die frühere NBank-Fassung (20 Seiten, Stand 21.10.2026, Herausgeberin NBank) ist nicht mehr
@@ -55,9 +56,9 @@ Doppelseite 10|11 „Modellrechnung“ trägt Finanzierung und Wirtschaftlichkei
 | 7 | Ertragsseite · Mieten | Höchstmieten und Mietentwicklung |
 | 8 | Finanzierung · Programmteil 2.1 | Bis zu 80 % Förderquote |
 | 9 | Finanzierung · Eckdaten | Konditionen und Kosten |
-| 10 | Modellrechnung · Finanzierung | 20 Wohnungen, 7,0 Mio. €: bis zu 5,6 Mio. € Förderung |
-| 11 | Modellrechnung · Wirtschaftlichkeit | Gruppe A trägt sich ab Jahr 1: 3.789 € Zahlungsüberschuss |
-| 12 | Modellrechnung · Mix und Tilgung | Über 1,22 % Tilgung liegt Gruppe A vorn |
+| 10 | Modellrechnung · Finanzierung | 14 Wohnungen, 3,0 Mio. €: bis zu 2,4 Mio. € Förderung |
+| 11 | Modellrechnung · Wirtschaftlichkeit | Alle drei Gruppen tragen sich ab Jahr 1: 15.003 € Zahlungsüberschuss in A |
+| 12 | Modellrechnung · Mix und Tilgung | Über 1,91 % Tilgung liegt Gruppe A vorn |
 | 13 | Neubau · Programmteil 2.2 | Reiner Zuschuss statt Darlehen |
 | 14 | Neubau · Programmteil 2.4 | Höhere Kostengrenze, 10 % Eigenmittel |
 | 15 | Bestand · Programmteil 2.3 | Zuschuss nach Effizienzsteigerung |
@@ -78,24 +79,27 @@ Platzhalter sind gewollt und im Heft als gestrichelt umrandete Felder gesetzt (g
 
 Im Heft sichtbar: **keine Felder mehr.** Die 23 Platzhalter auf S. 11 (Jahresrechnung) und S. 12 (Rechenweg) sind am
 09.11.2026 mit den Werten der PGN-Beispielrechnung gefüllt (vorläufig übernommen, Kunde 09.11.2026; Quelle PGN-VOFI-Modell
-v2-1, `Eingabe!C80–C82`, `Basisdaten!C62`; Prüfung `zulieferungen/vofi-pruefung/PRUEFBERICHT.md` Abschnitt 5). Excel-Mappe,
+v2-1, `Eingabe!C80–C82`, `Basisdaten!C62`; Prüfung `zulieferungen/vofi-pruefung/PRUEFBERICHT.md` Abschnitt 5). Seit
+11.11.2026 ist das Modellhaus ein PGN-Projekt in Neu Wulmstorf (Projekt 2 der VOFI-Mappe v3: 14 Wohnungen, 828 m²,
+3.579 € je m², Grundstück im Bestand und nicht angesetzt); die Spalte „jetzt“ nennt dessen Werte. Excel-Mappe,
 Präsentation und Broschüre werden am Ende abgeglichen; offene Punkte in Anhang B, Nr. 1:
 
 | S. | früher | jetzt |
 |---:|---|---|
-| 11 | Mietausfall/Leerstand `[… %]` | 2 % der Sollmiete: 2.285 / 2.755 / 3.024 € (A / B / C) |
-| 11 | nicht umlagefähige Bewirtschaftungskosten `[… € je Wohnung p. a.]` | Objektverwaltung 367 € je Wohnung p. a., Betriebskosten voll umgelegt: 7.340 € |
-| 11 | Instandhaltung `[… € je m² p. a.]` | 14,40 € je m² p. a.: 20.160 € |
-| 11 | Tilgung `[Tilgungssatz … %]` | 2,38 % p. a. (Annahme: linear über 42 Jahre): 66.667 / 100.000 / 116.667 € |
-| 11 | Zeilen 4 und 8 `[PGN-Rechnung]` | 84.455 / 107.505 / 120.676 € und 3.789 / −13.495 / −20.491 € (Jahr 1) |
-| 12 | Mietausfall `[… %]` im Rechenweg | Unterzeile 470 / 739 € (B / C); Tilgungsschwellen 1,15 % / 1,22 % |
+| 11 | Mietausfall/Leerstand `[… %]` | 2 % der Sollmiete: 1.351 / 1.630 / 1.788 € (A / B / C) |
+| 11 | nicht umlagefähige Bewirtschaftungskosten `[… € je Wohnung p. a.]` | Objektverwaltung 367 € je Wohnung p. a., Betriebskosten voll umgelegt: 5.138 € |
+| 11 | Instandhaltung `[… € je m² p. a.]` | 14,40 € je m² p. a.: 11.923 € |
+| 11 | Tilgung `[Tilgungssatz … %]` | 2,38 % p. a. (Annahme: linear über 42 Jahre): 28.223 / 42.334 / 49.390 € |
+| 11 | Zeilen 4 und 8 `[PGN-Rechnung]` | 49.152 / 62.784 / 70.574 € und 15.003 / 11.560 / 10.812 € (Jahr 1) |
+| 12 | Mietausfall `[… %]` im Rechenweg | Unterzeile 278 / 437 € (B / C); Tilgungsschwellen 1,80 % / 1,91 % |
 
 U3 trägt seit Korrekturlauf 1 keine Platzhalter mehr: „Verantwortlich für den Inhalt“ und „Druck“ entfallen
 (§ 8 Abs. 2, § 7 Abs. 3 NPresseG), der Bildnachweis lautet „Planungsgemeinschaft Nord GmbH“.
 
 Außerdem vor dem Druck zu bestätigen oder freizugeben (ohne Platzhalter im Heft, Details in Anhang B):
-Schlussabgleich S. 11/12 mit VOFI-Mappe und Präsentation, Kostenstand 2026, „Betriebskosten voll umgelegt“, Tilgungssatz
-2,5 % (NBank abgestimmt?) sowie Tilgungsaufschub-Hinweis S. 11 (Entscheidung PGN; der Tenor S. 11 ist seit 11.11.2026 entschieden, der Verweis S. 4 → S. 11 gestrichen);
+Schlussabgleich S. 10–12 mit VOFI-Mappe und Präsentation, Angaben zum PGN-Projekt und Kostenansätze S. 10 (3.579 € PGN, 4.631 € ARGE),
+Kostenstand 2026, „Betriebskosten voll umgelegt“, Tilgungssatz 2,38 % (NBank abgestimmt?); der Tenor S. 11 ist seit 11.11.2026
+entschieden („Alle drei Gruppen tragen sich ab Jahr 1“), der Verweis S. 4 → S. 11 bleibt gestrichen, bis PGN entscheidet;
 Geschäftsführung, Herausgeberzeile und PDF-Metadaten (U3); Formulierung „Seit 1981“ (S. 2, 22); Bildrechte und
 hochaufgelöste Originale (U1, S. 20, 22); Negativ-Logo, CMYK-/Pantone-Werte und CI-Anwendung; Zitate Tonne (S. 2) und
 Kiesewetter (S. 6); PGN-Claims, Leistungsaussagen S. 20, Referenzen S. 22 und eine mögliche Ansprechperson auf U4.

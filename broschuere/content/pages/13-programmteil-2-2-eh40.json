@@ -64,12 +64,12 @@
           }
         ],
         "marker": {
-          "x": 350000,
+          "x": 211672,
           "label": "Modell S. 10"
         },
         "direct_labels": "rechts je Linie unter dem Kopf „Satz · Höchstbetrag“: Gruppe · bis zu Satz · Höchstbetrag (A · bis zu 50 % · 90.000 €, B · bis zu 40 % · 75.000 €, C · bis zu 30 % · 60.000 €), keine Legende"
       },
-      "note": "Das Modellhaus von S. 10 (350.000 € je Wohnung) erhielte als EH-40-Neubau 1,8 Mio. € Zuschuss, nach 2.1 dagegen 2,8 Mio. € Zuschuss und 2,8 Mio. € Darlehen.\n\nIn 2.2 ist der Zuschuss höher als in 2.1, solange die zuwendungsfähigen Kosten je Wohnung unter 225.000 € (A), 375.000 € (B) bzw. 600.000 € (C) liegen."
+      "note": "Das Modellhaus von S. 10 (211.672 € je Wohnung) erhielte als EH-40-Neubau 1,3 Mio. € Zuschuss, nach 2.1 dagegen 1,2 Mio. € Zuschuss und 1,2 Mio. € Darlehen.\n\nIn 2.2 ist der Zuschuss höher als in 2.1, solange die zuwendungsfähigen Kosten je Wohnung unter 225.000 € (A), 375.000 € (B) bzw. 600.000 € (C) liegen."
     },
     {
       "type": "bullets",
@@ -141,7 +141,7 @@
     "F217",
     "F128"
   ],
-  "visual_idea": "Rechte Seite der Doppelseite 12|13 (physische Heftmitte, ein Druckbogen). Baustein-Register 2.2 (--baustein-22) am rechten Außenrand. Kopf im PGN-CI (Master-Opener): Programmnummer 2.2 außen rechts (Spalten 10–12), Kicker als Versal-Label, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat 300, Gegenstandssatz in Work Sans (5 Zeilen, darin der Satz zu EH 40 in 2.1). Dominantes Element: das Kappungsdiagramm in Spalten 1–9 am Bund – x-Achse zuwendungsfähige Kosten je Wohnung 0–400.000 €, y-Achse beschriftet „Zuschuss je Wohnung in €“; drei Linien in Zuschuss-Rot, über Strichart graustufenfest (A durchgezogen, B gestrichelt, C gepunktet), steigen bis 180.000 / 187.500 / 200.000 € und laufen dann flach bei 90.000 / 75.000 / 60.000 €; Knickpunkte beschriftet, rechts direkt beschriftet unter „Satz · Höchstbetrag“ (Gruppe · bis zu Satz · Höchstbetrag), keine Legende. Senkrechte gestrichelte Markierung bei 350.000 € mit Label „Modell S. 10“. Notiz in der äußeren Marginalspalte rechts (Spalten 10–12), spiegelbildlich zu S. 12. Darunter „Kombinierbar mit“ als Band auf #F4F3F2, dann zweispaltig „Förderbedingungen“ | „Voraussetzungen“ (je 6 Spalten). Kein Kasten, kein Stempel, keine Fußnote, keine Quellenzeile. Horizonte mit S. 12: Unterkante Diagramm-Modul 175,4 mm, Oberkante Band 179,4 mm.",
+  "visual_idea": "Rechte Seite der Doppelseite 12|13 (physische Heftmitte, ein Druckbogen). Baustein-Register 2.2 (--baustein-22) am rechten Außenrand. Kopf im PGN-CI (Master-Opener): Programmnummer 2.2 außen rechts (Spalten 10–12), Kicker als Versal-Label, Headline in Montserrat Black Versalien mit senkrechter roter 2-pt-Linie links, Subline in Montserrat 300, Gegenstandssatz in Work Sans (5 Zeilen, darin der Satz zu EH 40 in 2.1). Dominantes Element: das Kappungsdiagramm in Spalten 1–9 am Bund – x-Achse zuwendungsfähige Kosten je Wohnung 0–400.000 €, y-Achse beschriftet „Zuschuss je Wohnung in €“; drei Linien in Zuschuss-Rot, über Strichart graustufenfest (A durchgezogen, B gestrichelt, C gepunktet), steigen bis 180.000 / 187.500 / 200.000 € und laufen dann flach bei 90.000 / 75.000 / 60.000 €; Knickpunkte als offene Kreise, die Kosten „ab 180.000 / 187.500 / 200.000 €“ stehen mittig über den flachen Linien (rechts der Marke), rechts direkt beschriftet unter „Satz · Höchstbetrag“ (Gruppe · bis zu Satz · Höchstbetrag), keine Legende. Senkrechte gestrichelte Markierung bei 211.672 € (2.963.412 € ÷ 14 Wohnungen) mit Label „Modell S. 10“. Notiz in der äußeren Marginalspalte rechts (Spalten 10–12), spiegelbildlich zu S. 12. Darunter „Kombinierbar mit“ als Band auf #F4F3F2, dann zweispaltig „Förderbedingungen“ | „Voraussetzungen“ (je 6 Spalten). Kein Kasten, kein Stempel, keine Fußnote, keine Quellenzeile. Horizonte mit S. 12: Unterkante Diagramm-Modul 175,4 mm, Oberkante Band 179,4 mm.",
   "open_points": [
     "Korrekturlauf 1 (Kunde PGN, Kommentare S. 12 alt): Satz zu EH-40-Niveau in 2.1 im Gegenstandssatz ergänzt (kein Zuschlag zum Zuschuss, nur bis zu +0,30 € je m² Höchstmiete; reiner EH-40-Zuschuss nur in 2.2, nicht mit 2.1 kombinierbar). y-Achse beschriftet („Zuschuss je Wohnung in €“), rechter Kopf „Satz · Höchstbetrag“. „Spielregeln“ → „Förderbedingungen“; Versicherungspflicht aus „Voraussetzungen“ zu den Förderbedingungen (Pflicht während der Bindung). Seite jetzt rechts: Notiz in die äußere Marginalspalte rechts gespiegelt."
   ]

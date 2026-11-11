@@ -20,7 +20,7 @@ module.exports = {
     const summen = [M('dscr.kapitaldienst_jahr1.A'), M('dscr.kapitaldienst_jahr1.Frei')];
     summen.forEach((v, i) => R.pruefe(Math.abs(reihen.reduce((a, r) => a + r.werte[i], 0) - v) < 0.005, 'Tilgung, Zins und Verwaltungskostenbeitrag ergeben nicht den Kapitaldienst der Mappe.'));
     const d = D.stapelBalken(s, { kategorien: ['Gefördert, Gruppe A', 'Frei finanziert'], katAchse: true, katBreite: 1.55, rand: { o: 0.30, r: 0.30 }, luecke: 80, name: 'Diagramm Kapitaldienst',
-      reihen, achse: { min: 0, max: 350000, schritt: 50000, format: 'ganz' } });
+      reihen, achse: { min: 0, max: 150000, schritt: 25000, format: 'ganz' } });
 
     // Summen am Balkenende: gefördert rechts neben dem Balken in Tinte, frei finanziert über dem Balkenende in Grau (jeweils auf einer Fläche
     // in der Grundfarbe, die die Gitterlinien hinter der Zahl unterbricht)

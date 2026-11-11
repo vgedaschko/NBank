@@ -2,9 +2,12 @@
 """Abgleich von werte.json mit der Broschüre, der Altfassung und einer Handrechnung.
 
 1. Broschüre S. 10–12: jede dort gezeigte Zahl der Modellrechnung gegen den Wert
-   der Mappe, gerundet auf die gezeigte Stelle (Läufe „modellhaus“ und
-   „modellhaus_kosten_5200“). Die Broschüre wird aus content/pages/*.json gelesen.
-2. Altfassung der Präsentation (Folien 11, 13, 14, 17) gegen den Lauf „projekt2“.
+   der Mappe, gerundet auf die gezeigte Stelle (Läufe „modellhaus“,
+   „modellhaus_kosten_4631“ und „modellhaus_kosten_5000“). Die Broschüre wird aus
+   content/pages/*.json gelesen. Das Modellhaus ist seit 11.11.2026 Projekt 2 der
+   Mappe (PGN-Projekt in Neu Wulmstorf, Grundstück im Bestand und nicht angesetzt).
+2. Altfassung der Präsentation (Folien 11, 13, 14, 17) gegen den Lauf „projekt2“
+   (dasselbe Projekt mit Tilgung 2,5 % wie in der Altfassung).
    Abweichungen hier sind Hinweise, kein Fehler: Es gilt die Mappe.
 3. Handrechnung: Die Kernwerte jedes Laufs werden aus den Eingaben und den
    Festwerten der Richtlinie neu gerechnet, ohne die Formeln der Mappe.
@@ -82,6 +85,13 @@ class Werte:
         w = self.daten["laeufe"][lauf]["werte"][schluessel]
         return f"{w['blatt']}!{w['zelle']}"
 
+    def schluessel(self, lauf, zelle):
+        """Schlüssel zu einer Zelle („Übersicht!D9“) im Lauf, sonst None."""
+        for k, w in self.daten["laeufe"][lauf]["werte"].items():
+            if f"{w['blatt']}!{w['zelle']}" == zelle:
+                return k
+        return None
+
 
 class Bericht:
     def __init__(self):
@@ -103,6 +113,18 @@ class Bericht:
 def seite(nr):
     (pfad,) = sorted(BROSCHUERE.glob(f"{nr:02d}-*.json"))
     return json.loads(pfad.read_text(encoding="utf-8"))
+
+
+def stufe_genannt(text, stufe, nur_stufe=False):
+    """Der Text nennt die Mietenstufe der Mappe („Mietenstufe VI“) oder, wo eine Regel für die ganze Klasse gilt, deren Klasse
+    („Mietenstufe IV–VII“: Höchstmiete und Bemessungsgrenze). nur_stufe: Nur die Stufe selbst zählt (Standort des Modellhauses)."""
+    stufen = ("I", "II", "III", "IV", "V", "VI", "VII")
+    if stufe not in stufen:
+        return False
+    if re.search(rf"Mietenstufe {stufe}(?![IV–])", text):
+        return True
+    klasse = "I–III" if stufen.index(stufe) < 3 else "IV–VII"
+    return not nur_stufe and f"Mietenstufe {klasse}" in text
 
 
 def block(s, typ, **merkmale):
@@ -127,15 +149,15 @@ def abgleich_broschuere(w, b):
     b.enthaelt(T, "Überschrift: Förderung", s["headline"], f"bis zu {mio(m('fin.foerderung.A'))} Mio. € Förderung", q("fin.foerderung.A"))
     b.enthaelt(T, "Vorspann: Wohnungen", s["lead"], f"{de(we)} Neubauwohnungen", q("eingabe.wohnungen"))
     b.enthaelt(T, "Vorspann: Wohnfläche", s["lead"], f"zusammen {de(wfl)} m² Wohnfläche", q("eingabe.wohnflaeche"))
-    mix = re.findall(r"(\d+) × (\d+)", s["lead"].split("m²")[0])
-    b.gleich(T, "Vorspann: Wohnungsmix, Summe Wohnungen und m²",
-             f"{sum(int(n) for n, _ in mix)} Wohnungen, {de(sum(int(n) * int(f) for n, f in mix))} m²",
-             f"{de(we)} Wohnungen, {de(wfl)} m²", q("eingabe.wohnungen, eingabe.wohnflaeche"))
+    # Bis 11.11.2026 nannte der Vorspann den Wohnungsmix (Summe Wohnungen und m²); das neue Modellhaus nennt die mittlere Wohnungsgröße
+    b.enthaelt(T, "Vorspann: Wohnfläche je Wohnung im Schnitt", s["lead"], f"im Schnitt {de(D(wfl) / D(we))} m²", q("eingabe.wohnflaeche ÷ eingabe.wohnungen"))
     b.enthaelt(T, "Vorspann: Herstellungskosten je m²", s["lead"], f"Herstellungskosten {de(hk)} € je m²", q("eingabe.herstellungskosten_qm"))
     b.enthaelt(T, "Vorspann: Bemessungsgrenze", s["lead"], f"Bemessungsgrenze von {de(m('fin.bemessungsgrenze_qm'))} €", q("fin.bemessungsgrenze_qm"))
     b.enthaelt(T, "Vorspann: Abstand zur Bemessungsgrenze", s["lead"], f"{de(m('fin.bemessungsgrenze_qm') - hk)} € unter", q("fin.bemessungsgrenze_qm − eingabe.herstellungskosten_qm"))
-    b.enthaelt(T, "Vorspann: Grundstück", s["lead"], f"Grundstück {de(m('fin.grundstueck'))} €", q("fin.grundstueck"))
-    b.gleich(T, "Vorspann: Mietenstufe IV–VII enthält die Stufe der Mappe", "IV–VII" in s["lead"] and m("eingabe.mietenstufe") in ("IV", "V", "VI", "VII"), True, q("eingabe.mietenstufe"))
+    # Grundstück: Ist es nicht angesetzt (Eingabe 2.3 = 0), sagt der Vorspann das mit diesen Worten; sonst nennt er den Betrag
+    grundstueck = "Grundstück im Bestand, nicht angesetzt" if m("fin.grundstueck") == 0 and m("eingabe.grundstueck") == 0 else f"Grundstück {de(m('fin.grundstueck'))} €"
+    b.enthaelt(T, "Vorspann: Grundstück", s["lead"], grundstueck, q("eingabe.grundstueck, fin.grundstueck"))
+    b.gleich(T, "Vorspann: nennt die Mietenstufe der Mappe", stufe_genannt(s["lead"], m("eingabe.mietenstufe"), nur_stufe=True), True, q("eingabe.mietenstufe"))
 
     haus = block(s, "chart", chart="stacked-bar")["data"]
     b.gleich(T, "Haus-Diagramm: Gesamtkosten", haus["total"]["display"], mio(m("fin.gesamtkosten.A")), q("fin.gesamtkosten.A"))
@@ -162,12 +184,34 @@ def abgleich_broschuere(w, b):
     b.gleich(T, "Kennzahl: Eigenmittel je Wohnung", kz[1]["value"], de(m("fin.eigenmittel_je_wohnung.A")), q("fin.eigenmittel_je_wohnung.A"))
     b.enthaelt(T, "Kennzahl: Gesamtkosten je Wohnung", kz[1]["note"], f"{pct(m('fin.eigenmittelquote.A'))} % von {de(m('fin.gesamtkosten.A') / we)} € Gesamtkosten", q("fin.gesamtkosten.A ÷ eingabe.wohnungen"))
 
-    k = w.lauf("modellhaus_kosten_5200")
-    q5 = lambda x: "modellhaus_kosten_5200: " + x
+    # Sensitivität: drei Spalten (Modellhaus, ARGE-Median, Ausgangswert der Bemessungsgrenze). Die Tabelle des Hefts steht in „columns“ und
+    # „rows“; jede Zeile nennt ihre Zelle der Übersicht. Die Schlüssel „steps“ und „result“ beschreiben die Spalte an der Bemessungsgrenze.
     T = "Broschüre S. 10, Sensitivität"
     wf = block(s, "chart", chart="waterfall")
+    laeufe = ("modellhaus", "modellhaus_kosten_4631", "modellhaus_kosten_5000")
+    spalten = wf["data"].get("columns", [])
+    b.gleich(T, "Spalten: Herstellungskosten je m² der drei Läufe", [x.get("kosten_je_m2") for x in spalten],
+             [w.lauf(l)("eingabe.herstellungskosten_qm") for l in laeufe], "eingabe.herstellungskosten_qm je Lauf")
+    b.gleich(T, "Spalten: Beschriftung", [x.get("display") for x in spalten], [f"{de(w.lauf(l)('eingabe.herstellungskosten_qm'))} €" for l in laeufe], "eingabe.herstellungskosten_qm je Lauf")
+    b.gleich(T, "Spalte 3 ist der Ausgangswert der Bemessungsgrenze", w.lauf(laeufe[2])("eingabe.herstellungskosten_qm"), m("fin.bemessungsgrenze_qm"), q("fin.bemessungsgrenze_qm"))
+    zeilen_s = wf["data"].get("rows", [])
+    b.gleich(T, "Tabelle: Zeilen vorhanden", len(zeilen_s) > 0, True, "Broschüre: data.rows")
+    for z in zeilen_s:
+        schl = w.schluessel("modellhaus", z.get("zelle", ""))
+        if not schl:
+            b.zeilen.append((T, f"Zeile „{z.get('label')}“: Zelle {z.get('zelle')!r}", "nicht in werte.json", "Zelle der Übersicht", "Lauf modellhaus", "ABWEICHUNG"))
+            continue
+        ist = [w.lauf(l)(schl) for l in laeufe]
+        stellen = max((len(str(v).split(".")[1]) if isinstance(v, float) and "." in str(v) else 0) for v in z["values"])
+        b.gleich(T, f"Zeile „{z.get('label')}“: Werte", [float(v) for v in z["values"]], [zahl(v, stellen) for v in ist], f"{schl} je Lauf")
+        b.gleich(T, f"Zeile „{z.get('label')}“: Beschriftung", z["display"], [de(v) for v in ist], f"{schl} je Lauf")
+    for l in laeufe[1:]:
+        b.gleich(T, f"{l}: nichts über der Bemessungsgrenze, kein Bankdarlehen, Förderquote wie im Modellhaus",
+                 (w.lauf(l)("fin.ueber_bemessungsgrenze.A"), w.lauf(l)("fin.bankdarlehen.A"), w.lauf(l)("fin.foerderquote.A")), (0, 0, m("fin.foerderquote.A")), f"{l}: fin.*")
+    k = w.lauf("modellhaus_kosten_5000")
+    q5 = lambda x: "modellhaus_kosten_5000: " + x
     st = wf["data"]["steps"]
-    b.enthaelt(T, "Titel: Herstellungskosten je m²", wf["title"], f"{de(k('eingabe.herstellungskosten_qm'))} € je m²", q5("eingabe.herstellungskosten_qm"))
+    b.enthaelt(T, "Titel: Sensitivität der Herstellungskosten je m²", wf["title"], "Herstellungskosten je m²", q5("eingabe.herstellungskosten_qm"))
     b.gleich(T, "Gesamtkosten", st[0]["display"], mio(k("fin.gesamtkosten.A"), 2), q5("fin.gesamtkosten.A"))
     b.gleich(T, "zuwendungsfähig", st[0]["segments"][0]["display"], mio(k("fin.zuwendungsfaehige_kosten.A"), 2), q5("fin.zuwendungsfaehige_kosten.A"))
     b.gleich(T, "über der Grenze", st[0]["segments"][1]["display"], mio(k("fin.ueber_bemessungsgrenze.A"), 2), q5("fin.ueber_bemessungsgrenze.A"))
@@ -212,7 +256,7 @@ def abgleich_broschuere(w, b):
     mieten = " | ".join(de(m(f"fin.miete_jahr1.{g}"), 2) for g in GRUPPEN)
     darl = " | ".join(mio(m(f"fin.darlehen_nbank.{g}")) for g in GRUPPEN)
     b.enthaelt(T, "Zeile 1: Ansatz Höchstmieten", r[0][1], f"{de(wfl)} m² × {mieten} € × 12", q("fin.miete_jahr1.A/B/C"))
-    b.enthaelt(T, "Zeile 1: Mietenstufe", r[0][1], "Mietenstufe IV–VII", q("eingabe.mietenstufe"))
+    b.gleich(T, "Zeile 1: Mietenstufe der Mappe oder ihre Klasse (I–III, IV–VII)", stufe_genannt(r[0][1], m("eingabe.mietenstufe")), True, q("eingabe.mietenstufe"))
     b.enthaelt(T, "Unterzeile: Satz Mietausfall", r[1][1], f"{pct(m('jr1.satz.mietausfall'))} % der Sollmiete", q("jr1.satz.mietausfall"))
     b.enthaelt(T, "Zeile 2: Satz Objektverwaltung", r[2][1], f"{de(m('jr1.satz.objektverwaltung'))} € je Wohnung", q("jr1.satz.objektverwaltung"))
     b.enthaelt(T, "Zeile 3: Satz Instandhaltung", r[3][1], f"{de(m('jr1.satz.instandhaltung'), 2)} € je m²", q("jr1.satz.instandhaltung"))
@@ -414,7 +458,7 @@ def handrechnung(w, lauf, basis="modellhaus"):
 
 
 def abgleich_handrechnung(w, b):
-    for lauf in ("modellhaus", "modellhaus_dscr125", "modellhaus_pgn_kosten", "modellhaus_kosten_5200", "projekt2"):
+    for lauf in ("modellhaus", "modellhaus_dscr125", "modellhaus_kosten_4631", "modellhaus_kosten_5000", "projekt2"):
         werte = w.daten["laeufe"][lauf]["werte"]
         n = abw = 0
         groesste = 0.0

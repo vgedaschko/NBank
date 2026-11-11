@@ -7,7 +7,7 @@ Abnahmeprüfung VOFI Mietwohnraum 2026, Version 3
 Prüft die fertige Mappe PGN_VOFI_Mietwohnraum_2026_v3.xlsx allein gegen
   - das Sollkonzept    /home/user/NBank/vofi/KONZEPT-v3.md (Adressen, Abschnitte A–G, Abnahme F1–F13),
   - die Referenzrechnung broschuere/zulieferungen/vofi-pruefung/referenzrechnung.py (importiert, nicht verändert),
-  - die Broschüre       broschuere/content/pages/10-…, 11-…, 12-….json (zur Laufzeit gelesen),
+  - die Broschüre       broschuere/content/pages/10-…, 11-…, 12-….json (zur Laufzeit gelesen; Modellhaus = Projekt 2),
   - die alte Mappe v2-1 (nur gelesen, data_only, aus einer Kopie).
 build_vofi.py wird nicht gelesen und nicht importiert.
 
@@ -128,6 +128,29 @@ Bewertungsansätze des Modellhauses für Rotenburg (Wümme) und Lektorat der Tex
   Jahr 35 dann ungeprüft, verglich aber die Zahlungsreihen im Stichjahr weiter mit der RR (vier Zellen je Gruppe:
   Z41, AE41, AK41, AP41). Neu: Soll ist in diesem Fall der Rechenweg der RR mit dem Mietpfad der Mappe
   (Soll.restwert_mappe); er muss in jedem Lauf den Wert der RR treffen, wo A2 nicht greift, sonst bricht die Prüfung ab.
+
+Modellhaus ist Projekt 2 (KONZEPT-v3.md, Abschnitt R, Entscheidung des Auftraggebers vom 11.11.2026)
+  Konzeptänderungen, denen das Skript folgt: Auslieferungsstand Eingaben!D3 = 2 (Projekt 2 aktiv); Projektnamen D4
+  „Vergleichshaus, 20 Wohnungen“ und E4 „Modellhaus, Tarutinoer Str. 4“; Quellen der Eingaben 1.2, 1.3, 2.1, 2.3 bis 2.5,
+  4.1 und 4.2 (der Verweis auf die Broschüre steht bei Projekt 2, Projekt 1 ist das frühere Modellhaus); Hinweise 6, 14
+  und 15; Fußnoten Tabellen A42 (Projekt 1) und A43 (Projekt 2). Keine Zelle wechselt die Adresse, kein Rechenwert
+  ändert sich; die Sollwerte der Läufe sind unverändert.
+  Projektschlüssel im Skript: "V" = Projekt 1 (Spalte D, Vergleichshaus; bis 11.11.2026 das Modellhaus, in der RR
+  parameter_broschuere), "T" = Projekt 2 (Spalte E, Tarutinoer Str. 4; das Modellhaus von Broschüre und Präsentation, in
+  der RR parameter_referenzprojekt). Die Läufe von Projekt 1 setzen Eingaben!D3 = 1 ausdrücklich; die Läufe von Projekt 2
+  rechnen im Auslieferungsstand, das Skript setzt D3 dort nicht. Jeder Lauf prüft D3 und den Projektnamen.
+  F2 (gelieferte Werte) vergleicht mit L2 statt L1. F9 (Broschüre S. 10–12) vergleicht dieselben JSON-Schlüssel wie
+  vorher mit der Übersicht des Laufs L2; Zeilen des Rechenwegs S. 10 und die Kennzahlen ordnet das Skript über die
+  Bezeichnung zu (die Zeile Grundstück darf fehlen, wenn das Grundstück nicht angesetzt ist), Beträge teilt es nach der
+  Einheit der Broschüre („Mio. €“ oder „€“), Zahlen der Reihen S. 12 rundet es auf die Stellenzahl der Broschüre; die
+  Schlüssel at_2_5, at_3_0, at_s11, check und tragbare_tilgung_prozent prüft es, soweit die Broschüre sie führt.
+  Sensitivität S. 10 (Block „waterfall“): Tabelle aus columns (kosten_je_m2 je Spalte) und rows (label, display, values)
+  und, soweit geführt, die Schritte steps und result des Diagramms; je Herstellungskostenwert ein Lauf von Projekt 2:
+  3.579 €/m² = L2, 4.631 €/m² = L69 (neu), 5.000 €/m² = L70 (neu). Schritte ohne Kostenangabe gehören zu dem Lauf,
+  dessen Gesamtkosten sie zeigen. L10 (Projekt 1 mit 5.200 €/m²) bleibt für die Sollwerte F.5 und trägt F9 nicht mehr.
+  Sollwerte laut Konzept (F.3–5): für L2 zusätzlich die Übersicht des Modellhauses (Konzept R.4), für L69 und L70 die
+  Größen der Sensitivität; alle aus der Referenzrechnung erzeugt.
+  Regression: Die Projektnamen auf den Blättern Gefördert A/B/C und NBank gelten im neuen Wortlaut als gleich.
 """
 import argparse
 import concurrent.futures as cf
@@ -188,8 +211,16 @@ TOL_MIETE = 0.0001     # €/m² Monat
 TOL_DSCR = 0.001
 IRR_GRENZE = -0.69     # Konzept K.2 R1: Nullstellen unter rund −70 % findet die Kaskade nicht zuverlässig („n. v.“)
 
-PROJEKT_NAME = {"M": "Modellhaus Broschüre", "T": "Tarutinoer Str. 4, Neu Wulmstorf"}
-PROJEKT_SPALTE = {"M": "D", "T": "E"}
+# Projekte (Konzept R): "V" = Projekt 1 (Spalte D), Vergleichshaus, bis 11.11.2026 das Modellhaus der Broschüre (RR:
+# parameter_broschuere); "T" = Projekt 2 (Spalte E), Tarutinoer Str. 4 in Neu Wulmstorf, seit 11.11.2026 das Modellhaus
+# von Broschüre und Präsentation (RR: parameter_referenzprojekt) und im Auslieferungsstand aktiv.
+PROJEKT_NAME = {"V": "Vergleichshaus, 20 Wohnungen", "T": "Modellhaus, Tarutinoer Str. 4"}
+PROJEKT_NAME_BIS_11_11 = {"V": "Modellhaus Broschüre", "T": "Tarutinoer Str. 4, Neu Wulmstorf"}
+PROJEKT_SPALTE = {"V": "D", "T": "E"}
+PROJEKT_NR = {"V": 1, "T": 2}
+PROJEKT_KURZ = {"V": "Projekt 1", "T": "Projekt 2"}
+PROJEKT_STANDARD = "T"                                  # aktiv im Auslieferungsstand (Eingaben!D3 = 2)
+STANDARD_LAUF = "L2"                                    # Projekt 2 im Standard: gelieferte Werte (F2), Broschüre (F9)
 GRUPPEN = ("A", "B", "C")
 GEF = {g: f"Gefördert {g}" for g in GRUPPEN}
 FREI = "Frei finanziert"
@@ -497,31 +528,33 @@ def ist_reiner_bezug(formel):
 # =====================================================================================================
 # 3. Konzepttabellen (KONZEPT-v3.md, Abschnitte A–D, verbindliche Adressen)
 # =====================================================================================================
-# Eingaben B.2: Nr, Zeile, Name, Bezeichnung, Einheit, Formatklasse, Gültigkeit, Quelle,
-#               Sollwert Modellhaus / Tarutinoer als Funktion der RR-Parameter (P) bzw. Konstante.
+# Eingaben B.2: Nr, Zeile, Name, Bezeichnung, Einheit, Formatklasse, Gültigkeit, Quelle (links Projekt 1, rechts Projekt 2),
+#               Sollwert Projekt 1 (Vergleichshaus) / Projekt 2 (Modellhaus, Tarutinoer) als Funktion der RR-Parameter
+#               (P) bzw. Konstante.
 def _g(key):
     return lambda P: P[key]
 
 
 _VG = "PGN-Annahme; Vorgängermappe"
+_FM = "früheres Modellhaus"                               # Quelle von Projekt 1 seit 11.11.2026 (Konzept R)
 EINGABEN = [
     ("1.1", 7, "Bezugsjahr", "Bezugsjahr (ändert nur Jahresangaben)", "Jahr", "ganz", ("whole", 2020, 2060),
      "PGN-Annahme, Planungsstand 2026", _g("fj"), _g("fj")),
-    ("1.2", 8, "Wohnflaeche", "Wohnfläche", "m²", "ganz", ("decimal", 1, 100000), "Broschüre S. 10 / Projektdaten PGN",
-     _g("wfl"), _g("wfl")),
-    ("1.3", 9, "Wohneinheiten", "Wohnungen", "Anzahl", "ganz", ("whole", 1, 1000), "Broschüre S. 10 / Projektdaten PGN",
-     _g("we"), _g("we")),
+    ("1.2", 8, "Wohnflaeche", "Wohnfläche", "m²", "ganz", ("decimal", 1, 100000),
+     _FM + " / Projektdaten PGN, Broschüre S. 10", _g("wfl"), _g("wfl")),
+    ("1.3", 9, "Wohneinheiten", "Wohnungen", "Anzahl", "ganz", ("whole", 1, 1000),
+     _FM + " / Projektdaten PGN, Broschüre S. 10", _g("we"), _g("we")),
     ("2.1", 11, "Herstellungskosten_qm", "Herstellungskosten KG 200–700", "€/m² Wohnfläche", "eur0",
-     ("decimal", 0, 20000), "Broschüre S. 10 / Kostenansatz PGN",
+     ("decimal", 0, 20000), _FM + " / Kostenansatz PGN, Broschüre S. 10",
      lambda P: P["herstellung"] / P["wfl"], lambda P: P["herstellung"] / P["wfl"]),
     ("2.2", 12, "KG_800", "Finanzierungskosten KG 800", "€", "eur0", ("decimal", 0, 1e8), "PGN-Annahme (Ansatz 0)",
      _g("kg800"), _g("kg800")),
     ("2.3", 13, "Grundstueck", "Grundstück, Verkehrswert (Sacheinlage)", "€", "eur0", ("decimal", 0, 1e9),
-     "Broschüre S. 10 / Ansatz 0 € (Verkehrswert 731.325 €)", _g("grundstueck"), _g("grundstueck")),
+     _FM + " / Grundstück im Bestand, Ansatz 0 €", _g("grundstueck"), _g("grundstueck")),
     ("2.4", 14, "Bodenrichtwert", "Bodenrichtwert (0 = kein Deckel)", "€/m²", "eur0", ("decimal", 0, 10000),
-     "Broschüre S. 10: Deckel greift nicht / Projektdaten PGN", lambda P: P["brw"] or 0, lambda P: P["brw"] or 0),
+     _FM + ": Deckel greift nicht / Projektdaten PGN", lambda P: P["brw"] or 0, lambda P: P["brw"] or 0),
     ("2.5", 15, "Grundstuecksflaeche", "Grundstücksfläche (0 = kein Deckel)", "m²", "ganz", ("decimal", 0, 1e6),
-     "Broschüre S. 10: Deckel greift nicht / Projektdaten PGN", lambda P: P["gfl"] or 0, lambda P: P["gfl"] or 0),
+     _FM + ": Deckel greift nicht / Projektdaten PGN", lambda P: P["gfl"] or 0, lambda P: P["gfl"] or 0),
     ("3.1", 17, "Tilgung_NBank", "Tilgung NBank-Darlehen, linear", "% p. a.", "pct", ("decimal", 0, 0.10),
      "PGN-Annahme: linear über die Höchstlaufzeit von 42 Jahren", lambda P: 1 / 42,
      lambda P: 1 / 42),   # beide Projekte: 1/Höchstlaufzeit (RL Nr. 5.3.5); die Vorgängermappe v2-1 rechnete mit 1/40
@@ -532,9 +565,9 @@ EINGABEN = [
     ("3.4", 20, "Swapsatz_30J", "Swapsatz 30 Jahre", "% p. a.", "pct", ("decimal", 0, 0.10),
      "EUR-Swapsatz 30 Jahre, Stand 19.08.2026", _g("swap"), _g("swap")),
     ("4.1", 22, "Mietenstufe", "Mietenstufe", "Liste", "text", ("list", "Mietenstufen"),
-     "Broschüre S. 10 / Projektdaten PGN", _g("mietenstufe"), _g("mietenstufe")),
+     _FM + " / Projektdaten PGN, Broschüre S. 10", _g("mietenstufe"), _g("mietenstufe")),
     ("4.2", 23, "Effizienz_EH40", "Effizienzhaus 40 erreicht", "ja/nein", "text", ("list", "ja,nein"),
-     "Broschüre S. 11 (ohne EH-40-Zuschlag) / Planung PGN (EH 55)", lambda P: "ja" if P["effizienz"] in ("EH 40", "EH 40 QNG") else "nein",
+     _FM + " / Planung PGN (EH 55), Broschüre S. 11", lambda P: "ja" if P["effizienz"] in ("EH 40", "EH 40 QNG") else "nein",
      lambda P: "ja" if P["effizienz"] in ("EH 40", "EH 40 QNG") else "nein"),
     ("4.3", 24, "Vergleichsmiete_1", "Ortsübliche Vergleichsmiete, Jahr 1", "€/m² Monat", "eur2",
      ("decimal", 0, 50), "PGN-Annahme / PGN-Mietband Neu Wulmstorf, fortgeschrieben", lambda P: OVM_ROTENBURG,
@@ -631,18 +664,18 @@ TAB3 = [
 ]
 MIETENSTUFEN = ["I", "II", "III", "IV", "V", "VI", "VII"]
 LZ_QUELLE = "Gutachterausschuss Nds., Landesmodell MFH 01.01.2026"
-# Tabelle 4 (Konzept C, Q): Liegenschaftszins je Projekt. Restnutzungsdauern B36:B41, Projekt 1 in D (Rotenburg (Wümme),
-# Landesmodell Mehrfamilienhäuser 01.01.2026, mittlerer Bodenrichtwert 185 €/m²), Projekt 2 in E (Neu Wulmstorf, 600 €/m²,
-# gleich der Tabelle der Referenzrechnung), „verwendet“ in F (= Name LZ_Satz).
+# Tabelle 4 (Konzept C, Q, R): Liegenschaftszins je Projekt. Restnutzungsdauern B36:B41, Projekt 1 in D (Vergleichshaus:
+# Rotenburg (Wümme), Landesmodell Mehrfamilienhäuser 01.01.2026, mittlerer Bodenrichtwert 185 €/m²), Projekt 2 in E
+# (Modellhaus: Neu Wulmstorf, 600 €/m², gleich der Tabelle der Referenzrechnung), „verwendet“ in F (= Name LZ_Satz).
 LZ_RND = (30, 38, 40, 50, 60, 70)
 LZ_ROTENBURG = (0.033, 0.034, 0.034, 0.035, 0.035, 0.035)
 LZ_NEU_WULMSTORF = (0.025, 0.027, 0.027, 0.029, 0.030, 0.031)
 LZ_ZEILE = 36                                             # erste Zeile der Tabelle 4
-LZ_SPALTE = {"M": "D", "T": "E"}
+LZ_SPALTE = {"V": "D", "T": "E"}
 T4 = "T4"                                                 # Schlüssel in den Testläufen: Sätze der Projektspalte, Tabelle 4
-# Bewertungsansätze des Modellhauses (Entscheidung des Auftraggebers vom 11.11.2026): Marktmiete aus der Mietübersicht
-# des Gutachterausschusses für den Landkreis Rotenburg (Wümme), Vergleichsmiete als PGN-Annahme im Verhältnis 12,92 ÷ 14,48.
-# Bis 10.11.2026 standen dort die Platzhalter 12,92 / 14,48 €/m² (Abweichung A7) und die Kurve Neu Wulmstorf.
+# Bewertungsansätze von Projekt 1 (Vergleichshaus; Konzept Q): Marktmiete aus der Mietübersicht des Gutachterausschusses
+# für den Landkreis Rotenburg (Wümme), Vergleichsmiete als PGN-Annahme im Verhältnis 12,92 ÷ 14,48. Bis 10.11.2026 standen
+# dort die Platzhalter 12,92 / 14,48 €/m² (Abweichung A7) und die Kurve Neu Wulmstorf.
 OVM_ROTENBURG, MARKT_ROTENBURG = 11.87, 13.30
 OVM_PLATZHALTER, MARKT_PLATZHALTER = 12.92, 14.48
 
@@ -855,7 +888,7 @@ F_TILG, F_TILG_E = '"Tilgung "0.00 %', '"Tilgung "0.00 %" laut Eingabe 3.1"'
 _E = BESCHRIFTUNG["Eingaben"]
 _E.update({"A2": "Blaue Werte auf Gelb ändern, auch die Projektnamen in Zeile 4. Gerechnet wird nur die Spalte "
                  "„verwendet“.",
-           "B3": "Aktives Projekt", "C3": "1 oder 2", "B4": "Projektname", "C4": "Text", "D4": PROJEKT_NAME["M"],
+           "B3": "Aktives Projekt", "C3": "1 oder 2", "B4": "Projektname", "C4": "Text", "D4": PROJEKT_NAME["V"],
            "E4": PROJEKT_NAME["T"], "A5": "Nr.", "B5": "Eingabe", "C5": "Einheit", "D5": "Projekt 1",
            "E5": "Projekt 2", "F5": "verwendet", "G5": "Quelle Projekt 1 / Projekt 2"})
 for _e in EINGABEN:
@@ -867,9 +900,10 @@ for _e in EINGABEN:
 _T = BESCHRIFTUNG["Tabellen"]
 _T.update({"A2": "Festwerte RL Mietwohnraum 2026 und Bewertung. Bemessungsgrenzen: Ausgangswerte 01.07.2026; "
                  "aktuell auf nbank.de.",
-           "A42": "Projekt 1: Rotenburg (Wümme), Bodenrichtwert 185 €/m². Projekt 2: Neu Wulmstorf, 600 €/m² "
-                  "(Tarutinoer: 260 €/m²).",
-           "A43": "Streubreite laut Quelle für Projekt 1: ±1,2 Prozentpunkte. Anpassung an den Standort: Eingabe 9.3.",
+           "A42": "Projekt 1 (Vergleichshaus): Rotenburg (Wümme), Bodenrichtwert 185 €/m²; Streubreite laut Quelle "
+                  "±1,2 Prozentpunkte.",
+           "A43": "Projekt 2 (Modellhaus): Neu Wulmstorf, 600 €/m² (Grundstück: 260 €/m²). Anpassung an den Standort: "
+                  "Eingabe 9.3.",
            "B35": "Restnutzungsdauer", "C35": "Einheit", "D35": "Projekt 1", "E35": "Projekt 2", "F35": "verwendet",
            "G35": "Quelle",
            "B8": "Mietenstufe", "C8": "Bemessungsgrenze €/m²", "D8": "Höchstmiete A", "E8": "Höchstmiete B",
@@ -937,8 +971,9 @@ HINWEISE = [
     "Mieten gefördert: Höchstmiete (höchstens Marktmiete) in Jahr 1–3, dann alle 3 Jahre höchstens +6,15 %, ab Jahr 36 "
     "höchstens um die Kappungsgrenze; Obergrenze bis Jahr 42 die Vergleichsmiete, danach die Zielmiete (Eingabe 8.2); "
     "je m² ungerundet. Mieten frei: Marktmiete oder Miete für das DSCR-Ziel (Eingabe 10.1, 10.2), jährlich steigend "
-    "mit Eingabe 4.5, ohne Grenze nach § 558 BGB; mit Grenze läge der Objekt-IRR zur Marktmiete beim Modellhaus rund "
-    "0,4–0,5 Prozentpunkte tiefer. Werte zur Miete für das DSCR-Ziel nur mit dem Aufschlag nennen (Übersicht 8.5).",
+    "mit Eingabe 4.5, ohne Grenze nach § 558 BGB; mit Grenze läge der Objekt-IRR zur Marktmiete beim Vergleichshaus "
+    "(Projekt 1) rund 0,4–0,5 Prozentpunkte tiefer. Werte zur Miete für das DSCR-Ziel nur mit dem Aufschlag nennen "
+    "(Übersicht 8.5).",
     "Finanzierung: Eigenkapital = Grundstück (Sacheinlage) + bar; Bankdarlehen nur als Restfinanzierung. "
     "NBank-Darlehen: 0 % Zins bis Ende Jahr 35, Tilgung linear, Rest in Jahr 42. Frei finanziert: Mindest-Eigenmittel "
     "wie gefördert plus Eingabe 7.1, Rest Bankdarlehen (Eingabe 6.1 bis 6.4). Gefördert mindert Eingabe 7.1 nur das "
@@ -954,11 +989,14 @@ HINWEISE = [
     "Nach außen: Jahresrechnung, Tilgungsvergleich, Annahmen. Renditen nur in der Beratung, je mit Restwert und nur "
     "Bodenwert, dazu Restwertanteil.",
     "Bandbreite je Rendite, Beratung: Eingabe 9.3 ±0,5 Prozentpunkte, 9.4 = 0,50, 8.3 = 5 %, 8.2 = Vergleichsmiete.",
-    "Nicht nach außen: Blatt NBank. Modellhaus: Marktmiete (Eingabe 4.4) und Liegenschaftszins (Tabellen, Tabelle 4) "
-    "sind amtliche Werte der Gutachterausschüsse für Rotenburg (Wümme), Stand 01.01.2026; die Vergleichsmiete "
-    "(Eingabe 4.3) ist eine Annahme der PGN. Für einen anderen Standort ersetzen.",
-    "Tarutinoer: Grundstück 0 € wie Vorgängermappe; Renditen ohne Grundstückskosten, nur Bodenwert = ohne Restwert; "
-    "nicht mit Modellhaus vergleichbar.",
+    "Nicht nach außen: Blatt NBank. Standortwerte Modellhaus (Projekt 2): Vergleichs- und Marktmiete (Eingabe 4.3, 4.4) "
+    "aus dem PGN-Mietband Neu Wulmstorf, Liegenschaftszins (Tabellen, Tabelle 4) für Neu Wulmstorf. Vergleichshaus "
+    "(Projekt 1, Modellhaus bis 11.11.2026): Marktmiete und Liegenschaftszins sind amtliche Werte der "
+    "Gutachterausschüsse für Rotenburg (Wümme), Stand 01.01.2026; die Vergleichsmiete ist eine Annahme der PGN. Für "
+    "einen anderen Standort ersetzen.",
+    "Modellhaus (Projekt 2, Neu Wulmstorf): Grundstück im Bestand, Ansatz 0 € (Verkehrswert 731.325 €, nicht "
+    "angesetzt); Renditen ohne Grundstückskosten, nur Bodenwert = ohne Restwert; nicht mit dem Vergleichshaus "
+    "(Projekt 1) vergleichbar.",
 ]
 for _i, _t in enumerate(HINWEISE):
     BESCHRIFTUNG["Hinweise"][f"B{3 + _i}"] = _t
@@ -1090,20 +1128,22 @@ def lade_referenz():
     sys.path.remove(str(PRUEF_DIR))
     RR = rr
     ANN = rr.Annahmen(str(PRUEF_DIR / "annahmen.json"))
+    # Projekt 1 (Vergleichshaus) = parameter_broschuere der RR: das Modellhaus der Broschüre bis 11.11.2026. Projekt 2
+    # (Modellhaus seit 11.11.2026, Konzept R) = parameter_referenzprojekt der RR. Die RR bleibt unverändert.
     pb = rr.parameter_broschuere(ANN)
-    # Bewertungsansätze des Modellhauses seit 11.11.2026 (Konzept Q, Abweichung A7): Markt- und Vergleichsmiete und
+    # Bewertungsansätze von Projekt 1 seit 11.11.2026 (Konzept Q, Abweichung A7): Markt- und Vergleichsmiete und
     # Liegenschaftszins für Rotenburg (Wümme). Die RR rechnet damit; ihre eigene Tabelle (Neu Wulmstorf) gilt für
     # Projekt 2 und für die Läufe L63 und L68 (Stand bis 10.11.2026).
     pb["ovm_start"], pb["markt_start"] = OVM_ROTENBURG, MARKT_ROTENBURG
     pb["lz_tab"] = list(zip(LZ_RND, LZ_ROTENBURG))
-    BASIS["M"], BASIS["T"] = pb, rr.parameter_referenzprojekt(ANN)
+    BASIS["V"], BASIS["T"] = pb, rr.parameter_referenzprojekt(ANN)
 
 
 def standard_eingaben(proj):
     """Eingaben 1.1 bis 10.2 des Projekts im Standard, dazu unter "T4" der Liegenschaftszins des Projekts aus
     Tabelle 4 (Sätze zu den Restnutzungsdauern LZ_RND)."""
     P = BASIS[proj]
-    e = {e[0]: (e[8] if proj == "M" else e[9])(P) for e in EINGABEN}
+    e = {e[0]: (e[8] if proj == "V" else e[9])(P) for e in EINGABEN}
     e[T4] = tuple(lz for _rnd, lz in P["lz_tab"])
     return e
 
@@ -1861,58 +1901,63 @@ def vergleiche(p, was, ist, spec, werte_blatt=None):
 # =====================================================================================================
 # 6. Testläufe in Excel (Kopie, Eingaben setzen, recalc.py, lesen)
 # =====================================================================================================
-# Bewertungsansätze des Modellhauses bis 10.11.2026 (Platzhalter aus Neu Wulmstorf), für L63 und L68
+# Bewertungsansätze von Projekt 1 bis 10.11.2026 (Platzhalter aus Neu Wulmstorf), für L63 und L68
 BEWERTUNG_BIS_10_11 = {"4.3": OVM_PLATZHALTER, "4.4": MARKT_PLATZHALTER, T4: LZ_NEU_WULMSTORF}
+# Projekt "V" = Projekt 1 (Vergleichshaus, früheres Modellhaus): der Lauf setzt Eingaben!D3 = 1 ausdrücklich. Projekt "T" =
+# Projekt 2 (Modellhaus, Tarutinoer): der Lauf rechnet im Auslieferungsstand (D3 = 2), das Skript setzt D3 nicht.
 LAEUFE = [
-    ("L1", "M", {}), ("L2", "T", {}), ("L3", "T", {"2.3": 354120}), ("L4", "T", {"2.3": 731325}),
+    ("L1", "V", {}), ("L2", "T", {}), ("L3", "T", {"2.3": 354120}), ("L4", "T", {"2.3": 731325}),
     ("L5", "T", {"2.3": 731325, "7.1": 309386.40}),
     ("L6", "T", {"2.3": 731325, "6.1": 0.045, "6.2": 15, "6.3": 0.055}),
     ("L7", "T", {"2.3": 731325, "6.4": 25}), ("L8", "T", {"2.3": 731325, "6.1": 0.05, "6.3": 0.05, "6.4": 42}),
-    ("L9", "T", {"2.3": 731325, "2.4": 0}), ("L10", "M", {"2.1": 5200}), ("L11", "M", {"2.3": 2000000}),
-    ("L12", "M", {"2.2": 100000}), ("L13", "M", {"1.1": 2030}), ("L14", "M", {"1.2": 1000, "1.3": 15}),
-    ("L15", "M", {"3.1": 1 / 33}), ("L16", "M", {"3.2": 2}), ("L17", "M", {"3.3": 0.05}), ("L18", "M", {"3.4": 0.046}),
-    ("L19", "M", {"4.1": "II"}), ("L20", "M", {"4.2": "ja"}), ("L21", "M", {"4.3": 12.00}),
-    ("L22", "M", {"4.4": 16.00}), ("L23", "M", {"4.5": 0.025}), ("L24", "M", {"4.6": 0.15}),
-    ("L25", "M", {"5.1": 0.04}), ("L26", "M", {"5.2": 400}), ("L27", "M", {"5.3": 18.00}),
-    ("L28", "M", {"5.4": 0.025}), ("L29", "M", {"5.5": 2}), ("L30", "M", {"7.2": 0.03}), ("L31", "M", {"7.3": 0.07}),
-    ("L32", "M", {"8.1": 0.01}), ("L33", "M", {"8.2": "Vergleichsmiete"}), ("L34", "M", {"8.3": 0.05}),
-    ("L35", "M", {"9.1": 1.10}), ("L36", "M", {"9.2": 0.95}), ("L37", "M", {"9.3": 0.005}), ("L38", "M", {"9.4": 0.50}),
+    ("L9", "T", {"2.3": 731325, "2.4": 0}), ("L10", "V", {"2.1": 5200}), ("L11", "V", {"2.3": 2000000}),
+    ("L12", "V", {"2.2": 100000}), ("L13", "V", {"1.1": 2030}), ("L14", "V", {"1.2": 1000, "1.3": 15}),
+    ("L15", "V", {"3.1": 1 / 33}), ("L16", "V", {"3.2": 2}), ("L17", "V", {"3.3": 0.05}), ("L18", "V", {"3.4": 0.046}),
+    ("L19", "V", {"4.1": "II"}), ("L20", "V", {"4.2": "ja"}), ("L21", "V", {"4.3": 12.00}),
+    ("L22", "V", {"4.4": 16.00}), ("L23", "V", {"4.5": 0.025}), ("L24", "V", {"4.6": 0.15}),
+    ("L25", "V", {"5.1": 0.04}), ("L26", "V", {"5.2": 400}), ("L27", "V", {"5.3": 18.00}),
+    ("L28", "V", {"5.4": 0.025}), ("L29", "V", {"5.5": 2}), ("L30", "V", {"7.2": 0.03}), ("L31", "V", {"7.3": 0.07}),
+    ("L32", "V", {"8.1": 0.01}), ("L33", "V", {"8.2": "Vergleichsmiete"}), ("L34", "V", {"8.3": 0.05}),
+    ("L35", "V", {"9.1": 1.10}), ("L36", "V", {"9.2": 0.95}), ("L37", "V", {"9.3": 0.005}), ("L38", "V", {"9.4": 0.50}),
     # Nacharbeit Runde 1: Bankdarlehen mit negativen EK-Renditen (IRR-Kaskade, P4 mit VOFI), keine Nullstelle > −100 %
-    ("L39", "M", {"2.1": 6000}), ("L40", "M", {"9.1": 2.0}), ("L41", "M", {"4.5": -0.05}),
+    ("L39", "V", {"2.1": 6000}), ("L40", "V", {"9.1": 2.0}), ("L41", "V", {"4.5": -0.05}),
     # Konzept N (frei finanziert): Miete für DSCR-Ziel 1,0 und 1,25 in beiden Projekten; Bankzins 0 % und 6 %;
     # Laufzeit Bank 20 und 42 Jahre; Zusatz-EK 1 Mio. €; Grundstück 500.000 €
-    ("L43", "M", {"10.1": "Miete für DSCR-Ziel"}), ("L44", "M", {"10.1": "Miete für DSCR-Ziel", "10.2": 1.25}),
+    ("L43", "V", {"10.1": "Miete für DSCR-Ziel"}), ("L44", "V", {"10.1": "Miete für DSCR-Ziel", "10.2": 1.25}),
     ("L45", "T", {"10.1": "Miete für DSCR-Ziel"}), ("L46", "T", {"10.1": "Miete für DSCR-Ziel", "10.2": 1.25}),
-    ("L47", "M", {"6.1": 0.0}), ("L48", "M", {"6.1": 0.06}), ("L49", "M", {"6.4": 20}), ("L50", "M", {"6.4": 42}),
-    ("L51", "M", {"7.1": 1000000}), ("L52", "M", {"2.3": 500000}),
+    ("L47", "V", {"6.1": 0.0}), ("L48", "V", {"6.1": 0.06}), ("L49", "V", {"6.4": 20}), ("L50", "V", {"6.4": 42}),
+    ("L51", "V", {"7.1": 1000000}), ("L52", "V", {"2.3": 500000}),
     # Nacharbeit Prüfrunde 1 (Konzept N.7): Laufzeit Bank 60 Jahre (Restschuld am Horizont 42); frei ohne Bankdarlehen
     # (Zusatz-EK 6 Mio. €) mit Marktmiete und mit Miete für DSCR-Ziel; Miete für DSCR-Ziel mit Zinsbindung 1 Jahr und
     # Anschlusszins 6 %; DSCR-Ziel an den Grenzen 0,5 und 3 (Tarutinoer)
-    ("L53", "M", {"6.4": 60}), ("L54", "M", {"7.1": 6000000}),
-    ("L55", "M", {"10.1": "Miete für DSCR-Ziel", "6.2": 1, "6.3": 0.06}),
+    ("L53", "V", {"6.4": 60}), ("L54", "V", {"7.1": 6000000}),
+    ("L55", "V", {"10.1": "Miete für DSCR-Ziel", "6.2": 1, "6.3": 0.06}),
     ("L56", "T", {"10.1": "Miete für DSCR-Ziel", "10.2": 0.5}), ("L57", "T", {"10.1": "Miete für DSCR-Ziel", "10.2": 3.0}),
-    ("L58", "M", {"10.1": "Miete für DSCR-Ziel", "7.1": 6000000}),
+    ("L58", "V", {"10.1": "Miete für DSCR-Ziel", "7.1": 6000000}),
     # Nacharbeit Prüfrunde 2 (Konzept N.8): Laufzeit Bank gleich der Zinsbindung (6.4 = 10) und kleiner (6.4 = 5,
     # Tarutinoer mit Verkehrswert: Bankdarlehen auch gefördert); Zinsbindung gleich Laufzeit 30 Jahre; Marktmiete 0
     # mit Miete für DSCR-Ziel (Aufschläge „–“)
-    ("L59", "M", {"6.4": 10}), ("L60", "T", {"2.3": 731325, "6.4": 5}), ("L61", "M", {"6.2": 30}),
-    ("L62", "M", {"4.4": 0, "10.1": "Miete für DSCR-Ziel"}),
-    # Vorgabe 3.1 des Modellhauses seit 10.11.2026: 1/42 (linear über die Höchstlaufzeit); Bewertungsansätze seit 11.11.2026:
-    # Rotenburg (Wümme). L63 rechnet das Modellhaus mit dem früheren Satz 2,5 % und den früheren Bewertungsansätzen
+    ("L59", "V", {"6.4": 10}), ("L60", "T", {"2.3": 731325, "6.4": 5}), ("L61", "V", {"6.2": 30}),
+    ("L62", "V", {"4.4": 0, "10.1": "Miete für DSCR-Ziel"}),
+    # Vorgabe 3.1 von Projekt 1 seit 10.11.2026: 1/42 (linear über die Höchstlaufzeit); Bewertungsansätze seit 11.11.2026:
+    # Rotenburg (Wümme). L63 rechnet Projekt 1 mit dem früheren Satz 2,5 % und den früheren Bewertungsansätzen
     # (12,92 / 14,48 €/m², Liegenschaftszins Neu Wulmstorf): Träger der Regression gegen den Stand vorher und der
     # Sollwerte des Konzepts aus F.3
-    ("L63", "M", {"3.1": 0.025, **BEWERTUNG_BIS_10_11}),
+    ("L63", "V", {"3.1": 0.025, **BEWERTUNG_BIS_10_11}),
     # Tarutinoer mit dem früheren Satz 2,5 % (1/40 wie v2-1): L64 trägt den Abgleich mit v2-1, die Überleitung E.3, die Regression
     # und die bisherigen Sollwerte von L2; L65 bis L67 tragen die bisherigen Sollwerte von L3 bis L5
     ("L64", "T", {"3.1": 0.025}), ("L65", "T", {"2.3": 354120, "3.1": 0.025}), ("L66", "T", {"2.3": 731325, "3.1": 0.025}),
     ("L67", "T", {"2.3": 731325, "7.1": 309386.40, "3.1": 0.025}),
-    # Modellhaus im Stand vom 10.11.2026 (Tilgung 1/42, Bewertungsansätze 12,92 / 14,48 €/m² und Liegenschaftszins Neu
+    # Projekt 1 im Stand vom 10.11.2026 (Tilgung 1/42, Bewertungsansätze 12,92 / 14,48 €/m² und Liegenschaftszins Neu
     # Wulmstorf): trägt die Sollwerte, die bis dahin für L1 galten (Konzept Q)
-    ("L68", "M", dict(BEWERTUNG_BIS_10_11)),
+    ("L68", "V", dict(BEWERTUNG_BIS_10_11)),
+    # Sensitivität der Broschüre S. 10 seit 11.11.2026 (Konzept R): Modellhaus (Projekt 2) mit Herstellungskosten
+    # 4.631 €/m² (ARGE-Median) und 5.000 €/m² (Ausgangswert der Bemessungsgrenze); 3.579 €/m² ist der Standard (L2)
+    ("L69", "T", {"2.1": 4631}), ("L70", "T", {"2.1": 5000}),
 ]
 # Fehlerlauf (Runde 2, R1): ungültige Mietenstufe per Einfügen (die Datenüberprüfung greift dabei nicht). Erwartet:
 # Fehlerwerte in der Mappe, aber Gesamtstatus und Prüfungen „prüfen“ (nie „OK“ aus Fehlerwerten), NBank-Lage „prüfen“.
-LAEUFE_FEHLER = [("L42", "M", {"4.1": "VIII"})]
+LAEUFE_FEHLER = [("L42", "V", {"4.1": "VIII"})]
 
 
 def pruefe_fehlerlauf(b, lid, res, werte):
@@ -1974,7 +2019,8 @@ def excel_lauf(mappe, ordner, lid, proj, aend, timeout):
     shutil.copy(mappe, ziel)
     wb = openpyxl.load_workbook(ziel)
     ws = wb["Eingaben"]
-    ws["D3"] = 1 if proj == "M" else 2
+    if proj != PROJEKT_STANDARD:                      # Projekt 1: D3 = 1 ausdrücklich; Projekt 2 rechnet wie ausgeliefert
+        ws["D3"] = PROJEKT_NR[proj]
     for nr, v in aend.items():
         if nr == T4:                                  # Liegenschaftszins des aktiven Projekts, Tabelle 4
             for k, lz in enumerate(v):
@@ -2767,19 +2813,21 @@ def pruefe_f6(b, wb):
 
 def pruefe_eingaben(b, wb, nz):
     we = wb["Eingaben"]
-    p = b.pruefung("B.2", "Eingabewerte beider Projekte = Broschüre/RR (Modellhaus) bzw. v2-1 (Tarutinoer)")
-    for proj in ("M", "T"):
+    p = b.pruefung("B.2", "Eingabewerte beider Projekte = RR: parameter_broschuere (Projekt 1, Vergleichshaus) bzw. "
+                          "parameter_referenzprojekt (Projekt 2, Modellhaus)")
+    for proj in ("V", "T"):
         soll = standard_eingaben(proj)
         col = PROJEKT_SPALTE[proj]
         for e in EINGABEN:
             ist = we[f"{col}{e[1]}"].value
             s = soll[e[0]]
             if isinstance(s, str):
-                p.gleich(f"{e[0]} {e[2]} ({PROJEKT_NAME[proj][:10]})", ist, s)
+                p.gleich(f"{e[0]} {e[2]} ({PROJEKT_KURZ[proj]})", ist, s)
             else:
-                p.zahl(f"{e[0]} {e[2]} ({PROJEKT_NAME[proj][:10]})", ist, float(s), 1e-9 * max(1.0, abs(s)))
-    p.check(we["D3"].value == 1, "D3 Aktives Projekt (Standard)", we["D3"].value, 1)
-    p.gleich("D4 Projektname 1", we["D4"].value, PROJEKT_NAME["M"])
+                p.zahl(f"{e[0]} {e[2]} ({PROJEKT_KURZ[proj]})", ist, float(s), 1e-9 * max(1.0, abs(s)))
+    p.check(we["D3"].value == PROJEKT_NR[PROJEKT_STANDARD], "D3 Aktives Projekt (Auslieferungsstand: Projekt 2, Modellhaus)",
+            we["D3"].value, PROJEKT_NR[PROJEKT_STANDARD])
+    p.gleich("D4 Projektname 1", we["D4"].value, PROJEKT_NAME["V"])
     p.gleich("E4 Projektname 2", we["E4"].value, PROJEKT_NAME["T"])
     p.fertig()
 
@@ -2893,7 +2941,7 @@ def de_bereich(x, klasse):
 
 def pruefe_tabellen(b, wb):
     wt = wb["Tabellen"]
-    P = BASIS["M"]
+    P = BASIS["V"]
     p = b.pruefung("C", "Tabellen-Festwerte = RL 2026 / Referenzrechnung, schwarz, nicht gelb")
     for i, g in enumerate(GRUPPEN):
         c = "DEF"[i]
@@ -2916,7 +2964,7 @@ def pruefe_tabellen(b, wb):
     for k, rnd in enumerate(LZ_RND):
         r = LZ_ZEILE + k
         p.zahl(f"LZ RND {rnd}", wt[f"B{r}"].value, rnd, 0)
-        p.zahl(f"LZ Satz {rnd} Projekt 1", wt[f"D{r}"].value, BASIS["M"]["lz_tab"][k][1], 1e-12)
+        p.zahl(f"LZ Satz {rnd} Projekt 1", wt[f"D{r}"].value, BASIS["V"]["lz_tab"][k][1], 1e-12)
         p.zahl(f"LZ Satz {rnd} Projekt 2", wt[f"E{r}"].value, BASIS["T"]["lz_tab"][k][1], 1e-12)
         v = (wt[f"F{r}"].value or "")
         p.check(isinstance(v, str) and v.replace(" ", "").upper() == f"=INDEX($D{r}:$E{r},PROJEKT_NR)", f"Tabellen!F{r}", v,
@@ -3008,7 +3056,7 @@ def pruefe_lauf(b, lid, proj, aend, res, werte, soll, specs):
         return
     p = b.pruefung("F7", f"{lid} Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“)")
     p.gleich("Eingaben!F4 (Aktives_Projekt)", werte.get("Eingaben", "F4"), PROJEKT_NAME[proj])
-    p.zahl("Projekt_Nr (Eingaben!D3)", werte.get("Eingaben", "D3"), 1 if proj == "M" else 2, 0)
+    p.zahl("Projekt_Nr (Eingaben!D3)", werte.get("Eingaben", "D3"), PROJEKT_NR[proj], 0)
     for e in EINGABEN:
         ist = werte.get("Eingaben", f"F{e[1]}")
         s = soll.e[e[0]]
@@ -3017,7 +3065,7 @@ def pruefe_lauf(b, lid, proj, aend, res, werte, soll, specs):
         else:
             p.zahl(f"F{e[1]} {e[2]}", ist, float(s), 1e-9 * max(1.0, abs(s)))
     # Tabelle 4: „verwendet“ (F) = Liegenschaftszins des aktiven Projekts; die Spalte des anderen Projekts bleibt Standard
-    anderes = "T" if proj == "M" else "M"
+    anderes = "T" if proj == "V" else "V"
     for k, rnd in enumerate(LZ_RND):
         r = LZ_ZEILE + k
         p.zahl(f"Tabellen!B{r} Restnutzungsdauer", werte.get("Tabellen", f"B{r}"), rnd, 0)
@@ -3201,11 +3249,13 @@ def pruefe_formeltexte(b, wb, laeufe):
     p.fertig()
 
 
-def pruefe_gelieferte_werte(b, gel, l1):
-    p = b.pruefung("F2", "Gelieferte Mappe neu berechnet, Modellhaus aktiv (Zwischenwerte = Lauf L1)")
+def pruefe_gelieferte_werte(b, gel, std):
+    p = b.pruefung("F2", f"Gelieferte Mappe neu berechnet, Projekt 2 (Modellhaus) aktiv (Zwischenwerte = Lauf {STANDARD_LAUF})")
+    p.zahl("Eingaben!D3 im Zwischenspeicher", gel.get("Eingaben", "D3"), PROJEKT_NR[PROJEKT_STANDARD], 0)
+    p.gleich("Übersicht!D2 Aktives Projekt", gel.get(UEB, "D2"), PROJEKT_NAME[PROJEKT_STANDARD])
     fehler = []
     for blatt in (UEB, "NBank") + tuple(GEF.values()) + (FREI,):
-        for z, v in l1.blatt(blatt).items():
+        for z, v in std.blatt(blatt).items():
             g = gel.get(blatt, z)
             if ist_zahl(v):
                 ok = ist_zahl(g) and abs(g - v) <= 1e-6 * max(1.0, abs(v))
@@ -3252,6 +3302,8 @@ REGRESSION_TEXTE = {
     "EK-IRR nur Bodenwert und ohne Restwert: mehrere Nullstellen möglich; VOFI-EK-Rendite maßgeblich.":
         "N10, N11, N14, N15: EK-IRR nicht eindeutig (Hinweis 11); maßgeblich ist die VOFI-EK-Rendite.",
 }
+# Projektnamen seit 11.11.2026 (Konzept R): Gefördert A/B/C!D2 und NBank!D3 zeigen den Namen des aktiven Projekts
+REGRESSION_TEXTE.update({PROJEKT_NAME_BIS_11_11[_p]: PROJEKT_NAME[_p] for _p in PROJEKT_NAME})
 REGRESSION_PROZENT = {("NBank", "C5"), ("NBank", "C7")}
 REGRESSION_FREI = {"Ertragswert zur Marktmiete": "Ertragswert zur gerechneten Miete",
                    "Ertragswert Marktmiete gegenüber Gesamtkosten": "Ertragswert gegenüber Gesamtkosten"}
@@ -3381,7 +3433,7 @@ def baseline_lauf(baseline, ordner, proj, timeout):
     ziel = Path(ordner) / f"baseline_{proj}.xlsx"
     shutil.copy(baseline, ziel)
     wb = openpyxl.load_workbook(ziel)
-    wb["Eingaben"]["D3"] = 1 if proj == "M" else 2
+    wb["Eingaben"]["D3"] = PROJEKT_NR[proj]            # der Stand vorher ist mit Projekt 1 ausgeliefert
     wb.save(ziel)
     wb.close()
     res = recalc(ziel, timeout)
@@ -3389,7 +3441,7 @@ def baseline_lauf(baseline, ordner, proj, timeout):
 
 
 def pruefe_gleich_l1(b, lid, werte, l1):
-    p = b.pruefung("F7", f"{lid} Ergebnisse Übersicht = L1")
+    p = b.pruefung("F7", f"{lid} Ergebnisse Übersicht = L1 (Projekt 1; das Bezugsjahr ändert nur Jahresangaben)")
     for z, v in l1.blatt(UEB).items():
         g = werte.get(UEB, z)
         if ist_zahl(v):
@@ -3527,8 +3579,8 @@ KONZEPT["L11"] += [(UEB, f"{c}{r}", "#") for c in "GK" for r in (76, 78, 79)]
 KONZEPT["L12"] += [(UEB, "D18", "0"), (UEB, "D23", "849.000")]
 
 
-# ---- Vorgabe 3.1 seit 10.11.2026: Modellhaus mit Tilgung 1/42 (linear über die Höchstlaufzeit) ---------------------------------
-# Die Tabellen oben nennen die Sollwerte des Modellhauses bei Tilgung 2,5 %; sie gelten unverändert für L63 (3.1 = 2,5 %).
+# ---- Vorgabe 3.1 seit 10.11.2026: Projekt 1 (Vergleichshaus) mit Tilgung 1/42 (linear über die Höchstlaufzeit) -------------
+# Die Tabellen oben nennen die Sollwerte von Projekt 1 bei Tilgung 2,5 %; sie gelten unverändert für L63 (3.1 = 2,5 %).
 # Für L1 (Vorgabe 1/42) weichen die folgenden Zellen ab. Gerechnet prüft F8 jeden Wert gegen die Referenzrechnung; hier steht
 # die Anzeige der Mappe in der Schreibweise des Konzepts („=…“: Text in der Zelle).
 KONZEPT["L63"] = list(KONZEPT["L1"])
@@ -3574,11 +3626,11 @@ _L1_TILGUNG_42 = {
 KONZEPT["L1"] = [(_bl, _z, _L1_TILGUNG_42.get((_bl, _z), _v)) for _bl, _z, _v in KONZEPT["L1"]]
 
 
-# ---- Bewertungsansätze seit 11.11.2026: Modellhaus mit Markt- und Vergleichsmiete und Liegenschaftszins Rotenburg (Wümme) ---
+# ---- Bewertungsansätze seit 11.11.2026: Projekt 1 mit Markt- und Vergleichsmiete und Liegenschaftszins Rotenburg (Wümme) ----
 # Die Werte bis hier (Tilgung 1/42, 12,92 / 14,48 €/m², Liegenschaftszins Neu Wulmstorf) gelten unverändert für L68. Für L1
 # weichen die Zellen ab, die an Marktmiete, Vergleichsmiete oder Liegenschaftszins hängen (Renditen, Restwert, frei
 # finanziert); Finanzierung, Jahresrechnung, Liquidität A/B/C und Tilgungsvergleich bleiben. Die Werte kommen aus der
-# Referenzrechnung mit den neuen Parametern (Soll("M", {}), Anzeige in der Schreibweise des Konzepts), nicht aus der Mappe;
+# Referenzrechnung mit den neuen Parametern (Soll("V", {}), Anzeige in der Schreibweise des Konzepts), nicht aus der Mappe;
 # F8 prüft dieselben Zellen in jedem Lauf gegen die Referenzrechnung.
 KONZEPT["L68"] = list(KONZEPT["L1"])
 _L1_ROTENBURG = {
@@ -3621,7 +3673,7 @@ _L1_ROTENBURG = {
 KONZEPT["L1"] = [(_bl, _z, _L1_ROTENBURG.get((_bl, _z), _v)) for _bl, _z, _v in KONZEPT["L1"]]
 
 
-# Tarutinoer seit 10.11.2026 ebenfalls mit Tilgung 1/42: Die Tabellen oben gelten für L64 bis L67 (3.1 = 2,5 %, der Satz der
+# Projekt 2 (Tarutinoer) seit 10.11.2026 ebenfalls mit Tilgung 1/42: Die Tabellen oben gelten für L64 bis L67 (3.1 = 2,5 %, der Satz der
 # Vorgängermappe); für die Läufe L2 bis L5 mit der neuen Vorgabe weichen die folgenden Zellen ab (Anzeige der Mappe, in F8
 # gegen die Referenzrechnung geprüft).
 _TARU_TILGUNG_42 = {
@@ -3662,6 +3714,107 @@ _TARU_TILGUNG_42 = {
 }
 for _lid, _neu in _TARU_TILGUNG_42.items():
     KONZEPT[_lid] = [(_bl, _z, _neu.get((_bl, _z), _v)) for _bl, _z, _v in KONZEPT[_lid]]
+
+
+# ---- Modellhaus seit 11.11.2026 = Projekt 2 im Standard (L2, Konzept R.4) -------------------------------------------------------
+# Übersicht Spalten D–G (A, B, C, Frei) der Blöcke 1 bis 4, des Blocks 6 und der Zeilen 7.1, 7.7, 8.2 und 8.3: die Werte, die
+# Broschüre und Präsentation zeigen oder aus denen sie abgeleitet sind. Sie kommen aus der Referenzrechnung (Soll("T", {}),
+# Anzeige in der Schreibweise des Konzepts), nicht aus der Mappe: Beträge mit Toleranz 0,01 € mit Cent, Beträge mit Toleranz
+# 1 € (Zeitreihe ab Jahr 2, Barwerte, Restwert) in ganzen Euro. F8 prüft dieselben Zellen in jedem Lauf gegen die
+# Referenzrechnung. Zellen, die oben schon für L2 stehen, behalten ihren Eintrag.
+_L2_MODELLHAUS = {
+    ("Übersicht", "D9"): "2.963.412,00", ("Übersicht", "E9"): "2.963.412,00", ("Übersicht", "F9"): "2.963.412,00",
+    ("Übersicht", "G9"): "2.963.412,00", ("Übersicht", "D10"): "2.963.412,00", ("Übersicht", "E10"): "2.963.412,00",
+    ("Übersicht", "F10"): "2.963.412,00", ("Übersicht", "D11"): "0,00", ("Übersicht", "E11"): "0,00",
+    ("Übersicht", "F11"): "0,00", ("Übersicht", "D12"): "0,00", ("Übersicht", "E12"): "0,00", ("Übersicht", "F12"): "0,00",
+    ("Übersicht", "D13"): "1.185.364,80", ("Übersicht", "E13"): "1.778.047,20", ("Übersicht", "F13"): "2.074.388,40",
+    ("Übersicht", "D14"): "1.185.364,80", ("Übersicht", "E14"): "592.682,40", ("Übersicht", "F14"): "296.341,20",
+    ("Übersicht", "D15"): "2.370.729,60", ("Übersicht", "E15"): "2.370.729,60", ("Übersicht", "F15"): "2.370.729,60",
+    ("Übersicht", "D16"): "80,00 %", ("Übersicht", "E16"): "80,00 %", ("Übersicht", "F16"): "80,00 %",
+    ("Übersicht", "D17"): "1.670.288", ("Übersicht", "E17"): "1.328.957", ("Übersicht", "F17"): "1.158.292",
+    ("Übersicht", "D18"): "0,00", ("Übersicht", "E18"): "0,00", ("Übersicht", "F18"): "0,00",
+    ("Übersicht", "G18"): "2.370.729,60", ("Übersicht", "D19"): "592.682,40", ("Übersicht", "E19"): "592.682,40",
+    ("Übersicht", "F19"): "592.682,40", ("Übersicht", "G19"): "592.682,40", ("Übersicht", "D20"): "20,00 %",
+    ("Übersicht", "E20"): "20,00 %", ("Übersicht", "F20"): "20,00 %", ("Übersicht", "G20"): "20,00 %",
+    ("Übersicht", "D21"): "20.743,88", ("Übersicht", "E21"): "22.225,59", ("Übersicht", "F21"): "22.966,44",
+    ("Übersicht", "D22"): "613.426,28", ("Übersicht", "E22"): "614.907,99", ("Übersicht", "F22"): "615.648,84",
+    ("Übersicht", "G22"): "592.682,40", ("Übersicht", "D23"): "613.426,28", ("Übersicht", "E23"): "614.907,99",
+    ("Übersicht", "F23"): "615.648,84", ("Übersicht", "G23"): "592.682,40", ("Übersicht", "D24"): "84.668,91",
+    ("Übersicht", "E24"): "42.334,46", ("Übersicht", "F24"): "21.167,23", ("Übersicht", "D25"): "42.334,46",
+    ("Übersicht", "E25"): "42.334,46", ("Übersicht", "F25"): "42.334,46", ("Übersicht", "D26"): "6,80",
+    ("Übersicht", "E26"): "8,20", ("Übersicht", "F26"): "9,00", ("Übersicht", "G26"): "14,48",
+    ("Übersicht", "D29"): "67.564,80", ("Übersicht", "E29"): "81.475,20", ("Übersicht", "F29"): "89.424,00",
+    ("Übersicht", "G29"): "143.876,82", ("Übersicht", "D30"): "1.351,30", ("Übersicht", "E30"): "1.629,50",
+    ("Übersicht", "F30"): "1.788,48", ("Übersicht", "G30"): "2.877,54", ("Übersicht", "D31"): "5.138,00",
+    ("Übersicht", "E31"): "5.138,00", ("Übersicht", "F31"): "5.138,00", ("Übersicht", "G31"): "5.138,00",
+    ("Übersicht", "D32"): "11.923,20", ("Übersicht", "E32"): "11.923,20", ("Übersicht", "F32"): "11.923,20",
+    ("Übersicht", "G32"): "11.923,20", ("Übersicht", "D33"): "49.152,30", ("Übersicht", "E33"): "62.784,50",
+    ("Übersicht", "F33"): "70.574,32", ("Übersicht", "G33"): "123.938,09", ("Übersicht", "D34"): "5.926,82",
+    ("Übersicht", "E34"): "8.890,24", ("Übersicht", "F34"): "10.371,94", ("Übersicht", "D35"): "0,00",
+    ("Übersicht", "E35"): "0,00", ("Übersicht", "F35"): "0,00", ("Übersicht", "D36"): "28.222,97",
+    ("Übersicht", "E36"): "42.334,46", ("Übersicht", "F36"): "49.390,20", ("Übersicht", "D37"): "0,00",
+    ("Übersicht", "E37"): "0,00", ("Übersicht", "F37"): "0,00", ("Übersicht", "G37"): "132.804,64",
+    ("Übersicht", "D38"): "15.002,51", ("Übersicht", "E38"): "11.559,80", ("Übersicht", "F38"): "10.812,18",
+    ("Übersicht", "G38"): "−8.866,55", ("Übersicht", "D39"): "20.743,88", ("Übersicht", "E39"): "22.225,59",
+    ("Übersicht", "F39"): "22.966,44", ("Übersicht", "D42"): "25.927", ("Übersicht", "E42"): "25.792",
+    ("Übersicht", "F42"): "26.890", ("Übersicht", "G42"): "15.313", ("Übersicht", "D43"): "64.860",
+    ("Übersicht", "E43"): "76.468", ("Übersicht", "F43"): "84.149", ("Übersicht", "G43"): "243.002",
+    ("Übersicht", "D44"): "115.990", ("Übersicht", "E44"): "139.129", ("Übersicht", "F44"): "153.402",
+    ("Übersicht", "G44"): "279.133", ("Übersicht", "D45"): "1,4393", ("Übersicht", "E45"): "1,2257",
+    ("Übersicht", "F45"): "1,1809", ("Übersicht", "G45"): "0,9332", ("Übersicht", "D46"): "1,4310",
+    ("Übersicht", "E46"): "1,2223", ("Übersicht", "F46"): "1,1791", ("Übersicht", "G46"): "0,9332", ("Übersicht", "D47"): "0",
+    ("Übersicht", "E47"): "0", ("Übersicht", "F47"): "0", ("Übersicht", "G47"): "4", ("Übersicht", "D48"): "0",
+    ("Übersicht", "E48"): "0", ("Übersicht", "F48"): "0", ("Übersicht", "G48"): "−20.394", ("Übersicht", "D49"): "3,65 %",
+    ("Übersicht", "E49"): "3,03 %", ("Übersicht", "F49"): "2,90 %", ("Übersicht", "D50"): "197.561",
+    ("Übersicht", "E50"): "296.341", ("Übersicht", "F50"): "345.731", ("Übersicht", "D51"): "0", ("Übersicht", "E51"): "0",
+    ("Übersicht", "F51"): "0", ("Übersicht", "D52"): "0", ("Übersicht", "E52"): "0", ("Übersicht", "F52"): "0",
+    ("Übersicht", "G52"): "0", ("Übersicht", "D55"): "43.225,48", ("Übersicht", "E55"): "53.894,26",
+    ("Übersicht", "F55"): "60.202,38", ("Übersicht", "G55"): "=C", ("Übersicht", "D56"): "31.371,83",
+    ("Übersicht", "E56"): "36.113,79", ("Übersicht", "F56"): "39.458,49", ("Übersicht", "G56"): "=C",
+    ("Übersicht", "D57"): "25.445,01", ("Übersicht", "E57"): "27.223,55", ("Übersicht", "F57"): "29.086,55",
+    ("Übersicht", "G57"): "=C", ("Übersicht", "D58"): "19.518,18", ("Übersicht", "E58"): "18.333,32",
+    ("Übersicht", "F58"): "18.714,61", ("Übersicht", "G58"): "=A", ("Übersicht", "D59"): "15.002,51",
+    ("Übersicht", "E59"): "11.559,80", ("Übersicht", "F59"): "10.812,18", ("Übersicht", "G59"): "=A",
+    ("Übersicht", "D60"): "13.591,36", ("Übersicht", "E60"): "9.443,08", ("Übersicht", "F60"): "8.342,67",
+    ("Übersicht", "G60"): "=A", ("Übersicht", "D61"): "7.664,54", ("Übersicht", "E61"): "552,84",
+    ("Übersicht", "F61"): "−2.029,27", ("Übersicht", "G61"): "=A", ("Übersicht", "D62"): "15.002,51",
+    ("Übersicht", "E62"): "11.559,80", ("Übersicht", "F62"): "10.812,18", ("Übersicht", "G62"): "=A",
+    ("Übersicht", "E63"): "1,80 %", ("Übersicht", "F64"): "1,91 %", ("Übersicht", "F65"): "2,13 %", ("Übersicht", "D66"): "=–",
+    ("Übersicht", "E66"): "592.682,40", ("Übersicht", "F66"): "889.023,60", ("Übersicht", "D67"): "=–",
+    ("Übersicht", "E67"): "13.910,40", ("Übersicht", "F67"): "21.859,20", ("Übersicht", "D68"): "=–",
+    ("Übersicht", "E68"): "278,21", ("Übersicht", "F68"): "437,18", ("Übersicht", "D69"): "=–",
+    ("Übersicht", "E69"): "2.963,41", ("Übersicht", "F69"): "4.445,12", ("Übersicht", "D70"): "=–",
+    ("Übersicht", "E70"): "10.668,78", ("Übersicht", "F70"): "16.976,90", ("Übersicht", "D71"): "=–",
+    ("Übersicht", "E71"): "−3.442,71", ("Übersicht", "F71"): "−4.190,33", ("Übersicht", "D72"): "=–",
+    ("Übersicht", "E72"): "1.481,71", ("Übersicht", "F72"): "2.222,56", ("Übersicht", "D89"): "8,13 %",
+    ("Übersicht", "E89"): "8,29 %", ("Übersicht", "F89"): "8,44 %", ("Übersicht", "G89"): "8,67 %",
+    ("Übersicht", "D90"): "3,13 %", ("Übersicht", "E90"): "3,17 %", ("Übersicht", "F90"): "3,44 %",
+    ("Übersicht", "G90"): "4,99 %", ("Übersicht", "D91"): "6,95 %", ("Übersicht", "E91"): "7,17 %",
+    ("Übersicht", "F91"): "7,29 %", ("Übersicht", "G91"): "8,03 %", ("Übersicht", "D92"): "2,58 %",
+    ("Übersicht", "E92"): "2,61 %", ("Übersicht", "F92"): "2,75 %", ("Übersicht", "G92"): "4,26 %",
+    ("Übersicht", "D93"): "76,84 %", ("Übersicht", "E93"): "78,16 %", ("Übersicht", "F93"): "77,97 %",
+    ("Übersicht", "G93"): "71,18 %", ("Übersicht", "D94"): "3,13 %", ("Übersicht", "E94"): "3,17 %",
+    ("Übersicht", "F94"): "3,44 %", ("Übersicht", "G94"): "4,99 %", ("Übersicht", "D95"): "2,58 %",
+    ("Übersicht", "E95"): "2,61 %", ("Übersicht", "F95"): "2,75 %", ("Übersicht", "G95"): "4,26 %", ("Übersicht", "D96"): "0",
+    ("Übersicht", "E96"): "0", ("Übersicht", "F96"): "0", ("Übersicht", "G96"): "−22.640", ("Übersicht", "D100"): "4.958.369",
+    ("Übersicht", "E100"): "5.418.698", ("Übersicht", "F100"): "5.625.371", ("Übersicht", "G100"): "6.297.398",
+    ("Übersicht", "D106"): "2,80 %", ("Übersicht", "E106"): "2,80 %", ("Übersicht", "F106"): "2,80 %",
+    ("Übersicht", "G106"): "2,80 %", ("Übersicht", "D111"): "34.149,80", ("Übersicht", "E111"): "51.224,69",
+    ("Übersicht", "F111"): "59.762,14", ("Übersicht", "G111"): "132.804,64", ("Übersicht", "D112"): "5,26",
+    ("Übersicht", "E112"): "7,01", ("Übersicht", "F112"): "7,89", ("Übersicht", "G112"): "15,39",
+}
+_L2_SCHON = {(_bl, _z) for _bl, _z, _v in KONZEPT["L2"]}
+KONZEPT["L2"] += [(_bl, _z, _v) for (_bl, _z), _v in _L2_MODELLHAUS.items() if (_bl, _z) not in _L2_SCHON]
+# Sensitivität der Broschüre S. 10 (Konzept R.4): Modellhaus mit Herstellungskosten 4.631 und 5.000 €/m², aus der
+# Referenzrechnung (Soll("T", {"2.1": …})). Bis zur Bemessungsgrenze bleibt die Förderquote 80 %, ohne Bankdarlehen.
+KONZEPT["L69"] = (_abc(9, *("3.834.468,00",) * 3) + _abc(10, *("3.834.468,00",) * 3) + _abc(11, *("0,00",) * 3)
+                  + _abc(15, *("3.067.574,40",) * 3) + _abc(16, *("80,00 %",) * 3) + _abc(18, *("0,00",) * 3)
+                  + _abc(19, *("766.893,60",) * 3) + _abc(13, "1.533.787,20", "2.300.680,80", "2.684.127,60")
+                  + _abc(38, "4.964,63", "−3.497,02", "−6.754,12") + [(UEB, "D3", "=OK")])
+KONZEPT["L70"] = (_abc(9, *("4.140.000,00",) * 3) + _abc(10, *("4.140.000,00",) * 3) + _abc(11, *("0,00",) * 3)
+                  + _abc(15, *("3.312.000,00",) * 3) + _abc(16, *("80,00 %",) * 3) + _abc(18, *("0,00",) * 3)
+                  + _abc(19, *("828.000,00",) * 3) + _abc(13, "1.656.000,00", "2.484.000,00", "2.898.000,00")
+                  + _abc(38, "1.443,73", "−8.778,36", "−12.915,68") + [(UEB, "D3", "=OK")])
 
 
 def pruefe_konzeptwerte(b, lid, werte, specs):
@@ -3760,6 +3913,36 @@ def pruefe_v21_abgleich(b, ordner, werte, soll):
 # =====================================================================================================
 # 11. Broschüre S. 10–12 (F9): Werte zur Laufzeit aus content/pages lesen
 # =====================================================================================================
+# Seit 11.11.2026 zeigen Broschüre und Präsentation das Modellhaus = Projekt 2 (Konzept R). F9 liest dieselben
+# JSON-Schlüssel wie vorher und vergleicht sie mit der Übersicht des Laufs L2 (Projekt 2 im Standard, wie ausgeliefert).
+# Sensitivität S. 10: je Herstellungskostenwert ein Lauf von Projekt 2 (Eingabe 2.1); 3.579 €/m² ist der Standard.
+SENS_LAEUFE = {3579: "L2", 4631: "L69", 5000: "L70"}
+# Bezeichnung in der Sensitivität (Teiltext, klein geschrieben) -> Zellen der Übersicht, Spalte D = Gruppe A. Es gilt der
+# Teiltext, der in der Bezeichnung am weitesten vorn steht („Förderquote auf die Gesamtkosten“ ist die Förderquote), bei
+# gleicher Stelle der frühere Eintrag der Liste. Nennt die Bezeichnung „Gruppe B“ oder „in C“, gilt Spalte E bzw. F.
+SENS_ZIELE = [("mindest-eigenmittel + restfinanzierung", ("D19", "D18")), ("gesamtkosten", ("D9",)),
+              ("über der grenze", ("D11",)), ("nicht zuwendungsfähig", ("D11",)), ("zuwendungsfähig", ("D10",)),
+              ("förderquote", ("D16",)), ("förderung", ("D15",)), ("restfinanzierung", ("D18",)),
+              ("bankdarlehen", ("D18",)), ("darlehen", ("D13",)), ("zuschuss", ("D14",)), ("eigenmittel", ("D19",)),
+              ("zahlungsüberschuss", ("D38",))]
+SENS_BEZEICHNUNGEN = ("Gesamtkosten, zuwendungsfähig, über der Grenze, Förderung, Förderquote, Darlehen, Zuschuss, "
+                      "Eigenmittel, Restfinanzierung, Zahlungsüberschuss")
+KOSTEN_RE = re.compile(r"(\d\.\d{3}) € (?:je|pro) m²")      # Diagramm: Titel oder Bezeichnung „4.631 € je m²“
+KOSTEN_SPALTE_RE = re.compile(r"(\d\.\d{3})\s*€")            # Tabelle: Spaltenkopf „4.631 €“
+ZAHL_RE = re.compile(r"[−-]?\d[\d.]*(?:,\d+)?(?:\s?%)?")
+
+
+def sens_zellen(bez):
+    """Zellen der Übersicht zu einer Bezeichnung der Sensitivität; None, wenn kein Teiltext passt."""
+    klein = bez.lower()
+    treffer = sorted((klein.find(t), k) for k, (t, _z) in enumerate(SENS_ZIELE) if t in klein)
+    if not treffer:
+        return None
+    zellen = SENS_ZIELE[treffer[0][1]][1]
+    m = re.search(r"\b(?:Gruppe|Gruppen|in) ([BC])\b", bez)
+    return tuple({"B": "E", "C": "F"}[m.group(1)] + z[1:] for z in zellen) if m else zellen
+
+
 def seite(nr):
     treffer = sorted(SEITEN_DIR.glob(f"{nr:02d}-*.json"))
     return json.loads(treffer[0].read_text(encoding="utf-8"))
@@ -3777,6 +3960,18 @@ def nk_von(v):
     return len(t.split(".")[1].rstrip("0")) if "." in t else 0
 
 
+def einheit_faktor(text):
+    """Teiler für Beträge der Broschüre: „Mio. €“ 1.000.000, „Tsd. €“ 1.000, sonst 1 (Betrag in €)."""
+    t = str(text or "")
+    return 1e6 if "Mio" in t else 1e3 if "Tsd" in t else 1.0
+
+
+def zahl_text(text):
+    """Erste Zahl eines Broschürentexts in deutscher Schreibweise („bis zu 77,2 %“ -> „77,2 %“); None ohne Zahl."""
+    m = ZAHL_RE.search(str(text))
+    return m.group(0) if m else None
+
+
 def bro(p, was, ist, soll, nk=None, faktor=1.0):
     """Excel-Wert auf die gezeigte Stelle gerundet = Broschürenwert."""
     if isinstance(soll, str):
@@ -3789,6 +3984,14 @@ def bro(p, was, ist, soll, nk=None, faktor=1.0):
                    f"Excel {fmt(ist)}, gerundet auf {nk} Stellen")
 
 
+def bro_betrag(p, was, ist, text):
+    """Betrag mit Einheit im Text („1,19 Mio. €“, „80.667 €“); ein Text ohne Zahl („–“) steht für 0."""
+    z = zahl_text(text)
+    if z is None:
+        return p.check(ist_zahl(ist) and abs(ist) < 0.005, was, ist, 0, f"Broschüre „{text}“ ohne Zahl")
+    return bro(p, was, ist, z, faktor=einheit_faktor(text))
+
+
 def regex_zahl(p, was, text, muster):
     m = re.search(muster, text)
     if not m:
@@ -3797,63 +4000,261 @@ def regex_zahl(p, was, text, muster):
     return m.groups()
 
 
-def pruefe_broschuere(b, w, w10):
+def sens_knoten(knoten, kosten, pfad, out, ohne=()):
+    """Sensitivität als Diagramm: sammelt alle Angaben mit Bezeichnung und Anzeige oder Wert als (Herstellungskosten je
+    m², JSON-Pfad, Bezeichnung, Anzeige, Wert, Zelle laut Broschüre). Die Herstellungskosten je m² („4.631 € je m²“)
+    stehen im Titel des Blocks oder in der Bezeichnung eines Schritts und gelten für alles darunter. ohne = Schlüssel,
+    die nicht durchsucht werden (Spalten und Zeilen einer Tabelle, sens_tabelle)."""
+    if isinstance(knoten, list):
+        for i, v in enumerate(knoten):
+            sens_knoten(v, kosten, f"{pfad}[{i}]", out, ohne)
+        return
+    if not isinstance(knoten, dict):
+        return
+    text = " ".join(str(knoten.get(k) or "") for k in ("title", "label", "name"))
+    stufen = {int(x.replace(".", "")) for x in KOSTEN_RE.findall(text)}
+    if len(stufen) == 1:
+        kosten = stufen.pop()
+    bez = knoten.get("label") or knoten.get("name")
+    if bez is not None and ("display" in knoten or ist_zahl(knoten.get("value"))):
+        out.append((kosten, pfad, str(bez), knoten.get("display"), knoten.get("value"), knoten.get("zelle")))
+    for k, v in knoten.items():
+        if isinstance(v, (dict, list)) and k not in ohne:
+            sens_knoten(v, kosten, f"{pfad}.{k}", out, ohne)
+
+
+def sens_tabelle(bl, pfad):
+    """Sensitivität als Tabelle: Spalten mit den Herstellungskosten je m² (Objekt mit kosten_je_m2 oder Kopf „4.631 €“),
+    je Zeile eine Bezeichnung und ein Betrag je Kostenspalte. Zeilen als Listen in der Reihenfolge der Spalten oder als
+    Objekte mit label und den Listen display und values (auch cells). Liefert die Angaben wie sens_knoten oder None, wenn
+    der Block keine Tabelle mit Kostenspalten ist."""
+    daten = bl["data"] if isinstance(bl.get("data"), dict) else bl
+    spalten, zeilen = daten.get("columns"), daten.get("rows")
+    if not isinstance(spalten, list) or not isinstance(zeilen, list):
+        return None
+    if daten is not bl:
+        pfad += ".data"
+    kosten = {}
+    for k, sp in enumerate(spalten):
+        if isinstance(sp, dict) and ist_zahl(sp.get("kosten_je_m2")):
+            kosten[k] = int(sp["kosten_je_m2"])
+            continue
+        m = KOSTEN_SPALTE_RE.search(" ".join(str(v) for v in sp.values()) if isinstance(sp, dict) else str(sp))
+        if m:
+            kosten[k] = int(m.group(1).replace(".", ""))
+    if not kosten:
+        return None
+    reihenfolge = sorted(kosten)
+
+    def paare(liste):
+        if len(liste) == len(spalten):
+            return [(kosten[k], liste[k]) for k in reihenfolge]
+        if len(liste) == len(kosten):
+            return [(kosten[k], v) for k, v in zip(reihenfolge, liste)]
+        return [(None, liste)]
+
+    out = []
+    for r, row in enumerate(zeilen):
+        ort = f"{pfad}.rows[{r}]"
+        if isinstance(row, dict):
+            bez, zelle = str(row.get("label") or row.get("name") or ""), row.get("zelle")
+            listen = [(k, row[k]) for k in ("display", "values", "cells") if isinstance(row.get(k), list)]
+            if not listen:
+                out.append((None, ort, bez, None, None, zelle))
+            for k, liste in listen:
+                for kst, v in paare(liste):
+                    out.append((kst, f"{ort}.{k}", bez, None if ist_zahl(v) else v, v if ist_zahl(v) else None, zelle))
+        elif isinstance(row, list) and len(row) == len(spalten):
+            bez = " ".join(str(c) for k, c in enumerate(row) if k not in kosten and c not in (None, "")
+                           and not re.fullmatch(r"\d{1,2}", str(c)))
+            for kst, v in paare(row):
+                out.append((kst, ort, bez, None if ist_zahl(v) else v, v if ist_zahl(v) else None, None))
+        else:
+            out.append((None, ort, str(row)[:40], None, None, None))
+    return out
+
+
+def bro_passt(ist, soll, faktor, nk=None):
+    """Wie bro, ohne Eintrag im Bericht: True, wenn der Excel-Wert auf die gezeigte Stelle gerundet den Wert trifft."""
+    if isinstance(soll, str):
+        soll, nk2 = de_zahl(soll)
+        nk = nk2 if nk is None else nk
+    nk = nk_von(soll) if nk is None else nk
+    return ist_zahl(ist) and abs(runde(ist / faktor, nk) - soll) < 1e-9
+
+
+def pruefe_sensitivitaet(b, s10, sens):
+    """Sensitivität S. 10: jeder Block mit „Sensitivität“ im Titel (title oder caption) und jedes Diagramm „waterfall“.
+    Der Block kann eine Tabelle führen (columns und rows, sens_tabelle), Angaben eines Diagramms (label und display,
+    sens_knoten) oder beides. Jede Angabe wird über ihre Bezeichnung einer Zelle der Übersicht zugeordnet (SENS_ZIELE)
+    und mit dem Lauf von Projekt 2 verglichen, der mit den genannten Herstellungskosten je m² rechnet (SENS_LAEUFE).
+    Angaben eines Diagramms ohne Kostenangabe gehören zu dem Lauf, dessen Gesamtkosten das Diagramm zeigt. Beträge der
+    Tabelle stehen in € oder in der Einheit des Blocks."""
+    stufe = lambda k: fmt(float(k))[:-3]                                       # noqa: E731
+    p = b.pruefung("F9", "Broschüre S. 10 Sensitivität Herstellungskosten = Übersicht der Läufe von Projekt 2 ("
+                         + ", ".join(f"{stufe(k)} €/m² {l}" for k, l in SENS_LAEUFE.items()) + ")")
+    bloecke = [(i, bl) for i, bl in enumerate(s10["blocks"]) if bl.get("chart") == "waterfall"
+               or "Sensitivität" in f"{bl.get('title', '')} {bl.get('caption', '')}"]
+    p.check(bool(bloecke), "S. 10 Block der Sensitivität („Sensitivität“ im Titel oder chart = waterfall)", len(bloecke),
+            "mindestens 1")
+    laeufe_text = ", ".join(f"{stufe(k)} ({l})" for k, l in SENS_LAEUFE.items()) + " € je m²"
+    for i, bl in bloecke:
+        daten = bl["data"] if isinstance(bl.get("data"), dict) else bl
+        fk_block = einheit_faktor(daten.get("unit") or bl.get("unit") or "Mio. €")
+        tab = sens_tabelle(bl, f"blocks[{i}]")
+        diagramm = []
+        sens_knoten(bl, None, f"blocks[{i}]", diagramm, ohne=("columns", "rows") if tab is not None else ())
+        # Diagramm ohne Kostenangabe: der Lauf, dessen Gesamtkosten (D9) die Angabe „Gesamtkosten“ zeigt
+        if any(a[0] is None for a in diagramm):
+            gk = next((a for a in diagramm if a[0] is None and sens_zellen(a[2]) == ("D9",) and zahl_text(a[3])), None)
+            passend = [k for k in SENS_LAEUFE if gk and sens.get(k) is not None
+                       and bro_passt(sens[k].get(UEB, "D9"), zahl_text(gk[3]), fk_block)]
+            if len(passend) == 1:
+                diagramm = [(passend[0] if a[0] is None else a[0],) + a[1:] for a in diagramm]
+        angaben = [(a, (1.0, fk_block)) for a in (tab or [])] + [(a, (fk_block,)) for a in diagramm]
+        p.check(bool(angaben), f"S. 10 blocks[{i}] Angaben mit Bezeichnung und Betrag", len(angaben), "mindestens 1")
+        geprueft = set()
+        for (kosten, pfad, bez, anzeige, wert, zelle_bro), faktoren in angaben:
+            was = f"S. 10 {pfad} „{bez}“" + (f" {stufe(kosten)} €/m²" if kosten else "")
+            if kosten is None:
+                p.check(False, was, "Herstellungskosten je m² nicht erkennbar",
+                        "Tabelle: kosten_je_m2 oder „x.xxx €“ je Spalte; Diagramm: „x.xxx € je m²“ im Titel oder in der "
+                        "Bezeichnung, sonst Gesamtkosten eines der Läufe")
+                continue
+            ws_ = sens.get(kosten)
+            if ws_ is None:
+                p.check(False, was, "kein Lauf von Projekt 2 mit diesen Herstellungskosten", laeufe_text)
+                continue
+            lauf = SENS_LAEUFE[kosten]
+            if kosten not in geprueft:
+                geprueft.add(kosten)
+                p.zahl(f"S. 10 blocks[{i}] {stufe(kosten)} €/m² ↔ {lauf} Eingaben!F11", ws_.get("Eingaben", "F11"),
+                       float(kosten), 1e-9)
+            zellen = sens_zellen(bez)
+            if zellen is None and KOSTEN_RE.search(bez):
+                zellen = ("D9",)                      # der Schritt nennt nur die Kosten je m²: Anzeige = Gesamtkosten
+            if zellen is None:
+                p.check(False, was, "Bezeichnung nicht zugeordnet", SENS_BEZEICHNUNGEN)
+                continue
+            if zelle_bro is not None and str(zelle_bro).replace("Übersicht!", "").replace("$", "") != "+".join(zellen):
+                p.check(False, f"{was} Zelle laut Broschüre", zelle_bro, "Übersicht!" + " + ".join(zellen))
+            ist = [ws_.get(UEB, z) for z in zellen]
+            summe = sum(ist) if all(ist_zahl(x) for x in ist) else None
+            ziel = f"{lauf} " + " + ".join(zellen)
+            quote = zellen[0][1:] == "16"
+            if anzeige is not None:
+                teile = [zahl_text(t) for t in str(anzeige).split("+")]
+                fk = einheit_faktor(anzeige) if "Mio" in str(anzeige) or "Tsd" in str(anzeige) else next(
+                    (f for f in faktoren if len(teile) == 1 and teile[0] and bro_passt(summe, teile[0], f)), faktoren[-1])
+                if quote:
+                    z = teile[0] if teile[0] is None or "%" in teile[0] else teile[0] + " %"
+                    if z is None:
+                        p.check(False, f"{was} ↔ {ziel}", anzeige, "Prozentzahl")
+                    else:
+                        bro(p, f"{was} ↔ {ziel}", ist[0], z)
+                elif len(teile) == len(zellen) and len(teile) > 1:
+                    for z, x, t in zip(zellen, ist, teile):
+                        if t is None:
+                            p.check(ist_zahl(x) and abs(x) < 0.005 * fk, f"{was} ↔ {lauf} {z}", x, 0)
+                        else:
+                            bro(p, f"{was} ↔ {lauf} {z}", x, t, faktor=fk)
+                elif len(teile) == 1 and teile[0] is None:        # „–“: kein Betrag
+                    p.check(summe is not None and abs(summe) < 0.005 * fk, f"{was} ↔ {ziel}", summe, 0)
+                elif len(teile) == 1:
+                    bro(p, f"{was} ↔ {ziel}", summe, teile[0], faktor=fk)
+                else:
+                    p.check(False, was, anzeige, f"{len(zellen)} Betrag/Beträge ({ziel})")
+            if ist_zahl(wert):
+                if quote:                             # Prozentzahl (77,2) oder Anteil (0,772)
+                    v = wert / 100 if abs(wert) > 1.5 else wert
+                    bro(p, f"{was} value ↔ {ziel}", ist[0], v, nk=nk_von(wert) + (2 if abs(wert) > 1.5 else 0))
+                else:
+                    fk = next((f for f in faktoren if bro_passt(summe, wert, f)), faktoren[-1])
+                    bro(p, f"{was} value ↔ {ziel}", summe, wert, faktor=fk)
+    p.fertig()
+
+
+def pruefe_broschuere(b, w, sens):
+    """F9: Broschüre S. 10–12 gegen die Übersicht des Laufs L2 (Modellhaus = Projekt 2 im Standard); sens =
+    {Herstellungskosten je m²: Werte des Laufs} für die Sensitivität S. 10."""
     u = lambda z: w.get(UEB, z)                                               # noqa: E731
+    lauf = f"{STANDARD_LAUF} (Modellhaus, Projekt 2)"
     # ---------------- S. 10
     s10 = seite(10)
-    p = b.pruefung("F9", "Broschüre S. 10 (Finanzierung, Rechenweg, Kennzahlen) = Übersicht L1")
+    p = b.pruefung("F9", f"Broschüre S. 10 (Finanzierung, Rechenweg, Kennzahlen) = Übersicht {lauf}")
+    p.gleich(f"{STANDARD_LAUF} rechnet mit Projekt 2", w.get("Eingaben", "F4"), PROJEKT_NAME[PROJEKT_STANDARD])
     ch = block(s10, "chart", chart="stacked-bar")["data"]
+    fk = einheit_faktor(ch.get("unit", "Mio. €"))
     ziel = {"Darlehen": "D13", "Zuschuss": "D14", "Eigenmittel": "D19"}
     for seg in ch["segments"]:
-        bro(p, f"S. 10 {seg['name']} (Mio. €) ↔ {ziel[seg['name']]}", u(ziel[seg["name"]]), seg["display"], faktor=1e6)
-    bro(p, "S. 10 Gesamt 7,0 Mio. € ↔ D9", u("D9"), ch["total"]["display"], faktor=1e6)
-    bro(p, "S. 10 Förderung ↔ D15", u("D15"), ch["bracket"]["display"], faktor=1e6)
-    bro(p, "S. 10 Förderquote ↔ D16", u("D16"), ch["bracket"]["share"])
-    for seg in ch["segments"]:
+        z = ziel.get(str(seg["name"]).split(",")[0].strip())
+        if z is None:
+            p.check(False, f"S. 10 segments „{seg['name']}“", seg["name"], "Darlehen, Zuschuss oder Eigenmittel")
+            continue
+        bro(p, f"S. 10 segments[{seg['name']}].display ↔ {z}", u(z), seg["display"], faktor=fk)
         anteil = seg["share"]
-        if seg["name"] == "Eigenmittel":
+        if z == "D19":
             v, _ = de_zahl(anteil.replace("mind.", "").strip())
-            p.check(ist_zahl(u("D20")) and u("D20") >= v - 1e-9 and runde(u("D20"), 2) == v, "S. 10 Eigenmittel mind. 20 % ↔ D20",
-                    u("D20"), v)
+            p.check(ist_zahl(u("D20")) and u("D20") >= v - 1e-9 and runde(u("D20"), 2) == v,
+                    "S. 10 segments[Eigenmittel].share (mind. 20 %) ↔ D20", u("D20"), v)
         else:
-            q = u(ziel[seg["name"]]) / u("D10") if ist_zahl(u(ziel[seg["name"]])) and ist_zahl(u("D10")) and u("D10") else None
-            bro(p, f"S. 10 Anteil {seg['name']} ↔ {ziel[seg['name']]}/D10", q, anteil)
+            q = u(z) / u("D10") if ist_zahl(u(z)) and ist_zahl(u("D10")) and u("D10") else None
+            bro(p, f"S. 10 segments[{seg['name']}].share ↔ {z}/D10", q, anteil)
+    bro(p, "S. 10 total.display (Gesamtkosten) ↔ D9", u("D9"), ch["total"]["display"], faktor=fk)
+    bro(p, "S. 10 bracket.display (Förderung) ↔ D15", u("D15"), ch["bracket"]["display"], faktor=fk)
+    bro(p, "S. 10 bracket.share (Förderquote) ↔ D16", u("D16"), ch["bracket"]["share"])
+    # Rechenweg: Zeilen über die Bezeichnung zugeordnet; die Zeile Grundstück darf fehlen oder „–“ zeigen, wenn das
+    # Grundstück nicht angesetzt ist (Modellhaus: Grundstück im Bestand, Ansatz 0 €)
     tab = block(s10, "table", role_hint="rechenweg")
-    for row, ziel_ in zip(tab["rows"], ((GEF["A"], "H90"), (GEF["A"], "H92"), (UEB, "D10"), (UEB, "D19"))):
-        bro(p, f"S. 10 Rechenweg {row[0]} ↔ {ziel_[0]}!{ziel_[1]}", w.get(*ziel_), row[2])
-    g = regex_zahl(p, "S. 10 Rechenweg 1 (m² × €)", tab["rows"][0][1], r"([\d.]+) m² × ([\d.]+) €")
-    if g:
-        bro(p, "S. 10 Wohnfläche ↔ Eingaben!F8", w.get("Eingaben", "F8"), g[0])
-        bro(p, "S. 10 Kosten je m² ↔ Eingaben!F11", w.get("Eingaben", "F11"), g[1])
+    gefunden = {}
+    for row in tab["rows"]:
+        text = str(row[1]).lstrip("+=− ")
+        if text.startswith("Herstellungskosten"):
+            bez, ziel_ = "Herstellungskosten", (GEF["A"], "H90")
+        elif "zuwendungsfähige Kosten" in text:
+            bez, ziel_ = "zuwendungsfähige Kosten", (UEB, "D10")
+        elif text.startswith("Eigenmittel"):
+            bez, ziel_ = "Eigenmittel", (UEB, "D19")
+        elif "Grundstück" in text:
+            bez, ziel_ = "Grundstück", (GEF["A"], "H92")
+        else:
+            p.check(False, f"S. 10 Rechenweg Zeile {row[0]}", row[1],
+                    "Herstellungskosten, Grundstück, zuwendungsfähige Kosten oder Eigenmittel")
+            continue
+        gefunden[bez] = row
+        bro_betrag(p, f"S. 10 Rechenweg {row[0]} {bez} ↔ {ziel_[0]}!{ziel_[1]}", w.get(*ziel_), row[2])
+    for bez in ("Herstellungskosten", "zuwendungsfähige Kosten", "Eigenmittel"):
+        p.check(bez in gefunden, f"S. 10 Rechenweg: Zeile {bez}", bez in gefunden, True)
+    if "Grundstück" not in gefunden:
+        p.check(abs(w.get(GEF["A"], "H92") or 0) < 0.005, "S. 10 Rechenweg ohne Zeile Grundstück ↔ Gefördert A!H92 = 0",
+                w.get(GEF["A"], "H92"), 0)
+    if "Herstellungskosten" in gefunden:
+        g = regex_zahl(p, "S. 10 Rechenweg Herstellungskosten (m² × €)", gefunden["Herstellungskosten"][1],
+                       r"([\d.]+) m² × ([\d.]+) €")
+        if g:
+            bro(p, "S. 10 Wohnfläche ↔ Eingaben!F8", w.get("Eingaben", "F8"), g[0])
+            bro(p, "S. 10 Kosten je m² ↔ Eingaben!F11", w.get("Eingaben", "F11"), g[1])
     kf = block(s10, "key_figures")["items"]
-    bro(p, "S. 10 Ø Zuschuss je Wohnung ↔ D24", u("D24"), kf[0]["value"])
-    bro(p, "S. 10 Ø Eigenmittel je Wohnung ↔ D25", u("D25"), kf[1]["value"])
+    for k, (wort, zelle) in enumerate((("Zuschuss", "D24"), ("Eigenmittel", "D25"))):
+        item = next((x for x in kf if wort in str(x.get("label", ""))), kf[k] if k < len(kf) else None)
+        if item is None:
+            p.check(False, f"S. 10 key_figures Ø {wort} je Wohnung", None, "Kennzahl")
+        else:
+            bro(p, f"S. 10 key_figures Ø {wort} je Wohnung ↔ {zelle}", u(zelle), item["value"])
     p.fertig()
-    if w10 is not None:
-        p = b.pruefung("F9", "Broschüre S. 10 Sensitivität 5.200 €/m² = Übersicht L10")
-        u10 = lambda z: w10.get(UEB, z)                                       # noqa: E731
-        wf = block(s10, "chart", chart="waterfall")["data"]
-        st = wf["steps"]
-        bro(p, "Gesamtkosten ↔ D9", u10("D9"), st[0]["display"], faktor=1e6)
-        bro(p, "zuwendungsfähig ↔ D10", u10("D10"), st[0]["segments"][0]["display"], faktor=1e6)
-        bro(p, "über der Grenze ↔ D11", u10("D11"), st[0]["segments"][1]["display"], faktor=1e6)
-        bro(p, "Förderung ↔ D15", u10("D15"), st[1]["display"], faktor=1e6)
-        teile = [x.strip() for x in st[2]["display"].split("+")]
-        bro(p, "Mindest-Eigenmittel ↔ D19", u10("D19"), teile[0], faktor=1e6)
-        bro(p, "Restfinanzierung ↔ D18", u10("D18"), teile[1], faktor=1e6)
-        bro(p, "Summe ↔ D18 + D19", (u10("D18") + u10("D19") if ist_zahl(u10("D18")) and ist_zahl(u10("D19")) else None), st[2]["value"], nk=2, faktor=1e6)
-        bro(p, "Förderquote ↔ D16", u10("D16"), wf["result"]["value"] / 100, nk=3)
-        p.fertig()
+    pruefe_sensitivitaet(b, s10, sens)
     # ---------------- S. 11
     s11 = seite(11)
-    p = b.pruefung("F9", "Broschüre S. 11 (Finanzierung A/B/C, Jahresrechnung Jahr 1) = Übersicht L1")
+    p = b.pruefung("F9", f"Broschüre S. 11 (Finanzierung A/B/C, Jahresrechnung Jahr 1) = Übersicht {lauf}")
     ch = block(s11, "chart", chart="stacked-bar")["data"]
+    fk = einheit_faktor(ch.get("unit", "Mio. €"))
     reihe = {"Darlehen": 13, "Zuschuss": 14, "Eigenmittel, mind.": 19}
     for ser in ch["series"]:
         for i, lab in enumerate(ser["labels"]):
-            bro(p, f"S. 11 {ser['name']} {GRUPPEN[i]}", u(f"{'DEF'[i]}{reihe[ser['name']]}"), lab, faktor=1e6)
+            bro(p, f"S. 11 series[{ser['name']}].labels {GRUPPEN[i]} ↔ {'DEF'[i]}{reihe[ser['name']]}",
+                u(f"{'DEF'[i]}{reihe[ser['name']]}"), lab, faktor=fk)
     for i, lab in enumerate(ch["totals"]["labels"]):
-        bro(p, f"S. 11 Förderung {GRUPPEN[i]}", u(f"{'DEF'[i]}15"), lab, faktor=1e6)
+        bro(p, f"S. 11 totals.labels (Förderung) {GRUPPEN[i]} ↔ {'DEF'[i]}15", u(f"{'DEF'[i]}15"), lab, faktor=fk)
     tab = block(s11, "table", role_hint="dominant")
     zeilen = [29, 30, 31, 32, 33, 34, 35, 36, 38]
     for row, z in zip(tab["rows"], zeilen):
@@ -3882,11 +4283,12 @@ def pruefe_broschuere(b, w, w10):
     if g:
         bro(p, "S. 11 Zins NBank ↔ C35", u("C35"), g[0] + " %")
         bro(p, "S. 11 zinsfreie Jahre ↔ Tabellen!D20", w.get("Tabellen", "D20"), g[1])
-    g = regex_zahl(p, "S. 11 Tilgung", lab[7], r"Tilgung ([\d,]+) % .*auf ([\d,]+) \| ([\d,]+) \| ([\d,]+) Mio")
+    g = regex_zahl(p, "S. 11 Tilgung", lab[7],
+                   r"Tilgung ([\d,]+) % .*auf ([\d.,]+) \| ([\d.,]+) \| ([\d.,]+) (Mio\. €|€)")
     if g:
         bro(p, "S. 11 Tilgungssatz ↔ C36", u("C36"), g[0] + " %")
         for i in range(3):
-            bro(p, f"S. 11 Darlehen {GRUPPEN[i]} ↔ {'DEF'[i]}13", u(f"{'DEF'[i]}13"), g[1 + i], faktor=1e6)
+            bro(p, f"S. 11 Darlehen {GRUPPEN[i]} ↔ {'DEF'[i]}13", u(f"{'DEF'[i]}13"), g[1 + i], faktor=einheit_faktor(g[4]))
     g = regex_zahl(p, "S. 11 Entgeltsätze", tab["aside_row"][1], r"\(([\d,]+) % des Darlehens \+ ([\d,]+) % des Zuschusses\)")
     if g:
         bro(p, "S. 11 Entgelt Darlehen ↔ Tabellen!D24", w.get("Tabellen", "D24"), g[0] + " %")
@@ -3896,42 +4298,54 @@ def pruefe_broschuere(b, w, w10):
     if vg is None:
         p.check(False, "S. 11 Vergleich frei finanziert", "Tabelle fehlt", "Tabelle „Zum Vergleich: frei finanziert“")
     else:
-        zahl = lambda t: t.replace("Mio. €", "").replace("€", "").strip()   # noqa: E731
         p.check(abs((u("D110") or 0) - 1) < 1e-12, "S. 11 Vergleich: DSCR-Ziel 1,0 ↔ D110", u("D110"), 1)
-        ziele = (("D14", None, 1e6), ("D13", "G18", 1e6), ("D111", "G111", 1.0), ("D112", "G112", 1.0))
-        for row, (za, zf, fk) in zip(vg["rows"], ziele):
-            bro(p, f"S. 11 Vergleich {row[0]} A ↔ {za}", u(za), zahl(row[1]), faktor=fk)
+        ziele = (("D14", None), ("D13", "G18"), ("D111", "G111"), ("D112", "G112"))
+        for row, (za, zf) in zip(vg["rows"], ziele):
+            bro_betrag(p, f"S. 11 Vergleich {row[0]} A ↔ {za}", u(za), row[1])
             if zf is None:
                 p.check(row[2] == "0" and not ist_zahl(u("G14")), f"S. 11 Vergleich {row[0]} Frei", row[2], "0")
             else:
-                bro(p, f"S. 11 Vergleich {row[0]} Frei ↔ {zf}", u(zf), zahl(row[2]), faktor=fk)
+                bro_betrag(p, f"S. 11 Vergleich {row[0]} Frei ↔ {zf}", u(zf), row[2])
     txt = block(s11, "text", heading="Annahmen")["body"]
     g = regex_zahl(p, "S. 11 Annahmen frei", txt,
-                   r"Eigenmittel ([\d,]+) Mio\. €, Bankdarlehen ([\d,]+) Mio\. € zu ([\d,]+) % Zins, Annuität über (\d+) Jahre")
+                   r"Eigenmittel ([\d.,]+ (?:Mio\. )?€), Bankdarlehen ([\d.,]+ (?:Mio\. )?€) zu ([\d,]+) % Zins, "
+                   r"Annuität über (\d+) Jahre")
     if g:
-        bro(p, "S. 11 Annahmen Eigenmittel frei ↔ G19", u("G19"), g[0], faktor=1e6)
-        bro(p, "S. 11 Annahmen Bankdarlehen frei ↔ G18", u("G18"), g[1], faktor=1e6)
+        bro_betrag(p, "S. 11 Annahmen Eigenmittel frei ↔ G19", u("G19"), g[0])
+        bro_betrag(p, "S. 11 Annahmen Bankdarlehen frei ↔ G18", u("G18"), g[1])
         bro(p, "S. 11 Annahmen Zins Bank ↔ Eingaben!F35", w.get("Eingaben", "F35"), g[2] + " %")
         bro(p, "S. 11 Annahmen Laufzeit Bank ↔ Eingaben!F38", w.get("Eingaben", "F38"), g[3])
     p.fertig()
     # ---------------- S. 12
     s12 = seite(12)
-    p = b.pruefung("F9", "Broschüre S. 12 (Tilgungsschwellen, Rechenweg, Rechenbasis) = Übersicht L1")
+    p = b.pruefung("F9", f"Broschüre S. 12 (Tilgungsschwellen, Rechenweg, Rechenbasis) = Übersicht {lauf}")
     ch = block(s12, "chart", chart="line")["data"]
+    # Zahlen der Reihen: gerundet auf die Stellenzahl der Broschüre (ganze Euro oder mit Cent); die Schwelle auf
+    # mindestens zwei Stellen in Prozent
     for ser in ch["series"]:
         c = {"B": "E", "C": "F"}[ser["name"]]
-        bro(p, f"S. 12 {ser['name']} vor Tilgung ↔ {c}70", u(f"{c}70"), ser["before_repayment"], nk=0)
-        bro(p, f"S. 12 {ser['name']} Mehrschuld ↔ {c}13−D13", dz(u(f"{c}13"), u("D13")), ser["extra_debt"], nk=0)
-        bro(p, f"S. 12 {ser['name']} Mehrschuld ↔ {c}66", u(f"{c}66"), ser["extra_debt"], nk=0)
+        bro(p, f"S. 12 {ser['name']} vor Tilgung ↔ {c}70", u(f"{c}70"), ser["before_repayment"])
+        bro(p, f"S. 12 {ser['name']} Mehrschuld ↔ {c}13−D13", dz(u(f"{c}13"), u("D13")), ser["extra_debt"])
+        bro(p, f"S. 12 {ser['name']} Mehrschuld ↔ {c}66", u(f"{c}66"), ser["extra_debt"])
         bro(p, f"S. 12 {ser['name']} je Prozentpunkt ↔ −({c}13−D13)/100", (-dz(u(f"{c}13"), u("D13")) / 100 if dz(u(f"{c}13"), u("D13")) is not None else None),
-            ser["per_percentage_point"], nk=0)
+            ser["per_percentage_point"])
         bro(p, f"S. 12 {ser['name']} Schwelle ↔ {'E63' if c == 'E' else 'F64'}", u("E63" if c == "E" else "F64"),
-            ser["threshold"] / 100, nk=4)
-        bro(p, f"S. 12 {ser['name']} bei 2,5 % ↔ {c}60−D60", dz(u(f"{c}60"), u("D60")), ser["at_2_5"], nk=0)
-        bro(p, f"S. 12 {ser['name']} beim Satz der S. 11 ↔ {c}71", u(f"{c}71"), ser["at_s11"], nk=0)
-    g = regex_zahl(p, "S. 12 Kontrolle C/B", ch["check"], r"= ([\d,]+) %")
-    if g:
-        bro(p, "S. 12 Tilgungsschwelle C gegenüber B ↔ F65", u("F65"), g[0] + " %")
+            ser["threshold"] / 100, nk=max(4, nk_von(ser["threshold"]) + 2))
+        # Mehrüberschuss bei einem Rastersatz (Schlüssel at_2_5 = 2,5 %, at_3_0 = 3,0 %) und beim Satz der S. 11: geprüft,
+        # soweit die Broschüre den Schlüssel führt (die Achse des Diagramms reicht seit 11.11.2026 bis 3,0 %)
+        for key in sorted(k_ for k_ in ser if re.fullmatch(r"at_\d+_\d+", k_)):
+            satz = float(key[3:].replace("_", ".")) / 100
+            r_ = next((r for r in range(55, 62) if ist_zahl(u(f"B{r}")) and abs(u(f"B{r}") - satz) < 1e-9), None)
+            if r_ is None:
+                p.check(False, f"S. 12 {ser['name']} {key}", f"Tilgung {fmt(satz)}", "Satz des Rasters Übersicht B55:B61")
+            else:
+                bro(p, f"S. 12 {ser['name']} {key} ↔ {c}{r_}−D{r_}", dz(u(f"{c}{r_}"), u(f"D{r_}")), ser[key])
+        if "at_s11" in ser:
+            bro(p, f"S. 12 {ser['name']} beim Satz der S. 11 ↔ {c}71", u(f"{c}71"), ser["at_s11"])
+    if ch.get("check"):
+        g = regex_zahl(p, "S. 12 Kontrolle C/B", ch["check"], r"= ([\d,]+) %")
+        if g:
+            bro(p, "S. 12 Tilgungsschwelle C gegenüber B ↔ F65", u("F65"), g[0] + " %")
     grenze = ch["dimension_chain"][0]["to"] / 100
     links, rechts = ch["dimension_chain"][0]["label"][-1], ch["dimension_chain"][1]["label"][-1]
     for k in range(8):
@@ -3955,6 +4369,9 @@ def pruefe_broschuere(b, w, w10):
                        ("zahlungsueberschuss_jahr_1", 38, 1.0), ("bearbeitungsentgelte", 21, 1.0)):
         for i, v in enumerate(calc[key]):
             bro(p, f"S. 12 Rechenbasis {key} {GRUPPEN[i]} ↔ {'DEF'[i]}{z}", u(f"{'DEF'[i]}{z}"), v, faktor=fk)
+    for i, v in enumerate(calc.get("tragbare_tilgung_prozent", [])):          # seit 11.11.2026, soweit geführt: Übersicht 3.8
+        bro(p, f"S. 12 Rechenbasis tragbare_tilgung_prozent {GRUPPEN[i]} ↔ {'DEF'[i]}49", u(f"{'DEF'[i]}49"), v / 100,
+            nk=max(4, nk_von(v) + 2))
     p.fertig()
 
 
@@ -4041,7 +4458,7 @@ def main():
         specs_je = {}
         for lid, proj, aend in laeufe:
             res, werte = ergebnisse.get(lid, ({"error": "nicht gelaufen"}, None))
-            b.abschnitt(f"Lauf {lid}: {PROJEKT_NAME[proj]}, "
+            b.abschnitt(f"Lauf {lid}: {PROJEKT_KURZ[proj]} ({PROJEKT_NAME[proj]}), "
                         + (", ".join(f"{eingabe_name(k)} = "
                                      + (" / ".join(fmt(x) for x in v) if isinstance(v, tuple) else fmt(v))
                                      for k, v in aend.items()) or "Standard"))
@@ -4059,20 +4476,21 @@ def main():
         w = {lid: ergebnisse[lid][1] for lid in ergebnisse
              if ergebnisse[lid][1] is not None and lid not in fehlerlaeufe}
         b.abschnitt("Laufübergreifend: gelieferte Werte, Broschüre (F9), v2-1 (F10), Textergebnisse")
-        if "L1" in w:
-            sicher(b, "F2", "gelieferte Werte", pruefe_gelieferte_werte, b, Werte(mappe), w["L1"])
-            sicher(b, "F9", "Broschüre", pruefe_broschuere, b, w["L1"], w.get("L10"))
+        if STANDARD_LAUF in w:      # Projekt 2 im Standard = Auslieferungsstand = Modellhaus von Broschüre und Präsentation
+            sicher(b, "F2", "gelieferte Werte", pruefe_gelieferte_werte, b, Werte(mappe), w[STANDARD_LAUF])
+            sicher(b, "F9", "Broschüre", pruefe_broschuere, b, w[STANDARD_LAUF],
+                   {kosten: w.get(lid) for kosten, lid in SENS_LAEUFE.items()})
         if "L64" in w:   # Abgleich mit v2-1 und Überleitung E.3 beim Satz der Vorgängermappe (2,5 %)
             sicher(b, "F10", "v2-1", pruefe_v21_abgleich, b, ordner, w["L64"], None)
         if "L13" in w and "L1" in w:
             sicher(b, "F7", "L13 = L1", pruefe_gleich_l1, b, "L13", w["L13"], w["L1"])
-        # Regression laut Entscheidung 7 (Konzept N): L1 und L2 gegen den Stand vorher
+        # Regression laut Entscheidung 7 (Konzept N): beide Projekte gegen den Stand vorher (L63 Projekt 1, L64 Projekt 2)
         if not a.baseline:
             a.baseline = str(hole_baseline(ordner) or "")
         if a.baseline and Path(a.baseline).exists():
-            # L63, L64: beide Projekte mit Tilgung 2,5 % wie im Stand vorher; L63 dazu mit den Bewertungsansätzen des
-            # Modellhauses im Stand vorher (12,92 / 14,48 €/m², Liegenschaftszins Neu Wulmstorf)
-            for lid, proj in (("L63", "M"), ("L64", "T")):
+            # L63, L64: beide Projekte mit Tilgung 2,5 % wie im Stand vorher; L63 dazu mit den Bewertungsansätzen von
+            # Projekt 1 im Stand vorher (12,92 / 14,48 €/m², Liegenschaftszins Neu Wulmstorf)
+            for lid, proj in (("L63", "V"), ("L64", "T")):
                 if lid in w:
                     alt = sicher(b, "N", f"{lid} Stand vorher berechnen", baseline_lauf, a.baseline, ordner, proj, a.timeout)
                     if alt is None:
@@ -4089,7 +4507,7 @@ def main():
         offen = [e[0] for e in EINGABEN if e[0] not in geaendert]
         if offen and len(laeufe) == len(LAEUFE) + len(LAEUFE_FEHLER):
             b.hinweis("F7", "Eingaben ohne eigenen Lauf abseits des Standards: " + ", ".join(offen)
-                      + " (2.5 wirkt in L4 über den Grundstücksdeckel des Tarutinoer)")
+                      + " (2.5 wirkt in L4 über den Grundstücksdeckel von Projekt 2)")
         if not a.behalten and not a.arbeitsordner:
             shutil.rmtree(ordner, ignore_errors=True)
     else:

@@ -87,10 +87,10 @@ function register(ctx, s, o) {
 
 // ---- Folie 22: Texte ----------------------------------------------------------------------------------------------------------------------
 // Zahlen, die in den Texten des Blocks kosten (daten/markt.json) als Platzhalter stehen. Jede Zahl hat genau eine Quelle:
-// daten/markt.json (Altfassung, mit Herkunft) oder daten/werte.json (Vorsatz „mappe_“, Lauf modellhaus).
+// daten/markt.json (Altfassung, mit Herkunft). Den Ansatz des Modellhauses aus daten/werte.json prüft das Folienmodul gegen den PGN-Median.
 function kostenFelder(ctx) {
-  const { X, W, fmt } = ctx, sp = (wer, m) => fmt.zahl(X('markt', `kosten.${wer}.spanne_herstellung.${m}`));
-  return { kg_herstellung: X('markt', 'kosten.gruppen')[0].kg, mappe_herstellungskosten_qm: fmt.zahl(W('modellhaus', 'eingabe.herstellungskosten_qm')),
+  const { X, fmt } = ctx, sp = (wer, m) => fmt.zahl(X('markt', `kosten.${wer}.spanne_herstellung.${m}`));
+  return { kg_herstellung: X('markt', 'kosten.gruppen')[0].kg,
     pgn_median: sp('pgn', 'median'), arge_median: sp('arge', 'median'), pgn_min: sp('pgn', 'min'), pgn_max: sp('pgn', 'max'), arge_min: sp('arge', 'min'), arge_max: sp('arge', 'max') };
 }
 const liesKosten = ctx => { const U = ctx.lies('markt', kostenFelder(ctx)); return k => U('kosten.texte.' + k); };

@@ -217,9 +217,9 @@
       "nr": "15",
       "abschnitt": "Modellrechnung",
       "layout": "PGN_TABELLE_MR",
-      "titel": "Jahr 1: Zahlungsüberschuss 3.789 € in A, Fehlbeträge in B und C",
+      "titel": "Gruppe A trägt sich ab Jahr 1: 3.789 € Zahlungsüberschuss",
       "aussage": "Bei 2,38 % Tilgung (Annahme) deckt die Höchstmiete in Gruppe A den Kapitaldienst; B und C schließen Jahr 1 mit einem Fehlbetrag.",
-      "inhalt": "Kicker: „MODELLRECHNUNG · WIRTSCHAFTLICHKEIT“. Titelzeilen: „Jahr 1: Zahlungsüberschuss 3.789 €“ | „in A, Fehlbeträge in B und C“ (Signaturwort: „3.789 €“). Tabellentitel: „JAHRESRECHNUNG JAHR 1, IN € P. A.“ Untertitel: „Höchstmiete nettokalt, Mietenstufe IV–VII: 6,80 | 8,20 | 9,00 € je m² (A | B | C)“. Spalten: Nr. · Position · A · B · C. Zeilen: 1 „Sollmiete zur Höchstmiete“ 114.240 | 137.760 | 151.200 · ohne Nummer „− Mietausfall/Leerstand, 2 %“ 2.285 | 2.755 | 3.024 · 2 „− Objektverwaltung, 367 € je Wohnung“ 7.340 | 7.340 | 7.340 · 3 „− Instandhaltung, 14,40 € je m²“ 20.160 | 20.160 | 20.160 · 4 „= Überschuss vor Kapitaldienst“ 84.455 | 107.505 | 120.676 · 5 „− Verwaltungskostenbeitrag, 0,5 %“ 14.000 | 21.000 | 24.500 · 6 „− Zins NBank-Darlehen, 0 %“ 0 | 0 | 0 · 7 „− Tilgung 2,38 % p. a. (Annahme)“ 66.667 | 100.000 | 116.667 · 8 „= Zahlungsüberschuss p. a.“ 3.789 | −13.495 | −20.491. Notiz unter der Tabelle (12 pt): „Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte 49.000 | 52.500 | 54.250 €“. Kommentarspalte, Modultitel „ANNAHMEN“: „Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern.“ · „Tilgung gleichmäßig über 42 Jahre auf 2,8 | 4,2 | 4,9 Mio. € Darlehen.“ · „B und C setzen eine Zulassung in der Förderentscheidung voraus.“",
+      "inhalt": "Kicker: „MODELLRECHNUNG · WIRTSCHAFTLICHKEIT“. Titelzeilen: „Gruppe A trägt sich ab Jahr 1:“ | „3.789 € Zahlungsüberschuss“ (Signaturwort: „3.789 €“). Tabellentitel: „JAHRESRECHNUNG JAHR 1, IN € P. A.“ Untertitel: „Höchstmiete nettokalt, Mietenstufe IV–VII: 6,80 | 8,20 | 9,00 € je m² (A | B | C)“. Spalten: Nr. · Position · A · B · C. Zeilen: 1 „Sollmiete zur Höchstmiete“ 114.240 | 137.760 | 151.200 · ohne Nummer „− Mietausfall/Leerstand, 2 %“ 2.285 | 2.755 | 3.024 · 2 „− Objektverwaltung, 367 € je Wohnung“ 7.340 | 7.340 | 7.340 · 3 „− Instandhaltung, 14,40 € je m²“ 20.160 | 20.160 | 20.160 · 4 „= Überschuss vor Kapitaldienst“ 84.455 | 107.505 | 120.676 · 5 „− Verwaltungskostenbeitrag, 0,5 %“ 14.000 | 21.000 | 24.500 · 6 „− Zins NBank-Darlehen, 0 %“ 0 | 0 | 0 · 7 „− Tilgung 2,38 % p. a. (Annahme)“ 66.667 | 100.000 | 116.667 · 8 „= Zahlungsüberschuss p. a.“ 3.789 | −13.495 | −20.491. Notiz unter der Tabelle (12 pt): „Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte 49.000 | 52.500 | 54.250 €“. Kommentarspalte, Modultitel „ANNAHMEN“: „Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern.“ · „Tilgung gleichmäßig über 42 Jahre auf 2,8 | 4,2 | 4,9 Mio. € Darlehen.“ · „B und C setzen eine Zulassung in der Förderentscheidung voraus.“",
       "darstellung": "Dominant: native Rechenblatt-Tabelle (addTable) über 8 Spalten: Nummernstreifen in E9E7E4, Rechenzeichen vor der Position, drei Wertspalten je 1,20 Zoll rechtsbündig (Montserrat Bold), 12 pt, Zeilenhöhe 0,34; Summenstrich über Zeile 4 und Zeile 8; Ergebniszeile 8 weiß auf PGN-Rot; Spaltenköpfe als Achskreise A, B, C. Zeilennummern wie Broschüre S. 11. Rechts Planlegende „Annahmen“ über 4 Spalten (16 pt). Papierton, Daumenregister 2.1.",
       "daten": "werte.json, Lauf modellhaus: jr1.sollmiete.A/B/C, jr1.mietausfall.A/B/C, jr1.objektverwaltung.A/B/C, jr1.instandhaltung.A/B/C, jr1.ueberschuss_vor_kapitaldienst.A/B/C, jr1.verwaltungskostenbeitrag.A/B/C, jr1.zins_nbank.A/B/C, jr1.tilgung_nbank.A/B/C, jr1.zahlungsueberschuss.A/B/C, jr1.bearbeitungsentgelte.A/B/C, jr1.satz.mietausfall, jr1.satz.objektverwaltung, jr1.satz.instandhaltung, jr1.satz.verwaltungskostenbeitrag, jr1.satz.zins_nbank, jr1.satz.tilgung_nbank, fin.miete_jahr1.A/B/C, fin.darlehen_nbank.A/B/C. Positionstexte gekürzt nach Broschüre S. 11 (11-wirtschaftlichkeit.json).",
       "herkunft": "Mappe (Lauf modellhaus); Broschüre S. 11 (ersetzt Altfassung Folie 13)",
@@ -561,42 +561,87 @@
   "baugruppen": [
     {
       "name": "rahmen",
-      "folien": ["titel", "fazit", "kontakt"],
+      "folien": [
+        "titel",
+        "fazit",
+        "kontakt"
+      ],
       "hinweis": "Titel, Zusammenfassung der Rechnung und Kontakt; an diesen Modulen ändert der Umbau nichts. Die Abschnitte der Mappe folgen aus dem Feld „abschnitt“: Ausgangslage, Programmteil 2.1, Modellrechnung, Umsetzung, Anhang. Layouts PGN_TITEL, PGN_KENNZAHLEN_MR, PGN_SCHLUSS; Assets bg-titel, bg-schluss, Logo, QR-Code."
     },
     {
       "name": "einstieg",
-      "folien": ["einstieg-baukosten", "ausgangslage-zinsen", "einstieg-kapitaldienst", "einstieg-bestand"],
+      "folien": [
+        "einstieg-baukosten",
+        "ausgangslage-zinsen",
+        "einstieg-kapitaldienst",
+        "einstieg-bestand"
+      ],
       "hinweis": "Thematischer Einstieg vor der Agenda (Folien 3 bis 6), je Folie eine Zahl: Herstellungskosten +52,9 %, Sollzins 3,74 %, Kapitaldienst 19,95 € je m² und Monat, Bestand −40,6 %. Daten in daten/markt.json (Blöcke baukosten, zinsen, kapitaldienst, bestand, markt); die Werte der Altfassung tragen den Vermerk „nicht nachgeprüft“, die Zahlen der Broschüre S. 3 im Block markt sind geprüft. Folie 5 rechnet im Modul mit monatlicher Rate über 30 Jahre und 80 % Fremdkapital, wie die Altfassung; Belege mit Formel in daten/pruefung.json. Weißer Grund, kein Stempel. Die Diagramme sind fein gezeichnet (Säulen mit Kontur 0,5 pt, Bezugswert als helle Fläche, Linien 1,5 pt); je Diagramm steht ein roter Akzent an der Größe, die das Signaturwort des Titels nennt. Alle vier Folien haben denselben Aufbau: links das Diagramm über acht Spalten, rechts die Hauptzahl in 60 pt und ab y 4,40 ein zweites Modul (Bausteine B.hauptzahl, B.nebenzahl und B.zweitesModul der Bibliothek). Auf der vorhandenen Folie ausgangslage-zinsen ist das Diagramm geblieben; an die Stelle der Kommentarspalte sind die beiden Kennzahlen getreten, der Satz der Broschüre S. 2 steht in den Notizen. Jede der vier Folien trägt im Schriftfeld eine Quellenzeile in Kurzform (Baustein B.quelle; Wortlaut in daten/markt.json, Feld quelle_kurz je Block); die volle Angabe steht auf A8."
     },
     {
       "name": "regeln",
-      "folien": ["neu-seit-juli", "hoechstmiete", "foerdermix", "eckdaten-zeitstrahl", "anhang-mieterkreis", "anhang-eckdaten"],
+      "folien": [
+        "neu-seit-juli",
+        "hoechstmiete",
+        "foerdermix",
+        "eckdaten-zeitstrahl",
+        "anhang-mieterkreis",
+        "anhang-eckdaten"
+      ],
       "hinweis": "Regelteil nach Broschüre S. 4 und 6 bis 9: vier Hauptfolien (9 bis 12) und zwei Anhangfolien (A5, A6). Regelwerte der Broschüre, die werte.json nicht führt (Stand bis 30.06.2026, Mietpfad 7,21 und 7,65, Angebotsmieten, Einkommensgrenzen, Texte der Eckdaten), kommen mit Seitenangabe in daten/regeln.json; tab.* aus werte.json dient dem Abgleich. Bausteine: Fördermix-Diagramm (Probe 2), Vergleich (Probe 12), Zeitstrahl, Schlüsselplan und Daumenregister 2.1."
     },
     {
       "name": "rechnung",
-      "folien": ["rechnung-finanzierung", "rechnung-jahr1", "rechnung-kapitaldienst", "rechnung-miete", "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten", "anhang-rendite"],
+      "folien": [
+        "rechnung-finanzierung",
+        "rechnung-jahr1",
+        "rechnung-kapitaldienst",
+        "rechnung-miete",
+        "rechnung-tilgung",
+        "rechnung-verlauf",
+        "rechnung-kosten",
+        "anhang-rendite"
+      ],
       "hinweis": "Sieben Folien der Modellrechnung (14 bis 16, 19 bis 21 und 23), alle auf Papierton, dazu die Anhangfolie A7 zur Eigenkapitalrendite auf weißem Grund; der Zusatz „Fiktives Beispiel, keine Förderzusage“ steht nur auf Folie 14. Alle Zahlen aus werte.json (Läufe modellhaus, modellhaus_zeitreihe, modellhaus_pgn_kosten, modellhaus_kosten_5200), gerundet erst beim Formatieren; Vorzeichen von zr.* und frei.* drehen. Kein Rot in den Diagrammen der Folien 16 bis 23; gefördert in Tinte, frei finanziert in 77716B. Auf den Folien 14 bis 23 keine Renditen, keine Marktmiete, kein Lauf modellhaus_dscr125. A7 ist die einzige Folie mit Rendite und Marktmiete des Modellhauses: Sie liest den Lauf modellhaus_rendite, den der Bau nur ihr freigibt, und zeigt die Rendite als Paar mit Restwert und nur mit Bodenwert, dazu den Restwertanteil (Entscheidung 24)."
     },
     {
       "name": "fluss",
-      "folien": ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"],
+      "folien": [
+        "rechnung-fluss-gefoerdert",
+        "rechnung-fluss-frei"
+      ],
       "hinweis": "Zwei Flussdiagramme des Zahlungsflusses in Jahr 1 für das Modellhaus, Gruppe A (Folien 17 und 18), auf Papierton. Beide Module teilen sich Maßstab (Euro je Zoll Höhe), Lagen der Knoten, Reihenfolge der Ziele und Farbrollen aus einer gemeinsamen Datei folien/_fluss.cjs: Tilgung Tinte, Zins 77716B, Verwaltungskostenbeitrag und Bewirtschaftung im Referenzgrau des Themes mit 50 und 70 % Transparenz (auf Papierton wie B4B0AB und CFCCC8); kein Rot. Gebaut mit dem Baustein D.fluss der Bibliothek aus nativen Freihandformen (Punktangabe von pptxgenjs), kein Pixelbild. Werte aus werte.json (Lauf modellhaus); nötige Sollmiete frei finanziert, Mietausfall dazu und alle Anteile rechnet das Modul, Belege mit Formel in daten/pruefung.json. Zuflüsse und Abflüsse gehen je Knoten auf; das Modul prüft es."
     },
     {
       "name": "struktur",
-      "folien": ["agenda", "pgn-baukosten", "trenner-ausgangslage", "trenner-programmteil", "trenner-rechnung", "trenner-umsetzung", "anhang-trenner", "quellen"],
+      "folien": [
+        "agenda",
+        "pgn-baukosten",
+        "trenner-ausgangslage",
+        "trenner-programmteil",
+        "trenner-rechnung",
+        "trenner-umsetzung",
+        "anhang-trenner",
+        "quellen"
+      ],
       "hinweis": "Agenda mit dem Fokus auf Programmteil 2.1 (Folie 7; feste Texte in daten/rahmen.json, Block agenda), Kostenvergleich PGN gegen ARGE im Hauptteil (Folie 22; Daten in daten/markt.json, Block kosten; tritt an die Stelle der früheren Anhangfolie zu den Herstellungskosten), rote Trenner vor jedem Abschnitt des Hauptteils (Folien 2, 8, 13 und 25: Achskreis mit der Nummer des Abschnitts, Achsleiste mit vier Kreisen), Anhang-Trenner (A0: Vorspann ohne „Herstellungskosten und Markt“) und Quellen (A8: Zeilen in daten/rahmen.json, Blattnummern aus den Quellenzeilen aller Folien). A8 wird zuletzt gebaut, wenn die Quellenzeilen feststehen. Folie 22 trägt wie die Folien 3 bis 6 eine Quellenzeile im Schriftfeld (B.quelle; Wortlaut in daten/markt.json, kosten.quelle_kurz)."
     },
     {
       "name": "umsetzung",
-      "folien": ["antragsweg", "pgn-leistungen", "anhang-voraussetzungen", "anhang-vertraege"],
+      "folien": [
+        "antragsweg",
+        "pgn-leistungen",
+        "anhang-voraussetzungen",
+        "anhang-vertraege"
+      ],
       "hinweis": "Antragsweg und Leistungen der PGN nach Broschüre S. 19 und 20, dazu die Anhangfolien A3 und A4 (S. 4, 18, 19). Folie 26 trägt das Warnband, eines von zwei Signalelementen. Bausteine: Achsleiste mit Achskreisen, Balkenplan der Leistungsphasen, Ringdiagramm, Bild mit Bildecke „Visualisierung“ und Konturstempel."
     },
     {
       "name": "ueberblick",
-      "folien": ["anhang-programmteile", "anhang-frist"],
+      "folien": [
+        "anhang-programmteile",
+        "anhang-frist"
+      ],
       "hinweis": "Nachschlagefolien nach Broschüre S. 5 und 16: Programmteile (A1; die Agenda verweist darauf) und Frist (A2, zweites Signalelement). Texte in daten/markt.json (Blöcke programmteile, frist). An den Modulen ändert der Umbau nichts."
     }
   ],
@@ -625,10 +670,10 @@
     "Nach Durchsicht durch den Auftraggeber sind die Diagramme der Folien 3 bis 6 und 22 feiner gezeichnet, in der Art seiner früheren Fassung, aber in den Größen für den Saal: schlanke Säulen mit Kontur 0,5 pt in Tinte, der Bezugswert (früherer Stand, ARGE) als helle Fläche F4F3F2, die Aussage (heutiger Stand, PGN) in Tinte, Werte im Ton ihrer Säule; auf Folie 4 Linien in 1,5 pt mit einer weichen Fläche unter der Reihe „10 Jahre“ und einer Legende mit den Werten des letzten Monats; auf Folie 22 die Spanne als Maßzeichen im Bild. Auf den Folien 3 bis 6 trägt je Diagramm genau eine Größe Rot, nämlich die, die das Signaturwort des Titels nennt (Maßkettenwert +52,9 %, Reihe „10 Jahre“, Summe 19,95 €, Maßkettenwert −40,6 %); Folie 22 bleibt wie die Folien 16 bis 23 ohne Rot im Diagramm, weil Rot dort den Zuschuss bedeutet. Die Wertetafel unter der Achse und die Kette aus vier Feldern der früheren Fassung sind nicht übernommen: Die Hauptzahl in 60 pt und ein Bild je Aussage tragen im Saal weiter; die Kette steht als Rechenweg in der Tabelle der Folie 5.",
     "Auf Wunsch des Auftraggebers heißt Abschnitt 3 (Folien 13 bis 24) „Modellrechnung“ statt „Ihre Rechnung“, wie das Kapitel der Broschüre. Agenda, Trenner, Kicker und Rubrik tragen den neuen Namen; der Trenner (Folie 13) heißt „Modellrechnung: Neubau mit 20 Wohnungen“. Der Stempel „Modellrechnung“ in der Kickerzeile der Layouts PGN_*_MR entfällt: Er stünde auf derselben Zeile wie der Kicker, und das Wort stünde zweimal im Kopf. Zeichen der Modellfolien bleibt der Papierton (F4F3F2). Der Zusatz „Fiktives Beispiel, keine Förderzusage“ steht auf Folie 14 als schlichte Zeile an der Stelle des Stempels; auf den anderen Folien bleibt die Stelle leer. Folie 22 trägt den Abschnittsnamen im Kicker und bleibt auf weißem Grund, weil sie Kostenkennwerte zeigt und kein Modellhaus. Rückweg: Der Schalter STEMPEL_IM_KOPF in lib/theme.cjs setzt den Stempel wieder in die Layouts; das Wort steht dann doppelt.",
     "Auf Wunsch des Auftraggebers (11.11.2026) zeigt der Anhang die Eigenkapitalrendite des Modellhauses über 35 Jahre (A7), weil Investoren danach fragen. Das hebt die Festlegung „keine Renditen, keine Marktmiete des Modellhauses“ (E5) für diese eine Folie auf; für alle anderen Folien gilt sie weiter. Grund der Festlegung war: Die Rendite des Modellhauses hängt fast ganz am Restwert, und Marktmiete und Liegenschaftszins sind Ansätze aus einem Projekt in Neu Wulmstorf. Die Folie zeigt die Rendite deshalb so, wie die Rechenmappe es verlangt (Blatt Hinweise Nr. 12): als Paar „mit Restwert“ und „nur Bodenwert“ mit dem Anteil des Restwerts am Endvermögen, vor Steuern, mit den Annahmen daneben. Mit Restwert sind es 5,7 | 5,8 | 5,8 % in A, B, C und 5,5 % frei finanziert zur Marktmiete; nur mit dem Bodenwert 1,7 | 0,9 | 0,6 %. Die Werte stehen in einem eigenen Lauf modellhaus_rendite von werte.json; eine benannte Ausnahme öffnet die Sperrliste nur für dessen Zellen, und der Bau gibt den Lauf nur dieser Folie frei. Folie 15 nennt bei den Annahmen „vor Steuern“ statt „keine Rendite“. Die Quellenfolie rückt auf A8.",
-    "Auf Wunsch des Auftraggebers tragen die Folien mit fremden Daten (3, 4, 5, 6 und 22) eine kurze Quellenzeile im Schriftfeld: im freien Feld zwischen Rubrik und Logo-Feld, rechtsbündig, Work Sans 10 pt in Grau, höchstens zwei Zeilen (Baustein B.quelle). Die frühere Festlegung „Quellen nur in den Notizen und auf der Quellenfolie“ ist damit für diese fünf Folien ersetzt. Die volle Angabe mit Abbildung, Reihe und Stand bleibt auf A8. Der Wortlaut steht in daten/markt.json (Feld quelle_kurz je Block) und im Feld „inhalt“ der Folie. Folie 6 nennt zwei Quellen, weil sie neben der Bestandsreihe die Kennzahl aus dem NBank-Wohnungsmarktbericht zeigt. Die übrigen Folien bleiben ohne Quellenzeile: Ihre Angaben stammen aus der Richtlinie, der Broschüre oder der Rechenmappe der PGN."
+    "Auf Wunsch des Auftraggebers tragen die Folien mit fremden Daten (3, 4, 5, 6 und 22) eine kurze Quellenzeile im Schriftfeld: im freien Feld zwischen Rubrik und Logo-Feld, rechtsbündig, Work Sans 10 pt in Grau, höchstens zwei Zeilen (Baustein B.quelle). Die frühere Festlegung „Quellen nur in den Notizen und auf der Quellenfolie“ ist damit für diese fünf Folien ersetzt. Die volle Angabe mit Abbildung, Reihe und Stand bleibt auf A8. Der Wortlaut steht in daten/markt.json (Feld quelle_kurz je Block) und im Feld „inhalt“ der Folie. Folie 6 nennt zwei Quellen, weil sie neben der Bestandsreihe die Kennzahl aus dem NBank-Wohnungsmarktbericht zeigt. Die übrigen Folien bleiben ohne Quellenzeile: Ihre Angaben stammen aus der Richtlinie, der Broschüre oder der Rechenmappe der PGN.",
+    "Tenor der Modellrechnung (Auftraggeber, 11.11.2026): Gruppe A ist der Regelfall und trägt die Überschriften. Folie 15 heißt „Gruppe A trägt sich ab Jahr 1: 3.789 € Zahlungsüberschuss“; B und C bleiben in Tabelle, Notizen und auf den Folien 20 und 21 sichtbar. Grund: B und C bringen in der Rechnung keine merklich höhere Rendite (Folie A7), aber sechs und neun Jahre mit Fehlbetrag; für sie sprechen der größere Mieterkreis oder eine Vorgabe der Kommune. Die Broschüre führt denselben Tenor auf S. 11."
   ],
   "offene_fragen": [
-    "Tenor der Jahresrechnung: Folie 15 nennt im Titel 3.789 € für A und Fehlbeträge für B und C. Trägt PGN diesen Titel im Vortrag? Die Entscheidung zum Tenor ist auch für die Broschüre noch offen.",
     "Tilgungssatz 2,38 %: Die Folien 15 bis 24 rechnen seit 10.11.2026 mit gleichmäßiger Tilgung über die Höchstlaufzeit von 42 Jahren (vorher 2,5 %). Das ist der niedrigste Satz ohne Schlussrate in Jahr 42; die NBank kann einen höheren festlegen. Welchen Satz nennt die NBank?",
     "Titel der Zusammenfassung (Folie 24): Bleibt es bei „Tilgungssatz, Kosten und Höchstmiete bestimmen das Ergebnis“?",
     "Herstellungskosten 3.579 € je m² (Median aus fünf PGN-Projekten, Kostenstand Q4 2025): Bestätigt PGN den Wert, die Spanne 3.321 bis 3.861 € und die Werte je Kostengruppe für den Hauptteil (Folien 22 und 23)?",

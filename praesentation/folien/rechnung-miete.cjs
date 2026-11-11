@@ -28,7 +28,7 @@ module.exports = {
     // Rechenweg über sechs Spalten; die Unterkante steht auf der Grundlinie des Diagramms. Der Untertitel nennt Zins und Laufzeit des
     // Bankdarlehens, an denen Kapitaldienst und nötige Miete der Spalte „Frei finanziert“ hängen.
     // Nötige Miete = (Kapitaldienst + Objektverwaltung + Instandhaltung) ÷ (Wohnfläche × 12 Monate × Anteil nach Mietausfall)
-    const annahme = wl(`Bankdarlehen zu ${fmt.prozent(M('eingabe.zins_bank'), 2)} Zins, Annuität über ${M('eingabe.laufzeit_bank')} Jahre`, 'Untertitel der Tabelle');
+    const annahme = wl(`Frei finanziert: Bankdarlehen zu ${fmt.prozent(M('eingabe.zins_bank'), 2)}, Annuität ${M('eingabe.laufzeit_bank')} Jahre`, 'Untertitel der Tabelle');
     const yTab = B.modulkopf(s, { x: colX(7), y: Y.inhalt, w: span(6), titel: wl('Rechenweg', 'Tabellentitel'), sub: annahme }) - 0.06;
     const kd = [M('dscr.kapitaldienst_jahr1.A'), M('dscr.kapitaldienst_jahr1.Frei')];
     const bew = ['A', 'Frei'].map(g => M(`jr1.objektverwaltung.${g}`) + M(`jr1.instandhaltung.${g}`));

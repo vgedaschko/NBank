@@ -32,6 +32,7 @@ Kurzzeichen (nur in diesem Konzept, nicht in der Excel): RW = Restwert („mit R
 | E16 | Projektwahl über die Position (D3 = 1 oder 2), Projektnamen als Eingaben D4:E4 | Umbenennen eines Projekts löst keinen Bezugsfehler aus (Runde 1, V1) |
 | E17 | Übersicht als Kurzfassung auf zwei Druckseiten: Nebenwerte eingeklappt, Restwert-Varianten ausgeschrieben, nicht zutreffende Frei-Zellen leer; Bemerkungen der Blöcke ohne Horizont (1–4, 8, 9) in Spalte H neben den Zahlen | Runde 1, V2/V4; Runde 2, V4/V5 |
 | E18 | Vergleich gefördert gegen frei auf Objekt-IRR-Basis nach Förderbarwert (Zuschuss nach Entgelt + Barwertvorteil des NBank-Darlehens zum Zins 6.1); daneben nach Zuschuss und ohne Zuschuss (Kosten der Bindung), Frei in allen Zeilen. Seit Abschnitt N zusätzlich auf der Eigenkapitalebene (Block 6) und in der Liquidität (Block 2, 3): Frei mit den Mindest-Eigenmitteln wie gefördert zuzüglich Eingabe 7.1, Rest als Bankdarlehen zu Block 6; Frei-Miete laut Eingabe 10.1 (Marktmiete oder Miete für das DSCR-Ziel 10.2), Zeitreihe, Restwert und alle Frei-Kennzahlen einheitlich mit dieser Miete; der Aufschlag auf die Marktmiete steht bei den Renditen und beim Restwert (L74, L87, L98) | Runde 2 FL1: „nach Zuschuss“ enthält den Zinsvorteil des Darlehens nicht, bei B und C der größere Teil der Förderung; kennzahlen-konzept 2.3 weist den Förderbarwert zur Einordnung aus. Abschnitt N: Ohne Finanzierung blieb offen, ob sich frei zur Marktmiete trägt (Modellhaus DSCR Jahr 1 0,61; mit den Bewertungsansätzen bis 10.11.2026 0,67) |
+| E19 | Liegenschaftszins je Projekt: Tabelle 4 mit einer Spalte je Projekt (D Projekt 1, E Projekt 2) und der Spalte „verwendet“ (F, `LZ_Satz`), gewählt über `Projekt_Nr` wie die Eingaben. Modellhaus mit amtlichen Werten für Rotenburg (Wümme) (Liegenschaftszins, Marktmiete) und der Vergleichsmiete als PGN-Annahme; die Restwertmethode bleibt der Ertragswert, es gibt kein Auswahlfeld für andere Methoden | Entscheidung des Auftraggebers vom 11.11.2026 (Abschnitt Q): Die Platzhalter aus Neu Wulmstorf trugen alle Renditen mit Restwert des Modellhauses (O2). Keine Zelle der Blätter Übersicht, Eingaben, Gefördert A/B/C und Frei finanziert wechselt die Adresse |
 
 ---
 
@@ -43,7 +44,7 @@ Kurzzeichen (nur in diesem Konzept, nicht in der Excel): RW = Restwert („mit R
 | 2 | Eingaben | Auswahl „Aktives Projekt“, alle änderbaren Werte beider Projekte | Z. 1 Titel, Z. 2 Legende, Z. 3 Projektwahl (1 oder 2), Z. 4 Projektnamen (Eingaben), Z. 5 Kopf, Z. 6–54 zehn Blöcke mit Zeilengliederung. Spalten A Nr. · B Eingabe · C Einheit · D Projekt 1 · E Projekt 2 · F verwendet · G Quelle | fixiert D6; Zellhyperlink „Übersicht“ in G3 |
 | 3–5 | Gefördert A, Gefördert B, Gefördert C | Zeitreihe und Ergebnisse je Einkommensgruppe | Z. 1–5 Kopf (Z. 2 Sprunglinks H2:N2, Z. 4 Gruppen, Z. 5 Spaltenköpfe), Z. 6–86 t = 0 … 80, Spalten A–X sichtbar, Y–AS „Zahlungsreihen für IRR“ und darunter die Nullstellensuche (Y–AB, Z. 131–142 und 172–177; gegliedert, zugeklappt), Zeilen 49–86 (t = 43 … 80) gegliedert, zugeklappt. Unterhalb: Finanzierung (Z. 88–114), Restwert (Z. 116–129), Renditen (Z. 131–151), Liquidität (Z. 153–170), Förderbarwert und Objektrendite (Z. 172–177), Miete für das DSCR-Ziel (Z. 179–183) | fixiert C6; Zeile 2: Links Übersicht · Finanzierung · Restwert · Renditen · Liquidität · Förderbarwert · DSCR-Ziel |
 | 6 | Frei finanziert | Vergleich ohne Förderung: Objekt-, Liquiditäts- und Eigenkapitalebene mit Bankdarlehen; Miete laut Eingabe 10.1 | wie 3–5, Zeitreihe A–Q (ohne NBank), Zahlungsreihen R–AB und Nullstellensuche R–U (Z. 131–142; gegliedert, zugeklappt); Blöcke in denselben Zeilen wie 3–5: Finanzierung (Z. 88–114), Restwert (Z. 116–128), Renditen (Z. 131–151), Liquidität (Z. 153–170), Miete für das DSCR-Ziel (Z. 179–186); Zeilen ohne Inhalt ausgeblendet (D.4) | fixiert C6; Zeile 2: Links Übersicht · Finanzierung · Restwert · Renditen · Liquidität · DSCR-Ziel |
-| 7 | NBank | Ebene 4: EK-Rendite gegen Orientierungswert, neutral | Z. 1–3 Kopf (Z. 3 Projekt), Z. 4–7 Orientierungswert, Z. 8 Gruppenzeile (Rendite · Lage zum Orientierungswert), Z. 9–24 Matrix, Z. 26–31 Bezugsgrößen, Z. 33–36 Hinweise | fixiert A10; Zellhyperlink „Übersicht“ in I1 |
+| 7 | NBank | Ebene 4: EK-Rendite gegen Orientierungswert, neutral | Z. 1–3 Kopf (Z. 3 Projekt), Z. 4–7 Orientierungswert, Z. 8 Gruppenzeile (Rendite · Lage zum Orientierungswert), Z. 9–24 Matrix, Z. 26–31 Grundlagen, Z. 33–36 Hinweise | fixiert A10; Zellhyperlink „Übersicht“ in I1 |
 | 8 | Tabellen | RL-2026-Festwerte, Nutzungsdauer; abgesetzt: Liegenschaftszins je Projekt (Projekt 1 Rotenburg (Wümme), Projekt 2 Neu Wulmstorf) | vier Tabellen mit Titelzeile und Kopfzeile, Quelle je Zeile oder einmal je Tabelle; Z. 42 und 43 Fußnoten zu Tabelle 4 (Standort, Bodenrichtwert, Streubreite) | fixiert A3; Zellhyperlink „Übersicht“ in G1 |
 | 9 | Hinweise | höchstens 15 kurze Zeilen | A Nr., B Text; Kopf B2 „Hinweis (Version 3.0, Stand 11/2026)“ | fixiert A3; Zellhyperlink „Übersicht“ in C1 |
 
@@ -156,7 +157,7 @@ Gültigkeit = Datenüberprüfung. Die Fehlermeldung nennt den zulässigen Bereic
 | 9.3 | 50 | Zuschlag Liegenschaftszins (Standort) | `Stress_LZ` | Prozentpunkte | 0,00 % | 0,00 % | Vorgängermappe: Best −0,30, Worst +0,60 Prozentpunkte | v2-1 Szenarien!G10:I10; RR `lz_delta` | Dezimal −0,02–0,02 |
 | 9.4 | 51 | Faktor Gebäude-Restwert | `Stress_GebRW` | Faktor | 1,00 | 1,00 | PGN-Annahme | RR `rw_faktor` | Dezimal 0,00–1,50 |
 
-Modellhaus 4.3/4.4 und der Liegenschaftszins des Modellhauses (Tabelle 4, Spalte Projekt 1) sind seit 11.11.2026 Werte für Rotenburg (Wümme): Marktmiete und Liegenschaftszins amtlich, Vergleichsmiete als PGN-Annahme (Entscheidung des Auftraggebers, Abschnitt Q, Abweichung A7). Bis 10.11.2026 standen dort gerundete Platzhalter aus Neu Wulmstorf (12,92 / 14,48 €/m²); dieser Stand läuft als L63 und L68 weiter mit. Die Mietübersicht des Gutachterausschusses mischt Bestandsmieten und Neuverträge seit 2022; als Marktmiete für die Neuvermietung liegt der Wert damit eher niedrig. Eingabe 8.2 heißt „Zielmiete nach Jahr 42“: Die Bindung endet nach Jahr 35, bis Jahr 42 ist die Vergleichsmiete die Obergrenze, erst danach die Zielmiete (Lektorat Nr. 28). Die Quelle zu 6.1 nennt keinen Stand der Bundesbank-Statistik; PGN trägt ihn nach (Abschnitt I, O14). Tarutinoer behält die Werte der Vorgängermappe mit voller Stellenzahl (Rundung abgelehnt, Abschnitt K: sie bräche den 0,01-€-Abgleich F10).
+Modellhaus 4.3/4.4 und der Liegenschaftszins des Modellhauses (Tabelle 4, Spalte Projekt 1) sind seit 11.11.2026 Werte für Rotenburg (Wümme): Marktmiete und Liegenschaftszins amtlich, Vergleichsmiete als PGN-Annahme (Entscheidung des Auftraggebers, Abschnitt Q, Abweichung A7). Bis 10.11.2026 standen dort gerundete Platzhalter aus Neu Wulmstorf (12,92 / 14,48 €/m²); dieser Stand läuft als L63 und L68 weiter mit. Die Mietübersicht des Gutachterausschusses mischt Bestandsmieten und Neuverträge seit 2022; als Marktmiete für die Neuvermietung liegt der Wert damit eher niedrig. Eingabe 8.2 heißt „Zielmiete nach Jahr 42“: Die Bindung endet nach Jahr 35, bis Jahr 42 ist die Vergleichsmiete die Obergrenze, erst danach die Zielmiete (Lektorat Nr. 28). Die Quelle zu 6.1 nennt keinen Stand der Bundesbank-Statistik; PGN trägt ihn nach (Abschnitt I, O17). Tarutinoer behält die Werte der Vorgängermappe mit voller Stellenzahl (Rundung abgelehnt, Abschnitt K: sie bräche den 0,01-€-Abgleich F10).
 
 Gefördert haben beide Projekte im Standard kein Bankdarlehen; Block 6 wirkt dort nur über 6.1 als Vergleichszins des Barwertvorteils (NBank N19/N20). Frei finanziert nutzt 6.1 bis 6.4 immer (D.4). Gefördert entsteht das Bankdarlehen, wenn Förderung und Mindest-Eigenmittel die Herstellungskosten nicht decken (Kosten über der Bemessungsgrenze, Grundstück über dem Deckel; Läufe L4–L8, L10, L39, L40). Die Anfangstilgung folgt aus 6.1 und 6.4 (Gefördert H113); RL Nr. 5.3.6 verlangt mindestens 1 % (Prüfung P3).
 
@@ -980,7 +981,7 @@ Toleranzen: Beträge ≤ 1 € (Jahresrechnung, Förderbeträge ≤ 0,01 €); R
 | L61 | Modellhaus | 6.2 = 30 (gleich Laufzeit 6.4) | RR mit `zinsbindung` 29 (die RR teilt bei Zinsbindung ≥ 30 durch die Restlaufzeit 0), Bank frei geschlossen mit Zinsbindung 30 | alles; Zeilen 112 und 114 = 0, Restschuld Ende Jahr 30 < 1 €, Kapitaldienst Jahr 31 unter 1 € |
 | L62 | Modellhaus | 4.4 = 0, 10.1 = Miete für DSCR-Ziel | `markt_start` = nötige Miete; Miete gefördert 0 | alles; Miete frei 20,72 €/m², Aufschläge 185/186, Übersicht 8.5/8.6 und L26, L38, L42, L74, L87, L98 „–“ (Anzeige „Frei: Marktmiete 0, Aufschlag –“); P4, P5 und D3 „prüfen“ (gefördert ohne Miete) |
 
-| L63 | Modellhaus | 3.1 = 2,5 %, 4.3 = 12,92, 4.4 = 14,48, Tabelle 4 Spalte D = 2,5 / 2,7 / 2,7 / 2,9 / 3,0 / 3,1 % (Stand bis 09.11.2026) | `tilgungssatz=0,025`, `ovm_start`, `markt_start`, `lz_tab` der RR | alles, F.3 (Tabellen a bis c), Regression N |
+| L63 | Modellhaus | 3.1 = 2,5 %, 4.3 = 12,92, 4.4 = 14,48, Tabelle 4 Spalte D = 2,5 / 2,7 / 2,7 / 2,9 / 3,0 / 3,1 % (Stand vor der Umstellung des Tilgungssatzes am 10.11.2026) | `tilgungssatz=0,025`, `ovm_start`, `markt_start`, `lz_tab` der RR | alles, F.3 (Tabellen a bis c), Regression N |
 | L64 | Tarutinoer | 3.1 = 2,5 % | `tilgungssatz=0,025` | alles, F.4, F10 (v2-1), Überleitung E.3, Regression N |
 | L65–L67 | Tarutinoer | wie L3, L4, L5, je mit 3.1 = 2,5 % | wie L3–L5 | alles, F.5 |
 | L68 | Modellhaus | 4.3 = 12,92, 4.4 = 14,48, Tabelle 4 Spalte D wie L63 (Stand 10.11.2026, Tilgung 1/42) | `ovm_start`, `markt_start`, `lz_tab` der RR | alles; Konzeptwerte, die bis 10.11.2026 für L1 galten (`_L1_TILGUNG_42`) |
@@ -1100,16 +1101,16 @@ Der Ertragswert zur Marktmiete liegt bei Bezug 26,2 % unter den Gesamtkosten (bi
 | ZÜ Jahr 10 / 35 / 42 | 20.192,26 / 89.837,47 / 248.897,22 | 7.336,41 / 98.228,43 / 312.892,19 | 2.877,71 / 105.598,26 / 349.460,75 |
 | DSCR Jahr 1 / Minimum 1–35 | 1,0054 / 1,0005 | 0,8532 / 0,8515 | 0,8209 / 0,8202 |
 | Jahre mit Fehlbetrag / größter kum. Fehlbetrag | 0 / 0 | 9 / −92.052,06 | 9 / −151.921,55 |
-| Break-even-Tilgung | 2,5163 % | 2,0596 % | 1,9628 % |
+| Tragbare Tilgung (3.8) | 2,5163 % | 2,0596 % | 1,9628 % |
 | Restschuld NBank Ende Jahr 35 | 350.000 | 525.000 | 612.500 |
-| Schlussrate NBank über Regelrate / Restschuld Bank Jahr 42 | 0 / 0 | 0 / 0 | 0 / 0 |
+| Schlussrate NBank über Regeltilgung / Restschuld Bank Jahr 42 | 0 / 0 | 0 / 0 | 0 / 0 |
 | ZÜ J1 bei 0,00 % (vor Tilgung) | 70.455,20 | 86.504,80 | 96.176,00 |
 | ZÜ J1 bei 1,00 / 1,50 % | 42.455,20 / 28.455,20 | 44.504,80 / 23.504,80 | 47.176,00 / 22.676,00 |
 | ZÜ J1 bei 2,00 / 2,381 / 2,50 % | 14.455,20 / 3.788,53 / 455,20 | 2.504,80 / −13.495,20 / −18.495,20 | −1.824,00 / −20.490,67 / −26.324,00 |
 | ZÜ J1 bei 3,00 % | −13.544,80 | −39.495,20 | −50.824,00 |
 | höchster Überschuss (G55:G62) | C bei 0,00 und 1,00 %; A ab 1,50 % | | |
 
-**(c) Renditen und Restwert (RR mit 4.3/4.4 = 12,92/14,48, A7), Jahr 35 / Jahr 42** (Übersicht: 5.1–5.10 Zeilen 76–85 in der Reihenfolge D.5; 6.1–6.7 Zeilen 89–95 in der Reihenfolge EK-IRR mit / nur Boden, VOFI mit / nur Boden, Restwertanteil, EK-IRR ohne, VOFI ohne; 6.8 Zeile 96; 7.1–7.8 Zeilen 100–107. „n. FBW“ = nach Förderbarwert; „n. Z.“ = nach Zuschuss, „brutto“ = ohne Zuschuss, RW = Restwert, ohne Geb.-RW = nur Bodenwert. Nettoanfangsrendite frei nur auf dem Blatt Frei H139, nicht auf der Übersicht.)
+**(c) Renditen und Restwert, Stand bis 10.11.2026 (RR mit 4.3/4.4 = 12,92/14,48 und Liegenschaftszins Neu Wulmstorf; gilt für L63), Jahr 35 / Jahr 42** (Übersicht: 5.1–5.10 Zeilen 76–85 in der Reihenfolge D.5; 6.1–6.7 Zeilen 89–95 in der Reihenfolge EK-IRR mit / nur Boden, VOFI mit / nur Boden, Restwertanteil, EK-IRR ohne, VOFI ohne; 6.8 Zeile 96; 7.1–7.8 Zeilen 100–107. „n. FBW“ = nach Förderbarwert; „n. Z.“ = nach Zuschuss, „brutto“ = ohne Zuschuss, RW = Restwert, ohne Geb.-RW = nur Bodenwert. Nettoanfangsrendite frei nur auf dem Blatt Frei H139, nicht auf der Übersicht.)
 
 | Kennzahl | A | B | C | Frei |
 |---|---:|---:|---:|---:|
@@ -1132,15 +1133,15 @@ Der Ertragswert zur Marktmiete liegt bei Bezug 26,2 % unter den Gesamtkosten (bi
 | Restwertanteil am Endvermögen | 86,48 / 77,16 % | 93,07 / 80,11 % | 95,67 / 80,81 % | 120,52 / 92,47 % |
 | Tiefster Stand Projektkonto (VOFI), Jahr 0–42 (6.8) | 0 | −121.719,23 | −218.293,08 | −3.192.817,19 |
 | Bodenwert | 1.178.716,92 / 1.308.192,98 | gleich | gleich | gleich |
-| Ertragswert Bestand (= RW mit) | 8.792.243,99 / 10.657.902,45 | 9.570.534,13 / 11.282.394,83 | 9.919.955,64 / 11.505.426,09 | 11.056.129,02 / 11.899.358,54 |
+| Ertragswert zur Bestandsmiete (= RW mit) | 8.792.243,99 / 10.657.902,45 | 9.570.534,13 / 11.282.394,83 | 9.919.955,64 / 11.505.426,09 | 11.056.129,02 / 11.899.358,54 |
 | Abschlag Bestandsmiete unter Zielmiete | 2.263.885,03 / 1.241.456,10 | 1.485.594,88 / 616.963,72 | 1.136.173,37 / 393.932,45 | leer (Frei: Dublette entfällt) |
 | Liegenschaftszins | 2,80 / 2,70 % | gleich | gleich | gleich |
 | Ertragswert Bestand / Zielmiete gegenüber Gesamtkosten, Bezug | −54,68 / −10,39 % | −45,96 / −10,39 % | −41,21 / −10,39 % | −10,39 % (nur 7.4) |
 | NBank: Lage mit RW (N4–N7) | über | über | über | – |
 | NBank: Lage ohne Geb.-RW, ohne RW (N8–N15) | unter | unter | unter | – |
-| NBank: Barwertvorteil / Ausgleichsleistung | 1.139.544,27 / 3.918.544,27 | 1.709.316,40 / 3.098.816,40 | 1.994.202,47 / 2.688.952,47 | – |
+| NBank: Barwertvorteil / Förderbarwert (N19 / N20) | 1.139.544,27 / 3.918.544,27 | 1.709.316,40 / 3.098.816,40 | 1.994.202,47 / 2.688.952,47 | – |
 
-Gegen PRUEFBERICHT 4.2 (2 Stellen) unverändert; gegen die RR mit vollen Mietwerten weichen die Renditen höchstens 0,0002 Pp ab, der Restwert höchstens 318 €.
+Tabelle (c) gegen PRUEFBERICHT 4.2 (2 Stellen) unverändert; gegen die RR mit vollen Mietwerten weichen die Renditen höchstens 0,0002 Pp ab, der Restwert höchstens 318 €. Die Werte des Standardlaufs L1 seit 11.11.2026 stehen in Tabelle (d) am Anfang dieses Abschnitts.
 
 ### F.4 Tarutinoer (aktiv, Standard) gegen v2-1-Cache
 
@@ -1170,7 +1171,7 @@ Gegen PRUEFBERICHT 4.2 (2 Stellen) unverändert; gegen die RR mit vollen Mietwer
 | VOFI-EK mit RW J42 | Dashboard!C55:E55 | 6,376 / 6,440 / 6,494 % | 6,489 / 6,661 / 6,753 % | Überleitung E.3 |
 | EK-IRR mit RW J42 | Dashboard!C58:E58 | 7,924 / 7,930 / 8,021 % | 7,683 / 7,790 / 7,914 % | Überleitung E.3 |
 
-Weitere v3-Sollwerte Tarutinoer (RR, J35 / J42): Objekt-IRR nach Förderbarwert mit RW 6,77/6,59 % · 6,53/6,38 % · 6,48/6,34 % (Förderbarwert 1.658.894 / 1.311.867 / 1.138.353 €); Objekt-IRR n. Z. mit RW 5,31/5,28 % · 4,83/4,85 % · 4,68/4,72 %; ohne RW 1,54/2,66 % · 1,33/2,46 % · 1,34/2,46 %; brutto mit RW 3,23/3,45 % · 3,89/4,02 % · 4,23/4,31 %; Frei 6,27/6,17 %; EK-IRR ohne RW 3,03/4,66 % · 3,02/4,90 % · 3,26/5,17 %; VOFI ohne RW 2,55/3,52 % · 2,56/3,74 % · 2,70/3,92 %; Tilgungsschwellen 1,80 / 1,91 %; Break-even 3,65 / 3,03 / 2,90 %; Barwertvorteil 482.419,88 / 723.629,82 / 844.234,79 €. Ohne Grundstück sind „ohne Geb.-RW“ und „ohne RW“ gleich; „EK-IRR ohne Geb.-RW, J35“ ist dann mehrdeutig (Nullstellen A −41,3 % und 3,03 %). Lage EK-IRR ohne RW J42: „über“ (4,66–5,17 % > 4,39 %).
+Weitere v3-Sollwerte Tarutinoer (RR, J35 / J42): Objekt-IRR nach Förderbarwert mit RW 6,77/6,59 % · 6,53/6,38 % · 6,48/6,34 % (Förderbarwert 1.658.894 / 1.311.867 / 1.138.353 €); Objekt-IRR n. Z. mit RW 5,31/5,28 % · 4,83/4,85 % · 4,68/4,72 %; ohne RW 1,54/2,66 % · 1,33/2,46 % · 1,34/2,46 %; brutto mit RW 3,23/3,45 % · 3,89/4,02 % · 4,23/4,31 %; Frei 6,27/6,17 %; EK-IRR ohne RW 3,03/4,66 % · 3,02/4,90 % · 3,26/5,17 %; VOFI ohne RW 2,55/3,52 % · 2,56/3,74 % · 2,70/3,92 %; Tilgungsschwellen 1,80 / 1,91 %; tragbare Tilgung 3,65 / 3,03 / 2,90 %; Barwertvorteil 482.419,88 / 723.629,82 / 844.234,79 €. Ohne Grundstück sind „ohne Geb.-RW“ und „ohne RW“ gleich; „EK-IRR ohne Geb.-RW, J35“ ist dann mehrdeutig (Nullstellen A −41,3 % und 3,03 %). Lage EK-IRR ohne RW J42: „über“ (4,66–5,17 % > 4,39 %).
 
 ### F.5 Sollwerte Finanzierungsfälle
 
@@ -1320,7 +1321,7 @@ Zeilen- und Spaltenadressen dieses Konzepts sind verbindlich; eine Änderung erf
 | Nr. | Punkt | Wer |
 |---|---|---|
 | O1 | Restfinanzierung über Bank (E5, A3) statt über bares Eigenkapital bestätigen. Beim Referenzprojekt mit tatsächlichem Verkehrswert 731.325 € kippt damit die Liquiditätsaussage: Bank 309.386 €; ZÜ Jahr 1 A +9.342 → −7.989 € (B +3.069 → −14.262 €, C +906 → −16.425 €); DSCR Jahr 1 A 1,23 → 0,86; VOFI-EK mit RW J42 A 5,17 → 5,76 %; EK-IRR mit RW J42 A 5,70 → 5,91 % (D.2a). Die RR-Lesart ergibt sich in v3 mit 7.1 = Lücke (L5) | PGN |
-| O2 | Für das Modellhaus sind Markt- und Vergleichsmiete (12,92 / 14,48 €/m²) und die Liegenschaftszinskurve (Neu Wulmstorf, Eichwert Bodenrichtwert 600 €/m²) Platzhalter; alle Renditen mit Restwert hängen daran (PRUEFBERICHT Frage 6). Für andere Standorte: Kurve in Tabelle 4 tauschen oder Zuschlag 9.3 | PGN |
+| O2 | Fortgeschrieben am 11.11.2026 (Entscheidung des Auftraggebers, Abschnitt Q): Marktmiete (13,30 €/m²) und Liegenschaftszins (3,3–3,5 %) des Modellhauses sind amtliche Werte für Rotenburg (Wümme), Stand 01.01.2026; die Platzhalter aus Neu Wulmstorf (12,92 / 14,48 €/m², Kurve für Bodenrichtwert 600 €/m²) sind ersetzt. Offen bleibt: (1) Die Vergleichsmiete 11,87 €/m² ist eine PGN-Annahme (Verhältnis 12,92 ÷ 14,48 zur Marktmiete); für Rotenburg gibt es keinen Mietspiegel. (2) Die Mietübersicht des Gutachterausschusses mischt Bestandsmieten und Neuverträge seit 2022; als Marktmiete der Neuvermietung liegt 13,30 €/m² damit eher niedrig. (3) Der Liegenschaftszins gilt für den mittleren Bodenrichtwert 185 €/m² (Lage der Mietübersicht: 160 €/m²) und streut laut Quelle um ±1,2 Prozentpunkte. Alle Renditen mit Restwert und der Vergleich mit frei finanziert hängen daran (PRUEFBERICHT Frage 6). Für einen anderen Standort: Eingabe 4.3 und 4.4 und die Spalte des Projekts in Tabelle 4 ersetzen oder Zuschlag 9.3 | PGN |
 | O3 | Swapsatz 3,39 % vom 19.08.2026; Quelle und Stichtag (Markt 19.10.2026: 3,43 %) | PGN / NBank |
 | O4 | Zins ab Jahr 36: 3,74 % als Obergrenze oder Basiszinssatz + 3 Pp (Frage 9) | NBank |
 | O5 | Kostenstand für die Broschüre: Stand 2026 in Jahr 1 (Eingabe 5.5 = 0) oder fortgeschrieben (Frage 2) | PGN |
@@ -1331,9 +1332,14 @@ Zeilen- und Spaltenadressen dieses Konzepts sind verbindlich; eine Änderung erf
 | O10 | Bemessungsgrenzen ab 01.10.2026 fortgeschrieben (RL Nr. 5.3.2.2); bis 21.10.2026 keine Bekanntgabe. Tabelle 2 bei Bekanntgabe auf nbank.de nachziehen | PGN |
 | O11 | Kopplung Bezugsjahr 1.1 und Kostenstand 5.5 (z. B. 5.5 = 1.1 − 2026 + 1): fachlich abzustimmen; bis dahin ändert 1.1 nur Jahreszahlen (Bezeichnung „ändert nur Jahresangaben“) | PGN |
 | O12 | Vergleichszins des Förderbarwerts: Eingabe 6.1 (3,74 %, Bankzins) bewertet den Zinsvorteil des NBank-Darlehens; ein höherer Zins erhöht den Förderbarwert und den Objekt-IRR nach Förderbarwert. Bestätigen, dass der Bankzins der richtige Vergleichszins für die Beratung ist (Runde 2 FL1) | PGN |
-| O13 | Druckbild in Excel prüfen (Datei, Drucken, Vorschau): Übersicht zwei Seiten, Gefördert A/B/C je fünf, Frei finanziert drei, Eingaben und Tabellen je zwei, NBank und Hinweise je eine (zusammen 26). Die Abnahme prüft die Druckeinstellungen, das LibreOffice-PDF (29 Seiten, weil LibreOffice die Zeitreihe Gefördert auf drei Seiten druckt) und die Seitenreserve nach der Breitenregel von Excel (G.4); in Excel selbst ist der Druck nicht geprüft. Knappste Seiten: Übersicht Seite 2 und Zeitreihe Gefördert mit je rund 14 pt Reserve (eine Zeile) | PGN |
+| O13 | Druckbild in Excel prüfen (Datei, Drucken, Vorschau): Übersicht zwei Seiten, Gefördert A/B/C je fünf, Frei finanziert drei, Eingaben und Tabellen je zwei, NBank und Hinweise je eine (zusammen 26). Die Abnahme prüft die Druckeinstellungen, das LibreOffice-PDF (29 Seiten, weil LibreOffice die Zeitreihe Gefördert auf drei Seiten druckt) und die Seitenreserve nach der Breitenregel von Excel (G.4); in Excel selbst ist der Druck nicht geprüft. Knappste Seite: Übersicht Seite 2 mit rund 14 pt Reserve (eine Zeile); Zeitreihe Gefördert seit 11.11.2026 mit 33 pt. Dabei auch ansehen (Lektorat Nr. 05, 06, 49, gerechnet, nicht in Excel gesehen): Kopf „Bemerkung“ der Übersicht, Köpfe „Kapitaldienst“ und „Verwaltungskostenbeitrag“, „Gruppe“ in A2 und der Sprunglink „Förderbarwert“ auf den Zeitreihenblättern, „Höchstmiete“ und „% p. a. Restkapital“ auf Tabellen, der Sprunglink „Frei finanziert“ in Übersicht H6 (rund 2 px breiter als die Spalte) | PGN |
 | O14 | Frei finanziert mit Bankdarlehen: Konditionen Block 6 (3,74 %, 30 Jahre Annuität) gelten für frei und für die Restfinanzierung gefördert gleich; eigene Konditionen für das Bankdarlehen frei (80 % der Gesamtkosten statt Restfinanzierung, höherer Beleihungsauslauf) sind nicht abgebildet | PGN |
 | O15 | erledigt (10.11.2026): Die nötige Miete gefördert rechnet bei Tilgungsaufschub mit der Regeltilgung NBank (D.3, N.9) | PGN |
+| O16 | Zweite Druckseite der Zeitreihe Gefördert (K–X): Der Hinweis aus A3 bricht dort nach den Wiederholspalten A:B ab („Zeitreihe: € p. a., M“), solange Zeile 3 Wiederholzeile ist. Hinnehmen oder den Hinweis in die Fußzeile der Zeitreihenblätter setzen (Lektorat Nr. 07; der Titel aus A1 steht seit 11.11.2026 nicht mehr auf dieser Seite) | PGN |
+| O17 | Quelle zu Eingabe 6.1 (Zins Bank 3,74 %): „PGN-Annahme (Bundesbank-Statistik, Vorgängermappe)“ nennt weder Reihe noch Stand. PGN trägt Reihe und Datum nach (Vorschlag des Lektorats Nr. 31: „PGN-Annahme (Bundesbank-Statistik, Stand TT.MM.JJJJ)“); bis dahin steht kein Datum in der Zelle | PGN |
+| O18 | Bandbreite des Liegenschaftszinses: Hinweis 13 nennt für die Beratung ±0,5 Prozentpunkte, die Quelle zu Eingabe 9.3 die Werte der Vorgängermappe (−0,30 / +0,60), die amtliche Quelle für Rotenburg (Wümme) eine Streubreite von ±1,2 Prozentpunkten (Tabellen A43). Entscheiden, welche Bandbreite gilt (Lektorat Nr. 63) | PGN |
+| O19 | „RL Nr. 11.10 Abs. 3“ und „Abs. 4“ (NBank B10, A33, G6; Tabellen G32): Die Faktenbasis belegt den Inhalt von Nr. 11.10, zählt aber deren Absätze nicht. Vor der Freigabe am Richtlinientext gegenlesen (Lektorat, offen geblieben) | PGN |
+| O20 | Präsentation und Broschüre nachziehen: Die Anhangfolie zur Eigenkapitalrendite und der Wertekatalog der Präsentation nennen noch die Ansätze aus Neu Wulmstorf (Marktmiete 14,48 €/m², Liegenschaftszins 2,8 %, VOFI-EK-Rendite 5,7 % in Gruppe A, Verweis auf Hinweis 14). Neu: 13,30 €/m², 3,45 %, 5,25 % (Tabelle Q.2); Hinweis 14 hat einen neuen Inhalt. Die Zelladressen sind unverändert | Orchestrator |
 
 ---
 
@@ -1672,3 +1678,101 @@ Prüfskript: Texte, Format und Adressen des Aufschlags (L26, L38, L42), Abstands
 Entscheidung PGN zu O15: Bei Tilgungsaufschub (Eingabe 3.2 > 0) rechnet die nötige Miete gefördert mit der Regeltilgung NBank. Zeile 182 der Blätter Gefördert A/B/C heißt „Kapitaldienst Jahr 1, mit Regeltilgung“ und rechnet `=-Q7+IF(Tilgungsaufschub>0,$H$110,0)`; auf Frei bleibt `=-L7` (Annuität, enthält die Tilgung). Übersicht 8.2 trägt dieselbe Bezeichnung, Bemerkung „Zeilen 5 bis 7 und Bankdarlehen; bei Tilgungsaufschub (3.2) mit Regeltilgung NBank“. Im Standard (3.2 = 0) ändert sich keine Zahl. Zusätzlich aus Prüfrunde 3: Bemerkung 6.4 und 6.7 „„n. v.“: Endvermögen ≤ 0“, Hinweis 11 nennt die Gründe für „n. v.“, Aufschlag der Frei-Miete auch in der Gruppenzeile Restwert (Frei I116/J116), G.3 mit den Breiten der Mappe. Prüfskript: Lauf L16 (3.2 = 2) prüft Zeile 182 mit Regeltilgung.
 
 Broschüre S. 11 (10.11.2026): Der Kasten „Zum Vergleich: frei finanziert“ zeigt Zuschuss, Darlehen, Kapitaldienst Jahr 1 und die nötige Miete für A und Frei (Übersicht 1.5, 1.6, 1.10, 8.2, 8.3 bei DSCR-Ziel 1,0; Eingaben 6.1, 6.4). F9 prüft diese Werte und die Annahmen im Text mit (74 statt 69 Werte); der frühere Textabgleich „B und C gegenüber A“ auf S. 11 entfällt, die Zahlen stehen auf S. 12.
+
+---
+
+## Q. Bewertungsansätze Rotenburg (Wümme), Liegenschaftszins je Projekt, Lektorat (11.11.2026)
+
+Die Buchstaben O und P sind ausgelassen: O1 bis O20 sind die offenen Punkte (Abschnitt I), P1 bis P6 die Prüfungen (F.1). Die Abschnitte J bis N zitieren Texte und Adressen im Wortlaut ihres Stands; maßgeblich sind die Abschnitte 0 bis I und dieser Abschnitt.
+
+### Q.1 Entscheidung des Auftraggebers und Umsetzung
+
+Das Modellhaus (Projekt 1) rechnete Restwert und „frei finanziert“ bis 10.11.2026 mit Platzhaltern aus Neu Wulmstorf. Seit 11.11.2026 gelten amtliche Werte für Rotenburg (Wümme). Projekt 2 (Tarutinoer Straße, Neu Wulmstorf) bleibt, wie es ist. Am Modellhaus ändert sich sonst nichts: Mietenstufe IV, Kosten, Förderung, Tilgung. Die Restwertmethode bleibt der Ertragswert; es gibt kein Auswahlfeld für andere Methoden.
+
+| Größe | bis 10.11.2026 | seit 11.11.2026 | Quelle |
+|---|---|---|---|
+| Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 | 14,48 €/m² | 13,30 €/m² | Gutachterausschuss Otterndorf, Grundstücksmarktdaten 2026, Mietübersicht Landkreis Rotenburg (Wümme), Stichtag 01.01.2026: Baujahr 2020, Wohnung 70 m², Lage (Bodenrichtwert) 160 €/m², zwischen 13,11 € (Lage 150) und 14,04 € (Lage 200) eingerechnet. Bodenrichtwert der Zone „Brauerstraße (MI)“ zum 01.01.2026: 160 €/m². Die Übersicht mischt Bestandsmieten und Neuverträge seit 2022 |
+| Eingabe 4.3 Ortsübliche Vergleichsmiete, Jahr 1 | 12,92 €/m² | 11,87 €/m² | PGN-Annahme: dasselbe Verhältnis zur Marktmiete wie bisher (13,30 × 12,92 ÷ 14,48 = 11,867). Einen Mietspiegel für Rotenburg gibt es nicht |
+| Liegenschaftszins Mehrfamilienhaus nach Restnutzungsdauer 30 · 38 · 40 · 50 · 60 · 70 Jahre | 2,5 · 2,7 · 2,7 · 2,9 · 3,0 · 3,1 % (Neu Wulmstorf, Bodenrichtwert 600 €/m²) | 3,3 · 3,4 · 3,4 · 3,5 · 3,5 · 3,5 % | Oberer Gutachterausschuss Niedersachsen, Landesmodell Mehrfamilienhäuser, Stichtag 01.01.2026, Gemeinde Rotenburg (Wümme), Stadt, mittlerer Bodenrichtwert Geschosswohnungsbau 185 €/m² (Streubreite ±1,2 Prozentpunkte) |
+
+Umbau der Mappe (keine Zeile und keine Spalte eingefügt oder verschoben; neue Angaben nur in freien Zellen):
+
+| Zelle | bis 10.11.2026 | seit 11.11.2026 |
+|---|---|---|
+| Eingaben D24, D25 | 12,92 / 14,48 | 11,87 / 13,30 (Adresse und Bedeutung unverändert, neuer Wert) |
+| Eingaben G24, G25 | „Platzhalter / PGN-Mietband Neu Wulmstorf, fortgeschrieben“ (beide) | G24 „PGN-Annahme / PGN-Mietband Neu Wulmstorf, fortgeschrieben“, G25 „Mietübersicht Landkreis Rotenburg 2026 / wie Eingabe 4.3“ (60-Zeichen-Grenze; die Quelle des Tarutinoer steht in der Zeile darüber) |
+| Tabellen B34 | „4 Bewertung, Standort Neu Wulmstorf“ | „4 Bewertung, Liegenschaftszins je Projekt“ |
+| Tabellen D35, E35, F35 | D35 „Liegenschaftszins“, E35 und F35 leer | „Projekt 1“, „Projekt 2“, „verwendet“ |
+| Tabellen D36:D41 | Liegenschaftszins Neu Wulmstorf, für beide Projekte gerechnet (`LZ_Satz`) | Liegenschaftszins Projekt 1 (Rotenburg (Wümme)); **Bedeutung geändert** |
+| Tabellen E36:E41 | leer | Liegenschaftszins Projekt 2 (Neu Wulmstorf, die Werte, die bis dahin in D standen) |
+| Tabellen F36:F41 | leer | „verwendet“ `=INDEX($D36:$E36,Projekt_Nr)`; Name `LZ_Satz` zeigt jetzt hierher (**Adresse des Namens geändert**, vorher D36:D41) |
+| Tabellen G36, G37:G41 | je Zeile „OGA Nds., Landesmodell MFH, 01.01.2026, BRW 600 €/m²“ | G36 „Gutachterausschuss Nds., Landesmodell MFH 01.01.2026“, G37:G41 leer |
+| Tabellen A42, A43 | A42 „Kurve geeicht auf Bodenrichtwert 600 €/m²; Tarutinoer 260 €/m², Modellhaus Platzhalter; Anpassung über Eingabe 9.3.“, A43 leer | A42 Standort und Bodenrichtwert je Projekt, A43 Streubreite und Anpassung (Wortlaut Abschnitt C); Druckbereich A1:G43 statt A1:G42 |
+| Übersicht L106 (Bemerkung 7.7) | „Standort Neu Wulmstorf“ | „Standort je Projekt: Tabellen, Tabelle 4“ |
+| Hinweise B16 (Hinweis 14) | „… Platzhalter (Modellhaus: Mieten 4.3/4.4, Liegenschaftszins Neu Wulmstorf).“ | amtliche Werte für Rotenburg (Wümme), Vergleichsmiete als Annahme, für einen anderen Standort ersetzen (Wortlaut D.7) |
+
+Die Formeln der Zeitreihenblätter sind unverändert: Zeile 120 liest weiter `LZ_RND` und `LZ_Satz`. Die Texte, die den Standort nennen, sind Konstanten, die beide Projekte nennen (G.6, keine Formel-Prosa); sie stimmen damit für jedes aktive Projekt. Wer Projekt 2 überschreibt, ersetzt auch Tabellen E36:E41 und die Fußnote A42 (`README.md`, Abschnitt „Drittes Projekt“).
+
+### Q.2 Zahlenwirkung Modellhaus (Stand 10.11.2026 → 11.11.2026)
+
+| Kennzahl | A | B | C | Frei |
+|---|---|---|---|---|
+| Liegenschaftszins Jahr 35 / Jahr 42 (7.7) | 2,80 / 2,70 → 3,45 / 3,40 % | gleich | gleich | gleich |
+| Restwert Jahr 35 (7.1), € | 8.792.244 → 7.273.476 | 9.570.534 → 7.921.311 | 9.919.956 → 8.189.331 | 11.056.129 → 8.943.115 |
+| Restwert Jahr 42 (7.1), € | 10.657.902 → 8.853.745 | 11.282.395 → 9.326.335 | 11.505.426 → 9.447.166 | 11.899.359 → 9.672.927 |
+| VOFI-EK-Rendite, mit Restwert, Jahr 35 (6.3) | 5,74 → 5,25 % | 5,78 → 5,26 % | 5,81 → 5,27 % | 5,52 → 3,57 % |
+| VOFI-EK-Rendite, mit Restwert, Jahr 42 | 5,52 → 5,17 % | 5,57 → 5,20 % | 5,60 → 5,22 % | 5,42 → 3,95 % |
+| VOFI-EK-Rendite, nur Bodenwert, Jahr 35 (6.4) | 1,67 % unverändert | 0,90 % unverändert | 0,56 % unverändert | n. v. (Jahr 42: 1,17 % → n. v.) |
+| EK-IRR, mit Restwert, Jahr 35 (6.1) | 6,11 → 5,61 % | 5,94 → 5,43 % | 5,92 → 5,39 % | 5,37 → 4,20 % |
+| Objekt-IRR nach Förderbarwert, mit Restwert, Jahr 35 (5.1) | 5,40 → 5,02 % | 5,12 → 4,77 % | 5,05 → 4,70 % | 4,63 → 3,99 % |
+| Restwertanteil am Endvermögen, Jahr 35 (6.5) | 86,2 → 83,8 % | 92,2 → 90,7 % | 94,4 → 93,3 % | 120,5 → 186,9 % |
+| Tiefster Stand Projektkonto (6.8), € | 0 | −67.600 unverändert | −133.138 unverändert | −3.192.817 → −4.818.629 |
+| Ertragswert zur Zielmiete gegenüber Gesamtkosten, Bezug (7.8) | −10,4 → −26,2 % | gleich | gleich | (7.4) gleich |
+| Miete Jahr 1 (1.18), €/m² | 6,80 unverändert | 8,20 unverändert | 9,00 unverändert | 14,48 → 13,30 |
+| Zahlungsüberschuss Jahr 1 (Zeile 8), € | 3.789 unverändert | −13.495 unverändert | −20.491 unverändert | −102.805 → −122.232 |
+| DSCR Jahr 1 (3.4) | 1,05 unverändert | 0,89 unverändert | 0,85 unverändert | 0,67 → 0,61 |
+| Jahre mit Fehlbetrag, Jahr 1–35 (3.6) | 0 | 6 | 9 | 21 → 25 |
+| Größter kumulierter Fehlbetrag (3.7), € | 0 | −57.036 | −100.472 | −1.150.103 → −1.709.705 |
+| Nötige Miete Jahr 1 (8.3), €/m² / Aufschlag gegenüber Marktmiete (8.6) | 6,57 | 9,02 | 10,24 | 20,72 unverändert / 43,1 → 55,8 % |
+
+Unverändert am Modellhaus: Finanzierung bei Bezug (Block 1), Jahresrechnung Jahr 1 für A, B, C (Zeile 8: 3.789 / −13.495 / −20.491 €), Kapitaldienst, nötige Miete (6,57 / 9,02 / 10,24 / 20,72 €/m²), Liquidität A, B, C (Jahr 10, Jahr 35, Jahre mit Fehlbetrag), Tilgungsvergleich (Block 4), Förderbarwert, alle Renditen „nur Bodenwert“ und „ohne Restwert“ der Gruppen A, B, C, die Lage zum Orientierungswert auf dem Blatt NBank. Diese Werte stehen in Broschüre und Präsentation. Projekt 2 ist in allen Läufen wertgleich (F8 gegen die Referenzrechnung, Regression L64; dazu einmalig am 11.11.2026 Zelle für Zelle gegen die Läufe des Stands vom 10.11.2026 verglichen).
+
+Gegenprobe des Auftraggebers (Überschlag in einer Kopie der Mappe, nur Liegenschaftszins, 4.3 und 4.4 geändert): VOFI-EK-Rendite mit Restwert Jahr 35 A 5,25 · B 5,26 · C 5,27 · Frei 3,57 %; nur Bodenwert 1,67 · 0,90 · 0,56 % · n. v.; EK-IRR mit Restwert 5,61 · 5,43 · 5,39 · 4,20 %; Restwert Jahr 35 7.273.476 · 7.921.311 · 8.189.331 · 8.943.115 €; Liegenschaftszins Jahr 35 3,45 %; tiefster Stand Projektkonto frei −4.818.629 €; Jahre mit Fehlbetrag frei 25; Zahlungsüberschuss Jahr 1 frei −122.232 €. Die Mappe und die Referenzrechnung treffen jeden dieser Werte.
+
+### Q.3 Prüfskript
+
+- Die Referenzrechnung bleibt unverändert und wird aus `pruefe_vofi.py` parametriert: `lade_referenz` setzt für das Modellhaus `ovm_start = 11,87`, `markt_start = 13,30` und `lz_tab` = Rotenburg; jeder Lauf übergibt die Sätze der Tabelle 4 des aktiven Projekts (Schlüssel `T4`).
+- Die Konzeptwerte für L1 (`_L1_ROTENBURG`, 103 Zellen) sind aus der Referenzrechnung mit den neuen Parametern erzeugt, nicht aus der Mappe abgeschrieben. Beträge stehen auf Cent, Renditen auf 0,0001 Prozentpunkte; der tiefste Stand des Projektkontos frei steht auf ganze Euro, weil Mappe (Zahlungsüberschuss frei auf Cent gerundet, D.4) und Referenzrechnung dort um 2 Cent auseinanderliegen.
+- L63 (Modellhaus, Tilgung 2,5 %) rechnet zusätzlich mit 12,92 / 14,48 €/m² und dem Liegenschaftszins Neu Wulmstorf und trägt weiter die Regression gegen den Stand vorher (Commit 0dfe8a2) und die Sollwerte aus F.3 (a) bis (c). Neu: L68 (Modellhaus, Tilgung 1/42, dieselben früheren Bewertungsansätze) trägt die Sollwerte, die bis 10.11.2026 für L1 galten. 68 Läufe.
+- F7 prüft in jedem Lauf Tabelle 4: Spalte F zeigt die Sätze des aktiven Projekts, die Spalte des anderen Projekts ist unverändert. Abschnitt C prüft Spalte D gegen die Rotenburger Werte, Spalte E gegen die Tabelle der Referenzrechnung, die Formeln und die Optik der Spalte F und dass das Blatt sonst keine Formel hat.
+- Texte: `EINGABEN`, `TAB3`, `UEB_ZEILEN`, `HINWEISE`, `GEF_BLOCK` und die Beschriftungen der Blätter im neuen Wortlaut; Köpfe der Tabellen 2 und 4 neu im Wortlaut geprüft; Regression mit `REGRESSION_TEXTE` und `REGRESSION_UMBENANNT`. Breiten auf 0,5 Zeichen (vorher 1,0).
+
+### Q.4 Lektorat der Texte (63 Befunde vom 11.11.2026)
+
+Alle Befunde sind eingearbeitet, der Vorschlag im Wortlaut, außer wo unten etwas anderes steht. Jede Textänderung steht im selben Wortlaut in `build_vofi.py`, `pruefe_vofi.py` und in den Abschnitten B bis D und F dieses Konzepts. Keine Zahl der Mappe ändert sich durch das Lektorat.
+
+| Nr. | Gegenstand | Umsetzung |
+|---|---|---|
+| 01 | Kürzel VOFI, IRR, EK, DSCR, n. v. | Hinweis 2 erklärt sie; die Bedienung steht in Übersicht D5 und Eingaben A2 |
+| 02, 08 | Legende und Konventionen der Übersicht | D5 mit „–“: 0 oder kein Wert; D4 „Jahr 0“, „Auszahlungen < 0“ |
+| 03, 13, 25, 40 | eine Größe, ein Name | „Regeltilgung NBank“ (A110), „Schlussrate NBank über Regeltilgung“ (A164, Übersicht 3.10), „Tragbare Tilgung Jahr 1“ (A161, 3.8), „Ertragswert zur Bestandsmiete“ (A123, 7.5); Frei A182 „Kapitaldienst Jahr 1“ ohne „mit Regeltilgung“ |
+| 04 | Schreibweise der Richtlinie | überall „RL Nr. …“ |
+| 05 | Kopf „Bemerkung“ in Übersicht Spalte H | ohne Zeilenumbruch, läuft in die leeren Kopfzellen |
+| 06 | Köpfe und Wörter breiter als ihre Spalte | Breiten laut G.3; über den Vorschlag hinaus Gefördert und Frei A 8 statt 7 (7 reicht auf den Pixel nicht), Gefördert L 14, Tabellen D–F 13, NBank C 14, Zahlungsreihen 15 statt 14 (14 ist 1 px zu schmal für „Förderbarwert,“). Offen: Übersicht H6 (G.3, O13) |
+| 07 | zweite Druckseite der Zeitreihe | Druckbereich `K2:X48`; der Hinweis aus A3 bleibt dort abgeschnitten (O16) |
+| 09–12, 14–24 | Bemerkungen der Übersicht | Wortlaut D.5; 6.1 und 6.7 ohne Bemerkung; 4.8 mit „= Zeile 8, wenn kein Aufschub“ als Text mit führendem „=“ (vierte solche Beschriftung der Mappe) |
+| 26, 27 | Eingabehinweis und Fehlermeldungen | „Wert mit %-Zeichen eingeben.“; „Zulässig: ganze Zahl … bis ….“ für 1.1, 1.3, 3.2, 5.5, 6.2, 6.4 |
+| 28, 29 | Eingaben 8.2 und 6.1 | „Zielmiete nach Jahr 42“, „Zins Bank; Vergleichszins Förderbarwert“ |
+| 30, 32, 33 | Quellen der Eingaben | „PGN-Annahme (Vorgängermappe)“, 4.5 „PGN-Annahme“, 9.3 „… Prozentpunkte“ |
+| 31 | Quelle zu 6.1 | anders: „PGN-Annahme (Bundesbank-Statistik, Vorgängermappe)“. Der Vorschlag enthält ein Datum, das PGN einsetzen soll; ein Platzhalter „TT.MM.JJJJ“ steht nicht in der Mappe (O17) |
+| 34 | Einheit der Zinssätze | „% p. a.“ in Eingaben C20, NBank C5, C7 |
+| 35–39 | Blätter Gefördert und Frei | A3, Köpfe F5 und X5, A102, A104 (auf beiden Blättern „Bares Eigenkapital (Restgröße)“) |
+| 41–47 | Blatt NBank | Wortlaut D.6; „RL Nr. 11.10 Abs. 3/4“ bleibt (O19) |
+| 48–50 | Blatt Tabellen | A2, C23 „% p. a. Restkapital“, B7 „2 Mietenstufen, Höchstmiete in €/m² Monat“ |
+| 51 | Quelle einmal je Tabelle | G9 und G36; G10:G15, G37:G41 leer |
+| 52, 53 | Quelle und Fußnote der Tabelle 4 | neuer Sachstand aus Q.1 im Ton des Lektorats: G36 wie vorgeschlagen, A42 und A43 mit beiden Projekten |
+| 54–56, 58–61, 63 | Hinweise 3, 4, 5, 7, 8, 10, 11, 13 | Wortlaut D.7 |
+| 57 | Hinweis 6 | Wortlaut des Vorschlags; die Zahl „rund 0,4–0,5 Prozentpunkte“ ist mit den Rotenburger Werten nachgerechnet (0,48 / 0,43 Prozentpunkte, A12) |
+| 62 | Hinweise 12 und 14 | 12 wie vorgeschlagen; 14 mit dem neuen Sachstand aus Q.1 (keine Platzhalter mehr) |
+
+Offen aus dem Lektorat: O13 (Darstellung in Excel), O16 (Hinweis A3 im Druck), O17 (Stand der Quelle 6.1), O18 (Bandbreite Liegenschaftszins), O19 (Absätze der RL Nr. 11.10).

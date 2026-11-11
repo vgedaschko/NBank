@@ -2889,6 +2889,13 @@ def pruefe_tabellen(b, wb):
     andere = [c.coordinate for row in wt.iter_rows(min_row=3) for c in row
               if ist_formelzelle(c) and not (c.column_letter == "F" and LZ_ZEILE <= c.row < LZ_ZEILE + len(LZ_RND))]
     p.check(not andere, "Tabellen: Formeln nur in F36:F41", andere[:5], "keine weiteren")
+    # Spalte des nicht aktiven Projekts abgesetzt wie auf „Eingaben“ (bedingte Formatierung: Kopf grau, Werte grau)
+    cf = {str(c_.sqref): [f_.replace(" ", "") for r_ in c_.rules for f_ in (r_.formula or [])]
+          for c_ in wt.conditional_formatting}
+    for sp_, nr_ in (("D", 1), ("E", 2)):
+        for bereich in (f"{sp_}{LZ_ZEILE - 1}", f"{sp_}{LZ_ZEILE}:{sp_}{LZ_ZEILE + len(LZ_RND) - 1}"):
+            p.check(cf.get(bereich) == [f"Projekt_Nr<>{nr_}"], f"Tabellen!{bereich} bedingte Formatierung", cf.get(bereich),
+                    f"Projekt_Nr<>{nr_}")
     for row in wt.iter_rows(min_row=3):
         for c in row:
             if ist_zahl(c.value):

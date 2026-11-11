@@ -21,7 +21,11 @@ Modellhaus, und stehen auf weißem Grund. Sie zeigen fremde Daten und tragen des
 Den Stempel im Kopf schaltet `STEMPEL_IM_KOPF` in `lib/theme.cjs` wieder ein.
 
 Die Anhangfolie A7 zeigt die Eigenkapitalrendite des Modellhauses über 35 Jahre, vor Steuern. Sie ist die einzige Folie mit Rendite und
-Marktmiete des Modellhauses und zeigt die Rendite als Paar „mit Restwert“ und „nur Bodenwert“ mit dem Anteil des Restwerts am Endvermögen.
+Marktmiete des Modellhauses und zeigt die Rendite als Paar „mit Restwert“ und „nur Bodenwert“ mit dem Anteil des Restwerts am Endvermögen;
+ihr Titel nennt für Gruppe A beide Lesarten. Marktmiete und Liegenschaftszins des Modellhauses sind seit 11.11.2026 amtliche Werte der
+Gutachterausschüsse für Rotenburg (Wümme), Stichtag 01.01.2026; die Annahmen der Folie nennen Quelle und Ort, die volle Angabe steht in
+ihrer Quellenzeile (`daten/rechnung.json`, Block `marktwerte`). Renditen und Liegenschaftszins stehen mit zwei Nachkommastellen wie in der
+Rechenmappe.
 
 Ergebnis im Ordner `dist/`:
 
@@ -88,7 +92,8 @@ Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs, Schr
   (`VERWEISE`: Folie, Text, Kennung der gemeinten Folie). So fällt nach einer neuen Zählung jeder Verweis auf, der nicht folgt.
 - **Rendite:** „Rendite“ und „Marktmiete“ stehen nur auf der Anhangfolie A7 (`VERBOTEN_AUSNAHME`, an die Kennung `anhang-rendite`
   gebunden); „IRR“, „DSCR“ und „Safe Harbour“ stehen nirgends. Die Zahlen des Laufs `modellhaus_rendite` und Einträge mit `nur_folie` in
-  `daten/pruefung.json` belegen nur Zahlen dieser Folie. Jede Zahl ihrer Tabelle ist an ihre Zelle der Rechenmappe gebunden (`KERNWERTE_FORM`).
+  `daten/pruefung.json` belegen nur Zahlen dieser Folie. Jede Zahl ihrer Tabelle ist an ihre Zelle der Rechenmappe gebunden (`KERNWERTE_FORM`),
+  ebenso jede Zahl der Tabelle „Rechenweg“ der Folie 19.
 - **Quellenzeilen:** Die Form „Quellenzeile“ steht genau auf den Folien der Liste `QUELLENZEILEN`, im Wortlaut von `daten/markt.json`
   (`quelle_kurz` des Blocks), in höchstens zwei Zeilen. Die Prüfung „Rubrik gleich Kicker“ liest nur die Form „Rubrik“.
 - **Zahlen:** Jede Zahl braucht einen Beleg in `daten/werte.json`, in einer Datendatei oder in `daten/pruefung.json`; das gilt
@@ -208,7 +213,7 @@ Vortrag bestätigt PGN sie oder nimmt sie heraus.
 
 - Folie 3: ARGE-Mediane deutscher Großstädte, Bruttokosten je m² Wohnfläche, Q1 2020 und Q4 2025: Herstellung 3.028 und 4.631 € (+52,9 %), Grundstück 726 und 761 € (+4,8 %); in den Notizen Bauwerk +52,2 % und Baunebenkosten +57,1 % (Altfassung Folie 23).
 - Folie 4: Zinsreihe „Sollzins p. a. nach Zinsbindung“, 127 Monatswerte 01/2016 bis 07/2026 für 10, 20 und 30 Jahre, Bezeichnung „Top-Konditionen Wohnungswirtschaft“ (Altfassung Folie 24; Quelle dort: Dr. Klein Wowi Finanz AG).
-- Folie 4: Ø Q1 2020 0,46 | 0,87 | 0,98 %; Ø Q4 2025 3,49 | 3,74 | 3,87 %; Juli 2026 3,74 | 4,02 | 4,15 %; im Titel 3,74 und 0,46 % (10 Jahre Zinsbindung); in den Notizen Tiefstwert 0,33 % (10/2020) und Höchstwert 3,86 % (10/2023).
+- Folie 4: Ø Q1 2020 0,46 | 0,87 | 0,98 %; Ø Q4 2025 3,49 | 3,74 | 3,87 %; Juli 2026 3,74 | 4,02 | 4,15 %; im Titel 3,74 und 0,46 % (10 Jahre Zinsbindung).
 - Folie 5: Kapitaldienst je m² und Monat 8,93 € (Q1 2020) und 19,95 € (heute), Anstieg 11,02 € mit den Anteilen 3,90 | 4,96 | 2,16 €. Gerechnet mit monatlicher Rate wie in der Altfassung (80 % Fremdkapital, 30 Jahre), auf ungeprüften Eingangswerten: Kosten 3.754 und 5.392 € je m² (ARGE), Zins 0,46 % (Dr. Klein Wowi Finanz AG); der Fremdkapitalanteil von 80 % ist die Annahme der Altfassung Folie 5.
 - Folie 6: Bestand an Mietwohnungen mit Miet- und Belegungsbindung in Niedersachsen zum 31.12., 2016 bis 2025 (85.766 bis 50.920, Rückgang 40,6 %; Altfassung Folie 4; Quelle dort: BT-Drs. 21/7303, Antwort der Bundesregierung vom 21.07.2026). Geprüft sind auf dieser Folie die Zahlen der Broschüre S. 3 (58.024, rund 16.000, 28 %, Bestand 2024 50.495).
 - Folien 22 und 23: Herstellungskosten 3.579 € je m² (Median aus fünf PGN-Projekten, Kostengruppen 200–700, Kostenstand Q4 2025; Altfassung Folien 11 und 12).
@@ -216,9 +221,11 @@ Vortrag bestätigt PGN sie oder nimmt sie heraus.
 - Folie 22: PGN-Werte je Kostengruppe (Median Bauwerk 2.812 €, Baunebenkosten 458 €, Außenanlagen 221 €; Spanne Herstellung 3.321 bis 3.861 €; Altfassung Folie 12).
 - Folie 22: ARGE-Werte für deutsche Großstädte, Bruttokosten (Median Q4 2025: Herstellung 4.631 €, Bauwerk 3.713 €, Baunebenkosten 555 €, Außenanlagen 174 €; Spanne Herstellung 3.221 bis 8.592 €; Altfassung Folie 12) und der daraus gerechnete Abstand von 22,7 %.
 - Quellenangaben zu diesen Daten (ARGE e. V., Wohnungsbau in Deutschland 2026, S. 32 Abb. 20 und S. 34 Abb. 23; Dr. Klein Wowi Finanz AG; BT-Drs. 21/7303; PGN, eigene Auswertung von fünf Projekten) stammen aus den Quellenzeilen der Altfassung. Sie stehen in Kurzform auch im Schriftfeld der Folien 3 bis 6 und 22.
-- Folie A7: Marktmiete 14,48 € je m² und Liegenschaftszins 2,8 % des Modellhauses sind Ansätze aus einem Projekt in Neu Wulmstorf (Rechenmappe, Blatt Hinweise Nr. 14; Eingabe 4.4 und Übersicht 7.7). An ihnen hängen der Restwert, die Rendite mit Restwert und alle Werte der Spalte „frei“. Nicht aus der Altfassung; für einen anderen Standort neu zu rechnen.
+- Folie A7: Marktmiete 13,30 € je m² und Liegenschaftszins 3,45 % (Jahr 35) des Modellhauses sind seit 11.11.2026 amtliche Werte für Rotenburg (Wümme), Stichtag 01.01.2026 (Rechenmappe, Blatt Hinweise Nr. 14; Eingabe 4.4 und Übersicht 7.7): Mietübersicht des Gutachterausschusses Otterndorf für den Landkreis Rotenburg (Wümme) (Baujahr 2020, 70 m², Lage 160 €/m²) und Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses (Rotenburg (Wümme), Stadt). Die Mietübersicht mischt Bestandsmieten und Neuverträge seit 2022; als Marktmiete der Neuvermietung liegt der Wert damit eher niedrig. Die Vergleichsmiete (Eingabe 4.3: 11,87 € je m²) ist eine Annahme der PGN. An diesen Werten hängen der Restwert, die Rendite mit Restwert und alle Werte der Spalte „frei“. Nicht aus der Altfassung; die beiden Veröffentlichungen sind für den Vortrag nicht eigens nachgeprüft. Für einen anderen Standort neu zu rechnen.
 
 Bestätigt PGN den Wert 3.579 € nicht, entfallen Folie 22 und die Spalte 3.579 € der Folie 23.
 
 Offene Fragen an PGN (Tenor der Jahresrechnung, Tilgungssatz 2,38 %, Titel der Zusammenfassung, Daten der Altfassung im Einstieg,
 Dauer des Vortrags, Ort und Datum, Bildrechte) stehen am Ende von `INHALT.md`.
+
+Das Textlektorat vom 11.11.2026 ist eingearbeitet; welche Befunde der Auftraggeber ausgenommen hat, nennt Entscheidung 27 des Konzepts.

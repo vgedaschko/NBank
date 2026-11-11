@@ -1,12 +1,14 @@
 // Folie 19 · PGN_INHALT_MR im Raster 6 + 6 (die Bezeichnungen der Tabelle „Kapitaldienst p. a.“ und „Nötige Miete je m²“ stehen so einzeilig): nötige Miete in Jahr 1 als Balkenpaar (gefördert in Tinte, frei finanziert in Referenzgrau,
 // Reihenfolge und Farben wie Folie 16), Werte als Kernwerte am Balkenende, Maßlinie bei der Höchstmiete der Gruppe A.
-// Rechts die Vergleichstabelle der Broschüre S. 11 mit den Annahmen der freien Finanzierung als Untertitel. Kein Rot im Diagramm. Alle Zahlen aus werte.json (Lauf modellhaus).
+// Rechts der Rechenweg der nötigen Miete als Tabelle (Kapitaldienst plus Bewirtschaftung, geteilt durch die vermietete Fläche im Jahr) mit den Annahmen der
+// freien Finanzierung als Untertitel; bis zum Lektorat vom 11.11.2026 stand dort die Vergleichstabelle der Broschüre S. 11, deren Zahlen Folie 16 schon zeigt.
+// Kein Rot im Diagramm. Alle Zahlen aus werte.json (Lauf modellhaus).
 'use strict';
 
 module.exports = {
   id: 'rechnung-miete',
   bau(ctx) {
-    const { B, D, W, fmt, colX, span, Y } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
+    const { B, D, W, fmt, colX, span, Y } = ctx, s = ctx.folie(), M = k => W('modellhaus', k), wl = (t, was) => ctx.wortlaut(t, was);
     B.register(s, '2.1');
 
     // Balkenpaar über sechs Spalten
@@ -21,19 +23,24 @@ module.exports = {
     const hm = M('fin.miete_jahr1.A');
     B.marke(s, { x: d.xWert(hm), y: d.plot.y - 0.32, h: d.plot.h + 0.32, art: 'mass', text: `Höchstmiete Gruppe A: ${fmt.euroDez(hm)}`, textSeite: 'rechts', textBreite: 2.4 });
 
-    // Vergleichstabelle über sechs Spalten; die Unterkante steht auf der Grundlinie des Diagramms. Der Untertitel nennt Zins und Laufzeit des
-    // Bankdarlehens, an denen Kapitaldienst und nötige Miete der Spalte „Frei finanziert“ hängen (Broschüre S. 11 führt beides auf einer Seite)
-    const annahme = ctx.wortlaut(`Bankdarlehen zu ${fmt.prozent(M('eingabe.zins_bank'), 2)} Zins, Annuität über ${M('eingabe.laufzeit_bank')} Jahre`, 'Untertitel der Vergleichstabelle');
-    const yTab = B.modulkopf(s, { x: colX(7), y: Y.inhalt, w: span(6), titel: 'Zum Vergleich: frei finanziert', sub: annahme }) - 0.06;
-    // frei finanziert bleibt nach Bankdarlehen und Eigenmitteln kein Zuschuss: Gesamtkosten − Bankdarlehen − Eigenmittel
-    const zuschussFrei = M('fin.gesamtkosten.Frei') - M('fin.bankdarlehen.Frei') - M('fin.eigenmittel.Frei');
+    // Rechenweg über sechs Spalten; die Unterkante steht auf der Grundlinie des Diagramms. Der Untertitel nennt Zins und Laufzeit des
+    // Bankdarlehens, an denen Kapitaldienst und nötige Miete der Spalte „Frei finanziert“ hängen.
+    // Nötige Miete = (Kapitaldienst + Objektverwaltung + Instandhaltung) ÷ (Wohnfläche × 12 Monate × Anteil nach Mietausfall)
+    const annahme = wl(`Bankdarlehen zu ${fmt.prozent(M('eingabe.zins_bank'), 2)} Zins, Annuität über ${M('eingabe.laufzeit_bank')} Jahre`, 'Untertitel der Tabelle');
+    const yTab = B.modulkopf(s, { x: colX(7), y: Y.inhalt, w: span(6), titel: wl('Rechenweg', 'Tabellentitel'), sub: annahme }) - 0.06;
+    const kd = [M('dscr.kapitaldienst_jahr1.A'), M('dscr.kapitaldienst_jahr1.Frei')];
+    const bew = ['A', 'Frei'].map(g => M(`jr1.objektverwaltung.${g}`) + M(`jr1.instandhaltung.${g}`));
+    const vermietet = 1 - M('eingabe.mietausfall'), teiler = vermietet * M('eingabe.wohnflaeche') * 12;
+    // Gegenprobe: Der Rechenweg der Tabelle ergibt die nötige Miete der Mappe (Übersicht 8.3)
+    werte.forEach((v, i) => ctx.gleich(`Rechenweg der nötigen Miete, Spalte ${i + 1}`, (kd[i] + bew[i]) / teiler, v, 4));
     const zeilen = [
-      { text: 'Zuschuss', wert: fmt.mio(M('fin.zuschuss.A')), vergleich: fmt.zahl(zuschussFrei) },
-      { text: 'Darlehen', wert: fmt.mio(M('fin.darlehen_nbank.A')), vergleich: fmt.mio(M('fin.bankdarlehen.Frei')) },
-      { text: 'Kapitaldienst p. a.', wert: fmt.euro(M('dscr.kapitaldienst_jahr1.A')), vergleich: fmt.euro(M('dscr.kapitaldienst_jahr1.Frei')) },
+      { text: 'Kapitaldienst p. a.', wert: fmt.euro(kd[0]), vergleich: fmt.euro(kd[1]) },
+      { text: '+ Bewirtschaftung', wert: fmt.euro(bew[0]), vergleich: fmt.euro(bew[1]) },
+      { text: `÷ m² × 12 × ${fmt.prozent(vermietet)}`, wert: fmt.zahl(teiler), vergleich: fmt.zahl(teiler) },
       { text: 'Nötige Miete je m²', wert: fmt.euroDez(werte[0]), vergleich: fmt.euroDez(werte[1]), kern: true }];
+    zeilen.forEach((z, i) => { wl(z.text, `Rechenweg, Zeile ${i + 1}`); wl(z.wert, `Rechenweg, Zeile ${i + 1}`); wl(z.vergleich, `Rechenweg, Zeile ${i + 1}`); });
     const kopfH = 0.56, frei = d.plot.y + d.plot.h - yTab - kopfH, teil = [0.21, 0.21, 0.21, 0.37];   // Zeilenhöhen als Anteile der freien Höhe
     zeilen.forEach((z, i) => { z.h = +(frei * teil[i]).toFixed(3); });
-    B.vergleichstabelle(s, { x: colX(7), y: yTab, w: span(6), wertBreite: 1.74, kopf: ['Jahr 1', 'Gefördert\n(A)', 'Frei\nfinanziert'], zeilen, name: 'Vergleichstabelle frei finanziert' });
+    B.vergleichstabelle(s, { x: colX(7), y: yTab, w: span(6), wertBreite: 1.74, kopf: ['Jahr 1', 'Gefördert\n(A)', 'Frei\nfinanziert'], zeilen, name: 'Tabelle Rechenweg' });
   },
 };

@@ -35,7 +35,9 @@ module.exports = {
     // Maßkette über dem Diagramm, Teilung bei der Schwelle; Maßhilfslinie bis zum Schnittpunkt von A und C
     const my = d.plot.y - 0.12, xS = xSatz(schwelle);
     B.masskette(s, { x: xSatz(0), y: my, w: xSatz(saetze[n]) - xSatz(0), segmente: [
-      { anteil: schwelle, text: 'höchster Überschuss: C' }, { anteil: saetze[n] - schwelle, text: 'höchster Überschuss: A' }] });
+      // „am höchsten“ bezieht sich auf den Diagrammtitel (Zahlungsüberschuss). Der Wortlaut der Broschüre S. 12 („höchster Zahlungsüberschuss: C“)
+      // ist 2,85 Zoll breit, das Segment bis zur Schwelle 2,28 Zoll: Er stieße an die Beschriftung des zweiten Segments.
+      { anteil: schwelle, text: ctx.wortlaut('am höchsten: C', 'Maßkette') }, { anteil: saetze[n] - schwelle, text: ctx.wortlaut('am höchsten: A', 'Maßkette') }] });
     B.linie(s, { x: xS, y: my, h: d.yWert(bei('A', schwelle)) - my, art: 'mass', pt: 0.5, name: 'Maßhilfslinie Schwelle' });
     B.text(s, fmt.prozent(schwelle, 2), { x: xS + 0.08, y: band(60000) - 0.12, w: 0.80, h: 0.24, rolle: 'wert', valign: 'middle', einzeilig: true, name: 'Schwelle C gegen A' });
 
@@ -48,12 +50,15 @@ module.exports = {
 
     B.linienenden(s, { x: xSatz(saetze[n]) + 0.30, eintraege: G.map(g => ({ kreis: g, y: d.yWert(bei(g, saetze[n])) })) });
 
+    // Kommentar: zuerst die Schwelle, an der die Aussage der Folie 15 kippt (Zahlungsüberschuss in A null, Übersicht 3.8), dann die
+    // Festlegung durch die NBank, zuletzt die Schwelle C gegen A der Broschüre S. 12. Die Zulassung von B und C steht auf den Folien 10 und 15.
+    const nullA = M('liq.breakeven_tilgung.A');
+    R.pruefe(bei('A', tJahr) > 0 && bei('B', tJahr) < 0 && bei('C', tJahr) < 0 && nullA > tJahr && Math.abs(bei('A', nullA)) < 0.5,
+      'Die Aussagen „beim Satz der Jahresrechnung bleibt nur in A ein Zahlungsüberschuss, ab der Schwelle der Übersicht 3.8 ist er auch dort null“ treffen nicht mehr zu.');
     B.planlegende(s, { platzhalter: 'kommentar', eintraege: [
-      { text: `Unter ${fmt.prozent(schwelle, 2)} Tilgung bringt C den höchsten Zahlungsüberschuss, darüber A.` },
-      { text: 'B liegt in dieser Rechnung nie vorn.' },
+      { text: `Bei ${fmt.prozent(tJahr, 2)} Tilgung bleibt nur in A ein Zahlungsüberschuss. Ab ${fmt.prozent(nullA, 2)} ist er auch dort null.` },
       // Untergrenze bei linearer Tilgung: 1 ÷ Höchstlaufzeit (RL Nr. 5.3.5); mit diesem Satz rechnet die Jahresrechnung
       { text: `Den Tilgungssatz legt die NBank fest. Linear über ${M('tab.laufzeit_hoechstens')} Jahre sind es rechnerisch mindestens ${fmt.prozent(1 / M('tab.laufzeit_hoechstens'), 2)}.` },
-      // Bedingung, die beim Vergleich von A, B und C nicht fehlen darf (Broschüre S. 12, Redaktionsregeln §3)
-      { text: 'B und C setzen eine Zulassung in der Förderentscheidung voraus.' }].map(e => ({ text: ctx.wortlaut(e.text, 'Kommentar') })) });
+      { text: `Unter ${fmt.prozent(schwelle, 2)} läge C vorn, B in keinem Fall.` }].map(e => ({ text: ctx.wortlaut(e.text, 'Kommentar') })) });
   },
 };

@@ -140,9 +140,10 @@ def gesperrt(blatt, zelle):
 # weil Investoren danach fragen (erlaubt am 11.11.2026). E5 gilt für alle
 # anderen Folien weiter. Bedingung laut Blatt Hinweise der Mappe, Nr. 12:
 # Renditen nur als Paar „mit Restwert / nur Bodenwert“ mit dem Restwertanteil.
-# Marktmiete und Liegenschaftszins des Modellhauses sind Ansätze aus einem
-# Projekt in Neu Wulmstorf (Hinweise Nr. 14) und stehen deshalb als Annahme auf
-# der Folie.
+# Marktmiete und Liegenschaftszins des Modellhauses sind seit 11.11.2026 amtliche
+# Werte der Gutachterausschüsse für Rotenburg (Wümme), Stand 01.01.2026 (Hinweise
+# Nr. 14); die Vergleichsmiete ist eine Annahme der PGN. Beide Werte stehen als
+# Annahme mit ihrer Herkunft auf der Folie.
 AUSNAHMEN = [
     dict(
         name="anhang_rendite",
@@ -467,9 +468,9 @@ def katalog_rendite():
     k += je_gruppe("rendite.restwertanteil", 93, "Anteil", "Übersicht 6.5 Restwertanteil am Endvermögen, Horizont Jahr 35 (über 1, wenn ohne Restwert kein Vermögen bleibt)", alle)
     k += je_gruppe("rendite.projektkonto_tiefststand", 96, "€", "Übersicht 6.8 Tiefster Stand des Projektkontos (VOFI), Jahr 0–42", alle)
     k += je_gruppe("rendite.restwert_jahr35", 100, "€", "Übersicht 7.1 Restwert (Boden + Gebäude), Ertragswert Ende Jahr 35", alle)
-    k += je_gruppe("rendite.liegenschaftszins", 106, "Anteil", "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Ansatz aus Neu Wulmstorf)", alle)
+    k += je_gruppe("rendite.liegenschaftszins", 106, "Anteil", "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses, Rotenburg (Wümme), Stichtag 01.01.2026)", alle)
     k += [
-        e("marktmiete_jahr1", "F25", "€/m² Monat", "Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 (Ansatz aus Neu Wulmstorf)"),
+        e("marktmiete_jahr1", "F25", "€/m² Monat", "Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 (Mietübersicht des Gutachterausschusses für den Landkreis Rotenburg (Wümme), Stichtag 01.01.2026)"),
         e("mietsteigerung", "F26", "Anteil", "Eingabe 4.5 Steigerung Markt- und Vergleichsmiete p. a."),
         e("guthabenzins", "F41", "Anteil", "Eingabe 7.2 Guthabenzins Projektkonto (VOFI) p. a."),
         e("sollzins", "F42", "Anteil", "Eingabe 7.3 Sollzins Projektkonto (VOFI) p. a."),
@@ -502,7 +503,8 @@ LAEUFE = [
         beschreibung="Modellhaus im Auslieferungsstand: Eigenkapitalrendite vor Steuern über 35 Jahre als Paar „mit "
                      "Restwert / nur Bodenwert“ mit Restwertanteil, dazu Projektkonto, Restwert und die Annahmen "
                      "dahinter. Nur für die Anhangfolie A7 (Folie anhang-rendite); Ausnahme anhang_rendite von der "
-                     "Sperrliste. Marktmiete und Liegenschaftszins sind Ansätze aus Neu Wulmstorf.",
+                     "Sperrliste. Marktmiete und Liegenschaftszins sind amtliche Werte der Gutachterausschüsse für "
+                     "Rotenburg (Wümme), Stichtag 01.01.2026.",
         aenderungen=[],
         katalog=katalog_rendite(),
     ),

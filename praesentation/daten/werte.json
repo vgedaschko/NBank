@@ -2,7 +2,7 @@
  "meta": {
   "titel": "Werte der VOFI-Mappe für die Präsentation Mietwohnraumförderung Niedersachsen 2026",
   "mappe": "PGN_VOFI_Mietwohnraum_2026_v3.xlsx",
-  "mappe_sha256": "51f018b13dcae0db3a5fc13ef5a7b5e7a7d373ca9033bd9e0e0bceb3a407dab5",
+  "mappe_sha256": "1c8f3df71954543be4bc54ecefa832c99e9adebb9eff617baedbc9993d3c0de9",
   "mappe_stand": "Version 3.0, Stand 11/2026",
   "erzeugt_mit": "daten/werte_aus_vofi.py",
   "neuberechnung": "recalc.py (LibreOffice)",
@@ -65,7 +65,7 @@
    "aenderungen": [],
    "pruefungen": {
     "pruefblock_mappe": "OK",
-    "zellen_gleich_auslieferung": 11603,
+    "zellen_gleich_auslieferung": 11605,
     "mieten_ohne_platzhalter": true
    },
    "anzahl_werte": 256,
@@ -2381,7 +2381,7 @@
    "aenderungen": [],
    "pruefungen": {
     "pruefblock_mappe": "OK",
-    "zellen_gleich_auslieferung": 11603,
+    "zellen_gleich_auslieferung": 11605,
     "mieten_ohne_platzhalter": true
    },
    "anzahl_werte": 43,
@@ -2776,18 +2776,18 @@
    }
   },
   "modellhaus_rendite": {
-   "beschreibung": "Modellhaus im Auslieferungsstand: Eigenkapitalrendite vor Steuern über 35 Jahre als Paar „mit Restwert / nur Bodenwert“ mit Restwertanteil, dazu Projektkonto, Restwert und die Annahmen dahinter. Nur für die Anhangfolie A7 (Folie anhang-rendite); Ausnahme anhang_rendite von der Sperrliste. Marktmiete und Liegenschaftszins sind Ansätze aus Neu Wulmstorf.",
+   "beschreibung": "Modellhaus im Auslieferungsstand: Eigenkapitalrendite vor Steuern über 35 Jahre als Paar „mit Restwert / nur Bodenwert“ mit Restwertanteil, dazu Projektkonto, Restwert und die Annahmen dahinter. Nur für die Anhangfolie A7 (Folie anhang-rendite); Ausnahme anhang_rendite von der Sperrliste. Marktmiete und Liegenschaftszins sind amtliche Werte der Gutachterausschüsse für Rotenburg (Wümme), Stichtag 01.01.2026.",
    "aenderungen": [],
    "pruefungen": {
     "pruefblock_mappe": "OK",
-    "zellen_gleich_auslieferung": 11603,
+    "zellen_gleich_auslieferung": 11605,
     "mieten_ohne_platzhalter": true
    },
    "anzahl_werte": 30,
    "werte": {
     "rendite.jahre_mit_fehlbetrag.Frei": {
      "schluessel": "rendite.jahre_mit_fehlbetrag.Frei",
-     "wert": 21,
+     "wert": 25,
      "einheit": "Jahre",
      "blatt": "Übersicht",
      "zelle": "G47",
@@ -2797,7 +2797,7 @@
     },
     "rendite.vofi_mit_restwert.A": {
      "schluessel": "rendite.vofi_mit_restwert.A",
-     "wert": 0.0573528718565528,
+     "wert": 0.0524954910448976,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "D91",
@@ -2807,7 +2807,7 @@
     },
     "rendite.vofi_mit_restwert.B": {
      "schluessel": "rendite.vofi_mit_restwert.B",
-     "wert": 0.0577948067178968,
+     "wert": 0.0525779733364258,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "E91",
@@ -2817,7 +2817,7 @@
     },
     "rendite.vofi_mit_restwert.C": {
      "schluessel": "rendite.vofi_mit_restwert.C",
-     "wert": 0.058134018834779,
+     "wert": 0.0527079583694037,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "F91",
@@ -2827,7 +2827,7 @@
     },
     "rendite.vofi_mit_restwert.Frei": {
      "schluessel": "rendite.vofi_mit_restwert.Frei",
-     "wert": 0.0551799814270411,
+     "wert": 0.035732071791692,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "G91",
@@ -2877,7 +2877,7 @@
     },
     "rendite.restwertanteil.A": {
      "schluessel": "rendite.restwertanteil.A",
-     "wert": 0.861654427108343,
+     "wert": 0.837461985826606,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "D93",
@@ -2887,7 +2887,7 @@
     },
     "rendite.restwertanteil.B": {
      "schluessel": "rendite.restwertanteil.B",
-     "wert": 0.922082899390028,
+     "wert": 0.907363287016333,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "E93",
@@ -2897,7 +2897,7 @@
     },
     "rendite.restwertanteil.C": {
      "schluessel": "rendite.restwertanteil.C",
-     "wert": 0.943945583798352,
+     "wert": 0.932894700874698,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "F93",
@@ -2907,7 +2907,7 @@
     },
     "rendite.restwertanteil.Frei": {
      "schluessel": "rendite.restwertanteil.Frei",
-     "wert": 1.20516371253051,
+     "wert": 1.86939442281915,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "G93",
@@ -2947,7 +2947,7 @@
     },
     "rendite.projektkonto_tiefststand.Frei": {
      "schluessel": "rendite.projektkonto_tiefststand.Frei",
-     "wert": -3192817.19194099,
+     "wert": -4818629.23200273,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "G96",
@@ -2957,7 +2957,7 @@
     },
     "rendite.restwert_jahr35.A": {
      "schluessel": "rendite.restwert_jahr35.A",
-     "wert": 8792243.98664375,
+     "wert": 7273476.28129532,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D100",
@@ -2967,7 +2967,7 @@
     },
     "rendite.restwert_jahr35.B": {
      "schluessel": "rendite.restwert_jahr35.B",
-     "wert": 9570534.13355468,
+     "wert": 7921310.8955988,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E100",
@@ -2977,7 +2977,7 @@
     },
     "rendite.restwert_jahr35.C": {
      "schluessel": "rendite.restwert_jahr35.C",
-     "wert": 9919955.64328828,
+     "wert": 8189330.80486895,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F100",
@@ -2987,7 +2987,7 @@
     },
     "rendite.restwert_jahr35.Frei": {
      "schluessel": "rendite.restwert_jahr35.Frei",
-     "wert": 11056129.017302,
+     "wert": 8943115.44235128,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "G100",
@@ -2997,51 +2997,51 @@
     },
     "rendite.liegenschaftszins.A": {
      "schluessel": "rendite.liegenschaftszins.A",
-     "wert": 0.028,
+     "wert": 0.0345,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "D106",
-     "bedeutung": "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Ansatz aus Neu Wulmstorf); Gruppe A",
+     "bedeutung": "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses, Rotenburg (Wümme), Stichtag 01.01.2026); Gruppe A",
      "lauf": "modellhaus_rendite",
      "ausnahme": "anhang_rendite"
     },
     "rendite.liegenschaftszins.B": {
      "schluessel": "rendite.liegenschaftszins.B",
-     "wert": 0.028,
+     "wert": 0.0345,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "E106",
-     "bedeutung": "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Ansatz aus Neu Wulmstorf); Gruppe B",
+     "bedeutung": "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses, Rotenburg (Wümme), Stichtag 01.01.2026); Gruppe B",
      "lauf": "modellhaus_rendite",
      "ausnahme": "anhang_rendite"
     },
     "rendite.liegenschaftszins.C": {
      "schluessel": "rendite.liegenschaftszins.C",
-     "wert": 0.028,
+     "wert": 0.0345,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "F106",
-     "bedeutung": "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Ansatz aus Neu Wulmstorf); Gruppe C",
+     "bedeutung": "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses, Rotenburg (Wümme), Stichtag 01.01.2026); Gruppe C",
      "lauf": "modellhaus_rendite",
      "ausnahme": "anhang_rendite"
     },
     "rendite.liegenschaftszins.Frei": {
      "schluessel": "rendite.liegenschaftszins.Frei",
-     "wert": 0.028,
+     "wert": 0.0345,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "G106",
-     "bedeutung": "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Ansatz aus Neu Wulmstorf); frei finanziert",
+     "bedeutung": "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses, Rotenburg (Wümme), Stichtag 01.01.2026); frei finanziert",
      "lauf": "modellhaus_rendite",
      "ausnahme": "anhang_rendite"
     },
     "rendite.annahme.marktmiete_jahr1": {
      "schluessel": "rendite.annahme.marktmiete_jahr1",
-     "wert": 14.48,
+     "wert": 13.3,
      "einheit": "€/m² Monat",
      "blatt": "Eingaben",
      "zelle": "F25",
-     "bedeutung": "Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 (Ansatz aus Neu Wulmstorf)",
+     "bedeutung": "Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 (Mietübersicht des Gutachterausschusses für den Landkreis Rotenburg (Wümme), Stichtag 01.01.2026)",
      "lauf": "modellhaus_rendite",
      "ausnahme": "anhang_rendite"
     },

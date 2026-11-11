@@ -10,13 +10,13 @@
     },
     "stationen": {
       "wert": [
-        { "nr": 1, "titel": "Vorgespräch", "zustaendig": "Förderstelle mit Ihnen", "text": "Nachweise und Unterlagen vorab klären", "zeile": "stations[0]: title, lane mit with, body" },
+        { "nr": 1, "titel": "Vorgespräch", "zustaendig": "Wohnraumförderstelle mit Ihnen", "text": "Nachweise und Unterlagen vorab klären", "zeile": "stations[0]: title, lane mit with, body" },
         { "nr": 2, "titel": "Antrag", "zustaendig": "Sie", "text": "bei der Wohnraumförderstelle am Bauort", "zeile": "stations[1]: title, lane, body ohne den Zusatz zu 2.6" },
-        { "nr": 3, "titel": "Stellungnahme", "zustaendig": "Förderstelle", "text": "Bedarfsbestätigung, Weiterleitung an die NBank", "zeile": "stations[2]: title, lane, body ohne die Anhörung der Gemeinde" },
-        { "nr": 4, "titel": "Entscheidung", "zustaendig": "NBank", "text": "Fördervertrag oder Bescheid; Ziel: höchstens {entscheidung_monate:wort} Monate", "signal": true, "zeile": "stations[3]: title, lane, body verdichtet, deadline" },
+        { "nr": 3, "titel": "Stellungnahme", "zustaendig": "Wohnraumförderstelle", "text": "Bedarfsbestätigung, Weiterleitung an die NBank", "zeile": "stations[2]: title, lane, body ohne die Anhörung der Gemeinde" },
+        { "nr": 4, "titel": "Entscheidung", "zustaendig": "NBank", "text": "Fördervertrag; Ziel: höchstens {entscheidung_monate:wort} Monate", "signal": true, "zeile": "stations[3]: title, lane, body verdichtet, deadline; nur „Fördervertrag“: In Programmteil 2.1 (Darlehen plus Zuschuss) schließt die NBank immer einen Fördervertrag, einen Bescheid gibt es nur bei reiner Zuschussförderung (RL Nr. 12.3.1)" },
         { "nr": 5, "titel": "Bauausführung", "zustaendig": "Sie", "text": "Baubeginn spätestens {baubeginn_monate:wort} Monate nach Bekanntgabe der Förderentscheidung", "zeile": "stations[4]: title, lane, deadline ohne „unverzüglich“" },
         { "nr": 6, "titel": "Auszahlung", "zustaendig": "NBank", "text": "in Raten nach Baufortschritt", "zeile": "stations[5]: title, lane, body verdichtet" },
-        { "nr": 7, "titel": "Fertigstellung", "zustaendig": "Förderstelle mit Ihnen", "text": "Vermietung nur mit WBS", "zeile": "stations[6]: title, lane mit with, body verdichtet" },
+        { "nr": 7, "titel": "Fertigstellung", "zustaendig": "Wohnraumförderstelle mit Ihnen", "text": "Fertigstellung anzeigen; Vermietung nur mit Wohnberechtigungsschein", "zeile": "stations[6]: title, lane mit with, body verdichtet" },
         { "nr": 8, "titel": "Verwendungsnachweis", "zustaendig": "Sie", "text": "innerhalb von {verwendungsnachweis_monate:wort} Monaten nach Erfüllung des Förderzwecks", "zeile": "stations[7]: title, lane, deadline" }
       ],
       "einheit": "Text mit Feldern",
@@ -34,7 +34,7 @@
 
   "leistungen": {
     "_hinweis": "Folie 27. Balkenplan der Leistungen der PGN über die Leistungsphasen 1 bis 9 der HOAI mit der Bewilligung zwischen 6 und 7.",
-    "deck": { "wert": "Leistungen der PGN nach Leistungsphasen 1 bis {phasen}", "einheit": "Text mit Feldern", "herkunft": "Konzept, Folie pgn-leistungen: Die Unterzeile beschreibt den Plan (Leistungen und Phasen nach Broschüre S. 20, 20-pgn-leistungen.json, blocks[0]). Die Unterzeile der Broschüre („Ein Ansprechpartner für alles, von der Machbarkeit bis zur Übergabe.“) steht in den Notizen der Folie.", "geprueft": true },
+    "deck": { "wert": "Leistungen der PGN nach Leistungsphasen 1 bis {phasen}", "einheit": "Text mit Feldern", "herkunft": "Konzept, Folie pgn-leistungen: Die Unterzeile beschreibt den Plan (Leistungen und Phasen nach Broschüre S. 20, 20-pgn-leistungen.json, blocks[0]). Die Unterzeile der Broschüre („Ein Ansprechpartner für alles“) steht nicht auf der Folie.", "geprueft": true },
     "kopf": { "wert": "Leistungsphase", "einheit": "Text", "herkunft": "Konzept, Folie pgn-leistungen (Kopfleiste); Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale (kind hoai)", "geprueft": true },
     "phasen": { "wert": 9, "einheit": "Anzahl Leistungsphasen", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.phases (n 1 bis 9)", "geprueft": true },
     "marke": {

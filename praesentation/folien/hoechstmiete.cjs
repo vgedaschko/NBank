@@ -37,7 +37,7 @@ module.exports = {
     B.markeMitLuecken(s, { y: d.yWert(mittel), x0: d.plot.x, x1, luecken: luecken(mittel), textX: xText, textBreite: x1 - xText, lage: 'unter', name: 'Marke Angebotsmiete',
       text: `Angebotsmiete\nNiedersachsen ${jahr},\nMittel (landesweit): **${fmt.dez(mittel)}**` });
 
-    B.text(s, `Ab EH-40-Niveau bis zu +${fmt.dez(T('zuschlag_hoechstmiete_eh40'))} €.`, { x: colX(1), y: 6.26, w: span(8), h: 0.24, rolle: 'klein', valign: 'middle', einzeilig: true, name: 'Zeile unter dem Diagramm' });
+    B.text(s, `Ab Effizienzhaus-40-Niveau bis zu +${fmt.dez(T('zuschlag_hoechstmiete_eh40'))} €.`, { x: colX(1), y: 6.26, w: span(8), h: 0.24, rolle: 'klein', valign: 'middle', einzeilig: true, name: 'Zeile unter dem Diagramm' });
 
     // ---- Kommentarspalte: Mietpfad als drei Stufenwerte, darunter Regel und Gruppen ------------------------------------
     // Der Modultitel „Mietpfad“ (Feld 0,24 hoch, mittig) steht auf der Höhe des Diagrammtitels links (Feld 2,18 bis 2,44)
@@ -48,11 +48,12 @@ module.exports = {
     const rechts = t => ({ text: t, align: 'right' });
     const pfad = B.tabelle(s, { x: kx, y: k0 + 0.56, w: kw, pt: 14, kopf: false, name: 'Tabelle Mietpfad',
       spalten: [{ art: 'text' }, { breite: 1.32, art: 'text' }, { breite: 1.05, art: 'zahl' }], zeilen: [
-        [`Jahr 1–${fest}`, '', fmt.euroDez(m('IV', 'A'))],
+        [`Jahre 1–${fest}`, '', fmt.euroDez(m('IV', 'A'))],
         [`ab Jahr ${erste}`, rechts('höchstens'), fmt.euroDez(R('mietpfad.jahr4'))],
         [`ab Jahr ${zweite}`, rechts('höchstens'), fmt.euroDez(R('mietpfad.jahr7'))]] });
     B.planlegende(s, { x: kx, y: pfad.unten + 0.20, w: kw, pt: 14, name: 'Planlegende Regel und Gruppen', eintraege: [
       { titel: 'Regel', text: `Ab Jahr ${erste} höchstens +${fmt.prozent(T('mieterhoehung_in_der_bindung'), 2)} in drei Jahren, auch bei Wiedervermietung; keine Staffel- oder Indexmiete.` },
-      { titel: 'Gruppen', text: 'Grundsatz ist Gruppe A; B und C nur mit Zulassung in der Förderentscheidung.' }] });
+      // Was A, B und C sind, steht hier zum ersten Mal auf einer Folie; die Zuschläge kommen aus daten/regeln.json (Broschüre S. 6)
+      { titel: 'Gruppen', text: `A bis Einkommensgrenze, B bis +${fmt.prozent(R('einkommensgrenze.zuschlag_B'))}, C bis +${fmt.prozent(R('einkommensgrenze.zuschlag_C'))}. B und C nur mit Zulassung.` }] });
   },
 };

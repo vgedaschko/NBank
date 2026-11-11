@@ -57,6 +57,6 @@ module.exports = {
     // Kennzahlen je Wohnung: die zweite beginnt auf der Linie unter dem Titel des Rechenblatts
     B.kennzahl(s, { x: colX(9), y: y0, w: span(4), vorsatz: 'bis zu', zahl: fmt.zahl(M('fin.zuschuss_je_wohnung.A')), einheit: '€', label: 'Ø Zuschuss je Wohnung', text: 'plus Darlehen in gleicher Höhe' });
     B.kennzahl(s, { x: colX(9), y: yT + t.kopfH, w: span(4), vorsatz: 'mind.', zahl: fmt.zahl(M('fin.eigenmittel_je_wohnung.A')), einheit: '€', label: 'Ø Eigenmittel je Wohnung',
-      text: `${fmt.prozent(M('fin.eigenmittelquote.A'))} von ${fmt.euro(kosten / wohnungen)} Gesamtkosten` });
+      text: `${fmt.prozent(M('fin.eigenmittelquote.A'))} von ${fmt.euro(kosten / wohnungen)} je Wohnung` });   // 7,0 Mio. € heißen im Rechenblatt „zuwendungsfähige Kosten“; deshalb hier ohne „Gesamtkosten“
   },
 };

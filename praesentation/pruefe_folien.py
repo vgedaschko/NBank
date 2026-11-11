@@ -135,6 +135,10 @@ CLAIMS = [re.compile(r"Aus Ihrer guten Idee – machen wir den besten Plan", re.
 # seiner Folie, in einem Folientext oder einer Tabellenzelle.
 SOLLMIETE_FREI = "modellhaus:dscr.noetige_miete.Frei * modellhaus:eingabe.wohnflaeche * 12"   # nötige Sollmiete frei finanziert, € p. a.
 RENDITE = RENDITE_LAUF + ":rendite."                                                            # Schlüssel der Anhangfolie zur Eigenkapitalrendite
+# Rechenweg der nötigen Miete (Folie 19): Bewirtschaftung = Objektverwaltung + Instandhaltung; Teiler = Anteil nach Mietausfall × Wohnfläche × 12 Monate
+BEWIRTSCHAFTUNG = "modellhaus:jr1.objektverwaltung.A + modellhaus:jr1.instandhaltung.A"
+BEWIRTSCHAFTUNG_FREI = "modellhaus:jr1.objektverwaltung.Frei + modellhaus:jr1.instandhaltung.Frei"
+MIETFLAECHE_JAHR = "(1 - modellhaus:eingabe.mietausfall) * modellhaus:eingabe.wohnflaeche * 12"
 KERNWERTE = [
     ("dscr.kapitaldienst_jahr1.A", "euro", "80.667 €", ["rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
     ("dscr.kapitaldienst_jahr1.Frei", "euro", "313.703 €", ["rechnung-kapitaldienst", "rechnung-fluss-frei", "rechnung-miete", "fazit"]),
@@ -166,9 +170,15 @@ KERNWERTE = [
     ("eingabe.herstellungskosten_qm", "euro", "4.500 €", ["pgn-baukosten", "rechnung-kosten"]),
     ("modellhaus_pgn_kosten:eingabe.herstellungskosten_qm", "euro", "3.579 €", ["pgn-baukosten", "rechnung-kosten"]),
     ("eingabe.zins_bank", "prozent2", "3,74 %", ["ausgangslage-zinsen", "einstieg-kapitaldienst", "rechnung-kapitaldienst"]),
-    # Anhangfolie zur Eigenkapitalrendite (A7): Titelzahl und der tiefste Stand des Projektkontos frei finanziert
-    (RENDITE + "vofi_mit_restwert.A", "prozent1", "5,7 %", [RENDITE_FOLIE]),
-    (RENDITE + "projektkonto_tiefststand.Frei", "zahl", "−3.192.817", [RENDITE_FOLIE]),
+    # Folie 19: Bewirtschaftung im Rechenweg der nötigen Miete (Objektverwaltung und Instandhaltung, Übersicht D31 + D32)
+    (BEWIRTSCHAFTUNG, "euro", "27.500 €", ["rechnung-miete"]),
+    # Folien 20 und 24: Tilgungssatz, bei dem der Zahlungsüberschuss in Gruppe A null ist (Übersicht 3.8)
+    ("liq.breakeven_tilgung.A", "prozent2", "2,52 %", ["rechnung-tilgung", "fazit"]),
+    # Anhangfolie zur Eigenkapitalrendite (A7): die beiden Titelzahlen (mit Restwert, nur Bodenwert) und der tiefste Stand des Projektkontos
+    # frei finanziert. Renditen mit zwei Nachkommastellen wie in der Rechenmappe (5,2495 % stünde einstellig als 5,2 %, die Mappe zeigt 5,25 %)
+    (RENDITE + "vofi_mit_restwert.A", "prozent2", "5,25 %", [RENDITE_FOLIE]),
+    (RENDITE + "vofi_nur_bodenwert.A", "prozent2", "1,67 %", [RENDITE_FOLIE]),
+    (RENDITE + "projektkonto_tiefststand.Frei", "zahl", "−4.818.629", [RENDITE_FOLIE]),
 ]
 # ---- Kernwerte der Ausgangslage und des Kostenvergleichs: Werte der Datendateien und daraus gerechnete Größen, in derselben Schreibweise ----
 KOSTEN_2020 = "(markt#baukosten.herstellung.q1_2020 + markt#baukosten.grundstueck.q1_2020)"
@@ -190,6 +200,9 @@ KERNWERTE_MARKT = [
     ("markt#baukosten.herstellung.q4_2025 / markt#baukosten.herstellung.q1_2020 - 1", "prozent1vz", "+52,9 %", ["einstieg-baukosten"]),
     ("markt#baukosten.grundstueck.q4_2025 / markt#baukosten.grundstueck.q1_2020 - 1", "prozent1vz", "+4,8 %", ["einstieg-baukosten"]),
     ("markt#kapitaldienst.zins_q1_2020", "prozentwert2", "0,46 %", ["ausgangslage-zinsen", "einstieg-kapitaldienst"]),
+    # Folie 10: Mietpfad der Gruppe A in Mietenstufe IV–VII, auf den Cent abgerundet wie die Broschüre S. 7 (7,2182 → 7,21 und 7,6621 → 7,66)
+    ("regeln#mietpfad.jahr4", "euro2", "7,21 €", ["hoechstmiete"]),
+    ("regeln#mietpfad.jahr7", "euro2", "7,66 €", ["hoechstmiete"]),
     # Folie 4: Legende (Werte des letzten Monats, Stelle 126 = 07/2026) und die Quartalsmittel an den beiden Marken stehen je Zinsbindung einzeln auf der Folie
     ("markt#zinsen.z20.wert.126", "prozentwert2", "4,02 %", ["ausgangslage-zinsen"]),
     ("markt#zinsen.z30.wert.126", "prozentwert2", "4,15 %", ["ausgangslage-zinsen"]),
@@ -242,7 +255,7 @@ KERNSAETZE = [
      {"a": ("tab.bearbeitungsentgelt_darlehen", "prozent0"), "b": ("tab.bearbeitungsentgelt_zuschuss", "prozent2")}),
     ("anhang-eckdaten", "mindestens {a} der zuwendungsfähigen Kosten", {"a": ("tab.eigenmittel_mindestens", "prozent0")}),
     ("foerdermix", "Mindestens {a} der zuwendungsfähigen Kosten", {"a": ("tab.eigenmittel_mindestens", "prozent0")}),
-    ("rechnung-jahr1", "{a} | {b} | {c} € je m² (A | B | C)", {"a": ("fin.miete_jahr1.A", "dez2"), "b": ("fin.miete_jahr1.B", "dez2"), "c": ("fin.miete_jahr1.C", "dez2")}),
+    ("rechnung-jahr1", "{a} | {b} | {c} € je m² und Monat (A | B | C)", {"a": ("fin.miete_jahr1.A", "dez2"), "b": ("fin.miete_jahr1.B", "dez2"), "c": ("fin.miete_jahr1.C", "dez2")}),
     ("rechnung-jahr1", "Verwaltungskostenbeitrag, {a}", {"a": ("tab.verwaltungskostenbeitrag", "prozent1")}),
     ("rechnung-jahr1", "Zins NBank-Darlehen, {a}", {"a": ("tab.zins_nbank_bis_jahr35", "prozent0")}),
     ("rechnung-miete", "Höchstmiete Gruppe A: {a}", {"a": ("fin.miete_jahr1.A", "euro2")}),
@@ -259,7 +272,7 @@ KERNSAETZE = [
     ("rechnung-fluss-gefoerdert", "{a} je m² und Monat", {"a": ("fin.miete_jahr1.A", "euro2")}),
     ("rechnung-fluss-gefoerdert", "{a} · {b}", {"a": ("jr1.tilgung_nbank.A", "euro"), "b": ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
     ("rechnung-fluss-gefoerdert", "{a} · {b}", {"a": ("jr1.verwaltungskostenbeitrag.A", "euro"), "b": ("modellhaus:jr1.verwaltungskostenbeitrag.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
-    ("rechnung-fluss-frei", "Frei finanziert: {a} der Miete gehen an Zinsen", {"a": ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
+    ("rechnung-fluss-frei", "Frei finanziert: {a} der Miete sind Zins", {"a": ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
     ("rechnung-fluss-frei", "{a} je m² und Monat", {"a": ("dscr.noetige_miete.Frei", "euro2")}),
     ("rechnung-fluss-frei", "{a} · {b}", {"a": ("-modellhaus:frei.zins_jahr1", "euro"), "b": ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
     ("rechnung-fluss-frei", "{a} · {b}", {"a": ("-modellhaus:frei.tilgung_jahr1", "euro"), "b": ("-modellhaus:frei.tilgung_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
@@ -270,16 +283,26 @@ KERNSAETZE = [
     ("pgn-baukosten", "ARGE {a} bis {b} je m²", {"a": ("markt#kosten.arge.spanne_herstellung.min", "zahl"), "b": ("markt#kosten.arge.spanne_herstellung.max", "euro")}),
     ("pgn-baukosten", "Spanne KG 200–700: Minimum bis Maximum", {}),   # Legende zum Maßzeichen der Spanne neben den Säulen der Herstellung
     # Anhangfolie zur Eigenkapitalrendite (A7): Titel, Annahmen und das Paar, in dem die Rechenmappe Renditen nach außen verlangt
-    (RENDITE_FOLIE, "Eigenkapitalrendite über {a} Jahre: {b} in Gruppe A", {"a": ("tab.zinsfreie_jahre", "zahl"), "b": (RENDITE + "vofi_mit_restwert.A", "prozent1")}),
-    (RENDITE_FOLIE, "Modellhaus über {a} Jahre, vor Steuern", {"a": ("tab.zinsfreie_jahre", "zahl")}),
+    # Der Titel nennt für Gruppe A beide Lesarten: mit Restwert und nur Bodenwert (Rechenmappe, Blatt Hinweise Nr. 12)
+    (RENDITE_FOLIE, "Rendite in A: {a} mit Restwert, {b} nur Bodenwert", {"a": (RENDITE + "vofi_mit_restwert.A", "prozent2"), "b": (RENDITE + "vofi_nur_bodenwert.A", "prozent2")}),
+    (RENDITE_FOLIE, "Eigenkapitalrendite über {a} Jahre, vor Steuern", {"a": ("tab.zinsfreie_jahre", "zahl")}),
     (RENDITE_FOLIE, "Rendite mit Restwert", {}),
     (RENDITE_FOLIE, "Rendite, nur Bodenwert", {}),
     (RENDITE_FOLIE, "Anteil des Restwerts am Endvermögen", {}),
-    (RENDITE_FOLIE, "Vor Steuern: ohne Abschreibung und Sonder-AfA.", {}),
-    (RENDITE_FOLIE, "Frei finanziert zur Marktmiete: {a} je m², +{b} im Jahr.", {"a": (RENDITE + "annahme.marktmiete_jahr1", "euro2"), "b": (RENDITE + "annahme.mietsteigerung", "prozent0")}),
-    (RENDITE_FOLIE, "Liegenschaftszins {a}; Boden +{b} im Jahr.", {"a": (RENDITE + "liegenschaftszins.A", "prozent1"), "b": (RENDITE + "annahme.bodenwertsteigerung", "prozent1")}),
-    (RENDITE_FOLIE, "Fehlbeträge trägt ein Projektkonto zu {a} Sollzins.", {"a": (RENDITE + "annahme.sollzins", "prozent0")}),
-    ("rechnung-jahr1", "Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern.", {}),
+    (RENDITE_FOLIE, "Vor Steuern, ab Bezug: ohne Bauphase, Abschreibung und Sonder-AfA.", {}),
+    # Liegenschaftszins und Marktmiete des Modellhauses gelten für Rotenburg (Wümme): amtliche Werte der Gutachterausschüsse, Stichtag 01.01.2026
+    # (Blatt Hinweise Nr. 14). Der Liegenschaftszins steht mit zwei Nachkommastellen: 3,45 % stünde einstellig als 3,4 oder 3,5 %
+    (RENDITE_FOLIE, "Liegenschaftszins {a}, Marktmiete {b} je m²: Gutachterausschuss, Rotenburg (Wümme), 2026.", {"a": (RENDITE + "liegenschaftszins.A", "prozent2"), "b": (RENDITE + "annahme.marktmiete_jahr1", "euro2")}),
+    (RENDITE_FOLIE, "Restwert: Ertragswert Ende Jahr {a}.", {"a": ("tab.zinsfreie_jahre", "zahl")}),
+    (RENDITE_FOLIE, "Marktmiete +{a}, Boden +{b} p. a.", {"a": (RENDITE + "annahme.mietsteigerung", "prozent0"), "b": (RENDITE + "annahme.bodenwertsteigerung", "prozent1")}),
+    (RENDITE_FOLIE, "Fehlbeträge laufen auf ein Projektkonto zu {a} Sollzins.", {"a": (RENDITE + "annahme.sollzins", "prozent0")}),
+    ("rechnung-jahr1", "Gerechnet ist Jahr 1 zum Kostenstand 2026, vor Steuern.", {}),
+    # Folien 20 und 24: Annahme der Rechnung und der Satz, bei dem der Zahlungsüberschuss in Gruppe A null ist; Schwelle C gegen A
+    ("rechnung-tilgung", "Bei {a} Tilgung bleibt nur in A ein Zahlungsüberschuss. Ab {b} ist er auch dort null.", {"a": ("eingabe.tilgung_nbank", "prozent2"), "b": ("liq.breakeven_tilgung.A", "prozent2")}),
+    ("rechnung-tilgung", "Unter {a} läge C vorn, B in keinem Fall.", {"a": ("tilg.schwelle.C_gegen_A", "prozent2")}),
+    ("fazit", "Annahme {a} p. a., null in A ab {b}.", {"a": ("eingabe.tilgung_nbank", "prozent2"), "b": ("liq.breakeven_tilgung.A", "prozent2")}),
+    # Folie 21: Summe der Fehlbeträge je Gruppe (Übersicht 3.7), an ihre Gruppe gebunden
+    ("rechnung-verlauf", "in Summe {a}. In C neun Jahre, in Summe {b}.", {"a": ("-modellhaus:liq.groesster_kumulierter_fehlbetrag.B", "euro"), "b": ("-modellhaus:liq.groesster_kumulierter_fehlbetrag.C", "euro")}),
 ]
 # ---- Kernwerte in den Diagrammdaten: Quelle (wie bei den Kernwerten), Folie, Reihe, Kategorie. Der Wert steht dort ungerundet und mit Vorzeichen ----
 KERNWERTE_DIAGRAMM = [
@@ -386,12 +409,21 @@ KERNWERTE_FORM += (
     + [(RENDITE + "jahre_mit_fehlbetrag.Frei", "zahl", RENDITE_FOLIE, _RT, (2, _SP["Frei"]), "{a}")]
     + [(RENDITE + "projektkonto_tiefststand." + g, "zahl", RENDITE_FOLIE, _RT, (3, sp), "{a}") for g, sp in _SP.items()]
     + [(RENDITE + "restwert_jahr35." + g, "miozahl2", RENDITE_FOLIE, _RT, (4, sp), "{a}") for g, sp in _SP.items()]
-    + [(RENDITE + "vofi_mit_restwert." + g, "prozent1", RENDITE_FOLIE, _RT, (5, sp), "{a}") for g, sp in _SP.items()]
-    + [(RENDITE + "vofi_nur_bodenwert." + g, "prozent1", RENDITE_FOLIE, _RT, (6, _SP[g]), "{a}") for g in "ABC"]
+    + [(RENDITE + "vofi_mit_restwert." + g, "prozent2", RENDITE_FOLIE, _RT, (5, sp), "{a}") for g, sp in _SP.items()]
+    + [(RENDITE + "vofi_nur_bodenwert." + g, "prozent2", RENDITE_FOLIE, _RT, (6, _SP[g]), "{a}") for g in "ABC"]
     + [(RENDITE + "vofi_nur_bodenwert.Frei", "strich_wenn_nv", RENDITE_FOLIE, _RT, (6, _SP["Frei"]), "{a}")]
     + [(RENDITE + "restwertanteil." + g, "prozent0", RENDITE_FOLIE, _RT, (7, _SP[g]), "{a}") for g in "ABC"]
     + [(RENDITE + "restwertanteil.Frei", "ueber100", RENDITE_FOLIE, _RT, (7, _SP["Frei"]), "{a}")]
 )
+# Tabelle „Rechenweg“ der Folie 19 (nötige Miete): Zeile 0 ist der Kopf, Spalte 0 die Position; Spalte 1 gefördert (A), Spalte 2 frei finanziert.
+# Jede Zahl des Rechenwegs ist an ihre Zelle gebunden.
+_MT = "Tabelle Rechenweg"
+KERNWERTE_FORM += [
+    ("dscr.kapitaldienst_jahr1.A", "euro", "rechnung-miete", _MT, (1, 1), "{a}"), ("dscr.kapitaldienst_jahr1.Frei", "euro", "rechnung-miete", _MT, (1, 2), "{a}"),
+    (BEWIRTSCHAFTUNG, "euro", "rechnung-miete", _MT, (2, 1), "{a}"), (BEWIRTSCHAFTUNG_FREI, "euro", "rechnung-miete", _MT, (2, 2), "{a}"),
+    (MIETFLAECHE_JAHR, "zahl", "rechnung-miete", _MT, (3, 1), "{a}"), (MIETFLAECHE_JAHR, "zahl", "rechnung-miete", _MT, (3, 2), "{a}"),
+    ("dscr.noetige_miete.A", "euro2", "rechnung-miete", _MT, (4, 1), "{a}"), ("dscr.noetige_miete.Frei", "euro2", "rechnung-miete", _MT, (4, 2), "{a}"),
+]
 # ---- Verweise: Folie, Ort („folie“ für Folientext, „notizen“), Text mit Feldern, je Feld die Kennung der gemeinten Folie ------------------------
 # Der Text steht so auf der Folie oder in ihren Notizen, und das Feld trägt die Blattnummer der gemeinten Folie aus dem Konzept. Ändert sich
 # die Zählung, fällt jeder Verweis auf, der nicht mitgeführt wurde.
@@ -405,21 +437,22 @@ VERWEISE = [
     ("rechnung-jahr1", "notizen", "B und C folgen auf den Folien {a} und {b}.", {"a": "rechnung-tilgung", "b": "rechnung-verlauf"}),
     ("rechnung-jahr1", "notizen", "Die Rendite über 35 Jahre steht im Anhang (Folie {a}).", {"a": RENDITE_FOLIE}),
     ("rechnung-kapitaldienst", "notizen", "den Zinsverlauf zeigt Folie {a}.", {"a": "ausgangslage-zinsen"}),
-    ("rechnung-kapitaldienst", "notizen", "Die Rendite über 35 Jahre steht im Anhang (Folie {a}).", {"a": RENDITE_FOLIE}),
     ("rechnung-fluss-gefoerdert", "notizen", "Der Kapitaldienst ist der von Folie {a}:", {"a": "rechnung-kapitaldienst"}),
-    ("rechnung-fluss-frei", "notizen", "gehen in den Kapitaldienst, wie auf Folie {a}.", {"a": "rechnung-kapitaldienst"}),
+    ("rechnung-fluss-frei", "notizen", "geht in den Kapitaldienst, wie auf Folie {a}.", {"a": "rechnung-kapitaldienst"}),
     ("rechnung-miete", "notizen", "Die Annahmen stehen auf Folie {a}.", {"a": "rechnung-kapitaldienst"}),
     ("rechnung-verlauf", "notizen", "Folie {a} nennt abgerundet", {"a": "hoechstmiete"}),
     ("rechnung-kosten", "notizen", "dem PGN-Median der Folie {a},", {"a": "pgn-baukosten"}),
-    ("antragsweg", "notizen", "erster Spatenstich (Anhang {a}).", {"a": "anhang-vertraege"}),
+    ("antragsweg", "notizen", "der erste Spatenstich (Anhang {a}).", {"a": "anhang-vertraege"}),
     ("antragsweg", "notizen", "die Bedarfslage am Standort stehen im Anhang {a}.", {"a": "anhang-voraussetzungen"}),
-    ("anhang-trenner", "notizen", "{a} und {b}: Programmteile und Frist. {c} und {d}: Voraussetzungen und Verträge vor der Bewilligung. {e} und {f}: Mieterkreis und Eckdaten. {g}: Eigenkapitalrendite. {h}: Quellen und Hinweis.",
+    ("anhang-trenner", "notizen", "{a} und {b} zeigen Programmteile und Frist, {c} und {d} Voraussetzungen und Verträge vor der Bewilligung, {e} und {f} Mieterkreis und Eckdaten, {g} die Eigenkapitalrendite, {h} Quellen und Hinweis.",
      {"a": "anhang-programmteile", "b": "anhang-frist", "c": "anhang-voraussetzungen", "d": "anhang-vertraege", "e": "anhang-mieterkreis", "f": "anhang-eckdaten", "g": RENDITE_FOLIE, "h": "quellen"}),
     ("anhang-eckdaten", "notizen", "verdichtet auf den Folien {a} und {b}, Antrag und Bewilligung auf Folie {c};", {"a": "foerdermix", "b": "eckdaten-zeitstrahl", "c": "antragsweg"}),
     ("anhang-eckdaten", "notizen", "im Hinweis auf {a}.", {"a": "quellen"}),
     ("quellen", "folie", "Folien {a} und {b}: PGN (2026): eigene Auswertung von fünf Projekten", {"a": "pgn-baukosten", "b": "rechnung-kosten"}),
     ("quellen", "folie", "Folie {a}: eigene Rechnung der PGN", {"a": "einstieg-kapitaldienst"}),
     ("quellen", "folie", "Folie {a}: BT-Drs. 21/7303", {"a": "einstieg-bestand"}),
+    (RENDITE_FOLIE, "notizen", "über Swapsatz plus 1 Prozentpunkt ({a});", {"a": "anhang-eckdaten"}),
+    (RENDITE_FOLIE, "notizen", "daher die höheren Beträge als auf Folie {a}.", {"a": "rechnung-verlauf"}),
     ("quellen", "folie", "{a}–{b}, {c}", {"a": "rechnung-finanzierung", "b": "fazit", "c": RENDITE_FOLIE}),   # Zeile der Modellrechnung in der Spalte „Folie“
     ("quellen", "notizen", "alle Zahlen der Folien {a} bis {b}, {c}, {d} und {e}.", {"a": "rechnung-finanzierung", "b": "rechnung-verlauf", "c": "rechnung-kosten", "d": "fazit", "e": RENDITE_FOLIE}),
     ("quellen", "notizen", "Baukosten (Folien {a} und {b}), Zinsreihe (Folie {c}), Bestandsreihe (Folie {d}) und der PGN-Median der Herstellungskosten (Folien {b} und {e}). Folie {f} rechnet mit diesen Werten.",
@@ -439,7 +472,7 @@ FREI = [
     ("Kostengruppe", r"\bKG\s+\d{3}(?:[–/]\d{3})?|\bKostengruppen\s+\d{3}–\d{3}", "Nummer einer Kostengruppe nach DIN 276"),
     ("Leistungsphase", r"\b(?:Leistungsphasen?|LPH)\s+\d(?:(?:\s+bis\s+|–|\s+und\s+)\d)?(?:\s+HOAI)?|\bDie Leistungsphasen:(?:\s+\d\s+[^,.]+[,.])+",
      "Nummer einer Leistungsphase der HOAI, auch in der Aufzählung der neun Phasen"),
-    ("Bezeichnung", r"\bEH-40\b|\bKfW-Kredit\s+\d+(?:\s+oder\s+\d+)?|\bVOFI-Mappe\s+v\d+|\bDIN\s+\d+", "Ziffer als Teil eines Namens (Effizienzhaus 40, Kreditnummer, Version)"),
+    ("Bezeichnung", r"\bEH-40\b|\bEffizienzhaus-40\b|\bKfW-Kredit\s+\d+(?:\s+oder\s+\d+)?|\bRechenmappe\s+v\d+|\bDIN\s+\d+", "Ziffer als Teil eines Namens (Effizienzhaus 40, Kreditnummer, Version)"),
     ("Zellbezug", r"\b[A-Z]{1,2}\d{1,3}(?::[A-Z]{1,2}\d{1,3})?\b|\bEingaben?(?:!\w+)?\s+\d\.\d(?:(?:\s+und\s+|\s+bis\s+|,\s+)\d\.\d)*|\bÜbersicht\s+\d\.\d(?:\s+bis\s+\d\.\d)?",
      "Zelle, Eingabe- oder Zeilennummer der Rechenmappe in einer Quellenzeile"),
 ]

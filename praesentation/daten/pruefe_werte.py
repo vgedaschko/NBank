@@ -265,7 +265,7 @@ def abgleich_broschuere(w, b):
     b.enthaelt(T, "Geometrie: ungerundete Werte", d["geometry"], f"B {de(vB, 1)} €, C {de(vC, 1)} €", q("tilg.mehrueberschuss_vor_tilgung.B/C"))
     b.enthaelt(T, "Geometrie: Nulldurchgänge", d["geometry"], f"B {pct(schwelle['B'], 4)} %, C {pct(schwelle['C'], 4)} %", q("tilg.schwelle.B_gegen_A, tilg.schwelle.C_gegen_A"))
     b.enthaelt(T, "Notiz: Schwelle C", ch["note"], f"Unter **{pct(schwelle['C'], 2)} %** Tilgung", q("tilg.schwelle.C_gegen_A"))
-    b.enthaelt(T, "Notiz: Schwelle B", ch["note"], f"Unter {pct(schwelle['B'], 2)} % bringt C mehr", q("tilg.schwelle.B_gegen_A"))
+    b.enthaelt(T, "Notiz: Schwelle B", ch["note"], f"Unter {pct(schwelle['B'], 2)} % liegt C vor B, darüber A", q("tilg.schwelle.B_gegen_A"))
     b.enthaelt(T, "Notiz: je Prozentpunkt", ch["note"], f"von B um {de(D(sB) / 100)} €, von C um {de(D(sC) / 100)} €", q("1 % × tilg.mehrschuld.B/C"))
     raster = dict(zip(m("tilg.raster.satz")[:7], m("tilg.raster.bester")[:7]))
     b.gleich(T, "Notiz: höchster Überschuss unter und über der Schwelle (Raster 0 bis 3 %)",

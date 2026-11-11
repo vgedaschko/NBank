@@ -17,9 +17,9 @@
     }
   },
   "mietpfad": {
-    "_hinweis": "Programmteil 2.1, Gruppe A, Mietenstufe IV–VII. Gerundete Werte der Broschüre; die Mappe rechnet ungerundet weiter (zr.miete.A).",
+    "_hinweis": "Programmteil 2.1, Gruppe A, Mietenstufe IV–VII. Auf den Cent abgerundete Werte der Broschüre (7,2182 → 7,21 und 7,6621 → 7,66; bis zum Lektorat der Broschüre vom 11.11.2026 stand ab Jahr 7 der Wert 7,65, gerechnet aus dem gerundeten Wert 7,21); die Mappe rechnet ungerundet weiter (zr.miete.A).",
     "jahr4": { "wert": 7.21, "einheit": "€/m² Monat", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.points[1].value", "geprueft": true },
-    "jahr7": { "wert": 7.65, "einheit": "€/m² Monat", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.points[2].value", "geprueft": true }
+    "jahr7": { "wert": 7.66, "einheit": "€/m² Monat", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.points[2].value", "geprueft": true }
   },
   "angebotsmiete": {
     "jahr": { "wert": 2024, "einheit": "Jahr", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.reference_lines[0].label", "geprueft": true },
@@ -39,7 +39,7 @@
     "zuschlag_C": { "wert": 0.60, "einheit": "Anteil über der Einkommensgrenze", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[0].data.series[2].label", "geprueft": true }
   },
   "zulassung": {
-    "text": { "wert": "Grundsatz ist Gruppe A; B und C muss die NBank in der Förderentscheidung zulassen. Bis 60 % über der Einkommensgrenze setzt das eine besondere Lage oder Zweckbindung voraus, etwa einen angespannten Wohnungsmarkt; sonst sind bei Vorhaben ab zwölf zusammenhängenden Wohnungen bis +20 % für höchstens die Hälfte der Wohnungen möglich; C entfällt dann.", "einheit": "Text", "herkunft": "Broschüre S. 12, 12-mix-und-tilgung.json, blocks[2].body (ohne den Seitenverweis am Ende)", "geprueft": true },
+    "text": { "wert": "Grundsatz ist Gruppe A. B und C muss die NBank in der Förderentscheidung zulassen. Das setzt eine besondere Lage oder Zweckbindung voraus, etwa einen angespannten Wohnungsmarkt. Sonst sind höchstens 20 % über der Einkommensgrenze möglich, nur bei Vorhaben ab zwölf zusammenhängenden Wohnungen und nur für die Hälfte davon.", "einheit": "Text", "herkunft": "Broschüre S. 12, 12-mix-und-tilgung.json, blocks[2].body (die ersten beiden Sätze), und S. 6, 06-mieterkreis-einkommensgruppen.json (Voraussetzungen der Zulassung: bis +60 % bei besonderer Lage oder Zweckbindung, sonst bis +20 % ab zwölf zusammenhängenden Wohnungen für höchstens die Hälfte davon; § 4 Abs. 1 und 2 DVO-NWoFG). Wortlaut in vier Sätzen nach dem Lektorat des Vortrags vom 11.11.2026", "geprueft": true },
     "nachweis": { "wert": "Wohnberechtigungsschein (WBS) der Kommune.", "einheit": "Text", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[1].body, verdichtet wie im Konzept (Folie A5)", "geprueft": true }
   },
   "eckdaten": {
@@ -48,7 +48,7 @@
       "wert": [
         { "stichwort": "Antrag, Bewilligung", "text": "Antrag bei der Wohnraumförderstelle am Bauort; die NBank bewilligt mit öffentlich-rechtlichem Fördervertrag", "zeile": "blocks[1].rows[0]" },
         { "stichwort": "Sätze (Höchstwerte)", "text": "Darlehen {darlehen_abc} % plus Zuschuss {zuschuss_abc} % (Gruppe A/B/C), zusammen {foerderquote} der zuwendungsfähigen Kosten; Zuschuss nur mit Darlehen, B und C nur mit Zulassung", "zeile": "blocks[1].rows[1]" },
-        { "stichwort": "Eigenmittel", "text": "mindestens {eigenmittel} der zuwendungsfähigen Kosten; mindestens die Hälfte als Geld oder lastenfreies Grundstück", "zeile": "blocks[1].rows[2]" },
+        { "stichwort": "Eigenmittel", "text": "mindestens {eigenmittel} der zuwendungsfähigen Kosten; davon soll mindestens die Hälfte Geld oder lastenfreies Grundstück sein", "zeile": "blocks[1].rows[2]" },
         { "stichwort": "Zins", "text": "{zins} bis Ende des {zinsfreie_jahre}. Jahres nach Bezugsfertigkeit; danach bis zu 3 Prozentpunkte über dem Basiszinssatz, höchstens marktüblich", "zeile": "blocks[1].rows[3]" },
         { "stichwort": "Tilgung", "text": "Satz legt die NBank fest; Beginn nach vollständiger Auszahlung, spätestens zwei Jahre nach dem auf die Bekanntgabe der Förderentscheidung folgenden Monat", "zeile": "blocks[1].rows[4]" },
         { "stichwort": "Kosten, laufend", "text": "Verwaltungskostenbeitrag {verwaltungskostenbeitrag} p. a. auf das Restkapital, ab Auszahlungsbeginn", "zeile": "blocks[1].rows[5]" },

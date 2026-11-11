@@ -66,9 +66,9 @@ module.exports = {
     B.massstab(s, { x: d.plot.x, y: d.plot.y + d.plot.h + 0.02, w: d.plot.w });
 
     B.planlegende(s, { platzhalter: 'kommentar', pt: 14, eintraege: [
-      { titel: 'Regelfall Gruppe A', text: 'B und C mit Zulassung in der Förderentscheidung. Der Zuschuss wird nur zusammen mit dem Darlehen gewährt.' },
-      { titel: 'Eigenmittel', text: `Mindestens ${fmt.prozentWert(em)} der zuwendungsfähigen Kosten; mindestens die Hälfte als Geld oder lastenfreies Grundstück.` },
-      { titel: 'Bemessungsgrenze', text: `${fmt.zahl(M('tab.bemessungsgrenze.I'))} € je m² Wohnfläche in Mietenstufe I–III, ${fmt.zahl(M('tab.bemessungsgrenze.IV'))} € in IV–VII.` }] });
+      { titel: 'Zuschuss', text: 'Nicht rückzahlbar. Er wird nur zusammen mit dem Darlehen gewährt.' },
+      { titel: 'Eigenmittel', text: `Mindestens ${fmt.prozentWert(em)} der zuwendungsfähigen Kosten. Die Hälfte soll Geld oder lastenfreies Grundstück sein.` },
+      { titel: 'Bemessungsgrenze', text: `Ausgangswerte: ${fmt.zahl(M('tab.bemessungsgrenze.I'))} € je m² Wohnfläche in Mietenstufe I–III, ${fmt.zahl(M('tab.bemessungsgrenze.IV'))} € in IV–VII.` }] });
   },
 };
 ```
@@ -253,7 +253,7 @@ und Einheit schützt die Bibliothek selbst („5,6 Mio. €“, „80 %“, „S
   | `einstieg`, `ueberblick`, Folie 22 | `daten/markt.json` | Baukosten Q1 2020 und Q4 2025, Zinsreihe, Eingangswerte zum Kapitaldienst je m², Bestandsreihe und Marktzahlen (Folien 3 bis 6), Kostenvergleich PGN gegen ARGE (Folie 22), Programmteile und Frist (A1, A2); Werte der Altfassung mit Vermerk „nicht nachgeprüft“ |
   | `umsetzung` | `daten/umsetzung.json` | Bedarfslage, Fristen, Leistungsphasen |
   | `rahmen`, `struktur` | `daten/rahmen.json` | was Titel, Agenda (Abschnitte, Register der Programmteile), Trenner, Kontakt und Quellen brauchen |
-  | `rechnung` | `daten/rechnung.json` | Angaben, die `werte.json` nicht führt (Kostenstand, Text zum PGN-Median) |
+  | `rechnung` | `daten/rechnung.json` | Angaben, die `werte.json` nicht führt (Kostenstand, Text zum PGN-Median, Herkunft von Marktmiete und Liegenschaftszins der Folie A7) |
   | Prüfung | `daten/pruefung.json` | Belege für `pruefe_folien.py`: gerechnete Größen mit Formel, Zahlen der Sprechernotizen mit Herkunft |
 
 - Texte im Wortlaut des Konzepts (`ctx.o.inhalt`) dürfen im Modul stehen; Zahlen darin kommen aus `W` oder `X`.
@@ -293,7 +293,7 @@ der Baustein mit einer Meldung ab, die Baustein und Feld nennt.
 | `B.modulkopf(s, { x, y, w, titel, sub, signal, icon, altText, rechts, art, farbe })` | Linie 1,5 pt, Titel bei y + 0,08, Untertitel bei y + 0,34. `signal: true`: Linie und Titel in Dunkelrot (nur mit Wort, zum Beispiel „Förderschädlich“). `icon: 'check'`: Linien-Icon 0,24 vor dem Titel, `altText` dazu (Folie A4). `rechts`: zweite Angabe rechts in der Titelzeile, 12 pt grau (Folie A1); Titel und Angabe müssen nebeneinander passen. `art`: andere Linienart, `farbe`: Titelfarbe. → y für den Inhalt (y + 0,46 oder + 0,70) |
 | `B.diagrammkopf(s, { titel, sub })` · `B.tabellenkopf(s, { titel, sub })` | Kopf in den Platzhaltern von `PGN_DIAGRAMM(_MR)` und `PGN_TABELLE(_MR)`: Titel in Versalien, Untertitel mit Einheit, beide einzeilig über 7,92 Zoll (geprüft). Auf anderen Layouts `B.modulkopf` |
 | `B.vorspann(s, text)` | Vorspann im Platzhalter `lead` von `PGN_AUSSAGE` (18 pt, 7,92 × 0,80) |
-| `B.planlegende(s, { x, y, w, h, eintraege: [{ titel, text }], pt, linie, platzhalter, titelAbstand })` | Kommentarspalte in einem Textfeld. `pt` 16, 14 oder 12. Ein Eintrag braucht `titel` oder `text`; ohne `titel` ist er ein Absatz mit 8 pt Abstand. `platzhalter: 'kommentar' \| 'seite'` füllt den Platzhalter des Layouts; sonst freie Lage, `linie: true` zeichnet die Modulkopf-Linie bei y, der Text beginnt 0,07 darunter (der Modultitel steht dann wie ein Titel aus `B.modulkopf`). `titelAbstand`: Abstand vor den Zwischentiteln in pt (Vorgabe 10; 4 für Spalten, die ihr Feld sonst ganz füllen: Folien 11 und 23). **Ohne `h` folgt die Höhe dem Text;** mit `h` wird sie geprüft. Mehrere Spalten: je Spalte ein Aufruf (Muster 10). → `{ x, y, w, h, unten }` |
+| `B.planlegende(s, { x, y, w, h, eintraege: [{ titel, text }], pt, linie, platzhalter, titelAbstand })` | Kommentarspalte in einem Textfeld. `pt` 16, 14 oder 12. Ein Eintrag braucht `titel` oder `text`; ohne `titel` ist er ein Absatz mit 8 pt Abstand. `platzhalter: 'kommentar' \| 'seite'` füllt den Platzhalter des Layouts; sonst freie Lage, `linie: true` zeichnet die Modulkopf-Linie bei y, der Text beginnt 0,07 darunter (der Modultitel steht dann wie ein Titel aus `B.modulkopf`). `titelAbstand`: Abstand vor den Zwischentiteln in pt (Vorgabe 10; 4 für Spalten, die ihr Feld sonst ganz füllen: Folie 23). **Ohne `h` folgt die Höhe dem Text;** mit `h` wird sie geprüft. Mehrere Spalten: je Spalte ein Aufruf (Muster 10). → `{ x, y, w, h, unten }` |
 | `B.aufzaehlung(s, { x, y, w, h, punkte: [], pt, platzhalter })` | eckiger roter Marker, höchstens fünf Punkte, `pt` 16 oder 14 (im Anhang auch 12). `platzhalter: 'body'` in `PGN_AUSSAGE`; sonst freie Lage, ohne `h` folgt die Höhe dem Text. Keine Fettung („**“ wird entfernt). → `{ x, y, w, h, unten }` |
 | `B.notiz(s, text)` | eine Zeile im Platzhalter `notiz` (`PGN_TABELLE`) |
 | `B.zitat(s, { zeilen: [], name, quelle })` | Layout `PGN_ZITAT`: höchstens vier Zeilen zu 38 Zeichen (28 pt, Zeile 36 pt), rote Linie in Zitathöhe. Mit `x, y, w`: freie Lage, 24 pt |
@@ -504,7 +504,7 @@ Säule und Maßkette über die ganze Reihe `einstieg-bestand` ·
 Achse mit großen Achskreisen und Register der Programmteile `agenda` · Flussdiagramm `rechnung-fluss-gefoerdert`, `rechnung-fluss-frei` ·
 feine Säulenpaare mit Maßzeichen der Spanne und Marke über einem Teil der Plotfläche `pgn-baukosten` · Vergleich `neu-seit-juli` · Säulen mit Marken `hoechstmiete` ·
 Fördermix `foerdermix` · Zeitstrahl `eckdaten-zeitstrahl` · Balken mit Segmenttext und Rechenblatt `rechnung-finanzierung` ·
-Rechenblatt `rechnung-jahr1` · Summen am Balken `rechnung-kapitaldienst` · Balkenpaar und Vergleichstabelle `rechnung-miete` ·
+Rechenblatt `rechnung-jahr1` · Summen am Balken `rechnung-kapitaldienst` · Balkenpaar und Vergleichstabelle (Rechenweg der nötigen Miete) `rechnung-miete` ·
 Linien mit Marken und Werten `rechnung-tilgung`, `rechnung-verlauf` · Säulen über einer Tabelle `rechnung-kosten` · Ablauf
 `antragsweg` · Balkenplan und Bild `pgn-leistungen` · dichte Tabelle `anhang-programmteile` · Zeitleiste `anhang-frist` ·
 Prüfliste und Ring `anhang-voraussetzungen` · Rechenblatt im Anhang mit Ergebniszeile in der Mitte, Spalten verschiedener Breite und
@@ -598,7 +598,8 @@ verbotene Wörter, Gedankenstriche und jede Zahl gegen `daten/werte.json`, die D
    und die Schlüssel `dscr.ziel` und `zr.dscr.*` erscheinen nicht; `dscr.kapitaldienst_jahr1.*` und `dscr.noetige_miete.*`
    sind erlaubt (Kapitaldienst und nötige Miete bei Überschuss null). **Eine Ausnahme** auf Wunsch des Auftraggebers (11.11.2026):
    Die Anhangfolie A7 (`anhang-rendite`) zeigt die Eigenkapitalrendite über 35 Jahre und nennt die Marktmiete, als Paar „mit Restwert“
-   und „nur Bodenwert“ mit dem Restwertanteil, wie die Rechenmappe es verlangt. Ihre Werte stehen im Lauf `modellhaus_rendite`
+   und „nur Bodenwert“ mit dem Restwertanteil, wie die Rechenmappe es verlangt. Marktmiete und Liegenschaftszins sind seit 11.11.2026 amtliche Werte
+   für Rotenburg (Wümme); ihre Herkunft steht in `daten/rechnung.json` (Block `marktwerte`), die Annahmen der Folie nennen Quelle und Ort. Ihre Werte stehen im Lauf `modellhaus_rendite`
    (`daten/werte_aus_vofi.py`: Katalog `katalog_rendite`, benannte Ausnahme `anhang_rendite` von der Sperrliste). Der Bau gibt den Lauf
    nur dieser Folie frei, `pruefe_folien.py` lässt „Rendite“ und „Marktmiete“ nur dort zu und nimmt die Zahlen des Laufs nur dort als
    Beleg. Für alle anderen Folien gilt E5 unverändert.

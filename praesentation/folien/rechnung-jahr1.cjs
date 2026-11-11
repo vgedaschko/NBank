@@ -15,7 +15,7 @@ module.exports = {
     B.register(s, '2.1');
     const z = k => G.map(g => fmt.zahl(M(`jr1.${k}.${g}`))), satz = k => M('jr1.satz.' + k);
     const miete = G.map(g => fmt.dez(M(`fin.miete_jahr1.${g}`))).join(' | ');
-    B.tabellenkopf(s, { titel: 'Jahresrechnung Jahr 1, in € p. a.', sub: `Höchstmiete nettokalt, Mietenstufe ${R.mietenstufeKlasse(M('eingabe.mietenstufe'))}: ${miete} € je m² (A | B | C)` });
+    B.tabellenkopf(s, { titel: 'Jahresrechnung Jahr 1, in € p. a.', sub: `Höchstmiete nettokalt, Mietenstufe ${R.mietenstufeKlasse(M('eingabe.mietenstufe'))}: ${miete} € je m² und Monat (A | B | C)` });
     B.rechenblatt(s, { x: colX(1), y: ZONE.tabelle.tabelle, w: span(8), dicht: true, name: 'Rechenblatt Jahresrechnung', kopf: ['Position', { kreis: 'A' }, { kreis: 'B' }, { kreis: 'C' }], zeilen: [
       { nr: 1, text: 'Sollmiete zur Höchstmiete', werte: z('sollmiete') },
       { zeichen: fmt.MINUS, text: `Mietausfall/Leerstand, ${fmt.prozent(satz('mietausfall'))}`, werte: z('mietausfall') },
@@ -29,7 +29,7 @@ module.exports = {
     B.notiz(s, `Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte ${z('bearbeitungsentgelte').join(' | ')} €`);
     // Dass die NBank den Tilgungssatz festlegt, steht auf den Folien 12, 20 und 24; hier trägt Zeile 7 der Rechnung den Vermerk „Annahme“
     B.planlegende(s, { platzhalter: 'kommentar', pt: 16, eintraege: [
-      { titel: 'Annahmen', text: ctx.wortlaut(`Liquidität in Jahr 1 bei Kostenstand ${R.kostenstand(ctx)}, vor Steuern.`, 'Annahmen') },
+      { titel: 'Annahmen', text: ctx.wortlaut(`Gerechnet ist Jahr 1 zum Kostenstand ${R.kostenstand(ctx)}, vor Steuern.`, 'Annahmen') },
       // Der Satz der Jahresrechnung ist 1 ÷ Höchstlaufzeit: gleichmäßige Tilgung bis zum Ende der längsten Laufzeit (RL Nr. 5.3.5)
       { text: ctx.wortlaut(`Tilgung gleichmäßig über ${laufzeit} Jahre auf ${G.map(g => fmt.mioZahl(M(`fin.darlehen_nbank.${g}`))).join(' | ')} Mio. € Darlehen.`, 'Annahmen') },
       { text: ctx.wortlaut('B und C setzen eine Zulassung in der Förderentscheidung voraus.', 'Annahmen') }] });

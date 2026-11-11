@@ -22,10 +22,10 @@ module.exports = {
     B.massstab(s, { x: d.plot.x, y: d.plot.y + d.plot.h + 0.02, w: d.plot.w });
 
     const [tag1, tag2] = X('regeln', 'bemessungsgrenze.fortschreibung');
-    // titelAbstand 4 pt: Die Spalte füllt ihr Feld mit 15 Zeilen; mit 10 pt vor den Zwischentiteln blieben gut 2 % Luft, so sind es gut 5 %
-    B.planlegende(s, { platzhalter: 'kommentar', pt: 14, titelAbstand: 4, eintraege: [
-      { titel: 'Regelfall Gruppe A', text: 'B und C mit Zulassung in der Förderentscheidung. Der Zuschuss wird nur zusammen mit dem Darlehen gewährt.' },
-      { titel: 'Eigenmittel', text: `Mindestens ${fmt.prozentWert(em)} der zuwendungsfähigen Kosten; mindestens die Hälfte als Geld oder lastenfreies Grundstück.` },
-      { titel: 'Bemessungsgrenze', text: `${fmt.zahl(T('bemessungsgrenze.I'))} € je m² Wohnfläche in Mietenstufe I–III, ${fmt.zahl(T('bemessungsgrenze.IV'))} € in IV–VII; Ausgangswerte, fortgeschrieben zum ${tag1} und ${tag2}; aktuell auf nbank.de.` }] });   // gekürzt um ein Wort („aktueller Wert auf“), sonst eine Zeile zu viel
+    // Zehn Zeilen in drei Einträgen; „Grundstück sein.“ bleibt zusammen (geschütztes Leerzeichen), sonst stünde „sein.“ allein in der letzten Zeile
+    B.planlegende(s, { platzhalter: 'kommentar', pt: 14, eintraege: [
+      { titel: 'Zuschuss', text: 'Nicht rückzahlbar. Er wird nur zusammen mit dem Darlehen gewährt.' },
+      { titel: 'Eigenmittel', text: `Mindestens ${fmt.prozentWert(em)} der zuwendungsfähigen Kosten. Die Hälfte soll Geld oder lastenfreies ${fmt.nb('Grundstück sein.')}` },
+      { titel: 'Bemessungsgrenze', text: `Ausgangswerte: ${fmt.zahl(T('bemessungsgrenze.I'))} € je m² Wohnfläche in Mietenstufe I–III, ${fmt.zahl(T('bemessungsgrenze.IV'))} € in IV–VII. Fortgeschrieben zum ${tag1} und ${tag2}, aktuell auf nbank.de.` }] });
   },
 };

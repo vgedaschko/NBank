@@ -123,6 +123,11 @@ Bewertungsansätze des Modellhauses für Rotenburg (Wümme) und Lektorat der Tex
   Jeder Lauf prüft, dass Tabelle 4 „verwendet“ die Spalte des aktiven Projekts zeigt und die andere Spalte unverändert
   ist. Regression: Texte, die das Lektorat auf den Blättern Gefördert A/B/C und NBank geändert hat, gelten mit dem
   neuen Wortlaut als gleich (REGRESSION_TEXTE, REGRESSION_UMBENANNT); Zahlen bleiben zellgleich.
+  Abweichung A2 (Obergrenze Vergleichsmiete bis Jahr 42): Mit der Vergleichsmiete 11,87 €/m² greift die Obergrenze beim
+  Modellhaus in den Läufen L20 und L36 (Gruppe C, Jahr 40), bisher nur in L41. Das Skript ließ Restwert und Renditen
+  Jahr 35 dann ungeprüft, verglich aber die Zahlungsreihen im Stichjahr weiter mit der RR (vier Zellen je Gruppe:
+  Z41, AE41, AK41, AP41). Neu: Soll ist in diesem Fall der Rechenweg der RR mit dem Mietpfad der Mappe
+  (Soll.restwert_mappe); er muss in jedem Lauf den Wert der RR treffen, wo A2 nicht greift, sonst bricht die Prüfung ab.
 """
 import argparse
 import concurrent.futures as cf
@@ -1178,6 +1183,18 @@ class Soll:
         self.bank = any(self.l[g].bank0 > 0 for g in GRUPPEN)
         self.bank_geschlossen = self.bank and not self.bank_rr          # RR rechnet nur 30 Jahre (A9)
         self.rw = {g: {H: self.l[g].restwert(H) for H in (0, 35, 42)} for g in GRUPPEN + ("M",)}
+        # Abweichung A2: Greift die Obergrenze Vergleichsmiete in den Jahren bis 42, rechnet die Mappe den Restwert bei
+        # Bezug und in Jahr 35 mit ihrem Mietpfad (RR: Obergrenze Zielmiete). Soll ist dann der Rechenweg der RR mit
+        # dem Mietpfad der Mappe (restwert_mappe); wo A2 nicht greift, muss dieser Rechenweg den Wert der RR treffen.
+        self.a2 = {g: {H: self.a2_greift(g, H) for H in (0, 35)} for g in GRUPPEN}
+        for g in GRUPPEN:
+            for H in (0, 35, 42):
+                eigen, rr_ = self.restwert_mappe(g, H), self.rw[g][H]
+                if self.a2[g].get(H):
+                    self.rw[g][H] = eigen
+                elif any(abs(eigen[k] - rr_[k]) > 1e-9 * max(1.0, abs(rr_[k]))
+                         for k in ("boden", "gebaeude", "voll", "ertragswert_vor_abschlag", "abschlag", "lz", "mit", "oG")):
+                    raise ValueError(f"Restwert {g} Jahr {H}: Rechenweg des Prüfskripts ungleich RR")
 
     def luecke(self, g):
         P = self.P
@@ -1262,6 +1279,29 @@ class Soll:
         P = self.P
         f = (1 + P["kosten_wachstum"]) ** (t - 1 + self.opt["kosten_offset"])
         return P["verwaltung_we"] * P["we"] * f, P["instandhaltung_qm"] * P["wfl"] * f
+
+    def restwert_mappe(self, g, H):
+        """Restwert im Stichjahr H nach dem Rechenweg von RR.Lauf.restwert (periodischer Ertragswert zur
+        Bestandsmiete), aber mit dem Mietpfad der Mappe (Abweichung A2: Jahre H + 1 … 42 mit der Obergrenze
+        Vergleichsmiete wie in der Zahlungsreihe; die RR setzt dort die Zielmiete als Obergrenze)."""
+        P, l, o = self.P, self.l[g], self.opt
+        c = self.mietpfad(g)
+        rnd = P["gnd"] - H
+        p = RR.lz_satz(rnd, P, o["lz_delta"])
+        boden = P["grundstueck"] * (1 + P["bodenwert_wachstum"]) ** H
+        ertrag = P["wfl"] * P["monate"] * (1 - l.ma)
+        ew = ew_ziel = 0.0
+        for k in range(1, rnd + 1):
+            t = H + k
+            vw, ih = self.kosten(t)
+            teiler = (1 + P["miet_wachstum"]) ** (t - (H + 1)) * (1 + p) ** k
+            ew += (c[t] * ertrag - vw - ih) / teiler
+            ew_ziel += (self.ziel(l, t) * ertrag - vw - ih) / teiler
+        ew += boden / (1 + p) ** rnd
+        ew_ziel += boden / (1 + p) ** rnd
+        geb = ew - boden
+        return dict(boden=boden, gebaeude=geb, voll=ew, ertragswert_vor_abschlag=ew_ziel, abschlag=ew_ziel - ew, lz=p,
+                    rnd=rnd, mit=(boden + o["rw_faktor"] * geb) * (1 - o["vk"]), oG=boden * (1 - o["vk"]), null=0.0)
 
     def a2_greift(self, g, H):
         """Abweichung A2: RR-Mietpfad H+1 … 42 mit Obergrenze Zielmiete statt Vergleichsmiete."""
@@ -1420,21 +1460,18 @@ class Soll:
             rw = self.rw[g][H]
             s[f"{col}118"], s[f"{col}119"] = ("zahl", H), ("zahl", P["gnd"] - H)
             s[f"{col}120"], s[f"{col}121"] = ("satz", rw["lz"]), ("eur", rw["boden"])
-            if not self.a2_greift(g, H):
-                s[f"{col}122"], s[f"{col}123"] = ("eur", rw["ertragswert_vor_abschlag"]), ("eur", rw["voll"])
-                s[f"{col}124"], s[f"{col}125"] = ("eur", rw["abschlag"]), ("eur", rw["gebaeude"])
-                if H:
-                    s[f"{col}126"], s[f"{col}127"] = ("eur", rw["mit"]), ("eur", rw["oG"])
-                else:
-                    s["H128"] = ("satz", rw["voll"] / gk - 1 if gk > 0 else 0.0)
-                    s["H129"] = ("satz", rw["ertragswert_vor_abschlag"] / gk - 1 if gk > 0 else 0.0)
+            s[f"{col}122"], s[f"{col}123"] = ("eur", rw["ertragswert_vor_abschlag"]), ("eur", rw["voll"])
+            s[f"{col}124"], s[f"{col}125"] = ("eur", rw["abschlag"]), ("eur", rw["gebaeude"])
+            if H:
+                s[f"{col}126"], s[f"{col}127"] = ("eur", rw["mit"]), ("eur", rw["oG"])
+            else:
+                s["H128"] = ("satz", rw["voll"] / gk - 1 if gk > 0 else 0.0)
+                s["H129"] = ("satz", rw["ertragswert_vor_abschlag"] / gk - 1 if gk > 0 else 0.0)
         # Renditen
         sp = self.sperre(g)
         nv = ("nv", None)
         s["H139"] = nv if sp else ("satz", L["RE"][1] / self.i0(g, "brutto") if self.i0(g, "brutto") > 0 else 0.0)
         for col, H in (("I", 35), ("J", 42)):
-            if H == 35 and self.a2_greift(g, 35):
-                continue
             for z, art, v in ((133, "nZ", "mit"), (134, "nZ", "oG"), (135, "nZ", "null"),
                               (136, "brutto", "mit"), (137, "brutto", "oG"), (138, "brutto", "null")):
                 s[f"{col}{z}"] = nv if sp else self.irr(self.cf_obj(g, art, H, v))
@@ -3001,13 +3038,17 @@ def pruefe_lauf(b, lid, proj, aend, res, werte, soll, specs):
     if soll.bank_geschlossen:
         b.hinweis("F8", f"{lid}: Laufzeit Bank {soll.laufzeit_bank} Jahre, Zinsbindung {soll.zinsbindung} Jahre; "
                         "Bankpfad geschlossen gerechnet, Kapitaldienst-abhängige Größen gefördert nicht gegen die RR (A9)")
-    if any(soll.a2_greift(g, H) for g in GRUPPEN for H in (0, 35)):
-        b.hinweis("F8", f"{lid}: Abweichung A2 greift; Restwert und Renditen Jahr 35 nicht gegen die RR verglichen")
+    a2 = [g for g in GRUPPEN if any(soll.a2[g].values())]
+    if a2:
+        b.hinweis("F8", f"{lid}: Abweichung A2 greift (Gruppe {', '.join(a2)}); Restwert bei Bezug und in Jahr 35 und die "
+                        "Renditen Jahr 35 nach dem Rechenweg der RR mit dem Mietpfad der Mappe geprüft")
     # Selbstprüfung: eigene Zahlungsreihen = RR-Kennzahlen, wenn KG 800 = 0
     if soll.P["kg800"] == 0 and not soll.bank_geschlossen:
         p = b.pruefung("F8", f"{lid} Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung)")
         for g in GRUPPEN + ("M",):
             for H in (35, 42):
+                if g != "M" and soll.a2[g].get(H):
+                    continue                      # A2: Soll aus restwert_mappe, RR.kennzahlen rechnet mit der Zielmiete
                 kz = soll.l[g].kennzahlen(H)
                 for art in ("brutto", "nZ"):
                     for v in ("mit", "oG", "null"):

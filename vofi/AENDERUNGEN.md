@@ -241,7 +241,7 @@ Offen:
 
 Auftrag des Auftraggebers: mit dem jüngsten Wert der Zinsreihe rechnen. Eingabe 6.1 (Zins Bank; Vergleichszins Förderbarwert) und Eingabe 6.3 (Anschlusszins) stehen in beiden Projekten auf 3,86 % statt 3,74 %. Quelle: Dr. Klein Wowi Finanz AG, Top-Konditionen Wohnungswirtschaft, 10 Jahre Zinsbindung, Wert vom 10.11.2026. 3,74 % war der Wert derselben Reihe vom 21.07.2026. Die Quelle führt Wochenwerte; seit Juli lag der Zins zwischen 3,57 % und 4,15 %.
 
-Unverändert: Zinsbindung 10 Jahre, Laufzeit 30 Jahre, Eingabe 3.3 (Zins NBank-Darlehen ab Jahr 36, 3,74 %). Die Jahresrechnung, die Finanzierung und die Eigenkapitalrenditen der Gruppen A, B und C ändern sich nicht.
+Der Zins des NBank-Darlehens ab Jahr 36 (Eingabe 3.3) folgt dem Bankzins und steht ebenfalls auf 3,86 %. Unverändert: Zinsbindung 10 Jahre, Laufzeit 30 Jahre. Die Jahresrechnung, die Finanzierung und alle Werte der Gruppen A, B und C bis Jahr 35 ändern sich nicht.
 
 ### Ergebnisse Modellhaus (Projekt 2), frei finanziert
 
@@ -268,18 +268,22 @@ Der Objekt-IRR frei (6,17 % und 6,27 %) hängt nicht an der Finanzierung und ble
 
 ### Ergebnisse Modellhaus, gefördert
 
-Der Bankzins ist der Vergleichszins des Förderbarwerts. Es ändern sich nur diese Werte:
+Der Bankzins ist der Vergleichszins des Förderbarwerts, und der Zins ab Jahr 36 wirkt auf die Jahre 36 bis 42. Es ändern sich nur diese Werte:
 
 | Größe | A | B | C |
 |---|---:|---:|---:|
 | Förderbarwert, bis 11.11.2026 | 1.670.288 € | 1.328.957 € | 1.158.292 € |
-| Förderbarwert, seit 12.11.2026 | 1.682.663 € | 1.347.520 € | 1.179.948 € |
+| Förderbarwert, seit 12.11.2026 | 1.682.438 € | 1.347.182 € | 1.179.554 € |
 | Objekt-IRR nach Förderbarwert, Jahr 42 (Jahr 35), bisher | 6,63 (6,81) % | 6,43 (6,58) % | 6,39 (6,53) % |
 | Objekt-IRR nach Förderbarwert, Jahr 42 (Jahr 35), neu | 6,67 (6,86) % | 6,48 (6,64) % | 6,44 (6,59) % |
+| Zahlungsüberschuss Jahr 42, bisher | 115.990 € | 139.129 € | 153.402 € |
+| Zahlungsüberschuss Jahr 42, neu (Zins ab Jahr 36: 3,86 %) | 115.957 € | 139.078 € | 153.343 € |
+
+Die Renditen zum Horizont Jahr 42 ändern sich dadurch um höchstens 0,01 Prozentpunkte.
 
 ### Vergleichshaus (Projekt 1)
 
-Derselbe Zins. Frei finanziert: VOFI-EK-Rendite mit Restwert Jahr 35 3,32 % statt 3,57 %, tiefster Stand des Projektkontos −5,13 Mio. € statt −4,82 Mio. €. Förderbarwert A / B / C 3.974.689 / 3.183.033 / 2.787.206 € statt 3.945.457 / 3.139.186 / 2.736.050 €.
+Derselbe Zins. Frei finanziert: VOFI-EK-Rendite mit Restwert Jahr 35 3,32 % statt 3,57 %, tiefster Stand des Projektkontos −5,13 Mio. € statt −4,82 Mio. €. Förderbarwert A / B / C 3.974.156 / 3.182.234 / 2.786.274 € statt 3.945.457 / 3.139.186 / 2.736.050 €.
 
 ### Broschüre, Präsentation, Prüfung
 

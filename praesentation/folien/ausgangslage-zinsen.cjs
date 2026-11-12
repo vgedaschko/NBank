@@ -1,9 +1,10 @@
-// Folie 4 · PGN_DIAGRAMM: Sollzins p. a. nach Zinsbindung als natives Liniendiagramm mit drei Reihen zu je 131 Monatswerten (01/2016 bis 11/2026),
+// Folie 4 · PGN_INHALT (Kopf über zwölf Spalten mit B.modulkopf, auf den Höhen der Diagrammfolien): Sollzins p. a. nach Zinsbindung als natives
+// Liniendiagramm über die ganze Breite mit drei Reihen zu je 131 Monatswerten (01/2016 bis 11/2026),
 // die Jahre als Textfelder an kurzen Jahresstrichen unter der Achse. Die Linien sind fein (1,5 pt) und im Ton gestuft: 10 Jahre in PGN-Rot mit einer weichen Fläche
 // darunter (die Reihe, von der Titel und Hauptzahl sprechen), 20 Jahre in Referenzgrau, 30 Jahre in Tinte. Die Legende trägt die Werte des letzten
 // Monats; ein Punkt markiert das Ende der Reihe „10 Jahre“. Zwei feine gestrichelte Marken tragen die Quartalsmittel untereinander.
-// Rechts wie auf den Folien 3, 5 und 6 die Hauptzahl (Sollzins im letzten Monat der Reihe, 10 Jahre Zinsbindung) und darunter der Wert für
-// Q1 2020; mit beiden rechnet die Folie 5, und beide nennt der Titel.
+// Eine Kennzahlenspalte gibt es seit 12.11.2026 nicht mehr (Wunsch des Auftraggebers): Der Titel nennt beide Werte (Sollzins im letzten Monat
+// der Reihe und Mittel Q1 2020, je 10 Jahre Zinsbindung); mit beiden rechnet die Folie 5. Die Legende trägt die Zinsbindung.
 // Zinsreihe aus daten/markt.json (Dr. Klein Wowi Finanz AG, an der Quelle gelesen am 12.11.2026), Zins des Bankdarlehens und Zinsbindung aus daten/werte.json.
 'use strict';
 const E = require('./_einstieg.cjs');
@@ -12,23 +13,23 @@ const FEIN = require('./_fein_ausgangslage-zinsen.cjs');
 module.exports = {
   id: 'ausgangslage-zinsen',
   bau(ctx) {
-    const { B, D, X, W, fmt, colX, ZONE, P, mittel } = ctx, { monatKurz, monatWort } = fmt, s = ctx.folie(), U = E.lies(ctx), T = k => ctx.wortlaut(U('zinsen.texte.' + k), k);
+    const { B, D, X, W, fmt, colX, span, ZONE, P, mittel } = ctx, { monatKurz, monatWort } = fmt, s = ctx.folie(), U = E.lies(ctx), T = k => ctx.wortlaut(U('zinsen.texte.' + k), k);
     const monate = X('markt', 'zinsen.monate'), n = monate.length - 1, K = ['z10', 'z20', 'z30'];
     const reihen = [{ k: 'z10', art: 'akzent' }, { k: 'z20', art: 'referenz' }, { k: 'z30', art: 'tinte' }]
       .map(r => ({ ...r, name: ctx.wortlaut(X('markt', `zinsen.${r.k}.name`), 'Legende'), werte: X('markt', `zinsen.${r.k}`) }));
     const wert = v => ctx.wortlaut(fmt.prozentWert(v, 2), 'Wert');
     if (!monate[0].endsWith('-01')) throw new Error('Zinsreihe: Der erste Monat muss ein Januar sein, sonst trägt nicht jeder zwölfte Punkt die Jahreszahl.');
 
-    B.diagrammkopf(s, { titel: T('diagrammtitel'), sub: T('untertitel') });
+    B.modulkopf(s, { x: colX(1), y: ZONE.diagramm.kopf, w: span(12), titel: T('diagrammtitel'), sub: T('untertitel') });
     // Legende mit den Werten des letzten Monats
-    FEIN.legendeMitWerten(ctx, s, { x: colX(1), y: ZONE.diagramm.legende, wMax: ctx.span(7), kopf: ctx.wortlaut(monatWort(monate[n]), 'Bezeichnung der Legende'),
+    FEIN.legendeMitWerten(ctx, s, { x: colX(1), y: ZONE.diagramm.legende, wMax: span(12), kopf: ctx.wortlaut(monatWort(monate[n]), 'Bezeichnung der Legende'),
       eintraege: reihen.map(r => ({ name: r.name, wert: wert(r.werte[n]), art: r.art })) });
 
     // Kategorien: Der Januar trägt die Jahreszahl. Die Jahre stehen als Textfelder unter der Achse (katLabels.formen), jedes an einem kurzen
     // Jahresstrich: Eine Beschriftung der Achse selbst dünnen die Programme nach der Breite der Plotfläche aus, und es stünden Monate statt der
     // Jahre da. Die Plotfläche reicht bis an den rechten Rand des Diagramms; der Rand unten legt die Achse wie auf den Folien 5 und 6 auf y 6,04.
     const kat = monate.map(m => (m.endsWith('-01') ? m.slice(0, 4) : monatKurz(m))), jahre = kat.filter(k => /^\d{4}$/.test(k));
-    const d = D.linien(s, { kategorien: kat, katLabels: { formen: jahre }, staerke: FEIN.STRICH, rand: { l: 0.52, r: 0.14, o: 0.20, u: 0.46 }, achse: { min: 0, max: 5, schritt: 1, format: 'roh' },
+    const d = D.linien(s, { x: colX(1), y: ZONE.diagramm.chart.y, w: span(12), h: ZONE.diagramm.chart.h, kategorien: kat, katLabels: { formen: jahre }, staerke: FEIN.STRICH, rand: { l: 0.52, r: 0.14, o: 0.20, u: 0.46 }, achse: { min: 0, max: 5, schritt: 1, format: 'roh' },
       name: 'Diagramm Sollzins nach Zinsbindung', altText: `Liniendiagramm: Sollzins p. a. für ${reihen.map(r => r.name).join(', ')} Zinsbindung, Monatswerte ${monatKurz(monate[0])} bis ${monatKurz(monate[n])}`,
       reihen: reihen.map(r => ({ name: r.name, werte: r.werte, art: r.art })), flaeche: { reihe: reihen[0].name, name: `${reihen[0].name}, Fläche`, deckung: 26 } });
 
@@ -57,14 +58,10 @@ module.exports = {
     // Heutiger Stand: Punkt am Ende der Reihe „10 Jahre“
     FEIN.endpunkt(ctx, s, { cx: d.katMitte(n), cy: d.yWert(reihen[0].werte[n]), art: reihen[0].art, name: 'Linienende Punkt 10 Jahre' });
 
-    // Rechte Spalte. Der Zins des Bankdarlehens kommt aus der Mappe und ist der letzte Wert der Reihe „10 Jahre“.
+    // Der Zins des Bankdarlehens kommt aus der Mappe und ist der letzte Wert der Reihe „10 Jahre“. Der Titel nennt ihn und das Mittel Q1 2020.
     const zinsBank = W('modellhaus', 'eingabe.zins_bank');
     ctx.gleich('Zins des Bankdarlehens (Mappe) gegen den letzten Monatswert der Reihe „10 Jahre“', zinsBank * 100, reihen[0].werte[n]);
-    // Der Titel nennt die beiden Kennzahlen
-    const hauptzahl = fmt.dez(zinsBank * 100), zweite = fmt.dez(marken[0].z10);
-    for (const v of [hauptzahl, zweite]) if (!ctx.o.titel.includes(`${v} %`)) P.melde(`Titel der Folie nennt ${v} % nicht; Hauptzahl und zweite Kennzahl stehen dann nicht im Titel.`);
-    B.hauptzahl(s, { gross: true, vorsatz: ctx.wortlaut(monatWort(monate[n]), 'Vorsatz'), zahl: ctx.wortlaut(hauptzahl, 'Kennzahl'), einheit: '%', label: T('kennzahl_label') });
-    B.nebenzahl(s, { vorsatz: ctx.wortlaut(marken[0].bezeichnung, 'Vorsatz'), zahl: ctx.wortlaut(zweite, 'Kennzahl'), einheit: '%', label: T('kennzahl_label') });
+    for (const v of [fmt.dez(zinsBank * 100), fmt.dez(marken[0].z10)]) if (!ctx.o.titel.includes(`${v} %`)) P.melde(`Titel der Folie nennt ${v} % nicht; der Wert des letzten Monats und das Mittel Q1 2020 stehen dann nicht im Titel.`);
 
     // ---- Schriftfeld: Quellenzeile in Kurzform (daten/markt.json, zinsen.quelle_kurz); die volle Angabe steht auf der Quellenfolie im Anhang ----
     B.quelle(s, ctx.wortlaut(X('markt', 'zinsen.quelle_kurz'), 'Quellenzeile'));

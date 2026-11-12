@@ -102,7 +102,7 @@ Gültigkeit = Datenüberprüfung. Die Fehlermeldung nennt den zulässigen Bereic
 |---|---|---|---|---|---|---|---|---|---|
 | 3.1 | 17 | Tilgung NBank-Darlehen, linear | `Tilgung_NBank` | % p. a. | 2,38 % (1/42) | 2,38 % (1/42) | PGN-Annahme: linear über die Höchstlaufzeit von 42 Jahren | 1/Höchstlaufzeit (RL Nr. 5.3.5), Broschüre S. 11; v2-1: RR `laufzeit_nbank` 40 / Basisdaten!C62 (1/40) | Dezimal 0–0,1 |
 | 3.2 | 18 | Tilgungsaufschub | `Tilgungsaufschub` | Jahre | 0 | 0 | PGN-Annahme (Rahmen RL Nr. 5.3.5) | RR `tilgungsfrei` / v2-1 Eingabe!C26 | ganze Zahl 0–`=Aufschub_max` |
-| 3.3 | 19 | Zins NBank-Darlehen ab Jahr 36 | `Zins_NBank_ab36` | % p. a. | 3,74 % | 3,74 % | PGN-Annahme (Rahmen RL Nr. 5.3.4) | RR `zins_ab36` / v2-1 Eingabe!C43 | Dezimal 0–0,1 |
+| 3.3 | 19 | Zins NBank-Darlehen ab Jahr 36 | `Zins_NBank_ab36` | % p. a. | 3,86 % | 3,86 % | PGN-Annahme: wie Eingabe 6.1 (Rahmen RL Nr. 5.3.4) | RR `zins_ab36` / v2-1 Eingabe!C43 | Dezimal 0–0,1 |
 | 3.4 | 20 | Swapsatz 30 Jahre | `Swapsatz_30J` | % p. a. | 3,39 % | 3,39 % | EUR-Swapsatz 30 Jahre, Stand 19.08.2026 | RR `swap` / v2-1 Ueberkompensation!C5 | Dezimal 0–0,1 |
 
 **Block 4 Miete (6), Gruppenzeile 21**
@@ -1867,7 +1867,7 @@ Abnahme am 11.11.2026: 617 Prüfungen ohne Fehler, 70 Läufe. F9 lief gegen die 
 | 14 | 1.6 | Zuschuss | 1.185.364,80 | 592.682,40 | 296.341,20 |  |
 | 15 | 1.7 | Förderung gesamt | 2.370.729,60 | 2.370.729,60 | 2.370.729,60 |  |
 | 16 | 1.8 | Förderquote auf Gesamtkosten | 80,00 % | 80,00 % | 80,00 % |  |
-| 17 | 1.9 | Förderbarwert (Zuschuss + Barwertvorteil) | 1.682.663 | 1.347.520 | 1.179.948 |  |
+| 17 | 1.9 | Förderbarwert (Zuschuss + Barwertvorteil) | 1.682.438 | 1.347.182 | 1.179.554 |  |
 | 18 | 1.10 | Bankdarlehen | 0,00 | 0,00 | 0,00 | 2.370.729,60 |
 | 19 | 1.11 | Eigenmittel (RL Nr. 5.2.6), ohne Entgelte | 592.682,40 | 592.682,40 | 592.682,40 | 592.682,40 |
 | 20 | 1.12 | Eigenmittelquote | 20,00 % | 20,00 % | 20,00 % | 20,00 % |
@@ -1890,7 +1890,7 @@ Abnahme am 11.11.2026: 617 Prüfungen ohne Fehler, 70 Läufe. F9 lief gegen die 
 | 39 |  | Einmalig: Bearbeitungsentgelte | 20.743,88 | 22.225,59 | 22.966,44 |  |
 | 42 | 3.1 | Zahlungsüberschuss Jahr 10 | 25.927 | 25.792 | 26.890 | 13.339 |
 | 43 | 3.2 | Zahlungsüberschuss Jahr 35 | 64.860 | 76.468 | 84.149 | 243.002 |
-| 44 | 3.3 | Zahlungsüberschuss Jahr 42 | 115.990 | 139.129 | 153.402 | 279.133 |
+| 44 | 3.3 | Zahlungsüberschuss Jahr 42 | 115.957 | 139.078 | 153.343 | 279.133 |
 | 45 | 3.4 | Schuldendienstdeckung (DSCR) Jahr 1 | 1,4393 | 1,2257 | 1,1809 | 0,9196 |
 | 46 | 3.5 | DSCR Minimum Jahr 1–35 | 1,4310 | 1,2223 | 1,1791 | 0,9196 |
 | 47 | 3.6 | Jahre mit Fehlbetrag, Jahr 1–35 | 0 | 0 | 0 | 5 |
@@ -1957,15 +1957,16 @@ Stand: 12.11.2026.
 
 Auftrag des Auftraggebers vom 12.11.2026: mit dem jüngsten Wert der Zinsreihe rechnen. Eingabe 6.1 (Zins Bank; Vergleichszins Förderbarwert) und Eingabe 6.3 (Anschlusszins) stehen in beiden Projekten auf 3,86 % statt 3,74 %. Quelle: Dr. Klein Wowi Finanz AG, Top-Konditionen Wohnungswirtschaft, 10 Jahre Zinsbindung, Wert vom 10.11.2026 (Wochenwerte der Grafik unter www.drklein-wowi.de/finanzierung/zinsentwicklung, gelesen am 12.11.2026). 3,74 % war der Wert derselben Reihe vom 21.07.2026; die Quellenangabe „Bundesbank-Statistik“ der Vorgängermappe ist ersetzt.
 
-Unverändert: Eingabe 3.3 (Zins NBank-Darlehen ab Jahr 36, 3,74 %) ist eine eigene Annahme der Vorgängermappe und kein Wert dieser Reihe. Zinsbindung 10 Jahre, Laufzeit 30 Jahre. Keine Zelle wechselt die Adresse, keine Formel ist geändert.
+Eingabe 3.3 (Zins NBank-Darlehen ab Jahr 36) folgt auf Auftrag des Auftraggebers vom selben Tag dem Bankzins und steht ebenfalls auf 3,86 % (Quelle „PGN-Annahme: wie Eingabe 6.1 (Rahmen RL Nr. 5.3.4)“). Sie wirkt auf die Jahre 36 bis 42 der geförderten Rechnung: Zahlungsüberschuss Jahr 42, Werte zum Horizont Jahr 42 und, über den Barwert der Zinsen ab Jahr 36, der Förderbarwert. Unverändert: Zinsbindung 10 Jahre, Laufzeit 30 Jahre. Keine Zelle wechselt die Adresse, keine Formel ist geändert.
 
 ### S.2 Zahlenwirkung Modellhaus (Projekt 2, Lauf L2)
 
-Der Zins wirkt auf das Bankdarlehen (Spalte Frei; gefördert nur in Läufen mit Bankdarlehen) und als Vergleichszins auf den Förderbarwert (Zeile 17, Objekt-IRR nach Förderbarwert Zeile 76, NBank!D30:F30). Finanzierung, Jahresrechnung, Liquidität und Eigenkapitalrenditen der Gruppen A, B und C sind unverändert.
+Der Zins wirkt auf das Bankdarlehen (Spalte Frei; gefördert nur in Läufen mit Bankdarlehen) und als Vergleichszins auf den Förderbarwert (Zeile 17, Objekt-IRR nach Förderbarwert Zeile 76, NBank!D30:F30). Finanzierung, Jahresrechnung und alle Werte der Gruppen A, B und C bis Jahr 35 sind unverändert; die Werte zum Horizont Jahr 42 ändern sich mit Eingabe 3.3 in der zweiten bis vierten Nachkommastelle.
 
 | Zeile | Kennzahl | bis 11.11.2026 (3,74 %) | seit 12.11.2026 (3,86 %) |
 |---|---|---:|---:|
-| 17 | Förderbarwert A / B / C | 1.670.288 / 1.328.957 / 1.158.292 | 1.682.663 / 1.347.520 / 1.179.948 |
+| 17 | Förderbarwert A / B / C | 1.670.288 / 1.328.957 / 1.158.292 | 1.682.438 / 1.347.182 / 1.179.554 |
+| 44 | Zahlungsüberschuss Jahr 42, A / B / C | 115.990 / 139.129 / 153.402 | 115.957 / 139.078 / 153.343 |
 | 37, 111 | Kapitaldienst Bankdarlehen, Frei | 132.804,64 | 134.778,63 |
 | 38 | Zahlungsüberschuss Jahr 1, Frei | −8.866,55 | −10.840,54 |
 | 42 | Zahlungsüberschuss Jahr 10, Frei | 15.313 | 13.339 |
@@ -1977,13 +1978,13 @@ Der Zins wirkt auf das Bankdarlehen (Spalte Frei; gefördert nur in Läufen mit 
 | 96 | Tiefster Stand Projektkonto, Frei | −22.640 | −33.329 |
 | 112 | Nötige Miete Jahr 1 für das DSCR-Ziel, Frei | 15,39 | 15,59 |
 
-Die Tabelle R.4 trägt die neuen Werte. Die Tabellen in F.3 bis F.5 und in den Abschnitten N und Q nennen den Stand ihrer Abschnitte (3,74 %); das Prüfskript führt die Abweichungen der Läufe L1, L2, L4 und L10 in `_ZINS_386` (88 Zellen).
+Die Tabelle R.4 trägt die neuen Werte. Die Tabellen in F.3 bis F.5 und in den Abschnitten N und Q nennen den Stand ihrer Abschnitte (3,74 %); das Prüfskript führt die Abweichungen der Läufe L1 bis L5 und L10 in `_ZINS_386` (129 Zellen).
 
 ### S.3 Prüfskript
 
-- `ZINS_BANK = 0,0386` überschreibt `zins_bank` und `zins_anschluss` der RR-Parameter beider Projekte; die Referenzrechnung und `annahmen.json` bleiben unverändert.
-- Läufe, die frühere Stände tragen, rechnen mit 3,74 % weiter (`ZINS_BIS_11_11`): L63 bis L68 (Regression, Abgleich mit v2-1, frühere Sollwerte), dazu der Abgleich F10 und die Überleitung E.3 über `basis_v21()`. L48 (Bankzins 6 %) behält den Anschlusszins 3,74 %, mit dem der Lauf angelegt wurde.
-- Sollwerte laut Konzept: neue Schicht `_ZINS_386` für L1 (35 Zellen), L2 (29), L4 (21) und L10 (3), aus der Anzeige der Mappe; F8 prüft dieselben Zellen gegen die Referenzrechnung.
+- `ZINS_BANK = 0,0386` überschreibt `zins_bank`, `zins_anschluss` und `zins_ab36` der RR-Parameter beider Projekte; die Referenzrechnung und `annahmen.json` bleiben unverändert.
+- Läufe, die frühere Stände tragen, rechnen mit 3,74 % weiter (`ZINS_BIS_11_11`): L63 bis L68 (Regression, Abgleich mit v2-1, frühere Sollwerte), dazu der Abgleich F10 und die Überleitung E.3 über `basis_v21()`. L48 (Bankzins 6 %) behält Anschlusszins und Zins ab Jahr 36 von 3,74 %, mit denen der Lauf angelegt wurde.
+- Sollwerte laut Konzept: neue Schicht `_ZINS_386` für L1 (59 Zellen), L2 (34), L3 (6), L4 (21), L5 (6) und L10 (3), aus der Anzeige der Mappe; F8 prüft dieselben Zellen gegen die Referenzrechnung.
 - F9 liest die Broschüre S. 11 mit den neuen Werten (Kapitaldienst frei 134.779 €, nötige Miete 15,59 €, Zins 3,86 %).
 
 Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler, 70 Läufe.

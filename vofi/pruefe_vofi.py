@@ -561,7 +561,7 @@ EINGABEN = [
     ("3.2", 18, "Tilgungsaufschub", "Tilgungsaufschub", "Jahre", "ganz", ("whole", 0, "Aufschub_max"),
      "PGN-Annahme (Rahmen RL Nr. 5.3.5)", _g("tilgungsfrei"), _g("tilgungsfrei")),
     ("3.3", 19, "Zins_NBank_ab36", "Zins NBank-Darlehen ab Jahr 36", "% p. a.", "pct", ("decimal", 0, 0.10),
-     "PGN-Annahme (Rahmen RL Nr. 5.3.4)", _g("zins_ab36"), _g("zins_ab36")),
+     "PGN-Annahme: wie Eingabe 6.1 (Rahmen RL Nr. 5.3.4)", _g("zins_ab36"), _g("zins_ab36")),
     ("3.4", 20, "Swapsatz_30J", "Swapsatz 30 Jahre", "% p. a.", "pct", ("decimal", 0, 0.10),
      "EUR-Swapsatz 30 Jahre, Stand 19.08.2026", _g("swap"), _g("swap")),
     ("4.1", 22, "Mietenstufe", "Mietenstufe", "Liste", "text", ("list", "Mietenstufen"),
@@ -1141,13 +1141,14 @@ def lade_referenz():
     # Bankzins und Anschlusszins seit 12.11.2026: 3,86 % (Dr. Klein Wowi, Top-Konditionen 10 Jahre, Stand 10.11.2026)
     # statt 3,74 % der RR-Annahmen (Wert vom 21.07.2026). Gilt für beide Projekte; die RR bleibt unverändert.
     for _p in BASIS.values():
-        _p["zins_bank"] = _p["zins_anschluss"] = ZINS_BANK
+        _p["zins_bank"] = _p["zins_anschluss"] = _p["zins_ab36"] = ZINS_BANK    # 3.3 folgt 6.1 (Auftrag vom 12.11.2026)
 
 
 def basis_v21():
     """Parameter von Projekt 2 für den Abgleich mit v2-1 und die Überleitung E.3: Bankzins und Anschlusszins wie in der
     Vorgängermappe (3,74 %, ZINS_BIS_11_11), sonst der Standard."""
-    return {**BASIS["T"], "zins_bank": ZINS_BIS_11_11["6.1"], "zins_anschluss": ZINS_BIS_11_11["6.3"]}
+    return {**BASIS["T"], "zins_bank": ZINS_BIS_11_11["6.1"], "zins_anschluss": ZINS_BIS_11_11["6.3"],
+            "zins_ab36": ZINS_BIS_11_11["3.3"]}
 
 
 def standard_eingaben(proj):
@@ -1916,7 +1917,7 @@ def vergleiche(p, was, ist, spec, werte_blatt=None):
 BEWERTUNG_BIS_10_11 = {"4.3": OVM_PLATZHALTER, "4.4": MARKT_PLATZHALTER, T4: LZ_NEU_WULMSTORF}
 # Bankzins und Anschlusszins bis 11.11.2026: 3,74 % (Wert vom 21.07.2026, RR-Annahmen und v2-1). Die Läufe, die frühere
 # Stände tragen (L63 bis L68: Regression, Abgleich mit v2-1, Überleitung E.3, frühere Sollwerte), rechnen damit weiter.
-ZINS_BIS_11_11 = {"6.1": 0.0374, "6.3": 0.0374}
+ZINS_BIS_11_11 = {"3.3": 0.0374, "6.1": 0.0374, "6.3": 0.0374}
 # Projekt "V" = Projekt 1 (Vergleichshaus, früheres Modellhaus): der Lauf setzt Eingaben!D3 = 1 ausdrücklich. Projekt "T" =
 # Projekt 2 (Modellhaus, Tarutinoer): der Lauf rechnet im Auslieferungsstand (D3 = 2), das Skript setzt D3 nicht.
 LAEUFE = [
@@ -1939,7 +1940,7 @@ LAEUFE = [
     # Laufzeit Bank 20 und 42 Jahre; Zusatz-EK 1 Mio. €; Grundstück 500.000 €
     ("L43", "V", {"10.1": "Miete für DSCR-Ziel"}), ("L44", "V", {"10.1": "Miete für DSCR-Ziel", "10.2": 1.25}),
     ("L45", "T", {"10.1": "Miete für DSCR-Ziel"}), ("L46", "T", {"10.1": "Miete für DSCR-Ziel", "10.2": 1.25}),
-    ("L47", "V", {"6.1": 0.0}), ("L48", "V", {"6.1": 0.06, "6.3": 0.0374}), ("L49", "V", {"6.4": 20}), ("L50", "V", {"6.4": 42}),
+    ("L47", "V", {"6.1": 0.0}), ("L48", "V", {"6.1": 0.06, "6.3": 0.0374, "3.3": 0.0374}), ("L49", "V", {"6.4": 20}), ("L50", "V", {"6.4": 42}),
     ("L51", "V", {"7.1": 1000000}), ("L52", "V", {"2.3": 500000}),
     # Nacharbeit Prüfrunde 1 (Konzept N.7): Laufzeit Bank 60 Jahre (Restschuld am Horizont 42); frei ohne Bankdarlehen
     # (Zusatz-EK 6 Mio. €) mit Marktmiete und mit Miete für DSCR-Ziel; Miete für DSCR-Ziel mit Zinsbindung 1 Jahr und
@@ -3836,44 +3837,64 @@ KONZEPT["L70"] = (_abc(9, *("4.140.000,00",) * 3) + _abc(10, *("4.140.000,00",) 
 # Der Zins wirkt auf das Bankdarlehen (frei finanziert; gefördert nur mit Bankdarlehen, L4 und L10) und als Vergleichszins auf den
 # Förderbarwert. Für die Läufe im Standard weichen die folgenden Zellen von den Tabellen oben ab (Anzeige der Mappe, in F8 gegen
 # die Referenzrechnung geprüft). Die Läufe L63 bis L68 rechnen mit 3,74 % weiter (ZINS_BIS_11_11) und behalten ihre Sollwerte.
+# Seit demselben Tag folgt Eingabe 3.3 (Zins NBank-Darlehen ab Jahr 36) dem Bankzins: Das ändert die Werte der Jahre 36 bis 42
+# (Spalten H bis K der Übersicht, Jahr 42) in den Läufen L1 bis L5; sie stehen in derselben Schicht.
 _ZINS_386 = {
     "L1": {
-        ("Übersicht", "D17"): "3.974.688,96", ("Übersicht", "E17"): "3.183.033,37", ("Übersicht", "F17"): "2.787.205,64",
-        ("Übersicht", "D76"): "5,0671 %", ("Übersicht", "E76"): "4,8208 %", ("Übersicht", "F76"): "4,7526 %",
-        ("Übersicht", "H76"): "5,1190 %", ("Übersicht", "I76"): "4,8933 %", ("Übersicht", "J76"): "4,8286 %",
-        ("Übersicht", "D77"): "2,6105 %", ("Übersicht", "E77"): "2,4831 %", ("Übersicht", "F77"): "2,4985 %",
-        ("Übersicht", "H77"): "3,3090 %", ("Übersicht", "I77"): "3,2376 %", ("Übersicht", "J77"): "3,2701 %",
+        ("Übersicht", "D17"): "3.974.156,68", ("Übersicht", "E17"): "3.182.234,96", ("Übersicht", "F17"): "2.786.274,16",
+        ("Übersicht", "D76"): "5,0663 %", ("Übersicht", "E76"): "4,8199 %", ("Übersicht", "F76"): "4,7516 %",
+        ("Übersicht", "H76"): "5,1183 %", ("Übersicht", "I76"): "4,8924 %", ("Übersicht", "J76"): "4,8276 %",
+        ("Übersicht", "D77"): "2,6096 %", ("Übersicht", "E77"): "2,4820 %", ("Übersicht", "F77"): "2,4974 %",
+        ("Übersicht", "H77"): "3,3082 %", ("Übersicht", "I77"): "3,2367 %", ("Übersicht", "J77"): "3,2690 %",
         ("Übersicht", "G89"): "4,1026 %", ("Übersicht", "K89"): "4,3022 %", ("Übersicht", "G90"): "−0,2256 %",
         ("Übersicht", "K90"): "1,9177 %", ("Übersicht", "G94"): "−2,0361 %", ("Übersicht", "K94"): "1,1999 %",
         ("Übersicht", "G91"): "3,3182 %", ("Übersicht", "K91"): "3,7469 %", ("Übersicht", "G93"): "203,78 %",
-        ("Übersicht", "K93"): "147,39 %", ("Übersicht", "G96"): "−5.128.423", ("Gefördert A", "H174"): "3.974.688,96",
-        ("Gefördert B", "H174"): "3.183.033,37", ("Gefördert C", "H174"): "2.787.205,64", ("NBank", "D30"): "1.195.688,96",
-        ("NBank", "E30"): "1.793.533,37", ("NBank", "F30"): "2.092.455,64", ("NBank", "D31"): "3.974.688,96",
-        ("NBank", "E31"): "3.183.033,37", ("NBank", "F31"): "2.787.205,64",
+        ("Übersicht", "K93"): "147,39 %", ("Übersicht", "G96"): "−5.128.423", ("Gefördert A", "H174"): "3.974.156,68",
+        ("Gefördert B", "H174"): "3.182.234,96", ("Gefördert C", "H174"): "2.786.274,16", ("NBank", "D30"): "1.195.156,68",
+        ("NBank", "E30"): "1.792.734,96", ("NBank", "F30"): "2.091.524,16", ("NBank", "D31"): "3.974.156,68",
+        ("NBank", "E31"): "3.182.234,96", ("NBank", "F31"): "2.786.274,16", ("Übersicht", "D44"): "179.324,03",
+        ("Übersicht", "E44"): "208.532,19", ("Übersicht", "F44"): "227.707,56", ("Übersicht", "H89"): "5,6120 %",
+        ("Übersicht", "I89"): "5,4502 %", ("Übersicht", "J89"): "5,4192 %", ("Übersicht", "H90"): "2,9639 %",
+        ("Übersicht", "I90"): "2,6919 %", ("Übersicht", "J90"): "2,6857 %", ("Übersicht", "H94"): "1,8309 %",
+        ("Übersicht", "I94"): "1,5712 %", ("Übersicht", "J94"): "1,6137 %", ("Übersicht", "H91"): "5,1684 %",
+        ("Übersicht", "I91"): "5,1986 %", ("Übersicht", "J91"): "5,2152 %", ("Übersicht", "H92"): "2,7262 %",
+        ("Übersicht", "I92"): "2,5526 %", ("Übersicht", "J92"): "2,5352 %", ("Übersicht", "H95"): "1,8859 %",
+        ("Übersicht", "I95"): "1,6419 %", ("Übersicht", "J95"): "1,6181 %", ("Übersicht", "H93"): "73,60 %",
+        ("Übersicht", "I93"): "76,41 %", ("Übersicht", "J93"): "76,80 %",
     },
     "L2": {
         ("Übersicht", "D76"): "6,86 %", ("Übersicht", "E76"): "6,64 %", ("Übersicht", "F76"): "6,59 %",
         ("Übersicht", "H76"): "6,67 %", ("Übersicht", "I76"): "6,48 %", ("Übersicht", "J76"): "6,44 %",
-        ("NBank", "D30"): "506.188,39", ("NBank", "E30"): "759.282,65", ("NBank", "F30"): "885.829,72",
-        ("Übersicht", "D17"): "1.682.663", ("Übersicht", "E17"): "1.347.520", ("Übersicht", "F17"): "1.179.948",
+        ("NBank", "D30"): "505.963,06", ("NBank", "E30"): "758.944,65", ("NBank", "F30"): "885.435,38",
+        ("Übersicht", "D17"): "1.682.438", ("Übersicht", "E17"): "1.347.182", ("Übersicht", "F17"): "1.179.554",
         ("Übersicht", "G37"): "134.778,63", ("Übersicht", "G38"): "−10.840,54", ("Übersicht", "G42"): "13.339",
         ("Übersicht", "G45"): "0,9196", ("Übersicht", "G46"): "0,9196", ("Übersicht", "G47"): "5",
         ("Übersicht", "G48"): "−28.914", ("Übersicht", "G89"): "8,55 %", ("Übersicht", "G90"): "4,79 %",
         ("Übersicht", "G91"): "8,00 %", ("Übersicht", "G92"): "4,15 %", ("Übersicht", "G93"): "71,94 %",
         ("Übersicht", "G94"): "4,79 %", ("Übersicht", "G95"): "4,15 %", ("Übersicht", "G96"): "−33.329",
-        ("Übersicht", "G111"): "134.778,63", ("Übersicht", "G112"): "15,59",
+        ("Übersicht", "G111"): "134.778,63", ("Übersicht", "G112"): "15,59", ("Gefördert C", "J140"): "8,051 %",
+        ("Übersicht", "I95"): "3,75 %", ("Übersicht", "D44"): "115.957", ("Übersicht", "E44"): "139.078",
+        ("Übersicht", "F44"): "153.343",
     },
     "L4": {
         ("Übersicht", "D38"): "−6.667,27", ("Übersicht", "E38"): "−12.150,38", ("Übersicht", "F38"): "−13.918,20",
         ("Übersicht", "D45"): "0,8806", ("Übersicht", "E45"): "0,8379", ("Übersicht", "F45"): "0,8353",
-        ("Übersicht", "H91"): "5,7606 %", ("Übersicht", "I91"): "5,8961 %", ("Übersicht", "J91"): "5,9766 %",
-        ("Übersicht", "H89"): "5,9516 %", ("Übersicht", "I89"): "6,0365 %", ("Übersicht", "J89"): "6,1255 %",
+        ("Übersicht", "H91"): "5,7602 %", ("Übersicht", "I91"): "5,8955 %", ("Übersicht", "J91"): "5,9760 %",
+        ("Übersicht", "H89"): "5,9511 %", ("Übersicht", "I89"): "6,0359 %", ("Übersicht", "J89"): "6,1249 %",
         ("Übersicht", "D48"): "−30.674", ("Übersicht", "E48"): "−68.597", ("Übersicht", "F48"): "−78.685",
         ("Übersicht", "H92"): "3,19 %", ("Übersicht", "I92"): "3,26 %", ("Übersicht", "J92"): "3,38 %",
         ("Übersicht", "H90"): "3,36 %", ("Übersicht", "I90"): "3,45 %", ("Übersicht", "J90"): "3,59 %",
     },
     "L10": {
         ("Übersicht", "D38"): "−20.196,45", ("Übersicht", "E38"): "−41.513,51", ("Übersicht", "F38"): "−50.525,65",
+    },
+    "L3": {
+        ("Übersicht", "H91"): "6,2033 %", ("Übersicht", "I91"): "6,3416 %", ("Übersicht", "J91"): "6,4187 %",
+        ("Übersicht", "H89"): "7,1323 %", ("Übersicht", "I89"): "7,1634 %", ("Übersicht", "J89"): "7,2418 %",
+    },
+    "L5": {
+        ("Übersicht", "H91"): "5,1755 %", ("Übersicht", "I91"): "5,3105 %", ("Übersicht", "J91"): "5,3858 %",
+        ("Übersicht", "H89"): "5,7460 %", ("Übersicht", "I89"): "5,8305 %", ("Übersicht", "J89"): "5,9129 %",
     },
 }
 for _lid, _neu in _ZINS_386.items():

@@ -328,8 +328,8 @@ EINGABEN = [
      "PGN-Annahme: linear über die Höchstlaufzeit von 42 Jahren", ("dez", 0, 0.10)),
     ("3.2", 18, "Tilgungsaufschub", "Tilgungsaufschub", "Jahre", F_JAHR, 0, 0,
      "PGN-Annahme (Rahmen RL Nr. 5.3.5)", ("ganz", 0, "Aufschub_max")),
-    ("3.3", 19, "Zins NBank-Darlehen ab Jahr 36", "Zins_NBank_ab36", "% p. a.", F_PCT, 0.0374, 0.0374,
-     "PGN-Annahme (Rahmen RL Nr. 5.3.4)", ("dez", 0, 0.10)),
+    ("3.3", 19, "Zins NBank-Darlehen ab Jahr 36", "Zins_NBank_ab36", "% p. a.", F_PCT, 0.0386, 0.0386,
+     "PGN-Annahme: wie Eingabe 6.1 (Rahmen RL Nr. 5.3.4)", ("dez", 0, 0.10)),
     ("3.4", 20, "Swapsatz 30 Jahre", "Swapsatz_30J", "% p. a.", F_PCT, 0.0339, 0.0339,
      "EUR-Swapsatz 30 Jahre, Stand 19.08.2026", ("dez", 0, 0.10)),
     # Block 4 Miete

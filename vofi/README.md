@@ -51,6 +51,7 @@ python pruefe_vofi.py --baseline /tmp/vofi_stand_vorher.xlsx
 
 ## Stand 12.11.2026
 
+- Marktmiete des Modellhauses (Eingabe 4.4, Projekt 2) 15,42 €/m² statt 14,48 €/m²: Gutachterausschuss Lüneburg, Mietübersicht Landkreis Harburg, Hamburger Umland, Baualter ab 2023, 40–60 m², Stand 01.01.2026 (Entscheidung des Auftraggebers vom 12.11.2026). Quellenangaben in Eingaben und Hinweis 14 berichtigt. Zahlen in `AENDERUNGEN.md` Abschnitt 12, Umsetzung in `KONZEPT-v3.md` Abschnitt S.4.
 - Bankzins, Anschlusszins und Zins des NBank-Darlehens ab Jahr 36 (Eingabe 6.1, 6.3 und 3.3) stehen in beiden Projekten auf 3,86 % statt 3,74 %: Dr. Klein Wowi Finanz AG, Top-Konditionen Wohnungswirtschaft, 10 Jahre Zinsbindung, Wert vom 10.11.2026 (Auftrag des Auftraggebers vom 12.11.2026). Es ändern sich die Werte „frei finanziert“ und der Förderbarwert; Zahlen in `AENDERUNGEN.md` Abschnitt 11, Umsetzung und Prüfskript in `KONZEPT-v3.md` Abschnitt S. Abnahme: 617 Prüfungen ohne Fehler.
 
 ## Stand 11.11.2026

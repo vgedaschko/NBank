@@ -8,7 +8,7 @@
 // Einzige Folie mit Rendite und Marktmiete des Modellhauses (Entscheidung 24 des Konzepts; E5 gilt für alle anderen Folien). Die Werte kommen
 // aus dem Lauf modellhaus_rendite von daten/werte.json, den der Bau nur dieser Folie freigibt; Eigenkapital und die Jahre mit Fehlbetrag der
 // Gruppen A, B, C aus dem Lauf modellhaus; die Herkunft der Marktwerte aus daten/rechnung.json. Kein Stempel, kein Papierton, Rot nur im Signaturwort und in der Ergebniszeile.
-// Marktmiete und Liegenschaftszins gelten für Neu Wulmstorf (Mietband der PGN; Landesmodell des Oberen Gutachterausschusses); die Annahmen
+// Marktmiete und Liegenschaftszins gelten für Neu Wulmstorf (Mietübersicht des Gutachterausschusses Lüneburg, Hamburger Umland; Landesmodell des Oberen Gutachterausschusses); die Annahmen
 // nennen Wert und Herkunft. Renditen und Liegenschaftszins stehen mit zwei Nachkommastellen wie in der Rechenmappe.
 'use strict';
 const R = require('./_rechnung.cjs');

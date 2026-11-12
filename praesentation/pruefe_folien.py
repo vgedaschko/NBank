@@ -213,9 +213,9 @@ KERNWERTE = [
     # Anhangfolie zur Eigenkapitalrendite (A7): die beiden Titelzahlen (mit Restwert, ohne Restwert) und der tiefste Stand des Projektkontos
     # frei finanziert. Renditen mit zwei Nachkommastellen wie in der Rechenmappe. „Ohne Restwert“ ist die Zeile 6.4 der Übersicht („nur Bodenwert“):
     # Das Grundstück des Modellhauses ist nicht angesetzt, der Bodenwert ist null (Rechenmappe, Blatt Hinweise Nr. 15)
-    (RENDITE + "vofi_mit_restwert.A", "prozent2", "6,95 %", [RENDITE_FOLIE]),
+    (RENDITE + "vofi_mit_restwert.A", "prozent2", "7,05 %", [RENDITE_FOLIE]),
     (RENDITE + "vofi_nur_bodenwert.A", "prozent2", "2,58 %", [RENDITE_FOLIE]),
-    (RENDITE + "projektkonto_tiefststand.Frei", "zahl", "−33.329", [RENDITE_FOLIE]),
+    (RENDITE + "projektkonto_tiefststand.Frei", "zahl", "−1.691", [RENDITE_FOLIE]),
 ]
 # ---- Kernwerte der Ausgangslage und des Kostenvergleichs: Werte der Datendateien und daraus gerechnete Größen, in derselben Schreibweise ----
 KOSTEN_2020 = "(markt#baukosten.herstellung.q1_2020 + markt#baukosten.grundstueck.q1_2020)"
@@ -338,9 +338,9 @@ KERNSAETZE = [
     (RENDITE_FOLIE, "Vor Steuern, ab Bezug: ohne Bauphase, Abschreibung und Sonder-AfA.", {}),
     # Grundstück im Bestand, nicht angesetzt: an die Eingabe 2.3 der Rechenmappe gebunden (0 €)
     (RENDITE_FOLIE, "Grundstück im Bestand, {a}: weder im Eigenkapital noch im Restwert.", {"a": ("eingabe.grundstueck", "nicht_angesetzt")}),
-    # Marktmiete und Liegenschaftszins des Modellhauses gelten für Neu Wulmstorf: Mietband der PGN und Landesmodell des Oberen Gutachterausschusses
+    # Marktmiete und Liegenschaftszins des Modellhauses gelten für Neu Wulmstorf: Mietübersicht des Gutachterausschusses Lüneburg (Hamburger Umland) und Landesmodell des Oberen Gutachterausschusses
     # (Rechenmappe, Eingabe 4.4 und Blatt Tabellen, Tabelle 4, je Spalte Projekt 2). Der Liegenschaftszins steht mit zwei Nachkommastellen
-    (RENDITE_FOLIE, "Marktmiete {b} je m²: Mietband der PGN für Neu Wulmstorf. Liegenschaftszins {a}: Landesmodell des Oberen Gutachterausschusses.",
+    (RENDITE_FOLIE, "Marktmiete {b} je m²: Gutachterausschuss Lüneburg, Hamburger Umland, Neubau, Stand 01.01.2026. Liegenschaftszins {a}: Landesmodell des Oberen Gutachterausschusses.",
      {"a": (RENDITE + "liegenschaftszins.A", "prozent2"), "b": (RENDITE + "annahme.marktmiete_jahr1", "euro2")}),
     (RENDITE_FOLIE, "Restwert: Ertragswert Ende Jahr {a}.", {"a": ("tab.zinsfreie_jahre", "zahl")}),
     # Bis 11.11.2026 „Marktmiete +2 %, Boden +1,5 % p. a.“: Ohne angesetztes Grundstück gibt es keinen Bodenwert, die Annahme steht nicht mehr auf der Folie

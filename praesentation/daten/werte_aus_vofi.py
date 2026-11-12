@@ -147,8 +147,8 @@ def gesperrt(blatt, zelle):
 # anderen Folien weiter. Bedingung laut Blatt Hinweise der Mappe, Nr. 12:
 # Renditen nur als Paar „mit Restwert / nur Bodenwert“ mit dem Restwertanteil.
 # Das Modellhaus ist seit 11.11.2026 Projekt 2 der Mappe (Neu Wulmstorf). Seine
-# Marktmiete (Eingabe 4.4, Spalte Projekt 2) kommt aus dem Mietband der PGN für
-# Neu Wulmstorf, sein Liegenschaftszins aus dem Landesmodell Mehrfamilienhäuser
+# Marktmiete (Eingabe 4.4, Spalte Projekt 2) kommt aus der Mietübersicht des Gutachterausschusses
+# Lüneburg (Hamburger Umland, Stand 01.01.2026), sein Liegenschaftszins aus dem Landesmodell Mehrfamilienhäuser
 # des Oberen Gutachterausschusses (Tabellen, Tabelle 4, Spalte Projekt 2). Beide
 # Werte stehen als Annahme mit ihrer Herkunft auf der Folie. Das Grundstück ist
 # nicht angesetzt: Die Lesart „nur Bodenwert“ rechnet deshalb ohne Restwert
@@ -478,7 +478,7 @@ def katalog_rendite():
     k += je_gruppe("rendite.restwert_jahr35", 100, "€", "Übersicht 7.1 Restwert (Boden + Gebäude), Ertragswert Ende Jahr 35", alle)
     k += je_gruppe("rendite.liegenschaftszins", 106, "Anteil", "Übersicht 7.7 Liegenschaftszins des Ertragswerts, Horizont Jahr 35 (Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses, Stichtag 01.01.2026; Tabellen, Tabelle 4, Spalte des aktiven Projekts)", alle)
     k += [
-        e("marktmiete_jahr1", "F25", "€/m² Monat", "Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 (Modellhaus: Mietband der PGN für Neu Wulmstorf, fortgeschrieben)"),
+        e("marktmiete_jahr1", "F25", "€/m² Monat", "Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 (Modellhaus: Gutachterausschuss Lüneburg, Hamburger Umland, Baualter ab 2023, 40 bis 60 m², Stand 01.01.2026)"),
         e("mietsteigerung", "F26", "Anteil", "Eingabe 4.5 Steigerung Markt- und Vergleichsmiete p. a."),
         e("guthabenzins", "F41", "Anteil", "Eingabe 7.2 Guthabenzins Projektkonto (VOFI) p. a."),
         e("sollzins", "F42", "Anteil", "Eingabe 7.3 Sollzins Projektkonto (VOFI) p. a."),
@@ -532,7 +532,7 @@ LAEUFE = [
                      "Restwert / nur Bodenwert“ mit Restwertanteil, dazu Projektkonto, Restwert und die Annahmen "
                      "dahinter. Nur für die Anhangfolie A7 (Folie anhang-rendite); Ausnahme anhang_rendite von der "
                      "Sperrliste. Das Grundstück ist nicht angesetzt: „nur Bodenwert“ rechnet ohne Restwert "
-                     "(Hinweise Nr. 15). Marktmiete: Mietband der PGN für Neu Wulmstorf; Liegenschaftszins: "
+                     "(Hinweise Nr. 15). Marktmiete: Gutachterausschuss Lüneburg, Hamburger Umland, Stand 01.01.2026; Liegenschaftszins: "
                      "Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses.",
         aenderungen=mit_projekt(),
         katalog=katalog_rendite(),

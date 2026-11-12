@@ -2,7 +2,7 @@
  "meta": {
   "titel": "Werte der VOFI-Mappe für die Präsentation Mietwohnraumförderung Niedersachsen 2026",
   "mappe": "PGN_VOFI_Mietwohnraum_2026_v3.xlsx",
-  "mappe_sha256": "6ff16cbce54989cfe29ed0a881a71cc59de176a253d36bbbc2cccd2ac2ea98ac",
+  "mappe_sha256": "3f2f3ba5750f1b675326394d407622c6a4703cd91c7f724cb979fd97238332dd",
   "mappe_stand": "Version 3.0, Stand 11/2026",
   "auslieferung": {
    "aktives_projekt": 2,
@@ -2795,7 +2795,7 @@
    }
   },
   "modellhaus_rendite": {
-   "beschreibung": "Modellhaus (Projekt 2): Eigenkapitalrendite vor Steuern über 35 Jahre als Paar „mit Restwert / nur Bodenwert“ mit Restwertanteil, dazu Projektkonto, Restwert und die Annahmen dahinter. Nur für die Anhangfolie A7 (Folie anhang-rendite); Ausnahme anhang_rendite von der Sperrliste. Das Grundstück ist nicht angesetzt: „nur Bodenwert“ rechnet ohne Restwert (Hinweise Nr. 15). Marktmiete: Mietband der PGN für Neu Wulmstorf; Liegenschaftszins: Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses.",
+   "beschreibung": "Modellhaus (Projekt 2): Eigenkapitalrendite vor Steuern über 35 Jahre als Paar „mit Restwert / nur Bodenwert“ mit Restwertanteil, dazu Projektkonto, Restwert und die Annahmen dahinter. Nur für die Anhangfolie A7 (Folie anhang-rendite); Ausnahme anhang_rendite von der Sperrliste. Das Grundstück ist nicht angesetzt: „nur Bodenwert“ rechnet ohne Restwert (Hinweise Nr. 15). Marktmiete: Gutachterausschuss Lüneburg, Hamburger Umland, Stand 01.01.2026; Liegenschaftszins: Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses.",
    "aenderungen": [
     {
      "blatt": "Eingaben",
@@ -2813,7 +2813,7 @@
    "werte": {
     "rendite.jahre_mit_fehlbetrag.Frei": {
      "schluessel": "rendite.jahre_mit_fehlbetrag.Frei",
-     "wert": 5,
+     "wert": 1,
      "einheit": "Jahre",
      "blatt": "Übersicht",
      "zelle": "G47",
@@ -2823,7 +2823,7 @@
     },
     "rendite.vofi_mit_restwert.A": {
      "schluessel": "rendite.vofi_mit_restwert.A",
-     "wert": 0.0695466866462595,
+     "wert": 0.0704541327125663,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "D91",
@@ -2833,7 +2833,7 @@
     },
     "rendite.vofi_mit_restwert.B": {
      "schluessel": "rendite.vofi_mit_restwert.B",
-     "wert": 0.0716673009891355,
+     "wert": 0.0727725156256356,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "E91",
@@ -2843,7 +2843,7 @@
     },
     "rendite.vofi_mit_restwert.C": {
      "schluessel": "rendite.vofi_mit_restwert.C",
-     "wert": 0.0728524280854714,
+     "wert": 0.0739966553810312,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "F91",
@@ -2853,7 +2853,7 @@
     },
     "rendite.vofi_mit_restwert.Frei": {
      "schluessel": "rendite.vofi_mit_restwert.Frei",
-     "wert": 0.0799674495835903,
+     "wert": 0.0836403538497827,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "G91",
@@ -2893,7 +2893,7 @@
     },
     "rendite.vofi_nur_bodenwert.Frei": {
      "schluessel": "rendite.vofi_nur_bodenwert.Frei",
-     "wert": 0.0414587684710466,
+     "wert": 0.0483680728913405,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "G92",
@@ -2903,7 +2903,7 @@
     },
     "rendite.restwertanteil.A": {
      "schluessel": "rendite.restwertanteil.A",
-     "wert": 0.768396437669058,
+     "wert": 0.775170053906402,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "D93",
@@ -2913,7 +2913,7 @@
     },
     "rendite.restwertanteil.B": {
      "schluessel": "rendite.restwertanteil.B",
-     "wert": 0.781601770959228,
+     "wert": 0.789340497128454,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "E93",
@@ -2923,7 +2923,7 @@
     },
     "rendite.restwertanteil.C": {
      "schluessel": "rendite.restwertanteil.C",
-     "wert": 0.779683746966545,
+     "wert": 0.787751993037589,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "F93",
@@ -2933,7 +2933,7 @@
     },
     "rendite.restwertanteil.Frei": {
      "schluessel": "rendite.restwertanteil.Frei",
-     "wert": 0.719392341278644,
+     "wert": 0.685947977066471,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "G93",
@@ -2973,7 +2973,7 @@
     },
     "rendite.projektkonto_tiefststand.Frei": {
      "schluessel": "rendite.projektkonto_tiefststand.Frei",
-     "wert": -33329.234295875,
+     "wert": -1690.97,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "G96",
@@ -2983,7 +2983,7 @@
     },
     "rendite.restwert_jahr35.A": {
      "schluessel": "rendite.restwert_jahr35.A",
-     "wert": 4958369.14439098,
+     "wert": 5152779.74636448,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D100",
@@ -2993,7 +2993,7 @@
     },
     "rendite.restwert_jahr35.B": {
      "schluessel": "rendite.restwert_jahr35.B",
-     "wert": 5418698.12237073,
+     "wert": 5673379.88500314,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E100",
@@ -3003,7 +3003,7 @@
     },
     "rendite.restwert_jahr35.C": {
      "schluessel": "rendite.restwert_jahr35.C",
-     "wert": 5625370.66495169,
+     "wert": 5899634.26809505,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F100",
@@ -3013,7 +3013,7 @@
     },
     "rendite.restwert_jahr35.Frei": {
      "schluessel": "rendite.restwert_jahr35.Frei",
-     "wert": 6297398.11362255,
+     "wert": 6762295.43021769,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "G100",
@@ -3063,11 +3063,11 @@
     },
     "rendite.annahme.marktmiete_jahr1": {
      "schluessel": "rendite.annahme.marktmiete_jahr1",
-     "wert": 14.48035669872,
+     "wert": 15.42,
      "einheit": "€/m² Monat",
      "blatt": "Eingaben",
      "zelle": "F25",
-     "bedeutung": "Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 (Modellhaus: Mietband der PGN für Neu Wulmstorf, fortgeschrieben)",
+     "bedeutung": "Eingabe 4.4 Marktmiete Neuvermietung, Jahr 1 (Modellhaus: Gutachterausschuss Lüneburg, Hamburger Umland, Baualter ab 2023, 40 bis 60 m², Stand 01.01.2026)",
      "lauf": "modellhaus_rendite",
      "ausnahme": "anhang_rendite"
     },

@@ -111,8 +111,8 @@ Gültigkeit = Datenüberprüfung. Die Fehlermeldung nennt den zulässigen Bereic
 |---|---|---|---|---|---|---|---|---|---|
 | 4.1 | 22 | Mietenstufe | `Mietenstufe` | Liste | IV | VI | früheres Modellhaus / Projektdaten PGN, Broschüre S. 10 | Broschüre S. 10 im Stand bis 11.11.2026 (IV–VII) / v2-1 Eingabe!C36, Broschüre S. 10 (IV–VII) | Liste `=Mietenstufen` |
 | 4.2 | 23 | Effizienzhaus 40 erreicht | `Effizienz_EH40` | ja/nein | nein | nein | früheres Modellhaus / Planung PGN (EH 55), Broschüre S. 11 | Broschüre im Stand bis 11.11.2026 ohne Zuschlag / v2-1 Eingabe!C37 (EH 55), Broschüre S. 11 ohne EH-40-Zuschlag | Liste „ja,nein“ |
-| 4.3 | 24 | Ortsübliche Vergleichsmiete, Jahr 1 | `Vergleichsmiete_1` | €/m² Monat | 11,87 | 12,92 | PGN-Annahme / PGN-Mietband Neu Wulmstorf, fortgeschrieben | PGN-Annahme: 13,30 × 12,92 ÷ 14,48 (dasselbe Verhältnis zur Marktmiete wie bis 10.11.2026; für Rotenburg (Wümme) gibt es keinen Mietspiegel), Abschnitt Q / v2-1 Basisdaten!C49 | Dezimal 0,00–50,00 |
-| 4.4 | 25 | Marktmiete Neuvermietung, Jahr 1 | `Marktmiete_1` | €/m² Monat | 13,30 | 14,48 | Mietübersicht Landkreis Rotenburg 2026 / wie Eingabe 4.3 | Gutachterausschuss Otterndorf, Grundstücksmarktdaten 2026, Mietübersicht Landkreis Rotenburg (Wümme), Stichtag 01.01.2026: Baujahr 2020, Wohnung 70 m², Lage (Bodenrichtwert) 160 €/m², zwischen den Tabellenwerten 13,11 € (Lage 150) und 14,04 € (Lage 200) eingerechnet; Bodenrichtwert der Zone „Brauerstraße (MI)“ zum 01.01.2026: 160 €/m²; Abschnitt Q / v2-1 Basisdaten!C48 | Dezimal 0,00–50,00 |
+| 4.3 | 24 | Ortsübliche Vergleichsmiete, Jahr 1 | `Vergleichsmiete_1` | €/m² Monat | 11,87 | 12,92 | PGN-Annahme / Mietübersicht Lkr. Harburg 2022, fortgeschr. | PGN-Annahme: 13,30 × 12,92 ÷ 14,48 (dasselbe Verhältnis zur Marktmiete wie bis 10.11.2026; für Rotenburg (Wümme) gibt es keinen Mietspiegel), Abschnitt Q / v2-1 Basisdaten!C49 | Dezimal 0,00–50,00 |
+| 4.4 | 25 | Marktmiete Neuvermietung, Jahr 1 | `Marktmiete_1` | €/m² Monat | 13,30 | 15,42 | Mietübersicht Lkr. Rotenburg 2026 / Lkr. Harburg 2026 | Gutachterausschuss Otterndorf, Grundstücksmarktdaten 2026, Mietübersicht Landkreis Rotenburg (Wümme), Stichtag 01.01.2026: Baujahr 2020, Wohnung 70 m², Lage (Bodenrichtwert) 160 €/m², zwischen den Tabellenwerten 13,11 € (Lage 150) und 14,04 € (Lage 200) eingerechnet; Bodenrichtwert der Zone „Brauerstraße (MI)“ zum 01.01.2026: 160 €/m²; Abschnitt Q / v2-1 Basisdaten!C48 | Dezimal 0,00–50,00 |
 | 4.5 | 26 | Steigerung Markt- und Vergleichsmiete | `Mietsteigerung` | % p. a. | 2,00 % | 2,00 % | PGN-Annahme | RR `miet_wachstum` / v2-1 Eingabe!C72 | Dezimal −0,05–0,1 |
 | 4.6 | 27 | Kappungsgrenze nach Bindungsende | `Kappungsgrenze` | % in 3 Jahren | 20,00 % | 20,00 % | § 558 Abs. 3 BGB | RR `kapp_norm` (ab 2030 wirksam) / v2-1 Eingabe!C78 | Dezimal 0–0,2 |
 
@@ -790,7 +790,7 @@ A1:B1 Titel, C1 Zellhyperlink „Übersicht“, Kopf A2:B2 „Nr. · Hinweis (Ve
 | 11 | IRR: Bei mehreren Nullstellen zeigt die Mappe die größte mit fallendem Barwert. „n. v.“: keine Lösung, Endvermögen ≤ 0 oder gesperrt (P1). Fehlbeträge: Der EK-IRR rechnet sie als Nachschuss zum internen Zins; die VOFI-EK-Rendite verzinst sie zum Sollzins (Eingabe 7.3) und bezieht das Endvermögen auf das Eigenkapital bei Bezug. In beiden Fällen gilt die VOFI-EK-Rendite. |
 | 12 | Nach außen: Jahresrechnung, Tilgungsvergleich, Annahmen. Renditen nur in der Beratung, je mit Restwert und nur Bodenwert, dazu Restwertanteil. |
 | 13 | Bandbreite je Rendite, Beratung: Eingabe 9.3 ±0,5 Prozentpunkte, 9.4 = 0,50, 8.3 = 5 %, 8.2 = Vergleichsmiete. |
-| 14 | Nicht nach außen: Blatt NBank. Standortwerte Modellhaus (Projekt 2): Vergleichs- und Marktmiete (Eingabe 4.3, 4.4) aus dem PGN-Mietband Neu Wulmstorf, Liegenschaftszins (Tabellen, Tabelle 4) für Neu Wulmstorf. Vergleichshaus (Projekt 1, Modellhaus bis 11.11.2026): Marktmiete und Liegenschaftszins sind amtliche Werte der Gutachterausschüsse für Rotenburg (Wümme), Stand 01.01.2026; die Vergleichsmiete ist eine Annahme der PGN. Für einen anderen Standort ersetzen. |
+| 14 | Nicht nach außen: Blatt NBank. Standortwerte Modellhaus (Projekt 2): Marktmiete (Eingabe 4.4) aus der Mietübersicht des Gutachterausschusses Lüneburg für den Landkreis Harburg, Hamburger Umland, Baualter ab 2023, 40–60 m², Stand 01.01.2026; Vergleichsmiete (4.3) aus der Übersicht zum 01.01.2022 (11,70 €), fortgeschrieben mit Eingabe 4.5; Liegenschaftszins (Tabellen, Tabelle 4) für Neu Wulmstorf. Vergleichshaus (Projekt 1, Modellhaus bis 11.11.2026): Marktmiete und Liegenschaftszins sind amtliche Werte der Gutachterausschüsse für Rotenburg (Wümme), Stand 01.01.2026; die Vergleichsmiete ist eine Annahme der PGN. Für einen anderen Standort ersetzen. |
 | 15 | Modellhaus (Projekt 2, Neu Wulmstorf): Grundstück im Bestand, Ansatz 0 € (Verkehrswert 731.325 €, nicht angesetzt); Renditen ohne Grundstückskosten, nur Bodenwert = ohne Restwert; nicht mit dem Vergleichshaus (Projekt 1) vergleichbar. |
 
 ---
@@ -1855,7 +1855,7 @@ Abnahme am 11.11.2026: 617 Prüfungen ohne Fehler, 70 Läufe. F9 lief gegen die 
 
 ### R.4 Sollwerte Modellhaus (Projekt 2, Auslieferungsstand, Lauf L2)
 
-Übersicht, Spalten D bis G (A, B, C, Frei): Blöcke 1 bis 4, Block 6 und die Zeilen 7.1, 7.7, 8.2 und 8.3. Renditen und Restwert in den Spalten D bis G gelten für Jahr 35. Werte aus der Referenzrechnung; Beträge mit Cent sind auf 0,01 € geprüft, Beträge in ganzen Euro auf 1 € (Zeitreihe ab Jahr 2, Barwerte, Restwert). `pruefe_vofi.py` prüft jede Zelle dieser Tabelle im Lauf L2. Stand 12.11.2026: Zeile 17 und die Spalte G mit Bankzins 3,86 % (Abschnitt S).
+Übersicht, Spalten D bis G (A, B, C, Frei): Blöcke 1 bis 4, Block 6 und die Zeilen 7.1, 7.7, 8.2 und 8.3. Renditen und Restwert in den Spalten D bis G gelten für Jahr 35. Werte aus der Referenzrechnung; Beträge mit Cent sind auf 0,01 € geprüft, Beträge in ganzen Euro auf 1 € (Zeitreihe ab Jahr 2, Barwerte, Restwert). `pruefe_vofi.py` prüft jede Zelle dieser Tabelle im Lauf L2. Stand 12.11.2026: mit Bankzins 3,86 % und Marktmiete 15,42 €/m² (Abschnitt S).
 
 | Zeile | Nr. | Kennzahl | D (A) | E (B) | F (C) | G (Frei) |
 |---|---|---|---:|---:|---:|---:|
@@ -1876,25 +1876,25 @@ Abnahme am 11.11.2026: 617 Prüfungen ohne Fehler, 70 Läufe. F9 lief gegen die 
 | 23 | 1.15 | davon bar | 613.426,28 | 614.907,99 | 615.648,84 | 592.682,40 |
 | 24 | 1.16 | Zuschuss je Wohnung | 84.668,91 | 42.334,46 | 21.167,23 |  |
 | 25 | 1.17 | Eigenmittel je Wohnung | 42.334,46 | 42.334,46 | 42.334,46 |  |
-| 26 | 1.18 | Miete Jahr 1 | 6,80 | 8,20 | 9,00 | 14,48 |
-| 29 | 1 | Sollmiete: Höchstmiete nettokalt | 67.564,80 | 81.475,20 | 89.424,00 | 143.876,82 |
-| 30 |  | − Mietausfall/Leerstand | 1.351,30 | 1.629,50 | 1.788,48 | 2.877,54 |
+| 26 | 1.18 | Miete Jahr 1 | 6,80 | 8,20 | 9,00 | 15,42 |
+| 29 | 1 | Sollmiete: Höchstmiete nettokalt | 67.564,80 | 81.475,20 | 89.424,00 | 153.213,12 |
+| 30 |  | − Mietausfall/Leerstand | 1.351,30 | 1.629,50 | 1.788,48 | 3.064,26 |
 | 31 | 2 | − Objektverwaltung | 5.138,00 | 5.138,00 | 5.138,00 | 5.138,00 |
 | 32 | 3 | − Instandhaltung | 11.923,20 | 11.923,20 | 11.923,20 | 11.923,20 |
-| 33 | 4 | = Überschuss vor Kapitaldienst | 49.152,30 | 62.784,50 | 70.574,32 | 123.938,09 |
+| 33 | 4 | = Überschuss vor Kapitaldienst | 49.152,30 | 62.784,50 | 70.574,32 | 133.087,66 |
 | 34 | 5 | − Verwaltungskostenbeitrag | 5.926,82 | 8.890,24 | 10.371,94 |  |
 | 35 | 6 | − Zins NBank-Darlehen | 0,00 | 0,00 | 0,00 |  |
 | 36 | 7 | − Tilgung NBank-Darlehen (Annahme) | 28.222,97 | 42.334,46 | 49.390,20 |  |
 | 37 |  | − Kapitaldienst Bankdarlehen | 0,00 | 0,00 | 0,00 | 134.778,63 |
-| 38 | 8 | = Zahlungsüberschuss p. a. | 15.002,51 | 11.559,80 | 10.812,18 | −10.840,54 |
+| 38 | 8 | = Zahlungsüberschuss p. a. | 15.002,51 | 11.559,80 | 10.812,18 | −1.690,97 |
 | 39 |  | Einmalig: Bearbeitungsentgelte | 20.743,88 | 22.225,59 | 22.966,44 |  |
-| 42 | 3.1 | Zahlungsüberschuss Jahr 10 | 25.927 | 25.792 | 26.890 | 13.339 |
-| 43 | 3.2 | Zahlungsüberschuss Jahr 35 | 64.860 | 76.468 | 84.149 | 243.002 |
-| 44 | 3.3 | Zahlungsüberschuss Jahr 42 | 115.957 | 139.078 | 153.343 | 279.133 |
-| 45 | 3.4 | Schuldendienstdeckung (DSCR) Jahr 1 | 1,4393 | 1,2257 | 1,1809 | 0,9196 |
-| 46 | 3.5 | DSCR Minimum Jahr 1–35 | 1,4310 | 1,2223 | 1,1791 | 0,9196 |
-| 47 | 3.6 | Jahre mit Fehlbetrag, Jahr 1–35 | 0 | 0 | 0 | 5 |
-| 48 | 3.7 | Größter kumulierter Fehlbetrag, Jahr 1–42 | 0 | 0 | 0 | −28.914 |
+| 42 | 3.1 | Zahlungsüberschuss Jahr 10 | 25.927 | 25.792 | 26.890 | 24.273 |
+| 43 | 3.2 | Zahlungsüberschuss Jahr 35 | 64.860 | 76.468 | 84.149 | 260.942 |
+| 44 | 3.3 | Zahlungsüberschuss Jahr 42 | 115.957 | 139.078 | 153.343 | 299.740 |
+| 45 | 3.4 | Schuldendienstdeckung (DSCR) Jahr 1 | 1,4393 | 1,2257 | 1,1809 | 0,9875 |
+| 46 | 3.5 | DSCR Minimum Jahr 1–35 | 1,4310 | 1,2223 | 1,1791 | 0,9875 |
+| 47 | 3.6 | Jahre mit Fehlbetrag, Jahr 1–35 | 0 | 0 | 0 | 1 |
+| 48 | 3.7 | Größter kumulierter Fehlbetrag, Jahr 1–42 | 0 | 0 | 0 | −1.691 |
 | 49 | 3.8 | Tragbare Tilgung Jahr 1 | 3,65 % | 3,03 % | 2,90 % |  |
 | 50 | 3.9 | Restschuld NBank Ende Jahr 35 | 197.561 | 296.341 | 345.731 |  |
 | 51 | 3.10 | Schlussrate NBank über Regeltilgung | 0 | 0 | 0 |  |
@@ -1917,15 +1917,15 @@ Abnahme am 11.11.2026: 617 Prüfungen ohne Fehler, 70 Läufe. F9 lief gegen die 
 | 70 | 4.16 | = Mehrüberschuss vor Tilgung | – | 10.668,78 | 16.976,90 |  |
 | 71 | 4.17 | Mehrüberschuss bei Tilgung laut Eingabe 3.1 | – | −3.442,71 | −4.190,33 |  |
 | 72 | 4.18 | Einmalig: Mehr an Bearbeitungsentgelten | – | 1.481,71 | 2.222,56 |  |
-| 89 | 6.1 | EK-IRR, mit Restwert | 8,13 % | 8,29 % | 8,44 % | 8,55 % |
-| 90 | 6.2 | EK-IRR, nur Bodenwert | 3,13 % | 3,17 % | 3,44 % | 4,79 % |
-| 91 | 6.3 | VOFI-EK-Rendite, mit Restwert | 6,95 % | 7,17 % | 7,29 % | 8,00 % |
-| 92 | 6.4 | VOFI-EK-Rendite, nur Bodenwert | 2,58 % | 2,61 % | 2,75 % | 4,15 % |
-| 93 | 6.5 | Restwertanteil am Endvermögen | 76,84 % | 78,16 % | 77,97 % | 71,94 % |
-| 94 | 6.6 | EK-IRR, ohne Restwert | 3,13 % | 3,17 % | 3,44 % | 4,79 % |
-| 95 | 6.7 | VOFI-EK-Rendite, ohne Restwert | 2,58 % | 2,61 % | 2,75 % | 4,15 % |
-| 96 | 6.8 | Tiefster Stand Projektkonto (VOFI) | 0 | 0 | 0 | −33.329 |
-| 100 | 7.1 | Restwert (Boden + Gebäude) | 4.958.369 | 5.418.698 | 5.625.371 | 6.297.398 |
+| 89 | 6.1 | EK-IRR, mit Restwert | 8,22 % | 8,39 % | 8,55 % | 9,43 % |
+| 90 | 6.2 | EK-IRR, nur Bodenwert | 3,13 % | 3,17 % | 3,44 % | 6,11 % |
+| 91 | 6.3 | VOFI-EK-Rendite, mit Restwert | 7,05 % | 7,28 % | 7,40 % | 8,36 % |
+| 92 | 6.4 | VOFI-EK-Rendite, nur Bodenwert | 2,58 % | 2,61 % | 2,75 % | 4,84 % |
+| 93 | 6.5 | Restwertanteil am Endvermögen | 77,52 % | 78,93 % | 78,78 % | 68,59 % |
+| 94 | 6.6 | EK-IRR, ohne Restwert | 3,13 % | 3,17 % | 3,44 % | 6,11 % |
+| 95 | 6.7 | VOFI-EK-Rendite, ohne Restwert | 2,58 % | 2,61 % | 2,75 % | 4,84 % |
+| 96 | 6.8 | Tiefster Stand Projektkonto (VOFI) | 0 | 0 | 0 | −1.691 |
+| 100 | 7.1 | Restwert (Boden + Gebäude) | 5.152.780 | 5.673.380 | 5.899.634 | 6.762.295 |
 | 106 | 7.7 | Liegenschaftszins | 2,80 % | 2,80 % | 2,80 % | 2,80 % |
 | 111 | 8.2 | Kapitaldienst Jahr 1, mit Regeltilgung | 34.149,80 | 51.224,69 | 59.762,14 | 134.778,63 |
 | 112 | 8.3 | Nötige Miete Jahr 1 für das DSCR-Ziel | 5,26 | 7,01 | 7,89 | 15,59 |
@@ -1988,3 +1988,26 @@ Die Tabelle R.4 trägt die neuen Werte. Die Tabellen in F.3 bis F.5 und in den A
 - F9 liest die Broschüre S. 11 mit den neuen Werten (Kapitaldienst frei 134.779 €, nötige Miete 15,59 €, Zins 3,86 %).
 
 Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler, 70 Läufe.
+
+### S.4 Marktmiete des Modellhauses 15,42 €/m² (12.11.2026)
+
+Entscheidung des Auftraggebers vom 12.11.2026: Eingabe 4.4 von Projekt 2 steht auf 15,42 €/m² statt 14,48 €/m². 15,42 € ist der Wert der Mietübersicht des Gutachterausschusses für Grundstückswerte Lüneburg für den Landkreis Harburg, Region Hamburger Umland, Baualter ab 2023, Wohnfläche 40–60 m², Stand 01.01.2026 (nachgelesen am 12.11.2026 im Zweitabdruck; Volltext unter `../broschuere/recherche/quellen/`). Die Wohnungen des Modellhauses haben im Mittel 59 m²; für 60–80 m² nennt die Tabelle 14,45 €.
+
+Die 14,48 €/m² der Vorgängermappe waren der Mittelwert zweier Werte derselben Quelle, je auf das erste Bewirtschaftungsjahr 2028 fortgeschrieben: 11,70 € zum 01.01.2022 (gezahlte Mieten) und 15,42 € zum 01.01.2026 (v2-1 Eingabe!C63 und C65). Die Quelle hieß in v3 bisher „PGN-Mietband Neu Wulmstorf“; sie ist in Eingaben G24 und G25 und in Hinweis 14 berichtigt. Eingabe 4.3 (Vergleichsmiete 12,92 €/m²: 11,70 € fortgeschrieben) bleibt.
+
+Zahlenwirkung Modellhaus (Lauf L2), Jahr 35:
+
+| Zeile | Kennzahl | 14,48 €/m² | 15,42 €/m² |
+|---|---|---:|---:|
+| 38 | Zahlungsüberschuss Jahr 1, Frei | −10.840,54 | −1.690,97 |
+| 45 | DSCR Jahr 1, Frei | 0,9196 | 0,9875 |
+| 47 | Jahre mit Fehlbetrag, Frei | 5 | 1 |
+| 96 | Tiefster Stand Projektkonto, Frei | −33.329 | −1.691 |
+| 91 | VOFI-EK-Rendite mit Restwert, A / B / C / Frei | 6,95 / 7,17 / 7,29 / 8,00 % | 7,05 / 7,28 / 7,40 / 8,36 % |
+| 92 | VOFI-EK-Rendite ohne Restwert, Frei | 4,15 % | 4,84 % |
+| 100 | Restwert, A / B / C / Frei | 4.958.369 / 5.418.698 / 5.625.371 / 6.297.398 | 5.152.780 / 5.673.380 / 5.899.634 / 6.762.295 |
+| 115 | Aufschlag nötige Miete gegenüber Marktmiete | 7,7 % | 1,1 % |
+
+Jahresrechnung, Finanzierung, Kapitaldienst, nötige Miete und die Renditen ohne Restwert der Gruppen A, B und C hängen nicht an der Marktmiete und bleiben. Die Marktmiete wirkt gefördert über die Miete nach Ende der Bindung auf den Restwert.
+
+Prüfskript: `MARKT_HARBURG_2026 = 15,42` überschreibt `markt_start` von Projekt 2; die Läufe L64 bis L67 und `basis_v21()` rechnen mit 14,48 €/m² weiter (`STAND_T_VORHER`, `MARKT_T_BIS_12_11`). Die Sollwerte von L2 bis L5 stehen in `_ZINS_386` (L2 82, L3 6, L4 24, L5 6 Zellen). Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler.

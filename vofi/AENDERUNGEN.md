@@ -288,3 +288,21 @@ Derselbe Zins. Frei finanziert: VOFI-EK-Rendite mit Restwert Jahr 35 3,32 % stat
 ### Broschüre, Präsentation, Prüfung
 
 Broschüre S. 11 (Vergleich frei finanziert) und Präsentation (Folien 4, 5, 16 bis 19, 24, A7) nennen die neuen Werte. Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler, 70 Testläufe gegen die Referenzrechnung. Läufe, die frühere Stände tragen (Abgleich mit v2-1, Regression), rechnen mit 3,74 % weiter.
+
+## 12. Änderung vom 12.11.2026: Marktmiete des Modellhauses 15,42 €/m²
+
+Entscheidung des Auftraggebers: Die Marktmiete des Modellhauses (Eingabe 4.4, Projekt 2) steht auf 15,42 €/m² statt 14,48 €/m². Quelle: Gutachterausschuss für Grundstückswerte Lüneburg, Mietübersicht Landkreis Harburg, Region Hamburger Umland, Baualter ab 2023, Wohnfläche 40–60 m², Stand 01.01.2026. Die 14,48 €/m² waren der Mittelwert aus 11,70 € (Übersicht zum 01.01.2022) und 15,42 €, je auf 2028 fortgeschrieben; die Mappe nannte das „PGN-Mietband“. Die Quellenangaben in Eingaben und Hinweis 14 sind berichtigt. Die Vergleichsmiete (Eingabe 4.3, 12,92 €/m²) bleibt.
+
+| Größe, Modellhaus | 14,48 €/m² | 15,42 €/m² |
+|---|---:|---:|
+| Frei: Zahlungsüberschuss Jahr 1 | −10.841 € | −1.691 € |
+| Frei: DSCR Jahr 1 | 0,92 | 0,99 |
+| Frei: Jahre mit Fehlbetrag, Jahr 1–35 | 5 | 1 |
+| Frei: Aufschlag der nötigen Miete (15,59 €/m²) auf die Marktmiete | 7,7 % | 1,1 % |
+| Frei: VOFI-EK-Rendite mit Restwert, Jahr 42 (Jahr 35) | 7,31 (8,00) % | 7,60 (8,36) % |
+| Frei: VOFI-EK-Rendite nur Bodenwert, Jahr 42 (Jahr 35) | 5,09 (4,15) % | 5,52 (4,84) % |
+| A / B / C: VOFI-EK-Rendite mit Restwert, Jahr 35 | 6,95 / 7,17 / 7,29 % | 7,05 / 7,28 / 7,40 % |
+| A / B / C: Restwert Jahr 35 | 4,96 / 5,42 / 5,63 Mio. € | 5,15 / 5,67 / 5,90 Mio. € |
+
+Jahresrechnung, Finanzierung, Kapitaldienst und nötige Miete ändern sich nicht. Gefördert wirkt die Marktmiete nur über die Miete nach Ende der Bindung auf den Restwert. Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler.
+

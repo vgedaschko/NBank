@@ -3,7 +3,7 @@
 Stand 12.11.2026. Grundlage: die drei Prüfberichte, `Auswertung.md` und die Nachfragen zu Laufzeit und Zinsquelle.
 Umgesetzt ist davon noch nichts.
 
-> **Nachtrag 12.11.2026:** Der Auftraggeber hat anders entschieden als hier vorgeschlagen: Die Zinsreihe ist bis 11/2026 nachgezogen, gerechnet wird mit 3,86 % (Wert vom 10.11.2026). Das ist in Vortrag, Broschüre S. 11 und Mappe umgesetzt. Der Abschnitt „Zum Zins: nicht nachziehen, sondern datieren“ ist damit überholt; die Zahlen der Tabellen unten gelten für 3,74 %. Mit 3,86 % lautet die nötige Miete frei finanziert 15,59 € (30 Jahre). Alles Übrige (Pakete 1 bis 3, drei Entscheidungen) ist offen.
+> **Nachtrag 12.11.2026:** Der Auftraggeber hat anders entschieden als hier vorgeschlagen: Die Zinsreihe ist bis 11/2026 nachgezogen, gerechnet wird mit 3,86 % (Wert vom 10.11.2026). Das ist in Vortrag, Broschüre S. 11 und Mappe umgesetzt. Der Abschnitt „Zum Zins: nicht nachziehen, sondern datieren“ ist damit überholt; die Zahlen der Tabellen unten gelten für 3,74 %. Mit 3,86 % lautet die nötige Miete frei finanziert 15,59 € (30 Jahre). Ebenfalls am 12.11.2026 entschieden: Marktmiete des Modellhauses 15,42 € statt 14,48 € (Gutachterausschuss Lüneburg, Stand 01.01.2026). Die Marke auf Folie 19 hieße damit „rund 15,40 €“, und frei finanziert fehlen in Jahr 1 nur noch 0,17 € je m². Alles Übrige (Pakete 1 bis 3, drei Entscheidungen) ist offen.
 
 ## Grundsatz
 

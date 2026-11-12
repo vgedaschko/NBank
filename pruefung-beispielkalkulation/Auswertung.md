@@ -15,13 +15,15 @@ An den Dateien des Projekts ist nichts geändert. Umgesetzt wird nur, was freige
 > |---|---:|---:|
 > | Kapitaldienst frei finanziert | 132.805 € | 134.779 € |
 > | Nötige Miete frei finanziert | 15,39 € | 15,59 € |
-> | Es fehlen zur Marktmiete in Jahr 1 | 0,91 € je m², 8.867 € | 1,11 € je m², 10.841 € |
-> | Jahre mit Fehlbetrag frei finanziert | 4 | 5 |
-> | Rendite frei finanziert mit Restwert (A7) | 8,03 % | 8,00 % |
+> | Marktmiete Neubau am Standort | 14,48 € | 15,42 € (Gutachterausschuss Lüneburg, Stand 01.01.2026) |
+> | Es fehlen zur Marktmiete in Jahr 1 | 0,91 € je m², 8.867 € | 0,17 € je m², 1.691 € |
+> | Jahre mit Fehlbetrag frei finanziert | 4 | 1 |
+> | Rendite frei finanziert mit Restwert (A7) | 8,03 % | 8,36 % |
+> | Rendite gefördert A mit Restwert (A7) | 6,95 % | 7,05 % |
 > | Kapitaldienst je m² und Monat, Folie 5 | 19,95 € | 20,25 € |
 > | Restschuld nach 10 Jahren | 1.847.133 € | 1.854.604 € |
 >
-> Der Vorschlag E2 ist damit erledigt (Variante b). Die geförderte Rechnung ist unverändert. Die Berichte der Prüfer bleiben im Stand ihrer Prüfung.
+> Der Vorschlag E2 ist damit erledigt (Variante b). Die geförderte Rechnung bis Jahr 35 ist unverändert; mit der höheren Marktmiete steigen Restwert und Rendite mit Restwert. Für den Vorschlag E1 (Marke auf Folie 19) heißt das: „rund 15,40 €“ statt „rund 14,50 €“, und frei finanziert trägt sich in Jahr 1 fast. Die Antworten auf die Fragen 1 und 4 in Abschnitt b sind entsprechend zu lesen. Die Berichte der Prüfer bleiben im Stand ihrer Prüfung.
 
 Zwei Hinweise zum Lesen:
 

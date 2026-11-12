@@ -49,10 +49,9 @@ module.exports = {
     B.marke(s, { x: xM, y: d.plot.y, h: d.plot.h, art: 'mass' });
     for (const g of G) B.punkt(s, { cx: xM, cy: d.yWert(bei(g, tJahr)), art: R.LINIEN[g].art, name: 'Punkt ' + g });
     B.wertzeilen(s, { x: xM + 0.10, mitten: [band(80000), band(60000), band(40000)], name: 'Jahresrechnung', eintraege: G.map(g => ({ kreis: g, text: fmt.zahl(bei(g, tJahr)) })) });
-    // Bezeichnung der Marke im untersten Band rechts der Marke (unter der Achse steht der Achsentitel); das Modul prüft, dass dort keine Linie läuft
-    const xText = xM + 0.08, wText = 1.90, tEnde = tJahr + (xText + wText - xM) / d.katBreite * saetze[1];
-    R.pruefe(G.every(g => bei(g, Math.min(tEnde, saetze[n])) > ACHSE.min + ACHSE.schritt), 'Im untersten Band rechts der Marke läuft eine Linie durch die Bezeichnung „Jahresrechnung“; Lage im Modul der Folie 20 anpassen.');
-    B.text(s, ctx.wortlaut(`Jahresrechnung: ${fmt.prozent(tJahr, 2)}`, 'Markentext'), { x: xText, y: band(ACHSE.min + ACHSE.schritt) - 0.10, w: wText, h: 0.20, rolle: 'achse', farbe: 'text', valign: 'middle', einzeilig: true, name: 'Markentext' });
+    // Bezeichnung der Marke im untersten Band links der Marke: Dort läuft keine Linie, solange alle drei Geraden bei der Marke über null liegen
+    R.pruefe(G.every(g => bei(g, tJahr) > 0), 'Bei der Marke liegt eine Gerade unter null; die Bezeichnung „Jahresrechnung“ links der Marke stünde auf ihr.');
+    B.text(s, ctx.wortlaut(`Jahresrechnung: ${fmt.prozent(tJahr, 2)}`, 'Markentext'), { x: xM - 0.08 - 1.90, y: band(ACHSE.min + ACHSE.schritt) - 0.10, w: 1.90, h: 0.20, rolle: 'achse', farbe: 'text', align: 'right', valign: 'middle', einzeilig: true, name: 'Markentext' });
     B.achsentitel(s, d, { y: ctx.wortlaut('Zahlungsüberschuss in € p. a.', 'Achsentitel'), x: ctx.wortlaut('Tilgungssatz p. a.', 'Achsentitel') });
 
     B.linienenden(s, { x: xSatz(saetze[n]) + 0.30, eintraege: G.map(g => ({ kreis: g, y: d.yWert(bei(g, saetze[n])) })) });

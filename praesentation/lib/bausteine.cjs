@@ -41,36 +41,37 @@ const RAHMEN = {
   titellinie(x, y, h, farbe = C.rot, b = 0.045) {
     return { rect: { x, y, w: b, h, fill: { color: farbe }, line: { type: 'none' }, objectName: 'Titellinie' } };
   },
-  // 4.4 Kicker und Titel der Inhaltsfolien (zwei Zeilen 32 pt) bzw. des Anhangs (eine Zeile 22 pt)
+  // 4.4 Kopfzeile und Titel der Inhaltsfolien (zwei Zeilen 32 pt) bzw. des Anhangs (eine Zeile 22 pt). Die Kopfzeile nennt den Abschnitt in
+  // Tinte; davor setzt der Bau den Achskreis des Abschnitts (wie auf Agenda und Trennern). Rot im Kopf sind nur Titellinie und Signaturwort.
   kopf(grund = 'hell', { anhang = false } = {}) {
     const cs = GRUND[grund];
     return [
-      { rect: { x: X0, y: Y.kicker + 0.135, w: 0.28, h: 0.03, fill: { color: C.rot }, line: { type: 'none' }, objectName: 'Kickerstrich' } },
-      { placeholder: { options: { name: 'kicker', type: 'body', objectName: 'Kicker', x: X0 + 0.40, y: Y.kicker, w: Y.kickerW, h: Y.kickerH, margin: 0, fontFace: F.mont, bold: true, fontSize: 12, charSpacing: 1.9, color: anhang ? cs.titel : cs.akzent, valign: 'middle' }, text: 'KICKER' } },
-      anhang ? RAHMEN.titellinie(X0 - 0.22, Y.titel + 0.045, 0.27) : RAHMEN.titellinie(X0 - 0.22, Y.titel + 0.065, 0.78),
+      { placeholder: { options: { name: 'kicker', type: 'body', objectName: 'Kicker', x: X0 + 0.42, y: Y.kicker, w: Y.kickerW, h: Y.kickerH, margin: 0, fontFace: F.mont, bold: true, fontSize: 12, charSpacing: 1.0, color: cs.titel, valign: 'middle' }, text: 'ABSCHNITT' } },
+      anhang ? RAHMEN.titellinie(X0 - 0.22, Y.titel + 0.045, 0.27) : RAHMEN.titellinie(X0 - 0.22, Y.titel + 0.07, 0.86),
       anhang
         ? { placeholder: { options: { name: 'title', type: 'title', objectName: 'Titel', x: X0, y: Y.titel, w: CW, h: 0.38, margin: 0, fontFace: F.black, bold: false, fontSize: 22, lineSpacing: 24, color: cs.titel, valign: 'top', align: 'left' }, text: 'TITEL DES ANHANGS, EINE ZEILE' } }
-        : { placeholder: { options: { name: 'title', type: 'title', objectName: 'Titel', x: X0, y: Y.titel, w: CW, h: Y.titelH, margin: 0, fontFace: F.black, bold: false, fontSize: 32, lineSpacing: 33, color: cs.titel, valign: 'top', align: 'left' }, text: 'DER TITEL IST DIE AUSSAGE, ZWEI ZEILEN' } },
+        : { placeholder: { options: { name: 'title', type: 'title', objectName: 'Titel', x: X0, y: Y.titel, w: CW, h: Y.titelH, margin: 0, fontFace: F.black, bold: false, fontSize: 32, lineSpacing: 37, charSpacing: 0.4, color: cs.titel, valign: 'top', align: 'left' }, text: 'DER TITEL IST DIE AUSSAGE, ZWEI ZEILEN' } },
     ];
   },
-  // 4.2 Schriftfeld klein (Mini-Plankopf): Projektzeile, Rubrik, Wortmarke, Blatt-Zelle mit Nummer
+  // 4.2 Planrahmen und Schriftfeld der Inhalts- und Anhangfolien: Rahmen 0,75 pt mit Falzmarken wie auf Titel und Trennern; das Schriftfeld
+  // schließt unten an den Rahmen an und reicht über seine ganze Breite. Zellen: Logo | Projekt und Thema | Quelle | Blatt.
   schriftfeld(grund = 'hell', label = 'Blatt') {
     const cs = GRUND[grund], dunkel = grund === 'anthrazit';
     const zelle = grund === 'papier' ? C.weiss : dunkel ? HEX.dunkel.flaeche2 : C.papier;
     const sek = dunkel ? HEX.dunkel.text2 : cs.sekundaer;
+    const x0 = 0.30, x1 = W - 0.30, y = Y.fuss, h = H - 0.30 - Y.fuss;
     return [
-      { line: { x: X0, y: Y.fuss, w: CW, h: 0, line: { color: cs.linie, width: 0.75 }, objectName: 'Schriftfeld Oberlinie' } },
-      { line: { x: X0, y: Y.fuss + Y.fussH, w: CW, h: 0, line: { color: cs.haar, width: 0.5 }, objectName: 'Schriftfeld Unterlinie' } },
-      { rect: { x: SF.blatt, y: Y.fuss + 0.01, w: 0.85, h: Y.fussH - 0.015, fill: { color: zelle }, line: { type: 'none' }, objectName: 'Blatt-Zelle' } },
-      ...(dunkel ? [{ rect: { x: SF.logo, y: Y.fuss + 0.01, w: 0.95, h: Y.fussH - 0.015, fill: { color: C.weiss }, line: { type: 'none' }, objectName: 'Logofeld' } }] : []),
-      { line: { x: SF.logo, y: Y.fuss, w: 0, h: Y.fussH, line: { color: cs.haar, width: 0.5 }, objectName: 'Schriftfeld Teilung 1' } },
-      { line: { x: SF.blatt, y: Y.fuss, w: 0, h: Y.fussH, line: { color: cs.haar, width: 0.5 }, objectName: 'Schriftfeld Teilung 2' } },
-      { text: { text: PROJEKT, options: { x: X0, y: Y.fuss + 0.045, w: 8, h: 0.17, margin: 0, fontFace: SF_PROJEKT.fontFace, fontSize: SF_PROJEKT.fontSize, color: sek, valign: 'middle', objectName: 'Schriftfeld Projekt' } } },
-      { placeholder: { options: { name: 'rubrik', type: 'body', objectName: 'Rubrik', x: X0, y: Y.fuss + 0.225, w: 8, h: 0.17, margin: 0, fontFace: SF_RUBRIK.fontFace, bold: SF_RUBRIK.bold, fontSize: SF_RUBRIK.fontSize, charSpacing: SF_RUBRIK.weite, color: cs.titel, valign: 'middle' }, text: 'RUBRIK' } },
-      { image: { path: asset('logo-mark-rot.png'), x: 11.032, y: Y.fuss + 0.124, w: 0.62, h: 0.192, objectName: 'Wortmarke PGN', altText: 'PGN' } },
-      { text: { text: label, options: { x: 11.90, y: Y.fuss + 0.04, w: 0.70, h: 0.15, margin: 0, fontFace: F.medium, fontSize: 10, color: sek, align: 'right', valign: 'middle', objectName: 'Schriftfeld ' + label } } },
-      // Foliennummer als Text aus dem Konzept (1 bis 28, A0 bis A9); ein Feld „Foliennummer“ könnte „A3“ nicht zeigen
-      { placeholder: { options: { name: 'blatt', type: 'body', objectName: 'Blattnummer', x: 11.90, y: Y.fuss + 0.19, w: 0.70, h: 0.23, margin: 0, fontFace: F.black, fontSize: 15, color: cs.titel, align: 'right', valign: 'middle' }, text: 'Nr.' } },
+      ...RAHMEN.planrahmen(cs.linie).map(o => (o.rect ? { rect: { ...o.rect, line: { color: cs.linie, width: 0.75 } } } : o)),
+      { rect: { x: SF.blatt, y: y, w: x1 - SF.blatt, h, fill: { color: zelle }, line: { type: 'none' }, objectName: 'Blatt-Zelle' } },
+      ...(grund === 'papier' || dunkel ? [{ rect: { x: x0, y, w: SF.logoEnde - x0, h, fill: { color: C.weiss }, line: { type: 'none' }, objectName: 'Logofeld' } }] : []),
+      { line: { x: x0, y, w: x1 - x0, h: 0, line: { color: cs.linie, width: 0.75 }, objectName: 'Schriftfeld Oberlinie' } },
+      { line: { x: SF.logoEnde, y, w: 0, h, line: { color: cs.haar, width: 0.5 }, objectName: 'Schriftfeld Teilung 1' } },
+      { line: { x: SF.blatt, y, w: 0, h, line: { color: cs.haar, width: 0.5 }, objectName: 'Schriftfeld Teilung 2' } },
+      { image: { path: asset('logo-rot.png'), x: x0 + 0.24, y: +(y + (h - 0.25) / 2).toFixed(3), w: 1.42, h: 0.25, objectName: 'Logo PGN', altText: 'PGN Architekten, Stadtplaner, Ingenieure' } },
+      { text: { text: PROJEKT, options: { x: SF.text, y: y + 0.07, w: 6, h: 0.17, margin: 0, fontFace: SF_PROJEKT.fontFace, fontSize: SF_PROJEKT.fontSize, color: sek, valign: 'middle', objectName: 'Schriftfeld Projekt' } } },
+      { placeholder: { options: { name: 'rubrik', type: 'body', objectName: 'Rubrik', x: SF.text, y: y + 0.25, w: 6, h: 0.17, margin: 0, fontFace: SF_RUBRIK.fontFace, bold: SF_RUBRIK.bold, fontSize: SF_RUBRIK.fontSize, charSpacing: SF_RUBRIK.weite, color: cs.titel, valign: 'middle' }, text: 'THEMA' } },
+      { text: { text: label, options: { x: SF.blatt + 0.16, y: y + 0.06, w: x1 - SF.blatt - 0.32, h: 0.15, margin: 0, fontFace: F.medium, fontSize: 10, color: sek, align: 'right', valign: 'middle', objectName: 'Schriftfeld ' + label } } },
+      { placeholder: { options: { name: 'blatt', type: 'body', objectName: 'Blattnummer', x: SF.blatt + 0.16, y: y + 0.21, w: x1 - SF.blatt - 0.32, h: 0.23, margin: 0, fontFace: F.black, fontSize: 15, color: cs.titel, align: 'right', valign: 'middle' }, text: 'Nr.' } },
     ];
   },
   // 4.7 Stempel „Modellrechnung“, doppelte Kontur, 2,12 × 0,37. Die Layouts mit „_MR“ nehmen ihn nur mit STEMPEL_IM_KOPF (lib/theme.cjs)
@@ -96,7 +97,7 @@ function titelLaeufe(zeilen, o = {}) {
     const Ak = o.akzent ? versal(schutz(o.akzent)) : null, p = Ak && !gesetzt ? Z.indexOf(Ak) : -1;
     if (p >= 0) {
       gesetzt = true;
-      const a = Z.slice(0, p), b = Z.slice(p + Ak.length), ak = { fontFace: F.xbold, italic: true, breakLine: !last && !b };
+      const a = Z.slice(0, p), b = Z.slice(p + Ak.length), ak = { fontFace: F.black, italic: true, breakLine: !last && !b };
       if (o.akzentFarbe) ak.color = o.akzentFarbe;
       if (a) runs.push({ text: a, options: {} });
       runs.push({ text: Ak, options: ak });
@@ -333,8 +334,9 @@ function bausteine(pres, kx) {
       if (!e || (!e.titel && !e.text)) throw new Error(`B.planlegende: Eintrag ${i + 1} hat weder titel noch text.`);
       const letzter = i === o.eintraege.length - 1;
       if (e.titel) {
-        runs.push({ text: versal(schutz(e.titel)), options: { fontFace: tt.fontFace, fontSize: tt.fontSize, charSpacing: tt.weite, color: tt.color, breakLine: !!e.text || !letzter, paraSpaceBefore: i ? vor : 0, paraSpaceAfter: 2 } });
-        hoehe += zeilenzahl(versal(schutz(e.titel)), tt, geo.w) * zeilenhoehe({ ...tt, zeileMal: st.zeileMal }) + (i ? vor : 0) / 72 + 2 / 72;
+        const tit = tt.versal ? versal(schutz(e.titel)) : schutz(e.titel);
+        runs.push({ text: tit, options: { fontFace: tt.fontFace, bold: !!tt.bold, fontSize: tt.fontSize, ...(tt.weite ? { charSpacing: tt.weite } : {}), color: tt.color, breakLine: !!e.text || !letzter, paraSpaceBefore: i ? vor + 4 : 0, paraSpaceAfter: 3 } });
+        hoehe += zeilenzahl(tit, tt, geo.w) * zeilenhoehe({ ...tt, zeileMal: st.zeileMal }) + (i ? vor : 0) / 72 + 2 / 72;
       }
       if (!e.text) return;
       const lr = laeufe(e.text, st, { absatz: { fontSize: pt, ...(!e.titel && i ? { paraSpaceBefore: 8 } : {}) } });
@@ -583,7 +585,7 @@ function bausteine(pres, kx) {
     if (kx.quelle) throw new Error('B.quelle: Die Folie trägt schon eine Quellenzeile.');
     kx.quelle = true;
     const t = schutz(text.trim()), mass = z => breite(z, QUELLE), zh = zeilenhoehe(QUELLE);
-    const links = X0 + Math.max(breite(PROJEKT, SF_PROJEKT), breite(kx.rubrik, SF_RUBRIK)), rechts = SF.logo - SF.quelleRand, feld = +(rechts - links - SF.quelleAbstand).toFixed(3);
+    const links = SF.text + Math.max(breite(PROJEKT, SF_PROJEKT), breite(kx.rubrik, SF_RUBRIK)), rechts = SF.blatt - SF.quelleRand, feld = +(rechts - links - SF.quelleAbstand).toFixed(3);
     // Teilung in zwei Zeilen: die ausgeglichenste, deren erste Zeile auf das Muster endet
     const teile = muster => {
       let beste = null;
@@ -1193,7 +1195,7 @@ function bausteine(pres, kx) {
   const kopfFeld = (wort, re, felder) => (s, o) => {
     if (!re.test(kx.layout || '')) throw new Error(`B.${wort.toLowerCase()}kopf braucht das Layout PGN_${wort.toUpperCase()} oder PGN_${wort.toUpperCase()}_MR. Auf anderen Layouts B.modulkopf verwenden.`);
     if (!o || !o.titel) throw new Error(`B.${wort.toLowerCase()}kopf: titel fehlt.`);
-    const t = versal(schutz(o.titel)), w = span(8);
+    const t = schutz(o.titel), w = wort === 'Diagramm' ? span(7) : span(8);
     if (P) P.zeile(`${wort}titel`, t, stil('diagrammtitel'), w);
     s.addText(t, { placeholder: felder[0] });
     if (o.sub) { const u = schutz(o.sub); if (P) P.zeile(`${wort}-Untertitel`, u, stil('sub'), w); s.addText(u, { placeholder: felder[1] }); }

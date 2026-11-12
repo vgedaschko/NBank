@@ -158,11 +158,11 @@ function definiereLayouts(pres) {
   paar('DIAGRAMM', () => {
     const z = ZONE.diagramm;
     return [
-      linie(colX(1), z.kopf, span(8), 0, C.tinte, 1.5, 'Modulkopf-Linie Diagramm'),
-      ph('diagrammtitel', { x: colX(1), y: z.titel, w: span(8), h: 0.26, fontFace: F.xbold, fontSize: 13, charSpacing: 0.9, color: C.tinte, valign: 'middle' }, 'DIAGRAMMTITEL'),
-      ph('diagrammsub', { x: colX(1), y: z.sub, w: span(8), h: 0.24, fontFace: F.text, fontSize: 12, color: C.grau, valign: 'middle' }, 'Untertitel mit Einheit'),
+      linie(colX(1), z.kopf, span(7), 0, C.tinte, 1.5, 'Modulkopf-Linie Diagramm'),
+      ph('diagrammtitel', { x: colX(1), y: z.titel, w: span(7), h: 0.30, fontFace: F.mont, bold: true, fontSize: 16, color: C.tinte, valign: 'middle' }, 'Diagrammtitel'),
+      ph('diagrammsub', { x: colX(1), y: z.sub, w: span(7), h: 0.24, fontFace: F.text, fontSize: 12, color: C.grau, valign: 'middle' }, 'Untertitel mit Einheit'),
       { placeholder: { options: { name: 'chart', type: 'chart', objectName: 'Diagramm', ...z.chart, color: C.tinte } } },
-      linie(colX(9), z.kopf, span(4), 0, C.tinte, 1.5, 'Modulkopf-Linie Kommentar'),
+      linie(colX(8), z.kopf, span(5), 0, C.tinte, 1.5, 'Modulkopf-Linie Kommentar'),
       ph('kommentar', { ...z.kommentar, fontFace: F.text, fontSize: 16, lineSpacingMultiple: 1.12, color: C.anthrazit }, 'Kommentar, höchstens 45 Wörter'),
     ];
   });
@@ -172,7 +172,7 @@ function definiereLayouts(pres) {
     const z = ZONE.tabelle;
     return [
       linie(colX(1), z.kopf, CW, 0, C.tinte, 1.5, 'Modulkopf-Linie'),
-      ph('tabellentitel', { x: colX(1), y: z.titel, w: span(8), h: 0.26, fontFace: F.xbold, fontSize: 13, charSpacing: 0.9, color: C.tinte, valign: 'middle' }, 'TABELLENTITEL'),
+      ph('tabellentitel', { x: colX(1), y: z.titel, w: span(8), h: 0.30, fontFace: F.mont, bold: true, fontSize: 16, color: C.tinte, valign: 'middle' }, 'Tabellentitel'),
       ph('tabellensub', { x: colX(1), y: z.sub, w: span(8), h: 0.24, fontFace: F.text, fontSize: 12, color: C.grau, valign: 'middle' }, 'Untertitel mit Einheit'),
       ph('kommentar', { ...z.kommentar, fontFace: F.text, fontSize: 14, lineSpacingMultiple: 1.12, color: C.anthrazit }, 'Kommentar neben einer Tabelle über acht Spalten'),
       ph('notiz', { ...z.notiz, fontFace: F.text, fontSize: 12, color: C.grau, valign: 'bottom' }, 'Notiz unter der Tabelle'),

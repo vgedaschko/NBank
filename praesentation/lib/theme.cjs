@@ -66,19 +66,19 @@ const span = n => r3(n * PITCH - GUT);
 const Y = {
   // kickerW: Breite des Kickerfelds. Es endet bei x 7,967, 0,15 vor dem Feld „Programmteil“ des Schlüsselplans; der Kicker darf es bis auf
   // 10 % Reserve füllen (6,27 Zoll; der längste, „MODELLRECHNUNG · ZAHLUNGSFLUSS FREI FINANZIERT“, misst 6,21)
-  kicker: 0.42, kickerH: 0.30, kickerW: 6.9, titel: 0.84, titelH: 0.98,
+  kicker: 0.44, kickerH: 0.30, kickerW: 6.9, titel: 0.86, titelH: 1.06,
   deck: 1.90, deckH: 0.26, inhaltNachDeck: 2.40,
   inhalt: 2.10, inhaltEnde: 6.50, anhangInhalt: 1.50,
-  fuss: 6.78, fussH: 0.44,
+  fuss: 6.72, fussH: 0.48,
 };
 const ZONE = {
   // Layout PGN_DIAGRAMM(_MR). Die Kommentarspalte beginnt 0,07 unter der Modulkopf-Linie: Ihr Modultitel (erste Zeile, oben verankert) steht dann
   // auf derselben Höhe wie der Diagrammtitel links (Feld 2,18 bis 2,44, mittig)
   // spalte: rechte Spalte mit Kennzahlen statt Kommentar (Folien 3 bis 6 und 22): Hauptzahl ab y1, zweites Modul ab y2 (B.hauptzahl, B.nebenzahl, B.zweitesModul)
-  diagramm: { kopf: 2.10, titel: 2.18, sub: 2.44, legende: 2.70, chart: { x: colX(1), y: 2.95, w: span(8), h: 3.55 }, kommentar: { x: colX(9), y: 2.17, w: span(4), h: 4.33 },
+  diagramm: { kopf: 2.10, titel: 2.18, sub: 2.50, legende: 2.80, chart: { x: colX(1), y: 3.06, w: span(7), h: 3.44 }, kommentar: { x: colX(8), y: 2.19, w: span(5), h: 4.31 },
     spalte: { x: colX(9), w: span(4), y1: 2.10, y2: 4.40, ende: 6.50 } },
   // Layout PGN_TABELLE(_MR)
-  tabelle: { kopf: 2.10, titel: 2.18, sub: 2.44, tabelle: 2.80, tabelleEnde: 6.20, notiz: { x: colX(1), y: 6.05, w: CW, h: 0.45 }, kommentar: { x: colX(9), y: 2.17, w: span(4), h: 4.33 } },
+  tabelle: { kopf: 2.10, titel: 2.18, sub: 2.50, tabelle: 2.84, tabelleEnde: 6.20, notiz: { x: colX(1), y: 6.05, w: CW, h: 0.45 }, kommentar: { x: colX(9), y: 2.17, w: span(4), h: 4.33 } },
   // Layout PGN_ABLAUF
   ablauf: { achse: 2.55, textVon: 3.00, textBis: 5.55, warnband: 5.95, warnbandH: 0.42 },
   // Layout PGN_KENNZAHLEN(_MR)
@@ -96,7 +96,7 @@ const ZONE = {
   // Schriftfeld der Inhalts- und Anhangfolien (Y.fuss, Höhe Y.fussH): links Projektzeile und Rubrik, ab „logo“ das Logo-Feld, ab „blatt“ die Blatt-Zelle.
   // Dazwischen liegt das freie Feld für die Quellenzeile (B.quelle): rechtsbündig, „quelleRand“ vor dem Logo-Feld, mindestens „quelleAbstand“
   // hinter der längeren der beiden Zeilen links
-  schriftfeld: { logo: 10.867, blatt: 11.817, quelleRand: 0.16, quelleAbstand: 0.30 },
+  schriftfeld: { logoEnde: 2.20, text: 2.40, blatt: 12.033, quelleRand: 0.20, quelleAbstand: 0.30 },
   register: { x: W - 0.42, w: 0.42, h: 0.62, y0: 2.10, schritt: 0.74 },
 };
 const Raster = { W, H, X0, X1, CW, PITCH, GUT, colX, span, Y, ZONE };
@@ -130,9 +130,9 @@ const SKALA = {
   klein:         { fontFace: F.text, fontSize: 12, zeileMal: 1.12, farbe: 'sekundaer' },
   kleinText:     { fontFace: F.text, fontSize: 12, zeileMal: 1.12, farbe: 'text' },
   deck:          { fontFace: F.montLight, fontSize: 14, zeileMal: 1.10, weite: 0.4, farbe: 'text', versal: true },
-  kicker:        { fontFace: F.mont, bold: true, fontSize: 12, weite: 1.9, farbe: 'akzent', versal: true },
-  modultitel:    { fontFace: F.xbold, fontSize: 13, weite: 0.5, farbe: 'titel', versal: true },
-  diagrammtitel: { fontFace: F.xbold, fontSize: 13, weite: 0.9, farbe: 'titel', versal: true },
+  kicker:        { fontFace: F.mont, bold: true, fontSize: 12, weite: 1.0, farbe: 'titel', versal: true },
+  modultitel:    { fontFace: F.mont, bold: true, fontSize: 16, farbe: 'titel' },
+  diagrammtitel: { fontFace: F.mont, bold: true, fontSize: 16, farbe: 'titel' },
   sub:           { fontFace: F.text, fontSize: 12, farbe: 'sekundaer' },
   tabellenkopf:  { fontFace: F.mont, bold: true, fontSize: 12, weite: 0.7, farbe: 'sekundaer', versal: true },
   label:         { fontFace: F.medium, fontSize: 10, farbe: 'sekundaer' },

@@ -8,7 +8,7 @@
        Werte der PGN-Rechnung (VOFI-Mappe v3, Projekt 2 seit 11.11.2026; Eingaben 5.1–5.3 und 3.1, Übersicht Zeilen 29–39): Mietausfall 2 %, Verwaltung 367 € je
        Wohnung, Instandhaltung 14,40 € je m² (Kostenstand 2026), Tilgung 2,38 % (PGN-Annahme: linear über 42 Jahre); Tabelle zeigt Jahr 1.
        Säulen in Anteilen der Gesamtkosten (42 mm = 100 %): A 40 | 40 | 20, B 20 | 60 | 20, C 10 | 70 | 20 %, in allen Gruppen 3,0 Mio. €.
-       H1 in .h1--s (20 pt): die erste Zeile „Alle drei Gruppen tragen sich ab Jahr 1:“ passt in 25 pt nicht auf den Satzspiegel; S. 10 zieht mit.
+       H1 in 25 pt: die Aussage läuft als zweite Stimme (.light) über der Hauptzeile mit dem Kennwert.
        Korrekturlauf 1: Mietausfall als Erlösschmälerung in Zeile 1 (Unterzeile, Zeilennummer per rowspan); Kalkulationsnotiz
        und Angebotssatz entfallen; 80-%-Linie läuft hinter den Säulen (nur in den Zwischenräumen sichtbar), Eigenmittelwerte
        stehen neben der Säule statt auf einem Feld in der Schraffur. */
@@ -44,30 +44,33 @@
     .page[data-page="11"] .p11-cmp-t col.p11-cmp-val { width: 23mm; }
     .page[data-page="11"] .p11-cmp-t th, .page[data-page="11"] .p11-cmp-t td { padding-top: .9mm; padding-bottom: .9mm; }
     .page[data-page="11"] .p11-cmp-t thead th { padding-top: .2mm; padding-bottom: .3mm; vertical-align: middle; }
+    /* Stufung und Zuteilung nach styles.css §8b. Seitenlokal nur: Vorspann als erster Satz in 12 pt, der Rest als Text darunter;
+       Fußzeile der Tabelle in 8,5 pt. */
+    .page[data-page="11"] .p11-intro .body { margin-top: 2.2mm; color: var(--fg-2); }
+    .page[data-page="11"] .p11-jr tfoot td { font-size: var(--fs-micro); }
   </style>
 
   <div class="bs-register" data-bleed aria-hidden="true">2.1</div>
 
-  <div class="kicker-row">
-    <p class="kicker kicker--plain">Modellrechnung · Wirtschaftlichkeit</p>
-  </div>
-  <h1 class="h1 h1--s">Alle drei Gruppen tragen sich ab Jahr 1:<br><em>15.003&nbsp;€ Zahlungsüberschuss in A</em></h1>
+  <header class="page__header"><span class="page__section">Modellrechnung</span><div class="keyplan" role="img" aria-label="Programmteil 2.1 von sechs Programmteilen"><span class="keyplan__label">Programmteil</span><ol class="keyplan__list"><li class="bs-21 is-on">2.1</li><li class="bs-22">2.2</li><li class="bs-23">2.3</li><li class="bs-24">2.4</li><li class="bs-25">2.5</li><li class="bs-26">2.6</li></ol></div></header>
+  <h1 class="h1"><span class="light">Alle drei Gruppen tragen sich ab Jahr 1</span><em>15.003&nbsp;€</em> Zahlungsüberschuss in A</h1>
 
   <!-- Band 1 · Vorspann + Legende (6, am Bund) | Finanzierung A | B | C (6, außen; Säulen über den Tabellenspalten) -->
   <div class="l-grid p11-c">
     <div class="l-span-6 p11-intro">
-      <p class="lead lead--s u-hyphens">Das Modellhaus von S. 10 in drei Varianten, jede mit 80 % Förderung. B und C erhalten weniger Zuschuss und mehr Darlehen als A. Die Höchstmiete ist höher. Beide setzen eine Zulassung in der Förderentscheidung voraus (<a class="pageref" href="#seite-06">→&nbsp;S.&nbsp;6</a>). Im Modell ist sie möglich, weil der Standort per Verordnung als angespannter Wohnungsmarkt gilt.</p>
+      <p class="lead">Das Modellhaus von S. 10 in drei Varianten, jede mit 80 % Förderung.</p>
+      <p class="body u-hyphens">B und C erhalten weniger Zuschuss und mehr Darlehen als A. Die Höchstmiete ist höher. Beide setzen eine Zulassung in der Förderentscheidung voraus (<a class="pageref" href="#seite-06">→&nbsp;S.&nbsp;6</a>). Im Modell ist sie möglich, weil der Standort per Verordnung als angespannter Wohnungsmarkt gilt.</p>
       <ul class="legend p11-legend">
         <li><i class="sw sw--loan"></i>Darlehen</li>
         <li><i class="sw sw--grant"></i>Zuschuss</li>
         <li><i class="sw sw--equity"></i>Eigenmittel, mind.</li>
         <li><i class="sw sw--axis"></i>Förderung, bis zu 80 %</li>
       </ul>
-      <h2 class="chart__title p11-jr-h" id="p11-jr-h">Jahresrechnung Jahr 1, in € p. a.</h2>
+      <h2 class="chart__title p11-jr-h" id="p11-jr-h">Jahresrechnung Jahr 1 <span class="chart__unit">in € p. a.</span></h2>
     </div>
     <figure class="l-span-6 chart module p11-mix" role="group" aria-labelledby="p11-mix-h">
       <figcaption class="chart__head">
-        <h2 class="chart__title" id="p11-mix-h">Finanzierung in Mio. €</h2>
+        <h2 class="chart__title" id="p11-mix-h">Finanzierung <span class="chart__unit">in Mio. €</span></h2>
         <p class="chart__sub">Gesamtkosten je 3,0 Mio. € · Höchstsätze</p>
       </figcaption>
       <svg class="chart__svg p11-mix__svg" viewBox="0 0 87.5 43.6" width="87.5mm" height="43.6mm" role="img" aria-label="Finanzierung in Millionen Euro, Gesamtkosten je 3,0 Millionen Euro, Höchstsätze, je Einkommensgruppe: A Darlehen 1,2, Zuschuss 1,2, Eigenmittel mindestens 0,6; B Darlehen 1,8, Zuschuss 0,6, Eigenmittel mindestens 0,6; C Darlehen 2,1, Zuschuss 0,3, Eigenmittel mindestens 0,6. Förderung bis zu 80 Prozent in allen drei Gruppen je 2,4. Die Säulen stehen über den Spalten A, B und C der Jahresrechnung."><path class="cap-line" d="M0,9.4H87.5"/><rect class="c-grant" x="10" y="26.55" width="15" height="16.45"/>
@@ -87,7 +90,7 @@
   </div>
 
   <!-- Hauptelement · Jahresrechnung (Spalten A | B | C unter den Säulen) -->
-  <table class="table table--sheet p11-jr" aria-labelledby="p11-jr-h">
+  <table class="table table--sheet p11-jr u-nohyphens" aria-labelledby="p11-jr-h">
     <colgroup><col class="col-no"><col><col class="p11-c-val"><col class="p11-c-val"><col class="p11-c-val"></colgroup>
     <thead><tr><th scope="col" aria-label="Zeile"></th><th scope="col">Position</th><th scope="col" class="p11-abc"><span class="axis-no axis-no--s">A</span></th><th scope="col" class="p11-abc"><span class="axis-no axis-no--s">B</span></th><th scope="col" class="p11-abc"><span class="axis-no axis-no--s">C</span></th></tr></thead>
     <tbody>
@@ -96,7 +99,7 @@
       <tr><th scope="row">2</th><td class="is-hang"><span class="table__op">−</span> Objektverwaltung, 367 € je Wohnung p. a. (Betriebskosten voll umgelegt)</td><td class="num">5.138</td><td class="num">5.138</td><td class="num">5.138</td></tr>
       <tr><th scope="row">3</th><td class="is-hang"><span class="table__op">−</span> Instandhaltung, 14,40 € je m² p. a.</td><td class="num">11.923</td><td class="num">11.923</td><td class="num">11.923</td></tr>
       <tr class="is-sum"><th scope="row">4</th><td class="is-hang"><span class="table__op">=</span> Überschuss vor Kapitaldienst</td><td class="num">49.152</td><td class="num">62.784</td><td class="num">70.574</td></tr>
-      <tr><th scope="row">5</th><td class="is-hang"><span class="table__op">−</span> Verwaltungskostenbeitrag, 0,5 % des Restkapitals (Jahr 1, nach Vollauszahlung)</td><td class="num">5.927</td><td class="num">8.890</td><td class="num">10.372</td></tr>
+      <tr><th scope="row">5</th><td class="is-hang"><span class="table__op">−</span> Verwaltungskostenbeitrag, 0,5 % des Restkapitals <span class="u-nowrap">(Jahr 1, nach Vollauszahlung)</span></td><td class="num">5.927</td><td class="num">8.890</td><td class="num">10.372</td></tr>
       <tr><th scope="row">6</th><td class="is-hang"><span class="table__op">−</span> Zins NBank-Darlehen, 0 % bis Ende Jahr 35</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
       <tr><th scope="row">7</th><td class="is-hang"><span class="table__op">−</span> Tilgung 2,38 % p. a. (Annahme: 42 Jahre) auf <span class="u-nowrap">1,2 | 1,8 | 2,1 Mio. €</span> Darlehen</td><td class="num">28.223</td><td class="num">42.334</td><td class="num">49.390</td></tr>
       <tr class="is-result on-red"><th scope="row">8</th><td class="is-hang"><span class="table__op">=</span> Zahlungsüberschuss p. a.</td><td class="num">15.003</td><td class="num">11.560</td><td class="num">10.812</td></tr>

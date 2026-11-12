@@ -163,12 +163,19 @@ async function main() {
       const kicker = opt.kicker !== undefined ? opt.kicker : zitat(inh, /Kicker: „([^“]+)“/);
       if (hat('kicker')) {
         if (!kicker) throw new Error(`Folie „${o.id}“: Kicker fehlt (ctx.folie({ kicker }) oder im Konzept „Kicker: „…““).`);
-        const k = T.versal(kicker);
+        const [kAbschnitt, kThema] = String(kicker).split(' · ');
+        const k = T.versal(lay.art === 'anhang' ? kicker : kAbschnitt);
+        if (lay.art !== 'anhang' || true) {
+          const NR = { 'Ausgangslage': '1', 'Programmteil 2.1': '2', 'Modellrechnung': '3', 'Umsetzung': '4', 'Anhang': 'A' };
+          ausnahmen.set('Abschnitt im Kopf', 'Zeichen des Abschnitts in der Kopfzeile');
+          B.achskreis(slide, { cx: T.X0 + 0.15, cy: T.Y.kicker + 0.15, groesse: 'S', text: NR[o.abschnitt] || '·', name: 'Abschnitt im Kopf' });
+        }
+        opt.__thema = kThema;
         P.zeile('Kicker', k, { fontFace: T.F.mont, bold: true, fontSize: 12, weite: 1.9 }, +(T.Y.kickerW / 1.1).toFixed(2));   // 10 % Reserve im Kickerfeld
         slide.addText(k, { placeholder: 'kicker' });
       }
       if (hat('rubrik')) {
-        const r = T.versal(opt.rubrik !== undefined ? opt.rubrik : zitat(inh, /Rubrik[^:„“]*: „([^“]+)“/) || kicker || o.abschnitt);
+        const r = T.versal(opt.rubrik !== undefined ? opt.rubrik : zitat(inh, /Rubrik[^:„“]*: „([^“]+)“/) || opt.__thema || kicker || o.abschnitt);
         P.zeile('Rubrik im Schriftfeld', r, { fontFace: T.F.mont, bold: true, fontSize: 10, weite: 0.6 }, lay.art === 'abschnitt' ? 7.0 : 8.0);
         kx.rubrik = r;   // B.quelle rechnet die Breite der Rubrik: Die Quellenzeile steht im selben Schriftfeld rechts davon
         zuletzt.push(() => slide.addText(r, { placeholder: 'rubrik' }));

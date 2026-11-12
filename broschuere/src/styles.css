@@ -82,12 +82,12 @@
   --fs-h1: 25pt;             /* Seitentitel, Montserrat 900 Versalien */
   --fs-h1-s: 20pt;
   --fs-h2: 13pt;             /* Abschnittstitel, Montserrat 900 Versalien */
-  --fs-h3: 10.5pt;           /* Modultitel, Montserrat 700, gemischt */
+  --fs-h3: 12pt;             /* Modultitel, Montserrat 800, gemischt */
   --fs-h4: 8.5pt;            /* Versal-Label */
-  --fs-deck: 10.5pt;         /* Unterzeile unter H1: Montserrat 300 Versalien, Kennwert 800 Rot */
-  --fs-lead: 11pt;           /* Vorspann: Work Sans */
-  --fs-body: 9.75pt;         /* Fließtext: Work Sans 400 */
-  --fs-small: 9pt;
+  --fs-deck: 12pt;           /* Unterzeile unter H1 = Vorspannstufe: Work Sans, gemischt */
+  --fs-lead: 12pt;           /* Vorspann: Work Sans */
+  --fs-body: 9.5pt;          /* Text: Work Sans 400 – eine Textgröße je Seite */
+  --fs-small: 9.5pt;         /* = Textgröße (Stufung: 25 | 15,5 | 12 | 9,5 | 8,5) */
   --fs-micro: 8.5pt;         /* Minimum – Fundstellen, Fußnoten, Bildunterschriften, Achsen, Versal-Labels */
   --fs-module: var(--fs-small);   /* Modultext: Listen, Kästen, Kacheln, Tabellenzellen (9 pt) */
   --fs-label-accent: 9pt;    /* rote Versal-Labels (Druckregel: rote Schrift ≥ 9 pt) */
@@ -99,10 +99,10 @@
 
   --lh-display: .92;
   --lh-head: 1.04;
-  --lh-lead: 1.45;
-  --lh-body: 1.47;
-  --lh-small: 1.4;
-  --lh-module: 1.38;
+  --lh-lead: 1.36;
+  --lh-body: 1.42;
+  --lh-small: 1.42;
+  --lh-module: 1.42;
   --track-caps: .1em;        /* Versal-Labels */
   --track-kicker: .16em;
   --track-head: -.005em;     /* Montserrat 900 Versalien */
@@ -1969,6 +1969,40 @@ abbr { text-decoration: none; }
 .deko--isoraster { width: 100%; height: 100%; opacity: .6; }
 .deko--dachlinie { width: 100%; height: 12mm; color: var(--fg-3); }
 .deko--dachlinie .deko-acc { stroke: var(--accent); }
+
+/* -----------------------------------------------------------------------------
+   8b · STUFUNG UND ZUTEILUNG (12.11.2026) – gilt für alle Innenseiten, DESIGN.md §0a
+   Schriftstufen: 25 pt H1 | 15,5 pt zweite Stimme im H1 | 12 pt Vorspann, Unterzeile, Modultitel | 9,5 pt Text und
+   Tabellen | 8,5 pt Labels, Unterzeilen der Abbildungen, Achsen. Dazwischen steht nichts.
+   Versalien: nur H1, Kolumnentitel/Schriftfeld und die 8,5-pt-Labels. Modultitel und Unterzeile laufen gemischt.
+   Rot: Titellinie und ein Wort oder eine Zahl im H1, Zuschuss in Daten, Ergebniszeile, Achtung/Stichtag, Register und
+   Programmteilfarbe, Logo. Labels, Einheiten, Aufzählungszeichen, Verweise und Hilfslinien stehen in Schwarz.
+   ----------------------------------------------------------------------------- */
+.h1--s { font-size: var(--fs-h1); }                       /* Stufe entfällt; Klasse nicht mehr verwenden */
+.h1 .light, .display .light { margin-bottom: 1.2mm; color: var(--fg); }
+.page__header { margin-bottom: var(--sp-5); }
+.lead { color: var(--fg); }
+.lead--s { font-size: var(--fs-lead); }                   /* Stufe entfällt; Klasse nicht mehr verwenden */
+.deck, .deck--s { font-family: var(--font-text); font-weight: 400; font-size: var(--fs-deck); line-height: var(--lh-lead); letter-spacing: 0; text-transform: none; color: var(--fg); text-wrap: pretty; }
+.deck b, .deck strong, .deck--s b, .deck--s strong { font-weight: 600; color: var(--fg); white-space: normal; letter-spacing: 0; }
+.h3, .fig-head__title, .chart__title, .plan-legend__title { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-h3); line-height: 1.2; letter-spacing: 0; text-transform: none; color: var(--fg); }
+.chart__unit { font-size: var(--fs-body); margin-left: .6mm; }
+.pageref { display: inline; padding: 0; background: none; font-family: var(--font-text); font-size: 1em; font-weight: 600; line-height: inherit; color: var(--fg); }
+.page--dark .pageref, .on-dark .pageref, .contact--dark .pageref { box-shadow: none; color: var(--fg); }
+/* Rot zugeteilt: diese Rollen stehen in Schwarz */
+.kicker { color: var(--fg); }
+.kf__pre, .term__label, .contact__label, .service__phase, .audience__label, .label--accent { color: var(--fg); }
+.kf__unit, .seal__unit, .model__value small, .formula__op, .toc__no, .footnotes__no, .fn, .faq__item::before, .bullets--num > li::before { color: var(--fg); }
+.dropcap::first-letter { color: var(--fg); }
+.bullets > li::before, .audience__item + .audience__item::before { background: var(--fg); }
+.bullets--check > li::before, .bullets--num > li::before { background: none; }
+.term, .note { border-left-color: var(--fg); }
+.cap-line, .dim-line--acc, .dim-tick--acc, .axb-c--acc { stroke: var(--fg); }
+.chart__svg .t-acc { fill: var(--fg); }
+.dim__seg--acc { --dim-c: var(--fg); color: var(--fg); }
+.sw--axis { --sw-axis: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4.6 .25' preserveAspectRatio='none'%3E%3Cpath d='M0,.125H4.6' stroke='%231D1D1B' stroke-width='.25' stroke-dasharray='1.6 .5 .4 .5'/%3E%3C/svg%3E"); }
+/* Dichte Nachschlageseite: wenn 9,5 pt nicht aufgeht, die ganze Seite auf 9 pt – nie gemischt */
+.page--dicht { --fs-body: 9pt; --fs-small: 9pt; --lh-body: 1.4; --lh-small: 1.4; --lh-module: 1.38; }
 
 /* -----------------------------------------------------------------------------
    9 · BILDSCHIRMVORSCHAU

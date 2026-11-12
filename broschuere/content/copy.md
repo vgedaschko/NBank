@@ -952,7 +952,7 @@ Bahnen: Sie · Wohnraumförderstelle · NBank
 1. **Vorgespräch** (Wohnraumförderstelle + Sie): Nachweise und Unterlagen vorab klären
 2. **Antrag** (Sie): bei der Wohnraumförderstelle am Bauort; für 2.6 erst nach dem Prolongationsangebot (→ S. 17)
 3. **Stellungnahme** (Wohnraumförderstelle): Bedarfsbestätigung, ggf. Anhörung der Gemeinde, Weiterleitung an die NBank
-4. **Entscheidung** (NBank): Fördervertrag, bei reinem Zuschuss Bewilligungsbescheid · *Fähnchen: Ziel: höchstens drei Monate*
+4. **Förderentscheidung** (NBank): Fördervertrag, bei reinem Zuschuss Bewilligungsbescheid · *Fähnchen: Ziel: höchstens drei Monate*
 5. **Bauausführung** (Sie): Aufträge im Wettbewerb vergeben, Baubeginn anzeigen (→ S. 21) · *Fähnchen: Baubeginn unverzüglich, spätestens vier Monate nach Bekanntgabe der Förderentscheidung*
 6. **Auszahlung** (NBank): in Raten auf Ihre Anforderung, nach Baufortschritt (→ S. 9)
 7. **Fertigstellung** (Wohnraumförderstelle + Sie): Fertigstellung anzeigen; Vermietung nur mit WBS; letzte 10 % nach Schlussbescheinigung und Belegung

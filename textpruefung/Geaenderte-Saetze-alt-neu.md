@@ -28,7 +28,7 @@ Zeilenende). Auf Wunsch gehen sie auf den alten Wortlaut zurück.
 | 5 | Label der Hauptzahl: „Kapitaldienst je m² und Monat“ | „je m² und Monat“ (stand im Titel und im Diagrammtitel) |
 | 22 | Thema im Schriftfeld: „Baukosten der PGN“; Untertitel des Diagramms zweizeilig | „Herstellungskosten der PGN“; Untertitel einzeilig, die zweite Zeile stand im Modul „Grundlage“ |
 | 24 | Eintrag „Höchstmiete“ mit Betrag 6,80 € | Betrag steht einmal, in der Kachel darüber |
-| 26 | Station 4: „Entscheidung“ | „Förderentscheidung“ (zwei Wörter für den Akt statt drei; die Broschüre S. 19 schreibt weiter „Entscheidung“) |
+| 26 | Station 4: „Entscheidung“ | „Förderentscheidung“ (zwei Wörter für den Akt statt drei; die Broschüre S. 19 ist angeglichen) |
 | A0 | Vorspann: „… Eigenkapital, Tilgung und Quellen“ | „… Eigenkapital und Tilgungsschwelle · Quellen und Hinweis“ |
 
 ## Broschüre

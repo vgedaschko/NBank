@@ -290,7 +290,7 @@ Fünf Titel stehen ohne Doppelpunkt (Folien 9 und 15 bis 18), Station 4 der Foli
 weiter „Entscheidung“.
 
 Durchsicht nach dem Ausrollen vom 12.11.2026 (Entscheidung 35 des Konzepts): Drei weitere Titel stehen ohne Doppelpunkt am Zeilenende
-(Folien 5, 14 und 22, mit denselben Zahlen). Das Label der Hauptzahl der Folie 5 heißt „je m² und Monat“, der Untertitel der Folie 22 steht in
+(Folien 5, 14 und 22, mit denselben Zahlen; vom Auftraggeber am 12.11.2026 freigegeben). Das Label der Hauptzahl der Folie 5 heißt „je m² und Monat“, der Untertitel der Folie 22 steht in
 einer Zeile, der Eintrag „Höchstmiete“ der Folie 24 nennt den Betrag nicht noch einmal. Die Blatt-Zelle des Anhangs heißt „Blatt“.
 
 Bekannte Abweichungen von Muster 2, über die der Auftraggeber entscheidet:
@@ -299,7 +299,7 @@ Bekannte Abweichungen von Muster 2, über die der Auftraggeber entscheidet:
   und Work Sans führen sie nur als OpenType-Funktion, die PowerPoint nicht schaltet. Abhilfe wäre eine eigens erzeugte Schriftdatei; die Mappe
   soll aber bei Montserrat und Work Sans bleiben.
 - **Rot auf A8:** Marke der Jahresrechnung, Feld „Gruppe A vorn“ und Fläche stehen auf Wunsch des Auftraggebers vom 11.11.2026 in Rot
-  (Entscheidung 30). Nach Muster 2 stünden Hilfslinie und Labels in Tinte wie auf Folie 20.
+  (Entscheidung 30). Nach Muster 2 stünden Hilfslinie und Labels in Tinte wie auf Folie 20. Am 12.11.2026 bestätigt: Es bleibt bei Rot.
 - **Titel im Anhang:** A1 bis A6 und A9 tragen kein Signaturwort in Rot, A7 und A8 tragen eines. Der Bau verlangt es nur auf Inhaltsfolien.
 - **Doppelpunkt am Zeilenende:** Die Titel der Folien 7, 10 und 23 behalten ihn; ohne neuen Wortlaut lässt er sich dort nicht vermeiden.
 - **Folie 10:** Der Text rechts steht in 14 pt (Tabelle und zwei Einträge), auf der Nachbarfolie 11 in 16 pt. In 16 pt passt er nur gekürzt.

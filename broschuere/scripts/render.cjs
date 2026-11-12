@@ -429,6 +429,15 @@ function browserFontTuples() {
       const c = h.cloneNode(true);
       c.querySelectorAll('.fn, [aria-hidden="true"], .stamp').forEach((x) => x.remove());
       c.querySelectorAll('br').forEach((x) => x.replaceWith(' '));
+      // Zweite Stimme (.light) und Hauptzeile: im Lesezeichen immer durch „: “ getrennt, auch wenn im Quelltext kein
+      // Leerzeichen dazwischen steht; kein Doppelpunkt, wenn die zweite Stimme schon mit einem Satzzeichen endet
+      c.querySelectorAll('.light').forEach((x) => {
+        const t = x.textContent.replace(/\s+/g, ' ').trim();
+        let rest = '';
+        for (let n = x.nextSibling; n; n = n.nextSibling) rest += n.textContent;
+        if (!t || !rest.trim()) return;
+        x.replaceWith(/[.:;,!?…–—-]$/.test(t) ? `${t} ` : `${t}: `);
+      });
       return c.textContent.replace(/­/g, '').replace(/\s+/g, ' ').trim();
     };
     return [...document.querySelectorAll('.page')].map((p, i) => {

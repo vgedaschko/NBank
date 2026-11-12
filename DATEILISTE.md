@@ -6,6 +6,8 @@ Die Spalte „Vorschlag“ gilt erst nach Freigabe.
 
 Nachtrag 12.11.2026: Nach Freigabe liegen im Ordner `archiv/` die Vergleichsbilder (`muster-2/`, `konzepte-baukosten/`), die drei Textdateien (`textpruefung/`), das Hilfsmodul `_fein_pgn-baukosten.cjs` und die Messdatei `.measure-tmp.html`. Alles andere ist geblieben, wo es war. Die Pfade in den Tabellen unten zeigen den Stand vor dem Verschieben.
 
+Nachtrag 12.11.2026, Prüfung der Beispielkalkulation: Im Ordner `pruefung-beispielkalkulation/` liegen die drei Prüfberichte und `Auswertung.md` (Einigkeit und Widerspruch, zehn Rückfragen, Liste zur Entscheidung). Stand: aktuell, gehört zu Vortrag und Excel.
+
 ## Die Ergebnisse, je eine aktuelle Datei
 
 | Ergebnis | Aktuelle Datei | Daraus erzeugt |

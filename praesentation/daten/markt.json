@@ -1335,16 +1335,14 @@
       "q1_2020": {
         "wert": 3028.08,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Herstellung“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 22 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "q4_2025": {
         "wert": 4631.07,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Herstellung“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "kurz": "Herstellung",
       "spanne_q1_2020": {
@@ -1368,16 +1366,14 @@
       "q1_2020": {
         "wert": 725.83,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Grundstück“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 22 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "q4_2025": {
         "wert": 760.72,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Grundstück“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "kurz": "Grundstück",
       "spanne_q1_2020": {
@@ -1401,16 +1397,14 @@
       "q1_2020": {
         "wert": 72.45,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Vorbereitende Maßnahmen“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 22 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "q4_2025": {
         "wert": 113.46,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Vorbereitende Maßnahmen“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "kurz": "Vorb. Maßnahmen",
       "spanne_q1_2020": {
@@ -1434,16 +1428,14 @@
       "q1_2020": {
         "wert": 2440.16,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Bauwerk“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 22 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "q4_2025": {
         "wert": 3712.84,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Bauwerk“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "kurz": "Bauwerk",
       "spanne_q1_2020": {
@@ -1467,16 +1459,14 @@
       "q1_2020": {
         "wert": 113.32,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Außenanlagen“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 22 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "q4_2025": {
         "wert": 174.1,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Außenanlagen“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "kurz": "Außenanlagen",
       "spanne_q1_2020": {
@@ -1500,16 +1490,14 @@
       "q1_2020": {
         "wert": 48.85,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Ausstattung“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 22 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "q4_2025": {
         "wert": 75.77,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Ausstattung“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "kurz": "Ausstattung",
       "spanne_q1_2020": {
@@ -1533,16 +1521,14 @@
       "q1_2020": {
         "wert": 353.29,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q1 2020",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Baunebenkosten“, Spalte „Q1 2020“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 22 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "q4_2025": {
         "wert": 554.9,
         "einheit": "€ je m² Wohnfläche, brutto, Median deutscher Großstädte, Q4 2025",
-        "herkunft": "Altfassung Folie 23, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeile „Baunebenkosten“, Spalte „Q4 2025“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23 (Bruttokosten inkl. MwSt., Medianwerte, dt. Großstädte)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Median); am 12.11.2026 an der Quelle nachgelesen",
+        "geprueft": true
       },
       "kurz": "Baunebenkosten",
       "spanne_q1_2020": {

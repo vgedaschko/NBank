@@ -17,3 +17,7 @@ RdErl. d. MW v. 25.06.2026, Nds. MBl. 2026 Nr. 319 vom 01.07.2026 –
 
 Offene Punkte, die nur die NBank klären kann (z. B. fortgeschriebene Bemessungsgrenzen zum 01.10.2026, Tilgungsmodalitäten),
 stehen am Ende von `factbase.md`.
+
+## Quellen im Volltext
+
+- `quellen/ARGE-2026-Wohnungsbau-in-Deutschland-Endbericht.pdf`: ARGE e. V. (2026), Wohnungsbau in Deutschland 2026 (Endbericht), 110 Seiten; abgerufen am 12.11.2026 von mieterbund.de. Quelle der Kostenwerte je Kostengruppe (S. 32, Abb. 20: Kostenstand Q4 2025; S. 34, Abb. 22 und 23: Kostenstand Q1 2020 und Entwicklung) im Vortrag (Folien 3, 5, 22, 23) und in der Broschüre (S. 10).

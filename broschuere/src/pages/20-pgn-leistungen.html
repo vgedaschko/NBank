@@ -50,6 +50,8 @@
     /* Module unten: Schlüsselfertig (Anthrazit, Spalten 1–7) · Für Kommunen (Papier, Spalten 8–12) --------------- */
     .page[data-page="20"] .p20-mods { align-items: stretch; }
     .page[data-page="20"] .p20-mods .offer-box__title { font: 800 var(--fs-h3)/1.2 var(--font-display); letter-spacing: 0; text-transform: none; }
+    /* Nur der helle Kasten trägt die Kopflinie; ihre Stärke geht vom Innenabstand ab, damit beide Titel auf einer Grundlinie stehen */
+    .page[data-page="20"] .p20-mods .offer-box:not(.offer-box--dark) { padding-top: calc(3.6mm - var(--rule-w)); }
   </style>
 
   <header class="page__header"><span class="page__section">Mit PGN</span></header>
@@ -142,7 +144,7 @@
 
   <!-- Module unten -->
   <div class="l-grid l-bottom p20-mods" style="--row-gap:0">
-    <aside class="l-span-7 offer-box offer-box--dark on-dark" aria-labelledby="p20-sf"><h2 class="offer-box__title" id="p20-sf">Schlüsselfertig</h2><p class="offer-box__text">Über die PGN Projektgesellschaft Nord GmbH bauen wir auch schlüsselfertig als Generalübernehmer. Förderfähig ist das, wenn Sie mindestens drei Unternehmen zum Angebot auffordern, erst nach der Bewilligung beauftragen und der Generalübernehmer vorab schriftlich der Prüfung von Kalkulation, Nachunternehmervergabe und Abrechnung zustimmt.</p></aside>
+    <aside class="l-span-7 offer-box offer-box--dark on-dark" aria-labelledby="p20-sf"><h2 class="offer-box__title" id="p20-sf">Schlüsselfertig</h2><p class="offer-box__text">Über die PGN Projektgesellschaft Nord GmbH bauen wir auch schlüsselfertig als Generalübernehmer. Förderfähig ist das, wenn Sie mindestens drei Unternehmen zum Angebot auffordern, erst nach der Bewilligung <span class="u-nohyphens">beauftragen</span> und der Generalübernehmer vorab schriftlich der Prüfung von Kalkulation, Nachunternehmervergabe und Abrechnung zustimmt.</p></aside>
     <aside class="l-span-5 offer-box" aria-labelledby="p20-ko"><h2 class="offer-box__title" id="p20-ko">Für Kommunen</h2><p class="offer-box__text">Unsere Stadtplanung erarbeitet <span class="u-nohyphens">Bebauungspläne,</span> auch mit Festlegungen für geförderten Mietwohnraum <span class="u-nowrap">(<a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>).</span></p></aside>
   </div>
 

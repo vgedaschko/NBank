@@ -151,7 +151,7 @@ function definiereLayouts(pres) {
       linie(x, z.linie, w, 0, C.tinte, 0.75, `Kennzahl ${i + 1} Oberlinie`),
       ph(`kf${i}_kopf`, { x, y: z.kopf, w, h: 0.22, fontFace: F.mont, bold: true, fontSize: 12, charSpacing: 1.2, color: C.tinte, valign: 'middle' }, 'VORSATZ'),
       ph(`kf${i}_zahl`, { x, y: z.zahl, w, h: z.zahlH, fontFace: F.xbold, fontSize: 44, lineSpacing: 44, color: C.tinte, valign: 'middle' }, '00'),
-      ph(`kf${i}_label`, { x, y: z.label, w, h: z.labelH, fontFace: F.mont, bold: true, fontSize: 14, color: C.tinte }, 'Bezeichnung'),
+      ph(`kf${i}_label`, { x, y: z.label, w, h: z.labelH, fontFace: F.mont, bold: true, fontSize: 16, color: C.tinte }, 'Bezeichnung'),
       ph(`kf${i}_text`, { x, y: z.text, w, h: z.textEnde - z.text, fontFace: F.text, fontSize: 14, lineSpacingMultiple: 1.12, color: C.anthrazit }, 'Text'),
     ];
   }));
@@ -229,7 +229,8 @@ function definiereLayouts(pres) {
   ] });
 
   // --- PGN_ANHANG ----------------------------------------------------------------------------------------------------------
-  pres.defineSlideMaster({ title: 'PGN_ANHANG', background: { color: 'FFFFFF' }, margin: [Y.anhangInhalt, 0.666, 1.0, X0], objects: [...RAHMEN.kopf('hell', { anhang: true }), ...RAHMEN.schriftfeld('hell', 'Anhang')] });
+  // Die Blatt-Zelle heißt „Blatt“ wie auf den Inhaltsfolien: Den Anhang nennen der Kopf und die Nummer A1 bis A9
+  pres.defineSlideMaster({ title: 'PGN_ANHANG', background: { color: 'FFFFFF' }, margin: [Y.anhangInhalt, 0.666, 1.0, X0], objects: [...RAHMEN.kopf('hell', { anhang: true }), ...RAHMEN.schriftfeld('hell')] });
 
   // --- PGN_AUSSAGE_DUNKEL ------------------------------------------------------------------------------------------------------
   pres.defineSlideMaster({ title: 'PGN_AUSSAGE_DUNKEL', background: { path: asset('bg-anthrazit.png') }, margin: rand, objects: [...RAHMEN.kopf('anthrazit'), ...RAHMEN.schriftfeld('anthrazit')] });

@@ -44,7 +44,7 @@ module.exports = {
     // Der Wert der Schwelle steht links der Maßhilfslinie: Rechts davon folgt nach gut einem halben Zoll die Marke der Jahresrechnung mit ihren Werten
     B.text(s, fmt.prozent(schwelle, 2), { x: xS - 0.08 - 0.80, y: band(60000) - 0.12, w: 0.80, h: 0.24, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Schwelle C gegen A' });
 
-    // Marke beim Tilgungssatz der Jahresrechnung: Punkte auf den Linien, die drei Werte rechts der Marke, Bezeichnung unter der Achse
+    // Marke beim Tilgungssatz der Jahresrechnung: Punkte auf den Linien, die drei Werte rechts der Marke
     const xM = xSatz(tJahr);
     B.marke(s, { x: xM, y: d.plot.y, h: d.plot.h, art: 'mass' });
     for (const g of G) B.punkt(s, { cx: xM, cy: d.yWert(bei(g, tJahr)), art: R.LINIEN[g].art, name: 'Punkt ' + g });

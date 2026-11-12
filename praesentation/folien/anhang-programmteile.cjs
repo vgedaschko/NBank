@@ -25,7 +25,8 @@ module.exports = {
     if (lagen.flatMap(l => l.teile).join() !== zeilen.map(z => z.nr).join()) P.melde('Die Programmteile der Ausgangslagen und die Zeilen der Tabelle stehen nicht in derselben Reihenfolge.');
     const zeile = lagen.map(l => `**${l.text}:** ${l.teile.join(', ')}`).join(' · ');
     P.zeile('Zeile über der Tabelle', B.schutz(zeile).replace(/\*\*/g, ''), { fontFace: F.semi, fontSize: 12 }, w);   // mit der halbfetten Schrift gerechnet
-    const yTab = B.modulkopf(s, { x, y: y0, w, titel: T('tabellentitel'), rechts: T('untertitel'), sub: zeile }) - 0.06;
+    // Die Tabelle beginnt 0,64 unter der Kopflinie, dicht unter der Zeile der Ausgangslagen: Sie füllt die Inhaltszone bis zur Fußzeile
+    const yTab = B.modulkopf(s, { x, y: y0, w, titel: T('tabellentitel'), rechts: T('untertitel'), sub: zeile }) - 0.12;
 
     // ---- Tabelle: Der Chip steht in einer eigenen schmalen Spalte ohne Kopf, die Bezeichnung in Work Sans SemiBold -----------------------
     const koepfe = U('programmteile.texte.spalten').map(k => ctx.wortlaut(k, 'Spaltenkopf'));

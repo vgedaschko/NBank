@@ -82,7 +82,7 @@ module.exports = {
     B.text(s, notiz, { x: xL, y: d.yWert(0) - hN + 0.03, w: wE, h: hN, rolle: 'klein', valign: 'bottom', name: 'Notiz zum Diagramm' });
 
     // ---- Rechte Spalte: Hauptzahl und Rechenweg ------------------------------------------------------------------------------------
-    B.hauptzahl(s, { gross: true, vorsatz: wl('Heute', 'Vorsatz'), zahl: fmt.dez(kd[1]), einheit: '€', label: wl('Kapitaldienst je m² und Monat', 'Label') });
+    B.hauptzahl(s, { gross: true, vorsatz: wl('Heute', 'Vorsatz'), zahl: fmt.dez(kd[1]), einheit: '€', label: wl('je m² und Monat', 'Label') });   // nur die Bezugsgröße: Den Begriff tragen Titel und Diagrammtitel
     const g = B.zweitesModul(s, { titel: wl('Rechenweg je m² Wohnfläche', 'Modultitel'), name: 'Rechenweg' });
     // Die Kopfzeile der Tabelle ist links leer; sie beginnt deshalb schon unter der Grundlinie des Modultitels
     const tab = B.tabelle(s, { x: g.x, y: g.y + 0.30, w: g.w, pt: 14, name: 'Tabelle Rechenweg',

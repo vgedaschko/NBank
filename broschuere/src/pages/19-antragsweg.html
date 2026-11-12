@@ -49,10 +49,10 @@
     .page[data-page="19"] .p19-st__due .icon { width: 3.6mm; height: 3.6mm; margin-top: .1mm; color: var(--signal-text); }
 
     /* Achtung-Kasten (einer von zwei im Heft): Stopp-Marke + Titel links (4 Spalten), Text ab Spalte 5 ---------------- */
-    .page[data-page="19"] .p19-stop { display: grid; grid-template-columns: calc(4 * var(--col) + 3 * var(--gutter) - 4mm) minmax(0, 1fr); column-gap: var(--gutter); align-items: start; margin-top: 8mm; padding: 3.6mm 4mm 4mm; }   /* Titel in Spalten 1–4, Text ab Spalte 5 = Kante der Ampelspalte „Bedingt zulässig“ */
+    .page[data-page="19"] .p19-stop { display: grid; grid-template-columns: calc(4 * var(--col) + 3 * var(--gutter) - 4mm) minmax(0, 1fr); column-gap: var(--gutter); align-items: baseline; margin-top: 8mm; padding: 3.6mm 4mm 4mm; }   /* Titel in Spalten 1–4, Text ab Spalte 5 = Kante der Ampelspalte „Bedingt zulässig“; erste Titelzeile und erste Textzeile auf einer Grundlinie */
     .page[data-page="19"] .p19-stop__title { font: 800 var(--fs-h3)/1.2 var(--font-display); letter-spacing: 0; color: var(--fg); }
     .page[data-page="19"] .p19-stop__title .icon { width: 4.6mm; height: 4.6mm; margin-left: -.575mm; margin-right: 2.175mm; vertical-align: -.75mm; color: var(--accent); }   /* Achteck (x 3–21 von 24) bündig mit der Textkante der Folgezeilen; Textlage unverändert */
-    .page[data-page="19"] .p19-stop .callout__body { margin-top: .2mm; }
+    .page[data-page="19"] .p19-stop .callout__body { margin-top: 0; }
 
     /* Ampel: drei gleich breite Spalten, Köpfe hell · mittel · dunkel (graustufenfest, Symbol zusätzlich zur Fläche) -- */
     /* Die Ampel steht an der Satzspiegel-Unterkante (.l-bottom am Element); der Abstand zum Achtung-Kasten ergibt sich daraus (8 mm). */
@@ -170,7 +170,7 @@
         <ul class="p19-amp__list">
           <li>Baugrundstück kaufen oder Erbbaurecht bestellen</li>
           <li>nicht bindende Reservierung beim Kauf</li>
-          <li>Planung bis einschließlich Leistungsphase 6 HOAI</li>
+          <li>Planung bis einschließlich <span class="u-nohyphens">Leistungsphase&nbsp;6</span> HOAI</li>
           <li>Baugrund untersuchen, Grundstück herrichten</li>
         </ul>
       </section>
@@ -186,7 +186,7 @@
         <ul class="p19-amp__list">
           <li>Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer <span class="u-nohyphens">Baugrundstück</span>)</li>
           <li>beim Ersterwerb: bindender Kaufvertrag über die Wohnungen</li>
-          <li>Beauftragung ab Leistungsphase 7 HOAI</li>
+          <li>Beauftragung ab <span class="u-nohyphens">Leistungsphase&nbsp;7</span> HOAI</li>
           <li>erster Spatenstich</li>
           <li>bei 2.5: Mietvertrag oder Überlassung der Wohnung</li>
         </ul>

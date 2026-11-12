@@ -14,7 +14,9 @@
 
     /* Kopf ------------------------------------------------------------------- */
     .page[data-page="22"] .p22-head { height: 35.5mm; }   /* H1 ab 26 mm, Zeile 1 ab 68,5 mm */
-    .page[data-page="22"] .p22-jubilee { font: 700 var(--fs-micro)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); white-space: nowrap; }
+    /* „45 Jahre PGN“ läuft wie die Rubrik gegenüber (Laufweite der Kopfzeile), nicht wie die Labels im Satz;
+       die Sperrung hinter dem letzten Buchstaben ist ausgeglichen, das N schließt mit der Kopflinie ab */
+    .page[data-page="22"] .p22-jubilee { font: 700 var(--fs-micro)/1.2 var(--font-display); letter-spacing: var(--track-kicker); margin-right: calc(-1 * var(--track-kicker)); text-transform: uppercase; color: var(--fg); white-space: nowrap; }
     .page[data-page="22"] .p22-head .lead { margin-top: 4.5mm; max-width: 132mm; }
 
     /* Zeile 1: Text (7 Spalten, außen) | Werte (5 Spalten, Rotverlauf, zum Bund) ----------------------------- */

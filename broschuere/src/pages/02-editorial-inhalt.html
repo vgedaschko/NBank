@@ -1,7 +1,8 @@
 <section class="page" data-page="02" id="seite-02">
   <style>
     /* Seite 02 · U2 Editorial + Inhalt (Linienplan) + Einstieg · Planwerk · Farben nur über Tokens.
-       Stufung nach styles.css §8b: Kopfzeile trägt beide Rubriken der Seite (Editorial | Inhalt), H1 25 pt mit zweiter Stimme,
+       Stufung nach styles.css §8b: Kopfzeile trägt beide Rubriken der Seite (Editorial | Inhalt; „Inhalt“ dort nur als Sichtform,
+       die Überschrift H2 steht unsichtbar in der Navigation, damit die Folge H1 → H2 → H3 hält), H1 25 pt mit zweiter Stimme,
        Vorspann und Zitat 12 pt, Text 9,5 pt, Labels 8,5 pt. Horizonte über die Doppelseite 2|3: Kopfzeile, H1,
        Zitatlinie = zweite Kachelreihe auf S. 3, Oberkante „Ihr Einstieg“ = Oberkante Marktband auf S. 3. */
     .page[data-page="02"] .p02-inhalt { width: calc(4 * var(--col) + 3 * var(--gutter)); padding-left: 17mm; }   /* steht über der Achse der Liniennamen (Seitenzahl 6,2 + Marke 7,4 + 2 × 1,7 mm) */
@@ -36,7 +37,7 @@
     .page[data-page="02"] .p02-tile__head { font-weight: 600; color: var(--fg); }
   </style>
 
-  <header class="page__header"><span class="page__section">Editorial</span><h2 class="page__section p02-inhalt" id="p02-inhalt">Inhalt</h2></header>
+  <header class="page__header"><span class="page__section">Editorial</span><span class="page__section p02-inhalt" aria-hidden="true">Inhalt</span></header>
 
   <div class="p02-top">
     <div class="p02-main">
@@ -54,6 +55,7 @@
     </div>
 
     <nav class="p02-toc" aria-labelledby="p02-inhalt">
+      <h2 class="u-sr" id="p02-inhalt">Inhalt</h2>
       <ol class="lp">
         <li class="lp__line"><h3 class="lp__name">Überblick</h3><ol class="lp__stops">
           <li class="lp__stop"><a href="#seite-03"><span class="lp__pg"><span class="u-sr">Seite </span>3</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Kennzahlen</span></a></li>
@@ -90,7 +92,7 @@
         </ol></li>
         <li class="lp__line lp__line--pgn"><h3 class="lp__name">PGN</h3><ol class="lp__stops">
           <li class="lp__stop"><a href="#seite-22"><span class="lp__pg"><span class="u-sr">Seite </span>22</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Über PGN</span></a></li>
-          <li class="lp__stop"><a href="#seite-23"><span class="lp__pg"><span class="u-sr">Seite </span>23</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Impressum und Hinweise</span></a></li>
+          <li class="lp__stop"><a href="#seite-23"><span class="lp__pg"><span class="u-sr">Seite </span>23</span><span class="lp__mk" aria-hidden="true"></span><span class="lp__t">Impressum <span class="u-nowrap">und Hinweise</span></span></a></li>
         </ol></li>
       </ol>
     </nav>

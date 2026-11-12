@@ -34,13 +34,21 @@
     /* Verfahrensdetails: Gruppen fließen; Stichwort als Run-in */
     .page[data-page="21"] .p21-faq { margin-top: 3.2mm; padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
     .page[data-page="21"] .p21-grp__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 2mm; margin-top: 2.4mm; padding-bottom: 1.1mm; font-size: var(--fs-module); line-height: var(--lh-module); border-bottom: var(--rule-w) solid var(--rule-strong); break-after: avoid; break-inside: avoid; }
-    .page[data-page="21"] .p21-grp + .p21-grp .p21-grp__head { margin-top: 4.4mm; }   /* neue Gruppe in der Spalte: mehr Luft über dem Titel als zwischen den Stichwörtern */
     .page[data-page="21"] .p21-grp__title { padding-top: .5mm; font: 700 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
     .page[data-page="21"] .p21-qa { padding-top: 1.4mm; }
     .page[data-page="21"] .p21-qa__item { break-inside: avoid; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
     .page[data-page="21"] .p21-qa__item + .p21-qa__item { margin-top: 1.8mm; }
     .page[data-page="21"] .p21-qa__item dt { display: inline; font-weight: 600; color: var(--fg); }
     .page[data-page="21"] .p21-qa__item dd { display: inline; margin: 0; }
+    /* Zweite Spalte (Gruppen 2 und 3, der Spaltenwechsel liegt vor Gruppe 2): Der Rest am Spaltenfuß ist auf die Abstände
+       verteilt, die Spalte endet knapp über der ersten (272,6 mm, links 272,9 mm). Über Gruppe 3 steht mehr Luft als zwischen
+       den Stichwörtern. Gruppe 2 beginnt am Spaltenkopf und trägt keinen oberen Abstand: Der Spaltenausgleich rechnet ihn
+       sonst mit und zieht das Lesefeld über 273 mm. Die zweite Spalte muss kürzer bleiben als die erste; nach jeder Änderung
+       die Unterkante messen, der OVERFLOW-Check sieht das Lesefeld nicht. */
+    .page[data-page="21"] .p21-grp + .p21-grp .p21-grp__head { margin-top: 0; padding-bottom: 1.5mm; }
+    .page[data-page="21"] .p21-grp + .p21-grp + .p21-grp .p21-grp__head { margin-top: 6mm; }
+    .page[data-page="21"] .p21-grp + .p21-grp .p21-qa { padding-top: 1.8mm; }
+    .page[data-page="21"] .p21-grp + .p21-grp .p21-qa__item + .p21-qa__item { margin-top: 2.5mm; }
 
     /* Kontakte: dominantes Papierfeld über die volle Höhe, vier gleich hohe Felder mit Haarlinien ------------------- */
     .page[data-page="21"] .p21-contacts { display: flex; flex-direction: column; padding: 0 2.2mm; background: var(--surface-2); border-top: var(--rule-heavy) solid var(--rule-strong); }
@@ -83,7 +91,7 @@
       <section class="p21-grp" aria-labelledby="p21-g2">
         <div class="p21-grp__head"><h3 class="p21-grp__title" id="p21-g2">Finanzierung und Sicherheiten</h3><a class="pageref" href="#seite-09">zu S.&nbsp;9</a></div>
         <dl class="p21-qa">
-          <div class="p21-qa__item"><dt>Sicherheiten.</dt> <dd>Grundschuld direkt nach dem Bankdarlehen; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne Revalutierung. Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft; bei reinen Objektgesellschaften immer.</dd></div>
+          <div class="p21-qa__item"><dt>Sicherheiten.</dt> <dd>Grundschuld direkt nach dem Bankdarlehen; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne <span class="u-nohyphens">Revalutierung.</span> Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft; bei reinen Objektgesellschaften immer.</dd></div>
           <div class="p21-qa__item"><dt>Tilgungsaufschub.</dt> <dd>Bei vorübergehendem Fehlbetrag im Objekt kann die NBank den Tilgungsbeginn um bis zu fünf Jahre <span class="u-nohyphens">hinausschieben.</span></dd></div>
           <div class="p21-qa__item"><dt>Vorzeitige Rückzahlung.</dt> <dd>Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20&nbsp;Jahre nach Bindungs&shy;beginn, spätestens zum regulären Ende.<br>Beispiel: Bindungsbeginn 2028. Bei Rückzahlung 2040 enden die Bindungen am 31.12.2050; bei Rückzahlung 2032 erst 2048.</dd></div>
         </dl>

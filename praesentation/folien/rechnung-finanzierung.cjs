@@ -41,7 +41,7 @@ module.exports = {
       B.segmenttext(s, { x: xa, y: d.katMitte(0) - d.balkenHoehe / 2, w: xe - xa, h: d.balkenHoehe, name: t.name, wert: `${fmt.mio(t.wert)} · ${fmt.prozent(t.quote)}`, art: t.art });
       lauf += t.wert;
     }
-    // Maßkettentext in Tinte: Rot tragen auf dieser Folie schon Zuschuss, 80-%-Achse und die Kennzahlen (ein Akzentmodul je Folie)
+    // Maßkette und 80-%-Achse in Tinte wie auf Folie 11: Rot trägt im Diagramm nur der Zuschuss
     const my = d.plot.y - 0.12, quote = M('fin.foerderquote.A');
     B.masskette(s, { x: d.plot.x, y: my, w: d.plot.w, segmente: [
       { anteil: foerderung, text: `Förderung ${fmt.mio(foerderung)} · ${fmt.prozent(quote)}` }, { anteil: eigen, text: fmt.prozent(M('fin.eigenmittelquote.A')) }] });
@@ -58,7 +58,8 @@ module.exports = {
       { nr: 2, zeichen: '=', text: 'zuwendungsfähige Kosten', werte: [fmt.zahl(M('fin.zuwendungsfaehige_kosten.A'))], art: 'summe' },
       { nr: 3, text: `Eigenmittel, mindestens ${fmt.prozent(M('fin.eigenmittelquote.A'))}`, werte: [fmt.zahl(eigen)] }] });
     B.linie(s, { x: x0, y: yT, w: w8, art: 'modul', name: 'Modulkopf-Linie' });
-    B.text(s, 'Rechenweg, in €', { x: x0, y: yT + 0.06, w: w8 - 1.70, h: 0.26, rolle: 'diagrammtitel', valign: 'middle', einzeilig: true, name: 'Modultitel' });
+    // Der Titel steht 0,03 über der Mitte der Kopfzeile: Gemischt gesetzt hat er Unterlängen („g“, Komma), die sonst auf der Kopflinie der Tabelle säßen
+    B.text(s, 'Rechenweg, in €', { x: x0, y: yT + 0.03, w: w8 - 1.70, h: 0.26, rolle: 'diagrammtitel', valign: 'middle', einzeilig: true, name: 'Modultitel' });
     // Notiz in drei Zeilen, je Zeile ein Satz: Die Regel zur Hälfte der Eigenmittel bleibt; weil das Grundstück nicht angesetzt ist, sind die
     // Eigenmittel der Rechnung ganz Geld (oben geprüft: fin.eigenmittel_bar gleich fin.eigenmittel.A)
     B.text(s, ctx.wortlaut(`Von den Eigenmitteln sollen mindestens ${fmt.euro(eigen * X('rechnung', 'eigenmittel.anteil_geld_oder_grundstueck'))} Geld oder lastenfreies Grundstück sein.`, 'Notiz unter dem Rechenblatt') + '\n' +

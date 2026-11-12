@@ -41,7 +41,7 @@
     .page[data-page="04"] .p04-legend { grid-column: 10 / span 3; padding-bottom: .4mm; }
     .page[data-page="04"] .p04-list .checklist__item { grid-template-columns: 6.2mm minmax(0, 1fr) calc(3 * var(--col) + 2 * var(--gutter)); column-gap: 0; padding: 2.4mm 0 2.6mm; font-size: var(--fs-small); line-height: 1.42; }
     .page[data-page="04"] .p04-list .checklist__box { width: 4.2mm; height: 4.2mm; margin-top: 0; border-color: var(--fg-2); }
-    .page[data-page="04"] .p04-list p { padding-right: 1.8mm; }   /* Seitenverweise sind im Text an ihren Satzteil gebunden (.u-nowrap): keiner steht allein in der letzten Zeile */
+    .page[data-page="04"] .p04-list p { padding-right: 1.8mm; }   /* 1,8 mm: Punkt 2 bleibt dreizeilig; die Kästchen stehen rechtsbündig in ihrer Spalte, Abstand zum Text mindestens 3 mm. Seitenverweise sind an ihr Verb oder Substantiv gebunden (.u-nowrap): keiner steht allein in der letzten Zeile */
     .page[data-page="04"] .p04-list b { color: var(--fg); }
 
     /* Schlusssatz: einfache Textzeile, kein Kasten; Stichwort halbfett wie die Fragen der Liste */
@@ -75,7 +75,7 @@
           <th scope="row">Bemessung je m² Wohnfläche</th>
           <td class="col-old"><b class="p04-fig">5.330/5.550&nbsp;€</b> Gesamtkosten, Neubau inkl. Grundstück</td>
           <td class="table__arrow" aria-hidden="true">→</td>
-          <td class="col-new is-hl">Ausgangswerte <b class="p04-fig">4.800/5.000&nbsp;€</b> Herstellungskosten; Grundstück separat bis Bodenrichtwert</td>
+          <td class="col-new is-hl">Ausgangswerte <b class="p04-fig">4.800/5.000&nbsp;€</b> Herstellungskosten; Grundstück separat <span class="u-nowrap">bis Bodenrichtwert</span></td>
         </tr>
         <tr>
           <th scope="row">Mieterkreis und Höchstmiete <small>Jahre 1–3 (nettokalt je m²)</small></th>
@@ -110,7 +110,7 @@
       </li>
       <li class="checklist__item">
         <span class="checklist__box" aria-hidden="true"></span>
-        <p><b>Bedarf am Standort?</b> In sechs Gebietsarten gilt er als gegeben, sonst wird er vermutet, sofern die NBank-Karte keinen gesonderten <span class="u-nowrap">Nachweis verlangt <a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>.</span></p>
+        <p><b>Bedarf am Standort?</b> In sechs Gebietsarten gilt er als gegeben, sonst wird er vermutet, sofern die NBank-Karte keinen gesonderten Nachweis <span class="u-nowrap">verlangt <a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;18</a>.</span></p>
         <span class="bs-matrix" role="img" aria-label="gilt für 2.1, 2.2 und 2.6"><i class="bs-21">2.1</i><i class="bs-22">2.2</i><i class="is-off">2.3</i><i class="is-off">2.4</i><i class="is-off">2.5</i><i class="bs-26">2.6</i></span>
       </li>
       <li class="checklist__item">

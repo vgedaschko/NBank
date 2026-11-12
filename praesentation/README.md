@@ -32,15 +32,17 @@ behalten und stufen, nichts abräumen, nichts Neues erfinden.
   Schriftfeld; Kopf und Schriftfeld sagen nicht dasselbe. Im Konzept steht beides im Feld `inhalt` als Kicker „ABSCHNITT · THEMA“.
 - **Titel:** Versalien, 32 pt mit 37 pt Zeilenabstand, genau ein Signaturwort oder eine Zahl in Rot.
 - **Schrift:** Versalien nur in Titel, Kopf, Schriftfeld und kleinen Labels (Tabellenkopf, Vorsatz einer Kennzahl). Modul-, Diagramm- und
-  Tabellentitel, die Titel der Stationen (Folie 26) und die Namen der Abschnitte auf der Agenda stehen gemischt in Montserrat Bold 16 pt.
-  Fließtext einer Folie steht in einer Größe. Größen kommen aus der Skala in `lib/theme.cjs` (`SKALA`).
+  Tabellentitel, die Titel der Stationen (Folie 26) und die Namen der Abschnitte auf der Agenda stehen gemischt in Montserrat Bold 16 pt,
+  ebenso das Label unter jeder Kennzahl. Fließtext einer Folie steht in einer Größe. Größen kommen aus der Skala in `lib/theme.cjs` (`SKALA`).
 - **Rot:** Titellinie, Signaturwort, Reiter 2.1, Zuschuss in Daten, Ergebniszeile, höchstens eine hervorgehobene Kennzahl je Diagramm, Logo.
-  Dunkelrot bleibt Signal (Bewilligung, Frist). Einheiten, Labels, Maßketten, die 80-%-Achse und Aufzählungszeichen stehen in Tinte oder Grau.
+  Dunkelrot bleibt Signal (Bewilligung, Frist): gefüllter Achskreis und Warnband; der Titel der Station daneben steht in Tinte wie die
+  übrigen (Folie 26, A2). Einheiten, Labels, Maßketten, die 80-%-Achse und Aufzählungszeichen stehen in Tinte oder Grau.
 - **Kennzahl:** Derselbe Wert steht auf einer Folie neben dem Titel nur einmal groß (Folie 5: Hauptzahl rechts, die Summen über den Säulen
   in 12 pt; Folie 19: Werte an den Balken, die Ergebniszeile der Tabelle in 16 pt).
 - **Diagrammfolien** (`PGN_DIAGRAMM`, `PGN_DIAGRAMM_MR`): Diagramm über sieben Spalten, Text oder Kennzahlen über fünf. Titel, Untertitel,
-  Legende und Diagramm beginnen auf allen Folien auf denselben Höhen (`ZONE.diagramm`). Passt ein Untertitel nicht in eine Zeile, steht er in
-  zwei (Folien 5 und 22); gekürzt wird nicht. Ihre Teilung behalten Folie 15 (Tabelle über acht Spalten), die frei gebauten Folien 14 und 27
+  Legende und Diagramm beginnen auf allen Folien auf denselben Höhen (`ZONE.diagramm`); der Kopf frei gebauter Module (`B.modulkopf`: Folien 17
+  bis 19, Anhang) liegt genauso. Passt ein Untertitel nicht in eine Zeile, steht er in zwei (Folie 5); gekürzt wird nicht. Auf Folie 22 ist die
+  zweite Zeile entfallen: Sie sagte dasselbe wie das Modul „Grundlage“ rechts. Ihre Teilung behalten Folie 15 (Tabelle über acht Spalten), die frei gebauten Folien 14 und 27
   (8 + 4) und 19 (6 + 6) und die Anhangfolien A5, A7 und A8 (8 + 4).
 - **Keine Sprechernotizen** (Entscheidung 32): Das Konzept führt kein Feld `notizen`, die Mappe trägt keine Notizseite. Das Feld `quellen`
   bleibt als Quellenangabe je Folie; aus ihm rechnet die Quellenfolie A9 ihre Blattnummern.
@@ -186,7 +188,7 @@ Beim Öffnen darf keine Meldung „Reparieren“ erscheinen. Geprüft ist bisher
   Die gestrichelte Marke „Ansatz im Modellhaus“ gibt es seit 11.11.2026 nicht mehr.
 - **Folien 3 bis 6 und 22, Schriftfeld:** Die Quellenzeile steht rechtsbündig vor der Blatt-Zelle und bricht nicht von selbst um. Ist eine
   Schrift auf dem Vortragsrechner breiter, läuft sie nach links auf die Rubrik zu; auf den Folien 6 und 22 steht sie in zwei Zeilen.
-- **Folien 5 und 22, Untertitel des Diagramms:** zwei Zeilen im Platzhalter, von Hand gebrochen. Legende und Diagramm stehen darunter in
+- **Folie 5, Untertitel des Diagramms:** zwei Zeilen im Platzhalter, von Hand gebrochen. Legende und Diagramm stehen darunter in
   freier Lage und rücken nicht nach, wenn PowerPoint die Zeilen höher rechnet.
 - **Folie A7:** Die Tabelle hat sieben gleich hohe Zeilen; die Bezeichnungen der Zeilen 3 und 7 stehen in zwei Zeilen. Rechnet PowerPoint
   eine Bezeichnung breiter, bricht sie in ihrer Zeile um, die Tabelle wächst dabei nicht.
@@ -269,7 +271,7 @@ seit 11.11.2026 der Ansatz des Modellhauses.
 
 Offene Fragen an PGN (Tilgungssatz 2,38 %, Titel der Zusammenfassung, Herkunft der Herstellungskosten, Daten der Altfassung im Einstieg,
 Dauer des Vortrags, Ort und Datum, Bildrechte; zum neuen Modellhaus: Rendite frei finanziert auf A7, Grundstück, Standort Neu Wulmstorf,
-Wohnungsmix, Hinweis auf A9) stehen am Ende von `INHALT.md`.
+Wohnungsmix, Hinweis auf A9; zu Muster 2: Rot auf A8, Signaturwort im Anhang, Tabellenziffern) stehen am Ende von `INHALT.md`.
 
 Das Textlektorat vom 11.11.2026 ist eingearbeitet; welche Befunde der Auftraggeber ausgenommen hat, nennt Entscheidung 27 des Konzepts.
 Der Abgleich mit Broschüre und Rechenmappe vom 11.11.2026 ist ebenfalls eingearbeitet: Wo die Broschüre nach ihrem Lektorat anders lautet,
@@ -286,3 +288,18 @@ Muster 2, keine Sprechernotizen und Textprüfung seit 12.11.2026 (Entscheidungen
 Fünf Titel stehen ohne Doppelpunkt (Folien 9 und 15 bis 18), Station 4 der Folie 26 heißt „Förderentscheidung“, das Thema der Folie 22
 „Herstellungskosten der PGN“; auf Folie 7 ist der Satz „Der Vortrag behandelt 2.1.“ gestrichen. Die Broschüre S. 19 nennt Station 4
 weiter „Entscheidung“.
+
+Durchsicht nach dem Ausrollen vom 12.11.2026 (Entscheidung 35 des Konzepts): Drei weitere Titel stehen ohne Doppelpunkt am Zeilenende
+(Folien 5, 14 und 22, mit denselben Zahlen). Das Label der Hauptzahl der Folie 5 heißt „je m² und Monat“, der Untertitel der Folie 22 steht in
+einer Zeile, der Eintrag „Höchstmiete“ der Folie 24 nennt den Betrag nicht noch einmal. Die Blatt-Zelle des Anhangs heißt „Blatt“.
+
+Bekannte Abweichungen von Muster 2, über die der Auftraggeber entscheidet:
+
+- **Tabellenziffern:** Die Zahlenspalten der Tabellen stehen rechtsbündig, aber nicht in Tabellenziffern (zum Beispiel Folien 14, 15 und 19). Montserrat
+  und Work Sans führen sie nur als OpenType-Funktion, die PowerPoint nicht schaltet. Abhilfe wäre eine eigens erzeugte Schriftdatei; die Mappe
+  soll aber bei Montserrat und Work Sans bleiben.
+- **Rot auf A8:** Marke der Jahresrechnung, Feld „Gruppe A vorn“ und Fläche stehen auf Wunsch des Auftraggebers vom 11.11.2026 in Rot
+  (Entscheidung 30). Nach Muster 2 stünden Hilfslinie und Labels in Tinte wie auf Folie 20.
+- **Titel im Anhang:** A1 bis A6 und A9 tragen kein Signaturwort in Rot, A7 und A8 tragen eines. Der Bau verlangt es nur auf Inhaltsfolien.
+- **Doppelpunkt am Zeilenende:** Die Titel der Folien 7, 10 und 23 behalten ihn; ohne neuen Wortlaut lässt er sich dort nicht vermeiden.
+- **Folie 10:** Der Text rechts steht in 14 pt (Tabelle und zwei Einträge), auf der Nachbarfolie 11 in 16 pt. In 16 pt passt er nur gekürzt.

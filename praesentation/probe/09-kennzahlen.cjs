@@ -1,4 +1,4 @@
-// Muster PGN_KENNZAHLEN: drei Kennzahlen in den Platzhaltern des Layouts (Zahl 44 pt, Einheit in Rot, Label 14 pt, Text 14 pt).
+// Muster PGN_KENNZAHLEN: drei Kennzahlen in den Platzhaltern des Layouts (Zahl 44 pt, Einheit in der Farbe der Zahl, Label 16 pt, Text 14 pt).
 // Für eine einzelne Kachel in 60 pt: B.kennzahl mit gross: true in freier Lage (Muster 18 zeigt B.kennzahl).
 'use strict';
 module.exports = {

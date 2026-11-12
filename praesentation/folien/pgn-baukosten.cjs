@@ -42,11 +42,11 @@ module.exports = {
     if (!ctx.o.titel.includes(`${abstand} % unter`)) P.melde(`Titel der Folie nennt den Abstand nicht mit ${abstand} %.`);
 
     // ---- Diagramm über sieben Spalten: schlanke Säulen, Werte als Text darüber -------------------------------------------------------------
-    // Der Untertitel steht in zwei Zeilen (Einheit und Kostenstand | Grundlagen): In eine Zeile der sieben Spalten passt er nicht. Legende und
-    // Diagramm rücken um die zweite Zeile tiefer (Lagen aus der Rückgabe von B.diagrammkopf)
+    // Der Untertitel steht in einer Zeile (Einheit und Kostenstand); die Grundlage der beiden Reihen nennt das Modul „Grundlage“ rechts. Legende und
+    // Diagramm stehen so auf den Höhen der übrigen Diagrammfolien (Lagen aus der Rückgabe von B.diagrammkopf)
     const untertitel = U('untertitel');
-    if (!Array.isArray(untertitel) || untertitel.length !== 2) P.melde('daten/markt.json, kosten.texte.untertitel: erwartet werden zwei Zeilen.');
-    const kopf = B.diagrammkopf(s, { titel: T('diagrammtitel'), sub: [].concat(untertitel).map(z => wl(z, 'Untertitel')) });
+    if (typeof untertitel !== 'string') P.melde('daten/markt.json, kosten.texte.untertitel: erwartet wird eine Zeile (die Grundlage der Reihen steht im Modul „Grundlage“).');
+    const kopf = B.diagrammkopf(s, { titel: T('diagrammtitel'), sub: wl(String(untertitel), 'Untertitel') });
     // Legende: zwei Felder in der Kontur der Säulen, dahinter das Maßzeichen der Spanne
     const chart = kopf.chart, yL = kopf.legende;
     const felder = B.legende(s, { x: colX(1), y: yL, fein: true, eintraege: wer.map(r => ({ text: r.name, art: r.art })) });

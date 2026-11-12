@@ -35,7 +35,7 @@ module.exports = {
     if (!a1 || !satz.includes(`Anhang ${a1.nr}`)) P.melde(`Agenda: Der Satz zum Register nennt die Anhangfolie der Programmteile nicht mit ihrer Blattnummer (${a1 ? a1.nr : 'fehlt im Konzept'}).`);
     const yKopf = achse.unten + 0.20;
     B.modulkopf(s, { x: colX(1), y: yKopf, w: Raster.CW, titel: wl(X('rahmen', 'agenda.register.titel'), 'Modultitel') });
-    B.text(s, satz, { x: colX(1), y: yKopf + 0.35, w: Raster.CW, h: 0.26, rolle: 'dicht', valign: 'middle', einzeilig: true, name: 'Untertitel Register' });
+    B.text(s, satz, { x: colX(1), y: yKopf + 0.37, w: Raster.CW, h: 0.26, rolle: 'dicht', valign: 'middle', einzeilig: true, name: 'Untertitel Register' });
     const yFelder = yKopf + 0.72;
     S.register(ctx, s, { x: colX(1), y: yFelder, w: Raster.CW, h: Y.inhaltEnde - yFelder, felder, aktiv });
   },

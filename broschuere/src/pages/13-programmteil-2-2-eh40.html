@@ -3,12 +3,16 @@
     /* S. 13 · Programmteil 2.2 – rechte Seite der Doppelseite 12|13 (physische Heftmitte, ein Druckbogen).
        Ungerade Seite: Programmnummer und Diagrammnotiz in der äußeren Marginalspalte rechts (Spalten 10–12), Diagramm in
        Spalten 1–9 unter dem Programmkopf – spiegelbildlich zu S. 12 (Notiz außen links, Diagramm am Bund).
-       Horizonte gemeinsam mit S. 12: Unterkante Diagramm-Modul (--p-fig), Oberkante Band „Kombinierbar mit“.
+       Horizonte gemeinsam mit S. 12: Kopfzeile (14,0–22,5 mm), Oberkante H1 (27,45 mm) und die Oberkante des Bands
+       „Kombinierbar mit“ bei 179,2 mm. Derselbe Wert gilt links für die Linie über dem unteren Band (Rechenweg | Zulassung).
+       Dafür sitzt das Diagramm-Modul 4 mm unter dem Programmkopf (Unterkante 175,2 mm); die 2 mm stehen über den Modulen
+       „Förderbedingungen“ | „Voraussetzungen“ (.p12-low), deren Liste unten mit dem Satzspiegel schließt.
+       Die erste Modullinie (98,3 mm) liegt tiefer als auf S. 12, weil der Programmkopf drei Blöcke mehr trägt.
        Korrekturlauf 1: y-Achse beschriftet; Satz zu EH-40-Niveau in 2.1; „Förderbedingungen“ statt „Spielregeln“.
        Stufung nach styles.css §8b: Rubrik steht in der Kopfzeile, der Gegenstand läuft als zweite Stimme (.light) über dem H1;
        „Förderbedingungen“ und „Voraussetzungen“ sind Module mit Modultitel (.module, .chart__title) wie auf S. 11;
        Run-in-Label 8,5 pt; Schrift im Diagramm nur in den Stufen der SVG-Skala (--svg-fs-s, --svg-fs-m). */
-    .page[data-page="13"] .p12-fig { margin-top: var(--sp-6); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: var(--gutter); align-items: start; }
+    .page[data-page="13"] .p12-fig { margin-top: var(--sp-4); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: var(--gutter); align-items: start; }
     .page[data-page="13"] .p12-fig > .chart__head { grid-column: 1 / span 9; grid-row: 1; }
     .page[data-page="13"] .p12-fig > .chart__svg { grid-column: 1 / span 9; grid-row: 2; margin-top: 3.6mm; }
     .page[data-page="13"] .p12-fig__note { grid-column: 10 / span 3; grid-row: 1 / span 2; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
@@ -28,7 +32,7 @@
     .page[data-page="13"] .p12-band > * { display: inline; }
     .page[data-page="13"] .p12-band b { color: var(--fg); }
     .page[data-page="13"] .p12-band .runin { font-size: var(--fs-micro); letter-spacing: var(--track-caps); }
-    .page[data-page="13"] .p12-low { padding-top: var(--sp-6); }
+    .page[data-page="13"] .p12-low { padding-top: var(--sp-8); }
     .page[data-page="13"] .p12-low .bullets { margin-top: 2.4mm; }
   </style>
 
@@ -80,7 +84,7 @@
         <li><b>nur Neubau</b></li>
         <li><b>gemeinschaftliche Wohnformen</b> möglich; keine Zuschläge für <span lang="en">Housing First</span> oder Modellprojekte</li>
         <li><b>wie 2.1:</b> Bedarf, gesichertes Grundstück, mindestens zwei gebundene Wohnungen je Neubau, Eigenmittel mindestens 20 %</li>
-        <li><b>EH-40-Nachweis</b> mit der Fertigstellungsanzeige, ausgestellt von Fachleuten mit Energieausweis-Berechtigung oder aus der Energieeffizienz-Expertenliste; bei KfW-Mitfinanzierung genügt die KfW-Bescheinigung</li>
+        <li><b>EH-40-Nachweis</b> mit der Fertigstellungsanzeige, ausgestellt von Fachleuten mit Energieausweis-Berechtigung oder aus der Energieeffizienz-<span class="u-nohyphens">Expertenliste</span>; bei KfW-Mitfinanzierung <span class="u-nowrap">genügt die KfW-Bescheinigung</span></li>
       </ul>
     </section>
   </div>

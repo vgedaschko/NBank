@@ -1,8 +1,8 @@
 <section class="page" data-page="23" id="seite-23" aria-label="Impressum und Hinweise">
   <style>
     /* Seite 23 · U3 Impressum und Hinweise · Planwerk. Rechte Seite der Doppelseite 22|23, Innenseite des Umschlags:
-       ruhig, weiß, ohne Kolumnentitel und Seitenzahl. Gemeinsame Horizonte mit S. 22: Kopfzeile 14 mm (hier nur die Linie,
-       die Seite hat keine Rubrik) · H1 26 mm · Zeile 1 ab 68,5 mm
+       ruhig, weiß, ohne Kolumnentitel und Seitenzahl. Gemeinsame Horizonte mit S. 22: Kopfzeile 14 mm (hier leer, ohne Linie:
+       die Seite hat keine Rubrik, die Höhe bleibt) · H1 26 mm · Zeile 1 ab 68,5 mm
        (Impressum als Schriftfeld = Modulkopf „Leistungen und Auftraggeber“ + Werte) · Zeile 2 ab 136,5 mm (Hinweis = Modulkopf
        Referenzen) · Zeile 3 ab 197,5 mm (Rechtsgrundlage, Quellen = Referenzreihe) · Fuß: Logo im Band des Plankopfs.
        Korrekturlauf 1: „Verantwortlich für den Inhalt“ und „Druck“ entfallen (§ 7 Abs. 3, § 8 Abs. 2 NPresseG), Bildnachweis
@@ -10,6 +10,7 @@
        steht auf der Seite genau einmal. Farben nur über Tokens.
        Stufung und Zuteilung nach styles.css §8b: H1 25 pt, Vorspann 12 pt, Modultitel 12 pt gemischt („Hinweis“,
        „Rechtsgrundlage“, „Quellen“), Text 9,5 pt, Labels im Schriftfeld 8,5 pt Versalien. Rot nur: Titellinie und Logo. */
+    .page[data-page="23"] .page__header { border-bottom-color: transparent; }   /* keine Rubrik, also keine Kopflinie; die Zeile hält nur die Höhe */
     .page[data-page="23"] .p23-head { height: 35.5mm; }   /* H1 ab 26 mm, Zeile 1 ab 68,5 mm */
     .page[data-page="23"] .p23-head .lead { margin-top: 4.5mm; max-width: none; }   /* ein Satz, eine Zeile */
 
@@ -65,7 +66,7 @@
   <div class="p23-legal">
     <div>
       <h2 class="h3">Rechtsgrundlage</h2>
-      <p>RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtschaft, Verkehr und Bauen vom 25.06.2026 (Nds. MBl. 2026 Nr. 319), gültig vom 01.07.2026 bis 31.12.2031; ergänzend Niedersächsisches Wohnraum- und Wohnquartierfördergesetz (NWoFG) mit Durchführungsverordnung (DVO-NWoFG) und Wohngeldverordnung (WoGV, Mietenstufen).</p>
+      <p>RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtschaft, Verkehr und Bauen vom 25.06.2026 (Nds. MBl. 2026 Nr. 319), gültig vom 01.07.2026 bis 31.12.2031; ergänzend <span class="u-nohyphens">Niedersächsisches</span> Wohnraum- und Wohnquartierfördergesetz (NWoFG) mit Durchführungsverordnung (DVO-NWoFG) und Wohngeldverordnung (WoGV, Mietenstufen).</p>
     </div>
     <div>
       <h2 class="h3">Quellen</h2>

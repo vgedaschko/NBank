@@ -144,8 +144,10 @@ def abgleich_broschuere(w, b):
     T = "Broschüre S. 10"
     s = seite(10)
     wfl, we, hk = m("eingabe.wohnflaeche"), m("eingabe.wohnungen"), m("eingabe.herstellungskosten_qm")
-    b.enthaelt(T, "Überschrift: Wohnungen", s["headline"], f"{de(we)} Wohnungen", q("eingabe.wohnungen"))
-    b.enthaelt(T, "Überschrift: Gesamtkosten", s["headline"], f"{mio(m('fin.gesamtkosten.A'))} Mio. €", q("fin.gesamtkosten.A"))
+    # Seit 12.11.2026 steht die Überschrift der Seite in zwei Feldern: Wohnungen und Gesamtkosten als zweite Stimme (headline_light), darunter die Förderung
+    kopf = " ".join(t for t in (s.get("headline_light"), s["headline"]) if t)
+    b.enthaelt(T, "Überschrift: Wohnungen", kopf, f"{de(we)} Wohnungen", q("eingabe.wohnungen"))
+    b.enthaelt(T, "Überschrift: Gesamtkosten", kopf, f"{mio(m('fin.gesamtkosten.A'))} Mio. €", q("fin.gesamtkosten.A"))
     b.enthaelt(T, "Überschrift: Förderung", s["headline"], f"bis zu {mio(m('fin.foerderung.A'))} Mio. € Förderung", q("fin.foerderung.A"))
     b.enthaelt(T, "Vorspann: Wohnungen", s["lead"], f"{de(we)} Neubauwohnungen", q("eingabe.wohnungen"))
     b.enthaelt(T, "Vorspann: Wohnfläche", s["lead"], f"zusammen {de(wfl)} m² Wohnfläche", q("eingabe.wohnflaeche"))
@@ -308,7 +310,8 @@ def abgleich_broschuere(w, b):
     b.enthaelt(T, "Kontrolle C gegen B: Schwelle", d["check"], f"= {pct(m('tilg.schwelle.C_gegen_B'), 2)} %", q("tilg.schwelle.C_gegen_B"))
     b.enthaelt(T, "Geometrie: ungerundete Werte", d["geometry"], f"B {de(vB, 1)} €, C {de(vC, 1)} €", q("tilg.mehrueberschuss_vor_tilgung.B/C"))
     b.enthaelt(T, "Geometrie: Nulldurchgänge", d["geometry"], f"B {pct(schwelle['B'], 4)} %, C {pct(schwelle['C'], 4)} %", q("tilg.schwelle.B_gegen_A, tilg.schwelle.C_gegen_A"))
-    b.enthaelt(T, "Notiz: Schwelle C", ch["note"], f"Unter **{pct(schwelle['C'], 2)} %** Tilgung", q("tilg.schwelle.C_gegen_A"))
+    # Die Schwelle C nennt seit 12.11.2026 die Überschrift der Seite; der gleichlautende Satz der Notiz ist dort gestrichen
+    b.enthaelt(T, "Überschrift: Schwelle C", s["headline"], f"Über {pct(schwelle['C'], 2)} % Tilgung", q("tilg.schwelle.C_gegen_A"))
     b.enthaelt(T, "Notiz: Schwelle B", ch["note"], f"Unter {pct(schwelle['B'], 2)} % liegt C vor B, darüber A", q("tilg.schwelle.B_gegen_A"))
     b.enthaelt(T, "Notiz: je Prozentpunkt", ch["note"], f"von B um {de(D(sB) / 100)} €, von C um {de(D(sC) / 100)} €", q("1 % × tilg.mehrschuld.B/C"))
     raster = dict(zip(m("tilg.raster.satz")[:7], m("tilg.raster.bester")[:7]))
@@ -336,8 +339,7 @@ def abgleich_broschuere(w, b):
     b.enthaelt(T, "Rechenweg 3: Satz", r[3][1], f"{pct(m('jr1.satz.verwaltungskostenbeitrag'), 1)} % von Zeile 1", q("jr1.satz.verwaltungskostenbeitrag"))
     lz = block(s, "text", heading="Über die Laufzeit")["body"]
     b.enthaelt(T, "Über die Laufzeit: Mehrschuld", lz, f"A trägt {mio(sB)} Mio. € weniger Schulden als B und {mio(sC)} Mio. € weniger als C", q("tilg.mehrschuld.B/C"))
-    b.enthaelt(T, "Über die Laufzeit: zinsfrei", lz, f"bis Ende Jahr {m('tab.zinsfreie_jahre')} zinsfrei", q("tab.zinsfreie_jahre"))
-    b.enthaelt(T, "Über die Laufzeit: Höchstlaufzeit", lz, f"nach höchstens {m('tab.laufzeit_hoechstens')} Jahren getilgt", q("tab.laufzeit_hoechstens"))
+    # Die zinsfreien Jahre nennt auf dieser Seite nur noch der Vorspann (oben geprüft); die Höchstlaufzeit steht seit 12.11.2026 nicht mehr auf S. 12
     abc = s["calculation"]["A_B_C"]
     felder = [
         ("zuschuss_mio", "fin.zuschuss", lambda x: zahl(D(x) / 1000000, 1)), ("darlehen_mio", "fin.darlehen_nbank", lambda x: zahl(D(x) / 1000000, 1)),

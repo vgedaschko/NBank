@@ -162,7 +162,7 @@
     "texte": {
       "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“, Folie pgn-baukosten); Zahlen als Platzhalter. Die Platzhalter füllt folien/_struktur.cjs (kostenFelder): {kg_herstellung}, {pgn_median}, {arge_median}, {pgn_min}, {pgn_max}, {arge_min} und {arge_max} aus den Werten dieses Blocks. Die Marke „Ansatz im Modellhaus“ ist am 11.11.2026 entfallen: Das Modellhaus rechnet seither mit dem PGN-Median selbst (das Folienmodul prüft den Eingabewert der Rechenmappe gegen pgn.median). Die Hauptzahl steht in 60 pt mit Vorsatz und einer Zeile Label; das Label nennt das Wertepaar der Mediane (vorher: Label „Median der Herstellungskosten“ und das Wertepaar als Text darunter, für den in 60 pt kein Platz ist). „legende_spanne“ ist der dritte Eintrag der Legende (Maßzeichen der Spanne neben den Säulen der Herstellung); „spanne_bis“ steht an der Pfeilspitze der ARGE-Spanne, die über die Größenachse hinausreicht.",
       "diagrammtitel": "Herstellungskosten je m² Wohnfläche, Median",
-      "untertitel": ["in €, Bruttokosten, Kostenstand Q4 2025", "PGN: fünf Projekte · ARGE: deutsche Großstädte"],
+      "untertitel": "in €, Bruttokosten, Kostenstand Q4 2025",
       "legende_spanne": "Spanne {kg_herstellung}: Minimum bis Maximum",
       "spanne_bis": "Maximum {arge_max}",
       "kennzahl_vorsatz": "PGN gegen ARGE, {kg_herstellung}",

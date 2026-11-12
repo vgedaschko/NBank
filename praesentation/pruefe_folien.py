@@ -295,8 +295,8 @@ KERNSAETZE = [
     ("rechnung-jahr1", "{a} | {b} | {c} € je m² und Monat (A | B | C)", {"a": ("fin.miete_jahr1.A", "dez2"), "b": ("fin.miete_jahr1.B", "dez2"), "c": ("fin.miete_jahr1.C", "dez2")}),
     # Modellhaus seit 11.11.2026: PGN-Projekt in Neu Wulmstorf, Mietenstufe VI, Grundstück im Bestand und nicht angesetzt (Eingabe 2.3 = 0).
     # Die Titel der Folien 14 bis 16, 19, 21 und 23 nennen das Ergebnis aller drei Gruppen und die Zahl der Gruppe A.
-    # Seit 12.11.2026 stehen die Titel der Folien 9 und 15 bis 18 ohne Doppelpunkt (Entscheidung 34)
-    ("rechnung-finanzierung", "{a} Wohnungen, {b}: bis zu {c} Förderung", {"a": ("eingabe.wohnungen", "zahl"), "b": ("fin.gesamtkosten.A", "mio"), "c": ("fin.foerderung.A", "mio")}),
+    # Seit 12.11.2026 stehen die Titel der Folien 9 und 15 bis 18 ohne Doppelpunkt (Entscheidung 34), ebenso die Titel der Folien 5, 14 und 22 (Entscheidung 35)
+    ("rechnung-finanzierung", "{a} Wohnungen für {b}, bis zu {c} Förderung", {"a": ("eingabe.wohnungen", "zahl"), "b": ("fin.gesamtkosten.A", "mio"), "c": ("fin.foerderung.A", "mio")}),
     ("rechnung-finanzierung", "PGN-Projekt in Neu Wulmstorf · {a} Wohnungen · {b} m² Wohnfläche · Gruppe A · Mietenstufe {c}",
      {"a": ("eingabe.wohnungen", "zahl"), "b": ("eingabe.wohnflaeche", "zahl"), "c": ("eingabe.mietenstufe", "text")}),
     ("rechnung-finanzierung", "Grundstück im Bestand, {a}", {"a": ("eingabe.grundstueck", "nicht_angesetzt")}),
@@ -310,7 +310,7 @@ KERNSAETZE = [
     ("rechnung-miete", "Höchstmiete Gruppe A: {a}", {"a": ("fin.miete_jahr1.A", "euro2")}),
     # Folien des Umbaus: die Aussage des Titels und die Angaben, die eine Zahl an ihr Wort binden
     ("ausgangslage-zinsen", "Kredite kosten {a}, Anfang 2020 waren es {b}", {"a": ("eingabe.zins_bank", "prozent2"), "b": ("markt#kapitaldienst.zins_q1_2020", "prozentwert2")}),
-    ("einstieg-kapitaldienst", "Kapitaldienst je m² und Monat: von {a} auf {b} seit 2020", {"a": (KD_2020, "dez2"), "b": (KD_HEUTE, "euro2")}),
+    ("einstieg-kapitaldienst", "Kapitaldienst je m² und Monat seit 2020 von {a} auf {b}", {"a": (KD_2020, "dez2"), "b": (KD_HEUTE, "euro2")}),
     ("einstieg-kapitaldienst", "{a} · {b}", {"a": (KD_BAUKOSTEN, "euro2vz"), "b": (f"({KD_BAUKOSTEN}) / (({KD_HEUTE}) - ({KD_2020}))", "prozent0")}),
     ("einstieg-kapitaldienst", "{a} · {b}", {"a": (KD_ZINS, "euro2vz"), "b": (f"({KD_ZINS}) / (({KD_HEUTE}) - ({KD_2020}))", "prozent0")}),
     ("einstieg-kapitaldienst", "{a} · {b}", {"a": (KD_WECHSELWIRKUNG, "euro2vz"), "b": (f"({KD_WECHSELWIRKUNG}) / (({KD_HEUTE}) - ({KD_2020}))", "prozent0")}),
@@ -326,7 +326,7 @@ KERNSAETZE = [
     ("rechnung-fluss-frei", "{a} je m² und Monat", {"a": ("dscr.noetige_miete.Frei", "euro2")}),
     ("rechnung-fluss-frei", "{a} · {b}", {"a": ("-modellhaus:frei.zins_jahr1", "euro"), "b": ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
     ("rechnung-fluss-frei", "{a} · {b}", {"a": ("-modellhaus:frei.tilgung_jahr1", "euro"), "b": ("-modellhaus:frei.tilgung_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
-    ("pgn-baukosten", "Herstellungskosten der PGN: {a} unter dem ARGE-Median", {"a": ("-(" + PGN_UNTER_ARGE + ")", "prozent1")}),
+    ("pgn-baukosten", "Herstellungskosten der PGN liegen {a} unter dem ARGE-Median", {"a": ("-(" + PGN_UNTER_ARGE + ")", "prozent1")}),
     # Bis 11.11.2026 stand hier die Marke „Ansatz im Modellhaus: 4.500 €“. Das Modellhaus rechnet seither mit dem PGN-Median selbst; gebunden ist
     # jetzt das Wertepaar der Hauptzahl an die Rechenmappe: Ansatz des Modellhauses und Eingabewert des Laufs mit dem ARGE-Median (Folie 23)
     ("pgn-baukosten", "{a} gegen {b} je m²", {"a": ("eingabe.herstellungskosten_qm", "euro"), "b": (K_ARGE + "eingabe.herstellungskosten_qm", "euro")}),

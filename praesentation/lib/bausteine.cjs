@@ -285,6 +285,8 @@ function bausteine(pres, kx) {
   };
 
   // 4.15 Modulkopf: Linie 1,5 pt, Titel 0,08 darunter, optional Untertitel. Rückgabe: y, ab dem der Inhalt beginnt
+  // Titel und Untertitel liegen wie im Kopf der Layouts PGN_DIAGRAMM und PGN_TABELLE (ZONE.diagramm: Titelfeld 0,08 bis 0,38 unter der Linie,
+  // mittig; Untertitel ab 0,42, oben verankert): Beim Blättern zwischen einer frei gebauten Folie und einer Diagrammfolie springt der Kopf nicht.
   // o: { x, y, w, titel, sub, signal: true (Linie und Titel in Dunkelrot; nur mit Wort, zum Beispiel „Förderschädlich“),
   //      icon: Name eines Linien-Icons vor dem Titel (0,24 Zoll), altText: Alternativtext des Icons, art: Linienart statt „modul“, farbe: Titelfarbe,
   //      rechts: zweite Angabe rechts in der Titelzeile (12 pt, grau, rechtsbündig; für Köpfe, unter denen jede Zeile Höhe zählt) }
@@ -294,19 +296,19 @@ function bausteine(pres, kx) {
     B.linie(s, { x: o.x, y: o.y, w: o.w, art: o.art || 'modul', ...(sig ? { farbe: C.dunkelrot, pt: 1.5 } : {}), name: 'Modulkopf-Linie' });
     if (!o.titel) return o.y + 0.14;
     const dx = o.icon ? 0.32 : 0;
-    if (o.icon) B.icon(s, { name: o.icon, farbe: sig ? 'dunkelrot' : dunkel ? 'weiss' : 'tinte', x: o.x, y: o.y + 0.09, d: 0.24, altText: o.altText });
+    if (o.icon) B.icon(s, { name: o.icon, farbe: sig ? 'dunkelrot' : dunkel ? 'weiss' : 'tinte', x: o.x, y: o.y + 0.11, d: 0.24, altText: o.altText });
     let wTitel = o.w - dx;
     if (o.rechts) {
       // Titel und Angabe teilen sich die Zeile: zusammen höchstens die Breite des Kopfs abzüglich eines Stegs
       const bt = breite(versal(schutz(o.titel)), stil('diagrammtitel')), br = breite(schutz(o.rechts), stil('sub'));
       if (P && dx + bt + br + 0.24 > o.w) P.melde(`Modulkopf: Titel (${bt.toFixed(2)} Zoll) und Angabe rechts (${br.toFixed(2)} Zoll) passen nicht nebeneinander in ${o.w.toFixed(2)} Zoll.`);
-      B.text(s, o.rechts, { x: o.x + o.w - br - 0.04, y: o.y + 0.09, w: br + 0.04, h: 0.24, rolle: 'sub', align: 'right', valign: 'middle', einzeilig: true, name: 'Modulkopf Angabe rechts' });
+      B.text(s, o.rechts, { x: o.x + o.w - br - 0.04, y: o.y + 0.11, w: br + 0.04, h: 0.24, rolle: 'sub', align: 'right', valign: 'middle', einzeilig: true, name: 'Modulkopf Angabe rechts' });
       wTitel = Math.max(0.5, o.w - dx - br - 0.24);
     }
-    B.text(s, o.titel, { x: o.x + dx, y: o.y + 0.08, w: wTitel, h: 0.26, rolle: 'diagrammtitel', valign: 'middle', einzeilig: true, farbe: sig ? C.dunkelrot : o.farbe, name: 'Modultitel' });
+    B.text(s, o.titel, { x: o.x + dx, y: o.y + 0.08, w: wTitel, h: 0.30, rolle: 'diagrammtitel', valign: 'middle', einzeilig: true, farbe: sig ? C.dunkelrot : o.farbe, name: 'Modultitel' });
     if (!o.sub) return o.y + 0.46;
-    B.text(s, o.sub, { x: o.x, y: o.y + 0.34, w: o.w, h: 0.24, rolle: 'sub', valign: 'middle', einzeilig: true, name: 'Modul-Untertitel' });
-    return o.y + 0.70;
+    B.text(s, o.sub, { x: o.x, y: o.y + 0.42, w: o.w, h: 0.22, rolle: 'sub', valign: 'top', einzeilig: true, name: 'Modul-Untertitel' });
+    return o.y + 0.76;
   };
 
   // 4.15 Planlegende / Kommentarspalte: Einträge aus Modultitel und Text in einem Textfeld.
@@ -683,6 +685,7 @@ function bausteine(pres, kx) {
 
   // ---- 4.9 Kennzahl-Kachel -----------------------------------------------------------------------------------------
   // Vorsatz (Label in Versalien) und Einheit stehen in der Farbe der Zahl: Rot bleibt Signaturwort, Zuschuss und Ergebnis vorbehalten (Muster 2).
+  // Das Label steht in beiden Größen der Zahl in 16 pt (Rolle kennlabel): Zwei Kacheln einer Spalte tragen oft dasselbe Label.
   // o: { x, y, w, vorsatz, zahl, einheit, label, text, gross: true (60 pt) }. Rückgabe: { unten }
   // Mehrere Zahlen mit je eigener Einheit („1 % / 0,75 %“): statt zahl und einheit teile: [{ zahl, einheit }], trenner: '/'
   B.kennzahl = (s, o) => {
@@ -702,7 +705,7 @@ function bausteine(pres, kx) {
     if (o.vorsatz) B.text(s, o.vorsatz, { x: o.x, y: o.y + 0.10, w: o.w, h: 0.22, rolle: 'vorsatz', valign: 'middle', einzeilig: true, name: 'Kennzahl Vorsatz' });
     s.addText(runs, { x: o.x, y: o.y + (gross ? 0.60 : 0.34), w: o.w, h: gross ? 1.05 : 0.72, margin: 0, isTextBox: true, fontFace: F.xbold, fontSize: pt, lineSpacing: pt, color: cs.titel, valign: 'middle', objectName: 'Kennzahl ' + teile.map(t => t.zahl).join(' / ') });
     let y = o.y + (gross ? 1.80 : 1.10);
-    if (o.label) { const r = B.text(s, o.label, { x: o.x, y, w: o.w, rolle: 'kennlabel', pt: gross ? 16 : 14, name: 'Kennzahl Label' }); y = Math.max(r.unten + 0.02, y + 0.30); }
+    if (o.label) { const r = B.text(s, o.label, { x: o.x, y, w: o.w, rolle: 'kennlabel', name: 'Kennzahl Label' }); y = Math.max(r.unten + 0.02, y + 0.30); }
     if (o.text) { const r = B.text(s, o.text, { x: o.x, y, w: o.w, h: o.textH, rolle: 'dicht', name: 'Kennzahl Text' }); y = r.unten; }
     return { unten: y };
   };
@@ -739,7 +742,7 @@ function bausteine(pres, kx) {
     if (P && r.unten > g.ende + 0.005) P.melde(`Rechte Spalte endet bei y ${r.unten.toFixed(2)}, die Inhaltszone bei ${g.ende.toFixed(2)}. Text kürzen.`);
     return { x: g.x, w: g.w, y: g.y2, inhalt: g.y2 + 0.10, ende: g.ende, unten: r.unten };
   };
-  // Kennzahl in den Platzhaltern des Layouts PGN_KENNZAHLEN(_MR). i = 0, 1, 2. Zahl 44 pt, Einheit 22 pt in Rot, Label 14 pt einzeilig,
+  // Kennzahl in den Platzhaltern des Layouts PGN_KENNZAHLEN(_MR). i = 0, 1, 2. Zahl 44 pt, Einheit 22 pt in der Farbe der Zahl, Label 16 pt einzeilig (Rolle kennlabel wie in B.kennzahl),
   // Text 14 pt bis y 4,45 (höchstens drei Zeilen). o: { vorsatz, zahl, einheit, label, text }. Rückgabe: { unten: 4,45, darunter: 4,70 (Beginn einer Planlegende) }
   B.kennzahlFeld = (s, i, o) => {
     if (!/KENNZAHLEN/.test(kx.layout || '')) throw new Error('B.kennzahlFeld braucht das Layout PGN_KENNZAHLEN oder PGN_KENNZAHLEN_MR; sonst B.kennzahl verwenden.');
@@ -752,7 +755,7 @@ function bausteine(pres, kx) {
     const runs = [{ text: z, options: { fontSize: pt } }];
     if (e) runs.push({ text: e, options: { fontSize: pt / 2 } });
     s.addText(runs, { placeholder: `kf${i}_zahl` });
-    if (o.label) { const l = schutz(o.label); if (P) P.zeile('Kennzahl Label (14 pt, einzeilig)', l, { fontFace: F.mont, bold: true, fontSize: 14 }, w); s.addText(l, { placeholder: `kf${i}_label` }); }
+    if (o.label) { const l = schutz(o.label); if (P) P.zeile('Kennzahl Label (16 pt, einzeilig)', l, stil('kennlabel'), w); s.addText(l, { placeholder: `kf${i}_label` }); }
     if (o.text) { if (P) P.block('Kennzahl Text', klar(o.text), stil('dicht'), w, K.textEnde - K.text, { luft: true }); s.addText(laeufe(o.text, stil('dicht'), { absatz: { fontSize: 14 } }), { placeholder: `kf${i}_text` }); }
     return { unten: K.textEnde, darunter: K.darunter };
   };
@@ -988,6 +991,7 @@ function bausteine(pres, kx) {
   //      pt: 14 | 12, abstand: 0.12, anteile: [Breite je Station im Verhältnis] }
   // art „reihe“: bis sechs Stationen mit Titel mittig unter dem Kreis (ohne Titel bis zwölf). art „text“: bis vier Stationen je Reihe mit Titel,
   // Zuständigkeit (12 pt), Text und Zusatz (12 pt, grau) linksbündig ab Kreis. Alle Texte sind wahlfrei. Rückgabe: { punkte: [x der Kreismitten], unten }
+  // signal: Der Achskreis der Station ist in Dunkelrot gefüllt. Ihr Titel bleibt in Tinte wie die übrigen: Das Signal trägt der Kreis allein.
   B.achsleiste = (s, o) => {
     brauche('B.achsleiste', o, ['x', 'y', 'w']);
     if (!Array.isArray(o.stationen) || !o.stationen.length) throw new Error('B.achsleiste: stationen fehlt.');
@@ -1004,7 +1008,7 @@ function bausteine(pres, kx) {
         const cx = x0 + i * dx; punkte.push(cx);
         B.achskreis(s, { cx, cy: o.y, groesse: gr, text: t.nr ?? i + 1, variante: t.signal ? 'signal' : 'standard' });
         if (!t.titel) return;                                      // Station ohne Titel: nur der Achskreis
-        const st = stil('stationKlein', { farbe: t.signal ? C.dunkelrot : 'titel' }), tw = Math.min(1.8, dx || 1.8), tt = schutz(t.titel);
+        const st = stil('stationKlein'), tw = Math.min(1.8, dx || 1.8), tt = schutz(t.titel);
         if (P) P.zeile('Station', tt, st, tw);
         s.addText(tt, opt(st, { x: cx - tw / 2, y: o.y + d / 2 + 0.09, w: tw, h: 0.26 }, { align: 'center', valign: 'middle', objectName: 'Station ' + t.titel }));
         unten = o.y + d / 2 + 0.35;
@@ -1020,7 +1024,7 @@ function bausteine(pres, kx) {
         B.achskreis(s, { cx, cy: o.y, groesse: gr, text: t.nr ?? i + 1, variante: t.signal ? 'signal' : 'standard' });
         let y = o.y + d / 2 + 0.08;
         if (t.titel) {
-          const st = stil(o.versalTitel === false ? 'wert' : 'station', { farbe: t.signal ? C.dunkelrot : 'titel' });
+          const st = stil(o.versalTitel === false ? 'wert' : 'station');
           // Titel der Station gemischt gesetzt wie ein Modultitel (16 pt, Feld 0,28 hoch); versalTitel: false setzt ihn kleiner (Datum einer Zeitleiste, 12 pt)
           const tt = schutz(t.titel), th = o.versalTitel === false ? 0.24 : 0.28;
           if (P) P.zeile('Station', tt, st, tw);
@@ -1198,7 +1202,7 @@ function bausteine(pres, kx) {
   // ---- Kopf von Diagramm und Tabelle, Vorspann (Platzhalter der Layouts) ---------------------------------------------------------------
   // Titel gemischt (Montserrat Bold 16 pt), Untertitel mit Einheit (Work Sans 12 pt); beide einzeilig, im Diagramm über sieben Spalten (6,90 Zoll),
   // in der Tabelle über acht (7,92 Zoll). Leerzeichen vor Einheiten schützt der Baustein. o: { titel, sub }
-  // Nur im Diagramm: sub als Liste aus zwei Zeilen, wenn der Untertitel nicht in eine Zeile passt (Folien 5 und 22). Legende und Diagramm rücken
+  // Nur im Diagramm: sub als Liste aus zwei Zeilen, wenn der Untertitel nicht in eine Zeile passt (Folie 5). Legende und Diagramm rücken
   // dann um eine Zeile tiefer; ihre Lagen stehen in der Rückgabe. Das Modul setzt Legende und Diagramm damit in freier Lage.
   // Rückgabe: { unten, legende (y der Legende), chart: { x, y, w, h } (Lage des Diagramms bis zum Ende der Inhaltszone) }
   const kopfFeld = (wort, re, felder) => (s, o) => {

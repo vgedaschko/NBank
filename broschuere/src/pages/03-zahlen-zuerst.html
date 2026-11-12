@@ -9,7 +9,7 @@
     .page[data-page="03"] { --fs-module: var(--fs-small); }
     .page[data-page="03"] .p03-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start; }
     .page[data-page="03"] .p03-title { grid-column: 1 / span 6; }
-    .page[data-page="03"] .p03-term { grid-column: 7 / span 6; }
+    .page[data-page="03"] .p03-term { grid-column: 7 / span 6; padding-top: 1.06mm; }   /* „Begriff: …“ auf der Grundlinie der zweiten Stimme im H1 (30,76 mm) */
     .page[data-page="03"] .p03-term__head { display: flex; align-items: baseline; gap: 2.4mm; }
     .page[data-page="03"] .p03-term__head .term__word { margin-top: 0; }
     .page[data-page="03"] .p03-term .term__label { font-size: var(--fs-micro); }
@@ -18,7 +18,7 @@
 
     /* Raster: vier Spalten, je Kachel vier gemeinsame Zeilen (Zahl · Einheit · Label · Text) → Label und Text je Reihe auf einer Linie;
        Programmteil-Chip sitzt rechts oben an der Kachellinie */
-    .page[data-page="03"] .p03-kf { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto) 9.6mm repeat(4, auto); row-gap: 0; margin-top: 10mm; }   /* 2. Reihe bündig mit der Zitatlinie auf S. 2 (139,6 mm) */
+    .page[data-page="03"] .p03-kf { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto) 9.6mm repeat(4, auto); row-gap: 0; margin-top: 9.335mm; }   /* 2. Reihe bündig mit der Zitatlinie auf S. 2 (139,6 mm): 10 mm abzüglich der 0,665 mm, um die der Begriff höher steht; das Raster bleibt damit auf den Punkt, wo es stand */
     .page[data-page="03"] .p03-kf > .kf { grid-column: auto; display: grid; grid-template-rows: subgrid; row-gap: 0; border-top-width: var(--rule-heavy); padding-top: 0; }
     .page[data-page="03"] .p03-kf > .kf:nth-child(-n+4) { grid-row: 1 / span 4; }
     .page[data-page="03"] .p03-kf > .kf:nth-child(n+5) { grid-row: 6 / span 4; }
@@ -40,7 +40,8 @@
     /* Marktband (Anthrazit-Verlauf), oben bündig mit „Ihr Einstieg“ auf S. 2. Korrekturlauf 1: eine Kernbotschaft, ein Diagramm
        (Einheitenquadrate 1 = 1.000 Wohnungen mit zweistufiger Maßkette: Gesamtmaß 58.024 ausgelaufen, Teilmaß rund 16.000 neu gefördert) */
     .page[data-page="03"] .p03-market { display: flex; flex-direction: column; height: 65mm; padding: 4.6mm 6mm 4.6mm; background: var(--grad-dark); }
-    .page[data-page="03"] .p03-market__head { display: flex; justify-content: space-between; align-items: center; gap: 4mm; padding-bottom: 2.6mm; border-bottom: var(--hair) solid var(--rule); }
+    .page[data-page="03"] .p03-market__head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; padding-bottom: 2.6mm; border-bottom: var(--hair) solid var(--rule); }
+    .page[data-page="03"] .p03-market__head .pageref { font-size: var(--fs-body); }   /* 1em erbt hier die Grundgröße 9,5 pt; der Verweis steht wie der übrige Text in 9 pt */
     .page[data-page="03"] .p03-market__msg { max-width: calc(10 * var(--col) + 9 * var(--gutter)); margin-top: 4.4mm; font: 800 15.5pt/1.16 var(--font-display); letter-spacing: -.005em; color: var(--fg); }
     .page[data-page="03"] .p03-hl { color: var(--grant); }
     .page[data-page="03"] .p03-units { display: block; margin-top: auto; overflow: visible; }

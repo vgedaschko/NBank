@@ -1,4 +1,4 @@
-// Folie 22 · PGN_DIAGRAMM: Herstellungskosten je m² Wohnfläche, Median, PGN gegen ARGE, als natives gruppiertes Säulendiagramm über acht
+// Folie 22 · PGN_DIAGRAMM: Herstellungskosten je m² Wohnfläche, Median, PGN gegen ARGE, als natives gruppiertes Säulendiagramm über sieben
 // Spalten (vier Kostengruppen). Feine Zeichnung wie auf Folie 3 (D.gruppierteSaeulen mit fein: true): schlanke Säulen mit feiner Kontur, PGN in
 // Tinte, ARGE als helle Fläche, zwischen beiden eine schmale Fuge; die Werte stehen über den Säulen (PGN in Tinte, ARGE in Grau). Neben den
 // Säulen der Herstellung steht die Spanne als Maßzeichen (kleinster bis größter Wert, folien/_fein_pgn-baukosten.cjs); die Spanne der ARGE
@@ -24,14 +24,13 @@ module.exports = {
     // ---- Gegenproben ------------------------------------------------------------------------------------------------------------------
     // Median der Herstellung steht in Reihe und Spanne gleich; der PGN-Median ist der Ansatz des Modellhauses, der ARGE-Median der Eingabewert des
     // zweiten Laufs der Folie 23 (beide gerundet auf ganze Euro, wie die Rechenmappe sie führt); die ARGE-Mediane stehen mit
-    // denselben Werten im Block baukosten (Folie 3 und ihre Notizen); jede Spanne ist geordnet (kleinster Wert, Median, größter Wert)
+    // denselben Werten im Block baukosten (Folie 3); jede Spanne ist geordnet (kleinster Wert, Median, größter Wert)
     for (const r of wer) {
       if (r.median[0] !== r.spanne.median) P.melde(`${r.name}: Der Median der Herstellung steht in Reihe (${r.median[0]}) und Spanne (${r.spanne.median}) verschieden.`);
       if (!(r.spanne.min <= r.spanne.median && r.spanne.median <= r.spanne.max)) P.melde(`${r.name}: Die Spanne der Herstellung ist nicht geordnet (${r.spanne.min}, ${r.spanne.median}, ${r.spanne.max}).`);
     }
     ctx.gleich('PGN-Median gegen den Ansatz des Modellhauses (Lauf modellhaus, Eingabe 2.1)', pgn.spanne.median, W('modellhaus', 'eingabe.herstellungskosten_qm'), 0);
     ctx.gleich('ARGE-Median gegen den Eingabewert des Laufs modellhaus_kosten_4631', arge.spanne.median, W('modellhaus_kosten_4631', 'eingabe.herstellungskosten_qm'), 0);
-    if (!ctx.glatt(ctx.o.notizen).includes('Das Modellhaus rechnet mit diesem Wert.')) P.melde('Notizen der Folie 22: Der Satz „Das Modellhaus rechnet mit diesem Wert.“ fehlt.');
     const baukosten = Object.values(ctx.daten.markt.baukosten || {}).filter(g => g && g.kg && g.q4_2025);
     gruppen.forEach((g, i) => {
       const b = baukosten.find(x => x.kg === g.kg);
@@ -42,16 +41,21 @@ module.exports = {
     const abstand = fmt.zahl(unter * 100, 1);
     if (!ctx.o.titel.includes(`${abstand} % unter`)) P.melde(`Titel der Folie nennt den Abstand nicht mit ${abstand} %.`);
 
-    // ---- Diagramm über acht Spalten: schlanke Säulen, Werte als Text darüber --------------------------------------------------------------
-    B.diagrammkopf(s, { titel: T('diagrammtitel'), sub: T('untertitel') });
+    // ---- Diagramm über sieben Spalten: schlanke Säulen, Werte als Text darüber -------------------------------------------------------------
+    // Der Untertitel steht in zwei Zeilen (Einheit und Kostenstand | Grundlagen): In eine Zeile der sieben Spalten passt er nicht. Legende und
+    // Diagramm rücken um die zweite Zeile tiefer (Lagen aus der Rückgabe von B.diagrammkopf)
+    const untertitel = U('untertitel');
+    if (!Array.isArray(untertitel) || untertitel.length !== 2) P.melde('daten/markt.json, kosten.texte.untertitel: erwartet werden zwei Zeilen.');
+    const kopf = B.diagrammkopf(s, { titel: T('diagrammtitel'), sub: [].concat(untertitel).map(z => wl(z, 'Untertitel')) });
     // Legende: zwei Felder in der Kontur der Säulen, dahinter das Maßzeichen der Spanne
-    const chart = ZONE.diagramm.chart, yL = ZONE.diagramm.legende;
+    const chart = kopf.chart, yL = kopf.legende;
     const felder = B.legende(s, { x: colX(1), y: yL, fein: true, eintraege: wer.map(r => ({ text: r.name, art: r.art })) });
     const legende = FEIN.legendeSpanne(ctx, s, { x: felder.rechts + 0.20, y: yL, text: T('legende_spanne') });
     if (legende.rechts > chart.x + chart.w + 0.005) P.melde(`Legende endet bei x ${legende.rechts.toFixed(2)} und läuft über das Diagramm (bis ${(chart.x + chart.w).toFixed(2)}).`);
     // Säulen 0,48 Zoll breit. Der Rand oben lässt Platz für die Pfeilspitze der ARGE-Spanne und ihren Wert
     const ACHSE = { min: 0, max: 5000, schritt: 1000, format: 'ganz' }, sp = r => `${r.name} ${fmt.zahl(r.spanne.min)} bis ${fmt.euro(r.spanne.max)}`;
-    const d = D.gruppierteSaeulen(s, { kategorien: gruppen.map(g => `${g.name} ${g.kg}`), katAchse: false, fein: true, saeule: 0.48, labels: false, rand: { l: 0.80, o: 0.34 }, name: 'Diagramm Herstellungskosten', achse: ACHSE,
+    // Rand rechts 0,12 statt 0,24: Die vier Kategorien bekommen die Breite, die „Baunebenkosten“ in einer Zeile braucht
+    const d = D.gruppierteSaeulen(s, { ...chart, kategorien: gruppen.map(g => `${g.name} ${g.kg}`), katAchse: false, fein: true, saeule: 0.48, labels: false, rand: { l: 0.80, r: 0.12, o: 0.34 }, name: 'Diagramm Herstellungskosten', achse: ACHSE,
       altText: `Säulendiagramm: Herstellungskosten je m² Wohnfläche in €, Median, ${wer.map(r => r.name).join(' und ')} für ${gruppen.map(g => `${g.name} (${g.kg})`).join(', ')}. ` +
         `Spanne der Herstellung vom kleinsten zum größten Wert: ${wer.map(sp).join(', ')}.`,
       reihen: wer.map(r => ({ name: r.name, art: r.art, werte: r.median })) });

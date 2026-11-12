@@ -1,5 +1,5 @@
 // Hilfsfunktionen der Baugruppe „einstieg“ (Folien 3 bis 6). Kein Folienmodul: build.cjs lädt nur folien/<id>.cjs der Folien des Konzepts.
-// Die vier Folien haben denselben Aufbau: links über acht Spalten das Diagramm, rechts über vier Spalten die Hauptzahl (60 pt) an fester
+// Die vier Folien haben denselben Aufbau: links über sieben Spalten das Diagramm, rechts über fünf Spalten die Hauptzahl (60 pt) an fester
 // Stelle und darunter ab y 4,40 ein zweites Modul (zweite Kennzahl oder Rechenweg). Lage und Bausteine dazu stehen in lib/:
 // ZONE.diagramm.spalte, B.hauptzahl, B.nebenzahl, B.zweitesModul; dazu B.massketteSenkrecht, B.zuleitung, D.saeulen mit arten,
 // fmt.monatKurz, fmt.monatWort und ctx.mittel. Die Diagramme sind fein gezeichnet: Säulen mit fein: true (Kontur, helle Fläche für den

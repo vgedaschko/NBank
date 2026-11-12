@@ -60,11 +60,9 @@ module.exports = {
     // Rechte Spalte. Der Zins des Bankdarlehens kommt aus der Mappe und ist der letzte Wert der Reihe „10 Jahre“.
     const zinsBank = W('modellhaus', 'eingabe.zins_bank');
     ctx.gleich('Zins des Bankdarlehens (Mappe) gegen den letzten Monatswert der Reihe „10 Jahre“', zinsBank * 100, reihen[0].werte[n]);
-    // Der Titel nennt die beiden Kennzahlen; der Satz der Broschüre („Ende 2025 drei bis vier Prozent“) steht in den Notizen
+    // Der Titel nennt die beiden Kennzahlen
     const hauptzahl = fmt.dez(zinsBank * 100), zweite = fmt.dez(marken[0].z10);
     for (const v of [hauptzahl, zweite]) if (!ctx.o.titel.includes(`${v} %`)) P.melde(`Titel der Folie nennt ${v} % nicht; Hauptzahl und zweite Kennzahl stehen dann nicht im Titel.`);
-    const ende2025 = marken[1];
-    if (/drei bis vier Prozent/.test(ctx.o.notizen) && K.some(k => ende2025[k] < 3 || ende2025[k] > 4)) P.melde('Notizen „Ende 2025 drei bis vier Prozent“: Ein Quartalsmittel Q4 2025 liegt außerhalb von 3 bis 4 %.');
     B.hauptzahl(s, { gross: true, vorsatz: ctx.wortlaut(monatWort(monate[n]), 'Vorsatz'), zahl: ctx.wortlaut(hauptzahl, 'Kennzahl'), einheit: '%', label: T('kennzahl_label') });
     B.nebenzahl(s, { vorsatz: ctx.wortlaut(marken[0].bezeichnung, 'Vorsatz'), zahl: ctx.wortlaut(zweite, 'Kennzahl'), einheit: '%', label: T('kennzahl_label') });
 

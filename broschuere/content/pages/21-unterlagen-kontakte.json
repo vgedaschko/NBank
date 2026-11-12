@@ -90,7 +90,7 @@
             },
             {
               "q": "Vorzeitige Rückzahlung.",
-              "a": "Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende.\nBeispiel: Bindungsbeginn 2028, Rückzahlung 2040: Ende 31.12.2050; bei Rückzahlung 2032 erst 2048."
+              "a": "Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende.\nBeispiel: Bindungsbeginn 2028. Bei Rückzahlung 2040 enden die Bindungen am 31.12.2050; bei Rückzahlung 2032 erst 2048."
             }
           ]
         },

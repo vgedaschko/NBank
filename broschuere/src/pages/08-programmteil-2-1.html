@@ -3,30 +3,35 @@
     /* S. 8 · Programmteil 2.1 (linke Seite der Doppelseite 08|09). Raster wie S. 13: außen Spalten 1–3 (Programmnummer,
        Planlegende des Diagramms), innen Spalten 4–12. Darunter zwei Spalten à 6: links das Rechenblatt „Zuwendungsfähige Kosten“
        mit Bemessungsgrenze, rechts Zuschläge/Sonderformen als Zeilenliste (Echo der Eckdaten-Zeilen auf S. 9);
-       „Kombinierbar“ als Zeile über die volle Breite. Die Eigenmittel-Regel steht in den Eckdaten auf S. 9. */
+       „Kombinierbar“ als Zeile über die volle Breite. Die Eigenmittel-Regel steht in den Eckdaten auf S. 9.
+       Stufung nach styles.css §8b: Rubrik steht in der Kopfzeile, der Gegenstand läuft als zweite Stimme (.light) über dem H1;
+       die Hauptzeile des H1 steht auf derselben Höhe wie das H1 auf S. 9. Zeilentitel der Zuschläge und die Run-in-Label
+       („Bemessungsgrenze“, „Kombinierbar“) sind 8,5-pt-Label in Schwarz; Zuschlagskappe in Diagramm und Legende schwarz. */
     .page[data-page="08"] .p08-fig { margin-top: var(--sp-6); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: stretch; }
     .page[data-page="08"] .p08-fig__side { grid-column: 1 / span 3; display: flex; flex-direction: column; }
     .page[data-page="08"] .p08-fig > .chart__svg { grid-column: 4 / -1; align-self: start; margin-top: 0; }
     .page[data-page="08"] .p08-fig__side .chart__sub { margin-top: 1mm; }
-    .page[data-page="08"] .p08-fig__side .legend { margin-top: 3mm; gap: 1.5mm; }
-    .page[data-page="08"] .p08-notes { margin-top: auto; padding-top: 2.2mm; border-top: var(--hair) solid var(--rule); }
+    .page[data-page="08"] .p08-fig__side .legend { margin-top: 2.6mm; gap: 1.5mm; }
+    .page[data-page="08"] .p08-notes { margin-top: auto; padding-top: 2mm; border-top: var(--hair) solid var(--rule); }
     .page[data-page="08"] .p08-notes > li { font-size: var(--fs-module); line-height: 1.3; color: var(--fg-2); }
-    .page[data-page="08"] .p08-notes > li + li { margin-top: 1mm; }
+    .page[data-page="08"] .p08-notes > li + li { margin-top: .6mm; }
     .page[data-page="08"] .p08-notes b { color: var(--fg); }
-    /* Rote Linien im Diagramm filigran (Korrekturlauf 1): Strichstärke als Nutzereinheit (1 = 1 mm im viewBox), nicht als
+    /* Hilfslinien im Diagramm filigran (Korrekturlauf 1): Strichstärke als Nutzereinheit (1 = 1 mm im viewBox), nicht als
        „.25mm“ – CSS-mm wird im SVG in px umgerechnet und mit dem viewBox skaliert (≈ 0,95 mm statt 0,25 mm).
-       0,25 mm = Druckregel-Minimum für Rot; Zuschlagskappe Strich 1 / Lücke 0,6 wie .sw--cap in der Legende. */
+       Zuschlagskappe Strich 1 / Lücke 0,6 wie .sw--cap in der Legende; Farbe Schwarz nach §8b (Hilfslinien). */
     .page[data-page="08"] .p08-svg .cap-line { stroke-width: .25; stroke-dasharray: 3 .8 .5 .8; }
     .page[data-page="08"] .p08-svg .dim-line--acc { stroke-width: .25; }
     .page[data-page="08"] .p08-svg .axb-c--acc { stroke-width: .3; }
     /* untere Zone: Zeile 1 „Zuwendungsfähige Kosten“ | „Zuschläge und Sonderformen“ (Modulkopf 0,5 mm),
-       Zeile 2 „Kombinierbar“ über alle zwölf Spalten an einer 0,3-mm-Linie; Lauftitel einheitlich Montserrat 800 9 pt */
-    .page[data-page="08"] .p08-low { margin-top: 8mm; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--sp-6); align-items: start; }   /* Abstände 8 und 6 mm (vorher 6 und 3): „Kombinierbar“ läuft vier- statt sechszeilig, die Zone endet wieder nahe der Satzspiegel-Unterkante */
+       Zeile 2 „Kombinierbar“ über alle zwölf Spalten an einer 0,3-mm-Linie; Zeilentitel und Run-in-Label einheitlich
+       Montserrat 800, 8,5 pt, Versalien */
+    .page[data-page="08"] .p08-low { margin-top: 7.4mm; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--sp-5); align-items: start; }   /* Abstände 7,4 und 5 mm: die Zone endet an der Satzspiegel-Unterkante (273 mm) */
     .page[data-page="08"] .p08-wzb { grid-column: 1 / span 6; grid-row: 1; }
     .page[data-page="08"] .p08-zu { grid-column: 7 / span 6; grid-row: 1; }
     .page[data-page="08"] .p08-kb { grid-column: 1 / -1; grid-row: 2; }
-    .page[data-page="08"] .p08-wz { margin-top: 2.4mm; padding: 2.2mm 4mm 2.6mm; }
-    .page[data-page="08"] .p08-wz .formula__row { font-size: var(--fs-module); line-height: 1.34; }
+    .page[data-page="08"] .p08-wz { margin-top: 2.4mm; padding: 2.2mm 3mm 2.6mm; }
+    /* Rechenblatt: Polster 3 mm und Operatorspalte 5 mm, damit „höchstens Bemessungsgrenze × Wohnfläche“ in 9,5 pt einzeilig bleibt */
+    .page[data-page="08"] .p08-wz .formula__row { grid-template-columns: 5mm minmax(0, 1fr); column-gap: 1.5mm; font-size: var(--fs-module); line-height: 1.34; }
     .page[data-page="08"] .p08-wz .formula__term { font-weight: 600; }
     .page[data-page="08"] .p08-wz .formula__row--result .formula__term { font-weight: 700; }
     .page[data-page="08"] .p08-fact { font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
@@ -39,8 +44,10 @@
     .page[data-page="08"] .p08-list > li { padding: 1.9mm 0 2.1mm; border-top: var(--hair) solid var(--rule); }
     .page[data-page="08"] .p08-list > li:first-child { border-top: 0; }
     .page[data-page="08"] .p08-list > li:last-child { padding-bottom: 0; }
-    .page[data-page="08"] .p08-zu__title { text-wrap: wrap; font: 800 9pt/1.22 var(--font-display); letter-spacing: .015em; text-transform: uppercase; color: var(--fg); }
-    .page[data-page="08"] .p08-zu__sub { margin-left: 1.2mm; font: 600 var(--fs-label-accent)/1.22 var(--font-display); letter-spacing: 0; text-transform: none; color: var(--accent-text); }
+    .page[data-page="08"] .p08-zu__title { text-wrap: wrap; font: 800 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
+    .page[data-page="08"] .p08-zu__sub { margin-left: 1.6mm; font: 600 var(--fs-micro)/1.25 var(--font-display); letter-spacing: 0; text-transform: none; color: var(--fg); }
+    .page[data-page="08"] .runin { font-size: var(--fs-micro); letter-spacing: var(--track-caps); }
+    .page[data-page="08"] .sw--cap { --sw-cap: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4.6 3' preserveAspectRatio='none'%3E%3Crect x='.125' y='.125' width='4.35' height='2.75' stroke='%231D1D1B' stroke-width='.25' stroke-dasharray='1 .6' fill='none'/%3E%3C/svg%3E"); }
     .page[data-page="08"] .p08-zu__text { margin-top: 1.1mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
     .page[data-page="08"] .p08-zu__text b { color: var(--fg); }
     .page[data-page="08"] .p08-kb .bs-badge { vertical-align: .1mm; }
@@ -59,10 +66,9 @@
       <p class="tags"><span class="tag"><i class="sw sw--grant"></i><i class="sw sw--loan"></i>Zuschuss + Darlehen</span></p>
     </div>
     <div class="program-head__main">
-      <p class="kicker">Neubau, Änderung, Ersterwerb</p>
-      <h1 class="h1">Bis zu <em>80&nbsp;%</em> Förder&shy;quote</h1>
+      <h1 class="h1"><span class="light">Neubau, Änderung, Ersterwerb</span>Bis zu <em>80&nbsp;%</em> Förder&shy;quote</h1>
       <p class="deck">Darlehen plus Zuschuss in jeder Einkommensgruppe, mit Zuschlag bis zu <b>90&nbsp;%</b></p>
-      <p class="program-head__subject">Für gebundene Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen: Neubau, Änderung und Erweiterung (Dachausbau, Aufstockung, Anbau, Umnutzung) sowie Ersterwerb unvermieteter, ungebundener Wohnungen bis zwei Jahre nach Fertigstellung, höchstens zum Marktwert. <b>Der Zuschuss wird nur zusammen mit dem Darlehen gewährt.</b></p>
+      <p class="program-head__subject">Für gebundene Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen: Neubau, Änderung und Erweiterung (Dachausbau, Aufstockung, Anbau, Umnutzung) sowie Ersterwerb unvermieteter, ungebundener Wohnungen bis zwei Jahre nach Fertigstellung, höchstens zum Marktwert. <b class="u-nohyphens">Der Zuschuss wird nur zusammen mit dem Darlehen gewährt.</b></p>
     </div>
   </header>
 

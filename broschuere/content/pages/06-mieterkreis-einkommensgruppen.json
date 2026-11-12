@@ -10,7 +10,7 @@
     {
       "type": "chart",
       "chart": "bar",
-      "title": "Obergrenze Gesamtjahreseinkommen, in €, gültig seit 01.03.2025",
+      "title": "Obergrenze Gesamtjahreseinkommen in €, gültig seit 01.03.2025",
       "data": {
         "orientation": "horizontal",
         "series": [
@@ -134,13 +134,13 @@
             }
           ]
         }
-      },
-      "ref": "A, B und C im Vergleich → S. 11–12"
+      }
     },
     {
       "type": "text",
       "heading": "Nachweis",
-      "body": "Mieterinnen und Mieter weisen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) nach. Ihn stellt die Kommune aus, meist Landkreis oder Stadt. Der allgemeine WBS gilt ein Jahr und legt auch die angemessene Wohnfläche fest.\n\nEs zählt das Gesamtjahreseinkommen. Das ist das Einkommen aller Haushaltsmitglieder, das in den zwölf Monaten nach dem WBS-Antrag zu erwarten ist. Davon gehen je 10 % ab, soweit Steuern, Kranken-/Pflege- oder Rentenbeiträge anfallen, außerdem Freibeträge und Unterhalt. Das Bruttoeinkommen kann daher deutlich über den Grenzen liegen."
+      "body": "Mieterinnen und Mieter weisen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) nach. Ihn stellt die Kommune aus, meist Landkreis oder Stadt. Der allgemeine WBS gilt ein Jahr und legt auch die angemessene Wohnfläche fest.\n\nEs zählt das Gesamtjahreseinkommen. Das ist das Einkommen aller Haushaltsmitglieder, das in den zwölf Monaten nach dem WBS-Antrag zu erwarten ist. Davon gehen je 10 % ab, soweit Steuern, Kranken-/Pflege- oder Rentenbeiträge anfallen, außerdem Freibeträge und Unterhalt. Das Bruttoeinkommen kann daher deutlich über den Grenzen liegen.",
+      "ref": "A, B und C im Vergleich → S. 11–12"
     },
     {
       "type": "table",

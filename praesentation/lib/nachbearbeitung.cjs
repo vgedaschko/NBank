@@ -3,7 +3,7 @@
 //  2 Schraffur: Flächen in der Merkfarbe DCD8D2 werden zum nativen Füllmuster (Formen, Layouts, Diagrammreihen)
 //  3 Diagramme: Strichart je Reihe, Farbe der Datenbeschriftung je Reihe, weiche Fläche unter einer Linie (Flächenreihe mit Verlauf),
 //    Kontur je Datenpunkt bei feinen Säulen mit eigener Farbe je Säule, keine Linie an Segmenten ohne Höhe in feinen gestapelten Säulen
-//  4 Aufzählung: eckiger Marker in Rot, 80 % der Schriftgröße, in der Textschrift; Titel-Platzhalter mit idx 0
+//  4 Aufzählung: eckiger Marker in Tinte, 80 % der Schriftgröße, in der Textschrift; Titel-Platzhalter mit idx 0
 //  5 leere Platzhalter, die eine Folie nicht füllt, entfernen (sonst liegen in PowerPoint Eingabefelder über dem Inhalt)
 //  6 Metadaten: Sprache Deutsch, kein Werkzeugname in der Mappe und in den eingebetteten Arbeitsmappen der Diagramme
 //  7 Prüfungen (Farbwerte, Stricharten, eindeutige Form-IDs) und ZIP ohne Ordner-Einträge, [Content_Types].xml zuerst
@@ -17,7 +17,7 @@
 //    Arbeitsmappen: Nullwerte als 0 statt leer, Tabellenbereich ohne Apostroph
 // 14 Barrierefreiheit: Alternativtexte an Formen (pptxgenjs schreibt sie nur für Bilder und Diagramme); Formen ohne Text und ohne Alternativtext
 //    als dekorativ gekennzeichnet; Tabellen mit Kopfzeile oder Kopfspalte gekennzeichnet
-// 15 Notizen: je Zeile ein Absatz
+// 15 Keine Sprechernotizen: Notizseiten, die pptxgenjs zu jeder Folie anlegt, samt Beziehungen entfernt
 // 16 Paket: [Content_Types].xml ohne tote Einträge und mit image/jpeg
 // 17 Wiederholbarkeit: festes Datum in den Eigenschaften und an den ZIP-Einträgen, Abschnitts-IDs aus dem Abschnittsnamen
 'use strict';
@@ -58,7 +58,7 @@ function themeXml(xml, theme) {
 async function nachbearbeiten(datei, o) {
   const zip = await JSZip.loadAsync(fs.readFileSync(datei));
   const stat = { theme: 0, formen: 0, reihen: 0, labels: 0, striche: 0, marker: 0, platzhalter: 0, arbeitsmappen: 0, ausgeblendet: 0, absaetze: 0, absatzAbweichend: [], masterAbstand: 0,
-    dekorativ: 0, altTexte: 0, tabellen: 0, layoutPlatzhalter: 0, idx: 0, diagrammSchema: 0, nullen: 0, notizAbsaetze: 0, inhaltstypen: 0, flaechen: 0, punktKonturen: 0, ohneHoehe: 0 };
+    dekorativ: 0, altTexte: 0, tabellen: 0, layoutPlatzhalter: 0, idx: 0, diagrammSchema: 0, nullen: 0, notizteile: 0, inhaltstypen: 0, flaechen: 0, punktKonturen: 0, ohneHoehe: 0 };
   const datum = o.datum || '2026-01-01T00:00:00Z', zipDatum = new Date(datum);
   if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(datum) || isNaN(zipDatum)) throw new Error(`Nachbearbeitung: datum „${datum}“ ist kein Zeitpunkt der Form 2026-09-30T00:00:00Z.`);
   const layoutVon = {};      // 'ppt/slideLayouts/slideLayout5.xml' → Beschreibung des Layouts aus o.layouts
@@ -66,7 +66,7 @@ async function nachbearbeiten(datei, o) {
   const sch = { merkfarbe: 'DCD8D2', bg: 'DCD8D3', fg: '8E8A85', muster: 'ltUpDiag', ...(o.schraffur || {}) };
   const patt = `<a:pattFill prst="${sch.muster}"><a:fgClr><a:srgbClr val="${sch.fg}"/></a:fgClr><a:bgClr><a:srgbClr val="${sch.bg}"/></a:bgClr></a:pattFill>`;
   const solid = new RegExp(`<a:solidFill>\\s*<a:srgbClr val="${sch.merkfarbe}"\\s*/>\\s*</a:solidFill>`);
-  const marker = o.markerFarbe || 'B71E3F', firma = o.firma || 'Planungsgemeinschaft Nord GmbH';
+  const marker = o.markerFarbe || '202020', firma = o.firma || 'Planungsgemeinschaft Nord GmbH';
   const offen = JSON.parse(JSON.stringify(o.diagramme || {}));   // was am Ende nicht angewendet wurde, ist ein Fehler
 
   // 1 Theme
@@ -276,16 +276,19 @@ async function nachbearbeiten(datei, o) {
         for (const pt of val[3].matchAll(/<c:pt idx="(\d+)">\s*<c:v>([^<]*)<\/c:v>/g)) if (pt[2] !== '' && Number(pt[2]) === 0) (nullZellen[mappe] = nullZellen[mappe] || new Set()).add(val[1] + (Number(val[2]) + Number(pt[1])));
       }
       zip.file(name, xml);
-    } else if (/^ppt\/notesSlides\/[^/]+\.xml$/.test(name)) {
-      // 15 Notizen: je Zeile ein Absatz (pptxgenjs schreibt alle Zeilen in einen Lauf, getrennt nur durch Zeilenvorschub-Zeichen)
-      let xml = await zip.file(name).async('string');
-      xml = xml.replace(/<a:p><a:r>(<a:rPr\b[^>]*\/>)<a:t>([^<]*\n[^<]*)<\/a:t><\/a:r>(<a:endParaRPr\b[^>]*\/>)?<\/a:p>/g, (m, rpr, text, ende) => text.split(/\r?\n/).map(z => {
-        stat.notizAbsaetze++;
-        return z.trim() ? `<a:p><a:r>${rpr}<a:t>${z}</a:t></a:r></a:p>` : `<a:p>${ende || '<a:endParaRPr lang="de-DE" dirty="0"/>'}</a:p>`;
-      }).join(''));
-      zip.file(name, xml);
     }
   }
+  // 15 Keine Sprechernotizen: pptxgenjs legt zu jeder Folie eine Notizseite an, auch eine leere. Die Notizseiten, ihre Beziehungen und die
+  //    Verweise der Folien darauf entfallen; Schritt 16 nimmt ihre Einträge aus [Content_Types].xml. Der Notizmaster bleibt (Vorlage ohne Inhalt).
+  for (const name of Object.keys(zip.files)) {
+    if (/^ppt\/notesSlides\//.test(name)) { if (zip.files[name] && !zip.files[name].dir) { stat.notizteile++; zip.remove(name); } }
+    else if (/^ppt\/slides\/_rels\/[^/]+\.rels$/.test(name)) {
+      const xml = await zip.file(name).async('string'), neu = xml.replace(/<Relationship\b[^>]*\/relationships\/notesSlide"[^>]*\/>/g, '');
+      if (neu !== xml) zip.file(name, neu);
+    }
+  }
+  for (const name of Object.keys(zip.files)) if (/^ppt\/notesSlides\//.test(name)) zip.remove(name);   // leere Ordner-Einträge
+  if (Object.keys(zip.files).some(n => /^ppt\/notesSlides\//.test(n))) throw new Error('Nachbearbeitung: Die Mappe trägt noch Notizseiten.');
 
   // 6 und 13 eingebettete Arbeitsmappen der Diagramme: Verfasser und Datum ersetzen, Nullwerte füllen, Tabellenbereich richten
   for (const name of Object.keys(zip.files).filter(n => /^ppt\/embeddings\/.+\.xlsx$/.test(n)).sort()) {
@@ -329,8 +332,8 @@ async function nachbearbeiten(datei, o) {
     const strich = [...xml.matchAll(/<a:prstDash val="([^"]*)"/g)].find(m => !STRICHE.includes(m[1]));
     if (strich) throw new Error(`${name}: Strichart „${strich[1]}“ gibt es nicht. Erlaubt: ${STRICHE.join(', ')}.`);
     if (/pptxgenjs/i.test(xml)) throw new Error(`${name}: enthält einen Werkzeugnamen (E11). Autor, Firma, Titel und Betreff in build.cjs setzen.`);
-    // Form-IDs: je Folie, Layout, Master und Notizseite eindeutig
-    if (/^ppt\/(slides|slideLayouts|slideMasters|notesSlides|notesMasters)\/[^/]+\.xml$/.test(name)) {
+    // Form-IDs: je Folie, Layout und Master eindeutig
+    if (/^ppt\/(slides|slideLayouts|slideMasters|notesMasters)\/[^/]+\.xml$/.test(name)) {
       const ids = [...xml.matchAll(/<p:cNvPr id="(\d+)"/g)].map(m => m[1]), doppelt = [...new Set(ids.filter((id, i) => ids.indexOf(id) !== i))];
       if (doppelt.length) throw new Error(`${name}: Form-ID ${doppelt.join(', ')} ist doppelt vergeben. IDs müssen je Folie eindeutig sein.`);
     }

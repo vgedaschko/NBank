@@ -1,5 +1,5 @@
 // Folie 6 · PGN_DIAGRAMM: Bestand gebundener Mietwohnungen in Niedersachsen, 31.12.2016 bis 31.12.2025, als natives Säulendiagramm über
-// acht Spalten. Feine Zeichnung wie auf den Folien 3 und 5 (D.saeulen mit fein: true): eine Reihe, jede Säule mit feiner Kontur; die Jahre bis
+// sieben Spalten. Feine Zeichnung wie auf den Folien 3 und 5 (D.saeulen mit fein: true): eine Reihe, jede Säule mit feiner Kontur; die Jahre bis
 // 2024 als helle Fläche, 2025 in Tinte. Beschriftet sind der erste Wert, der Wert der Broschüre für 2024 (beide in Grau) und der letzte (in
 // Tinte). Die Maßkette über dem Diagramm misst von der ersten bis zur letzten Säule und trägt den Rückgang. Rechts die Hauptzahl der Folie
 // (Rückgang) und darunter die Kennzahl der Broschüre S. 3 (28 % der 2015 bis 2024 ausgelaufenen Bindungen ersetzt).
@@ -23,11 +23,11 @@ module.exports = {
     if (!ctx.glatt(ctx.o.titel).includes(ctx.glatt(fmt.prozent(rueckgang, 1)))) P.melde(`Titel der Folie nennt den Rückgang nicht mit ${fmt.prozent(rueckgang, 1)}.`);
     wl(werte.map(v => fmt.zahl(v)).join(' · '), 'Werte der Reihe');
 
-    // ---- Diagramm über acht Spalten ------------------------------------------------------------------------------------------
+    // ---- Diagramm über sieben Spalten ----------------------------------------------------------------------------------------
     B.diagrammkopf(s, { titel: wl('Bestand gebundener Mietwohnungen in Niedersachsen', 'Diagrammtitel'), sub: wl('Wohnungen mit Belegungs- und Mietbindung, Bestand zum 31.12.', 'Untertitel') });
     // Wie auf den Folien 3 und 5: frühere Stände als helle Fläche mit feiner Kontur (Bezugswert), der letzte Stand in Tinte
     const arten = jahre.map((j, i) => (i === n ? 'tinte' : 'bezug'));
-    const d = D.saeulen(s, { kategorien: jahre, werte, arten, fein: true, reihenname: 'Bestand zum 31.12.', labels: false, rand: { l: 0.96, o: 0.54 }, luecke: 70, name: 'Diagramm Bestand gebundener Mietwohnungen',
+    const d = D.saeulen(s, { kategorien: jahre, werte, arten, fein: true, reihenname: 'Bestand zum 31.12.', labels: false, rand: { l: 0.96, r: 0.08, o: 0.54 }, luecke: 70, name: 'Diagramm Bestand gebundener Mietwohnungen',
       achse: { min: 0, max: 100000, schritt: 20000, format: 'ganz' },
       altText: `Säulendiagramm: Bestand gebundener Mietwohnungen in Niedersachsen zum 31.12., ${jahre[0]} bis ${jahre[n]}: von ${fmt.zahl(werte[0])} auf ${fmt.zahl(werte[n])} Wohnungen` });
     B.achsentitel(s, d, { y: ctx.wortlaut('Wohnungen', 'Achsentitel') });
@@ -40,10 +40,13 @@ module.exports = {
       const j = beschriftet[k + 1];
       if (i >= 0 && j === i + 1) B.grundZwischenWerten(s, { x0: d.katMitte(i), x1: j === n ? d.plot.x + d.plot.w + 0.02 : d.katMitte(j), y0: oben(i), y1: oben(j), name: `Grund Werte ${jahre[i]} und ${jahre[j]}` });
     });
+    // In den sieben Spalten stehen die Säulen enger als die Werte breit sind: Zwei Werte an Nachbarsäulen (2024 und 2025) rücken je 0,06 Zoll
+    // auseinander, damit die Fläche hinter dem einen den anderen nicht anschneidet
+    const RUECKEN = 0.06, versatz = i => (beschriftet.includes(i + 1) ? -RUECKEN : 0) + (beschriftet.includes(i - 1) ? RUECKEN : 0);
     for (const j of X('markt', 'bestand.beschriftet')) {
       const i = jahre.indexOf(j);
       if (i < 0) throw new Error(`bestand.beschriftet nennt ${j}; das Jahr steht nicht in der Reihe.`);
-      B.textAufPlot(s, wl(fmt.zahl(werte[i]), `Wert ${j}`), { x: d.katMitte(i) - 0.50, y: oben(i), w: 1.00, h: 0.22, rolle: 'wert', farbe: D.ART[arten[i]].wert, align: 'center', valign: 'middle', name: 'Wert ' + j });
+      B.textAufPlot(s, wl(fmt.zahl(werte[i]), `Wert ${j}`), { x: d.katMitte(i) + versatz(i) - 0.50, y: oben(i), w: 1.00, h: 0.22, rolle: 'wert', farbe: D.ART[arten[i]].wert, align: 'center', valign: 'middle', name: 'Wert ' + j });
     }
     // Maßkette von der ersten bis zur letzten Säule; die Maßhilfslinien laufen bis über die Werte der beiden Säulen. Der Wert steht in Rot
     const yM = d.plot.y - 0.20;

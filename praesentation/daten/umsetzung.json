@@ -13,7 +13,7 @@
         { "nr": 1, "titel": "Vorgespräch", "zustaendig": "Wohnraumförderstelle mit Ihnen", "text": "Nachweise und Unterlagen vorab klären", "zeile": "stations[0]: title, lane mit with, body" },
         { "nr": 2, "titel": "Antrag", "zustaendig": "Sie", "text": "bei der Wohnraumförderstelle am Bauort", "zeile": "stations[1]: title, lane, body ohne den Zusatz zu 2.6" },
         { "nr": 3, "titel": "Stellungnahme", "zustaendig": "Wohnraumförderstelle", "text": "Bedarfsbestätigung, Weiterleitung an die NBank", "zeile": "stations[2]: title, lane, body ohne die Anhörung der Gemeinde" },
-        { "nr": 4, "titel": "Entscheidung", "zustaendig": "NBank", "text": "Fördervertrag; Ziel: höchstens {entscheidung_monate:wort} Monate", "signal": true, "zeile": "stations[3]: title, lane, body verdichtet, deadline; nur „Fördervertrag“: In Programmteil 2.1 (Darlehen plus Zuschuss) schließt die NBank immer einen Fördervertrag, einen Bescheid gibt es nur bei reiner Zuschussförderung (RL Nr. 12.3.1)" },
+        { "nr": 4, "titel": "Förderentscheidung", "zustaendig": "NBank", "text": "Fördervertrag; Ziel: höchstens {entscheidung_monate:wort} Monate", "signal": true, "zeile": "stations[3]: lane, body verdichtet, deadline; der Titel heißt seit 12.11.2026 „Förderentscheidung“ wie in Station 5 und im Hinweis auf A9 (die Broschüre schreibt „Entscheidung“; auf der Folie standen sonst drei Wörter für einen Akt: Entscheidung 34); nur „Fördervertrag“: In Programmteil 2.1 (Darlehen plus Zuschuss) schließt die NBank immer einen Fördervertrag, einen Bescheid gibt es nur bei reiner Zuschussförderung (RL Nr. 12.3.1)" },
         { "nr": 5, "titel": "Bauausführung", "zustaendig": "Sie", "text": "Baubeginn spätestens {baubeginn_monate:wort} Monate nach Bekanntgabe der Förderentscheidung", "zeile": "stations[4]: title, lane, deadline ohne „unverzüglich“" },
         { "nr": 6, "titel": "Auszahlung", "zustaendig": "NBank", "text": "in Raten nach Baufortschritt", "zeile": "stations[5]: title, lane, body verdichtet" },
         { "nr": 7, "titel": "Fertigstellung", "zustaendig": "Wohnraumförderstelle mit Ihnen", "text": "Fertigstellung anzeigen; Vermietung nur mit Wohnberechtigungsschein", "zeile": "stations[6]: title, lane mit with, body verdichtet" },
@@ -23,7 +23,7 @@
       "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[0..7] (title, lane, with, body, deadline), verdichtet wie im Konzept (Folie 26)",
       "geprueft": true
     },
-    "reihen": { "wert": [4, 4], "einheit": "Stationen je Reihe", "herkunft": "Konzept, Folie antragsweg (darstellung): Die Teilung fällt auf die Bewilligung, Station 4 ist die Entscheidung der NBank", "geprueft": true },
+    "reihen": { "wert": [4, 4], "einheit": "Stationen je Reihe", "herkunft": "Konzept, Folie antragsweg (darstellung): Die Teilung fällt auf die Bewilligung, Station 4 ist die Förderentscheidung der NBank", "geprueft": true },
     "warnband": {
       "zeichen": { "wert": "±0", "einheit": "Planzeichen", "herkunft": "Konzept, Folie antragsweg (Warnband „±0 BEWILLIGUNG“)", "geprueft": true },
       "wort": { "wert": "Bewilligung", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].title („Erst Bewilligung, dann Vertrag“); Wortlaut des Konzepts", "geprueft": true },

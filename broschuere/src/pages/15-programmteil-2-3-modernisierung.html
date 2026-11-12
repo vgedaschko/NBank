@@ -1,9 +1,17 @@
-<section class="page bs-23" data-page="15" id="seite-15">
+<section class="page page--dicht bs-23" data-page="15" id="seite-15">
   <style>
-    /* S. 15 · Programmteil 2.3 (rechte Seite der Doppelseite 14|15). Horizonte gemeinsam mit S. 14: Kopf (H1, Unterzeile
-       3 Zeilen), Modulzeile 1 (Effizienzskala 5 Sp. | Heatmap 7 Sp., dominant), Modulzeile 2 (5 | 7 Sp.), Fuß bei 273 mm. */
-    .page[data-page="15"] .p14-figs { --row-gap: 0; margin-top: var(--sp-5); }
-    .page[data-page="15"] .p14-figs .chart__svg { margin-top: var(--sp-3); }
+    /* S. 15 · Programmteil 2.3 (rechte Seite der Doppelseite 14|15). Horizonte gemeinsam mit S. 14: Kopfzeile, H1 mit
+       zweiter Stimme, Modulzeile 1 bei 88,9 mm (Effizienzskala 5 Sp. | Heatmap 7 Sp., dominant), Modulzeile 2 bei 198,7 mm
+       (5 | 7 Sp.), Fuß bei 273 mm.
+       Stufung und Zuteilung nach styles.css §8b: Der Gegenstand „Klimagerechte Modernisierung“ läuft als zweite Stimme
+       (.light) über dem H1; alle vier Modultitel 12 pt gemischt; Klassenbuchstaben und „ab“ in der 8,5-pt-Stufe der
+       Diagramme; Angebotszeile in Textgröße und Schwarz.
+       Dichte Seite (.page--dicht, 9 pt): In 9,5 pt läuft die Seite 10 mm über; mit engeren Abständen allein geht sie
+       nicht auf. --fs-module wird hier neu gebunden, damit Listen und Modultext der 9-pt-Stufe folgen. */
+    .page[data-page="15"] { --fs-module: var(--fs-small); }
+    /* Der Gegenstand ist hier zwei-, auf S. 14 dreizeilig: eine Textzeile Zuschlag hält die erste Bandlinie auf gleicher Höhe */
+    .page[data-page="15"] .p14-figs { --row-gap: 0; margin-top: calc(var(--sp-5) + 1.45 * var(--fs-body)); }
+    .page[data-page="15"] .p14-figs .chart__svg { margin-top: 2.4mm; }
 
     /* Effizienzskala: Balken ab 0 (∝ Obergrenze kWh), Tonwert warmes Grau hell → dunkel (graustufenfest, Buchstabe steht immer dabei) */
     .page[data-page="15"] .p14-e0 { fill: var(--seq-2); }
@@ -15,7 +23,7 @@
     .page[data-page="15"] .p14-e6 { fill: color-mix(in oklab, var(--seq-5) 50%, var(--seq-4)); }
     .page[data-page="15"] .p14-e7 { fill: var(--seq-5); }
     .page[data-page="15"] .p14-e8 { fill: var(--seq-6); }
-    .page[data-page="15"] .chart__svg .p14-cls { font-family: var(--font-display); font-weight: 800; font-size: 3.5px; fill: var(--fg); }
+    .page[data-page="15"] .chart__svg .p14-cls { font-family: var(--font-display); font-weight: 800; font-size: var(--svg-fs-s); fill: var(--fg); }
     .page[data-page="15"] .chart__svg .p14-lim { fill: var(--fg-2); font-variant-numeric: tabular-nums lining-nums; }
     .page[data-page="15"] .chart__svg .p14-jump-n { font-family: var(--font-display); font-weight: 800; font-size: 6.4px; fill: var(--fg); }
     .page[data-page="15"] .p14-ext { stroke: var(--fg-3); stroke-width: .12; stroke-dasharray: .5 .5; fill: none; }
@@ -35,15 +43,16 @@
     .page[data-page="15"] .chart__svg .p14-on .p14-max,
     .page[data-page="15"] .chart__svg .p14-on .p14-from { fill: var(--on-bs); }
     .page[data-page="15"] .chart__svg .p14-rowno { font-family: var(--font-display); font-weight: 800; font-size: 6.4px; fill: var(--fg); }
-    .page[data-page="15"] .chart__svg .p14-rowpre { font-family: var(--font-text); font-weight: 600; font-size: 3.25px; fill: var(--fg); }
+    .page[data-page="15"] .chart__svg .p14-rowpre { font-family: var(--font-text); font-weight: 600; font-size: var(--svg-fs-s); fill: var(--fg); }
     .page[data-page="15"] .chart__svg .p14-axb-t { font-family: var(--font-display); font-weight: 800; font-size: 3.6px; fill: var(--fg); }
     .page[data-page="15"] .p14-key { margin-top: 2.4mm; padding-left: 19.5mm; font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-3); text-wrap: balance; }
     .page[data-page="15"] .p14-key b { font-weight: 600; color: var(--fg); }
 
-    /* Zeile 2: Bindung und Miete (5 Sp.) | Ablauf und Kombination (7 Sp.) – schließt unten am Satzspiegel */
-    .page[data-page="15"] .p14-text { --row-gap: 0; padding-top: var(--sp-5); }
+    /* Zeile 2: Bindung und Miete (5 Sp.) | Ablauf und Kombination (7 Sp.) – Bandlinie bei 198,7 mm wie auf S. 14;
+       die Angebotszeile darunter schließt unten am Satzspiegel */
+    .page[data-page="15"] .p14-text { --row-gap: 0; padding-top: 4.7mm; }
     .page[data-page="15"] .p14-text .bullets,
-    .page[data-page="15"] .p14-text .p14-prose { margin-top: 2.6mm; }
+    .page[data-page="15"] .p14-text .p14-prose { margin-top: 2.4mm; }
     .page[data-page="15"] .p14-text .bullets > li + li { margin-top: 1.1mm; }
     .page[data-page="15"] .p14-text .bullets > li { text-wrap: wrap; }   /* „pretty“ kürzt hier die Zeilen und kostet eine Zeile */
     .page[data-page="15"] .p14-prose p { font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
@@ -52,7 +61,7 @@
     .page[data-page="15"] .p14-frist { display: flex; gap: 1.8mm; align-items: flex-start; }
     .page[data-page="15"] .p14-frist .icon { width: 4.2mm; height: 4.2mm; margin-top: -.2mm; color: var(--signal-text); }
     .page[data-page="15"] .p14-frist b { color: var(--signal-text); }
-    .page[data-page="15"] .p14-offer { margin-top: 2.2mm; padding-top: 1.6mm; border-top: var(--hair) solid var(--rule); text-align: right; }
+    .page[data-page="15"] .p14-offer { padding-top: 1.6mm; border-top: var(--hair) solid var(--rule); text-align: right; font-size: var(--fs-body); color: var(--fg); }
   </style>
 
   <div class="bs-register" data-bleed aria-hidden="true">2.3</div>
@@ -70,8 +79,7 @@
       <p class="tags"><span class="tag"><i class="sw sw--grant"></i>Zuschuss</span></p>
     </div>
     <div class="program-head__main">
-      <p class="kicker">Klimagerechte Modernisierung</p>
-      <h1 class="h1">Zuschuss nach <em>Effizienz&shy;steigerung</em></h1>
+      <h1 class="h1"><span class="light">Klimagerechte Modernisierung</span>Zuschuss nach <em>Effizienz&shy;steigerung</em></h1>
       <p class="deck">Bis zu <b>40&nbsp;%</b> der Modernisierungskosten, höchstens <b>31.000&nbsp;€</b> je gebundener Wohnung (Einkommensgruppe A, ab 5 Klassen)</p>
       <p class="program-head__subject">Reiner Zuschuss ohne Bedarfsnachweis für Mietwohnungen in Mehrfamilienhäusern ab drei Wohnungen, die vor dem 08.12.2004 fertiggestellt wurden.</p>
     </div>
@@ -84,32 +92,33 @@
         <p class="chart__sub u-nohyphens">Endenergiebedarf in kWh je m² Gebäudenutzfläche und Jahr</p>
       </figcaption>
       <svg class="chart__svg" viewBox="0 0 72.08 30.99" width="72.08mm" height="30.99mm" role="img" aria-label="Effizienzklassen nach Endenergiebedarf in kWh je m² Gebäudenutzfläche und Jahr: A+ bis 30, A bis 50, B bis 75, C bis 100, D bis 130, E bis 160, F bis 200, G bis 250, H über 250. Beispiel: Verbesserung von Klasse G auf Klasse D, also um 3 Klassen.">
-        <!-- Zeilen 3.5 mm; Balken 2.59 mm ab x 7,5, Länge ∝ Obergrenze (0,152 mm je kWh; 250 kWh = 38 mm); H offen -->
-        <text class="p14-cls" x="0" y="2.54">A+</text>
+        <!-- Zeilen 3.5 mm; Balken 2.59 mm ab x 7,5, Länge ∝ Obergrenze (0,152 mm je kWh; 250 kWh = 38 mm); H offen.
+             Klassenbuchstabe und Grenzwert stehen in 8,5 pt auf einer Grundlinie -->
+        <text class="p14-cls" x="0" y="2.34">A+</text>
         <rect class="p14-e0" x="7.5" y="0.00" width="4.56" height="2.59"/>
         <text class="p14-lim" x="13.66" y="2.34">≤ 30</text>
-        <text class="p14-cls" x="0" y="6.04">A</text>
+        <text class="p14-cls" x="0" y="5.84">A</text>
         <rect class="p14-e1" x="7.5" y="3.50" width="7.6" height="2.59"/>
         <text class="p14-lim" x="16.70" y="5.84">≤ 50</text>
-        <text class="p14-cls" x="0" y="9.54">B</text>
+        <text class="p14-cls" x="0" y="9.35">B</text>
         <rect class="p14-e2" x="7.5" y="7.00" width="11.4" height="2.59"/>
         <text class="p14-lim" x="20.50" y="9.35">≤ 75</text>
-        <text class="p14-cls" x="0" y="13.04">C</text>
+        <text class="p14-cls" x="0" y="12.85">C</text>
         <rect class="p14-e3" x="7.5" y="10.50" width="15.2" height="2.59"/>
         <text class="p14-lim" x="24.30" y="12.85">≤ 100</text>
-        <text class="p14-cls" x="0" y="16.55">D</text>
+        <text class="p14-cls" x="0" y="16.34">D</text>
         <rect class="p14-e4" x="7.5" y="14.00" width="19.76" height="2.59"/>
         <text class="p14-lim" x="28.86" y="16.34">≤ 130</text>
-        <text class="p14-cls" x="0" y="20.05">E</text>
+        <text class="p14-cls" x="0" y="19.85">E</text>
         <rect class="p14-e5" x="7.5" y="17.50" width="24.32" height="2.59"/>
         <text class="p14-lim" x="33.42" y="19.85">≤ 160</text>
-        <text class="p14-cls" x="0" y="23.55">F</text>
+        <text class="p14-cls" x="0" y="23.35">F</text>
         <rect class="p14-e6" x="7.5" y="21.00" width="30.4" height="2.59"/>
         <text class="p14-lim" x="39.50" y="23.35">≤ 200</text>
-        <text class="p14-cls" x="0" y="27.05">G</text>
+        <text class="p14-cls" x="0" y="26.85">G</text>
         <rect class="p14-e7" x="7.5" y="24.50" width="38" height="2.59"/>
         <text class="p14-lim" x="47.10" y="26.85">≤ 250</text>
-        <text class="p14-cls" x="0" y="30.55">H</text>
+        <text class="p14-cls" x="0" y="30.35">H</text>
         <polygon class="p14-e8" points="7.5,28.00 46,28.00 48,29.30 46,30.59 7.5,30.59"/>
         <text class="p14-lim" x="49.6" y="30.35">&gt; 250</text>
         <!-- Maßkette Klassensprung G → D (Anthrazit, 45°-Striche, Pfeil zur Zielklasse) -->
@@ -159,17 +168,17 @@
     </figure>
   </div>
 
-  <div class="l-grid p14-text l-bottom">
-    <section class="l-span-5" aria-labelledby="p14-bind-h">
-      <h2 class="bullets__title" id="p14-bind-h">Bindung und Miete</h2>
+  <div class="l-grid p14-text">
+    <section class="module l-span-5" aria-labelledby="p14-bind-h">
+      <h2 class="chart__title" id="p14-bind-h">Bindung und Miete</h2>
       <ul class="bullets">
         <li><b>25 Jahre ab Abschluss</b>, grundsätzlich per Dienstbarkeit im Grundbuch gesichert; bei Mieterwechsel nur an WBS-Haushalte</li>
         <li>Bei vermieteten Wohnungen <b>verlängert sich die Bindung um 10 Jahre</b>, außer der Haushalt hat einen WBS. Dann passen Sie Miete und Erhöhungsklauseln unverzüglich an.</li>
         <li><b>Höchstmieten wie in 2.1</b> <span class="u-nowrap">(<a class="pageref" href="#seite-07">→&nbsp;S.&nbsp;7</a>)</span>: <span class="u-nowrap">6,50–9,00 €</span> je m², ab EH-40-Niveau bis zu +0,30 €. Drei Jahre keine Mieterhöhung; bei verlängerter Bindung zählen die drei Jahre ab dem ersten WBS-Haushalt.</li>
       </ul>
     </section>
-    <section class="l-span-7" aria-labelledby="p14-ablauf-h">
-      <h2 class="bullets__title" id="p14-ablauf-h">Ablauf und Kombination</h2>
+    <section class="module l-span-7" aria-labelledby="p14-ablauf-h">
+      <h2 class="chart__title" id="p14-ablauf-h">Ablauf und Kombination</h2>
       <div class="p14-prose">
         <p><b>Auszahlung:</b> bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abschluss. <b>Bearbeitungsentgelt:</b> einmalig 0,75 % des Zuschusses. <b>Eigenmittel:</b> mindestens 20 % der zuwendungsfähigen Kosten, davon soll mindestens die Hälfte Geld sein.</p>
         <p><b>Zusätzlich nutzbar:</b> Bundesförderung BEG Wohngebäude (KfW&nbsp;261) oder BEG Einzelmaßnahmen; eines von beiden, das andere frühestens drei Jahre später. Decken öffentliche Mittel samt NBank-Zuschuss mehr als 60 % derselben Kosten, wird die BEG gekürzt (Kommunen bei BEG Einzelmaßnahmen: 90 %).</p>
@@ -177,7 +186,7 @@
       </div>
     </section>
   </div>
-  <p class="offer p14-offer">Energetische Gesamtmaßnahmen planen wir mit eigener Architektur und Haustechnik.</p>
+  <p class="offer p14-offer l-bottom">Energetische Gesamtmaßnahmen planen wir mit eigener Architektur und Haustechnik.</p>
 
   <footer class="page__foot" aria-hidden="true"><span class="page__folio">15</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Bestand · Programmteil 2.3</b></span></span></footer>
 </section>

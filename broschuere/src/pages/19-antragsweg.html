@@ -1,25 +1,32 @@
-<section class="page" data-page="19" id="seite-19">
+<section class="page page--dicht" data-page="19" id="seite-19">
   <style>
     /* Seite 19 · Antragsweg · Planwerk (entlastet). Rechte Seite der Doppelseite 18|19 „Umsetzung“.
        Dominant: Swimlane „Acht Schritte, drei Beteiligte“ in zwei Zeilen à vier Stationen. Über jeder Zeile ein Bahnstreifen
        (Sie · Wohnraumförderstelle · NBank, Papier/Weiß/Papier, je 7 mm), Quadrat-Marken 6 mm in Fast-Schwarz (Poché), Weg 0,35 mm
        Anthrazit; „mit Ihnen“ = Marke über zwei Bahnen (oberes Feld Kontur). Texte darunter in Spalten, deren linke Kante
        die Marke trägt (SVG-Koordinaten = Spaltengrenzen in mm). Unten: Achtung-Kasten und Ampel in drei Spalten
-       (Spalten 1–4 · 5–8 · 9–12 = Instrumente der Kommune S. 18). Rot nur: Kicker, Titellinie, Signaturwort, Achtung-Kasten.
-       Korrekturlauf 1: kein Angebotssatz mehr, sondern ein sachlicher Verweis auf S. 20 (grau, Chip bleibt); Ampelköpfe
-       je genau ein Symbol (✓ / ! / ✗), kein zusätzliches Stopp-Icon in „Förderschädlich“. */
+       (Spalten 1–4 · 5–8 · 9–12 = Instrumente der Kommune S. 18).
+       Korrekturlauf 1: kein Angebotssatz mehr, sondern ein sachlicher Verweis auf S. 20; Ampelköpfe
+       je genau ein Symbol (✓ / ! / ✗), kein zusätzliches Stopp-Icon in „Förderschädlich“.
+       Stufung und Zuteilung nach styles.css §8b: Rubrik in der Kopfzeile, H1 25 pt, Modultitel 12 pt gemischt (auch der Titel
+       des Achtung-Kastens), Text 9 pt (dichte Seite, siehe unten), Labels 8,5 pt in Versalien (Stationstitel, Ampelköpfe),
+       Verweiszeile 8,5 pt.
+       Rot nur: Titellinie, Signaturwort, Achtung-Kasten mit Stopp-Marke, Kalender der Fristen. Aufzählungszeichen in Schwarz. */
 
-    .page[data-page="19"] .p19-head .lead { margin-top: 3.4mm; max-width: none; }
+    /* Dichte Seite (.page--dicht, 9 pt): Die Stationsspalten (30–54 mm) und die Ampelspalten (53 mm) brechen in 9,5 pt je eine
+       Zeile mehr, die Seite läuft 10,8 mm über; mit engeren Abständen allein bleiben 5,9 mm. --fs-module ist in :root an
+       --fs-small gebunden und folgt .page--dicht nicht von selbst, deshalb hier neu gebunden. */
+    .page[data-page="19"] { --fs-module: var(--fs-small); }
 
     /* Swimlane ------------------------------------------------------------------------------------------------- */
-    .page[data-page="19"] .p19-lane { margin-top: 7.9mm; }   /* Vorspann entfällt (Lektorat 11/2026): die 8,7 mm sind auf die Abstände vor Swimlane (+3,5), Achtung-Kasten (+2,6) und Ampel (+2,6) verteilt; Ampel-Oberkante bleibt bei 195,9 mm */
+    .page[data-page="19"] .p19-lane { margin-top: 6.4mm; }
     .page[data-page="19"] .p19-lane .chart__head { align-items: baseline; }
     .page[data-page="19"] .p19-lane .offer { grid-column: 2; margin-top: 0; }
-    .page[data-page="19"] .p19-ref { font-weight: 600; color: var(--fg-2); }
+    .page[data-page="19"] .p19-ref { font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); }
     .page[data-page="19"] .p19-row { margin-top: 3.1mm; }
     /* Kompositum nur an der Fuge trennen (von Hand gesetztes &shy;, Automatik aus) */
     .page[data-page="19"] .p19-hy { -webkit-hyphens: manual !important; hyphens: manual !important; }
-    .page[data-page="19"] .p19-row + .p19-row { margin-top: 3.2mm; }
+    .page[data-page="19"] .p19-row + .p19-row { margin-top: 4mm; }
     .page[data-page="19"] .p19-strip { display: block; width: 180mm; height: auto; overflow: visible; }
     .page[data-page="19"] .p19-band { fill: var(--surface-2); }
     .page[data-page="19"] .p19-path { fill: none; stroke: var(--fg-2); stroke-width: .35; stroke-linejoin: miter; }
@@ -31,44 +38,39 @@
     .page[data-page="19"] .p19-strip .p19-brk-t { font-family: var(--font-display); font-weight: 700; letter-spacing: .3px; text-transform: uppercase; fill: var(--fg-3); text-anchor: middle; }
     .page[data-page="19"] .p19-brk { fill: none; stroke: var(--fg-3); stroke-width: .25; }
 
-    .page[data-page="19"] .p19-stations { display: grid; column-gap: 4mm; margin-top: 2.4mm; }
+    .page[data-page="19"] .p19-stations { display: grid; column-gap: 4mm; margin-top: 2.6mm; }
     .page[data-page="19"] .p19-row--1 .p19-stations { grid-template-columns: 34mm 44mm 42mm 48mm; }
     .page[data-page="19"] .p19-row--2 .p19-stations { grid-template-columns: 54mm 30mm 40mm 44mm; }
     .page[data-page="19"] .p19-st { min-width: 0; }
-    .page[data-page="19"] .p19-st__title { font: 800 8.5pt/1.2 var(--font-display); letter-spacing: .03em; text-transform: uppercase; color: var(--fg); white-space: nowrap; }
+    .page[data-page="19"] .p19-st__title { font: 800 var(--fs-micro)/1.2 var(--font-display); letter-spacing: .03em; text-transform: uppercase; color: var(--fg); white-space: nowrap; }
     .page[data-page="19"] .p19-st__title--tight { letter-spacing: 0; }   /* „Verwendungsnachweis“ (nowrap) lief mit .03em 1,4 mm über den rechten Satzspiegelrand */
     .page[data-page="19"] .p19-st__text { margin-top: 1.2mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
     .page[data-page="19"] .p19-st__due { display: grid; grid-template-columns: 4.6mm minmax(0, 1fr); margin-top: 1.6mm; font: 600 var(--fs-module)/1.32 var(--font-text); color: var(--fg); }
     .page[data-page="19"] .p19-st__due .icon { width: 3.6mm; height: 3.6mm; margin-top: .1mm; color: var(--signal-text); }
 
     /* Achtung-Kasten (einer von zwei im Heft): Stopp-Marke + Titel links (4 Spalten), Text ab Spalte 5 ---------------- */
-    .page[data-page="19"] .p19-stop { display: grid; grid-template-columns: 34.6mm minmax(0, 1fr); column-gap: 4.6mm; align-items: start; margin-top: 6.9mm; padding: 3.6mm 4mm 4.2mm; }   /* Ampel-Oberkante = Werkzeugkasten S. 18 (195,9 mm) */
-    .page[data-page="19"] .p19-stop__title { font: 900 var(--fs-h3)/1.14 var(--font-display); letter-spacing: .01em; text-transform: uppercase; color: var(--fg); }
+    .page[data-page="19"] .p19-stop { display: grid; grid-template-columns: calc(4 * var(--col) + 3 * var(--gutter) - 4mm) minmax(0, 1fr); column-gap: var(--gutter); align-items: start; margin-top: 8mm; padding: 3.6mm 4mm 4mm; }   /* Titel in Spalten 1–4, Text ab Spalte 5 = Kante der Ampelspalte „Bedingt zulässig“ */
+    .page[data-page="19"] .p19-stop__title { font: 800 var(--fs-h3)/1.2 var(--font-display); letter-spacing: 0; color: var(--fg); }
     .page[data-page="19"] .p19-stop__title .icon { width: 4.6mm; height: 4.6mm; margin-left: -.575mm; margin-right: 2.175mm; vertical-align: -.75mm; color: var(--accent); }   /* Achteck (x 3–21 von 24) bündig mit der Textkante der Folgezeilen; Textlage unverändert */
     .page[data-page="19"] .p19-stop .callout__body { margin-top: .2mm; }
 
     /* Ampel: drei gleich breite Spalten, Köpfe hell · mittel · dunkel (graustufenfest, Symbol zusätzlich zur Fläche) -- */
-    .page[data-page="19"] .p19-ampel { margin-top: 7.1mm; }
+    /* Die Ampel steht an der Satzspiegel-Unterkante (.l-bottom am Element); der Abstand zum Achtung-Kasten ergibt sich daraus (8 mm). */
     .page[data-page="19"] .p19-amp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: 3mm; }
     .page[data-page="19"] .p19-amp__list { margin-top: .6mm; }
-    .page[data-page="19"] .p19-amp__head { display: flex; align-items: center; gap: 2mm; height: 6.6mm; padding: 0 2.6mm; font: 800 9pt/1.2 var(--font-display); letter-spacing: .05em; text-transform: uppercase; }
-    .page[data-page="19"] .p19-amp__sym { flex: none; width: 4.6mm; font: 900 11pt/1 var(--font-display); text-align: center; }
+    .page[data-page="19"] .p19-amp__head { display: flex; align-items: center; gap: 2mm; height: 6.6mm; padding: 0 2.6mm; font: 800 var(--fs-micro)/1.2 var(--font-display); letter-spacing: .05em; text-transform: uppercase; }
+    .page[data-page="19"] .p19-amp__sym { flex: none; width: 4.6mm; font: 900 var(--fs-h3)/1 var(--font-display); text-align: center; }
     .page[data-page="19"] .p19-amp--ok .p19-amp__head { background: var(--surface-2); color: var(--fg); }
     .page[data-page="19"] .p19-amp--check .p19-amp__head { background: var(--seq-2); color: var(--fg); }
     .page[data-page="19"] .p19-amp--stop .p19-amp__head { background: var(--grad-dark); color: var(--white); }
     .page[data-page="19"] .p19-amp__list > li { position: relative; padding: 1mm 0 1.1mm 4mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
     .page[data-page="19"] .p19-amp__list > li:last-child { border-bottom: 0; }
-    .page[data-page="19"] .p19-amp__list > li::before { content: ""; position: absolute; left: .2mm; top: calc(1mm + .52em); width: 1.4mm; height: 1.4mm; }
-    .page[data-page="19"] .p19-amp--ok li::before { background: var(--ok); }
-    .page[data-page="19"] .p19-amp--check li::before { background: var(--seq-4); }
-    .page[data-page="19"] .p19-amp--stop li::before { background: var(--no); }
+    .page[data-page="19"] .p19-amp__list > li::before { content: ""; position: absolute; left: .2mm; top: calc(1mm + .52em); width: 1.4mm; height: 1.4mm; background: var(--fg); }
 
   </style>
 
-  <header class="p19-head">
-    <p class="kicker">Antragsweg</p>
-    <h1 class="h1">Vom Vorgespräch bis zum <em>Verwendungsnachweis</em></h1>
-  </header>
+  <header class="page__header"><span class="page__section">Antragsweg</span></header>
+  <h1 class="h1">Vom Vorgespräch bis zum <em>Verwendungsnachweis</em></h1>
 
   <!-- Dominant: Swimlane -->
   <figure class="chart module p19-lane" role="group" aria-labelledby="p19-lane-h">
@@ -156,11 +158,11 @@
   <!-- Achtung-Kasten: Vorhabenbeginn -->
   <aside class="callout callout--achtung p19-stop" aria-labelledby="p19-stop-h">
     <h2 class="p19-stop__title" id="p19-stop-h"><svg class="icon icon--stopp" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd" stroke="none"/></svg>Erst Bewilligung, dann Vertrag</h2>
-    <p class="callout__body">Vor der Bewilligung begonnene Vorhaben werden nicht gefördert. Bewilligt ist erst mit Fördervertrag oder Bescheid der NBank.</p>
+    <p class="callout__body u-nohyphens">Vor der Bewilligung begonnene Vorhaben werden nicht gefördert. Bewilligt ist erst mit Fördervertrag oder Bescheid der NBank.</p>
   </aside>
 
   <!-- Ampel -->
-  <figure class="module p19-ampel" role="group" aria-labelledby="p19-ampel-h">
+  <figure class="module p19-ampel l-bottom" role="group" aria-labelledby="p19-ampel-h">
     <figcaption><h2 class="chart__title" id="p19-ampel-h">Verträge und Maßnahmen vor der Bewilligung</h2></figcaption>
     <div class="p19-amp">
       <section class="p19-amp--ok" aria-labelledby="p19-amp-1">

@@ -24,21 +24,21 @@
           "icon": "grundriss",
           "title": "Förderkonforme Planung",
           "phase": "Leistungsphasen 1–4",
-          "body": "Wir planen Grundrisse, Wohnungsgrößen und Baustandard nach den Anforderungen des jeweiligen Programmteils."
+          "body": "Wir legen Grundrisse, Wohnungsgrößen und Baustandard auf die Anforderungen des jeweiligen Programmteils aus."
         },
         {
           "n": 3,
           "icon": "rechner",
           "title": "Kostenplanung",
           "phase": "Leistungsphasen 2–8",
-          "body": "Wir planen und steuern die Kosten von der Kostenschätzung bis zur Kostenfeststellung, gemessen an den Bemessungsgrenzen (→ S. 8)."
+          "body": "Wir steuern die Kosten von der Kostenschätzung bis zur Kostenfeststellung, gemessen an den Bemessungsgrenzen (→ S. 8)."
         },
         {
           "n": 4,
           "icon": "ordner",
           "title": "Antragsunterlagen",
           "phase": "Vorgespräch und Antrag",
-          "body": "Wir erstellen die baufachlichen Antragsunterlagen: Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung."
+          "body": "Wir erstellen den baufachlichen Teil: Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung."
         },
         {
           "n": 5,

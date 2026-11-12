@@ -4,16 +4,16 @@
 // Geprüft wird nach bau(ctx):
 //   alle Layouts          Lage und Größe sind Zahlen, die Form liegt auf der Folie, sie trägt einen Namen, Schrift und Schriftgröße sind erlaubt
 //   Inhalt und Anhang     Satzspiegel x 0,667 bis 12,667 · unten bis y 6,50 (0,28 Abstand zum Schriftfeld) · oben ab y 1,90 (Anhang 1,50)
-// Ausnahmen über den Objektnamen: Daumenregister (rechter Rand); in der Kickerzeile Schlüsselplan, Zusatz der ersten Folie der Modellrechnung und
-// Stempel (ein frei gesetzter Stempel in der Inhaltszone ist damit ebenfalls ausgenommen). Maßketten und Beschnittmarken
-// dürfen 0,08 Zoll überstehen. Die Quellenzeile (B.quelle, Name „Quellenzeile“) steht im Schriftfeld: Für sie gilt statt der Inhaltszone das freie
-// Feld zwischen Satzspiegel und Logo-Feld in der Höhe des Schriftfelds. Weitere Ausnahmen meldet ein Modul mit ctx.zoneAusnahme(name, grund) an;
-// der Build nennt sie als Hinweis.
+// Ausnahmen über den Objektnamen: Daumenregister (rechter Rand); in der Kickerzeile das Zeichen des Abschnitts (Achskreis vor dem Abschnittsnamen,
+// setzt der Bau), Schlüsselplan, Zusatz der ersten Folie der Modellrechnung und Stempel (ein frei gesetzter Stempel in der Inhaltszone ist damit
+// ebenfalls ausgenommen). Maßketten und Beschnittmarken dürfen 0,08 Zoll überstehen. Die Quellenzeile (B.quelle, Name „Quellenzeile“) steht im
+// Schriftfeld: Für sie gilt statt der Inhaltszone das freie Feld zwischen den beiden Zeilen links (ab ZONE.schriftfeld.text) und der Blatt-Zelle
+// in der Höhe des Schriftfelds. Weitere Ausnahmen meldet ein Modul mit ctx.zoneAusnahme(name, grund) an; der Build nennt sie als Hinweis.
 'use strict';
 const { W, H, X0, X1, Y, F, ZONE } = require('./theme.cjs');
 const { breite } = require('./passpruefung.cjs');
 
-const AUSSEN = /^(Daumenregister|Schlüsselplan|Stempel|Zusatz Modellrechnung)/;
+const AUSSEN = /^(Daumenregister|Schlüsselplan|Stempel|Zusatz Modellrechnung|Abschnitt im Kopf$)/;
 const KNAPP = /^(Maßkette|Maßstrich|Maßhilfslinie|Beschnittmarke)/;
 const IM_SCHRIFTFELD = /^Quellenzeile$/;
 const SCHRIFTEN = new Set(Object.values(F));
@@ -110,9 +110,10 @@ function pruefeZonen(liste, lay, P, ausnahmen = new Map()) {
     if (xl < -0.005 || xr > W + 0.005 || r.y < -0.005 || y1 > H + 0.005) { P.melde(`${was}: liegt mit x ${k2(xl)} bis ${k2(xr)}, y ${k2(r.y)} bis ${k2(y1)} außerhalb der Folie (13,33 × 7,50).`); return; }
     if (!inhalt || !r.name || AUSSEN.test(r.name)) return;
     if (IM_SCHRIFTFELD.test(r.name)) {
-      // Quellenzeile: im Schriftfeld, links im Satzspiegel, rechts vor dem Logo-Feld
-      if (r.y < Y.fuss - 0.005 || y1 > Y.fuss + Y.fussH + 0.005 || xl < X0 - 0.02 || xr > ZONE.schriftfeld.logo + 0.005)
-        P.melde(`${was}: liegt mit x ${k2(xl)} bis ${k2(xr)}, y ${k2(r.y)} bis ${k2(y1)} nicht im freien Feld des Schriftfelds (x ${k2(X0)} bis ${k2(ZONE.schriftfeld.logo)}, y ${k2(Y.fuss)} bis ${k2(Y.fuss + Y.fussH)}).`);
+      // Quellenzeile: im Schriftfeld, rechts der beiden Zeilen links (Projekt, Rubrik), vor der Blatt-Zelle
+      const sf = ZONE.schriftfeld;
+      if (r.y < Y.fuss - 0.005 || y1 > Y.fuss + Y.fussH + 0.005 || xl < sf.text - 0.02 || xr > sf.blatt + 0.005)
+        P.melde(`${was}: liegt mit x ${k2(xl)} bis ${k2(xr)}, y ${k2(r.y)} bis ${k2(y1)} nicht im freien Feld des Schriftfelds (x ${k2(sf.text)} bis ${k2(sf.blatt)}, y ${k2(Y.fuss)} bis ${k2(Y.fuss + Y.fussH)}).`);
       return;
     }
     if (ausnahmen.has(r.name)) { benutzt.add(r.name); return; }

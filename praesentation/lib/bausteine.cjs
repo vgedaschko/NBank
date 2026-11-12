@@ -18,8 +18,8 @@ function schutz(s) {
     .replace(/Nds\. MBl\. \d{4} Nr\.\s\d+/g, m => m.replace(/\s/g, NBSP));   // Fundstelle „Nds. MBl. 2026 Nr. 319“ bleibt in einer Zeile
 }
 
-// Schriftfeld der Inhalts- und Anhangfolien: Lage der Teilungen (lib/theme.cjs) und Schrift der beiden Zeilen links. Layout (RAHMEN.schriftfeld)
-// und Quellenzeile (B.quelle) rechnen mit denselben Angaben.
+// Schriftfeld der Inhalts- und Anhangfolien: Lage der Teilungen (lib/theme.cjs) und Schrift der beiden Zeilen (Projekt, Rubrik) rechts des
+// Logo-Felds. Layout (RAHMEN.schriftfeld) und Quellenzeile (B.quelle) rechnen mit denselben Angaben.
 const SF = ZONE.schriftfeld;
 const SF_PROJEKT = { fontFace: F.medium, fontSize: 10 }, SF_RUBRIK = { fontFace: F.mont, bold: true, fontSize: 10, weite: 0.6 };
 // Quellenzeile im Schriftfeld (B.quelle): Work Sans 10 pt in Grau, höchstens zwei Zeilen
@@ -313,7 +313,7 @@ function bausteine(pres, kx) {
   // o: { x, y, w, h, eintraege: [{ titel, text }], pt: 16 | 14 | 12, platzhalter: 'kommentar' | 'seite', linie: true (Modulkopf-Linie bei y),
   //      titelAbstand: 10 (Abstand vor den Zwischentiteln in pt; 4 für Spalten, die ihr Feld sonst bis auf die letzte Zeile füllen) }
   // Ein Eintrag braucht titel oder text; ohne titel ist er ein Absatz (8 pt Abstand zum vorigen). Freie Lage ohne h: Die Höhe folgt dem Text.
-  // Mit linie steht der Text 0,07 unter der Linie: Der Modultitel der ersten Zeile hat dann die Höhe eines Titels aus B.modulkopf.
+  // Mit linie steht der Text 0,05 unter der Linie: Der Modultitel der ersten Zeile (16 pt) hat dann die Höhe eines Titels aus B.modulkopf.
   B.planlegende = (s, o) => {
     if (!o || !Array.isArray(o.eintraege) || !o.eintraege.length) throw new Error('B.planlegende: eintraege fehlt (Liste aus { titel, text }).');
     const pt = o.pt || 16, st = stil(pt >= 16 ? 'fliess' : pt >= 14 ? 'dicht' : 'kleinText', { pt }), tt = stil('modultitel'), vor = o.titelAbstand ?? 10;
@@ -326,7 +326,7 @@ function bausteine(pres, kx) {
     } else {
       brauche('B.planlegende', o, ['x', 'y', 'w']);
       geo = { x: o.x, y: o.y, w: o.w, h: o.h > 0 ? o.h : 0 };
-      if (o.linie) { B.linie(s, { x: o.x, y: o.y, w: o.w, art: 'modul', name: 'Modulkopf-Linie' }); geo.y = o.y + 0.07; if (geo.h) geo.h = +(geo.h - 0.07).toFixed(3); }
+      if (o.linie) { B.linie(s, { x: o.x, y: o.y, w: o.w, art: 'modul', name: 'Modulkopf-Linie' }); geo.y = o.y + 0.05; if (geo.h) geo.h = +(geo.h - 0.05).toFixed(3); }
     }
     const runs = [];
     let hoehe = 0;
@@ -356,7 +356,7 @@ function bausteine(pres, kx) {
     return { ...geo, unten: geo.y + hoehe };
   };
 
-  // Aufzählung mit eckigem Marker (die Nachbearbeitung färbt ihn rot). o: { x, y, w, h, punkte: [], pt: 16 | 14 (Anhang auch 12), platzhalter: 'body' }
+  // Aufzählung mit eckigem Marker (die Nachbearbeitung setzt ihn in Tinte). o: { x, y, w, h, punkte: [], pt: 16 | 14 (Anhang auch 12), platzhalter: 'body' }
   // Freie Lage ohne h: Die Höhe folgt dem Text. „**“ wird entfernt (keine Fettung in Aufzählungen). Rückgabe: { x, y, w, h, unten }
   B.aufzaehlung = (s, o) => {
     if (!o || !Array.isArray(o.punkte) || !o.punkte.length) throw new Error('B.aufzaehlung: punkte fehlt (Liste von Texten).');
@@ -460,11 +460,12 @@ function bausteine(pres, kx) {
     B.linie(s, { x: xk, y: Math.min(o.y0, o.y1), h: Math.abs(o.y1 - o.y0), ...strich, name: name + ' 2' });
     B.linie(s, { x: xk, y: o.y1, w: o.x1 - xk, ...strich, name: name + ' 3' });
   };
-  // 80-%-Achse: Strichpunktlinie in Rot mit Achskreis „80“ auf der Maßkette. o: { x, yOben (Lage der Maßkette), yUnten, text }
+  // 80-%-Achse: Strichpunktlinie mit Achskreis „80“ auf der Maßkette, in Tinte wie jede Achse im Plan (bis Muster 2 in Rot; Rot trägt im
+  // Diagramm nur noch den Zuschuss). o: { x, yOben (Lage der Maßkette), yUnten, text }
   B.achse80 = (s, o) => {
     brauche('B.achse80', o, ['x', 'yOben', 'yUnten']);
-    s.addShape(ST.line, { x: o.x, y: o.yOben, w: 0, h: o.yUnten - o.yOben, line: { color: C.rot, width: 1, dashType: 'lgDashDot' }, objectName: 'Achse 80 %' });
-    B.achskreis(s, { cx: o.x, cy: o.yOben - 0.15, d: 0.36, pt: 11, text: o.text || '80', variante: 'akzent', name: 'Achskreis 80' });
+    s.addShape(ST.line, { x: o.x, y: o.yOben, w: 0, h: o.yUnten - o.yOben, line: { color: cs.linie, width: 1, dashType: 'lgDashDot' }, objectName: 'Achse 80 %' });
+    B.achskreis(s, { cx: o.x, cy: o.yOben - 0.15, d: 0.36, pt: 11, text: o.text || '80', name: 'Achskreis 80' });
   };
   // Maßstabsleiste: fünf Felder abwechselnd Tinte und Weiß, direkt unter der Plotfläche. o: { x, y, w }
   B.massstab = (s, o) => {
@@ -571,8 +572,8 @@ function bausteine(pres, kx) {
   };
   // ---- Quellenzeile im Schriftfeld --------------------------------------------------------------------------------
   // Kurze Quellenangabe auf Folien mit fremden Daten (Folien 3 bis 6 und 22); die volle Angabe steht auf der Quellenfolie im Anhang.
-  // Sie steht im freien Feld des Schriftfelds zwischen den beiden Zeilen links (Projekt, Rubrik) und dem Logo-Feld: rechtsbündig mit
-  // 0,16 Zoll Abstand vor dem Logo-Feld, senkrecht mittig, Work Sans 10 pt in Grau, eine Zeile oder zwei. Passt der Text nicht in eine
+  // Sie steht im freien Feld des Schriftfelds zwischen den beiden Zeilen links (Projekt, Rubrik) und der Blatt-Zelle: rechtsbündig mit
+  // 0,20 Zoll Abstand vor der Blatt-Zelle, senkrecht mittig, Work Sans 10 pt in Grau, eine Zeile oder zwei. Passt der Text nicht in eine
   // Zeile, bricht der Baustein ihn in zwei ausgeglichene Zeilen: zuerst hinter einem Semikolon, sonst hinter einem Komma, sonst an einer
   // Wortfuge (geschützte Leerzeichen brechen nicht). Geprüft wird: höchstens zwei Zeilen; mindestens 0,30 Zoll Abstand zur längeren der
   // beiden Zeilen links (die Breite der Rubrik ist gerechnet); die Zeilen passen in die Höhe des Schriftfelds. Höchstens eine je Folie.
@@ -610,7 +611,7 @@ function bausteine(pres, kx) {
       if (hoehe > Y.fussH - 0.04) P.melde(`${QUELLE_NAME}: ${zeilen.length} Zeilen brauchen ${hoehe.toFixed(2)} Zoll, das Schriftfeld ist ${Y.fussH.toFixed(2)} Zoll hoch.`);
       P.mindest(QUELLE_NAME, QUELLE.fontSize, 10);
     }
-    // Das Textfeld reicht vom Ende der Zeilen links (plus Abstand) bis vor das Logo-Feld und bricht nicht um: Die Zeilen stehen fest
+    // Das Textfeld reicht vom Ende der Zeilen links (plus Abstand) bis vor die Blatt-Zelle und bricht nicht um: Die Zeilen stehen fest
     const x = +(links + SF.quelleAbstand).toFixed(3), w = +(rechts - x).toFixed(3), sek = kx.grund === 'anthrazit' ? HEX.dunkel.text2 : cs.sekundaer;
     const runs = zeilen.map((z, i) => ({ text: z, options: { breakLine: i < zeilen.length - 1 } }));
     s.addText(runs, { x, y: Y.fuss, w, h: Y.fussH, margin: 0, isTextBox: true, fontFace: QUELLE.fontFace, fontSize: QUELLE.fontSize, lineSpacingMultiple: QUELLE.zeileMal, color: sek,
@@ -618,12 +619,12 @@ function bausteine(pres, kx) {
     return { x, y: Y.fuss, w, h: Y.fussH, zeilen, links, breite: laenge };
   };
 
-  // Fördervermerk und andere Konturstempel. o: { x, y, w, text }
+  // Fördervermerk und andere Konturstempel, Kontur und Versalien in Tinte (ein Label; bis Muster 2 in Rot). o: { x, y, w, text }
   B.konturstempel = (s, o) => {
     brauche('B.konturstempel', o, ['x', 'y', 'w']);
     const t = versal(o.text), st = { fontFace: F.xbold, fontSize: 11, weite: 1.1 };
     if (P) P.zeile('Konturstempel', t, st, o.w - 0.2);
-    s.addText(t, { x: o.x, y: o.y, w: o.w, h: 0.36, margin: 0, align: 'center', valign: 'middle', fontFace: F.xbold, fontSize: 11, charSpacing: 1.1, color: C.rot, line: { color: C.rot, width: 0.75 }, isTextBox: true, objectName: 'Konturstempel' });
+    s.addText(t, { x: o.x, y: o.y, w: o.w, h: 0.36, margin: 0, align: 'center', valign: 'middle', fontFace: F.xbold, fontSize: 11, charSpacing: 1.1, color: cs.titel, line: { color: cs.linie, width: 0.75 }, isTextBox: true, objectName: 'Konturstempel' });
   };
 
   // ---- 4.14 Programmteil-Register --------------------------------------------------------------------------------
@@ -681,6 +682,7 @@ function bausteine(pres, kx) {
   };
 
   // ---- 4.9 Kennzahl-Kachel -----------------------------------------------------------------------------------------
+  // Vorsatz (Label in Versalien) und Einheit stehen in der Farbe der Zahl: Rot bleibt Signaturwort, Zuschuss und Ergebnis vorbehalten (Muster 2).
   // o: { x, y, w, vorsatz, zahl, einheit, label, text, gross: true (60 pt) }. Rückgabe: { unten }
   // Mehrere Zahlen mit je eigener Einheit („1 % / 0,75 %“): statt zahl und einheit teile: [{ zahl, einheit }], trenner: '/'
   B.kennzahl = (s, o) => {
@@ -688,7 +690,7 @@ function bausteine(pres, kx) {
     const teile = Array.isArray(o.teile) && o.teile.length ? o.teile : o.zahl === undefined || o.zahl === null ? null : [{ zahl: o.zahl, einheit: o.einheit }];
     if (!teile) throw new Error('B.kennzahl: zahl fehlt (oder teile: [{ zahl, einheit }]).');
     const gross = !!o.gross, pt = gross ? 60 : 44, zs = { fontFace: F.xbold, fontSize: pt }, es = { fontFace: F.xbold, fontSize: pt / 2 };
-    const runs = [], pruef = [], lauf = (text, zahl) => { runs.push({ text, options: zahl ? {} : { fontSize: pt / 2, color: cs.akzent } }); pruef.push({ text, stil: zahl ? zs : es }); };
+    const runs = [], pruef = [], lauf = (text, zahl) => { runs.push({ text, options: zahl ? {} : { fontSize: pt / 2 } }); pruef.push({ text, stil: zahl ? zs : es }); };
     teile.forEach((t, i) => {
       if (t.zahl === undefined || t.zahl === null) throw new Error('B.kennzahl: Ein Teil hat keine zahl.');
       if (i) lauf(NBSP + (o.trenner || '/') + NBSP, true);
@@ -748,7 +750,7 @@ function bausteine(pres, kx) {
     if (P) P.zeile(`Kennzahl ${pt} pt`, [{ text: z, stil: { fontFace: F.xbold, fontSize: pt } }, { text: e, stil: { fontFace: F.xbold, fontSize: pt / 2 } }].filter(l => l.text), null, w);
     if (o.vorsatz) { const v = versal(schutz(o.vorsatz)); if (P) P.zeile('Kennzahl Vorsatz', v, stil('vorsatz'), w); s.addText(v, { placeholder: `kf${i}_kopf` }); }
     const runs = [{ text: z, options: { fontSize: pt } }];
-    if (e) runs.push({ text: e, options: { fontSize: pt / 2, color: cs.akzent } });
+    if (e) runs.push({ text: e, options: { fontSize: pt / 2 } });
     s.addText(runs, { placeholder: `kf${i}_zahl` });
     if (o.label) { const l = schutz(o.label); if (P) P.zeile('Kennzahl Label (14 pt, einzeilig)', l, { fontFace: F.mont, bold: true, fontSize: 14 }, w); s.addText(l, { placeholder: `kf${i}_label` }); }
     if (o.text) { if (P) P.block('Kennzahl Text', klar(o.text), stil('dicht'), w, K.textEnde - K.text, { luft: true }); s.addText(laeufe(o.text, stil('dicht'), { absatz: { fontSize: 14 } }), { placeholder: `kf${i}_text` }); }
@@ -762,7 +764,7 @@ function bausteine(pres, kx) {
     const pad = o.flaeche ? 0.25 : 0;
     if (o.flaeche) s.addShape(ST.rect, { x: o.x, y: o.y, w: o.w, h: o.h || 2.6, fill: { color: C.rot }, line: { type: 'none' }, objectName: 'Hero-Fläche' });
     const runs = [{ text: z, options: {} }];
-    if (e) runs.push({ text: e, options: { fontSize: 48, color: o.flaeche ? C.weiss : kx.grund === 'anthrazit' ? HEX.rot300 : cs.akzent } });
+    if (e) runs.push({ text: e, options: { fontSize: 48 } });
     s.addText(runs, { x: o.x + pad, y: o.y + pad, w: o.w - 2 * pad, h: 1.5, margin: 0, isTextBox: true, fontFace: F.black, fontSize: 96, lineSpacing: 96, color: dunkel ? C.weiss : cs.titel, valign: 'middle', objectName: 'Hero-Kennzahl ' + o.zahl });
     if (o.text) s.addText(laeufe(o.text, stil('fliess')), opt(stil('fliess', { farbe: o.flaeche ? C.weiss : 'text' }), { x: o.x + pad, y: o.y + pad + 1.60, w: o.w - 2 * pad, h: 0.8 }, { objectName: 'Hero-Text' }));
     return { unten: o.y + pad + (o.text ? 2.40 : 1.50) };
@@ -833,7 +835,7 @@ function bausteine(pres, kx) {
     const kz = [kopfzelle('', 'center')];
     if (mitZeichen) kz.push(kopfzelle('', 'center'));
     const k0 = kopf[0]; pruefeKopf(typeof k0 === 'string' ? k0 : '', posW); kz.push(kopfzelle(typeof k0 === 'string' ? k0 : '', 'left'));
-    for (let i = 0; i < nW; i++) { const k = kopf[i + 1]; const t = typeof k === 'string' ? k : ''; pruefeKopf(t, wbs[i]); kz.push(kopfzelle(t, 'right', { fill: o.hervor === i ? cs.hervor : null, farbe: o.hervor === i ? cs.akzent : null })); }
+    for (let i = 0; i < nW; i++) { const k = kopf[i + 1]; const t = typeof k === 'string' ? k : ''; pruefeKopf(t, wbs[i]); kz.push(kopfzelle(t, 'right', { fill: o.hervor === i ? cs.hervor : null, farbe: o.hervor === i ? cs.titel : null })); }
     rows.push(kz);
     o.zeilen.forEach((z, zi) => {
       const art = z.art || 'normal', erg = art === 'ergebnis', sum = art === 'summe', notiz = art === 'notiz', letzte = zi === o.zeilen.length - 1;
@@ -867,7 +869,9 @@ function bausteine(pres, kx) {
   };
 
   // 4.11 Vergleichstabelle: Position, hervorgehobene Spalte, Vergleichsspalte.
-  // o: { x, y, w, kopf: ['Jahr 1', 'Gefördert (A)', 'Frei finanziert'], zeilen: [{ text, wert, vergleich, kern }], wertBreite: 2.20, dicht }
+  // o: { x, y, w, kopf: ['Jahr 1', 'Gefördert (A)', 'Frei finanziert'], zeilen: [{ text, wert, vergleich, kern, ergebnis }], wertBreite: 2.20, dicht }
+  // kern: Oberlinie, Position halbfett, Werte als Kernwert 24 pt. ergebnis: dieselbe Zeile mit den Werten in der Größe der Tabelle, wenn derselbe
+  // Wert auf der Folie schon groß steht (Folie 19: Kernwerte an den Balken)
   B.vergleichstabelle = (s, o) => {
     brauche('B.vergleichstabelle', o, ['x', 'y', 'w']);
     if (!Array.isArray(o.zeilen) || !o.zeilen.length) throw new Error('B.vergleichstabelle: zeilen fehlt.');
@@ -876,10 +880,11 @@ function bausteine(pres, kx) {
     const k = o.kopf || ['', '', ''], kh = kopfHoehe(k, 0.36);
     pruefeKopf(k[0], posW, 0.22); pruefeKopf(k[1], wb, 0.22); pruefeKopf(k[2], wb, 0.22);
     if (o.zeilen.filter(z => z.kern).length > 2 && P) P.hinweis('Vergleichstabelle mit mehr als zwei Kernzeilen');
-    const rows = [[kopfzelle(k[0], 'left'), kopfzelle(k[1], 'right', { farbe: cs.akzent, fill: cs.hervor }), kopfzelle(k[2], 'right')]], rowH = [kh];
+    const rows = [[kopfzelle(k[0], 'left'), kopfzelle(k[1], 'right', { farbe: cs.titel, fill: cs.hervor }), kopfzelle(k[2], 'right')]], rowH = [kh];
     o.zeilen.forEach((z, zi) => {
-      const letzte = zi === o.zeilen.length - 1, b = () => [z.kern ? ink() : no(), no(), letzte ? ink() : hair(), no()];
-      const t = schutz(z.text), pst = { fontFace: z.kern ? F.semi : F.text, fontSize: pt };
+      const fest = z.kern || z.ergebnis;   // Ergebniszeile: Oberlinie und halbfette Position; nur mit kern stehen die Werte in 24 pt
+      const letzte = zi === o.zeilen.length - 1, b = () => [fest ? ink() : no(), no(), letzte ? ink() : hair(), no()];
+      const t = schutz(z.text), pst = { fontFace: fest ? F.semi : F.text, fontSize: pt };
       // Zeilenhöhe folgt dem Text der Position (höchstens drei Zeilen)
       const nz = zeilenzahl(t, pst, posW - 0.21), hoch = Math.max(z.kern ? kernH : zh, +(nz * zeilenhoehe(pst) + 0.10).toFixed(3));
       if (P) {
@@ -887,7 +892,7 @@ function bausteine(pres, kx) {
         for (const v of [z.wert, z.vergleich]) P.zeile('Vergleichstabelle Wert', schutz(v), z.kern ? { fontFace: F.xbold, fontSize: 24 } : { fontFace: F.mont, bold: true, fontSize: pt }, wb - 0.20);
       }
       const wert = (v, alt) => ({ text: schutz(v), options: { fontFace: z.kern ? F.xbold : F.mont, bold: !z.kern, fontSize: z.kern ? 24 : pt, color: alt ? cs.sekundaer : cs.titel, align: 'right', border: b(), ...(alt ? {} : { fill: { color: cs.hervor } }) } });
-      rows.push([{ text: t, options: { fontFace: z.kern ? F.semi : F.text, fontSize: pt, color: z.kern ? cs.titel : cs.text, align: 'left', border: b() } }, wert(z.wert, false), wert(z.vergleich, true)]);
+      rows.push([{ text: t, options: { fontFace: fest ? F.semi : F.text, fontSize: pt, color: fest ? cs.titel : cs.text, align: 'left', border: b() } }, wert(z.wert, false), wert(z.vergleich, true)]);
       rowH.push(z.h || hoch);
     });
     const h = rowH.reduce((a, b) => a + b, 0);
@@ -999,7 +1004,7 @@ function bausteine(pres, kx) {
         const cx = x0 + i * dx; punkte.push(cx);
         B.achskreis(s, { cx, cy: o.y, groesse: gr, text: t.nr ?? i + 1, variante: t.signal ? 'signal' : 'standard' });
         if (!t.titel) return;                                      // Station ohne Titel: nur der Achskreis
-        const st = stil('stationKlein', { farbe: t.signal ? C.dunkelrot : 'titel' }), tw = Math.min(1.8, dx || 1.8), tt = versal(schutz(t.titel));
+        const st = stil('stationKlein', { farbe: t.signal ? C.dunkelrot : 'titel' }), tw = Math.min(1.8, dx || 1.8), tt = schutz(t.titel);
         if (P) P.zeile('Station', tt, st, tw);
         s.addText(tt, opt(st, { x: cx - tw / 2, y: o.y + d / 2 + 0.09, w: tw, h: 0.26 }, { align: 'center', valign: 'middle', objectName: 'Station ' + t.titel }));
         unten = o.y + d / 2 + 0.35;
@@ -1016,9 +1021,10 @@ function bausteine(pres, kx) {
         let y = o.y + d / 2 + 0.08;
         if (t.titel) {
           const st = stil(o.versalTitel === false ? 'wert' : 'station', { farbe: t.signal ? C.dunkelrot : 'titel' });
-          const tt = o.versalTitel === false ? schutz(t.titel) : versal(schutz(t.titel));
+          // Titel der Station gemischt gesetzt wie ein Modultitel (16 pt, Feld 0,28 hoch); versalTitel: false setzt ihn kleiner (Datum einer Zeitleiste, 12 pt)
+          const tt = schutz(t.titel), th = o.versalTitel === false ? 0.24 : 0.28;
           if (P) P.zeile('Station', tt, st, tw);
-          s.addText(tt, opt(st, { x, y, w: tw, h: 0.24 }, { valign: 'middle', objectName: 'Station ' + t.titel })); y += 0.24;
+          s.addText(tt, opt(st, { x, y, w: tw, h: th }, { valign: 'middle', objectName: 'Station ' + t.titel })); y += th;
         }
         // Zuständigkeit: 12 pt. Wer handelt, ist Inhalt der Station und muss im Saal lesbar sein (10 pt ist Randbeschriftungen vorbehalten)
         if (t.zustaendig) { const zs = stil('label', { pt: 12 }); if (P) P.zeile('Zuständigkeit', schutz(t.zustaendig), zs, tw); s.addText(schutz(t.zustaendig), opt(zs, { x, y, w: tw, h: 0.20 }, { valign: 'middle', objectName: 'Zuständigkeit' })); y += 0.22; }
@@ -1190,16 +1196,24 @@ function bausteine(pres, kx) {
   };
 
   // ---- Kopf von Diagramm und Tabelle, Vorspann (Platzhalter der Layouts) ---------------------------------------------------------------
-  // Titel in Versalien (Montserrat ExtraBold 13 pt), Untertitel mit Einheit (Work Sans 12 pt); beide einzeilig über acht Spalten (7,92 Zoll).
-  // Leerzeichen vor Einheiten schützt der Baustein. o: { titel, sub }
+  // Titel gemischt (Montserrat Bold 16 pt), Untertitel mit Einheit (Work Sans 12 pt); beide einzeilig, im Diagramm über sieben Spalten (6,90 Zoll),
+  // in der Tabelle über acht (7,92 Zoll). Leerzeichen vor Einheiten schützt der Baustein. o: { titel, sub }
+  // Nur im Diagramm: sub als Liste aus zwei Zeilen, wenn der Untertitel nicht in eine Zeile passt (Folien 5 und 22). Legende und Diagramm rücken
+  // dann um eine Zeile tiefer; ihre Lagen stehen in der Rückgabe. Das Modul setzt Legende und Diagramm damit in freier Lage.
+  // Rückgabe: { unten, legende (y der Legende), chart: { x, y, w, h } (Lage des Diagramms bis zum Ende der Inhaltszone) }
   const kopfFeld = (wort, re, felder) => (s, o) => {
     if (!re.test(kx.layout || '')) throw new Error(`B.${wort.toLowerCase()}kopf braucht das Layout PGN_${wort.toUpperCase()} oder PGN_${wort.toUpperCase()}_MR. Auf anderen Layouts B.modulkopf verwenden.`);
     if (!o || !o.titel) throw new Error(`B.${wort.toLowerCase()}kopf: titel fehlt.`);
-    const t = schutz(o.titel), w = wort === 'Diagramm' ? span(7) : span(8);
+    const diagramm = wort === 'Diagramm', t = schutz(o.titel), w = diagramm ? span(7) : span(8);
     if (P) P.zeile(`${wort}titel`, t, stil('diagrammtitel'), w);
     s.addText(t, { placeholder: felder[0] });
-    if (o.sub) { const u = schutz(o.sub); if (P) P.zeile(`${wort}-Untertitel`, u, stil('sub'), w); s.addText(u, { placeholder: felder[1] }); }
-    return { unten: wort === 'Diagramm' ? ZONE.diagramm.legende : ZONE.tabelle.tabelle };
+    const zeilen = (Array.isArray(o.sub) ? o.sub : o.sub ? [o.sub] : []).map(z => schutz(z));
+    if (zeilen.length > (diagramm ? 2 : 1)) throw new Error(`B.${wort.toLowerCase()}kopf: Der Untertitel hat ${zeilen.length} Zeilen (höchstens ${diagramm ? 'zwei' : 'eine'}).`);
+    if (P) for (const u of zeilen) P.zeile(`${wort}-Untertitel`, u, stil('sub'), w);
+    if (zeilen.length) s.addText(zeilen.length > 1 ? zeilen.map((u, i) => ({ text: u, options: { breakLine: i < zeilen.length - 1 } })) : zeilen[0], { placeholder: felder[1] });
+    if (!diagramm) return { unten: ZONE.tabelle.tabelle };
+    const z = ZONE.diagramm, tiefer = zeilen.length > 1 ? z.subZeile : 0, y = +(z.chart.y + tiefer).toFixed(3);
+    return { unten: z.legende + tiefer, legende: z.legende + tiefer, chart: { x: z.chart.x, y, w: z.chart.w, h: +(Y.inhaltEnde - y).toFixed(3) } };
   };
   B.diagrammkopf = kopfFeld('Diagramm', /^PGN_DIAGRAMM/, ['diagrammtitel', 'diagrammsub']);
   B.tabellenkopf = kopfFeld('Tabelle', /^PGN_TABELLE/, ['tabellentitel', 'tabellensub']);
@@ -1402,7 +1416,7 @@ function bausteine(pres, kx) {
   // Zusatz (11 pt, grau), beide mittig unter der Kategorie. d: Rückgabe von D.gruppierteSaeulen oder D.saeulen; texte: [{ name, zusatz }]. Rückgabe: { unten }
   B.kategorien = (s, d, texte) => {
     if (!d || !d.plot || typeof d.katMitte !== 'function' || !Array.isArray(texte)) throw new Error('B.kategorien(s, d, texte): d ist die Rückgabe eines Säulendiagramms, texte eine Liste aus { name, zusatz }.');
-    const w = d.katBreite - 0.10, y = d.plot.y + d.plot.h + 0.07;
+    const w = d.katBreite - 0.06, y = d.plot.y + d.plot.h + 0.07;
     texte.forEach((t, i) => {
       if (P) P.zeile('Kategorie', schutz(t.name), { fontFace: F.semi, fontSize: 12 }, w);
       B.text(s, t.name, { x: d.katMitte(i) - w / 2, y, w, h: 0.22, rolle: 'bezeichnung', align: 'center', valign: 'middle', pruefen: false, name: 'Kategorie ' + t.name });

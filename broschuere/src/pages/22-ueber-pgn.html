@@ -1,16 +1,20 @@
 <section class="page" data-page="22" id="seite-22">
   <style>
     /* Seite 22 · Über PGN · Planwerk. Linke Seite der Doppelseite 22|23 (Über PGN | U3 Impressum).
-       Gemeinsame Horizonte mit S. 23 (feste Zeilenhöhen): Kicker 14 mm · H1 · Vorspann · Zeile 1 ab 68,5 mm
+       Gemeinsame Horizonte mit S. 23 (feste Zeilenhöhen): Kopfzeile 14 mm · H1 26 mm · Vorspann · Zeile 1 ab 68,5 mm
        (Modulkopf „Leistungen und Auftraggeber“ + Werte = Oberkante Impressum-Schriftfeld) · Zeile 2 ab 136,5 mm
        (Modulkopf Referenzen = Oberkante Hinweis) · Referenzreihe ab 197,5 mm (= Rechtsgrundlage/Quellen) · Plankopf.
        Dominant: Referenzen – Punktraster Brauerstraße (9 Spalten, außen) + vier Duplex-Referenzen;
        „Weitere Projekte → pgn-architekten.de“ rechts im Modulkopf der Referenzen.
-       Farben nur über Tokens; kein Grün (PGN Projektgesellschaft fett in Tinte). */
+       Farben nur über Tokens; kein Grün (PGN Projektgesellschaft fett in Tinte).
+       Stufung und Zuteilung nach styles.css §8b: Rubrik und „45 Jahre PGN“ in der Kopfzeile (8,5-pt-Label in Schwarz), H1 25 pt
+       mit der Jahreszahl als Signatur, Vorspann 12 pt, Modultitel 12 pt gemischt (auch Projektnamen und die vier Werte),
+       Text 9,5 pt, Labels, Auftraggeber und Kurzbeschreibung 8,5 pt. Rot nur: Titellinie, Jahreszahl im H1, Wertefeld,
+       Punktraster mit Beschnittmarken. */
 
     /* Kopf ------------------------------------------------------------------- */
-    .page[data-page="22"] .p22-head { position: relative; height: 47.5mm; }
-    .page[data-page="22"] .p22-jubilee { position: absolute; right: 0; top: -1.15mm; padding: 1.2mm 2.4mm 1.05mm; border: var(--rule-red-min) solid var(--accent); font: 700 var(--fs-label-accent)/1 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); white-space: nowrap; }
+    .page[data-page="22"] .p22-head { height: 35.5mm; }   /* H1 ab 26 mm, Zeile 1 ab 68,5 mm */
+    .page[data-page="22"] .p22-jubilee { font: 700 var(--fs-micro)/1.2 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); white-space: nowrap; }
     .page[data-page="22"] .p22-head .lead { margin-top: 4.5mm; max-width: 132mm; }
 
     /* Zeile 1: Text (7 Spalten, außen) | Werte (5 Spalten, Rotverlauf, zum Bund) ----------------------------- */
@@ -19,15 +23,15 @@
     .page[data-page="22"] .p22-about .prose { margin-top: 2.6mm; }
     .page[data-page="22"] .p22-about .prose b { color: var(--fg); }
     .page[data-page="22"] .p22-values { grid-column: 8 / span 5; display: flex; flex-direction: column; padding: 4.2mm 5mm 1.4mm; background: var(--grad-red); }
-    .page[data-page="22"] .p22-values__label { font: 700 var(--fs-label-accent)/1.2 var(--font-display); letter-spacing: var(--track-kicker); text-transform: uppercase; color: var(--fg); }
+    .page[data-page="22"] .p22-values__label { font: 400 var(--fs-lead)/1.2 var(--font-text); color: var(--fg); }   /* Auftakt in der Vorspannstufe; weiß auf Rot ≥ 10 pt */
     .page[data-page="22"] .p22-values .values { flex: 1; display: flex; flex-direction: column; margin-top: 2.6mm; background: none; }
     .page[data-page="22"] .p22-values .values__item { flex: 1; flex-direction: row; justify-content: flex-start; gap: 4mm; padding: 0; text-align: left; border-top: var(--hair) solid var(--rule); box-shadow: none; }
     .page[data-page="22"] .p22-values .values__item img { width: 10mm; height: 10mm; }
-    .page[data-page="22"] .p22-values .values__word { font-size: var(--fs-label-accent); letter-spacing: .09em; }
+    .page[data-page="22"] .p22-values .values__word { font-size: var(--fs-h3); line-height: 1.2; letter-spacing: 0; text-transform: none; }   /* die vier Werte in der Form der Modultitel */
 
     /* Zeile 2: Referenzen ------------------------------------------------------------------------------------
-       Jede Referenz liest sich in derselben Rangfolge (Korrekturlauf 1): Projektname (Montserrat 800, Versalien, Tinte)
-       → Ort (Work Sans 9 pt) → Auftraggeber (Label + Name, abgesetzt durch Haarlinie) → Kennzahl (Zahl + Einheit,
+       Jede Referenz liest sich in derselben Rangfolge (Korrekturlauf 1): Projektname (Montserrat 800, 12 pt, gemischt)
+       → Ort (Work Sans 9,5 pt) → Auftraggeber (Label + Name, abgesetzt durch Haarlinie) → Kennzahl (Zahl 12 pt + Einheit,
        Haarlinie) → Kurzbeschreibung (8,5 pt grau). Die vier kleinen Kacheln teilen sich ein Zeilenraster (subgrid):
        Namen stehen auf einer Grundlinie, Auftraggeber- und Kennzahlzeilen auf gemeinsamen Haarlinien. */
     .page[data-page="22"] .p22-refs { flex: 1 1 auto; display: flex; flex-direction: column; margin-top: 7mm; }
@@ -36,22 +40,19 @@
     .page[data-page="22"] .p22-feature .raster { overflow: hidden; }
     .page[data-page="22"] .p22-feature__data { grid-column: 10 / span 3; display: flex; flex-direction: column; }
 
-    .page[data-page="22"] .p22-ref .reference__name { font-size: 10pt; line-height: 1.16; }
+    .page[data-page="22"] .p22-ref .reference__name { font: 800 var(--fs-h3)/1.16 var(--font-display); letter-spacing: 0; text-transform: none; }
     .page[data-page="22"] .p22-ref .reference__place { margin-top: .5mm; font: 500 var(--fs-small)/1.3 var(--font-text); color: var(--fg-2); }
     .page[data-page="22"] .p22-client { margin-top: 1.9mm; padding-top: 1.3mm; border-top: var(--hair) solid var(--rule); font: 400 var(--fs-micro)/1.32 var(--font-text); color: var(--fg-2); -webkit-hyphens: none; hyphens: none; }   /* Firmennamen nie trennen */
     .page[data-page="22"] .p22-client__label { display: block; margin-bottom: .5mm; font: 700 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
     .page[data-page="22"] .p22-kpi { display: flex; align-items: baseline; gap: 1.5mm; margin-top: 1.9mm; padding-top: 1.5mm; border-top: var(--hair) solid var(--rule); font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); white-space: nowrap; }
-    .page[data-page="22"] .p22-kpi b { font: 800 12pt/1 var(--font-display); letter-spacing: -.01em; color: var(--fg); font-variant-numeric: tabular-nums; }
+    .page[data-page="22"] .p22-kpi b { font: 800 var(--fs-h3)/1 var(--font-display); letter-spacing: -.01em; color: var(--fg); font-variant-numeric: tabular-nums; }
     .page[data-page="22"] .p22-note { margin-top: .9mm; font-size: var(--fs-micro); line-height: 1.35; color: var(--fg-3); -webkit-hyphens: none; hyphens: none; }
 
-    /* Hauptreferenz: gleiche Rangfolge, eine Stufe größer; Fördervermerk als Stempel am Fuß der Datenspalte */
-    .page[data-page="22"] .p22-feature .reference__name { font-size: 11pt; }
-    .page[data-page="22"] .p22-feature .reference__place { font-size: var(--fs-body); }
+    /* Hauptreferenz: gleiche Rangfolge in denselben Stufen; Fördervermerk als gerahmtes Label am Fuß der Datenspalte */
     .page[data-page="22"] .p22-feature .p22-kpi { margin-top: 3mm; }
-    .page[data-page="22"] .p22-feature .p22-kpi b { font-size: 15pt; }
-    .page[data-page="22"] .p22-flag { margin-top: auto; align-self: flex-start; padding: 1.2mm 2mm 1.05mm; border: var(--rule-red-min) solid var(--accent); font: 700 var(--fs-label-accent)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--accent-text); }
+    .page[data-page="22"] .p22-flag { margin-top: auto; align-self: flex-start; padding: 1.2mm 2mm 1.05mm; border: var(--hair) solid var(--rule-strong); font: 700 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
 
-    .page[data-page="22"] .p22-small { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); column-gap: var(--gutter); margin-top: 5.5mm; }
+    .page[data-page="22"] .p22-small { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(6, auto); column-gap: var(--gutter); margin-top: 4.47mm; }   /* Referenzreihe ab 197,5 mm */
     .page[data-page="22"] .p22-small .p22-ref { display: grid; grid-row: span 6; grid-template-rows: subgrid; row-gap: 0; }
     .page[data-page="22"] .p22-small .photo { grid-row: 1; margin-bottom: 2.2mm; }
     .page[data-page="22"] .p22-small .reference__name { grid-row: 2; align-self: end; }
@@ -63,13 +64,12 @@
     .page[data-page="22"] .p22-refs__head { display: flex; justify-content: space-between; align-items: baseline; gap: 6mm; }
     .page[data-page="22"] .p22-more { display: flex; align-items: baseline; gap: 1.6mm; font-size: var(--fs-module); color: var(--fg-2); }
     .page[data-page="22"] .p22-more a { font: 700 var(--fs-small)/1.2 var(--font-display); color: var(--fg); }
-    .page[data-page="22"] .p22-more__arrow { font: 700 var(--fs-label-accent)/1.2 var(--font-display); color: var(--accent-text); }
+    .page[data-page="22"] .p22-more__arrow { font: 700 var(--fs-small)/1.2 var(--font-display); color: var(--fg); }
   </style>
 
+  <header class="page__header"><span class="page__section">Über PGN</span><span class="p22-jubilee">45 Jahre PGN</span></header>
   <header class="p22-head">
-    <p class="kicker">Über PGN</p>
-    <h1 class="h1">Ihre Generalplaner aus dem Norden. <em>Seit 1981.</em></h1>
-    <p class="p22-jubilee">45 Jahre PGN</p>
+    <h1 class="h1">Ihre Generalplaner aus dem Norden. Seit <em>1981.</em></h1>
     <p class="lead">Von Rotenburg (Wümme) aus planen wir private, gewerbliche und kommunale Bauprojekte in ganz Norddeutschland.</p>
   </header>
 
@@ -77,7 +77,7 @@
     <div class="p22-about module">
       <h2 class="chart__title">Leistungen und Auftraggeber</h2>
       <div class="prose">
-        <p>Wir arbeiten für Wohnungsunternehmen und Wohnungsbaugenossenschaften, Investorinnen und Investoren, öffentliche Bauträger und Kommunen. Generalplanung, Architektur, Tragwerksplanung, Haustechnik sowie Stadt- und Landschaftsplanung leisten wir im eigenen Haus, in allen Leistungsphasen und mit einem Ansprechpartner für Ihr Vorhaben. Im Projektcontrolling planen und überwachen wir Kosten und Termine, abgestimmt auf Ihre Finanzierung. Die <b class="u-nohyphens"><span class="u-nowrap">PGN Projektgesellschaft</span> Nord GmbH</b> entwickelt Projekte und baut schlüsselfertig <span class="u-nowrap">(<a class="pageref" href="#seite-20">→&nbsp;S.&nbsp;20</a>).</span></p>
+        <p>Wir arbeiten für Wohnungsunternehmen und Wohnungsbaugenossenschaften, Investorinnen und Investoren, öffentliche Bauträger und Kommunen. Generalplanung, Architektur, Tragwerksplanung, Haustechnik sowie Stadt- und Landschaftsplanung leisten wir im eigenen Haus, in allen Leistungsphasen und mit einem Ansprechpartner für Ihr Vorhaben. Im <span class="u-nohyphens">Projektcontrolling</span> planen und überwachen wir Kosten und Termine, abgestimmt auf Ihre Finanzierung. Die <b class="u-nohyphens"><span class="u-nowrap">PGN Projektgesellschaft</span> Nord GmbH</b> entwickelt Projekte und baut schlüsselfertig <span class="u-nowrap">(<a class="pageref" href="#seite-20">→&nbsp;S.&nbsp;20</a>).</span></p>
       </div>
     </div>
     <div class="p22-values on-red">

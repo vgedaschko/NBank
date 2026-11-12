@@ -40,7 +40,7 @@ module.exports = {
     R.pruefe(kosten.every(k => cGegenB(k) > schwelle('C', k) && schwelle('C', k) > schwelle('B', k)), 'Die Aussage „über der Linie C gegenüber A liegt A vorn, darunter C, B in keinem Fall“ trifft nicht mehr für alle Kosten der Achse zu.');
     // Schnitt der Linie C gegenüber A mit dem Tilgungssatz der Jahresrechnung: ab diesen Kosten liegt A vorn. Der Titel nennt ihn auf 100 € gerundet.
     const kSchnitt = netto('C') * K0 / (schuld('C') * (tJahr + vkb)), rund = Math.round(kSchnitt / 100) * 100;
-    R.pruefe(kSchnitt > kosten[0] && kSchnitt < K0, 'Der Schnitt der Linie C gegenüber A mit dem Tilgungssatz der Jahresrechnung liegt nicht mehr zwischen dem Achsenanfang und den Kosten des Modellhauses; Titel, Diagramm und Notizen der Folie A8 anpassen.');
+    R.pruefe(kSchnitt > kosten[0] && kSchnitt < K0, 'Der Schnitt der Linie C gegenüber A mit dem Tilgungssatz der Jahresrechnung liegt nicht mehr zwischen dem Achsenanfang und den Kosten des Modellhauses; Titel und Diagramm der Folie A8 anpassen.');
     if (ctx.glatt(ctx.o.titel) !== ctx.glatt(`Bei ${p2(tJahr)} Tilgung liegt Gruppe A ab rund ${fmt.euro(rund)} je m² vorn`)) P.melde(`Titel der Folie A8 nennt nicht den Tilgungssatz der Jahresrechnung (${ctx.glatt(p2(tJahr))}) und die gerundeten Kosten am Schnitt (${ctx.glatt(fmt.euro(rund))}).`);
 
     // ---- Diagramm über acht Spalten -------------------------------------------------------------------------------------------------
@@ -97,18 +97,9 @@ module.exports = {
       { text: 'Vorn liegt die Gruppe mit dem höchsten Zahlungsüberschuss in Jahr 1. Über der Linie „C gegenüber A“ ist das A, darunter C, B in keinem Fall.' },
       { text: 'Die Schwelle sinkt mit den Kosten: Die Mehrmiete je m² ist fest vorgegeben, die Mehrschuld wächst mit den Kosten.' }].map(e => ({ text: wl(e.text, 'Kommentar') })) });
 
-    // ---- Notizen: Die Sätze mit Zahlen stehen im Konzept; hier die Gegenprobe gegen die Mappe ----------------------------------------
-    const notiz = ctx.glatt(ctx.o.notizen), Nz = (text, was) => { if (!notiz.includes(ctx.glatt(text))) P.melde(`Notizen der Folie A8: „${ctx.glatt(text)}“ steht dort nicht (${was}; Wert aus der Mappe). Notizen im Konzept anpassen.`); };
-    const je = g => laeufe.map(l => p2(W(l, `tilg.schwelle.${g}_gegen_A`)));
-    Nz(`beim Modellhaus bei ${je('C')[0]}, beim ARGE-Median bei ${je('C')[1]}, an der Bemessungsgrenze bei ${je('C')[2]}`, 'Schwelle C gegenüber A der drei Läufe');
-    Nz(`Für B sind es ${je('B')[0]}, ${je('B')[1]} und ${je('B')[2]}`, 'Schwelle B gegenüber A der drei Läufe');
-    Nz(`ab ${fmt.euro(kSchnitt)} je m² vorn`, 'Kosten am Schnitt mit dem Tilgungssatz der Jahresrechnung');
-    Nz(`C bringt ${fmt.euroDez(M('tab.hoechstmiete.IV.C') - M('tab.hoechstmiete.IV.A'))} je m² mehr Miete als A`, 'Mehrmiete C gegenüber A');
-    Nz(`${fmt.prozent(M('tab.quote_darlehen.C') - M('tab.quote_darlehen.A'))} der Kosten mehr als Darlehen`, 'Mehrschuld C gegenüber A');
+    // ---- Gegenproben zum zweiten Absatz: Die Mehrmiete folgt aus den Höchstmieten, die Mehrschuld aus den Darlehenssätzen -----------------
     R.pruefe(R.mietenstufeKlasse(M('eingabe.mietenstufe')) === 'IV–VII' && Math.abs((M('tab.hoechstmiete.IV.C') - M('tab.hoechstmiete.IV.A')) * 12 * M('eingabe.wohnflaeche') - M('tilg.mehr_sollmiete.C')) < 0.005,
-      'Die Mehr-Sollmiete C gegenüber A ist nicht mehr die Differenz der Höchstmieten der Mietenstufe IV–VII; Notizen der Folie A8 anpassen.');
-    R.pruefe(Math.abs((M('tab.quote_darlehen.C') - M('tab.quote_darlehen.A')) * M('fin.zuwendungsfaehige_kosten.A') - schuld('C')) < 0.005, 'Die Mehrschuld C gegenüber A ist nicht mehr die Differenz der Darlehensquoten mal zuwendungsfähige Kosten; Notizen der Folie A8 anpassen.');
-    Nz(`Mietausfall über ${fmt.prozent(M('eingabe.mietausfall'))}`, 'Mietausfall der Rechnung');
-    Nz(`Bemessungsgrenze von ${fmt.euro(grenze)} je m²`, 'Bemessungsgrenze');
+      'Die Mehr-Sollmiete C gegenüber A ist nicht mehr die Differenz der Höchstmieten der Mietenstufe IV–VII; den Absatz „Die Schwelle sinkt mit den Kosten“ der Folie A8 prüfen.');
+    R.pruefe(Math.abs((M('tab.quote_darlehen.C') - M('tab.quote_darlehen.A')) * M('fin.zuwendungsfaehige_kosten.A') - schuld('C')) < 0.005, 'Die Mehrschuld C gegenüber A ist nicht mehr die Differenz der Darlehensquoten mal zuwendungsfähige Kosten; den Absatz „Die Schwelle sinkt mit den Kosten“ der Folie A8 prüfen.');
   },
 };

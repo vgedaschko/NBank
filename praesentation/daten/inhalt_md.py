@@ -16,8 +16,7 @@ FELDER = [
     ("darstellung", "Darstellung"),
     ("daten", "Daten"),
     ("herkunft", "Herkunft"),
-    ("notizen", "Sprechernotizen"),
-    ("quellen", "Quellenzeile der Notizen"),
+    ("quellen", "Quellenangabe"),
 ]
 
 
@@ -38,7 +37,8 @@ def main():
     z.append(
         f"Hauptteil {len(haupt)} Folien, Anhang {len(anhang)} Folien. "
         "Diese Datei wird aus `daten/outline.json` erzeugt (`python daten/inhalt_md.py`); "
-        "Änderungen gehören in die JSON-Datei."
+        "Änderungen gehören in die JSON-Datei. Die Mappe trägt keine Sprechernotizen (Entscheidung 32); "
+        "die Quellenangabe je Folie speist die Quellenfolie A9."
     )
     z.append("")
     z.append("## Leitgedanke")
@@ -70,15 +70,7 @@ def main():
         )
         for schluessel, name in FELDER:
             z.append("")
-            if schluessel == "notizen":
-                z.append(f"**{name}**")
-                z.append("")
-                for zeile in f[schluessel].split("\n"):
-                    zeile = zeile.strip()
-                    if zeile:
-                        z.append("- " + zeile.lstrip("– ").strip())
-            else:
-                z.append(f"**{name}:** {f[schluessel]}")
+            z.append(f"**{name}:** {f[schluessel]}")
     z.append("")
     z.append("## Baugruppen")
     z.append("")

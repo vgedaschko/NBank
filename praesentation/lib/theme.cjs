@@ -64,19 +64,22 @@ const r3 = v => +v.toFixed(3);
 const colX = k => r3(X0 + (k - 1) * PITCH);
 const span = n => r3(n * PITCH - GUT);
 const Y = {
-  // kickerW: Breite des Kickerfelds. Es endet bei x 7,967, 0,15 vor dem Feld „Programmteil“ des Schlüsselplans; der Kicker darf es bis auf
-  // 10 % Reserve füllen (6,27 Zoll; der längste, „MODELLRECHNUNG · ZAHLUNGSFLUSS FREI FINANZIERT“, misst 6,21)
+  // kickerW: Breite des Kickerfelds im Kopf (Abschnittsname in Versalien, davor der Achskreis des Abschnitts). Es endet 0,15 vor dem Feld
+  // „Programmteil“ des Schlüsselplans; der Kicker darf es bis auf 10 % Reserve füllen (das Thema der Folie steht seit Muster 2 im Schriftfeld)
   kicker: 0.44, kickerH: 0.30, kickerW: 6.9, titel: 0.86, titelH: 1.06,
   deck: 1.90, deckH: 0.26, inhaltNachDeck: 2.40,
   inhalt: 2.10, inhaltEnde: 6.50, anhangInhalt: 1.50,
   fuss: 6.72, fussH: 0.48,
 };
 const ZONE = {
-  // Layout PGN_DIAGRAMM(_MR). Die Kommentarspalte beginnt 0,07 unter der Modulkopf-Linie: Ihr Modultitel (erste Zeile, oben verankert) steht dann
-  // auf derselben Höhe wie der Diagrammtitel links (Feld 2,18 bis 2,44, mittig)
-  // spalte: rechte Spalte mit Kennzahlen statt Kommentar (Folien 3 bis 6 und 22): Hauptzahl ab y1, zweites Modul ab y2 (B.hauptzahl, B.nebenzahl, B.zweitesModul)
-  diagramm: { kopf: 2.10, titel: 2.18, sub: 2.50, legende: 2.80, chart: { x: colX(1), y: 3.06, w: span(7), h: 3.44 }, kommentar: { x: colX(8), y: 2.19, w: span(5), h: 4.31 },
-    spalte: { x: colX(9), w: span(4), y1: 2.10, y2: 4.40, ende: 6.50 } },
+  // Layout PGN_DIAGRAMM(_MR), Muster 2: Diagramm über sieben Spalten, rechts fünf Spalten Text. Die Kommentarspalte beginnt 0,07 unter der
+  // Modulkopf-Linie: Ihr Modultitel (erste Zeile, oben verankert) steht dann auf derselben Höhe wie der Diagrammtitel links (Feld 2,18 bis 2,48, mittig)
+  // sub: Oberkante des Untertitels (oben verankert, eine Zeile 0,20 hoch); steht er in zwei Zeilen, rücken Legende und Diagramm um subZeile tiefer
+  // (B.diagrammkopf gibt beide Lagen zurück)
+  // spalte: rechte Spalte mit Kennzahlen statt Kommentar (Folien 3 bis 6 und 22), dieselben fünf Spalten: Hauptzahl ab y1, zweites Modul ab y2
+  // (B.hauptzahl, B.nebenzahl, B.zweitesModul)
+  diagramm: { kopf: 2.10, titel: 2.18, sub: 2.52, subZeile: 0.20, legende: 2.80, chart: { x: colX(1), y: 3.06, w: span(7), h: 3.44 }, kommentar: { x: colX(8), y: 2.17, w: span(5), h: 4.33 },
+    spalte: { x: colX(8), w: span(5), y1: 2.10, y2: 4.40, ende: 6.50 } },
   // Layout PGN_TABELLE(_MR)
   tabelle: { kopf: 2.10, titel: 2.18, sub: 2.50, tabelle: 2.84, tabelleEnde: 6.20, notiz: { x: colX(1), y: 6.05, w: CW, h: 0.45 }, kommentar: { x: colX(9), y: 2.17, w: span(4), h: 4.33 } },
   // Layout PGN_ABLAUF
@@ -93,9 +96,10 @@ const ZONE = {
   // Stelle des Stempels in der Kickerzeile der Layouts mit „_MR“ (rechts am Satzspiegel). Ohne Stempel im Kopf (STEMPEL_IM_KOPF aus) bleibt sie frei;
   // nur die erste Folie der Modellrechnung setzt dort ihren Zusatz (B.stempelZusatz)
   stempel: { x: 10.547, y: 0.385, w: 2.12, h: 0.37 },
-  // Schriftfeld der Inhalts- und Anhangfolien (Y.fuss, Höhe Y.fussH): links Projektzeile und Rubrik, ab „logo“ das Logo-Feld, ab „blatt“ die Blatt-Zelle.
-  // Dazwischen liegt das freie Feld für die Quellenzeile (B.quelle): rechtsbündig, „quelleRand“ vor dem Logo-Feld, mindestens „quelleAbstand“
-  // hinter der längeren der beiden Zeilen links
+  // Schriftfeld der Inhalts- und Anhangfolien (Y.fuss, Höhe Y.fussH).
+  // Muster 2: Das Schriftfeld reicht über die ganze Breite des Planrahmens. Links das Logo-Feld (bis „logoEnde“), ab „text“ Projektzeile und Rubrik
+  // (das Thema der Folie), ab „blatt“ die Blatt-Zelle. Dazwischen liegt das freie Feld für die Quellenzeile (B.quelle): rechtsbündig,
+  // „quelleRand“ vor der Blatt-Zelle, mindestens „quelleAbstand“ hinter der längeren der beiden Zeilen links
   schriftfeld: { logoEnde: 2.20, text: 2.40, blatt: 12.033, quelleRand: 0.20, quelleAbstand: 0.30 },
   register: { x: W - 0.42, w: 0.42, h: 0.62, y0: 2.10, schritt: 0.74 },
 };
@@ -129,7 +133,7 @@ const SKALA = {
   dicht:         { fontFace: F.text, fontSize: 14, zeileMal: 1.12, farbe: 'text' },
   klein:         { fontFace: F.text, fontSize: 12, zeileMal: 1.12, farbe: 'sekundaer' },
   kleinText:     { fontFace: F.text, fontSize: 12, zeileMal: 1.12, farbe: 'text' },
-  deck:          { fontFace: F.montLight, fontSize: 14, zeileMal: 1.10, weite: 0.4, farbe: 'text', versal: true },
+  deck:          { fontFace: F.montLight, fontSize: 14, zeileMal: 1.10, farbe: 'text' },
   kicker:        { fontFace: F.mont, bold: true, fontSize: 12, weite: 1.0, farbe: 'titel', versal: true },
   modultitel:    { fontFace: F.mont, bold: true, fontSize: 16, farbe: 'titel' },
   diagrammtitel: { fontFace: F.mont, bold: true, fontSize: 16, farbe: 'titel' },
@@ -142,10 +146,11 @@ const SKALA = {
   wert:          { fontFace: F.mont, bold: true, fontSize: 12, farbe: 'titel' },
   wertGross:     { fontFace: F.mont, bold: true, fontSize: 16, farbe: 'titel' },
   kernwert:      { fontFace: F.xbold, fontSize: 24, zeile: 26, farbe: 'titel' },
-  vorsatz:       { fontFace: F.mont, bold: true, fontSize: 12, weite: 1.2, farbe: 'akzent', versal: true },
+  vorsatz:       { fontFace: F.mont, bold: true, fontSize: 12, weite: 1.2, farbe: 'titel', versal: true },
   kennlabel:     { fontFace: F.mont, bold: true, fontSize: 16, farbe: 'titel' },
-  station:       { fontFace: F.xbold, fontSize: 13, weite: 0.5, farbe: 'titel', versal: true },
-  stationKlein:  { fontFace: F.xbold, fontSize: 12, weite: 0.5, farbe: 'titel', versal: true },
+  // Titel einer Station (Ablauf, Agenda): ein Modultitel, gemischt gesetzt wie dieser (bis Muster 2 ExtraBold 13 pt in Versalien)
+  station:       { fontFace: F.mont, bold: true, fontSize: 16, farbe: 'titel' },
+  stationKlein:  { fontFace: F.mont, bold: true, fontSize: 12, farbe: 'titel' },
   zitat:         { fontFace: F.mont, italic: true, fontSize: 24, zeile: 31, farbe: 'titel' },
   zitatName:     { fontFace: F.xbold, fontSize: 12, weite: 1.2, farbe: 'titel', versal: true },
   zitatQuelle:   { fontFace: F.text, fontSize: 12, farbe: 'sekundaer' },

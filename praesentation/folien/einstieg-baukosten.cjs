@@ -1,5 +1,5 @@
 // Folie 3 · PGN_DIAGRAMM: Herstellung und Grundstück je m² Wohnfläche, Q1 2020 gegen Q4 2025, als natives gruppiertes Säulendiagramm über
-// acht Spalten. Feine Zeichnung (D.gruppierteSaeulen mit fein: true): schlanke Säulen mit feiner Kontur, Q1 2020 als helle Fläche, Q4 2025 in
+// sieben Spalten. Feine Zeichnung (D.gruppierteSaeulen mit fein: true): schlanke Säulen mit feiner Kontur, Q1 2020 als helle Fläche, Q4 2025 in
 // Tinte, zwischen beiden eine schmale Fuge; die Werte stehen über den Säulen (Q1 2020 in Grau, Q4 2025 in Tinte). Über jedem Paar misst eine
 // Maßkette von der früheren zur heutigen Säule und trägt die Veränderung, wie die Maßkette der Folie 6. Rechts die Hauptzahl der Folie (Anstieg
 // der Herstellung) und darunter der Anstieg des Grundstücks. Werte aus daten/markt.json, Block baukosten (ARGE-Mediane, Altfassung Folie 23,
@@ -20,7 +20,7 @@ module.exports = {
     if (gruppen[0].plus < 0.5 || gruppen[0].plus >= 0.6) P.melde(`Titel „gut die Hälfte“: Die Herstellung ist um ${fmt.prozent(gruppen[0].plus, 1)} gestiegen.`);
     gruppen.forEach(g => wl(`„${g.name}“ · „${g.kg}“ ${fmt.zahl(g.alt)} | ${fmt.zahl(g.neu)}`, `Säulenwerte ${g.name}`));
 
-    // ---- Diagramm über acht Spalten ------------------------------------------------------------------------------------------
+    // ---- Diagramm über sieben Spalten ----------------------------------------------------------------------------------------
     // Q1 2020 ist der Bezugswert (helle Fläche mit Kontur), Q4 2025 die Aussage (Tinte)
     const ARTEN = ['bezug', 'tinte'];
     B.diagrammkopf(s, { titel: wl('Herstellung und Grundstück je m² Wohnfläche', 'Diagrammtitel'), sub: wl('in €, Bruttokosten · ARGE-Median deutscher Großstädte', 'Untertitel') });

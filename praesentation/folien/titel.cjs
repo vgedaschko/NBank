@@ -1,5 +1,5 @@
 // Folie 1 · Titel (PGN_TITEL): Claim der Broschüre in zwei Zeilen, Untertitel, Kennzahlfeld „bis zu 80 %“, Bildzeile an der Axonometrie.
-// Kopfleiste, Schriftfeld (Herausgeber, Stand, „Vortrag“ mit Eingabefeld „Ort, Datum“) und Logo liegen im Layout; das Eingabefeld bleibt leer.
+// Kopfleiste, Schriftfeld (Herausgeber; Stand, darunter das Eingabefeld „Ort, Datum“) und Logo liegen im Layout; das Eingabefeld bleibt leer.
 'use strict';
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
     const { B, W, X, fmt, HEX } = ctx, s = ctx.folie(), wl = (t, was) => ctx.wortlaut(t, was);   // Titelzeilen, Signaturwort und Untertitel aus dem Konzept
 
     // Feste Texte des Layouts (lib/layouts.cjs liest sie aus daten/rahmen.json, Broschüre S. 1): Gegenprobe gegen das Konzept
-    for (const t of [...['kopfleiste', 'herausgeber', 'sitz', 'stand'].map(k => X('rahmen', 'titel.' + k)), 'Herausgeber', 'Vortrag', 'Ort, Datum']) wl(t, 'Schriftfeld');
+    for (const t of [...['kopfleiste', 'herausgeber', 'sitz', 'stand'].map(k => X('rahmen', 'titel.' + k)), 'Herausgeber', 'Stand', 'Ort, Datum']) wl(t, 'Schriftfeld');
 
     // Kennzahlfeld: Förderquote in Gruppe A = Darlehen + Zuschuss (Höchstsätze der Richtlinie, Programmteil 2.1)
     const quote = W('modellhaus', 'tab.quote_darlehen.A') + W('modellhaus', 'tab.quote_zuschuss.A');

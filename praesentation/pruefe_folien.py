@@ -8,24 +8,24 @@ Aufruf im Ordner praesentation:
 
 Was geprüft wird (eine Zeile je Prüfung, am Ende die Summe; Rückgabewert 1 bei Fehlern):
   Aufbau     38 Folien (28 im Hauptteil, 10 im Anhang) mit Kennung, Blattnummer und Abschnitt wie festgelegt (AUFBAU), in der Reihenfolge des
-             Konzepts; Titel-Platzhalter, Abschnitte, Blattnummern, Notizen, Dateieigenschaften, eindeutige Form-IDs; Kicker, Rubrik, Agenda
-             und Trenner mit denselben Abschnittsnamen und derselben Zählung
+             Konzepts; Titel-Platzhalter, Abschnitte, Blattnummern, Dateieigenschaften, eindeutige Form-IDs; Kopf (Abschnitt mit seinem
+             Zeichen), Schriftfeld (Thema), Agenda und Trenner mit denselben Abschnittsnamen und derselben Zählung
   Form       nur Montserrat und Work Sans, Mindestgrößen (E3), Alternativtexte (Bilder, Diagramme, Flussdiagramme), keine Folie als Bild,
-             keine Animationen
+             keine Animationen, keine Sprechernotizen (weder in der Mappe noch im Konzept)
   Wortlaut   verbotene Wörter (E5; „Rendite“ und „Marktmiete“ nur auf der Anhangfolie zur Rendite), kein Gedankenstrich als Einschub (E6), das Wort
              „Modellrechnung“ im Kopf genau der festgelegten Folien, je einmal (E7); Quellenzeile im Schriftfeld genau der festgelegten Folien im
              Wortlaut von daten/markt.json (QUELLENZEILEN)
-  Zahlen     jede Zahl in Folientexten, Tabellen, Alternativtexten, Diagrammdaten und Notizen hat einen Beleg; die Diagrammdaten stehen gleich im Zwischenspeicher
+  Zahlen     jede Zahl in Folientexten, Tabellen, Alternativtexten und Diagrammdaten hat einen Beleg; die Diagrammdaten stehen gleich im Zwischenspeicher
              und in der eingebetteten Arbeitsmappe; Kernwerte und Kernsätze stehen an ihren Folien, mit Einheit und Vorzeichen; Werte an
              den Diagrammen der Folien 3 bis 6 und 22 stehen in ihrer Form oder Tabellenzelle (KERNWERTE_FORM), Zeitreihen Wert für
              Wert in den Diagrammdaten (REIHEN_DIAGRAMM)
-  Verweise   „Folie n“ und „Anhang A n“ in Folientexten und Notizen nennen die Blattnummer der gemeinten Folie (VERWEISE)
+  Verweise   „Folie n“ und „Anhang A n“ in Folientexten nennen die Blattnummer der gemeinten Folie (VERWEISE)
 
 Beleg einer Zahl, in dieser Reihenfolge:
   1 daten/werte.json (Rechenmappe), gerundet auf die Nachkommastellen, mit denen die Zahl auf der Folie steht;
     als Wert, als Prozent (Wert × 100) oder in Millionen (Wert ÷ 1.000.000)
   2 Datendateien der Baugruppen (daten/regeln.json, markt.json, umsetzung.json, rahmen.json, rechnung.json): Zahlen mit Herkunft
-  3 daten/pruefung.json: gerechnete Größen (die Formel wird hier nachgerechnet) und Zahlen der Sprechernotizen mit Herkunft
+  3 daten/pruefung.json: gerechnete Größen (die Formel wird hier nachgerechnet) und einzelne Angaben mit Herkunft
   Der Lauf modellhaus_rendite der Rechenmappe und Einträge mit „nur_folie“ in daten/pruefung.json belegen nur Zahlen ihrer einen Folie (E5).
   4 Freiliste (unten, FREI): Angaben, die keine Rechengrößen sind, jede Regel mit Begründung
 Die Einheit zählt: Folgt der Zahl ein Prozentzeichen, belegt sie nur ein Anteil oder eine Prozentangabe; folgt „€“ oder „Mio.“, nur ein Eurobetrag.
@@ -81,9 +81,10 @@ HAUPTTEIL, ANHANG = 28, 10
 ZUSATZ_MODELLRECHNUNG = "Rechenbeispiel, keine Förderzusage"
 STEMPEL = ["rechnung-finanzierung", "rechnung-jahr1", "rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-fluss-frei", "rechnung-miete",
            "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten", "fazit"]
-# Kicker und Rubrik im Schriftfeld nennen den Abschnitt und das Thema der Folie („MODELLRECHNUNG · KAPITALDIENST“). Die Agenda nennt alle vier
-# Abschnitte und trägt deshalb einen eigenen Kicker ohne Abschnittsnamen; jede weitere Ausnahme stünde hier.
-KICKER_OHNE_ABSCHNITT = {"agenda": "INHALT DES VORTRAGS"}
+# Muster 2 (Entscheidung 33): Der Kopf jeder Inhalts- und Anhangfolie nennt den Abschnitt (Form „Kicker“), davor steht sein Zeichen im Achskreis
+# (Form „Abschnitt im Kopf“: 1 bis 4 wie Agenda und Trenner, im Anhang „A“). Das Thema der Folie steht im Schriftfeld (Form „Rubrik“). Im Konzept
+# stehen beide im Feld „inhalt“ als Kicker: „ABSCHNITT · THEMA“. Kopf und Schriftfeld sagen nie dasselbe.
+KOPFZEICHEN = "Abschnitt im Kopf"
 # Register der Agenda: Der Vortrag behandelt 2.1; für 2.2 bis 2.6 steht die Seite der Broschüre (Festlegung zum Umbau)
 REGISTER = {"2.1": "in diesem Vortrag", "2.2": "Broschüre S. 13", "2.3": "Broschüre S. 15", "2.4": "Broschüre S. 14", "2.5": "Broschüre S. 17", "2.6": "Broschüre S. 17"}
 SCHRIFTEN = ("Montserrat", "Work Sans")
@@ -293,15 +294,16 @@ KERNSAETZE = [
     ("foerdermix", "Mindestens {a} der zuwendungsfähigen Kosten", {"a": ("tab.eigenmittel_mindestens", "prozent0")}),
     ("rechnung-jahr1", "{a} | {b} | {c} € je m² und Monat (A | B | C)", {"a": ("fin.miete_jahr1.A", "dez2"), "b": ("fin.miete_jahr1.B", "dez2"), "c": ("fin.miete_jahr1.C", "dez2")}),
     # Modellhaus seit 11.11.2026: PGN-Projekt in Neu Wulmstorf, Mietenstufe VI, Grundstück im Bestand und nicht angesetzt (Eingabe 2.3 = 0).
-    # Die Titel der Folien 14 bis 16, 19, 21 und 23 nennen das Ergebnis aller drei Gruppen und die Zahl der Gruppe A
+    # Die Titel der Folien 14 bis 16, 19, 21 und 23 nennen das Ergebnis aller drei Gruppen und die Zahl der Gruppe A.
+    # Seit 12.11.2026 stehen die Titel der Folien 9 und 15 bis 18 ohne Doppelpunkt (Entscheidung 34)
     ("rechnung-finanzierung", "{a} Wohnungen, {b}: bis zu {c} Förderung", {"a": ("eingabe.wohnungen", "zahl"), "b": ("fin.gesamtkosten.A", "mio"), "c": ("fin.foerderung.A", "mio")}),
     ("rechnung-finanzierung", "PGN-Projekt in Neu Wulmstorf · {a} Wohnungen · {b} m² Wohnfläche · Gruppe A · Mietenstufe {c}",
      {"a": ("eingabe.wohnungen", "zahl"), "b": ("eingabe.wohnflaeche", "zahl"), "c": ("eingabe.mietenstufe", "text")}),
     ("rechnung-finanzierung", "Grundstück im Bestand, {a}", {"a": ("eingabe.grundstueck", "nicht_angesetzt")}),
     ("rechnung-finanzierung", "Herstellungskosten, {a} m² × {b}", {"a": ("eingabe.wohnflaeche", "zahl"), "b": ("eingabe.herstellungskosten_qm", "euro")}),
-    ("rechnung-jahr1", "Alle drei Gruppen tragen sich ab Jahr 1: {a} Zahlungsüberschuss in A", {"a": ("jr1.zahlungsueberschuss.A", "euro")}),
+    ("rechnung-jahr1", "Alle drei Gruppen tragen sich ab Jahr 1, in A {a} Zahlungsüberschuss", {"a": ("jr1.zahlungsueberschuss.A", "euro")}),
     ("rechnung-jahr1", "Höchstmiete nettokalt, Mietenstufe {a}:", {"a": ("eingabe.mietenstufe", "text")}),
-    ("rechnung-kapitaldienst", "Kapitaldienst in Jahr 1: {a} statt {b} frei finanziert", {"a": ("dscr.kapitaldienst_jahr1.A", "euro"), "b": ("dscr.kapitaldienst_jahr1.Frei", "euro")}),
+    ("rechnung-kapitaldienst", "{a} Kapitaldienst in Jahr 1 statt {b} frei finanziert", {"a": ("dscr.kapitaldienst_jahr1.A", "euro"), "b": ("dscr.kapitaldienst_jahr1.Frei", "euro")}),
     ("rechnung-miete", "Nötige Miete: {a} gefördert, {b} je m² frei finanziert", {"a": ("dscr.noetige_miete.A", "euro2"), "b": ("dscr.noetige_miete.Frei", "euro2")}),
     ("rechnung-jahr1", "Verwaltungskostenbeitrag, {a}", {"a": ("tab.verwaltungskostenbeitrag", "prozent1")}),
     ("rechnung-jahr1", "Zins NBank-Darlehen, {a}", {"a": ("tab.zins_nbank_bis_jahr35", "prozent0")}),
@@ -314,12 +316,13 @@ KERNSAETZE = [
     ("einstieg-kapitaldienst", "{a} · {b}", {"a": (KD_WECHSELWIRKUNG, "euro2vz"), "b": (f"({KD_WECHSELWIRKUNG}) / (({KD_HEUTE}) - ({KD_2020}))", "prozent0")}),
     ("einstieg-bestand", "{a} weniger gebundene Wohnungen als 2016", {"a": ("-(" + BESTAND_RUECKGANG + ")", "prozent1")}),
     ("agenda", "Thema ist Programmteil 2.1: Neubau mit Darlehen und Zuschuss", {}),
-    ("agenda", "Der Vortrag behandelt 2.1. Die Programmteile 2.2 bis 2.6 stehen in der Broschüre und im Anhang A1.", {}),
-    ("rechnung-fluss-gefoerdert", "Gefördert: {a} der Miete fließen in die Tilgung", {"a": ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
+    ("agenda", "Die Programmteile 2.2 bis 2.6 stehen in der Broschüre und im Anhang A1.", {}),
+    ("neu-seit-juli", "Seit 01.07.2026 ersetzt der Zuschuss den Tilgungsnachlass", {}),
+    ("rechnung-fluss-gefoerdert", "Gefördert fließen {a} der Miete in die Tilgung", {"a": ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
     ("rechnung-fluss-gefoerdert", "{a} je m² und Monat", {"a": ("fin.miete_jahr1.A", "euro2")}),
     ("rechnung-fluss-gefoerdert", "{a} · {b}", {"a": ("jr1.tilgung_nbank.A", "euro"), "b": ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
     ("rechnung-fluss-gefoerdert", "{a} · {b}", {"a": ("jr1.verwaltungskostenbeitrag.A", "euro"), "b": ("modellhaus:jr1.verwaltungskostenbeitrag.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
-    ("rechnung-fluss-frei", "Frei finanziert: {a} der Miete sind Zins", {"a": ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
+    ("rechnung-fluss-frei", "Frei finanziert sind {a} der Miete Zins", {"a": ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
     ("rechnung-fluss-frei", "{a} je m² und Monat", {"a": ("dscr.noetige_miete.Frei", "euro2")}),
     ("rechnung-fluss-frei", "{a} · {b}", {"a": ("-modellhaus:frei.zins_jahr1", "euro"), "b": ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
     ("rechnung-fluss-frei", "{a} · {b}", {"a": ("-modellhaus:frei.tilgung_jahr1", "euro"), "b": ("-modellhaus:frei.tilgung_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1")}),
@@ -375,6 +378,14 @@ KERNSAETZE = [
      {"a": (K_GRENZE + "eingabe.herstellungskosten_qm", "euro"), "b": (K_GRENZE + "jr1.zahlungsueberschuss.A", "euro"), "c": ("jr1.zahlungsueberschuss.A", "euro")}),
     ("rechnung-kosten", "Je 100 € je m² mehr sinkt der Zahlungsüberschuss in A um {a}.", {"a": (JE_100_EURO, "euro")}),
     ("rechnung-kosten", "Bis hierher bleibt die Förderquote bei {a}.", {"a": (K_GRENZE + "fin.foerderquote.A", "prozent0")}),
+]
+# ---- Einheitliche Bezeichnungen (Entscheidung 34): Folie, Muster, das im sichtbaren Folientext nicht stehen darf, Begründung. Was die Textprüfung
+# vom 12.11.2026 als Wiederholung oder wechselnde Bezeichnung benannt hat und gestrichen ist, kommt so nicht unbemerkt zurück.
+NICHT_AUF_FOLIE = [
+    ("agenda", re.compile(r"Der Vortrag behandelt", re.I), "sagt dasselbe wie der Titel und das Feld 2.1 des Registers"),
+    ("antragsweg", re.compile(r"(?<!FÖRDER)ENTSCHEIDUNG", re.I), "der Akt heißt auf der Folie „Förderentscheidung“ und „Bewilligung“, nicht auch „Entscheidung“"),
+    ("pgn-baukosten", re.compile(r"BAUKOSTEN DER PGN", re.I), "das Thema im Schriftfeld heißt wie der Titel „Herstellungskosten der PGN“"),
+    ("anhang-trenner", re.compile(r"Tilgung(?!sschwelle)", re.I), "A8 heißt im Vorspann „Tilgungsschwelle“ wie in ihrem Kopf"),
 ]
 # ---- Kernwerte in den Diagrammdaten: Quelle (wie bei den Kernwerten), Folie, Reihe, Kategorie. Der Wert steht dort ungerundet und mit Vorzeichen ----
 KERNWERTE_DIAGRAMM = [
@@ -509,41 +520,15 @@ KERNWERTE_FORM += [
     (MIETFLAECHE_JAHR, "zahl", "rechnung-miete", _MT, (3, 1), "{a}"), (MIETFLAECHE_JAHR, "zahl", "rechnung-miete", _MT, (3, 2), "{a}"),
     ("dscr.noetige_miete.A", "euro2", "rechnung-miete", _MT, (4, 1), "{a}"), ("dscr.noetige_miete.Frei", "euro2", "rechnung-miete", _MT, (4, 2), "{a}"),
 ]
-# ---- Verweise: Folie, Ort („folie“ für Folientext, „notizen“), Text mit Feldern, je Feld die Kennung der gemeinten Folie ------------------------
-# Der Text steht so auf der Folie oder in ihren Notizen, und das Feld trägt die Blattnummer der gemeinten Folie aus dem Konzept. Ändert sich
-# die Zählung, fällt jeder Verweis auf, der nicht mitgeführt wurde.
+# ---- Verweise: Folie, Text mit Feldern, je Feld die Kennung der gemeinten Folie -----------------------------------------------------------
+# Der Text steht so auf der Folie, und das Feld trägt die Blattnummer der gemeinten Folie aus dem Konzept. Ändert sich die Zählung, fällt jeder
+# Verweis auf, der nicht mitgeführt wurde. (Bis 12.11.2026 standen hier auch die Verweise der Sprechernotizen; die Mappe trägt keine mehr.)
 VERWEISE = [
-    ("agenda", "folie", "stehen in der Broschüre und im Anhang {a}.", {"a": "anhang-programmteile"}),
-    ("agenda", "notizen", "in Kurzform im Anhang {a}.", {"a": "anhang-programmteile"}),
-    ("einstieg-kapitaldienst", "notizen", "Die nötige Miete des Modellhauses (15,39 €, Folie {a})", {"a": "rechnung-miete"}),
-    ("hoechstmiete", "notizen", "die Grenzen stehen im Anhang {a}.", {"a": "anhang-mieterkreis"}),
-    ("eckdaten-zeitstrahl", "notizen", "Alle Eckdaten im Anhang {a}.", {"a": "anhang-eckdaten"}),
-    ("rechnung-jahr1", "notizen", "kein Jahr mit einem Fehlbetrag (Folie {a})", {"a": "rechnung-verlauf"}),
-    ("rechnung-jahr1", "notizen", "B und C folgen auf den Folien {a} und {b}.", {"a": "rechnung-tilgung", "b": "rechnung-verlauf"}),
-    ("rechnung-jahr1", "notizen", "Die Rendite über 35 Jahre steht im Anhang (Folie {a}).", {"a": RENDITE_FOLIE}),
-    ("rechnung-kapitaldienst", "notizen", "den Zinsverlauf zeigt Folie {a}.", {"a": "ausgangslage-zinsen"}),
-    ("rechnung-fluss-gefoerdert", "notizen", "Der Kapitaldienst ist der von Folie {a}:", {"a": "rechnung-kapitaldienst"}),
-    ("rechnung-fluss-frei", "notizen", "geht in den Kapitaldienst, wie auf Folie {a}.", {"a": "rechnung-kapitaldienst"}),
-    ("rechnung-miete", "notizen", "Die Annahmen stehen auf Folie {a}.", {"a": "rechnung-kapitaldienst"}),
-    ("rechnung-verlauf", "notizen", "Folie {a} nennt abgerundet", {"a": "hoechstmiete"}),
-    ("rechnung-kosten", "notizen", "ist der PGN-Median der Folie {a},", {"a": "pgn-baukosten"}),
-    ("antragsweg", "notizen", "der erste Spatenstich (Anhang {a}).", {"a": "anhang-vertraege"}),
-    ("antragsweg", "notizen", "die Bedarfslage am Standort stehen im Anhang {a}.", {"a": "anhang-voraussetzungen"}),
-    ("anhang-trenner", "notizen", "{a} und {b} zeigen Programmteile und Frist, {c} und {d} Voraussetzungen und Verträge vor der Bewilligung, {e} und {f} Mieterkreis und Eckdaten, {g} die Eigenkapitalrendite, {i} die Tilgungsschwelle je Herstellungskosten, {h} Quellen und Hinweis.",
-     {"a": "anhang-programmteile", "b": "anhang-frist", "c": "anhang-voraussetzungen", "d": "anhang-vertraege", "e": "anhang-mieterkreis", "f": "anhang-eckdaten", "g": RENDITE_FOLIE, "i": SCHWELLE_FOLIE, "h": "quellen"}),
-    ("rechnung-tilgung", "notizen", "Wie die Schwelle von den Herstellungskosten abhängt, zeigt Anhang {a}.", {"a": SCHWELLE_FOLIE}),
-    (SCHWELLE_FOLIE, "notizen", "auch bei anderen Kosten gilt (Folie {a}).", {"a": "rechnung-tilgung"}),
-    ("anhang-eckdaten", "notizen", "verdichtet auf den Folien {a} und {b}, Antrag und Bewilligung auf Folie {c};", {"a": "foerdermix", "b": "eckdaten-zeitstrahl", "c": "antragsweg"}),
-    ("anhang-eckdaten", "notizen", "im Hinweis auf {a}.", {"a": "quellen"}),
-    ("quellen", "folie", "Folien {a} und {b}: PGN (2026): eigene Auswertung von fünf Projekten", {"a": "pgn-baukosten", "b": "rechnung-kosten"}),
-    ("quellen", "folie", "Folie {a}: eigene Rechnung der PGN", {"a": "einstieg-kapitaldienst"}),
-    ("quellen", "folie", "Folie {a}: BT-Drs. 21/7303", {"a": "einstieg-bestand"}),
-    (RENDITE_FOLIE, "notizen", "über Swapsatz plus 1 Prozentpunkt ({a});", {"a": "anhang-eckdaten"}),
-    (RENDITE_FOLIE, "notizen", "kein Jahr mit Fehlbetrag (Folie {a})", {"a": "rechnung-verlauf"}),
-    ("quellen", "folie", "{a}–{b}, {c}, {d}", {"a": "rechnung-finanzierung", "b": "fazit", "c": RENDITE_FOLIE, "d": SCHWELLE_FOLIE}),   # Zeile der Modellrechnung in der Spalte „Folie“
-    ("quellen", "notizen", "alle Zahlen der Folien {a} bis {b}, {c}, {d}, {e} und {f}.", {"a": "rechnung-finanzierung", "b": "rechnung-verlauf", "c": "rechnung-kosten", "d": "fazit", "e": RENDITE_FOLIE, "f": SCHWELLE_FOLIE}),
-    ("quellen", "notizen", "Baukosten (Folien {a} und {b}), Zinsreihe (Folie {c}), Bestandsreihe (Folie {d}) und der PGN-Median der Herstellungskosten (Folien {b} und {e}). Folie {f} rechnet mit diesen Werten.",
-     {"a": "einstieg-baukosten", "b": "pgn-baukosten", "c": "ausgangslage-zinsen", "d": "einstieg-bestand", "e": "rechnung-kosten", "f": "einstieg-kapitaldienst"}),
+    ("agenda", "stehen in der Broschüre und im Anhang {a}.", {"a": "anhang-programmteile"}),
+    ("quellen", "Folien {a} und {b}: PGN (2026): eigene Auswertung von fünf Projekten", {"a": "pgn-baukosten", "b": "rechnung-kosten"}),
+    ("quellen", "Folie {a}: eigene Rechnung der PGN", {"a": "einstieg-kapitaldienst"}),
+    ("quellen", "Folie {a}: BT-Drs. 21/7303", {"a": "einstieg-bestand"}),
+    ("quellen", "{a}–{b}, {c}, {d}", {"a": "rechnung-finanzierung", "b": "fazit", "c": RENDITE_FOLIE, "d": SCHWELLE_FOLIE}),   # Zeile der Modellrechnung in der Spalte „Folie“
 ]
 
 # ---- Freiliste: Angaben, die keine Rechengrößen sind. Jede Regel: Name, Muster, Begründung ------------------------------------
@@ -756,12 +741,7 @@ def lies_mappe(datei):
                 ext = el.find(f"{P}spPr/{A}xfrm/{A}ext")
                 flaeche = int(ext.get("cx")) * int(ext.get("cy")) if ext is not None else 0
                 f["bilder"].append((nv.get("name") or "", nv.get("descr"), flaeche))
-        if notiz:
-            nw = ET.fromstring(z.read(notiz))
-            for sp in nw.iter(P + "sp"):
-                ph = sp.find(f"{P}nvSpPr/{P}nvPr/{P}ph")
-                if ph is not None and ph.get("type") == "body":
-                    f["notizen"] = "\n".join(a["text"] for a in absaetze(sp.find(P + "txBody")))
+        f["notizen"] = notiz    # Pfad einer Notizseite; die Mappe trägt keine (Entscheidung 32), die Prüfung „keine Sprechernotizen“ meldet jede
         folien.append(f)
     sldsz = pres.find(P + "sldSz")
     return {"zip": z, "namen": namen, "folien": folien, "abschnitte": abschnitte, "layouts": layouts,
@@ -849,14 +829,16 @@ class Belege:
                 else:
                     self.dateien.insert(0, (float(v), f"pruefung.json gerechnet: {e['formel']}", e.get("art", "sonst"), True))   # vor den Zufallstreffern kleiner Zahlen
                 if "wert" not in e:
-                    self.fehler.append(f"pruefung.json, gerechnet ({wo}): „wert“ fehlt (die Zahl, wie sie auf der Folie oder in den Notizen steht)")
+                    self.fehler.append(f"pruefung.json, gerechnet ({wo}): „wert“ fehlt (die Zahl, wie sie auf der Folie steht)")
                 elif abs(runde(v * (100 if e.get("art") == "anteil" else 1), e.get("nk", 0)) - e["wert"]) > 1e-9:
                     self.fehler.append(f"pruefung.json, gerechnet ({wo}): Die Formel ergibt {v:.6g}, eingetragen ist {e['wert']}")
-            for e in pr.get("notizen", []):
+            if "notizen" in pr:
+                self.fehler.append("pruefung.json: Der Block „notizen“ ist entfallen (die Mappe trägt keine Sprechernotizen); Angaben der Folien stehen unter „angaben“")
+            for e in pr.get("angaben", []):
                 if not e.get("herkunft"):
-                    self.fehler.append(f"pruefung.json, notizen: Eintrag „{e.get('text', e.get('wert'))}“ ohne Herkunft")
-                self._nimm(self.dateien, e.get("wert"), f"pruefung.json notizen: {e.get('herkunft', '')}", e.get("art", "sonst"), alle=True)
-                self._nimm(self.dateien, e.get("text"), f"pruefung.json notizen: {e.get('herkunft', '')}", "sonst", alle=True)
+                    self.fehler.append(f"pruefung.json, angaben: Eintrag „{e.get('text', e.get('wert'))}“ ohne Herkunft")
+                self._nimm(self.dateien, e.get("wert"), f"pruefung.json angaben: {e.get('herkunft', '')}", e.get("art", "sonst"), alle=True)
+                self._nimm(self.dateien, e.get("text"), f"pruefung.json angaben: {e.get('herkunft', '')}", "sonst", alle=True)
                 self._angaben(e.get("text"))
 
     def _angaben(self, w):
@@ -1189,55 +1171,55 @@ def main(argv):
             m.append(f"Folie {nr(i)}: Blattnummer {blatt} statt „{k['nr']}“")
     ber.pruefung("Blattnummern nach Konzept", m, f"{K[1]['nr']} bis {K[HAUPTTEIL - 2]['nr']}, {K[HAUPTTEIL]['nr']} bis {K[-1]['nr']}; Titel und Schluss ohne" if len(K) == FOLIENZAHL else "")
 
-    # Eine Zählung und dieselben Namen: Kicker und Rubrik je Folie, Achse der Agenda, Achskreis und Achsleiste des Trenners
+    # Eine Zählung und dieselben Namen: Kopf und Schriftfeld je Folie, Achse der Agenda, Achskreis und Achsleiste des Trenners.
+    # Kopf (Form „Kicker“): Name des Abschnitts; davor sein Zeichen (Form „Abschnitt im Kopf“). Schriftfeld (Form „Rubrik“): Thema der Folie, der
+    # zweite Teil des Kickers im Konzept („ABSCHNITT · THEMA“). Kopf und Schriftfeld sagen nicht dasselbe. Trenner tragen keinen Kopf; ihre Rubrik
+    # nennt den Abschnitt.
     m = []
     text_von = lambda f, name: [glatt(" ".join(a["text"] for a in fo["absaetze"])) for fo in f["formen"] if fo["name"] == name]
     hauptteil = list(dict.fromkeys(a for _, _, a in AUFBAU if a != "Anhang"))
+    zeichen_von = lambda abschnitt: "A" if abschnitt == "Anhang" else str(hauptteil.index(abschnitt) + 1) if abschnitt in hauptteil else "?"
     for i, (f, k) in enumerate(paare):
         ab = k["abschnitt"].upper()
-        kicker, rubrik = text_von(f, "Kicker"), text_von(f, "Rubrik")
+        kicker, rubrik, zeichen = text_von(f, "Kicker"), text_von(f, "Rubrik"), text_von(f, KOPFZEICHEN)
         if k["layout"] in ("PGN_TITEL", "PGN_SCHLUSS"):
             continue
-        if k["id"] in KICKER_OHNE_ABSCHNITT:
-            if kicker != [KICKER_OHNE_ABSCHNITT[k["id"]]]:
-                m.append(f"Folie {nr(i)}: Kicker {kicker} statt „{KICKER_OHNE_ABSCHNITT[k['id']]}“")
-        elif kicker and not (len(kicker) == 1 and kicker[0].startswith(ab + " · ") and len(kicker[0]) > len(ab) + 3):
-            m.append(f"Folie {nr(i)}: Kicker {kicker} beginnt nicht mit dem Abschnitt „{ab} · “")
-        if rubrik != (kicker or [ab]):
-            m.append(f"Folie {nr(i)}: Rubrik im Schriftfeld {rubrik} statt {kicker or [ab]}")
         if k["layout"].startswith("PGN_ABSCHNITT"):
-            soll = "A" if k["abschnitt"] == "Anhang" else str(hauptteil.index(k["abschnitt"]) + 1) if k["abschnitt"] in hauptteil else "?"
+            if kicker or zeichen:
+                m.append(f"Folie {nr(i)}: Ein Trenner trägt keinen Kopf (Kicker {kicker}, Zeichen {zeichen})")
+            if rubrik != [ab]:
+                m.append(f"Folie {nr(i)}: Rubrik im Schriftfeld {rubrik} statt {[ab]}")
+            soll = zeichen_von(k["abschnitt"])
             if text_von(f, "Abschnittsnummer") != [soll]:
                 m.append(f"Folie {nr(i)}: Achskreis des Trenners {text_von(f, 'Abschnittsnummer')} statt „{soll}“")
             leiste = [t for n in range(1, 10) for t in text_von(f, f"Abschnitt {n}")]
             if k["abschnitt"] != "Anhang" and leiste != [str(n) for n in range(1, len(hauptteil) + 1)]:
                 m.append(f"Folie {nr(i)}: Achsleiste des Trenners {leiste}, der Hauptteil hat {len(hauptteil)} Abschnitte")
+            continue
+        im_konzept = re.search(r"Kicker: „([^“]+)“", k["inhalt"])
+        teile = im_konzept.group(1).split(" · ", 1) if im_konzept else []
+        if len(teile) != 2 or teile[0].upper() != ab or not teile[1].strip():
+            m.append(f"Folie {nr(i)}: Der Kicker im Konzept ({teile}) hat nicht die Form „{ab} · THEMA“")
+            continue
+        thema = glatt(teile[1]).upper()
+        if kicker != [ab]:
+            m.append(f"Folie {nr(i)}: Kopf {kicker} statt des Abschnitts „{ab}“")
+        if zeichen != [zeichen_von(k["abschnitt"])]:
+            m.append(f"Folie {nr(i)}: Zeichen des Abschnitts im Kopf {zeichen} statt „{zeichen_von(k['abschnitt'])}“")
+        if rubrik != [thema]:
+            m.append(f"Folie {nr(i)}: Thema im Schriftfeld {rubrik} statt „{thema}“")
+        if rubrik and rubrik == kicker:
+            m.append(f"Folie {nr(i)}: Kopf und Schriftfeld sagen dasselbe ({rubrik})")
         if k["id"] == "agenda":
             namen = [t for n in range(1, 10) for t in text_von(f, f"Abschnitt {n} Name")]
             kreise = [t for n in range(1, 10) for t in text_von(f, f"Achskreis {n}")]
-            if namen != [a.upper() for a in hauptteil] or kreise != [str(n) for n in range(1, len(hauptteil) + 1)]:
+            if namen != hauptteil or kreise != [str(n) for n in range(1, len(hauptteil) + 1)]:
                 m.append(f"Folie {nr(i)}: Die Agenda nennt {list(zip(kreise, namen))}; die Abschnitte heißen {hauptteil}")
             register = {teil: text_von(f, f"Register {teil} Verweis") for teil in REGISTER}
             if register != {teil: [v] for teil, v in REGISTER.items()}:
                 m.append(f"Folie {nr(i)}: Register der Programmteile {register} statt {REGISTER}")
-    ber.pruefung("Abschnitte einheitlich: Kicker, Rubrik, Agenda und Trenner mit denselben Namen und derselben Zählung", m,
-                 f"{len(hauptteil)} Abschnitte und Anhang; Agenda mit eigenem Kicker")
-
-    m = []
-    for i, (f, k) in enumerate(paare):
-        n = f["notizen"]
-        if not n or not n.strip():
-            m.append(f"Folie {nr(i)}: ohne Notizen")
-            continue
-        zeilen = [z for z in n.split("\n") if z.strip()]
-        if not zeilen[-1].startswith("Quelle"):
-            m.append(f"Folie {nr(i)}: Die letzte Zeile der Notizen ist keine Quellenzeile")
-        if not 3 <= len(zeilen) - 1 <= 5:
-            m.append(f"Folie {nr(i)}: {len(zeilen) - 1} Notizzeilen (verlangt drei bis fünf und die Quellenzeile)")
-        soll = [z for z in (k["notizen"] + "\n" + k["quellen"]).split("\n") if z.strip()]
-        if [glatt(z) for z in zeilen] != [glatt(z) for z in soll]:
-            m.append(f"Folie {nr(i)}: Notizen weichen vom Konzept ab (outline.json, notizen und quellen)")
-    ber.pruefung("Sprechernotizen: drei bis fünf Zeilen und Quellenzeile, Wortlaut des Konzepts", m, f"{len(F)} Folien")
+    ber.pruefung("Abschnitte einheitlich: Kopf mit Abschnitt und Zeichen, Thema im Schriftfeld, Agenda und Trenner mit denselben Namen und derselben Zählung", m,
+                 f"{len(hauptteil)} Abschnitte und Anhang; Kopf und Schriftfeld sagen nie dasselbe")
 
     m = []
     z = M["zip"]
@@ -1344,7 +1326,11 @@ def main(argv):
     m = [f"Folie {nr(i)}, Bild „{name}“ bedeckt {100 * fl / M['flaeche']:.0f} % der Folie" for i, f in enumerate(F) for name, _, fl in f["bilder"] if fl > 0.5 * M["flaeche"]]
     ber.pruefung("Keine Folie als Bild; Diagramme und Tabellen nativ (E1)", m, f"{sum(len(f['diagramme']) for f in F)} Diagramme, {sum(f['tabellen'] for f in F)} Tabellen")
     m = [f"Folie {nr(i)}: Übergang oder Animation" for i, f in enumerate(F) if f["uebergang"]]
-    ber.pruefung("Keine Animationen, keine Übergänge (E13)", m)
+    # Keine Sprechernotizen (Entscheidung 32): keine Notizseite in der Mappe, kein Feld „notizen“ im Konzept
+    m += [f"Folie {nr(i)}: trägt eine Notizseite ({f['notizen']})" for i, f in enumerate(F) if f["notizen"]]
+    m += [f"{name}: Notizseite in der Mappe" for name in sorted(M["namen"]) if name.startswith("ppt/notesSlides/")]
+    m += [f"Konzept, Folie {k['nr']} ({k['id']}): Feld „notizen“" for k in K if "notizen" in k]
+    ber.pruefung("Keine Animationen, keine Übergänge (E13); keine Sprechernotizen", m)
 
     # ---- Wortlaut --------------------------------------------------------------------------------------------------------
     m = []
@@ -1464,7 +1450,6 @@ def main(argv):
             if descr:
                 m += nimm(i, f"Alternativtext „{name}“", glatt(descr))
     ber.pruefung("Zahlen in Folientexten, Tabellen und Alternativtexten belegt", m, f"{stat['Mappe']} aus der Rechenmappe, {stat['Datei']} aus Datendateien, {stat['frei']} nach Freiliste")
-    vor = Counter(stat)
 
     m = []
     roh_n = Counter()
@@ -1513,15 +1498,6 @@ def main(argv):
                     if (w if isinstance(w, str) else "" if w is None else zahl_de(w) if float(w).is_integer() else str(w)) != t and str(w) != t:
                         m.append(f"{wo}: Kategorie „{t}“ heißt in der Arbeitsmappe „{w}“ ({z})")
     ber.pruefung("Diagrammdaten: Zwischenspeicher gleich der eingebetteten Arbeitsmappe", m, f"{sum(len(f['diagramme']) for f in F)} Diagramme, {zellen_n} Werte")
-
-    m = []
-    vor2 = Counter(stat)
-    for i, f in enumerate(F):
-        for zeile in (f["notizen"] or "").split("\n"):
-            if zeile.strip():
-                m += nimm(i, "Notizen", glatt(zeile))
-    d = lambda k: stat[k] - vor2[k]
-    ber.pruefung("Zahlen in den Sprechernotizen belegt", m, f"{d('Mappe')} aus der Rechenmappe, {d('Datei')} aus Datendateien, {d('frei')} nach Freiliste")
 
     m = []
 
@@ -1580,7 +1556,17 @@ def main(argv):
         texte = [glatt(" ".join(a["text"] for a in fo["absaetze"])).upper() for fo in f["formen"]]
         if not any(muster.search(t) for t in texte):
             m.append(f"Folie {nr(i)} ({fid}): Der Satz „{soll}“ steht nicht auf der Folie ({', '.join(k for k, _ in felder.values())})")
-    ber.pruefung("Kernsätze: Werte in ihrem Satz", m, f"{len(KERNSAETZE)} Sätze auf {len({fid for fid, _, _ in KERNSAETZE})} Folien")
+    for fid, muster, grund in NICHT_AUF_FOLIE:
+        if fid not in je_id:
+            m.append(f"Folie „{fid}“ fehlt")
+            continue
+        i, f = je_id[fid]
+        for fo in f["formen"]:
+            t = glatt(" ".join(a["text"] for a in fo["absaetze"]))
+            if muster.search(t):
+                m.append(f"Folie {nr(i)} ({fid}), „{fo['name']}“: „{t[:70]}“ ({grund})")
+    ber.pruefung("Kernsätze: Werte in ihrem Satz; gestrichene Wendungen stehen nicht auf ihrer Folie", m,
+                 f"{len(KERNSAETZE)} Sätze auf {len({fid for fid, _, _ in KERNSAETZE})} Folien, {len(NICHT_AUF_FOLIE)} gestrichene Wendungen")
 
     m = []
     for schluessel, fid, reihe, kategorie in KERNWERTE_DIAGRAMM:
@@ -1643,17 +1629,17 @@ def main(argv):
     # ---- Verweise ------------------------------------------------------------------------------------------------------------
     m = []
     nr_von = {k["id"]: str(k["nr"]) for k in K}
-    for fid, ort, text, felder in VERWEISE:
+    for fid, text, felder in VERWEISE:
         fehlend = [z for z in [fid, *felder.values()] if z not in nr_von]
         if fehlend or fid not in je_id:
             m.append(f"Verweis auf „{text[:50]}…“: Folie {', '.join(fehlend) or fid} fehlt")
             continue
         i, f = je_id[fid]
         soll = glatt(text.format(**{n: nr_von[z] for n, z in felder.items()}))
-        wo = glatt(f["notizen"] or "") if ort == "notizen" else " | ".join(glatt(" ".join(a["text"] for a in fo["absaetze"])) for fo in f["formen"])
+        wo = " | ".join(glatt(" ".join(a["text"] for a in fo["absaetze"])) for fo in f["formen"])
         if soll not in wo:
-            m.append(f"Folie {nr(i)} ({fid}), {'Notizen' if ort == 'notizen' else 'Folientext'}: „{soll}“ steht dort nicht ({', '.join(f'{z} ist Blatt {nr_von[z]}' for z in felder.values())})")
-    ber.pruefung("Verweise nennen die Blattnummer der gemeinten Folie", m, f"{len(VERWEISE)} Verweise auf {len({fid for fid, _, _, _ in VERWEISE})} Folien")
+            m.append(f"Folie {nr(i)} ({fid}), Folientext: „{soll}“ steht dort nicht ({', '.join(f'{z} ist Blatt {nr_von[z]}' for z in felder.values())})")
+    ber.pruefung("Verweise nennen die Blattnummer der gemeinten Folie", m, f"{len(VERWEISE)} Verweise auf {len({fid for fid, _, _ in VERWEISE})} Folien")
 
     ber.drucke()
     frei = {k: v for k, v in stat.items() if k.startswith("frei: ")}

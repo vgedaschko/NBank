@@ -9,12 +9,15 @@ const Fl = require('./_fluss.cjs');
 module.exports = {
   id: 'rechnung-fluss-frei',
   bau(ctx) {
-    const { B, W, fmt } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
-    B.register(s, '2.1');
+    const { B, W, fmt } = ctx, M = k => W('modellhaus', k);
 
     const mieteQm = M('dscr.noetige_miete.Frei'), miete = mieteQm * M('eingabe.wohnflaeche') * 12, ausfall = M('eingabe.mietausfall') * miete;
     const verwaltung = M('jr1.objektverwaltung.Frei'), instand = M('jr1.instandhaltung.Frei'), kd = M('dscr.kapitaldienst_jahr1.Frei');
     const zins = -M('frei.zins_jahr1'), tilgung = -M('frei.tilgung_jahr1'), vorKd = miete - ausfall - verwaltung - instand, rest = vorKd - kd;
+    // Titel: Anteil des Zinses an der nötigen Sollmiete aus der Mappe (Signaturwort, eine Nachkommastelle wie am Ziel); Gegenprobe gegen das Konzept in ctx.titelzeilen
+    const anteilZins = fmt.prozent(zins / miete, 1);
+    const s = ctx.folie(ctx.titelzeilen(['Frei finanziert sind', `${anteilZins} der Miete Zins`], anteilZins));
+    B.register(s, '2.1');
     // Gegenproben: Rechenweg der nötigen Miete, Zerlegung des Kapitaldienstes, Zahlungsüberschuss null
     Fl.probe(ctx, 'nötige Sollmiete = (Kapitaldienst + Objektverwaltung + Instandhaltung) ÷ (1 − Mietausfall)', (kd + verwaltung + instand) / (1 - M('eingabe.mietausfall')), miete);
     Fl.probe(ctx, 'Kapitaldienst = Zins + Tilgung', zins + tilgung, kd);

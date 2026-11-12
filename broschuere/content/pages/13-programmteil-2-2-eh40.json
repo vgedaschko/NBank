@@ -12,7 +12,7 @@
       "type": "chart",
       "chart": "bar",
       "role_hint": "dominant",
-      "title": "Zuschuss nach Kosten, je Wohnung",
+      "title": "Zuschuss nach Kosten je Wohnung",
       "subtitle": "Höchstsätze · B und C nur mit Zulassung (→ S. 6)",
       "data": {
         "kind": "capped-lines",

@@ -21,7 +21,7 @@ module.exports = {
     // langer Balken: Wert weiß im Balkenende. Liegt die Höchstmiete so dicht rechts vom kurzen Balken, dass ihre Maßlinie durch die Zahl
     // liefe, steht die Zahl rechts der Maßlinie.
     const hm = M('fin.miete_jahr1.A'), xNeben = d.xWert(werte[0]) + 0.14, xWertA = d.xWert(hm) > xNeben - 0.06 && d.xWert(hm) < xNeben + 1.5 ? d.xWert(hm) + 0.12 : xNeben;
-    if (!(werte[0] < hm && hm < werte[1])) ctx.P.melde('Die Höchstmiete der Gruppe A liegt nicht zwischen der nötigen Miete gefördert und frei finanziert; Marke und Notizen der Folie 19 anpassen.');
+    if (!(werte[0] < hm && hm < werte[1])) ctx.P.melde('Die Höchstmiete der Gruppe A liegt nicht zwischen der nötigen Miete gefördert und frei finanziert; Marke der Folie 19 anpassen.');
     B.textAufPlot(s, fmt.euroDez(werte[0]), { x: xWertA, y: d.katMitte(0) - 0.20, w: 1.5, h: 0.40, rolle: 'kernwert', valign: 'middle', name: 'Wert am Balken gefördert' });
     B.text(s, fmt.euroDez(werte[1]), { x: d.xWert(werte[1]) - 1.74, y: d.katMitte(1) - 0.20, w: 1.6, h: 0.40, rolle: 'kernwert', farbe: 'FFFFFF', align: 'right', valign: 'middle', einzeilig: true, name: 'Wert am Balken frei finanziert' });
     B.marke(s, { x: d.xWert(hm), y: d.plot.y - 0.32, h: d.plot.h + 0.32, art: 'mass', text: `Höchstmiete Gruppe A: ${fmt.euroDez(hm)}`, textSeite: 'rechts', textBreite: 2.4 });
@@ -40,9 +40,10 @@ module.exports = {
       { text: 'Kapitaldienst p. a.', wert: fmt.euro(kd[0]), vergleich: fmt.euro(kd[1]) },
       { text: '+ Bewirtschaftung', wert: fmt.euro(bew[0]), vergleich: fmt.euro(bew[1]) },
       { text: `÷ m² × 12 × ${fmt.prozent(vermietet)}`, wert: fmt.zahl(teiler), vergleich: fmt.zahl(teiler) },
-      { text: 'Nötige Miete je m²', wert: fmt.euroDez(werte[0]), vergleich: fmt.euroDez(werte[1]), kern: true }];
+      // Ergebniszeile in der Größe der Tabelle: Groß stehen die beiden Werte einmal, an den Balken links
+      { text: 'Nötige Miete je m²', wert: fmt.euroDez(werte[0]), vergleich: fmt.euroDez(werte[1]), ergebnis: true }];
     zeilen.forEach((z, i) => { wl(z.text, `Rechenweg, Zeile ${i + 1}`); wl(z.wert, `Rechenweg, Zeile ${i + 1}`); wl(z.vergleich, `Rechenweg, Zeile ${i + 1}`); });
-    const kopfH = 0.56, frei = d.plot.y + d.plot.h - yTab - kopfH, teil = [0.21, 0.21, 0.21, 0.37];   // Zeilenhöhen als Anteile der freien Höhe
+    const kopfH = 0.56, frei = d.plot.y + d.plot.h - yTab - kopfH, teil = [0.24, 0.24, 0.24, 0.28];   // Zeilenhöhen als Anteile der freien Höhe
     zeilen.forEach((z, i) => { z.h = +(frei * teil[i]).toFixed(3); });
     B.vergleichstabelle(s, { x: colX(7), y: yTab, w: span(6), wertBreite: 1.74, kopf: ['Jahr 1', 'Gefördert\n(A)', 'Frei\nfinanziert'], zeilen, name: 'Tabelle Rechenweg' });
   },

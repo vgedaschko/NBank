@@ -4,32 +4,34 @@
        Dominant: die sieben Stationen als senkrechter Weg – Phase außen (Spalten 1–3, rechtsbündig) · Quadrat-Marke auf der
        Weglinie (wie die Swimlane S. 19) · Titel als Run-in + Text (Spalten 4–12). Darunter das Bildmotiv: HOAI-Skala
        LPH 1–9 als Planleiste mit Maßketten (45°-Strich) und der Bewilligungsmarke zwischen LPH 6 und 7; ab LPH 7
-       Kontur. Unten zwei Module (Spalten 1–7 Anthrazit · 8–12 Papier). Gemeinsame Horizonte mit S. 21: Kicker/H1 ·
-       Oberkante Bewilligungsmarke (188,7 mm; Stationen-Unterkante über padding-bottom 3,43 mm justiert) = Oberkante
-       „Verfahrensdetails“ · Unterkante 273 mm. Rot nur: Kicker, Titellinie, Signaturwort, Bewilligungsmarke,
-       Seitenverweise. Farben nur über Tokens. */
+       Kontur. Unten zwei Module (Spalten 1–7 Anthrazit · 8–12 Papier). Gemeinsame Horizonte mit S. 21: Kopfzeile, H1,
+       Unterkante 273 mm. Farben nur über Tokens.
+       Stufung und Zuteilung nach styles.css §8b: Rubrik in der Kopfzeile, H1 25 pt, Unterzeile 12 pt gemischt, Titel der
+       Stationen und der beiden Module unten 12 pt gemischt (arbeiten als Modultitel), Text 9,5 pt, Phasen und Skala 8,5 pt.
+       Rot nur: Titellinie, Signaturwort, Bewilligungsmarke. */
 
-    /* Kopf: Titel 7 Spalten, kein Vorspann (Korrekturlauf 1: redundant zu Stationen und HOAI-Skala) ------------------ */
-    .page[data-page="20"] .p20-head .deck { margin-top: 3mm; letter-spacing: .02em; }
+    /* Kopf: Titel 7 Spalten (Umbruch nach „Leistungen“), Unterzeile nach den globalen Regeln; kein Vorspann (Korrekturlauf 1: redundant zu Stationen und HOAI-Skala) */
 
     /* Stationen: Phase (rechtsbündig zur Weglinie) · Marke auf der Weglinie · Titel als Run-in + Text (Spalten 4–12) */
-    .page[data-page="20"] .p20-way { margin-top: 10.5mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
-    .page[data-page="20"] .p20-st { position: relative; display: grid; grid-template-columns: 37.6mm 2.2mm var(--station-mk) 2.05mm minmax(0, 1fr); padding: 3.5mm 0 3.43mm; }
-    .page[data-page="20"] .p20-st__phase { grid-column: 1; }
+    .page[data-page="20"] .p20-way { margin-top: 6.4mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
+    .page[data-page="20"] .p20-st { position: relative; display: grid; grid-template-columns: 37.6mm 2.2mm var(--station-mk) 2.05mm minmax(0, 1fr); padding: 3.1mm 0 3.1mm; }
+    .page[data-page="20"] .p20-st__phase { grid-column: 1; align-self: baseline; }
     .page[data-page="20"] .p20-st__mk { grid-column: 3; }
-    .page[data-page="20"] .p20-st__text { grid-column: 5; }
+    .page[data-page="20"] .p20-st__text { grid-column: 5; align-self: baseline; }
     .page[data-page="20"] .p20-st::after { content: ""; position: absolute; left: calc(3 * var(--col) + 3 * var(--gutter)); right: 0; bottom: 0; height: var(--hair); background: var(--rule); }
     .page[data-page="20"] .p20-st:last-child::after { display: none; }
     /* Weglinie durch die Marken (Mitte 42 mm) */
     .page[data-page="20"] .p20-st::before { content: ""; position: absolute; left: calc(37.6mm + 2.2mm + 2.2mm - .175mm); width: .35mm; top: 0; bottom: 0; background: var(--fg-2); }
-    .page[data-page="20"] .p20-st:first-child::before { top: 3.7mm; }
-    .page[data-page="20"] .p20-st:last-child::before { bottom: auto; height: 3.7mm; }
-    .page[data-page="20"] .p20-st__phase { font: 600 var(--fs-small)/var(--lh-module) var(--font-text); color: var(--fg-3); text-align: right; }
-    .page[data-page="20"] .p20-st__mk { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: var(--station-mk); height: var(--station-mk); margin-top: -.05mm; background: var(--fg); color: var(--surface); font: 900 var(--fs-micro)/1 var(--font-display); font-variant-numeric: tabular-nums; }
-    .page[data-page="20"] .p20-st__text { font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="20"] .p20-st:first-child::before { top: 3mm; }
+    .page[data-page="20"] .p20-st:last-child::before { bottom: auto; height: 3mm; }
+    .page[data-page="20"] .p20-st__phase { font: 600 var(--fs-micro)/var(--lh-module) var(--font-text); color: var(--fg-3); text-align: right; }
+    .page[data-page="20"] .p20-st__mk { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; width: var(--station-mk); height: var(--station-mk); margin-top: -.45mm; background: var(--fg); color: var(--surface); font: 900 var(--fs-micro)/1 var(--font-display); font-variant-numeric: tabular-nums; }
+    .page[data-page="20"] .p20-st__text { font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }   /* 134 mm Zeilenlänge: ohne Silbentrennung gesetzt (.u-nohyphens am Absatz) */
+    /* Titel der Station als Run-in in der Form der Modultitel: 12 pt, Montserrat 800, gemischt (global setzt .runin Versalien in Textgröße) */
+    .page[data-page="20"] .p20-st__text .runin { margin-right: 2.4mm; font: 800 var(--fs-h3)/1 var(--font-display); letter-spacing: 0; text-transform: none; }
 
     /* HOAI-Skala (Inline-SVG, 1 Einheit = 1 mm) ------------------------------------------------------------------- */
-    .page[data-page="20"] .p20-hoai { margin-top: 11mm; }   /* Oberkante Bewilligungsmarke = Oberkante Verfahrensdetails S. 21 (188,7 mm); Unterzeile einzeilig (Lektorat 11/2026): 4,9 mm auf die Abstände vor Stationen (10,5 statt 8 mm) und Skala (11 statt 8,6 mm) verteilt */
+    .page[data-page="20"] .p20-hoai { margin-top: 7.5mm; }
     .page[data-page="20"] .p20-hoai .chart__svg { margin-top: 0; }
     .page[data-page="20"] .p20-field { fill: var(--surface-2); }
     .page[data-page="20"] .p20-field--after { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }
@@ -39,7 +41,7 @@
     .page[data-page="20"] .p20-ext { fill: none; stroke: var(--fg-2); stroke-width: .12; }
     .page[data-page="20"] .p20-tick { fill: none; stroke: var(--fg-2); stroke-width: .45; }
     .page[data-page="20"] .p20-gate { fill: var(--signal-fill); }
-    .page[data-page="20"] .chart__svg .p20-gate-t { font-family: var(--font-display); font-size: var(--svg-fs-m); font-weight: 800; letter-spacing: .3px; text-transform: uppercase; fill: var(--on-signal); text-anchor: middle; }
+    .page[data-page="20"] .chart__svg .p20-gate-t { font-family: var(--font-display); font-size: var(--svg-fs-s); font-weight: 800; letter-spacing: .3px; text-transform: uppercase; fill: var(--on-signal); text-anchor: middle; }
     .page[data-page="20"] .chart__svg .p20-dim-t { font-size: var(--svg-fs-s); font-weight: 600; fill: var(--fg); text-anchor: middle; }
     .page[data-page="20"] .p20-legend { margin-top: 1.8mm; font: 500 var(--fs-micro)/1.42 var(--font-text); color: var(--fg-3); }
     .page[data-page="20"] .p20-legend span { white-space: nowrap; }
@@ -47,11 +49,12 @@
 
     /* Module unten: Schlüsselfertig (Anthrazit, Spalten 1–7) · Für Kommunen (Papier, Spalten 8–12) --------------- */
     .page[data-page="20"] .p20-mods { align-items: stretch; }
+    .page[data-page="20"] .p20-mods .offer-box__title { font: 800 var(--fs-h3)/1.2 var(--font-display); letter-spacing: 0; text-transform: none; }
   </style>
 
+  <header class="page__header"><span class="page__section">Mit PGN</span></header>
   <header class="title-block title-block--split p20-head">
     <div class="title-block__main">
-      <p class="kicker">Mit PGN</p>
       <h1 class="h1">Unsere Leistungen im <em>Förder&shy;projekt</em></h1>
       <p class="deck">Ein Ansprechpartner für alles</p>
     </div>
@@ -62,37 +65,37 @@
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Vor dem Vorgespräch</p>
       <span class="p20-st__mk" aria-hidden="true">1</span>
-      <p class="p20-st__text"><b class="runin">Förderung und Machbarkeit</b> Wir klären Programmteil, Standort und Mieterkreis und ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung <span class="u-nowrap">(<a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;11</a>).</span></p>
+      <p class="p20-st__text u-nohyphens"><b class="runin">Förderung und Machbarkeit</b> Wir klären Programmteil, Standort und Mieterkreis und ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung <span class="u-nowrap">(<a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;11</a>).</span></p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphasen 1–4</p>
       <span class="p20-st__mk" aria-hidden="true">2</span>
-      <p class="p20-st__text"><b class="runin">Förderkonforme Planung</b> Wir planen Grundrisse, Wohnungsgrößen und Baustandard nach den Anforderungen des jeweiligen Programmteils.</p>
+      <p class="p20-st__text u-nohyphens"><b class="runin">Förderkonforme Planung</b> Wir legen Grundrisse, Wohnungsgrößen und Baustandard auf die Anforderungen des jeweiligen Programmteils aus.</p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphasen 2–8</p>
       <span class="p20-st__mk" aria-hidden="true">3</span>
-      <p class="p20-st__text"><b class="runin">Kostenplanung</b> Wir planen und steuern die Kosten von der Kostenschätzung bis zur Kostenfeststellung, gemessen an den Bemessungsgrenzen <span class="u-nowrap">(<a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a>).</span></p>
+      <p class="p20-st__text u-nohyphens"><b class="runin">Kostenplanung</b> Wir steuern die Kosten von der Kostenschätzung bis zur Kostenfeststellung, gemessen an den Bemessungsgrenzen <span class="u-nowrap">(<a class="pageref" href="#seite-08">→&nbsp;S.&nbsp;8</a>).</span></p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Vorgespräch und Antrag</p>
       <span class="p20-st__mk" aria-hidden="true">4</span>
-      <p class="p20-st__text"><b class="runin">Antragsunterlagen</b> Wir erstellen die baufachlichen Antragsunterlagen: Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung.</p>
+      <p class="p20-st__text u-nohyphens"><b class="runin">Antragsunterlagen</b> Wir erstellen den baufachlichen Teil: Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung.</p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphasen 5–7</p>
       <span class="p20-st__mk" aria-hidden="true">5</span>
-      <p class="p20-st__text"><b class="runin">Ausführungsplanung und Vergabe</b> Wir schreiben die Bauleistungen richtlinienkonform aus und vergeben sie nach der Bewilligung.</p>
+      <p class="p20-st__text u-nohyphens"><b class="runin">Ausführungsplanung und Vergabe</b> Wir schreiben die Bauleistungen richtlinienkonform aus und vergeben sie nach der Bewilligung.</p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphase 8</p>
       <span class="p20-st__mk" aria-hidden="true">6</span>
-      <p class="p20-st__text"><b class="runin">Bauleitung</b> Wir überwachen Ausführung und Termine und dokumentieren den Baufortschritt für die Auszahlung der Teilraten <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span></p>
+      <p class="p20-st__text u-nohyphens"><b class="runin">Bauleitung</b> Wir überwachen Ausführung und Termine und dokumentieren den Baufortschritt für die Auszahlung der Teilraten <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span></p>
     </li>
     <li class="p20-st">
       <p class="p20-st__phase u-nohyphens">Leistungsphasen 8–9</p>
       <span class="p20-st__mk" aria-hidden="true">7</span>
-      <p class="p20-st__text"><b class="runin">Fertigstellung und Nachweis</b> Wir bereiten die Fertigstellungsanzeige mit Bescheinigung der Bauleitung vor und liefern Bau- und Kostendaten für Ihren Verwendungsnachweis <span class="u-nowrap">(<a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;19</a>).</span></p>
+      <p class="p20-st__text u-nohyphens"><b class="runin">Fertigstellung und Nachweis</b> Wir bereiten die Fertigstellungsanzeige mit Bescheinigung der Bauleitung vor und liefern Bau- und Kostendaten für Ihren Verwendungsnachweis <span class="u-nowrap">(<a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;19</a>).</span></p>
     </li>
   </ol>
 

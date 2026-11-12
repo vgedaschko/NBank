@@ -27,18 +27,20 @@ module.exports = {
     // Bemessungsgrenze und den des Modellhauses
     const ueberschuss = L('jr1.zahlungsueberschuss.A'), inB = L('jr1.zahlungsueberschuss.B'), inC = L('jr1.zahlungsueberschuss.C');
     R.pruefe(ueberschuss.every(v => v > 0) && inB[0] > 0 && inC[0] > 0 && [1, 2].every(i => inB[i] < 0 && inC[i] < 0),
-      'Die Aussage „mit höheren Kosten trägt sich nur noch A“ trifft nicht mehr zu; Titel, Tabelle und Notizen der Folie 23 anpassen.');
+      'Die Aussage „mit höheren Kosten trägt sich nur noch A“ trifft nicht mehr zu; Titel und Tabelle der Folie 23 anpassen.');
     R.pruefe(ctx.glatt(ctx.o.titel) === ctx.glatt(`Bei ${kopf[2]} je m² trägt sich nur noch A: ${fmt.euro(ueberschuss[2])} Zahlungsüberschuss statt ${fmt.euro(ueberschuss[0])}`),
       'Der Titel der Folie 23 nennt nicht den Zahlungsüberschuss der Gruppe A an der Bemessungsgrenze und im Modellhaus.');
     B.diagrammkopf(s, { titel: 'Zahlungsüberschuss Jahr 1, Gruppe A', sub: 'in € p. a. · nach Herstellungskosten je m² Wohnfläche' });
 
     // Säulen genau über den drei Wertspalten der Tabelle; die Köpfe der Tabelle sind die Kategorien des Diagramms. Die Tabelle hat fünf Zeilen
-    // und endet an der Unterkante der Inhaltszone; das Diagramm ist entsprechend niedriger.
-    const wb = 1.48, tx = colX(1), tw = span(8), plotX = tx + tw - laeufe.length * wb, xM = plotX + iModell * wb, yD = 2.72, yT = 4.48, hD = yT - yD;
+    // und endet an der Unterkante der Inhaltszone; das Diagramm ist entsprechend niedriger. Diagramm und Tabelle stehen in den sieben Spalten
+    // links (Muster 2): Wertspalten je 1,27 Zoll, die Position behält ihre Zeile („Nötige Miete je m², Gruppe A“ mit gut 5 % Luft)
+    const wb = 1.27, tx = colX(1), tw = span(7), plotX = tx + tw - laeufe.length * wb, xM = plotX + iModell * wb, yD = 2.72, yT = 4.48, hD = yT - yD;
     const ACHSE = { min: 0, max: 20000, schritt: 5000, format: 'ganz' };
     R.pruefe(Math.max(...ueberschuss) < ACHSE.max, 'Ein Wert der Folie 23 liegt über der Größenachse; Achse im Modul anpassen.');
     B.kasten(s, { x: xM, y: yD, w: wb, h: yT - yD, farbe: farben.hervor, name: 'Spalte Modellhaus' });
-    B.text(s, 'Modellhaus', { x: xM, y: yD + 0.05, w: wb - 0.08, h: 0.22, rolle: 'tabellenkopf', align: 'right', valign: 'middle', einzeilig: true, name: 'Spaltentitel Modellhaus' });
+    // Bezeichnung der Spalte gemischt gesetzt (Work Sans SemiBold 12 pt wie die Bezeichnungen an Diagrammen): In Versalien ist das Wort breiter als die Spalte
+    B.text(s, 'Modellhaus', { x: xM, y: yD + 0.05, w: wb - 0.08, h: 0.22, rolle: 'bezeichnung', align: 'right', valign: 'middle', einzeilig: true, name: 'Spaltentitel Modellhaus' });
     const d = D.saeulen(s, { x: tx, y: yD, w: tw, h: hD, kategorien: kopf.map((k, i) => (i === iModell ? `${k} (Modellhaus)` : k)), werte: ueberschuss, art: 'tinte', reihenname: 'Zahlungsüberschuss Jahr 1', labels: false,
       achse: ACHSE, rand: { l: plotX - tx, r: 0, o: 0.36, u: 0.24 }, katAchse: false, luecke: 150, name: 'Diagramm Zahlungsüberschuss nach Herstellungskosten' });
     // Der Titel der Größenachse steht direkt links der Achsbeschriftung: Die Plotfläche beginnt erst über den Wertspalten der Tabelle
@@ -60,7 +62,8 @@ module.exports = {
     const je100 = (ueberschuss[0] - ueberschuss[2]) / (kosten[2] - kosten[0]) * 100;
     ctx.gleich('Rückgang des Zahlungsüberschusses je 100 € Herstellungskosten, am mittleren Lauf', (ueberschuss[0] - ueberschuss[1]) / (kosten[1] - kosten[0]) * 100, je100, 2);
     B.planlegende(s, { platzhalter: 'kommentar', pt: 14, titelAbstand: 4, eintraege: [
-      { titel: 'Szenarien', text: ctx.wortlaut(`Nur die Herstellungskosten sind geändert. Je 100 € je m² mehr sinkt der Zahlungsüberschuss in A um ${fmt.euro(je100)}.`, 'Szenarien') },
+      // „Je 100 €“ und „in A“ bleiben zusammen (geschützte Leerzeichen): Sonst stünde „Je“ allein am Zeilenende und „A“ allein am Zeilenanfang
+      { titel: 'Szenarien', text: ctx.wortlaut(`Nur die Herstellungskosten sind geändert. Je\u00A0100 € je m² mehr sinkt der Zahlungsüberschuss in\u00A0A um ${fmt.euro(je100)}.`, 'Szenarien') },
       { titel: `${kopf[0]} je m²`, text: ctx.wortlaut(X('rechnung', 'kosten_pgn.beschreibung'), 'PGN-Median') },
       { titel: `${kopf[1]} je m²`, text: ctx.wortlaut(X('rechnung', 'kosten_arge.beschreibung'), 'ARGE-Median') },
       { titel: `${kopf[2]} je m²`, text: ctx.wortlaut(`Ausgangswert der Bemessungsgrenze in Mietenstufe ${R.mietenstufeKlasse(W('modellhaus', 'eingabe.mietenstufe'))}. Bis hierher bleibt die Förderquote bei ${R.prozentKurz(fmt, quote[0])}.`, 'Bemessungsgrenze') }] });

@@ -26,6 +26,13 @@ const BEHALTEN = ['anlass'];   // leere Platzhalter, die als Eingabefeld stehen 
 // Anhangfolie zur Eigenkapitalrendite; jede andere Folie bricht den Bau ab.
 const LAUF_NUR_FUER = { modellhaus_rendite: ['anhang-rendite'] };
 const TITEL_LUFT = 5;          // Zuschlag in pt auf den Schriftgrad für eine Titelzeile, über deren Umlaut ein Zeichen mit Unterlänge steht
+// Zeichen des Abschnitts im Kopf der Inhalts- und Anhangfolien: die Zählung der Agenda und der Trenner (1 bis 4), der Anhang trägt „A“
+const KOPFZEICHEN = 'Abschnitt im Kopf';
+function abschnittszeichen(abschnitt, folien) {
+  if (abschnitt === 'Anhang') return 'A';
+  const haupt = [...new Set(folien.map(f => f.abschnitt).filter(a => a !== 'Anhang'))], i = haupt.indexOf(abschnitt);
+  return i >= 0 ? String(i + 1) : '·';
+}
 
 function argumente(argv) {
   const a = { nur: null, aus: null, probe: false, gruppe: null, trotzdem: false };
@@ -74,7 +81,7 @@ async function main() {
     liste = fs.readdirSync(dir).filter(f => f.endsWith('.cjs')).sort().map(f => {
       const modul = require(path.join(dir, f));
       if (!modul.o || !modul.bau) throw new Error(`probe/${f}: Musterfolien exportieren { id, o, bau }.`);
-      return { o: { abschnitt: 'Musterfolien', notizen: '– Musterfolie des Planwerks.', quellen: 'Quelle: keine; Musterfolie.', inhalt: '', ...modul.o, id: modul.id }, modul };
+      return { o: { abschnitt: 'Musterfolien', quellen: 'Quelle: keine; Musterfolie.', inhalt: '', ...modul.o, id: modul.id }, modul };
     });
     if (arg.nur) liste = liste.filter(e => arg.nur.includes(e.o.id));
   } else {
@@ -120,7 +127,7 @@ async function main() {
     P.setzeFolie(o.id);
     if (!abschnitte.has(o.abschnitt)) { pres.addSection({ title: o.abschnitt }); abschnitte.add(o.abschnitt); }
     else if (nr > 0 && liste[nr - 1].o.abschnitt !== o.abschnitt) throw new Error(`Folie „${o.id}“: Der Abschnitt „${o.abschnitt}“ kommt zum zweiten Mal. Abschnitte müssen in der Folienfolge zusammenhängen.`);
-    let slide = null, formen = [];
+    let slide = null, formen = [], thema = null;   // thema: zweiter Teil des Kickers, steht als Rubrik im Schriftfeld
     const ausnahmen = new Map();   // Objektname → Grund (ctx.zoneAusnahme)
     const zuletzt = [];            // Rubrik und Blattnummer des Schriftfelds: nach dem Inhalt angelegt, damit sie in der Lesereihenfolge am Ende stehen
     // tabelle: Jede Tabelle meldet, ob sie eine Kopfzeile oder eine Kopfspalte hat (in der Reihenfolge, in der die Folie sie anlegt)
@@ -155,6 +162,7 @@ async function main() {
       // Unterlänge über Umlaut: Die untere Zeile bekommt etwas mehr Zeilenabstand (sonst berührt etwa ein Komma die Punkte eines Ö)
       const abstand = {};
       for (const k of titelKollisionen(pruefzeilen)) {
+        if (!opt.titelAbstand && t.zeile >= t.pt + TITEL_LUFT) continue;   // der Zeilenabstand des Layouts reicht schon (Inhaltsfolien seit Muster 2)
         abstand[k.zeile] = opt.titelAbstand || t.pt + TITEL_LUFT;
         P.hinweis(`Titel: „${k.oben}“ in Zeile ${k.zeile} steht über „${k.unten}“ in Zeile ${k.zeile + 1}. Zeile ${k.zeile + 1} bekommt ${abstand[k.zeile]} pt Zeilenabstand, damit sich die Zeichen nicht berühren (anderer Wert: ctx.folie({ titelAbstand })).`);
       }
@@ -163,19 +171,17 @@ async function main() {
       const kicker = opt.kicker !== undefined ? opt.kicker : zitat(inh, /Kicker: „([^“]+)“/);
       if (hat('kicker')) {
         if (!kicker) throw new Error(`Folie „${o.id}“: Kicker fehlt (ctx.folie({ kicker }) oder im Konzept „Kicker: „…““).`);
-        const [kAbschnitt, kThema] = String(kicker).split(' · ');
-        const k = T.versal(lay.art === 'anhang' ? kicker : kAbschnitt);
-        if (lay.art !== 'anhang' || true) {
-          const NR = { 'Ausgangslage': '1', 'Programmteil 2.1': '2', 'Modellrechnung': '3', 'Umsetzung': '4', 'Anhang': 'A' };
-          ausnahmen.set('Abschnitt im Kopf', 'Zeichen des Abschnitts in der Kopfzeile');
-          B.achskreis(slide, { cx: T.X0 + 0.15, cy: T.Y.kicker + 0.15, groesse: 'S', text: NR[o.abschnitt] || '·', name: 'Abschnitt im Kopf' });
-        }
-        opt.__thema = kThema;
-        P.zeile('Kicker', k, { fontFace: T.F.mont, bold: true, fontSize: 12, weite: 1.9 }, +(T.Y.kickerW / 1.1).toFixed(2));   // 10 % Reserve im Kickerfeld
+        // Muster 2: Der Kopf nennt den Abschnitt (erster Teil des Kickers), das Thema (zweiter Teil) steht im Schriftfeld. Davor steht das
+        // Zeichen des Abschnitts im Achskreis, wie auf Agenda und Trennern (Zählung: T.abschnittszeichen)
+        const [kAbschnitt, ...kRest] = String(kicker).split(' · ');
+        const k = T.versal(kAbschnitt);
+        thema = kRest.join(' · ') || null;
+        B.achskreis(slide, { cx: T.X0 + 0.15, cy: T.Y.kicker + 0.15, groesse: 'S', text: abschnittszeichen(o.abschnitt, arg.probe ? [] : outline.folien), name: KOPFZEICHEN });
+        P.zeile('Kicker', k, { fontFace: T.F.mont, bold: true, fontSize: 12, weite: 1.0 }, +(T.Y.kickerW / 1.1).toFixed(2));   // 10 % Reserve im Kickerfeld
         slide.addText(k, { placeholder: 'kicker' });
       }
       if (hat('rubrik')) {
-        const r = T.versal(opt.rubrik !== undefined ? opt.rubrik : zitat(inh, /Rubrik[^:„“]*: „([^“]+)“/) || opt.__thema || kicker || o.abschnitt);
+        const r = T.versal(opt.rubrik !== undefined ? opt.rubrik : zitat(inh, /Rubrik[^:„“]*: „([^“]+)“/) || thema || kicker || o.abschnitt);
         P.zeile('Rubrik im Schriftfeld', r, { fontFace: T.F.mont, bold: true, fontSize: 10, weite: 0.6 }, lay.art === 'abschnitt' ? 7.0 : 8.0);
         kx.rubrik = r;   // B.quelle rechnet die Breite der Rubrik: Die Quellenzeile steht im selben Schriftfeld rechts davon
         zuletzt.push(() => slide.addText(r, { placeholder: 'rubrik' }));
@@ -195,11 +201,8 @@ async function main() {
         if (u) { P.block('Untertitel', u, { fontFace: T.F.text, fontSize: 18, zeileMal: 1.1 }, lay.art === 'titel' ? 6.3 : 5.4, lay.art === 'titel' ? 1.15 : 1.2, { luft: true }); slide.addText(schutz(u), { placeholder: 'untertitel' }); }
       }
       if (hat('anlass') && opt.anlass) slide.addText(opt.anlass, { placeholder: 'anlass' });
-      // Notizen: Notizzeilen, Leerzeile, Quellenzeile
-      const notiz = [o.notizen, o.quellen].filter(Boolean).join('\n\n');
-      if (!o.notizen) P.hinweis('Sprechernotizen fehlen.');
-      if (!o.quellen) P.hinweis('Quellenzeile fehlt.');
-      slide.addNotes(notiz);
+      // Die Mappe trägt keine Sprechernotizen (Entscheidung 32). Die Quellenangabe je Folie bleibt im Konzept (Feld „quellen“) und speist die Quellenfolie
+      if (!o.quellen) P.hinweis('Quellenangabe im Konzept fehlt (Feld „quellen“).');
       return slide;
     }
 
@@ -217,6 +220,16 @@ async function main() {
       wortlaut(text, was) {
         if (!gross(inh).includes(gross(text))) P.melde(`Wortlautprobe${was ? ' ' + was : ''}: „${daten.glatt(text)}“ steht so nicht im Feld „inhalt“ des Konzepts (outline.json, Folie ${o.id}).`);
         return text;
+      },
+      // Titelzeilen mit Werten aus der Rechenmappe: Das Modul baut die Zeilen aus W und fmt, hier die Gegenprobe gegen das Konzept (Feld „titel“ und
+      // „Titelzeilen“ im Feld „inhalt“). Rückgabe: Optionen für ctx.folie(). So steht keine Zahl eines Titels fest im Modul, und ein Titel, der der
+      // Mappe nicht mehr folgt, bricht den Bau ab. zeilen: ['Zeile 1', 'Zeile 2'], akzent: Signaturwort
+      titelzeilen(zeilen, akzent) {
+        const gelesen = leseTitel(inh) || { zeilen: [] }, g = t => daten.glatt(String(t));
+        if (g(zeilen.join(' ')) !== g(o.titel)) P.melde(`Titel aus der Rechenmappe: „${g(zeilen.join(' '))}“; im Konzept steht „${g(o.titel)}“ (outline.json, Folie ${o.id}, Feld „titel“).`);
+        if (gelesen.zeilen.map(g).join(' | ') !== zeilen.map(g).join(' | ') || g(gelesen.akzent || '') !== g(akzent || ''))
+          P.melde(`Titelzeilen aus der Rechenmappe: „${zeilen.map(g).join('“ | „')}“ (Signaturwort „${g(akzent || '')}“); im Konzept stehen „${gelesen.zeilen.map(g).join('“ | „')}“ (Signaturwort „${g(gelesen.akzent || '')}“; outline.json, Folie ${o.id}, Feld „inhalt“).`);
+        return { titel: zeilen, akzent };
       },
       // Gegenprobe zweier Zahlen auf nk Nachkommastellen (kaufmännisch gerundet wie die Formatierer). Eine Abweichung bricht den Bau ab
       gleich(was, a, b, nk = 2) { if (daten.fmt.zahl(a, nk) !== daten.fmt.zahl(b, nk)) P.melde(`Gegenprobe ${was}: ${daten.fmt.zahl(a, nk)} gegen ${daten.fmt.zahl(b, nk)}.`); },
@@ -258,7 +271,7 @@ async function main() {
     folientitel: liste.map(e => e.o.titel), schriften: Object.values(T.F), layouts: layoutBeschreibung(pres), tabellen, altTexte, datum: `${st[3]}-${st[2]}-${st[1]}T00:00:00Z` });
   console.log(`${path.relative(ROOT, ziel)} · ${liste.length} Folien · Abschnitte: ${[...abschnitte].join(', ')}`);
   console.log(`Nachbearbeitung: Theme „${T.THEME.name}“, Schraffur ${stat.formen} Formen und ${stat.reihen} Reihen, ${stat.striche} Stricharten, ${stat.flaechen} Flächen unter Linien, ${stat.punktKonturen} Konturen je Datenpunkt, ${stat.ohneHoehe} Segmente ohne Höhe ohne Linie, ${stat.labels} Beschriftungsfarben, ${stat.ausgeblendet} Beschriftungen ausgeblendet, ${stat.marker} Marker, ${stat.platzhalter} leere Platzhalter entfernt, ${stat.arbeitsmappen} Arbeitsmappen, ${stat.absaetze} Absätze bereinigt`);
-  console.log(`Datei: ${stat.layoutPlatzhalter} Platzhalter der Layouts mit Innenabstand und Anker, ${stat.idx} Platzhalternummern gesetzt, ${stat.diagrammSchema} Stellen der Diagramme nach Schema, ${stat.nullen} Nullwerte in Arbeitsmappen, ${stat.dekorativ} Formen dekorativ, ${stat.altTexte} Formen mit Alternativtext, ${stat.tabellen} Tabellen gekennzeichnet, ${stat.notizAbsaetze} Notizabsätze, ${stat.inhaltstypen} tote Inhaltstypen entfernt`);
+  console.log(`Datei: ${stat.layoutPlatzhalter} Platzhalter der Layouts mit Innenabstand und Anker, ${stat.idx} Platzhalternummern gesetzt, ${stat.diagrammSchema} Stellen der Diagramme nach Schema, ${stat.nullen} Nullwerte in Arbeitsmappen, ${stat.dekorativ} Formen dekorativ, ${stat.altTexte} Formen mit Alternativtext, ${stat.tabellen} Tabellen gekennzeichnet, ${stat.notizteile} Teile leerer Notizseiten entfernt, ${stat.inhaltstypen} tote Inhaltstypen entfernt`);
   if (!stat.masterAbstand) { console.error('Nachbearbeitung: Der Absatzabstand im Master wurde nicht gefunden (bodyStyle). Text in Platzhaltern stünde mit 20 % Abstand vor jedem Absatz.'); process.exit(1); }
   for (const a of stat.absatzAbweichend) console.log(`Hinweis · ${a} – Die Läufe dieses Absatzes tragen verschiedene Absatzeigenschaften; es gilt die des ersten Laufs.`);
   if (warnungen.length) { console.error('Warnungen von pptxgenjs (gelten als Fehler; meist eine ungültige Farbe oder Option):\n' + [...new Set(warnungen)].map(w => '  ' + w).join('\n')); process.exit(1); }

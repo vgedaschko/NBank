@@ -1,31 +1,43 @@
-<section class="page" data-page="18" id="seite-18">
+<section class="page page--dicht" data-page="18" id="seite-18">
   <style>
     /* Seite 18 · Standort und Kommune · Planwerk. Linke Seite der Doppelseite 18|19 „Umsetzung“.
        Dominant: Vorrang-Leiter (7 Spalten) als Treppe im Schnitt; daneben der Ring mit QR-Code (5 Spalten).
-       Unten „Instrumente der Kommune“ in drei Karten (Spalten 1–4 · 5–8 · 9–12 = Ampel auf S. 19) und die Zeile
-       „Freistellung von der Belegungsbindung“. Gemeinsame Horizonte mit S. 19: Kicker/H1, Oberkante Instrumente =
-       Oberkante Ampel, Unterkante. Farben nur über Tokens. Korrekturlauf 1: H1/Deck/Lead sachlich (kein Dreiklang-Teaser,
-       keine Handlungsanweisung), Run-in als Aussage statt Frage. */
+       Unten „Instrumente der Kommune“ in drei Karten und die Zeile „Freistellung von der Belegungsbindung“.
+       Gemeinsame Horizonte mit S. 19: Kopfzeile, H1, Oberkante Instrumente = Oberkante Ampel (199,1 mm), Unterkante.
+       Farben nur über Tokens. Korrekturlauf 1: H1/Deck/Lead sachlich (kein Dreiklang-Teaser, keine Handlungsanweisung),
+       Run-in als Aussage statt Frage.
+       Stufung und Zuteilung nach styles.css §8b: Kopfzeile mit Rubrik statt Kicker, H1 25 pt, Unterzeile und Vorspann
+       12 pt (Vorspann = erster Satz, der Rest als Text darunter), Modultitel 12 pt gemischt, Kartentitel und Rangnamen in
+       Textgröße (Montserrat 700, gemischt), Rangziffern 12 pt.
+       Dichte Seite (.page--dicht, 9 pt): In 9,5 pt läuft die Seite 24 mm über; mit engeren Abständen allein geht sie
+       nicht auf. --fs-module wird in :root aufgelöst und folgt .page--dicht nicht von selbst, deshalb hier neu gebunden.
+       Modultext mit Zeilenabstand 1,34, einheitlich auf der ganzen Seite. */
+
+    .page[data-page="18"] { --fs-module: var(--fs-small); --lh-module: 1.34; }
 
     /* Kopf ------------------------------------------------------------------- */
     .page[data-page="18"] .p18-head .deck { margin-top: 3mm; }
     .page[data-page="18"] .p18-head .lead { margin-top: 3.4mm; }
+    .page[data-page="18"] .p18-head .body { margin-top: 2.2mm; color: var(--fg-2); }
+    .page[data-page="18"] .p18-head .body b { font-weight: 600; color: var(--fg); }   /* Programmnummern wie im Vorspann: Schwarz */
 
-    .page[data-page="18"] .p18-main { margin-top: var(--sp-8); }
+    /* Beide Spalten des Bandes schließen unten gemeinsam: der Kasten unter der Leiter steht an der Unterkante */
+    .page[data-page="18"] .p18-main { margin-top: 6.94mm; align-items: stretch; }   /* Oberkante „Instrumente“ = Oberkante Ampel auf S. 19 */
+    .page[data-page="18"] .p18-ladder { display: flex; flex-direction: column; }
 
     /* Vorrang-Leiter: Stufen 28 → 8 mm (Rang 1 oben, am breitesten), Grautonleiter seq-6 → seq-1 --------------------- */
-    .page[data-page="18"] .p18-ranks { margin-top: 3.4mm; }
+    .page[data-page="18"] .p18-ranks { margin-top: 3.4mm; margin-bottom: 3.4mm; }
     .page[data-page="18"] .p18-rank { display: grid; grid-template-columns: 28mm 5mm minmax(0, 1fr); column-gap: 3mm; align-items: center; min-height: 10.2mm; }
-    .page[data-page="18"] .p18-step { align-self: start; height: 10.2mm; width: var(--w); display: flex; align-items: center; justify-content: flex-end; padding-right: 1.6mm; border-bottom: .4mm solid var(--surface); font: 900 13pt/1 var(--font-display); letter-spacing: -.02em; font-variant-numeric: lining-nums tabular-nums; }
+    .page[data-page="18"] .p18-step { align-self: start; height: 10.2mm; width: var(--w); display: flex; align-items: center; justify-content: flex-end; padding-right: 1.6mm; border-bottom: .4mm solid var(--surface); font: 900 var(--fs-h3)/1 var(--font-display); letter-spacing: -.02em; font-variant-numeric: lining-nums tabular-nums; }
     .page[data-page="18"] .p18-rank:last-child .p18-step { border-bottom: 0; box-shadow: inset 0 0 0 var(--hair) var(--seq-3); }
     .page[data-page="18"] .p18-rank .icon { align-self: start; width: 5mm; height: 5mm; margin-top: 2.6mm; color: var(--fg); }
     /* Rang 6: zweizeiliges Detail – Stufe bleibt 10,2 mm hoch (gleiche Steigung), Text läuft darunter weiter */
     .page[data-page="18"] .p18-rank:last-child .p18-rank__txt { justify-content: flex-start; padding-top: .9mm; }
     .page[data-page="18"] .p18-rank__txt { align-self: stretch; display: flex; flex-direction: column; justify-content: center; padding: .6mm 0 .7mm; border-bottom: var(--hair) solid var(--rule); }
     .page[data-page="18"] .p18-rank:last-child .p18-rank__txt { border-bottom: 0; }
-    .page[data-page="18"] .p18-rank__label { font: 700 9.5pt/1.25 var(--font-display); color: var(--fg); }
+    .page[data-page="18"] .p18-rank__label { font: 700 var(--fs-body)/1.25 var(--font-display); color: var(--fg); }
     .page[data-page="18"] .p18-rank__detail { margin-top: .3mm; font-size: var(--fs-module); line-height: 1.3; color: var(--fg-2); }
-    .page[data-page="18"] .p18-ladder__foot { margin-top: 3.4mm; padding: 2.1mm 3.4mm 2.3mm; background: var(--surface-2); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="18"] .p18-ladder__foot { margin-top: auto; padding: 2.1mm 3.4mm 2.3mm; background: var(--surface-2); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
     .page[data-page="18"] .p18-ladder__foot b { color: var(--fg); }
 
     /* Ring + QR: QR als eigener Link über der Ringmitte (nicht im role="img"-SVG). Lage in viewBox-Einheiten des
@@ -41,27 +53,31 @@
     .page[data-page="18"] .p18-ring__note { margin-top: 3mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
     .page[data-page="18"] .p18-ring__note b { color: var(--fg); }
 
-    /* Instrumente der Kommune: drei Karten, Haarlinie in der Stegmitte statt Rahmen ------------------------------------------- */
-    .page[data-page="18"] .p18-tools { margin-top: var(--sp-8); }
-    .page[data-page="18"] .p18-cards { display: grid; grid-template-columns: calc(4 * var(--col) + 3 * var(--gutter)) calc(5 * var(--col) + 4 * var(--gutter)) minmax(0, 1fr); column-gap: var(--gutter); margin-top: 3.4mm; }
+    /* Instrumente der Kommune: drei Karten, Haarlinie in der Stegmitte statt Rahmen. Kartenbreiten nach Textmenge
+       (54,5 | 77,5 | 38 mm statt 4 | 5 | 3 Spalten): so läuft die mittlere Karte in sechs statt sieben Zeilen. */
+    .page[data-page="18"] .p18-tools { margin-top: 6.4mm; }
+    .page[data-page="18"] .p18-cards { display: grid; grid-template-columns: 54.5mm 77.5mm minmax(0, 1fr); column-gap: var(--gutter); margin-top: 3mm; }
     .page[data-page="18"] .p18-card { position: relative; }
     .page[data-page="18"] .p18-card + .p18-card::before { content: ""; position: absolute; left: calc(var(--gutter) / -2); top: 0; bottom: 0; width: var(--hair); background: var(--rule); }
     .page[data-page="18"] .p18-card__head { display: flex; align-items: center; gap: 2.4mm; min-height: 8mm; }
     .page[data-page="18"] .p18-card__head .icon { width: 6.4mm; height: 6.4mm; color: var(--fg); }
-    .page[data-page="18"] .p18-card__title { font: 800 9.75pt/1.22 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--fg); }
-    .page[data-page="18"] .p18-card__body { margin-top: 1.6mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="18"] .p18-card__title { font: 700 var(--fs-body)/1.25 var(--font-display); letter-spacing: 0; text-transform: none; color: var(--fg); }
+    .page[data-page="18"] .p18-card__body { margin-top: 1.3mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
 
-    /* Freistellung von der Belegungsbindung – Textzeile über die volle Breite, Run-in, kein Kasten ------------------------------ */
-    .page[data-page="18"] .p18-wbs { margin-top: var(--sp-5); padding-top: 2.6mm; border-top: var(--hair) solid var(--rule); column-count: 2; column-gap: var(--gutter); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    /* Freistellung von der Belegungsbindung – Textzeile über die volle Breite, Run-in, kein Kasten; schließt unten am
+       Satzspiegel (margin-top: auto), darüber bleiben 4 mm */
+    .page[data-page="18"] .p18-wbs { margin-top: auto; padding-top: 2.2mm; border-top: var(--hair) solid var(--rule); column-count: 2; column-gap: var(--gutter); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
     .page[data-page="18"] .p18-wbs__h { display: inline; font: 700 var(--fs-module)/var(--lh-module) var(--font-text); color: var(--fg); }
     .page[data-page="18"] .p18-wbs__h + p { display: inline; }
   </style>
 
+  <header class="page__header"><span class="page__section">Standort und Kommune</span></header>
+
   <header class="p18-head">
-    <p class="kicker">Standort und Kommune</p>
     <h1 class="h1"><em>Bedarf</em> am Standort und die Rolle der Kommune</h1>
     <p class="deck">Der Standort entscheidet über <b>Förderfähigkeit</b>, <b>Vorrang</b> und <b>Mieterkreis</b></p>
-    <p class="lead lead--cols-2">Für <b class="bs-no bs-21">2.1</b>, <b class="bs-no bs-22">2.2</b> und <b class="bs-no bs-26">2.6</b> muss am Bauort ein nicht nur kurzfristiger Bedarf an gebundenen Mietwohnungen bestehen. In sechs Gebietsarten gilt er als gegeben, überall sonst wird er vermutet, sofern die NBank das nicht widerlegt hat. Modernisierung (<b class="bs-no bs-23">2.3</b>), Inseln (<b class="bs-no bs-24">2.4</b>) und Bindungserwerb (<b class="bs-no bs-25">2.5</b>) setzen keinen Bedarfsnachweis voraus.</p>
+    <p class="lead">Für <b class="bs-no bs-21">2.1</b>, <b class="bs-no bs-22">2.2</b> und <b class="bs-no bs-26">2.6</b> muss am Bauort ein nicht nur kurzfristiger Bedarf an gebundenen Mietwohnungen bestehen.</p>
+    <p class="body">In sechs Gebietsarten gilt er als gegeben, überall sonst wird er vermutet, sofern die NBank das nicht widerlegt hat. Modernisierung (<b class="bs-no bs-23">2.3</b>), Inseln (<b class="bs-no bs-24">2.4</b>) und Bindungserwerb (<b class="bs-no bs-25">2.5</b>) setzen keinen Bedarfsnachweis voraus.</p>
   </header>
 
   <div class="l-grid p18-main">
@@ -151,7 +167,7 @@
   <!-- Freistellung von der Belegungsbindung -->
   <section class="p18-wbs" aria-labelledby="p18-wbs-h">
     <h2 class="p18-wbs__h" id="p18-wbs-h">Freistellung von der Belegungsbindung.</h2>
-    <p>Findet sich nachweislich kein wohnberechtigter Haushalt, kann die Wohnraumförderstelle befristet freistellen. Antrag in der Regel spätestens vier Wochen vor Freiwerden oder Bezugsfertigkeit, höchstens fünf Jahre, einmal verlängerbar. Die Mietbindung bleibt. Ausgleich: in der Regel 0,50 € je m² und Monat (nicht auf die Mieter umlegbar) oder Belegungsrechte an Ersatzwohnungen.</p>
+    <p>Findet sich nachweislich kein wohnberechtigter Haushalt, kann die Wohnraumförderstelle befristet freistellen. Antrag in der Regel spätestens vier Wochen vor Freiwerden oder Bezugsfertigkeit. Freistellung höchstens fünf Jahre, einmal verlängerbar. Die Mietbindung bleibt. Ausgleich: in der Regel 0,50 € je m² und Monat (nicht auf die Mieter umlegbar) oder Belegungsrechte <span class="u-nowrap">an Ersatzwohnungen.</span></p>
   </section>
 
   <footer class="page__foot" aria-hidden="true"><span class="page__folio">18</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Standort und Kommune</b></span></span></footer>

@@ -7,7 +7,11 @@ const R = require('./_rechnung.cjs');
 module.exports = {
   id: 'rechnung-kapitaldienst',
   bau(ctx) {
-    const { B, D, W, fmt, colX, ZONE } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
+    const { B, D, W, fmt, colX, ZONE } = ctx, M = k => W('modellhaus', k);
+    // Titel: Kapitaldienst gefördert (Signaturwort) und frei finanziert aus der Mappe; die Gegenprobe gegen das Konzept macht ctx.titelzeilen
+    const kd = ['A', 'Frei'].map(g => fmt.euro(M(`dscr.kapitaldienst_jahr1.${g}`)));
+    R.pruefe(M('dscr.kapitaldienst_jahr1.A') < M('dscr.kapitaldienst_jahr1.Frei'), 'Der Kapitaldienst gefördert liegt nicht mehr unter dem frei finanzierten; der Titel der Folie 16 stimmt dann nicht.');
+    const s = ctx.folie(ctx.titelzeilen([`${kd[0]} Kapitaldienst in Jahr 1`, `statt ${kd[1]} frei finanziert`], kd[0]));
     B.register(s, '2.1');
     B.diagrammkopf(s, { titel: 'Kapitaldienst in Jahr 1', sub: ctx.wortlaut('in € p. a. · gleiches Haus, gefördert und frei finanziert', 'Untertitel') });
     B.legende(s, { x: colX(1), y: ZONE.diagramm.legende, eintraege: [{ text: 'Tilgung', art: 'tinte' }, { text: 'Zins', art: 'referenz' }, { text: 'Verwaltungskostenbeitrag', art: 'bisher' }] });

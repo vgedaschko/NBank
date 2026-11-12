@@ -21,8 +21,9 @@ module.exports = {
 
     // ---- Lagen: Reihe 1 beginnt an der Oberkante der Inhaltszone, die Zeile zum Beginn steht an ihrer Unterkante ---------
     const D_KREIS = 0.46, H_BAND = 0.42, H_ZEILE = 0.22;
-    const LUFT_BAND = 0.12;                                   // Abstand der Texte von Reihe 1 zum Warnband und des Warnbands zu den Achskreisen von Reihe 2
-                                                              // (0,12: Die Zuständigkeit steht in 12 pt; so bleibt unter Reihe 2 der Abstand zur Zeile zum Vorhabenbeginn)
+    const LUFT_BAND = 0.10;                                   // Abstand der Texte von Reihe 1 zum Warnband und des Warnbands zu den Achskreisen von Reihe 2
+                                                              // (0,10: Die Titel der Stationen stehen seit Muster 2 gemischt in 16 pt und sind je Reihe 0,04 höher;
+                                                              // so bleibt unter Reihe 2 der Abstand zur Zeile zum Vorhabenbeginn)
     // Die Stationen 2 und 6 sind etwas breiter als die übrigen (3,12 statt 2,94 und 3,00 Zoll): „bei der Wohnraumförderstelle“ ist 2,88 Zoll breit
     // und stünde bei vier gleichen Feldern ohne Abstand vor dem Text der Station 3. So bleiben die Texte von Reihe 1 sicher zweizeilig,
     // und zwischen den Spalten steht überall mindestens 0,2 Zoll. Beide Reihen tragen dieselbe Teilung; die Achskreise stehen übereinander.

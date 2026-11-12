@@ -1,23 +1,30 @@
-<section class="page" data-page="21" id="seite-21">
+<section class="page page--dicht" data-page="21" id="seite-21">
   <style>
     /* Seite 21 · Unterlagen, Kontakte und Verfahrensdetails · Planwerk. Rechte Seite der Doppelseite 20|21 „Umsetzung“.
        12er-Raster: Lesefeld Spalten 1–8 (zwei Spalten à 4, Haarlinie in der Stegmitte: Ankreuzliste → Verfahrensdetails
        im Telegrammstil mit Run-in-Stichwörtern) · dominant: Kontaktspalte 9–12 als Papierfeld über die volle Höhe des
        Lesefelds bis 273 mm, vier gleich hohe, gleichrangige Felder. Gemeinsamer Horizont: Modulkopf-Linie links = Oberkante
-       Kontaktspalte. Rot nur: Kicker, Titellinie, Kontakt-Labels, Seitenverweise, Programmnummer 2.1. Farben nur über Tokens. */
+       Kontaktspalte. Rot nur: Titellinie und Programmteilfarben. Farben nur über Tokens.
+       Stufung und Zuteilung nach styles.css §8b: Rubrik in der Kopfzeile, H1 25 pt, Modultitel 12 pt gemischt („Unterlagen (Auszug)“,
+       „Verfahrensdetails“), Kontaktnamen und Rufnummern 12 pt, Gruppentitel und Kontakt-Labels 8,5 pt Versalien in Schwarz,
+       Text 9 pt. Horizonte wie S. 20: Kopfzeile, H1, erste Bandlinie 59,5 mm, Unterkante 273 mm.
+       Dichte Seite (.page--dicht, 9 pt): Ankreuzliste und neun Verfahrensdetails laufen in zwei Spalten von je 56,7 mm; in 9,5 pt
+       fehlen je Spalte rund 35 mm. --fs-module wird in :root aufgelöst und folgt .page--dicht nicht von selbst, deshalb hier
+       neu gebunden. Abstände der Ankreuzliste und der Stichwörter sind auf die Spaltenhöhe von 213,5 mm gezogen. */
+    .page[data-page="21"] { --fs-module: var(--fs-small); }
 
     .page[data-page="21"] .badge { vertical-align: .15mm; }
 
     /* Raster: Lesefeld 8 Spalten | Kontakte 4 Spalten, bis Satzspiegelende ----------------------------------------- */
-    .page[data-page="21"] .p21-body { flex: 1 1 auto; min-height: 0; margin-top: var(--sp-8); display: grid; grid-template-columns: calc(8 * var(--col) + 7 * var(--gutter)) calc(4 * var(--col) + 3 * var(--gutter)); column-gap: var(--gutter); }
+    .page[data-page="21"] .p21-body { flex: 1 1 auto; min-height: 0; margin-top: 15.16mm; display: grid; grid-template-columns: calc(8 * var(--col) + 7 * var(--gutter)) calc(4 * var(--col) + 3 * var(--gutter)); column-gap: var(--gutter); }
 
     /* Lesefeld: zwei Spalten, Haarlinie in der Stegmitte ------------------------------------------------------------ */
     .page[data-page="21"] .p21-flow { align-self: start; padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); column-count: 2; column-gap: var(--gutter); column-rule: var(--hair) solid var(--rule); column-fill: balance; }
     .page[data-page="21"] .p21-flow .chart__title { break-after: avoid; }
 
     /* Ankreuzliste */
-    .page[data-page="21"] .p21-check__list { margin-top: 2.2mm; }
-    .page[data-page="21"] .p21-check__list .checklist__item { grid-template-columns: 6mm minmax(0, 1fr); column-gap: 0; padding: 1.5mm 0 1.6mm; line-height: var(--lh-module); }
+    .page[data-page="21"] .p21-check__list { margin-top: 1.8mm; }
+    .page[data-page="21"] .p21-check__list .checklist__item { grid-template-columns: 6mm minmax(0, 1fr); column-gap: 0; padding: .9mm 0 1mm; line-height: var(--lh-module); }
     .page[data-page="21"] .p21-check__list .checklist__item:first-child { border-top: var(--hair) solid var(--rule); }
     .page[data-page="21"] .p21-check__list .checklist__item:last-child { border-bottom: 0; }
     .page[data-page="21"] .p21-check__list .checklist__box { width: 3.6mm; height: 3.6mm; margin-top: .25mm; border-color: var(--fg-2); }
@@ -25,12 +32,13 @@
     .page[data-page="21"] .p21-check__list .p21-in-paren { margin: 0 .3mm; }
 
     /* Verfahrensdetails: Gruppen fließen; Stichwort als Run-in */
-    .page[data-page="21"] .p21-faq { margin-top: 5.45mm; padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); }   /* Oberkante 188,7 mm = Bewilligungsmarke S. 20 */
-    .page[data-page="21"] .p21-grp__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 2mm; margin-top: 2.6mm; padding-bottom: 1.4mm; border-bottom: var(--rule-w) solid var(--rule-strong); break-after: avoid; break-inside: avoid; }
+    .page[data-page="21"] .p21-faq { margin-top: 3.2mm; padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
+    .page[data-page="21"] .p21-grp__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 2mm; margin-top: 2.4mm; padding-bottom: 1.1mm; font-size: var(--fs-module); line-height: var(--lh-module); border-bottom: var(--rule-w) solid var(--rule-strong); break-after: avoid; break-inside: avoid; }
+    .page[data-page="21"] .p21-grp + .p21-grp .p21-grp__head { margin-top: 4.4mm; }   /* neue Gruppe in der Spalte: mehr Luft über dem Titel als zwischen den Stichwörtern */
     .page[data-page="21"] .p21-grp__title { padding-top: .5mm; font: 700 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
-    .page[data-page="21"] .p21-qa { padding-top: 1.7mm; }
+    .page[data-page="21"] .p21-qa { padding-top: 1.4mm; }
     .page[data-page="21"] .p21-qa__item { break-inside: avoid; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="21"] .p21-qa__item + .p21-qa__item { margin-top: 2.6mm; }
+    .page[data-page="21"] .p21-qa__item + .p21-qa__item { margin-top: 1.8mm; }
     .page[data-page="21"] .p21-qa__item dt { display: inline; font-weight: 600; color: var(--fg); }
     .page[data-page="21"] .p21-qa__item dd { display: inline; margin: 0; }
 
@@ -41,13 +49,11 @@
     .page[data-page="21"] .p21-ct__name { margin-top: 2mm; font: 700 var(--fs-h3)/1.22 var(--font-display); color: var(--fg); }
     .page[data-page="21"] .p21-ct__tel { margin-top: 1.6mm; font: 700 var(--fs-h3)/1.25 var(--font-display); color: var(--fg); font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
     .page[data-page="21"] .p21-ct__text { margin-top: 1.8mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="21"] .p21-ct__text .u-url { font-size: var(--fs-micro); }   /* E-Mail wie .contact__lines .u-url */
+    .page[data-page="21"] .p21-contacts .contact__label { font-size: var(--fs-micro); }   /* Label in Schwarz: 8,5 pt wie alle Versal-Labels */
   </style>
 
-  <header class="p21-head">
-    <p class="kicker">Service</p>
-    <h1 class="h1">Unterlagen, Kontakte und Verfahrensdetails</h1>
-  </header>
+  <header class="page__header"><span class="page__section">Service</span></header>
+  <h1 class="h1">Unterlagen, Kontakte und Verfahrensdetails</h1>
 
   <div class="p21-body">
   <!-- Lesefeld: Ankreuzliste, dann Verfahrensdetails in zwei Spalten -->
@@ -79,7 +85,7 @@
         <dl class="p21-qa">
           <div class="p21-qa__item"><dt>Sicherheiten.</dt> <dd>Grundschuld direkt nach dem Bankdarlehen; vorrangig nur übliche erststellige Darlehen mit mindestens 1 % Tilgung plus ersparter Zinsen, ohne Revalutierung. Je nach Bonität weitere Sicherheiten, etwa eine Bürgschaft; bei reinen Objektgesellschaften immer.</dd></div>
           <div class="p21-qa__item"><dt>Tilgungsaufschub.</dt> <dd>Bei vorübergehendem Fehlbetrag im Objekt kann die NBank den Tilgungsbeginn um bis zu fünf Jahre <span class="u-nohyphens">hinausschieben.</span></dd></div>
-          <div class="p21-qa__item"><dt>Vorzeitige Rückzahlung.</dt> <dd>Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20&nbsp;Jahre nach Bindungs&shy;beginn, spätestens zum regulären Ende.<br>Beispiel: Bindungsbeginn 2028, Rückzahlung 2040: Ende 31.12.2050; bei Rückzahlung 2032 erst 2048.</dd></div>
+          <div class="p21-qa__item"><dt>Vorzeitige Rückzahlung.</dt> <dd>Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20&nbsp;Jahre nach Bindungs&shy;beginn, spätestens zum regulären Ende.<br>Beispiel: Bindungsbeginn 2028. Bei Rückzahlung 2040 enden die Bindungen am 31.12.2050; bei Rückzahlung 2032 erst 2048.</dd></div>
         </dl>
       </section>
       <section class="p21-grp" aria-labelledby="p21-g3">

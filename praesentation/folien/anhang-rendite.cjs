@@ -25,7 +25,7 @@ module.exports = {
     const fehljahre = [...G.map(g => M(`liq.jahre_mit_fehlbetrag.${g}`)), V('jahre_mit_fehlbetrag.Frei')], konto = je('projektkonto_tiefststand'), restwert = je('restwert_jahr35');
     const zins = je('liegenschaftszins');
     // Grundstück im Bestand, nicht angesetzt: Nur dann ist der Bodenwert der Mappe null und ihre Lesart „nur Bodenwert“ gleich „ohne Restwert“.
-    // Setzt die Mappe wieder ein Grundstück an, heißt Zeile 6 „Rendite, nur Bodenwert“, und Titel, Annahmen und Notizen sind anzupassen.
+    // Setzt die Mappe wieder ein Grundstück an, heißt Zeile 6 „Rendite, nur Bodenwert“, und Titel und Annahmen sind anzupassen.
     R.pruefe(M('eingabe.grundstueck') === 0, 'Die Mappe setzt für das Modellhaus ein Grundstück an; Zeile 6 („Rendite ohne Restwert“), Titel und Annahmen der Folie A7 stimmen dann nicht.');
     R.pruefe(ALLE.every((g, i) => typeof ohne[i] === 'number' && anteil[i] > 0 && anteil[i] < 1 && ohne[i] < mit[i]),
       'Die Rendite ohne Restwert ist in einer Spalte kein Wert, liegt nicht unter der Rendite mit Restwert, oder der Restwertanteil liegt nicht zwischen 0 und 100 %; Zeilen 6 und 7 der Folie A7 anpassen.');
@@ -57,10 +57,10 @@ module.exports = {
     // ---- Annahmen über vier Spalten ---------------------------------------------------------------------------------------------
     // Fünf Absätze: Steuern und Bauphase; das Grundstück (im Bestand, nicht angesetzt); Marktmiete und Liegenschaftszins mit Wert und knapper
     // Herkunft; Restwert; Projektkonto. „+2 % p. a.“ bleibt zusammen (geschützte Leerzeichen).
-    // Die Herkunft der beiden Marktwerte steht in daten/rechnung.json (marktwerte); die Quellenzeile der Notizen nennt beide Quellen voll.
+    // Die Herkunft der beiden Marktwerte steht in daten/rechnung.json (marktwerte); die Quellenangabe im Konzept (Feld „quellen“) nennt beide Quellen voll.
     const A = k => V('annahme.' + k), Q = k => ctx.X('rechnung', 'marktwerte.' + k);
     for (const k of ['quelle_marktmiete', 'quelle_liegenschaftszins']) {
-      if (!ctx.glatt(ctx.o.quellen).includes(ctx.glatt(Q(k)))) P.melde(`Quellenzeile der Folie A7 nennt „${Q(k)}“ nicht (daten/rechnung.json, marktwerte.${k}).`);
+      if (!ctx.glatt(ctx.o.quellen).includes(ctx.glatt(Q(k)))) P.melde(`Quellenangabe der Folie A7 (Konzept, Feld „quellen“) nennt „${Q(k)}“ nicht (daten/rechnung.json, marktwerte.${k}).`);
     }
     B.planlegende(s, { x: colX(9), y: y0, w: span(4), linie: true, pt: 14, eintraege: [
       { titel: wl('Annahmen', 'Modultitel'), text: wl('Vor Steuern, ab Bezug: ohne Bauphase, Abschreibung und Sonder-AfA.', 'Annahmen') },
@@ -69,24 +69,10 @@ module.exports = {
       { text: wl(`Restwert: Ertragswert Ende Jahr ${jahre}. Marktmiete ${nb(`+${fmt.prozent(A('mietsteigerung'))} p. a.`)}`, 'Annahmen') },
       { text: wl(`Fehlbeträge laufen auf ein Projektkonto zu ${fmt.prozent(A('sollzins'))} Sollzins.`, 'Annahmen') }] });
 
-    // ---- Notizen: Die Sätze mit Zahlen stehen im Konzept; hier die Gegenprobe gegen die Mappe ----------------------------------------
-    const notiz = ctx.glatt(ctx.o.notizen), N = (t, was) => { if (!notiz.includes(ctx.glatt(t))) P.melde(`Notizen der Folie A7: „${ctx.glatt(t)}“ steht dort nicht (${was}; Wert aus der Mappe). Notizen im Konzept anpassen.`); };
-    const d2 = v => fmt.zahl(v * 100, 2), gef = mit.slice(0, 3), teil = [Math.min(...anteil.slice(0, 3)), Math.max(...anteil.slice(0, 3))].map(v => fmt.zahl(v * 100));
-    N(`A, B und C bei ${d2(Math.min(...gef))} bis ${d2(Math.max(...gef))} %`, 'Spanne der Rendite mit Restwert in A, B und C');
-    N(`Frei finanziert zur Marktmiete von ${fmt.euroDez(A('marktmiete_jahr1'))} sind es ${p2(mit[3])}`, 'Rendite mit Restwert frei finanziert');
-    // „also mehr als gefördert“ gilt nur, solange die Rendite frei finanziert über der jeder geförderten Gruppe liegt
-    R.pruefe(notiz.includes('also mehr als gefördert') === (mit[3] > Math.max(...gef)), 'Der Satz „also mehr als gefördert“ in den Notizen der Folie A7 passt nicht mehr zur Rendite frei finanziert und gefördert.');
-    N(`${teil[0]} bis ${teil[1]} % des Endvermögens`, 'Restwertanteil in A, B und C');
-    N(`${p2(ohne[0])} in A, ${p2(ohne[1])} in B und ${p2(ohne[2])} in C, frei finanziert ${p2(ohne[3])}`, 'Rendite ohne Restwert');
-    N(`sind es ${fmt.zahl(fehljahre[3])} Jahre`, 'Jahre mit Fehlbetrag frei finanziert');
-    N(`bis auf ${fmt.euro(konto[3])}`, 'tiefster Stand des Projektkontos frei finanziert');
-    // Regie-Sätze der Notizen: In A, B und C gibt es kein Jahr mit Fehlbetrag, das Projektkonto fällt dort nie unter null; Eigenkapital bei
-    // Bezug = Eigenmittel + Bearbeitungsentgelte. Der Satz zur Schwelle der NBank (Swapsatz plus 1 Prozentpunkt) nennt keine Zahl:
-    // Der Swapsatz steht auf der Sperrliste und lässt sich hier nicht gegenrechnen.
+    // ---- Gegenproben zu den Zeilen 1 bis 3: In A, B und C gibt es kein Jahr mit Fehlbetrag, das Projektkonto fällt dort nie unter null; frei
+    // finanziert gibt es beides. Eigenkapital bei Bezug = Eigenmittel + Bearbeitungsentgelte ---------------------------------------------
     R.pruefe(G.every((g, i) => fehljahre[i] === 0 && konto[i] === 0) && fehljahre[3] > 0 && konto[3] < 0,
-      'In A, B oder C gibt es ein Jahr mit Fehlbetrag oder ein Projektkonto unter null, oder frei finanziert keines mehr; Zeilen 2 und 3 und der Satz „In A, B und C gibt es kein Jahr mit Fehlbetrag“ in den Notizen der Folie A7 anpassen.');
-    R.pruefe(G.every(g => Math.abs(M(`fin.eigenkapital.${g}`) - M(`fin.eigenmittel.${g}`) - M(`fin.bearbeitungsentgelte.${g}`)) < 0.005), 'Eigenkapital bei Bezug ist nicht mehr Eigenmittel plus Bearbeitungsentgelte; Regie-Satz in den Notizen der Folie A7 anpassen.');
-    N(`Eigenmittel von ${fmt.mio(M('fin.eigenmittel.A'))} plus Bearbeitungsentgelte`, 'Eigenkapital bei Bezug');
-    N(`mit ${fmt.prozent(A('sollzins'))} Sollzins`, 'Sollzins des Projektkontos');
+      'In A, B oder C gibt es ein Jahr mit Fehlbetrag oder ein Projektkonto unter null, oder frei finanziert keines mehr; Zeilen 2 und 3 der Folie A7 anpassen.');
+    R.pruefe(G.every(g => Math.abs(M(`fin.eigenkapital.${g}`) - M(`fin.eigenmittel.${g}`) - M(`fin.bearbeitungsentgelte.${g}`)) < 0.005), 'Eigenkapital bei Bezug ist nicht mehr Eigenmittel plus Bearbeitungsentgelte; Zeile 1 der Folie A7 prüfen.');
   },
 };

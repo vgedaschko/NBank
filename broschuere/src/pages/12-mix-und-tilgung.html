@@ -3,7 +3,7 @@
     /* S. 12 · Modellrechnung: Mix und Tilgung – NEU in Korrekturlauf 1 (korrektur/lauf-1/ENTSCHEIDUNGEN.md, D).
        Linke Seite der Doppelseite 12|13 (physische Heftmitte, ein Druckbogen), weiß wie S. 13 (Papier nur auf 10|11).
        Gerade Seite: Notiz in der äußeren Marginalspalte links (Spalten 1–3), Diagramm am Bund (Spalten 4–12) –
-       spiegelbildlich zu S. 13. Horizonte mit S. 13: Unterkante Diagramm-Modul, Oberkante unteres Band.
+       spiegelbildlich zu S. 13. Horizonte mit S. 13: Kopfzeile und Oberkante H1.
        Alle Zahlen aus dem Modellhaus S. 10/11: Mehrüberschuss(t) = 0,98 × Mehr-Sollmiete − 0,5 % × Mehrschuld − t × Mehrschuld
        (Mietausfall 2 %, VOFI-Mappe v3, Projekt 2, Übersicht Zeilen 29–39 und 55–72). Diagrammgeometrie: x = 13 + 35,667 × t (t in %, Achse 0–3,0 %),
        y = 54 − 0,002 × € (Gitter je 5.000 € = 10 mm, +20.000 bei y 14, −10.000 bei y 74; x-Achse bei y 76,7); Linien aus den ungerundeten Werten
@@ -11,11 +11,14 @@
        Die Werte vor Tilgung stehen im Diagramm neben dem Linienanfang (an der Achse träfe 10.669 auf die Beschriftung +10.000).
        Diagramm: Linien in Tinte (B gestrichelt, C durchgezogen), Gruppen als Achskreise c-grp-b/-c; kein Rot im Diagramm
        (Rot = Zuschuss). Rechenweg: Unterzeile Mietausfall ohne eigene Nummer (wie S. 11, Zeile 1). */
-    .page[data-page="12"] .mix-lead { margin-top: 5.2mm; max-width: 133.75mm; }   /* Vorspann dreizeilig (Lektorat 11/2026): 2 mm mehr davor, 3,2 mm mehr danach – Unterkante Diagramm und Oberkante unteres Band bleiben auf den Horizonten von S. 13 */
-    .page[data-page="12"] .mix-fig { margin-top: 9.2mm; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: var(--gutter); align-items: start; }
+    /* Stufung und Zuteilung nach styles.css §8b. H1 zweizeilig in 25 pt, Rot nur an der Zahl. Vorspann in 12 pt über die volle
+       Breite (zwei Zeilen). Seitenlokal nur: Fußzeile der Tabelle in 8,5 pt. */
+    .page[data-page="12"] .mix-lead { margin-top: 5.2mm; max-width: none; }
+    .page[data-page="12"] .mix-fig { margin-top: 7.4mm; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: var(--gutter); align-items: start; }
     .page[data-page="12"] .mix-fig > .chart__head { grid-column: 4 / span 9; grid-row: 1; }
     .page[data-page="12"] .mix-fig > .chart__svg { grid-column: 4 / span 9; grid-row: 2; margin-top: 3.6mm; }
     .page[data-page="12"] .mix-note { grid-column: 1 / span 3; grid-row: 1 / span 2; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="12"] .mix-note p { text-wrap: pretty; }
     .page[data-page="12"] .mix-note p + p { margin-top: 2.2mm; }
     .page[data-page="12"] .mix-note b { color: var(--fg); }
     .page[data-page="12"] .mix-l { fill: none; stroke: var(--fg); }
@@ -25,10 +28,13 @@
     .page[data-page="12"] .mix-ext { fill: none; stroke: var(--fg-3); stroke-width: .2; stroke-dasharray: .9 .7; }
     .page[data-page="12"] .mix-dot { fill: var(--fg); }
     .page[data-page="12"] .mix-tk { fill: none; stroke: var(--fg); stroke-width: .3; }
-    /* Unteres Band: Rechenweg (7, außen) | Zulassung und Laufzeit (5, am Bund); darunter die Einflüsse über die volle Breite */
+    /* Unteres Band: Rechenweg (7, außen) | Zulassung, Laufzeit und die Einflüsse auf die Schwellen (5, am Bund).
+       Die Einflüsse stehen als Anmerkung mit Haarlinie unter den beiden Modulen; ihre letzte Zeile schließt mit dem Satzspiegel.
+       Zeilenabstände des Rechenwegs offen wie auf S. 10. */
     .page[data-page="12"] .mix-low { --row-gap: 0; margin-top: var(--sp-4); align-items: start; }
-    .page[data-page="12"] .mix-rw caption { caption-side: top; text-align: left; padding-bottom: 2mm; }
-    .page[data-page="12"] .mix-rw col.mix-c-val { width: 20.5mm; }
+    .page[data-page="12"] .mix-rw caption { caption-side: top; text-align: left; padding-bottom: 2.6mm; }
+    .page[data-page="12"] .mix-rw th, .page[data-page="12"] .mix-rw td { padding-top: 1.8mm; padding-bottom: 1.8mm; }
+    .page[data-page="12"] .mix-rw col.mix-c-val { width: 18.5mm; }   /* schmaler als bis 11/2026 (20,5 mm): die Ergebniszeile bleibt in 9,5 pt einzeilig */
     .page[data-page="12"] .mix-rw thead th.mix-abc { text-align: right; padding-right: 4mm; }
     .page[data-page="12"] .mix-rw td.num { padding-right: 1.8mm; }   /* Werte nicht bündig an der Kante der roten Ergebniszeile („%“ stieß an die Flächenkante); beide Wertspalten gleich versetzt */
     /* Zeile 2 = Mehr-Sollmiete und Mietausfall: Unterzeile ohne eigene Nummer, ohne Trennlinie dazwischen (wie S. 11, Zeile 1) */
@@ -37,20 +43,18 @@
     .page[data-page="12"] .mix-rw tr.mix-r2b > td:first-child { padding-left: 5.6mm; }   /* Positionsspalte (th per rowspan) */
     .page[data-page="12"] .mix-rw tr.mix-r2b > td:nth-child(2) { padding-left: 0; }
     .page[data-page="12"] .mix-rw tbody td:not(.num) { padding-right: .8mm; }   /* Positionsspalte: Zeile 1 in zwei Zeilen (Abstand zu den Werten bleibt ≥ 2,5 mm) */
-    .page[data-page="12"] .mix-rw tfoot td { padding-top: 2mm; white-space: nowrap; border-bottom: 0; font-size: var(--fs-module); line-height: 1.3; color: var(--fg-3); }
+    .page[data-page="12"] .mix-rw tfoot td { padding-top: 2.6mm; white-space: nowrap; border-bottom: 0; font-size: var(--fs-micro); line-height: 1.3; color: var(--fg-3); }
     .page[data-page="12"] .mix-rw tfoot td.num { color: var(--fg-2); }
-    .page[data-page="12"] .mix-infl { margin-top: 4mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
     .page[data-page="12"] .mix-txt > .module + .module { margin-top: var(--sp-5); }
-    .page[data-page="12"] .mix-txt .body { margin-top: 2.2mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--text); }
+    .page[data-page="12"] .mix-txt .body { margin-top: 2.2mm; color: var(--text); }
+    .page[data-page="12"] .mix-infl { margin-top: 5mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); text-wrap: pretty; }
   </style>
 
   <div class="bs-register" data-bleed aria-hidden="true">2.1</div>
 
-  <div class="kicker-row">
-    <p class="kicker kicker--plain">Modellrechnung · Mix und Tilgung</p>
-  </div>
-  <h1 class="h1">Über 1,91&nbsp;% Tilgung<br><em>liegt Gruppe A vorn</em></h1>
-  <p class="lead lead--s mix-lead">In B und C sind Miete und Darlehen höher als in A. Die Mehrschuld ist bis Ende Jahr 35 zinsfrei, kostet 0,5 % Verwaltungskostenbeitrag im Jahr und wird getilgt.</p>
+  <header class="page__header"><span class="page__section">Modellrechnung</span><div class="keyplan" role="img" aria-label="Programmteil 2.1 von sechs Programmteilen"><span class="keyplan__label">Programmteil</span><ol class="keyplan__list"><li class="bs-21 is-on">2.1</li><li class="bs-22">2.2</li><li class="bs-23">2.3</li><li class="bs-24">2.4</li><li class="bs-25">2.5</li><li class="bs-26">2.6</li></ol></div></header>
+  <h1 class="h1">Über <em>1,91&nbsp;%</em> Tilgung<br>liegt Gruppe A vorn</h1>
+  <p class="lead mix-lead">In B und C sind Miete und Darlehen höher als in A. Die Mehrschuld ist bis Ende Jahr&nbsp;35 zinsfrei, kostet 0,5 % Verwaltungskostenbeitrag im Jahr und wird getilgt.</p>
 
   <!-- Hauptelement · Notiz (3, außen) | Diagramm (9, am Bund) -->
   <figure class="chart module mix-fig" role="group" aria-labelledby="mix-fig-h">
@@ -60,7 +64,6 @@
     </figcaption>
     <svg class="chart__svg mix-svg" viewBox="0 0 133.75 86.3" width="133.75mm" height="86.3mm" role="img" aria-label="Mehrüberschuss gegenüber Variante A in Euro pro Jahr (y-Achse, von minus 10.000 bis plus 20.000) in Abhängigkeit vom Tilgungssatz von 0 bis 3,0 Prozent (x-Achse), Modellhaus Seite 10, Jahr 1 nach Vollauszahlung. Variante C: 16.977 Euro vor Tilgung, jeder Prozentpunkt Tilgung kostet 8.890 Euro, Nulldurchgang bei 1,91 Prozent, bei 3,0 Prozent minus 9.694 Euro. Variante B: 10.669 Euro vor Tilgung, je Prozentpunkt 5.927 Euro, Nulldurchgang bei 1,80 Prozent, bei 3,0 Prozent minus 7.112 Euro. Bis 1,91 Prozent hat C den höchsten Zahlungsüberschuss, darüber A; B liegt in keinem Bereich vorn. Markiert ist der Tilgungssatz der Jahresrechnung von Seite 11, 2,38 Prozent: dort liegt B 3.443 Euro und C 4.190 Euro unter A."><text class="t-ax t-mid" x="47.05" y="3.4">vorn: Gruppe <tspan class="t-b">C</tspan></text><text class="t-ax t-mid" x="100.55" y="3.4">vorn: Gruppe <tspan class="t-b">A</tspan></text><path class="dim-line" d="M11.8,5.6H121.2"/><path class="mix-ext" d="M81.11,4.3V54"/><path class="dim-tick" d="M12.1,6.5L13.9,4.7M80.21,6.5L82.01,4.7M119.1,6.5L120.9,4.7"/><text class="t-ax" x="0" y="10.4">Mehrüberschuss gegenüber A, € p. a.</text><line class="gridline" x1="13" y1="14" x2="120" y2="14"/><line class="gridline" x1="13" y1="24" x2="120" y2="24"/><line class="gridline" x1="13" y1="34" x2="120" y2="34"/><line class="gridline" x1="13" y1="44" x2="120" y2="44"/><line class="gridline" x1="13" y1="64" x2="120" y2="64"/><line class="gridline" x1="13" y1="74" x2="120" y2="74"/><text class="t-ax t-end" x="11.4" y="15.05">+20.000</text><text class="t-ax t-end" x="11.4" y="25.05">+15.000</text><text class="t-ax t-end" x="11.4" y="35.05">+10.000</text><text class="t-ax t-end" x="11.4" y="45.05">+5.000</text><text class="t-ax t-end" x="11.4" y="55.05">0</text><text class="t-ax t-end" x="11.4" y="65.05">−5.000</text><text class="t-ax t-end" x="11.4" y="75.05">−10.000</text><text class="t-ax t-end" x="119" y="20.05">über null: Vorteil gegenüber A</text><text class="t-ax" x="14.4" y="70.05">unter null: Nachteil gegenüber A</text><path class="mix-zero" d="M13,54H120"/><path class="ax" d="M13,76.7H120"/><path class="tick" d="M13,76.7v1.2M30.83,76.7v1.2M48.67,76.7v1.2M66.5,76.7v1.2M84.33,76.7v1.2M102.17,76.7v1.2M120,76.7v1.2"/><text class="t-ax t-mid" x="13" y="81.3">0</text><text class="t-ax t-mid" x="30.83" y="81.3">0,5</text><text class="t-ax t-mid" x="48.67" y="81.3">1,0</text><text class="t-ax t-mid" x="66.5" y="81.3">1,5</text><text class="t-ax t-mid" x="84.33" y="81.3">2,0</text><text class="t-ax t-mid" x="102.17" y="81.3">2,5</text><text class="t-ax t-mid" x="120" y="81.3">3,0 %</text><text class="t-ax" x="13" y="85.7">Tilgungssatz p. a. auf das NBank-Darlehen</text><path class="mix-ext" d="M97.92,54V76.7"/><text class="t-ax" x="99.22" y="58.2">S. 11: <tspan class="t-b">2,38 %</tspan></text><path class="mix-l mix-l--b" d="M13,32.66L120,68.22"/><path class="mix-l mix-l--c" d="M13,20.05L120,73.39"/><path class="mix-tk" d="M11.9,20.05H13"/><text class="t-val-ink" x="14.8" y="18.55">16.977</text><circle class="mix-dot" cx="13" cy="20.05" r=".8"/><path class="mix-tk" d="M11.9,32.66H13"/><text class="t-val-ink" x="14.8" y="31.16">10.669</text><circle class="mix-dot" cx="13" cy="32.66" r=".8"/><circle class="mix-dot" cx="77.2" cy="54" r=".8"/><circle class="mix-dot" cx="81.11" cy="54" r=".8"/><text class="t-ax t-end" x="75.9" y="58.2">B: <tspan class="t-b">1,80 %</tspan></text><text class="t-ax" x="82.41" y="52.4">C: <tspan class="t-b">1,91 %</tspan></text><circle class="c-grp-b" cx="123.6" cy="68.22" r="2.15"/><text class="t-grp" x="123.6" y="69.3">B</text><circle class="c-grp-c" cx="123.6" cy="73.39" r="2.15"/><text class="t-grp t-grp--ink" x="123.6" y="74.47">C</text></svg>
     <div class="mix-note">
-      <p>Unter <b>1,91 %</b> Tilgung hat <b>C</b> den höchsten Zahlungsüberschuss, darüber <b>A</b>.</p>
       <p><b>B</b> liegt in dieser Rechnung nie vorn. Unter 1,80 % liegt C vor B, darüber A. Ein Mix aus A, B und C liegt anteilig dazwischen.</p>
       <p>Bei <b>2,38 %</b> Tilgung wie auf S. 11 liegt A vorn. B bleibt 3.443 € darunter, C 4.190 €.</p>
       <p>Bei 0 % zeigt das Diagramm den Mehrüberschuss vor Tilgung. Jeder Prozentpunkt Tilgung mindert den Mehrüberschuss von B um 5.927 €, von C um 8.890 €.</p>
@@ -71,7 +74,7 @@
   <div class="l-grid mix-low">
     <div class="l-span-7 module mix-rw">
       <table class="table table--compact table--sheet">
-        <caption class="chart__title">Rechenweg, in €</caption>
+        <caption class="chart__title">Rechenweg <span class="chart__unit">in €</span></caption>
         <colgroup><col class="col-no"><col><col class="mix-c-val"><col class="mix-c-val"></colgroup>
         <thead><tr><th scope="col" aria-label="Zeile"></th><th scope="col">B und C gegenüber A</th><th scope="col" class="mix-abc"><span class="axis-no axis-no--s">B</span></th><th scope="col" class="mix-abc"><span class="axis-no axis-no--s">C</span></th></tr></thead>
         <tbody>
@@ -94,10 +97,10 @@
       </section>
       <section class="module" aria-labelledby="mix-lz-h">
         <h2 class="chart__title" id="mix-lz-h">Über die Laufzeit</h2>
-        <p class="body">Der Zuschuss ist nicht rückzahlbar; das Darlehen ist bis Ende Jahr 35 zinsfrei und nach höchstens 42 Jahren getilgt. A trägt 0,6 Mio. € weniger Schulden als B und 0,9 Mio. € weniger als C. Den Tilgungssatz legt die NBank fest; linear über 42&nbsp;Jahre sind es rechnerisch mindestens 2,38&nbsp;% im Jahr <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span></p>
+        <p class="body">A trägt 0,6 Mio. € weniger Schulden als B und 0,9 Mio. € weniger als C.</p>
       </section>
+      <p class="module--hair mix-infl">Ein Mietausfall über 2 % und höhere zuwendungsfähige Kosten je m² senken beide Schwellen, denn die Mehrmiete je m² ist fest vorgegeben und die Mehrschuld wächst mit den Kosten. Der Zahlungsüberschuss in Jahr 1 wird null bei einer Tilgung von 3,65 % in A, 3,03 % in B <span class="u-nowrap">und 2,90 % in C.</span></p>
     </div>
-    <p class="l-span-12 mix-infl">Ein Mietausfall über 2 % und höhere zuwendungsfähige Kosten je m² senken beide Schwellen, denn die Mehrmiete je m² ist fest vorgegeben und die Mehrschuld wächst mit den Kosten. Der Zahlungsüberschuss in Jahr 1 wird null bei einer Tilgung von 3,65 % in A, 3,03 % in B und 2,90 % in C.</p>
   </div>
 
   <footer class="page__foot" aria-hidden="true"><span class="page__folio">12</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Modellrechnung · Mix und Tilgung</b></span></span></footer>

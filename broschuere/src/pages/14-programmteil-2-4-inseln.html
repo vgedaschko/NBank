@@ -1,8 +1,17 @@
-<section class="page bs-24" data-page="14" id="seite-14">
+<section class="page page--dicht bs-24" data-page="14" id="seite-14">
   <style>
-    /* S. 14 · Programmteil 2.4 (linke Seite der Doppelseite 14|15). Horizonte gemeinsam mit S. 15: Kopf (H1, Unterzeile +
-       Gegenstand = 3 + 2 bzw. 2 + 3 Zeilen), Modulzeile 1 bei 88 mm, Modulzeile 2 bei 198 mm, Fuß bei 273 mm.
-       Inselkette am Fuß: Lageskizze 1 : 600 000, eigene generalisierte Umrisse, Kette um 11° gedreht (Nordpfeil mitgedreht). */
+    /* S. 14 · Programmteil 2.4 (linke Seite der Doppelseite 14|15). Horizonte gemeinsam mit S. 15: Kopfzeile, H1 mit
+       zweiter Stimme, Modulzeile 1 bei 88,9 mm, Modulzeile 2 bei 198,7 mm, Fuß bei 273 mm.
+       Inselkette am Fuß: Lageskizze 1 : 600 000, eigene generalisierte Umrisse, Kette um 11° gedreht (Nordpfeil mitgedreht).
+       Stufung nach styles.css §8b: Rubrik steht in der Kopfzeile, der Gegenstand läuft als zweite Stimme (.light) über dem H1;
+       „Konditionen wie in 2.1“ und „Voraussetzungen und Kombination“ sind Module mit Modultitel (.module, .chart__title)
+       wie auf S. 11 und S. 15; der Titel des Grundstücksdiagramms hat dieselbe Form; „höchstens“ als 8,5-pt-Label;
+       Achsbuchstaben in der SVG-Stufe --svg-fs-l. */
+    /* Dichte Seite (.page--dicht, 9 pt), wie S. 15: In 9,5 pt läuft der Text der Mietkachel fünfzeilig, und die Liste
+       rückt bis auf 2,3 mm an die Inselkette; mit engeren Abständen allein geht die Seite nicht auf.
+       --fs-module ist in :root auf --fs-small aufgelöst und folgt der Seite nicht von selbst; hier neu gebunden, damit
+       Listen, Kachel- und Modultext dieselbe Textgröße haben wie der Gegenstand im Kopf. */
+    .page[data-page="14"] { --fs-module: var(--fs-small); }
     .page[data-page="14"] .p13-isles { margin-top: auto; }   /* Horizont am Seitenfuß, unten bündig mit dem Satzspiegel */
     .page[data-page="14"] .p13-isles__svg { display: block; overflow: visible; }
     .page[data-page="14"] .p13-isle { fill: var(--bs); }
@@ -16,18 +25,18 @@
     .page[data-page="14"] .p13-fin__body > .p13-main { grid-column: 1 / span 9; margin-top: 0; }
     .page[data-page="14"] .p13-plot { grid-column: 10 / span 3; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end; border-left: var(--hair) solid var(--rule); padding-left: 3.75mm; }
     .page[data-page="14"] .p13-plot .chart__svg { margin-top: 2.6mm; }
-    .page[data-page="14"] .p13-plot__title { font: 800 var(--fs-small)/1.2 var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: var(--fg); }
+    .page[data-page="14"] .p13-plot__title { font: 800 var(--fs-h3)/1.2 var(--font-display); letter-spacing: 0; text-transform: none; color: var(--fg); text-wrap: balance; }
     .page[data-page="14"] .p13-cap { stroke: var(--fg); stroke-width: .35; fill: none; }
-    .page[data-page="14"] .chart__svg .p13-axb { font-family: var(--font-display); font-weight: 800; font-size: 4px; fill: var(--fg); }
+    .page[data-page="14"] .chart__svg .p13-axb { font-family: var(--font-display); font-weight: 800; font-size: var(--svg-fs-l); fill: var(--fg); }
     .page[data-page="14"] .chart__svg .p13-eq { fill: var(--fg); }
     /* Eigenmittel-Werte freigestellt: Schraffur nur als Band zwischen Rahmen und Wertefläche (mehrere Rechtecke in data-hatch), keine Deckmaske */
     .page[data-page="14"] .p13-note { margin-top: 2.6mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="14"] .p13-rent { margin-top: 3.8mm; }   /* Modulzeile 2 fluchtet mit S. 15 (198,1 mm) */
+    .page[data-page="14"] .p13-rent { margin-top: 3.8mm; }
     .page[data-page="14"] .p13-rent .kf--band { grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--gutter); }
     .page[data-page="14"] .p13-rent .kf__text { margin-top: 0; }
-    .page[data-page="14"] .p13-rent .kf__pre { margin-bottom: 1mm; color: var(--fg-3); }   /* Akzent bleibt Stempel/90-%-Achse; Einheit € rot wie im System */
-    .page[data-page="14"] .p13-low { padding-top: var(--sp-5); }
-    .page[data-page="14"] .p13-low .bullets, .page[data-page="14"] .p13-low .p13-text { margin-top: 2mm; }
+    .page[data-page="14"] .p13-rent .kf__pre { margin-bottom: 1mm; font-size: var(--fs-micro); color: var(--fg-3); }   /* 8,5-pt-Label; Einheit € schwarz wie im System */
+    .page[data-page="14"] .p13-low { padding-top: var(--sp-4); }   /* Modulzeile 2 bei 198,7 mm, fluchtet mit S. 15 */
+    .page[data-page="14"] .p13-low .bullets, .page[data-page="14"] .p13-low .p13-text { margin-top: 2.4mm; }
   </style>
 
   <div class="bs-register" data-bleed aria-hidden="true">2.4</div>
@@ -39,8 +48,7 @@
       <p class="tags"><span class="tag"><i class="sw sw--grant"></i><i class="sw sw--loan"></i>Zuschuss + Darlehen</span></p>
     </div>
     <div class="program-head__main">
-      <p class="kicker">Ostfriesische Inseln</p>
-      <h1 class="h1">Höhere Kosten&shy;grenze, <em>10&nbsp;%</em> Eigenmittel</h1>
+      <h1 class="h1"><span class="light">Ostfriesische Inseln</span> Höhere Kosten&shy;grenze, <em>10&nbsp;%</em> Eigenmittel</h1>
       <p class="deck">Bis zu <b>90 %</b> der Herstellungskosten bis zur Kostengrenze, bis zu <b>100 %</b> der Grundstückskosten</p>
       <p class="program-head__subject">Gefördert werden gebundene Mietwohnungen in Mehrfamilienhäusern auf allen sieben bewohnten Inseln: Neubau, Änderung und Erweiterung sowie Ersterwerb bis zwei Jahre nach Fertigstellung. Kein Bedarfsnachweis.</p>
     </div>
@@ -92,12 +100,12 @@
   </div>
 
   <div class="l-grid p13-low">
-    <section class="l-span-5" aria-labelledby="p13-dl-h">
-      <h2 class="bullets__title" id="p13-dl-h">Konditionen wie in 2.1</h2>
+    <section class="module l-span-5" aria-labelledby="p13-dl-h">
+      <h2 class="chart__title" id="p13-dl-h">Konditionen wie in 2.1</h2>
       <p class="facts__text p13-text"><b>Zuschuss nur zusammen mit dem Darlehen.</b> Zins, Verwaltungskostenbeitrag, Bearbeitungsentgelte, Laufzeit und Bindung wie in 2.1 <span class="u-nowrap">(<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>).</span></p>
     </section>
-    <section class="l-span-7" aria-labelledby="p13-vk-h">
-      <h2 class="bullets__title" id="p13-vk-h">Voraussetzungen und Kombination</h2>
+    <section class="module l-span-7" aria-labelledby="p13-vk-h">
+      <h2 class="chart__title" id="p13-vk-h">Voraussetzungen und Kombination</h2>
       <ul class="bullets">
         <li><b>Eigentum oder Erbbaurecht</b> (mindestens 60 Jahre); gesicherter Erwerb genügt</li>
         <li><b>mindestens zwei gebundene Mietwohnungen</b> je Neubau</li>

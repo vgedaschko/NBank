@@ -12,8 +12,9 @@ if (R('titel.kopfleiste') !== PROJEKT) throw new Error(`daten/rahmen.json: titel
 if (R('titel.herausgeber') !== FIRMA || R('kontakt.firma') !== FIRMA) throw new Error(`daten/rahmen.json: Herausgeber und Firma müssen „${FIRMA}“ heißen (lib/theme.cjs, auch Autor und Firma der Mappe).`);
 
 // Beschreibung der Layouts für build.cjs und die Passprüfung.
-// art: titel | abschnitt | inhalt | anhang | schluss · titel: Schriftgrad, Zeilenzahl (min, max) und größte Zeilenbreite in Zoll
-const T32 = { pt: 32, min: 2, max: 2, breite: 11.6 };
+// art: titel | abschnitt | inhalt | anhang | schluss · titel: Schriftgrad, Zeilenzahl (min, max) und größte Zeilenbreite in Zoll;
+// zeile: Zeilenabstand des Titel-Platzhalters in pt (Inhaltsfolien seit Muster 2: 37; ein Komma über einem Umlaut berührt dessen Punkte dann nicht)
+const T32 = { pt: 32, min: 2, max: 2, breite: 11.6, zeile: 37 };
 const LAYOUTS = {
   PGN_TITEL:          { grund: 'rot', art: 'titel', titel: { pt: 44, min: 1, max: 2, breite: 6.7 }, felder: ['title', 'untertitel', 'anlass'] },
   PGN_ABSCHNITT:      { grund: 'hell', art: 'abschnitt', titel: { pt: 40, min: 1, max: 3, breite: 9.6 }, felder: ['nr', 'title', 'lead', 'rubrik', 'blatt'] },
@@ -96,10 +97,11 @@ function definiereLayouts(pres) {
     linie(7.60, 5.70, 0, 1.50, C.weiss, 0.5, 'Schriftfeld Teilung'),
     txt('Herausgeber', { x: 3.72, y: 5.84, w: 3.6, h: 0.20, fontFace: F.medium, fontSize: 10, color: HEX.hauch, objectName: 'Schriftfeld Herausgeber' }),
     txt(`${R('titel.herausgeber')}\n${R('titel.sitz')}`, { x: 3.72, y: 6.08, w: 3.7, h: 0.50, fontFace: F.mont, bold: true, fontSize: 12, color: C.weiss, valign: 'top', objectName: 'Schriftfeld Firma' }),
-    txt('Stand', { x: 3.72, y: 6.72, w: 0.55, h: 0.20, fontFace: F.medium, fontSize: 10, color: HEX.hauch, objectName: 'Schriftfeld Stand' }),
-    txt(R('titel.stand'), { x: 4.30, y: 6.72, w: 2.0, h: 0.20, fontFace: F.mont, bold: true, fontSize: 10, color: C.weiss, objectName: 'Schriftfeld Stand Datum' }),
-    txt('Vortrag', { x: 7.82, y: 5.84, w: 2.4, h: 0.20, fontFace: F.medium, fontSize: 10, color: HEX.hauch, objectName: 'Schriftfeld Vortrag' }),
-    ph('anlass', { x: 7.82, y: 6.08, w: 2.5, h: 0.50, fontFace: F.mont, bold: true, fontSize: 12, color: C.weiss }, 'Ort, Datum'),
+    // Zelle rechts: Stand der Inhalte; darunter das Eingabefeld für Ort und Datum des Vortrags (bleibt leer, bis jemand es in PowerPoint füllt).
+    // Bis Muster 2 stand hier nur die Bezeichnung „Vortrag“ über dem leeren Eingabefeld; die Zelle wirkte leer
+    txt('Stand', { x: 7.82, y: 5.84, w: 2.4, h: 0.20, fontFace: F.medium, fontSize: 10, color: HEX.hauch, objectName: 'Schriftfeld Stand' }),
+    txt(R('titel.stand'), { x: 7.82, y: 6.08, w: 2.4, h: 0.24, fontFace: F.mont, bold: true, fontSize: 12, color: C.weiss, valign: 'top', objectName: 'Schriftfeld Stand Datum' }),
+    ph('anlass', { x: 7.82, y: 6.34, w: 2.5, h: 0.50, fontFace: F.mont, bold: true, fontSize: 12, color: C.weiss }, 'Ort, Datum'),
     { rect: { x: 10.433, y: 5.70, w: 2.60, h: 1.50, fill: { color: C.weiss }, line: { type: 'none' }, objectName: 'Kennzahlfeld' } },
   ] });
 
@@ -147,7 +149,7 @@ function definiereLayouts(pres) {
     const x = colX(1 + 4 * i), w = span(4), z = ZONE.kennzahlen;
     return [
       linie(x, z.linie, w, 0, C.tinte, 0.75, `Kennzahl ${i + 1} Oberlinie`),
-      ph(`kf${i}_kopf`, { x, y: z.kopf, w, h: 0.22, fontFace: F.mont, bold: true, fontSize: 12, charSpacing: 1.2, color: C.rot, valign: 'middle' }, 'VORSATZ'),
+      ph(`kf${i}_kopf`, { x, y: z.kopf, w, h: 0.22, fontFace: F.mont, bold: true, fontSize: 12, charSpacing: 1.2, color: C.tinte, valign: 'middle' }, 'VORSATZ'),
       ph(`kf${i}_zahl`, { x, y: z.zahl, w, h: z.zahlH, fontFace: F.xbold, fontSize: 44, lineSpacing: 44, color: C.tinte, valign: 'middle' }, '00'),
       ph(`kf${i}_label`, { x, y: z.label, w, h: z.labelH, fontFace: F.mont, bold: true, fontSize: 14, color: C.tinte }, 'Bezeichnung'),
       ph(`kf${i}_text`, { x, y: z.text, w, h: z.textEnde - z.text, fontFace: F.text, fontSize: 14, lineSpacingMultiple: 1.12, color: C.anthrazit }, 'Text'),
@@ -160,7 +162,8 @@ function definiereLayouts(pres) {
     return [
       linie(colX(1), z.kopf, span(7), 0, C.tinte, 1.5, 'Modulkopf-Linie Diagramm'),
       ph('diagrammtitel', { x: colX(1), y: z.titel, w: span(7), h: 0.30, fontFace: F.mont, bold: true, fontSize: 16, color: C.tinte, valign: 'middle' }, 'Diagrammtitel'),
-      ph('diagrammsub', { x: colX(1), y: z.sub, w: span(7), h: 0.24, fontFace: F.text, fontSize: 12, color: C.grau, valign: 'middle' }, 'Untertitel mit Einheit'),
+      // oben verankert: Ein Untertitel in zwei Zeilen wächst nach unten (B.diagrammkopf rückt Legende und Diagramm dann tiefer)
+      ph('diagrammsub', { x: colX(1), y: z.sub, w: span(7), h: 0.22, fontFace: F.text, fontSize: 12, color: C.grau, valign: 'top' }, 'Untertitel mit Einheit'),
       { placeholder: { options: { name: 'chart', type: 'chart', objectName: 'Diagramm', ...z.chart, color: C.tinte } } },
       linie(colX(8), z.kopf, span(5), 0, C.tinte, 1.5, 'Modulkopf-Linie Kommentar'),
       ph('kommentar', { ...z.kommentar, fontFace: F.text, fontSize: 16, lineSpacingMultiple: 1.12, color: C.anthrazit }, 'Kommentar, höchstens 45 Wörter'),
@@ -186,11 +189,11 @@ function definiereLayouts(pres) {
       { rect: { x: colX(7), y: 2.10, w: span(6), h: z.flaecheEnde - 2.10, fill: { color: flaeche(g) }, line: { type: 'none' }, objectName: 'Fläche rechts' } },
       linie(colX(1), 2.10, span(6), 0, HEX.grau300, 1.5, 'Modulkopf-Linie links'),
       linie(colX(7), 2.10, span(6), 0, C.tinte, 1.5, 'Modulkopf-Linie rechts'),
-      txt('→', { x: colX(7) - 0.24, y: z.wert + z.wertH / 2 - 0.20, w: 0.24, h: 0.40, align: 'center', fontFace: F.mont, bold: true, fontSize: 20, color: C.rot, objectName: 'Pfeil' }),
+      txt('→', { x: colX(7) - 0.24, y: z.wert + z.wertH / 2 - 0.20, w: 0.24, h: 0.40, align: 'center', fontFace: F.mont, bold: true, fontSize: 20, color: C.tinte, objectName: 'Pfeil' }),
       ph('links_kopf', { x: z.links.x, y: z.kopf, w: z.links.w, h: 0.24, fontFace: F.mont, bold: true, fontSize: 12, charSpacing: 1.2, color: C.grau, valign: 'middle' }, 'BISHER'),
       ph('links_wert', { x: z.links.x, y: z.wert, w: z.links.w, h: z.wertH, fontFace: F.xbold, fontSize: 36, lineSpacing: 36, color: C.grau, valign: 'middle' }, 'Wert'),
       ph('links_text', { x: z.links.x, y: z.text, w: z.links.w, h: z.textEnde - z.text, ...t }, 'Text'),
-      ph('rechts_kopf', { x: z.rechts.x, y: z.kopf, w: z.rechts.w, h: 0.24, fontFace: F.mont, bold: true, fontSize: 12, charSpacing: 1.2, color: C.rot, valign: 'middle' }, 'NEU'),
+      ph('rechts_kopf', { x: z.rechts.x, y: z.kopf, w: z.rechts.w, h: 0.24, fontFace: F.mont, bold: true, fontSize: 12, charSpacing: 1.2, color: C.tinte, valign: 'middle' }, 'NEU'),
       ph('rechts_wert', { x: z.rechts.x, y: z.wert, w: z.rechts.w, h: z.wertH, fontFace: F.xbold, fontSize: 36, lineSpacing: 36, color: C.tinte, valign: 'middle' }, 'Wert'),
       ph('rechts_text', { x: z.rechts.x, y: z.text, w: z.rechts.w, h: z.textEnde - z.text, ...t }, 'Text'),
       ph('fuss', { ...z.fuss, fontFace: F.text, fontSize: 12, color: C.grau, valign: 'middle' }, 'Fußzeile unter beiden Seiten'),

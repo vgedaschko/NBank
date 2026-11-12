@@ -9,7 +9,10 @@ const Fl = require('./_fluss.cjs');
 module.exports = {
   id: 'rechnung-fluss-gefoerdert',
   bau(ctx) {
-    const { B, W, fmt } = ctx, s = ctx.folie(), M = k => W('modellhaus', k);
+    const { B, W, fmt } = ctx, M = k => W('modellhaus', k);
+    // Titel: Anteil der Tilgung an der Sollmiete aus der Mappe (Signaturwort, eine Nachkommastelle wie am Ziel); Gegenprobe gegen das Konzept in ctx.titelzeilen
+    const anteilTilgung = fmt.prozent(M('jr1.tilgung_nbank.A') / M('jr1.sollmiete.A'), 1);
+    const s = ctx.folie(ctx.titelzeilen([`Gefördert fließen ${anteilTilgung} der Miete`, 'in die Tilgung'], anteilTilgung));
     B.register(s, '2.1');
 
     const miete = M('jr1.sollmiete.A'), ausfall = M('jr1.mietausfall.A'), verwaltung = M('jr1.objektverwaltung.A'), instand = M('jr1.instandhaltung.A');

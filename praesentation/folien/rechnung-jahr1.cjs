@@ -8,13 +8,15 @@ const R = require('./_rechnung.cjs');
 module.exports = {
   id: 'rechnung-jahr1',
   bau(ctx) {
-    const { B, W, fmt, colX, span, ZONE } = ctx, s = ctx.folie(), M = k => W('modellhaus', k), G = R.G;
+    const { B, W, fmt, colX, span, ZONE } = ctx, M = k => W('modellhaus', k), G = R.G;
+    // Titel: Die Zahl ist der Zahlungsüberschuss der Gruppe A aus der Mappe (Signaturwort); die Gegenprobe gegen das Konzept macht ctx.titelzeilen
+    const ueberschussA = fmt.euro(M('jr1.zahlungsueberschuss.A'));
+    const s = ctx.folie(ctx.titelzeilen(['Alle drei Gruppen tragen sich ab Jahr 1,', `in A ${ueberschussA} Zahlungsüberschuss`], ueberschussA));
     // Annahme der Jahresrechnung: Tilgung 1 ÷ Höchstlaufzeit. Weicht die Mappe davon ab, stimmt der Satz „gleichmäßig über … Jahre“ nicht mehr.
     const laufzeit = M('tab.laufzeit_hoechstens');
     R.pruefe(Math.abs(M('jr1.satz.tilgung_nbank') - 1 / laufzeit) < 1e-9, 'Der Tilgungssatz der Jahresrechnung ist nicht 1 ÷ Höchstlaufzeit; den Satz „Tilgung gleichmäßig über … Jahre“ auf Folie 15 anpassen.');
     // Aussage des Titels: In allen drei Gruppen bleibt in Jahr 1 ein Zahlungsüberschuss; die Zahl im Titel ist die der Gruppe A
-    R.pruefe(G.every(g => M(`jr1.zahlungsueberschuss.${g}`) > 0) && ctx.glatt(ctx.o.titel).includes(ctx.glatt(fmt.euro(M('jr1.zahlungsueberschuss.A')))),
-      'Nicht mehr alle drei Gruppen haben in Jahr 1 einen Zahlungsüberschuss, oder der Titel der Folie 15 nennt nicht den Wert der Gruppe A.');
+    R.pruefe(G.every(g => M(`jr1.zahlungsueberschuss.${g}`) > 0), 'Nicht mehr alle drei Gruppen haben in Jahr 1 einen Zahlungsüberschuss; der Titel der Folie 15 stimmt dann nicht.');
     B.register(s, '2.1');
     const z = k => G.map(g => fmt.zahl(M(`jr1.${k}.${g}`))), satz = k => M('jr1.satz.' + k);
     const miete = G.map(g => fmt.dez(M(`fin.miete_jahr1.${g}`))).join(' | ');

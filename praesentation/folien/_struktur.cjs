@@ -31,14 +31,14 @@ function trenner(ctx, opt = {}) {
 // Agenda dem Programmteil 2.1 vorbehalten.
 // Achse der Agenda über die Breite w: waagerechte Achse (1 pt, Tinte), je Station ein Achskreis im Abstand „schritt“ (drei Rasterspalten); der
 // erste Kreis beginnt bei x (Kreise ragen um den halben Durchmesser über die Achse). Von jedem Kreis läuft eine Achslinie (Strichpunkt) nach
-// unten wie die Achsen eines Grundrisses; rechts daneben stehen Name (Montserrat ExtraBold, Versalien, einzeilig) und Inhalt (14 pt, höchstens
+// unten wie die Achsen eines Grundrisses; rechts daneben stehen Name (Montserrat Bold 16 pt, gemischt wie ein Modultitel, einzeilig) und Inhalt (14 pt, höchstens
 // zwei Zeilen, an der Wortfuge mit den ausgeglichensten Zeilen gebrochen).
 // o: { x, y (Oberkante der Achskreise), w, schritt, d, stationen: [{ nr, name, inhalt }], namePt, einzug, steg }
 // Rückgabe: { achse (y der Achse), unten (Ende der Achslinien), felder: [{ cx, x, w }] }
 function achsreihe(ctx, s, o) {
   const { B, P, F } = ctx, n = o.stationen.length, d = o.d ?? 0.90, schritt = o.schritt ?? o.w / n, einzug = o.einzug ?? 0.20, steg = o.steg ?? 0.22;
   const yAchse = o.y + d / 2, yName = o.y + d + 0.14, nameH = 0.30, yInhalt = yName + nameH + 0.04;
-  const st = B.stil('dicht'), zh = zeilenhoehe(st), namenStil = { fontFace: F.xbold, fontSize: o.namePt ?? 16, weite: 0.5 };
+  const st = B.stil('dicht'), zh = zeilenhoehe(st), namenStil = { fontFace: F.mont, bold: true, fontSize: o.namePt ?? 16 };
   // Felder: Text von der Achslinie bis vor die nächste Achslinie; das letzte Feld endet am Satzspiegel
   const felder = o.stationen.map((_, i) => {
     const cx = o.x + d / 2 + i * schritt, x = cx + einzug, ende = i < n - 1 ? cx + schritt - steg : o.x + o.w;
@@ -55,7 +55,7 @@ function achsreihe(ctx, s, o) {
   o.stationen.forEach((t, i) => {
     const f = felder[i];
     B.achskreis(s, { cx: f.cx, cy: yAchse, groesse: 'G', d, text: t.nr, name: 'Achskreis ' + t.nr });
-    P.zeile(`Abschnitt ${t.nr}, Name`, ctx.versal(ctx.schutz(t.name)), namenStil, f.w);
+    P.zeile(`Abschnitt ${t.nr}, Name`, ctx.schutz(t.name), namenStil, f.w);
     B.text(s, t.name, { x: f.x, y: yName, w: f.w, h: nameH, rolle: 'station', pt: namenStil.fontSize, valign: 'middle', einzeilig: true, name: `Abschnitt ${t.nr} Name` });
     B.text(s, texte[i], { x: f.x, y: yInhalt, w: f.w, rolle: 'dicht', name: `Abschnitt ${t.nr} Inhalt` });
   });

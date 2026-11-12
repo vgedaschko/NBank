@@ -9,7 +9,7 @@
   "blocks": [
     {
       "type": "table",
-      "caption": "Höchstmiete nettokalt, € je m² und Monat, Jahre 1–3",
+      "caption": "Höchstmiete nettokalt € je m² und Monat, Jahre 1–3",
       "columns": [
         "Programmteil",
         "Mietenstufe",
@@ -80,7 +80,7 @@
     {
       "type": "chart",
       "chart": "line",
-      "title": "Mietentwicklung und Markt, € je m² nettokalt",
+      "title": "Mietentwicklung und Markt € je m² nettokalt",
       "subtitle": "Programmteil 2.1 · Gruppe A · Mietenstufe IV–VII",
       "data": {
         "kind": "step",

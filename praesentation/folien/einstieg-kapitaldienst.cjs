@@ -10,7 +10,8 @@
 // Jahresrate; die Werte dieser Folie liegen deshalb etwas unter einer Rechnung nach der Mappe (19,95 statt 20,14 €). Kosten und Zins
 // Q1 2020 aus daten/markt.json (ARGE-Mediane und Zinsreihe der Altfassung, nicht nachgeprüft), Zins heute und Laufzeit aus daten/werte.json.
 // Die Folie ist keine Modellrechnung (weißer Grund, kein Papierton): Medianwerte deutscher Großstädte je m², kein einzelnes Haus. Rot im Diagramm nur an der
-// Summe von heute: Das ist die Zahl, die das Signaturwort des Titels nennt.
+// Summe von heute: Das ist die Zahl, die das Signaturwort des Titels nennt. Groß steht sie einmal, als Hauptzahl rechts; die Summen über den
+// Säulen stehen in der Größe aller Werte an Diagrammen (12 pt).
 'use strict';
 
 module.exports = {
@@ -39,13 +40,15 @@ module.exports = {
     for (const v of kd) if (!ctx.glatt(ctx.o.titel).includes(fmt.dez(v))) P.melde(`Titel der Folie nennt den Kapitaldienst nicht mit ${fmt.dez(v)}.`);
     if (!ctx.o.titel.includes(String(K('baukosten.von_jahr')))) P.melde(`Titel der Folie nennt das Jahr ${K('baukosten.von_jahr')} nicht.`);
 
-    // ---- Diagramm über acht Spalten ------------------------------------------------------------------------------------------
-    const staende = [K('baukosten.reihen')[0], 'Heute'], x0 = colX(1), w8 = span(8);
-    B.diagrammkopf(s, { titel: wl('Kapitaldienst je m² und Monat, frei finanziert', 'Diagrammtitel'), sub: wl(`in € · ARGE-Median deutscher Großstädte · Annuität ${n} Jahre · Anteile am Anstieg in %`, 'Untertitel') });   // ohne „über“: knapp 10 % Luft im einzeiligen Platzhalter
-    // Freie Lage bis zum Ende der Inhaltszone (die Grundlinie der Säulen liegt wie auf den Folien 4 und 6 bei y 6,04). Schmale Säulen (0,68 Zoll) mit
+    // ---- Diagramm über sieben Spalten ----------------------------------------------------------------------------------------
+    // Der Untertitel passt nicht in eine Zeile der sieben Spalten: zwei Zeilen, der Zeilenwechsel steht für das Trennzeichen
+    const staende = [K('baukosten.reihen')[0], 'Heute'], x0 = colX(1), w8 = span(7);
+    const kopf = B.diagrammkopf(s, { titel: wl('Kapitaldienst je m² und Monat, frei finanziert', 'Diagrammtitel'), sub: [wl('in € · ARGE-Median deutscher Großstädte', 'Untertitel'), wl(`Annuität ${n} Jahre · Anteile am Anstieg in %`, 'Untertitel')] });
+    // Freie Lage bis zum Ende der Inhaltszone (die Grundlinie der Säulen liegt wie auf den Folien 4 und 6 bei y 6,04). Das Diagramm beginnt unter
+    // der zweiten Zeile des Untertitels, 0,14 höher als die Vorgabe mit Legende: Diese Folie hat keine Legendenzeile. Schmale Säulen (0,68 Zoll) mit
     // feiner Kontur, ohne Größenachse und Gitter (Maßstab 0 bis 22 €: Die Summe von heute hat darüber Platz); rechts der Plotfläche stehen die
     // Ursachen des Anstiegs und die Notiz
-    const PLOT_W = 3.60, SAEULE = 0.68, ACHSE = { min: 0, max: 22, schritt: 2, format: 'roh' }, yD = 2.76, hD = ctx.Y.inhaltEnde - yD;
+    const PLOT_W = 3.40, SAEULE = 0.68, ACHSE = { min: 0, max: 22, schritt: 2, format: 'roh' }, yD = kopf.chart.y - 0.14, hD = ctx.Y.inhaltEnde - yD;
     const d = D.stapelSaeulen(s, { x: x0, y: yD, w: w8, h: hD, kategorien: staende, labels: false, fein: true, saeule: SAEULE, gitter: false, rand: { l: 0, r: w8 - PLOT_W }, achse: ACHSE,
       name: 'Diagramm Kapitaldienst je m² und Monat',
       altText: `Gestapeltes Säulendiagramm: Kapitaldienst je m² Wohnfläche und Monat, ${staende[0]} ${fmt.euroDez(kd[0])}, heute ${fmt.euroDez(kd[1])}; ` +
@@ -53,9 +56,9 @@ module.exports = {
       reihen: [{ name: wl(`Stand ${staende[0]}`, 'Reihe'), art: 'bezug', werte: [kd[0], kd[0]] }, ...teile.map(t => ({ name: t.name, art: t.art, werte: [0, t.wert] }))] });
     const links = i => d.katMitte(i) - d.saeulenBreite / 2, rechts = i => d.katMitte(i) + d.saeulenBreite / 2;
 
-    // Summen über den Säulen; die Summe von heute in Rot wie das Signaturwort des Titels (der heutige Stand). Die Summe von früher bleibt in Tinte:
-    // Der Titel nennt auch sie
-    kd.forEach((v, i) => B.text(s, wl(fmt.euroDez(v), 'Summe'), { x: d.katMitte(i) - 0.60, y: d.yWert(v) - 0.33, w: 1.20, h: 0.26, rolle: 'wertGross', farbe: i === 1 ? 'akzent' : undefined, align: 'center', valign: 'middle',
+    // Summen über den Säulen in der Größe der Werte an allen Diagrammen (12 pt; bis Muster 2 in 16 pt: Die Zahl stand mit Titel und Hauptzahl dreimal
+    // groß auf der Folie). Die Summe von heute in Rot wie das Signaturwort des Titels (der heutige Stand), die von früher in Tinte: Der Titel nennt auch sie
+    kd.forEach((v, i) => B.text(s, wl(fmt.euroDez(v), 'Summe'), { x: d.katMitte(i) - 0.60, y: d.yWert(v) - 0.27, w: 1.20, h: 0.22, rolle: 'wert', farbe: i === 1 ? 'akzent' : undefined, align: 'center', valign: 'middle',
       einzeilig: true, name: 'Summe ' + staende[i] }));
     // Anstieg: Bezugslinie (Haarlinie) auf der Höhe des Stands Q1 2020 und senkrechte Maßlinie zwischen den Säulen
     B.linie(s, { x: rechts(0), y: d.yWert(kd[0]), w: links(1) - rechts(0), art: 'mass', pt: 0.5, strich: 'dash', name: 'Bezugslinie Stand ' + staende[0] });

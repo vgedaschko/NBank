@@ -1,7 +1,7 @@
 // Folie A9 · Quellen und Hinweis (PGN_ANHANG): native Tabelle über zwölf Spalten (Folie | Quelle), darunter der Rechtshinweis im festen
 // Wortlaut als Kasten auf Fläche mit Modulkopf-Linie und zwei Sätze zu Herausgeber und Bildnachweis.
 // Texte und Kennungen stehen in daten/rahmen.json (quellen.*); die Blattnummern rechnet _struktur.cjs aus dem Feld „quellen“ aller Folien
-// des Konzepts, Version und Stand der Mappe kommen aus werte.json (meta). Kein Prüfvermerk auf der Folienfläche (steht in den Notizen).
+// des Konzepts, Version und Stand der Mappe kommen aus werte.json (meta). Kein Prüfvermerk auf der Folienfläche (er steht in INHALT.md, in der README und in den Datendateien).
 // Die Folien 3 bis 6 und 22 tragen dazu eine Kurzform ihrer Quelle im Schriftfeld (B.quelle); die volle Angabe steht nur hier.
 'use strict';
 const S = require('./_struktur.cjs');

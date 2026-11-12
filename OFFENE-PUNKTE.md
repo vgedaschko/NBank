@@ -17,6 +17,9 @@ Stand 12.11.2026. Aufgenommen ist nur, was aus dem Verlauf der Arbeit oder aus d
 | a7 | Vortrag, Folien 7, 10, 23 | Titelzeile 1 endet auf Doppelpunkt; ohne neuen Wortlaut nicht zu ändern (siehe b17). | kann |
 | a8 | Vortrag, Folie 10 | Text rechts in 14 pt, auf den Nachbarfolien 16 pt; in 16 pt passt er nur gekürzt (siehe b17). | kann |
 | a9 | Vortrag und Excel | Ergebnisse der Prüfung der Beispielkalkulation (Aufgabe 3) einarbeiten, soweit freigegeben. | offen bis Aufgabe 3 |
+| a10 | Vortrag Folien 9, 14, 23, 24, A6, A8; Broschüre S. 3, 4, 8, 10, 12, 13, 14, 16, 21; Excel (Tabellen, dritter Lauf) | Neue Bemessungsgrenze seit 01.10.2026 einarbeiten: 5.250 und 5.460 € statt 4.800 und 5.000 €. Betroffen sind Texte, der Abstand des Modellhauses zur Grenze (Folie 14, Broschüre S. 10), der dritte Lauf (5.000 € wird 5.460 €), die Anhangfolie A8 und der Stand der Broschüre (30.09.2026). Wartet auf b2. | muss |
+| a11 | Broschüre S. 14 | Ostfriesische Inseln: Die Produktinformation (Stand 05.11.2026) nennt jetzt zwei Werte, 7.875 € (Mietenstufe I bis III) und 8.190 € (IV bis VII). Die Broschüre nennt 7.200 € unabhängig von der Mietenstufe. Prüfen und nachziehen. | muss |
+| a12 | Broschüre, alle Fachseiten | Die beiden Produktinformationen der NBank tragen jetzt den Stand 05.11.2026 (vorher 31.08. und 28.07.2026). Fördersätze und Höchstmieten sind beim Überfliegen unverändert; ein vollständiger Abgleich mit der Broschüre steht aus. | sollte |
 
 ## b) Was die PGN liefern oder entscheiden muss
 
@@ -24,11 +27,11 @@ Stand 12.11.2026. Aufgenommen ist nur, was aus dem Verlauf der Arbeit oder aus d
 
 | Nr. | Folie oder Datei | Was fehlt | Wichtig |
 |---|---|---|---|
-| b1 | Vortrag Folien 15 bis 24; Broschüre S. 9, 11, 12; Excel Eingabe 3.1 | Tilgungssatz: Gerechnet ist mit 2,38 % (gleichmäßig über 42 Jahre, Annahme der PGN). Welchen Satz setzt die NBank fest? | muss |
-| b2 | Vortrag Folien 9, 14, 23, A6; Broschüre S. 3, 4, 8, 10 | Bemessungsgrenze: Wurden die Werte zum 01.10.2026 fortgeschrieben? Bis 21.10. waren auf nbank.de keine neuen Werte zu finden. | muss |
-| b3 | Vortrag Folien 14 bis 24, 22; Broschüre S. 10 | Herstellungskosten 3.579 € je m²: Herkunft aus fünf Projekten, Spanne 3.321 bis 3.861 € und Werte je Kostengruppe bestätigen. | muss |
+| b1 | Vortrag Folien 15 bis 24; Broschüre S. 9, 11, 12; Excel Eingabe 3.1 | Tilgungssatz: Gerechnet ist mit 2,38 % (gleichmäßig über 42 Jahre). Die Produktinformation der NBank (Stand 05.11.2026) nennt keinen Satz, nur die Rückzahlung in längstens 42 Jahren. Die 2,38 % sind damit der niedrigste zulässige Satz und bleiben als Annahme gekennzeichnet. Den Satz im Einzelfall setzt die NBank fest; erfragen kann man ihn nur dort (Förderberatung). | sollte · geprüft 12.11. |
+| b2 | Vortrag Folien 9, 14, 23, 24, A6, A8; Broschüre S. 3, 4, 8, 10, 12, 13, 14, 16, 21; Excel | Bemessungsgrenze: geprüft am 12.11. Die NBank hat sie zum 01.10.2026 fortgeschrieben: 5.250 € (Mietenstufe I bis III) und 5.460 € (IV bis VII), vorher 4.800 und 5.000 €. Entscheiden: alle drei Werke auf die neuen Werte umstellen? Siehe a10. | muss |
+| b3 | Vortrag Folien 14 bis 24, 22; Broschüre S. 10 | Herstellungskosten 3.579 € je m², Spanne und Werte je Kostengruppe. | erledigt · vom Auftraggeber am 12.11. bestätigt |
 | b4 | Vortrag Folien 13, 14; Broschüre S. 10 | Angaben zum Modellhaus für die Veröffentlichung freigeben (Ort, 14 Wohnungen, 828 m², Effizienzhaus 55, Grundstück im Bestand). Sie sind nicht gegen Projektunterlagen geprüft. | muss |
-| b5 | Vortrag Folie 15, A5; Broschüre S. 10, 11 | Gilt Neu Wulmstorf als angespannter Wohnungsmarkt per Verordnung? Davon hängt die Zulassung von B und C ab. Die Broschüre schreibt es, der Vortrag schweigt dazu. | muss |
+| b5 | Vortrag Folie 15, A5; Broschüre S. 10, 11 | Neu Wulmstorf: geprüft am 12.11. Die Gemeinde steht in § 1 Abs. 1 der Niedersächsischen Mieterschutzverordnung (Fassung ab 04.12.2025) unter den 57 Kommunen mit angespanntem Wohnungsmarkt, gültig bis 31.12.2029. Die Aussage der Broschüre stimmt. | erledigt |
 | b6 | Vortrag Folien 4, 5, 6 | Zinsreihe der Dr. Klein Wowi Finanz AG und Bestandsreihe aus BT-Drs. 21/7303: Darf die PGN sie zeigen, stimmen die Quellenangaben? Beide sind aus dem ursprünglichen Vortrag übernommen und nicht nachgeprüft. | sollte |
 | b7 | Vortrag Folie 22 | Ausstattung (KG 600): Aus 74,75 € (PGN) und 75,77 € (ARGE) ergeben sich −1,3 %; der ursprüngliche Vortrag zeigte −1,4 %. Ungerundeten PGN-Wert liefern oder −1,3 % bestätigen. | kann |
 | b8 | Vortrag Folie A7 | Rendite frei finanziert (8,03 %) liegt über der geförderten (6,95 bis 7,29 %). Soll die Folie so im Anhang bleiben? | sollte |
@@ -41,7 +44,7 @@ Stand 12.11.2026. Aufgenommen ist nur, was aus dem Verlauf der Arbeit oder aus d
 |---|---|---|---|
 | b11 | Vortrag, pptx | In PowerPoint öffnen und durchsehen. Geprüft ist bisher nur das Bild aus LibreOffice. Besonders: Schriftfeld und Rahmen, Folien 3 und 22 (Sockel der Säulen), zweizeilige Untertitel. | muss |
 | b12 | Vortrag Folie 1, A2 | Ort und Datum des Vortrags. Liegt der Termin nach dem 31.12.2026, entfällt A2. | muss |
-| b13 | Vortrag Folie 27; Broschüre U1, S. 22 | Bildrechte Brauerstraße für öffentliche Vorträge und Druck. | muss |
+| b13 | Vortrag Folie 27; Broschüre U1, S. 22 | Bildrechte Brauerstraße liegen bei der PGN. | erledigt · Auskunft vom 12.11. |
 | b14 | Vortrag, alle Folien | Schrift: bei Montserrat und Work Sans bleiben oder auf Aptos umstellen (zurückgestellt als letzter Schritt). Mit Montserrat und Work Sans gibt es in PowerPoint keine Tabellenziffern. | sollte |
 | b15 | Vortrag, Hauptteil | Dauer 33 bis 35 Minuten bei 28 Folien. Reicht die Redezeit? Sonst wandert zuerst Folie 21 in den Anhang. | sollte |
 | b16 | Vortrag Folie 24 | Titel „Tilgungssatz, Kosten und Höchstmiete bestimmen das Ergebnis“ bestätigen. | kann |
@@ -53,7 +56,7 @@ Stand 12.11.2026. Aufgenommen ist nur, was aus dem Verlauf der Arbeit oder aus d
 | Nr. | Folie oder Datei | Was fehlt | Wichtig |
 |---|---|---|---|
 | b19 | Broschüre S. 20, 15, 22 | Leistungsaussagen bestätigen: Station 1 (Flächen und Kosten für die Wirtschaftlichkeitsberechnung), Station 5 (Ausschreibung und Vergabe), gestufte Beauftragung, Verwendungsnachweis, „Schlüsselfertig“ (Prüfzustimmung als Generalübernehmer), Angebotssatz S. 15, Referenzen und Auftraggeber S. 22. | muss |
-| b20 | Broschüre S. 2, 6 | Zitate Tonne und Kiesewetter: Verwendung mit den Pressestellen von MW und NBank abstimmen. | muss |
+| b20 | Broschüre S. 2, 6 | Zitate Tonne und Kiesewetter aus der Pressemitteilung des Ministeriums vom 03.07.2026: Eine kurze Nachricht an die beiden Pressestellen ist ratsam, weil die Zitate in einer Firmenbroschüre wie eine Empfehlung der PGN durch Minister und NBank gelesen werden können. Rechtlich zwingend ist das nach meiner Einschätzung nicht; ich bin kein Jurist. | sollte |
 | b21 | Broschüre U1, S. 22, 20 | Bildrechte und Originalfotos in Druckauflösung; U1-Bildzeile „19 barrierefreie Wohnungen · mit Förderung der NBank“ bestätigen. | muss |
 | b22 | Broschüre U1, U4, U3 | Logo, CI und Druckfarben freigeben (Negativ-Wortmarke, CMYK- oder Pantone-Werte für PGN-Rot, Andruck des roten Umschlags). | muss vor Druck |
 | b23 | Broschüre U3 | Impressum: Herausgeberzeile, Bezeichnung „Geschäftsführung“, Stand der Geschäftsführung ab 01.01.2027, PDF-Metadaten. | sollte |

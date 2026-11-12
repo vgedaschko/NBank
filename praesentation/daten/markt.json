@@ -640,31 +640,27 @@
           221.13
         ],
         "einheit": "€ je m² Wohnfläche, brutto, Median, Kostenstand Q4 2025; Reihenfolge wie „gruppen“",
-        "herkunft": "Altfassung Folie 12, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeilen „… · PGN“, Spalte „Median“; Quelle laut Altfassung: PGN (2026): eigene Auswertung von fünf Projekten (KOFO-Kosten, Hochrechnung auf Q4 2025 gem. Bauleistungspreisindex des LSN)",
-        "geprueft": false,
-        "vermerk": "nicht nachgeprüft"
+        "herkunft": "Altfassung Folie 12, Diagramm, eingebettete Arbeitsmappe (Sheet1), Zeilen „… · PGN“, Spalte „Median“; Quelle laut Altfassung: PGN (2026): eigene Auswertung von fünf Projekten (KOFO-Kosten, Hochrechnung auf Q4 2025 gem. Bauleistungspreisindex des LSN); vom Auftraggeber am 12.11.2026 bestätigt",
+        "geprueft": true
       },
       "spanne_herstellung": {
         "min": {
           "wert": 3321.38,
           "einheit": "€ je m² Wohnfläche, brutto, KG 200–700",
-          "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“, Spalte „_Sockel (bis min)“; Quelle laut Altfassung: PGN (2026): eigene Auswertung von fünf Projekten (KOFO-Kosten, Hochrechnung auf Q4 2025 gem. Bauleistungspreisindex des LSN)",
-          "geprueft": false,
-          "vermerk": "nicht nachgeprüft"
+          "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“, Spalte „_Sockel (bis min)“; Quelle laut Altfassung: PGN (2026): eigene Auswertung von fünf Projekten (KOFO-Kosten, Hochrechnung auf Q4 2025 gem. Bauleistungspreisindex des LSN); vom Auftraggeber am 12.11.2026 bestätigt",
+          "geprueft": true
         },
         "median": {
           "wert": 3579.18,
           "einheit": "€ je m² Wohnfläche, brutto, KG 200–700",
-          "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“, Spalte „Median“; Quelle laut Altfassung: PGN (2026): eigene Auswertung von fünf Projekten (KOFO-Kosten, Hochrechnung auf Q4 2025 gem. Bauleistungspreisindex des LSN)",
-          "geprueft": false,
-          "vermerk": "nicht nachgeprüft"
+          "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“, Spalte „Median“; Quelle laut Altfassung: PGN (2026): eigene Auswertung von fünf Projekten (KOFO-Kosten, Hochrechnung auf Q4 2025 gem. Bauleistungspreisindex des LSN); vom Auftraggeber am 12.11.2026 bestätigt",
+          "geprueft": true
         },
         "max": {
           "wert": 3861.35,
           "einheit": "€ je m² Wohnfläche, brutto, KG 200–700",
-          "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“: Sockel + „Spanne min bis Median“ + „Spanne Median bis max“ (3321.38 + 257.8 + 282.17); Quelle laut Altfassung: PGN (2026): eigene Auswertung von fünf Projekten (KOFO-Kosten, Hochrechnung auf Q4 2025 gem. Bauleistungspreisindex des LSN)",
-          "geprueft": false,
-          "vermerk": "nicht nachgeprüft"
+          "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“: Sockel + „Spanne min bis Median“ + „Spanne Median bis max“ (3321.38 + 257.8 + 282.17); Quelle laut Altfassung: PGN (2026): eigene Auswertung von fünf Projekten (KOFO-Kosten, Hochrechnung auf Q4 2025 gem. Bauleistungspreisindex des LSN); vom Auftraggeber am 12.11.2026 bestätigt",
+          "geprueft": true
         }
       }
     },
@@ -882,138 +878,120 @@
           "min": {
             "wert": 3321.38,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“, Spalte „_Sockel (bis min)“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“, Spalte „_Sockel (bis min)“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           },
           "median": {
             "wert": 3579.18,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“, Sockel + „Spanne min bis Median“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“, Sockel + „Spanne min bis Median“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           },
           "max": {
             "wert": 3861.35,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“, Sockel + beide Spannen; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · PGN“, Sockel + beide Spannen; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           }
         },
         "vorbereitende_massnahmen": {
           "min": {
             "wert": 12.92,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Vorbereitende Maßnahmen · PGN“, Spalte „_Sockel (bis min)“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Vorbereitende Maßnahmen · PGN“, Spalte „_Sockel (bis min)“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           },
           "median": {
             "wert": 57.53,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Vorbereitende Maßnahmen · PGN“, Sockel + „Spanne min bis Median“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Vorbereitende Maßnahmen · PGN“, Sockel + „Spanne min bis Median“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           },
           "max": {
             "wert": 118.13,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Vorbereitende Maßnahmen · PGN“, Sockel + beide Spannen; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Vorbereitende Maßnahmen · PGN“, Sockel + beide Spannen; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           }
         },
         "bauwerk": {
           "min": {
             "wert": 2723.73,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Bauwerk · PGN“, Spalte „_Sockel (bis min)“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Bauwerk · PGN“, Spalte „_Sockel (bis min)“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           },
           "median": {
             "wert": 2812.42,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Bauwerk · PGN“, Sockel + „Spanne min bis Median“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Bauwerk · PGN“, Sockel + „Spanne min bis Median“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           },
           "max": {
             "wert": 2940.06,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Bauwerk · PGN“, Sockel + beide Spannen; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Bauwerk · PGN“, Sockel + beide Spannen; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           }
         },
         "aussenanlagen": {
           "min": {
             "wert": 149.1,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Außenanlagen · PGN“, Spalte „_Sockel (bis min)“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Außenanlagen · PGN“, Spalte „_Sockel (bis min)“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           },
           "median": {
             "wert": 221.13,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Außenanlagen · PGN“, Sockel + „Spanne min bis Median“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Außenanlagen · PGN“, Sockel + „Spanne min bis Median“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           },
           "max": {
             "wert": 362.99,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Außenanlagen · PGN“, Sockel + beide Spannen; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Außenanlagen · PGN“, Sockel + beide Spannen; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           }
         },
         "ausstattung": {
           "min": {
             "wert": 60.78,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Ausstattung · PGN“, Spalte „_Sockel (bis min)“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Ausstattung · PGN“, Spalte „_Sockel (bis min)“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           },
           "median": {
             "wert": 74.75,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Ausstattung · PGN“, Sockel + „Spanne min bis Median“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Ausstattung · PGN“, Sockel + „Spanne min bis Median“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           },
           "max": {
             "wert": 88.71,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Ausstattung · PGN“, Sockel + beide Spannen; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Ausstattung · PGN“, Sockel + beide Spannen; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           }
         },
         "baunebenkosten": {
           "min": {
             "wert": 258.98,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Baunebenkosten · PGN“, Spalte „_Sockel (bis min)“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Baunebenkosten · PGN“, Spalte „_Sockel (bis min)“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           },
           "median": {
             "wert": 458.19,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Baunebenkosten · PGN“, Sockel + „Spanne min bis Median“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Baunebenkosten · PGN“, Sockel + „Spanne min bis Median“; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           },
           "max": {
             "wert": 629.94,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Baunebenkosten · PGN“, Sockel + beide Spannen; Quelle: PGN (2026), eigene Auswertung von fünf Projekten",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Baunebenkosten · PGN“, Sockel + beide Spannen; Quelle: PGN (2026), eigene Auswertung von fünf Projekten; vom Auftraggeber am 12.11.2026 bestätigt",
+            "geprueft": true
           }
         }
       }

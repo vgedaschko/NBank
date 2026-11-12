@@ -1,0 +1,72 @@
+diff -ru a/broschuere/src/pages/11-wirtschaftlichkeit.html b/broschuere/src/pages/11-wirtschaftlichkeit.html
+--- a/broschuere/src/pages/11-wirtschaftlichkeit.html
++++ b/broschuere/src/pages/11-wirtschaftlichkeit.html
+@@ -44,30 +44,43 @@
+     .page[data-page="11"] .p11-cmp-t col.p11-cmp-val { width: 23mm; }
+     .page[data-page="11"] .p11-cmp-t th, .page[data-page="11"] .p11-cmp-t td { padding-top: .9mm; padding-bottom: .9mm; }
+     .page[data-page="11"] .p11-cmp-t thead th { padding-top: .2mm; padding-bottom: .3mm; vertical-align: middle; }
++    /* MUSTER 2 · Stufung und Zuteilung statt Gleichlaut. Schriftstufen der Seite: 25 (H1) | 15,5 (zweite Stimme) | 12 (Vorspann,
++       Modultitel) | 9,5 (Text, Tabellen) | 8,5 (Labels, Unterzeilen). Rot: Titellinie, Kennwert im H1, Zuschuss, Ergebniszeile, Register. */
++    .page[data-page="11"] { --fs-body: 9.5pt; --fs-small: 9.5pt; --fs-module: 9.5pt; --lh-body: 1.42; --lh-module: 1.42; }
++    .page[data-page="11"] .page__header { margin-bottom: 5mm; }
++    .page[data-page="11"] .h1 .light { margin-bottom: 1.2mm; color: var(--fg); }
++    .page[data-page="11"] .p11-intro .lead { font-size: 12pt; line-height: 1.36; color: var(--fg); }
++    .page[data-page="11"] .p11-intro .body { margin-top: 2.2mm; color: var(--fg-2); }
++    .page[data-page="11"] .chart__title { font-size: 12pt; line-height: 1.2; letter-spacing: 0; text-transform: none; }
++    .page[data-page="11"] .chart__unit { font-size: var(--fs-body); margin-left: .6mm; }
++    .page[data-page="11"] .pageref { display: inline; padding: 0; background: none; font-family: var(--font-text); font-size: 1em; font-weight: 600; line-height: inherit; color: var(--fg); }
++    .page[data-page="11"] .p11-mix__svg .cap-line { stroke: var(--fg); }
++    .page[data-page="11"] .p11-mix__svg .t-acc { fill: var(--fg); }
++    .page[data-page="11"] .p11-legend .sw--axis { --sw-axis: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4.6 .25' preserveAspectRatio='none'%3E%3Cpath d='M0,.125H4.6' stroke='%231D1D1B' stroke-width='.25' stroke-dasharray='1.6 .5 .4 .5'/%3E%3C/svg%3E"); }
++    .page[data-page="11"] .p11-jr tfoot td { font-size: var(--fs-micro); }
+   </style>
+ 
+   <div class="bs-register" data-bleed aria-hidden="true">2.1</div>
+ 
+-  <div class="kicker-row">
+-    <p class="kicker kicker--plain">Modellrechnung · Wirtschaftlichkeit</p>
+-  </div>
+-  <h1 class="h1 h1--s">Alle drei Gruppen tragen sich ab Jahr 1:<br><em>15.003&nbsp;€ Zahlungsüberschuss in A</em></h1>
++  <header class="page__header"><span class="page__section">Modellrechnung</span><div class="keyplan" role="img" aria-label="Programmteil 2.1 von sechs Programmteilen"><span class="keyplan__label">Programmteil</span><ol class="keyplan__list"><li class="bs-21 is-on">2.1</li><li class="bs-22">2.2</li><li class="bs-23">2.3</li><li class="bs-24">2.4</li><li class="bs-25">2.5</li><li class="bs-26">2.6</li></ol></div></header>
++  <h1 class="h1"><span class="light">Alle drei Gruppen tragen sich ab Jahr 1</span><em>15.003&nbsp;€</em> Zahlungsüberschuss in A</h1>
+ 
+   <!-- Band 1 · Vorspann + Legende (6, am Bund) | Finanzierung A | B | C (6, außen; Säulen über den Tabellenspalten) -->
+   <div class="l-grid p11-c">
+     <div class="l-span-6 p11-intro">
+-      <p class="lead lead--s u-hyphens">Das Modellhaus von S. 10 in drei Varianten, jede mit 80 % Förderung. B und C erhalten weniger Zuschuss und mehr Darlehen als A. Die Höchstmiete ist höher. Beide setzen eine Zulassung in der Förderentscheidung voraus (<a class="pageref" href="#seite-06">→&nbsp;S.&nbsp;6</a>). Im Modell ist sie möglich, weil der Standort per Verordnung als angespannter Wohnungsmarkt gilt.</p>
++      <p class="lead">Das Modellhaus von S. 10 in drei Varianten, jede mit 80 % Förderung.</p>
++      <p class="body u-hyphens">B und C erhalten weniger Zuschuss und mehr Darlehen als A. Die Höchstmiete ist höher. Beide setzen eine Zulassung in der Förderentscheidung voraus (<a class="pageref" href="#seite-06">→&nbsp;S.&nbsp;6</a>). Im Modell ist sie möglich, weil der Standort per Verordnung als angespannter Wohnungsmarkt gilt.</p>
+       <ul class="legend p11-legend">
+         <li><i class="sw sw--loan"></i>Darlehen</li>
+         <li><i class="sw sw--grant"></i>Zuschuss</li>
+         <li><i class="sw sw--equity"></i>Eigenmittel, mind.</li>
+         <li><i class="sw sw--axis"></i>Förderung, bis zu 80 %</li>
+       </ul>
+-      <h2 class="chart__title p11-jr-h" id="p11-jr-h">Jahresrechnung Jahr 1, in € p. a.</h2>
++      <h2 class="chart__title p11-jr-h" id="p11-jr-h">Jahresrechnung Jahr 1 <span class="chart__unit">in € p. a.</span></h2>
+     </div>
+     <figure class="l-span-6 chart module p11-mix" role="group" aria-labelledby="p11-mix-h">
+       <figcaption class="chart__head">
+-        <h2 class="chart__title" id="p11-mix-h">Finanzierung in Mio. €</h2>
++        <h2 class="chart__title" id="p11-mix-h">Finanzierung <span class="chart__unit">in Mio. €</span></h2>
+         <p class="chart__sub">Gesamtkosten je 3,0 Mio. € · Höchstsätze</p>
+       </figcaption>
+       <svg class="chart__svg p11-mix__svg" viewBox="0 0 87.5 43.6" width="87.5mm" height="43.6mm" role="img" aria-label="Finanzierung in Millionen Euro, Gesamtkosten je 3,0 Millionen Euro, Höchstsätze, je Einkommensgruppe: A Darlehen 1,2, Zuschuss 1,2, Eigenmittel mindestens 0,6; B Darlehen 1,8, Zuschuss 0,6, Eigenmittel mindestens 0,6; C Darlehen 2,1, Zuschuss 0,3, Eigenmittel mindestens 0,6. Förderung bis zu 80 Prozent in allen drei Gruppen je 2,4. Die Säulen stehen über den Spalten A, B und C der Jahresrechnung."><path class="cap-line" d="M0,9.4H87.5"/><rect class="c-grant" x="10" y="26.55" width="15" height="16.45"/>
+@@ -87,7 +100,7 @@
+   </div>
+ 
+   <!-- Hauptelement · Jahresrechnung (Spalten A | B | C unter den Säulen) -->
+-  <table class="table table--sheet p11-jr" aria-labelledby="p11-jr-h">
++  <table class="table table--sheet p11-jr u-nohyphens" aria-labelledby="p11-jr-h">
+     <colgroup><col class="col-no"><col><col class="p11-c-val"><col class="p11-c-val"><col class="p11-c-val"></colgroup>
+     <thead><tr><th scope="col" aria-label="Zeile"></th><th scope="col">Position</th><th scope="col" class="p11-abc"><span class="axis-no axis-no--s">A</span></th><th scope="col" class="p11-abc"><span class="axis-no axis-no--s">B</span></th><th scope="col" class="p11-abc"><span class="axis-no axis-no--s">C</span></th></tr></thead>
+     <tbody>
+@@ -96,7 +109,7 @@
+       <tr><th scope="row">2</th><td class="is-hang"><span class="table__op">−</span> Objektverwaltung, 367 € je Wohnung p. a. (Betriebskosten voll umgelegt)</td><td class="num">5.138</td><td class="num">5.138</td><td class="num">5.138</td></tr>
+       <tr><th scope="row">3</th><td class="is-hang"><span class="table__op">−</span> Instandhaltung, 14,40 € je m² p. a.</td><td class="num">11.923</td><td class="num">11.923</td><td class="num">11.923</td></tr>
+       <tr class="is-sum"><th scope="row">4</th><td class="is-hang"><span class="table__op">=</span> Überschuss vor Kapitaldienst</td><td class="num">49.152</td><td class="num">62.784</td><td class="num">70.574</td></tr>
+-      <tr><th scope="row">5</th><td class="is-hang"><span class="table__op">−</span> Verwaltungskostenbeitrag, 0,5 % des Restkapitals (Jahr 1, nach Vollauszahlung)</td><td class="num">5.927</td><td class="num">8.890</td><td class="num">10.372</td></tr>
++      <tr><th scope="row">5</th><td class="is-hang"><span class="table__op">−</span> Verwaltungskostenbeitrag, 0,5 % des Restkapitals <span class="u-nowrap">(Jahr 1, nach Vollauszahlung)</span></td><td class="num">5.927</td><td class="num">8.890</td><td class="num">10.372</td></tr>
+       <tr><th scope="row">6</th><td class="is-hang"><span class="table__op">−</span> Zins NBank-Darlehen, 0 % bis Ende Jahr 35</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+       <tr><th scope="row">7</th><td class="is-hang"><span class="table__op">−</span> Tilgung 2,38 % p. a. (Annahme: 42 Jahre) auf <span class="u-nowrap">1,2 | 1,8 | 2,1 Mio. €</span> Darlehen</td><td class="num">28.223</td><td class="num">42.334</td><td class="num">49.390</td></tr>
+       <tr class="is-result on-red"><th scope="row">8</th><td class="is-hang"><span class="table__op">=</span> Zahlungsüberschuss p. a.</td><td class="num">15.003</td><td class="num">11.560</td><td class="num">10.812</td></tr>

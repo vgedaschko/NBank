@@ -3,6 +3,8 @@
 Stand 12.11.2026. Grundlage: die drei Prüfberichte, `Auswertung.md` und die Nachfragen zu Laufzeit und Zinsquelle.
 Umgesetzt ist davon noch nichts.
 
+> **Nachtrag 12.11.2026:** Der Auftraggeber hat anders entschieden als hier vorgeschlagen: Die Zinsreihe ist bis 11/2026 nachgezogen, gerechnet wird mit 3,86 % (Wert vom 10.11.2026). Das ist in Vortrag, Broschüre S. 11 und Mappe umgesetzt. Der Abschnitt „Zum Zins: nicht nachziehen, sondern datieren“ ist damit überholt; die Zahlen der Tabellen unten gelten für 3,74 %. Mit 3,86 % lautet die nötige Miete frei finanziert 15,59 € (30 Jahre). Alles Übrige (Pakete 1 bis 3, drei Entscheidungen) ist offen.
+
 ## Grundsatz
 
 Die Rechnung bleibt, wie sie ist. Alle drei Prüfer haben sie nachgerechnet und keinen Fehler gefunden.

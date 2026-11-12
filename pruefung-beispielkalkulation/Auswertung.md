@@ -9,6 +9,20 @@ Die Tabellen je Prüfer stehen in den drei Berichten in diesem Ordner:
 
 An den Dateien des Projekts ist nichts geändert. Umgesetzt wird nur, was freigegeben ist.
 
+> **Nachtrag 12.11.2026:** Nach dieser Auswertung hat der Auftraggeber entschieden, die Zinsreihe nachzuziehen und mit 3,86 % zu rechnen (Wert vom 10.11.2026). Vortrag, Broschüre S. 11 und Mappe sind umgestellt. Wo unten 3,74 % steht, gilt jetzt:
+>
+> | Größe | Prüfung (3,74 %) | jetzt (3,86 %) |
+> |---|---:|---:|
+> | Kapitaldienst frei finanziert | 132.805 € | 134.779 € |
+> | Nötige Miete frei finanziert | 15,39 € | 15,59 € |
+> | Es fehlen zur Marktmiete in Jahr 1 | 0,91 € je m², 8.867 € | 1,11 € je m², 10.841 € |
+> | Jahre mit Fehlbetrag frei finanziert | 4 | 5 |
+> | Rendite frei finanziert mit Restwert (A7) | 8,03 % | 8,00 % |
+> | Kapitaldienst je m² und Monat, Folie 5 | 19,95 € | 20,25 € |
+> | Restschuld nach 10 Jahren | 1.847.133 € | 1.854.604 € |
+>
+> Der Vorschlag E2 ist damit erledigt (Variante b). Die geförderte Rechnung ist unverändert. Die Berichte der Prüfer bleiben im Stand ihrer Prüfung.
+
 Zwei Hinweise zum Lesen:
 
 - Die Prüfer haben mit der Bemessungsgrenze von 5.000 € je m² gearbeitet. Seit 01.10.2026 gelten 5.250 € und 5.460 € (OFFENE-PUNKTE.md, b2 und a10). Das betrifft Folie 23 und den Satz, den Prüfer 3 dazu vorschlägt; die übrigen Befunde hängen nicht daran.

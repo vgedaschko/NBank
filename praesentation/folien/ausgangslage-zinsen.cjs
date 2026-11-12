@@ -1,10 +1,10 @@
-// Folie 4 · PGN_DIAGRAMM: Sollzins p. a. nach Zinsbindung als natives Liniendiagramm mit drei Reihen zu je 127 Monatswerten (01/2016 bis 07/2026),
+// Folie 4 · PGN_DIAGRAMM: Sollzins p. a. nach Zinsbindung als natives Liniendiagramm mit drei Reihen zu je 131 Monatswerten (01/2016 bis 11/2026),
 // die Jahre als Textfelder an kurzen Jahresstrichen unter der Achse. Die Linien sind fein (1,5 pt) und im Ton gestuft: 10 Jahre in PGN-Rot mit einer weichen Fläche
 // darunter (die Reihe, von der Titel und Hauptzahl sprechen), 20 Jahre in Referenzgrau, 30 Jahre in Tinte. Die Legende trägt die Werte des letzten
 // Monats; ein Punkt markiert das Ende der Reihe „10 Jahre“. Zwei feine gestrichelte Marken tragen die Quartalsmittel untereinander.
 // Rechts wie auf den Folien 3, 5 und 6 die Hauptzahl (Sollzins im letzten Monat der Reihe, 10 Jahre Zinsbindung) und darunter der Wert für
 // Q1 2020; mit beiden rechnet die Folie 5, und beide nennt der Titel.
-// Zinsreihe aus daten/markt.json (Altfassung Folie 24, nicht nachgeprüft), Zins des Bankdarlehens und Zinsbindung aus daten/werte.json.
+// Zinsreihe aus daten/markt.json (Dr. Klein Wowi Finanz AG, an der Quelle gelesen am 12.11.2026), Zins des Bankdarlehens und Zinsbindung aus daten/werte.json.
 'use strict';
 const E = require('./_einstieg.cjs');
 const FEIN = require('./_fein_ausgangslage-zinsen.cjs');
@@ -21,7 +21,7 @@ module.exports = {
 
     B.diagrammkopf(s, { titel: T('diagrammtitel'), sub: T('untertitel') });
     // Legende mit den Werten des letzten Monats
-    FEIN.legendeMitWerten(ctx, s, { x: colX(1), y: ZONE.diagramm.legende, kopf: ctx.wortlaut(monatWort(monate[n]), 'Bezeichnung der Legende'),
+    FEIN.legendeMitWerten(ctx, s, { x: colX(1), y: ZONE.diagramm.legende, wMax: ctx.span(7), kopf: ctx.wortlaut(monatWort(monate[n]), 'Bezeichnung der Legende'),
       eintraege: reihen.map(r => ({ name: r.name, wert: wert(r.werte[n]), art: r.art })) });
 
     // Kategorien: Der Januar trägt die Jahreszahl. Die Jahre stehen als Textfelder unter der Achse (katLabels.formen), jedes an einem kurzen

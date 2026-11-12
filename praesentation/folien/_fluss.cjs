@@ -9,7 +9,7 @@
 const { breite } = require('../lib/passpruefung.cjs');
 
 // ---- Festlegungen für beide Folien ----------------------------------------------------------------------------------------------------------
-const MASSSTAB = 68000;    // Euro je Zoll Höhe: 152.924 € (Quelle der Folie 18) sind 2,25 Zoll, 67.565 € (Quelle der Folie 17) sind 0,99 Zoll.
+const MASSSTAB = 68000;    // Euro je Zoll Höhe: 154.939 € (Quelle der Folie 18) sind 2,28 Zoll, 67.565 € (Quelle der Folie 17) sind 0,99 Zoll.
                            // Der Maßstab folgt dem Modellhaus: Die Quelle der Folie 18 füllt die Höhe der Inhaltszone, und das Band der Tilgung
                            // auf Folie 17 ist höher als 0,40 Zoll (Kernwert im Band).
 // Farbrollen wie auf Folie 16: Tilgung in Tinte, Zins im Referenzgrau, Verwaltungskostenbeitrag hell, Bewirtschaftung blass (Töne der

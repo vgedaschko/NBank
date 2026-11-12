@@ -588,14 +588,14 @@ Einheit: Mio. €
 |---|---|---|
 | Zuschuss | 1,2 Mio. € | 0 |
 | Darlehen | 1,2 Mio. € | 2,4 Mio. € |
-| Kapitaldienst p. a. | 34.150 € | 132.805 € |
-| **Miete je m² und Monat, bei der Zeile 8 null ist** | **5,26 €** | **15,39 €** |
+| Kapitaldienst p. a. | 34.150 € | 134.779 € |
+| **Miete je m² und Monat, bei der Zeile 8 null ist** | **5,26 €** | **15,59 €** |
 
 *Werte: VOFI-Mappe v3, Projekt 2, Übersicht 8.2 und 8.3 (DSCR-Ziel 1,0), Eingaben 6.1 und 6.4.*
 
 #### Annahmen
 
-Frei finanziert: gleiches Haus, Eigenmittel 0,6 Mio. €, Bankdarlehen 2,4 Mio. € zu 3,74 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern. In den geförderten Varianten ist die Tilgung gleichmäßig auf die Höchstlaufzeit von 42 Jahren verteilt. Den Satz legt die NBank fest (→ S. 9). B und C gegenüber A → S. 12
+Frei finanziert: gleiches Haus, Eigenmittel 0,6 Mio. €, Bankdarlehen 2,4 Mio. € zu 3,86 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern. In den geförderten Varianten ist die Tilgung gleichmäßig auf die Höchstlaufzeit von 42 Jahren verteilt. Den Satz legt die NBank fest (→ S. 9). B und C gegenüber A → S. 12
 
 ---
 
@@ -1185,7 +1185,7 @@ Interne Liste, nicht Teil der Broschüre. Alles, was PGN liefern, bestätigen od
 | S. 11, 4 | Zwischensumme (Übersicht Zeile 33) | 49.152 / 62.784 / 70.574 |
 | S. 11, 7 | 2,38 % p. a. linear (1/42, Höchstlaufzeit) ab Jahr 1 (Eingabe 3.1, F17) – **PGN-Annahme**, keine Projektgröße; den Satz legt die NBank fest (→ Anhang A Nr. 9) | − Tilgung 2,38 % p. a. (Annahme: 42 Jahre): 28.223 / 42.334 / 49.390 |
 | S. 11, 8 | Ergebnis Zeile 4 − 5 − 6 − 7 (Übersicht Zeile 38) | 15.003 / 11.560 / 10.812 |
-| S. 11, Vergleich | Übersicht 8.2, 8.3 (D und G), 1.10 | Kapitaldienst 34.150 / 132.805 € (A / Frei); Miete, bei der Zeile 8 null ist: 5,26 / 15,39 € je m² |
+| S. 11, Vergleich | Übersicht 8.2, 8.3 (D und G), 1.10 | Kapitaldienst 34.150 / 134.779 € (A / Frei); Miete, bei der Zeile 8 null ist: 5,26 / 15,59 € je m² |
 | S. 12, Rechenweg | Übersicht 4.9–4.18 | Unterzeile − Mietausfall 2 %: 278 / 437 (B / C); Tilgungsschwellen 1,80 % (B) / 1,91 % (C); Schnittpunkt C/B 2,13 % |
 | S. 12, Tabellenfuß | Übersicht 3.8 | Zahlungsüberschuss null bei 3,65 % / 3,03 % / 2,90 % Tilgung |
 

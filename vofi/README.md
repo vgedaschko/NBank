@@ -49,6 +49,10 @@ python pruefe_vofi.py --baseline /tmp/vofi_stand_vorher.xlsx
 
 Änderungen an der Mappe immer im Generator, nie in der xlsx. Wer Adressen, Texte oder Rechenregeln ändert, zieht `KONZEPT-v3.md` und `pruefe_vofi.py` nach; das Prüfskript liest den Generator nicht. Jeder Text der Mappe steht deshalb an drei Stellen im selben Wortlaut: `build_vofi.py`, `pruefe_vofi.py`, `KONZEPT-v3.md`.
 
+## Stand 12.11.2026
+
+- Bankzins und Anschlusszins (Eingabe 6.1 und 6.3) stehen in beiden Projekten auf 3,86 % statt 3,74 %: Dr. Klein Wowi Finanz AG, Top-Konditionen Wohnungswirtschaft, 10 Jahre Zinsbindung, Wert vom 10.11.2026 (Auftrag des Auftraggebers vom 12.11.2026). Es ändern sich die Werte „frei finanziert“ und der Förderbarwert; Zahlen in `AENDERUNGEN.md` Abschnitt 11, Umsetzung und Prüfskript in `KONZEPT-v3.md` Abschnitt S. Abnahme: 617 Prüfungen ohne Fehler.
+
 ## Stand 11.11.2026
 
 - Modellhaus ist Projekt 2 (Entscheidung des Auftraggebers vom 11.11.2026): Das Modellhaus von Broschüre und Präsentation ist das PGN-Projekt Tarutinoer Str. 4 in Neu Wulmstorf (14 Wohnungen, 828 m², Herstellungskosten 3.579 €/m², Mietenstufe VI; Grundstück im Bestand, Ansatz 0 €). Die Mappe wird mit Eingaben D3 = 2 ausgeliefert. Projekt 1 (20 Wohnungen, 1.400 m², 4.500 €/m²) bleibt in der Mappe und heißt „Vergleichshaus, 20 Wohnungen“; bis 11.11.2026 war es das Modellhaus. Geändert sind D3 und 15 Texte (Projektnamen, Quellen, Hinweise 6, 14 und 15, Fußnoten der Tabelle 4). Keine Zelle hat die Adresse gewechselt, kein Rechenwert hat sich geändert. Einzelheiten und Sollwerte des Modellhauses: `KONZEPT-v3.md`, Abschnitt R; `AENDERUNGEN.md`, Abschnitt 10.

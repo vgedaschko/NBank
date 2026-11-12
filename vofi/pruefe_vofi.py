@@ -589,11 +589,11 @@ EINGABEN = [
     ("5.5", 33, "Kosten_Vorlauf", "Kostensätze 2026 fortschreiben um", "Jahre", "ganz", ("whole", 0, 10),
      "Broschüre S. 11 (Kostenstand 2026)", lambda P: 0, lambda P: 0),
     ("6.1", 35, "Zins_Bank", "Zins Bank; Vergleichszins Förderbarwert", "% p. a.", "pct", ("decimal", 0, 0.15),
-     "PGN-Annahme (Bundesbank-Statistik, Vorgängermappe)", _g("zins_bank"), _g("zins_bank")),
+     "Dr. Klein Wowi, Top-Konditionen 10 Jahre, Stand 10.11.2026", _g("zins_bank"), _g("zins_bank")),
     ("6.2", 36, "Zinsbindung", "Zinsbindung", "Jahre", "ganz", ("whole", 1, 42), "PGN-Annahme (Vorgängermappe)",
      _g("zinsbindung"), _g("zinsbindung")),
     ("6.3", 37, "Zins_Anschluss", "Anschlusszins", "% p. a.", "pct", ("decimal", 0, 0.15),
-     _VG + " Best 2,74 %, Worst 4,74 %", _g("zins_anschluss"), _g("zins_anschluss")),
+     "PGN-Annahme: wie Eingabe 6.1; Vorgängermappe ± 1 Punkt", _g("zins_anschluss"), _g("zins_anschluss")),
     ("6.4", 38, "Laufzeit_Bank", "Laufzeit Bankdarlehen (Annuität)", "Jahre", "ganz", ("whole", 1, 60),
      "PGN-Annahme (Vorgängermappe)", lambda P: 30, lambda P: 30),
     ("7.1", 40, "EK_Zusatz", "Zusätzliches Eigenkapital bar, mindert Bank", "€", "eur0", ("decimal", 0, 1e9),
@@ -677,6 +677,7 @@ T4 = "T4"                                                 # Schlüssel in den Te
 # für den Landkreis Rotenburg (Wümme), Vergleichsmiete als PGN-Annahme im Verhältnis 12,92 ÷ 14,48. Bis 10.11.2026 standen
 # dort die Platzhalter 12,92 / 14,48 €/m² (Abweichung A7) und die Kurve Neu Wulmstorf.
 OVM_ROTENBURG, MARKT_ROTENBURG = 11.87, 13.30
+ZINS_BANK = 0.0386
 OVM_PLATZHALTER, MARKT_PLATZHALTER = 12.92, 14.48
 
 NAMEN = {"Aktives_Projekt": "Eingaben!$F$4", "Projekt_Nr": "Eingaben!$D$3", "Projektliste": "Eingaben!$D$4:$E$4",
@@ -1137,6 +1138,16 @@ def lade_referenz():
     pb["ovm_start"], pb["markt_start"] = OVM_ROTENBURG, MARKT_ROTENBURG
     pb["lz_tab"] = list(zip(LZ_RND, LZ_ROTENBURG))
     BASIS["V"], BASIS["T"] = pb, rr.parameter_referenzprojekt(ANN)
+    # Bankzins und Anschlusszins seit 12.11.2026: 3,86 % (Dr. Klein Wowi, Top-Konditionen 10 Jahre, Stand 10.11.2026)
+    # statt 3,74 % der RR-Annahmen (Wert vom 21.07.2026). Gilt für beide Projekte; die RR bleibt unverändert.
+    for _p in BASIS.values():
+        _p["zins_bank"] = _p["zins_anschluss"] = ZINS_BANK
+
+
+def basis_v21():
+    """Parameter von Projekt 2 für den Abgleich mit v2-1 und die Überleitung E.3: Bankzins und Anschlusszins wie in der
+    Vorgängermappe (3,74 %, ZINS_BIS_11_11), sonst der Standard."""
+    return {**BASIS["T"], "zins_bank": ZINS_BIS_11_11["6.1"], "zins_anschluss": ZINS_BIS_11_11["6.3"]}
 
 
 def standard_eingaben(proj):
@@ -1903,6 +1914,9 @@ def vergleiche(p, was, ist, spec, werte_blatt=None):
 # =====================================================================================================
 # Bewertungsansätze von Projekt 1 bis 10.11.2026 (Platzhalter aus Neu Wulmstorf), für L63 und L68
 BEWERTUNG_BIS_10_11 = {"4.3": OVM_PLATZHALTER, "4.4": MARKT_PLATZHALTER, T4: LZ_NEU_WULMSTORF}
+# Bankzins und Anschlusszins bis 11.11.2026: 3,74 % (Wert vom 21.07.2026, RR-Annahmen und v2-1). Die Läufe, die frühere
+# Stände tragen (L63 bis L68: Regression, Abgleich mit v2-1, Überleitung E.3, frühere Sollwerte), rechnen damit weiter.
+ZINS_BIS_11_11 = {"6.1": 0.0374, "6.3": 0.0374}
 # Projekt "V" = Projekt 1 (Vergleichshaus, früheres Modellhaus): der Lauf setzt Eingaben!D3 = 1 ausdrücklich. Projekt "T" =
 # Projekt 2 (Modellhaus, Tarutinoer): der Lauf rechnet im Auslieferungsstand (D3 = 2), das Skript setzt D3 nicht.
 LAEUFE = [
@@ -1925,7 +1939,7 @@ LAEUFE = [
     # Laufzeit Bank 20 und 42 Jahre; Zusatz-EK 1 Mio. €; Grundstück 500.000 €
     ("L43", "V", {"10.1": "Miete für DSCR-Ziel"}), ("L44", "V", {"10.1": "Miete für DSCR-Ziel", "10.2": 1.25}),
     ("L45", "T", {"10.1": "Miete für DSCR-Ziel"}), ("L46", "T", {"10.1": "Miete für DSCR-Ziel", "10.2": 1.25}),
-    ("L47", "V", {"6.1": 0.0}), ("L48", "V", {"6.1": 0.06}), ("L49", "V", {"6.4": 20}), ("L50", "V", {"6.4": 42}),
+    ("L47", "V", {"6.1": 0.0}), ("L48", "V", {"6.1": 0.06, "6.3": 0.0374}), ("L49", "V", {"6.4": 20}), ("L50", "V", {"6.4": 42}),
     ("L51", "V", {"7.1": 1000000}), ("L52", "V", {"2.3": 500000}),
     # Nacharbeit Prüfrunde 1 (Konzept N.7): Laufzeit Bank 60 Jahre (Restschuld am Horizont 42); frei ohne Bankdarlehen
     # (Zusatz-EK 6 Mio. €) mit Marktmiete und mit Miete für DSCR-Ziel; Miete für DSCR-Ziel mit Zinsbindung 1 Jahr und
@@ -1943,14 +1957,15 @@ LAEUFE = [
     # Rotenburg (Wümme). L63 rechnet Projekt 1 mit dem früheren Satz 2,5 % und den früheren Bewertungsansätzen
     # (12,92 / 14,48 €/m², Liegenschaftszins Neu Wulmstorf): Träger der Regression gegen den Stand vorher und der
     # Sollwerte des Konzepts aus F.3
-    ("L63", "V", {"3.1": 0.025, **BEWERTUNG_BIS_10_11}),
+    ("L63", "V", {"3.1": 0.025, **BEWERTUNG_BIS_10_11, **ZINS_BIS_11_11}),
     # Tarutinoer mit dem früheren Satz 2,5 % (1/40 wie v2-1): L64 trägt den Abgleich mit v2-1, die Überleitung E.3, die Regression
     # und die bisherigen Sollwerte von L2; L65 bis L67 tragen die bisherigen Sollwerte von L3 bis L5
-    ("L64", "T", {"3.1": 0.025}), ("L65", "T", {"2.3": 354120, "3.1": 0.025}), ("L66", "T", {"2.3": 731325, "3.1": 0.025}),
-    ("L67", "T", {"2.3": 731325, "7.1": 309386.40, "3.1": 0.025}),
+    ("L64", "T", {"3.1": 0.025, **ZINS_BIS_11_11}), ("L65", "T", {"2.3": 354120, "3.1": 0.025, **ZINS_BIS_11_11}),
+    ("L66", "T", {"2.3": 731325, "3.1": 0.025, **ZINS_BIS_11_11}),
+    ("L67", "T", {"2.3": 731325, "7.1": 309386.40, "3.1": 0.025, **ZINS_BIS_11_11}),
     # Projekt 1 im Stand vom 10.11.2026 (Tilgung 1/42, Bewertungsansätze 12,92 / 14,48 €/m² und Liegenschaftszins Neu
     # Wulmstorf): trägt die Sollwerte, die bis dahin für L1 galten (Konzept Q)
-    ("L68", "V", dict(BEWERTUNG_BIS_10_11)),
+    ("L68", "V", {**BEWERTUNG_BIS_10_11, **ZINS_BIS_11_11}),
     # Sensitivität der Broschüre S. 10 seit 11.11.2026 (Konzept R): Modellhaus (Projekt 2) mit Herstellungskosten
     # 4.631 €/m² (ARGE-Median) und 5.000 €/m² (Ausgangswert der Bemessungsgrenze); 3.579 €/m² ist der Standard (L2)
     ("L69", "T", {"2.1": 4631}), ("L70", "T", {"2.1": 5000}),
@@ -3817,6 +3832,54 @@ KONZEPT["L70"] = (_abc(9, *("4.140.000,00",) * 3) + _abc(10, *("4.140.000,00",) 
                   + _abc(38, "1.443,73", "−8.778,36", "−12.915,68") + [(UEB, "D3", "=OK")])
 
 
+# ---- Bankzins und Anschlusszins seit 12.11.2026: 3,86 % statt 3,74 % (Eingabe 6.1 und 6.3, beide Projekte; Konzept S) -----------
+# Der Zins wirkt auf das Bankdarlehen (frei finanziert; gefördert nur mit Bankdarlehen, L4 und L10) und als Vergleichszins auf den
+# Förderbarwert. Für die Läufe im Standard weichen die folgenden Zellen von den Tabellen oben ab (Anzeige der Mappe, in F8 gegen
+# die Referenzrechnung geprüft). Die Läufe L63 bis L68 rechnen mit 3,74 % weiter (ZINS_BIS_11_11) und behalten ihre Sollwerte.
+_ZINS_386 = {
+    "L1": {
+        ("Übersicht", "D17"): "3.974.688,96", ("Übersicht", "E17"): "3.183.033,37", ("Übersicht", "F17"): "2.787.205,64",
+        ("Übersicht", "D76"): "5,0671 %", ("Übersicht", "E76"): "4,8208 %", ("Übersicht", "F76"): "4,7526 %",
+        ("Übersicht", "H76"): "5,1190 %", ("Übersicht", "I76"): "4,8933 %", ("Übersicht", "J76"): "4,8286 %",
+        ("Übersicht", "D77"): "2,6105 %", ("Übersicht", "E77"): "2,4831 %", ("Übersicht", "F77"): "2,4985 %",
+        ("Übersicht", "H77"): "3,3090 %", ("Übersicht", "I77"): "3,2376 %", ("Übersicht", "J77"): "3,2701 %",
+        ("Übersicht", "G89"): "4,1026 %", ("Übersicht", "K89"): "4,3022 %", ("Übersicht", "G90"): "−0,2256 %",
+        ("Übersicht", "K90"): "1,9177 %", ("Übersicht", "G94"): "−2,0361 %", ("Übersicht", "K94"): "1,1999 %",
+        ("Übersicht", "G91"): "3,3182 %", ("Übersicht", "K91"): "3,7469 %", ("Übersicht", "G93"): "203,78 %",
+        ("Übersicht", "K93"): "147,39 %", ("Übersicht", "G96"): "−5.128.423", ("Gefördert A", "H174"): "3.974.688,96",
+        ("Gefördert B", "H174"): "3.183.033,37", ("Gefördert C", "H174"): "2.787.205,64", ("NBank", "D30"): "1.195.688,96",
+        ("NBank", "E30"): "1.793.533,37", ("NBank", "F30"): "2.092.455,64", ("NBank", "D31"): "3.974.688,96",
+        ("NBank", "E31"): "3.183.033,37", ("NBank", "F31"): "2.787.205,64",
+    },
+    "L2": {
+        ("Übersicht", "D76"): "6,86 %", ("Übersicht", "E76"): "6,64 %", ("Übersicht", "F76"): "6,59 %",
+        ("Übersicht", "H76"): "6,67 %", ("Übersicht", "I76"): "6,48 %", ("Übersicht", "J76"): "6,44 %",
+        ("NBank", "D30"): "506.188,39", ("NBank", "E30"): "759.282,65", ("NBank", "F30"): "885.829,72",
+        ("Übersicht", "D17"): "1.682.663", ("Übersicht", "E17"): "1.347.520", ("Übersicht", "F17"): "1.179.948",
+        ("Übersicht", "G37"): "134.778,63", ("Übersicht", "G38"): "−10.840,54", ("Übersicht", "G42"): "13.339",
+        ("Übersicht", "G45"): "0,9196", ("Übersicht", "G46"): "0,9196", ("Übersicht", "G47"): "5",
+        ("Übersicht", "G48"): "−28.914", ("Übersicht", "G89"): "8,55 %", ("Übersicht", "G90"): "4,79 %",
+        ("Übersicht", "G91"): "8,00 %", ("Übersicht", "G92"): "4,15 %", ("Übersicht", "G93"): "71,94 %",
+        ("Übersicht", "G94"): "4,79 %", ("Übersicht", "G95"): "4,15 %", ("Übersicht", "G96"): "−33.329",
+        ("Übersicht", "G111"): "134.778,63", ("Übersicht", "G112"): "15,59",
+    },
+    "L4": {
+        ("Übersicht", "D38"): "−6.667,27", ("Übersicht", "E38"): "−12.150,38", ("Übersicht", "F38"): "−13.918,20",
+        ("Übersicht", "D45"): "0,8806", ("Übersicht", "E45"): "0,8379", ("Übersicht", "F45"): "0,8353",
+        ("Übersicht", "H91"): "5,7606 %", ("Übersicht", "I91"): "5,8961 %", ("Übersicht", "J91"): "5,9766 %",
+        ("Übersicht", "H89"): "5,9516 %", ("Übersicht", "I89"): "6,0365 %", ("Übersicht", "J89"): "6,1255 %",
+        ("Übersicht", "D48"): "−30.674", ("Übersicht", "E48"): "−68.597", ("Übersicht", "F48"): "−78.685",
+        ("Übersicht", "H92"): "3,19 %", ("Übersicht", "I92"): "3,26 %", ("Übersicht", "J92"): "3,38 %",
+        ("Übersicht", "H90"): "3,36 %", ("Übersicht", "I90"): "3,45 %", ("Übersicht", "J90"): "3,59 %",
+    },
+    "L10": {
+        ("Übersicht", "D38"): "−20.196,45", ("Übersicht", "E38"): "−41.513,51", ("Übersicht", "F38"): "−50.525,65",
+    },
+}
+for _lid, _neu in _ZINS_386.items():
+    KONZEPT[_lid] = [(_bl, _z, _neu.get((_bl, _z), _v)) for _bl, _z, _v in KONZEPT[_lid]]
+
+
 def pruefe_konzeptwerte(b, lid, werte, specs):
     if lid not in KONZEPT or not KONZEPT[lid]:
         return
@@ -3870,7 +3933,7 @@ def pruefe_v21_abgleich(b, ordner, werte, soll):
     p.fertig()
 
     p = b.pruefung("F10", "L64 Abweichungen zu v2-1 erklärt (Entgelte aus EK, Restwert, Vorlaufzeit)")
-    l21 = {g: RR.Lauf(BASIS["T"], g, **RR.MODELL) for g in GRUPPEN}
+    l21 = {g: RR.Lauf(basis_v21(), g, **RR.MODELL) for g in GRUPPEN}
     for i, g in enumerate(GRUPPEN):
         x, ga, c = GEF[g], f"Gefoerdert_{g}", "CDE"[i]
         be_alt = a("Basisdaten", zeilen[g][2])
@@ -3901,7 +3964,7 @@ def pruefe_v21_abgleich(b, ordner, werte, soll):
                (("6,489 %", "6,661 %", "6,753 %"), ("7,683 %", "7,790 %", "7,914 %"), ("3,520 %", "3,743 %", "3,923 %"))]
     for k, (opt, sw) in enumerate(zip(schritte, soll_e3)):
         for i, g in enumerate(GRUPPEN):
-            kz = RR.Lauf(BASIS["T"], g, **opt).kennzahlen(42)
+            kz = RR.Lauf(basis_v21(), g, **opt).kennzahlen(42)
             for key, s in zip(("ek_vofi_mit", "ek_irr_mit", "ek_vofi_null"), sw):
                 v, tol = kw(s[i])
                 p.zahl(f"Schritt {(0, 2, 3, 4)[k]} {g} {key}", RR.rv(kz[key]), v, tol)

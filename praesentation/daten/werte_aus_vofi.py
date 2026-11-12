@@ -561,9 +561,12 @@ LAEUFE = [
     dict(
         lauf="projekt2",
         beschreibung="Projekt 2 der Mappe im Stand der früheren Präsentation vom 26.10.2026 (Altfassung): wie das "
-                     "Modellhaus, aber mit Tilgung 2,5 % statt 1/42. Nur für den Vergleich mit der Altfassung "
+                     "Modellhaus, aber mit Tilgung 2,5 % statt 1/42 und mit dem Bankzins vom 21.07.2026 (3,74 % statt "
+                     "3,86 %, auch als Anschlusszins). Nur für den Vergleich mit der Altfassung "
                      "(daten/pruefe_werte.py); erscheint auf keiner Folie.",
-        aenderungen=mit_projekt(dict(blatt="Eingaben", zelle="E17", alt=1 / 42, neu=0.025, eingabe="3.1 Tilgung NBank-Darlehen, wie Altfassung")),
+        aenderungen=mit_projekt(dict(blatt="Eingaben", zelle="E17", alt=1 / 42, neu=0.025, eingabe="3.1 Tilgung NBank-Darlehen, wie Altfassung"),
+                                dict(blatt="Eingaben", zelle="E35", alt=0.0386, neu=0.0374, eingabe="6.1 Zins Bank, wie Altfassung"),
+                                dict(blatt="Eingaben", zelle="E37", alt=0.0386, neu=0.0374, eingabe="6.3 Anschlusszins, wie Altfassung")),
         katalog=KERN,
     ),
 ]

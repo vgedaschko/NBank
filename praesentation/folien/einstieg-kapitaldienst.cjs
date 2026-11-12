@@ -7,7 +7,7 @@
 // Folien 3 und 4 zum Kapitaldienst).
 // Gerechnet wird ein Annuitätendarlehen mit monatlicher Rate, wie es Banken bedienen und wie die Altfassung Folie 5 rechnete:
 // Rate je Euro Darlehen = (i ÷ 12) ÷ (1 − (1 + i ÷ 12)^−(12 × n)). Die Modellrechnung (Folien 14 bis 24) rechnet wie die Rechenmappe mit einer
-// Jahresrate; die Werte dieser Folie liegen deshalb etwas unter einer Rechnung nach der Mappe (19,95 statt 20,14 €). Kosten und Zins
+// Jahresrate; die Werte dieser Folie liegen deshalb etwas unter einer Rechnung nach der Mappe (20,25 statt 20,44 €). Kosten und Zins
 // Q1 2020 aus daten/markt.json (ARGE-Mediane und Zinsreihe der Altfassung, nicht nachgeprüft), Zins heute und Laufzeit aus daten/werte.json.
 // Die Folie ist keine Modellrechnung (weißer Grund, kein Papierton): Medianwerte deutscher Großstädte je m², kein einzelnes Haus. Rot im Diagramm nur an der
 // Summe von heute: Das ist die Zahl, die das Signaturwort des Titels nennt. Groß steht sie einmal, als Hauptzahl rechts; die Summen über den
@@ -77,7 +77,7 @@ module.exports = {
     });
 
     // Notiz in der Spalte der Ursachen, unten bündig mit der Grundlinie der Säulen
-    const notiz = [`Heute: Kosten ${K('baukosten.reihen')[1]}, Zins ${fmt.monatWort(K('zinsen.monate').slice(-1)[0])}.`, 'Kapitaldienst: Zins und Tilgung.'].map(z => wl(z, 'Notiz zum Diagramm')).join('\n');
+    const notiz = [`Heute: Kosten ${K('baukosten.reihen')[1]}, Zins ${fmt.monatKurz(K('zinsen.monate').slice(-1)[0])}.`, 'Kapitaldienst: Zins und Tilgung.'].map(z => wl(z, 'Notiz zum Diagramm')).join('\n');
     const hN = B.hoehe(notiz, { w: wE, rolle: 'klein' });
     B.text(s, notiz, { x: xL, y: d.yWert(0) - hN + 0.03, w: wE, h: hN, rolle: 'klein', valign: 'bottom', name: 'Notiz zum Diagramm' });
 

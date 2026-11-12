@@ -157,9 +157,9 @@ KOSTEN_AM_SCHNITT = ("(modellhaus:tilg.mehr_sollmiete.C - modellhaus:tilg.mehr_m
                      " / (modellhaus:tilg.mehrschuld.C * (modellhaus:eingabe.tilgung_nbank + modellhaus:tab.verwaltungskostenbeitrag))")
 KERNWERTE = [
     ("dscr.kapitaldienst_jahr1.A", "euro", "34.150 €", ["rechnung-kapitaldienst", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
-    ("dscr.kapitaldienst_jahr1.Frei", "euro", "132.805 €", ["rechnung-kapitaldienst", "rechnung-fluss-frei", "rechnung-miete", "fazit"]),
+    ("dscr.kapitaldienst_jahr1.Frei", "euro", "134.779 €", ["rechnung-kapitaldienst", "rechnung-fluss-frei", "rechnung-miete", "fazit"]),
     ("dscr.noetige_miete.A", "euro2", "5,26 €", ["rechnung-miete", "rechnung-kosten", "fazit"]),
-    ("dscr.noetige_miete.Frei", "euro2", "15,39 €", ["rechnung-fluss-frei", "rechnung-miete", "fazit"]),
+    ("dscr.noetige_miete.Frei", "euro2", "15,59 €", ["rechnung-fluss-frei", "rechnung-miete", "fazit"]),
     # Jahr 1: In allen drei Gruppen bleibt ein Zahlungsüberschuss (bis 11.11.2026 nur in A; B und C standen mit Minus)
     ("jr1.zahlungsueberschuss.A", "euro", "15.003 €", ["rechnung-jahr1", "rechnung-fluss-gefoerdert", "rechnung-kosten"]),
     ("jr1.zahlungsueberschuss.A", "zahl", "15.003", ["rechnung-jahr1", "rechnung-tilgung", "rechnung-verlauf", "rechnung-kosten"]),
@@ -185,16 +185,16 @@ KERNWERTE = [
     ("jr1.objektverwaltung.A", "euro", "5.138 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),
     ("jr1.mietausfall.A", "euro", "1.351 €", ["rechnung-fluss-gefoerdert"]),
     ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1", "41,8 %", ["rechnung-fluss-gefoerdert"]),
-    (SOLLMIETE_FREI, "euro", "152.924 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),   # auf Folie 17 am Umriss der Quelle
-    ("modellhaus:eingabe.mietausfall * " + SOLLMIETE_FREI, "euro", "3.058 €", ["rechnung-fluss-frei"]),
-    ("-modellhaus:frei.zins_jahr1", "euro", "88.665 €", ["rechnung-fluss-frei"]),
-    ("-modellhaus:frei.tilgung_jahr1", "euro", "44.139 €", ["rechnung-fluss-frei"]),
-    ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1", "58,0 %", ["rechnung-fluss-frei"]),
+    (SOLLMIETE_FREI, "euro", "154.939 €", ["rechnung-fluss-gefoerdert", "rechnung-fluss-frei"]),   # auf Folie 17 am Umriss der Quelle
+    ("modellhaus:eingabe.mietausfall * " + SOLLMIETE_FREI, "euro", "3.099 €", ["rechnung-fluss-frei"]),
+    ("-modellhaus:frei.zins_jahr1", "euro", "91.510 €", ["rechnung-fluss-frei"]),
+    ("-modellhaus:frei.tilgung_jahr1", "euro", "43.268 €", ["rechnung-fluss-frei"]),
+    ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1", "59,1 %", ["rechnung-fluss-frei"]),
     # Herstellungskosten je m²: Das Modellhaus rechnet mit dem PGN-Median (Folien 14, 22 und 23); dazu die beiden Werte der Sensitivität (Folie 23)
     ("eingabe.herstellungskosten_qm", "euro", "3.579 €", ["rechnung-finanzierung", "rechnung-kosten"]),
     (K_ARGE + "eingabe.herstellungskosten_qm", "euro", "4.631 €", ["rechnung-kosten"]),
     (K_GRENZE + "eingabe.herstellungskosten_qm", "euro", "5.000 €", ["rechnung-kosten"]),
-    ("eingabe.zins_bank", "prozent2", "3,74 %", ["ausgangslage-zinsen", "einstieg-kapitaldienst", "rechnung-kapitaldienst"]),
+    ("eingabe.zins_bank", "prozent2", "3,86 %", ["ausgangslage-zinsen", "einstieg-kapitaldienst", "rechnung-kapitaldienst"]),
     # Folie 19: Bewirtschaftung im Rechenweg der nötigen Miete (Objektverwaltung und Instandhaltung, Übersicht D31 + D32)
     (BEWIRTSCHAFTUNG, "euro", "17.061 €", ["rechnung-miete"]),
     # Folien 20 und 24: Tilgungssatz, bei dem der Zahlungsüberschuss null ist (Übersicht 3.8), je Gruppe
@@ -215,13 +215,13 @@ KERNWERTE = [
     # Das Grundstück des Modellhauses ist nicht angesetzt, der Bodenwert ist null (Rechenmappe, Blatt Hinweise Nr. 15)
     (RENDITE + "vofi_mit_restwert.A", "prozent2", "6,95 %", [RENDITE_FOLIE]),
     (RENDITE + "vofi_nur_bodenwert.A", "prozent2", "2,58 %", [RENDITE_FOLIE]),
-    (RENDITE + "projektkonto_tiefststand.Frei", "zahl", "−22.640", [RENDITE_FOLIE]),
+    (RENDITE + "projektkonto_tiefststand.Frei", "zahl", "−33.329", [RENDITE_FOLIE]),
 ]
 # ---- Kernwerte der Ausgangslage und des Kostenvergleichs: Werte der Datendateien und daraus gerechnete Größen, in derselben Schreibweise ----
 KOSTEN_2020 = "(markt#baukosten.herstellung.q1_2020 + markt#baukosten.grundstueck.q1_2020)"
 KOSTEN_HEUTE = "(markt#baukosten.herstellung.q4_2025 + markt#baukosten.grundstueck.q4_2025)"
 FAKTOR_2020 = "monatsrate(markt#kapitaldienst.zins_q1_2020 / 100, modellhaus:eingabe.laufzeit_bank)"   # Monatsrate je Euro Darlehen bei 0,46 % über 30 Jahre
-FAKTOR_HEUTE = "monatsrate(modellhaus:eingabe.zins_bank, modellhaus:eingabe.laufzeit_bank)"            # dasselbe bei 3,74 %
+FAKTOR_HEUTE = "monatsrate(modellhaus:eingabe.zins_bank, modellhaus:eingabe.laufzeit_bank)"            # dasselbe bei 3,86 %
 KD_2020 = f"markt#kapitaldienst.fremdkapital * {KOSTEN_2020} * {FAKTOR_2020}"     # Kapitaldienst je m² und Monat
 KD_HEUTE = f"markt#kapitaldienst.fremdkapital * {KOSTEN_HEUTE} * {FAKTOR_HEUTE}"
 KD_BAUKOSTEN = f"markt#kapitaldienst.fremdkapital * ({KOSTEN_HEUTE} - {KOSTEN_2020}) * {FAKTOR_2020}"
@@ -240,9 +240,9 @@ KERNWERTE_MARKT = [
     # Folie 10: Mietpfad der Gruppe A in Mietenstufe IV–VII, auf den Cent abgerundet wie die Broschüre S. 7 (7,2182 → 7,21 und 7,6621 → 7,66)
     ("regeln#mietpfad.jahr4", "euro2", "7,21 €", ["hoechstmiete"]),
     ("regeln#mietpfad.jahr7", "euro2", "7,66 €", ["hoechstmiete"]),
-    # Folie 4: Legende (Werte des letzten Monats, Stelle 126 = 07/2026) und die Quartalsmittel an den beiden Marken stehen je Zinsbindung einzeln auf der Folie
-    ("markt#zinsen.z20.wert.126", "prozentwert2", "4,02 %", ["ausgangslage-zinsen"]),
-    ("markt#zinsen.z30.wert.126", "prozentwert2", "4,15 %", ["ausgangslage-zinsen"]),
+    # Folie 4: Legende (Werte des letzten Monats, Stelle 130 = 11/2026) und die Quartalsmittel an den beiden Marken stehen je Zinsbindung einzeln auf der Folie
+    ("markt#zinsen.z20.wert.130", "prozentwert2", "3,97 %", ["ausgangslage-zinsen"]),
+    ("markt#zinsen.z30.wert.130", "prozentwert2", "4,13 %", ["ausgangslage-zinsen"]),
     ("markt#zinsen.marken.wert.0.z20", "prozentwert2", "0,87 %", ["ausgangslage-zinsen"]),
     ("markt#zinsen.marken.wert.0.z30", "prozentwert2", "0,98 %", ["ausgangslage-zinsen"]),
     ("markt#zinsen.marken.wert.1.z10", "prozentwert2", "3,49 %", ["ausgangslage-zinsen"]),
@@ -252,11 +252,11 @@ KERNWERTE_MARKT = [
     (KOSTEN_HEUTE, "euro", "5.392 €", ["einstieg-kapitaldienst"]),
     ("markt#kapitaldienst.fremdkapital", "prozent0", "80 %", ["einstieg-kapitaldienst"]),
     (KD_2020, "euro2", "8,93 €", ["einstieg-kapitaldienst"]),
-    (KD_HEUTE, "euro2", "19,95 €", ["einstieg-kapitaldienst"]),
-    (f"{KD_HEUTE} - {KD_2020}", "euro2vz", "+11,02 €", ["einstieg-kapitaldienst"]),
+    (KD_HEUTE, "euro2", "20,25 €", ["einstieg-kapitaldienst"]),
+    (f"{KD_HEUTE} - {KD_2020}", "euro2vz", "+11,31 €", ["einstieg-kapitaldienst"]),
     (KD_BAUKOSTEN, "euro2vz", "+3,90 €", ["einstieg-kapitaldienst"]),
-    (KD_ZINS, "euro2vz", "+4,96 €", ["einstieg-kapitaldienst"]),
-    (KD_WECHSELWIRKUNG, "euro2vz", "+2,16 €", ["einstieg-kapitaldienst"]),
+    (KD_ZINS, "euro2vz", "+5,16 €", ["einstieg-kapitaldienst"]),
+    (KD_WECHSELWIRKUNG, "euro2vz", "+2,25 €", ["einstieg-kapitaldienst"]),
     ("markt#bestand.reihe.wert.2016", "zahl", "85.766", ["einstieg-bestand"]),
     ("markt#bestand.reihe.wert.2024", "zahl", "50.495", ["einstieg-bestand"]),
     ("markt#bestand.reihe.wert.2025", "zahl", "50.920", ["einstieg-bestand"]),
@@ -408,9 +408,9 @@ KERNWERTE_DIAGRAMM = [
     ("markt#kosten.spannen.arge.herstellung.min", "einstieg-baukosten", "Sockel bis Minimum", "Herstellung · Q4 2025"),
     ("markt#baukosten.herstellung.q4_2025 - markt#kosten.spannen.arge.herstellung.min", "einstieg-baukosten", "Q4 2025 Minimum bis Median", "Herstellung · Q4 2025"),
     ("markt#kosten.spannen.arge.herstellung.max - markt#baukosten.herstellung.q4_2025", "einstieg-baukosten", "Q4 2025 Median bis Maximum", "Herstellung · Q4 2025"),
-    ("modellhaus:eingabe.zins_bank * 100", "ausgangslage-zinsen", "10 Jahre", "07/2026"),
+    ("modellhaus:eingabe.zins_bank * 100", "ausgangslage-zinsen", "10 Jahre", "11/2026"),
     # Folie 4: Die Fläche unter der Reihe „10 Jahre“ führt dieselben Werte wie die Linie (erster und letzter Monat)
-    ("modellhaus:eingabe.zins_bank * 100", "ausgangslage-zinsen", "10 Jahre, Fläche", "07/2026"),
+    ("modellhaus:eingabe.zins_bank * 100", "ausgangslage-zinsen", "10 Jahre, Fläche", "11/2026"),
     ("markt#zinsen.z10.wert.0", "ausgangslage-zinsen", "10 Jahre, Fläche", "2016"),
     ("markt#zinsen.z10.wert.0", "ausgangslage-zinsen", "10 Jahre", "2016"),
     (KD_2020, "einstieg-kapitaldienst", "Stand Q1 2020", "Q1 2020"),
@@ -444,9 +444,9 @@ REIHEN_DIAGRAMM = [
 # ---- Kernwerte in ihrer Form: Quelle und Schreibweise (wie bei den Kernwerten), Folie, Name der Form, Zelle (Zeile, Spalte) einer Tabelle oder None,
 # Text mit dem Feld {a} (auch der Name der Form darf {a} tragen). Die Form trägt genau diesen Text; so ist der Wert an seine Bezeichnung gebunden, auch wenn er mehrfach auf der Folie steht ----
 KERNWERTE_FORM = [
-    ("markt#zinsen.z10.wert.126", "prozentwert2", "ausgangslage-zinsen", "Legende Wert 10 Jahre", None, "{a}"),
-    ("markt#zinsen.z20.wert.126", "prozentwert2", "ausgangslage-zinsen", "Legende Wert 20 Jahre", None, "{a}"),
-    ("markt#zinsen.z30.wert.126", "prozentwert2", "ausgangslage-zinsen", "Legende Wert 30 Jahre", None, "{a}"),
+    ("markt#zinsen.z10.wert.130", "prozentwert2", "ausgangslage-zinsen", "Legende Wert 10 Jahre", None, "{a}"),
+    ("markt#zinsen.z20.wert.130", "prozentwert2", "ausgangslage-zinsen", "Legende Wert 20 Jahre", None, "{a}"),
+    ("markt#zinsen.z30.wert.130", "prozentwert2", "ausgangslage-zinsen", "Legende Wert 30 Jahre", None, "{a}"),
     ("markt#zinsen.marken.wert.0.z10", "prozentwert2", "ausgangslage-zinsen", "Marke 1 Wert 10 Jahre", None, "{a}"),
     ("markt#zinsen.marken.wert.0.z20", "prozentwert2", "ausgangslage-zinsen", "Marke 1 Wert 20 Jahre", None, "{a}"),
     ("markt#zinsen.marken.wert.0.z30", "prozentwert2", "ausgangslage-zinsen", "Marke 1 Wert 30 Jahre", None, "{a}"),

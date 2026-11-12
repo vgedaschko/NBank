@@ -2,7 +2,7 @@
  "meta": {
   "titel": "Werte der VOFI-Mappe für die Präsentation Mietwohnraumförderung Niedersachsen 2026",
   "mappe": "PGN_VOFI_Mietwohnraum_2026_v3.xlsx",
-  "mappe_sha256": "f0a608494eca2cdbeaa13acc432e15d6cdaa80a8acd4f078450173dea5bf07f3",
+  "mappe_sha256": "1de5ff416be2ce1537e536db8d98a765307b277486024e9ff66915b60cba7c27",
   "mappe_stand": "Version 3.0, Stand 11/2026",
   "auslieferung": {
    "aktives_projekt": 2,
@@ -246,7 +246,7 @@
     },
     "eingabe.zins_bank": {
      "schluessel": "eingabe.zins_bank",
-     "wert": 0.0374,
+     "wert": 0.0386,
      "einheit": "Anteil",
      "blatt": "Eingaben",
      "zelle": "F35",
@@ -264,7 +264,7 @@
     },
     "eingabe.anschlusszins": {
      "schluessel": "eingabe.anschlusszins",
-     "wert": 0.0374,
+     "wert": 0.0386,
      "einheit": "Anteil",
      "blatt": "Eingaben",
      "zelle": "F37",
@@ -1173,7 +1173,7 @@
     },
     "jr1.kapitaldienst_bank.Frei": {
      "schluessel": "jr1.kapitaldienst_bank.Frei",
-     "wert": 132804.636444971,
+     "wert": 134778.626612041,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "G37",
@@ -1857,7 +1857,7 @@
     },
     "dscr.kapitaldienst_jahr1.Frei": {
      "schluessel": "dscr.kapitaldienst_jahr1.Frei",
-     "wert": 132804.636444971,
+     "wert": 134778.626612041,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "G111",
@@ -1893,7 +1893,7 @@
     },
     "dscr.noetige_miete.Frei": {
      "schluessel": "dscr.noetige_miete.Frei",
-     "wert": 15.3909342696288,
+     "wert": 15.5936592777492,
      "einheit": "€/m² Monat",
      "blatt": "Übersicht",
      "zelle": "G112",
@@ -1902,7 +1902,7 @@
     },
     "frei.annuitaet": {
      "schluessel": "frei.annuitaet",
-     "wert": 132804.636444971,
+     "wert": 134778.626612041,
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "H111",
@@ -1911,7 +1911,7 @@
     },
     "frei.zins_jahr1": {
      "schluessel": "frei.zins_jahr1",
-     "wert": -88665.28704,
+     "wert": -91510.16256,
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "J7",
@@ -1920,7 +1920,7 @@
     },
     "frei.tilgung_jahr1": {
      "schluessel": "frei.tilgung_jahr1",
-     "wert": -44139.349404971,
+     "wert": -43268.4640520415,
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "K7",
@@ -1929,7 +1929,7 @@
     },
     "frei.anfangstilgung": {
      "schluessel": "frei.anfangstilgung",
-     "wert": 0.018618466401639,
+     "wert": 0.0182511173151259,
      "einheit": "Anteil",
      "blatt": "Frei finanziert",
      "zelle": "H113",
@@ -1938,7 +1938,7 @@
     },
     "frei.restschuld_ende_zinsbindung": {
      "schluessel": "frei.restschuld_ende_zinsbindung",
-     "wert": 1847133.37370123,
+     "wert": 1854603.86190571,
      "einheit": "€",
      "blatt": "Frei finanziert",
      "zelle": "H112",
@@ -2749,7 +2749,7 @@
     },
     "zr.zins_bank.Frei": {
      "schluessel": "zr.zins_bank.Frei",
-     "wert": [-88665.28704, -87014.47535, -85301.923366, -83525.322012, -81682.275818, -79770.299554, -77786.815238, -75729.14877, -73594.525444, -71380.06733, -69082.788412, -66699.591222, -64227.262352, -61662.468714, -59001.751556, -56241.523844, -53378.06353, -50407.509812, -47325.85715, -44128.950778, -40812.479972, -37371.973188, -33802.791704, -30100.122888, -26258.974214, -22274.16653, -18140.326952, -13851.881758, -9403.048908, -4787.829442, -0.000748, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+     "wert": [-91510.16256, -89840.000004, -88105.368886, -86303.78105, -84432.65184, -82489.297398, -80470.92926, -78374.65204, -76197.458798, -73936.225636, -71587.708996, -69148.539484, -66615.21801, -63984.110384, -61251.441912, -58413.292764, -55465.591026, -52404.107682, -49224.45121, -45922.059862, -42492.19626, -38929.940062, -35230.180628, -31387.610458, -27396.717086, -23251.77536, -18946.83895, -14475.731856, -9832.040302, -5009.101928, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "J7:J48",
@@ -2758,7 +2758,7 @@
     },
     "zr.tilgung_bank.Frei": {
      "schluessel": "zr.tilgung_bank.Frei",
-     "wert": [-44139.349404971, -45790.161094971, -47502.713078971, -49279.314432971, -51122.360626971, -53034.336890971, -55017.821206971, -57075.487674971, -59210.111000971, -61424.569114971, -63721.8480329709, -66105.0452229709, -68577.3740929708, -71142.1677309708, -73802.8848889709, -76563.1126009708, -79426.5729149709, -82397.1266329709, -85478.7792949709, -88675.6856669709, -91992.1564729709, -95432.6632569709, -99001.8447409709, -102704.513556971, -106545.662230971, -110530.469914971, -114664.309492971, -118952.754686971, -123401.587536971, -128016.807002971, -0.02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+     "wert": [-43268.4640520415, -44938.6266080415, -46673.2577260415, -48474.8455620415, -50345.9747720415, -52289.3292140415, -54307.6973520415, -56403.9745720415, -58581.1678140415, -60842.4009760415, -63190.9176160415, -65630.0871280415, -68163.4086020415, -70794.5162280415, -73527.1847000415, -76365.3338480415, -79313.0355860415, -82374.5189300415, -85554.1754020415, -88856.5667500415, -92286.4303520415, -95848.6865500415, -99548.4459840415, -103391.016154041, -107381.909526041, -111526.851252042, -115831.787662041, -120302.894756042, -124946.586310041, -129769.48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "K7:K48",
@@ -2767,7 +2767,7 @@
     },
     "zr.kapitaldienst.Frei": {
      "schluessel": "zr.kapitaldienst.Frei",
-     "wert": [-132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -132804.636444971, -0.020748, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+     "wert": [-134778.626612041, -134778.626612041, -134778.626612041, -134778.626612041, -134778.626612041, -134778.626612041, -134778.626612041, -134778.626612041, -134778.626612041, -134778.626612041, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.626612042, -134778.581928, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "L7:L48",
@@ -2776,7 +2776,7 @@
     },
     "zr.restschuld_bank.Frei": {
      "schluessel": "zr.restschuld_bank.Frei",
-     "wert": [2326590.25, 2280800.09, 2233297.38, 2184018.07, 2132895.71, 2079861.37, 2024843.55, 1967768.06, 1908557.95, 1847133.38, 1783411.53, 1717306.48, 1648729.11, 1577586.94, 1503784.06, 1427220.95, 1347794.38, 1265397.25, 1179918.47, 1091242.78, 999250.62, 903817.96, 804816.12, 702111.61, 595565.95, 485035.48, 370371.17, 251418.42, 128016.83, 0.02, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+     "wert": [2327461.14, 2282522.51, 2235849.25, 2187374.4, 2137028.43, 2084739.1, 2030431.4, 1974027.43, 1915446.26, 1854603.86, 1791412.94, 1725782.85, 1657619.44, 1586824.92, 1513297.74, 1436932.41, 1357619.37, 1275244.85, 1189690.67, 1100834.1, 1008547.67, 912698.98, 813150.53, 709759.51, 602377.6, 490850.75, 375018.96, 254716.07, 129769.48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
      "einheit": "€",
      "blatt": "Frei finanziert",
      "zelle": "O7:O48",
@@ -2813,7 +2813,7 @@
    "werte": {
     "rendite.jahre_mit_fehlbetrag.Frei": {
      "schluessel": "rendite.jahre_mit_fehlbetrag.Frei",
-     "wert": 4,
+     "wert": 5,
      "einheit": "Jahre",
      "blatt": "Übersicht",
      "zelle": "G47",
@@ -2853,7 +2853,7 @@
     },
     "rendite.vofi_mit_restwert.Frei": {
      "schluessel": "rendite.vofi_mit_restwert.Frei",
-     "wert": 0.0802950373243312,
+     "wert": 0.0799674495835903,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "G91",
@@ -2893,7 +2893,7 @@
     },
     "rendite.vofi_nur_bodenwert.Frei": {
      "schluessel": "rendite.vofi_nur_bodenwert.Frei",
-     "wert": 0.0425699938486124,
+     "wert": 0.0414587684710466,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "G92",
@@ -2933,7 +2933,7 @@
     },
     "rendite.restwertanteil.Frei": {
      "schluessel": "rendite.restwertanteil.Frei",
-     "wert": 0.711796393060441,
+     "wert": 0.719392341278644,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "G93",
@@ -2973,7 +2973,7 @@
     },
     "rendite.projektkonto_tiefststand.Frei": {
      "schluessel": "rendite.projektkonto_tiefststand.Frei",
-     "wert": -22639.65091875,
+     "wert": -33329.234295875,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "G96",
@@ -3193,7 +3193,7 @@
     },
     "dscr.kapitaldienst_jahr1.Frei": {
      "schluessel": "dscr.kapitaldienst_jahr1.Frei",
-     "wert": 132804.636444971,
+     "wert": 134778.626612041,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "G111",
@@ -3229,7 +3229,7 @@
     },
     "dscr.noetige_miete.Frei": {
      "schluessel": "dscr.noetige_miete.Frei",
-     "wert": 18.8006296990755,
+     "wert": 19.054035959226,
      "einheit": "€/m² Monat",
      "blatt": "Übersicht",
      "zelle": "G112",
@@ -3426,7 +3426,7 @@
     },
     "eingabe.zins_bank": {
      "schluessel": "eingabe.zins_bank",
-     "wert": 0.0374,
+     "wert": 0.0386,
      "einheit": "Anteil",
      "blatt": "Eingaben",
      "zelle": "F35",
@@ -3444,7 +3444,7 @@
     },
     "eingabe.anschlusszins": {
      "schluessel": "eingabe.anschlusszins",
-     "wert": 0.0374,
+     "wert": 0.0386,
      "einheit": "Anteil",
      "blatt": "Eingaben",
      "zelle": "F37",
@@ -4353,7 +4353,7 @@
     },
     "jr1.kapitaldienst_bank.Frei": {
      "schluessel": "jr1.kapitaldienst_bank.Frei",
-     "wert": 171840.813460928,
+     "wert": 174395.032087277,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "G37",
@@ -5037,7 +5037,7 @@
     },
     "dscr.kapitaldienst_jahr1.Frei": {
      "schluessel": "dscr.kapitaldienst_jahr1.Frei",
-     "wert": 171840.813460928,
+     "wert": 174395.032087277,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "G111",
@@ -5073,7 +5073,7 @@
     },
     "dscr.noetige_miete.Frei": {
      "schluessel": "dscr.noetige_miete.Frei",
-     "wert": 19.3998748583719,
+     "wert": 19.66218821758,
      "einheit": "€/m² Monat",
      "blatt": "Übersicht",
      "zelle": "G112",
@@ -5082,7 +5082,7 @@
     },
     "frei.annuitaet": {
      "schluessel": "frei.annuitaet",
-     "wert": 171840.813460928,
+     "wert": 174395.032087277,
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "H111",
@@ -5091,7 +5091,7 @@
     },
     "frei.zins_jahr1": {
      "schluessel": "frei.zins_jahr1",
-     "wert": -114727.28256,
+     "wert": -118408.37184,
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "J7",
@@ -5100,7 +5100,7 @@
     },
     "frei.tilgung_jahr1": {
      "schluessel": "frei.tilgung_jahr1",
-     "wert": -57113.5309009278,
+     "wert": -55986.6602472769,
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "K7",
@@ -5109,7 +5109,7 @@
     },
     "frei.anfangstilgung": {
      "schluessel": "frei.anfangstilgung",
-     "wert": 0.018618466401639,
+     "wert": 0.0182511173151259,
      "einheit": "Anteil",
      "blatt": "Frei finanziert",
      "zelle": "H113",
@@ -5118,7 +5118,7 @@
     },
     "frei.restschuld_ende_zinsbindung": {
      "schluessel": "frei.restschuld_ende_zinsbindung",
-     "wert": 2390073.94624487,
+     "wert": 2399740.28624905,
      "einheit": "€",
      "blatt": "Frei finanziert",
      "zelle": "H112",
@@ -5324,7 +5324,7 @@
     },
     "eingabe.zins_bank": {
      "schluessel": "eingabe.zins_bank",
-     "wert": 0.0374,
+     "wert": 0.0386,
      "einheit": "Anteil",
      "blatt": "Eingaben",
      "zelle": "F35",
@@ -5342,7 +5342,7 @@
     },
     "eingabe.anschlusszins": {
      "schluessel": "eingabe.anschlusszins",
-     "wert": 0.0374,
+     "wert": 0.0386,
      "einheit": "Anteil",
      "blatt": "Eingaben",
      "zelle": "F37",
@@ -6251,7 +6251,7 @@
     },
     "jr1.kapitaldienst_bank.Frei": {
      "schluessel": "jr1.kapitaldienst_bank.Frei",
-     "wert": 185533.160722228,
+     "wert": 188290.900547697,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "G37",
@@ -6935,7 +6935,7 @@
     },
     "dscr.kapitaldienst_jahr1.Frei": {
      "schluessel": "dscr.kapitaldienst_jahr1.Frei",
-     "wert": 185533.160722228,
+     "wert": 188290.900547697,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "G111",
@@ -6971,7 +6971,7 @@
     },
     "dscr.noetige_miete.Frei": {
      "schluessel": "dscr.noetige_miete.Frei",
-     "wert": 20.8060526884539,
+     "wert": 21.089267284878,
      "einheit": "€/m² Monat",
      "blatt": "Übersicht",
      "zelle": "G112",
@@ -6980,7 +6980,7 @@
     },
     "frei.annuitaet": {
      "schluessel": "frei.annuitaet",
-     "wert": 185533.160722228,
+     "wert": 188290.900547697,
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "H111",
@@ -6989,7 +6989,7 @@
     },
     "frei.zins_jahr1": {
      "schluessel": "frei.zins_jahr1",
-     "wert": -123868.8,
+     "wert": -127843.2,
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "J7",
@@ -6998,7 +6998,7 @@
     },
     "frei.tilgung_jahr1": {
      "schluessel": "frei.tilgung_jahr1",
-     "wert": -61664.3607222282,
+     "wert": -60447.7005476969,
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "K7",
@@ -7007,7 +7007,7 @@
     },
     "frei.anfangstilgung": {
      "schluessel": "frei.anfangstilgung",
-     "wert": 0.018618466401639,
+     "wert": 0.0182511173151259,
      "einheit": "Anteil",
      "blatt": "Frei finanziert",
      "zelle": "H113",
@@ -7016,7 +7016,7 @@
     },
     "frei.restschuld_ende_zinsbindung": {
      "schluessel": "frei.restschuld_ende_zinsbindung",
-     "wert": 2580516.02919981,
+     "wert": 2590952.58718316,
      "einheit": "€",
      "blatt": "Frei finanziert",
      "zelle": "H112",
@@ -7035,7 +7035,7 @@
    }
   },
   "projekt2": {
-   "beschreibung": "Projekt 2 der Mappe im Stand der früheren Präsentation vom 26.10.2026 (Altfassung): wie das Modellhaus, aber mit Tilgung 2,5 % statt 1/42. Nur für den Vergleich mit der Altfassung (daten/pruefe_werte.py); erscheint auf keiner Folie.",
+   "beschreibung": "Projekt 2 der Mappe im Stand der früheren Präsentation vom 26.10.2026 (Altfassung): wie das Modellhaus, aber mit Tilgung 2,5 % statt 1/42 und mit dem Bankzins vom 21.07.2026 (3,74 % statt 3,86 %, auch als Anschlusszins). Nur für den Vergleich mit der Altfassung (daten/pruefe_werte.py); erscheint auf keiner Folie.",
    "aenderungen": [
     {
      "blatt": "Eingaben",
@@ -7050,6 +7050,20 @@
      "alt": 0.023809523809523808,
      "neu": 0.025,
      "eingabe": "3.1 Tilgung NBank-Darlehen, wie Altfassung"
+    },
+    {
+     "blatt": "Eingaben",
+     "zelle": "E35",
+     "alt": 0.0386,
+     "neu": 0.0374,
+     "eingabe": "6.1 Zins Bank, wie Altfassung"
+    },
+    {
+     "blatt": "Eingaben",
+     "zelle": "E37",
+     "alt": 0.0386,
+     "neu": 0.0374,
+     "eingabe": "6.3 Anschlusszins, wie Altfassung"
     }
    ],
    "pruefungen": {

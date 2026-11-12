@@ -175,6 +175,8 @@ Das sind 16 Zellen: D3 und 15 Texte. Keine Zelle hat die Adresse gewechselt, kei
 
 ### Ergebnisse Modellhaus (Projekt 2, Auslieferungsstand)
 
+Stand 11.11.2026 mit Bankzins 3,74 %. Seit 12.11.2026 gilt 3,86 %; die Werte „frei“ und die Zeile „nach Förderbarwert“ stehen neu in Abschnitt 11.
+
 Jahresrechnung Jahr 1 in € (Übersicht Zeilen 29–38); Zeile 6 Zins NBank: 0 bis Jahr 35.
 
 | Zeile | A | B | C |
@@ -235,3 +237,50 @@ Offen:
 2. Präsentation: Der Abgleich mit der Mappe steht nicht im Prüfskript (Abschnitt 8 Nr. 6).
 3. Der Projektname „Modellhaus, Tarutinoer Str. 4“ nennt den Ort nicht, damit er in der Spalte „verwendet“ in zwei Zeilen passt. Der Ort steht in Hinweis 14 und 15.
 
+## 11. Änderung vom 12.11.2026: Bankzins 3,86 %
+
+Auftrag des Auftraggebers: mit dem jüngsten Wert der Zinsreihe rechnen. Eingabe 6.1 (Zins Bank; Vergleichszins Förderbarwert) und Eingabe 6.3 (Anschlusszins) stehen in beiden Projekten auf 3,86 % statt 3,74 %. Quelle: Dr. Klein Wowi Finanz AG, Top-Konditionen Wohnungswirtschaft, 10 Jahre Zinsbindung, Wert vom 10.11.2026. 3,74 % war der Wert derselben Reihe vom 21.07.2026. Die Quelle führt Wochenwerte; seit Juli lag der Zins zwischen 3,57 % und 4,15 %.
+
+Unverändert: Zinsbindung 10 Jahre, Laufzeit 30 Jahre, Eingabe 3.3 (Zins NBank-Darlehen ab Jahr 36, 3,74 %). Die Jahresrechnung, die Finanzierung und die Eigenkapitalrenditen der Gruppen A, B und C ändern sich nicht.
+
+### Ergebnisse Modellhaus (Projekt 2), frei finanziert
+
+| Größe | bis 11.11.2026 | seit 12.11.2026 |
+|---|---:|---:|
+| Kapitaldienst Bankdarlehen p. a. | 132.805 € | 134.779 € |
+| davon Zins / Tilgung in Jahr 1 | 88.665 / 44.139 € | 91.510 / 43.268 € |
+| Zahlungsüberschuss Jahr 1 zur Marktmiete 14,48 €/m² | −8.867 € | −10.841 € |
+| Zahlungsüberschuss Jahr 10 | 15.313 € | 13.339 € |
+| DSCR Jahr 1 | 0,93 | 0,92 |
+| Jahre mit Fehlbetrag, Jahr 1–35 | 4 | 5 |
+| Größter kumulierter Fehlbetrag | −20.394 € | −28.914 € |
+| Tiefster Stand Projektkonto | −22.640 € | −33.329 € |
+| Nötige Miete für DSCR 1,0 | 15,39 €/m² | 15,59 €/m² |
+| Aufschlag der nötigen Miete auf die Marktmiete | 6,3 % | 7,7 % |
+| Nötige Miete für DSCR 1,25 | 18,80 €/m² | 19,05 €/m² |
+| EK-IRR mit Restwert, Jahr 42 (Jahr 35) | 8,29 (8,67) % | 8,17 (8,55) % |
+| EK-IRR nur Bodenwert, Jahr 42 (Jahr 35) | 6,36 (4,99) % | 6,20 (4,79) % |
+| VOFI-EK-Rendite mit Restwert, Jahr 42 (Jahr 35) | 7,34 (8,03) % | 7,31 (8,00) % |
+| VOFI-EK-Rendite nur Bodenwert, Jahr 42 (Jahr 35) | 5,15 (4,26) % | 5,09 (4,15) % |
+| Restwertanteil am Endvermögen, Jahr 42 (Jahr 35) | 58 (71) % | 58 (72) % |
+
+Der Objekt-IRR frei (6,17 % und 6,27 %) hängt nicht an der Finanzierung und bleibt.
+
+### Ergebnisse Modellhaus, gefördert
+
+Der Bankzins ist der Vergleichszins des Förderbarwerts. Es ändern sich nur diese Werte:
+
+| Größe | A | B | C |
+|---|---:|---:|---:|
+| Förderbarwert, bis 11.11.2026 | 1.670.288 € | 1.328.957 € | 1.158.292 € |
+| Förderbarwert, seit 12.11.2026 | 1.682.663 € | 1.347.520 € | 1.179.948 € |
+| Objekt-IRR nach Förderbarwert, Jahr 42 (Jahr 35), bisher | 6,63 (6,81) % | 6,43 (6,58) % | 6,39 (6,53) % |
+| Objekt-IRR nach Förderbarwert, Jahr 42 (Jahr 35), neu | 6,67 (6,86) % | 6,48 (6,64) % | 6,44 (6,59) % |
+
+### Vergleichshaus (Projekt 1)
+
+Derselbe Zins. Frei finanziert: VOFI-EK-Rendite mit Restwert Jahr 35 3,32 % statt 3,57 %, tiefster Stand des Projektkontos −5,13 Mio. € statt −4,82 Mio. €. Förderbarwert A / B / C 3.974.689 / 3.183.033 / 2.787.206 € statt 3.945.457 / 3.139.186 / 2.736.050 €.
+
+### Broschüre, Präsentation, Prüfung
+
+Broschüre S. 11 (Vergleich frei finanziert) und Präsentation (Folien 4, 5, 16 bis 19, 24, A7) nennen die neuen Werte. Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler, 70 Testläufe gegen die Referenzrechnung. Läufe, die frühere Stände tragen (Abgleich mit v2-1, Regression), rechnen mit 3,74 % weiter.

@@ -20,20 +20,28 @@ function linienstueck(ctx, s, o) {
   s.addShape(ctx.pres.ShapeType.line, { x: o.x, y: o.y, w: o.w, h: 0, line: { color: farbe(ctx, o.art), width: STRICH }, objectName: o.name });
 }
 
-// o: { x, y, kopf (Bezeichnung des Stands, etwa „Juli 2026“), eintraege: [{ name, wert (fertiger Text), art }] }. Rückgabe: { rechts }
+// o: { x, y, wMax, kopf (Bezeichnung des Stands, etwa „Juli 2026“), eintraege: [{ name, wert (fertiger Text), art }] }. Rückgabe: { rechts }
+// Mit wMax bleibt die Zeile in der Breite des Diagramms: Ein langer Monatsname („November 2026“) zieht die Abstände zwischen den Einträgen
+// von 0,30 bis auf 0,16 Zoll zusammen; reicht auch das nicht, meldet der Bau die Stelle.
 function legendeMitWerten(ctx, s, o) {
   const { B } = ctx, h = 0.24, st = B.stil('legende'), wt = B.stil('wert'), bk = B.stil('bezeichnung');
   const b = (t, stil) => +(breite(B.schutz(t), stil) + 0.04).toFixed(3);
-  let x = o.x;
-  if (o.kopf) { const w = b(o.kopf, bk); B.text(s, o.kopf, { x, y: o.y - GRUNDLINIE_TEXT, w, h, rolle: 'bezeichnung', valign: 'middle', einzeilig: true, name: 'Legende Stand' }); x += w + 0.22; }
+  let x = o.x, luecke = 0.30, nachKopf = 0.22;
+  if (o.wMax) {
+    const fest = (o.kopf ? b(o.kopf, bk) : 0) + o.eintraege.reduce((sum, e) => sum + 0.33 + b(e.name, st) + 0.05 + b(e.wert, wt), 0), n = Math.max(1, o.eintraege.length - 1);
+    luecke = Math.min(0.30, (o.wMax - fest - (o.kopf ? nachKopf : 0)) / n);
+    if (luecke < 0.22 && o.kopf) { nachKopf = 0.18; luecke = Math.min(0.30, (o.wMax - fest - nachKopf) / n); }
+    if (luecke < 0.16) { ctx.P.melde(`Legende mit Werten: Die Zeile braucht ${ctx.fmt.zahl(fest + nachKopf + n * 0.16, 2)} Zoll, Platz sind ${ctx.fmt.zahl(o.wMax, 2)} Zoll.`); luecke = 0.16; }
+  }
+  if (o.kopf) { const w = b(o.kopf, bk); B.text(s, o.kopf, { x, y: o.y - GRUNDLINIE_TEXT, w, h, rolle: 'bezeichnung', valign: 'middle', einzeilig: true, name: 'Legende Stand' }); x += w + nachKopf; }
   for (const e of o.eintraege) {
     const nw = b(e.name, st), ww = b(e.wert, wt);
     linienstueck(ctx, s, { x, y: o.y + h / 2, w: 0.26, art: e.art, name: `Legende Linie ${e.name}` });
     B.text(s, e.name, { x: x + 0.33, y: o.y - GRUNDLINIE_TEXT, w: nw, h, rolle: 'legende', valign: 'middle', einzeilig: true, name: `Legende ${e.name}` });
     B.text(s, e.wert, { x: x + 0.33 + nw + 0.05, y: o.y, w: ww, h, rolle: 'wert', valign: 'middle', einzeilig: true, name: `Legende Wert ${e.name}` });
-    x += 0.33 + nw + 0.05 + ww + 0.30;
+    x += 0.33 + nw + 0.05 + ww + luecke;
   }
-  return { rechts: x - 0.30 };
+  return { rechts: x - luecke };
 }
 
 // o: { x, y, h, name }

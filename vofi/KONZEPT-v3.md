@@ -130,9 +130,9 @@ Gültigkeit = Datenüberprüfung. Die Fehlermeldung nennt den zulässigen Bereic
 
 | Nr. | Zeile | Eingabe (Excel) | Name | Einheit | Vergleichshaus | Tarutinoer | Quelle (Excel) | Fundstelle | Gültigkeit |
 |---|---|---|---|---|---|---|---|---|---|
-| 6.1 | 35 | Zins Bank; Vergleichszins Förderbarwert | `Zins_Bank` | % p. a. | 3,74 % | 3,74 % | PGN-Annahme (Bundesbank-Statistik, Vorgängermappe) | RR `zins_bank` / v2-1 Eingabe!C51 | Dezimal 0–0,15 |
+| 6.1 | 35 | Zins Bank; Vergleichszins Förderbarwert | `Zins_Bank` | % p. a. | 3,86 % | 3,86 % | Dr. Klein Wowi, Top-Konditionen 10 Jahre, Stand 10.11.2026 | RR `zins_bank` / v2-1 Eingabe!C51 | Dezimal 0–0,15 |
 | 6.2 | 36 | Zinsbindung | `Zinsbindung` | Jahre | 10 | 10 | PGN-Annahme (Vorgängermappe) | RR `zinsbindung` / v2-1 Eingabe!C52 | ganze Zahl 1–42 |
-| 6.3 | 37 | Anschlusszins | `Zins_Anschluss` | % p. a. | 3,74 % | 3,74 % | PGN-Annahme; Vorgängermappe Best 2,74 %, Worst 4,74 % | RR `zins_anschluss` / v2-1 Eingabe!C53 | Dezimal 0–0,15 |
+| 6.3 | 37 | Anschlusszins | `Zins_Anschluss` | % p. a. | 3,86 % | 3,86 % | PGN-Annahme: wie Eingabe 6.1; Vorgängermappe ± 1 Punkt | RR `zins_anschluss` / v2-1 Eingabe!C53 | Dezimal 0–0,15 |
 | 6.4 | 38 | Laufzeit Bankdarlehen (Annuität) | `Laufzeit_Bank` | Jahre | 30 | 30 | PGN-Annahme (Vorgängermappe) | RR 30 Jahre fest / v2-1 Eingabe!C54 (1,8618466 % = Annuität 30 Jahre) | ganze Zahl 1–60 |
 
 **Block 7 Eigenkapital und Projektkonto (VOFI) (3), Gruppenzeile 39**
@@ -1855,7 +1855,7 @@ Abnahme am 11.11.2026: 617 Prüfungen ohne Fehler, 70 Läufe. F9 lief gegen die 
 
 ### R.4 Sollwerte Modellhaus (Projekt 2, Auslieferungsstand, Lauf L2)
 
-Übersicht, Spalten D bis G (A, B, C, Frei): Blöcke 1 bis 4, Block 6 und die Zeilen 7.1, 7.7, 8.2 und 8.3. Renditen und Restwert in den Spalten D bis G gelten für Jahr 35. Werte aus der Referenzrechnung; Beträge mit Cent sind auf 0,01 € geprüft, Beträge in ganzen Euro auf 1 € (Zeitreihe ab Jahr 2, Barwerte, Restwert). `pruefe_vofi.py` prüft jede Zelle dieser Tabelle im Lauf L2.
+Übersicht, Spalten D bis G (A, B, C, Frei): Blöcke 1 bis 4, Block 6 und die Zeilen 7.1, 7.7, 8.2 und 8.3. Renditen und Restwert in den Spalten D bis G gelten für Jahr 35. Werte aus der Referenzrechnung; Beträge mit Cent sind auf 0,01 € geprüft, Beträge in ganzen Euro auf 1 € (Zeitreihe ab Jahr 2, Barwerte, Restwert). `pruefe_vofi.py` prüft jede Zelle dieser Tabelle im Lauf L2. Stand 12.11.2026: Zeile 17 und die Spalte G mit Bankzins 3,86 % (Abschnitt S).
 
 | Zeile | Nr. | Kennzahl | D (A) | E (B) | F (C) | G (Frei) |
 |---|---|---|---:|---:|---:|---:|
@@ -1867,7 +1867,7 @@ Abnahme am 11.11.2026: 617 Prüfungen ohne Fehler, 70 Läufe. F9 lief gegen die 
 | 14 | 1.6 | Zuschuss | 1.185.364,80 | 592.682,40 | 296.341,20 |  |
 | 15 | 1.7 | Förderung gesamt | 2.370.729,60 | 2.370.729,60 | 2.370.729,60 |  |
 | 16 | 1.8 | Förderquote auf Gesamtkosten | 80,00 % | 80,00 % | 80,00 % |  |
-| 17 | 1.9 | Förderbarwert (Zuschuss + Barwertvorteil) | 1.670.288 | 1.328.957 | 1.158.292 |  |
+| 17 | 1.9 | Förderbarwert (Zuschuss + Barwertvorteil) | 1.682.663 | 1.347.520 | 1.179.948 |  |
 | 18 | 1.10 | Bankdarlehen | 0,00 | 0,00 | 0,00 | 2.370.729,60 |
 | 19 | 1.11 | Eigenmittel (RL Nr. 5.2.6), ohne Entgelte | 592.682,40 | 592.682,40 | 592.682,40 | 592.682,40 |
 | 20 | 1.12 | Eigenmittelquote | 20,00 % | 20,00 % | 20,00 % | 20,00 % |
@@ -1885,16 +1885,16 @@ Abnahme am 11.11.2026: 617 Prüfungen ohne Fehler, 70 Läufe. F9 lief gegen die 
 | 34 | 5 | − Verwaltungskostenbeitrag | 5.926,82 | 8.890,24 | 10.371,94 |  |
 | 35 | 6 | − Zins NBank-Darlehen | 0,00 | 0,00 | 0,00 |  |
 | 36 | 7 | − Tilgung NBank-Darlehen (Annahme) | 28.222,97 | 42.334,46 | 49.390,20 |  |
-| 37 |  | − Kapitaldienst Bankdarlehen | 0,00 | 0,00 | 0,00 | 132.804,64 |
-| 38 | 8 | = Zahlungsüberschuss p. a. | 15.002,51 | 11.559,80 | 10.812,18 | −8.866,55 |
+| 37 |  | − Kapitaldienst Bankdarlehen | 0,00 | 0,00 | 0,00 | 134.778,63 |
+| 38 | 8 | = Zahlungsüberschuss p. a. | 15.002,51 | 11.559,80 | 10.812,18 | −10.840,54 |
 | 39 |  | Einmalig: Bearbeitungsentgelte | 20.743,88 | 22.225,59 | 22.966,44 |  |
-| 42 | 3.1 | Zahlungsüberschuss Jahr 10 | 25.927 | 25.792 | 26.890 | 15.313 |
+| 42 | 3.1 | Zahlungsüberschuss Jahr 10 | 25.927 | 25.792 | 26.890 | 13.339 |
 | 43 | 3.2 | Zahlungsüberschuss Jahr 35 | 64.860 | 76.468 | 84.149 | 243.002 |
 | 44 | 3.3 | Zahlungsüberschuss Jahr 42 | 115.990 | 139.129 | 153.402 | 279.133 |
-| 45 | 3.4 | Schuldendienstdeckung (DSCR) Jahr 1 | 1,4393 | 1,2257 | 1,1809 | 0,9332 |
-| 46 | 3.5 | DSCR Minimum Jahr 1–35 | 1,4310 | 1,2223 | 1,1791 | 0,9332 |
-| 47 | 3.6 | Jahre mit Fehlbetrag, Jahr 1–35 | 0 | 0 | 0 | 4 |
-| 48 | 3.7 | Größter kumulierter Fehlbetrag, Jahr 1–42 | 0 | 0 | 0 | −20.394 |
+| 45 | 3.4 | Schuldendienstdeckung (DSCR) Jahr 1 | 1,4393 | 1,2257 | 1,1809 | 0,9196 |
+| 46 | 3.5 | DSCR Minimum Jahr 1–35 | 1,4310 | 1,2223 | 1,1791 | 0,9196 |
+| 47 | 3.6 | Jahre mit Fehlbetrag, Jahr 1–35 | 0 | 0 | 0 | 5 |
+| 48 | 3.7 | Größter kumulierter Fehlbetrag, Jahr 1–42 | 0 | 0 | 0 | −28.914 |
 | 49 | 3.8 | Tragbare Tilgung Jahr 1 | 3,65 % | 3,03 % | 2,90 % |  |
 | 50 | 3.9 | Restschuld NBank Ende Jahr 35 | 197.561 | 296.341 | 345.731 |  |
 | 51 | 3.10 | Schlussrate NBank über Regeltilgung | 0 | 0 | 0 |  |
@@ -1917,18 +1917,18 @@ Abnahme am 11.11.2026: 617 Prüfungen ohne Fehler, 70 Läufe. F9 lief gegen die 
 | 70 | 4.16 | = Mehrüberschuss vor Tilgung | – | 10.668,78 | 16.976,90 |  |
 | 71 | 4.17 | Mehrüberschuss bei Tilgung laut Eingabe 3.1 | – | −3.442,71 | −4.190,33 |  |
 | 72 | 4.18 | Einmalig: Mehr an Bearbeitungsentgelten | – | 1.481,71 | 2.222,56 |  |
-| 89 | 6.1 | EK-IRR, mit Restwert | 8,13 % | 8,29 % | 8,44 % | 8,67 % |
-| 90 | 6.2 | EK-IRR, nur Bodenwert | 3,13 % | 3,17 % | 3,44 % | 4,99 % |
-| 91 | 6.3 | VOFI-EK-Rendite, mit Restwert | 6,95 % | 7,17 % | 7,29 % | 8,03 % |
-| 92 | 6.4 | VOFI-EK-Rendite, nur Bodenwert | 2,58 % | 2,61 % | 2,75 % | 4,26 % |
-| 93 | 6.5 | Restwertanteil am Endvermögen | 76,84 % | 78,16 % | 77,97 % | 71,18 % |
-| 94 | 6.6 | EK-IRR, ohne Restwert | 3,13 % | 3,17 % | 3,44 % | 4,99 % |
-| 95 | 6.7 | VOFI-EK-Rendite, ohne Restwert | 2,58 % | 2,61 % | 2,75 % | 4,26 % |
-| 96 | 6.8 | Tiefster Stand Projektkonto (VOFI) | 0 | 0 | 0 | −22.640 |
+| 89 | 6.1 | EK-IRR, mit Restwert | 8,13 % | 8,29 % | 8,44 % | 8,55 % |
+| 90 | 6.2 | EK-IRR, nur Bodenwert | 3,13 % | 3,17 % | 3,44 % | 4,79 % |
+| 91 | 6.3 | VOFI-EK-Rendite, mit Restwert | 6,95 % | 7,17 % | 7,29 % | 8,00 % |
+| 92 | 6.4 | VOFI-EK-Rendite, nur Bodenwert | 2,58 % | 2,61 % | 2,75 % | 4,15 % |
+| 93 | 6.5 | Restwertanteil am Endvermögen | 76,84 % | 78,16 % | 77,97 % | 71,94 % |
+| 94 | 6.6 | EK-IRR, ohne Restwert | 3,13 % | 3,17 % | 3,44 % | 4,79 % |
+| 95 | 6.7 | VOFI-EK-Rendite, ohne Restwert | 2,58 % | 2,61 % | 2,75 % | 4,15 % |
+| 96 | 6.8 | Tiefster Stand Projektkonto (VOFI) | 0 | 0 | 0 | −33.329 |
 | 100 | 7.1 | Restwert (Boden + Gebäude) | 4.958.369 | 5.418.698 | 5.625.371 | 6.297.398 |
 | 106 | 7.7 | Liegenschaftszins | 2,80 % | 2,80 % | 2,80 % | 2,80 % |
-| 111 | 8.2 | Kapitaldienst Jahr 1, mit Regeltilgung | 34.149,80 | 51.224,69 | 59.762,14 | 132.804,64 |
-| 112 | 8.3 | Nötige Miete Jahr 1 für das DSCR-Ziel | 5,26 | 7,01 | 7,89 | 15,39 |
+| 111 | 8.2 | Kapitaldienst Jahr 1, mit Regeltilgung | 34.149,80 | 51.224,69 | 59.762,14 | 134.778,63 |
+| 112 | 8.3 | Nötige Miete Jahr 1 für das DSCR-Ziel | 5,26 | 7,01 | 7,89 | 15,59 |
 
 Zeile 3.10: Die Mappe zeigt in Gruppe A 0,06 € (Rundung der Restschuld auf Cent), die Referenzrechnung 0.
 
@@ -1949,3 +1949,41 @@ Lesart: Alle drei Gruppen tragen sich ab Jahr 1 (Zeile 8 positiv, DSCR über 1,0
 
 Bis zur Bemessungsgrenze bleibt die Förderquote 80 %. Mit den Kosten wachsen Darlehen, Verwaltungskostenbeitrag und Tilgung, die Miete nicht: Der Zahlungsüberschuss der Gruppe A sinkt von 15.003 auf 1.444 €, B und C werden negativ.
 
+## S. Bankzins 3,86 % (12.11.2026)
+
+Stand: 12.11.2026.
+
+### S.1 Auftrag und Umsetzung
+
+Auftrag des Auftraggebers vom 12.11.2026: mit dem jüngsten Wert der Zinsreihe rechnen. Eingabe 6.1 (Zins Bank; Vergleichszins Förderbarwert) und Eingabe 6.3 (Anschlusszins) stehen in beiden Projekten auf 3,86 % statt 3,74 %. Quelle: Dr. Klein Wowi Finanz AG, Top-Konditionen Wohnungswirtschaft, 10 Jahre Zinsbindung, Wert vom 10.11.2026 (Wochenwerte der Grafik unter www.drklein-wowi.de/finanzierung/zinsentwicklung, gelesen am 12.11.2026). 3,74 % war der Wert derselben Reihe vom 21.07.2026; die Quellenangabe „Bundesbank-Statistik“ der Vorgängermappe ist ersetzt.
+
+Unverändert: Eingabe 3.3 (Zins NBank-Darlehen ab Jahr 36, 3,74 %) ist eine eigene Annahme der Vorgängermappe und kein Wert dieser Reihe. Zinsbindung 10 Jahre, Laufzeit 30 Jahre. Keine Zelle wechselt die Adresse, keine Formel ist geändert.
+
+### S.2 Zahlenwirkung Modellhaus (Projekt 2, Lauf L2)
+
+Der Zins wirkt auf das Bankdarlehen (Spalte Frei; gefördert nur in Läufen mit Bankdarlehen) und als Vergleichszins auf den Förderbarwert (Zeile 17, Objekt-IRR nach Förderbarwert Zeile 76, NBank!D30:F30). Finanzierung, Jahresrechnung, Liquidität und Eigenkapitalrenditen der Gruppen A, B und C sind unverändert.
+
+| Zeile | Kennzahl | bis 11.11.2026 (3,74 %) | seit 12.11.2026 (3,86 %) |
+|---|---|---:|---:|
+| 17 | Förderbarwert A / B / C | 1.670.288 / 1.328.957 / 1.158.292 | 1.682.663 / 1.347.520 / 1.179.948 |
+| 37, 111 | Kapitaldienst Bankdarlehen, Frei | 132.804,64 | 134.778,63 |
+| 38 | Zahlungsüberschuss Jahr 1, Frei | −8.866,55 | −10.840,54 |
+| 42 | Zahlungsüberschuss Jahr 10, Frei | 15.313 | 13.339 |
+| 45, 46 | DSCR Jahr 1 und Minimum, Frei | 0,9332 | 0,9196 |
+| 47 | Jahre mit Fehlbetrag, Frei | 4 | 5 |
+| 48 | Größter kumulierter Fehlbetrag, Frei | −20.394 | −28.914 |
+| 91 | VOFI-EK-Rendite mit Restwert, Frei | 8,03 % | 8,00 % |
+| 92 | VOFI-EK-Rendite ohne Restwert, Frei | 4,26 % | 4,15 % |
+| 96 | Tiefster Stand Projektkonto, Frei | −22.640 | −33.329 |
+| 112 | Nötige Miete Jahr 1 für das DSCR-Ziel, Frei | 15,39 | 15,59 |
+
+Die Tabelle R.4 trägt die neuen Werte. Die Tabellen in F.3 bis F.5 und in den Abschnitten N und Q nennen den Stand ihrer Abschnitte (3,74 %); das Prüfskript führt die Abweichungen der Läufe L1, L2, L4 und L10 in `_ZINS_386` (88 Zellen).
+
+### S.3 Prüfskript
+
+- `ZINS_BANK = 0,0386` überschreibt `zins_bank` und `zins_anschluss` der RR-Parameter beider Projekte; die Referenzrechnung und `annahmen.json` bleiben unverändert.
+- Läufe, die frühere Stände tragen, rechnen mit 3,74 % weiter (`ZINS_BIS_11_11`): L63 bis L68 (Regression, Abgleich mit v2-1, frühere Sollwerte), dazu der Abgleich F10 und die Überleitung E.3 über `basis_v21()`. L48 (Bankzins 6 %) behält den Anschlusszins 3,74 %, mit dem der Lauf angelegt wurde.
+- Sollwerte laut Konzept: neue Schicht `_ZINS_386` für L1 (35 Zellen), L2 (29), L4 (21) und L10 (3), aus der Anzeige der Mappe; F8 prüft dieselben Zellen gegen die Referenzrechnung.
+- F9 liest die Broschüre S. 11 mit den neuen Werten (Kapitaldienst frei 134.779 €, nötige Miete 15,59 €, Zins 3,86 %).
+
+Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler, 70 Läufe.

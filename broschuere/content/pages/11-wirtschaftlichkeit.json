@@ -193,21 +193,21 @@
         [
           "Kapitaldienst p. a.",
           "34.150 €",
-          "132.805 €"
+          "134.779 €"
         ],
         [
           "Miete je m² und Monat, bei der Zeile 8 null ist",
           "5,26 €",
-          "15,39 €"
+          "15,59 €"
         ]
       ],
       "result_row": "Miete je m² und Monat, bei der Zeile 8 null ist",
-      "values_source": "VOFI-Mappe v3 (PGN_VOFI_Mietwohnraum_2026_v3.xlsx), Projekt 2: Übersicht 8.2 Kapitaldienst Jahr 1 und 8.3 nötige Miete für DSCR-Ziel 1,0 (A und Frei), 1.10 Bankdarlehen frei; Eingaben 6.1 Zins Bank 3,74 %, 6.4 Laufzeit 30 Jahre (PGN-Annahmen); Eigenmittel frei wie gefördert (1.11)."
+      "values_source": "VOFI-Mappe v3 (PGN_VOFI_Mietwohnraum_2026_v3.xlsx), Projekt 2: Übersicht 8.2 Kapitaldienst Jahr 1 und 8.3 nötige Miete für DSCR-Ziel 1,0 (A und Frei), 1.10 Bankdarlehen frei; Eingaben 6.1 Zins Bank 3,86 %, 6.4 Laufzeit 30 Jahre (PGN-Annahmen); Eigenmittel frei wie gefördert (1.11)."
     },
     {
       "type": "text",
       "heading": "Annahmen",
-      "body": "Frei finanziert: gleiches Haus, Eigenmittel 0,6 Mio. €, Bankdarlehen 2,4 Mio. € zu 3,74 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern. In den geförderten Varianten ist die Tilgung gleichmäßig auf die Höchstlaufzeit von 42 Jahren verteilt. Den Satz legt die NBank fest (→ S. 9). B und C gegenüber A → S. 12"
+      "body": "Frei finanziert: gleiches Haus, Eigenmittel 0,6 Mio. €, Bankdarlehen 2,4 Mio. € zu 3,86 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern. In den geförderten Varianten ist die Tilgung gleichmäßig auf die Höchstlaufzeit von 42 Jahren verteilt. Den Satz legt die NBank fest (→ S. 9). B und C gegenüber A → S. 12"
     }
   ],
   "footnotes": [],

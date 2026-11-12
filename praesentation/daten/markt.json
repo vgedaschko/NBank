@@ -1,20 +1,18 @@
 {
   "_hinweis": "Werte und Texte der Baugruppen „einstieg“ (Folien 3 bis 6), „ueberblick“ (A1, A2) und der Folie 22 (pgn-baukosten, Baugruppe „struktur“), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft und geprueft. Broschüre: Seite, Datei unter broschuere/content/pages/ und JSON-Schlüssel. Altfassung: Präsentation vom 26.10.2026 mit Folie und Reihe, dazu die Quelle laut Altfassung; diese Werte sind aus der Altfassung übernommen und nicht nachgeprüft („geprueft“: false, „vermerk“: „nicht nachgeprüft“). Zahlen stehen genau einmal als Zahl; in den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul füllt (felder in folien/_einstieg.cjs für die Folien 4 und 6, kostenFelder in folien/_struktur.cjs für die Folie 22, felder in folien/_ueberblick.cjs für A1 und A2). Platzhalter mit dem Vorsatz „mappe_“ kommen aus daten/werte.json (Lauf modellhaus). Die gefüllten Texte prüft der Bau gegen das Feld „inhalt“ des Konzepts.",
   "zinsen": {
-    "_hinweis": "Folie 4. Sollzins p. a. nach Zinsbindung, Top-Konditionen Wohnungswirtschaft. Die Altfassung führt die Werte nur im Zwischenspeicher des Diagramms (Verknüpfung auf eine lokale Datei des Erstellers). Zuordnung der Monate: Punkt 1 = 01/2016 (Jahreszahl an jedem zwölften Punkt der Achse), Punkt 127 = 07/2026. Die Quartalsmittel der Marken rechnet das Folienmodul aus den Monatswerten nach; die Endwerte sind die letzten Monatswerte.",
+    "_hinweis": "Folie 4. Sollzins p. a. nach Zinsbindung, Top-Konditionen Wohnungswirtschaft. Die Quelle führt Wochenwerte; der Monatswert ist der letzte Wochenwert des Monats, der Wert für 11/2026 der vom 10.11.2026 (letzter Wert am 12.11.2026). Die Reihe der Altfassung (01/2016 bis 07/2026) stimmt damit in 126 von 127 Monaten überein; für 07/2026 führte sie den Wert vom 21.07.2026 (3,74 | 4,02 | 4,15 %), hier steht der vom 28.07.2026 (3,69 | 3,97 | 4,10 %). Punkt 1 = 01/2016 (Jahreszahl an jedem zwölften Punkt der Achse), Punkt 131 = 11/2026. Die Quartalsmittel der Marken rechnet das Folienmodul aus den Monatswerten nach; die Endwerte sind die letzten Monatswerte.",
     "quelle": {
-      "wert": "Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung, Monatswerte 01/2016 bis 07/2026",
+      "wert": "Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung, Monatswerte 01/2016 bis 11/2026",
       "einheit": "Quellenangabe",
-      "herkunft": "Altfassung Folie 24, Quellenzeile",
-      "geprueft": false,
-      "vermerk": "nicht nachgeprüft"
+      "herkunft": "Dr. Klein Wowi Finanz AG, Zinsentwicklung und Top-Konditionen Wohnungswirtschaft (www.drklein-wowi.de/finanzierung/zinsentwicklung), Wochenwerte der Grafik, gelesen am 12.11.2026",
+      "geprueft": true
     },
     "quelle_kurz": {
       "wert": "Quelle: Dr. Klein Wowi Finanz AG (2026), Zinsentwicklung für die Wohnungswirtschaft",
       "einheit": "Quellenangabe, Kurzform für das Schriftfeld der Folie",
-      "herkunft": "Kurzform von zinsen.quelle für das Schriftfeld der Folie 4 (Altfassung Folie 24, Quellenzeile); die volle Angabe steht auf der Quellenfolie im Anhang",
-      "geprueft": false,
-      "vermerk": "nicht nachgeprüft"
+      "herkunft": "Kurzform von zinsen.quelle für das Schriftfeld der Folie 4; die volle Angabe steht auf der Quellenfolie im Anhang",
+      "geprueft": true
     },
     "monate": {
       "wert": [
@@ -144,12 +142,15 @@
         "2026-04",
         "2026-05",
         "2026-06",
-        "2026-07"
+        "2026-07",
+        "2026-08",
+        "2026-09",
+        "2026-10",
+        "2026-11"
       ],
       "einheit": "Monat (JJJJ-MM)",
-      "herkunft": "Altfassung Folie 24, Diagramm (Zwischenspeicher), Kategorienachse; Folie 24, Untertitel „Monatswerte seit Januar 2016 (Stand: Juli 2026)“",
-      "geprueft": false,
-      "vermerk": "nicht nachgeprüft"
+      "herkunft": "Monate der Reihe; Dr. Klein Wowi Finanz AG, Zinsentwicklung und Top-Konditionen Wohnungswirtschaft (www.drklein-wowi.de/finanzierung/zinsentwicklung), Wochenwerte der Grafik, gelesen am 12.11.2026",
+      "geprueft": true
     },
     "z10": {
       "name": "10 Jahre",
@@ -280,12 +281,15 @@
         3.73,
         3.64,
         3.47,
-        3.74
+        3.69,
+        3.86,
+        4.15,
+        3.98,
+        3.86
       ],
-      "einheit": "% p. a., Sollzins, Monatswert",
-      "herkunft": "Altfassung Folie 24, Diagramm (Zwischenspeicher), Reihe „10 Jahre (Linie)“, 127 Monatswerte 01/2016 bis 07/2026; Quelle laut Altfassung: Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung, Monatswerte 01/2016 bis 07/2026",
-      "geprueft": false,
-      "vermerk": "nicht nachgeprüft"
+      "einheit": "% p. a., Sollzins, Monatswert (letzter Wochenwert des Monats)",
+      "herkunft": "Dr. Klein Wowi Finanz AG, Zinsentwicklung und Top-Konditionen Wohnungswirtschaft (www.drklein-wowi.de/finanzierung/zinsentwicklung), Wochenwerte der Grafik, gelesen am 12.11.2026; Reihe „10 Jahre“, 131 Monatswerte 01/2016 bis 11/2026 (11/2026: Wert vom 10.11.2026)",
+      "geprueft": true
     },
     "z20": {
       "name": "20 Jahre",
@@ -416,12 +420,15 @@
         3.93,
         3.96,
         3.82,
-        4.02
+        3.97,
+        4.11,
+        4.35,
+        4.08,
+        3.97
       ],
-      "einheit": "% p. a., Sollzins, Monatswert",
-      "herkunft": "Altfassung Folie 24, Diagramm (Zwischenspeicher), Reihe „20 Jahre“, 127 Monatswerte 01/2016 bis 07/2026; Quelle laut Altfassung: Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung, Monatswerte 01/2016 bis 07/2026",
-      "geprueft": false,
-      "vermerk": "nicht nachgeprüft"
+      "einheit": "% p. a., Sollzins, Monatswert (letzter Wochenwert des Monats)",
+      "herkunft": "Dr. Klein Wowi Finanz AG, Zinsentwicklung und Top-Konditionen Wohnungswirtschaft (www.drklein-wowi.de/finanzierung/zinsentwicklung), Wochenwerte der Grafik, gelesen am 12.11.2026; Reihe „20 Jahre“, 131 Monatswerte 01/2016 bis 11/2026 (11/2026: Wert vom 10.11.2026)",
+      "geprueft": true
     },
     "z30": {
       "name": "30 Jahre",
@@ -459,7 +466,7 @@
         2.08,
         2.05,
         2.14,
-        2,
+        2.0,
         1.95,
         1.95,
         1.9,
@@ -552,12 +559,15 @@
         4.05,
         4.07,
         3.98,
-        4.15
+        4.1,
+        4.23,
+        4.41,
+        4.19,
+        4.13
       ],
-      "einheit": "% p. a., Sollzins, Monatswert",
-      "herkunft": "Altfassung Folie 24, Diagramm (Zwischenspeicher), Reihe „30 Jahre“, 127 Monatswerte 01/2016 bis 07/2026; Quelle laut Altfassung: Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung, Monatswerte 01/2016 bis 07/2026",
-      "geprueft": false,
-      "vermerk": "nicht nachgeprüft"
+      "einheit": "% p. a., Sollzins, Monatswert (letzter Wochenwert des Monats)",
+      "herkunft": "Dr. Klein Wowi Finanz AG, Zinsentwicklung und Top-Konditionen Wohnungswirtschaft (www.drklein-wowi.de/finanzierung/zinsentwicklung), Wochenwerte der Grafik, gelesen am 12.11.2026; Reihe „30 Jahre“, 131 Monatswerte 01/2016 bis 11/2026 (11/2026: Wert vom 10.11.2026)",
+      "geprueft": true
     },
     "marken": {
       "wert": [
@@ -587,9 +597,8 @@
         }
       ],
       "einheit": "% p. a., Mittel der drei Monate des Quartals; „monat“ ist die Lage der Marke auf der Achse",
-      "herkunft": "Altfassung Folie 24, Textfelder an den beiden Marken des Diagramms (Ø Q1 2020, Ø Q4 2025); Lage der Marken: Reihe „_Vergleichszeitpunkte“; Quelle laut Altfassung: Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung, Monatswerte 01/2016 bis 07/2026",
-      "geprueft": false,
-      "vermerk": "nicht nachgeprüft"
+      "herkunft": "Mittel der drei Monatswerte des Quartals aus den Reihen z10, z20, z30 (das Folienmodul rechnet nach); Bezeichnung und Lage der Marken wie in der Altfassung Folie 24; Dr. Klein Wowi Finanz AG, Zinsentwicklung und Top-Konditionen Wohnungswirtschaft (www.drklein-wowi.de/finanzierung/zinsentwicklung), Wochenwerte der Grafik, gelesen am 12.11.2026",
+      "geprueft": true
     },
     "texte": {
       "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter. Seit dem Umbau stehen rechts zwei Kennzahlen (Label: kennzahl_label; Vorsatz und Zahl aus der Reihe und den Marken). „ausgangslage“ ist der Satz der Broschüre S. 2 im Wortlaut; er steht auf keiner Folie (bis 12.11.2026 gekürzt in den Sprechernotizen der Folie 4, die es nicht mehr gibt). Der Titel der Folie nennt die Werte der beiden Kennzahlen. Die übrigen Texte der früheren Kommentarspalte sind entfallen. Legende und Marken tragen ihre Werte einzeln je Zinsbindung: Das Folienmodul setzt sie aus den Bezeichnungen der Reihen (name), den letzten Monatswerten und zinsen.marken; ein Textmuster für die Marken gibt es nicht mehr.",
@@ -1526,7 +1535,7 @@
     }
   },
   "kapitaldienst": {
-    "_hinweis": "Folie 5 (einstieg-kapitaldienst). Eingangswerte der Rechnung „Kapitaldienst je m² Wohnfläche und Monat, Q1 2020 gegen heute“. Kosten je m²: baukosten.herstellung + baukosten.grundstueck (Q1 2020 und Q4 2025). Zins heute, Laufzeit und Zinsbindung kommen aus daten/werte.json (Lauf modellhaus: eingabe.zins_bank, eingabe.laufzeit_bank, eingabe.zinsbindung); „heute“ heißt: Kosten Q4 2025, Zins Juli 2026 (letzter Wert der Reihe zinsen.z10). Methode wie in der Altfassung Folie 5: Annuitätendarlehen mit monatlicher Rate, Monatsrate je Euro Darlehen = (i ÷ 12) ÷ (1 − (1 + i ÷ 12)^−(12 × n)), Kapitaldienst je m² und Monat = Kosten × Fremdkapitalanteil × Monatsrate (8,93 und 19,95 €). Die Rechenmappe rechnet das Modellhaus mit einer Jahresrate; damit wären es 8,95 und 20,14 €. Zerlegung des Anstiegs: Baukosten = neue Kosten zum alten Zins minus alt; Zins = alte Kosten zum neuen Zins minus alt; Wechselwirkung = Rest. Ergebnisse und Formeln stehen in daten/pruefung.json; das Folienmodul rechnet sie aus diesen Eingangswerten. Die Folie ist keine Modellrechnung (weißer Grund, kein Papierton): Medianwerte deutscher Großstädte je m², kein einzelnes Haus.",
+    "_hinweis": "Folie 5 (einstieg-kapitaldienst). Eingangswerte der Rechnung „Kapitaldienst je m² Wohnfläche und Monat, Q1 2020 gegen heute“. Kosten je m²: baukosten.herstellung + baukosten.grundstueck (Q1 2020 und Q4 2025). Zins heute, Laufzeit und Zinsbindung kommen aus daten/werte.json (Lauf modellhaus: eingabe.zins_bank, eingabe.laufzeit_bank, eingabe.zinsbindung); „heute“ heißt: Kosten Q4 2025, Zins November 2026 (letzter Wert der Reihe zinsen.z10, 10.11.2026). Methode wie in der Altfassung Folie 5: Annuitätendarlehen mit monatlicher Rate, Monatsrate je Euro Darlehen = (i ÷ 12) ÷ (1 − (1 + i ÷ 12)^−(12 × n)), Kapitaldienst je m² und Monat = Kosten × Fremdkapitalanteil × Monatsrate (8,93 und 20,25 €). Die Rechenmappe rechnet das Modellhaus mit einer Jahresrate; damit wären es 8,95 und 20,44 €. Zerlegung des Anstiegs: Baukosten = neue Kosten zum alten Zins minus alt; Zins = alte Kosten zum neuen Zins minus alt; Wechselwirkung = Rest. Ergebnisse und Formeln stehen in daten/pruefung.json; das Folienmodul rechnet sie aus diesen Eingangswerten. Die Folie ist keine Modellrechnung (weißer Grund, kein Papierton): Medianwerte deutscher Großstädte je m², kein einzelnes Haus.",
     "fremdkapital": {
       "wert": 0.8,
       "einheit": "Anteil der Gesamtkosten (Grundstück und Herstellung), der als Bankdarlehen finanziert wird",
@@ -1536,23 +1545,20 @@
     "zins_q1_2020": {
       "wert": 0.46,
       "einheit": "% p. a., Sollzins bei 10 Jahren Zinsbindung, Mittel Q1 2020",
-      "herkunft": "Derselbe Wert wie zinsen.marken[0].z10 (Ø Q1 2020; das Folienmodul prüft die Gleichheit). Altfassung Folie 5, Diagramm „Mini Chart Zins“ (Q1 2020: 0,46), und Folie 24, Marke „Ø Q1 2020“; Quelle laut Altfassung: Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen nach Zinsbindung",
-      "geprueft": false,
-      "vermerk": "nicht nachgeprüft"
+      "herkunft": "Derselbe Wert wie zinsen.marken[0].z10 (Ø Q1 2020; das Folienmodul prüft die Gleichheit): Mittel der Monatswerte 01 bis 03/2020 der Reihe „10 Jahre“ (0,4633 %). Dr. Klein Wowi Finanz AG, Zinsentwicklung und Top-Konditionen Wohnungswirtschaft, Wochenwerte der Grafik, gelesen am 12.11.2026",
+      "geprueft": true
     },
     "quelle": {
       "wert": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23; Dr. Klein Wowi Finanz AG (2026), Zinsentwicklung für die Wohnungswirtschaft; eigene Rechnung der PGN (Annuitätendarlehen über 30 Jahre, monatliche Rate)",
       "einheit": "Quellenangabe",
-      "herkunft": "Altfassung Folie 5, Quellenzeile (dort: eigene Berechnung, Annuitätendarlehen, Volltilgung über 30 Jahre); Rechnung wie dort mit monatlicher Rate",
-      "geprueft": false,
-      "vermerk": "nicht nachgeprüft"
+      "herkunft": "Aufbau nach der Altfassung Folie 5 (dort: eigene Berechnung, Annuitätendarlehen, Volltilgung über 30 Jahre); ARGE-Werte und Zinsreihe am 12.11.2026 an den Quellen gelesen; Rechnung der PGN mit monatlicher Rate",
+      "geprueft": true
     },
     "quelle_kurz": {
       "wert": "Quellen: ARGE e. V. (2026), S. 34; Dr. Klein Wowi Finanz AG (2026); eigene Rechnung",
       "einheit": "Quellenangabe, Kurzform für das Schriftfeld der Folie",
       "herkunft": "Kurzform von kapitaldienst.quelle für das Schriftfeld der Folie 5 (Altfassung Folie 5, Quellenzeile; die Rechnung ist die der PGN); die volle Angabe steht auf der Quellenfolie im Anhang",
-      "geprueft": false,
-      "vermerk": "nicht nachgeprüft"
+      "geprueft": true
     }
   },
   "bestand": {

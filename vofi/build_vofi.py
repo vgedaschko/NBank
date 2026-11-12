@@ -357,12 +357,12 @@ EINGABEN = [
     ("5.5", 33, "Kostensätze 2026 fortschreiben um", "Kosten_Vorlauf", "Jahre", F_JAHR, 0, 0,
      "Broschüre S. 11 (Kostenstand 2026)", ("ganz", 0, 10)),
     # Block 6 Bankdarlehen und Vergleichszins
-    ("6.1", 35, "Zins Bank; Vergleichszins Förderbarwert", "Zins_Bank", "% p. a.", F_PCT, 0.0374, 0.0374,
-     "PGN-Annahme (Bundesbank-Statistik, Vorgängermappe)", ("dez", 0, 0.15)),
+    ("6.1", 35, "Zins Bank; Vergleichszins Förderbarwert", "Zins_Bank", "% p. a.", F_PCT, 0.0386, 0.0386,
+     "Dr. Klein Wowi, Top-Konditionen 10 Jahre, Stand 10.11.2026", ("dez", 0, 0.15)),
     ("6.2", 36, "Zinsbindung", "Zinsbindung", "Jahre", F_JAHR, 10, 10,
      "PGN-Annahme (Vorgängermappe)", ("ganz", 1, 42)),
-    ("6.3", 37, "Anschlusszins", "Zins_Anschluss", "% p. a.", F_PCT, 0.0374, 0.0374,
-     _VG + " Best 2,74 %, Worst 4,74 %", ("dez", 0, 0.15)),
+    ("6.3", 37, "Anschlusszins", "Zins_Anschluss", "% p. a.", F_PCT, 0.0386, 0.0386,
+     "PGN-Annahme: wie Eingabe 6.1; Vorgängermappe ± 1 Punkt", ("dez", 0, 0.15)),
     ("6.4", 38, "Laufzeit Bankdarlehen (Annuität)", "Laufzeit_Bank", "Jahre", F_JAHR, 30, 30,
      "PGN-Annahme (Vorgängermappe)", ("ganz", 1, 60)),
     # Block 7 Eigenkapital und Projektkonto (VOFI)

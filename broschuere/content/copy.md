@@ -984,8 +984,8 @@ Klammer Station 5–7: bei Bauvorhaben
 *Ein Ansprechpartner für alles*
 
 1. **Förderung und Machbarkeit** · *Vor dem Vorgespräch* – Wir klären Programmteil, Standort und Mieterkreis und ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung (→ S. 11).
-2. **Förderkonforme Planung** · *Leistungsphasen 1–4* – Wir legen Grundrisse, Wohnungsgrößen und Baustandard auf die Anforderungen des jeweiligen Programmteils aus.
-3. **Kostenplanung** · *Leistungsphasen 2–8* – Wir steuern die Kosten von der Kostenschätzung bis zur Kostenfeststellung, gemessen an den Bemessungsgrenzen (→ S. 8).
+2. **Förderkonforme Planung** · *Leistungsphasen 1–4* – Wir legen Grundrisse, Wohnungsgrößen und Baustandard so aus, wie es der Programmteil verlangt.
+3. **Kostenplanung** · *Leistungsphasen 2–8* – Wir steuern die Kosten von der Kostenschätzung bis zur Kostenfeststellung und prüfen sie gegen die Bemessungsgrenzen (→ S. 8).
 4. **Antragsunterlagen** · *Vorgespräch und Antrag* – Wir erstellen den baufachlichen Teil: Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung.
 5. **Ausführungsplanung und Vergabe** · *Leistungsphasen 5–7* – Wir schreiben die Bauleistungen richtlinienkonform aus und vergeben sie nach der Bewilligung.
 6. **Bauleitung** · *Leistungsphase 8* – Wir überwachen Ausführung und Termine und dokumentieren den Baufortschritt für die Auszahlung der Teilraten (→ S. 9).

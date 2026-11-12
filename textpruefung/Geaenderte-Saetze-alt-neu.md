@@ -1,8 +1,9 @@
 # Geänderte Sätze: alt, jetzt, Vorschlag
 
 Stand 12.11.2026. Die Liste führt jeden Satz, der beim Ausrollen neu gefasst wurde, und das Ergebnis der Überarbeitung
-Satz für Satz. Streichungen ohne neuen Wortlaut stehen am Ende. Die Vorschläge in der letzten Spalte sind **nicht**
-eingebaut; im Vortrag und in der Broschüre steht die Spalte „jetzt“.
+Satz für Satz. Streichungen ohne neuen Wortlaut stehen am Ende. Die fünf Vorschläge zu den Folien 5, 14, 15 und zu S. 20
+hat der Auftraggeber am 12.11.2026 freigegeben; sie sind eingebaut. Die Spalte „jetzt“ zeigt den Stand davor. Nicht
+eingebaut ist die längere Fassung zu S. 18.
 
 ## Vortrag, Titel
 
@@ -17,8 +18,8 @@ eingebaut; im Vortrag und in der Broschüre steht die Spalte „jetzt“.
 | 14 * | 14 Wohnungen, 3,0 Mio. €: bis zu 2,4 Mio. € Förderung | 14 Wohnungen für 3,0 Mio. €, bis zu 2,4 Mio. € Förderung | Zwei Stücke ohne Bezug zueinander. Vorschlag: „14 Wohnungen für 3,0 Mio. €, davon bis zu 2,4 Mio. € Förderung“ |
 | 22 * | Herstellungskosten der PGN: 22,7 % unter dem ARGE-Median | Herstellungskosten der PGN liegen 22,7 % unter dem ARGE-Median | ohne Befund |
 
-\* Diese drei Titel waren nicht freigegeben. Sie sind bei der Korrektur der Durchsicht entstanden (Doppelpunkt am
-Zeilenende). Auf Wunsch gehen sie auf den alten Wortlaut zurück.
+\* Diese drei Titel sind bei der Korrektur der Durchsicht entstanden (Doppelpunkt am Zeilenende) und am 12.11.2026
+freigegeben.
 
 ## Vortrag, übriger Folientext
 

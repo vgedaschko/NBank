@@ -61,9 +61,11 @@ const RAHMEN = {
     const sek = dunkel ? HEX.dunkel.text2 : cs.sekundaer;
     const x0 = 0.30, x1 = W - 0.30, y = Y.fuss, h = H - 0.30 - Y.fuss;
     return [
-      ...RAHMEN.planrahmen(cs.linie).map(o => (o.rect ? { rect: { ...o.rect, line: { color: cs.linie, width: 0.75 } } } : o)),
+      // Reihenfolge: erst die gefüllten Zellen, dann der Rahmen. Lägen die Flächen über dem Rahmen, deckten sie die innere Hälfte
+      // seiner Linie, und der Rahmen stünde um die Blatt-Zelle dünner als am übrigen Rand.
       { rect: { x: SF.blatt, y: y, w: x1 - SF.blatt, h, fill: { color: zelle }, line: { type: 'none' }, objectName: 'Blatt-Zelle' } },
       ...(grund === 'papier' || dunkel ? [{ rect: { x: x0, y, w: SF.logoEnde - x0, h, fill: { color: C.weiss }, line: { type: 'none' }, objectName: 'Logofeld' } }] : []),
+      ...RAHMEN.planrahmen(cs.linie).map(o => (o.rect ? { rect: { ...o.rect, line: { color: cs.linie, width: 0.75 } } } : o)),
       { line: { x: x0, y, w: x1 - x0, h: 0, line: { color: cs.linie, width: 0.75 }, objectName: 'Schriftfeld Oberlinie' } },
       { line: { x: SF.logoEnde, y, w: 0, h, line: { color: cs.haar, width: 0.5 }, objectName: 'Schriftfeld Teilung 1' } },
       { line: { x: SF.blatt, y, w: 0, h, line: { color: cs.haar, width: 0.5 }, objectName: 'Schriftfeld Teilung 2' } },

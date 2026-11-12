@@ -11,7 +11,7 @@ module.exports = {
     const { B, W, fmt, colX, span, ZONE } = ctx, M = k => W('modellhaus', k), G = R.G;
     // Titel: Die Zahl ist der Zahlungsüberschuss der Gruppe A aus der Mappe (Signaturwort); die Gegenprobe gegen das Konzept macht ctx.titelzeilen
     const ueberschussA = fmt.euro(M('jr1.zahlungsueberschuss.A'));
-    const s = ctx.folie(ctx.titelzeilen(['Alle drei Gruppen tragen sich ab Jahr 1,', `in A ${ueberschussA} Zahlungsüberschuss`], ueberschussA));
+    const s = ctx.folie(ctx.titelzeilen(['Alle drei Gruppen tragen sich ab Jahr 1,', `in A bleiben ${ueberschussA} Zahlungsüberschuss`], ueberschussA));
     // Annahme der Jahresrechnung: Tilgung 1 ÷ Höchstlaufzeit. Weicht die Mappe davon ab, stimmt der Satz „gleichmäßig über … Jahre“ nicht mehr.
     const laufzeit = M('tab.laufzeit_hoechstens');
     R.pruefe(Math.abs(M('jr1.satz.tilgung_nbank') - 1 / laufzeit) < 1e-9, 'Der Tilgungssatz der Jahresrechnung ist nicht 1 ÷ Höchstlaufzeit; den Satz „Tilgung gleichmäßig über … Jahre“ auf Folie 15 anpassen.');

@@ -10,7 +10,7 @@
 // Kein Stempel, weißer Grund wie der übrige Anhang.
 // Stützpunkte: Schwelle = (Mehr-Sollmiete − Mehr an Mietausfall) ÷ Mehrschuld − Verwaltungskostenbeitrag (Übersicht 4.9 bis 4.15). Die Mehrmiete
 // hängt nicht von den Kosten ab, die Mehrschuld wächst im Verhältnis der Kosten: Das Modul rechnet die Stützpunkte aus dem Lauf modellhaus
-// und prüft sie gegen die Schwellen der Läufe mit 4.631 € und 5.000 € je m² (werte.json).
+// und prüft sie gegen die Schwellen der Läufe mit 4.631 € und 5.460 € je m² (werte.json).
 'use strict';
 const R = require('./_rechnung.cjs');
 
@@ -31,8 +31,8 @@ module.exports = {
       R.pruefe(['A', 'B', 'C'].every(g => W(l, `fin.ueber_bemessungsgrenze.${g}`) === 0), `Der Lauf ${l} liegt über der Bemessungsgrenze; die Mehrschuld wächst dort nicht mehr mit den Kosten.`);
     });
 
-    // Achse der Kosten: 2.500 € je m² bis zur Bemessungsgrenze in Schritten von 250 €; Größenachse in Prozent
-    const SCHRITT = 250, N = 10, kosten = Array.from({ length: N + 1 }, (_, i) => grenze - (N - i) * SCHRITT), ACHSE = { min: 1, max: 3, schritt: 0.5, format: '[$-407]0.0" %"' };
+    // Achse der Kosten: zwölf Schritte von 250 € bis zur Bemessungsgrenze (seit 01.10.2026 5.460 €, also ab 2.460 €); Größenachse in Prozent
+    const SCHRITT = 250, N = 12, kosten = Array.from({ length: N + 1 }, (_, i) => grenze - (N - i) * SCHRITT), ACHSE = { min: 0.5, max: 3.5, schritt: 0.5, format: '[$-407]0.0" %"' };
     const reihe = g => kosten.map(k => schwelle(g, k) * 100), p2 = v => fmt.prozent(v, 2);
     R.pruefe(kostenLauf[2] === grenze && kosten[0] < K0, 'Die Achse der Folie A8 endet nicht an der Bemessungsgrenze oder beginnt nicht unter den Kosten des Modellhauses.');
     R.pruefe(['B', 'C'].every(g => reihe(g).every(v => v > ACHSE.min && v < ACHSE.max)) && tJahr * 100 > ACHSE.min && tJahr * 100 < ACHSE.max, 'Ein Stützpunkt oder der Tilgungssatz der Jahresrechnung liegt außerhalb der Größenachse der Folie A8; Achse im Modul anpassen.');
@@ -86,14 +86,14 @@ module.exports = {
     });
 
     // ---- Rechte Spalte: die Schwellen der drei Läufe als Tabelle, darunter zwei Absätze ---------------------------------------------
-    // Spalten wie auf Folie 23: Modellhaus, ARGE-Median, Ausgangswert der Bemessungsgrenze
+    // Spalten wie auf Folie 23: Modellhaus, ARGE-Median, Bemessungsgrenze
     const x1 = colX(9), w1 = span(4), kopf = kostenLauf.map(k => fmt.euro(k));
     const yT = B.modulkopf(s, { x: x1, y: y0, w: w1, titel: wl('Schwelle gegenüber A', 'Modultitel'), sub: wl('Tilgungssatz p. a. bei drei Herstellungskosten', 'Untertitel') });
     const t = B.tabelle(s, { x: x1, y: yT, w: w1, pt: 12, name: 'Tabelle Schwellen',
       spalten: [{ kopf: wl('je m²', 'Spaltenkopf'), art: 'text' }, ...kopf.map(k => ({ kopf: k, breite: 0.94, art: 'zahl' }))],
       zeilen: ['B', 'C'].map(g => [wl('Gruppe ' + g, 'Tabelle'), ...laeufe.map(l => p2(W(l, `tilg.schwelle.${g}_gegen_A`)))]) });
     B.planlegende(s, { x: x1, y: t.unten + 0.22, w: w1, pt: 14, eintraege: [
-      { text: `Modellhaus: ${kopf[0]}. ARGE-Median: ${kopf[1]}. Ausgangswert der Bemessungsgrenze: ${kopf[2]}.` },
+      { text: `Modellhaus: ${kopf[0]}. ARGE-Median: ${kopf[1]}. Bemessungsgrenze: ${kopf[2]}.` },
       { text: 'Vorn liegt die Gruppe mit dem höchsten Zahlungsüberschuss in Jahr 1. Über der Linie „C gegenüber A“ ist das A, darunter C, B in keinem Fall.' },
       { text: 'Die Schwelle sinkt mit den Kosten: Die Mehrmiete je m² ist fest vorgegeben, die Mehrschuld wächst mit den Kosten.' }].map(e => ({ text: wl(e.text, 'Kommentar') })) });
 

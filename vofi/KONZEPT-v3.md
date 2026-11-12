@@ -2011,3 +2011,12 @@ Zahlenwirkung Modellhaus (Lauf L2), Jahr 35:
 Jahresrechnung, Finanzierung, Kapitaldienst, nötige Miete und die Renditen ohne Restwert der Gruppen A, B und C hängen nicht an der Marktmiete und bleiben. Die Marktmiete wirkt gefördert über die Miete nach Ende der Bindung auf den Restwert.
 
 Prüfskript: `MARKT_HARBURG_2026 = 15,42` überschreibt `markt_start` von Projekt 2; die Läufe L64 bis L67 und `basis_v21()` rechnen mit 14,48 €/m² weiter (`STAND_T_VORHER`, `MARKT_T_BIS_12_11`). Die Sollwerte von L2 bis L5 stehen in `_ZINS_386` (L2 82, L3 6, L4 24, L5 6 Zellen). Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler.
+
+### S.5 Bemessungsgrenzen seit 01.10.2026 (12.11.2026)
+
+Entscheidung des Auftraggebers vom 12.11.2026: Die Mappe rechnet mit den Bemessungsgrenzen der NBank-Produktinformation, Stand 05.11.2026, gültig seit 01.10.2026: 5.250 €/m² in Mietenstufe I bis III und 5.460 €/m² in IV bis VII (Tabellen C9:C15). Bisher standen dort die Ausgangswerte der Richtlinie (4.800 und 5.000 €/m², RL Nr. 5.3.2.2). Tabellen!A2 lautet „… Bemessungsgrenzen: Stand 01.10.2026; aktuell auf nbank.de.“
+
+Zahlenwirkung: Im Standard beider Projekte ändert sich nur die Zelle der Bemessungsgrenze (Gefördert A/B/C H95); das Vergleichshaus liegt mit 5.000 €/m² jetzt unter der Grenze, das Modellhaus 1.881 €/m² darunter. Die Sensitivität der Broschüre S. 10 und der Folie 23 rechnet in der dritten Spalte an der neuen Grenze (Lauf L70, 5.460 €/m²): Gesamtkosten 4.520.880 €, Förderung 3.616.704 €, Eigenmittel 904.176 €, Zahlungsüberschuss Jahr 1 A / B / C −2.945 / −15.362 / −20.597 € (bei 5.000 €/m²: +1.444 / −8.778 / −12.916 €). Gruppe A trägt sich bis rund 5.150 €/m².
+
+Prüfskript: `BEMESSUNG_2026_10` überschreibt die Grenzen der RR-Parameter beider Projekte. L10 (Kosten über der Grenze) rechnet mit 5.660 statt 5.200 €/m², weiter 200 €/m² über der Grenze; P4 und der Gesamtstatus lauten dort „prüfen“. L70 rechnet mit 5.460 €/m². Die Sollwerte beider Läufe stehen in `_ZINS_386`. Die Regression N lässt die Zelle H95 mit dem fortgeschriebenen Wert gelten. F9 liest die Broschüre S. 10 mit der Spalte 5.460 €. Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler.
+

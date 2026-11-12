@@ -30,6 +30,6 @@ module.exports = {
     B.planlegende(s, { platzhalter: 'kommentar', pt: 16, eintraege: [
       { titel: 'Zuschuss', text: 'Nicht rückzahlbar. Er wird nur zusammen mit dem Darlehen gewährt.' },
       { titel: 'Eigenmittel', text: `Mindestens ${fmt.prozentWert(em)} der zuwendungsfähigen Kosten. Davon soll mindestens die Hälfte Geld oder lastenfreies ${fmt.nb('Grundstück sein.')}` },
-      { titel: 'Bemessungsgrenze', text: `Ausgangswerte: ${fmt.zahl(T('bemessungsgrenze.I'))} € je m² Wohnfläche in Mietenstufe I–III, ${fmt.zahl(T('bemessungsgrenze.IV'))} € in IV–VII. Fortgeschrieben zum ${tag1} und ${tag2}, aktuell auf nbank.de.` }] });
+      { titel: 'Bemessungsgrenze', text: `Seit ${ctx.X('regeln', 'bemessungsgrenze.gilt_seit')}: ${fmt.zahl(T('bemessungsgrenze.I'))} € je m² Wohnfläche in Mietenstufe I–III, ${fmt.zahl(T('bemessungsgrenze.IV'))} € in IV–VII. Fortgeschrieben zum ${tag1} und ${tag2}, aktuell auf nbank.de.` }] });
   },
 };

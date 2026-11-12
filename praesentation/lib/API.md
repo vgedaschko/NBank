@@ -70,7 +70,7 @@ module.exports = {
     B.planlegende(s, { platzhalter: 'kommentar', pt: 16, eintraege: [    // fünf Spalten rechts, 16 pt wie die Textspalte aller Diagrammfolien
       { titel: 'Zuschuss', text: 'Nicht rückzahlbar. Er wird nur zusammen mit dem Darlehen gewährt.' },
       { titel: 'Eigenmittel', text: `Mindestens ${fmt.prozentWert(em)} der zuwendungsfähigen Kosten. Davon soll mindestens die Hälfte Geld oder lastenfreies ${fmt.nb('Grundstück sein.')}` },
-      { titel: 'Bemessungsgrenze', text: `Ausgangswerte: ${fmt.zahl(T('bemessungsgrenze.I'))} € je m² Wohnfläche in Mietenstufe I–III, ${fmt.zahl(T('bemessungsgrenze.IV'))} € in IV–VII. Fortgeschrieben zum ${tag1} und ${tag2}, aktuell auf nbank.de.` }] });
+      { titel: 'Bemessungsgrenze', text: `Seit ${ctx.X('regeln', 'bemessungsgrenze.gilt_seit')}: ${fmt.zahl(T('bemessungsgrenze.I'))} € je m² Wohnfläche in Mietenstufe I–III, ${fmt.zahl(T('bemessungsgrenze.IV'))} € in IV–VII. Fortgeschrieben zum ${tag1} und ${tag2}, aktuell auf nbank.de.` }] });
   },
 };
 ```
@@ -267,7 +267,7 @@ und Einheit schützt die Bibliothek selbst („5,6 Mio. €“, „80 %“, „S
 
 - **E10:** Zahlen der Mappe nur über `W(lauf, schluessel)`. Das Modellhaus ist Projekt 2 der Rechenmappe (PGN-Projekt in Neu Wulmstorf,
   3.579 € je m², Grundstück nicht angesetzt); jeder Lauf setzt Eingaben!D3 auf 2. Läufe: `modellhaus`, `modellhaus_zeitreihe`,
-  `modellhaus_kosten_4631` (ARGE-Median) und `modellhaus_kosten_5000` (Ausgangswert der Bemessungsgrenze; beide für die Folien 23 und A8),
+  `modellhaus_kosten_4631` (ARGE-Median) und `modellhaus_kosten_5460` (Bemessungsgrenze seit 01.10.2026; beide für die Folien 23 und A8),
   `modellhaus_rendite` (Renditen, Restwert und Marktmiete; nur für die Folie `anhang-rendite`), `projekt2` (Stand der Altfassung mit
   Tilgung 2,5 %), `modellhaus_dscr125` (die beiden letzten erscheinen nicht auf Folien).
   Anteile sind Dezimalbrüche (0,025 = 2,5 %). `zr.*` und `frei.*` führen Auszahlungen negativ: Vorzeichen drehen.

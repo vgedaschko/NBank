@@ -19,7 +19,11 @@
         "token": "--baustein-24",
         "scale": "1 : 600 000",
         "rotation_deg": 11,
-        "scale_bar_km": [0, 5, 10],
+        "scale_bar_km": [
+          0,
+          5,
+          10
+        ],
         "north_arrow": "um 11° im Uhrzeigersinn gedreht (Kette waagerecht gelegt)",
         "drawing": "Lageskizze: eigene, stark generalisierte Umrisse (Molen und Häfen geglättet) in wahrer Lage, Länge und Fläche, West → Ost; Vorlage OSM-Küstenlinien (place=island, © OpenStreetMap-Mitwirkende, ODbL) – Nennung im Bildnachweis U3 prüfen",
         "items": [
@@ -52,9 +56,9 @@
             "name": "Darlehen",
             "token": "--color-loan",
             "values": [
-              3600,
-              4680,
-              5400
+              4095,
+              5323.5,
+              6142.5
             ],
             "labels": [
               "50 %",
@@ -66,9 +70,9 @@
             "name": "Zuschuss",
             "token": "--color-grant",
             "values": [
-              2880,
-              1800,
-              1080
+              3276,
+              2047.5,
+              1228.5
             ],
             "labels": [
               "40 %",
@@ -80,9 +84,9 @@
             "name": "Eigenmittel, mind.",
             "token": "--color-equity",
             "values": [
-              720,
-              720,
-              720
+              819,
+              819,
+              819
             ],
             "labels": [
               "10 %",
@@ -94,15 +98,15 @@
         "totals": {
           "label": "Förderung zusammen",
           "values": [
-            6480,
-            6480,
-            6480
+            7371,
+            7371,
+            7371
           ],
           "share": "90 %"
         },
         "cap": {
-          "value": 7200,
-          "label": "Kostengrenze 1,5 × 4.800 € = 7.200 € je m²"
+          "value": 8190,
+          "label": "Kostengrenze 1,5 × 5.460 € = 8.190 € je m²"
         },
         "secondary": {
           "title": "Grundstück, alle Gruppen",
@@ -121,7 +125,7 @@
           ]
         }
       },
-      "note": "Kostengrenze: das 1,5-Fache der Bemessungsgrenze für Mietenstufe I–III, Ausgangswert 4.800 € je m² (→ S. 8), unabhängig von der Mietenstufe der Insel. Eigenmittel: mindestens 10 % der zuwendungsfähigen Herstellungskosten; mindestens die Hälfte davon soll Geld oder lastenfreies Grundstück sein."
+      "note": "Kostengrenze: das 1,5-Fache der Bemessungsgrenze (→ S. 8), seit 01.10.2026 7.875 € je m² in Mietenstufe I–III und 8.190 € in IV–VII; gezeigt ist IV–VII, Beträge auf volle Euro gerundet. Eigenmittel: mindestens 10 % der zuwendungsfähigen Herstellungskosten; mindestens die Hälfte davon soll Geld oder lastenfreies Grundstück sein."
     },
     {
       "type": "key_figures",
@@ -201,5 +205,5 @@
     "G2-07",
     "G2-13"
   ],
-  "visual_idea": "Baustein-Register 2.4 (--baustein-24) mit Nummer am Seitenrand; linke Seite der Doppelseite 14|15 (2.4 Inseln | 2.3 Modernisierung), Horizonte gemeinsam mit S. 15: Kopfzeile, H1 mit zweiter Stimme, Modulzeile 1 bei 88,9 mm, Modulzeile 2 bei 198,7 mm, Fuß bei 273 mm. Dichte Seite (.page--dicht, Text 9 pt) wie S. 15. Kopf nach der Stufung (styles.css §8b): Kopfzeile mit Rubrik „Neubau“ und Schlüsselplan (2.4 aktiv); Programmnummer 2.4 außen links; „Ostfriesische Inseln“ als zweite Stimme (Montserrat 300, 15,5 pt, Versalien) über dem H1 in Montserrat Black Versalien 25 pt mit senkrechter roter 2-pt-Linie links, Rot nur an der Zahl 10 %; Unterzeile in Work Sans 12 pt, gemischt gesetzt, Kennwerte halbfett in Schwarz (zwei Zeilen); Gegenstand in Work Sans (drei Zeilen). Dominantes Element: gestapelte Balken „je m² Wohnfläche“ für A | B | C, Modultitel 12 pt gemischt, mit Stempel „Modellrechnung“ (einziger roter Versal-Label der Seite) – Zuschuss (--color-grant) + Darlehen (--color-loan) = bis zu 6.480 €, Eigenmittel-Segment 720 € (--color-equity, Vektorschraffur als Rahmenband um die schraffurfreie Wertefläche, keine Deckmaske), Prozent-Labels in den Segmenten, tabellarische Ziffern; 90-%-Achse in Schwarz mit Achskreis „90“, Kostengrenze 7.200 € als Abschlusslinie mit Label „Kostengrenze 1,5 × 4.800 € = 7.200 € je m²“; daneben schmaler 100-%-Balken „Grundstück, alle Gruppen“ (30 % Zuschuss / 70 % Darlehen), Titel in derselben Form wie die Modultitel. Modul 1: Papierband mit drei Mietwerten 9,50 / 11,50 / 12,50 €, darüber „höchstens“ als 8,5-pt-Label, Einheit in Schwarz. Modul 2 „Konditionen wie in 2.1“ (5 Sp.) und Modul 3 „Voraussetzungen und Kombination“ (7 Sp.), Modultitel 12 pt gemischt, fluchtend mit „Bindung und Miete“ | „Ablauf und Kombination“ auf S. 15. Am Fuß als Horizont eine Lageskizze der sieben bewohnten Ostfriesischen Inseln in --baustein-24: maßstäblich 1 : 600 000, eigene generalisierte Umrisse in wahrer Lage und Größe, Kette um 11° gedreht, Nordpfeil entsprechend gedreht, Maßstabsleiste 0–5–10 km, Namen in Work Sans 8,5 pt auf gemeinsamer Grundlinie (Borkum neben der Insel). Keine Fußnote, keine Quellenzeile, keine Kalkulationsnotiz."
+  "visual_idea": "Baustein-Register 2.4 (--baustein-24) mit Nummer am Seitenrand; linke Seite der Doppelseite 14|15 (2.4 Inseln | 2.3 Modernisierung), Horizonte gemeinsam mit S. 15: Kopfzeile, H1 mit zweiter Stimme, Modulzeile 1 bei 88,9 mm, Modulzeile 2 bei 198,7 mm, Fuß bei 273 mm. Dichte Seite (.page--dicht, Text 9 pt) wie S. 15. Kopf nach der Stufung (styles.css §8b): Kopfzeile mit Rubrik „Neubau“ und Schlüsselplan (2.4 aktiv); Programmnummer 2.4 außen links; „Ostfriesische Inseln“ als zweite Stimme (Montserrat 300, 15,5 pt, Versalien) über dem H1 in Montserrat Black Versalien 25 pt mit senkrechter roter 2-pt-Linie links, Rot nur an der Zahl 10 %; Unterzeile in Work Sans 12 pt, gemischt gesetzt, Kennwerte halbfett in Schwarz (zwei Zeilen); Gegenstand in Work Sans (drei Zeilen). Dominantes Element: gestapelte Balken „je m² Wohnfläche“ für A | B | C, Modultitel 12 pt gemischt, mit Stempel „Modellrechnung“ (einziger roter Versal-Label der Seite) – Zuschuss (--color-grant) + Darlehen (--color-loan) = bis zu 7.371 €, Eigenmittel-Segment 819 € (--color-equity, Vektorschraffur als Rahmenband um die schraffurfreie Wertefläche, keine Deckmaske), Prozent-Labels in den Segmenten, tabellarische Ziffern; 90-%-Achse in Schwarz mit Achskreis „90“, Kostengrenze 8.190 € (Mietenstufe IV–VII, seit 01.10.2026) als Abschlusslinie mit Label „Kostengrenze 1,5 × 5.460 € = 8.190 € je m²“; daneben schmaler 100-%-Balken „Grundstück, alle Gruppen“ (30 % Zuschuss / 70 % Darlehen), Titel in derselben Form wie die Modultitel. Modul 1: Papierband mit drei Mietwerten 9,50 / 11,50 / 12,50 €, darüber „höchstens“ als 8,5-pt-Label, Einheit in Schwarz. Modul 2 „Konditionen wie in 2.1“ (5 Sp.) und Modul 3 „Voraussetzungen und Kombination“ (7 Sp.), Modultitel 12 pt gemischt, fluchtend mit „Bindung und Miete“ | „Ablauf und Kombination“ auf S. 15. Am Fuß als Horizont eine Lageskizze der sieben bewohnten Ostfriesischen Inseln in --baustein-24: maßstäblich 1 : 600 000, eigene generalisierte Umrisse in wahrer Lage und Größe, Kette um 11° gedreht, Nordpfeil entsprechend gedreht, Maßstabsleiste 0–5–10 km, Namen in Work Sans 8,5 pt auf gemeinsamer Grundlinie (Borkum neben der Insel). Keine Fußnote, keine Quellenzeile, keine Kalkulationsnotiz."
 }

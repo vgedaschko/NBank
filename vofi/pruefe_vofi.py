@@ -678,6 +678,7 @@ T4 = "T4"                                                 # Schlüssel in den Te
 # dort die Platzhalter 12,92 / 14,48 €/m² (Abweichung A7) und die Kurve Neu Wulmstorf.
 OVM_ROTENBURG, MARKT_ROTENBURG = 11.87, 13.30
 ZINS_BANK = 0.0386
+BEMESSUNG_2026_10 = {4800: 5250, 5000: 5460}     # Ausgangswert der Richtlinie -> Wert seit 01.10.2026
 # Marktmiete des Modellhauses (Projekt 2) seit 12.11.2026: 15,42 €/m², Mietübersicht des Gutachterausschusses Lüneburg für den
 # Landkreis Harburg, Hamburger Umland, Baualter ab 2023, 40–60 m², Stand 01.01.2026 (Entscheidung des Auftraggebers). Bis dahin
 # 14,48 €/m² (Mittel zweier fortgeschriebener Werte, RR-Parameter); die Vergleichsmiete bleibt.
@@ -903,7 +904,7 @@ for _e in EINGABEN:
     _E[f"G{_e[1]}"] = _e[7]
 
 _T = BESCHRIFTUNG["Tabellen"]
-_T.update({"A2": "Festwerte RL Mietwohnraum 2026 und Bewertung. Bemessungsgrenzen: Ausgangswerte 01.07.2026; "
+_T.update({"A2": "Festwerte RL Mietwohnraum 2026 und Bewertung. Bemessungsgrenzen: Stand 01.10.2026; "
                  "aktuell auf nbank.de.",
            "A42": "Projekt 1 (Vergleichshaus): Rotenburg (Wümme), Bodenrichtwert 185 €/m²; Streubreite laut Quelle "
                   "±1,2 Prozentpunkte.",
@@ -1149,6 +1150,11 @@ def lade_referenz():
     for _p in BASIS.values():
         _p["zins_bank"] = _p["zins_anschluss"] = _p["zins_ab36"] = ZINS_BANK    # 3.3 folgt 6.1 (Auftrag vom 12.11.2026)
     BASIS["T"]["markt_start"] = MARKT_HARBURG_2026
+    # Bemessungsgrenzen seit 01.10.2026 (NBank-Produktinformation, Stand 05.11.2026): 5.250 €/m² in Mietenstufe I bis III,
+    # 5.460 €/m² in IV bis VII; die RR-Annahmen führen die Ausgangswerte 4.800 / 5.000 €/m² (RL Nr. 5.3.2.2).
+    for _p in BASIS.values():
+        _alt = _p["bemessungsgrenze"]
+        _p["bemessungsgrenze"] = {b: BEMESSUNG_2026_10[v] for b, v in _alt.items()}
 
 
 def basis_v21():
@@ -1934,7 +1940,7 @@ LAEUFE = [
     ("L5", "T", {"2.3": 731325, "7.1": 309386.40}),
     ("L6", "T", {"2.3": 731325, "6.1": 0.045, "6.2": 15, "6.3": 0.055}),
     ("L7", "T", {"2.3": 731325, "6.4": 25}), ("L8", "T", {"2.3": 731325, "6.1": 0.05, "6.3": 0.05, "6.4": 42}),
-    ("L9", "T", {"2.3": 731325, "2.4": 0}), ("L10", "V", {"2.1": 5200}), ("L11", "V", {"2.3": 2000000}),
+    ("L9", "T", {"2.3": 731325, "2.4": 0}), ("L10", "V", {"2.1": 5660}), ("L11", "V", {"2.3": 2000000}),
     ("L12", "V", {"2.2": 100000}), ("L13", "V", {"1.1": 2030}), ("L14", "V", {"1.2": 1000, "1.3": 15}),
     ("L15", "V", {"3.1": 1 / 33}), ("L16", "V", {"3.2": 2}), ("L17", "V", {"3.3": 0.05}), ("L18", "V", {"3.4": 0.046}),
     ("L19", "V", {"4.1": "II"}), ("L20", "V", {"4.2": "ja"}), ("L21", "V", {"4.3": 12.00}),
@@ -1977,8 +1983,9 @@ LAEUFE = [
     # Wulmstorf): trägt die Sollwerte, die bis dahin für L1 galten (Konzept Q)
     ("L68", "V", {**BEWERTUNG_BIS_10_11, **ZINS_BIS_11_11}),
     # Sensitivität der Broschüre S. 10 seit 11.11.2026 (Konzept R): Modellhaus (Projekt 2) mit Herstellungskosten
-    # 4.631 €/m² (ARGE-Median) und 5.000 €/m² (Ausgangswert der Bemessungsgrenze); 3.579 €/m² ist der Standard (L2)
-    ("L69", "T", {"2.1": 4631}), ("L70", "T", {"2.1": 5000}),
+    # 4.631 €/m² (ARGE-Median) und 5.460 €/m² (Bemessungsgrenze seit 01.10.2026, bis 12.11.2026 der Ausgangswert 5.000 €/m²);
+    # 3.579 €/m² ist der Standard (L2)
+    ("L69", "T", {"2.1": 4631}), ("L70", "T", {"2.1": 5460}),
 ]
 # Fehlerlauf (Runde 2, R1): ungültige Mietenstufe per Einfügen (die Datenüberprüfung greift dabei nicht). Erwartet:
 # Fehlerwerte in der Mappe, aber Gesamtstatus und Prüfungen „prüfen“ (nie „OK“ aus Fehlerwerten), NBank-Lage „prüfen“.
@@ -3352,6 +3359,8 @@ def pruefe_regression(b, lid, alt, neu):
     for blatt in list(GEF.values()) + ["NBank"]:
         for z, v in alt.blatt(blatt).items():
             n += 1
+            if z == "H95" and blatt in GEF.values() and ist_zahl(v) and neu.get(blatt, z) == BEMESSUNG_2026_10.get(v):
+                continue        # Bemessungsgrenze seit 01.10.2026 fortgeschrieben; in beiden Läufen nicht überschritten
             if not gl(v, neu.get(blatt, z), (blatt, z)):
                 p.check(False, f"{blatt}!{z}", neu.get(blatt, z), v)
     p.check(n > 5000, "verglichene Zellen", n, "> 5000")
@@ -3850,6 +3859,8 @@ KONZEPT["L70"] = (_abc(9, *("4.140.000,00",) * 3) + _abc(10, *("4.140.000,00",) 
 # (Spalten H bis K der Übersicht, Jahr 42) in den Läufen L1 bis L5; sie stehen in derselben Schicht.
 # Ebenfalls seit 12.11.2026: Marktmiete von Projekt 2 15,42 statt 14,48 €/m² (MARKT_HARBURG_2026). Das ändert in den Läufen L2 bis L5
 # die Spalte Frei, den Restwert und alle Größen mit Restwert; auch diese Zellen stehen hier.
+# Bemessungsgrenzen seit 01.10.2026 (5.250 / 5.460 €/m², BEMESSUNG_2026_10): L10 rechnet mit 5.660 statt 5.200 €/m² (weiter 200 €/m²
+# über der Grenze), L70 mit 5.460 statt 5.000 €/m² (an der Grenze); ihre Sollwerte stehen ebenfalls hier.
 _ZINS_386 = {
     "L1": {
         ("Übersicht", "D17"): "3.974.156,68", ("Übersicht", "E17"): "3.182.234,96", ("Übersicht", "F17"): "2.786.274,16",
@@ -3914,7 +3925,15 @@ _ZINS_386 = {
         ("Übersicht", "H78"): "4,41 %", ("Übersicht", "I78"): "4,12 %", ("Übersicht", "J78"): "4,03 %",
     },
     "L10": {
-        ("Übersicht", "D38"): "−20.196,45", ("Übersicht", "E38"): "−41.513,51", ("Übersicht", "F38"): "−50.525,65",
+        ("Übersicht", "D38"): "−27.617,78", ("Übersicht", "E38"): "−52.645,51", ("Übersicht", "F38"): "−63.512,98",
+        ("Übersicht", "D9"): "8.624.000", ("Übersicht", "E9"): "8.624.000", ("Übersicht", "F9"): "8.624.000",
+        ("Übersicht", "D10"): "8.344.000", ("Übersicht", "E10"): "8.344.000", ("Übersicht", "F10"): "8.344.000",
+        ("Übersicht", "D15"): "6.675.200", ("Übersicht", "E15"): "6.675.200", ("Übersicht", "F15"): "6.675.200",
+        ("Übersicht", "D16"): "77,40 %", ("Übersicht", "E16"): "77,40 %", ("Übersicht", "F16"): "77,40 %",
+        ("Gefördert A", "H102"): "968.800", ("Gefördert B", "H102"): "968.800", ("Gefördert C", "H102"): "968.800",
+        ("Übersicht", "D19"): "1.668.800", ("Übersicht", "E19"): "1.668.800", ("Übersicht", "F19"): "1.668.800",
+        ("Übersicht", "D22"): "1.727.208", ("Übersicht", "E22"): "1.731.380", ("Übersicht", "F22"): "1.733.466",
+        ("Übersicht", "C121"): "=prüfen", ("Übersicht", "D3"): "=prüfen",    # P4: bei 5.660 €/m² nicht jede Rendite berechenbar
     },
     "L3": {
         ("Übersicht", "H91"): "6,2836 %", ("Übersicht", "I91"): "6,4404 %", ("Übersicht", "J91"): "6,5216 %",
@@ -3923,6 +3942,14 @@ _ZINS_386 = {
     "L5": {
         ("Übersicht", "H91"): "5,2528 %", ("Übersicht", "I91"): "5,4057 %", ("Übersicht", "J91"): "5,4851 %",
         ("Übersicht", "H89"): "5,8241 %", ("Übersicht", "I89"): "5,9257 %", ("Übersicht", "J89"): "6,0117 %",
+    },
+    "L70": {
+        ("Übersicht", "D9"): "4.520.880,00", ("Übersicht", "E9"): "4.520.880,00", ("Übersicht", "F9"): "4.520.880,00",
+        ("Übersicht", "D10"): "4.520.880,00", ("Übersicht", "E10"): "4.520.880,00", ("Übersicht", "F10"): "4.520.880,00",
+        ("Übersicht", "D15"): "3.616.704,00", ("Übersicht", "E15"): "3.616.704,00", ("Übersicht", "F15"): "3.616.704,00",
+        ("Übersicht", "D19"): "904.176,00", ("Übersicht", "E19"): "904.176,00", ("Übersicht", "F19"): "904.176,00",
+        ("Übersicht", "D13"): "1.808.352,00", ("Übersicht", "E13"): "2.712.528,00", ("Übersicht", "F13"): "3.164.616,00",
+        ("Übersicht", "D38"): "−2.945,46", ("Übersicht", "E38"): "−15.362,14", ("Übersicht", "F38"): "−20.596,76",
     },
 }
 for _lid, _neu in _ZINS_386.items():
@@ -4028,7 +4055,7 @@ def pruefe_v21_abgleich(b, ordner, werte, soll):
 # Seit 11.11.2026 zeigen Broschüre und Präsentation das Modellhaus = Projekt 2 (Konzept R). F9 liest dieselben
 # JSON-Schlüssel wie vorher und vergleicht sie mit der Übersicht des Laufs L2 (Projekt 2 im Standard, wie ausgeliefert).
 # Sensitivität S. 10: je Herstellungskostenwert ein Lauf von Projekt 2 (Eingabe 2.1); 3.579 €/m² ist der Standard.
-SENS_LAEUFE = {3579: "L2", 4631: "L69", 5000: "L70"}
+SENS_LAEUFE = {3579: "L2", 4631: "L69", 5460: "L70"}
 # Bezeichnung in der Sensitivität (Teiltext, klein geschrieben) -> Zellen der Übersicht, Spalte D = Gruppe A. Es gilt der
 # Teiltext, der in der Bezeichnung am weitesten vorn steht („Förderquote auf die Gesamtkosten“ ist die Förderquote), bei
 # gleicher Stelle der frühere Eintrag der Liste. Nennt die Bezeichnung „Gruppe B“ oder „in C“, gilt Spalte E bzw. F.

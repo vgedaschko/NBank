@@ -1,8 +1,9 @@
 // Folie 4 · PGN_INHALT (Kopf über zwölf Spalten mit B.modulkopf, auf den Höhen der Diagrammfolien): Sollzins p. a. nach Zinsbindung als natives
 // Liniendiagramm über die ganze Breite mit drei Reihen zu je 131 Monatswerten (01/2016 bis 11/2026),
 // die Jahre als Textfelder an kurzen Jahresstrichen unter der Achse. Die Linien sind fein (1,5 pt) und im Ton gestuft: 10 Jahre in PGN-Rot mit einer weichen Fläche
-// darunter (die Reihe, von der Titel und Hauptzahl sprechen), 20 Jahre in Referenzgrau, 30 Jahre in Tinte. Die Legende trägt die Werte des letzten
-// Monats; ein Punkt markiert das Ende der Reihe „10 Jahre“. Zwei feine gestrichelte Marken tragen die Quartalsmittel untereinander.
+// darunter (die Reihe, von der der Titel spricht), 20 Jahre in Referenzgrau, 30 Jahre in Tinte. Die Legende nennt nur die Zinsbindungen; ein Punkt
+// markiert das Ende der Reihe „10 Jahre“. Zwei feine gestrichelte Marken tragen ihre Werte untereinander: das Mittel Q1 2020 (zinsen.marken) und
+// der letzte Monat der Reihe (seit 12.11.2026 an der Stelle des Mittels Q4 2025, Wunsch des Auftraggebers).
 // Eine Kennzahlenspalte gibt es seit 12.11.2026 nicht mehr (Wunsch des Auftraggebers): Der Titel nennt beide Werte (Sollzins im letzten Monat
 // der Reihe und Mittel Q1 2020, je 10 Jahre Zinsbindung); mit beiden rechnet die Folie 5. Die Legende trägt die Zinsbindung.
 // Zinsreihe aus daten/markt.json (Dr. Klein Wowi Finanz AG, an der Quelle gelesen am 12.11.2026), Zins des Bankdarlehens und Zinsbindung aus daten/werte.json.
@@ -21,9 +22,8 @@ module.exports = {
     if (!monate[0].endsWith('-01')) throw new Error('Zinsreihe: Der erste Monat muss ein Januar sein, sonst trägt nicht jeder zwölfte Punkt die Jahreszahl.');
 
     B.modulkopf(s, { x: colX(1), y: ZONE.diagramm.kopf, w: span(12), titel: T('diagrammtitel'), sub: T('untertitel') });
-    // Legende mit den Werten des letzten Monats
-    FEIN.legendeMitWerten(ctx, s, { x: colX(1), y: ZONE.diagramm.legende, wMax: span(12), kopf: ctx.wortlaut(monatWort(monate[n]), 'Bezeichnung der Legende'),
-      eintraege: reihen.map(r => ({ name: r.name, wert: wert(r.werte[n]), art: r.art })) });
+    // Legende: nur die Zinsbindungen; die Werte des letzten Monats stehen am zweiten Werteblock
+    FEIN.legendeMitWerten(ctx, s, { x: colX(1), y: ZONE.diagramm.legende, wMax: span(12), eintraege: reihen.map(r => ({ name: r.name, art: r.art })) });
 
     // Kategorien: Der Januar trägt die Jahreszahl. Die Jahre stehen als Textfelder unter der Achse (katLabels.formen), jedes an einem kurzen
     // Jahresstrich: Eine Beschriftung der Achse selbst dünnen die Programme nach der Breite der Plotfläche aus, und es stünden Monate statt der
@@ -39,7 +39,10 @@ module.exports = {
 
     // Marken mit den Quartalsmitteln untereinander; die Mittel sind aus den Monatswerten nachgerechnet. Der Block der ersten Marke steht oben
     // über den Linien, der Block der zweiten unten darunter; je eine Gitterlinie läuft in der Fuge zwischen erster und zweiter Zeile.
-    const marken = X('markt', 'zinsen.marken'), lagen = [FEIN.blockOben(d.yWert(4), 1), FEIN.blockOben(d.yWert(1), 1)], LUFT = 0.05;
+    // Marke 1: Mittel Q1 2020 aus zinsen.marken. Marke 2: der letzte Monat der Reihe, mit seinen drei Werten
+    const mittelMarken = X('markt', 'zinsen.marken'), letzter = { monat: monate[n], bezeichnung: monatWort(monate[n]), monate: [monate[n]], ...Object.fromEntries(reihen.map(r => [r.k, r.werte[n]])) };
+    if (mittelMarken.length !== 1) P.melde(`zinsen.marken nennt ${mittelMarken.length} Marken; die Folie zeigt das Mittel Q1 2020 und dazu den letzten Monat der Reihe.`);
+    const marken = [mittelMarken[0], letzter], lagen = [FEIN.blockOben(d.yWert(4), 1), FEIN.blockOben(d.yWert(1), 1)], LUFT = 0.05;
     if (marken.length !== lagen.length) P.melde(`Die Folie hat Platz für ${lagen.length} Marken (ein Werteblock über, einer unter den Linien); zinsen.marken nennt ${marken.length}.`);
     marken.slice(0, lagen.length).forEach((m, i) => {
       for (const r of reihen) ctx.gleich(`${m.bezeichnung}, ${r.name}`, mittel(monate, r.werte, m.monate), m[r.k]);

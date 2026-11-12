@@ -19,7 +19,7 @@ aber Korrektheit entsteht durch präzise Hauptaussagen, nicht durch Dutzende Abs
 
 | Element | Regel |
 |---|---|
-| **Zentraler Rechtshinweis** | Steht **einmal** auf U3 (Impressum): „Alle Angaben ohne Gewähr, Stand 30.09.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind Rechenbeispiele, keine Förderzusage.“ Danach wird nichts davon auf Fachseiten wiederholt. (Seit 11.11.2026 „Rechenbeispiele“ statt „fiktive Beispiele“: das Modellhaus S. 10–12 ist ein PGN-Projekt.) |
+| **Zentraler Rechtshinweis** | Steht **einmal** auf U3 (Impressum): „Alle Angaben ohne Gewähr, Stand 12.11.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind Rechenbeispiele, keine Förderzusage.“ Danach wird nichts davon auf Fachseiten wiederholt. (Seit 11.11.2026 „Rechenbeispiele“ statt „fiktive Beispiele“: das Modellhaus S. 10–12 ist ein PGN-Projekt.) |
 | **„bis zu“** | Nur in Headlines, Kennzahlen-Kacheln und Tabellen-/Diagrammköpfen („Höchstsätze“, „bis zu“) – **nicht** vor jeder Zahl im Fließtext, wenn der Kontext klar ist. Wo eine Zahl ohne Kontext als fester Wert missverstanden würde, bleibt „bis zu“. |
 | **Überkompensation / Beihilfe-Vorbehalt** | Raus aus allen Seiten außer: einmal kurz auf der Seite „Konditionen und Kosten“ (S. 9) als eigene Zeile in den Eckdaten, und im zentralen Hinweis. |
 | **„eigene Berechnung“, „eigene Ableitung“, „Annahme“** | Raus. Modellrechnungen tragen genau **einen** Stempel „Modellrechnung“ (S. 14). Im Kapitel „Modellrechnung“ (S. 10–12) trägt die Kopfzeile das Wort (Rubrik); dort steht kein Stempel. Abgeleitete Tabellen (z. B. Einkommensgrenzen B/C) bekommen statt Disclaimer eine knappe Legende – nicht doppelt als Unterzeile und Legende (Korrekturlauf 1, S. 6). |
@@ -99,7 +99,7 @@ Gelten auf allen Seiten – auch dort, wo kein Kommentar steht.
    PGN-Leistungen allgemein und souverän formulieren, ohne Detailversprechen (keine Drohne, keine Freisitz-Zehntel;
    statt „mindestens drei Angebote“: „richtlinienkonform ausschreiben und vergeben“).
 4. **Bauherren-Perspektive**, nicht Planer-Perspektive – besonders im Editorial: Was hat der Investor davon?
-5. **Stand: 30.09.2026** – nur auf U1 und im Impressum/Rechtshinweis (U3), **nicht in den Fußzeilen** der Innenseiten.
+5. **Stand: 12.11.2026** – nur auf U1 und im Impressum/Rechtshinweis (U3), **nicht in den Fußzeilen** der Innenseiten.
    Quellen- und Abrufdaten mit anderem Sinn („abgerufen am …“) bleiben unverändert. Keine Blattnummer „U1“ auf dem Titel.
 6. **Fachlich bleibt alles korrekt** (Abschnitt 3 gilt weiter): Sätze, Beträge, Fristen, Kosten und die entscheidenden
    Bedingungen nie wegkürzen – Kürzen heißt Ton und Floskeln streichen, nicht Inhalt.

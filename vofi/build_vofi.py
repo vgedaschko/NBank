@@ -449,10 +449,10 @@ QUOTEN = [  # Tabelle 1, Zeilen 5-6: Nr., Zeile, Festwert, Einheit, A, B, C, Que
      "Quote_Zuschuss"),
 ]
 MIETENSTUFEN = [  # Tabelle 2, Zeilen 9-15: Nr., Mietenstufe, Bemessungsgrenze, Höchstmiete A, B, C
-    ("T3", "I", 4800, 6.50, 7.90, 8.70), ("T4", "II", 4800, 6.50, 7.90, 8.70),
-    ("T5", "III", 4800, 6.50, 7.90, 8.70), ("T6", "IV", 5000, 6.80, 8.20, 9.00),
-    ("T7", "V", 5000, 6.80, 8.20, 9.00), ("T8", "VI", 5000, 6.80, 8.20, 9.00),
-    ("T9", "VII", 5000, 6.80, 8.20, 9.00),
+    ("T3", "I", 5250, 6.50, 7.90, 8.70), ("T4", "II", 5250, 6.50, 7.90, 8.70),
+    ("T5", "III", 5250, 6.50, 7.90, 8.70), ("T6", "IV", 5460, 6.80, 8.20, 9.00),
+    ("T7", "V", 5460, 6.80, 8.20, 9.00), ("T8", "VI", 5460, 6.80, 8.20, 9.00),
+    ("T9", "VII", 5460, 6.80, 8.20, 9.00),
 ]
 QUELLE_MIETENSTUFEN = "RL Nr. 5.3.2.2 (Ausgangswert 01.07.2026), 5.4.4"
 FESTWERTE = [
@@ -590,7 +590,7 @@ def blatt_tabellen(wb, ws):
     """Konzept C: RL-2026-Festwerte, Nutzungsdauer; abgesetzt Liegenschaftszins je Projekt (Tabelle 4, Konzept Q)."""
     titel(ws, "Tabellen", "F")
     link(ws, "G1", "Übersicht", "'Übersicht'!A1").alignment = Alignment(horizontal="right")
-    zelle(ws, "A2", "Festwerte RL Mietwohnraum 2026 und Bewertung. Bemessungsgrenzen: Ausgangswerte 01.07.2026; "
+    zelle(ws, "A2", "Festwerte RL Mietwohnraum 2026 und Bewertung. Bemessungsgrenzen: Stand 01.10.2026; "
                     "aktuell auf nbank.de.")
 
     # Tabelle 1 Förderquoten

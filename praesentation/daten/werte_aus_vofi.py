@@ -402,7 +402,7 @@ def katalog_tabellen():
         k.append(t(f"quote_zuschuss.{g}", f"{SPALTE[g]}6", "Anteil", f"T2 Zuschuss, höchstens, Anteil der zuwendungsfähigen Kosten; {NAME[g]} (RL 2026 Nr. 5.3.3.2)"))
     for i, stufe in enumerate(STUFEN):
         z = 9 + i
-        k.append(t(f"bemessungsgrenze.{stufe}", f"C{z}", "€/m²", f"T{3 + i} Bemessungsgrenze Herstellungskosten, Mietenstufe {stufe} (RL 2026 Nr. 5.3.2.2, Ausgangswert 01.07.2026)"))
+        k.append(t(f"bemessungsgrenze.{stufe}", f"C{z}", "€/m²", f"T{3 + i} Bemessungsgrenze Herstellungskosten, Mietenstufe {stufe} (RL 2026 Nr. 5.3.2.2, Stand 01.10.2026; Ausgangswerte 4.800 und 5.000 €)"))
         for g in GRUPPEN:
             k.append(t(f"hoechstmiete.{stufe}.{g}", f"{SPALTE[g]}{z}", "€/m² Monat", f"T{3 + i} Höchstmiete nettokalt, Mietenstufe {stufe}; {NAME[g]} (RL 2026 Nr. 5.4.4)"))
     k += [
@@ -552,10 +552,11 @@ LAEUFE = [
         katalog=KERN,
     ),
     dict(
-        lauf="modellhaus_kosten_5000",
-        beschreibung="Modellhaus (Projekt 2) mit Herstellungskosten 5.000 € je m² (Ausgangswert der Bemessungsgrenze "
-                     "in Mietenstufe IV bis VII) statt 3.579 € je m²: Sensitivität der Folie 23.",
-        aenderungen=mit_projekt(kosten(5000)),
+        lauf="modellhaus_kosten_5460",
+        beschreibung="Modellhaus (Projekt 2) mit Herstellungskosten 5.460 € je m² (Bemessungsgrenze in Mietenstufe IV bis VII "
+                     "seit 01.10.2026; bis 12.11.2026 rechnete der Lauf mit dem Ausgangswert 5.000 €) statt 3.579 € je m²: "
+                     "Sensitivität der Folie 23.",
+        aenderungen=mit_projekt(kosten(5460)),
         katalog=KERN,
     ),
     dict(

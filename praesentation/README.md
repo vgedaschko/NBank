@@ -212,7 +212,7 @@ Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten 
 - **Kopf und Schriftfeld:** der Kicker im Feld `inhalt` der Folie, „ABSCHNITT · THEMA“. Der Abschnitt steht im Kopf, das Thema im Schriftfeld.
 - **Zahlen der Modellrechnung:** nur in der Rechenmappe unter `../vofi/`, Blatt Eingaben, Spalte „Projekt 2“ (das Modellhaus). Danach
   Schritt 1 und der Bau. `daten/werte.json` nie von Hand ändern. Die Läufe stehen in `daten/werte_aus_vofi.py` (`LAEUFE`): Jeder setzt
-  Eingaben!D3 auf 2; `modellhaus_kosten_4631` und `modellhaus_kosten_5000` ändern dazu die Herstellungskosten (Eingaben!E11) für Folie 23,
+  Eingaben!D3 auf 2; `modellhaus_kosten_4631` und `modellhaus_kosten_5460` ändern dazu die Herstellungskosten (Eingaben!E11) für Folie 23,
   `projekt2` rechnet den Stand der Altfassung mit Tilgung 2,5 %. Achsen und Maßstäbe der Diagramme (Folien 14, 16 bis 21 und 23) stehen
   als Zahlen in den Folienmodulen und folgen neuen Werten nicht von selbst; die Module melden Werte außerhalb der Achse. Renditen, Restwert und Marktmiete stehen auf der Sperrliste von `daten/werte_aus_vofi.py`; die benannte Ausnahme
   `anhang_rendite` (erlaubt vom Auftraggeber am 11.11.2026) öffnet genau die Zellen der Folie A7 für den Lauf `modellhaus_rendite`.

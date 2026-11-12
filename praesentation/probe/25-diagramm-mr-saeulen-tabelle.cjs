@@ -9,7 +9,7 @@ module.exports = {
   bau(ctx) {
     const { B, D, W, fmt, colX, span } = ctx, s = ctx.folie();
     B.register(s, '2.1');
-    const laeufe = ['modellhaus', 'modellhaus_kosten_4631', 'modellhaus_kosten_5000'], L = k => laeufe.map(l => W(l, k));
+    const laeufe = ['modellhaus', 'modellhaus_kosten_4631', 'modellhaus_kosten_5460'], L = k => laeufe.map(l => W(l, k));
     const kosten = L('eingabe.herstellungskosten_qm').map(v => fmt.zahl(v) + ' €');
     B.diagrammkopf(s, { titel: 'Zahlungsüberschuss Jahr 1, Gruppe C', sub: 'in € p. a. · nach Herstellungskosten je m² Wohnfläche' });
     const wb = 1.60, tx = colX(1), tw = span(8), plotX = tx + tw - 3 * wb;

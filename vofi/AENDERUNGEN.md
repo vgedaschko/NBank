@@ -306,3 +306,19 @@ Entscheidung des Auftraggebers: Die Marktmiete des Modellhauses (Eingabe 4.4, Pr
 
 Jahresrechnung, Finanzierung, Kapitaldienst und nötige Miete ändern sich nicht. Gefördert wirkt die Marktmiete nur über die Miete nach Ende der Bindung auf den Restwert. Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler.
 
+## 13. Änderung vom 12.11.2026: Bemessungsgrenzen seit 01.10.2026
+
+Entscheidung des Auftraggebers: Blatt Tabellen führt die Bemessungsgrenzen der NBank-Produktinformation (Stand 05.11.2026), gültig seit 01.10.2026: 5.250 €/m² in Mietenstufe I bis III, 5.460 €/m² in IV bis VII. Bisher standen dort die Ausgangswerte 4.800 und 5.000 €/m².
+
+Das Modellhaus (3.579 €/m²) liegt 1.881 €/m² unter der Grenze; seine Ergebnisse ändern sich nicht. Die Sensitivität (Broschüre S. 10, Präsentation Folie 23) rechnet in der dritten Spalte an der neuen Grenze:
+
+| Größe in € | 3.579 (Modellhaus) | 4.631 (ARGE-Median) | 5.460 (Bemessungsgrenze) |
+|---|---:|---:|---:|
+| Gesamtkosten | 2.963.412 | 3.834.468 | 4.520.880 |
+| Förderung, 80 % | 2.370.730 | 3.067.574 | 3.616.704 |
+| Eigenmittel, 20 % | 592.682 | 766.894 | 904.176 |
+| Zahlungsüberschuss Jahr 1, A | 15.003 | 4.965 | −2.945 |
+| Zahlungsüberschuss Jahr 1, B / C | 11.560 / 10.812 | −3.497 / −6.754 | −15.362 / −20.597 |
+
+An der Grenze trägt sich auch Gruppe A nicht mehr (beim Ausgangswert 5.000 €/m² blieben 1.444 €); A trägt sich bis rund 5.150 €/m². Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler.
+

@@ -66,7 +66,7 @@ module.exports = {
     // Eigenmittel der Rechnung ganz Geld (oben geprüft: fin.eigenmittel_bar gleich fin.eigenmittel.A)
     B.text(s, ctx.wortlaut(`Von den Eigenmitteln sollen mindestens ${fmt.euro(eigen * X('rechnung', 'eigenmittel.anteil_geld_oder_grundstueck'))} Geld oder lastenfreies Grundstück sein.`, 'Notiz unter dem Rechenblatt') + '\n' +
       ctx.wortlaut('In dieser Rechnung sind die Eigenmittel ganz Geld, weil das Grundstück nicht angesetzt ist.', 'Notiz unter dem Rechenblatt') + '\n' +
-      ctx.wortlaut(`${fmt.euro(kostenQm)} je m² liegen ${fmt.euro(grenze - kostenQm)} unter dem Ausgangswert der Bemessungsgrenze von ${fmt.euro(grenze)}.`, 'Notiz unter dem Rechenblatt'),
+      ctx.wortlaut(`${fmt.euro(kostenQm)} je m² liegen ${fmt.euro(grenze - kostenQm)} unter der Bemessungsgrenze von ${fmt.euro(grenze)}.`, 'Notiz unter dem Rechenblatt'),
       { x: x0, y: t.unten + 0.07, w: w8, rolle: 'klein', name: 'Notiz unter dem Rechenblatt' });
 
     // Kennzahlen je Wohnung: die zweite beginnt auf der Linie unter dem Titel des Rechenblatts

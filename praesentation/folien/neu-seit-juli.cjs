@@ -28,7 +28,7 @@ module.exports = {
     // „A:“ und das Wertepaar bleiben zusammen (geschütztes Leerzeichen)
     seite('rechts', `seit ${R('stichtage.neu_seit')}`, `${fmt.prozent(foerderung)} Förderung`, [
       `Instrument: Darlehen + Zuschuss statt Tilgungsnachlass; zusammen ${fett(fmt.prozent(foerderung))} der zuwendungsfähigen Kosten (Gruppe A: je ${fett(fmt.prozent(T('quote_zuschuss.A')))})`,
-      `Bemessung je m² Wohnfläche: Ausgangswerte ${paar(T('bemessungsgrenze.I'), T('bemessungsgrenze.IV'))} Herstellungskosten; Grundstück separat bis Bodenrichtwert`,
+      `Bemessung je m² Wohnfläche: ${paar(T('bemessungsgrenze.I'), T('bemessungsgrenze.IV'))} Herstellungskosten (seit ${ctx.X('regeln', 'bemessungsgrenze.gilt_seit')}); Grundstück separat bis Bodenrichtwert`,
       `${mieterkreis} Gruppen A, B, C (B/C nur mit Zulassung); A:${NB}${paar(T('hoechstmiete.I.A'), T('hoechstmiete.IV.A'), 2)}`]);
 
     B.vergleichFuss(s, 'Programmteil 2.1 im Vergleich · Höchstsätze · Wertepaare: Mietenstufe I–III/IV–VII · Bemessung nicht direkt vergleichbar');

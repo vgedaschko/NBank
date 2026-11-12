@@ -2,7 +2,7 @@
  "meta": {
   "titel": "Werte der VOFI-Mappe für die Präsentation Mietwohnraumförderung Niedersachsen 2026",
   "mappe": "PGN_VOFI_Mietwohnraum_2026_v3.xlsx",
-  "mappe_sha256": "3f2f3ba5750f1b675326394d407622c6a4703cd91c7f724cb979fd97238332dd",
+  "mappe_sha256": "308a36ac9dc4fded2e44bcb41114e381906b90c815a41a69c63f1809c478aadd",
   "mappe_stand": "Version 3.0, Stand 11/2026",
   "auslieferung": {
    "aktives_projekt": 2,
@@ -840,7 +840,7 @@
     },
     "fin.bemessungsgrenze_qm": {
      "schluessel": "fin.bemessungsgrenze_qm",
-     "wert": 5000,
+     "wert": 5460,
      "einheit": "€/m²",
      "blatt": "Gefördert A",
      "zelle": "H95",
@@ -2010,11 +2010,11 @@
     },
     "tab.bemessungsgrenze.I": {
      "schluessel": "tab.bemessungsgrenze.I",
-     "wert": 4800,
+     "wert": 5250,
      "einheit": "€/m²",
      "blatt": "Tabellen",
      "zelle": "C9",
-     "bedeutung": "T3 Bemessungsgrenze Herstellungskosten, Mietenstufe I (RL 2026 Nr. 5.3.2.2, Ausgangswert 01.07.2026)",
+     "bedeutung": "T3 Bemessungsgrenze Herstellungskosten, Mietenstufe I (RL 2026 Nr. 5.3.2.2, Stand 01.10.2026; Ausgangswerte 4.800 und 5.000 €)",
      "lauf": "modellhaus"
     },
     "tab.hoechstmiete.I.A": {
@@ -2046,11 +2046,11 @@
     },
     "tab.bemessungsgrenze.II": {
      "schluessel": "tab.bemessungsgrenze.II",
-     "wert": 4800,
+     "wert": 5250,
      "einheit": "€/m²",
      "blatt": "Tabellen",
      "zelle": "C10",
-     "bedeutung": "T4 Bemessungsgrenze Herstellungskosten, Mietenstufe II (RL 2026 Nr. 5.3.2.2, Ausgangswert 01.07.2026)",
+     "bedeutung": "T4 Bemessungsgrenze Herstellungskosten, Mietenstufe II (RL 2026 Nr. 5.3.2.2, Stand 01.10.2026; Ausgangswerte 4.800 und 5.000 €)",
      "lauf": "modellhaus"
     },
     "tab.hoechstmiete.II.A": {
@@ -2082,11 +2082,11 @@
     },
     "tab.bemessungsgrenze.III": {
      "schluessel": "tab.bemessungsgrenze.III",
-     "wert": 4800,
+     "wert": 5250,
      "einheit": "€/m²",
      "blatt": "Tabellen",
      "zelle": "C11",
-     "bedeutung": "T5 Bemessungsgrenze Herstellungskosten, Mietenstufe III (RL 2026 Nr. 5.3.2.2, Ausgangswert 01.07.2026)",
+     "bedeutung": "T5 Bemessungsgrenze Herstellungskosten, Mietenstufe III (RL 2026 Nr. 5.3.2.2, Stand 01.10.2026; Ausgangswerte 4.800 und 5.000 €)",
      "lauf": "modellhaus"
     },
     "tab.hoechstmiete.III.A": {
@@ -2118,11 +2118,11 @@
     },
     "tab.bemessungsgrenze.IV": {
      "schluessel": "tab.bemessungsgrenze.IV",
-     "wert": 5000,
+     "wert": 5460,
      "einheit": "€/m²",
      "blatt": "Tabellen",
      "zelle": "C12",
-     "bedeutung": "T6 Bemessungsgrenze Herstellungskosten, Mietenstufe IV (RL 2026 Nr. 5.3.2.2, Ausgangswert 01.07.2026)",
+     "bedeutung": "T6 Bemessungsgrenze Herstellungskosten, Mietenstufe IV (RL 2026 Nr. 5.3.2.2, Stand 01.10.2026; Ausgangswerte 4.800 und 5.000 €)",
      "lauf": "modellhaus"
     },
     "tab.hoechstmiete.IV.A": {
@@ -2154,11 +2154,11 @@
     },
     "tab.bemessungsgrenze.V": {
      "schluessel": "tab.bemessungsgrenze.V",
-     "wert": 5000,
+     "wert": 5460,
      "einheit": "€/m²",
      "blatt": "Tabellen",
      "zelle": "C13",
-     "bedeutung": "T7 Bemessungsgrenze Herstellungskosten, Mietenstufe V (RL 2026 Nr. 5.3.2.2, Ausgangswert 01.07.2026)",
+     "bedeutung": "T7 Bemessungsgrenze Herstellungskosten, Mietenstufe V (RL 2026 Nr. 5.3.2.2, Stand 01.10.2026; Ausgangswerte 4.800 und 5.000 €)",
      "lauf": "modellhaus"
     },
     "tab.hoechstmiete.V.A": {
@@ -2190,11 +2190,11 @@
     },
     "tab.bemessungsgrenze.VI": {
      "schluessel": "tab.bemessungsgrenze.VI",
-     "wert": 5000,
+     "wert": 5460,
      "einheit": "€/m²",
      "blatt": "Tabellen",
      "zelle": "C14",
-     "bedeutung": "T8 Bemessungsgrenze Herstellungskosten, Mietenstufe VI (RL 2026 Nr. 5.3.2.2, Ausgangswert 01.07.2026)",
+     "bedeutung": "T8 Bemessungsgrenze Herstellungskosten, Mietenstufe VI (RL 2026 Nr. 5.3.2.2, Stand 01.10.2026; Ausgangswerte 4.800 und 5.000 €)",
      "lauf": "modellhaus"
     },
     "tab.hoechstmiete.VI.A": {
@@ -2226,11 +2226,11 @@
     },
     "tab.bemessungsgrenze.VII": {
      "schluessel": "tab.bemessungsgrenze.VII",
-     "wert": 5000,
+     "wert": 5460,
      "einheit": "€/m²",
      "blatt": "Tabellen",
      "zelle": "C15",
-     "bedeutung": "T9 Bemessungsgrenze Herstellungskosten, Mietenstufe VII (RL 2026 Nr. 5.3.2.2, Ausgangswert 01.07.2026)",
+     "bedeutung": "T9 Bemessungsgrenze Herstellungskosten, Mietenstufe VII (RL 2026 Nr. 5.3.2.2, Stand 01.10.2026; Ausgangswerte 4.800 und 5.000 €)",
      "lauf": "modellhaus"
     },
     "tab.hoechstmiete.VII.A": {
@@ -4020,7 +4020,7 @@
     },
     "fin.bemessungsgrenze_qm": {
      "schluessel": "fin.bemessungsgrenze_qm",
-     "wert": 5000,
+     "wert": 5460,
      "einheit": "€/m²",
      "blatt": "Gefördert A",
      "zelle": "H95",
@@ -5136,8 +5136,8 @@
     }
    }
   },
-  "modellhaus_kosten_5000": {
-   "beschreibung": "Modellhaus (Projekt 2) mit Herstellungskosten 5.000 € je m² (Ausgangswert der Bemessungsgrenze in Mietenstufe IV bis VII) statt 3.579 € je m²: Sensitivität der Folie 23.",
+  "modellhaus_kosten_5460": {
+   "beschreibung": "Modellhaus (Projekt 2) mit Herstellungskosten 5.460 € je m² (Bemessungsgrenze in Mietenstufe IV bis VII seit 01.10.2026; bis 12.11.2026 rechnete der Lauf mit dem Ausgangswert 5.000 €) statt 3.579 € je m²: Sensitivität der Folie 23.",
    "aenderungen": [
     {
      "blatt": "Eingaben",
@@ -5150,7 +5150,7 @@
      "blatt": "Eingaben",
      "zelle": "E11",
      "alt": 3579,
-     "neu": 5000,
+     "neu": 5460,
      "eingabe": "2.1 Herstellungskosten KG 200–700, Projekt 2"
     }
    ],
@@ -5167,7 +5167,7 @@
      "blatt": "Eingaben",
      "zelle": "D3",
      "bedeutung": "Aktives Projekt: 2 = Modellhaus (PGN-Projekt in Neu Wulmstorf); 1 = früheres Rechenbeispiel",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.bezugsjahr": {
      "schluessel": "eingabe.bezugsjahr",
@@ -5176,7 +5176,7 @@
      "blatt": "Eingaben",
      "zelle": "F7",
      "bedeutung": "Eingabe 1.1 Bezugsjahr; T0 = Bezugsfertigkeit",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.wohnflaeche": {
      "schluessel": "eingabe.wohnflaeche",
@@ -5185,7 +5185,7 @@
      "blatt": "Eingaben",
      "zelle": "F8",
      "bedeutung": "Eingabe 1.2 Wohnfläche",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.wohnungen": {
      "schluessel": "eingabe.wohnungen",
@@ -5194,16 +5194,16 @@
      "blatt": "Eingaben",
      "zelle": "F9",
      "bedeutung": "Eingabe 1.3 Wohnungen",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.herstellungskosten_qm": {
      "schluessel": "eingabe.herstellungskosten_qm",
-     "wert": 5000,
+     "wert": 5460,
      "einheit": "€/m²",
      "blatt": "Eingaben",
      "zelle": "F11",
      "bedeutung": "Eingabe 2.1 Herstellungskosten KG 200–700 je m² Wohnfläche",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.finanzierungskosten_kg800": {
      "schluessel": "eingabe.finanzierungskosten_kg800",
@@ -5212,7 +5212,7 @@
      "blatt": "Eingaben",
      "zelle": "F12",
      "bedeutung": "Eingabe 2.2 Finanzierungskosten KG 800 (Ansatz 0)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.grundstueck": {
      "schluessel": "eingabe.grundstueck",
@@ -5221,7 +5221,7 @@
      "blatt": "Eingaben",
      "zelle": "F13",
      "bedeutung": "Eingabe 2.3 Grundstück, Ansatz in Kosten und Förderung (Modellhaus: Grundstück im Bestand, Ansatz 0)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.tilgung_nbank": {
      "schluessel": "eingabe.tilgung_nbank",
@@ -5230,7 +5230,7 @@
      "blatt": "Eingaben",
      "zelle": "F17",
      "bedeutung": "Eingabe 3.1 Tilgung NBank-Darlehen, linear, p. a. (PGN-Annahme; den Satz legt die NBank fest)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.tilgungsaufschub": {
      "schluessel": "eingabe.tilgungsaufschub",
@@ -5239,7 +5239,7 @@
      "blatt": "Eingaben",
      "zelle": "F18",
      "bedeutung": "Eingabe 3.2 Tilgungsaufschub",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.zins_nbank_ab_jahr36": {
      "schluessel": "eingabe.zins_nbank_ab_jahr36",
@@ -5248,7 +5248,7 @@
      "blatt": "Eingaben",
      "zelle": "F19",
      "bedeutung": "Eingabe 3.3 Zins NBank-Darlehen ab Jahr 36, p. a. (PGN-Annahme)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.mietenstufe": {
      "schluessel": "eingabe.mietenstufe",
@@ -5257,7 +5257,7 @@
      "blatt": "Eingaben",
      "zelle": "F22",
      "bedeutung": "Eingabe 4.1 Mietenstufe",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.eh40": {
      "schluessel": "eingabe.eh40",
@@ -5266,7 +5266,7 @@
      "blatt": "Eingaben",
      "zelle": "F23",
      "bedeutung": "Eingabe 4.2 Effizienzhaus 40 erreicht (ja/nein)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.kappungsgrenze": {
      "schluessel": "eingabe.kappungsgrenze",
@@ -5275,7 +5275,7 @@
      "blatt": "Eingaben",
      "zelle": "F27",
      "bedeutung": "Eingabe 4.6 Kappungsgrenze nach Bindungsende, in 3 Jahren (§ 558 Abs. 3 BGB)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.mietausfall": {
      "schluessel": "eingabe.mietausfall",
@@ -5284,7 +5284,7 @@
      "blatt": "Eingaben",
      "zelle": "F29",
      "bedeutung": "Eingabe 5.1 Mietausfall/Leerstand, Anteil der Sollmiete (PGN-Annahme)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.objektverwaltung_je_wohnung": {
      "schluessel": "eingabe.objektverwaltung_je_wohnung",
@@ -5293,7 +5293,7 @@
      "blatt": "Eingaben",
      "zelle": "F30",
      "bedeutung": "Eingabe 5.2 Objektverwaltung je Wohnung (PGN-Annahme, Kostenstand 2026)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.instandhaltung_je_qm": {
      "schluessel": "eingabe.instandhaltung_je_qm",
@@ -5302,7 +5302,7 @@
      "blatt": "Eingaben",
      "zelle": "F31",
      "bedeutung": "Eingabe 5.3 Instandhaltung je m² Wohnfläche (PGN-Annahme, Kostenstand 2026)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.kostensteigerung": {
      "schluessel": "eingabe.kostensteigerung",
@@ -5311,7 +5311,7 @@
      "blatt": "Eingaben",
      "zelle": "F32",
      "bedeutung": "Eingabe 5.4 Kostensteigerung ab Jahr 2, p. a. (PGN-Annahme)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.kostenstand_fortschreibung": {
      "schluessel": "eingabe.kostenstand_fortschreibung",
@@ -5320,7 +5320,7 @@
      "blatt": "Eingaben",
      "zelle": "F33",
      "bedeutung": "Eingabe 5.5 Kostensätze 2026 fortschreiben um … Jahre",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.zins_bank": {
      "schluessel": "eingabe.zins_bank",
@@ -5329,7 +5329,7 @@
      "blatt": "Eingaben",
      "zelle": "F35",
      "bedeutung": "Eingabe 6.1 Zins Bankdarlehen p. a. (PGN-Annahme)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.zinsbindung": {
      "schluessel": "eingabe.zinsbindung",
@@ -5338,7 +5338,7 @@
      "blatt": "Eingaben",
      "zelle": "F36",
      "bedeutung": "Eingabe 6.2 Zinsbindung Bankdarlehen",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.anschlusszins": {
      "schluessel": "eingabe.anschlusszins",
@@ -5347,7 +5347,7 @@
      "blatt": "Eingaben",
      "zelle": "F37",
      "bedeutung": "Eingabe 6.3 Anschlusszins Bankdarlehen p. a. (PGN-Annahme)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.laufzeit_bank": {
      "schluessel": "eingabe.laufzeit_bank",
@@ -5356,7 +5356,7 @@
      "blatt": "Eingaben",
      "zelle": "F38",
      "bedeutung": "Eingabe 6.4 Laufzeit Bankdarlehen, Annuität (PGN-Annahme)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.eigenkapital_zusatz": {
      "schluessel": "eingabe.eigenkapital_zusatz",
@@ -5365,7 +5365,7 @@
      "blatt": "Eingaben",
      "zelle": "F40",
      "bedeutung": "Eingabe 7.1 Zusätzliches Eigenkapital bar, mindert das Bankdarlehen",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.miete_frei": {
      "schluessel": "eingabe.miete_frei",
@@ -5374,7 +5374,7 @@
      "blatt": "Eingaben",
      "zelle": "F53",
      "bedeutung": "Eingabe 10.1 Miete frei finanziert (Auswahl)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "eingabe.dscr_ziel": {
      "schluessel": "eingabe.dscr_ziel",
@@ -5383,70 +5383,70 @@
      "blatt": "Eingaben",
      "zelle": "F54",
      "bedeutung": "Eingabe 10.2 DSCR-Ziel für die nötige Miete",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.gesamtkosten.A": {
      "schluessel": "fin.gesamtkosten.A",
-     "wert": 4140000,
+     "wert": 4520880,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D9",
      "bedeutung": "Übersicht 1.1 Gesamtkosten; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.gesamtkosten.B": {
      "schluessel": "fin.gesamtkosten.B",
-     "wert": 4140000,
+     "wert": 4520880,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E9",
      "bedeutung": "Übersicht 1.1 Gesamtkosten; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.gesamtkosten.C": {
      "schluessel": "fin.gesamtkosten.C",
-     "wert": 4140000,
+     "wert": 4520880,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F9",
      "bedeutung": "Übersicht 1.1 Gesamtkosten; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.gesamtkosten.Frei": {
      "schluessel": "fin.gesamtkosten.Frei",
-     "wert": 4140000,
+     "wert": 4520880,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "G9",
      "bedeutung": "Übersicht 1.1 Gesamtkosten; frei finanziert",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.zuwendungsfaehige_kosten.A": {
      "schluessel": "fin.zuwendungsfaehige_kosten.A",
-     "wert": 4140000,
+     "wert": 4520880,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D10",
      "bedeutung": "Übersicht 1.2 Zuwendungsfähige Kosten; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.zuwendungsfaehige_kosten.B": {
      "schluessel": "fin.zuwendungsfaehige_kosten.B",
-     "wert": 4140000,
+     "wert": 4520880,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E10",
      "bedeutung": "Übersicht 1.2 Zuwendungsfähige Kosten; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.zuwendungsfaehige_kosten.C": {
      "schluessel": "fin.zuwendungsfaehige_kosten.C",
-     "wert": 4140000,
+     "wert": 4520880,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F10",
      "bedeutung": "Übersicht 1.2 Zuwendungsfähige Kosten; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.ueber_bemessungsgrenze.A": {
      "schluessel": "fin.ueber_bemessungsgrenze.A",
@@ -5455,7 +5455,7 @@
      "blatt": "Übersicht",
      "zelle": "D11",
      "bedeutung": "Übersicht 1.3 Herstellung über der Bemessungsgrenze, nicht zuwendungsfähig; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.ueber_bemessungsgrenze.B": {
      "schluessel": "fin.ueber_bemessungsgrenze.B",
@@ -5464,7 +5464,7 @@
      "blatt": "Übersicht",
      "zelle": "E11",
      "bedeutung": "Übersicht 1.3 Herstellung über der Bemessungsgrenze, nicht zuwendungsfähig; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.ueber_bemessungsgrenze.C": {
      "schluessel": "fin.ueber_bemessungsgrenze.C",
@@ -5473,7 +5473,7 @@
      "blatt": "Übersicht",
      "zelle": "F11",
      "bedeutung": "Übersicht 1.3 Herstellung über der Bemessungsgrenze, nicht zuwendungsfähig; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.grundstueck_ueber_bodenrichtwert.A": {
      "schluessel": "fin.grundstueck_ueber_bodenrichtwert.A",
@@ -5482,7 +5482,7 @@
      "blatt": "Übersicht",
      "zelle": "D12",
      "bedeutung": "Übersicht 1.4 Grundstück über Bodenrichtwert × Fläche; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.grundstueck_ueber_bodenrichtwert.B": {
      "schluessel": "fin.grundstueck_ueber_bodenrichtwert.B",
@@ -5491,7 +5491,7 @@
      "blatt": "Übersicht",
      "zelle": "E12",
      "bedeutung": "Übersicht 1.4 Grundstück über Bodenrichtwert × Fläche; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.grundstueck_ueber_bodenrichtwert.C": {
      "schluessel": "fin.grundstueck_ueber_bodenrichtwert.C",
@@ -5500,88 +5500,88 @@
      "blatt": "Übersicht",
      "zelle": "F12",
      "bedeutung": "Übersicht 1.4 Grundstück über Bodenrichtwert × Fläche; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.darlehen_nbank.A": {
      "schluessel": "fin.darlehen_nbank.A",
-     "wert": 1656000,
+     "wert": 1808352,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D13",
      "bedeutung": "Übersicht 1.5 NBank-Darlehen; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.darlehen_nbank.B": {
      "schluessel": "fin.darlehen_nbank.B",
-     "wert": 2484000,
+     "wert": 2712528,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E13",
      "bedeutung": "Übersicht 1.5 NBank-Darlehen; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.darlehen_nbank.C": {
      "schluessel": "fin.darlehen_nbank.C",
-     "wert": 2898000,
+     "wert": 3164616,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F13",
      "bedeutung": "Übersicht 1.5 NBank-Darlehen; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.zuschuss.A": {
      "schluessel": "fin.zuschuss.A",
-     "wert": 1656000,
+     "wert": 1808352,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D14",
      "bedeutung": "Übersicht 1.6 Zuschuss; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.zuschuss.B": {
      "schluessel": "fin.zuschuss.B",
-     "wert": 828000,
+     "wert": 904176,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E14",
      "bedeutung": "Übersicht 1.6 Zuschuss; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.zuschuss.C": {
      "schluessel": "fin.zuschuss.C",
-     "wert": 414000,
+     "wert": 452088,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F14",
      "bedeutung": "Übersicht 1.6 Zuschuss; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.foerderung.A": {
      "schluessel": "fin.foerderung.A",
-     "wert": 3312000,
+     "wert": 3616704,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D15",
      "bedeutung": "Übersicht 1.7 Förderung gesamt (Darlehen + Zuschuss); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.foerderung.B": {
      "schluessel": "fin.foerderung.B",
-     "wert": 3312000,
+     "wert": 3616704,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E15",
      "bedeutung": "Übersicht 1.7 Förderung gesamt (Darlehen + Zuschuss); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.foerderung.C": {
      "schluessel": "fin.foerderung.C",
-     "wert": 3312000,
+     "wert": 3616704,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F15",
      "bedeutung": "Übersicht 1.7 Förderung gesamt (Darlehen + Zuschuss); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.foerderquote.A": {
      "schluessel": "fin.foerderquote.A",
@@ -5590,7 +5590,7 @@
      "blatt": "Übersicht",
      "zelle": "D16",
      "bedeutung": "Übersicht 1.8 Förderquote auf die Gesamtkosten; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.foerderquote.B": {
      "schluessel": "fin.foerderquote.B",
@@ -5599,7 +5599,7 @@
      "blatt": "Übersicht",
      "zelle": "E16",
      "bedeutung": "Übersicht 1.8 Förderquote auf die Gesamtkosten; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.foerderquote.C": {
      "schluessel": "fin.foerderquote.C",
@@ -5608,7 +5608,7 @@
      "blatt": "Übersicht",
      "zelle": "F16",
      "bedeutung": "Übersicht 1.8 Förderquote auf die Gesamtkosten; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.bankdarlehen.A": {
      "schluessel": "fin.bankdarlehen.A",
@@ -5617,7 +5617,7 @@
      "blatt": "Übersicht",
      "zelle": "D18",
      "bedeutung": "Übersicht 1.10 Bankdarlehen (gefördert: Restfinanzierung; frei: Rest nach Eigenmitteln); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.bankdarlehen.B": {
      "schluessel": "fin.bankdarlehen.B",
@@ -5626,7 +5626,7 @@
      "blatt": "Übersicht",
      "zelle": "E18",
      "bedeutung": "Übersicht 1.10 Bankdarlehen (gefördert: Restfinanzierung; frei: Rest nach Eigenmitteln); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.bankdarlehen.C": {
      "schluessel": "fin.bankdarlehen.C",
@@ -5635,52 +5635,52 @@
      "blatt": "Übersicht",
      "zelle": "F18",
      "bedeutung": "Übersicht 1.10 Bankdarlehen (gefördert: Restfinanzierung; frei: Rest nach Eigenmitteln); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.bankdarlehen.Frei": {
      "schluessel": "fin.bankdarlehen.Frei",
-     "wert": 3312000,
+     "wert": 3616704,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "G18",
      "bedeutung": "Übersicht 1.10 Bankdarlehen (gefördert: Restfinanzierung; frei: Rest nach Eigenmitteln); frei finanziert",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenmittel.A": {
      "schluessel": "fin.eigenmittel.A",
-     "wert": 828000,
+     "wert": 904176,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D19",
      "bedeutung": "Übersicht 1.11 Eigenmittel (RL Nr. 5.2.6), ohne Entgelte; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenmittel.B": {
      "schluessel": "fin.eigenmittel.B",
-     "wert": 828000,
+     "wert": 904176,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E19",
      "bedeutung": "Übersicht 1.11 Eigenmittel (RL Nr. 5.2.6), ohne Entgelte; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenmittel.C": {
      "schluessel": "fin.eigenmittel.C",
-     "wert": 828000,
+     "wert": 904176,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F19",
      "bedeutung": "Übersicht 1.11 Eigenmittel (RL Nr. 5.2.6), ohne Entgelte; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenmittel.Frei": {
      "schluessel": "fin.eigenmittel.Frei",
-     "wert": 828000,
+     "wert": 904176,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "G19",
      "bedeutung": "Übersicht 1.11 Eigenmittel (RL Nr. 5.2.6), ohne Entgelte; frei finanziert",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenmittelquote.A": {
      "schluessel": "fin.eigenmittelquote.A",
@@ -5689,7 +5689,7 @@
      "blatt": "Übersicht",
      "zelle": "D20",
      "bedeutung": "Übersicht 1.12 Eigenmittelquote auf die zuwendungsfähigen Kosten; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenmittelquote.B": {
      "schluessel": "fin.eigenmittelquote.B",
@@ -5698,7 +5698,7 @@
      "blatt": "Übersicht",
      "zelle": "E20",
      "bedeutung": "Übersicht 1.12 Eigenmittelquote auf die zuwendungsfähigen Kosten; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenmittelquote.C": {
      "schluessel": "fin.eigenmittelquote.C",
@@ -5707,7 +5707,7 @@
      "blatt": "Übersicht",
      "zelle": "F20",
      "bedeutung": "Übersicht 1.12 Eigenmittelquote auf die zuwendungsfähigen Kosten; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenmittelquote.Frei": {
      "schluessel": "fin.eigenmittelquote.Frei",
@@ -5716,160 +5716,160 @@
      "blatt": "Übersicht",
      "zelle": "G20",
      "bedeutung": "Übersicht 1.12 Eigenmittelquote auf die zuwendungsfähigen Kosten; frei finanziert",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.bearbeitungsentgelte.A": {
      "schluessel": "fin.bearbeitungsentgelte.A",
-     "wert": 28980,
+     "wert": 31646.16,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D21",
      "bedeutung": "Übersicht 1.13 Bearbeitungsentgelte, einmalig (1 % des Darlehens + 0,75 % des Zuschusses); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.bearbeitungsentgelte.B": {
      "schluessel": "fin.bearbeitungsentgelte.B",
-     "wert": 31050,
+     "wert": 33906.6,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E21",
      "bedeutung": "Übersicht 1.13 Bearbeitungsentgelte, einmalig (1 % des Darlehens + 0,75 % des Zuschusses); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.bearbeitungsentgelte.C": {
      "schluessel": "fin.bearbeitungsentgelte.C",
-     "wert": 32085,
+     "wert": 35036.82,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F21",
      "bedeutung": "Übersicht 1.13 Bearbeitungsentgelte, einmalig (1 % des Darlehens + 0,75 % des Zuschusses); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenkapital.A": {
      "schluessel": "fin.eigenkapital.A",
-     "wert": 856980,
+     "wert": 935822.16,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D22",
      "bedeutung": "Übersicht 1.14 Eigenkapital (Grundstück + bar) = Eigenmittel + Entgelte; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenkapital.B": {
      "schluessel": "fin.eigenkapital.B",
-     "wert": 859050,
+     "wert": 938082.6,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E22",
      "bedeutung": "Übersicht 1.14 Eigenkapital (Grundstück + bar) = Eigenmittel + Entgelte; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenkapital.C": {
      "schluessel": "fin.eigenkapital.C",
-     "wert": 860085,
+     "wert": 939212.82,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F22",
      "bedeutung": "Übersicht 1.14 Eigenkapital (Grundstück + bar) = Eigenmittel + Entgelte; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenkapital.Frei": {
      "schluessel": "fin.eigenkapital.Frei",
-     "wert": 828000,
+     "wert": 904176,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "G22",
      "bedeutung": "Übersicht 1.14 Eigenkapital (Grundstück + bar) = Eigenmittel + Entgelte; frei finanziert",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenkapital_bar.A": {
      "schluessel": "fin.eigenkapital_bar.A",
-     "wert": 856980,
+     "wert": 935822.16,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D23",
      "bedeutung": "Übersicht 1.15 Eigenkapital, davon bar; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenkapital_bar.B": {
      "schluessel": "fin.eigenkapital_bar.B",
-     "wert": 859050,
+     "wert": 938082.6,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E23",
      "bedeutung": "Übersicht 1.15 Eigenkapital, davon bar; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenkapital_bar.C": {
      "schluessel": "fin.eigenkapital_bar.C",
-     "wert": 860085,
+     "wert": 939212.82,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F23",
      "bedeutung": "Übersicht 1.15 Eigenkapital, davon bar; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenkapital_bar.Frei": {
      "schluessel": "fin.eigenkapital_bar.Frei",
-     "wert": 828000,
+     "wert": 904176,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "G23",
      "bedeutung": "Übersicht 1.15 Eigenkapital, davon bar; frei finanziert",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.zuschuss_je_wohnung.A": {
      "schluessel": "fin.zuschuss_je_wohnung.A",
-     "wert": 118285.714285714,
+     "wert": 129168,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D24",
      "bedeutung": "Übersicht 1.16 Zuschuss je Wohnung; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.zuschuss_je_wohnung.B": {
      "schluessel": "fin.zuschuss_je_wohnung.B",
-     "wert": 59142.8571428571,
+     "wert": 64584,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E24",
      "bedeutung": "Übersicht 1.16 Zuschuss je Wohnung; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.zuschuss_je_wohnung.C": {
      "schluessel": "fin.zuschuss_je_wohnung.C",
-     "wert": 29571.4285714286,
+     "wert": 32292,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F24",
      "bedeutung": "Übersicht 1.16 Zuschuss je Wohnung; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenmittel_je_wohnung.A": {
      "schluessel": "fin.eigenmittel_je_wohnung.A",
-     "wert": 59142.8571428571,
+     "wert": 64584,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D25",
      "bedeutung": "Übersicht 1.17 Eigenmittel je Wohnung; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenmittel_je_wohnung.B": {
      "schluessel": "fin.eigenmittel_je_wohnung.B",
-     "wert": 59142.8571428571,
+     "wert": 64584,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E25",
      "bedeutung": "Übersicht 1.17 Eigenmittel je Wohnung; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenmittel_je_wohnung.C": {
      "schluessel": "fin.eigenmittel_je_wohnung.C",
-     "wert": 59142.8571428571,
+     "wert": 64584,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F25",
      "bedeutung": "Übersicht 1.17 Eigenmittel je Wohnung; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.miete_jahr1.A": {
      "schluessel": "fin.miete_jahr1.A",
@@ -5878,7 +5878,7 @@
      "blatt": "Übersicht",
      "zelle": "D26",
      "bedeutung": "Übersicht 1.18 Miete Jahr 1 (Höchstmiete nettokalt); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.miete_jahr1.B": {
      "schluessel": "fin.miete_jahr1.B",
@@ -5887,7 +5887,7 @@
      "blatt": "Übersicht",
      "zelle": "E26",
      "bedeutung": "Übersicht 1.18 Miete Jahr 1 (Höchstmiete nettokalt); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.miete_jahr1.C": {
      "schluessel": "fin.miete_jahr1.C",
@@ -5896,16 +5896,16 @@
      "blatt": "Übersicht",
      "zelle": "F26",
      "bedeutung": "Übersicht 1.18 Miete Jahr 1 (Höchstmiete nettokalt); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.herstellungskosten": {
      "schluessel": "fin.herstellungskosten",
-     "wert": 4140000,
+     "wert": 4520880,
      "einheit": "€",
      "blatt": "Gefördert A",
      "zelle": "H90",
      "bedeutung": "Herstellungskosten KG 200–700, angesetzt (Wohnfläche × Eingabe 2.1)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.grundstueck": {
      "schluessel": "fin.grundstueck",
@@ -5914,25 +5914,25 @@
      "blatt": "Gefördert A",
      "zelle": "H92",
      "bedeutung": "Grundstück (Sacheinlage)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.bemessungsgrenze_qm": {
      "schluessel": "fin.bemessungsgrenze_qm",
-     "wert": 5000,
+     "wert": 5460,
      "einheit": "€/m²",
      "blatt": "Gefördert A",
      "zelle": "H95",
      "bedeutung": "Bemessungsgrenze der Herstellungskosten für die Mietenstufe des Projekts",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.eigenmittel_bar": {
      "schluessel": "fin.eigenmittel_bar",
-     "wert": 828000,
+     "wert": 904176,
      "einheit": "€",
      "blatt": "Gefördert A",
      "zelle": "H102",
      "bedeutung": "Eigenmittel bar (20 % der zuwendungsfähigen Kosten abzüglich Grundstück)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.darlehensquote.A": {
      "schluessel": "fin.darlehensquote.A",
@@ -5941,7 +5941,7 @@
      "blatt": "Gefördert A",
      "zelle": "H97",
      "bedeutung": "Darlehensquote auf die zuwendungsfähigen Kosten; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.zuschussquote.A": {
      "schluessel": "fin.zuschussquote.A",
@@ -5950,7 +5950,7 @@
      "blatt": "Gefördert A",
      "zelle": "H98",
      "bedeutung": "Zuschussquote auf die zuwendungsfähigen Kosten; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.darlehensquote.B": {
      "schluessel": "fin.darlehensquote.B",
@@ -5959,7 +5959,7 @@
      "blatt": "Gefördert B",
      "zelle": "H97",
      "bedeutung": "Darlehensquote auf die zuwendungsfähigen Kosten; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.zuschussquote.B": {
      "schluessel": "fin.zuschussquote.B",
@@ -5968,7 +5968,7 @@
      "blatt": "Gefördert B",
      "zelle": "H98",
      "bedeutung": "Zuschussquote auf die zuwendungsfähigen Kosten; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.darlehensquote.C": {
      "schluessel": "fin.darlehensquote.C",
@@ -5977,7 +5977,7 @@
      "blatt": "Gefördert C",
      "zelle": "H97",
      "bedeutung": "Darlehensquote auf die zuwendungsfähigen Kosten; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "fin.zuschussquote.C": {
      "schluessel": "fin.zuschussquote.C",
@@ -5986,7 +5986,7 @@
      "blatt": "Gefördert C",
      "zelle": "H98",
      "bedeutung": "Zuschussquote auf die zuwendungsfähigen Kosten; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.sollmiete.A": {
      "schluessel": "jr1.sollmiete.A",
@@ -5995,7 +5995,7 @@
      "blatt": "Übersicht",
      "zelle": "D29",
      "bedeutung": "Jahresrechnung Zeile 1 Sollmiete (Höchstmiete × Wohnfläche × 12); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.sollmiete.B": {
      "schluessel": "jr1.sollmiete.B",
@@ -6004,7 +6004,7 @@
      "blatt": "Übersicht",
      "zelle": "E29",
      "bedeutung": "Jahresrechnung Zeile 1 Sollmiete (Höchstmiete × Wohnfläche × 12); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.sollmiete.C": {
      "schluessel": "jr1.sollmiete.C",
@@ -6013,7 +6013,7 @@
      "blatt": "Übersicht",
      "zelle": "F29",
      "bedeutung": "Jahresrechnung Zeile 1 Sollmiete (Höchstmiete × Wohnfläche × 12); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.mietausfall.A": {
      "schluessel": "jr1.mietausfall.A",
@@ -6022,7 +6022,7 @@
      "blatt": "Übersicht",
      "zelle": "D30",
      "bedeutung": "Jahresrechnung Zeile 1, Unterzeile: Mietausfall/Leerstand (Abzug, positiv geführt); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.mietausfall.B": {
      "schluessel": "jr1.mietausfall.B",
@@ -6031,7 +6031,7 @@
      "blatt": "Übersicht",
      "zelle": "E30",
      "bedeutung": "Jahresrechnung Zeile 1, Unterzeile: Mietausfall/Leerstand (Abzug, positiv geführt); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.mietausfall.C": {
      "schluessel": "jr1.mietausfall.C",
@@ -6040,7 +6040,7 @@
      "blatt": "Übersicht",
      "zelle": "F30",
      "bedeutung": "Jahresrechnung Zeile 1, Unterzeile: Mietausfall/Leerstand (Abzug, positiv geführt); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.objektverwaltung.A": {
      "schluessel": "jr1.objektverwaltung.A",
@@ -6049,7 +6049,7 @@
      "blatt": "Übersicht",
      "zelle": "D31",
      "bedeutung": "Jahresrechnung Zeile 2 Objektverwaltung (Abzug, positiv geführt); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.objektverwaltung.B": {
      "schluessel": "jr1.objektverwaltung.B",
@@ -6058,7 +6058,7 @@
      "blatt": "Übersicht",
      "zelle": "E31",
      "bedeutung": "Jahresrechnung Zeile 2 Objektverwaltung (Abzug, positiv geführt); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.objektverwaltung.C": {
      "schluessel": "jr1.objektverwaltung.C",
@@ -6067,7 +6067,7 @@
      "blatt": "Übersicht",
      "zelle": "F31",
      "bedeutung": "Jahresrechnung Zeile 2 Objektverwaltung (Abzug, positiv geführt); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.objektverwaltung.Frei": {
      "schluessel": "jr1.objektverwaltung.Frei",
@@ -6076,7 +6076,7 @@
      "blatt": "Übersicht",
      "zelle": "G31",
      "bedeutung": "Jahresrechnung Zeile 2 Objektverwaltung (Abzug, positiv geführt); frei finanziert",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.instandhaltung.A": {
      "schluessel": "jr1.instandhaltung.A",
@@ -6085,7 +6085,7 @@
      "blatt": "Übersicht",
      "zelle": "D32",
      "bedeutung": "Jahresrechnung Zeile 3 Instandhaltung (Abzug, positiv geführt); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.instandhaltung.B": {
      "schluessel": "jr1.instandhaltung.B",
@@ -6094,7 +6094,7 @@
      "blatt": "Übersicht",
      "zelle": "E32",
      "bedeutung": "Jahresrechnung Zeile 3 Instandhaltung (Abzug, positiv geführt); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.instandhaltung.C": {
      "schluessel": "jr1.instandhaltung.C",
@@ -6103,7 +6103,7 @@
      "blatt": "Übersicht",
      "zelle": "F32",
      "bedeutung": "Jahresrechnung Zeile 3 Instandhaltung (Abzug, positiv geführt); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.instandhaltung.Frei": {
      "schluessel": "jr1.instandhaltung.Frei",
@@ -6112,7 +6112,7 @@
      "blatt": "Übersicht",
      "zelle": "G32",
      "bedeutung": "Jahresrechnung Zeile 3 Instandhaltung (Abzug, positiv geführt); frei finanziert",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.ueberschuss_vor_kapitaldienst.A": {
      "schluessel": "jr1.ueberschuss_vor_kapitaldienst.A",
@@ -6121,7 +6121,7 @@
      "blatt": "Übersicht",
      "zelle": "D33",
      "bedeutung": "Jahresrechnung Zeile 4 Überschuss vor Kapitaldienst; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.ueberschuss_vor_kapitaldienst.B": {
      "schluessel": "jr1.ueberschuss_vor_kapitaldienst.B",
@@ -6130,7 +6130,7 @@
      "blatt": "Übersicht",
      "zelle": "E33",
      "bedeutung": "Jahresrechnung Zeile 4 Überschuss vor Kapitaldienst; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.ueberschuss_vor_kapitaldienst.C": {
      "schluessel": "jr1.ueberschuss_vor_kapitaldienst.C",
@@ -6139,34 +6139,34 @@
      "blatt": "Übersicht",
      "zelle": "F33",
      "bedeutung": "Jahresrechnung Zeile 4 Überschuss vor Kapitaldienst; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.verwaltungskostenbeitrag.A": {
      "schluessel": "jr1.verwaltungskostenbeitrag.A",
-     "wert": 8280,
+     "wert": 9041.76,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "D34",
      "bedeutung": "Jahresrechnung Zeile 5 Verwaltungskostenbeitrag (Abzug, positiv geführt); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.verwaltungskostenbeitrag.B": {
      "schluessel": "jr1.verwaltungskostenbeitrag.B",
-     "wert": 12420,
+     "wert": 13562.64,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "E34",
      "bedeutung": "Jahresrechnung Zeile 5 Verwaltungskostenbeitrag (Abzug, positiv geführt); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.verwaltungskostenbeitrag.C": {
      "schluessel": "jr1.verwaltungskostenbeitrag.C",
-     "wert": 14490,
+     "wert": 15823.08,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "F34",
      "bedeutung": "Jahresrechnung Zeile 5 Verwaltungskostenbeitrag (Abzug, positiv geführt); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.zins_nbank.A": {
      "schluessel": "jr1.zins_nbank.A",
@@ -6175,7 +6175,7 @@
      "blatt": "Übersicht",
      "zelle": "D35",
      "bedeutung": "Jahresrechnung Zeile 6 Zins NBank-Darlehen (0 bis Ende Jahr 35); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.zins_nbank.B": {
      "schluessel": "jr1.zins_nbank.B",
@@ -6184,7 +6184,7 @@
      "blatt": "Übersicht",
      "zelle": "E35",
      "bedeutung": "Jahresrechnung Zeile 6 Zins NBank-Darlehen (0 bis Ende Jahr 35); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.zins_nbank.C": {
      "schluessel": "jr1.zins_nbank.C",
@@ -6193,34 +6193,34 @@
      "blatt": "Übersicht",
      "zelle": "F35",
      "bedeutung": "Jahresrechnung Zeile 6 Zins NBank-Darlehen (0 bis Ende Jahr 35); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.tilgung_nbank.A": {
      "schluessel": "jr1.tilgung_nbank.A",
-     "wert": 39428.5714285714,
+     "wert": 43056,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "D36",
      "bedeutung": "Jahresrechnung Zeile 7 Tilgung NBank-Darlehen (Abzug, positiv geführt); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.tilgung_nbank.B": {
      "schluessel": "jr1.tilgung_nbank.B",
-     "wert": 59142.8571428571,
+     "wert": 64584,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "E36",
      "bedeutung": "Jahresrechnung Zeile 7 Tilgung NBank-Darlehen (Abzug, positiv geführt); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.tilgung_nbank.C": {
      "schluessel": "jr1.tilgung_nbank.C",
-     "wert": 69000,
+     "wert": 75348,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "F36",
      "bedeutung": "Jahresrechnung Zeile 7 Tilgung NBank-Darlehen (Abzug, positiv geführt); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.kapitaldienst_bank.A": {
      "schluessel": "jr1.kapitaldienst_bank.A",
@@ -6229,7 +6229,7 @@
      "blatt": "Übersicht",
      "zelle": "D37",
      "bedeutung": "Jahresrechnung: Kapitaldienst Bankdarlehen (gefördert nur bei Restfinanzierung); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.kapitaldienst_bank.B": {
      "schluessel": "jr1.kapitaldienst_bank.B",
@@ -6238,7 +6238,7 @@
      "blatt": "Übersicht",
      "zelle": "E37",
      "bedeutung": "Jahresrechnung: Kapitaldienst Bankdarlehen (gefördert nur bei Restfinanzierung); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.kapitaldienst_bank.C": {
      "schluessel": "jr1.kapitaldienst_bank.C",
@@ -6247,70 +6247,70 @@
      "blatt": "Übersicht",
      "zelle": "F37",
      "bedeutung": "Jahresrechnung: Kapitaldienst Bankdarlehen (gefördert nur bei Restfinanzierung); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.kapitaldienst_bank.Frei": {
      "schluessel": "jr1.kapitaldienst_bank.Frei",
-     "wert": 188290.900547697,
+     "wert": 205613.663398085,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "G37",
      "bedeutung": "Jahresrechnung: Kapitaldienst Bankdarlehen (gefördert nur bei Restfinanzierung); frei finanziert",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.zahlungsueberschuss.A": {
      "schluessel": "jr1.zahlungsueberschuss.A",
-     "wert": 1443.73257142858,
+     "wert": -2945.456,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "D38",
      "bedeutung": "Jahresrechnung Zeile 8 Zahlungsüberschuss; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.zahlungsueberschuss.B": {
      "schluessel": "jr1.zahlungsueberschuss.B",
-     "wert": -8778.36114285713,
+     "wert": -15362.144,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "E38",
      "bedeutung": "Jahresrechnung Zeile 8 Zahlungsüberschuss; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.zahlungsueberschuss.C": {
      "schluessel": "jr1.zahlungsueberschuss.C",
-     "wert": -12915.68,
+     "wert": -20596.76,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "F38",
      "bedeutung": "Jahresrechnung Zeile 8 Zahlungsüberschuss; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.bearbeitungsentgelte.A": {
      "schluessel": "jr1.bearbeitungsentgelte.A",
-     "wert": 28980,
+     "wert": 31646.16,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D39",
      "bedeutung": "Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.bearbeitungsentgelte.B": {
      "schluessel": "jr1.bearbeitungsentgelte.B",
-     "wert": 31050,
+     "wert": 33906.6,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E39",
      "bedeutung": "Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.bearbeitungsentgelte.C": {
      "schluessel": "jr1.bearbeitungsentgelte.C",
-     "wert": 32085,
+     "wert": 35036.82,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F39",
      "bedeutung": "Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.satz.mietausfall": {
      "schluessel": "jr1.satz.mietausfall",
@@ -6319,7 +6319,7 @@
      "blatt": "Übersicht",
      "zelle": "C30",
      "bedeutung": "Satz Mietausfall/Leerstand, Anteil der Sollmiete",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.satz.objektverwaltung": {
      "schluessel": "jr1.satz.objektverwaltung",
@@ -6328,7 +6328,7 @@
      "blatt": "Übersicht",
      "zelle": "C31",
      "bedeutung": "Satz Objektverwaltung je Wohnung in Jahr 1",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.satz.instandhaltung": {
      "schluessel": "jr1.satz.instandhaltung",
@@ -6337,7 +6337,7 @@
      "blatt": "Übersicht",
      "zelle": "C32",
      "bedeutung": "Satz Instandhaltung je m² Wohnfläche in Jahr 1",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.satz.verwaltungskostenbeitrag": {
      "schluessel": "jr1.satz.verwaltungskostenbeitrag",
@@ -6346,7 +6346,7 @@
      "blatt": "Übersicht",
      "zelle": "C34",
      "bedeutung": "Satz Verwaltungskostenbeitrag, Anteil des Restkapitals p. a.",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.satz.zins_nbank": {
      "schluessel": "jr1.satz.zins_nbank",
@@ -6355,7 +6355,7 @@
      "blatt": "Übersicht",
      "zelle": "C35",
      "bedeutung": "Zinssatz NBank-Darlehen bis Ende Jahr 35",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "jr1.satz.tilgung_nbank": {
      "schluessel": "jr1.satz.tilgung_nbank",
@@ -6364,259 +6364,259 @@
      "blatt": "Übersicht",
      "zelle": "C36",
      "bedeutung": "Tilgungssatz NBank-Darlehen p. a. (PGN-Annahme)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.zahlungsueberschuss_jahr10.A": {
      "schluessel": "liq.zahlungsueberschuss_jahr10.A",
-     "wert": 12872.6062697301,
+     "wert": 8646.65204830154,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "D42",
      "bedeutung": "Übersicht 3.1 Zahlungsüberschuss Jahr 10; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.zahlungsueberschuss_jahr10.B": {
      "schluessel": "liq.zahlungsueberschuss_jahr10.B",
-     "wert": 6210.64706604922,
+     "wert": -128.28449109364,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "E42",
      "bedeutung": "Übersicht 3.1 Zahlungsüberschuss Jahr 10; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.zahlungsueberschuss_jahr10.C": {
      "schluessel": "liq.zahlungsueberschuss_jahr10.C",
-     "wert": 4044.32320068056,
+     "wert": -3351.09679931944,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "F42",
      "bedeutung": "Übersicht 3.1 Zahlungsüberschuss Jahr 10; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.zahlungsueberschuss_jahr35.A": {
      "schluessel": "liq.zahlungsueberschuss_jahr35.A",
-     "wert": 53206.2431012624,
+     "wert": 49433.7176298338,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "D43",
      "bedeutung": "Übersicht 3.2 Zahlungsüberschuss Jahr 35; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.zahlungsueberschuss_jahr35.B": {
      "schluessel": "liq.zahlungsueberschuss_jahr35.B",
-     "wert": 58987.0368290819,
+     "wert": 53328.247771939,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "E43",
      "bedeutung": "Übersicht 3.2 Zahlungsüberschuss Jahr 35; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.zahlungsueberschuss_jahr35.C": {
      "schluessel": "liq.zahlungsueberschuss_jahr35.C",
-     "wert": 63754.8364245705,
+     "wert": 57152.9164245705,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "F43",
      "bedeutung": "Übersicht 3.2 Zahlungsüberschuss Jahr 35; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.zahlungsueberschuss_jahr42.A": {
      "schluessel": "liq.zahlungsueberschuss_jahr42.A",
-     "wert": 104262.398005167,
+     "wert": 100476.874673167,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "D44",
      "bedeutung": "Übersicht 3.3 Zahlungsüberschuss Jahr 42; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.zahlungsueberschuss_jahr42.B": {
      "schluessel": "liq.zahlungsueberschuss_jahr42.B",
-     "wert": 121537.209013798,
+     "wert": 115858.710077798,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "E44",
      "bedeutung": "Übersicht 3.3 Zahlungsüberschuss Jahr 42; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.zahlungsueberschuss_jahr42.C": {
      "schluessel": "liq.zahlungsueberschuss_jahr42.C",
-     "wert": 132877.861737587,
+     "wert": 126253.088937587,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "F44",
      "bedeutung": "Übersicht 3.3 Zahlungsüberschuss Jahr 42; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.dscr_jahr1.A": {
      "schluessel": "liq.dscr_jahr1.A",
-     "wert": 1.0302614923943,
+     "wert": 0.943462905122984,
      "einheit": "Faktor",
      "blatt": "Übersicht",
      "zelle": "D45",
      "bedeutung": "Übersicht 3.4 Schuldendienstdeckung (DSCR) Jahr 1 = Zeile 4 ÷ Kapitaldienst; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.dscr_jahr1.B": {
      "schluessel": "liq.dscr_jahr1.B",
-     "wert": 0.877333556913004,
+     "wert": 0.803419008162091,
      "einheit": "Faktor",
      "blatt": "Übersicht",
      "zelle": "E45",
      "bedeutung": "Übersicht 3.4 Schuldendienstdeckung (DSCR) Jahr 1 = Zeile 4 ÷ Kapitaldienst; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.dscr_jahr1.C": {
      "schluessel": "liq.dscr_jahr1.C",
-     "wert": 0.845302670978561,
+     "wert": 0.774086695035312,
      "einheit": "Faktor",
      "blatt": "Übersicht",
      "zelle": "F45",
      "bedeutung": "Übersicht 3.4 Schuldendienstdeckung (DSCR) Jahr 1 = Zeile 4 ÷ Kapitaldienst; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.dscr_minimum_jahr1_35.A": {
      "schluessel": "liq.dscr_minimum_jahr1_35.A",
-     "wert": 1.02427904751682,
+     "wert": 0.937984476031215,
      "einheit": "Faktor",
      "blatt": "Übersicht",
      "zelle": "D46",
      "bedeutung": "Übersicht 3.5 DSCR Minimum Jahr 1–35; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.dscr_minimum_jahr1_35.B": {
      "schluessel": "liq.dscr_minimum_jahr1_35.B",
-     "wert": 0.874932698902952,
+     "wert": 0.801220419918246,
      "einheit": "Faktor",
      "blatt": "Übersicht",
      "zelle": "E46",
      "bedeutung": "Übersicht 3.5 DSCR Minimum Jahr 1–35; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.dscr_minimum_jahr1_35.C": {
      "schluessel": "liq.dscr_minimum_jahr1_35.C",
-     "wert": 0.844022313043479,
+     "wert": 0.772914206083771,
      "einheit": "Faktor",
      "blatt": "Übersicht",
      "zelle": "F46",
      "bedeutung": "Übersicht 3.5 DSCR Minimum Jahr 1–35; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.jahre_mit_fehlbetrag.A": {
      "schluessel": "liq.jahre_mit_fehlbetrag.A",
-     "wert": 0,
+     "wert": 3,
      "einheit": "Jahre",
      "blatt": "Übersicht",
      "zelle": "D47",
      "bedeutung": "Übersicht 3.6 Jahre mit Fehlbetrag, Jahr 1–35; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.jahre_mit_fehlbetrag.B": {
      "schluessel": "liq.jahre_mit_fehlbetrag.B",
-     "wert": 6,
+     "wert": 12,
      "einheit": "Jahre",
      "blatt": "Übersicht",
      "zelle": "E47",
      "bedeutung": "Übersicht 3.6 Jahre mit Fehlbetrag, Jahr 1–35; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.jahre_mit_fehlbetrag.C": {
      "schluessel": "liq.jahre_mit_fehlbetrag.C",
-     "wert": 9,
+     "wert": 12,
      "einheit": "Jahre",
      "blatt": "Übersicht",
      "zelle": "F47",
      "bedeutung": "Übersicht 3.6 Jahre mit Fehlbetrag, Jahr 1–35; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.groesster_kumulierter_fehlbetrag.A": {
      "schluessel": "liq.groesster_kumulierter_fehlbetrag.A",
-     "wert": 0,
+     "wert": -9221.02447999999,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D48",
      "bedeutung": "Übersicht 3.7 Größter kumulierter Fehlbetrag, Jahr 1–42, ohne Zinsen; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.groesster_kumulierter_fehlbetrag.B": {
      "schluessel": "liq.groesster_kumulierter_fehlbetrag.B",
-     "wert": -38759.8348224906,
+     "wert": -95056.0928603807,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E48",
      "bedeutung": "Übersicht 3.7 Größter kumulierter Fehlbetrag, Jahr 1–42, ohne Zinsen; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.groesster_kumulierter_fehlbetrag.C": {
      "schluessel": "liq.groesster_kumulierter_fehlbetrag.C",
-     "wert": -67195.3479323882,
+     "wert": -145337.037015586,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F48",
      "bedeutung": "Übersicht 3.7 Größter kumulierter Fehlbetrag, Jahr 1–42, ohne Zinsen; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.breakeven_tilgung.A": {
      "schluessel": "liq.breakeven_tilgung.A",
-     "wert": 0.0246813429951691,
+     "wert": 0.0221807170285431,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "D49",
      "bedeutung": "Übersicht 3.8 Break-even-Tilgung Jahr 1: Tilgungssatz, bei dem Zeile 8 null ist; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.breakeven_tilgung.B": {
      "schluessel": "liq.breakeven_tilgung.B",
-     "wert": 0.0202755619967794,
+     "wert": 0.0181461190446698,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "E49",
      "bedeutung": "Übersicht 3.8 Break-even-Tilgung Jahr 1: Tilgungssatz, bei dem Zeile 8 null ist; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.breakeven_tilgung.C": {
      "schluessel": "liq.breakeven_tilgung.C",
-     "wert": 0.0193527674258109,
+     "wert": 0.0173010690712554,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "F49",
      "bedeutung": "Übersicht 3.8 Break-even-Tilgung Jahr 1: Tilgungssatz, bei dem Zeile 8 null ist; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.restschuld_nbank_jahr35.A": {
      "schluessel": "liq.restschuld_nbank_jahr35.A",
-     "wert": 276000.05,
+     "wert": 301392,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D50",
      "bedeutung": "Übersicht 3.9 Restschuld NBank Ende Jahr 35; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.restschuld_nbank_jahr35.B": {
      "schluessel": "liq.restschuld_nbank_jahr35.B",
-     "wert": 413999.9,
+     "wert": 452088,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E50",
      "bedeutung": "Übersicht 3.9 Restschuld NBank Ende Jahr 35; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.restschuld_nbank_jahr35.C": {
      "schluessel": "liq.restschuld_nbank_jahr35.C",
-     "wert": 483000,
+     "wert": 527436,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F50",
      "bedeutung": "Übersicht 3.9 Restschuld NBank Ende Jahr 35; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.schlussrate_nbank_jahr42.A": {
      "schluessel": "liq.schlussrate_nbank_jahr42.A",
-     "wert": 0.0585714285844006,
+     "wert": 0,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "D51",
      "bedeutung": "Übersicht 3.10 Schlussrate NBank Jahr 42 über der Regelrate; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.schlussrate_nbank_jahr42.B": {
      "schluessel": "liq.schlussrate_nbank_jahr42.B",
@@ -6625,7 +6625,7 @@
      "blatt": "Übersicht",
      "zelle": "E51",
      "bedeutung": "Übersicht 3.10 Schlussrate NBank Jahr 42 über der Regelrate; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.schlussrate_nbank_jahr42.C": {
      "schluessel": "liq.schlussrate_nbank_jahr42.C",
@@ -6634,7 +6634,7 @@
      "blatt": "Übersicht",
      "zelle": "F51",
      "bedeutung": "Übersicht 3.10 Schlussrate NBank Jahr 42 über der Regelrate; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.restschuld_bank_jahr42.A": {
      "schluessel": "liq.restschuld_bank_jahr42.A",
@@ -6643,7 +6643,7 @@
      "blatt": "Übersicht",
      "zelle": "D52",
      "bedeutung": "Übersicht 3.11 Restschuld Bank Ende Jahr 42; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.restschuld_bank_jahr42.B": {
      "schluessel": "liq.restschuld_bank_jahr42.B",
@@ -6652,7 +6652,7 @@
      "blatt": "Übersicht",
      "zelle": "E52",
      "bedeutung": "Übersicht 3.11 Restschuld Bank Ende Jahr 42; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.restschuld_bank_jahr42.C": {
      "schluessel": "liq.restschuld_bank_jahr42.C",
@@ -6661,7 +6661,7 @@
      "blatt": "Übersicht",
      "zelle": "F52",
      "bedeutung": "Übersicht 3.11 Restschuld Bank Ende Jahr 42; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "liq.restschuld_bank_jahr42.Frei": {
      "schluessel": "liq.restschuld_bank_jahr42.Frei",
@@ -6670,7 +6670,7 @@
      "blatt": "Übersicht",
      "zelle": "G52",
      "bedeutung": "Übersicht 3.11 Restschuld Bank Ende Jahr 42; frei finanziert",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.raster.satz": {
      "schluessel": "tilg.raster.satz",
@@ -6679,7 +6679,7 @@
      "blatt": "Übersicht",
      "zelle": "B55:B62",
      "bedeutung": "Übersicht 4.1–4.8 Tilgungssätze des Vergleichs (4.5 = Volltilgung in 42 Jahren, 4.8 = Eingabe 3.1)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.raster.bester": {
      "schluessel": "tilg.raster.bester",
@@ -6688,97 +6688,97 @@
      "blatt": "Übersicht",
      "zelle": "G55:G62",
      "bedeutung": "Übersicht 4.1–4.8 Gruppe mit dem höchsten Zahlungsüberschuss je Tilgungssatz",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.raster.zahlungsueberschuss.A": {
      "schluessel": "tilg.raster.zahlungsueberschuss.A",
-     "wert": [40872.304, 24312.304, 16032.304, 7752.30399999999, 1443.73257142856, -527.696000000011, -8807.69600000001, 1443.73257142858],
+     "wert": [40110.544, 22027.024, 12985.264, 3943.50399999999, -2945.45600000001, -5098.25600000002, -14140.016, -2945.456],
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "D55:D62",
      "bedeutung": "Übersicht 4.1–4.8 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.ueberschuss_vor_tilgung.A": {
      "schluessel": "tilg.ueberschuss_vor_tilgung.A",
-     "wert": 40872.304,
+     "wert": 40110.544,
      "einheit": "€ p. a.",
      "blatt": "Gefördert A",
      "zelle": "H160",
      "bedeutung": "Zahlungsüberschuss vor NBank-Tilgung, Jahr 1; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.raster.zahlungsueberschuss.B": {
      "schluessel": "tilg.raster.zahlungsueberschuss.B",
-     "wert": [50364.496, 25524.496, 13104.496, 684.495999999992, -8778.36114285715, -11735.504, -24155.504, -8778.36114285713],
+     "wert": [49221.856, 22096.576, 8533.93599999999, -5028.70400000001, -15362.144, -18591.344, -32153.984, -15362.144],
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "E55:E62",
      "bedeutung": "Übersicht 4.1–4.8 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.ueberschuss_vor_tilgung.B": {
      "schluessel": "tilg.ueberschuss_vor_tilgung.B",
-     "wert": 50364.496,
+     "wert": 49221.856,
      "einheit": "€ p. a.",
      "blatt": "Gefördert B",
      "zelle": "H160",
      "bedeutung": "Zahlungsüberschuss vor NBank-Tilgung, Jahr 1; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.raster.zahlungsueberschuss.C": {
      "schluessel": "tilg.raster.zahlungsueberschuss.C",
-     "wert": [56084.32, 27104.32, 12614.32, -1875.67999999999, -12915.68, -16365.68, -30855.68, -12915.68],
+     "wert": [54751.24, 23105.08, 7282.00000000001, -8541.07999999999, -20596.76, -24364.16, -40187.24, -20596.76],
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "F55:F62",
      "bedeutung": "Übersicht 4.1–4.8 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.ueberschuss_vor_tilgung.C": {
      "schluessel": "tilg.ueberschuss_vor_tilgung.C",
-     "wert": 56084.32,
+     "wert": 54751.24,
      "einheit": "€ p. a.",
      "blatt": "Gefördert C",
      "zelle": "H160",
      "bedeutung": "Zahlungsüberschuss vor NBank-Tilgung, Jahr 1; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.schwelle.B_gegen_A": {
      "schluessel": "tilg.schwelle.B_gegen_A",
-     "wert": 0.011464,
+     "wert": 0.0100769230769231,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "E63",
      "bedeutung": "Übersicht 4.9 Tilgungsschwelle B gegenüber A: bis zu diesem Satz liegt B über A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.schwelle.C_gegen_A": {
      "schluessel": "tilg.schwelle.C_gegen_A",
-     "wert": 0.012248,
+     "wert": 0.0107948717948718,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "F64",
      "bedeutung": "Übersicht 4.10 Tilgungsschwelle C gegenüber A: bis zu diesem Satz liegt C über A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.schwelle.C_gegen_B": {
      "schluessel": "tilg.schwelle.C_gegen_B",
-     "wert": 0.013816,
+     "wert": 0.0122307692307693,
      "einheit": "Anteil",
      "blatt": "Übersicht",
      "zelle": "F65",
      "bedeutung": "Übersicht 4.11 Tilgungsschwelle C gegenüber B: bis zu diesem Satz liegt C über B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehrschuld.B": {
      "schluessel": "tilg.mehrschuld.B",
-     "wert": 828000,
+     "wert": 904176,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E66",
      "bedeutung": "Übersicht 4.12 Mehrschuld gegenüber A; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehr_sollmiete.B": {
      "schluessel": "tilg.mehr_sollmiete.B",
@@ -6787,7 +6787,7 @@
      "blatt": "Übersicht",
      "zelle": "E67",
      "bedeutung": "Übersicht 4.13 Mehr-Sollmiete gegenüber A; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehr_mietausfall.B": {
      "schluessel": "tilg.mehr_mietausfall.B",
@@ -6796,52 +6796,52 @@
      "blatt": "Übersicht",
      "zelle": "E68",
      "bedeutung": "Übersicht 4.14 Mehr an Mietausfall/Leerstand gegenüber A (Abzug); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehr_verwaltungskostenbeitrag.B": {
      "schluessel": "tilg.mehr_verwaltungskostenbeitrag.B",
-     "wert": 4140,
+     "wert": 4520.88,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "E69",
      "bedeutung": "Übersicht 4.15 Mehr an Verwaltungskostenbeitrag gegenüber A (Abzug); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehrueberschuss_vor_tilgung.B": {
      "schluessel": "tilg.mehrueberschuss_vor_tilgung.B",
-     "wert": 9492.192,
+     "wert": 9111.31200000001,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "E70",
      "bedeutung": "Übersicht 4.16 Mehrüberschuss vor Tilgung gegenüber A; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehrueberschuss_bei_tilgung.B": {
      "schluessel": "tilg.mehrueberschuss_bei_tilgung.B",
-     "wert": -10222.0937142857,
+     "wert": -12416.688,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "E71",
      "bedeutung": "Übersicht 4.17 Mehrüberschuss gegenüber A beim Tilgungssatz der Eingabe 3.1; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehr_bearbeitungsentgelte.B": {
      "schluessel": "tilg.mehr_bearbeitungsentgelte.B",
-     "wert": 2070,
+     "wert": 2260.44,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "E72",
      "bedeutung": "Übersicht 4.18 Einmalig: Mehr an Bearbeitungsentgelten gegenüber A; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehrschuld.C": {
      "schluessel": "tilg.mehrschuld.C",
-     "wert": 1242000,
+     "wert": 1356264,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F66",
      "bedeutung": "Übersicht 4.12 Mehrschuld gegenüber A; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehr_sollmiete.C": {
      "schluessel": "tilg.mehr_sollmiete.C",
@@ -6850,7 +6850,7 @@
      "blatt": "Übersicht",
      "zelle": "F67",
      "bedeutung": "Übersicht 4.13 Mehr-Sollmiete gegenüber A; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehr_mietausfall.C": {
      "schluessel": "tilg.mehr_mietausfall.C",
@@ -6859,43 +6859,43 @@
      "blatt": "Übersicht",
      "zelle": "F68",
      "bedeutung": "Übersicht 4.14 Mehr an Mietausfall/Leerstand gegenüber A (Abzug); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehr_verwaltungskostenbeitrag.C": {
      "schluessel": "tilg.mehr_verwaltungskostenbeitrag.C",
-     "wert": 6210,
+     "wert": 6781.32,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "F69",
      "bedeutung": "Übersicht 4.15 Mehr an Verwaltungskostenbeitrag gegenüber A (Abzug); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehrueberschuss_vor_tilgung.C": {
      "schluessel": "tilg.mehrueberschuss_vor_tilgung.C",
-     "wert": 15212.016,
+     "wert": 14640.696,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "F70",
      "bedeutung": "Übersicht 4.16 Mehrüberschuss vor Tilgung gegenüber A; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehrueberschuss_bei_tilgung.C": {
      "schluessel": "tilg.mehrueberschuss_bei_tilgung.C",
-     "wert": -14359.4125714285,
+     "wert": -17651.304,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "F71",
      "bedeutung": "Übersicht 4.17 Mehrüberschuss gegenüber A beim Tilgungssatz der Eingabe 3.1; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "tilg.mehr_bearbeitungsentgelte.C": {
      "schluessel": "tilg.mehr_bearbeitungsentgelte.C",
-     "wert": 3105,
+     "wert": 3390.66,
      "einheit": "€",
      "blatt": "Übersicht",
      "zelle": "F72",
      "bedeutung": "Übersicht 4.18 Einmalig: Mehr an Bearbeitungsentgelten gegenüber A; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "dscr.ziel": {
      "schluessel": "dscr.ziel",
@@ -6904,106 +6904,106 @@
      "blatt": "Übersicht",
      "zelle": "D110",
      "bedeutung": "Übersicht 8.1 DSCR-Ziel (Eingabe 10.2)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "dscr.kapitaldienst_jahr1.A": {
      "schluessel": "dscr.kapitaldienst_jahr1.A",
-     "wert": 47708.5714285714,
+     "wert": 52097.76,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "D111",
      "bedeutung": "Übersicht 8.2 Kapitaldienst Jahr 1 mit Regeltilgung (Zeilen 5 bis 7 und Bankdarlehen); Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "dscr.kapitaldienst_jahr1.B": {
      "schluessel": "dscr.kapitaldienst_jahr1.B",
-     "wert": 71562.8571428571,
+     "wert": 78146.64,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "E111",
      "bedeutung": "Übersicht 8.2 Kapitaldienst Jahr 1 mit Regeltilgung (Zeilen 5 bis 7 und Bankdarlehen); Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "dscr.kapitaldienst_jahr1.C": {
      "schluessel": "dscr.kapitaldienst_jahr1.C",
-     "wert": 83490,
+     "wert": 91171.08,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "F111",
      "bedeutung": "Übersicht 8.2 Kapitaldienst Jahr 1 mit Regeltilgung (Zeilen 5 bis 7 und Bankdarlehen); Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "dscr.kapitaldienst_jahr1.Frei": {
      "schluessel": "dscr.kapitaldienst_jahr1.Frei",
-     "wert": 188290.900547697,
+     "wert": 205613.663398085,
      "einheit": "€ p. a.",
      "blatt": "Übersicht",
      "zelle": "G111",
      "bedeutung": "Übersicht 8.2 Kapitaldienst Jahr 1 mit Regeltilgung (Zeilen 5 bis 7 und Bankdarlehen); frei finanziert",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "dscr.noetige_miete.A": {
      "schluessel": "dscr.noetige_miete.A",
-     "wert": 6.65173143101271,
+     "wert": 7.10249268789641,
      "einheit": "€/m² Monat",
      "blatt": "Übersicht",
      "zelle": "D112",
      "bedeutung": "Übersicht 8.3 Nötige Miete Jahr 1 für das DSCR-Ziel: deckt DSCR-Ziel × Kapitaldienst und die Zeilen 2 und 3; Gruppe A",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "dscr.noetige_miete.B": {
      "schluessel": "dscr.noetige_miete.B",
-     "wert": 9.10152087059807,
+     "wert": 9.77766275592363,
      "einheit": "€/m² Monat",
      "blatt": "Übersicht",
      "zelle": "E112",
      "bedeutung": "Übersicht 8.3 Nötige Miete Jahr 1 für das DSCR-Ziel: deckt DSCR-Ziel × Kapitaldienst und die Zeilen 2 und 3; Gruppe B",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "dscr.noetige_miete.C": {
      "schluessel": "dscr.noetige_miete.C",
-     "wert": 10.3264155903907,
+     "wert": 11.1152477899372,
      "einheit": "€/m² Monat",
      "blatt": "Übersicht",
      "zelle": "F112",
      "bedeutung": "Übersicht 8.3 Nötige Miete Jahr 1 für das DSCR-Ziel: deckt DSCR-Ziel × Kapitaldienst und die Zeilen 2 und 3; Gruppe C",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "dscr.noetige_miete.Frei": {
      "schluessel": "dscr.noetige_miete.Frei",
-     "wert": 21.089267284878,
+     "wert": 22.8682818403173,
      "einheit": "€/m² Monat",
      "blatt": "Übersicht",
      "zelle": "G112",
      "bedeutung": "Übersicht 8.3 Nötige Miete Jahr 1 für das DSCR-Ziel: deckt DSCR-Ziel × Kapitaldienst und die Zeilen 2 und 3; frei finanziert",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "frei.annuitaet": {
      "schluessel": "frei.annuitaet",
-     "wert": 188290.900547697,
+     "wert": 205613.663398085,
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "H111",
      "bedeutung": "Annuität Bankdarlehen (Zins Eingabe 6.1, Laufzeit Eingabe 6.4)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "frei.zins_jahr1": {
      "schluessel": "frei.zins_jahr1",
-     "wert": -127843.2,
+     "wert": -139604.7744,
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "J7",
      "bedeutung": "Zins Bankdarlehen in Jahr 1 (im Blatt negativ: Auszahlung)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "frei.tilgung_jahr1": {
      "schluessel": "frei.tilgung_jahr1",
-     "wert": -60447.7005476969,
+     "wert": -66008.888998085,
      "einheit": "€ p. a.",
      "blatt": "Frei finanziert",
      "zelle": "K7",
      "bedeutung": "Tilgung Bankdarlehen in Jahr 1 (im Blatt negativ: Auszahlung)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "frei.anfangstilgung": {
      "schluessel": "frei.anfangstilgung",
@@ -7012,25 +7012,25 @@
      "blatt": "Frei finanziert",
      "zelle": "H113",
      "bedeutung": "Anfangstilgung Bankdarlehen p. a.",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "frei.restschuld_ende_zinsbindung": {
      "schluessel": "frei.restschuld_ende_zinsbindung",
-     "wert": 2590952.58718316,
+     "wert": 2829320.22520402,
      "einheit": "€",
      "blatt": "Frei finanziert",
      "zelle": "H112",
      "bedeutung": "Restschuld Bankdarlehen am Ende der Zinsbindung (Eingabe 6.2)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     },
     "frei.eigenmittel_bar": {
      "schluessel": "frei.eigenmittel_bar",
-     "wert": 828000,
+     "wert": 904176,
      "einheit": "€",
      "blatt": "Frei finanziert",
      "zelle": "H102",
      "bedeutung": "Eigenmittel bar, frei finanziert (wie gefördert: 20 % abzüglich Grundstück)",
-     "lauf": "modellhaus_kosten_5000"
+     "lauf": "modellhaus_kosten_5460"
     }
    }
   },
@@ -7837,7 +7837,7 @@
     },
     "fin.bemessungsgrenze_qm": {
      "schluessel": "fin.bemessungsgrenze_qm",
-     "wert": 5000,
+     "wert": 5460,
      "einheit": "€/m²",
      "blatt": "Gefördert A",
      "zelle": "H95",

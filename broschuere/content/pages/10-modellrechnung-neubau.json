@@ -8,7 +8,7 @@
   "headline_light": "14 Wohnungen, 3,0 Mio. €",
   "headline": "bis zu 2,4 Mio. € Förderung",
   "lead_heading": "Das Modellhaus",
-  "lead": "14 Neubauwohnungen nach Programmteil 2.1, alle für Einkommensgruppe A (B und C → S. 11). Ein PGN-Projekt in Neu Wulmstorf, Landkreis Harburg, zusammen 828 m² Wohnfläche, im Schnitt 59 m². Effizienzhaus 55, kein EH-40-Zuschlag. Standort: Mietenstufe VI, angespannter Wohnungsmarkt per Verordnung; der Bedarf gilt als gegeben. Herstellungskosten 3.579 € je m², der Median aus fünf PGN-Projekten. Das liegt 1.421 € unter dem Ausgangswert der Bemessungsgrenze von 5.000 € (Mietenstufe IV–VII) und ist voll zuwendungsfähig. Grundstück im Bestand, nicht angesetzt.",
+  "lead": "14 Neubauwohnungen nach Programmteil 2.1, alle für Einkommensgruppe A (B und C → S. 11). Ein PGN-Projekt in Neu Wulmstorf, Landkreis Harburg, zusammen 828 m² Wohnfläche, im Schnitt 59 m². Effizienzhaus 55, kein EH-40-Zuschlag. Standort: Mietenstufe VI, angespannter Wohnungsmarkt per Verordnung; der Bedarf gilt als gegeben. Herstellungskosten 3.579 € je m², der Median aus fünf PGN-Projekten. Das liegt 1.881 € unter der Bemessungsgrenze von 5.460 € (Mietenstufe IV–VII, seit 01.10.2026) und ist voll zuwendungsfähig. Grundstück im Bestand, nicht angesetzt.",
   "blocks": [
     {
       "type": "callout",
@@ -123,14 +123,14 @@
         "steps": [
           {
             "label": "Gesamtkosten",
-            "value": 4.14,
-            "display": "4,14",
+            "value": 4.52,
+            "display": "4,52",
             "is_total": true,
             "segments": [
               {
                 "label": "zuwendungsfähig",
-                "value": 4.14,
-                "display": "4,14",
+                "value": 4.52,
+                "display": "4,52",
                 "token": "--fg"
               },
               {
@@ -143,14 +143,14 @@
             ]
           },
           {
-            "label": "Förderung, 80 % von 4,14",
-            "value": 3.31,
-            "display": "3,31"
+            "label": "Förderung, 80 % von 4,52",
+            "value": 3.62,
+            "display": "3,62"
           },
           {
             "label": "Mindest-Eigenmittel + Restfinanzierung",
-            "value": 0.83,
-            "display": "0,83 + 0,00"
+            "value": 0.9,
+            "display": "0,90 + 0,00"
           }
         ],
         "result": {
@@ -158,7 +158,7 @@
           "display": "bis zu 80,0 %",
           "label": "Förderquote auf die Gesamtkosten"
         },
-        "steps_note": "Die Schlüssel „steps“ und „result“ bleiben für die Prüfskripte bestehen. Sie stehen nicht mehr im Heft und beschreiben die Spalte 5.000 € je m² (Bemessungsgrenze): nichts über der Grenze, keine Restfinanzierung. Im Heft steht die Tabelle aus „columns“ und „rows“.",
+        "steps_note": "Die Schlüssel „steps“ und „result“ bleiben für die Prüfskripte bestehen. Sie stehen nicht mehr im Heft und beschreiben die Spalte 5.460 € je m² (Bemessungsgrenze): nichts über der Grenze, keine Restfinanzierung. Im Heft steht die Tabelle aus „columns“ und „rows“.",
         "form": "Tabelle über die volle Breite, drei Wertspalten je 42 mm; Kopf je Spalte: Ansatz in € je m² (Montserrat 800, 12 pt), darunter die Herkunft; letzte Zeile fett mit Summenstrich; Satz zur Bemessungsgrenze als Tabellenfuß",
         "corner": "Kostengruppen 200 bis 700, in €",
         "columns": [
@@ -175,10 +175,10 @@
             "lauf": "Eingaben!D3 = 2, Eingaben!E11 = 4631"
           },
           {
-            "kosten_je_m2": 5000,
-            "display": "5.000 €",
+            "kosten_je_m2": 5460,
+            "display": "5.460 €",
             "label": "Bemessungsgrenze, Mietenstufe IV–VII",
-            "lauf": "Eingaben!D3 = 2, Eingaben!E11 = 5000"
+            "lauf": "Eingaben!D3 = 2, Eingaben!E11 = 5460"
           }
         ],
         "rows": [
@@ -188,12 +188,12 @@
             "values": [
               2963412,
               3834468,
-              4140000
+              4520880
             ],
             "display": [
               "2.963.412",
               "3.834.468",
-              "4.140.000"
+              "4.520.880"
             ]
           },
           {
@@ -202,12 +202,12 @@
             "values": [
               2370729.6,
               3067574.4,
-              3312000
+              3616704
             ],
             "display": [
               "2.370.730",
               "3.067.574",
-              "3.312.000"
+              "3.616.704"
             ]
           },
           {
@@ -216,12 +216,12 @@
             "values": [
               592682.4,
               766893.6,
-              828000
+              904176
             ],
             "display": [
               "592.682",
               "766.894",
-              "828.000"
+              "904.176"
             ]
           },
           {
@@ -230,12 +230,12 @@
             "values": [
               15002.51,
               4964.63,
-              1443.73
+              -2945.46
             ],
             "display": [
               "15.003",
               "4.965",
-              "1.444"
+              "−2.945"
             ],
             "is_total": true
           }
@@ -263,5 +263,5 @@
     "F094",
     "F095"
   ],
-  "visual_idea": "Akzentseite, linke Hälfte der Doppelseite 10|11 im Kapitel „Modellrechnung“. Kopf: Kopfzeile mit Rubrik „Modellrechnung“ und Schlüsselplan; Headline in Montserrat Black Versalien (25 pt wie S. 11) mit senkrechter roter 2-pt-Linie links, „14 Wohnungen, 3,0 Mio. €“ als zweite Stimme darüber, die Förderung 2,4 Mio. € in PGN-Rot. Der Hinweis „Rechenbeispiel, keine Förderzusage“ steht als 8,5-pt-Unterzeile unter dem Titel des Finanzierungsdiagramms, ohne Stempelrahmen. Am Bund „Das Modellhaus“ als Modultitel, der erste Satz als Vorspann in 12 pt, der Rest als Text. Dominant, außen: das Haus-Diagramm als gestapelter Balken – 5 gleich hohe Geschosse (je 20 % der Gesamtkosten), ohne Erläuterungszeile; Segmente in den Finanzierungsfarben (--color-loan, --color-grant, --color-equity mit Vektorschraffur path.hatch), rechts Beschriftung je Segment „Name · Anteil“ und Betrag an einer Maßkette, links Maßkette „Förderung 2,4 Mio. € · 80 %“ (der Diagrammkopf trägt „Höchstsätze“). Die 80-%-Linie (0,25 mm, Schwarz) liegt hinter dem Haus und ist nur links und rechts als Höhenmarke sichtbar. Band 2: Rechenweg 1–3 im Spreadsheet-Look (Herstellungskosten, zuwendungsfähige Kosten, Eigenmittel; keine Zeile Grundstück, weil es im Bestand ist und nicht angesetzt wird; die Aufteilung Darlehen/Zuschuss trägt allein das Haus-Diagramm): Zeilennummern im Kopfstreifen, Summenstrich über Zeile 2, Beträge rechtsbündig mit tabellarischen Ziffern; am Bund zwei Kennzahlen je Wohnung („bis zu 84.669 €“ Ø Zuschuss · „mind. 42.334 €“ Ø Eigenmittel). Band 3, unten am Satzspiegel: Sensitivität als Tabelle über die volle Breite mit drei Ansätzen der Herstellungskosten je m² (3.579 € Modellhaus · 4.631 € ARGE-Median · 5.000 € Bemessungsgrenze), Zeilen Gesamtkosten, Förderung, Eigenmittel und Zahlungsüberschuss Jahr 1 in A; Tabellenfuß: Satz zur Bemessungsgrenze. Keine Kalkulationsnotiz, keine Überleitungszeile (Korrekturlauf 1), kein Zitat, keine Fußnote, keine Quellenzeile. Produktion: 10|11 liegen nicht auf einem Druckbogen (physische Heftmitte ist 12|13) – kein Element zwingend über den Bund führen; falls doch, Crossover-Toleranz einplanen."
+  "visual_idea": "Akzentseite, linke Hälfte der Doppelseite 10|11 im Kapitel „Modellrechnung“. Kopf: Kopfzeile mit Rubrik „Modellrechnung“ und Schlüsselplan; Headline in Montserrat Black Versalien (25 pt wie S. 11) mit senkrechter roter 2-pt-Linie links, „14 Wohnungen, 3,0 Mio. €“ als zweite Stimme darüber, die Förderung 2,4 Mio. € in PGN-Rot. Der Hinweis „Rechenbeispiel, keine Förderzusage“ steht als 8,5-pt-Unterzeile unter dem Titel des Finanzierungsdiagramms, ohne Stempelrahmen. Am Bund „Das Modellhaus“ als Modultitel, der erste Satz als Vorspann in 12 pt, der Rest als Text. Dominant, außen: das Haus-Diagramm als gestapelter Balken – 5 gleich hohe Geschosse (je 20 % der Gesamtkosten), ohne Erläuterungszeile; Segmente in den Finanzierungsfarben (--color-loan, --color-grant, --color-equity mit Vektorschraffur path.hatch), rechts Beschriftung je Segment „Name · Anteil“ und Betrag an einer Maßkette, links Maßkette „Förderung 2,4 Mio. € · 80 %“ (der Diagrammkopf trägt „Höchstsätze“). Die 80-%-Linie (0,25 mm, Schwarz) liegt hinter dem Haus und ist nur links und rechts als Höhenmarke sichtbar. Band 2: Rechenweg 1–3 im Spreadsheet-Look (Herstellungskosten, zuwendungsfähige Kosten, Eigenmittel; keine Zeile Grundstück, weil es im Bestand ist und nicht angesetzt wird; die Aufteilung Darlehen/Zuschuss trägt allein das Haus-Diagramm): Zeilennummern im Kopfstreifen, Summenstrich über Zeile 2, Beträge rechtsbündig mit tabellarischen Ziffern; am Bund zwei Kennzahlen je Wohnung („bis zu 84.669 €“ Ø Zuschuss · „mind. 42.334 €“ Ø Eigenmittel). Band 3, unten am Satzspiegel: Sensitivität als Tabelle über die volle Breite mit drei Ansätzen der Herstellungskosten je m² (3.579 € Modellhaus · 4.631 € ARGE-Median · 5.460 € Bemessungsgrenze), Zeilen Gesamtkosten, Förderung, Eigenmittel und Zahlungsüberschuss Jahr 1 in A; Tabellenfuß: Satz zur Bemessungsgrenze. Keine Kalkulationsnotiz, keine Überleitungszeile (Korrekturlauf 1), kein Zitat, keine Fußnote, keine Quellenzeile. Produktion: 10|11 liegen nicht auf einem Druckbogen (physische Heftmitte ist 12|13) – kein Element zwingend über den Bund führen; falls doch, Crossover-Toleranz einplanen."
 }

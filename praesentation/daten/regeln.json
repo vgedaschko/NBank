@@ -27,7 +27,8 @@
     "neubau_median": { "wert": 11.22, "einheit": "€/m² Monat, Neubau Niedersachsen, Median (landesweit)", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.reference_lines[1].value", "geprueft": true }
   },
   "bemessungsgrenze": {
-    "fortschreibung": { "wert": ["01.04.", "01.10."], "einheit": "Stichtage im Jahr", "herkunft": "Broschüre S. 8, 08-programmteil-2-1.json, blocks[1].body", "geprueft": true }
+    "fortschreibung": { "wert": ["01.04.", "01.10."], "einheit": "Stichtage im Jahr", "herkunft": "Broschüre S. 8, 08-programmteil-2-1.json, blocks[1].body", "geprueft": true },
+    "gilt_seit": { "wert": "01.10.2026", "einheit": "Datum", "herkunft": "NBank, Produktinformation Mietwohnungen in Mehrfamilienhäusern, Stand 05.11.2026: Die Bemessungsgrenzen von 5.250 € (Mietenstufe I bis III) und 5.460 € (IV bis VII) gelten ab dem 01.10.2026; Volltext unter ../broschuere/recherche/quellen/", "geprueft": true }
   },
   "einkommensgrenze": {
     "gueltig_seit": { "wert": "01.03.2025", "einheit": "Datum", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[0].title", "geprueft": true },

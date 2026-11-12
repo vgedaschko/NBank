@@ -3,7 +3,7 @@
 
 1. Broschüre S. 10–12: jede dort gezeigte Zahl der Modellrechnung gegen den Wert
    der Mappe, gerundet auf die gezeigte Stelle (Läufe „modellhaus“,
-   „modellhaus_kosten_4631“ und „modellhaus_kosten_5000“). Die Broschüre wird aus
+   „modellhaus_kosten_4631“ und „modellhaus_kosten_5460“). Die Broschüre wird aus
    content/pages/*.json gelesen. Das Modellhaus ist seit 11.11.2026 Projekt 2 der
    Mappe (PGN-Projekt in Neu Wulmstorf, Grundstück im Bestand und nicht angesetzt).
 2. Altfassung der Präsentation (Folien 11, 13, 14, 17) gegen den Lauf „projekt2“
@@ -190,7 +190,7 @@ def abgleich_broschuere(w, b):
     # „rows“; jede Zeile nennt ihre Zelle der Übersicht. Die Schlüssel „steps“ und „result“ beschreiben die Spalte an der Bemessungsgrenze.
     T = "Broschüre S. 10, Sensitivität"
     wf = block(s, "chart", chart="waterfall")
-    laeufe = ("modellhaus", "modellhaus_kosten_4631", "modellhaus_kosten_5000")
+    laeufe = ("modellhaus", "modellhaus_kosten_4631", "modellhaus_kosten_5460")
     spalten = wf["data"].get("columns", [])
     b.gleich(T, "Spalten: Herstellungskosten je m² der drei Läufe", [x.get("kosten_je_m2") for x in spalten],
              [w.lauf(l)("eingabe.herstellungskosten_qm") for l in laeufe], "eingabe.herstellungskosten_qm je Lauf")
@@ -210,8 +210,8 @@ def abgleich_broschuere(w, b):
     for l in laeufe[1:]:
         b.gleich(T, f"{l}: nichts über der Bemessungsgrenze, kein Bankdarlehen, Förderquote wie im Modellhaus",
                  (w.lauf(l)("fin.ueber_bemessungsgrenze.A"), w.lauf(l)("fin.bankdarlehen.A"), w.lauf(l)("fin.foerderquote.A")), (0, 0, m("fin.foerderquote.A")), f"{l}: fin.*")
-    k = w.lauf("modellhaus_kosten_5000")
-    q5 = lambda x: "modellhaus_kosten_5000: " + x
+    k = w.lauf("modellhaus_kosten_5460")
+    q5 = lambda x: "modellhaus_kosten_5460: " + x
     st = wf["data"]["steps"]
     b.enthaelt(T, "Titel: Sensitivität der Herstellungskosten je m²", wf["title"], "Herstellungskosten je m²", q5("eingabe.herstellungskosten_qm"))
     b.gleich(T, "Gesamtkosten", st[0]["display"], mio(k("fin.gesamtkosten.A"), 2), q5("fin.gesamtkosten.A"))
@@ -460,7 +460,7 @@ def handrechnung(w, lauf, basis="modellhaus"):
 
 
 def abgleich_handrechnung(w, b):
-    for lauf in ("modellhaus", "modellhaus_dscr125", "modellhaus_kosten_4631", "modellhaus_kosten_5000", "projekt2"):
+    for lauf in ("modellhaus", "modellhaus_dscr125", "modellhaus_kosten_4631", "modellhaus_kosten_5460", "projekt2"):
         werte = w.daten["laeufe"][lauf]["werte"]
         n = abw = 0
         groesste = 0.0

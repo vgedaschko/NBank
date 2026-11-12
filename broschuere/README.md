@@ -17,7 +17,7 @@ Die Broschüre umfasst 24 Seiten im Format DIN A4 hoch und erklärt die **RL Mie
 Zielgruppen sind Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren, Projektentwicklung und Kommunen.
 Die Broschüre liest die Richtlinie wie ein Investment-Memo: zuerst die Zahlen, dann die Orientierung und die Ertragsseite,
 dann die Finanzierung mit Modellrechnung und Wirtschaftlichkeit, danach die übrigen Programmteile, Standort, Kommune und
-Antragsweg, zuletzt die Leistungen von PGN. Redaktionsstand: **30.09.2026** (Korrekturlauf 1; Stand steht nur auf U1 und U3, nicht in den Fußzeilen). Stand der Gestaltung: **12.11.2026**, Stufung und Zuteilung nach `DESIGN.md` §0a.
+Antragsweg, zuletzt die Leistungen von PGN. Redaktionsstand: **12.11.2026** (Korrekturlauf 1, danach Bemessungsgrenzen seit 01.10.2026, Bankzins und Stand nachgezogen; Stand steht nur auf U1 und U3, nicht in den Fußzeilen). Stand der Gestaltung: **12.11.2026**, Stufung und Zuteilung nach `DESIGN.md` §0a.
 
 ## Dateien in `dist/`
 

@@ -582,26 +582,14 @@
           "z10": 0.46,
           "z20": 0.87,
           "z30": 0.98
-        },
-        {
-          "monat": "2025-11",
-          "bezeichnung": "Ø Q4 2025",
-          "monate": [
-            "2025-10",
-            "2025-11",
-            "2025-12"
-          ],
-          "z10": 3.49,
-          "z20": 3.74,
-          "z30": 3.87
         }
       ],
       "einheit": "% p. a., Mittel der drei Monate des Quartals; „monat“ ist die Lage der Marke auf der Achse",
-      "herkunft": "Mittel der drei Monatswerte des Quartals aus den Reihen z10, z20, z30 (das Folienmodul rechnet nach); Bezeichnung und Lage der Marken wie in der Altfassung Folie 24; Dr. Klein Wowi Finanz AG, Zinsentwicklung und Top-Konditionen Wohnungswirtschaft (www.drklein-wowi.de/finanzierung/zinsentwicklung), Wochenwerte der Grafik, gelesen am 12.11.2026",
+      "herkunft": "Mittel der drei Monatswerte des Quartals aus den Reihen z10, z20, z30 (das Folienmodul rechnet nach); Bezeichnung und Lage der Marke wie in der Altfassung Folie 24. Die zweite Marke der Folie (letzter Monat der Reihe) setzt das Modul aus den Reihen; das Mittel Q4 2025 ist seit 12.11.2026 gestrichen (Wunsch des Auftraggebers).",
       "geprueft": true
     },
     "texte": {
-      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter. Seit dem Umbau stehen rechts zwei Kennzahlen (Label: kennzahl_label; Vorsatz und Zahl aus der Reihe und den Marken). „ausgangslage“ ist der Satz der Broschüre S. 2 im Wortlaut; er steht auf keiner Folie (bis 12.11.2026 gekürzt in den Sprechernotizen der Folie 4, die es nicht mehr gibt). Der Titel der Folie nennt die Werte der beiden Kennzahlen. Die übrigen Texte der früheren Kommentarspalte sind entfallen. Legende und Marken tragen ihre Werte einzeln je Zinsbindung: Das Folienmodul setzt sie aus den Bezeichnungen der Reihen (name), den letzten Monatswerten und zinsen.marken; ein Textmuster für die Marken gibt es nicht mehr.",
+      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter. Seit dem Umbau stehen rechts zwei Kennzahlen (Label: kennzahl_label; Vorsatz und Zahl aus der Reihe und den Marken). „ausgangslage“ ist der Satz der Broschüre S. 2 im Wortlaut; er steht auf keiner Folie (bis 12.11.2026 gekürzt in den Sprechernotizen der Folie 4, die es nicht mehr gibt). Der Titel der Folie nennt die Werte der beiden Kennzahlen. Die übrigen Texte der früheren Kommentarspalte sind entfallen. Die Marken tragen ihre Werte einzeln je Zinsbindung, die Legende nur die Bezeichnungen der Reihen (name): Das Folienmodul setzt sie aus den letzten Monatswerten und zinsen.marken; ein Textmuster für die Marken gibt es nicht mehr.",
       "diagrammtitel": "Sollzins p. a. nach Zinsbindung",
       "untertitel": "in %, Monatswerte {zins_von} bis {zins_bis}, Top-Konditionen Wohnungswirtschaft",
       "ausgangslage": {

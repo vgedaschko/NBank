@@ -5,8 +5,8 @@
 'use strict';
 
 const G = ['A', 'B', 'C'];
-// Die drei Läufe der Kostenfolie in Lesereihenfolge: Modellhaus (PGN-Median), ARGE-Median, Ausgangswert der Bemessungsgrenze
-const KOSTENLAEUFE = ['modellhaus', 'modellhaus_kosten_4631', 'modellhaus_kosten_5000'];
+// Die drei Läufe der Kostenfolie in Lesereihenfolge: Modellhaus (PGN-Median), ARGE-Median, Bemessungsgrenze (seit 01.10.2026)
+const KOSTENLAEUFE = ['modellhaus', 'modellhaus_kosten_4631', 'modellhaus_kosten_5460'];
 // Linien der Gruppen wie im ganzen Vortrag: A durchgezogen in Tinte, B gestrichelt in Tinte, C in Referenzgrau
 const LINIEN = { A: { art: 'tinte', strich: 'solid' }, B: { art: 'tinte', strich: 'dash' }, C: { art: 'referenz', strich: 'solid' } };
 

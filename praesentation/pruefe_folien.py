@@ -145,13 +145,15 @@ RENDITE = RENDITE_LAUF + ":rendite."                                            
 BEWIRTSCHAFTUNG = "modellhaus:jr1.objektverwaltung.A + modellhaus:jr1.instandhaltung.A"
 BEWIRTSCHAFTUNG_FREI = "modellhaus:jr1.objektverwaltung.Frei + modellhaus:jr1.instandhaltung.Frei"
 MIETFLAECHE_JAHR = "(1 - modellhaus:eingabe.mietausfall) * modellhaus:eingabe.wohnflaeche * 12"
-# Sensitivität der Folie 23: dasselbe Haus mit dem ARGE-Median und mit dem Ausgangswert der Bemessungsgrenze als Herstellungskosten je m²
-K_ARGE, K_GRENZE = "modellhaus_kosten_4631:", "modellhaus_kosten_5000:"
+# Sensitivität der Folie 23: dasselbe Haus mit dem ARGE-Median und mit der Bemessungsgrenze (seit 01.10.2026) als Herstellungskosten je m²
+K_ARGE, K_GRENZE = "modellhaus_kosten_4631:", "modellhaus_kosten_5460:"
 # Folie 21: Jahre mit Fehlbetrag in A, B und C zusammen (Übersicht 3.6); null heißt auf der Folie „Kein Jahr mit Fehlbetrag“
 JAHRE_MIT_FEHLBETRAG = "modellhaus:liq.jahre_mit_fehlbetrag.A + modellhaus:liq.jahre_mit_fehlbetrag.B + modellhaus:liq.jahre_mit_fehlbetrag.C"
 # Folie 23: Rückgang des Zahlungsüberschusses in A je 100 € Herstellungskosten je m² (wie in daten/pruefung.json)
-JE_100_EURO = ("(modellhaus:jr1.zahlungsueberschuss.A - modellhaus_kosten_5000:jr1.zahlungsueberschuss.A)"
-               " / (modellhaus_kosten_5000:eingabe.herstellungskosten_qm - modellhaus:eingabe.herstellungskosten_qm) * 100")
+# Kosten je m², bis zu denen sich Gruppe A trägt: linear zwischen Modellhaus und Bemessungsgrenze, auf 50 € abgerundet (Titel der Folie 23)
+K_NULL = ("runde((modellhaus:eingabe.herstellungskosten_qm + modellhaus:jr1.zahlungsueberschuss.A * (modellhaus_kosten_5460:eingabe.herstellungskosten_qm - modellhaus:eingabe.herstellungskosten_qm) / (modellhaus:jr1.zahlungsueberschuss.A - modellhaus_kosten_5460:jr1.zahlungsueberschuss.A)) / 50 - 0.5, 0) * 50")
+JE_100_EURO = ("(modellhaus:jr1.zahlungsueberschuss.A - modellhaus_kosten_5460:jr1.zahlungsueberschuss.A)"
+               " / (modellhaus_kosten_5460:eingabe.herstellungskosten_qm - modellhaus:eingabe.herstellungskosten_qm) * 100")
 # Anhangfolie zur Tilgungsschwelle: Kosten je m², bei denen die Schwelle C gegenüber A gleich dem Tilgungssatz der Jahresrechnung ist (wie in daten/pruefung.json)
 KOSTEN_AM_SCHNITT = ("(modellhaus:tilg.mehr_sollmiete.C - modellhaus:tilg.mehr_mietausfall.C) * modellhaus:eingabe.herstellungskosten_qm"
                      " / (modellhaus:tilg.mehrschuld.C * (modellhaus:eingabe.tilgung_nbank + modellhaus:tab.verwaltungskostenbeitrag))")
@@ -168,11 +170,11 @@ KERNWERTE = [
     # Folie 23: Mit höheren Herstellungskosten bleibt nur in A ein Zahlungsüberschuss; B und C stehen mit Minus (Vorzeichen gebunden).
     # Die Einträge stehen an der Stelle des früheren Laufs mit 5.200 € je m² (−19.963 € in A über der Bemessungsgrenze), den es nicht mehr gibt.
     (K_ARGE + "jr1.zahlungsueberschuss.A", "zahl", "4.965", ["rechnung-kosten"]),
-    (K_GRENZE + "jr1.zahlungsueberschuss.A", "euro", "1.444 €", ["rechnung-kosten"]),
+    (K_GRENZE + "jr1.zahlungsueberschuss.A", "zahl", "−2.945", ["rechnung-kosten"]),
     (K_ARGE + "jr1.zahlungsueberschuss.B", "euro", "−3.497 €", ["rechnung-kosten"]),
-    (K_GRENZE + "jr1.zahlungsueberschuss.B", "euro", "−8.778 €", ["rechnung-kosten"]),
+    (K_GRENZE + "jr1.zahlungsueberschuss.B", "euro", "−15.362 €", ["rechnung-kosten"]),
     (K_ARGE + "jr1.zahlungsueberschuss.C", "euro", "−6.754 €", ["rechnung-kosten"]),
-    (K_GRENZE + "jr1.zahlungsueberschuss.C", "euro", "−12.916 €", ["rechnung-kosten"]),
+    (K_GRENZE + "jr1.zahlungsueberschuss.C", "euro", "−20.597 €", ["rechnung-kosten"]),
     ("fin.foerderung.A", "mio", "2,4 Mio. €", ["rechnung-finanzierung", "fazit"]),
     ("fin.gesamtkosten.A", "mio", "3,0 Mio. €", ["rechnung-finanzierung", "fazit"]),
     ("fin.miete_jahr1.A", "euro2", "6,80 €", ["hoechstmiete", "rechnung-fluss-gefoerdert", "rechnung-miete", "fazit"]),
@@ -193,7 +195,7 @@ KERNWERTE = [
     # Herstellungskosten je m²: Das Modellhaus rechnet mit dem PGN-Median (Folien 14, 22 und 23); dazu die beiden Werte der Sensitivität (Folie 23)
     ("eingabe.herstellungskosten_qm", "euro", "3.579 €", ["rechnung-finanzierung", "rechnung-kosten"]),
     (K_ARGE + "eingabe.herstellungskosten_qm", "euro", "4.631 €", ["rechnung-kosten"]),
-    (K_GRENZE + "eingabe.herstellungskosten_qm", "euro", "5.000 €", ["rechnung-kosten"]),
+    (K_GRENZE + "eingabe.herstellungskosten_qm", "euro", "5.460 €", ["rechnung-kosten"]),
     ("eingabe.zins_bank", "prozent2", "3,86 %", ["ausgangslage-zinsen", "einstieg-kapitaldienst", "rechnung-kapitaldienst"]),
     # Folie 19: Bewirtschaftung im Rechenweg der nötigen Miete (Objektverwaltung und Instandhaltung, Übersicht D31 + D32)
     (BEWIRTSCHAFTUNG, "euro", "17.061 €", ["rechnung-miete"]),
@@ -208,7 +210,7 @@ KERNWERTE = [
     # Anhangfolie zur Tilgungsschwelle (A8): Schwelle C gegenüber A der drei Läufe, im Diagramm und in der Tabelle; Kosten am Schnitt auf 100 € gerundet
     ("tilg.schwelle.C_gegen_A", "prozent2", "1,91 %", [SCHWELLE_FOLIE]),
     (K_ARGE + "tilg.schwelle.C_gegen_A", "prozent2", "1,36 %", [SCHWELLE_FOLIE]),
-    (K_GRENZE + "tilg.schwelle.C_gegen_A", "prozent2", "1,22 %", [SCHWELLE_FOLIE]),
+    (K_GRENZE + "tilg.schwelle.C_gegen_A", "prozent2", "1,08 %", [SCHWELLE_FOLIE]),
     (f"runde({KOSTEN_AM_SCHNITT}, -2)", "euro", "3.000 €", [SCHWELLE_FOLIE]),
     # Anhangfolie zur Eigenkapitalrendite (A7): die beiden Titelzahlen (mit Restwert, ohne Restwert) und der tiefste Stand des Projektkontos
     # frei finanziert. Renditen mit zwei Nachkommastellen wie in der Rechenmappe. „Ohne Restwert“ ist die Zeile 6.4 der Übersicht („nur Bodenwert“):
@@ -240,14 +242,11 @@ KERNWERTE_MARKT = [
     # Folie 10: Mietpfad der Gruppe A in Mietenstufe IV–VII, auf den Cent abgerundet wie die Broschüre S. 7 (7,2182 → 7,21 und 7,6621 → 7,66)
     ("regeln#mietpfad.jahr4", "euro2", "7,21 €", ["hoechstmiete"]),
     ("regeln#mietpfad.jahr7", "euro2", "7,66 €", ["hoechstmiete"]),
-    # Folie 4: Legende (Werte des letzten Monats, Stelle 130 = 11/2026) und die Quartalsmittel an den beiden Marken stehen je Zinsbindung einzeln auf der Folie
+    # Folie 4: das Quartalsmittel Q1 2020 (Marke 1) und die Werte des letzten Monats (Marke 2, Stelle 130 = 11/2026) stehen je Zinsbindung einzeln auf der Folie
     ("markt#zinsen.z20.wert.130", "prozentwert2", "3,97 %", ["ausgangslage-zinsen"]),
     ("markt#zinsen.z30.wert.130", "prozentwert2", "4,13 %", ["ausgangslage-zinsen"]),
     ("markt#zinsen.marken.wert.0.z20", "prozentwert2", "0,87 %", ["ausgangslage-zinsen"]),
     ("markt#zinsen.marken.wert.0.z30", "prozentwert2", "0,98 %", ["ausgangslage-zinsen"]),
-    ("markt#zinsen.marken.wert.1.z10", "prozentwert2", "3,49 %", ["ausgangslage-zinsen"]),
-    ("markt#zinsen.marken.wert.1.z20", "prozentwert2", "3,74 %", ["ausgangslage-zinsen"]),
-    ("markt#zinsen.marken.wert.1.z30", "prozentwert2", "3,87 %", ["ausgangslage-zinsen"]),
     (KOSTEN_2020, "euro", "3.754 €", ["einstieg-kapitaldienst"]),
     (KOSTEN_HEUTE, "euro", "5.392 €", ["einstieg-kapitaldienst"]),
     ("markt#kapitaldienst.fremdkapital", "prozent0", "80 %", ["einstieg-kapitaldienst"]),
@@ -349,7 +348,7 @@ KERNSAETZE = [
     # Anhangfolie zur Tilgungsschwelle (A8): Titel, Marke und die beiden Absätze
     (SCHWELLE_FOLIE, "Bei {a} Tilgung liegt Gruppe A ab rund {b} je m² vorn", {"a": ("eingabe.tilgung_nbank", "prozent2"), "b": (f"runde({KOSTEN_AM_SCHNITT}, -2)", "euro")}),
     (SCHWELLE_FOLIE, "Jahresrechnung: {a}", {"a": ("eingabe.tilgung_nbank", "prozent2")}),
-    (SCHWELLE_FOLIE, "Modellhaus: {a}. ARGE-Median: {b}. Ausgangswert der Bemessungsgrenze: {c}.",
+    (SCHWELLE_FOLIE, "Modellhaus: {a}. ARGE-Median: {b}. Bemessungsgrenze: {c}.",
      {"a": ("eingabe.herstellungskosten_qm", "euro"), "b": (K_ARGE + "eingabe.herstellungskosten_qm", "euro"), "c": (K_GRENZE + "eingabe.herstellungskosten_qm", "euro")}),
     (SCHWELLE_FOLIE, "Über der Linie „C gegenüber A“ ist das A, darunter C, B in keinem Fall.", {}),
     (SCHWELLE_FOLIE, "Die Schwelle sinkt mit den Kosten: Die Mehrmiete je m² ist fest vorgegeben, die Mehrschuld wächst mit den Kosten.", {}),
@@ -367,8 +366,7 @@ KERNSAETZE = [
     ("rechnung-verlauf", "{a} Jahr mit Fehlbetrag.", {"a": (JAHRE_MIT_FEHLBETRAG, "kein")}),
     ("rechnung-verlauf", "Zahlungsüberschuss wächst bis Jahr 35 in allen drei Gruppen, in A auf {a}", {"a": ("liq.zahlungsueberschuss_jahr35.A", "euro")}),
     # Folie 23: Titel und der Satz, was die höheren Kosten am Zahlungsüberschuss ändern
-    ("rechnung-kosten", "Bei {a} je m² trägt sich nur noch A: {b} Zahlungsüberschuss statt {c}",
-     {"a": (K_GRENZE + "eingabe.herstellungskosten_qm", "euro"), "b": (K_GRENZE + "jr1.zahlungsueberschuss.A", "euro"), "c": ("jr1.zahlungsueberschuss.A", "euro")}),
+    ("rechnung-kosten", "Bis rund {a} je m² trägt sich Gruppe A, im Modellhaus bleiben {b}", {"a": (K_NULL, "euro"), "b": ("jr1.zahlungsueberschuss.A", "euro")}),
     ("rechnung-kosten", "Je 100 € je m² mehr sinkt der Zahlungsüberschuss in A um {a}.", {"a": (JE_100_EURO, "euro")}),
     ("rechnung-kosten", "Bis hierher bleibt die Förderquote bei {a}.", {"a": (K_GRENZE + "fin.foerderquote.A", "prozent0")}),
 ]
@@ -394,13 +392,13 @@ KERNWERTE_DIAGRAMM = [
     # Folie 23: die drei Säulen (Zahlungsüberschuss in A je Lauf)
     ("jr1.zahlungsueberschuss.A", "rechnung-kosten", "Zahlungsüberschuss Jahr 1", "3.579 € (Modellhaus)"),
     (K_ARGE + "jr1.zahlungsueberschuss.A", "rechnung-kosten", "Zahlungsüberschuss Jahr 1", "4.631 €"),
-    (K_GRENZE + "jr1.zahlungsueberschuss.A", "rechnung-kosten", "Zahlungsüberschuss Jahr 1", "5.000 €"),
+    (K_GRENZE + "jr1.zahlungsueberschuss.A", "rechnung-kosten", "Zahlungsüberschuss Jahr 1", "5.460 €"),
     # Folie 20: Die Jahresrechnung (Tilgung 1/42) liegt zwischen zwei Achsteilungen; gebunden ist der Stützpunkt 2,5 % der Geraden
     ("modellhaus:tilg.ueberschuss_vor_tilgung.B - 0.025 * modellhaus:fin.darlehen_nbank.B", "rechnung-tilgung", "Gruppe B", "2,5 %"),
     ("modellhaus:tilg.ueberschuss_vor_tilgung.C - 0.025 * modellhaus:fin.darlehen_nbank.C", "rechnung-tilgung", "Gruppe C", "2,5 %"),
-    # Folie A8: Die Linien enden an der Bemessungsgrenze mit der Schwelle des Laufs modellhaus_kosten_5000 (Diagrammdaten in Prozent)
-    (K_GRENZE + "tilg.schwelle.B_gegen_A * 100", SCHWELLE_FOLIE, "B gegenüber A", "5.000"),
-    (K_GRENZE + "tilg.schwelle.C_gegen_A * 100", SCHWELLE_FOLIE, "C gegenüber A", "5.000"),
+    # Folie A8: Die Linien enden an der Bemessungsgrenze mit der Schwelle des Laufs modellhaus_kosten_5460 (Diagrammdaten in Prozent)
+    (K_GRENZE + "tilg.schwelle.B_gegen_A * 100", SCHWELLE_FOLIE, "B gegenüber A", "5.460"),
+    (K_GRENZE + "tilg.schwelle.C_gegen_A * 100", SCHWELLE_FOLIE, "C gegenüber A", "5.460"),
     # Folien des Umbaus
     ("markt#baukosten.herstellung.spanne_q1_2020.min", "einstieg-baukosten", "Sockel bis Minimum", "Herstellung · Q1 2020"),
     ("markt#baukosten.herstellung.q1_2020 - markt#baukosten.herstellung.spanne_q1_2020.min", "einstieg-baukosten", "Q1 2020 Minimum bis Median", "Herstellung · Q1 2020"),
@@ -444,15 +442,12 @@ REIHEN_DIAGRAMM = [
 # ---- Kernwerte in ihrer Form: Quelle und Schreibweise (wie bei den Kernwerten), Folie, Name der Form, Zelle (Zeile, Spalte) einer Tabelle oder None,
 # Text mit dem Feld {a} (auch der Name der Form darf {a} tragen). Die Form trägt genau diesen Text; so ist der Wert an seine Bezeichnung gebunden, auch wenn er mehrfach auf der Folie steht ----
 KERNWERTE_FORM = [
-    ("markt#zinsen.z10.wert.130", "prozentwert2", "ausgangslage-zinsen", "Legende Wert 10 Jahre", None, "{a}"),
-    ("markt#zinsen.z20.wert.130", "prozentwert2", "ausgangslage-zinsen", "Legende Wert 20 Jahre", None, "{a}"),
-    ("markt#zinsen.z30.wert.130", "prozentwert2", "ausgangslage-zinsen", "Legende Wert 30 Jahre", None, "{a}"),
     ("markt#zinsen.marken.wert.0.z10", "prozentwert2", "ausgangslage-zinsen", "Marke 1 Wert 10 Jahre", None, "{a}"),
     ("markt#zinsen.marken.wert.0.z20", "prozentwert2", "ausgangslage-zinsen", "Marke 1 Wert 20 Jahre", None, "{a}"),
     ("markt#zinsen.marken.wert.0.z30", "prozentwert2", "ausgangslage-zinsen", "Marke 1 Wert 30 Jahre", None, "{a}"),
-    ("markt#zinsen.marken.wert.1.z10", "prozentwert2", "ausgangslage-zinsen", "Marke 2 Wert 10 Jahre", None, "{a}"),
-    ("markt#zinsen.marken.wert.1.z20", "prozentwert2", "ausgangslage-zinsen", "Marke 2 Wert 20 Jahre", None, "{a}"),
-    ("markt#zinsen.marken.wert.1.z30", "prozentwert2", "ausgangslage-zinsen", "Marke 2 Wert 30 Jahre", None, "{a}"),
+    ("markt#zinsen.z10.wert.130", "prozentwert2", "ausgangslage-zinsen", "Marke 2 Wert 10 Jahre", None, "{a}"),
+    ("markt#zinsen.z20.wert.130", "prozentwert2", "ausgangslage-zinsen", "Marke 2 Wert 20 Jahre", None, "{a}"),
+    ("markt#zinsen.z30.wert.130", "prozentwert2", "ausgangslage-zinsen", "Marke 2 Wert 30 Jahre", None, "{a}"),
     ("markt#baukosten.herstellung.q1_2020", "zahl", "einstieg-baukosten", "Median Herstellung Q1 2020", None, "{a}"),
     ("markt#baukosten.herstellung.q4_2025", "zahl", "einstieg-baukosten", "Median Herstellung Q4 2025", None, "{a}"),
     ("markt#baukosten.grundstueck.q1_2020", "zahl", "einstieg-baukosten", "Median Grundstück Q1 2020", None, "{a}"),
@@ -556,7 +551,7 @@ NUR_ZAHL_GRUND = "Ordnungszahl in eigener Form oder Zelle (Achskreis, Zeilennumm
 
 # Läufe der Rechenmappe, deren Werte auf Folien stehen dürfen (die Läufe projekt2 und modellhaus_dscr125 erscheinen nicht: Konzept und E5).
 # Der Lauf modellhaus_rendite (RENDITE_LAUF) steht nicht in dieser Liste: Er belegt nur Zahlen der Anhangfolie zur Rendite (RENDITE_FOLIE).
-LAEUFE = ("modellhaus", "modellhaus_zeitreihe", "modellhaus_kosten_4631", "modellhaus_kosten_5000")
+LAEUFE = ("modellhaus", "modellhaus_zeitreihe", "modellhaus_kosten_4631", "modellhaus_kosten_5460")
 # Schlüssel, die kein Beleg sind: Deckungsgrade (E5; erlaubt sind nur Kapitaldienst und nötige Miete aus dem Block dscr) und reine Zähler
 KEIN_BELEG = re.compile(r"(^|\.)dscr(?!\.kapitaldienst_jahr1|\.noetige_miete)|^zr\.jahr$|projekt_nr|^meta\.")
 

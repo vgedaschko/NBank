@@ -1,0 +1,212 @@
+--- a/praesentation/lib/layouts.cjs
++++ b/praesentation/lib/layouts.cjs
+@@ -31,6 +31,7 @@
+   PGN_AUSSAGE_DUNKEL: { grund: 'anthrazit', art: 'inhalt', titel: T32, felder: ['kicker', 'title', 'rubrik', 'blatt'] },
+ };
+ // Fassung der Modellrechnung auf Papierton. stempel: Das Layout trägt den Stempel in der Kickerzeile (nur mit STEMPEL_IM_KOPF, lib/theme.cjs)
++LAYOUTS.PGN_MUSTER = { grund: 'hell', art: 'inhalt', muster: true, titel: { pt: 22, min: 1, max: 2, breite: 12.0 }, felder: ['title', 'rubrik', 'blatt'] };
+ for (const n of ['INHALT', 'KENNZAHLEN', 'DIAGRAMM', 'TABELLE', 'VERGLEICH']) LAYOUTS[`PGN_${n}_MR`] = { ...LAYOUTS[`PGN_${n}`], grund: 'papier', stempel: STEMPEL_IM_KOPF };
+ 
+ // Feste Nummer (idx) je Platzhalter, gleich in allen Layouts: Wechselt jemand in PowerPoint das Layout einer Folie, findet jeder Text sein Feld wieder.
+@@ -127,6 +128,10 @@
+     ] });
+   }
+ 
++  pres.defineSlideMaster({ title: 'PGN_MUSTER', background: { color: 'FFFFFF' }, margin: rand, objects: [
++    { placeholder: { options: { name: 'title', type: 'title', objectName: 'Titel', x: X0, y: 0.42, w: CW, h: 0.44, margin: 0, fontFace: F.mont, bold: true, fontSize: 22, lineSpacing: 26, color: C.tinte, valign: 'top', align: 'left' }, text: 'Die Kernaussage als Satz' } },
++    ...RAHMEN.schriftfeld('hell')] });
++
+   // --- PGN_INHALT(_MR), PGN_ABLAUF: nur Kopf und Fuß -----------------------------------------------------------------
+   paar('INHALT', () => []);
+   pres.defineSlideMaster({ title: 'PGN_ABLAUF', background: { color: 'FFFFFF' }, margin: rand, objects: [...RAHMEN.kopf('hell'), ...RAHMEN.schriftfeld('hell')] });
+--- a/praesentation/lib/layoutnamen.json
++++ b/praesentation/lib/layoutnamen.json
+@@ -19,5 +19,6 @@
+   "PGN_ZITAT": "Zitat",
+   "PGN_SCHLUSS": "Schluss",
+   "PGN_ANHANG": "Anhang",
+-  "PGN_AUSSAGE_DUNKEL": "Aussage · Anthrazit"
+-}
++  "PGN_AUSSAGE_DUNKEL": "Aussage · Anthrazit",
++  "PGN_MUSTER": "Muster"
++}
+\ No newline at end of file
+--- a/praesentation/build.cjs
++++ b/praesentation/build.cjs
+@@ -147,10 +147,10 @@
+       const stimme = opt.stimme !== undefined ? opt.stimme : gelesen.stimme;
+       const t = lay.titel;
+       if (zeilen.length < t.min || zeilen.length > t.max) P.melde(`Titel hat ${zeilen.length} Zeile(n); das Layout ${o.layout} verlangt ${t.min === t.max ? t.min : t.min + ' bis ' + t.max}. Zeilen: ${zeilen.join(' | ')}`);
+-      if (lay.art === 'inhalt' && !akzent) P.melde('Titel ohne Signaturwort (genau eine Wortgruppe in Montserrat ExtraBold kursiv).');
++      if (lay.art === 'inhalt' && !lay.muster && !akzent) P.melde('Titel ohne Signaturwort (genau eine Wortgruppe in Montserrat ExtraBold kursiv).');
+       const basis = { fontFace: T.F.black, fontSize: t.pt };
+       const pruefzeilen = titelPruefzeilen(zeilen, { akzent, stimme }, basis);
+-      pruefzeilen.forEach((l, i) => P.zeile(`Titelzeile ${i + 1} (${t.pt} pt)`, l, null, t.breite));
++      if (!lay.muster) pruefzeilen.forEach((l, i) => P.zeile(`Titelzeile ${i + 1} (${t.pt} pt)`, l, null, t.breite));
+       if (zeilen.some(z => /\.$/.test(z)) && lay.art !== 'titel' && lay.art !== 'schluss') P.hinweis('Titel endet mit einem Punkt.');
+       // Unterlänge über Umlaut: Die untere Zeile bekommt etwas mehr Zeilenabstand (sonst berührt etwa ein Komma die Punkte eines Ö)
+       const abstand = {};
+@@ -158,7 +158,8 @@
+         abstand[k.zeile] = opt.titelAbstand || t.pt + TITEL_LUFT;
+         P.hinweis(`Titel: „${k.oben}“ in Zeile ${k.zeile} steht über „${k.unten}“ in Zeile ${k.zeile + 1}. Zeile ${k.zeile + 1} bekommt ${abstand[k.zeile]} pt Zeilenabstand, damit sich die Zeichen nicht berühren (anderer Wert: ctx.folie({ titelAbstand })).`);
+       }
+-      slide.addText(titelLaeufe(zeilen, { akzent, stimme, abstand, akzentFarbe: lay.grund === 'rot' ? null : cs.signatur }), { placeholder: 'title' });
++      if (lay.muster) slide.addText(schutz(zeilen.join(' ')), { placeholder: 'title' });
++      else slide.addText(titelLaeufe(zeilen, { akzent, stimme, abstand, akzentFarbe: lay.grund === 'rot' ? null : cs.signatur }), { placeholder: 'title' });
+       // Kicker und Rubrik
+       const kicker = opt.kicker !== undefined ? opt.kicker : zitat(inh, /Kicker: „([^“]+)“/);
+       if (hat('kicker')) {
+--- a/praesentation/daten/outline.json
++++ b/praesentation/daten/outline.json
+@@ -291,7 +291,7 @@
+       "id": "rechnung-tilgung",
+       "nr": "20",
+       "abschnitt": "Modellrechnung",
+-      "layout": "PGN_DIAGRAMM_MR",
++      "layout": "PGN_MUSTER",
+       "titel": "Der Tilgungssatz entscheidet über den Zahlungsüberschuss in Jahr 1",
+       "aussage": "Jeder halbe Prozentpunkt Tilgung verschiebt das Ergebnis deutlich. Bei 2,38 % bleibt in allen drei Gruppen ein Zahlungsüberschuss; null wird er in C bei 2,90 %, in B bei 3,03 % und in A bei 3,65 %.",
+       "inhalt": "Kicker: „MODELLRECHNUNG · TILGUNGSSATZ“. Titelzeilen: „Der Tilgungssatz entscheidet über“ | „den Zahlungsüberschuss in Jahr 1“ (Signaturwort: „Tilgungssatz“). Diagrammtitel: „ZAHLUNGSÜBERSCHUSS JE TILGUNGSSATZ“. Untertitel: „Jahr 1, in € p. a. · Tilgungssatz p. a. auf das NBank-Darlehen“. Legende: „Gruppe A“ · „Gruppe B“ · „Gruppe C“. Linien A | B | C, beschriftet bei 2,38 %: 15.003 | 11.560 | 10.812. Achsbeschriftung x: „0,0 %“ bis „4,0 %“. Maßkette über dem Diagramm: „am höchsten: C“ (0 bis 1,91 %) | „am höchsten: A“ (ab 1,91 %), an der Maßhilfslinie „1,91 %“. Marke bei 2,38 %, zwischen den Achsteilungen 2,0 und 2,5 %: „Jahresrechnung: 2,38 %“. Kommentarspalte: „Bei 2,38 % Tilgung bleibt in allen drei Gruppen ein Zahlungsüberschuss. Am höchsten ist er in A.“ · „Null wird er in C bei 2,90 %, in B bei 3,03 % und in A bei 3,65 % Tilgung.“ · „Den Tilgungssatz legt die NBank fest. Linear über 42 Jahre sind es rechnerisch mindestens 2,38 %.“ · „Unter 1,91 % läge C vorn, B in keinem Fall.“ Achsentitel y: „Zahlungsüberschuss in € p. a.“, x: „Tilgungssatz p. a.“. Die Bezeichnung der Marke steht im untersten Band rechts der Marke.",
+@@ -723,4 +723,4 @@
+     "Folien 13 und 14: Angaben zum Modellhaus (Neubau in Neu Wulmstorf, Landkreis Harburg, 14 Wohnungen, 828 m² Wohnfläche, Mietenstufe VI, Effizienzhaus 55, Grundstück im Bestand) nach der Entscheidung des Auftraggebers vom 11.11.2026 und der Rechenmappe (Projekt 2); nicht gegen Projektunterlagen geprüft.",
+     "Notizen A5: angemessene Wohnungsgrößen 50, 60, 75 und 85 m² für ein bis vier Personen. Fundstelle war der Wohnungsmix des früheren Modellhauses (Broschüre S. 10 in der Fassung bis 11.11.2026); nach der Umstellung der Broschüre braucht die Angabe eine andere Fundstelle."
+   ]
+-}
++}
+\ No newline at end of file
+--- a/praesentation/folien/rechnung-tilgung.cjs
++++ b/praesentation/folien/rechnung-tilgung.cjs
+@@ -1,76 +1,74 @@
+-// Folie 20 · PGN_DIAGRAMM_MR: Zahlungsüberschuss in Jahr 1 je Tilgungssatz als drei Geraden (A durchgezogen in Tinte, B gestrichelt in
+-// Tinte, C in Referenzgrau) wie Block 4 der Mappe. Maßkette mit Teilung bei der Schwelle C gegen A, Marke beim Tilgungssatz der
+-// Jahresrechnung mit den drei Werten, Achskreise an den Linienenden. Kein Rot im Diagramm. Die Achse reicht bis 4,0 %: So schneiden alle drei
+-// Geraden die Nulllinie im Bild (Tilgungssatz, bei dem der Zahlungsüberschuss null ist; Übersicht 3.8).
+-// Stützpunkte: Zahlungsüberschuss vor Tilgung − Satz × NBank-Darlehen (werte.json, Lauf modellhaus), gegen das Raster der Mappe geprüft.
++// MUSTER Folie 20 nach IBCS 2.0: Kernaussage als Satz oben (SA 3.2, UN 2.1), darunter der Titel in drei Zeilen (UN 2.2: wer, was mit
++// Einheit, wann), weißer Grund (SI 1.2), keine Versalzeile, kein Balken, keine Schmuckschrift (SI 1.1, SI 2.3). Im Diagramm stehen die
++// Bezeichnungen an den Linienenden statt in einer Legende (UN 2.3), nur die Werte der Jahresrechnung sind beschriftet (SI 5.3), die
++// Anmerkungen sind nummeriert und mit ihrer Stelle im Diagramm verbunden (UN 2.4, SA 4.5); die Quelle steht im Schriftfeld (SA 4.4).
+ 'use strict';
+ const R = require('./_rechnung.cjs');
+ 
+ module.exports = {
+   id: 'rechnung-tilgung',
+   bau(ctx) {
+-    const { B, D, W, fmt } = ctx, s = ctx.folie(), M = k => W('modellhaus', k), G = R.G;
++    const { B, D, W, fmt, colX, span, Y } = ctx, M = k => W('modellhaus', k), G = R.G;
++    const s = ctx.folie({ titel: ['Der Tilgungssatz entscheidet über den Zahlungsüberschuss in Jahr 1'] });
+     B.register(s, '2.1');
+-    B.diagrammkopf(s, { titel: 'Zahlungsüberschuss je Tilgungssatz', sub: 'Jahr 1, in € p. a. · Tilgungssatz p. a. auf das NBank-Darlehen' });
+-    R.linienLegende(ctx, s);
++    const p2 = v => fmt.prozent(v, 2), x0 = colX(1);
+ 
+-    // Teilung der Achse: 0,0 bis 4,0 % in Schritten von 0,5 Prozentpunkten
++    // ---- Titel in drei Zeilen: Berichtseinheit, Messgröße (halbfett) mit Einheit, Zeit -------------------------------------------
++    const zeile = (text, y, name) => { ctx.zoneAusnahme(name, 'Titelzeilen des Musters stehen im Kopf der Folie'); B.text(s, text, { x: x0, y, w: 9.0, h: 0.26, rolle: 'dicht', valign: 'middle', einzeilig: true, name }); };
++    zeile(`Modellhaus Neu Wulmstorf, ${M('eingabe.wohnungen')} Wohnungen`, 0.98, 'Titelzeile wer');
++    zeile('**Zahlungsüberschuss** in € p. a., Gruppen A, B und C, nach Tilgungssatz', 1.24, 'Titelzeile was');
++    zeile('Jahr 1', 1.50, 'Titelzeile wann');
++
++    // ---- Diagramm -----------------------------------------------------------------------------------------------------------------
+     const saetze = [0, 0.005, 0.01, 0.015, 0.02, 0.025, 0.03, 0.035, 0.04], n = saetze.length - 1, ACHSE = { min: -40000, max: 80000, schritt: 20000, format: 'ganz' };
+     const bei = (g, t) => M(`tilg.ueberschuss_vor_tilgung.${g}`) - t * M(`fin.darlehen_nbank.${g}`), reihe = g => saetze.map(t => bei(g, t));
+-    // Gegenprobe: Wo die Mappe denselben Satz führt (Übersicht 4.1 bis 4.8), stimmen die Stützpunkte mit ihr überein
+-    const raster = M('tilg.raster.satz');
+-    let gleich = 0;
+-    saetze.forEach(t => { const k = raster.findIndex(r => Math.abs(r - t) < 1e-9); if (k < 0) return; gleich++;
+-      for (const g of G) R.pruefe(Math.abs(M(`tilg.raster.zahlungsueberschuss.${g}`)[k] - bei(g, t)) < 0.005, `Stützpunkt ${g} bei ${fmt.prozent(t, 1)} weicht vom Raster der Mappe ab.`); });
+-    R.pruefe(gleich >= 5, 'Das Raster der Mappe deckt weniger als fünf Stützpunkte der Folie 20.');
+-    R.pruefe(G.every(g => reihe(g).every(v => v > ACHSE.min && v < ACHSE.max)), 'Ein Stützpunkt der Folie 20 liegt außerhalb der Größenachse; Achse im Modul anpassen.');
+-    const tJahr = M('eingabe.tilgung_nbank'), schwelle = M('tilg.schwelle.C_gegen_A'), bester = M('tilg.raster.bester');
+-    R.pruefe(tJahr > saetze[0] && tJahr < saetze[n], 'Der Tilgungssatz der Jahresrechnung liegt nicht im Bereich der Achse der Folie 20.');
+-    for (const g of G) R.pruefe(Math.abs(bei(g, tJahr) - M(`jr1.zahlungsueberschuss.${g}`)) < 0.005, `Der Wert ${g} beim Satz der Jahresrechnung ist nicht Zeile 8 der Jahresrechnung.`);
+-    R.pruefe(bester[raster.indexOf(0)] === 'C' && !bester.includes('B') && Math.abs(bei('C', schwelle) - bei('A', schwelle)) < 1 && M('tilg.schwelle.B_gegen_A') < schwelle,
+-      'Die Aussagen „unter der Schwelle C, darüber A, B nie vorn“ treffen nicht mehr zu.');
+-
+-    const d = D.linien(s, { kategorien: saetze.map(t => fmt.prozent(t, 1)), name: 'Diagramm Zahlungsüberschuss je Tilgungssatz', rand: { l: 1.06, r: 0.55, o: 0.50, u: 0.50 },
+-      reihen: R.linienReihen(reihe), achse: ACHSE });
+-    const xSatz = t => d.katMitte(t / saetze[1]), band = oben => (d.yWert(oben) + d.yWert(oben - ACHSE.schritt)) / 2;   // Mitte des Bandes unter der Gitterlinie „oben“
+-
+-    // Maßkette über dem Diagramm, Teilung bei der Schwelle; Maßhilfslinie bis zum Schnittpunkt von A und C
+-    const my = d.plot.y - 0.12, xS = xSatz(schwelle);
+-    B.masskette(s, { x: xSatz(0), y: my, w: xSatz(saetze[n]) - xSatz(0), segmente: [
+-      // „am höchsten“ bezieht sich auf den Diagrammtitel (Zahlungsüberschuss). Der Wortlaut der Broschüre S. 12 („höchster Zahlungsüberschuss: C“)
+-      // ist 2,85 Zoll breit, das Segment bis zur Schwelle 2,28 Zoll: Er stieße an die Beschriftung des zweiten Segments.
+-      { anteil: schwelle, text: ctx.wortlaut('am höchsten: C', 'Maßkette') }, { anteil: saetze[n] - schwelle, text: ctx.wortlaut('am höchsten: A', 'Maßkette') }] });
+-    B.linie(s, { x: xS, y: my, h: d.yWert(bei('A', schwelle)) - my, art: 'mass', pt: 0.5, name: 'Maßhilfslinie Schwelle' });
+-    // Der Wert der Schwelle steht links der Maßhilfslinie: Rechts davon folgt nach gut einem halben Zoll die Marke der Jahresrechnung mit ihren Werten
+-    B.text(s, fmt.prozent(schwelle, 2), { x: xS - 0.08 - 0.80, y: band(60000) - 0.12, w: 0.80, h: 0.24, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Schwelle C gegen A' });
++    const tJahr = M('eingabe.tilgung_nbank'), schwelle = M('tilg.schwelle.C_gegen_A');
++    const yD = 2.05, d = D.linien(s, { x: x0, y: yD, w: span(8), h: Y.inhaltEnde - yD, kategorien: saetze.map(t => fmt.prozent(t, 1)), name: 'Diagramm Zahlungsüberschuss je Tilgungssatz',
++      rand: { l: 1.06, r: 0.70, o: 0.20, u: 0.50 }, reihen: R.linienReihen(reihe), achse: ACHSE });
++    const xSatz = t => d.katMitte(t / saetze[1]), band = oben => (d.yWert(oben) + d.yWert(oben - ACHSE.schritt)) / 2;
++    B.achsentitel(s, d, { y: 'Zahlungsüberschuss in € p. a.', x: 'Tilgungssatz p. a.' });
++
++    // Bezeichnung der Linien an ihrem Ende statt einer Legende
++    const enden = B.entzerre(G.map(g => d.yWert(bei(g, saetze[n]))), 0.24);
++    G.forEach((g, i) => B.text(s, g, { x: xSatz(saetze[n]) + 0.14, y: enden[i] - 0.12, w: 0.40, h: 0.24, rolle: 'wert', valign: 'middle', einzeilig: true, name: 'Linie ' + g }));
++
++    // Anmerkungszeichen: kleiner Kreis mit Nummer, einmal im Diagramm und einmal vor der Anmerkung
++    const zeichen = (nr, cx, cy, wo) => B.achskreis(s, { cx, cy, d: 0.26, pt: 10, text: String(nr), name: `Anmerkung ${nr} ${wo}` });
+ 
+-    // Marke beim Tilgungssatz der Jahresrechnung: Punkte auf den Linien, die drei Werte rechts der Marke, Bezeichnung unter der Achse
++    // 1 Jahresrechnung: Hilfslinie, Punkte und die drei Werte
+     const xM = xSatz(tJahr);
+     B.marke(s, { x: xM, y: d.plot.y, h: d.plot.h, art: 'mass' });
+     for (const g of G) B.punkt(s, { cx: xM, cy: d.yWert(bei(g, tJahr)), art: R.LINIEN[g].art, name: 'Punkt ' + g });
+-    B.wertzeilen(s, { x: xM + 0.10, mitten: [band(80000), band(60000), band(40000)], name: 'Jahresrechnung', eintraege: G.map(g => ({ kreis: g, text: fmt.zahl(bei(g, tJahr)) })) });
+-    // Bezeichnung der Marke im untersten Band rechts der Marke (unter der Achse steht der Achsentitel); das Modul prüft, dass dort keine Linie läuft
+-    const xText = xM + 0.08, wText = 1.90, tEnde = tJahr + (xText + wText - xM) / d.katBreite * saetze[1];
+-    R.pruefe(G.every(g => bei(g, Math.min(tEnde, saetze[n])) > ACHSE.min + ACHSE.schritt), 'Im untersten Band rechts der Marke läuft eine Linie durch die Bezeichnung „Jahresrechnung“; Lage im Modul der Folie 20 anpassen.');
+-    B.text(s, ctx.wortlaut(`Jahresrechnung: ${fmt.prozent(tJahr, 2)}`, 'Markentext'), { x: xText, y: band(ACHSE.min + ACHSE.schritt) - 0.10, w: wText, h: 0.20, rolle: 'achse', farbe: 'text', valign: 'middle', einzeilig: true, name: 'Markentext' });
+-    B.achsentitel(s, d, { y: ctx.wortlaut('Zahlungsüberschuss in € p. a.', 'Achsentitel'), x: ctx.wortlaut('Tilgungssatz p. a.', 'Achsentitel') });
+-
+-    B.linienenden(s, { x: xSatz(saetze[n]) + 0.30, eintraege: G.map(g => ({ kreis: g, y: d.yWert(bei(g, saetze[n])) })) });
+-
+-    // Kommentar: zuerst das Ergebnis beim Satz der Jahresrechnung (in allen drei Gruppen ein Zahlungsüberschuss, am höchsten in A), dann die Sätze,
+-    // bei denen er null wird (Übersicht 3.8), die Festlegung durch die NBank und zuletzt die Schwelle C gegen A wie in der Broschüre S. 12.
+-    // Die Zulassung von B und C steht auf den Folien 10 und 15.
++    G.forEach((g, i) => {
++      const y = band(80000 - i * 20000) - 0.12;
++      B.text(s, g, { x: xM + 0.12, y, w: 0.22, h: 0.24, rolle: 'wert', valign: 'middle', einzeilig: true, name: 'Jahresrechnung Gruppe ' + g });
++      B.text(s, fmt.zahl(bei(g, tJahr)), { x: xM + 0.34, y, w: 0.80, h: 0.24, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Jahresrechnung Wert ' + g });
++    });
++    B.text(s, `Jahresrechnung: ${p2(tJahr)}`, { x: xM + 0.08, y: band(ACHSE.min + ACHSE.schritt) - 0.10, w: 1.90, h: 0.20, rolle: 'achse', farbe: 'text', valign: 'middle', einzeilig: true, name: 'Markentext' });
++    zeichen(1, xM - 0.20, d.plot.y + 0.16, 'im Diagramm');
++
++    // 2 Nullstellen: Punkte auf der Nulllinie
+     const nullBei = Object.fromEntries(G.map(g => [g, M(`liq.breakeven_tilgung.${g}`)]));
+-    R.pruefe(G.every(g => bei(g, tJahr) > 0) && bei('A', tJahr) > bei('B', tJahr) && bei('A', tJahr) > bei('C', tJahr),
+-      'Die Aussage „beim Satz der Jahresrechnung bleibt in allen drei Gruppen ein Zahlungsüberschuss, am höchsten in A“ trifft nicht mehr zu.');
+-    R.pruefe(tJahr < nullBei.C && nullBei.C < nullBei.B && nullBei.B < nullBei.A && nullBei.A <= saetze[n] && G.every(g => Math.abs(bei(g, nullBei[g])) < 0.5),
+-      'Die Sätze, bei denen der Zahlungsüberschuss null wird (Übersicht 3.8), liegen nicht mehr in der Reihenfolge C, B, A über dem Satz der Jahresrechnung und im Bereich der Achse.');
+-    const p2 = v => fmt.prozent(v, 2);
+-    B.planlegende(s, { platzhalter: 'kommentar', eintraege: [
+-      { text: `Bei ${p2(tJahr)} Tilgung bleibt in allen drei Gruppen ein Zahlungsüberschuss. Am höchsten ist er in A.` },
+-      { text: `Null wird er in C bei ${p2(nullBei.C)}, in B bei ${p2(nullBei.B)} und in A bei ${p2(nullBei.A)} Tilgung.` },
+-      // Untergrenze bei linearer Tilgung: 1 ÷ Höchstlaufzeit (RL Nr. 5.3.5); mit diesem Satz rechnet die Jahresrechnung
+-      { text: `Den Tilgungssatz legt die NBank fest. Linear über ${M('tab.laufzeit_hoechstens')} Jahre sind es rechnerisch mindestens ${p2(1 / M('tab.laufzeit_hoechstens'))}.` },
+-      { text: `Unter ${p2(schwelle)} läge C vorn, B in keinem Fall.` }].map(e => ({ text: ctx.wortlaut(e.text, 'Kommentar') })) });
++    for (const g of G) B.punkt(s, { cx: xSatz(nullBei[g]), cy: d.yWert(0), art: R.LINIEN[g].art, name: 'Nullstelle ' + g });
++    zeichen(2, xSatz((nullBei.C + nullBei.A) / 2), d.yWert(0) - 0.24, 'im Diagramm');
++
++    // 3 Schnitt von A und C
++    B.punkt(s, { cx: xSatz(schwelle), cy: d.yWert(bei('A', schwelle)), art: 'tinte', name: 'Schnitt A und C' });
++    zeichen(3, xSatz(schwelle) - 0.04, d.yWert(bei('A', schwelle)) + 0.26, 'im Diagramm');
++
++    // ---- Anmerkungen rechts, nummeriert wie im Diagramm -----------------------------------------------------------------------------
++    const x1 = colX(9), w1 = span(4);
++    B.linie(s, { x: x1, y: yD, w: w1, art: 'tinte', name: 'Linie über den Anmerkungen' });
++    let y = yD + 0.16;
++    const anmerkung = (nr, text) => {
++      if (nr) zeichen(nr, x1 + 0.13, y + 0.14, 'am Text');
++      y = B.text(s, text, { x: x1 + 0.38, y, w: w1 - 0.38, rolle: 'dicht', name: 'Anmerkung Text ' + (nr || 'ohne Nummer') }).unten + 0.16;
++    };
++    anmerkung(1, `Bei ${p2(tJahr)} Tilgung bleibt in allen drei Gruppen ein Zahlungsüberschuss. Am höchsten ist er in A.`);
++    anmerkung(2, `Null wird er in C bei ${p2(nullBei.C)}, in B bei ${p2(nullBei.B)} und in A bei ${p2(nullBei.A)} Tilgung.`);
++    anmerkung(3, `Unter ${p2(schwelle)} läge C vorn, B in keinem Fall.`);
++    anmerkung(0, `Den Tilgungssatz legt die NBank fest. Linear über ${M('tab.laufzeit_hoechstens')} Jahre sind es rechnerisch mindestens ${p2(1 / M('tab.laufzeit_hoechstens'))}.`);
++
++    B.quelle(s, 'Quelle: Modellrechnung der PGN, Rechenmappe v3');
+   },
+ };

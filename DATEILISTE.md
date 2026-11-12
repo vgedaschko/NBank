@@ -6,15 +6,16 @@ Die Spalte „Vorschlag“ gilt erst nach Freigabe.
 
 ## Die Ergebnisse, je eine aktuelle Datei
 
-| Ergebnis | Datei |
-|---|---|
-| Broschüre (PDF) | `broschuere/dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026.pdf` |
-| BAUSKRIPT bzw. Werkzeug (assemble, render, InDesign, Schriften, Bilder) | `broschuere/scripts/assemble.cjs` |
-| BAUSKRIPT bzw. Werkzeug (assemble, render, InDesign, Schriften, Bilder) | `broschuere/scripts/render.cjs` |
-| baut den Vortrag | `praesentation/build.cjs` |
-| Vortrag (PowerPoint) | `praesentation/dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Vortrag.pptx` |
-| Rechenmappe v3 | `vofi/PGN_VOFI_Mietwohnraum_2026_v3.xlsx` |
-| erzeugt die Rechenmappe | `vofi/build_vofi.py` |
+| Ergebnis | Aktuelle Datei | Daraus erzeugt |
+|---|---|---|
+| Vortrag | `praesentation/dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Vortrag.pptx` | PDF-Ausgabe im selben Ordner |
+| Handout (Broschüre) | `broschuere/dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026.pdf` | Druck-PDF mit Beschnitt und InDesign-Paket im selben Ordner |
+| Excel | `vofi/PGN_VOFI_Mietwohnraum_2026_v3.xlsx` | |
+| Bauskript Vortrag | `praesentation/build.cjs` | mit `lib/`, `folien/`, `daten/`, Prüfung `pruefe_folien.py` |
+| Bauskript Broschüre | `broschuere/scripts/assemble.cjs` und `render.cjs` | mit `src/pages/`, `src/styles.css`, InDesign-Export `export-idml.cjs` |
+| Bauskript Excel | `vofi/build_vofi.py` | Prüfung `pruefe_vofi.py` |
+
+Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die Broschüre geführt.
 
 ## Veraltet und Zwischenstand
 

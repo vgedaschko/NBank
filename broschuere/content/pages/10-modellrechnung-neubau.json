@@ -50,7 +50,7 @@
             "token": "--color-equity"
           }
         ],
-        "form": "Haus: 5 gleich hohe Geschosse, je 20 % der Gesamtkosten (keine Erläuterungszeile unter dem Haus), 14 Fenster für 14 Wohnungen (vier Geschosse mit drei Fenstern, oben zwei); Beschriftung je Segment rechts mit Maßkette, Maßkette „Förderung“ links über Darlehen und Zuschuss; 80-%-Linie hinter dem Haus, nur links und rechts als Höhenmarke sichtbar",
+        "form": "Haus: 5 gleich hohe Geschosse, je 20 % der Gesamtkosten (keine Erläuterungszeile unter dem Haus), 14 Fenster für 14 Wohnungen (vier Geschosse mit drei Fenstern, oben zwei); Beschriftung je Segment rechts mit Maßkette, Maßkette „Förderung“ links über Darlehen und Zuschuss, die Summe 2,4 dort in der kleinen Wertstufe wie auf S. 11 (groß steht sie nur im Titel); 80-%-Linie hinter dem Haus, nur links und rechts als Höhenmarke sichtbar",
         "bracket": {
           "name": "Förderung",
           "value": 2.4,

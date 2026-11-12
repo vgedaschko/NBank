@@ -3,7 +3,9 @@
     /* S. 12 · Modellrechnung: Mix und Tilgung – NEU in Korrekturlauf 1 (korrektur/lauf-1/ENTSCHEIDUNGEN.md, D).
        Linke Seite der Doppelseite 12|13 (physische Heftmitte, ein Druckbogen), weiß wie S. 13 (Papier nur auf 10|11).
        Gerade Seite: Notiz in der äußeren Marginalspalte links (Spalten 1–3), Diagramm am Bund (Spalten 4–12) –
-       spiegelbildlich zu S. 13. Horizonte mit S. 13: Kopfzeile und Oberkante H1.
+       spiegelbildlich zu S. 13. Horizonte mit S. 13: Kopfzeile (14,0–22,5 mm), Oberkante H1 (27,45 mm), Unterkante des
+       Diagramm-Moduls (175,2 mm) und die Linie über dem unteren Band (179,2 mm; rechts die Oberkante des Bands „Kombinierbar mit“).
+       Die erste Modullinie (72,1 mm) liegt höher als auf S. 13, weil dort der Programmkopf dazwischensteht.
        Alle Zahlen aus dem Modellhaus S. 10/11: Mehrüberschuss(t) = 0,98 × Mehr-Sollmiete − 0,5 % × Mehrschuld − t × Mehrschuld
        (Mietausfall 2 %, VOFI-Mappe v3, Projekt 2, Übersicht Zeilen 29–39 und 55–72). Diagrammgeometrie: x = 13 + 35,667 × t (t in %, Achse 0–3,0 %),
        y = 54 − 0,002 × € (Gitter je 5.000 € = 10 mm, +20.000 bei y 14, −10.000 bei y 74; x-Achse bei y 76,7); Linien aus den ungerundeten Werten
@@ -12,13 +14,17 @@
        Diagramm: Linien in Tinte (B gestrichelt, C durchgezogen), Gruppen als Achskreise c-grp-b/-c; kein Rot im Diagramm
        (Rot = Zuschuss). Rechenweg: Unterzeile Mietausfall ohne eigene Nummer (wie S. 11, Zeile 1). */
     /* Stufung und Zuteilung nach styles.css §8b. H1 zweizeilig in 25 pt, Rot nur an der Zahl. Vorspann in 12 pt über die volle
-       Breite (zwei Zeilen). Seitenlokal nur: Fußzeile der Tabelle in 8,5 pt. */
+       Breite (zwei Zeilen). Seitenlokal nur: Fußzeile der Tabelle in 8,5 pt.
+       Der Abstand über dem Diagramm-Modul (9,6 mm) stellt die beiden Horizonte mit S. 13 ein. */
     .page[data-page="12"] .mix-lead { margin-top: 5.2mm; max-width: none; }
-    .page[data-page="12"] .mix-fig { margin-top: 7.4mm; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: var(--gutter); align-items: start; }
+    .page[data-page="12"] .mix-fig { margin-top: 9.6mm; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: var(--gutter); align-items: start; }
     .page[data-page="12"] .mix-fig > .chart__head { grid-column: 4 / span 9; grid-row: 1; }
     .page[data-page="12"] .mix-fig > .chart__svg { grid-column: 4 / span 9; grid-row: 2; margin-top: 3.6mm; }
     .page[data-page="12"] .mix-note { grid-column: 1 / span 3; grid-row: 1 / span 2; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="12"] .mix-note p { text-wrap: pretty; }
+    /* Notiz im Flattersatz, 41 mm: Zeilen ausgeglichen, damit kein Wort allein in der letzten Zeile steht. Der letzte Absatz
+       hat acht Zeilen und läuft normal; dort hält .u-nowrap den letzten Betrag bei seinem „um“. */
+    .page[data-page="12"] .mix-note p { text-wrap: balance; }
+    .page[data-page="12"] .mix-note p:last-child { text-wrap: wrap; }
     .page[data-page="12"] .mix-note p + p { margin-top: 2.2mm; }
     .page[data-page="12"] .mix-note b { color: var(--fg); }
     .page[data-page="12"] .mix-l { fill: none; stroke: var(--fg); }
@@ -29,7 +35,8 @@
     .page[data-page="12"] .mix-dot { fill: var(--fg); }
     .page[data-page="12"] .mix-tk { fill: none; stroke: var(--fg); stroke-width: .3; }
     /* Unteres Band: Rechenweg (7, außen) | Zulassung, Laufzeit und die Einflüsse auf die Schwellen (5, am Bund).
-       Die Einflüsse stehen als Anmerkung mit Haarlinie unter den beiden Modulen; ihre letzte Zeile schließt mit dem Satzspiegel.
+       Die Einflüsse stehen als Anmerkung unter den beiden Modulen, abgesetzt mit der Haarlinie der Tabellenzeilen;
+       ihre letzte Zeile schließt mit dem Satzspiegel.
        Zeilenabstände des Rechenwegs offen wie auf S. 10. */
     .page[data-page="12"] .mix-low { --row-gap: 0; margin-top: var(--sp-4); align-items: start; }
     .page[data-page="12"] .mix-rw caption { caption-side: top; text-align: left; padding-bottom: 2.6mm; }
@@ -45,9 +52,9 @@
     .page[data-page="12"] .mix-rw tbody td:not(.num) { padding-right: .8mm; }   /* Positionsspalte: Zeile 1 in zwei Zeilen (Abstand zu den Werten bleibt ≥ 2,5 mm) */
     .page[data-page="12"] .mix-rw tfoot td { padding-top: 2.6mm; white-space: nowrap; border-bottom: 0; font-size: var(--fs-micro); line-height: 1.3; color: var(--fg-3); }
     .page[data-page="12"] .mix-rw tfoot td.num { color: var(--fg-2); }
-    .page[data-page="12"] .mix-txt > .module + .module { margin-top: var(--sp-5); }
+    .page[data-page="12"] .mix-txt > .module + .module { margin-top: var(--sp-4); }
     .page[data-page="12"] .mix-txt .body { margin-top: 2.2mm; color: var(--text); }
-    .page[data-page="12"] .mix-infl { margin-top: 5mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); text-wrap: pretty; }
+    .page[data-page="12"] .mix-infl { margin-top: 4mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); text-wrap: pretty; }
   </style>
 
   <div class="bs-register" data-bleed aria-hidden="true">2.1</div>
@@ -66,7 +73,7 @@
     <div class="mix-note">
       <p><b>B</b> liegt in dieser Rechnung nie vorn. Unter 1,80 % liegt C vor B, darüber A. Ein Mix aus A, B und C liegt anteilig dazwischen.</p>
       <p>Bei <b>2,38 %</b> Tilgung wie auf S. 11 liegt A vorn. B bleibt 3.443 € darunter, C 4.190 €.</p>
-      <p>Bei 0 % zeigt das Diagramm den Mehrüberschuss vor Tilgung. Jeder Prozentpunkt Tilgung mindert den Mehrüberschuss von B um 5.927 €, von C um 8.890 €.</p>
+      <p>Bei 0 % zeigt das Diagramm den Mehrüberschuss vor Tilgung. Jeder Prozentpunkt Tilgung mindert den Mehrüberschuss von B um 5.927 €, von C <span class="u-nowrap">um 8.890 €.</span></p>
     </div>
   </figure>
 

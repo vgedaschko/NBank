@@ -1976,7 +1976,7 @@ abbr { text-decoration: none; }
    Tabellen | 8,5 pt Labels, Unterzeilen der Abbildungen, Achsen. Dazwischen steht nichts.
    Versalien: nur H1, Kolumnentitel/Schriftfeld und die 8,5-pt-Labels. Modultitel und Unterzeile laufen gemischt.
    Rot: Titellinie und ein Wort oder eine Zahl im H1, Zuschuss in Daten, Ergebniszeile, Achtung/Stichtag, Register und
-   Programmteilfarbe, Logo. Labels, Einheiten, Aufzählungszeichen, Verweise und Hilfslinien stehen in Schwarz.
+   Programmteilfarbe, Stempel „Modellrechnung“, Logo. Labels, Einheiten, Aufzählungszeichen, Verweise und Hilfslinien stehen in Schwarz.
    ----------------------------------------------------------------------------- */
 .h1--s { font-size: var(--fs-h1); }                       /* Stufe entfällt; Klasse nicht mehr verwenden */
 .h1 .light, .display .light { margin-bottom: 1.2mm; color: var(--fg); }
@@ -2002,7 +2002,17 @@ abbr { text-decoration: none; }
 .dim__seg--acc { --dim-c: var(--fg); color: var(--fg); }
 .sw--axis { --sw-axis: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4.6 .25' preserveAspectRatio='none'%3E%3Cpath d='M0,.125H4.6' stroke='%231D1D1B' stroke-width='.25' stroke-dasharray='1.6 .5 .4 .5'/%3E%3C/svg%3E"); }
 /* Dichte Nachschlageseite: wenn 9,5 pt nicht aufgeht, die ganze Seite auf 9 pt – nie gemischt */
-.page--dicht { --fs-body: 9pt; --fs-small: 9pt; --lh-body: 1.4; --lh-small: 1.4; --lh-module: 1.38; }
+.page--dicht { --fs-body: 9pt; --fs-small: 9pt; --fs-module: 9pt; --lh-body: 1.4; --lh-small: 1.4; --lh-module: 1.38; font-size: var(--fs-body); }
+/* Rollen, die jetzt schwarz sind, stehen in der Label-Stufe (8,5 pt) bzw. in der Modultitel-Form */
+.kf__pre, .term__label, .contact__label, .service__phase, .audience__label, .label--accent, .lp__line--pgn .lp__name { font-size: var(--fs-micro); }
+.runin { font-size: var(--fs-micro); letter-spacing: var(--track-caps); }
+.term__word, .offer-box__title, .callout__title, .program__title { font: 800 var(--fs-h3)/1.2 var(--font-display); letter-spacing: 0; text-transform: none; }
+.table--figures-m tbody td.num { font-size: var(--fs-h3); }
+.quote__text { font-size: var(--fs-lead); }
+.quote::before { background: var(--fg); }
+.offer { color: var(--fg); }
+.chart__unit--block { margin-left: 0; }
+.sw--cap { --sw-cap: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4.6 3' preserveAspectRatio='none'%3E%3Crect x='.125' y='.125' width='4.35' height='2.75' stroke='%231D1D1B' stroke-width='.25' stroke-dasharray='1 .6' fill='none'/%3E%3C/svg%3E"); }
 
 /* -----------------------------------------------------------------------------
    9 · BILDSCHIRMVORSCHAU

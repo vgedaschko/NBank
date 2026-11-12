@@ -684,7 +684,7 @@
       },
       "spanne_herstellung": {
         "min": {
-          "wert": 3221,
+          "wert": 3221.28,
           "einheit": "€ je m² Wohnfläche, brutto, KG 200–700",
           "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · ARGE“, Spalte „_Sockel (bis min)“; Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Kostenspannen min/Median/max, Kostenstand Q4 2025)",
           "geprueft": false,
@@ -698,7 +698,7 @@
           "vermerk": "nicht nachgeprüft"
         },
         "max": {
-          "wert": 8592,
+          "wert": 8592.36,
           "einheit": "€ je m² Wohnfläche, brutto, KG 200–700",
           "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · ARGE“: Sockel + „Spanne min bis Median“ + „Spanne Median bis max“ (3221 + 1410.07 + 3960.93); Quelle laut Altfassung: ARGE e.V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (Kostenspannen min/Median/max, Kostenstand Q4 2025)",
           "geprueft": false,
@@ -738,163 +738,142 @@
       "arge": {
         "herstellung": {
           "min": {
-            "wert": 3221.0,
+            "wert": 3221.28,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · ARGE“, Spalte „_Sockel (bis min)“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "median": {
             "wert": 4631.07,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · ARGE“, Sockel + „Spanne min bis Median“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "max": {
-            "wert": 8592.0,
+            "wert": 8592.36,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Herstellung · ARGE“, Sockel + beide Spannen; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           }
         },
         "grundstueck": {
           "min": {
-            "wert": 318.0,
+            "wert": 317.95,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Grundstück · ARGE“, Spalte „_Sockel (bis min)“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "median": {
             "wert": 760.72,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Grundstück · ARGE“, Sockel + „Spanne min bis Median“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "max": {
-            "wert": 2982.0,
+            "wert": 2981.87,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Grundstück · ARGE“, Sockel + beide Spannen; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           }
         },
         "vorbereitende_massnahmen": {
           "min": {
-            "wert": 18.0,
+            "wert": 18.17,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Vorbereitende Maßnahmen · ARGE“, Spalte „_Sockel (bis min)“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "median": {
             "wert": 113.46,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Vorbereitende Maßnahmen · ARGE“, Sockel + „Spanne min bis Median“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "max": {
-            "wert": 875.0,
+            "wert": 875.18,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Vorbereitende Maßnahmen · ARGE“, Sockel + beide Spannen; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           }
         },
         "bauwerk": {
           "min": {
-            "wert": 2555.0,
+            "wert": 2554.63,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Bauwerk · ARGE“, Spalte „_Sockel (bis min)“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "median": {
             "wert": 3712.84,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Bauwerk · ARGE“, Sockel + „Spanne min bis Median“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "max": {
-            "wert": 6949.0,
+            "wert": 6948.99,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Bauwerk · ARGE“, Sockel + beide Spannen; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           }
         },
         "aussenanlagen": {
           "min": {
-            "wert": 46.0,
+            "wert": 45.8,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Außenanlagen · ARGE“, Spalte „_Sockel (bis min)“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "median": {
             "wert": 174.1,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Außenanlagen · ARGE“, Sockel + „Spanne min bis Median“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "max": {
-            "wert": 607.0,
+            "wert": 607.12,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Außenanlagen · ARGE“, Sockel + beide Spannen; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           }
         },
         "ausstattung": {
           "min": {
-            "wert": 36.0,
+            "wert": 36.19,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Ausstattung · ARGE“, Spalte „_Sockel (bis min)“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "median": {
             "wert": 75.77,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Ausstattung · ARGE“, Sockel + „Spanne min bis Median“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "max": {
-            "wert": 225.0,
+            "wert": 225.47,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Ausstattung · ARGE“, Sockel + beide Spannen; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           }
         },
         "baunebenkosten": {
           "min": {
-            "wert": 328.0,
+            "wert": 328.32,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Baunebenkosten · ARGE“, Spalte „_Sockel (bis min)“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "median": {
             "wert": 554.9,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Baunebenkosten · ARGE“, Sockel + „Spanne min bis Median“; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           },
           "max": {
-            "wert": 1128.0,
+            "wert": 1127.56,
             "einheit": "€ je m² Wohnfläche, brutto, Kostenstand Q4 2025",
-            "herkunft": "Altfassung Folie 12, eingebettete Arbeitsmappe, Zeile „Baunebenkosten · ARGE“, Sockel + beide Spannen; Quelle: ARGE e. V. (2026), S. 32, Abb. 20",
-            "geprueft": false,
-            "vermerk": "nicht nachgeprüft"
+            "herkunft": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20 (von | Median | bis); am 12.11.2026 an der Quelle nachgelesen",
+            "geprueft": true
           }
         }
       },

@@ -191,8 +191,8 @@ KERNWERTE = [
     ("-modellhaus:frei.tilgung_jahr1", "euro", "44.139 €", ["rechnung-fluss-frei"]),
     ("-modellhaus:frei.zins_jahr1 / (" + SOLLMIETE_FREI + ")", "prozent1", "58,0 %", ["rechnung-fluss-frei"]),
     # Herstellungskosten je m²: Das Modellhaus rechnet mit dem PGN-Median (Folien 14, 22 und 23); dazu die beiden Werte der Sensitivität (Folie 23)
-    ("eingabe.herstellungskosten_qm", "euro", "3.579 €", ["rechnung-finanzierung", "pgn-baukosten", "rechnung-kosten"]),
-    (K_ARGE + "eingabe.herstellungskosten_qm", "euro", "4.631 €", ["pgn-baukosten", "rechnung-kosten"]),
+    ("eingabe.herstellungskosten_qm", "euro", "3.579 €", ["rechnung-finanzierung", "rechnung-kosten"]),
+    (K_ARGE + "eingabe.herstellungskosten_qm", "euro", "4.631 €", ["rechnung-kosten"]),
     (K_GRENZE + "eingabe.herstellungskosten_qm", "euro", "5.000 €", ["rechnung-kosten"]),
     ("eingabe.zins_bank", "prozent2", "3,74 %", ["ausgangslage-zinsen", "einstieg-kapitaldienst", "rechnung-kapitaldienst"]),
     # Folie 19: Bewirtschaftung im Rechenweg der nötigen Miete (Objektverwaltung und Instandhaltung, Übersicht D31 + D32)
@@ -263,8 +263,6 @@ KERNWERTE_MARKT = [
     (BESTAND_RUECKGANG, "prozent1vz", "−40,6 %", ["einstieg-bestand"]),
     ("markt#markt.quote", "prozent0", "28 %", ["einstieg-bestand"]),
     ("markt#markt.ausgelaufen", "zahl", "58.024", ["einstieg-bestand"]),
-    ("markt#kosten.pgn.spanne_herstellung.median", "euro", "3.579 €", ["pgn-baukosten"]),
-    ("markt#kosten.arge.spanne_herstellung.median", "euro", "4.631 €", ["pgn-baukosten"]),
     (PGN_UNTER_ARGE, "prozent1vz", "−22,7 %", ["pgn-baukosten"]),
     # Folie 22: Die Werte über den Säulen sind Textfelder (Stelle in der Liste wie kosten.gruppen: Herstellung, Bauwerk, Baunebenkosten, Außenanlagen)
     ("markt#kosten.pgn.median.wert.0", "zahl", "3.579", ["pgn-baukosten"]),
@@ -329,11 +327,6 @@ KERNSAETZE = [
     ("pgn-baukosten", "Herstellungskosten der PGN liegen {a} unter dem ARGE-Median", {"a": ("-(" + PGN_UNTER_ARGE + ")", "prozent1")}),
     # Bis 11.11.2026 stand hier die Marke „Ansatz im Modellhaus: 4.500 €“. Das Modellhaus rechnet seither mit dem PGN-Median selbst; gebunden ist
     # jetzt das Wertepaar der Hauptzahl an die Rechenmappe: Ansatz des Modellhauses und Eingabewert des Laufs mit dem ARGE-Median (Folie 23)
-    ("pgn-baukosten", "{a} gegen {b} je m²", {"a": ("eingabe.herstellungskosten_qm", "euro"), "b": (K_ARGE + "eingabe.herstellungskosten_qm", "euro")}),
-    ("pgn-baukosten", "{a} gegen {b} je m²", {"a": ("markt#kosten.pgn.spanne_herstellung.median", "euro"), "b": ("markt#kosten.arge.spanne_herstellung.median", "euro")}),   # Label der Hauptzahl
-    ("pgn-baukosten", "PGN {a} bis {b},", {"a": ("markt#kosten.pgn.spanne_herstellung.min", "zahl"), "b": ("markt#kosten.pgn.spanne_herstellung.max", "euro")}),
-    ("pgn-baukosten", "ARGE {a} bis {b} je m²", {"a": ("markt#kosten.arge.spanne_herstellung.min", "zahl"), "b": ("markt#kosten.arge.spanne_herstellung.max", "euro")}),
-    ("pgn-baukosten", "Spanne KG 200–700: Minimum bis Maximum", {}),   # Legende zum Maßzeichen der Spanne neben den Säulen der Herstellung
     # Anhangfolie zur Eigenkapitalrendite (A7): Titel, Annahmen und das Paar, in dem die Rechenmappe Renditen nach außen verlangt
     # Der Titel nennt für Gruppe A beide Lesarten: mit Restwert und ohne Restwert (Rechenmappe, Blatt Hinweise Nr. 12; die Lesart „nur Bodenwert“
     # der Mappe rechnet beim Modellhaus ohne Restwert, weil das Grundstück nicht angesetzt ist: Blatt Hinweise Nr. 15)
@@ -426,15 +419,13 @@ KERNWERTE_DIAGRAMM = [
     ("markt#bestand.reihe.wert.2016", "einstieg-bestand", "Bestand zum 31.12.", "2016"),
     ("markt#bestand.reihe.wert.2024", "einstieg-bestand", "Bestand zum 31.12.", "2024"),
     ("markt#bestand.reihe.wert.2025", "einstieg-bestand", "Bestand zum 31.12.", "2025"),
-    ("markt#kosten.pgn.spanne_herstellung.median", "pgn-baukosten", "PGN", "Herstellung KG 200–700"),
-    ("markt#kosten.arge.spanne_herstellung.median", "pgn-baukosten", "ARGE", "Herstellung KG 200–700"),
+    ("markt#kosten.spannen.arge.herstellung.min", "pgn-baukosten", "Sockel bis Minimum", "Herstellung · ARGE"),
+    ("markt#kosten.spannen.arge.herstellung.median - markt#kosten.spannen.arge.herstellung.min", "pgn-baukosten", "ARGE Minimum bis Median", "Herstellung · ARGE"),
+    ("markt#kosten.spannen.arge.herstellung.max - markt#kosten.spannen.arge.herstellung.median", "pgn-baukosten", "ARGE Median bis Maximum", "Herstellung · ARGE"),
+    ("markt#kosten.spannen.pgn.herstellung.min", "pgn-baukosten", "Sockel bis Minimum", "Herstellung · PGN"),
+    ("markt#kosten.spannen.pgn.herstellung.median - markt#kosten.spannen.pgn.herstellung.min", "pgn-baukosten", "PGN Minimum bis Median", "Herstellung · PGN"),
+    ("markt#kosten.spannen.pgn.herstellung.max - markt#kosten.spannen.pgn.herstellung.median", "pgn-baukosten", "PGN Median bis Maximum", "Herstellung · PGN"),
     # Folie 22: Die Werte über den Säulen sind Textfelder und folgen den Diagrammdaten nicht; gebunden sind deshalb auch die übrigen Säulen
-    ("markt#kosten.pgn.median.wert.1", "pgn-baukosten", "PGN", "Bauwerk KG 300/400"),
-    ("markt#kosten.arge.median.wert.1", "pgn-baukosten", "ARGE", "Bauwerk KG 300/400"),
-    ("markt#kosten.pgn.median.wert.2", "pgn-baukosten", "PGN", "Baunebenkosten KG 700"),
-    ("markt#kosten.arge.median.wert.2", "pgn-baukosten", "ARGE", "Baunebenkosten KG 700"),
-    ("markt#kosten.pgn.median.wert.3", "pgn-baukosten", "PGN", "Außenanlagen KG 500"),
-    ("markt#kosten.arge.median.wert.3", "pgn-baukosten", "ARGE", "Außenanlagen KG 500"),
     # Folie 5: Die drei Ursachen haben bei „Q1 2020“ keine Höhe (ihre Datenpunkte stehen ohne Füllung und ohne Linie)
     ("0 * 1", "einstieg-kapitaldienst", "Baukosten", "Q1 2020"),
     ("0 * 1", "einstieg-kapitaldienst", "Zins", "Q1 2020"),
@@ -475,18 +466,18 @@ KERNWERTE_FORM = [
     ("markt#bestand.reihe.wert.2016", "zahl", "einstieg-bestand", "Wert 2016", None, "{a}"),
     ("markt#bestand.reihe.wert.2024", "zahl", "einstieg-bestand", "Wert 2024", None, "{a}"),
     ("markt#bestand.reihe.wert.2025", "zahl", "einstieg-bestand", "Wert 2025", None, "{a}"),
-    ("markt#kosten.pgn.median.wert.0", "zahl", "pgn-baukosten", "Wert Herstellung PGN", None, "{a}"),
-    ("markt#kosten.arge.median.wert.0", "zahl", "pgn-baukosten", "Wert Herstellung ARGE", None, "{a}"),
-    ("markt#kosten.pgn.median.wert.1", "zahl", "pgn-baukosten", "Wert Bauwerk PGN", None, "{a}"),
-    ("markt#kosten.arge.median.wert.1", "zahl", "pgn-baukosten", "Wert Bauwerk ARGE", None, "{a}"),
-    ("markt#kosten.pgn.median.wert.2", "zahl", "pgn-baukosten", "Wert Baunebenkosten PGN", None, "{a}"),
-    ("markt#kosten.arge.median.wert.2", "zahl", "pgn-baukosten", "Wert Baunebenkosten ARGE", None, "{a}"),
-    ("markt#kosten.pgn.median.wert.3", "zahl", "pgn-baukosten", "Wert Außenanlagen PGN", None, "{a}"),
-    ("markt#kosten.arge.median.wert.3", "zahl", "pgn-baukosten", "Wert Außenanlagen ARGE", None, "{a}"),
-    ("markt#kosten.arge.spanne_herstellung.max", "zahl", "pgn-baukosten", "Spanne ARGE Text", None, "Maximum {a}"),
+    ("markt#kosten.pgn.median.wert.0", "zahl", "pgn-baukosten", "Median Herstellung pgn", None, "{a}"),
+    ("markt#kosten.arge.median.wert.0", "zahl", "pgn-baukosten", "Median Herstellung arge", None, "{a}"),
+    ("markt#kosten.pgn.median.wert.1", "zahl", "pgn-baukosten", "Median Bauwerk pgn", None, "{a}"),
+    ("markt#kosten.arge.median.wert.1", "zahl", "pgn-baukosten", "Median Bauwerk arge", None, "{a}"),
+    ("markt#kosten.pgn.median.wert.2", "zahl", "pgn-baukosten", "Median Baunebenkosten pgn", None, "{a}"),
+    ("markt#kosten.arge.median.wert.2", "zahl", "pgn-baukosten", "Median Baunebenkosten arge", None, "{a}"),
+    ("markt#kosten.pgn.median.wert.3", "zahl", "pgn-baukosten", "Median Außenanlagen und Freiflächen pgn", None, "{a}"),
+    ("markt#kosten.arge.median.wert.3", "zahl", "pgn-baukosten", "Median Außenanlagen und Freiflächen arge", None, "{a}"),
     # Maßkettenwerte: Die Form heißt „Maßkettenwert <Wert>“; Name und Text tragen denselben Wert
-    ("markt#baukosten.herstellung.q4_2025 / markt#baukosten.herstellung.q1_2020 - 1", "prozent1vz", "einstieg-baukosten", "Maßkettenwert {a}", None, "{a}"),
-    ("markt#baukosten.grundstueck.q4_2025 / markt#baukosten.grundstueck.q1_2020 - 1", "prozent1vz", "einstieg-baukosten", "Maßkettenwert {a}", None, "{a}"),
+    ("markt#baukosten.herstellung.q4_2025 / markt#baukosten.herstellung.q1_2020 - 1", "prozent1vz", "einstieg-baukosten", "Veränderung Herstellung", None, "{a}"),
+    ("markt#baukosten.grundstueck.q4_2025 / markt#baukosten.grundstueck.q1_2020 - 1", "prozent1vz", "einstieg-baukosten", "Veränderung Grundstück", None, "{a}"),
+    (PGN_UNTER_ARGE, "prozent1vz", "pgn-baukosten", "Veränderung Herstellung", None, "{a}"),
     (f"{KD_HEUTE} - {KD_2020}", "euro2vz", "einstieg-kapitaldienst", "Maßkettenwert {a}", None, "{a}"),
     (BESTAND_RUECKGANG, "prozent1vz", "einstieg-bestand", "Maßkettenwert {a}", None, "{a}"),
 ]

@@ -221,6 +221,13 @@ async function nachbearbeiten(datei, o) {
           ser = ser.replace(/<c:invertIfNegative val="0"\/>/, m => (ok = true, m + punkte));
           if (ok) { stat.ohneHoehe += anw.ohneHoehe[nm].length; delete rest.ohneHoehe[nm]; }
         }
+        // 3g Sockel unter schwebenden Spannen: Die Reihe behält ihre helle Fläche und verliert die Kontur der feinen Zeichnung (der Sockel ist
+        // Grund, keine Säule). Die Füllung der Reihe bleibt, nur <a:ln> wird ersetzt bzw. ergänzt
+        if (anw.unsichtbar && anw.unsichtbar.includes(nm)) {
+          let ok = false;
+          ser = ser.replace(/<c:spPr>([\s\S]*?)<\/c:spPr>/, (m, innen) => (ok = true, `<c:spPr>${innen.replace(/<a:ln[\s\S]*?<\/a:ln>|<a:ln[^>]*\/>/g, '')}<a:ln><a:noFill/></a:ln></c:spPr>`));
+          if (!ok) throw new Error(`${name}: Reihe „${nm}“ (Sockel) trägt keine Formatierung; die Kontur lässt sich nicht entfernen.`);
+        }
         return ser;
       });
       // pptxgenjs schreibt valAxisCrossesAt: 0 als <c:crossesAt val="autoZero"/>; das Wort gehört in <c:crosses>

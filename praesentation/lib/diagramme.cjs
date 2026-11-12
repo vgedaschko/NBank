@@ -20,6 +20,9 @@ const ART = {
   bezug:       { farbe: HEX.papier, hex: HEX.papier, label: HEX.tinte, wert: 'sekundaer' },   // Bezugswert (früherer Stand, Vergleich) als helle Fläche; nur mit fein: true, die Kontur zeichnet die Säule
   licht:       { farbe: HEX.flaeche3, hex: HEX.flaeche3, label: HEX.tinte },              // hellster Grauton E9E7E4 über Referenzgrau und B4B0AB; nur mit fein: true (Folie 5)
   signal:      { farbe: C.dunkelrot, hex: HEX.dunkelrot, label: 'FFFFFF' },
+  // Sockel gestapelter Säulen unter einer schwebenden Spanne (von null bis zum kleinsten Wert): hellste Graufläche ohne Kontur, wie in der
+  // Vorlage des Auftraggebers. Die Nachbearbeitung nimmt der Reihe die Kontur der feinen Zeichnung (Schritt 3g). Kein Eintrag in der Legende
+  sockel:      { farbe: HEX.flaeche3, hex: HEX.flaeche3, label: HEX.tinte },
   A:           { farbe: HEX.gruppe.A, hex: HEX.gruppe.A, label: 'FFFFFF' },
   B:           { farbe: HEX.gruppe.B, hex: HEX.gruppe.B, label: 'FFFFFF' },
   C:           { farbe: HEX.gruppe.C, hex: HEX.gruppe.C, label: HEX.tinte },
@@ -216,10 +219,12 @@ function diagramme(pres, kx) {
       // Gestapelt: Ein Segment mit dem Wert 0 hat keine Höhe, seine Kontur läge als zweite Linie auf der Kante des Segments darunter.
       // Diese Datenpunkte stehen deshalb ohne Linie (Schritt 3f der Nachbearbeitung)
       if (gestapelt) {
-        const ohne = Object.fromEntries(o.reihen.map(r => [r.name, r.werte.map((v, i) => (v === 0 ? i : -1)).filter(i => i >= 0)]).filter(e => e[1].length));
+        const ohne = Object.fromEntries(o.reihen.filter(r => r.art !== 'sockel').map(r => [r.name, r.werte.map((v, i) => (v === 0 ? i : -1)).filter(i => i >= 0)]).filter(e => e[1].length));
         if (Object.keys(ohne).length) merk.ohneHoehe = ohne;
       }
     }
+    const sockel = o.reihen.filter(r => r.art === 'sockel').map(r => r.name);
+    if (sockel.length) { if (!gestapelt) throw new Error('Säulendiagramm: Die Reihenart „sockel“ gibt es nur gestapelt.'); merk.unsichtbar = sockel; }
     const bb = kb / (gruppe + luecke / 100);                           // Breite, die aus der (gerundeten) Lücke folgt
     let ohneLabel = [];
     if (gestapelt && o.labels !== false) {

@@ -30,8 +30,8 @@ Baugruppen: `rahmen`, `einstieg`, `regeln`, `rechnung`, `fluss`, `struktur`, `um
 `daten/outline.json`, Feld `baugruppen`). Hilfsdateien der Baugruppen: `folien/_einstieg.cjs` (Texte der Folien 4 und 6),
 `_fluss.cjs` (gemeinsame Anlage der Folien 17 und 18; dazu die Maßkette an der Quelle der Folie 18 und der Umriss an der Quelle der Folie 17, die auf jeder der beiden Folien den Betrag der anderen im selben Maßstab zeigen), `_struktur.cjs` (Agenda, Texte der Folie 22, Quellentabelle), `_rechnung.cjs`,
 `_regeln.cjs`, `_umsetzung.cjs`, `_ueberblick.cjs`. Was nur eine Folie braucht, steht in `folien/_fein_<id>.cjs`:
-`_fein_ausgangslage-zinsen.cjs` (Folie 4: Legende mit Werten, Werteblöcke an den Marken, Punkt am Linienende, Jahresstriche) und
-`_fein_pgn-baukosten.cjs` (Folie 22: Maßzeichen der Spanne neben einer Säule und in der Legende).
+`_fein_ausgangslage-zinsen.cjs` (Folie 4: Legende mit Werten, Werteblöcke an den Marken, Punkt am Linienende, Jahresstriche).
+Die Folien 3 und 22 teilen sich `folien/_kostengruppen.cjs` (Diagramm der Kostenspannen mit Sockel, Spanne und Median, Legende, Prozentzeile).
 Jedes Bild ansehen. Der Build rechnet Texte gegen ihre Felder und jede Form gegen Satzspiegel und Inhaltszone (Abschnitt 9),
 sieht aber keine Überlagerung von Formen untereinander.
 

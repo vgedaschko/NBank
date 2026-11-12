@@ -4,6 +4,8 @@ Stand 12.11.2026. 781 versionierte Dateien: 651 aktuell, 57 veraltet, 73 Zwische
 
 Die Spalte „Vorschlag“ gilt erst nach Freigabe.
 
+Nachtrag 12.11.2026: Nach Freigabe liegen im Ordner `archiv/` die Vergleichsbilder (`muster-2/`, `konzepte-baukosten/`), die drei Textdateien (`textpruefung/`), das Hilfsmodul `_fein_pgn-baukosten.cjs` und die Messdatei `.measure-tmp.html`. Alles andere ist geblieben, wo es war. Die Pfade in den Tabellen unten zeigen den Stand vor dem Verschieben.
+
 ## Die Ergebnisse, je eine aktuelle Datei
 
 | Ergebnis | Aktuelle Datei | Daraus erzeugt |

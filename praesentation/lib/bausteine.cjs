@@ -1341,6 +1341,26 @@ function bausteine(pres, kx) {
     });
     return { rechts: o.x + d + 0.87 };
   };
+  // Achsentitel an einem Diagramm (d: Rückgabe von D.*): Größe und Einheit der Achse, Work Sans 11 pt grau wie die Achsbeschriftung.
+  // o.y: Titel der senkrechten Achse, von unten nach oben gesetzt, am linken Rand des Diagramms, mittig zur Plotfläche. Er braucht links der
+  //      Achsbeschriftung 0,22 Zoll: rand.l im Diagramm entsprechend wählen (yVersatz verschiebt ihn nach rechts).
+  // o.x: Titel der waagerechten Achse unter der Achsbeschriftung, mittig zur Plotfläche. xAusrichtung: 'rechts' | 'links' statt mittig;
+  //      xAbstand: Oberkante des Titels unter der Achse (Vorgabe 0,28: eine Zeile Achsbeschriftung; das Diagramm braucht dafür rand.u ab 0,50); xVon, xBis: andere Breite als die Plotfläche.
+  B.achsentitel = (s, d, o) => {
+    if (!d || !d.plot) throw new Error('B.achsentitel: Rückgabe eines Diagramms (D.*) fehlt.');
+    if (!o || (!o.x && !o.y)) throw new Error('B.achsentitel: x oder y fehlt (Text des Achsentitels).');
+    const st = stil('achse'), p = d.plot;
+    if (o.y) {
+      const t = schutz(String(o.y));
+      if (P) P.zeile('Achsentitel senkrecht', t, st, p.h + 0.30);
+      s.addText(t, opt(st, { x: +(d.x + (o.yVersatz || 0)).toFixed(3), y: p.y, w: 0.22, h: p.h }, { align: 'center', valign: 'middle', vert: 'vert270', wrap: false, objectName: 'Achsentitel senkrecht' }));
+    }
+    if (o.x) {
+      const x0 = typeof o.xVon === 'number' ? o.xVon : p.x, x1 = typeof o.xBis === 'number' ? o.xBis : p.x + p.w;
+      B.text(s, o.x, { x: x0, y: p.y + p.h + (typeof o.xAbstand === 'number' ? o.xAbstand : 0.28), w: x1 - x0, h: 0.20, rolle: 'achse',
+        align: o.xAusrichtung === 'rechts' ? 'right' : o.xAusrichtung === 'links' ? 'left' : 'center', valign: 'middle', einzeilig: true, name: 'Achsentitel waagerecht' });
+    }
+  };
   // Punkt auf einer Linie (Schnitt mit einer Marke): Scheibe 0,10 Zoll in der Farbe der Linie mit schmalem Rand in der Grundfarbe.
   // o: { cx, cy, art: tinte | referenz | akzent (PGN-Rot, nur am Schnitt mit einer roten Marke: Folie A8), name }
   B.punkt = (s, o) => {

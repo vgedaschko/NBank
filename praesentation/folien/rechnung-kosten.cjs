@@ -41,6 +41,8 @@ module.exports = {
     B.text(s, 'Modellhaus', { x: xM, y: yD + 0.05, w: wb - 0.08, h: 0.22, rolle: 'tabellenkopf', align: 'right', valign: 'middle', einzeilig: true, name: 'Spaltentitel Modellhaus' });
     const d = D.saeulen(s, { x: tx, y: yD, w: tw, h: hD, kategorien: kopf.map((k, i) => (i === iModell ? `${k} (Modellhaus)` : k)), werte: ueberschuss, art: 'tinte', reihenname: 'Zahlungsüberschuss Jahr 1', labels: false,
       achse: ACHSE, rand: { l: plotX - tx, r: 0, o: 0.36, u: 0.24 }, katAchse: false, luecke: 150, name: 'Diagramm Zahlungsüberschuss nach Herstellungskosten' });
+    // Der Titel der Größenachse steht direkt links der Achsbeschriftung: Die Plotfläche beginnt erst über den Wertspalten der Tabelle
+    B.achsentitel(s, d, { y: ctx.wortlaut('€ p. a.', 'Achsentitel'), yVersatz: plotX - tx - 0.86 });
     // Werte an den Säulen als Text auf einer Fläche in der Farbe des Feldes: Die Datenbeschriftung des Diagramms stünde auf den Gitterlinien
     ueberschuss.forEach((v, i) => B.textAufPlot(s, fmt.zahl(v), { x: d.katMitte(i) - 0.50, y: d.yWert(v) - 0.25, w: 1.00, h: 0.22, rolle: 'wert', align: 'center', valign: 'middle',
       grund: i === iModell ? farben.hervor : undefined, name: 'Wert ' + kopf[i] }));

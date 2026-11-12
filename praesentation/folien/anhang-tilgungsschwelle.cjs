@@ -49,7 +49,7 @@ module.exports = {
       sub: wl('Tilgungssatz p. a., bis zu dem B oder C in Jahr 1 vor A liegt · Kosten in € je m²', 'Untertitel') });
     const LINIE = { B: R.LINIEN.B, C: R.LINIEN.C }, name = g => wl(`${g} gegenüber A`, 'Legende');
     B.legende(s, { x: x0, y: yL + 0.04, eintraege: ['B', 'C'].map(g => ({ text: name(g), art: LINIE[g].art, strich: LINIE[g].strich })) });
-    const yD = yL + 0.36, hD = Y.inhaltEnde - yD, kat = kosten.map(k => fmt.zahl(k)), RAND = { l: 0.86, r: 0.62, o: 0.20, u: 0.46 };
+    const yD = yL + 0.36, hD = Y.inhaltEnde - yD, kat = kosten.map(k => fmt.zahl(k)), RAND = { l: 0.86, r: 0.62, o: 0.20, u: 0.50 };
     // Plotfläche vorab, wie D.linien sie rechnet: Die Fläche „Gruppe A vorn“ liegt unter dem Diagramm und wird deshalb vor ihm angelegt
     const plot = { x: x0 + RAND.l, y: yD + RAND.o, w: w0 - RAND.l - RAND.r, h: hD - RAND.o - RAND.u }, kb = plot.w / kat.length;
     const xK = k => plot.x + kb * ((k - kosten[0]) / SCHRITT + 0.5), yS = v => plot.y + plot.h * (1 - (v * 100 - ACHSE.min) / (ACHSE.max - ACHSE.min)), unten = plot.y + plot.h;
@@ -60,6 +60,7 @@ module.exports = {
       altText: `Liniendiagramm: Die Tilgungsschwelle gegenüber A fällt mit den Herstellungskosten, für C von ${p2(W(laeufe[0], 'tilg.schwelle.C_gegen_A'))} bei ${fmt.euro(K0)} auf ${p2(W(laeufe[2], 'tilg.schwelle.C_gegen_A'))} bei ${fmt.euro(grenze)} je m². Die Linie für B liegt darunter.`,
       rand: RAND, achse: ACHSE, reihen: ['B', 'C'].map(g => ({ name: name(g), werte: reihe(g), art: LINIE[g].art, strich: LINIE[g].strich })) });
     if (['x', 'y', 'w', 'h'].some(k => Math.abs(d.plot[k] - plot[k]) > 1e-6) || Math.abs(d.katMitte(N) - xE) > 1e-6 || Math.abs(d.yWert(2) - yS(0.02)) > 1e-6) throw new Error('Folie A8: Die vorab gerechnete Plotfläche weicht von der des Diagramms ab; die Fläche „Gruppe A vorn“ läge neben den Linien.');
+    B.achsentitel(s, d, { y: wl('Tilgungssatz p. a.', 'Achsentitel'), x: wl('Herstellungskosten in € je m² Wohnfläche', 'Achsentitel') });
     const band = oben => (d.yWert(oben) + d.yWert(oben - ACHSE.schritt)) / 2;                                      // Mitte des Bandes unter der Gitterlinie „oben“
 
     // Welche Gruppe vorn liegt: über der Linie C gegenüber A die Gruppe A (oberstes Band, rechts vom Schnitt), darunter C (unterstes Band, links)

@@ -19,6 +19,7 @@ module.exports = {
     const d = D.gruppierteSaeulen(s, { x: colX(1), y: ZONE.diagramm.chart.y, w: span(8), h: 3.27, kategorien: G, katAchse: false, name: 'Diagramm Höchstmiete',
       rand: { r: RAND_RECHTS, o: 0.44 }, luecke: LUECKE, achse: ACHSE, labelFormat: 'zwei',
       reihen: [{ name: 'Mietenstufe I–III', art: 'bisher', werte: G.map(g => m('I', g)) }, { name: 'Mietenstufe IV–VII', art: 'tinte', werte: G.map(g => m('IV', g)) }] });
+    B.achsentitel(s, d, { y: ctx.wortlaut('€ je m² und Monat', 'Achsentitel') });
     G.forEach((g, i) => B.achskreis(s, { cx: d.katMitte(i), cy: d.plot.y + d.plot.h + 0.28, groesse: 'M', text: g }));
 
     // ---- Marken der Angebotsmieten ---------------------------------------------------------------------------------

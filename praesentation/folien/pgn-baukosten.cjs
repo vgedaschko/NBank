@@ -51,10 +51,11 @@ module.exports = {
     if (legende.rechts > chart.x + chart.w + 0.005) P.melde(`Legende endet bei x ${legende.rechts.toFixed(2)} und läuft über das Diagramm (bis ${(chart.x + chart.w).toFixed(2)}).`);
     // Säulen 0,48 Zoll breit. Der Rand oben lässt Platz für die Pfeilspitze der ARGE-Spanne und ihren Wert
     const ACHSE = { min: 0, max: 5000, schritt: 1000, format: 'ganz' }, sp = r => `${r.name} ${fmt.zahl(r.spanne.min)} bis ${fmt.euro(r.spanne.max)}`;
-    const d = D.gruppierteSaeulen(s, { kategorien: gruppen.map(g => `${g.name} ${g.kg}`), katAchse: false, fein: true, saeule: 0.48, labels: false, rand: { o: 0.34 }, name: 'Diagramm Herstellungskosten', achse: ACHSE,
+    const d = D.gruppierteSaeulen(s, { kategorien: gruppen.map(g => `${g.name} ${g.kg}`), katAchse: false, fein: true, saeule: 0.48, labels: false, rand: { l: 0.80, o: 0.34 }, name: 'Diagramm Herstellungskosten', achse: ACHSE,
       altText: `Säulendiagramm: Herstellungskosten je m² Wohnfläche in €, Median, ${wer.map(r => r.name).join(' und ')} für ${gruppen.map(g => `${g.name} (${g.kg})`).join(', ')}. ` +
         `Spanne der Herstellung vom kleinsten zum größten Wert: ${wer.map(sp).join(', ')}.`,
       reihen: wer.map(r => ({ name: r.name, art: r.art, werte: r.median })) });
+    B.achsentitel(s, d, { y: ctx.wortlaut('€ je m² Wohnfläche', 'Achsentitel') });
     B.kategorien(s, d, gruppen.map(g => ({ name: g.name, zusatz: g.kg })));
     // Werte über den Säulen im Ton ihrer Säule, als Text auf einer Fläche in der Grundfarbe (keine Gitterlinie läuft durch die Zahl)
     wer.forEach((r, j) => r.median.forEach((v, i) => B.textAufPlot(s, fmt.zahl(v), { x: d.reiheMitte(i, j) - 0.45, y: d.yWert(v) - 0.26, w: 0.90, h: 0.22, rolle: 'wert', farbe: D.ART[r.art].wert,

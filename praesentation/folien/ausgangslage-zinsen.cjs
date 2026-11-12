@@ -28,10 +28,11 @@ module.exports = {
     // Jahresstrich: Eine Beschriftung der Achse selbst dünnen die Programme nach der Breite der Plotfläche aus, und es stünden Monate statt der
     // Jahre da. Die Plotfläche reicht bis an den rechten Rand des Diagramms; der Rand unten legt die Achse wie auf den Folien 5 und 6 auf y 6,04.
     const kat = monate.map(m => (m.endsWith('-01') ? m.slice(0, 4) : monatKurz(m))), jahre = kat.filter(k => /^\d{4}$/.test(k));
-    const d = D.linien(s, { kategorien: kat, katLabels: { formen: jahre }, staerke: FEIN.STRICH, rand: { l: 0.36, r: 0.14, o: 0.20, u: 0.46 }, achse: { min: 0, max: 5, schritt: 1, format: 'roh' },
+    const d = D.linien(s, { kategorien: kat, katLabels: { formen: jahre }, staerke: FEIN.STRICH, rand: { l: 0.52, r: 0.14, o: 0.20, u: 0.46 }, achse: { min: 0, max: 5, schritt: 1, format: 'roh' },
       name: 'Diagramm Sollzins nach Zinsbindung', altText: `Liniendiagramm: Sollzins p. a. für ${reihen.map(r => r.name).join(', ')} Zinsbindung, Monatswerte ${monatKurz(monate[0])} bis ${monatKurz(monate[n])}`,
       reihen: reihen.map(r => ({ name: r.name, werte: r.werte, art: r.art })), flaeche: { reihe: reihen[0].name, name: `${reihen[0].name}, Fläche`, deckung: 26 } });
 
+    B.achsentitel(s, d, { y: ctx.wortlaut('Sollzins in % p. a.', 'Achsentitel') });
     FEIN.jahresstriche(ctx, s, d);
     B.achstexte(s, d);
 

@@ -18,8 +18,9 @@ module.exports = {
       B.text(s, legende[g], { x: xL + 0.34, y: y0 + 0.74, w: tb, h: 0.24, rolle: 'legende', valign: 'middle', einzeilig: true, name: 'Legende Gruppe ' + g });
       xL += 0.34 + tb + 0.20;
     }
-    D.gruppierteBalken(s, { x: colX(1), y: y0 + 1.06, w: span(8), h: 3.94, kategorien: R('einkommensgrenze.haushalte'), katBreite: 2.05, name: 'Diagramm Einkommensgrenzen',
-      reihen: G.map(g => ({ name: 'Gruppe ' + g, art: g, werte: R('einkommensgrenze.' + g) })), achse: { min: 0, max: 80000, schritt: 20000, format: 'ganz' }, rand: { r: 0.30 }, luecke: 45 });
+    const d = D.gruppierteBalken(s, { x: colX(1), y: y0 + 1.06, w: span(8), h: 3.94, kategorien: R('einkommensgrenze.haushalte'), katBreite: 2.05, name: 'Diagramm Einkommensgrenzen',
+      reihen: G.map(g => ({ name: 'Gruppe ' + g, art: g, werte: R('einkommensgrenze.' + g) })), achse: { min: 0, max: 80000, schritt: 20000, format: 'ganz' }, rand: { r: 0.30, u: 0.50 }, luecke: 45 });
+    B.achsentitel(s, d, { x: ctx.wortlaut('Gesamtjahreseinkommen in €', 'Achsentitel') });
 
     // ---- Kommentarspalte --------------------------------------------------------------------------------------------
     B.planlegende(s, { x: colX(9), y: y0, w: span(4), linie: true, pt: 14, eintraege: [

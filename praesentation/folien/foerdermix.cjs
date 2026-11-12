@@ -12,7 +12,7 @@ module.exports = {
     const G = ['A', 'B', 'C'], T = k => W('modellhaus', 'tab.' + k);
     const q = (art, g) => Math.round(T(`quote_${art}.${g}`) * 100), em = Math.round(T('eigenmittel_mindestens') * 100);
     const d = D.stapelBalken(s, {               // Kategorien in Lesereihenfolge (A oben); die Bibliothek dreht sie für PowerPoint
-      kategorien: G, name: 'Diagramm Fördersätze', achse: { min: 0, max: 100, schritt: 20, format: 'roh' }, labelFormat: 'prozent',
+      kategorien: G, name: 'Diagramm Fördersätze', rand: { u: 0.50 }, achse: { min: 0, max: 100, schritt: 20, format: 'roh' }, labelFormat: 'prozent',
       reihen: [{ name: 'Zuschuss', art: 'zuschuss', werte: G.map(g => q('zuschuss', g)) }, { name: 'Darlehen', art: 'darlehen', werte: G.map(g => q('darlehen', g)) }, { name: 'Eigenmittel, mind.', art: 'eigenmittel', werte: G.map(() => em) }] });
 
     G.forEach((g, i) => B.achskreis(s, { cx: d.plot.x - 0.36, cy: d.katMitte(i), d: 0.42, pt: 14, text: g }));
@@ -20,6 +20,7 @@ module.exports = {
     B.masskette(s, { x: d.plot.x, y: my, w: d.plot.w, segmente: [{ anteil: q('zuschuss', 'A'), text: fmt.prozentWert(q('zuschuss', 'A')), akzent: true }, { anteil: q('darlehen', 'A'), text: fmt.prozentWert(q('darlehen', 'A')) }, { anteil: em, text: fmt.prozentWert(em) }] });
     B.achse80(s, { x: d.xWert(100 - em), yOben: my, yUnten: d.plot.y + d.plot.h, text: String(100 - em) });
     B.massstab(s, { x: d.plot.x, y: d.plot.y + d.plot.h + 0.02, w: d.plot.w });
+    B.achsentitel(s, d, { x: ctx.wortlaut('% der zuwendungsfähigen Kosten', 'Achsentitel') });
 
     const [tag1, tag2] = X('regeln', 'bemessungsgrenze.fortschreibung');
     // Zehn Zeilen in drei Einträgen; „Grundstück sein.“ bleibt zusammen (geschütztes Leerzeichen), sonst stünde „sein.“ allein in der letzten Zeile

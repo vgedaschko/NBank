@@ -15,7 +15,8 @@ module.exports = {
     const yInhalt = B.modulkopf(s, { x: colX(1), y: Y.inhalt, w: span(6), titel: 'Nötige Miete in Jahr 1', sub: 'Miete je m² und Monat, bei der der Zahlungsüberschuss null ist' });
     const werte = [M('dscr.noetige_miete.A'), M('dscr.noetige_miete.Frei')];
     const d = D.balkenpaar(s, { x: colX(1), y: yInhalt + 0.10, w: span(6), h: 3.40, kategorien: ['Gefördert, Gruppe A', 'Frei finanziert'], werte, arten: ['tinte', 'referenz'], reihenname: 'Nötige Miete',
-      achse: { min: 0, max: 18, schritt: 3, format: 'roh' }, katBreite: 1.55, rand: { o: 0.52, r: 0.30 }, name: 'Diagramm Nötige Miete' });
+      achse: { min: 0, max: 18, schritt: 3, format: 'roh' }, katBreite: 1.55, rand: { o: 0.52, r: 0.30, u: 0.50 }, name: 'Diagramm Nötige Miete' });
+    B.achsentitel(s, d, { x: ctx.wortlaut('Miete in € je m² und Monat', 'Achsentitel') });
     // kurzer Balken: Wert rechts daneben (auf einer Fläche in der Grundfarbe, die die Gitterlinie hinter der Zahl unterbricht);
     // langer Balken: Wert weiß im Balkenende. Liegt die Höchstmiete so dicht rechts vom kurzen Balken, dass ihre Maßlinie durch die Zahl
     // liefe, steht die Zahl rechts der Maßlinie.

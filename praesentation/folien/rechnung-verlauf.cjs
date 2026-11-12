@@ -31,11 +31,12 @@ module.exports = {
       'Die Aussage „in Jahr 1 liegt A vorn, im letzten Jahr C“ trifft nicht mehr zu; Kommentar der Folie 21 anpassen.');
 
     // Die Jahre an der Achse stehen als Textfelder: Die Daten behalten die Kategorien 1 bis 35, und kein Programm dreht oder bricht die Beschriftung
-    const d = D.linien(s, { kategorien: jahre, katLabels: { formen: [1, 5, 10, 15, 20, 25, 30, 35] }, rand: { r: 1.30 }, name: `Diagramm Zahlungsüberschuss Jahr ${jahre[0]} bis ${jahre[n]}`,
+    const d = D.linien(s, { kategorien: jahre, katLabels: { formen: [1, 5, 10, 15, 20, 25, 30, 35] }, rand: { l: 1.02, r: 1.30, u: 0.50 }, name: `Diagramm Zahlungsüberschuss Jahr ${jahre[0]} bis ${jahre[n]}`,
       reihen: R.linienReihen(reihe), achse: { min: 0, max: 120000, schritt: 20000, format: 'ganz' } });
     // Die Achse reicht eine Teilung über den größten Wert: Im obersten Band steht die Bezeichnung der Marke, darunter die drei Werte für Jahr 1
     R.pruefe(Math.max(...letztes, ...erstes) < 100000, 'Ein Wert der Folie 21 reicht in das oberste Band der Größenachse (Bezeichnung der Marke); Achse im Modul anpassen.');
     B.achstexte(s, d);
+    B.achsentitel(s, d, { y: ctx.wortlaut('Zahlungsüberschuss in € p. a.', 'Achsentitel'), x: ctx.wortlaut('Jahr', 'Achsentitel'), xAbstand: 0.29 });
     const band = oben => (d.yWert(oben) + d.yWert(oben - 20000)) / 2;   // Mitte des Bandes unter der Gitterlinie „oben“
 
     // Jahr 1: Marke mit den drei Werten in den Bändern darunter

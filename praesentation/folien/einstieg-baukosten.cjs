@@ -26,10 +26,11 @@ module.exports = {
     B.diagrammkopf(s, { titel: wl('Herstellung und Grundstück je m² Wohnfläche', 'Diagrammtitel'), sub: wl('in €, Bruttokosten · ARGE-Median deutscher Großstädte', 'Untertitel') });
     B.legende(s, { x: colX(1), y: ZONE.diagramm.legende, fein: true, eintraege: staende.map((t, j) => ({ text: wl(t, 'Legende'), art: ARTEN[j] })) });
     // Säulen 0,56 Zoll breit; der Rand oben lässt Platz für die Maßkette über dem höchsten Paar
-    const d = D.gruppierteSaeulen(s, { kategorien: gruppen.map(g => `${g.name} ${g.kg}`), katAchse: false, fein: true, saeule: 0.56, labels: false, rand: { o: 0.66 }, name: 'Diagramm Baukosten',
+    const d = D.gruppierteSaeulen(s, { kategorien: gruppen.map(g => `${g.name} ${g.kg}`), katAchse: false, fein: true, saeule: 0.56, labels: false, rand: { l: 0.80, o: 0.66 }, name: 'Diagramm Baukosten',
       achse: { min: 0, max: 5000, schritt: 1000, format: 'ganz' },
       altText: `Säulendiagramm: Kosten je m² Wohnfläche in €, ${staende.join(' und ')}, für ${gruppen.map(g => `${g.name} (${g.kg})`).join(' und ')}`,
       reihen: staende.map((name, j) => ({ name, art: ARTEN[j], werte: gruppen.map(g => (j ? g.neu : g.alt)) })) });
+    B.achsentitel(s, d, { y: ctx.wortlaut('€ je m² Wohnfläche', 'Achsentitel') });
     B.kategorien(s, d, gruppen.map(g => ({ name: g.name, zusatz: g.kg })));
 
     gruppen.forEach((g, i) => {

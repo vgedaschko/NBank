@@ -27,9 +27,10 @@ module.exports = {
     B.diagrammkopf(s, { titel: wl('Bestand gebundener Mietwohnungen in Niedersachsen', 'Diagrammtitel'), sub: wl('Wohnungen mit Belegungs- und Mietbindung, Bestand zum 31.12.', 'Untertitel') });
     // Wie auf den Folien 3 und 5: frühere Stände als helle Fläche mit feiner Kontur (Bezugswert), der letzte Stand in Tinte
     const arten = jahre.map((j, i) => (i === n ? 'tinte' : 'bezug'));
-    const d = D.saeulen(s, { kategorien: jahre, werte, arten, fein: true, reihenname: 'Bestand zum 31.12.', labels: false, rand: { l: 0.74, o: 0.54 }, luecke: 70, name: 'Diagramm Bestand gebundener Mietwohnungen',
+    const d = D.saeulen(s, { kategorien: jahre, werte, arten, fein: true, reihenname: 'Bestand zum 31.12.', labels: false, rand: { l: 0.96, o: 0.54 }, luecke: 70, name: 'Diagramm Bestand gebundener Mietwohnungen',
       achse: { min: 0, max: 100000, schritt: 20000, format: 'ganz' },
       altText: `Säulendiagramm: Bestand gebundener Mietwohnungen in Niedersachsen zum 31.12., ${jahre[0]} bis ${jahre[n]}: von ${fmt.zahl(werte[0])} auf ${fmt.zahl(werte[n])} Wohnungen` });
+    B.achsentitel(s, d, { y: ctx.wortlaut('Wohnungen', 'Achsentitel') });
 
     // Werte an drei Säulen im Ton ihrer Säule (auf einer Fläche in der Grundfarbe: keine Gitterlinie läuft durch die Zahl)
     const oben = i => d.yWert(werte[i]) - 0.26, beschriftet = X('markt', 'bestand.beschriftet').map(j => jahre.indexOf(j));

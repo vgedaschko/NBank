@@ -8,10 +8,10 @@ Stand 12.11.2026. Aufgenommen ist nur, was aus dem Verlauf der Arbeit oder aus d
 
 | Nr. | Folie oder Datei | Was fehlt | Wichtig |
 |---|---|---|---|
-| a1 | Vortrag, `daten/outline.json` und `INHALT.md` (Listen „Offene Fragen an PGN“ und „ungeprüfte Angaben“) | Die Listen sind in drei Punkten überholt: Die ARGE-Werte der Folien 3 und 22 sind seit 12.11. an der Quelle geprüft (Einträge 1, 9, 10 der ungeprüften Angaben); Rot auf A8 ist bestätigt (Frage 13); die Broschüre führt den Hinweis von A9 (Frage 12). | muss· erledigt 12.11. |
+| a1 | Vortrag, `daten/outline.json` und `INHALT.md` (Listen „Offene Fragen an PGN“ und „ungeprüfte Angaben“) | Die Listen sind in drei Punkten überholt: Die ARGE-Werte der Folien 3 und 22 sind seit 12.11. an der Quelle geprüft (Einträge 1, 9, 10 der ungeprüften Angaben); Rot auf A8 ist bestätigt (Frage 13); die Broschüre führt den Hinweis von A9 (Frage 12). | muss · erledigt 12.11. |
 | a2 | Vortrag, alle Folien | Umstellung der Schrift auf Aptos, sobald entschieden (siehe b14). | sollte |
-| a3 | Projekt, `broschuere/recherche/` | Der Endbericht der ARGE (PDF, Quelle der Folien 3 und 22) liegt nur im Arbeitsordner der Sitzung, nicht im Projekt. Ablegen, damit die Zahlen später nachlesbar sind. | sollte· erledigt 12.11. |
-| a4 | Broschüre, `content/copy.md`, Anhang B 1 | Der Vermerk „pruefe_vofi.py erwartet an vier Stellen noch die frühere Fassung“ ist überholt: Die Prüfung der Mappe läuft durch (617 Prüfungen, 0 Fehler). Vermerk streichen. | kann· erledigt 12.11. |
+| a3 | Projekt, `broschuere/recherche/` | Der Endbericht der ARGE (PDF, Quelle der Folien 3 und 22) liegt nur im Arbeitsordner der Sitzung, nicht im Projekt. Ablegen, damit die Zahlen später nachlesbar sind. | sollte · erledigt 12.11. |
+| a4 | Broschüre, `content/copy.md`, Anhang B 1 | Der Vermerk „pruefe_vofi.py erwartet an vier Stellen noch die frühere Fassung“ ist überholt: Die Prüfung der Mappe läuft durch (617 Prüfungen, 0 Fehler). Vermerk streichen. | kann · erledigt 12.11. |
 | a5 | Broschüre, `scripts/specimen.cjs` und `DESIGN.md` §10 | Musterseiten-Skript und die dort gemessenen Textmengen stehen auf dem Stand vor Muster 2. Das Skript ist in `DESIGN.md` als Bauplan einzelner Bausteine genannt, deshalb nicht gestrichen; Nachziehen steht aus. | kann |
 | a6 | Broschüre, `content/copy.md` und `content/plan.json` | Wörter je Seite sind nach den Textänderungen nicht neu gezählt; `plan.json` beschreibt den Inhalt einzelner Seiten noch in der Planungsfassung. | kann |
 | a7 | Vortrag, Folien 7, 10, 23 | Titelzeile 1 endet auf Doppelpunkt; ohne neuen Wortlaut nicht zu ändern (siehe b17). | kann |

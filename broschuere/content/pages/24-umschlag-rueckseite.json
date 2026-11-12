@@ -5,7 +5,8 @@
   "running_title": "Umschlag · Rückseite (U4)",
   "footer": "kein Kolumnentitel, keine Seitenzahl (U4); running_title nur als Seitenname",
   "kicker": "",
-  "headline": "Aus Ihrer guten Idee – machen wir den besten Plan.",
+  "headline_light": "Aus Ihrer guten Idee –",
+  "headline": "machen wir den besten Plan.",
   "headline_highlight": "besten Plan",
   "lead": "Wir planen Ihr Vorhaben im geförderten Mietwohnungsbau, in allen Leistungsphasen. Sprechen Sie uns an.",
   "blocks": [

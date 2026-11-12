@@ -111,7 +111,8 @@ Seitenzahl); sie folgt beim Einfügen oder Verschieben von Seiten.` : 'Die Seite
 ${doc.stats.masterItems ? `Die gleichbleibenden Teile der Fußzeile (Linien, Logo, „Blatt“, Seitenzahl, Stand) liegen auf der Musterseite
 „A-Inhalt“; seitenabhängige Teile (Projekttitel mit Rubrik) und das Programmteil-Register stehen auf den Seiten.
 Beim Einfügen einer Seite mit „A-Inhalt“ erscheint die Fußzeile automatisch; die Rubrik von einer Nachbarseite
-kopieren und anpassen.${hasB ? ` Seiten ohne die Standard-Fußzeile (z. B. mit eigener Fußzeile wie das Impressum)
+kopieren und anpassen. Die Kopfzeile der Innenseiten (Rubrik links, auf Seiten eines Programmteils rechts der
+Schlüsselplan 2.1–2.6) steht ebenfalls auf den Seiten: Absatzformat „Kopfzeile Rubrik“, Linie „Kopfzeile Linie“.${hasB ? ` Seiten ohne die Standard-Fußzeile (z. B. mit eigener Fußzeile wie das Impressum)
 tragen „B-Inhalt ohne Fuß“ – gleicher Satzspiegel, keine Musterobjekte.` : ''}` : 'Kolumnentitel, Logo und Register stehen als normale Objekte auf den Seiten.'}
 
 Ebenen (von oben nach unten): Text · Grafiken · Hintergrund.
@@ -203,8 +204,8 @@ ${subst.map((e) => `  „${String.fromCodePoint(e.cp)}“ (U+${e.cp.toString(16)
 
 4. BEKANNTE GRENZEN
 -------------------
-- Verankerung: Objekte sind nicht im Text verankert. Seitenverweis-Flächen, Aufzählungsquadrate, Checkboxen,
-  Farbmarken und Inline-Icons liegen als eigene Objekte an der Stelle des Textes; der Platz dafür ist im Text als
+- Verankerung: Objekte sind nicht im Text verankert. Aufzählungsquadrate, Checkboxen, Farbmarken und
+  Inline-Icons liegen als eigene Objekte an der Stelle des Textes; der Platz dafür ist im Text als
   Laufweite freigehalten. Wird Text umgestellt, diese Objekte von Hand nachziehen.
 - ${doc.stats.masterItems ? 'Rubrik (Kolumnentitel) und Programmteil-Register sind Objekte je Seite (seitenabhängiger Inhalt).' : 'Kolumnentitel, Logo und Register sind normale Objekte je Seite (nicht auf der Musterseite).'}
 - Hyperlinks und Querverweise der PDF-Fassung sind nicht als InDesign-Hyperlinks angelegt (Text bleibt erhalten).

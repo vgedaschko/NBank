@@ -17,7 +17,7 @@ Die Broschüre umfasst 24 Seiten im Format DIN A4 hoch und erklärt die **RL Mie
 Zielgruppen sind Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren, Projektentwicklung und Kommunen.
 Die Broschüre liest die Richtlinie wie ein Investment-Memo: zuerst die Zahlen, dann die Orientierung und die Ertragsseite,
 dann die Finanzierung mit Modellrechnung und Wirtschaftlichkeit, danach die übrigen Programmteile, Standort, Kommune und
-Antragsweg, zuletzt die Leistungen von PGN. Redaktionsstand: **30.09.2026** (Korrekturlauf 1; Stand steht nur auf U1 und U3, nicht in den Fußzeilen).
+Antragsweg, zuletzt die Leistungen von PGN. Redaktionsstand: **30.09.2026** (Korrekturlauf 1; Stand steht nur auf U1 und U3, nicht in den Fußzeilen). Stand der Gestaltung: **12.11.2026**, Stufung und Zuteilung nach `DESIGN.md` §0a.
 
 ## Dateien in `dist/`
 
@@ -25,7 +25,7 @@ Ausgeliefert werden nur diese beiden Dateien:
 
 | Datei | Zweck |
 |---|---|
-| `PGN-Mietwohnraumfoerderung-Niedersachsen-2026.pdf` | Bildschirm-PDF, 24 Seiten A4: getaggt, Lesezeichen aus den Überschriften, Metadaten (Info + XMP, Autor und Erzeuger Planungsgemeinschaft Nord GmbH), Link-Beschreibungen, PDF/UA-Kennung bei fehlerfreier Vorprüfung |
+| `PGN-Mietwohnraumfoerderung-Niedersachsen-2026.pdf` | Bildschirm-PDF, 24 Seiten A4: getaggt, Lesezeichen aus den Überschriften (zweite Stimme und Hauptzeile mit „: “ verbunden), Metadaten (Info + XMP, Autor und Erzeuger Planungsgemeinschaft Nord GmbH), Link-Beschreibungen, PDF/UA-Kennung bei fehlerfreier Vorprüfung |
 | `PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Druck-3mm-Beschnitt.pdf` | Druck-PDF, 24 Seiten mit 3 mm Beschnitt (216 × 303 mm), TrimBox/BleedBox gesetzt; RGB, die Konvertierung nach PDF/X-4 übernimmt die Druckerei |
 
 Arbeitsdateien (nicht versioniert, siehe `.gitignore`): `dist/preview/seite-01.png` … `seite-24.png` und
@@ -54,21 +54,25 @@ Doppelseite 10|11 „Modellrechnung“ trägt Finanzierung und Wirtschaftlichkei
 | 5 | Überblick · Navigator | Programmteil nach Vorhaben |
 | 6 | Ertragsseite · Mieterkreis | Ihr Mieterkreis: drei Einkommensgruppen |
 | 7 | Ertragsseite · Mieten | Höchstmieten und Mietentwicklung |
-| 8 | Finanzierung · Programmteil 2.1 | Bis zu 80 % Förderquote |
+| 8 | Finanzierung · Programmteil 2.1 | Neubau, Änderung, Ersterwerb: Bis zu 80 % Förderquote |
 | 9 | Finanzierung · Eckdaten | Konditionen und Kosten |
 | 10 | Modellrechnung · Finanzierung | 14 Wohnungen, 3,0 Mio. €: bis zu 2,4 Mio. € Förderung |
 | 11 | Modellrechnung · Wirtschaftlichkeit | Alle drei Gruppen tragen sich ab Jahr 1: 15.003 € Zahlungsüberschuss in A |
 | 12 | Modellrechnung · Mix und Tilgung | Über 1,91 % Tilgung liegt Gruppe A vorn |
-| 13 | Neubau · Programmteil 2.2 | Reiner Zuschuss statt Darlehen |
-| 14 | Neubau · Programmteil 2.4 | Höhere Kostengrenze, 10 % Eigenmittel |
-| 15 | Bestand · Programmteil 2.3 | Zuschuss nach Effizienzsteigerung |
+| 13 | Neubau · Programmteil 2.2 | Energetisch hochwertiger Neubau: Reiner Zuschuss statt Darlehen |
+| 14 | Neubau · Programmteil 2.4 | Ostfriesische Inseln: Höhere Kostengrenze, 10 % Eigenmittel |
+| 15 | Bestand · Programmteil 2.3 | Klimagerechte Modernisierung: Zuschuss nach Effizienzsteigerung |
 | 16 | Bestand · Stichtag 31.12.2026 | Wahlrecht für Modernisierungsanträge |
-| 17 | Bestand · Programmteile 2.5 und 2.6 | Bindungen erwerben oder verlängern |
+| 17 | Bestand · Programmteile 2.5 und 2.6 | Belegungs- und Mietbindungen: Bindungen erwerben oder verlängern |
 | 18 | Umsetzung · Standort und Kommune | Bedarf am Standort und die Rolle der Kommune |
 | 19 | Umsetzung · Antragsweg | Vom Vorgespräch bis zum Verwendungsnachweis |
 | 20 | Umsetzung · Mit PGN | Unsere Leistungen im Förderprojekt |
 | 21 | Umsetzung · Unterlagen und Kontakte | Unterlagen, Kontakte und Verfahrensdetails |
 | 22 | PGN · Über uns | Ihre Generalplaner aus dem Norden. Seit 1981. |
+
+S. 8, 10, 11, 13, 14, 15 und 17 tragen im H1 eine zweite Stimme über der Hauptzeile. Auf der Seite steht kein Doppelpunkt
+dazwischen; hier und im PDF-Lesezeichen sind beide mit Doppelpunkt verbunden. Jede Innenseite hat eine Kopfzeile mit der
+Rubrik, dem ersten Teil des Kolumnentitels (`DESIGN.md` §0a).
 
 ## Platzhalter – was PGN vor dem Druck liefert
 
@@ -134,7 +138,9 @@ broschuere/
 Arbeitsweise: Textänderungen erst in `content/pages/NN-*.json` **und** `content/copy.md` freigeben, dann im Partial
 `src/pages/NN-*.html` umsetzen. Jede Aussage lässt sich über die `fact_ids` einer Seite auf die Faktenbasis in
 `recherche/` und die Richtlinie zurückführen. Seitenspezifisches CSS steht im Partial und beginnt immer mit dem Präfix
-`.page[data-page="NN"]`. Farben werden nur über Tokens gesetzt, die Mindestschrift ist 8,5 pt (Details in `DESIGN.md`).
+`.page[data-page="NN"]`. Farben werden nur über Tokens gesetzt, die Mindestschrift ist 8,5 pt (Details in `DESIGN.md`). Schriftstufen, Versalien,
+Rot, Kopfzeile, H1 mit zweiter Stimme, Vorspann, Modultitel und Seitenverweis regelt `DESIGN.md` §0a (Stand 12.11.2026):
+fünf Stufen (25 | 15,5 | 12 | 9,5 | 8,5 pt), dichte Seiten mit `.page--dicht` in 9 pt, Rot nur an zugeteilten Stellen.
 
 ## Build
 
@@ -209,6 +215,7 @@ Die PGN-Fassung nutzt das Designsystem **„Planwerk“** (Details und Komponent
   als Tokens in `:root` von `src/styles.css`; Komponenten nutzen nur die semantischen Tokens. Programmteile 2.1–2.6:
   `--bs-21` … `--bs-26` (validiert, immer mit Nummer). CMYK-/Pantone-Werte für PGN-Rot bei PGN bzw. der Agentur erfragen.
 - **Schriften:** Montserrat (Überschriften, Zahlen, Labels) und Work Sans (Text), selbst gehostet in `src/fonts/` (SIL OFL);
+  Stufen und Schnitte nach `DESIGN.md` §0a;
   Pfeile, ≤ ≥ ≈ ✓ ✗ ‰ und schmale Leerzeichen aus der Teilmenge `pgn-symbols-wght-normal.woff2`. Für das PDF ersetzt
   `scripts/render.cjs` die variablen Schriften durch statische Instanzen (`scripts/fonts-static.py`, Familien in `FAMILIES`
   bzw. `FAMS`) – sonst Type 3.

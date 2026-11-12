@@ -101,9 +101,9 @@ Den Ordner immer vollständig weitergeben (IDML, `Links/` und `Document Fonts/` 
 `LIESMICH.txt` wird bei jedem Lauf aus den Daten des Exports erzeugt (`scripts/idml/liesmich.cjs`). Zahlen,
 Seitenlisten und die Checkliste dort stimmen also immer mit dem gelieferten Paket überein.
 
-Kennzahlen des Exports vom 23.10.2026: 24 Seiten in 13 Druckbögen, 698 Textrahmen mit 1120 Absätzen, 7 Tabellen,
-812 Flächen und Linien, 91 Grafikrahmen (80 PDF-Dateien in `Links/`, 16 Objekte auf der Musterseite),
-197 Absatzformate plus 2 Basisformate, 55 Zeichenformate, 26 Farbfelder, 13 Schriftschnitte.
+Kennzahlen des Exports vom 12.11.2026 (nach der Stufung, `DESIGN.md` §0a): 24 Seiten in 13 Druckbögen, 655 Textrahmen
+mit 1135 Absätzen, 11 Tabellen, 697 Flächen und Linien, 86 Grafikrahmen (73 PDF-Dateien in `Links/`, 12 Objekte auf
+der Musterseite), 188 Absatzformate plus 2 Basisformate, 46 Zeichenformate, 26 Farbfelder, 13 Schriftschnitte.
 
 ## Abbildung HTML → InDesign
 
@@ -112,17 +112,18 @@ Kennzahlen des Exports vom 23.10.2026: 24 Seiten in 13 Druckbögen, 698 Textrahm
 | `.page` (A4) | Seite 210 × 297 mm, Doppelseiten, Seite 1 rechts allein: [1] [2\|3] … [22\|23] [24]; Beschnitt 3 mm. Randabfallende Flächen und Grafiken reichen an den Außenkanten in den Beschnitt, nie über den Bund. |
 | Satzspiegel, Spaltenraster (`--col`, `--gutter`) | Ränder und 12-Spalten-Raster der Musterseiten und der Dokumentvorgabe |
 | `.page__foot` (Fußzeile) | **Musterseiten:** „A-Inhalt“ trägt Satzspiegel, Raster und die gleichbleibende Fußzeile mit automatischer Seitenzahl (S. 2–22). „B-Inhalt ohne Fuß“ hat denselben Satzspiegel ohne Objekte (S. 23, Impressum mit eigener Fußzeile). „U-Umschlag“ hat keine Ränder (S. 1, 24). Auf S. 10/11 (eigene Seitenfläche) steht die Fußzeile auf der Seite, die Musterobjekte sind ausgeblendet. Rubrik und Programmteil-Register sind Objekte je Seite. |
+| `.page__header` (Kopfzeile, S. 2–22) | Objekte je Seite: Rubrik im Absatzformat „Kopfzeile Rubrik“, Haarlinie „Kopfzeile Linie“. Auf den Seiten eines Programmteils (S. 8–17) rechts der Schlüsselplan: Label „Programmteil“, sechs Felder im Absatzformat „Schlüsselplan Liste Punkt“ (aktives Feld „… ExtraBold“) mit den Flächen „Schlüsselplan Liste Punkt Fläche“. S. 23 hat keine Rubrik und keine Linie. |
 | Stapelreihenfolge | **Ebenen** von oben nach unten: „Text“, „Grafiken“, „Hintergrund“. Innerhalb einer Ebene gilt die Reihenfolge des HTML. |
 | Textblöcke (`p`, `h1`–`h4`, `li`, …) | Absätze in Textrahmen an der gemessenen Position. Absätze desselben Containers, die untereinander stehen und durch kein Objekt getrennt sind, teilen sich einen Rahmen. Mehrspaltiger Text steht in mehrspaltigen Rahmen mit „Spalten ausgleichen“. Die erste Grundlinie ist fest („Fest“), Rahmen haben eine kleine Reserve. |
-| CSS-Klassen der Textbausteine | **Absatz- und Zeichenformate** mit deutschen Namen aus `scripts/idml/stilnamen.json`, z. B. „Fließtext“, „Vorspann“, „Tabelle Kopf“. Varianten tragen ihr Merkmal im Namen („… 9 pt“, „… SemiBold“), gleich aussehende Formate sind zusammengeführt. Jedes Absatzformat basiert auf „Basis Montserrat“ oder „Basis Work Sans“ und enthält nur seine Abweichungen. Dort lassen sich Schriftfamilie, Sprache (Deutsch 2006), Setzer und Silbentrennung zentral ändern. |
-| Formatgruppen | Keine InDesign-Formatgruppen (Ordner): Kein Referenz-IDML eines echten InDesign-Exports belegt deren Syntax, ein Fehler dort könnte das Öffnen gefährden. Die Ordnung entsteht über gemeinsame Namensanfänge („Tabelle …“ 19 Formate, „Kennzahl …“ 10, „Titelseite …“ 8, „Stufe …“, „Referenz …“, „Hinweis …“) und die zwei Basisformate. Ordner kann die Agentur mit „Neue Gruppe aus Formaten …“ selbst anlegen. |
+| CSS-Klassen der Textbausteine | **Absatz- und Zeichenformate** mit deutschen Namen aus `scripts/idml/stilnamen.json`, z. B. „Fließtext“, „Vorspann“, „Tabelle Kopf“. Rollen der Stufung: zweite Stimme im H1 (`.h1 .light`) = eigener Absatz „Vorzeile“ über „H1 Seitentitel“; Unterzeile (`.deck`) = „Unterzeile“; Modultitel = „Diagramm Titel“; Einheit im Modultitel (`.chart__unit`) = Zeichenformat „Diagramm Einheit“; Seitenverweis (`.pageref`) = Zeichenformat „Seitenverweis …“ bzw. Absatzformat „Seitenverweis“, ohne Fläche; dichte Seiten (`.page--dicht`) = die Varianten „… 9 pt“. Varianten tragen ihr Merkmal im Namen („… 9 pt“, „… SemiBold“), gleich aussehende Formate sind zusammengeführt. Jedes Absatzformat basiert auf „Basis Montserrat“ oder „Basis Work Sans“ und enthält nur seine Abweichungen. Dort lassen sich Schriftfamilie, Sprache (Deutsch 2006), Setzer und Silbentrennung zentral ändern. |
+| Formatgruppen | Keine InDesign-Formatgruppen (Ordner): Kein Referenz-IDML eines echten InDesign-Exports belegt deren Syntax, ein Fehler dort könnte das Öffnen gefährden. Die Ordnung entsteht über gemeinsame Namensanfänge („Tabelle …“ 27 Formate, „Kennzahl …“ 12, „Titelseite …“ 8, „Stufe …“, „Station …“, „Diagramm …“) und die zwei Basisformate. Ordner kann die Agentur mit „Neue Gruppe aus Formaten …“ selbst anlegen. |
 | Farb-Tokens (`--pgn-red` …) | **Farbfelder**, nur die verwendeten, benannt „Deutscher Name (token)“, z. B. „PGN-Rot (pgn-red)“, „Grau 200 Haarlinie (grey-200)“, „Programmteil 2.2 (bs-22)“, sortiert nach Gruppen. Gleiche Farbwerte teilen sich ein Feld. Drei Mischtöne ohne Token heißen nach InDesign-Art „R=… G=… B=…“. Alle Farben sind RGB wie im HTML. Keine Farbgruppen, Farbtöne oder CMYK-Werte, weil die CMYK-Vorgaben des Kunden fehlen. |
-| `<table>` | **7 native InDesign-Tabellen** (S. 4, 6, 7, 9, 10, 11, 15): Kopfzeilen, Spaltenbreiten, Zeilenhöhen, Zellabstände, Linien und Flächen je Zelle. Gemeinsame Zellkanten sind nach CSS aufgelöst. Rechenzeilen mit „−“, „+“, „=“ haben einen hängenden Einzug. Für einen unteilbaren Kopf, der im HTML über seine Zelle läuft (S. 7), gibt es eine schmale Hilfsspalte. |
+| `<table>` | **11 native InDesign-Tabellen** (S. 4, 6, 7, 9, 12, 16, 17 je eine, S. 10 und 11 je zwei): Kopfzeilen, Spaltenbreiten, Zeilenhöhen, Zellabstände, Linien und Flächen je Zelle. Gemeinsame Zellkanten sind nach CSS aufgelöst. Rechenzeilen mit „−“, „+“, „=“ haben einen hängenden Einzug. Für einen unteilbaren Kopf, der im HTML über seine Zelle läuft (S. 7), gibt es eine schmale Hilfsspalte. |
 | Inline-SVG, Diagramme, Icons, Logo, QR-Code, CSS-Verläufe/Muster, Fotos | **Grafiken als PDF-Links:** Jede Grafik ist ein eigenes Vektor-PDF in `Links/`, relativ verknüpft und mit sprechendem ASCII-Dateinamen (z. B. `S01-Grafik-02-Logo-PGN.pdf`). Identische Grafiken teilen sich eine Datei. Ragen Beschriftungen über die SVG-Box, ist der Rahmen entsprechend größer. Verlaufsflächen liegen auf der Ebene „Hintergrund“. |
 | Hintergründe, Kästen, Linien, Punkte, Häkchen | native Rechtecke, Ellipsen, Polygone und Linien (Kontur innen, Stärke in pt), Deckkraft über Transparenz, abgerundete Ecken |
 | Webschriften (variable WOFF2) | statische Desktop-Schnitte in `Document Fonts/`, aus denselben Quelldateien mit fontTools instanziiert. Zwischengewichte sind auf benannte Schnitte gerundet (650 → Bold, 560 → SemiBold). |
 | Weiche Trennstriche aus `assemble.cjs` | bedingte Trennstriche. Trennbereich 0 pt und Trennungen in Folge unbegrenzt bilden den Browser nach. Wörter, die im PDF nicht getrennt werden, haben einen bedingten Trennstrich vor dem Wort (verhindert Wörterbuchtrennung). |
-| `text-wrap: balance`/`pretty`, Überschriften | feste Zeilenumbrüche (Umschalt+Eingabe) nur dort, wo InDesign den Zeilenfall des PDFs sonst nicht trifft (37 Absätze mit `pretty`, mehrzeilige Überschriften und Labels) |
+| `text-wrap: balance`/`pretty`, Überschriften | feste Zeilenumbrüche (Umschalt+Eingabe) nur dort, wo InDesign den Zeilenfall des PDFs sonst nicht trifft (28 Absätze mit `pretty`, mehrzeilige Überschriften und Labels) |
 
 ## Bekannte Grenzen
 
@@ -131,23 +132,23 @@ Kennzahlen des Exports vom 23.10.2026: 24 Seiten in 13 Druckbögen, 698 Textrahm
 - **Der Umbruch kann minimal abweichen.** InDesign misst Schrift etwas anders als Chromium. Der Ein-Zeilen-Setzer und
   feste Umbrüche halten den Zeilenfall des PDFs, an einzelnen Stellen kann eine Zeile trotzdem anders brechen. Wird Text
   geändert, die festen Umbrüche im Absatz entfernen (Suchen/Ersetzen „^n“ durch Leerzeichen).
-- **Keine verankerten Objekte.** Seitenverweis-Chips, Aufzählungsquadrate, Checkboxen, Farbmarken und Inline-Icons
-  liegen als lose Objekte an der Textstelle, der Platz ist im Text als Laufweite freigehalten. Wird Text umgestellt,
+- **Keine verankerten Objekte.** Aufzählungsquadrate, Checkboxen, Farbmarken und Inline-Icons liegen als lose Objekte
+  an der Textstelle (Seitenverweise haben seit 12.11.2026 keine Fläche mehr und sind reiner Text), der Platz ist im Text als Laufweite freigehalten. Wird Text umgestellt,
   diese Objekte von Hand nachziehen. Verankerung und InDesign-Listen sind ungetestete Spezifikationspunkte und würden die
   Positionstreue riskieren.
 - **Fotos** stecken als beschnittene PDFs in `Links/`. Für den Druck die hochaufgelösten Originalfotos neu platzieren.
 - **Keine Formatgruppen, Farbgruppen, Objektformate.** Siehe Tabelle oben. Alle Farbfelder sind RGB.
 - **Hyperlinks, Querverweise und Barrierefreiheit** (Tags, Alternativtexte, Lesereihenfolge) des PDFs sind im IDML
   nicht angelegt. Der Text bleibt erhalten.
-- **Ersetztes Zeichen:** „✕“ (U+2715) fehlt in Montserrat Black und wird auf S. 19 durch „✗“ (U+2717) ersetzt (Warnung
-  im Log). Abhilfe in der Quelle: im HTML durch „✗“ ersetzen oder in die Teilmenge `pgn-symbols` aufnehmen.
+- **Ersetzte Zeichen:** derzeit keine (S. 19 setzt „✗“ U+2717 direkt). Fehlt ein Zeichen im Schnitt, ersetzt `SUBST`
+  (build.cjs) es und meldet eine Warnung im Log; LIESMICH führt die Ersetzungen dann auf.
 - **Ohne echtes InDesign geprüft.** Geprüft sind Struktur, IDs, Verweise, Vokabular gegen echte InDesign-Exporte,
   Glyphen, Breiten und der Scribus-Import. Nur aus der Spezifikation bekannt und mit der Checkliste zu bestätigen:
   platzierte PDFs (`PDFCrop="CropMedia"`), feste erste Grundlinie, Tabellenattribute und verbundene Zellen,
   Ein-Zeilen-Setzer mit Trennbereich 0, bedingter Trennstrich vor einem Wort, Formatvererbung über Basisformate,
   Musterobjekte, „Spalten ausgleichen“, abgerundete Ecken, Ebenenreihenfolge.
-- **Erwartete Warnungen beim Export:** Register-Textrahmen „2.x“ auf S. 9–17 reichen am Außenrand minimal in den
-  Beschnitt (der Text selbst nicht). Die Signet-Grafik auf S. 22 wird unten um 10,6 pt beschnitten, wie im HTML durch
+- **Erwartete Warnungen beim Export (sechs):** Register-Textrahmen „2.x“ auf S. 9, 11, 13, 15 und 17 reichen am Außenrand
+  minimal in den Beschnitt (der Text selbst nicht). Die Signet-Grafik auf S. 22 wird unten um 10,6 pt beschnitten, wie im HTML durch
   das Elternelement.
 
 ## Hinweise für die Agentur
@@ -179,12 +180,12 @@ Abschnitt 6.
 |---|---|---|---|
 | 1 | **Öffnet ohne Fehlermeldung?** Datei > Öffnen > `Mietwohnraumfoerderung-2026.idml` | Dokument öffnet ohne Meldung (kann eine Minute dauern) | Wortlaut jeder Meldung (Screenshot), ungefähre Dauer |
 | 2 | **Fehlende Schriften?** Schrift > Schriftart suchen; rosa hinterlegte Textstellen | 13 Schnitte Montserrat und Work Sans, nach Sichern als `.indd` im Ordner bzw. Installation keiner fehlend | Namen fehlender Schnitte; ob „Document Fonts“ oder die Installation geholfen hat |
-| 3 | **Fehlende Verknüpfungen?** Fenster > Verknüpfungen | 80 Dateien, keine mit Fragezeichen- oder Warnsymbol | Anzahl fehlender oder geänderter Dateien; ob „Erneut mit Ordner verknüpfen“ geholfen hat |
+| 3 | **Fehlende Verknüpfungen?** Fenster > Verknüpfungen | 73 Dateien, keine mit Fragezeichen- oder Warnsymbol | Anzahl fehlender oder geänderter Dateien; ob „Erneut mit Ordner verknüpfen“ geholfen hat |
 | 4 | **Seitenzahl und Doppelseiten korrekt?** Fenster > Seiten | 24 Seiten in 13 Druckbögen: [1] [2\|3] … [22\|23] [24]; Musterseiten A/B/U wie in LIESMICH; automatische Seitenzahl im Fuß = Seite | abweichende Seitenzahl, Anordnung oder Musterseite |
-| 5 | **Stichproben gegen das Referenz-PDF** (100–200 %, Vorschaumodus W, Ansicht > Anzeigeleistung > Anzeige mit hoher Qualität): **S. 1** Titel „Wohnraum, der sich rechnet.“ mit Axonometrie und Kennzahl „80 %“; **S. 9** „Konditionen und Kosten“ (Tabelle, Zeitstrahl, Register 2.1); **S. 11** „Alle drei Gruppen tragen sich ab Jahr 1“ (Tabelle mit hängenden Einzügen, Balkendiagramm, Fußzeile auf der Seite); **S. 20** „Unsere Leistungen im Förderprojekt“ (Schrittliste, Phasenleiste); **S. 24** Rückseite (Grundriss, QR-Code, randabfallende rote Fläche) | Lage von Text, Flächen und Grafiken wie im PDF; gleicher Zeilenfall; Text liegt über den Flächen; Grafiken vollständig; QR-Code scannbar | Seite, Stelle, Screenshot InDesign neben dem PDF, Verschiebung möglichst in mm |
-| 6 | **Formate- und Farbfelder-Bedienfeld:** Fenster > Formate > Absatz-/Zeichenformate, Fenster > Farbe > Farbfelder | 199 Absatzformate (davon 2 Basisformate), 55 Zeichenformate, 26 benannte Farbfelder. Ein Klick in einen Fließtext zeigt das Format ohne „+“. | fehlende oder doppelte Formate, auffällig viele „+“, Farbfelder ohne Namen |
+| 5 | **Stichproben gegen das Referenz-PDF** (100–200 %, Vorschaumodus W, Ansicht > Anzeigeleistung > Anzeige mit hoher Qualität): **S. 1** Titel „Wohnraum, der sich rechnet.“ mit Axonometrie und Kennzahl „80 %“; **S. 9** „Konditionen und Kosten“ (Tabelle, Zeitstrahl, Register 2.1); **S. 11** „Alle drei Gruppen tragen sich ab Jahr 1“ (Kopfzeile mit Rubrik und Schlüsselplan, zweite Stimme über der Hauptzeile, Tabelle mit hängenden Einzügen, Balkendiagramm, Fußzeile auf der Seite); **S. 20** „Unsere Leistungen im Förderprojekt“ (Schrittliste, Phasenleiste); **S. 24** Rückseite (Grundriss, QR-Code, randabfallende rote Fläche) | Lage von Text, Flächen und Grafiken wie im PDF; gleicher Zeilenfall; Text liegt über den Flächen; Grafiken vollständig; QR-Code scannbar | Seite, Stelle, Screenshot InDesign neben dem PDF, Verschiebung möglichst in mm |
+| 6 | **Formate- und Farbfelder-Bedienfeld:** Fenster > Formate > Absatz-/Zeichenformate, Fenster > Farbe > Farbfelder | 190 Absatzformate (davon 2 Basisformate), 46 Zeichenformate, 26 benannte Farbfelder. Ein Klick in einen Fließtext zeigt das Format ohne „+“. | fehlende oder doppelte Formate, auffällig viele „+“, Farbfelder ohne Namen |
 | 7 | **Übersatz-Markierungen?** Fenster > Ausgabe > Preflight ([Grundprofil]); rote Pluszeichen an Textrahmen | kein Übersatztext | Preflight-Liste mit Seiten (Screenshot des Bedienfelds) |
-| 8 | **Tabellen bearbeitbar?** In eine Zelle klicken (S. 4, 6, 7, 9, 10, 11, 15), Text ändern, Tabelle > Einfügen > Zeile | verhält sich wie eine normale InDesign-Tabelle; Linien, Flächen und Spaltenbreiten wie im PDF | ob bearbeitbar; Abweichungen bei Linien, Flächen, Spaltenbreiten (Seite, Screenshot) |
+| 8 | **Tabellen bearbeitbar?** In eine Zelle klicken (S. 4, 6, 7, 9, 10, 11, 12, 16, 17), Text ändern, Tabelle > Einfügen > Zeile | verhält sich wie eine normale InDesign-Tabelle; Linien, Flächen und Spaltenbreiten wie im PDF | ob bearbeitbar; Abweichungen bei Linien, Flächen, Spaltenbreiten (Seite, Screenshot) |
 | 9 | **Sichern und erneut öffnen:** als `.indd` in den Paketordner sichern, schließen, wieder öffnen | Schriften und Verknüpfungen weiterhin vollständig | ja/nein; sonst die Meldung |
 
 Rückmeldungen zu Punkt 1, 5, 6 und 8 bestätigen bzw. widerlegen die nur aus der Spezifikation bekannten Punkte (siehe
@@ -206,7 +207,7 @@ werden kann.
   Zeilenende bereits ein `<br>`, wird kein zweiter Umbruch eingefügt.
 - **`text-wrap: pretty`** (`p, li, dd, td, th`): `browser.cjs` misst die Zeilenanfänge zusätzlich unter
   `text-wrap-style: auto`. Nur wo beide abweichen, stehen ab der ersten abweichenden Zeile feste Umbrüche an den Stellen
-  des PDFs (derzeit 37 Absätze, 66 Umbrüche). Davor bleiben Text und Silbentrennung frei.
+  des PDFs (derzeit 28 Absätze, 48 Umbrüche). Davor bleiben Text und Silbentrennung frei.
 - **Silbentrennung:** Die weichen Trennstriche aus `assemble.cjs` bleiben als bedingte Trennstriche erhalten.
   Automatische Trennung (Wörter ab 8 Buchstaben, 3/3) ist nur in Absätzen mit solchen Trennstellen an.
   - **Trennbereich 0, Trennungen in Folge unbegrenzt** (`HyphenationZone="0"`, `HyphenateLadderLimit="0"`) ist Absicht:
@@ -235,10 +236,11 @@ werden kann.
   Druckbögen mit ausgeblendeten Musterobjekten. `ShowMasterItems` gilt für den ganzen Druckbogen, deshalb gibt es
   „B-Inhalt ohne Fuß“ für Seiten mit Satzspiegel ohne Standard-Fußzeile.
 - **Formate:** Namen aus `scripts/idml/stilnamen.json` (`absatz`, `zeichen`, `woerter`, `farben`), Zusammenführung
-  über `zusammenfuehren`. Messrauschen unter 0,1 pt entfällt.
+  über `zusammenfuehren`. Seit 12.11.2026 eigene Namen für die Kopfzeile (`page__header` → „Kopfzeile“,
+  `page__section` → „Kopfzeile Rubrik“) und den Schlüsselplan (`keyplan` → „Schlüsselplan“, vorher „Register“). Messrauschen unter 0,1 pt entfällt.
 - **Ebenen:** In `designmap.xml` steht die oberste Ebene zuerst (wie in den Referenz-IDMLs: „Layer 2“ vor „Layer 1“).
 - **Seitenformat** auf 0,01 mm eingerastet, also exakt A4. Weiße Seitenhintergründe werden nicht ausgegeben.
-- **Objekte:** Namen aus Bauteil und Rolle („Seitenverweis Fläche“, „Seite Fuß Linie“). Inset-Schatten werden zu
+- **Objekte:** Namen aus Bauteil und Rolle („Kopfzeile Linie“, „Seite Fuß Linie“, „Schlüsselplan Liste Punkt Fläche“). Inset-Schatten werden zu
   Konturen innen, Haarlinien aus runden Flächen zu Linien mit runden Enden. Textrahmen bleiben unbenannt (InDesign zeigt
   den Textanfang selbst an).
 

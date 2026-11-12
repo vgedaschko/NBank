@@ -6,7 +6,7 @@ Broschüre **Mietwohnraumförderung Niedersachsen 2026** (RL Mietwohnraum 2026),
 
 **Leitidee:** Die Broschüre ist ein **Planwerk**. Die Gestaltung kommt aus dem Handwerk eines Generalplaners: Planrahmen,
 Schriftfeld mit Blattnummer, Achskreise, Maßketten mit 45°-Architektenstrich, Höhenkoten, Schnittlinie, Maßstabsleiste,
-Nordpfeil, Axonometrie. Rot ist **der eine Akzent** (Zuschuss, Maßkette, Marke, Bewilligung); alles andere steht in
+Nordpfeil, Axonometrie. Rot ist **der eine Akzent** und zugeteilt (Titellinie, ein Wort im H1, Zuschuss, Achtung, Marke; s. 0a); alles andere steht in
 Fast-Schwarz, Anthrazit und warmem Grau auf weißem Papier. Typografie wie auf pgn-architekten.de: Montserrat 900 in
 Versalien, Signaturwort in Montserrat 800 kursiv in PGN-Rot, Fließtext in Work Sans.
 
@@ -48,15 +48,15 @@ NODE_PATH=/opt/node22/lib/node_modules node scripts/render.cjs --in src/.preview
 1. **Farben nur über Tokens** (`var(--…)`). Komponenten nutzen ausschließlich die *semantischen* Tokens (`--fg`, `--text`, `--surface-2`, `--accent-text` …). Dann funktionieren sie auf Weiß, Papier, Anthrazit und Rot. **Kein Grün** (#26772B ist die Farbe der PGN Projektgesellschaft Nord GmbH; das Modul „Schlüsselfertig“ steht in Anthrazit).
 2. **Schriften nur aus `fonts/fonts.css`**: Montserrat Variable (Überschriften, Zahlen, Labels, Diagrammwerte) und Work Sans Variable (Fließtext, Modultext, Tabellentext, Diagrammbeschriftung). **Pfeile und Symbole `→ ↔ ≤ ≥ ≈ ✓ ✗ ‰` immer als echtes Zeichen** tippen, ebenso schmale geschützte Leerzeichen (U+202F, U+2009) und den geschützten Bindestrich (U+2011): Montserrat und Work Sans haben diese Zeichen nicht; sie kommen aus der Teilmenge `pgn-symbols-wght-normal.woff2` (InterVariable, opsz fest 14, Achse wght), die für beide Familien in normal und italic registriert ist. `€ „ “ ‚ ‘ – — § ½ ² ·` haben beide Familien selbst.
    **Im PDF statische Instanzen:** `scripts/render.cjs` ersetzt jede genutzte Kombination aus Familie, Stil und `wght` durch eine statische Instanz aus `src/fonts/static/` (Familien „FI mn-w900“, „FI wi-w400“ …, Liste `instances.json`; Symbolteilmenge je Gewicht `sym-wNNN.woff2`). Fehlt eine Instanz, meldet der Lauf `FONT: … fehlen` und schreibt `needed.json`; dann `python3 scripts/fonts-static.py` (Python mit fontTools + brotli) und neu rendern. Ziel: „Statische Schriften: N/N Textstellen zugeordnet“ und in `pdffonts` **nur CID TrueType**. Kein `stroke`/`paint-order` auf Text (Skia setzt gestrichenen Text als Type 3; `.t-halo` nicht verwenden).
-3. **Mindestschrift 8,5 pt** – auch in SVG (`3px` bei 1 Einheit = 1 mm). 8,5 pt (`--fs-micro`) nur für Fundstellen, Bildunterschriften, Achsen, Versal-Labels, Schriftfeld-Bezeichnungen, Badges. **Modultext 9 pt / 1,38** (`--fs-module`). **Fließtext 9,75 pt / 1,47** (Work Sans). Vorspann 11 pt.
-4. **Druckregeln (Offset, PGN-Rot aus drei Druckfarben):** rote Linien ≥ 0,25 mm (`--rule-red-min`), rote Schrift ≥ 9 pt und ≥ 600 (`--fs-label-accent`: alle roten Versal-Labels 9 pt), kein Negativtext unter 9 pt aus Verläufen (weiß auf Rot: ≥ 9 pt, ≥ 600; Fließtext auf Rot nur ≥ 10 pt). PGN-Rot nach Möglichkeit als Sonderfarbe anlegen (bei PGN/Agentur „klar“ erfragen). **Kein vollflächiger Papierton** auf Innenseiten (`#F4F3F2` druckt als 4-%-Fläche wolkig) – Papier nur für Kästen, Bänder, die Blatt-Zelle und höchstens die Mittel-Doppelseite (`.page--accent`); für ein getöntes Heft Naturpapier statt Fläche.
+3. **Mindestschrift 8,5 pt** – auch in SVG (`3px` bei 1 Einheit = 1 mm). 8,5 pt (`--fs-micro`) nur für Fundstellen, Bildunterschriften, Achsen, Versal-Labels, Schriftfeld-Bezeichnungen, Badges. **Text, Modultext und Tabellen 9,5 pt / 1,42** (`--fs-body` = `--fs-small` = `--fs-module`), auf dichten Seiten 9 pt. Vorspann 12 pt. Die Stufen stehen in 0a.
+4. **Druckregeln (Offset, PGN-Rot aus drei Druckfarben):** rote Linien ≥ 0,25 mm (`--rule-red-min`), rote Schrift ≥ 9 pt und ≥ 600 (`--fs-label-accent` 9 pt: Achtung- und Frist-Label, Stempel „Modellrechnung“; die übrigen Labels stehen seit 12.11.2026 in Schwarz und 8,5 pt), kein Negativtext unter 9 pt aus Verläufen (weiß auf Rot: ≥ 9 pt, ≥ 600; Fließtext auf Rot nur ≥ 10 pt). PGN-Rot nach Möglichkeit als Sonderfarbe anlegen (bei PGN/Agentur „klar“ erfragen). **Kein vollflächiger Papierton** auf Innenseiten (`#F4F3F2` druckt als 4-%-Fläche wolkig) – Papier nur für Kästen, Bänder, die Blatt-Zelle und höchstens die Mittel-Doppelseite (`.page--accent`); für ein getöntes Heft Naturpapier statt Fläche.
 5. **Silbentrennung** setzt `scripts/assemble.cjs` (weiche Trennstriche, `HYPH_EXCEPTIONS`, `NBSP_RULES` – unverändert aus v1, s. README). Überschriften, Titel, Zahlen und Versal-Labels bekommen **keine** automatischen Trennstriche (`NOHY_CLASSES`, ergänzt um `claim`, `service__title`, `reference__name`, `bzp__title`, `keyplan`, `kote`, `axis-no`, `titleblock__value`, `page__running` …). Überschriften stehen auf `hyphens: manual`: **Montserrat-Versalien sind breit – lange Komposita in H1/Claim immer von Hand an der Fuge trennen** (`Mietwohnraum&shy;förderung`, `Modernisierungs&shy;anträge`). Faustregel H1 25 pt: ≈ 6,8 mm je Versal → 14 Zeichen auf 8 Spalten (≈ 99 mm), 19 Zeichen auf 12 Spalten.
    **Seit der CSS-Integration (22.10.2026):** Zahlen- und Stufenbereiche mit Halbgeviertstrich („10–40 %“, „6,50–9,00 €“, „15–20 Jahre“, „I–III“, „08:00–17:00“) setzt der Assembler samt Einheit in `.u-nowrap` – Chromium bricht sonst nach „–“ um. Inhalt von `<svg>` bleibt bis zum schließenden `</svg>` unberührt, auch wenn die Signatur ein eigenes `<style>` trägt (früher setzte das innere `</style>` den Zustand zurück → Trennstriche in SVG-Text, LASTLINE-Fehlalarme). Neue Fugen: `Gebäude|nutz|fläche`, `Einkommens|gruppe`. `NOHY_CLASSES` + `ph`, `runin`, `bs-no`.
    **Einheitenzeichen im Versalsatz bleiben klein** („JE m² WOHNFLÄCHE“, nicht „JE M²“): Der Assembler setzt „m²“ in allen Elementen ohne Trennung (`NOHY_TAGS`/`NOHY_CLASSES`: Überschriften, Labels, Vorspann, Tabellenköpfe) in `<span class="u-unit">` (`text-transform: none`). Ein neues Versal-Element mit Einheit gehört deshalb in `NOHY_CLASSES`; an anderer Stelle `.u-unit` von Hand setzen. In SVG-Text keine Einheiten in `.t-caps`.
 6. **Keine negativen Ränder an Grid-/Flex-Kindern** (Chromium-Druck rechnet sie anders). Ausnahme: die rote Titellinie der H1 hängt per `::before` 5,75 mm links neben dem Satzspiegel – das ist ein absolut positioniertes Pseudo-Element, kein Rand.
 7. **Randabfallend** (Daumenregister, Umschlagverlauf, Grundriss U4) bekommt `data-bleed`. Verläufe laufen nur über `.cover__art` in den Beschnitt (`render.cjs` verlängert dort `left/top/width/height` und die viewBox ganzseitiger SVGs); Vollton-Flächen mit `data-bleed` verlängert der Druck-Lauf per Schatten. Text ≥ 5 mm vom Endformat.
 8. **Förderquoten mit „bis zu“** nur in Headline, Kennzahl, Tabellen- und Diagrammkopf („Höchstsätze“); Eigenmittel „mind.“. Vorbehalte, Fundstellen und Haftung stehen einmal im Impressum (U3) – siehe `content/REDAKTIONSREGELN.md` (Hinweis-Diät). Genau zwei Achtung-Kästen im Heft (Vorhabenbeginn, Frist 31.12.2026).
-9. **Querverweise** „→ S. N“ als Link `<a class="pageref" href="#seite-NN">→&nbsp;S.&nbsp;N</a>`; jede `section.page` trägt `id="seite-NN"`. **Wortlaut wie im JSON:** steht der Verweis dort in Klammern, bleiben Klammern und Satzzeichen (`<span class="u-nowrap">(<a class="pageref" …>…</a>).</span>`) – auf allen Seiten gleich. Der Chip ist 4,35 mm hoch (passt in die 9-pt-Modulzeile, kein seitenlokales Nachpolstern) und links wie rechts 1 mm gepolstert, damit ein folgendes Satzzeichen am Chip steht. Auf Anthrazit (`.page--dark`, `.on-dark`, `.contact--dark`) Kontur statt Hauch, Schrift `--accent-text` (#E8A3B1). **Keine Links in Absätzen, die im Mehrspaltensatz über eine Spaltengrenze laufen:** Chromium schreibt dort zusätzlich eine Link-Annotation an die Position vor dem Umbruch (S. 2: Geisterlink über dem Inhaltsverzeichnis; `render.cjs` meldet „Link-Annotation ohne passenden DOM-Link“).
+9. **Querverweise** „→ S. N“ als Link `<a class="pageref" href="#seite-NN">→&nbsp;S.&nbsp;N</a>`; jede `section.page` trägt `id="seite-NN"`. **Wortlaut wie im JSON:** steht der Verweis dort in Klammern, bleiben Klammern und Satzzeichen (`<span class="u-nowrap">(<a class="pageref" …>…</a>).</span>`) – auf allen Seiten gleich. Der Verweis steht halbfett (Work Sans 600) in Schrift, Größe und Farbe des umgebenden Textes, ohne Kästchen und ohne Polster; das gilt auch auf Anthrazit (`.page--dark`, `.on-dark`, `.contact--dark`). **Keine Links in Absätzen, die im Mehrspaltensatz über eine Spaltengrenze laufen:** Chromium schreibt dort zusätzlich eine Link-Annotation an die Position vor dem Umbruch (S. 2: Geisterlink über dem Inhaltsverzeichnis; `render.cjs` meldet „Link-Annotation ohne passenden DOM-Link“).
 10. **Barrierefreiheit im PDF** (getaggt): `<figure>` ohne eigene Rolle → `role="group"`; Diagramm-SVGs `role="img"` + vollständiges `aria-label`; Signaturen, Planrahmen, Fuß, Register, Achskreis-Überlagerung `aria-hidden="true"` (Artefakte); Fotos mit `alt`; englische Begriffe `<span lang="en">`. Kein bedeutungstragender Generated Content (`::before` nur für Striche, Marker, Dreiecke; Ausnahme Zitatzeichen „ “ und das Label „Blatt“ im Artefakt-Fuß).
 11. **Seitenspezifisches CSS** nur im `<style>` der eigenen `<section>` mit Präfix `.page[data-page="NN"]`; dort keine neuen Hex-Farben.
 12. **Ein dominantes Element je Seite** (Kennzahl, Diagramm, Tabelle oder Prozess), höchstens drei Module daneben; Weißraum ist Gestaltungsmittel.
@@ -77,6 +77,54 @@ Die **Klassen-API der v1 bleibt vollständig erhalten** (alle Selektoren, die `s
 
 ---
 
+## 0a · Stufung und Zuteilung (Stand 12.11.2026)
+
+Gilt für alle Innenseiten (S. 2–23) und geht älteren Angaben in diesem Dokument vor. Im Code: `src/styles.css`, Abschnitt
+„8b · STUFUNG UND ZUTEILUNG“. Der Umschlag (U1, U4) folgt Abschnitt 7. Grundsatz: Die Hausform bleibt, sie wird gestuft.
+
+**Schriftstufen.** Fünf Stufen, dazwischen steht nichts.
+
+| Stufe | Token | Schrift | Wofür |
+|---|---|---|---|
+| 25 pt | `--fs-h1` | Montserrat 900 Versalien | H1, Hauptzeile |
+| 15,5 pt | `.h1 .light` (0,62 em) | Montserrat 300 Versalien, +0,05 em | zweite Stimme im H1 |
+| 12 pt | `--fs-lead` · `--fs-deck` · `--fs-h3` | Work Sans 400 · Work Sans 400 · Montserrat 800 gemischt | Vorspann `.lead` · Unterzeile `.deck` · Modultitel (`.chart__title`, `.fig-head__title`, `.plan-legend__title`, `.h3`, gleichgestellt `.term__word`, `.offer-box__title`, `.callout__title`, `.program__title`) |
+| 9,5 pt | `--fs-body` = `--fs-small` = `--fs-module` | Work Sans 400, Zeilenabstand 1,42 | Text, Listen, Kästen, Tabellen |
+| 8,5 pt | `--fs-micro` | Work Sans 400/500 · Montserrat 700 Versalien | Labels, Tabellenkopf, Unterzeilen der Abbildungen (`.chart__sub`), Achsen, Rubrik, Kolumnentitel |
+
+Eigene Rollen neben den Stufen:
+
+- **Kernwerte ab 17 pt** (`--fs-fig-s` 17 · `-m` 21 · `-l` 28 · `-xl` 46 · `-hero` 84 pt; Programmnummer 60 pt, S. 17 46 pt): Kennzahlen und große Ziffern in Montserrat 800–900. Die Einheit steht in Schwarz. Steht ein Wert auf der Seite mehrfach, ist er nur einmal groß.
+- **Diagrammwerte** `--svg-fs-m` 3,25 px = 9,2 pt (`t-m`, `t-val`, `t-val-ink`): eigene Diagrammstufe im SVG. Achsen und übrige Beschriftung 8,5 pt (`--svg-fs-s`).
+- **Druckregel 9 pt** (`--fs-label-accent`): rote Schrift und Negativschrift nie unter 9 pt. Betrifft Achtung- und Frist-Label, den Stempel „Modellrechnung“ und die Nummer im Daumenregister.
+- **Dichte Seite** `.page--dicht` am `<section class="page …">`: Text, Listen und Tabellen der ganzen Seite in 9 pt (Zeilenabstand 1,4, Modultext 1,38). Nur wenn die Seite in 9,5 pt nach ehrlichem Versuch nicht aufgeht. Nie zwei Textgrößen auf einer Seite. Reihenfolge der Mittel: Abstände seitenlokal nachziehen, Vorspann teilen, dann `.page--dicht`. Text kürzen ist kein Mittel. Dicht sind S. 3, 6, 7, 9, 14, 15, 18, 19 und 21.
+
+**Versalien** nur: H1 samt zweiter Stimme, Rubrik der Kopfzeile, Kolumnentitel und Schriftfeld, die 8,5-pt-Labels (Tabellenkopf, `.label`, Run-in-Label `.runin`) und der Stempel. Modultitel, Unterzeile und Vorspann laufen gemischt.
+
+**Rot** nur:
+
+- Titellinie am H1 und **ein** Wort oder **eine** Zahl im H1 (`em`, Montserrat 800 kursiv), nie eine ganze Zeile
+- Zuschuss in Daten (Flächen und Linien der Reihe; die Wertbeschriftung `t-acc` steht in Schwarz)
+- Ergebniszeile der Rechenblätter (`.is-result`)
+- Achtung und Stichtag (Achtung-Kasten S. 19 mit Einzeiler S. 5, Frist-Kasten S. 16, Stichtag-Kachel S. 3)
+- Daumenregister, Schlüsselplan und Programmteilfarben (2.1 = PGN-Rot)
+- Stempel „Modellrechnung“ (S. 14)
+- Logo. Rote Flächen, die zur Hausform gehören, bleiben: Wertefeld und Punktraster S. 22, Umschlag.
+
+In Schwarz stehen: Labels (`.kf__pre`, `.term__label`, `.contact__label`, `.service__phase`, `.audience__label`, `.label--accent`), Einheiten (`.kf__unit`, `.seal__unit`), Aufzählungszeichen und Zähler, Fußnotenziffern, Initiale, Seitenverweise, Angebotssatz `.offer`, Hilfslinien im Diagramm (80-%-Linie `.cap-line`, Maßkette und Achskreis `--acc`) und die Linie links an Zitat, Begriff und Notiz (`.quote::before`, `.term`, `.note`).
+
+**Kopfzeile.** Jede Innenseite S. 2–22 beginnt mit `<header class="page__header">`. Links die Rubrik `.page__section` (Montserrat 700, 8,5 pt Versalien, +0,16 em, Schwarz). Sie ist der erste Teil des Kolumnentitels im Fuß: Editorial (S. 2), Überblick (3–5), Ertragsseite (6–7), Finanzierung (8–9), Modellrechnung (10–12), Neubau (13–14), Bestand (15–17), Umsetzung (18–21), PGN (22). Rechts der Schlüsselplan `.keyplan`, nur auf Seiten eines Programmteils (S. 8–17). Höhe 7 mm ohne und 8,5 mm mit Schlüsselplan, darunter Haarlinie und 5 mm Abstand. Innerhalb einer Doppelseite nie gemischt, damit Kopfzeile, H1 und erste Bandlinie links und rechts auf gleicher Höhe stehen. S. 2 trägt rechts „Inhalt“ über dem Inhaltsverzeichnis, S. 22 rechts das Label „45 Jahre PGN“. S. 23 (U3) hält die Höhe der Kopfzeile ohne Rubrik und ohne Linie. Die rote Kicker-Zeile über dem H1 (`.kicker`, `.kicker-row`) gibt es auf den Innenseiten nicht mehr; `.kicker` steht nur noch auf U1. Der Fuß bleibt, wie er ist.
+
+**H1.** Immer 25 pt. `.h1--s` ist entfallen (die Klasse bleibt ohne Wirkung, nicht mehr verwenden). Passt der Titel nicht in 25 pt oder trug der frühere Kicker Inhalt, steht dieser Teil als zweite Stimme `<span class="light">` über der Hauptzeile: 15,5 pt, Schwarz, 1,2 mm Abstand. Zwischen beiden steht kein Doppelpunkt; im PDF-Lesezeichen verbindet `render.cjs` sie mit „: “. Zweite Stimme tragen S. 2, 3, 8, 10, 11, 13, 14, 15 und 17. Seiten mit Programmkopf (`.program-head`, große Programmnummer) behalten ihn.
+
+**Vorspann und Unterzeile.** `.lead`: Work Sans 400, 12 pt / 1,36, Schwarz. `.lead--s` ist entfallen. Ist der Vorspann länger als etwa drei Zeilen, bleibt der erste Satz (höchstens zwei) `.lead`, der Rest folgt als `<p class="body">` direkt darunter (S. 7, 10, 11, 18). `.deck`: Work Sans 400, 12 pt, gemischt, Kennwert `b` halbfett in Schwarz; `.deck--s` ist dieselbe Form.
+
+**Modultitel.** Montserrat 800, 12 pt, gemischt, Laufweite 0. Die Einheit steht im Titel als `<span class="chart__unit">` (Work Sans 500 in Textgröße), ohne Komma davor: „Jahresrechnung Jahr 1 in € p. a.“, „Rechenweg in €“. `.chart__unit--block` setzt sie in eine eigene Zeile. Alles, was auf einer Seite wie ein Modultitel arbeitet, hat diese Form. Über einem Modultitel ist mehr Luft als darunter.
+
+**Seitenverweis.** `.pageref`: halbfett im Text, in Schrift, Größe und Farbe der Umgebung, ohne Kästchen.
+
+---
+
 ## 1 · Tokens
 
 ### 1.1 Farben (Palette → Semantik)
@@ -84,10 +132,10 @@ Die **Klassen-API der v1 bleibt vollständig erhalten** (alle Selektoren, die `s
 | Token | Wert | Rolle | Kontrast |
 |---|---|---|---|
 | `--pgn-red` | #B71E3F | Akzent, Zuschuss, Maßketten, Marke | Weiß darauf 6,4:1; auf Weiß 6,4:1, auf Papier 5,8:1 |
-| `--pgn-red-deep` | #8B2939 | Verlaufsende, Signal (Frist, Bewilligung, Warnband), Seitenverweis-Text (`--accent-deep`; auf Anthrazit → #E8A3B1, auf Rot → Weiß) | Weiß darauf 8,5:1 |
+| `--pgn-red-deep` | #8B2939 | Verlaufsende, Signal (Frist, Bewilligung, Warnband) | Weiß darauf 8,5:1 |
 | `--grad-red` | 160°, #B71E3F → #8B2939 | rote Flächen (U4, Kennzahlfeld U1, Hero-Kachel, Werte, Phase „nach Bewilligung“) | – |
 | `--pgn-red-300` | #E8A3B1 | Akzent als Text auf Anthrazit | 5,4:1 auf #3C3C3B |
-| `--pgn-red-100` / `-50` | #F7E3E7 / #FBF1F3 | Hauch: Seitenverweis-Chip, Achtung-Kasten, ±0-Zeile | Grau #626160 darauf ≥ 5,0:1 |
+| `--pgn-red-100` / `-50` | #F7E3E7 / #FBF1F3 | Hauch: Achtung-Kasten, ±0-Zeile | Grau #626160 darauf ≥ 5,0:1 |
 | `--ink` | #202020 | Überschriften, Zahlen, Darlehen (Poché), Rahmen | 16,3:1 |
 | `--anthracite` | #3C3C3B | Fließtext (`--text`), Linien, `--grad-dark` | 11,0:1; 10,0:1 auf Papier |
 | `--grey-600` | #626160 | Sekundärtext `--fg-3` (aus CI-#757474 abgedunkelt) | 6,2:1 Weiß · 5,6:1 Papier · 5,0:1 #E9E7E4 |
@@ -198,20 +246,19 @@ gleichmäßig scharf, keine Treppen. Fotos (S. 22) sind echte Bilder und werden 
 | Token | Wert | Schrift | Einsatz |
 |---|---|---|---|
 | `--fs-cover` | 30 pt | Montserrat 900 Versalien, lh .97 | Titelzeile U1 (2–3 Zeilen) |
-| `--fs-h1` / `--fs-h1-s` / `.h1--xl` | 25 / 20 / 34 pt | Montserrat 900 Versalien, lh 1,04, Laufweite −0,005 em | Seitentitel / dichte Seiten / Kapitelauftakt |
-| `--fs-h2` | 13 pt | Montserrat 900 Versalien | Abschnittstitel |
-| Diagramm-/Modulkopf (`.chart__title`, `.fig-head__title`) | 10 pt | Montserrat 800 Versalien, +0,07 em | Planlegenden-Titel |
-| `--fs-h3` | 10,5 pt | Montserrat 700, gemischt | Fragen, Begriffe, Programmtitel |
-| Modultitel (`.callout__title`, `.step__title`, `.service__title`) | 9,75 pt | Montserrat 800 Versalien, +0,04 em | – |
-| `--fs-deck` | 10,5 pt | Montserrat 300 Versalien, +0,03 em; Kennwert `b` 800 Rot | Unterzeile unter H1 |
-| `--fs-lead` | 11 pt / 1,45 | Work Sans 400, max. 132 mm (≈ 65–70 Zeichen) | Vorspann |
-| `--fs-body` | 9,75 pt / 1,47 | Work Sans 400, `b` 600 | Fließtext |
-| `--fs-module` | 9 pt / 1,38 | Work Sans | Listen, Kästen, Kacheln, Tabellenzellen |
-| `--fs-micro` | 8,5 pt | Work Sans 500 / Montserrat 700 Versalien (+0,1 em) | Labels, Achsen, Fundstellen |
-| `--fs-label-accent` | 9 pt | Montserrat 700 Versalien, rot | Kicker und alle roten Labels (Druckregel) |
+| `--fs-h1` / `.h1--xl` | 25 / 34 pt | Montserrat 900 Versalien, lh 1,04, Laufweite −0,005 em | Seitentitel / Kapitelauftakt (im Heft ungenutzt). `--fs-h1-s` (20 pt) ist als Token noch da, `.h1--s` setzt 25 pt |
+| `.h1 .light` | 15,5 pt (0,62 em) | Montserrat 300 Versalien, +0,05 em, lh 1,2 | zweite Stimme im H1 |
+| `--fs-h2` | 13 pt | Montserrat 900 Versalien | Abschnittstitel `.h2` (auf den Seiten ungenutzt; liegt außerhalb der Stufen) |
+| `--fs-h3` · Modultitel (`.chart__title`, `.fig-head__title`, `.plan-legend__title`, `.h3`, `.term__word`, `.offer-box__title`, `.callout__title`, `.program__title`) | 12 pt | Montserrat 800, gemischt, lh 1,2, Laufweite 0 | Modultitel |
+| `.chart__unit` | Textgröße (9,5 pt, dicht 9 pt) | Work Sans 500, gemischt | Einheit im Modultitel, ohne Komma davor |
+| `--fs-deck` | 12 pt / 1,36 | Work Sans 400, gemischt; Kennwert `b` 600 in Schwarz | Unterzeile unter H1 |
+| `--fs-lead` | 12 pt / 1,36 | Work Sans 400, Schwarz, max. 132 mm | Vorspann |
+| `--fs-body` = `--fs-small` = `--fs-module` | 9,5 pt / 1,42 | Work Sans 400, `b` 600 | Text, Listen, Kästen, Kacheln, Tabellenzellen; `.page--dicht`: 9 pt / 1,4 (Modultext 1,38) |
+| `--fs-micro` | 8,5 pt | Work Sans 400/500 / Montserrat 700 Versalien (+0,1 em) | Labels, Achsen, Fundstellen, Rubrik der Kopfzeile (+0,16 em) |
+| `--fs-label-accent` | 9 pt | Montserrat 700–800 Versalien | rote Schrift und Negativschrift (Druckregel): Achtung- und Frist-Label, Stempel, Daumenregister; Dachzeile U1 |
 | `--fs-fig-hero` / `-xl` / `-l` / `-m` / `-s` | 84 / 46 / 28 / 21 / 17 pt | Montserrat 800–900, Tabellenziffern | Hero-Zahl / große / Kachel / kleine Kachel / Tabellen-Kernwerte |
 
-Zahlen immer Montserrat mit `tabular-nums` (Kachel, Tabelle `.num`, Diagrammwerte `t-val`, Blattnummer). Einheiten (`kf__unit`) halb so groß in Rot. Signaturwort (`em` in `.h1`, `.claim`, `.cover__title`) = Montserrat 800 kursiv Rot. Zweite Stimme `.light` = Montserrat 300 Versalien.
+Zahlen immer Montserrat mit `tabular-nums` (Kachel, Tabelle `.num`, Diagrammwerte `t-val`, Blattnummer). Einheiten (`kf__unit`) halb so groß in Schwarz. Signaturwort (`em` in `.h1`, `.claim`, `.cover__title`) = Montserrat 800 kursiv Rot, im H1 genau ein Wort oder eine Zahl. Zweite Stimme `.light` = Montserrat 300 Versalien, 15,5 pt, Schwarz. SVG-Schriftgrade: `--svg-fs-s` 3 px = 8,5 pt · `--svg-fs-m` 3,25 px = 9,2 pt (Diagrammwerte) · `-l` 12 pt · `-xl` 18 pt · `-xxl` 25,5 pt.
 
 ### 1.5 Raster und Satzspiegel
 
@@ -239,7 +286,7 @@ Linien: `--hair` 0,2 mm · `--rule-w` 0,3 mm · `--rule-heavy` 0,5 mm (Modulkopf
 <section class="page bs-21" data-page="08" id="seite-08">
   <div class="bs-register" data-bleed aria-hidden="true">2.1</div>          <!-- nur Programmseiten: Daumenregister -->
   <header class="page__header">
-    <span class="page__section"><b>2.1</b>Finanzierung</span>               <!-- Rubrik links (b = rotes Kürzel, optional) -->
+    <span class="page__section">Finanzierung</span>                          <!-- Rubrik links: erster Teil des Kolumnentitels, 8,5 pt Versalien, Schwarz -->
     <div class="keyplan" role="img" aria-label="Programmteil 2.1 von sechs Programmteilen">
       <span class="keyplan__label">Programmteil</span>
       <ol class="keyplan__list"><li class="bs-21 is-on">2.1</li><li class="bs-22">2.2</li><li class="bs-23">2.3</li>
@@ -253,10 +300,11 @@ Linien: `--hair` 0,2 mm · `--rule-w` 0,3 mm · `--rule-heavy` 0,5 mm (Modulkopf
 
 - **Mini-Plankopf** (`.page__foot`, Markup wie v1): 9,5 mm hoch, 0,3-mm-Oberlinie, Zellen: *Blatt NN* (Papier, Montserrat 900 12 pt, Label „Blatt“ per CSS) · PGN-Wortmarke (`assets/pgn/logo-mark-rot.svg`) · Projekt (Zeile 1) / Rubrik in Versalien (Zeile 2). **Kein Stand in der Fußzeile** (Korrekturlauf 1: Stand 30.09.2026 nur auf U1 und im Impressum U3). Gerade Seiten (`data-page` endet auf 0/2/4/6/8 oder `.page--left`): Blatt links außen; ungerade: rechts außen. Das volle Schriftfeld bleibt Umschlag und Kapitelauftakten vorbehalten.
 - **Daumenregister** `.bs-register`: 10 × 21 mm am Außenrand, Lage nach Programmteil (`top: 52 mm + Index × 25 mm`, 2.1 oben … 2.6 unten), Programmfarbe, Nummer Montserrat 800 9 pt weiß. Gerade Seiten links gespiegelt. Immer `data-bleed aria-hidden="true"`.
-- **Schlüsselplan** `.keyplan`: im Seitenkopf rechts; jedes Feld mit Farbkante, aktives Feld gefüllt. Steht auf allen Programmseiten (S. 8, 12, 13, 14, 16, 17) und darf auf Übersichten (Navigator) ohne `is-on` stehen.
+- **Kopfzeile** `.page__header`: auf jeder Innenseite S. 2–22, Rubrik links, 7 mm hoch (mit Schlüsselplan 8,5 mm), Haarlinie, 5 mm Abstand zum H1; S. 23 hält die Höhe ohne Rubrik und Linie (s. 0a).
+- **Schlüsselplan** `.keyplan`: in der Kopfzeile rechts; jedes Feld mit Farbkante, aktives Feld gefüllt (S. 17: 2.5 und 2.6). Steht auf den Seiten eines Programmteils (S. 8–17), sonst nicht.
 - **Varianten:** `.page--u1` / `.page--u4` (Umschlag, ohne Polster, s. 7) · `.page--opener` (Kapitelauftakt im Planrahmen `.planframe--soft`, Fuß 4 mm über der Rahmenlinie) · `.page--accent` (Papierseite, nur Mittel-Doppelseite) · `.page--dark` (Anthrazit-Verlauf) · `.page--back` (v1-Rückseite, jetzt Rot) · `.page--cover` (v1-Titel, jetzt hell).
 - **Planrahmen** `<div class="planframe" aria-hidden="true"></div>`: 8 mm vom Endformat, 0,35 mm Fast-Schwarz, Falzmarken bei 105/210 mm; `--soft` = Haarlinie Logo-Grau. Auf Rot weiß.
-- **Master-Opener der Programmseiten** (S. 8, 12, 13, 14, 16, 17). Der Tag unter der Nummer ist im Kopf kompakt (Polster 1,2 mm, Farbfelder 2,4 mm), damit „Zuschuss + Darlehen“ in drei Spalten (41,25 mm) passt:
+- **Master-Opener der Programmseiten** (S. 8, 13, 14, 15, 17). Der Tag unter der Nummer ist im Kopf kompakt (Polster 1,2 mm, Farbfelder 2,4 mm), damit „Zuschuss + Darlehen“ in drei Spalten (41,25 mm) passt:
 
 ```html
 <header class="program-head program-head--master">
@@ -265,10 +313,9 @@ Linien: `--hair` 0,2 mm · `--rule-w` 0,3 mm · `--rule-heavy` 0,5 mm (Modulkopf
     <p class="tags"><span class="tag"><i class="sw sw--grant"></i><i class="sw sw--loan"></i>Zuschuss + Darlehen</span></p>
   </div>
   <div class="program-head__main">                             <!-- 9 Spalten -->
-    <p class="kicker">Neubau · Änderung · Ersterwerb</p>      <!-- ohne Vorstrich, ohne „Programmteil 2.1“ (steht außen) -->
-    <h1 class="h1">Bis zu <em>80&nbsp;%</em> Förder&shy;quote</h1>
-    <p class="deck">Aus Darlehen und Zuschuss – in <b>allen drei</b> Einkommensgruppen</p>
-    <p class="program-head__subject">Gegenstandssatz (Work Sans 9,75 pt, ≤ 4 Zeilen) …</p>
+    <h1 class="h1"><span class="light">Neubau, Änderung, Ersterwerb</span> Bis zu <em>80&nbsp;%</em> Förder&shy;quote</h1>   <!-- früherer Kicker als zweite Stimme -->
+    <p class="deck">Darlehen plus Zuschuss in jeder Einkommensgruppe, mit Zuschlag bis zu <b>90&nbsp;%</b></p>
+    <p class="program-head__subject">Gegenstandssatz (Work Sans 9,5 pt, dicht 9 pt) …</p>
   </div>
 </header>
 ```
@@ -278,26 +325,27 @@ Linien: `--hair` 0,2 mm · `--rule-w` 0,3 mm · `--rule-heavy` 0,5 mm (Modulkopf
 ## 3 · Typografie-Bausteine
 
 ```html
-<p class="kicker">Mit PGN</p>                                   <!-- Montserrat 700 9 pt Versalien +0,16 em, Rot, 7-mm-Strich -->
-<p class="kicker kicker--ink">…</p>  <p class="kicker kicker--plain">…</p>   <!-- Tinte mit rotem Strich / ohne Strich -->
+<header class="page__header"><span class="page__section">Umsetzung</span></header>   <!-- Kopfzeile mit Rubrik; ersetzt die Kicker-Zeile (s. 0a) -->
+<p class="kicker kicker--ink">…</p>                             <!-- Dachzeile: nur noch U1 (Montserrat 700 9 pt Versalien) -->
 <h1 class="h1">So begleiten wir Ihr Förder&shy;projekt</h1>    <!-- 900 Versalien; rote 0,75-mm-Linie hängt links (.h1--norule ohne) -->
-<h1 class="h1"><span class="light">Mietwohnungen in</span>Mehrfamilienhäusern</h1>  <!-- zweite Stimme 300 -->
-<h1 class="h1">Bis zu <em>80&nbsp;%</em> Förderquote</h1>       <!-- em = 800 kursiv Rot (Signaturwort) -->
-<p class="deck">Ein Ansprechpartner für <b>alles</b></p>        <!-- 300 Versalien; .deck--s = ganzer Satz in Work Sans 10,5 pt -->
-<p class="lead">Den Antrag stellen Sie bei …</p>               <!-- Work Sans 11 pt, max. 132 mm; .lead--s 10,25 pt -->
+<h1 class="h1"><span class="light">14 Wohnungen, 3,0&nbsp;Mio.&nbsp;€</span> bis zu <em>2,4&nbsp;Mio.&nbsp;€</em> Förderung</h1>  <!-- zweite Stimme: 300, 15,5 pt, Schwarz, eigene Zeile, kein Doppelpunkt -->
+<h1 class="h1">Konditionen und <em>Kosten</em></h1>            <!-- em = 800 kursiv Rot: genau ein Wort oder eine Zahl -->
+<p class="deck">Ein Ansprechpartner für alles</p>               <!-- Unterzeile: Work Sans 12 pt, gemischt; b = 600 Schwarz; .deck--s gleich -->
+<p class="lead">Den Antrag stellen Sie bei …</p>               <!-- Vorspann: Work Sans 12 pt, Schwarz, max. 132 mm; .lead--s entfallen -->
+<p class="body">Rest eines geteilten Vorspanns …</p>            <!-- direkt unter .lead, Textgröße -->
 <p class="claim">Planen. Fördern. <em>Bauen.</em></p>           <!-- Plakatzeile 22 pt; --s 13 pt, --l 31 pt, --rule mit roter Linie -->
-<h2 class="h2">Zuschläge und Sonderformen</h2>  <h3 class="h3">Wann gilt ein Vorhaben als begonnen?</h3>
-<p class="label">Versal-Label</p>  <p class="label label--accent">Rotes Label (9 pt)</p>
-<div class="prose"><p class="dropcap">Fließtext …</p></div>     <!-- Initiale Montserrat 900 Rot über drei Zeilen; nur einmal (Editorial) -->
-<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>        <!-- Seitenverweis-Chip: Hauch + Dunkelrot, 4,35 mm hoch -->
-<b class="runin">Kombinierbar mit</b> KfW 298 …                 <!-- Run-in-Label: 800 9 pt Versalien +0,05 em, 2 mm Abstand (Bänder, Zeilenlisten, Stationen) -->
+<h2 class="chart__title">Jahresrechnung Jahr 1 <span class="chart__unit">in € p. a.</span></h2>   <!-- Modultitel: Montserrat 800 12 pt gemischt; Einheit ohne Komma -->
+<h3 class="h3">Wann gilt ein Vorhaben als begonnen?</h3>       <!-- dieselbe Form wie der Modultitel -->
+<p class="label">Versal-Label</p>                               <!-- 8,5 pt; .label--accent steht in Schwarz -->
+<div class="prose"><p class="dropcap">Fließtext …</p></div>     <!-- Initiale Montserrat 900 Schwarz über drei Zeilen; nur einmal (Editorial) -->
+<a class="pageref" href="#seite-09">→&nbsp;S.&nbsp;9</a>        <!-- Seitenverweis: halbfett im Text, ohne Kästchen -->
+<b class="runin">Kombinierbar mit</b> KfW 298 …                 <!-- Run-in-Label: 800 8,5 pt Versalien +0,1 em, 2 mm Abstand (Bänder S. 8, 13); S. 5 und 20 setzen es seitenlokal als Modultitel -->
 <b class="bs-no bs-23">2.3</b>                                  <!-- Programmnummer im Fließtext: 800, 1em, Programmfarbe -->
 <span class="ph">[PGN-Rechnung: … % der Miete]</span>            <!-- Platzhalter (s. 6.16) -->
-<div class="kicker-row"><p class="kicker kicker--plain">…</p><p class="stampline stampline--inline">…</p></div>   <!-- Kickerzeile 7 mm (S. 10–12); rechts auf S. 10 der Hinweis „Rechenbeispiel, keine Förderzusage“ als Text, ohne Stempel -->
-<p class="lead lead--cols-2">…</p>                              <!-- langer Vorspann zweispaltig (dichte Seiten) -->
+<p class="chart__sub">Rechenbeispiel, keine Förderzusage</p>   <!-- 8,5-pt-Unterzeile unter dem Modultitel (S. 10); .kicker-row und .stampline--inline sind im Heft ungenutzt -->
 ```
 
-Titelblock mit Vorspann rechts: `.title-block.title-block--split` (7 + 5 Spalten) bzw. `--split-6`. Regeln: genau ein `.h1` je Seite; Kicker ≤ 6 Wörter; Deck ≤ 1 Zeile (≤ 2 auf Programmseiten); Lead ≤ 45 Wörter / 4 Zeilen; Plakatzeile ≤ 3 Wörter, nur auf Kapitelöffnern, PGN-Seiten und dem Umschlag.
+Titelblock mit Vorspann rechts: `.title-block.title-block--split` (7 + 5 Spalten) bzw. `--split-6`. Regeln: genau ein `.h1` je Seite; zweite Stimme ≤ 1 Zeile; Deck ≤ 1 Zeile (≤ 2 auf Programmseiten); Vorspann höchstens etwa drei Zeilen, sonst teilen (s. 0a); Plakatzeile ≤ 3 Wörter, nur auf Kapitelöffnern, PGN-Seiten und dem Umschlag.
 
 ---
 
@@ -353,7 +401,7 @@ Feldzuordnung `services`: `title/body/phase` → `.service__title/.service__text
 <div class="seal"><span class="seal__pre">bis zu</span><span class="seal__num">80<span class="seal__unit">%</span></span><span class="seal__text">…</span></div>  <!-- Achskreis; --filled = Rotverlauf -->
 ```
 
-Varianten seit der CSS-Integration: `.key-figures--n` (Kachelzeile in einer Teilspalte, `style="--n: 7"`, Spannen je Kachel), `.kf--band--compact` (drei Werte neben einer Erklärung: Werte ohne Mindestbreite, 3 mm Polster). Regeln: Kachelkopf 0,3-mm-Linie; Zahl Montserrat 800 28 pt (Tabellenziffern); Einheit halb so groß in Rot; `kf__pre` rot 9 pt. Höchstens eine Hero-Kachel je Seite. Zahlen > 6 Zeichen (4.800/5.000, 90.000) nur in 2er-/3er-Raster oder `kf--s`. In der Kopfzeile darf ein Programm-Badge stehen (`.bs-badge`, DOM vor `kf__pre`, per `order` rechts).
+Varianten seit der CSS-Integration: `.key-figures--n` (Kachelzeile in einer Teilspalte, `style="--n: 7"`, Spannen je Kachel), `.kf--band--compact` (drei Werte neben einer Erklärung: Werte ohne Mindestbreite, 3 mm Polster). Regeln: Kachelkopf 0,3-mm-Linie; Zahl Montserrat 800 28 pt (Tabellenziffern); Einheit halb so groß in Schwarz; `kf__pre` 8,5 pt Versalien in Schwarz. Höchstens eine Hero-Kachel je Seite. Zahlen > 6 Zeichen (4.800/5.000, 90.000) nur in 2er-/3er-Raster oder `kf--s`. In der Kopfzeile darf ein Programm-Badge stehen (`.bs-badge`, DOM vor `kf__pre`, per `order` rechts).
 
 ### 6.2 Tabellen (`table`)
 
@@ -374,7 +422,7 @@ Varianten seit der CSS-Integration: `.key-figures--n` (Kachelzeile in einer Teil
 </table>
 ```
 
-Kopf: Montserrat 700 8,5 pt Versalien, 0,3-mm-Linie Fast-Schwarz; Zeilen Haarlinien; Abschluss 0,3 mm. **Massendaten-Stufe:** `.num` = Montserrat 600 9 pt, Tabellenziffern, rechtsbündig (Einkommensgrenzen, Kalkulation). **Kernwerte** `.table--figures`: höchstens 6–8 Werte je Seite; mehr Werte (Höchstmieten S. 7, 19 Werte) in der mittleren Stufe `.table--figures-m` (Montserrat 700 13 pt). **Eckdaten** `.table--terms`: Positionsspalte genau 3 Spalten (46-mm-Achse), Text 9 pt in `--text`, Werte fett in Tinte. **Vergleich** `.table--compare`: neue Spalte in Tinte, nicht fett – hervorgehoben werden nur Kennwerte (`.table--compare--strong` = ganze Spalte 600). Gruppenköpfe A/B/C als Achskreise. Weitere Zellklassen wie v1 (`.unit`, `.is-hl`, `.is-total`, `.is-key`, `.is-group-end`, `.bs-row`, `.table__arrow`). Höchstens 8 Zeilen × 5 Spalten.
+Kopf: Montserrat 700 8,5 pt Versalien, 0,3-mm-Linie Fast-Schwarz; Zeilen Haarlinien; Abschluss 0,3 mm. **Massendaten-Stufe:** `.num` = Montserrat 600 in Textgröße (9,5 pt, dicht 9 pt), Tabellenziffern, rechtsbündig (Einkommensgrenzen, Kalkulation). **Kernwerte** `.table--figures`: höchstens 6–8 Werte je Seite; mehr Werte (Höchstmieten S. 7, 19 Werte) in der mittleren Stufe `.table--figures-m` (Montserrat 700 12 pt). **Eckdaten** `.table--terms`: Positionsspalte genau 3 Spalten (46-mm-Achse), Text in Textgröße (S. 9 ist dicht: 9 pt) in `--text`, Werte fett in Tinte. **Vergleich** `.table--compare`: neue Spalte in Tinte, nicht fett – hervorgehoben werden nur Kennwerte (`.table--compare--strong` = ganze Spalte 600). Gruppenköpfe A/B/C als Achskreise. Weitere Zellklassen wie v1 (`.unit`, `.is-hl`, `.is-total`, `.is-key`, `.is-group-end`, `.bs-row`, `.table__arrow`). Höchstens 8 Zeilen × 5 Spalten.
 
 ### 6.3 Hinweise, Planlegende, Warnband
 
@@ -396,11 +444,11 @@ Kopf: Montserrat 700 8,5 pt Versalien, 0,3-mm-Linie Fast-Schwarz; Zeilen Haarlin
 |---|---|---|
 | `--hinweis` | Papier, 0,3-mm-Linie Tinte, Label grau | Ergänzung, Ausgangswerte |
 | `--achtung` | Rot-Hauch, 0,5-mm-Rotlinie, Label rot 9 pt | nur Vorhabenbeginn (S. 19, Kurzverweis S. 4/5) |
-| `--achtung.--inline.--ref` | ohne Fläche, Stopp-Icon, Titel 800 Versalien, 0,25-mm-Rotlinie unten, einzeilig | Kurzverweis auf den Achtung-Kasten (S. 5) – „kein eigener Kasten“ |
+| `--achtung.--inline.--ref` | ohne Fläche, Stopp-Icon, Titel 800, 0,25-mm-Rotlinie unten, einzeilig | Kurzverweis auf den Achtung-Kasten (S. 5) – „kein eigener Kasten“ |
 | `--frist` | Papier, 0,9-mm-Dunkelrotlinie, Datum Montserrat 900 21 pt | nur Frist 31.12.2026 (S. 14/15) |
 | `--tipp` | Papier, Anthrazitlinie | Praxisrat |
 | `--calc` | Weiß mit 5-mm-Planraster, Rechner-Icon rot | höchstens drei Kalkulationsnotizen im Heft |
-| `.plan-legend` | gebündelte Hinweise: Symbol rot, Titel 800 Versalien, 2–3 Zeilen | statt mehrerer Kästen – die Hinweis-Diät-Form |
+| `.plan-legend` | gebündelte Hinweise: Symbol rot, Titel als Modultitel (800, 12 pt, gemischt), 2–3 Zeilen; im Heft ungenutzt | statt mehrerer Kästen – die Hinweis-Diät-Form |
 | `.gate` | Dunkelrotband, weiß, Titel 800 Versalien | „±0 Bewilligung“ im Ablauf, max. 1 je Seite |
 
 ### 6.4 Zitat
@@ -409,7 +457,7 @@ Kopf: Montserrat 700 8,5 pt Versalien, 0,3-mm-Linie Fast-Schwarz; Zeilen Haarlin
 <blockquote class="quote"><div class="quote__text"><p>Kostensicherheit ist kein Schlagwort, sondern ein wichtiges Versprechen.</p></div>
   <p class="quote__by"><span class="quote__name">PGN · Über uns</span><span class="quote__src">pgn-architekten.de</span></p></blockquote>
 ```
-Rote 0,75-mm-Linie links statt Zier-Anführungszeichen; „ und “ setzt CSS (nicht tippen). Montserrat 500 kursiv 12,5 pt (`--l` 17 pt). Nur wörtliche Zitate mit Quelle; höchstens zwei im Heft (Redaktionsregeln).
+Schwarze 0,75-mm-Linie links statt Zier-Anführungszeichen (seit 12.11.2026, vorher rot); „ und “ setzt CSS (nicht tippen). Montserrat 500 kursiv 12 pt (`--l` 17 pt, im Heft ungenutzt). Nur wörtliche Zitate mit Quelle; höchstens zwei im Heft (Redaktionsregeln).
 
 ### 6.5 Ablauf (`steps`)
 
@@ -419,7 +467,7 @@ Rote 0,75-mm-Linie links statt Zier-Anführungszeichen; „ und “ setzt CSS (n
   <li class="step is-gate"><span class="step__no">±0</span><div><p class="step__title">Bewilligung</p><p class="step__text">Erst jetzt Verträge schließen und bauen.</p></div></li>
 </ol>
 ```
-Weitere Varianten wie v1: `.steps--lanes` (Sie · Förderstelle · NBank, Marker voll/hohl), `.steps--h` (waagerecht, roter Winkel zwischen den Schritten), `.ratebar` (Auszahlungsraten). Schrittnummern sonst Montserrat 900 20 pt Rot.
+Weitere Varianten wie v1: `.steps--lanes` (Sie · Förderstelle · NBank, Marker voll/hohl), `.steps--h` (waagerecht, roter Winkel zwischen den Schritten), `.ratebar` (Auszahlungsraten). Schrittnummern sonst Montserrat 900 20 pt Rot (Komponente im Heft ungenutzt).
 
 ### 6.6 Diagramme (`chart`)
 
@@ -438,15 +486,15 @@ Weitere Varianten wie v1: `.steps--lanes` (Sie · Förderstelle · NBank, Marker
 **Maßketten-Balken (Fördermix, Signatur des Hefts)** – Bauplan: `scripts/specimen.cjs`, Funktion `foerdermix()`:
 - Zeilen je Gruppe 14,5 mm, Balken 6–7 mm (leichte Variante; nie 14 mm-Blöcke), Gruppe als Achskreis (`axb-c` + `axb-t`, r 4,1 mm) mit zweizeiliger Beschreibung.
 - Reihenfolge **Zuschuss ab der Grundlinie** (rot) · Darlehen (#202020) · Eigenmittel (Fläche `c-equity` + Vektorschraffur `path.hatch[data-hatch]` + Rahmen `c-equity-frame`, s. 1.3.1 – kein `<pattern>`); 0,7-mm-Fuge als **echter Abstand** (je 0,35 beiderseits der Teilungsstelle, s. „Keine Überdeck-Fugen“ unten).
-- Über jedem Balken eine **Maßkette in Anthrazit** (`dim-line` 0,22, `dim-tick` 0,45 als 45°-Strich, Hilfslinien 0,12) mit den Werten (Montserrat 700, `t-val-ink`, Zuschusswert `t-acc`).
-- **80-%-Achse** rot Strichpunkt (`cap-line`, 0,25 mm) mit rotem Achskreis „80“ und Label „Förderung bis zu 80 % – in jeder Gruppe“; Zuschläge als rote gestrichelte Kappe 80 → 85 → 90.
+- Über jedem Balken eine **Maßkette in Anthrazit** (`dim-line` 0,22, `dim-tick` 0,45 als 45°-Strich, Hilfslinien 0,12) mit den Werten (Montserrat 700, `t-val-ink`; `t-acc` steht seit 12.11.2026 ebenfalls in Schwarz).
+- **80-%-Achse** als Strichpunkt in Schwarz (`cap-line`, 0,25 mm) mit Achskreis „80“ und Label „Förderung bis zu 80 % – in jeder Gruppe“; Zuschläge als gestrichelte Kappe 80 → 85 → 90, ebenfalls in Schwarz (Hilfslinien sind nicht rot, s. 0a).
   Strichstärken in SVGs mit mm-viewBox immer **ohne Einheit** angeben (`stroke-width: .25`): eine CSS-Länge wie `.25mm` wird in px umgerechnet und dann als Nutzereinheit gelesen – im Diagramm rund 0,95 mm (Korrekturlauf 1, global in `.cap-line`/`.dim-line--acc` behoben).
 - **Maßstabsleiste als x-Achse** (`sb-b`/`sb-w`, 1,3 mm hoch, Labels 0–100 `t-ax`).
 - Namen im Balken nur in der ersten Zeile („Zuschuss“, „Darlehen“, `t-val t-s` weiß).
 
-**Kopf und Plotfläche:** `.chart__head--stamp` (Zeile 1 Titel + `.stamp`, Zeile 2 Untertitel links, Legende rechts; S. 13), `.chart__plot` (Stempel absolut in der freien Fläche über niedrigen Säulen, spart eine Kopfzeile; bis Korrekturlauf 1 S. 16), `.chart__unit` / `--block` (Einheit im Titel in Work Sans 9 pt gemischt: „Höchstmiete nettokalt, € je m² und Monat …“; S. 7), `.legend--wrap` (Legende in schmaler 3-Spalten-Marginalie), `.sw--axis` (80-%-Achse als Legendeneintrag). `.chart__svg` steht im Raster oben (`align-self: start`) und wird nicht auf die Höhe der Nachbarspalte gestreckt.
+**Kopf und Plotfläche:** `.chart__head--stamp` (Zeile 1 Titel + `.stamp`, Zeile 2 Untertitel links, Legende rechts; S. 13), `.chart__plot` (Stempel absolut in der freien Fläche über niedrigen Säulen, spart eine Kopfzeile; bis Korrekturlauf 1 S. 16), `.chart__unit` / `--block` (Einheit im Titel in Work Sans 500 in Textgröße, ohne Komma davor: „Höchstmiete nettokalt € je m² und Monat …“; S. 6, 7, 11, 12, 13), `.legend--wrap` (Legende in schmaler 3-Spalten-Marginalie), `.sw--axis` (80-%-Achse als Legendeneintrag). `.chart__svg` steht im Raster oben (`align-self: start`) und wird nicht auf die Höhe der Nachbarspalte gestreckt.
 
-**SVG-Konventionen:** 1 SVG-Einheit = 1 mm (`viewBox`-Breite = `width` in mm). Beschriftung Work Sans (`text` 3px = 8,5 pt, `t-m` 9,2 pt, `t-l` 12 pt), Werte Montserrat (`t-val`, `t-val-ink`, `t-num` 18 pt, `t-num-l` 25,5 pt, `t-cat` 7px, `axb-t` 5px – alle mit Tabellenziffern). `t-acc` = Rot 700. `t-unit` = Einheit hinter einem Wert (Work Sans 500 8,5 pt, grau – auch hinter roten Werten). Einkommensgruppen als Achskreis: `c-grp-a/-b/-c` (seq-6/-4/-2) + `t-grp` (`--ink` auf C). `axb-c--acc` = Achskreis der 80-/90-%-Achse (rot, 0,35). `dash--fine` (0,9/0,7) für Wartezeiten, `tl-axis--strong` (0,45) für dominante Zeitleisten, `tl-draft` (gestrichelter Rahmen auf Papier) für Geplantes. Kein `stroke` auf Text. Zahl–Einheit im SVG mit U+202F (aus der Symbolteilmenge).
+**SVG-Konventionen:** 1 SVG-Einheit = 1 mm (`viewBox`-Breite = `width` in mm). Beschriftung Work Sans (`text` 3px = 8,5 pt, `t-m` 9,2 pt, `t-l` 12 pt), Werte Montserrat (`t-val`, `t-val-ink`, `t-num` 18 pt, `t-num-l` 25,5 pt, `t-cat` 7px, `axb-t` 5px – alle mit Tabellenziffern). `t-acc` = 700, seit 12.11.2026 Schwarz. `t-unit` = Einheit hinter einem Wert (Work Sans 500 8,5 pt, grau – auch hinter roten Werten). Einkommensgruppen als Achskreis: `c-grp-a/-b/-c` (seq-6/-4/-2) + `t-grp` (`--ink` auf C). `axb-c--acc` = Achskreis der 80-/90-%-Achse (Schwarz, 0,35). `dash--fine` (0,9/0,7) für Wartezeiten, `tl-axis--strong` (0,45) für dominante Zeitleisten, `tl-draft` (gestrichelter Rahmen auf Papier) für Geplantes. Kein `stroke` auf Text. Zahl–Einheit im SVG mit U+202F (aus der Symbolteilmenge).
 
 **Keine Überdeck-Fugen (Optik-Lauf 06.11.2026, Kundenbefund S. 18):** Fugen, Lücken und Freistellungen sind echte Geometrie,
 nie eine darübergelegte Linie/Fläche in Papierfarbe (`sep-line`, „Radierer“, Textmaske). Gestapelte Balken/Säulen: Segmente enden
@@ -458,11 +506,11 @@ Maßstabsleisten tragen auf **beiden** Feldern dieselbe Kontur (`.sb-b`, `.sb-w`
 Leader-/Kotenlinien enden mit festem Abstand vor dem vordersten Punkt des Bezugs (nicht darunter durch). Prüfskript-Ausschnitte
 und Bericht: `dist/qa/optik/`.
 
-**Diagramm-Regeln:** (1) Farben je Reihe fest (1.3). (2) Direkt beschriften; Legende im Kopf nur ergänzend. (3) Höchstwerte im Kopf („Höchstsätze“, „bis zu“). (4) Proportionen exakt, Balken ab 0, keine 3D-Effekte. (5) Zahlenformat deutsch. (6) Modellrechnungen tragen den Stempel `.stamp` „Modellrechnung“ (einmal je Rechnung; S. 14). Im Kapitel „Modellrechnung“ (S. 10–12) trägt der Kicker das Wort, dort steht kein Stempel. (7) Nie Größen unterschiedlicher Einheit an einer gemeinsamen Grundlinie – getrennte, gleich ausgerichtete Diagramme. (8) Rot im Diagramm nur für Zuschuss, 80-%-Achse und Zuschlag. (9) Programmfarben nur mit Nummer. (10) Diagrammtitel ≤ 6 Wörter (Versalien!), Untertitel ≤ 12, Notiz ≤ 30 Wörter / 1–2 Zeilen.
+**Diagramm-Regeln:** (1) Farben je Reihe fest (1.3). (2) Direkt beschriften; Legende im Kopf nur ergänzend. (3) Höchstwerte im Kopf („Höchstsätze“, „bis zu“). (4) Proportionen exakt, Balken ab 0, keine 3D-Effekte. (5) Zahlenformat deutsch. (6) Modellrechnungen tragen den Stempel `.stamp` „Modellrechnung“ (einmal je Rechnung; S. 14). Im Kapitel „Modellrechnung“ (S. 10–12) trägt die Rubrik der Kopfzeile das Wort, dort steht kein Stempel. (7) Nie Größen unterschiedlicher Einheit an einer gemeinsamen Grundlinie – getrennte, gleich ausgerichtete Diagramme. (8) Rot im Diagramm nur für Zuschuss; 80-%-Achse, Zuschlagskappe und Wertbeschriftung stehen in Schwarz. (9) Programmfarben nur mit Nummer. (10) Diagrammtitel ≤ 6 Wörter (12 pt, gemischt), Einheit als `.chart__unit`, Untertitel ≤ 12, Notiz ≤ 30 Wörter / 1–2 Zeilen.
 
 ### 6.7 FAQ, Checkliste, Kontakt, Aufzählung
 
-Markup wie v1 (`dl.faq`, `ul.checklist`, `address.contact`, `ul.bullets`); `.checklist--compact` (9-pt-Modultext, ohne Außenlinien; Vermietungsbedingungen S. 7 – dort seit Korrekturlauf 1 Marken als Inline-SVG `.p07-mk`: Kreis 3,4 mm bzw. Raute 4 mm, Haken/Kreuz/Ausrufezeichen geometrisch exakt zentriert, Mitte auf der ersten Textzeile; die CSS-Marken `.mark`/`.mark--s` zentrieren im PDF nur auf ±0,15 mm und sind derzeit ungenutzt); Badge im Ankreuzpunkt ohne eigenen Außenabstand (Klammer „(Vordruck 3076)“ ohne Luft); `.bullets > li.is-stop` (Ausschluss als Listenpunkt: Stopp-Icon `icon--stopp icon--signal` statt Quadrat, Fettung in Signalrot – Hinweis-Diät statt Achtung-Kasten; seit Korrekturlauf 1 auf S. 17 als Inline-Marke in der Tabellenzelle); `.contact__label--tight` (+0,04 em in schmalen Kontaktfeldern); neu: FAQ-Nummern Montserrat 900 rot, Frage Montserrat 700 10 pt; Aufzählungsmarker **eckig** (1,4 mm Rot); `.bullets--num` mit „01“; `.contact__name` Montserrat 800 Versalien, `.contact__tel` Montserrat 800 17 pt (`--l` 22, `--xl` 28 pt); `.contact--dark` Anthrazitverlauf.
+Markup wie v1 (`dl.faq`, `ul.checklist`, `address.contact`, `ul.bullets`); `.checklist--compact` (Modultext, ohne Außenlinien; Vermietungsbedingungen S. 7 – dort seit Korrekturlauf 1 Marken als Inline-SVG `.p07-mk`: Kreis 3,4 mm bzw. Raute 4 mm, Haken/Kreuz/Ausrufezeichen geometrisch exakt zentriert, Mitte auf der ersten Textzeile; die CSS-Marken `.mark`/`.mark--s` zentrieren im PDF nur auf ±0,15 mm und sind derzeit ungenutzt); Badge im Ankreuzpunkt ohne eigenen Außenabstand (Klammer „(Vordruck 3076)“ ohne Luft); `.bullets > li.is-stop` (Ausschluss als Listenpunkt: Stopp-Icon `icon--stopp icon--signal` statt Quadrat, Fettung in Signalrot – Hinweis-Diät statt Achtung-Kasten; seit Korrekturlauf 1 auf S. 17 als Inline-Marke in der Tabellenzelle); `.contact__label--tight` (+0,04 em in schmalen Kontaktfeldern); FAQ-Nummern Montserrat 900 in Schwarz, Frage Montserrat 700 10 pt (`dl.faq` ist im Heft ungenutzt; S. 21 setzt die Verfahrensdetails seitenlokal in den Stufen); Aufzählungsmarker **eckig** (1,4 mm, Schwarz); `.bullets--num` mit „01“ in Schwarz; `.contact__label` 8,5 pt Versalien in Schwarz; `.contact__name` Montserrat 800 Versalien (S. 21 seitenlokal Montserrat 700, 12 pt, gemischt), `.contact__tel` Montserrat 800 17 pt (`--l` 22, `--xl` 28 pt); `.contact--dark` Anthrazitverlauf.
 
 ### 6.8 Badges, Chips, Schlüsselplan, Programmnummer
 
@@ -476,7 +524,7 @@ Markup wie v1 (`dl.faq`, `ul.checklist`, `address.contact`, `ul.bullets`); `.che
 
 ### 6.9 Modellrechnung, Rechenblatt, Stempel
 
-`.stamp` (doppelte Kontur, 0,25 mm + Haarlinie, Montserrat 800 9 pt Rot), `.stamp--s` (Kurzstempel für die zweite Nennung derselben Modellrechnung: einfache Kontur, Schrift des Kickers – Redaktionsregeln: nur ein Vollstempel je Rechnung; im Heft zurzeit nicht gesetzt, die Klasse bleibt), `.stampline` (`--inline`: einzeilig neben dem Kicker in `.kicker-row`; S. 10 trägt dort nur den Hinweis „Rechenbeispiel, keine Förderzusage“ als Text, ohne `.stamp`). Seit das Kapitel S. 10–12 „Modellrechnung“ heißt, steht das Wort im Kopf dieser Seiten nur im Kicker. `.formula--stack` (Grenze als eigene graue Zeile unter dem Term, 400), `.model` (Papier, `model__value` Montserrat 800 16 pt), `.formula` (**5-mm-Planraster** als Vektorzeichnung `--planraster`, s. 1.3.1, Operatoren `+ =` Montserrat 900 Rot, Ergebniszeile 0,3 mm). Markup wie v1.
+`.stamp` (doppelte Kontur, 0,25 mm + Haarlinie, Montserrat 800 9 pt Rot), `.stamp--s` (Kurzstempel für die zweite Nennung derselben Modellrechnung: einfache Kontur, Schrift der 9-pt-Labels – Redaktionsregeln: nur ein Vollstempel je Rechnung; im Heft zurzeit nicht gesetzt, die Klasse bleibt), `.stampline` (`--inline` und `.kicker-row` sind seit 12.11.2026 im Heft ungenutzt; S. 10 trägt den Hinweis „Rechenbeispiel, keine Förderzusage“ als `.chart__sub` unter dem Titel des Finanzierungsdiagramms, ohne `.stamp`). Im Kapitel S. 10–12 steht das Wort „Modellrechnung“ im Kopf nur als Rubrik der Kopfzeile. Der Stempel ist rot (S. 14), das Label „Mit Förderung der NBank“ auf S. 22 hat eine schwarze Kontur. `.formula--stack` (Grenze als eigene graue Zeile unter dem Term, 400), `.model` (Papier, `model__value` Montserrat 800 16 pt), `.formula` (**5-mm-Planraster** als Vektorzeichnung `--planraster`, s. 1.3.1, Operatoren `+ =` Montserrat 900 in Schwarz, Ergebniszeile 0,3 mm). Markup wie v1.
 
 ### 6.10 Planzeichen
 
@@ -539,7 +587,7 @@ Gantt: Rot nur für förderspezifische Leistungen (Förder-Check, Antragsunterla
 ```html
 <article class="reference reference--feature" aria-labelledby="ref-h">  <!-- Hauptreferenz: Bild 100 mm + Datenspalte -->
   <figure class="photo photo--marks" role="group" style="--photo-h:44mm;--cap-h:7mm">…</figure>
-  <div><p class="kicker kicker--plain">Mit NBank-Förderung</p>
+  <div><p class="label">Mit NBank-Förderung</p>
     <p class="reference__units">19 <small>Wohnungen<br>barrierefrei, mit Aufzug</small></p>
     <h2 class="reference__name" id="ref-h">Brauerstraße, Rotenburg (Wümme)</h2>
     <dl class="reference__facts"><dt>Vorhaben</dt><dd>Neubau eines Mehrfamilienhauses</dd><dt>Status</dt><dd>entsteht aktuell; wird durch die Förderung der NBank unterstützt</dd></dl></div>
@@ -549,7 +597,7 @@ Gantt: Rot nur für förderspezifische Leistungen (Förder-Check, Antragsunterla
     <p class="reference__units">29 <small>Wohnungen</small></p><h3 class="reference__name u-mt-2">Porstweg</h3><p class="reference__place">Rotenburg (Wümme) · für die …</p></article>
 </div>
 ```
-**Korrekturlauf 1 – Rangfolge in der Kachel (S. 22, seitenlokal `.p22-ref`):** Projektname (`.reference__name`, Montserrat 800 Versalien, Tinte, 10 pt; Hauptreferenz 11 pt) → Ort (`.reference__place`, Work Sans 500, 9 pt) → Auftraggeber (`.p22-client`: graues Versal-Label „Auftraggeber“ über dem Namen, Haarlinie darüber, Firmennamen ohne Trennung; nur wo belegt) → Kennzahl (`.p22-kpi`: Zahl Montserrat 800 12 pt bzw. 15 pt, Einheit Work Sans, Haarlinie darüber) → Kurzbeschreibung (`.p22-note`, 8,5 pt grau, Größe · Aufzug · barrierefrei · Technik). Die vier kleinen Kacheln teilen ein Zeilenraster (`grid-template-rows: subgrid`, feste `grid-row` je Feld): Namen auf einer Grundlinie (`align-self: end`), Auftraggeber- und Kennzahl-Haarlinien durchgehend; fehlt der Auftraggeber, bleibt die Zelle mit Haarlinie leer. Fördervermerk der Hauptreferenz als eckiger roter Konturstempel am Fuß der Datenspalte (bündig mit der Bildunterkante). Der Hinweis auf weitere Projekte steht rechts im Modulkopf. Die Zahl-über-Name-Form oben (`.reference__units`) bleibt als Komponente für Einzelreferenzen.
+**Rangfolge in der Kachel (S. 22, seitenlokal `.p22-ref`; Korrekturlauf 1, Stufen seit 12.11.2026):** Projektname (`.reference__name`, Montserrat 800, 12 pt, gemischt, Tinte; Hauptreferenz gleich) → Ort (`.reference__place`, Work Sans 500, 9,5 pt) → Auftraggeber (`.p22-client`: graues Versal-Label „Auftraggeber“ in 8,5 pt über dem Namen, Haarlinie darüber, Firmennamen ohne Trennung; nur wo belegt) → Kennzahl (`.p22-kpi`: Zahl Montserrat 800 12 pt, Einheit Work Sans 8,5 pt, Haarlinie darüber) → Kurzbeschreibung (`.p22-note`, 8,5 pt grau, Größe · Aufzug · barrierefrei · Technik). Die vier kleinen Kacheln teilen ein Zeilenraster (`grid-template-rows: subgrid`, feste `grid-row` je Feld): Namen auf einer Grundlinie (`align-self: end`), Auftraggeber- und Kennzahl-Haarlinien durchgehend; fehlt der Auftraggeber, bleibt die Zelle mit Haarlinie leer. Fördervermerk der Hauptreferenz als eckiges Label mit schwarzer Kontur (8,5 pt Versalien, Schwarz) am Fuß der Datenspalte (bündig mit der Bildunterkante). Das Label „45 Jahre PGN“ steht rechts in der Kopfzeile, in der Form der Rubrik und ohne Rahmen. Rot auf S. 22 nur: Titellinie, Jahreszahl im H1, Wertefeld, Punktraster mit Beschnittmarken. Der Hinweis auf weitere Projekte steht rechts im Modulkopf. Die Zahl-über-Name-Form oben (`.reference__units`) bleibt als Komponente für Einzelreferenzen.
 `.reference__units--text`: Einheit gemischt in Work Sans neben der Zahl (schmale 3-Spalten-Referenzen; seit Korrekturlauf 1 auf S. 22 ersetzt durch `.p22-kpi`). **Fakten nur aus `recherche/pgn-facts.md`**, Status wörtlich („entsteht aktuell“, „wird durch die Förderung der NBank unterstützt“ – nie „umgesetzt“; Schreibweise „NBank“, nicht „N-Bank“, daher Paraphrase). Bauherr nur, wo er im Text der Projektseite steht.
 
 ### 6.14 PGN-Werte, Logo
@@ -560,7 +608,7 @@ Gantt: Rot nur für förderspezifische Leistungen (Förder-Check, Antragsunterla
 </ul>
 <img class="logo logo--m" src="assets/pgn/logo-rot.svg" alt="PGN – Architekten, Stadtplaner, Ingenieure">
 ```
-QR-Code inline mit `.qr-bg` / `.qr-mod` (Tokens `--white` / `--ink`; S. 18, U4). Logo: `logo-rot.svg` auf Weiß/Papier (Standard, ≥ 34 mm breit, Schutzzone = Höhe des „P“); `logo-negativ.svg` (weiß mit Unterzeile, abgeleitet) bzw. `logo-weiss.svg` (nur Wortmarke) auf Rot/Anthrazit – Freigabe bei PGN offen, auf dem Umschlag deshalb Logo rot auf weißem Schriftfeld; `logo-mark-rot.svg` nur als Wortmarke im Plankopf (11,5 mm); `logo-mono.svg` (currentColor) für Einfarbdruck. Logo-SVGs sind reine Pfade (als `<img>` vektoriell im PDF). Kein Logo von NBank oder Land.
+Werte auf S. 22 (seitenlokal `.p22-values`): Auftakt „Für Sie denken wir an:“ in der Vorspannstufe (Work Sans 12 pt, weiß), die vier Wörter in der Form der Modultitel (Montserrat 800, 12 pt, gemischt, weiß) auf dem roten Verlauf, Haarlinien dazwischen. QR-Code inline mit `.qr-bg` / `.qr-mod` (Tokens `--white` / `--ink`; S. 18, U4). Logo: `logo-rot.svg` auf Weiß/Papier (Standard, ≥ 34 mm breit, Schutzzone = Höhe des „P“); `logo-negativ.svg` (weiß mit Unterzeile, abgeleitet) bzw. `logo-weiss.svg` (nur Wortmarke) auf Rot/Anthrazit – Freigabe bei PGN offen, auf dem Umschlag deshalb Logo rot auf weißem Schriftfeld; `logo-mark-rot.svg` nur als Wortmarke im Plankopf (11,5 mm); `logo-mono.svg` (currentColor) für Einfarbdruck. Logo-SVGs sind reine Pfade (als `<img>` vektoriell im PDF). Kein Logo von NBank oder Land.
 
 ### 6.15 Inhaltsverzeichnis als Linienplan (`.lp`, U2)
 
@@ -631,7 +679,7 @@ Signaturen mit Text **immer inline** einbetten (Inhalt der Datei ohne Kommentar 
 
 ## 10 · Textmengen je Layout-Typ (gemessen am Specimen)
 
-Satzspiegel 180 × 259 mm (14 → 273 mm). Gemessen: Programmkopf (Nummer + Kicker + H1 + Deck + Gegenstand 4 Zeilen) 51 mm · Titelblock split 34 mm · Fördermix-Diagramm mit Kopf und Notiz 89 mm · Bauzeitenplan 7 Zeilen 133 mm · Rechenblatt 3 Zeilen 33 mm · Hero-Kachel 46 mm · Kachelreihe 42 mm · Höchstmieten 2 Zeilen 29 mm · Callout-Reihe (3 × 4 Sp.) 42 mm · Planlegende 2 Einträge 46 mm · Höhenkoten-Ablauf 4 Schritte 78 mm · Referenzreihe (3) 60 mm · Hauptreferenz 65 mm · Punktraster-Banner 74 mm · Werte-Reihe 27 mm. Fließtext 9,75 pt: 5,1 mm Zeilenhöhe, ≈ 56 Zeichen in `l-span-6`; Modultext 9 pt: 4,4 mm, ≈ 60 Zeichen in `l-span-6`.
+Satzspiegel 180 × 259 mm (14 → 273 mm). Gemessen: Programmkopf (Nummer + H1 mit zweiter Stimme + Deck + Gegenstand 4 Zeilen; 51 mm im Specimen mit dem alten Kopf gemessen) · Titelblock split 34 mm · Fördermix-Diagramm mit Kopf und Notiz 89 mm · Bauzeitenplan 7 Zeilen 133 mm · Rechenblatt 3 Zeilen 33 mm · Hero-Kachel 46 mm · Kachelreihe 42 mm · Höchstmieten 2 Zeilen 29 mm · Callout-Reihe (3 × 4 Sp.) 42 mm · Planlegende 2 Einträge 46 mm · Höhenkoten-Ablauf 4 Schritte 78 mm · Referenzreihe (3) 60 mm · Hauptreferenz 65 mm · Punktraster-Banner 74 mm · Werte-Reihe 27 mm. Die Maße stammen aus dem Specimen vor der Stufung (Fließtext 9,75 pt, Modultext 9 pt). Seit 12.11.2026 gilt: Text 9,5 pt mit 4,76 mm Zeilenhöhe, dichte Seite 9 pt mit 4,45 mm; der Specimen ist nicht nachgemessen.
 
 | Layout-Typ (plan.json) | Wörter | Struktur |
 |---|---|---|
@@ -676,13 +724,16 @@ Weitere Einzelbefunde: S. 3 Kennzahl „4.800/5.000“ 7,7 mm breiter als die Ka
 
 - `render.cjs` ohne `OVERFLOW`, `LASTLINE`, `SATZSPIEGEL`, `MUSTER`, `PDFUA`, `FEHLER`, `FONT`; `MUSTER` meldet gerasterte Musterfüllungen (s. 1.3.1); `SATZSPIEGEL` meldet Inhalt unter der Satzspiegel-Unterkante (273 mm bzw. Polster der Seite) und Inhalt, der aus einem Block fester Höhe ragt; „Statische Schriften: N/N“; `pdffonts` nur CID TrueType (Montserrat-…, WorkSans-…, PGNSymbols-…).
 - PNG ansehen: H1 ohne Überstand, nichts klebt an Linien (≥ 2 mm), Module enden ≥ 5 mm über dem Plankopf.
-- Rot zählen: je Seite höchstens Kicker, Titellinie, Signaturwort, Zuschuss und ein Akzentmodul.
+- Stufen und Rot nach 0a prüfen: nur 25 | 15,5 | 12 | 9,5 (dicht 9) | 8,5 pt und die Kernwerte; Rot nur an Titellinie, einem Wort oder einer Zahl im H1, Zuschuss, Ergebniszeile, Achtung/Stichtag, Register und Programmteilfarbe, Stempel, Logo.
+- Doppelseite: Kopfzeile, H1 und erste Bandlinie links und rechts auf gleicher Höhe; über einem Modultitel mehr Luft als darunter.
 - Druckregeln (0.4), WCAG (1.1), Mindestschrift 8,5 pt auch in SVG.
 - Fakten: PGN nur aus `recherche/pgn-facts.md`, Förderinhalte aus `content/pages/*.json` – Wortlaut je Textstelle gegen den DOM-Text prüfen (Klammern und Satzzeichen um Seitenverweise inklusive).
-- Gemeinsame Horizonte einer Doppelseite nach Änderungen an globalen Komponenten nachmessen (ein kleinerer Chip verschiebt alles darunter um 0,4–0,6 mm).
-- Bekannt, nicht behoben: Versal-Labels mit Laufweite (Kicker 0,16 em, `.label`, `.bullets__title`, SVG `.t-caps`) liest `pdftotext` als gesperrte Einzelbuchstaben („N AVI G ATO R“); Satz und Struktur sind korrekt, betroffen sind nur Copy & Paste und Volltextsuche einzelner Viewer.
+- Gemeinsame Horizonte einer Doppelseite nach Änderungen an globalen Komponenten nachmessen (schon 0,4–0,6 mm an einem Baustein verschieben alles darunter).
+- Bekannt, nicht behoben: Versal-Labels mit Laufweite (Rubrik 0,16 em, `.label`, `.bullets__title`, SVG `.t-caps`) liest `pdftotext` als gesperrte Einzelbuchstaben („N AVI G ATO R“); Satz und Struktur sind korrekt, betroffen sind nur Copy & Paste und Volltextsuche einzelner Viewer.
 
 ## 13 · Integration der Seiten-CSS (Stand 22.10.2026)
+
+Stand der Integration vom 22.10.2026. Seit der Stufung vom 12.11.2026 (0a) gilt abweichend: Seitenverweis ohne Chip, Kickerzeile `.kicker-row` und `.stampline--inline` im Heft ungenutzt, `.chart__unit` auf S. 6, 7, 11, 12 und 13, Run-in-Label in 8,5 pt.
 
 Aus den Meldungen der Seitenbauer übernommen (global, seitenlokale Kopien entfernt): Seitenverweis-Chip kompakt und auf Anthrazit lesbar (S. 3, 4, 7, 9, 14, 15, 18–21) · Platzhalter `.ph` (S. 11, U3) · Rechenblatt-Tabelle `.table--sheet`, `.is-sum`, `.table__op`, Ergebniszeile `.is-result` (S. 10, 11) · Kickerzeile `.kicker-row`, `.stampline--inline`, `.stamp--s` (S. 10, 11) · Run-in-Label `.runin` (S. 5, 8, 12, 20) · Programmnummer im Text `.bs-no` (S. 18, 21) · QR-Farben `.qr-bg/.qr-mod` (S. 18, U4) · Schriftfeld zweizeilig `.cover__stamp--2row` / `.back__stamp--2row`, `.cover__kpi-note` (U1, U4) · Linienplan `.lp` (U2) · Programmteil-Matrix `.bs-matrix` (S. 4) · `.callout--ref` (S. 5) · SVG `c-grp-*`/`t-grp` (S. 6) · `.chart__unit`, `.table--figures-m`, `.checklist--compact`, `.mark--s` (S. 7) · `.formula--stack`, `.legend--wrap`, `.chart__svg` oben im Raster, kompakter Programm-Tag (S. 8) · `.table--terms` = Eckdaten (S. 9) · SVG `.t-unit` (S. 10) · `.sw--axis` (S. 11) · `.chart__head--stamp`, `.kf--band--compact`, `.axb-c--acc` (S. 8, 13) · Heatmap `c-bs-step-*` (S. 14) · `.tl-axis--strong`, `.tl-draft` (S. 15) · `.key-figures--n`, `.chart__plot`, `.bullets > li.is-stop`, `.dash--fine` (früher S. 16, 17; seit Korrekturlauf 1 im Heft ungenutzt, bleiben als Komponenten) · `.lead--cols-2` (S. 18) · `--station-mk` (S. 19, 20) · `.contact__label--tight` (S. 21) · `.photo__credit`, `.reference__units--text` (S. 22). Dazu Assembler (SVG-Überspringen, Bereiche, Fugen), Signaturen (Druckregel), `render.cjs` (SATZSPIEGEL).
 

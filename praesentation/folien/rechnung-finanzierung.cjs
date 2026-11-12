@@ -33,8 +33,10 @@ module.exports = {
     const d = D.stapelBalken(s, { x: x0, y: y0 + 0.34, w: w8, h: 1.20, kategorien: ['Gruppe A'], name: 'Diagramm Finanzierung Gruppe A', labels: false,
       reihen: teile.map(t => ({ name: t.name, art: t.art, werte: [t.wert / 1e6] })), achse: { min: 0, max: kosten / 1e6, schritt: 0.5, format: 'eins' },
       rand: { l: 0.16, r: 0.16, o: 0.44, u: 0.26 }, luecke: 8 });
-    // Einheit der Achse in der Zeile der Achsbeschriftung, rechts vom letzten Wert: Darunter schließt der Rechenweg an
-    B.achsentitel(s, d, { x: ctx.wortlaut('Mio. €', 'Achsentitel'), xAusrichtung: 'rechts', xAbstand: 0.04 });
+    // Ende der Achse: Die Achse läuft bis zu den Gesamtkosten (2,96 Mio. €), die Teilstriche enden deshalb bei 2,5. Am rechten Ende steht
+    // der Endwert mit der Einheit („3,0 Mio. €“, gerundet wie im Modultitel und in den Segmenten), in der Zeile der Achsbeschriftung:
+    // Darunter schließt der Rechenweg an
+    B.achsentitel(s, d, { x: ctx.wortlaut(fmt.mio(kosten), 'Endwert der Achse mit Einheit'), xAusrichtung: 'rechts', xAbstand: 0.055 });
     let lauf = 0;
     for (const t of teile) {
       const xa = d.xWert(lauf / 1e6), xe = d.xWert((lauf + t.wert) / 1e6);

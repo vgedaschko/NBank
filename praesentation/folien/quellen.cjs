@@ -24,12 +24,10 @@ module.exports = {
     // zweier dicht übereinander): Stichwort in der Spalte „Folie“, Text in der Spalte „Quelle“
     // Innenrand 0,05 statt 0,18 (Änderungsrunde vom 13.11.2026): Die Zeile „alle“ nennt seitdem auch die NBank-Produktinformation, Stand 05.11.2026
     // (Quelle der Folie 9, F9.1), die Zeile „4, 5“ die GdW-Präsentation, und die Zeile „A6“ ist neu (F38.2)
-    const k = B.hinweisKasten(s, { x, y: t.unten, w, spalte, rand: 0.05, stichwort: wl('Hinweis'), text: wl(Q('hinweis'), 'Hinweis') });
+    // Herausgeber und Bildnachweis stehen seit der Prüfrunde vom 13.11.2026 als eigene Absätze im Hinweisblock (kein frei hängender kleiner Text)
+    const text = [wl(Q('hinweis'), 'Hinweis'), wl(Q('herausgeber'), 'Herausgeber'), wl(Q('bildnachweis'), 'Bildnachweis')].join('\n');
+    const k = B.hinweisKasten(s, { x, y: t.unten, w, spalte, rand: 0.05, stichwort: wl('Hinweis'), text });
+    if (k.unten > Y.inhaltEnde) ctx.P.melde(`Quellenfolie: Tabelle und Hinweisblock reichen bis y ${k.unten.toFixed(2)}, die Inhaltszone endet bei ${Y.inhaltEnde}. Eine Tabellenzeile kürzen oder zusammenfassen.`);
 
-    // Herausgeber und Bildnachweis: zwei Zeilen in 12 pt an der Unterkante der Inhaltszone (wie die Notiz unter einer Tabelle)
-    const saetze = `${wl(Q('herausgeber'), 'Herausgeber')}\n${wl(Q('bildnachweis'), 'Bildnachweis')}`, h = B.hoehe(saetze, { rolle: 'kleinText', w }), y = +(Y.inhaltEnde - h).toFixed(3);
-    // Die Zone ist fast voll: Wächst die Tabelle um eine Zeile, liefe der Kasten in die beiden Sätze (die Zonenprüfung sieht keine Überlagerung)
-    if (k.unten + 0.08 > y) ctx.P.melde(`Quellenfolie: Tabelle und Hinweis reichen bis y ${k.unten.toFixed(2)}, die Sätze zu Herausgeber und Bildnachweis beginnen bei y ${y.toFixed(2)}. Eine Tabellenzeile kürzen oder zusammenfassen.`);
-    B.text(s, saetze, { x, y, w, h, rolle: 'kleinText', name: 'Herausgeber und Bildnachweis' });
   },
 };

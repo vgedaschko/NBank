@@ -1,5 +1,5 @@
-// Folie A7 · PGN_ANHANG: Eigenkapitalrendite des Modellhauses über 35 Jahre, vor Steuern, für A, B, C und frei finanziert zur Marktmiete.
-// Links über acht Spalten ein Rechenblatt (12 pt) mit sieben Zeilen, Ergebniszeile „Rendite mit Restwert“ weiß auf Rot wie Zeile 8 der
+// Folie A6 · PGN_ANHANG: Eigenkapitalrendite des Modellhauses über 35 Jahre, vor Steuern, für A, B, C und frei finanziert zur Marktmiete.
+// Links über acht Spalten ein Rechenblatt (12 pt) mit sieben Zeilen, Ergebniszeile „Rendite mit Restwert“ weiß auf Rot wie Zeile 9 der
 // Folie 15; rechts über vier Spalten die Annahmen. Die Folie zeigt die Rendite nur als Paar mit dem Anteil des Restwerts am Endvermögen, wie
 // es die Rechenmappe verlangt (Blatt Hinweise Nr. 12); der Titel nennt beide Lesarten für Gruppe A.
 // Das Gegenstück zur Rendite mit Restwert heißt hier „ohne Restwert“: Das Grundstück des Modellhauses ist im Bestand und nicht angesetzt, der
@@ -26,10 +26,10 @@ module.exports = {
     const zins = je('liegenschaftszins');
     // Grundstück im Bestand, nicht angesetzt: Nur dann ist der Bodenwert der Mappe null und ihre Lesart „nur Bodenwert“ gleich „ohne Restwert“.
     // Setzt die Mappe wieder ein Grundstück an, heißt Zeile 6 „Rendite, nur Bodenwert“, und Titel und Annahmen sind anzupassen.
-    R.pruefe(M('eingabe.grundstueck') === 0, 'Die Mappe setzt für das Modellhaus ein Grundstück an; Zeile 6 („Rendite ohne Restwert“), Titel und Annahmen der Folie A7 stimmen dann nicht.');
+    R.pruefe(M('eingabe.grundstueck') === 0, 'Die Mappe setzt für das Modellhaus ein Grundstück an; Zeile 6 („Rendite ohne Restwert“), Titel und Annahmen der Folie A6 stimmen dann nicht.');
     R.pruefe(ALLE.every((g, i) => typeof ohne[i] === 'number' && anteil[i] > 0 && anteil[i] < 1 && ohne[i] < mit[i]),
-      'Die Rendite ohne Restwert ist in einer Spalte kein Wert, liegt nicht unter der Rendite mit Restwert, oder der Restwertanteil liegt nicht zwischen 0 und 100 %; Zeilen 6 und 7 der Folie A7 anpassen.');
-    R.pruefe(new Set(zins).size === 1, 'Der Liegenschaftszins ist nicht für alle vier Spalten gleich; die Annahme „Liegenschaftszins …“ auf Folie A7 anpassen.');
+      'Die Rendite ohne Restwert ist in einer Spalte kein Wert, liegt nicht unter der Rendite mit Restwert, oder der Restwertanteil liegt nicht zwischen 0 und 100 %; Zeilen 6 und 7 der Folie A6 anpassen.');
+    R.pruefe(new Set(zins).size === 1, 'Der Liegenschaftszins ist nicht für alle vier Spalten gleich; die Annahme „Liegenschaftszins …“ auf Folie A6 anpassen.');
     const p2 = v => fmt.prozent(v, 2);
     // Der Titel nennt für Gruppe A beide Lesarten: mit Restwert (Signaturwort) und ohne Restwert
     if (ctx.glatt(ctx.o.titel) !== ctx.glatt(`Rendite in A: ${p2(mit[0])} mit Restwert, ${p2(ohne[0])} ohne Restwert`)) P.melde(`Titel der Folie nennt nicht die Rendite in A mit Restwert (${ctx.glatt(p2(mit[0]))}) und ohne Restwert (${ctx.glatt(p2(ohne[0]))}) aus der Mappe.`);
@@ -60,7 +60,7 @@ module.exports = {
     // Die Herkunft der beiden Marktwerte steht in daten/rechnung.json (marktwerte); die Quellenangabe im Konzept (Feld „quellen“) nennt beide Quellen voll.
     const A = k => V('annahme.' + k), Q = k => ctx.X('rechnung', 'marktwerte.' + k);
     for (const k of ['quelle_marktmiete', 'quelle_liegenschaftszins']) {
-      if (!ctx.glatt(ctx.o.quellen).includes(ctx.glatt(Q(k)))) P.melde(`Quellenangabe der Folie A7 (Konzept, Feld „quellen“) nennt „${Q(k)}“ nicht (daten/rechnung.json, marktwerte.${k}).`);
+      if (!ctx.glatt(ctx.o.quellen).includes(ctx.glatt(Q(k)))) P.melde(`Quellenangabe der Folie A6 (Konzept, Feld „quellen“) nennt „${Q(k)}“ nicht (daten/rechnung.json, marktwerte.${k}).`);
     }
     B.planlegende(s, { x: colX(9), y: y0, w: span(4), linie: true, pt: 14, eintraege: [
       { titel: wl('Annahmen', 'Modultitel'), text: wl('Vor Steuern, ab Bezug: ohne Bauphase, Abschreibung und Sonder-AfA.', 'Annahmen') },
@@ -72,7 +72,7 @@ module.exports = {
     // ---- Gegenproben zu den Zeilen 1 bis 3: In A, B und C gibt es kein Jahr mit Fehlbetrag, das Projektkonto fällt dort nie unter null; frei
     // finanziert gibt es beides. Eigenkapital bei Bezug = Eigenmittel + Bearbeitungsentgelte ---------------------------------------------
     R.pruefe(G.every((g, i) => fehljahre[i] === 0 && konto[i] === 0) && fehljahre[3] > 0 && konto[3] < 0,
-      'In A, B oder C gibt es ein Jahr mit Fehlbetrag oder ein Projektkonto unter null, oder frei finanziert keines mehr; Zeilen 2 und 3 der Folie A7 anpassen.');
-    R.pruefe(G.every(g => Math.abs(M(`fin.eigenkapital.${g}`) - M(`fin.eigenmittel.${g}`) - M(`fin.bearbeitungsentgelte.${g}`)) < 0.005), 'Eigenkapital bei Bezug ist nicht mehr Eigenmittel plus Bearbeitungsentgelte; Zeile 1 der Folie A7 prüfen.');
+      'In A, B oder C gibt es ein Jahr mit Fehlbetrag oder ein Projektkonto unter null, oder frei finanziert keines mehr; Zeilen 2 und 3 der Folie A6 anpassen.');
+    R.pruefe(G.every(g => Math.abs(M(`fin.eigenkapital.${g}`) - M(`fin.eigenmittel.${g}`) - M(`fin.bearbeitungsentgelte.${g}`)) < 0.005), 'Eigenkapital bei Bezug ist nicht mehr Eigenmittel plus Bearbeitungsentgelte; Zeile 1 der Folie A6 prüfen.');
   },
 };

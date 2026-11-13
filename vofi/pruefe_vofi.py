@@ -129,6 +129,13 @@ Bewertungsansätze des Modellhauses für Rotenburg (Wümme) und Lektorat der Tex
   Z41, AE41, AK41, AP41). Neu: Soll ist in diesem Fall der Rechenweg der RR mit dem Mietpfad der Mappe
   (Soll.restwert_mappe); er muss in jedem Lauf den Wert der RR treffen, wo A2 nicht greift, sonst bricht die Prüfung ab.
 
+Kapitaldienst je m² (KONZEPT-v3.md, Abschnitt T, Änderungsrunde vom 13.11.2026)
+  Konzeptänderungen, denen das Skript folgt: Tabellen, Tabelle 5 „Kapitaldienst je m² (Folie 5)“ in A45:G60 unter den
+  Tabellen 1 bis 4 (Gruppenzeile 45, Kopfzeilen 46 und 54, Zeilen T32 bis T42, Fußnote A60), Druckbereich A1:G60. Formeln
+  der Tabelle 5 stehen in D49:E53 und D55:E58; ihre Werte prüft die neue Prüfung „Tabelle 5“ gegen eine eigene Rechnung
+  (jährliche Annuität, Annuitätenfaktor i ÷ (1 − (1 + i)^−n)). Alle Zellen der Tabellen 1 bis 4 und alle übrigen Blätter
+  bleiben unverändert; die bisherigen Sollwerte gelten weiter.
+
 Modellhaus ist Projekt 2 (KONZEPT-v3.md, Abschnitt R, Entscheidung des Auftraggebers vom 11.11.2026)
   Konzeptänderungen, denen das Skript folgt: Auslieferungsstand Eingaben!D3 = 2 (Projekt 2 aktiv); Projektnamen D4
   „Vergleichshaus, 20 Wohnungen“ und E4 „Modellhaus, Tarutinoer Str. 4“; Quellen der Eingaben 1.2, 1.3, 2.1, 2.3 bis 2.5,
@@ -734,16 +741,16 @@ for _g_ in GRUPPEN:
 # Gefördert: Der zweite Bereich beginnt in Zeile 2 (ohne den Titel aus A1, der dort nach den Wiederholspalten abbräche)
 DRUCKBEREICH = {g: "A1:J48,K2:X48,A88:J183" for g in GEF.values()}
 DRUCKBEREICH[FREI] = "A1:Q48,A88:Q186"
-DRUCKBEREICH["Tabellen"] = "A1:G43"
+DRUCKBEREICH["Tabellen"] = "A1:G60"          # seit 13.11.2026 mit Tabelle 5 (bis dahin A1:G43)
 WIEDERHOLZEILEN = {"Eingaben": "4:5", FREI: "2:3", **{g: "2:3" for g in GEF.values()}}
 WIEDERHOLSPALTEN = {FREI: "", **{g: "A:B" for g in GEF.values()}}
 # Feste Seitenumbrüche nach Zeile (Konzept G.4): Blockgrenzen
 UMBRUCH = {UEB: [52], "Eingaben": [33], "Tabellen": [33], FREI: [129], **{g: [115, 152] for g in GEF.values()}}
 KOPFZEILEN = {"Eingaben": [5], UEB: [8, 28, 41, 54, 75, 88, 99, 109, 117], "NBank": [4, 9, 26],
-              "Tabellen": [4, 8, 17, 35], FREI: [5, 89, 117, 132, 154, 180],
+              "Tabellen": [4, 8, 17, 35, 46, 54], FREI: [5, 89, 117, 132, 154, 180],
               **{g: [5, 89, 117, 132, 154, 173, 180] for g in GEF.values()}}
 GRUPPENZEILEN_BLATT = {"Eingaben": list(GRUPPENZEILEN), UEB: [74, 87, 98], "NBank": [10, 13, 16],
-                       "Tabellen": [3, 7, 16, 34], FREI: [88, 116, 131, 153, 179],
+                       "Tabellen": [3, 7, 16, 34, 45], FREI: [88, 116, 131, 153, 179],
                        **{g: [88, 116, 131, 153, 172, 179] for g in GEF.values()}}
 
 # Beschriftungen laut Konzept: {Blatt: {Zelle: Text}}
@@ -928,8 +935,35 @@ for _i in range(6):
     _T[f"A{36 + _i}"] = f"T{26 + _i}"
     _T[f"C{36 + _i}"] = "Jahre"
     _T[f"G{36 + _i}"] = LZ_QUELLE if _i == 0 else ""
+# Tabelle 5 „Kapitaldienst je m² (Folie 5)“ (Konzept T, 13.11.2026): Nr., Zeile, Größe, Einheit, Quelle; Festwerte D/E;
+# Formeln D/E (Zeilen 49 bis 53) und Zerlegung D (Betrag) / E (Anteil, Zeilen 56 bis 58)
+KD5 = [("T32", 47, "Herstellungskosten KG 200–700, ARGE-Median", "€/m² Wohnfläche",
+        "ARGE e. V. (2026), S. 34, Abb. 23; ohne Grundstück"),
+       ("T33", 48, "Fremdkapitalanteil", "% der Kosten", "wie Frei finanziert: Eigenmittel 20 %"),
+       ("T34", 49, "Sollzins, 10 Jahre Zinsbindung", "% p. a.", "Q1 2020: Mittel, gerundet wie Folie 4; heute: Eingabe 6.1"),
+       ("T35", 50, "Laufzeit, jährliche Annuität", "Jahre", "Eingabe 6.4"),
+       ("T36", 51, "Kapitaldienstsatz", "% p. a.", "Annuitätenfaktor wie Frei finanziert, Annuität Bank"),
+       ("T37", 52, "Anfängliche Tilgung", "% p. a.", "Kapitaldienstsatz minus Sollzins"),
+       ("T38", 53, "Kapitaldienst je m² und Monat", "€/m² Monat", "Kosten × Fremdkapitalanteil × Kapitaldienstsatz ÷ 12"),
+       ("T39", 55, "Anstieg", "€/m² Monat", "heute minus Q1 2020"),
+       ("T40", 56, "Herstellungskosten", "€/m² Monat", "neue Kosten zum alten Zins minus Q1 2020"),
+       ("T41", 57, "Zins", "€/m² Monat", "alte Kosten zum neuen Zins minus Q1 2020"),
+       ("T42", 58, "Wechselwirkung", "€/m² Monat", "Rest")]
+KD5_FESTWERTE = {"D47": 3028.08, "E47": 4631.07, "D48": 0.80, "E48": 0.80, "D49": 0.0046}   # ARGE-Median Q1 2020 / Q4 2025
+KD5_FORMELN = {"E49": "=Zins_Bank", "D50": "=Laufzeit_Bank", "E50": "=Laufzeit_Bank",
+               "D51": "=PMT(D49,D50,-1)", "E51": "=PMT(E49,E50,-1)", "D52": "=D51-D49", "E52": "=E51-E49",
+               "D53": "=D47*D48*D51/12", "E53": "=E47*E48*E51/12", "D55": "=E53-D53",
+               "D56": "=E47*D48*D51/12-D53", "E56": "=D56/D55", "D57": "=D47*D48*E51/12-D53", "E57": "=D57/D55",
+               "D58": "=D55-D56-D57", "E58": "=D58/D55"}
+KD5_FUSSNOTE = ("A60", "Ohne Grundstück. Methode in Anlehnung an GdW (2026), Kapitaldienst-Methode. "
+                       "Jährliche Annuität über 30 Jahre.")
+for _nr, _z, _b, _e, _q in KD5:
+    _T[f"A{_z}"], _T[f"B{_z}"], _T[f"C{_z}"], _T[f"G{_z}"] = _nr, _b, _e, _q
+_T.update({"B46": "Größe", "C46": "Einheit", "D46": "Q1 2020", "E46": "Heute", "G46": "Quelle",
+           "B54": "Zerlegung des Anstiegs", "C54": "Einheit", "D54": "Betrag", "E54": "Anteil", "G54": "Quelle",
+           KD5_FUSSNOTE[0]: KD5_FUSSNOTE[1]})
 TAB_TITEL = {3: "1 Förderquoten", 7: "2 Mietenstufen, Höchstmiete in €/m² Monat", 16: "3 Festwerte RL 2026 und ImmoWertV",
-             34: "4 Bewertung, Liegenschaftszins je Projekt"}
+             34: "4 Bewertung, Liegenschaftszins je Projekt", 45: "5 Kapitaldienst je m² (Folie 5)"}
 
 _N = BESCHRIFTUNG["NBank"]
 _N.update({"A2": "Die NBank rechnet selbst (RL Nr. 11.10). Die Werte sind eine interne Orientierung.",
@@ -2743,10 +2777,10 @@ EMOJI_RE = re.compile("[\U0001F000-\U0001FAFF☀-➿️⬀-⯿]")
 
 def pruefe_f6(b, wb):
     p = b.pruefung("F6", "Textlängen: Bezeichnung ≤ 45, Quelle ≤ 60, Bemerkung Übersicht L ≤ 40, sonst ≤ 120 (außer Hinweise)")
-    bez = {"Eingaben": ("B", 6, EINGABE_LETZTE), UEB: ("B", 8, PZ + 5), "Tabellen": ("B", 3, 41), "NBank": ("B", 3, 31)}
+    bez = {"Eingaben": ("B", 6, EINGABE_LETZTE), UEB: ("B", 8, PZ + 5), "Tabellen": ("B", 3, 58), "NBank": ("B", 3, 31)}
     for g in list(GEF.values()) + [FREI]:
         bez[g] = ("A", 88, 186)
-    quelle = {"Eingaben": ("G", 7, EINGABE_LETZTE), "Tabellen": ("G", 5, 41), "NBank": ("G", 5, 7)}
+    quelle = {"Eingaben": ("G", 7, EINGABE_LETZTE), "Tabellen": ("G", 5, 58), "NBank": ("G", 5, 7)}
     for ws in wb.worksheets:
         for row in ws.iter_rows():
             for c in row:
@@ -3004,8 +3038,9 @@ def pruefe_tabellen(b, wb):
         p.check(fill6(wt[f"F{r}"]) == GRAU_F and rgb6(wt[f"F{r}"].font.color) in (SCHWARZ, None), f"Tabellen!F{r} Optik",
                 f"{rgb6(wt[f'F{r}'].font.color)}/{fill6(wt[f'F{r}'])}", f"{SCHWARZ}/{GRAU_F}")
     andere = [c.coordinate for row in wt.iter_rows(min_row=3) for c in row
-              if ist_formelzelle(c) and not (c.column_letter == "F" and LZ_ZEILE <= c.row < LZ_ZEILE + len(LZ_RND))]
-    p.check(not andere, "Tabellen: Formeln nur in F36:F41", andere[:5], "keine weiteren")
+              if ist_formelzelle(c) and not (c.column_letter == "F" and LZ_ZEILE <= c.row < LZ_ZEILE + len(LZ_RND))
+              and c.coordinate not in KD5_FORMELN]
+    p.check(not andere, "Tabellen: Formeln nur in F36:F41 und in Tabelle 5 (KD5_FORMELN)", andere[:5], "keine weiteren")
     # Spalte des nicht aktiven Projekts abgesetzt wie auf „Eingaben“ (bedingte Formatierung: Kopf grau, Werte grau)
     cf = {str(c_.sqref): [f_.replace(" ", "") for r_ in c_.rules for f_ in (r_.formula or [])]
           for c_ in wt.conditional_formatting}
@@ -3018,6 +3053,42 @@ def pruefe_tabellen(b, wb):
             if ist_zahl(c.value):
                 p.check(rgb6(c.font.color) in (ANTHRAZIT, SCHWARZ, None) and fill6(c) != GELB, f"Tabellen!{c.coordinate} Format",
                         f"{rgb6(c.font.color)}/{fill6(c)}", "schwarz/anthrazit, ohne Gelb")
+    p.fertig()
+
+
+def pruefe_tabellen_kd5(b, wb, werte):
+    """Konzept T: Tabelle 5 „Kapitaldienst je m² (Folie 5)“. Festwerte, Formeln wörtlich, Formate, Werte gegen eine
+    eigene Rechnung mit jährlicher Annuität (Annuitätenfaktor i ÷ (1 − (1 + i)^−n), wie Frei finanziert H111)."""
+    wt = wb["Tabellen"]
+    p = b.pruefung("C", "Tabelle 5 Kapitaldienst je m² (Folie 5): Festwerte, Formeln, Werte nach jährlicher Annuität")
+    for z, soll in KD5_FESTWERTE.items():
+        p.zahl(f"Tabellen!{z}", wt[z].value, soll, 1e-12)
+    for z, soll in KD5_FORMELN.items():
+        v = wt[z].value
+        p.check(ist_formelzelle(wt[z]) and v.replace(" ", "").upper() == soll.upper(), f"Tabellen!{z} Formel", v, soll)
+    for z in ("D51", "E51", "D52", "E52"):
+        p.check("0.000" in (wt[z].number_format or ""), f"Tabellen!{z} drei Nachkommastellen", wt[z].number_format, "0.000 %")
+    # eigene Rechnung: Zins heute und Laufzeit aus dem aktiven Projekt (Eingaben, Spalte „verwendet“)
+    zins_heute, n = werte.get("Eingaben", "F35"), werte.get("Eingaben", "F38")
+    kosten, fk, zins = (3028.08, 4631.07), 0.80, (0.0046, zins_heute)
+    satz = [i / (1 - (1 + i) ** -n) for i in zins]
+    kd = [kosten[k] * fk * satz[k] / 12 for k in (0, 1)]
+    hk = kosten[1] * fk * satz[0] / 12 - kd[0]
+    zi = kosten[0] * fk * satz[1] / 12 - kd[0]
+    anstieg = kd[1] - kd[0]
+    soll = {"E49": zins_heute, "D50": n, "E50": n, "D51": satz[0], "E51": satz[1], "D52": satz[0] - zins[0],
+            "E52": satz[1] - zins[1], "D53": kd[0], "E53": kd[1], "D55": anstieg, "D56": hk, "D57": zi,
+            "D58": anstieg - hk - zi, "E56": hk / anstieg, "E57": zi / anstieg, "E58": (anstieg - hk - zi) / anstieg}
+    for z, w in soll.items():
+        p.zahl(f"Tabellen!{z}", werte.get("Tabellen", z), w, 1e-9)
+    # Werte der Folie 5 (Auftrag vom 13.11.2026), gerundet wie auf der Folie: 7,22 / 17,55 €, +10,33 €, 3,82 € (37 %),
+    # 4,26 € (41 %), 2,25 € (22 %), Tilgung 3,116 / 1,825 %, Kapitaldienstsatz 3,576 / 5,685 %
+    folie = {"D53": (7.22, 2), "E53": (17.55, 2), "D55": (10.33, 2), "D56": (3.82, 2), "D57": (4.26, 2), "D58": (2.25, 2),
+             "E56": (0.37, 2), "E57": (0.41, 2), "E58": (0.22, 2), "D52": (0.03116, 5), "E52": (0.01825, 5),
+             "D51": (0.03576, 5), "E51": (0.05685, 5)}
+    for z, (w, nk) in folie.items():
+        ist = werte.get("Tabellen", z)
+        p.check(ist_zahl(ist) and round(ist, nk) == w, f"Tabellen!{z} gerundet wie Folie 5", ist, w)
     p.fertig()
 
 
@@ -4568,6 +4639,7 @@ def main():
     sicher(b, "F6", "Sprache", pruefe_f6, b, wb)
     sicher(b, "B", "Eingaben", pruefe_eingaben, b, wb, nz)
     sicher(b, "C", "Tabellen", pruefe_tabellen, b, wb)
+    sicher(b, "C", "Tabelle 5", pruefe_tabellen_kd5, b, wb, Werte(mappe))
     sicher(b, "G.2", "Zahlenformate", pruefe_uebersicht_formate, b, wb)
 
     if a.laeufe == "alle":

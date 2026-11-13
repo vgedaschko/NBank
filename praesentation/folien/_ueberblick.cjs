@@ -1,5 +1,5 @@
-// Hilfsfunktionen der Baugruppe „ueberblick“ (Folien A1 und A2). Kein Folienmodul: build.cjs lädt nur folien/<id>.cjs der Folien des Konzepts.
-//   felder, lies   Zugriff auf daten/markt.json (Blöcke programmteile und frist) mit gefüllten Platzhaltern ({name}); „mappe_…“ kommt aus daten/werte.json
+// Hilfsfunktionen der Baugruppe „ueberblick“ (Folie A1; die Anhangfolie zur Frist ist am 13.11.2026 entfallen). Kein Folienmodul: build.cjs lädt nur folien/<id>.cjs der Folien des Konzepts.
+//   felder, lies   Zugriff auf daten/markt.json (Block programmteile) mit gefüllten Platzhaltern ({name}); „mappe_…“ kommt aus daten/werte.json
 // Allgemeine Helfer stehen in lib/: ctx.wortlaut, ctx.gleich, ctx.lies, B.modulkopf mit rechts, B.tabelle mit dicht.
 'use strict';
 

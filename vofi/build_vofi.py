@@ -490,6 +490,35 @@ LZ_FUSSNOTEN = [
             "Eingabe 9.3."),
 ]
 
+# Tabelle 5 Kapitaldienst je m² (Folie 5 des Vortrags, Konzept T): ARGE-Median der Herstellungskosten ohne Grundstück,
+# Fremdkapitalanteil 80 %, jährliche Annuität über die Laufzeit des Bankdarlehens wie auf „Frei finanziert“ (H111, H113).
+# Spalte D = Q1 2020, Spalte E = heute (Kosten Q4 2025, Zins der Mappe). Ohne Namen; der Vortrag liest die Zellen.
+KD5_GRUPPE, KD5_KOPF, KD5_ZERLEGUNG_KOPF, KD5_FUSSNOTE = 45, 46, 54, 60
+KD5_FORMAT_PCT3 = '0.000 %;[Red]-0.000 %;"–"'           # Prozent, drei Stellen (Tilgung, Kapitaldienstsatz)
+KD5_ZEILEN = [  # Nr., Zeile, Größe, Einheit, Q1 2020, heute, Format, Quelle
+    ("T32", 47, "Herstellungskosten KG 200–700, ARGE-Median", "€/m² Wohnfläche", 3028.08, 4631.07, F_EUR2,
+     "ARGE e. V. (2026), S. 34, Abb. 23; ohne Grundstück"),
+    ("T33", 48, "Fremdkapitalanteil", "% der Kosten", 0.80, 0.80, F_PCT1, "wie Frei finanziert: Eigenmittel 20 %"),
+    ("T34", 49, "Sollzins, 10 Jahre Zinsbindung", "% p. a.", 0.0046, "=Zins_Bank", F_PCT,
+     "Q1 2020: Mittel, gerundet wie Folie 4; heute: Eingabe 6.1"),
+    ("T35", 50, "Laufzeit, jährliche Annuität", "Jahre", "=Laufzeit_Bank", "=Laufzeit_Bank", F_JAHR, "Eingabe 6.4"),
+    ("T36", 51, "Kapitaldienstsatz", "% p. a.", "=PMT(D49,D50,-1)", "=PMT(E49,E50,-1)", KD5_FORMAT_PCT3,
+     "Annuitätenfaktor wie Frei finanziert, Annuität Bank"),
+    ("T37", 52, "Anfängliche Tilgung", "% p. a.", "=D51-D49", "=E51-E49", KD5_FORMAT_PCT3,
+     "Kapitaldienstsatz minus Sollzins"),
+    ("T38", 53, "Kapitaldienst je m² und Monat", "€/m² Monat", "=D47*D48*D51/12", "=E47*E48*E51/12", F_EUR2,
+     "Kosten × Fremdkapitalanteil × Kapitaldienstsatz ÷ 12"),
+]
+KD5_ZERLEGUNG = [  # Nr., Zeile, Größe, Einheit, Betrag, Anteil, Quelle
+    ("T39", 55, "Anstieg", "€/m² Monat", "=E53-D53", None, "heute minus Q1 2020"),
+    ("T40", 56, "Herstellungskosten", "€/m² Monat", "=E47*D48*D51/12-D53", "=D56/D55",
+     "neue Kosten zum alten Zins minus Q1 2020"),
+    ("T41", 57, "Zins", "€/m² Monat", "=D47*D48*E51/12-D53", "=D57/D55", "alte Kosten zum neuen Zins minus Q1 2020"),
+    ("T42", 58, "Wechselwirkung", "€/m² Monat", "=D55-D56-D57", "=D58/D55", "Rest"),
+]
+KD5_FUSSNOTE_TEXT = ("Ohne Grundstück. Methode in Anlehnung an GdW (2026), Kapitaldienst-Methode. "
+                     "Jährliche Annuität über 30 Jahre.")
+
 # Zeitachse der Blätter Gefördert/Frei (Konzept D.3): Zeile 6 = t 0, Zeile 48 = t 42, Zeile 86 = t 80
 Z0, Z42, Z80 = 6, 48, 86
 # Mehrteilige Druckbereiche (Konzept G.4) in der gewollten Reihenfolge; LibreOffice sortiert sie beim Speichern um,
@@ -662,6 +691,38 @@ def blatt_tabellen(wb, ws):
     breiten(ws, {"A": 6, "B": 44, "C": 19, "D:F": 13, "G": 56})
     ws.freeze_panes = "A3"
     druck(ws, bereich="A1:G43", umbrueche=[33])
+
+
+def blatt_tabellen_kd5(wb, ws):
+    """Konzept T: Tabelle 5 „Kapitaldienst je m² (Folie 5)“ unter den Tabellen 1 bis 4. Erst nach „Eingaben“ gebaut,
+    damit die Verweise auf Zins_Bank und Laufzeit_Bank grün stehen. Die Zellen der Tabellen 1 bis 4 bleiben
+    unberührt."""
+    gruppenzeile(ws, KD5_GRUPPE, "5 Kapitaldienst je m² (Folie 5)", "A", "G", text_spalte="B")
+    rahmen_oben(ws, KD5_GRUPPE, "A", "G", MITTEL)
+    kopfzeile(ws, KD5_KOPF, {"A": "Nr.", "B": "Größe", "C": "Einheit", "D": "Q1 2020", "E": "Heute", "G": "Quelle"},
+              "A", "G", einzug={"G": 2}, rechts=("D", "E"))
+    for nr, z, text, einheit, w1, w2, fmt, quelle in KD5_ZEILEN:
+        fett = z == 53
+        zelle(ws, f"A{z}", nr)
+        zelle(ws, f"B{z}", text, fett=fett)
+        zelle(ws, f"C{z}", einheit)
+        for s, wv in (("D", w1), ("E", w2)):
+            zelle(ws, f"{s}{z}", wv, "formel" if isinstance(wv, str) else "wert", fmt, fett=fett)
+        zelle(ws, f"G{z}", quelle, einzug=2)
+        rahmen_unten(ws, z, "A", "G", HAAR)
+    kopfzeile(ws, KD5_ZERLEGUNG_KOPF, {"A": "Nr.", "B": "Zerlegung des Anstiegs", "C": "Einheit", "D": "Betrag",
+                                       "E": "Anteil", "G": "Quelle"}, "A", "G", einzug={"G": 2}, rechts=("D", "E"))
+    for nr, z, text, einheit, betrag, anteil, quelle in KD5_ZERLEGUNG:
+        zelle(ws, f"A{z}", nr)
+        zelle(ws, f"B{z}", text)
+        zelle(ws, f"C{z}", einheit)
+        zelle(ws, f"D{z}", betrag, "formel", F_EUR2)
+        if anteil:
+            zelle(ws, f"E{z}", anteil, "formel", F_PCT1)
+        zelle(ws, f"G{z}", quelle, einzug=2)
+        rahmen_unten(ws, z, "A", "G", HAAR)
+    zelle(ws, f"A{KD5_FUSSNOTE}", KD5_FUSSNOTE_TEXT)
+    ws.print_area = f"A1:G{KD5_FUSSNOTE}"
 
 
 def zeile_tabelle(ws, z, nr, text, einheit, werte, fmt, quelle):
@@ -1825,6 +1886,7 @@ def baue(ziel, probe=False):
     # Reihenfolge: Tabellen und Eingaben zuerst, damit die Namen für die Farbwahl der Formeln bekannt sind
     blatt_tabellen(wb, wb["Tabellen"])
     blatt_eingaben(wb, wb["Eingaben"])
+    blatt_tabellen_kd5(wb, wb["Tabellen"])
     for g in "ABC":
         blatt_gefoerdert(wb, wb[f"Gefördert {g}"], g, bis_t)
     blatt_frei(wb, wb["Frei finanziert"], bis_t)
@@ -1949,8 +2011,10 @@ def nachbearbeiten(ziel):
         sid = BLAETTER.index(nm)
         q = "&apos;" + nm + "&apos;!" if " " in nm else nm + "!"
         wert = ",".join(q + "$" + re.sub(r"([A-Z]+)(\d+)", r"\1$\2", t).replace(":", ":$") for t in bereich.split(","))
-        wbx = re.sub(rf'(<definedName[^>]*localSheetId="{sid}"[^>]*name="_xlnm.Print_Area"[^>]*>)[^<]*(</definedName>)',
-                     lambda m: m.group(1) + wert + m.group(2), wbx)
+        # Reihenfolge der Attribute je nach Schreiber verschieden (localSheetId vor oder nach name)
+        for muster in (rf'(<definedName[^>]*localSheetId="{sid}"[^>]*name="_xlnm.Print_Area"[^>]*>)[^<]*(</definedName>)',
+                       rf'(<definedName[^>]*name="_xlnm.Print_Area"[^>]*localSheetId="{sid}"[^>]*>)[^<]*(</definedName>)'):
+            wbx = re.sub(muster, lambda m: m.group(1) + wert + m.group(2), wbx)
     if "fullCalcOnLoad" not in wbx:
         wbx = re.sub(r"<calcPr", '<calcPr fullCalcOnLoad="1"', wbx, count=1)
     teile["xl/workbook.xml"] = wbx.encode("utf-8")

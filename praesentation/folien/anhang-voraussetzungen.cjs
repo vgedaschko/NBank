@@ -1,4 +1,4 @@
-// Folie A3 · PGN_ANHANG: sechs Voraussetzungen für Programmteil 2.1 als Prüfliste über sieben Spalten (Broschüre S. 4), rechts über fünf Spalten
+// Folie A2 · PGN_ANHANG: sechs Voraussetzungen für Programmteil 2.1 als Prüfliste über sieben Spalten (Broschüre S. 4), rechts über fünf Spalten
 // die Bedarfslage der NBank-Karte als Ringdiagramm mit direkter Beschriftung (Broschüre S. 18). Kein Rot, keine Karte, kein QR-Code.
 // Texte und Zahlen aus daten/umsetzung.json; der Eigenmittelsatz aus daten/werte.json.
 'use strict';

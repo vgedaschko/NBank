@@ -29,7 +29,7 @@ Werte in Spalte F; Änderungen eines Laufs stehen deshalb in Spalte E.
 
 Nicht exportiert werden Renditen, Restwerte, der Förderbarwert, das Blatt
 NBank sowie alles, was an der Markt- oder Vergleichsmiete hängt (Sperrliste).
-Einzige Ausnahme ist der Lauf „modellhaus_rendite“ für die Anhangfolie A7
+Einzige Ausnahme ist der Lauf „modellhaus_rendite“ für die Anhangfolie A6
 (AUSNAHMEN): Er liest genau die dort genannten Zellen und keine weitere.
 
 Abgleich mit der Broschüre S. 10–12, der Altfassung und einer Handrechnung:
@@ -159,7 +159,7 @@ AUSNAHMEN = [
         lauf="modellhaus_rendite",
         erlaubt_von="Auftraggeber",
         erlaubt_am="11.11.2026",
-        zweck="Anhangfolie A7 „Eigenkapitalrendite“ (Folie anhang-rendite); auf keiner anderen Folie",
+        zweck="Anhangfolie A6 „Eigenkapitalrendite“ (Folie anhang-rendite); auf keiner anderen Folie",
         bedingung="Renditen nur als Paar „mit Restwert / nur Bodenwert“ mit dem Restwertanteil (Mappe, Blatt Hinweise, Nr. 12)",
         zellen={
             "Übersicht": [
@@ -424,6 +424,45 @@ def katalog_tabellen():
     return k
 
 
+def katalog_kapitaldienst():
+    """Tabellen, Tabelle 5 „Kapitaldienst je m² (Folie 5)“: ARGE-Median der Herstellungskosten ohne Grundstück,
+    Fremdkapitalanteil 80 %, jährliche Annuität über die Laufzeit des Bankdarlehens. Spalte D = Q1 2020,
+    Spalte E = heute (Kosten Q4 2025, Zins der Mappe). Zerlegung des Anstiegs in Spalte D (Betrag) und E (Anteil)."""
+    t = lambda k, z, einheit, b: W(f"kd5.{k}", "Tabellen", z, einheit, b)
+    k = []
+    for stand, sp, wann in (("q1_2020", "D", "Q1 2020"), ("heute", "E", "heute (Kosten Q4 2025, Zins Eingabe 6.1)")):
+        k += [
+            t(f"herstellungskosten_qm.{stand}", f"{sp}47", "€/m²", f"T32 Herstellungskosten KG 200–700 je m² Wohnfläche, ARGE-Median deutscher Großstädte, ohne Grundstück; {wann}"),
+            t(f"fremdkapitalanteil.{stand}", f"{sp}48", "Anteil", f"T33 Fremdkapitalanteil der Herstellungskosten; {wann}"),
+            t(f"sollzins.{stand}", f"{sp}49", "Anteil", f"T34 Sollzins p. a., 10 Jahre Zinsbindung; {wann}"),
+            t(f"laufzeit.{stand}", f"{sp}50", "Jahre", f"T35 Laufzeit der jährlichen Annuität (Eingabe 6.4); {wann}"),
+            t(f"kapitaldienstsatz.{stand}", f"{sp}51", "Anteil", f"T36 Kapitaldienstsatz = Annuitätenfaktor der jährlichen Annuität; {wann}"),
+            t(f"tilgung.{stand}", f"{sp}52", "Anteil", f"T37 Anfängliche Tilgung = Kapitaldienstsatz minus Sollzins; {wann}"),
+            t(f"kapitaldienst.{stand}", f"{sp}53", "€/m² Monat", f"T38 Kapitaldienst je m² und Monat = Kosten × Fremdkapitalanteil × Kapitaldienstsatz ÷ 12; {wann}"),
+        ]
+    k.append(t("anstieg", "D55", "€/m² Monat", "T39 Anstieg des Kapitaldiensts je m² und Monat, heute minus Q1 2020"))
+    for teil, z, b in (("herstellungskosten", 56, "Herstellungskosten: neue Kosten zum alten Zins minus Q1 2020"),
+                       ("zins", 57, "Zins: alte Kosten zum neuen Zins minus Q1 2020"),
+                       ("wechselwirkung", 58, "Wechselwirkung: Rest")):
+        k.append(t(f"zerlegung.{teil}", f"D{z}", "€/m² Monat", f"T{z - 16} Zerlegung des Anstiegs, {b}"))
+        k.append(t(f"anteil.{teil}", f"E{z}", "Anteil", f"T{z - 16} Anteil am Anstieg; {b.split(':')[0]}"))
+    return k
+
+
+def katalog_ohne_mieterhoehung():
+    """Gegenprobe ohne Mieterhöhung (Tabellen!D28 = 0): Miete und Zahlungsüberschuss Jahr 1 bis 42 je Gruppe,
+    Jahre mit Fehlbetrag in Jahr 1 bis 35."""
+    z1, z2 = JAHRE
+    k = [W("zr.jahr", "Gefördert A", f"A{z1}:A{z2}", "Jahr", "Jahr der Rechnung, 1 bis 42 (T0 = Bezugsfertigkeit)"),
+         W("tab.mieterhoehung_in_der_bindung", "Tabellen", "D28", "Anteil", "T20 Mieterhöhung in der Bindung, in diesem Lauf 0")]
+    for g in GRUPPEN:
+        k.append(W(f"zr.miete.{g}", BLATT[g], f"F{z1}:F{z2}", "€/m² Monat", f"Miete je m² und Monat ohne Mieterhöhung; Jahr 1 bis 42; {NAME[g]}"))
+        k.append(W(f"zr.zahlungsueberschuss.{g}", BLATT[g], f"R{z1}:R{z2}", "€ p. a.",
+                   f"Zahlungsüberschuss ohne Mieterhöhung, Kosten ab Jahr 2 +2 % p. a.; Jahr 1 bis 42; {NAME[g]}"))
+    k += je_gruppe("liq.jahre_mit_fehlbetrag", 47, "Jahre", "Übersicht 3.6 Jahre mit Fehlbetrag, Jahr 1–35, ohne Mieterhöhung")
+    return k
+
+
 def katalog_zeitreihe():
     z1, z2 = JAHRE
     k = [
@@ -462,7 +501,7 @@ def katalog_zeitreihe():
 
 
 def katalog_rendite():
-    """Werte der Anhangfolie A7 „Eigenkapitalrendite“. Jede Zelle steht auf der
+    """Werte der Anhangfolie A6 „Eigenkapitalrendite“. Jede Zelle steht auf der
     Sperrliste und ist nur über die Ausnahme anhang_rendite lesbar (AUSNAHMEN).
     Horizont Jahr 35: Spalten D bis G der Übersicht. Eigenkapital bei Bezug und
     die Jahre mit Fehlbetrag der Gruppen A, B, C führt der Lauf modellhaus
@@ -516,7 +555,7 @@ LAEUFE = [
                      "Herstellungskosten 3.579 € je m², Grundstück im Bestand und nicht angesetzt, Mietenstufe VI, "
                      "Tilgung 1/42 = 2,38 %), Eingabe 10.1 = Marktmiete, Eingabe 10.2 = 1,0.",
         aenderungen=mit_projekt(),
-        katalog=KERN + katalog_tabellen(),
+        katalog=KERN + katalog_tabellen() + katalog_kapitaldienst(),
     ),
     dict(
         lauf="modellhaus_zeitreihe",
@@ -527,10 +566,20 @@ LAEUFE = [
         katalog=katalog_zeitreihe(),
     ),
     dict(
+        lauf="modellhaus_ohne_mieterhoehung",
+        beschreibung="Modellhaus (Projekt 2) ohne jede Mieterhöhung in der Bindung (Tabellen, T20 = 0 statt 6,15 %), "
+                     "Objektverwaltung und Instandhaltung weiter ab Jahr 2 +2 % p. a.: Gegenprobe für den Hinweis der "
+                     "Folie 21. Bis Jahr 35 bleibt in allen drei Gruppen in jedem Jahr ein Zahlungsüberschuss; ab Jahr 36 "
+                     "kostet das NBank-Darlehen Zins.",
+        aenderungen=mit_projekt(dict(blatt="Tabellen", zelle="D28", alt=0.0615, neu=0,
+                                     eingabe="T20 Mieterhöhung in der Bindung, höchstens: Gegenprobe ohne Mieterhöhung")),
+        katalog=katalog_ohne_mieterhoehung(),
+    ),
+    dict(
         lauf="modellhaus_rendite",
         beschreibung="Modellhaus (Projekt 2): Eigenkapitalrendite vor Steuern über 35 Jahre als Paar „mit "
                      "Restwert / nur Bodenwert“ mit Restwertanteil, dazu Projektkonto, Restwert und die Annahmen "
-                     "dahinter. Nur für die Anhangfolie A7 (Folie anhang-rendite); Ausnahme anhang_rendite von der "
+                     "dahinter. Nur für die Anhangfolie A6 (Folie anhang-rendite); Ausnahme anhang_rendite von der "
                      "Sperrliste. Das Grundstück ist nicht angesetzt: „nur Bodenwert“ rechnet ohne Restwert "
                      "(Hinweise Nr. 15). Marktmiete: Gutachterausschuss Lüneburg, Hamburger Umland, Stand 01.01.2026; Liegenschaftszins: "
                      "Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses.",

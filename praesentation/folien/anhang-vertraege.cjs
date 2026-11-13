@@ -1,4 +1,4 @@
-// Folie A4 · PGN_ANHANG: Verträge und Maßnahmen vor der Bewilligung als Gegenüberstellung in drei Spalten im Raster 4 + 4 + 4 (Broschüre S. 19).
+// Folie A3 · PGN_ANHANG: Verträge und Maßnahmen vor der Bewilligung als Gegenüberstellung in drei Spalten im Raster 4 + 4 + 4 (Broschüre S. 19).
 // Je Spalte Modulkopf mit Kopf-Icon und eine Aufzählung mit eckigen Markern; die Spalte „Förderschädlich“ mit Linie und Kopf in Dunkelrot
 // (Signal immer mit Wort). Kein Grün, kein Achtung-Kasten. Texte aus daten/umsetzung.json.
 'use strict';

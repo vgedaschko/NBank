@@ -193,7 +193,7 @@ Eingabezellen ohne Nullabschnitt: Eine eingegebene 0 bleibt als 0 sichtbar (Rund
 
 ## C. Tabellen-Blatt
 
-Alle Werte schwarz (Festwert, keine Eingabe), Schrift `3C3C3B`, keine gelbe Füllung; einzige Formeln des Blatts sind F36:F41 (Tabelle 4, „verwendet“). Zeile 1 Titel „Tabellen“ (A1:F1 verbunden), G1 Zellhyperlink „Übersicht“; Zeile 2: „Festwerte RL Mietwohnraum 2026 und Bewertung. Bemessungsgrenzen: Ausgangswerte 01.07.2026; aktuell auf nbank.de.“ (RL Nr. 5.3.2.2 Abs. 2: Fortschreibung zum 1.4. und 1.10.; die Tabelle zeigt den Ausgangswert 01.07.2026, der Satz sagt das seit dem Lektorat ausdrücklich, Nr. 48). Je Tabelle eine Titelzeile (Gruppenzeile) und eine Kopfzeile. Spalte G „Quelle“ ≤ 60 Zeichen, nur Sachquelle (kein „dto.“). In den Tabellen 1 und 3 hat jede Zeile ihre Quelle; in den Tabellen 2 und 4 gilt eine Quelle für alle Zeilen und steht einmal, in der ersten Zeile (G9, G36; G10:G15 und G37:G41 leer; Lektorat Nr. 51). Spalte „Beleg“ (Fakt-IDs) steht nur hier im Konzept. Spaltenbreiten A 6 · B 44 · C 19 · D–F 13 · G 56 (D–F seit dem Lektorat 13: der Kopf „Höchstmiete“ passt fett nicht in 12; die Köpfe D8:F8 brechen fest nach „Höchstmiete“ um).
+Alle Werte schwarz (Festwert, keine Eingabe), Schrift `3C3C3B`, keine gelbe Füllung; Formeln des Blatts stehen nur in F36:F41 (Tabelle 4, „verwendet“) und in Tabelle 5 (D49:E53, D55:E58; seit 13.11.2026, Abschnitt T). Zeile 1 Titel „Tabellen“ (A1:F1 verbunden), G1 Zellhyperlink „Übersicht“; Zeile 2: „Festwerte RL Mietwohnraum 2026 und Bewertung. Bemessungsgrenzen: Ausgangswerte 01.07.2026; aktuell auf nbank.de.“ (RL Nr. 5.3.2.2 Abs. 2: Fortschreibung zum 1.4. und 1.10.; die Tabelle zeigt den Ausgangswert 01.07.2026, der Satz sagt das seit dem Lektorat ausdrücklich, Nr. 48). Je Tabelle eine Titelzeile (Gruppenzeile) und eine Kopfzeile. Spalte G „Quelle“ ≤ 60 Zeichen, nur Sachquelle (kein „dto.“). In den Tabellen 1 und 3 hat jede Zeile ihre Quelle; in den Tabellen 2 und 4 gilt eine Quelle für alle Zeilen und steht einmal, in der ersten Zeile (G9, G36; G10:G15 und G37:G41 leer; Lektorat Nr. 51). Spalte „Beleg“ (Fakt-IDs) steht nur hier im Konzept. Spaltenbreiten A 6 · B 44 · C 19 · D–F 13 · G 56 (D–F seit dem Lektorat 13: der Kopf „Höchstmiete“ passt fett nicht in 12; die Köpfe D8:F8 brechen fest nach „Höchstmiete“ um).
 
 **Tabelle 1, Titel Zeile 3 „1 Förderquoten“, Kopf Zeile 4 (Nr. · Festwert · Einheit · A · B · C · Quelle; D4:F4 = `Gruppen` mit „A“, „B“, „C“), Zeilen 5–6**
 
@@ -255,6 +255,8 @@ Namen: `LZ_RND` = B36:B41, `LZ_Satz` = F36:F41 (die Spalte „verwendet“; die 
 Die Quelle G36 folgt dem Lektorat (Nr. 52: ohne die Kürzel „OGA“ und „BRW“); „Oberer“ fehlt, weil die Zeile mit Einzug 2 sonst über den Druckrand liefe (391 px gegen 369 px nutzbar).
 
 T14 `Aufschub_max` ist die Obergrenze der Datenüberprüfung von Eingabe 3.2 (formula2 `=Aufschub_max`). T21 ist eine PGN-Konvention im Rahmen der RL (die RL begrenzt nur auf 6,15 % in 3 Jahren; § 558 BGB erlaubt Erhöhungen schon nach 15 Monaten); sie steht in Hinweis 6.
+
+**Tabelle 5, Titel Zeile 45 „5 Kapitaldienst je m² (Folie 5)“, Kopfzeilen 46 und 54, Zeilen 47–53 und 55–58, Fußnote A60** (seit 13.11.2026, Abschnitt T).
 
 Bewusst nicht in Tabellen: Zuschlag modellhaft/Housing First (RL Nr. 5.3.3.3), Altrecht WFB, Ersterwerb. Grund in Abschnitt E.
 
@@ -2020,3 +2022,49 @@ Zahlenwirkung: Im Standard beider Projekte ändert sich nur die Zelle der Bemess
 
 Prüfskript: `BEMESSUNG_2026_10` überschreibt die Grenzen der RR-Parameter beider Projekte. L10 (Kosten über der Grenze) rechnet mit 5.660 statt 5.200 €/m², weiter 200 €/m² über der Grenze; P4 und der Gesamtstatus lauten dort „prüfen“. L70 rechnet mit 5.460 €/m². Die Sollwerte beider Läufe stehen in `_ZINS_386`. Die Regression N lässt die Zelle H95 mit dem fortgeschriebenen Wert gelten. F9 liest die Broschüre S. 10 mit der Spalte 5.460 €. Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler.
 
+## T. Kapitaldienst je m² für Folie 5 des Vortrags (13.11.2026)
+
+Stand: 13.11.2026.
+
+### T.1 Auftrag
+
+Änderungsrunde vom 13.11.2026, Einträge G12 und F5.1: Folie 5 des Vortrags rechnet den Kapitaldienst je m² Wohnfläche und Monat ohne Grundstück, nur mit den Herstellungskosten, und mit jährlicher Annuität über 30 Jahre wie die freie Finanzierung. Die Rechnung steht in der Mappe; der Vortrag liest ihre Werte (Antwort des Auftraggebers zu Rückfrage 2). Bedingung: Es kommt nur der neue Block dazu. Bestehende Zellen und Formeln bleiben unverändert, alle Prüfungen der Mappe bleiben OK.
+
+### T.2 Tabelle 5 auf dem Blatt Tabellen
+
+Unter Tabelle 4 (Zeile 44 bleibt leer). Spalte D = Q1 2020, Spalte E = heute (Kosten Q4 2025, Zins der Eingabe 6.1). Keine Namen; der Vortrag liest die Zellen über `praesentation/daten/werte_aus_vofi.py` (Schlüssel `kd5.*`). Die Formeln stehen erst nach dem Blatt Eingaben im Generator, damit die Verweise auf `Zins_Bank` und `Laufzeit_Bank` grün stehen.
+
+| Nr. | Zeile | Größe | Einheit | D Q1 2020 | E heute | Quelle (Excel) |
+|---|---|---|---|---|---|---|
+| T32 | 47 | Herstellungskosten KG 200–700, ARGE-Median | €/m² Wohnfläche | 3.028,08 | 4.631,07 | ARGE e. V. (2026), S. 34, Abb. 23; ohne Grundstück |
+| T33 | 48 | Fremdkapitalanteil | % der Kosten | 80,0 % | 80,0 % | wie Frei finanziert: Eigenmittel 20 % |
+| T34 | 49 | Sollzins, 10 Jahre Zinsbindung | % p. a. | 0,46 % | `=Zins_Bank` | Q1 2020: Mittel, gerundet wie Folie 4; heute: Eingabe 6.1 |
+| T35 | 50 | Laufzeit, jährliche Annuität | Jahre | `=Laufzeit_Bank` | `=Laufzeit_Bank` | Eingabe 6.4 |
+| T36 | 51 | Kapitaldienstsatz | % p. a. (drei Stellen) | `=PMT(D49,D50,-1)` | `=PMT(E49,E50,-1)` | Annuitätenfaktor wie Frei finanziert, Annuität Bank |
+| T37 | 52 | Anfängliche Tilgung | % p. a. (drei Stellen) | `=D51-D49` | `=E51-E49` | Kapitaldienstsatz minus Sollzins |
+| T38 | 53 | Kapitaldienst je m² und Monat (fett) | €/m² Monat | `=D47*D48*D51/12` | `=E47*E48*E51/12` | Kosten × Fremdkapitalanteil × Kapitaldienstsatz ÷ 12 |
+
+Zerlegung des Anstiegs, Kopf Zeile 54 (Nr. · Zerlegung des Anstiegs · Einheit · Betrag · Anteil · Quelle):
+
+| Nr. | Zeile | Größe | D Betrag | E Anteil | Quelle (Excel) |
+|---|---|---|---|---|---|
+| T39 | 55 | Anstieg | `=E53-D53` | (leer) | heute minus Q1 2020 |
+| T40 | 56 | Herstellungskosten | `=E47*D48*D51/12-D53` | `=D56/D55` | neue Kosten zum alten Zins minus Q1 2020 |
+| T41 | 57 | Zins | `=D47*D48*E51/12-D53` | `=D57/D55` | alte Kosten zum neuen Zins minus Q1 2020 |
+| T42 | 58 | Wechselwirkung | `=D55-D56-D57` | `=D58/D55` | Rest |
+
+Fußnote A60: „Ohne Grundstück. Methode in Anlehnung an GdW (2026), Kapitaldienst-Methode. Jährliche Annuität über 30 Jahre.“ Druckbereich des Blatts A1:G60 (bisher A1:G43), weiter zwei Seiten mit dem Umbruch nach Zeile 33.
+
+Ergebnis (Auslieferung, Zins 3,86 %): Kapitaldienstsatz 3,5763 % / 5,6851 %, anfängliche Tilgung 3,1163 % / 1,8251 %, Kapitaldienst 7,2195 / 17,5521 €/m² Monat, Anstieg 10,3326 €; Herstellungskosten +3,8218 € (36,99 %), Zins +4,2572 € (41,20 %), Wechselwirkung +2,2536 € (21,81 %). Gerundet wie auf Folie 5: 7,22 / 17,55 €, +10,33 €, 3,82 € (37 %), 4,26 € (41 %), 2,25 € (22 %), Tilgung 3,116 / 1,825 %, Satz 3,576 / 5,685 %.
+
+### T.3 Prüfskript
+
+- Neue Prüfung „Tabelle 5 Kapitaldienst je m² (Folie 5)“ (Teil C): Festwerte D47:E48 und D49, jede Formel wörtlich, drei Nachkommastellen in D51:E52, alle Werte gegen eine eigene Rechnung mit jährlicher Annuität (Zins und Laufzeit aus Eingaben F35 und F38) und die gerundeten Werte der Folie 5.
+- „Formeln nur in F36:F41“ lässt zusätzlich genau die Formelzellen der Tabelle 5 zu. Gruppenzeile 45, Kopfzeilen 46 und 54, Beschriftungen, Textlängen (Bezeichnung ≤ 45, Quelle ≤ 60) und Druckbereich A1:G60 gelten auch für Tabelle 5.
+- Alle übrigen Prüfungen und Sollwerte sind unverändert.
+
+Abnahme am 13.11.2026: 618 Prüfungen ohne Fehler (bisher 617, dazu die Prüfung der Tabelle 5), 70 Läufe.
+
+### T.4 Generator
+
+`blatt_tabellen_kd5()` legt Tabelle 5 nach dem Blatt Eingaben an. Die Nachbearbeitung stellt die Reihenfolge mehrteiliger Druckbereiche jetzt in beiden Schreibweisen von `definedName` her (Attribut `localSheetId` vor oder nach `name`); die neuere Fassung von `recalc.py` schreibt `name` zuerst.

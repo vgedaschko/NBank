@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Werte und Texte der Baugruppen „einstieg“ (Folien 3 bis 6), „ueberblick“ (A1, A2) und der Folie 22 (pgn-baukosten, Baugruppe „struktur“), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft und geprueft. Broschüre: Seite, Datei unter broschuere/content/pages/ und JSON-Schlüssel. Altfassung: Präsentation vom 26.10.2026 mit Folie und Reihe, dazu die Quelle laut Altfassung; diese Werte sind aus der Altfassung übernommen und nicht nachgeprüft („geprueft“: false, „vermerk“: „nicht nachgeprüft“). Zahlen stehen genau einmal als Zahl; in den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul füllt (felder in folien/_einstieg.cjs für die Folien 4 und 6, kostenFelder in folien/_struktur.cjs für die Folie 22, felder in folien/_ueberblick.cjs für A1 und A2). Platzhalter mit dem Vorsatz „mappe_“ kommen aus daten/werte.json (Lauf modellhaus). Die gefüllten Texte prüft der Bau gegen das Feld „inhalt“ des Konzepts.",
+  "_hinweis": "Werte und Texte der Baugruppen „einstieg“ (Folien 3 bis 6), „ueberblick“ (A1) und der Folie 22 (pgn-baukosten, Baugruppe „struktur“), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft und geprueft. Broschüre: Seite, Datei unter broschuere/content/pages/ und JSON-Schlüssel. Altfassung: Präsentation vom 26.10.2026 mit Folie und Reihe, dazu die Quelle laut Altfassung; diese Werte sind aus der Altfassung übernommen und nicht nachgeprüft („geprueft“: false, „vermerk“: „nicht nachgeprüft“). Zahlen stehen genau einmal als Zahl; in den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul füllt (felder in folien/_einstieg.cjs für die Folien 4 und 6, kostenFelder in folien/_struktur.cjs für die Folie 22, felder in folien/_ueberblick.cjs für A1 und A2). Platzhalter mit dem Vorsatz „mappe_“ kommen aus daten/werte.json (Lauf modellhaus). Die gefüllten Texte prüft der Bau gegen das Feld „inhalt“ des Konzepts.",
   "zinsen": {
     "_hinweis": "Folie 4. Sollzins p. a. nach Zinsbindung, Top-Konditionen Wohnungswirtschaft. Die Quelle führt Wochenwerte; der Monatswert ist der letzte Wochenwert des Monats, der Wert für 11/2026 der vom 10.11.2026 (letzter Wert am 12.11.2026). Die Reihe der Altfassung (01/2016 bis 07/2026) stimmt damit in 126 von 127 Monaten überein; für 07/2026 führte sie den Wert vom 21.07.2026 (3,74 | 4,02 | 4,15 %), hier steht der vom 28.07.2026 (3,69 | 3,97 | 4,10 %). Punkt 1 = 01/2016 (Jahreszahl an jedem zwölften Punkt der Achse), Punkt 131 = 11/2026. Die Quartalsmittel der Marken rechnet das Folienmodul aus den Monatswerten nach; die Endwerte sind die letzten Monatswerte.",
     "quelle": {
@@ -1082,7 +1082,7 @@
         {
           "nr": "2.3",
           "name": "Klimagerechte Modernisierung",
-          "instrument": "Zuschuss je gebundener Wohnung; Wahlrecht bis 31.12.2026",
+          "instrument": "Zuschuss je gebundener Wohnung",
           "bis_zu": "10–40 %, höchstens 9.000–31.000 €",
           "bindung": "25 Jahre; vermietet ohne WBS 35 Jahre",
           "eigenmittel": "mind. 20 %",
@@ -1136,59 +1136,6 @@
         "herkunft": "Broschüre S. 5, 05-navigator.json, lead",
         "geprueft": true
       }
-    }
-  },
-  "frist": {
-    "_hinweis": "Folie A2. Wahlrecht für Modernisierungsanträge und Stichtage nach Broschüre S. 16.",
-    "achtung": {
-      "label": "Frist 31.12.2026",
-      "wert": "Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. **Die Wahl ist bindend**. Das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026. Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert.",
-      "einheit": "Text; „**…**“ ist die Hervorhebung der Broschüre",
-      "herkunft": "Broschüre S. 16, 16-stichtag-wahlrecht-fristen.json, blocks[0] (title, body)",
-      "geprueft": true
-    },
-    "zeitleiste": {
-      "titel": "Stichtage Juni 2026 bis Dezember 2031",
-      "wert": [
-        {
-          "datum": "30.06.2026",
-          "text": "Förderregeln 2024 enden"
-        },
-        {
-          "datum": "01.07.2026",
-          "text": "RL Mietwohnraum 2026 in Kraft"
-        },
-        {
-          "datum": "31.12.2026",
-          "text": "Wahlrecht Modernisierung",
-          "zusatz": "Antragseingang bei der Wohnraumförderstelle",
-          "signal": true
-        },
-        {
-          "datum": "01.01.2027",
-          "text": "Neue Rechennorm für Energiebedarfsausweise",
-          "zusatz": "Klassengrenzen unverändert"
-        },
-        {
-          "datum": "2027",
-          "text": "Neue Mietenstufen geplant",
-          "zusatz": "Entwurf"
-        },
-        {
-          "datum": "31.12.2031",
-          "text": "RL Mietwohnraum 2026 läuft aus"
-        }
-      ],
-      "einheit": "Stichtag, Bezeichnung, Zusatz",
-      "herkunft": "Broschüre S. 16, 16-stichtag-wahlrecht-fristen.json, blocks[1].title und blocks[1].data.events[0..5] (date, label, detail; style „signal“)",
-      "geprueft": true
-    },
-    "zuschuss_2_3": {
-      "nr": "2.3",
-      "wert": "Programmteil 2.3 nach RL 2026: Zuschuss mit Höchstsatz 10–40 % je nach Klassensprung und Einkommensgruppe, höchstens 9.000–31.000 € je gebundener Wohnung.",
-      "einheit": "Text",
-      "herkunft": "Broschüre S. 16, 16-stichtag-wahlrecht-fristen.json, blocks[2].columns[2] und blocks[2].rows[0][2]",
-      "geprueft": true
     }
   },
   "markt": {
@@ -1523,7 +1470,7 @@
     }
   },
   "kapitaldienst": {
-    "_hinweis": "Folie 5 (einstieg-kapitaldienst). Eingangswerte der Rechnung „Kapitaldienst je m² Wohnfläche und Monat, Q1 2020 gegen heute“. Kosten je m²: baukosten.herstellung + baukosten.grundstueck (Q1 2020 und Q4 2025). Zins heute, Laufzeit und Zinsbindung kommen aus daten/werte.json (Lauf modellhaus: eingabe.zins_bank, eingabe.laufzeit_bank, eingabe.zinsbindung); „heute“ heißt: Kosten Q4 2025, Zins November 2026 (letzter Wert der Reihe zinsen.z10, 10.11.2026). Methode wie in der Altfassung Folie 5: Annuitätendarlehen mit monatlicher Rate, Monatsrate je Euro Darlehen = (i ÷ 12) ÷ (1 − (1 + i ÷ 12)^−(12 × n)), Kapitaldienst je m² und Monat = Kosten × Fremdkapitalanteil × Monatsrate (8,93 und 20,25 €). Die Rechenmappe rechnet das Modellhaus mit einer Jahresrate; damit wären es 8,95 und 20,44 €. Zerlegung des Anstiegs: Baukosten = neue Kosten zum alten Zins minus alt; Zins = alte Kosten zum neuen Zins minus alt; Wechselwirkung = Rest. Ergebnisse und Formeln stehen in daten/pruefung.json; das Folienmodul rechnet sie aus diesen Eingangswerten. Die Folie ist keine Modellrechnung (weißer Grund, kein Papierton): Medianwerte deutscher Großstädte je m², kein einzelnes Haus.",
+    "_hinweis": "Folie 5 (einstieg-kapitaldienst). Eingangswerte der Rechnung „Kapitaldienst je m² Wohnfläche und Monat, Q1 2020 gegen heute“. Kosten je m²: baukosten.herstellung + baukosten.grundstueck (Q1 2020 und Q4 2025). Zins heute, Laufzeit und Zinsbindung kommen aus daten/werte.json (Lauf modellhaus: eingabe.zins_bank, eingabe.laufzeit_bank, eingabe.zinsbindung); „heute“ heißt: Kosten Q4 2025, Zins November 2026 (letzter Wert der Reihe zinsen.z10, 10.11.2026). Methode wie in der Altfassung Folie 5: Annuitätendarlehen mit monatlicher Rate, Monatsrate je Euro Darlehen = (i ÷ 12) ÷ (1 − (1 + i ÷ 12)^−(12 × n)), Kapitaldienst je m² und Monat = Kosten × Fremdkapitalanteil × Monatsrate (8,93 und 20,25 €). Die Rechenmappe rechnet das Modellhaus mit einer Jahresrate; damit wären es 8,95 und 20,44 €. Zerlegung des Anstiegs: Herstellungskosten = neue Kosten zum alten Zins minus alt; Zins = alte Kosten zum neuen Zins minus alt; Wechselwirkung = Rest. Ergebnisse und Formeln stehen in daten/pruefung.json; das Folienmodul rechnet sie aus diesen Eingangswerten. Die Folie ist keine Modellrechnung (weißer Grund, kein Papierton): Medianwerte deutscher Großstädte je m², kein einzelnes Haus.",
     "fremdkapital": {
       "wert": 0.8,
       "einheit": "Anteil der Gesamtkosten (Grundstück und Herstellung), der als Bankdarlehen finanziert wird",

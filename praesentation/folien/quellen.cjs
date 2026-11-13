@@ -1,4 +1,4 @@
-// Folie A9 · Quellen und Hinweis (PGN_ANHANG): native Tabelle über zwölf Spalten (Folie | Quelle), darunter der Rechtshinweis im festen
+// Folie A8 · Quellen und Hinweis (PGN_ANHANG): native Tabelle über zwölf Spalten (Folie | Quelle), darunter der Rechtshinweis im festen
 // Wortlaut als Kasten auf Fläche mit Modulkopf-Linie und zwei Sätze zu Herausgeber und Bildnachweis.
 // Texte und Kennungen stehen in daten/rahmen.json (quellen.*); die Blattnummern rechnet _struktur.cjs aus dem Feld „quellen“ aller Folien
 // des Konzepts, Version und Stand der Mappe kommen aus werte.json (meta). Kein Prüfvermerk auf der Folienfläche (er steht in INHALT.md, in der README und in den Datendateien).
@@ -10,7 +10,7 @@ module.exports = {
   id: 'quellen',
   bau(ctx) {
     const { B, X, colX, Y, Raster } = ctx, s = ctx.folie(), Q = k => X('rahmen', 'quellen.' + k), wl = (t, was) => ctx.wortlaut(t, was);
-    const x = colX(1), w = Raster.CW, spalte = Raster.PITCH + Raster.GUT;   // Spalte „Folie“: eine Rasterspalte und ein Steg, damit „14–24, A7, A8“ in einer Zeile bleibt
+    const x = colX(1), w = Raster.CW, spalte = Raster.PITCH + Raster.GUT;   // Spalte „Folie“: eine Rasterspalte und ein Steg, damit „14–24, A6, A7“ in einer Zeile bleibt
 
     const zeilen = S.quellenZeilen(ctx);
     // dicht: Tabelle, Hinweis und die beiden Sätze füllen die Inhaltszone; mit dem Zuschlag je Zeile der gewöhnlichen Tabelle passten sieben Zeilen nicht

@@ -1,4 +1,4 @@
-// Folie A6 · PGN_ANHANG: Eckdaten des Programmteils 2.1 als zwei native Tabellen im Raster 6 + 6, je sechs Zeilen aus Stichwort und Text
+// Folie A5 · PGN_ANHANG: Eckdaten des Programmteils 2.1 als zwei native Tabellen im Raster 6 + 6, je sechs Zeilen aus Stichwort und Text
 // (Broschüre S. 9 über daten/regeln.json). Zahlen, die auch die Mappe führt, füllt werteAusMappe aus werte.json (tab.*).
 'use strict';
 const { werteAusMappe } = require('./_regeln.cjs');

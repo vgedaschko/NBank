@@ -17,8 +17,8 @@ if (R('titel.herausgeber') !== FIRMA || R('kontakt.firma') !== FIRMA) throw new 
 const T32 = { pt: 32, min: 2, max: 2, breite: 11.6, zeile: 37 };
 const LAYOUTS = {
   PGN_TITEL:          { grund: 'rot', art: 'titel', titel: { pt: 44, min: 1, max: 2, breite: 6.7 }, felder: ['title', 'untertitel', 'anlass'] },
-  PGN_ABSCHNITT:      { grund: 'hell', art: 'abschnitt', titel: { pt: 40, min: 1, max: 3, breite: 9.6 }, felder: ['nr', 'title', 'lead', 'rubrik', 'blatt'] },
-  PGN_ABSCHNITT_ROT:  { grund: 'rot', art: 'abschnitt', titel: { pt: 40, min: 1, max: 3, breite: 9.6 }, felder: ['nr', 'title', 'lead', 'rubrik', 'blatt'] },
+  PGN_ABSCHNITT:      { grund: 'hell', art: 'abschnitt', titel: { pt: 40, min: 1, max: 3, breite: 10.0 }, felder: ['nr', 'title', 'lead', 'rubrik', 'blatt'] },
+  PGN_ABSCHNITT_ROT:  { grund: 'rot', art: 'abschnitt', titel: { pt: 40, min: 1, max: 3, breite: 10.0 }, felder: ['nr', 'title', 'lead', 'rubrik', 'blatt'] },
   PGN_INHALT:         { grund: 'hell', art: 'inhalt', titel: T32, felder: ['kicker', 'title', 'rubrik', 'blatt'] },
   PGN_AUSSAGE:        { grund: 'hell', art: 'inhalt', titel: T32, felder: ['kicker', 'title', 'lead', 'body', 'seite', 'rubrik', 'blatt'] },
   PGN_KENNZAHLEN:     { grund: 'hell', art: 'inhalt', titel: T32, felder: ['kicker', 'title', 'kf0_kopf', 'kf0_zahl', 'kf0_label', 'kf0_text', 'kf1_kopf', 'kf1_zahl', 'kf1_label', 'kf1_text', 'kf2_kopf', 'kf2_zahl', 'kf2_label', 'kf2_text', 'rubrik', 'blatt'] },
@@ -112,8 +112,9 @@ function definiereLayouts(pres) {
       ...RAHMEN.planrahmen(fg),
       { text: { text: '', options: { shape: pres.ShapeType.ellipse, x: 0.85, y: 1.75, w: 1.40, h: 1.40, fill: rot ? { type: 'none' } : { color: C.weiss }, line: { color: fg, width: 1.5 }, objectName: 'Achskreis Abschnitt' } } },
       ph('nr', { x: 0.85, y: 1.75, w: 1.40, h: 1.40, fontFace: F.black, fontSize: 54, color: rot ? C.weiss : C.rot, align: 'center', valign: 'middle' }, '1'),
-      // Titel in der Höhe des Achskreises, senkrecht mittig: Ein-, zwei- und dreizeilige Titel stehen alle auf der Mitte des Kreises
-      ph('title', { x: 2.65, y: 1.75, w: 9.6, h: 1.40, fontFace: F.black, bold: false, fontSize: 40, lineSpacing: 41, color: fg, align: 'left', valign: 'middle' }, 'TITEL DES ABSCHNITTS', 'title'),
+      // Titel in der Höhe des Achskreises, senkrecht mittig: Ein-, zwei- und dreizeilige Titel stehen alle auf der Mitte des Kreises.
+      // Breite 10,0 (bis 13.11.2026 9,6): Die Titel der Kapiteltrenner nennen Kapitel und Themen (G10, Rückfrage 18)
+      ph('title', { x: 2.65, y: 1.75, w: 10.0, h: 1.40, fontFace: F.black, bold: false, fontSize: 40, lineSpacing: 41, color: fg, align: 'left', valign: 'middle' }, 'TITEL DES ABSCHNITTS', 'title'),
       // vier Zeilen 18 pt brauchen 1,32 Zoll; das Feld lässt ihnen Luft
       ph('lead', { x: 2.65, y: 3.75, w: 8.0, h: 1.40, fontFace: F.text, fontSize: 18, lineSpacingMultiple: 1.1, color: rot ? C.weiss : C.anthrazit }, 'Vorspann'),
       linie(0.30, 6.50, W - 0.60, 0, fg, 1, 'Schriftfeld Oberlinie'),
@@ -229,7 +230,7 @@ function definiereLayouts(pres) {
   ] });
 
   // --- PGN_ANHANG ----------------------------------------------------------------------------------------------------------
-  // Die Blatt-Zelle heißt „Blatt“ wie auf den Inhaltsfolien: Den Anhang nennen der Kopf und die Nummer A1 bis A9
+  // Die Blatt-Zelle heißt „Blatt“ wie auf den Inhaltsfolien: Den Anhang nennen der Kopf und die Nummer A1 bis A8
   pres.defineSlideMaster({ title: 'PGN_ANHANG', background: { color: 'FFFFFF' }, margin: [Y.anhangInhalt, 0.666, 1.0, X0], objects: [...RAHMEN.kopf('hell', { anhang: true }), ...RAHMEN.schriftfeld('hell')] });
 
   // --- PGN_AUSSAGE_DUNKEL ------------------------------------------------------------------------------------------------------

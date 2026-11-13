@@ -1,20 +1,20 @@
 # Mietwohnraumförderung Niedersachsen 2026: Vortragsfassung
 
-Vortrag der Planungsgemeinschaft Nord GmbH zur RL Mietwohnraum 2026. 38 Folien im Format 16:9: 28 im Hauptteil, 10 im Anhang.
+Vortrag der Planungsgemeinschaft Nord GmbH zur RL Mietwohnraum 2026. 37 Folien im Format 16:9: 28 im Hauptteil, 9 im Anhang (bis 13.11.2026 38; die Anhangfolie zur Frist 31.12.2026 ist entfallen).
 Zahlen und das Design „Planwerk“ folgen der Broschüre. Einziges Rechenbeispiel ist das Modellhaus: seit 11.11.2026 ein PGN-Projekt in
 Neu Wulmstorf (14 Wohnungen, 828 m², 3,0 Mio. €; Grundstück im Bestand und nicht angesetzt), in der Rechenmappe „Projekt 2“
-(Entscheidung 29 des Konzepts). Die Straße nennt der Vortrag nicht. Stand der Inhalte: 30.09.2026.
+(Entscheidung 29 des Konzepts). Die Straße nennt der Vortrag nicht. Stand der Inhalte: 11/2026.
 
 Aufbau: Der Vortrag behandelt Programmteil 2.1 (Neubau mit Darlehen und Zuschuss); die Programmteile 2.2 bis 2.6 stehen in der
 Broschüre und in Kurzform auf der Anhangfolie A1.
 
 | Abschnitt | Folien | Inhalt |
 |---|---|---|
-| 1 Ausgangslage | 1 bis 7 | Titel; Trenner; Einstieg in vier Folien: Baukosten seit 2020, Bauzinsen, Kapitaldienst je m² und Monat, Bestand gebundener Wohnungen in Niedersachsen; Agenda mit dem Fokus auf Programmteil 2.1 |
+| 1 Ausgangslage | 1 bis 7 | Titel; Trenner; Einstieg in vier Folien: Herstellungskosten seit 2020, Bauzinsen, Kapitaldienst je m² und Monat, Bestand gebundener Wohnungen in Niedersachsen; Agenda mit dem Fokus auf Programmteil 2.1 |
 | 2 Programmteil 2.1 | 8 bis 12 | Trenner; Neuerungen seit 01.07.2026, Höchstmiete, Fördersätze, Eckdaten |
-| 3 Modellrechnung | 13 bis 24 | Trenner; Finanzierung, Jahresrechnung, Kapitaldienst; Zahlungsfluss gefördert und frei finanziert als Flussdiagramme im selben Maßstab; nötige Miete, Tilgungssatz, Verlauf; Herstellungskosten der PGN gegen ARGE, Kostenszenario; Zusammenfassung |
+| 3 Modellrechnung | 13 bis 24 | Trenner; Finanzierung, Jahresrechnung, Kapitaldienst; Zahlungsfluss gefördert und frei finanziert als Flussdiagramme im selben Maßstab; kostendeckende Anfangsmiete, Tilgungssatz, Verlauf; Herstellungskosten der PGN gegen ARGE, Kostenszenario; Zusammenfassung |
 | 4 Umsetzung | 25 bis 28 | Trenner; Antragsweg, Leistungen der PGN, Kontakt |
-| Anhang | A0 bis A9 | Trenner, Programmteile, Frist, Voraussetzungen, Verträge vor der Bewilligung, Mieterkreis, Eckdaten, Eigenkapitalrendite des Modellhauses, Tilgungsschwelle je Herstellungskosten, Quellen und Hinweis |
+| Anhang | A0 bis A8 | Trenner, Programmteile, Voraussetzungen, Verträge vor der Bewilligung, Mieterkreis, Eckdaten, Eigenkapitalrendite des Modellhauses, Tilgungsschwelle je Herstellungskosten, Quellen und Hinweis |
 
 Die Folien des Modellhauses (14 bis 21, 23 und 24) stehen auf Papierton; das Wort „Modellrechnung“ steht im Kopf. Folie 14 trägt oben rechts
 den Zusatz „Rechenbeispiel, keine Förderzusage“. Die Folien 3 bis 6 und 22 rechnen mit Medianwerten und Kostenkennwerten, nicht mit dem
@@ -36,18 +36,36 @@ behalten und stufen, nichts abräumen, nichts Neues erfinden.
   ebenso das Label unter jeder Kennzahl. Fließtext einer Folie steht in einer Größe. Größen kommen aus der Skala in `lib/theme.cjs` (`SKALA`).
 - **Rot:** Titellinie, Signaturwort, Reiter 2.1, Zuschuss in Daten, Ergebniszeile, höchstens eine hervorgehobene Kennzahl je Diagramm, Logo.
   Dunkelrot bleibt Signal (Bewilligung, Frist): gefüllter Achskreis und Warnband; der Titel der Station daneben steht in Tinte wie die
-  übrigen (Folie 26, A2). Einheiten, Labels, Maßketten, die 80-%-Achse und Aufzählungszeichen stehen in Tinte oder Grau.
+  übrigen (Folie 26). Einheiten, Labels, Maßketten, die 80-%-Achse und Aufzählungszeichen stehen in Tinte oder Grau.
 - **Kennzahl:** Derselbe Wert steht auf einer Folie neben dem Titel nur einmal groß (Folie 5: Hauptzahl rechts, die Summen über den Säulen
   in 12 pt; Folie 19: Werte an den Balken, die Ergebniszeile der Tabelle in 16 pt).
 - **Diagrammfolien** (`PGN_DIAGRAMM`, `PGN_DIAGRAMM_MR`): Diagramm über sieben Spalten, Text oder Kennzahlen über fünf. Titel, Untertitel,
   Legende und Diagramm beginnen auf allen Folien auf denselben Höhen (`ZONE.diagramm`); der Kopf frei gebauter Module (`B.modulkopf`: Folien 17
   bis 19, Anhang) liegt genauso. Passt ein Untertitel nicht in eine Zeile, steht er in zwei (Folie 5); gekürzt wird nicht. Auf Folie 22 ist die
   zweite Zeile entfallen: Sie sagte dasselbe wie das Modul „Grundlage“ rechts. Ihre Teilung behalten Folie 15 (Tabelle über acht Spalten), die frei gebauten Folien 14 und 27
-  (8 + 4) und 19 (6 + 6) und die Anhangfolien A5, A7 und A8 (8 + 4).
+  (8 + 4) und 19 (6 + 6) und die Anhangfolien A4, A6 und A7 (8 + 4).
 - **Keine Sprechernotizen** (Entscheidung 32): Das Konzept führt kein Feld `notizen`, die Mappe trägt keine Notizseite. Das Feld `quellen`
-  bleibt als Quellenangabe je Folie; aus ihm rechnet die Quellenfolie A9 ihre Blattnummern.
+  bleibt als Quellenangabe je Folie; aus ihm rechnet die Quellenfolie A8 ihre Blattnummern.
 
-Die Anhangfolie A7 zeigt die Eigenkapitalrendite des Modellhauses über 35 Jahre, vor Steuern. Sie ist die einzige Folie mit Rendite und
+## Änderungsrunde vom 13.11.2026: globale Regeln
+
+Festlegungen des Auftraggebers (`../aenderungen-2026-11/Umsetzung.md`, Kennung G), die für alle Folien gelten:
+
+- **Stand:** „Stand 11/2026“ auf der Titelfolie und im Hinweis der Quellenfolie (`daten/rahmen.json`, `titel.stand`, `quellen.hinweis`).
+  Das Datum der Dateieigenschaften steht in einem eigenen Feld (`titel.datum_datei`, 13.11.2026).
+- **Begriffe:** „Herstellungskosten“ statt „Baukosten“, „kostendeckende Anfangsmiete“ statt „nötige Miete“, „Förderkonditionen“ statt
+  „Förderregeln“, „jährliche Annuität über 30 Jahre“. Die Bezeichnungen der Rechenmappe in `daten/werte_aus_vofi.py` bleiben.
+- **Hinweise an Diagrammen** (G8): kein kleiner, frei hängender Text mehr, sondern der Hinweiskasten `B.hinweis` (grau, Info-Symbol,
+  Work Sans Light 12 pt, am Diagramm ausgerichtet und so breit wie dieses). Diagramme, Tabellen oder Zeitstrahlen werden dafür niedriger.
+- **Stichpunkte rechts** (G9): `B.stichpunkte`, Überschriften wie Modultitel, Stichpunkte einheitlich 14 pt auf allen Folien.
+- **Kapiteltrenner** (G10): Titelfeld 10,0 Zoll breit (bisher 9,6); das Signaturwort sind die Themen nach dem Doppelpunkt und darf über
+  zwei Zeilen laufen. Der Bau meldet einen Hinweis, wenn es auf einem Trenner davon abweicht.
+- **Jahresrechnung** (G2): Folie 15 zählt 1 bis 9, Mietausfall/Leerstand ist Zeile 2, der Zahlungsüberschuss Zeile 9. Die Rechenmappe zählt
+  weiter 1 bis 8 (Mietausfall als Unterzeile von Zeile 1).
+- **Anhang:** Die Anhangfolie zur Frist 31.12.2026 (bisher A2) ist entfallen, das Wahlrecht ist bei Veröffentlichung abgelaufen (G1).
+  A3 bis A9 heißen seitdem A2 bis A8; der Vortrag hat 37 Folien.
+
+Die Anhangfolie A6 zeigt die Eigenkapitalrendite des Modellhauses über 35 Jahre, vor Steuern. Sie ist die einzige Folie mit Rendite und
 Marktmiete des Modellhauses und zeigt die Rendite als Paar „mit Restwert“ und „ohne Restwert“ mit dem Anteil des Restwerts am Endvermögen;
 ihr Titel nennt für Gruppe A beide Lesarten. Das Gegenstück heißt „ohne Restwert“, weil das Grundstück nicht angesetzt ist: Der Bodenwert
 der Rechenmappe ist null, und ihre Lesart „nur Bodenwert“ rechnet ohne Restwert (Blatt Hinweise Nr. 15). Marktmiete und Liegenschaftszins
@@ -69,7 +87,7 @@ Die Mappe wird aus Code gebaut. Wer eine Folie in PowerPoint ändert, verliert d
 
 | Ort | Inhalt |
 |---|---|
-| `build.cjs` | baut die Mappe aus Konzept, Folienmodulen und Daten und bearbeitet sie nach (Theme-Farben, Schraffur, Stricharten, Fläche unter einer Linie, Kontur je Datenpunkt, Dateieigenschaften, eindeutige Form-IDs, Platzhalter der Layouts, Diagramme nach Schema, Kennzeichnung dekorativer Formen, Entfernen der leeren Notizseiten). Zwei Läufe liefern dieselbe Datei; ihr Datum ist der Stand der Inhalte |
+| `build.cjs` | baut die Mappe aus Konzept, Folienmodulen und Daten und bearbeitet sie nach (Theme-Farben, Schraffur, Stricharten, Fläche unter einer Linie, Kontur je Datenpunkt, Dateieigenschaften, eindeutige Form-IDs, Platzhalter der Layouts, Diagramme nach Schema, Kennzeichnung dekorativer Formen, Entfernen der leeren Notizseiten). Zwei Läufe liefern dieselbe Datei; ihr Datum steht in `daten/rahmen.json` (`titel.datum_datei`), der Stand der Folien („11/2026“) in `titel.stand` |
 | `folien/<id>.cjs` | ein Modul je Folie; `folien/_<gruppe>.cjs` enthält, was nur eine Baugruppe braucht (zum Beispiel `_fluss.cjs`: Maßstab und Lagen der beiden Flussdiagramme), `folien/_fein_<id>.cjs`, was nur eine Folie braucht (Folie 4: Legende mit Werten und Werteblöcke an den Marken; Folie 22: Maßzeichen der Spanne) |
 | `lib/` | Bibliothek: Theme, Layouts, Bausteine, Diagramme (auch das Flussdiagramm aus nativen Formen), Datenzugriff, Prüfungen beim Bau; Beschreibung in `lib/API.md`. `lib/layoutnamen.json`: Namen der Layouts im Layout-Menü |
 | `daten/outline.json` | Folienkonzept: Reihenfolge, Titel, Wortlaut, Quellenangabe je Folie, Entscheidungen. `INHALT.md` ist die Lesefassung dazu |
@@ -112,7 +130,7 @@ python pruefe_folien.py --zahlen     # dazu jede Zahl mit ihrem Beleg
 `pruefe_folien.py` liest Texte, Tabellen und Diagrammdaten der fertigen Datei. Es prüft Folienzahl, Reihenfolge,
 Abschnitte, Blattnummern, Kopf und Schriftfeld, Dateieigenschaften, eindeutige Form-IDs, Schriften und Mindestgrößen, Alternativtexte
 (Bilder, Diagramme, Flussdiagramme), verbotene Wörter, Gedankenstriche und die Quellenzeilen im Schriftfeld; dazu, dass weder die Mappe
-noch das Konzept Sprechernotizen trägt. Die Summe am Ende nennt 32 Prüfungen (bis 12.11.2026 34: Die beiden Prüfungen der Notizen sind entfallen).
+noch das Konzept Sprechernotizen trägt. Die Summe am Ende nennt 34 Prüfungen (bis 12.11.2026 34: Die beiden Prüfungen der Notizen sind entfallen; seit 13.11.2026 kommen die Prüfungen von Hinweiskasten und Stichpunkten hinzu).
 
 - **Aufbau:** Kennung, Blattnummer und Abschnitt jeder Folie stehen fest am Anfang des Skripts (`AUFBAU`), ebenso die Folien mit
   Stempel (`STEMPEL`). Wer eine Folie einfügt, streicht oder verschiebt, führt beide Listen und die Verweise mit. Der Kopf jeder Inhalts-
@@ -121,7 +139,7 @@ noch das Konzept Sprechernotizen trägt. Die Summe am Ende nennt 32 Prüfungen (
   Trenner dieselbe Zählung. Das Register der Agenda trägt die Seiten der Broschüre (`REGISTER`).
 - **Verweise:** „Folie n“ und „Anhang A n“ in Folientexten müssen die Blattnummer der gemeinten Folie nennen
   (`VERWEISE`: Folie, Text, Kennung der gemeinten Folie). So fällt nach einer neuen Zählung jeder Verweis auf, der nicht folgt.
-- **Rendite:** „Rendite“ und „Marktmiete“ stehen nur auf der Anhangfolie A7 (`VERBOTEN_AUSNAHME`, an die Kennung `anhang-rendite`
+- **Rendite:** „Rendite“ und „Marktmiete“ stehen nur auf der Anhangfolie A6 (`VERBOTEN_AUSNAHME`, an die Kennung `anhang-rendite`
   gebunden); „IRR“, „DSCR“ und „Safe Harbour“ stehen nirgends. Die Zahlen des Laufs `modellhaus_rendite` und Einträge mit `nur_folie` in
   `daten/pruefung.json` belegen nur Zahlen dieser Folie. Jede Zahl ihrer Tabelle ist an ihre Zelle der Rechenmappe gebunden (`KERNWERTE_FORM`),
   ebenso jede Zahl der Tabelle „Rechenweg“ der Folie 19.
@@ -137,7 +155,7 @@ noch das Konzept Sprechernotizen trägt. Die Summe am Ende nennt 32 Prüfungen (
   „Bearbeitungsentgelt 1 % des bewilligten Darlehens und 0,75 % des bewilligten Zuschusses“), einige auch in den Diagrammdaten.
   Die Listen `KERNWERTE` (Modellhaus), `KERNWERTE_MARKT` (Ausgangslage und Kostenvergleich), `KERNSAETZE` und `KERNWERTE_DIAGRAMM`
   stehen am Anfang des Skripts. Eine Quelle ist ein Schlüssel der Rechenmappe oder eine Formel wie in `daten/pruefung.json`; so sind
-  auch gerechnete Größen gebunden (Kapitaldienst je m² 8,93 und 20,25 €, nötige Sollmiete frei finanziert 154.939 €). Die Liste
+  auch gerechnete Größen gebunden (Kapitaldienst je m² 8,93 und 20,25 €, kostendeckende Sollmiete frei finanziert 154.939 €). Die Liste
   `NICHT_AUF_FOLIE` nennt Wendungen, die nach der Textprüfung vom 12.11.2026 gestrichen sind und nicht auf ihre Folie zurückkehren dürfen
   (Entscheidung 34: „Der Vortrag behandelt 2.1.“, „Entscheidung“ neben „Förderentscheidung“, „Baukosten der PGN“).
 - **Werte an den Diagrammen der Folien 3 bis 6 und 22** stehen als Textfelder neben ihrer Bezeichnung und zum Teil mehrfach auf der
@@ -190,7 +208,7 @@ Beim Öffnen darf keine Meldung „Reparieren“ erscheinen. Geprüft ist bisher
   Schrift auf dem Vortragsrechner breiter, läuft sie nach links auf die Rubrik zu; auf den Folien 6 und 22 steht sie in zwei Zeilen.
 - **Folie 5, Untertitel des Diagramms:** zwei Zeilen im Platzhalter, von Hand gebrochen. Legende und Diagramm stehen darunter in
   freier Lage und rücken nicht nach, wenn PowerPoint die Zeilen höher rechnet.
-- **Folie A7:** Die Tabelle hat sieben gleich hohe Zeilen; die Bezeichnungen der Zeilen 3 und 7 stehen in zwei Zeilen. Rechnet PowerPoint
+- **Folie A6:** Die Tabelle hat sieben gleich hohe Zeilen; die Bezeichnungen der Zeilen 3 und 7 stehen in zwei Zeilen. Rechnet PowerPoint
   eine Bezeichnung breiter, bricht sie in ihrer Zeile um, die Tabelle wächst dabei nicht.
 - **Folien 4 bis 6 nacheinander zeigen:** Die Jahre der Folie 4 sind Textfelder, die Jahre der Folie 6 und die Kategorien der Folie 5
   Achsbeschriftung des Diagramms. In LibreOffice stehen beide auf einer Höhe; in PowerPoint kann der Abstand zur Achse anders ausfallen.
@@ -213,9 +231,11 @@ Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten 
 - **Zahlen der Modellrechnung:** nur in der Rechenmappe unter `../vofi/`, Blatt Eingaben, Spalte „Projekt 2“ (das Modellhaus). Danach
   Schritt 1 und der Bau. `daten/werte.json` nie von Hand ändern. Die Läufe stehen in `daten/werte_aus_vofi.py` (`LAEUFE`): Jeder setzt
   Eingaben!D3 auf 2; `modellhaus_kosten_4631` und `modellhaus_kosten_5460` ändern dazu die Herstellungskosten (Eingaben!E11) für Folie 23,
-  `projekt2` rechnet den Stand der Altfassung mit Tilgung 2,5 %. Achsen und Maßstäbe der Diagramme (Folien 14, 16 bis 21 und 23) stehen
+  `projekt2` rechnet den Stand der Altfassung mit Tilgung 2,5 %, `modellhaus_ohne_mieterhoehung` die Gegenprobe der Folie 21 ohne jede
+  Mieterhöhung (Tabellen!D28 = 0; Zahlungsüberschuss Jahr 1 bis 42 je Gruppe). Der Lauf `modellhaus` führt dazu unter `kd5.*` die Tabelle 5
+  der Mappe „Kapitaldienst je m² (Folie 5)“ (Blatt Tabellen, seit 13.11.2026). Achsen und Maßstäbe der Diagramme (Folien 14, 16 bis 21 und 23) stehen
   als Zahlen in den Folienmodulen und folgen neuen Werten nicht von selbst; die Module melden Werte außerhalb der Achse. Renditen, Restwert und Marktmiete stehen auf der Sperrliste von `daten/werte_aus_vofi.py`; die benannte Ausnahme
-  `anhang_rendite` (erlaubt vom Auftraggeber am 11.11.2026) öffnet genau die Zellen der Folie A7 für den Lauf `modellhaus_rendite`.
+  `anhang_rendite` (erlaubt vom Auftraggeber am 11.11.2026) öffnet genau die Zellen der Folie A6 für den Lauf `modellhaus_rendite`.
   `daten/pruefe_werte.py` prüft, dass kein anderer Lauf einen solchen Wert führt. Titel, die eine Zahl nennen, stehen im Konzept und folgen nicht von selbst; der Bau und das Prüfskript
   melden die Abweichung. Die Titel der Folien 15 bis 18 setzt das Modul aus der Rechenmappe und prüft sie gegen das Konzept (`ctx.titelzeilen`).
 - **Regelwerte, Marktzahlen, Fristen, Kontaktdaten:** in der Datendatei der Baugruppe, mit `herkunft` und `geprueft`.
@@ -238,17 +258,17 @@ Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten 
   Abschnitte, Diagrammdaten und Alternativtexte.
 - **Ort und Datum des Vortrags:** Eingabefeld auf der Titelfolie, in PowerPoint ausfüllen.
 
-Nicht auf die Folien gehören Deckungsgrade. Renditen und eine Marktmiete des Modellhauses stehen nur auf der Anhangfolie A7, die Rendite
+Nicht auf die Folien gehören Deckungsgrade. Renditen und eine Marktmiete des Modellhauses stehen nur auf der Anhangfolie A6, die Rendite
 dort als Paar „mit Restwert“ und „ohne Restwert“ mit dem Restwertanteil (Entscheidung 24 des Konzepts). Auf alle anderen Folien gehören
 sie nicht.
-Quellen stehen auf der Anhangfolie A9 und je Folie im Konzept (Feld `quellen`, in `INHALT.md` „Quellenangabe“). Die Folien 3 bis 6 und 22
-tragen dazu eine kurze Quellenzeile im Schriftfeld (Entscheidung 25); die volle Angabe bleibt auf A9.
+Quellen stehen auf der Anhangfolie A8 und je Folie im Konzept (Feld `quellen`, in `INHALT.md` „Quellenangabe“). Die Folien 3 bis 6 und 22
+tragen dazu eine kurze Quellenzeile im Schriftfeld (Entscheidung 25); die volle Angabe bleibt auf A8.
 
 ## Ungeprüfte Angaben
 
 Diese Angaben stammen aus der Präsentation vom 26.10.2026 (Altfassung) oder, zum Modellhaus, aus der Rechenmappe und der Entscheidung des
 Auftraggebers vom 11.11.2026. Sie sind nicht nachgeprüft. In den Datendateien tragen sie
-`"geprueft": false`, im Konzept den Vermerk in der Quellenangabe der Folien 3 bis 6, 22, 23 und A9 (in `INHALT.md` nachzulesen). In der
+`"geprueft": false`, im Konzept den Vermerk in der Quellenangabe der Folien 3 bis 6, 22, 23 und A8 (in `INHALT.md` nachzulesen). In der
 Mappe selbst steht der Vermerk nicht mehr: Er stand in den Sprechernotizen, die es seit 12.11.2026 nicht mehr gibt; die Quellenzeile im
 Schriftfeld steht ohne Vermerk. Seit dem Umbau stehen die Angaben im Hauptteil, auf den Folien 3 bis 6 und 22 auch im Titel. Vor dem ersten
 Vortrag bestätigt PGN sie oder nimmt sie heraus. Die Werte der ARGE (Folien 3, 5, 22, 23) gehören seit 12.11.2026 nicht mehr dazu: Sie sind
@@ -258,26 +278,26 @@ Grafik) und bis 11/2026 fortgeschrieben; der Bankzins der Rechenmappe ist der We
 
 - Folie 6: Bestand an Mietwohnungen mit Miet- und Belegungsbindung in Niedersachsen zum 31.12., 2016 bis 2025 (85.766 bis 50.920, Rückgang 40,6 %; Altfassung Folie 4; Quelle dort: BT-Drs. 21/7303, Antwort der Bundesregierung vom 21.07.2026). Geprüft sind auf dieser Folie die Zahlen der Broschüre S. 3 (58.024, rund 16.000, 28 %, Bestand 2024 50.495).
 - Die Quellenangabe zur Bestandsreihe (BT-Drs. 21/7303) stammt aus der Quellenzeile der Altfassung und ist nicht nachgeprüft. Die PGN-Werte (eigene Auswertung von fünf Projekten: Herstellungskosten 3.579 € je m², Spanne und Werte je Kostengruppe der Folie 22) hat der Auftraggeber am 12.11.2026 bestätigt. Die Angabe zur ARGE (Wohnungsbau in Deutschland 2026, Endbericht, S. 32 Abb. 20 und S. 34 Abb. 22 und 23) ist am 12.11.2026 an der Quelle nachgelesen; die Werte der Folien 3 und 22 stehen seither ungerundet nach der Quelle in daten/markt.json.
-- Folie A7: Marktmiete 15,42 € je m² und Liegenschaftszins 2,80 % (Jahr 35) des Modellhauses gelten für Neu Wulmstorf (Rechenmappe, Eingabe 4.4 und Blatt Tabellen, Tabelle 4, je Spalte Projekt 2; Übersicht 7.7). Die Marktmiete ist der Wert der Mietübersicht des Gutachterausschusses Lüneburg für den Landkreis Harburg (Hamburger Umland, Baualter ab 2023, 40 bis 60 m², Stand 01.01.2026); nachgelesen am 12.11.2026 im Zweitabdruck, nicht in der Erstveröffentlichung. Der Liegenschaftszins folgt dem Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses, Stichtag 01.01.2026. An diesen Werten hängen der Restwert, die Rendite mit Restwert und alle Werte der Spalte „frei“. Das Grundstück ist nicht angesetzt: Eigenkapital und Restwert sind ohne Grundstück gerechnet, und die Renditen sind mit einem Vorhaben mit Grundstückskauf nicht vergleichbar (Rechenmappe, Blatt Hinweise Nr. 15). Die Veröffentlichung zum Liegenschaftszins ist für den Vortrag nicht eigens nachgeprüft. Für einen anderen Standort neu zu rechnen.
+- Folie A6: Marktmiete 15,42 € je m² und Liegenschaftszins 2,80 % (Jahr 35) des Modellhauses gelten für Neu Wulmstorf (Rechenmappe, Eingabe 4.4 und Blatt Tabellen, Tabelle 4, je Spalte Projekt 2; Übersicht 7.7). Die Marktmiete ist der Wert der Mietübersicht des Gutachterausschusses Lüneburg für den Landkreis Harburg (Hamburger Umland, Baualter ab 2023, 40 bis 60 m², Stand 01.01.2026); nachgelesen am 12.11.2026 im Zweitabdruck, nicht in der Erstveröffentlichung. Der Liegenschaftszins folgt dem Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses, Stichtag 01.01.2026. An diesen Werten hängen der Restwert, die Rendite mit Restwert und alle Werte der Spalte „frei“. Das Grundstück ist nicht angesetzt: Eigenkapital und Restwert sind ohne Grundstück gerechnet, und die Renditen sind mit einem Vorhaben mit Grundstückskauf nicht vergleichbar (Rechenmappe, Blatt Hinweise Nr. 15). Die Veröffentlichung zum Liegenschaftszins ist für den Vortrag nicht eigens nachgeprüft. Für einen anderen Standort neu zu rechnen.
 - Folien 13 und 14: Angaben zum Modellhaus (Neubau in Neu Wulmstorf, Landkreis Harburg, 14 Wohnungen, 828 m² Wohnfläche, Mietenstufe VI, Effizienzhaus 55, Grundstück im Bestand) nach der Entscheidung des Auftraggebers vom 11.11.2026 und der Rechenmappe (Projekt 2); nicht gegen Projektunterlagen geprüft.
 
 Der Vorbehalt „bestätigt PGN den Wert 3.579 € nicht, entfallen Folie 22 und die Spalte 3.579 € der Folie 23“ ist überholt: Der Wert ist
 seit 11.11.2026 der Ansatz des Modellhauses.
 
 Offene Fragen an PGN (Tilgungssatz 2,38 %, Titel der Zusammenfassung, Herkunft der Herstellungskosten, Daten der Altfassung im Einstieg,
-Dauer des Vortrags, Ort und Datum, Bildrechte; zum neuen Modellhaus: Rendite frei finanziert auf A7, Grundstück, Standort Neu Wulmstorf,
-Wohnungsmix, Hinweis auf A9; zu Muster 2: Rot auf A8, Signaturwort im Anhang, Tabellenziffern) stehen am Ende von `INHALT.md`.
+Dauer des Vortrags, Ort und Datum, Bildrechte; zum neuen Modellhaus: Rendite frei finanziert auf A6, Grundstück, Standort Neu Wulmstorf,
+Wohnungsmix, Hinweis auf A8; zu Muster 2: Rot auf A7, Signaturwort im Anhang, Tabellenziffern) stehen am Ende von `INHALT.md`.
 
 Das Textlektorat vom 11.11.2026 ist eingearbeitet; welche Befunde der Auftraggeber ausgenommen hat, nennt Entscheidung 27 des Konzepts.
 Der Abgleich mit Broschüre und Rechenmappe vom 11.11.2026 ist ebenfalls eingearbeitet: Wo die Broschüre nach ihrem Lektorat anders lautet,
 folgt der Vortrag (Entscheidung 28 des Konzepts). Die Kennung der Folie 11 bleibt `foerdermix`, auf der Folie steht „Fördersätze“.
 
 Modellhaus seit 11.11.2026 (Entscheidung 29 des Konzepts): ein PGN-Projekt in Neu Wulmstorf statt des gesetzten Beispiels. Neu sind Titel,
-Texte und Zahlen der Folien 13 bis 24 und A7; dazu die Stellen, die das Modellhaus nennen (Agenda, Hinweis auf A9). In allen drei Einkommensgruppen bleibt ab Jahr 1 ein Zahlungsüberschuss; die Titel nennen das Ergebnis aller drei
+Texte und Zahlen der Folien 13 bis 24 und A6; dazu die Stellen, die das Modellhaus nennen (Agenda, Hinweis auf A8). In allen drei Einkommensgruppen bleibt ab Jahr 1 ein Zahlungsüberschuss; die Titel nennen das Ergebnis aller drei
 Gruppen und die Zahl der Gruppe A. `daten/pruefe_werte.py` gleicht dieselben Werte mit der Broschüre S. 10 bis 12 ab.
 
-Anhangfolie A8 seit 11.11.2026 (Entscheidung 30 des Konzepts): Tilgungsschwelle gegenüber A je Herstellungskosten, als Antwort auf die
-Rückfrage zu Folie 20, ob die Reihenfolge der Gruppen auch bei anderen Kosten gilt. Die Quellenfolie ist seitdem A9.
+Anhangfolie A7 seit 11.11.2026 (Entscheidung 30 des Konzepts): Tilgungsschwelle gegenüber A je Herstellungskosten, als Antwort auf die
+Rückfrage zu Folie 20, ob die Reihenfolge der Gruppen auch bei anderen Kosten gilt. Die Quellenfolie ist seitdem die letzte Folie (seit 13.11.2026 A8).
 
 Muster 2, keine Sprechernotizen und Textprüfung seit 12.11.2026 (Entscheidungen 32 bis 34 des Konzepts): Aufbau oben unter „Muster 2“.
 Fünf Titel stehen ohne Doppelpunkt (Folien 9 und 15 bis 18), Station 4 der Folie 26 heißt „Förderentscheidung“, das Thema der Folie 22
@@ -293,8 +313,8 @@ Bekannte Abweichungen von Muster 2, über die der Auftraggeber entscheidet:
 - **Tabellenziffern:** Die Zahlenspalten der Tabellen stehen rechtsbündig, aber nicht in Tabellenziffern (zum Beispiel Folien 14, 15 und 19). Montserrat
   und Work Sans führen sie nur als OpenType-Funktion, die PowerPoint nicht schaltet. Abhilfe wäre eine eigens erzeugte Schriftdatei; die Mappe
   soll aber bei Montserrat und Work Sans bleiben.
-- **Rot auf A8:** Marke der Jahresrechnung, Feld „Gruppe A vorn“ und Fläche stehen auf Wunsch des Auftraggebers vom 11.11.2026 in Rot
+- **Rot auf A7:** Marke der Jahresrechnung, Feld „Gruppe A vorn“ und Fläche stehen auf Wunsch des Auftraggebers vom 11.11.2026 in Rot
   (Entscheidung 30). Nach Muster 2 stünden Hilfslinie und Labels in Tinte wie auf Folie 20. Am 12.11.2026 bestätigt: Es bleibt bei Rot.
-- **Titel im Anhang:** A1 bis A6 und A9 tragen kein Signaturwort in Rot, A7 und A8 tragen eines. Der Bau verlangt es nur auf Inhaltsfolien.
+- **Titel im Anhang:** A1 bis A5 und A8 tragen kein Signaturwort in Rot, A6 und A7 tragen eines. Der Bau verlangt es nur auf Inhaltsfolien.
 - **Doppelpunkt am Zeilenende:** Die Titel der Folien 7, 10 und 23 behalten ihn; ohne neuen Wortlaut lässt er sich dort nicht vermeiden.
 - **Folie 10:** Der Text rechts steht in 14 pt (Tabelle und zwei Einträge), auf der Nachbarfolie 11 in 16 pt. In 16 pt passt er nur gekürzt.

@@ -17,7 +17,7 @@ module.exports = {
 
     // Gegenprobe der Zeitreihe gegen die Übersicht der Mappe und gegen den Titel der Folie
     for (const g of G) {
-      R.pruefe(Math.abs(reihe(g)[0] - M(`jr1.zahlungsueberschuss.${g}`)) < 0.005, `Jahr 1 der Zeitreihe ${g} ist nicht Zeile 8 der Jahresrechnung.`);
+      R.pruefe(Math.abs(reihe(g)[0] - M(`jr1.zahlungsueberschuss.${g}`)) < 0.005, `Jahr 1 der Zeitreihe ${g} ist nicht Zeile 9 der Jahresrechnung.`);
       R.pruefe(Math.abs(reihe(g)[n] - M(`liq.zahlungsueberschuss_jahr35.${g}`)) < 0.005, `Das letzte Jahr der Zeitreihe ${g} ist nicht Übersicht 3.2 (Jahr 35).`);
     }
     // Aussagen der Folie gegen die Mappe: kein Jahr mit Fehlbetrag in A, B und C (Zeitreihe und Übersicht 3.6, 3.7); der Titel nennt den Wert

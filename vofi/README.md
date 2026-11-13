@@ -9,7 +9,7 @@ Wirtschaftlichkeitsmappe für geförderten Mietwohnungsbau nach RL Mietwohnraum 
 | `PGN_VOFI_Mietwohnraum_2026_v3.xlsx` | Mappe, neu berechnet; aktiv ist Projekt 2, das Modellhaus von Broschüre und Präsentation (Eingaben D3 = 2) |
 | `build_vofi.py` | Generator (openpyxl): Blätter, Formeln, Namen, Formate, Druck |
 | `pruefe_vofi.py` | Abnahmeprüfung: Struktur, Gestaltung, Sprache, Seitenreserve im Druck (gerechnet nach der Breitenregel von Excel), 70 Testläufe gegen Referenzrechnung, Broschüre S. 10–12 (gegen Projekt 2) und v2-1; Regression gegen den Stand vor der Erweiterung „Frei finanziert“. Stand 11.11.2026: 617 Prüfungen |
-| `KONZEPT-v3.md` | Sollkonzept (intern): Zelladressen, Namen, Rechenlogik, Sollwerte, Abweichungen, Fundstellen der Eingaben; Abschnitt Q: Bewertungsansätze von Projekt 1 für Rotenburg (Wümme), Liegenschaftszins je Projekt, Lektorat der Texte (11.11.2026); Abschnitt R: Modellhaus ist Projekt 2, mit den Sollwerten des Modellhauses (11.11.2026) |
+| `KONZEPT-v3.md` | Sollkonzept (intern): Zelladressen, Namen, Rechenlogik, Sollwerte, Abweichungen, Fundstellen der Eingaben; Abschnitt Q: Bewertungsansätze von Projekt 1 für Rotenburg (Wümme), Liegenschaftszins je Projekt, Lektorat der Texte (11.11.2026); Abschnitt R: Modellhaus ist Projekt 2, Abschnitt T: Kapitaldienst je m² für Folie 5 (13.11.2026), mit den Sollwerten des Modellhauses (11.11.2026) |
 | `AENDERUNGEN.md` | Änderungen gegenüber v2-1, für PGN |
 
 Nur gelesen, nie verändert:
@@ -48,6 +48,10 @@ python pruefe_vofi.py --baseline /tmp/vofi_stand_vorher.xlsx
 ```
 
 Änderungen an der Mappe immer im Generator, nie in der xlsx. Wer Adressen, Texte oder Rechenregeln ändert, zieht `KONZEPT-v3.md` und `pruefe_vofi.py` nach; das Prüfskript liest den Generator nicht. Jeder Text der Mappe steht deshalb an drei Stellen im selben Wortlaut: `build_vofi.py`, `pruefe_vofi.py`, `KONZEPT-v3.md`.
+
+## Stand 13.11.2026
+
+- Blatt Tabellen, Tabelle 5 „Kapitaldienst je m² (Folie 5)“ (Zeilen 45 bis 60, Druckbereich A1:G60): Kapitaldienst je m² Wohnfläche und Monat Q1 2020 und heute, ohne Grundstück, jährliche Annuität über 30 Jahre, mit Zerlegung des Anstiegs. Grundlage der Folie 5 des Vortrags (`kd5.*` in `../praesentation/daten/werte.json`). Bestehende Zellen und Formeln sind unverändert; `pruefe_vofi.py` prüft die Tabelle in einer eigenen Prüfung (KONZEPT-v3.md, Abschnitt T).
 
 ## Stand 12.11.2026
 

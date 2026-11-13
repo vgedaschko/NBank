@@ -26,7 +26,7 @@ module.exports = {
     R.pruefe(G.every(g => reihe(g).every(v => v > ACHSE.min && v < ACHSE.max)), 'Ein Stützpunkt der Folie 20 liegt außerhalb der Größenachse; Achse im Modul anpassen.');
     const tJahr = M('eingabe.tilgung_nbank'), schwelle = M('tilg.schwelle.C_gegen_A'), bester = M('tilg.raster.bester');
     R.pruefe(tJahr > saetze[0] && tJahr < saetze[n], 'Der Tilgungssatz der Jahresrechnung liegt nicht im Bereich der Achse der Folie 20.');
-    for (const g of G) R.pruefe(Math.abs(bei(g, tJahr) - M(`jr1.zahlungsueberschuss.${g}`)) < 0.005, `Der Wert ${g} beim Satz der Jahresrechnung ist nicht Zeile 8 der Jahresrechnung.`);
+    for (const g of G) R.pruefe(Math.abs(bei(g, tJahr) - M(`jr1.zahlungsueberschuss.${g}`)) < 0.005, `Der Wert ${g} beim Satz der Jahresrechnung ist nicht Zeile 9 der Jahresrechnung.`);
     R.pruefe(bester[raster.indexOf(0)] === 'C' && !bester.includes('B') && Math.abs(bei('C', schwelle) - bei('A', schwelle)) < 1 && M('tilg.schwelle.B_gegen_A') < schwelle,
       'Die Aussagen „unter der Schwelle C, darüber A, B nie vorn“ treffen nicht mehr zu.');
 

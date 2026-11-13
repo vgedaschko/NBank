@@ -37,7 +37,7 @@ module.exports = {
       sub: wl('in €, Bruttokosten, deutsche Großstädte · Minimum, Median und Maximum je Kostengruppe', 'Untertitel') });
     KG.legende(ctx, s, { eintraege: [{ text: wl(staende[0], 'Legende'), art: 'bezug' }, { text: wl(staende[1], 'Legende'), art: 'tinte' }],
       spanne: wl('Säule: Minimum bis Maximum · Strich und Wert: Median', 'Legende') });
-    KG.spannen(ctx, s, { name: 'Diagramm Baukosten', achse: { min: 0, max: 10000, schritt: 2000, format: 'ganz' }, achsentitel: wl('€ je m² Wohnfläche', 'Achsentitel'), label: wl('Veränderung', 'Prozentzeile'),
+    KG.spannen(ctx, s, { name: 'Diagramm Herstellungskosten', achse: { min: 0, max: 10000, schritt: 2000, format: 'ganz' }, achsentitel: wl('€ je m² Wohnfläche', 'Achsentitel'), label: wl('Veränderung', 'Prozentzeile'),
       reihen: [{ key: staende[0], name: staende[0], art: 'bezug' }, { key: staende[1], name: staende[1], art: 'tinte' }], gruppen,
       altText: `Säulen mit Spanne: Kosten je m² Wohnfläche in €, kleinster bis größter Wert mit Median, ${staende.join(' und ')}, deutsche Großstädte. ` +
         gruppen.map(g => `${g.name} (${g.kg}): Median ${z(g.alt)} und ${z(g.neu)} €, ${g.aenderung}`).join('; ') + '.' });

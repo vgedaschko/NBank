@@ -32,13 +32,13 @@ def main():
     z = []
     z.append("# Folienkonzept: Mietwohnraumförderung Niedersachsen 2026, Vortragsfassung")
     z.append("")
-    z.append("Planungsgemeinschaft Nord GmbH · Design „Planwerk“ · 16:9 · Stand der Inhalte 30.09.2026")
+    z.append("Planungsgemeinschaft Nord GmbH · Design „Planwerk“ · 16:9 · Stand der Inhalte 11/2026")
     z.append("")
     z.append(
         f"Hauptteil {len(haupt)} Folien, Anhang {len(anhang)} Folien. "
         "Diese Datei wird aus `daten/outline.json` erzeugt (`python daten/inhalt_md.py`); "
         "Änderungen gehören in die JSON-Datei. Die Mappe trägt keine Sprechernotizen (Entscheidung 32); "
-        "die Quellenangabe je Folie speist die Quellenfolie A9."
+        "die Quellenangabe je Folie speist die Quellenfolie A8."
     )
     z.append("")
     z.append("## Leitgedanke")

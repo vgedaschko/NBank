@@ -1,4 +1,4 @@
-// Folie A5 · PGN_ANHANG: Obergrenzen des Gesamtjahreseinkommens für vier Haushaltstypen als gruppierte Balken in den Gruppentönen A, B, C
+// Folie A4 · PGN_ANHANG: Obergrenzen des Gesamtjahreseinkommens für vier Haushaltstypen als gruppierte Balken in den Gruppentönen A, B, C
 // (Broschüre S. 6), rechts die Zulassung von B und C und der Nachweis (Broschüre S. 12 und 6). Alle Werte aus daten/regeln.json. Kein Rot im Diagramm.
 'use strict';
 module.exports = {

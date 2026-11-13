@@ -10,7 +10,9 @@
    (dasselbe Projekt mit Tilgung 2,5 % wie in der Altfassung).
    Abweichungen hier sind Hinweise, kein Fehler: Es gilt die Mappe.
 3. Handrechnung: Die Kernwerte jedes Laufs werden aus den Eingaben und den
-   Festwerten der Richtlinie neu gerechnet, ohne die Formeln der Mappe.
+   Festwerten der Richtlinie neu gerechnet, ohne die Formeln der Mappe; dazu
+   Tabelle 5 der Mappe (Kapitaldienst je m², Folie 5) und die Gegenprobe ohne
+   Mieterhöhung (Lauf „modellhaus_ohne_mieterhoehung“, Folie 21).
 4. Sperrliste: Renditen, Restwert und Marktmiete stehen nur im Lauf der
    benannten Ausnahme (meta.ausnahmen), jeder dieser Werte liegt in einer dort
    genannten Zelle, und kein anderer Lauf führt einen solchen Wert.
@@ -459,7 +461,52 @@ def handrechnung(w, lauf, basis="modellhaus"):
     return hand
 
 
+def handrechnung_kd5(w):
+    """Tabelle 5 der Mappe (Kapitaldienst je m², Folie 5): jährliche Annuität i ÷ (1 − (1 + i)^−n), Kosten × 80 % × Satz ÷ 12;
+    Zerlegung des Anstiegs wie im Auftrag vom 13.11.2026 (Herstellungskosten = neue Kosten zum alten Zins minus alt, Zins = alte
+    Kosten zum neuen Zins minus alt, Wechselwirkung = Rest). Eingangswerte: Kosten und Sollzins Q1 2020 aus der Tabelle, Zins heute
+    und Laufzeit aus den Eingaben 6.1 und 6.4."""
+    m = w.lauf("modellhaus")
+    k0, k1 = m("kd5.herstellungskosten_qm.q1_2020"), m("kd5.herstellungskosten_qm.heute")
+    fk, i0, i1, n = m("kd5.fremdkapitalanteil.q1_2020"), m("kd5.sollzins.q1_2020"), m("eingabe.zins_bank"), m("eingabe.laufzeit_bank")
+    satz = lambda i: i / (1 - (1 + i) ** -n)
+    kd0, kd1 = k0 * fk * satz(i0) / 12, k1 * fk * satz(i1) / 12
+    hk, zi = k1 * fk * satz(i0) / 12 - kd0, k0 * fk * satz(i1) / 12 - kd0
+    anstieg = kd1 - kd0
+    return {
+        "kd5.sollzins.heute": i1, "kd5.laufzeit.q1_2020": n, "kd5.laufzeit.heute": n,
+        "kd5.kapitaldienstsatz.q1_2020": satz(i0), "kd5.kapitaldienstsatz.heute": satz(i1),
+        "kd5.tilgung.q1_2020": satz(i0) - i0, "kd5.tilgung.heute": satz(i1) - i1,
+        "kd5.kapitaldienst.q1_2020": kd0, "kd5.kapitaldienst.heute": kd1, "kd5.anstieg": anstieg,
+        "kd5.zerlegung.herstellungskosten": hk, "kd5.zerlegung.zins": zi, "kd5.zerlegung.wechselwirkung": anstieg - hk - zi,
+        "kd5.anteil.herstellungskosten": hk / anstieg, "kd5.anteil.zins": zi / anstieg,
+        "kd5.anteil.wechselwirkung": (anstieg - hk - zi) / anstieg,
+    }
+
+
+def abgleich_kd5_und_gegenprobe(w, b):
+    """Tabelle 5 (Folie 5) nachgerechnet; Gegenprobe ohne Mieterhöhung (Folie 21): Miete konstant, kein Fehlbetrag in Jahr 1 bis 35."""
+    teil = "Handrechnung"
+    werte = w.daten["laeufe"]["modellhaus"]["werte"]
+    hand = handrechnung_kd5(w)
+    abw = [k for k, v in hand.items() if abs(werte[k]["wert"] - v) > 1e-9 * max(1.0, abs(v))]
+    b.zeilen.append((teil, f"modellhaus: Tabelle 5 (Kapitaldienst je m²), {len(hand)} Werte nachgerechnet",
+                     "gleich" if not abw else "abweichend: " + ", ".join(abw), "gleich", "kd5.*", "gleich" if not abw else "ABWEICHUNG"))
+    o = w.lauf("modellhaus_ohne_mieterhoehung")
+    b.gleich(teil, "ohne Mieterhöhung: Mieterhöhung in der Bindung (Tabellen T20)", o("tab.mieterhoehung_in_der_bindung"), 0,
+             "modellhaus_ohne_mieterhoehung: tab.mieterhoehung_in_der_bindung")
+    m = w.lauf("modellhaus")
+    for g in GRUPPEN:
+        miete = o(f"zr.miete.{g}")[:35]
+        b.gleich(teil, f"ohne Mieterhöhung, {g}: Miete Jahr 1 bis 35 gleich der Miete Jahr 1", miete, [m(f"fin.miete_jahr1.{g}")] * 35,
+                 f"modellhaus_ohne_mieterhoehung: zr.miete.{g}")
+        zue = o(f"zr.zahlungsueberschuss.{g}")[:35]
+        b.gleich(teil, f"ohne Mieterhöhung, {g}: Jahre mit Fehlbetrag in Jahr 1 bis 35", sum(1 for x in zue if x < 0),
+                 o(f"liq.jahre_mit_fehlbetrag.{g}"), f"modellhaus_ohne_mieterhoehung: liq.jahre_mit_fehlbetrag.{g}")
+
+
 def abgleich_handrechnung(w, b):
+    abgleich_kd5_und_gegenprobe(w, b)
     for lauf in ("modellhaus", "modellhaus_dscr125", "modellhaus_kosten_4631", "modellhaus_kosten_5460", "projekt2"):
         werte = w.daten["laeufe"][lauf]["werte"]
         n = abw = 0

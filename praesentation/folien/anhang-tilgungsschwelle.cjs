@@ -1,4 +1,4 @@
-// Folie A8 · PGN_ANHANG: Tilgungsschwelle gegenüber Gruppe A je Herstellungskosten. Antwort auf die Rückfrage zu Folie 20, ob die
+// Folie A7 · PGN_ANHANG: Tilgungsschwelle gegenüber Gruppe A je Herstellungskosten. Antwort auf die Rückfrage zu Folie 20, ob die
 // Reihenfolge der Gruppen auch bei anderen Kosten gilt. Links über acht Spalten ein natives Liniendiagramm: zwei Linien (B gegenüber A
 // gestrichelt in Tinte, C gegenüber A in Referenzgrau, wie die Gruppen im ganzen Vortrag) über die Herstellungskosten von 2.500 € je m² bis
 // zur Bemessungsgrenze; die Fläche über der Linie C gegenüber A (Gruppe A vorn) in Hauch; waagerechte Marke beim Tilgungssatz der
@@ -34,14 +34,14 @@ module.exports = {
     // Achse der Kosten: zwölf Schritte von 250 € bis zur Bemessungsgrenze (seit 01.10.2026 5.460 €, also ab 2.460 €); Größenachse in Prozent
     const SCHRITT = 250, N = 12, kosten = Array.from({ length: N + 1 }, (_, i) => grenze - (N - i) * SCHRITT), ACHSE = { min: 0.5, max: 3.5, schritt: 0.5, format: '[$-407]0.0" %"' };
     const reihe = g => kosten.map(k => schwelle(g, k) * 100), p2 = v => fmt.prozent(v, 2);
-    R.pruefe(kostenLauf[2] === grenze && kosten[0] < K0, 'Die Achse der Folie A8 endet nicht an der Bemessungsgrenze oder beginnt nicht unter den Kosten des Modellhauses.');
-    R.pruefe(['B', 'C'].every(g => reihe(g).every(v => v > ACHSE.min && v < ACHSE.max)) && tJahr * 100 > ACHSE.min && tJahr * 100 < ACHSE.max, 'Ein Stützpunkt oder der Tilgungssatz der Jahresrechnung liegt außerhalb der Größenachse der Folie A8; Achse im Modul anpassen.');
+    R.pruefe(kostenLauf[2] === grenze && kosten[0] < K0, 'Die Achse der Folie A7 endet nicht an der Bemessungsgrenze oder beginnt nicht unter den Kosten des Modellhauses.');
+    R.pruefe(['B', 'C'].every(g => reihe(g).every(v => v > ACHSE.min && v < ACHSE.max)) && tJahr * 100 > ACHSE.min && tJahr * 100 < ACHSE.max, 'Ein Stützpunkt oder der Tilgungssatz der Jahresrechnung liegt außerhalb der Größenachse der Folie A7; Achse im Modul anpassen.');
     // Aussagen der Folie: Unter der Linie C gegenüber A liegt C vorn, darüber A; B liegt nie vorn (C gegenüber B > C gegenüber A > B gegenüber A)
     R.pruefe(kosten.every(k => cGegenB(k) > schwelle('C', k) && schwelle('C', k) > schwelle('B', k)), 'Die Aussage „über der Linie C gegenüber A liegt A vorn, darunter C, B in keinem Fall“ trifft nicht mehr für alle Kosten der Achse zu.');
     // Schnitt der Linie C gegenüber A mit dem Tilgungssatz der Jahresrechnung: ab diesen Kosten liegt A vorn. Der Titel nennt ihn auf 100 € gerundet.
     const kSchnitt = netto('C') * K0 / (schuld('C') * (tJahr + vkb)), rund = Math.round(kSchnitt / 100) * 100;
-    R.pruefe(kSchnitt > kosten[0] && kSchnitt < K0, 'Der Schnitt der Linie C gegenüber A mit dem Tilgungssatz der Jahresrechnung liegt nicht mehr zwischen dem Achsenanfang und den Kosten des Modellhauses; Titel und Diagramm der Folie A8 anpassen.');
-    if (ctx.glatt(ctx.o.titel) !== ctx.glatt(`Bei ${p2(tJahr)} Tilgung liegt Gruppe A ab rund ${fmt.euro(rund)} je m² vorn`)) P.melde(`Titel der Folie A8 nennt nicht den Tilgungssatz der Jahresrechnung (${ctx.glatt(p2(tJahr))}) und die gerundeten Kosten am Schnitt (${ctx.glatt(fmt.euro(rund))}).`);
+    R.pruefe(kSchnitt > kosten[0] && kSchnitt < K0, 'Der Schnitt der Linie C gegenüber A mit dem Tilgungssatz der Jahresrechnung liegt nicht mehr zwischen dem Achsenanfang und den Kosten des Modellhauses; Titel und Diagramm der Folie A7 anpassen.');
+    if (ctx.glatt(ctx.o.titel) !== ctx.glatt(`Bei ${p2(tJahr)} Tilgung liegt Gruppe A ab rund ${fmt.euro(rund)} je m² vorn`)) P.melde(`Titel der Folie A7 nennt nicht den Tilgungssatz der Jahresrechnung (${ctx.glatt(p2(tJahr))}) und die gerundeten Kosten am Schnitt (${ctx.glatt(fmt.euro(rund))}).`);
 
     // ---- Diagramm über acht Spalten -------------------------------------------------------------------------------------------------
     const y0 = Y.anhangInhalt, x0 = colX(1), w0 = span(8);
@@ -59,7 +59,7 @@ module.exports = {
     const d = D.linien(s, { x: x0, y: yD, w: w0, h: hD, kategorien: kat, katLabels: { nur: kat.filter((_, i) => i % 2 === 0) }, name: 'Diagramm Tilgungsschwelle je Herstellungskosten',
       altText: `Liniendiagramm: Die Tilgungsschwelle gegenüber A fällt mit den Herstellungskosten, für C von ${p2(W(laeufe[0], 'tilg.schwelle.C_gegen_A'))} bei ${fmt.euro(K0)} auf ${p2(W(laeufe[2], 'tilg.schwelle.C_gegen_A'))} bei ${fmt.euro(grenze)} je m². Die Linie für B liegt darunter.`,
       rand: RAND, achse: ACHSE, reihen: ['B', 'C'].map(g => ({ name: name(g), werte: reihe(g), art: LINIE[g].art, strich: LINIE[g].strich })) });
-    if (['x', 'y', 'w', 'h'].some(k => Math.abs(d.plot[k] - plot[k]) > 1e-6) || Math.abs(d.katMitte(N) - xE) > 1e-6 || Math.abs(d.yWert(2) - yS(0.02)) > 1e-6) throw new Error('Folie A8: Die vorab gerechnete Plotfläche weicht von der des Diagramms ab; die Fläche „Gruppe A vorn“ läge neben den Linien.');
+    if (['x', 'y', 'w', 'h'].some(k => Math.abs(d.plot[k] - plot[k]) > 1e-6) || Math.abs(d.katMitte(N) - xE) > 1e-6 || Math.abs(d.yWert(2) - yS(0.02)) > 1e-6) throw new Error('Folie A7: Die vorab gerechnete Plotfläche weicht von der des Diagramms ab; die Fläche „Gruppe A vorn“ läge neben den Linien.');
     B.achsentitel(s, d, { y: wl('Tilgungssatz p. a.', 'Achsentitel'), x: wl('Herstellungskosten in € je m² Wohnfläche', 'Achsentitel') });
     const band = oben => (d.yWert(oben) + d.yWert(oben - ACHSE.schritt)) / 2;                                      // Mitte des Bandes unter der Gitterlinie „oben“
 
@@ -99,7 +99,7 @@ module.exports = {
 
     // ---- Gegenproben zum zweiten Absatz: Die Mehrmiete folgt aus den Höchstmieten, die Mehrschuld aus den Darlehenssätzen -----------------
     R.pruefe(R.mietenstufeKlasse(M('eingabe.mietenstufe')) === 'IV–VII' && Math.abs((M('tab.hoechstmiete.IV.C') - M('tab.hoechstmiete.IV.A')) * 12 * M('eingabe.wohnflaeche') - M('tilg.mehr_sollmiete.C')) < 0.005,
-      'Die Mehr-Sollmiete C gegenüber A ist nicht mehr die Differenz der Höchstmieten der Mietenstufe IV–VII; den Absatz „Die Schwelle sinkt mit den Kosten“ der Folie A8 prüfen.');
-    R.pruefe(Math.abs((M('tab.quote_darlehen.C') - M('tab.quote_darlehen.A')) * M('fin.zuwendungsfaehige_kosten.A') - schuld('C')) < 0.005, 'Die Mehrschuld C gegenüber A ist nicht mehr die Differenz der Darlehensquoten mal zuwendungsfähige Kosten; den Absatz „Die Schwelle sinkt mit den Kosten“ der Folie A8 prüfen.');
+      'Die Mehr-Sollmiete C gegenüber A ist nicht mehr die Differenz der Höchstmieten der Mietenstufe IV–VII; den Absatz „Die Schwelle sinkt mit den Kosten“ der Folie A7 prüfen.');
+    R.pruefe(Math.abs((M('tab.quote_darlehen.C') - M('tab.quote_darlehen.A')) * M('fin.zuwendungsfaehige_kosten.A') - schuld('C')) < 0.005, 'Die Mehrschuld C gegenüber A ist nicht mehr die Differenz der Darlehensquoten mal zuwendungsfähige Kosten; den Absatz „Die Schwelle sinkt mit den Kosten“ der Folie A7 prüfen.');
   },
 };

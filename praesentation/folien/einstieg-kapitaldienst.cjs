@@ -1,6 +1,6 @@
 // Folie 5 · PGN_DIAGRAMM mit freier Lage des Diagramms: Kapitaldienst je m² Wohnfläche und Monat, Q1 2020 gegen heute, frei finanziert.
 // Links ein natives gestapeltes Säulendiagramm mit zwei schmalen Säulen: „Q1 2020“ und „Heute“; die zweite ist gestapelt aus dem Stand Q1 2020
-// (helle Fläche) und den drei Ursachen des Anstiegs (Baukosten, Zins, Wechselwirkung, drei Grautöne). Feine Zeichnung (D.stapelSaeulen mit
+// (helle Fläche) und den drei Ursachen des Anstiegs (Herstellungskosten, Zins, Wechselwirkung, drei Grautöne). Feine Zeichnung (D.stapelSaeulen mit
 // fein: true): Jedes Segment trägt eine feine Kontur; das Diagramm steht ohne Größenachse und ohne Gitter, weil jeder Wert als Text daran steht.
 // Eine senkrechte Maßlinie fasst den Anstieg, rechts der Plotfläche steht je Ursache Bezeichnung, Betrag, Anteil am Anstieg und eine Zeile
 // Erklärung. Rechts die Hauptzahl der Folie und darunter der Rechenweg als kleine Tabelle (Kosten, Fremdkapital, Sollzins: die Kette von den
@@ -32,10 +32,10 @@ module.exports = {
     const kd = kosten.map((k, i) => fk * k * faktor[i]), mehr = kosten[1] - kosten[0], anstieg = kd[1] - kd[0];
     // Der Stand von früher ist der Bezugswert (helle Fläche); die drei Ursachen des Anstiegs stehen darüber in drei Grautönen, von unten nach oben heller
     const teile = [
-      { name: 'Baukosten', art: 'referenz', wert: fk * mehr * faktor[0], text: 'höhere Kosten zum Zins von 2020' },
+      { name: 'Herstellungskosten', art: 'referenz', wert: fk * mehr * faktor[0], text: 'höhere Kosten zum Zins von 2020' },
       { name: 'Zins', art: 'bisher', wert: fk * kosten[0] * (faktor[1] - faktor[0]), text: 'höherer Zins auf die Kosten von 2020' },
       { name: 'Wechselwirkung', art: 'licht', wert: fk * mehr * (faktor[1] - faktor[0]), text: 'höherer Zins auf die höheren Kosten' }];
-    ctx.gleich('Baukosten, Zins und Wechselwirkung gegen den Anstieg', teile.reduce((a, t) => a + t.wert, 0), anstieg, 9);
+    ctx.gleich('Herstellungskosten, Zins und Wechselwirkung gegen den Anstieg', teile.reduce((a, t) => a + t.wert, 0), anstieg, 9);
     if (teile.reduce((a, t) => a + Math.round(t.wert / anstieg * 100), 0) !== 100) P.melde('Die gerundeten Anteile am Anstieg ergeben nicht 100 %.');
     for (const v of kd) if (!ctx.glatt(ctx.o.titel).includes(fmt.dez(v))) P.melde(`Titel der Folie nennt den Kapitaldienst nicht mit ${fmt.dez(v)}.`);
     if (!ctx.o.titel.includes(String(K('baukosten.von_jahr')))) P.melde(`Titel der Folie nennt das Jahr ${K('baukosten.von_jahr')} nicht.`);
@@ -68,7 +68,7 @@ module.exports = {
     // Die Zuleitung läuft als Haarlinie waagerecht auf der Höhe der ersten Zeile, solange diese Höhe im Segment liegt (sonst mit Knick von der Segmentmitte)
     let fuss = kd[0];
     const mitten = teile.map(t => { const y = d.yWert(fuss + t.wert / 2); fuss += t.wert; return y; }), halb = teile.map(t => (d.yWert(0) - d.yWert(t.wert)) / 2);
-    const lagen = B.entzerre(mitten, 0.56), xL = d.plot.x + d.plot.w + 0.16, xB = xL + 1.52, wE = x0 + w8 - xL;
+    const lagen = B.entzerre(mitten, 0.56), xL = d.plot.x + d.plot.w + 0.16, xB = xL + 1.72, wE = x0 + w8 - xL;   // 1,72: „Herstellungskosten“ (G3, 13.11.2026) braucht 1,60 Zoll
     teile.forEach((t, i) => {
       const y = lagen[i], betrag = wl(`+${fmt.euroDez(t.wert)} · ${fmt.prozent(t.wert / anstieg)}`, `Betrag ${t.name}`), imSegment = Math.abs(y - mitten[i]) < halb[i] - 0.04;
       B.zuleitung(s, { x0: rechts(1) + 0.05, y0: imSegment ? y : mitten[i], x1: xL - 0.08, y1: y, xKnick: rechts(1) + 0.22, name: 'Zuleitung ' + t.name });

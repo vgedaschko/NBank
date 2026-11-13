@@ -322,3 +322,6 @@ Das Modellhaus (3.579 €/m²) liegt 1.881 €/m² unter der Grenze; seine Ergeb
 
 An der Grenze trägt sich auch Gruppe A nicht mehr (beim Ausgangswert 5.000 €/m² blieben 1.444 €); A trägt sich bis rund 5.150 €/m². Abnahme am 12.11.2026: 617 Prüfungen ohne Fehler.
 
+## Stand 13.11.2026: Kapitaldienst je m² (Folie 5 des Vortrags)
+
+Neu auf dem Blatt Tabellen: Tabelle 5 „Kapitaldienst je m² (Folie 5)“ in den Zeilen 45 bis 60. Sie rechnet den Kapitaldienst je m² Wohnfläche und Monat für Q1 2020 und heute aus dem ARGE-Median der Herstellungskosten ohne Grundstück (3.028,08 und 4.631,07 €), 80 % Fremdkapital, Sollzins 0,46 % und 3,86 % und jährlicher Annuität über 30 Jahre: 7,22 € und 17,55 €, Anstieg 10,33 €. Zerlegt: Herstellungskosten 3,82 € (37 %), Zins 4,26 € (41 %), Wechselwirkung 2,25 € (22 %). Alle bisherigen Zellen, Formeln und Ergebnisse sind unverändert.

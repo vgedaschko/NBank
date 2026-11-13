@@ -7,7 +7,7 @@ Aufruf im Ordner praesentation:
     python pruefe_folien.py --zahlen             listet zusätzlich jede Zahl mit ihrem Beleg
 
 Was geprüft wird (eine Zeile je Prüfung, am Ende die Summe; Rückgabewert 1 bei Fehlern):
-  Aufbau     38 Folien (28 im Hauptteil, 10 im Anhang) mit Kennung, Blattnummer und Abschnitt wie festgelegt (AUFBAU), in der Reihenfolge des
+  Aufbau     37 Folien (28 im Hauptteil, 9 im Anhang) mit Kennung, Blattnummer und Abschnitt wie festgelegt (AUFBAU), in der Reihenfolge des
              Konzepts; Titel-Platzhalter, Abschnitte, Blattnummern, Dateieigenschaften, eindeutige Form-IDs; Kopf (Abschnitt mit seinem
              Zeichen), Schriftfeld (Thema), Agenda und Trenner mit denselben Abschnittsnamen und derselben Zählung
   Form       nur Montserrat und Work Sans, Mindestgrößen (E3), Alternativtexte (Bilder, Diagramme, Flussdiagramme), keine Folie als Bild,
@@ -57,7 +57,8 @@ REL = "{http://schemas.openxmlformats.org/package/2006/relationships}"
 
 NBSP, MINUS = " ", "−"
 # ---- Aufbau der Mappe nach der Festlegung zum Umbau: Blattnummer, Kennung der Folie, Abschnitt; in dieser Reihenfolge ---------------------
-# Titel und Schluss tragen keine Blattnummer auf der Folie, zählen aber mit (1 und 28). Der Anhang heißt A0 bis A9.
+# Titel und Schluss tragen keine Blattnummer auf der Folie, zählen aber mit (1 und 28). Der Anhang heißt A0 bis A8 (bis 13.11.2026 A0 bis A9:
+# die Anhangfolie zur Frist 31.12.2026, A2, ist mit dem Wahlrecht entfallen; A3 bis A9 sind seitdem A2 bis A8).
 AUFBAU = [
     ("1", "titel", "Ausgangslage"), ("2", "trenner-ausgangslage", "Ausgangslage"), ("3", "einstieg-baukosten", "Ausgangslage"),
     ("4", "ausgangslage-zinsen", "Ausgangslage"), ("5", "einstieg-kapitaldienst", "Ausgangslage"), ("6", "einstieg-bestand", "Ausgangslage"),
@@ -69,12 +70,12 @@ AUFBAU = [
     ("19", "rechnung-miete", "Modellrechnung"), ("20", "rechnung-tilgung", "Modellrechnung"), ("21", "rechnung-verlauf", "Modellrechnung"),
     ("22", "pgn-baukosten", "Modellrechnung"), ("23", "rechnung-kosten", "Modellrechnung"), ("24", "fazit", "Modellrechnung"),
     ("25", "trenner-umsetzung", "Umsetzung"), ("26", "antragsweg", "Umsetzung"), ("27", "pgn-leistungen", "Umsetzung"), ("28", "kontakt", "Umsetzung"),
-    ("A0", "anhang-trenner", "Anhang"), ("A1", "anhang-programmteile", "Anhang"), ("A2", "anhang-frist", "Anhang"), ("A3", "anhang-voraussetzungen", "Anhang"),
-    ("A4", "anhang-vertraege", "Anhang"), ("A5", "anhang-mieterkreis", "Anhang"), ("A6", "anhang-eckdaten", "Anhang"), ("A7", "anhang-rendite", "Anhang"),
-    ("A8", "anhang-tilgungsschwelle", "Anhang"), ("A9", "quellen", "Anhang"),
+    ("A0", "anhang-trenner", "Anhang"), ("A1", "anhang-programmteile", "Anhang"), ("A2", "anhang-voraussetzungen", "Anhang"),
+    ("A3", "anhang-vertraege", "Anhang"), ("A4", "anhang-mieterkreis", "Anhang"), ("A5", "anhang-eckdaten", "Anhang"), ("A6", "anhang-rendite", "Anhang"),
+    ("A7", "anhang-tilgungsschwelle", "Anhang"), ("A8", "quellen", "Anhang"),
 ]
-FOLIENZAHL = len(AUFBAU)          # 38: 28 im Hauptteil, 10 im Anhang
-HAUPTTEIL, ANHANG = 28, 10
+FOLIENZAHL = len(AUFBAU)          # 37: 28 im Hauptteil, 9 im Anhang
+HAUPTTEIL, ANHANG = 28, 9
 # Folien der Modellrechnung (Layouts mit „_MR“, Papierton): Im Kopf steht das Wort „Modellrechnung“ genau einmal, im Kicker oder als Stempel des
 # Layouts, nie beides. Kein Papierton und kein Stempel im Einstieg (Folien 3 bis 6: Medianwerte je m²) und auf pgn-baukosten (Kostenkennwerte).
 # Der Zusatz der ersten Modellfolie lautet seit 11.11.2026 „Rechenbeispiel, …“ (vorher „Fiktives Beispiel, …“): Das Modellhaus ist ein Projekt der PGN.
@@ -87,7 +88,7 @@ STEMPEL = ["rechnung-finanzierung", "rechnung-jahr1", "rechnung-kapitaldienst", 
 KOPFZEICHEN = "Abschnitt im Kopf"
 # Register der Agenda: Der Vortrag behandelt 2.1; für 2.2 bis 2.6 steht die Seite der Broschüre (Festlegung zum Umbau)
 # gedruckte Seitenzahlen der Broschüre (seit 13.11.2026 = Bogenseite − 1, der Titel zählt nicht mit)
-REGISTER = {"2.1": "in diesem Vortrag", "2.2": "Broschüre S. 12", "2.3": "Broschüre S. 14", "2.4": "Broschüre S. 13", "2.5": "Broschüre S. 16", "2.6": "Broschüre S. 16"}
+REGISTER = {"2.1": "in diesem Vortrag", "2.2": "Broschüre S. 12", "2.3": "Broschüre S. 14", "2.4": "Broschüre S. 13", "2.5": "Broschüre S. 15", "2.6": "Broschüre S. 15"}
 SCHRIFTEN = ("Montserrat", "Work Sans")
 FIRMA = "Planungsgemeinschaft Nord GmbH"
 TITEL_DER_MAPPE = "Mietwohnraumförderung Niedersachsen 2026 – Vortrag"
@@ -102,8 +103,10 @@ WERKZEUGE = ["pptxgenjs", "python-pptx", "LibreOffice", "OpenOffice", "node.js",
 MIN_BESCHRIFTUNG, MIN_TABELLE, MIN_FLIESS = 10, 12, 14
 # Formen, die die Bibliothek als Fließtext anlegt (Namen aus lib/bausteine.cjs und lib/layouts.cjs). In ihnen müssen die Läufe in Work Sans
 # mindestens 14 pt haben; Modultitel und Werte in Montserrat sind Überschriften und fallen unter die Regel für Beschriftungen.
-FLIESSTEXT = re.compile(r"^(Kommentar|Planlegende|Aufzählung|Vorspann|Untertitel|Text|Links Text|Rechts Text|Kennzahl( \d)? Text|Achtung Text|"
+FLIESSTEXT = re.compile(r"^(Kommentar|Planlegende|Aufzählung|Stichpunkte|Vorspann|Untertitel|Text|Links Text|Rechts Text|Kennzahl( \d)? Text|Achtung Text|"
                         r"Hinweis Text|Hero-Text|Text (fliess|dicht|vorspann))")
+# G8, G9 (13.11.2026): Hinweiskasten am Diagramm und Stichpunkte rechts
+HINWEIS_SCHRIFT, HINWEIS_PT, STICHPUNKTE_PT = "Work Sans Light", 12, 14
 LANGER_ABSATZ = 200   # ein Absatz außerhalb von Tabellen mit mehr Zeichen ist Fließtext, wie auch immer seine Form heißt
 
 # ---- E5: Wörter, die auf keiner Folie stehen ---------------------------------------------------------------------------
@@ -114,7 +117,7 @@ VERBOTEN = [
     (re.compile(r"Marktmiete", re.I), "Marktmiete"),
     (re.compile(r"Rendite", re.I), "Rendite"),
 ]
-# „Rendite“ ist auf den übrigen Folien nur in dieser einen Wendung zugelassen: der Beihilferegel der Richtlinie (Anhang A6, Broschüre S. 9).
+# „Rendite“ ist auf den übrigen Folien nur in dieser einen Wendung zugelassen: der Beihilferegel der Richtlinie (Anhang A5, Broschüre S. 9).
 # Sie nennt keine Rendite des Modellhauses. Gebunden ist der ganze Wortlaut der Zeile, wie ihn die Broschüre seit ihrem Lektorat vom 11.11.2026 führt.
 RENDITE_ERLAUBT = [re.compile(r"^Die NBank begrenzt jede Förderung so, dass die Eigenkapitalrendite angemessen bleibt \(Prüfung auf Überkompensation\)\. "
                               r"Bis 1 Prozentpunkt über dem 30-jährigen Swapsatz gilt sie stets als angemessen$")]
@@ -208,12 +211,12 @@ KERNWERTE = [
     ("liq.zahlungsueberschuss_jahr35.A", "euro", "64.860 €", ["rechnung-verlauf"]),
     ("liq.zahlungsueberschuss_jahr35.B", "zahl", "76.468", ["rechnung-verlauf"]),
     ("liq.zahlungsueberschuss_jahr35.C", "zahl", "84.149", ["rechnung-verlauf"]),
-    # Anhangfolie zur Tilgungsschwelle (A8): Schwelle C gegenüber A der drei Läufe, im Diagramm und in der Tabelle; Kosten am Schnitt auf 100 € gerundet
+    # Anhangfolie zur Tilgungsschwelle (A7): Schwelle C gegenüber A der drei Läufe, im Diagramm und in der Tabelle; Kosten am Schnitt auf 100 € gerundet
     ("tilg.schwelle.C_gegen_A", "prozent2", "1,91 %", [SCHWELLE_FOLIE]),
     (K_ARGE + "tilg.schwelle.C_gegen_A", "prozent2", "1,36 %", [SCHWELLE_FOLIE]),
     (K_GRENZE + "tilg.schwelle.C_gegen_A", "prozent2", "1,08 %", [SCHWELLE_FOLIE]),
     (f"runde({KOSTEN_AM_SCHNITT}, -2)", "euro", "3.000 €", [SCHWELLE_FOLIE]),
-    # Anhangfolie zur Eigenkapitalrendite (A7): die beiden Titelzahlen (mit Restwert, ohne Restwert) und der tiefste Stand des Projektkontos
+    # Anhangfolie zur Eigenkapitalrendite (A6): die beiden Titelzahlen (mit Restwert, ohne Restwert) und der tiefste Stand des Projektkontos
     # frei finanziert. Renditen mit zwei Nachkommastellen wie in der Rechenmappe. „Ohne Restwert“ ist die Zeile 6.4 der Übersicht („nur Bodenwert“):
     # Das Grundstück des Modellhauses ist nicht angesetzt, der Bodenwert ist null (Rechenmappe, Blatt Hinweise Nr. 15)
     (RENDITE + "vofi_mit_restwert.A", "prozent2", "7,05 %", [RENDITE_FOLIE]),
@@ -327,7 +330,7 @@ KERNSAETZE = [
     ("pgn-baukosten", "Herstellungskosten der PGN liegen {a} unter dem ARGE-Median", {"a": ("-(" + PGN_UNTER_ARGE + ")", "prozent1")}),
     # Bis 11.11.2026 stand hier die Marke „Ansatz im Modellhaus: 4.500 €“. Das Modellhaus rechnet seither mit dem PGN-Median selbst; gebunden ist
     # jetzt das Wertepaar der Hauptzahl an die Rechenmappe: Ansatz des Modellhauses und Eingabewert des Laufs mit dem ARGE-Median (Folie 23)
-    # Anhangfolie zur Eigenkapitalrendite (A7): Titel, Annahmen und das Paar, in dem die Rechenmappe Renditen nach außen verlangt
+    # Anhangfolie zur Eigenkapitalrendite (A6): Titel, Annahmen und das Paar, in dem die Rechenmappe Renditen nach außen verlangt
     # Der Titel nennt für Gruppe A beide Lesarten: mit Restwert und ohne Restwert (Rechenmappe, Blatt Hinweise Nr. 12; die Lesart „nur Bodenwert“
     # der Mappe rechnet beim Modellhaus ohne Restwert, weil das Grundstück nicht angesetzt ist: Blatt Hinweise Nr. 15)
     (RENDITE_FOLIE, "Rendite in A: {a} mit Restwert, {b} ohne Restwert", {"a": (RENDITE + "vofi_mit_restwert.A", "prozent2"), "b": (RENDITE + "vofi_nur_bodenwert.A", "prozent2")}),
@@ -346,7 +349,7 @@ KERNSAETZE = [
     # Bis 11.11.2026 „Marktmiete +2 %, Boden +1,5 % p. a.“: Ohne angesetztes Grundstück gibt es keinen Bodenwert, die Annahme steht nicht mehr auf der Folie
     (RENDITE_FOLIE, "Marktmiete +{a} p. a.", {"a": (RENDITE + "annahme.mietsteigerung", "prozent0")}),
     (RENDITE_FOLIE, "Fehlbeträge laufen auf ein Projektkonto zu {a} Sollzins.", {"a": (RENDITE + "annahme.sollzins", "prozent0")}),
-    # Anhangfolie zur Tilgungsschwelle (A8): Titel, Marke und die beiden Absätze
+    # Anhangfolie zur Tilgungsschwelle (A7): Titel, Marke und die beiden Absätze
     (SCHWELLE_FOLIE, "Bei {a} Tilgung liegt Gruppe A ab rund {b} je m² vorn", {"a": ("eingabe.tilgung_nbank", "prozent2"), "b": (f"runde({KOSTEN_AM_SCHNITT}, -2)", "euro")}),
     (SCHWELLE_FOLIE, "Jahresrechnung: {a}", {"a": ("eingabe.tilgung_nbank", "prozent2")}),
     (SCHWELLE_FOLIE, "Modellhaus: {a}. ARGE-Median: {b}. Bemessungsgrenze: {c}.",
@@ -377,7 +380,7 @@ NICHT_AUF_FOLIE = [
     ("agenda", re.compile(r"Der Vortrag behandelt", re.I), "sagt dasselbe wie der Titel und das Feld 2.1 des Registers"),
     ("antragsweg", re.compile(r"(?<!FÖRDER)ENTSCHEIDUNG", re.I), "der Akt heißt auf der Folie „Förderentscheidung“ und „Bewilligung“, nicht auch „Entscheidung“"),
     ("pgn-baukosten", re.compile(r"BAUKOSTEN DER PGN", re.I), "das Thema im Schriftfeld heißt wie der Titel „Herstellungskosten der PGN“"),
-    ("anhang-trenner", re.compile(r"Tilgung(?!sschwelle)", re.I), "A8 heißt im Vorspann „Tilgungsschwelle“ wie in ihrem Kopf"),
+    ("anhang-trenner", re.compile(r"Tilgung(?!sschwelle)", re.I), "A7 heißt im Vorspann „Tilgungsschwelle“ wie in ihrem Kopf"),
 ]
 # ---- Kernwerte in den Diagrammdaten: Quelle (wie bei den Kernwerten), Folie, Reihe, Kategorie. Der Wert steht dort ungerundet und mit Vorzeichen ----
 KERNWERTE_DIAGRAMM = [
@@ -397,7 +400,7 @@ KERNWERTE_DIAGRAMM = [
     # Folie 20: Die Jahresrechnung (Tilgung 1/42) liegt zwischen zwei Achsteilungen; gebunden ist der Stützpunkt 2,5 % der Geraden
     ("modellhaus:tilg.ueberschuss_vor_tilgung.B - 0.025 * modellhaus:fin.darlehen_nbank.B", "rechnung-tilgung", "Gruppe B", "2,5 %"),
     ("modellhaus:tilg.ueberschuss_vor_tilgung.C - 0.025 * modellhaus:fin.darlehen_nbank.C", "rechnung-tilgung", "Gruppe C", "2,5 %"),
-    # Folie A8: Die Linien enden an der Bemessungsgrenze mit der Schwelle des Laufs modellhaus_kosten_5460 (Diagrammdaten in Prozent)
+    # Folie A7: Die Linien enden an der Bemessungsgrenze mit der Schwelle des Laufs modellhaus_kosten_5460 (Diagrammdaten in Prozent)
     (K_GRENZE + "tilg.schwelle.B_gegen_A * 100", SCHWELLE_FOLIE, "B gegenüber A", "5.460"),
     (K_GRENZE + "tilg.schwelle.C_gegen_A * 100", SCHWELLE_FOLIE, "C gegenüber A", "5.460"),
     # Folien des Umbaus
@@ -414,7 +417,7 @@ KERNWERTE_DIAGRAMM = [
     ("markt#zinsen.z10.wert.0", "ausgangslage-zinsen", "10 Jahre", "2016"),
     (KD_2020, "einstieg-kapitaldienst", "Stand Q1 2020", "Q1 2020"),
     (KD_2020, "einstieg-kapitaldienst", "Stand Q1 2020", "Heute"),
-    (KD_BAUKOSTEN, "einstieg-kapitaldienst", "Baukosten", "Heute"),
+    (KD_BAUKOSTEN, "einstieg-kapitaldienst", "Herstellungskosten", "Heute"),
     (KD_ZINS, "einstieg-kapitaldienst", "Zins", "Heute"),
     (KD_WECHSELWIRKUNG, "einstieg-kapitaldienst", "Wechselwirkung", "Heute"),
     ("markt#bestand.reihe.wert.2016", "einstieg-bestand", "Bestand zum 31.12.", "2016"),
@@ -428,7 +431,7 @@ KERNWERTE_DIAGRAMM = [
     ("markt#kosten.spannen.pgn.herstellung.max - markt#kosten.spannen.pgn.herstellung.median", "pgn-baukosten", "PGN Median bis Maximum", "Herstellung · PGN"),
     # Folie 22: Die Werte über den Säulen sind Textfelder und folgen den Diagrammdaten nicht; gebunden sind deshalb auch die übrigen Säulen
     # Folie 5: Die drei Ursachen haben bei „Q1 2020“ keine Höhe (ihre Datenpunkte stehen ohne Füllung und ohne Linie)
-    ("0 * 1", "einstieg-kapitaldienst", "Baukosten", "Q1 2020"),
+    ("0 * 1", "einstieg-kapitaldienst", "Herstellungskosten", "Q1 2020"),
     ("0 * 1", "einstieg-kapitaldienst", "Zins", "Q1 2020"),
     ("0 * 1", "einstieg-kapitaldienst", "Wechselwirkung", "Q1 2020"),
 ]
@@ -479,12 +482,12 @@ KERNWERTE_FORM = [
     (f"{KD_HEUTE} - {KD_2020}", "euro2vz", "einstieg-kapitaldienst", "Maßkettenwert {a}", None, "{a}"),
     (BESTAND_RUECKGANG, "prozent1vz", "einstieg-bestand", "Maßkettenwert {a}", None, "{a}"),
 ]
-# Tabelle der Anhangfolie zur Tilgungsschwelle (A8): Zeile 0 ist der Kopf mit den Herstellungskosten je m² der drei Läufe (Spalten 1 bis 3),
+# Tabelle der Anhangfolie zur Tilgungsschwelle (A7): Zeile 0 ist der Kopf mit den Herstellungskosten je m² der drei Läufe (Spalten 1 bis 3),
 # Zeile 1 die Schwelle B gegenüber A, Zeile 2 die Schwelle C gegenüber A. Jede Zahl ist an ihren Lauf der Rechenmappe gebunden.
 KERNWERTE_FORM += [(lauf + key, art, SCHWELLE_FOLIE, "Tabelle Schwellen", (zeile, sp), "{a}")
                    for sp, lauf in enumerate(("modellhaus:", K_ARGE, K_GRENZE), start=1)
                    for zeile, key, art in ((0, "eingabe.herstellungskosten_qm", "euro"), (1, "tilg.schwelle.B_gegen_A", "prozent2"), (2, "tilg.schwelle.C_gegen_A", "prozent2"))]
-# Rechenblatt der Anhangfolie zur Eigenkapitalrendite (A7): Zeile 0 ist der Kopf, Spalte 0 die Zeilennummer, Spalte 1 die Position; die Werte
+# Rechenblatt der Anhangfolie zur Eigenkapitalrendite (A6): Zeile 0 ist der Kopf, Spalte 0 die Zeilennummer, Spalte 1 die Position; die Werte
 # stehen in den Spalten 2 bis 5 (A, B, C, frei). Jede Zahl der Tabelle ist an ihre Zelle der Rechenmappe gebunden. Zeile 6 („Rendite ohne
 # Restwert“) liest die Zeile 6.4 der Übersicht; führt die Mappe dort „n. v.“, steht ein Strich, und ein Restwertanteil über 1 heißt „über 100 %“.
 _RT, _SP = "Rechenblatt Rendite", {"A": 2, "B": 3, "C": 4, "Frei": 5}
@@ -544,7 +547,7 @@ DATUM = re.compile(r"\b(\d{1,2})\.(\d{1,2})\.(\d{4})?(?!\d)")
 JAHR = re.compile(r"(?<![\d.,/])(?:19|20)\d{2}(?![\d]|[.,]\d)")
 BROSCHUERE_S = re.compile(r"\bBroschüre\s+S\.\s+(\d+(?:(?:,\s+|\s+und\s+|\s+bis\s+|–)\d+)*)")
 FOLIE_NR = re.compile(r"\b(?:Folien?|Anhang)\s+(A?\d+(?:(?:,\s+|\s+und\s+|\s+bis\s+|–|\s+oder\s+)A?\d+)*)|\b(A\d\b(?:(?:,\s+|\s+und\s+|\s+bis\s+)A\d\b)*)")
-FOLIEN_NUMMERN = set()   # Blattnummern des Konzepts (1 bis 28, A0 bis A9); main() füllt die Menge
+FOLIEN_NUMMERN = set()   # Blattnummern des Konzepts (1 bis 28, A0 bis A8); main() füllt die Menge
 # Kleine ganze Zahlen als Zähler: Jahr der Rechnung, Zeile, Schritt, Gruppe. Nur wenn die Zahl sonst keinen Beleg hat.
 ZAEHLER = re.compile(r"\b(?:Jahr(?:e|en)?|Zeilen?|Schritte?|Station(?:en)?|Punkte?|Größen)\s+(\d{1,2})(?:(?:\s+bis\s+|–|\s+und\s+)(\d{1,2}))?")
 ZAEHLER_GRUND = "Zähler im Satz (Jahr der Rechnung, Zeile, Schritt), höchstens zweistellig"
@@ -1284,6 +1287,20 @@ def main(argv):
     ber.pruefung(f"Schriftgröße E3: kein Textlauf unter {MIN_BESCHRIFTUNG} pt", klein + ohne, f"kleinste Größe {kleinste:g} pt")
     ber.pruefung(f"Schriftgröße E3: Tabellenzellen mindestens {MIN_TABELLE} pt", zellen, f"{sum(f['tabellen'] for f in F)} Tabellen")
     ber.pruefung(f"Schriftgröße E3: Fließtext mindestens {MIN_FLIESS} pt", fliess, "Kommentar, Planlegende, Aufzählung, Vorspann, Kennzahltext, lange Absätze")
+    # G8 und G9 (Änderungsrunde vom 13.11.2026): Hinweise am Diagramm stehen im Hinweiskasten in Work Sans Light 12 pt (B.hinweis, Form
+    # „Hinweiskasten Text“); Stichpunkte rechts (B.stichpunkte, Form „Stichpunkte“) stehen einheitlich in 14 pt
+    hk, sp = [], []
+    for i, f in enumerate(F):
+        for fo, a in folientext(f):
+            for text, pt, schrift in a["laeufe"]:
+                if not text.strip():
+                    continue
+                if fo["name"].endswith("Text") and fo["name"].startswith("Hinweiskasten") and (schrift != HINWEIS_SCHRIFT or pt != HINWEIS_PT):
+                    hk.append(f"Folie {nr(i)}, „{fo['name']}“: {schrift} {pt} pt „{glatt(text)[:40]}“")
+                if fo["name"].startswith("Stichpunkte") and (schrift or "").startswith("Work Sans") and pt != STICHPUNKTE_PT:
+                    sp.append(f"Folie {nr(i)}, „{fo['name']}“: {pt} pt „{glatt(text)[:40]}“")
+    ber.pruefung(f"Hinweiskasten (G8): {HINWEIS_SCHRIFT} {HINWEIS_PT} pt", hk, "Formen „Hinweiskasten … Text“")
+    ber.pruefung(f"Stichpunkte rechts (G9): einheitlich {STICHPUNKTE_PT} pt", sp, "Formen „Stichpunkte“")
     m = [f"Folie {nr(i)}, „{d['name']}“: {min(d['groessen']):g} pt" for i, f in enumerate(F) for d in f["diagramme"] if d["groessen"] and min(d["groessen"]) < MIN_BESCHRIFTUNG]
     ber.pruefung(f"Schriftgröße E3: Achsen und Beschriftungen der Diagramme mindestens {MIN_BESCHRIFTUNG} pt", m, f"{sum(len(f['diagramme']) for f in F)} Diagramme")
 

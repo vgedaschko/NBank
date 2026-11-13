@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Regelwerte und Texte der Baugruppe „regeln“ (Folien 9 bis 12, A5, A6), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft (Broschüre: Seite, Datei unter broschuere/content/pages/, JSON-Schlüssel) und geprueft. Führt werte.json denselben Wert (tab.*), gilt werte.json: In den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul aus werte.json füllt (folien/_regeln.cjs, werteAusMappe).",
+  "_hinweis": "Regelwerte und Texte der Baugruppe „regeln“ (Folien 9 bis 12, A4, A5), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft (Broschüre: Seite, Datei unter broschuere/content/pages/, JSON-Schlüssel) und geprueft. Führt werte.json denselben Wert (tab.*), gilt werte.json: In den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul aus werte.json füllt (folien/_regeln.cjs, werteAusMappe).",
   "stichtage": {
     "alt_bis": { "wert": "30.06.2026", "einheit": "Datum", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].columns[1]", "geprueft": true },
     "neu_seit": { "wert": "01.07.2026", "einheit": "Datum", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].columns[2]", "geprueft": true }
@@ -41,10 +41,10 @@
   },
   "zulassung": {
     "text": { "wert": "Grundsatz ist Gruppe A. B und C muss die NBank in der Förderentscheidung zulassen. Das setzt eine besondere Lage oder Zweckbindung voraus, etwa einen angespannten Wohnungsmarkt. Sonst sind höchstens 20 % über der Einkommensgrenze möglich, nur bei Vorhaben ab zwölf zusammenhängenden Wohnungen und für höchstens die Hälfte davon.", "einheit": "Text", "herkunft": "Broschüre S. 12, 12-mix-und-tilgung.json, blocks[2].body (die ersten beiden Sätze), und S. 6, 06-mieterkreis-einkommensgruppen.json (Voraussetzungen der Zulassung: bis +60 % bei besonderer Lage oder Zweckbindung, sonst bis +20 % ab zwölf zusammenhängenden Wohnungen für höchstens die Hälfte davon; § 4 Abs. 1 und 2 DVO-NWoFG). Wortlaut in vier Sätzen nach dem Lektorat des Vortrags vom 11.11.2026", "geprueft": true },
-    "nachweis": { "wert": "Wohnberechtigungsschein (WBS) der Kommune.", "einheit": "Text", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[1].body, verdichtet wie im Konzept (Folie A5)", "geprueft": true }
+    "nachweis": { "wert": "Wohnberechtigungsschein (WBS) der Kommune.", "einheit": "Text", "herkunft": "Broschüre S. 6, 06-mieterkreis-einkommensgruppen.json, blocks[1].body, verdichtet wie im Konzept (Folie A4)", "geprueft": true }
   },
   "eckdaten": {
-    "_hinweis": "Zwölf Zeilen der Tabelle „Eckdaten“ in der Reihenfolge der Broschüre, gekürzt um Seitenverweise und Nebensätze wie im Konzept (Folie A6). Platzhalter in geschweiften Klammern füllt das Folienmodul aus werte.json (tab.*).",
+    "_hinweis": "Zwölf Zeilen der Tabelle „Eckdaten“ in der Reihenfolge der Broschüre, gekürzt um Seitenverweise und Nebensätze wie im Konzept (Folie A5). Platzhalter in geschweiften Klammern füllt das Folienmodul aus werte.json (tab.*).",
     "zeilen": {
       "wert": [
         { "stichwort": "Antrag, Bewilligung", "text": "Antrag bei der Wohnraumförderstelle am Bauort; die NBank bewilligt mit öffentlich-rechtlichem Fördervertrag", "zeile": "blocks[1].rows[0]" },

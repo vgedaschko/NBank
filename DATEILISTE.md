@@ -8,6 +8,8 @@ Nachtrag 12.11.2026: Nach Freigabe liegen im Ordner `archiv/` die Vergleichsbild
 
 Nachtrag 12.11.2026, Prüfung der Beispielkalkulation: Im Ordner `pruefung-beispielkalkulation/` liegen die drei Prüfberichte und `Auswertung.md` (Einigkeit und Widerspruch, zehn Rückfragen, Liste zur Entscheidung). Stand: aktuell, gehört zu Vortrag und Excel.
 
+Nachtrag 13.11.2026, Änderungsrunde (globale Regeln): `praesentation/folien/anhang-frist.cjs` ist gelöscht (Anhangfolie zur Frist 31.12.2026 entfallen). Neu: `praesentation/probe/34-diagramm-hinweis-stichpunkte.cjs` (Musterfolie für Hinweiskasten und Stichpunkte) und unter `broschuere/recherche/quellen/` drei Quellen im Volltext (GdW-Präsentation zur Jahrespressekonferenz 2026, BT-Drs. 21/7303, NBank-Produktinformation Stand 01.04.2026).
+
 ## Die Ergebnisse, je eine aktuelle Datei
 
 | Ergebnis | Aktuelle Datei | Daraus erzeugt |
@@ -710,7 +712,7 @@ Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die B
 | `praesentation/folien/_umsetzung.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/agenda.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/anhang-eckdaten.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
-| `praesentation/folien/anhang-frist.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
+| `praesentation/folien/anhang-frist.cjs` | gelöscht am 13.11.2026 | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/anhang-mieterkreis.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/anhang-programmteile.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/anhang-rendite.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |

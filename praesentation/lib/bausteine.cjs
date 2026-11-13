@@ -88,28 +88,43 @@ const RAHMEN = {
 // Titel-Läufe: Zeilen von Hand gebrochen, Versalien, genau ein Signaturwort in Montserrat ExtraBold kursiv.
 // o: { akzent, akzentFarbe, stimme (Index der Zeile in zweiter Stimme, Montserrat Light 20 pt),
 //      abstand: { 1: 36 } (Zeilenabstand in pt für einzelne Zeilen, Index ab 0; sonst gilt der des Platzhalters) }
+// Das Signaturwort steht in einer Zeile oder läuft über mehrere Zeilen (Kapiteltrenner: die Themen nach dem Doppelpunkt, G10 vom 13.11.2026);
+// dann ist es je Zeile ein eigener Lauf, und der Zeilenwechsel steht an einer Wortfuge des Signaturworts.
+// Lage des Signaturworts: { Index der Zeile: [Anfang, Ende] } in den versalen Zeilen, null ohne Treffer. Zuerst in einer Zeile, sonst über
+// aufeinanderfolgende Zeilen (die Zeilen mit Leerzeichen verbunden; die Zeile in zweiter Stimme zählt nicht mit)
+function akzentLage(Z, Ak, stimme) {
+  if (!Ak) return null;
+  for (let i = 0; i < Z.length; i++) { if (i === stimme) continue; const p = Z[i].indexOf(Ak); if (p >= 0) return { [i]: [p, p + Ak.length] }; }
+  const norm = t => t.split(NBSP).join(' ');
+  let voll = '';
+  const anfang = [];
+  Z.forEach((z, i) => { if (i) voll += ' '; anfang.push(voll.length); voll += i === stimme ? '\u0000'.repeat(z.length) : norm(z); });
+  const p = voll.indexOf(norm(Ak));
+  if (p < 0) return null;
+  const e = p + Ak.length, lage = {};
+  Z.forEach((z, i) => { const a = Math.max(p, anfang[i]), b = Math.min(e, anfang[i] + z.length); if (a < b) lage[i] = [a - anfang[i], b - anfang[i]]; });
+  return lage;
+}
 function titelLaeufe(zeilen, o = {}) {
-  const alle = [];
-  let gesetzt = false;
-  zeilen.forEach((z, i) => {
+  const alle = [], Z = zeilen.map(z => versal(schutz(z)));
+  const lage = akzentLage(Z, o.akzent ? versal(schutz(o.akzent)) : null, o.stimme);
+  if (o.akzent && !lage) throw new Error(`Signaturwort „${o.akzent}“ steht in keiner Titelzeile: ${zeilen.join(' | ')}`);
+  Z.forEach((zl, i) => {
     const runs = [];
     // geschützte Leerzeichen zwischen Zahl und Einheit auch im Titel („84.000 €“, „80 %“, „7,0 Mio. €“): Mit Ersatzschriften bräche die Zeile sonst dort
-    const last = i === zeilen.length - 1, Z = versal(schutz(z));
-    if (o.stimme === i) { alle.push({ text: Z, options: { fontFace: F.montLight, fontSize: 20, charSpacing: 1.0, breakLine: !last } }); return; }
-    const Ak = o.akzent ? versal(schutz(o.akzent)) : null, p = Ak && !gesetzt ? Z.indexOf(Ak) : -1;
-    if (p >= 0) {
-      gesetzt = true;
-      const a = Z.slice(0, p), b = Z.slice(p + Ak.length), ak = { fontFace: F.black, italic: true, breakLine: !last && !b };
+    const last = i === Z.length - 1;
+    if (o.stimme === i) { alle.push({ text: zl, options: { fontFace: F.montLight, fontSize: 20, charSpacing: 1.0, breakLine: !last } }); return; }
+    if (lage && lage[i]) {
+      const [p, e] = lage[i], a = zl.slice(0, p), b = zl.slice(e), ak = { fontFace: F.black, italic: true, breakLine: !last && !b };
       if (o.akzentFarbe) ak.color = o.akzentFarbe;
       if (a) runs.push({ text: a, options: {} });
-      runs.push({ text: Ak, options: ak });
+      runs.push({ text: zl.slice(p, e), options: ak });
       if (b) runs.push({ text: b, options: { breakLine: !last } });
-    } else runs.push({ text: Z, options: { breakLine: !last } });
+    } else runs.push({ text: zl, options: { breakLine: !last } });
     // Zeilenabstand dieser Zeile: an allen Läufen des Absatzes gleich
     if (o.abstand && o.abstand[i]) for (const r of runs) r.options.lineSpacing = o.abstand[i];
     alle.push(...runs);
   });
-  if (o.akzent && !gesetzt) throw new Error(`Signaturwort „${o.akzent}“ steht in keiner Titelzeile: ${zeilen.join(' | ')}`);
   return alle;
 }
 // Zeichen mit Unterlänge (Komma, Semikolon, Klammern) in einer Titelzeile, die über einem Umlaut der nächsten Zeile stehen:
@@ -122,14 +137,12 @@ function titelKollisionen(pruefzeilen) {
 }
 // Dieselben Zeilen für die Passprüfung: je Zeile die Läufe mit ihrem Stil
 function titelPruefzeilen(zeilen, o, basis) {
-  let gesetzt = false;
-  return zeilen.map((z, i) => {
-    const Z = versal(schutz(z));
-    if (o.stimme === i) return [{ text: Z, stil: { fontFace: F.montLight, fontSize: 20, weite: 1.0 } }];
-    const Ak = o.akzent ? versal(schutz(o.akzent)) : null, p = Ak && !gesetzt ? Z.indexOf(Ak) : -1;
-    if (p < 0) return [{ text: Z, stil: basis }];
-    gesetzt = true;
-    return [{ text: Z.slice(0, p), stil: basis }, { text: Ak, stil: { fontFace: F.xbold, italic: true, fontSize: basis.fontSize } }, { text: Z.slice(p + Ak.length), stil: basis }].filter(l => l.text);
+  const Z = zeilen.map(z => versal(schutz(z))), lage = akzentLage(Z, o.akzent ? versal(schutz(o.akzent)) : null, o.stimme);
+  return Z.map((zl, i) => {
+    if (o.stimme === i) return [{ text: zl, stil: { fontFace: F.montLight, fontSize: 20, weite: 1.0 } }];
+    if (!lage || !lage[i]) return [{ text: zl, stil: basis }];
+    const [p, e] = lage[i];
+    return [{ text: zl.slice(0, p), stil: basis }, { text: zl.slice(p, e), stil: { fontFace: F.xbold, italic: true, fontSize: basis.fontSize } }, { text: zl.slice(e), stil: basis }].filter(l => l.text);
   });
 }
 
@@ -988,6 +1001,84 @@ function bausteine(pres, kx) {
     return { x: o.x, y: o.y, w: o.w, h, unten: o.y + h };
   };
 
+  // Hinweis am Diagramm (G8, Änderungsrunde vom 13.11.2026): grauer Kasten (E9E7E4, ohne Kontur) mit Info-Symbol links, Text in Work Sans Light
+  // 12 pt. Er steht direkt am Diagramm, an der Tabelle oder am Zeitstrahl und ist so breit wie dieser (x und w des Diagramms übergeben); kein frei
+  // hängender kleiner Text mehr. Der Kasten wächst mit dem Text; das Modul macht das Diagramm darüber niedriger, damit beides in die Inhaltszone passt.
+  // o: { x, y, w, text, unten: true (y ist die Unterkante: der Kasten steht über y, etwa an der Unterkante der Inhaltszone), name (Zusatz zum
+  //      Formnamen „Hinweiskasten“) }
+  // Rückgabe: { x, y, w, h, unten }
+  const HINWEIS = { farbe: HEX.flaeche3, rand: 0.09, innen: 0.12, icon: 0.22, steg: 0.12, max: 200 };
+  B.hinweis = (s, o) => {
+    brauche('B.hinweis', o, ['x', 'y', 'w']);
+    if (!o.text || !String(o.text).trim()) throw new Error('B.hinweis: text fehlt.');
+    const H = HINWEIS, st = stil('hinweis'), tx = o.x + H.innen + H.icon + H.steg, tw = +(o.x + o.w - H.innen - tx).toFixed(3);
+    const th = B.hoehe(o.text, { rolle: 'hinweis', w: tw }), h = +Math.max(th + 2 * H.rand, H.icon + 2 * H.rand).toFixed(3);
+    const y = o.unten ? +(o.y - h).toFixed(3) : o.y, name = 'Hinweiskasten' + (o.name ? ' ' + o.name : '');   // Formnamen „Hinweiskasten …“: pruefe_folien.py prüft Schrift und Größe
+    // Längere Texte sind Fließtext (14 pt, pruefe_folien.py): Ein Hinweis bleibt kurz
+    if (P && klar(o.text).length > H.max) P.melde(`${name}: Der Hinweis hat ${klar(o.text).length} Zeichen (höchstens ${H.max}); kürzen oder als Text der Folie setzen.`);
+    B.kasten(s, { x: o.x, y, w: o.w, h, farbe: H.farbe, name: name + ' Fläche' });
+    // Symbol auf der Höhe der ersten Zeile
+    B.icon(s, { name: 'hinweis', farbe: 'tinte', x: o.x + H.innen, y: +(y + H.rand + (zeilenhoehe(st) - H.icon) / 2 + 0.01).toFixed(3), d: H.icon, altText: 'Symbol: Hinweis' });
+    B.text(s, o.text, { x: tx, y: y + H.rand, w: tw, h: th, rolle: 'hinweis', name: name + ' Text' });
+    return { x: o.x, y, w: o.w, h, unten: +(y + h).toFixed(3) };
+  };
+  // Höhe eines Hinweiskastens bei gegebener Breite, ohne zu zeichnen (zum Ausrichten: das Diagramm endet h + Abstand über der Inhaltszone)
+  B.hinweisHoehe = (text, o) => {
+    brauche('B.hinweisHoehe', o, ['w']);
+    const H = HINWEIS, tw = +(o.w - 2 * H.innen - H.icon - H.steg).toFixed(3);
+    return +Math.max(B.hoehe(text, { rolle: 'hinweis', w: tw }) + 2 * H.rand, H.icon + 2 * H.rand).toFixed(3);
+  };
+
+  // Stichpunkte rechts neben Diagrammen und Tabellen (G9, Änderungsrunde vom 13.11.2026): je Gruppe eine Überschrift wie ein Modultitel
+  // (Montserrat Bold 16 pt) und darunter Stichpunkte mit eckigem Marker in Tinte (wie B.aufzaehlung), einheitlich 14 pt auf allen Folien.
+  // Ein Textfeld; im Platzhalter „kommentar“ der Layouts PGN_DIAGRAMM und PGN_TABELLE oder in freier Lage. Freie Lage ohne h: Die Höhe folgt
+  // dem Text; mit h oder im Platzhalter wird sie geprüft. linie: true zeichnet die Modulkopf-Linie bei y (der Text beginnt 0,05 darunter).
+  // o: { x, y, w, h, gruppen: [{ titel, punkte: [] }], platzhalter: 'kommentar', linie, titelAbstand: 10 (pt vor jeder weiteren Überschrift),
+  //      punktAbstand: 4 (pt nach jedem Stichpunkt), name }
+  // Rückgabe: { x, y, w, h, unten }
+  B.stichpunkte = (s, o) => {
+    if (!o || !Array.isArray(o.gruppen) || !o.gruppen.length) throw new Error('B.stichpunkte: gruppen fehlt (Liste aus { titel, punkte }).');
+    const pt = 14, st = stil('dicht'), tt = stil('modultitel'), vor = o.titelAbstand ?? 10, nach = o.punktAbstand ?? 4, einzug = 16 / 72;
+    let geo;
+    if (o.platzhalter) {
+      const z = o.platzhalter === 'kommentar' ? (/TABELLE/.test(kx.layout) ? ZONE.tabelle.kommentar : /DIAGRAMM/.test(kx.layout) ? ZONE.diagramm.kommentar : null) : undefined;
+      if (z === undefined) throw new Error(`B.stichpunkte: Platzhalter „${o.platzhalter}“ gibt es nicht (nur kommentar).`);
+      if (!z) throw new Error(`B.stichpunkte: Das Layout ${kx.layout} hat keinen Platzhalter „kommentar“ (PGN_DIAGRAMM, PGN_TABELLE). Sonst freie Lage mit x, y, w.`);
+      geo = { ...z };
+    } else {
+      brauche('B.stichpunkte', o, ['x', 'y', 'w']);
+      geo = { x: o.x, y: o.y, w: o.w, h: o.h > 0 ? o.h : 0 };
+      if (o.linie) { B.linie(s, { x: o.x, y: o.y, w: o.w, art: 'modul', name: 'Modulkopf-Linie' }); geo.y = o.y + 0.05; if (geo.h) geo.h = +(geo.h - 0.05).toFixed(3); }
+    }
+    const runs = [], wPunkt = geo.w - einzug;
+    let hoehe = 0, n = 0;
+    o.gruppen.forEach((g, gi) => {
+      if (!g || !g.titel || !Array.isArray(g.punkte) || !g.punkte.length) throw new Error(`B.stichpunkte: Gruppe ${gi + 1} braucht titel und punkte.`);
+      const tit = schutz(g.titel), letzteGruppe = gi === o.gruppen.length - 1;
+      runs.push({ text: tit, options: { fontFace: tt.fontFace, bold: !!tt.bold, fontSize: tt.fontSize, color: tt.color, breakLine: true, paraSpaceBefore: gi ? vor + 4 : 0, paraSpaceAfter: 3 } });
+      hoehe += zeilenzahl(tit, tt, geo.w) * zeilenhoehe({ ...tt, zeileMal: st.zeileMal }) + (gi ? vor : 0) / 72 + 3 / 72;
+      if (P) P.zeile(`Stichpunkte, Überschrift „${g.titel}“`, tit, tt, geo.w);
+      g.punkte.forEach((p, pi) => {
+        const t = schutz(p).replace(/\*\*/g, ''), letzter = letzteGruppe && pi === g.punkte.length - 1;
+        runs.push({ text: t, options: { fontFace: st.fontFace, fontSize: pt, color: st.color, bullet: { characterCode: '25A0', indent: 16 }, paraSpaceAfter: nach, breakLine: !letzter } });
+        hoehe += zeilenzahl(t, st, wPunkt) * zeilenhoehe(st) + nach / 72;
+        if (P) P.block('Stichpunkt', t, st, wPunkt, Math.max(geo.h, 1));
+        n++;
+      });
+    });
+    const fest = !!geo.h;
+    if (!geo.h) geo.h = +(hoehe + 0.04).toFixed(3);
+    if (P) {
+      if (hoehe > geo.h + 0.005) P.melde(`Stichpunkte: Text braucht ${hoehe.toFixed(2)} Zoll, das Feld ist ${geo.h.toFixed(2)} Zoll hoch (Breite ${geo.w.toFixed(2)}, 14 pt). Abstände enger, Spalte breiter oder kürzen.`);
+      else if (fest) P.luft(o.name || 'Stichpunkte', hoehe, geo.h);
+      if (n > 8) P.hinweis(`Stichpunkte: ${n} Punkte in einer Spalte.`);
+      P.mindest('Stichpunkte', pt, 14);
+    }
+    if (o.platzhalter) s.addText(runs, { placeholder: o.platzhalter });
+    else s.addText(runs, opt(st, geo, { objectName: o.name || 'Stichpunkte' }));
+    return { ...geo, unten: geo.y + hoehe };
+  };
+
   // ---- 4.12 Ablauf ------------------------------------------------------------------------------------------------------
   // Achsleiste. o: { x, y, w, stationen: [{ nr, titel, zustaendig, text, zusatz, signal }], art: 'reihe' | 'text', groesse: 'S' | 'M' | 'L', versalTitel: true,
   //      pt: 14 | 12, abstand: 0.12, anteile: [Breite je Station im Verhältnis] }
@@ -1384,7 +1475,7 @@ function bausteine(pres, kx) {
     }
   };
   // Punkt auf einer Linie (Schnitt mit einer Marke): Scheibe 0,10 Zoll in der Farbe der Linie mit schmalem Rand in der Grundfarbe.
-  // o: { cx, cy, art: tinte | referenz | akzent (PGN-Rot, nur am Schnitt mit einer roten Marke: Folie A8), name }
+  // o: { cx, cy, art: tinte | referenz | akzent (PGN-Rot, nur am Schnitt mit einer roten Marke: Folie A7), name }
   B.punkt = (s, o) => {
     brauche('B.punkt', o, ['cx', 'cy']);
     const d = 0.10;

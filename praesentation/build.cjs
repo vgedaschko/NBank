@@ -264,9 +264,10 @@ async function main() {
   fs.mkdirSync(path.dirname(ziel), { recursive: true });
   await pres.writeFile({ fileName: ziel });
   console.warn = warnAlt;
-  // Datum der Mappe: der Stand der Inhalte (daten/rahmen.json, titel.stand). Kein Tagesdatum, damit zwei Läufe dieselbe Datei liefern
-  const st = String(daten.X('rahmen', 'titel.stand')).match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
-  if (!st) throw new Error('daten/rahmen.json: titel.stand ist kein Datum der Form TT.MM.JJJJ.');
+  // Datum der Mappe: eigenes Feld (daten/rahmen.json, titel.datum_datei); der Stand auf den Folien heißt „11/2026“ und ist kein Tagesdatum.
+  // Kein Tagesdatum des Baus, damit zwei Läufe dieselbe Datei liefern
+  const st = String(daten.X('rahmen', 'titel.datum_datei')).match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+  if (!st) throw new Error('daten/rahmen.json: titel.datum_datei ist kein Datum der Form TT.MM.JJJJ.');
   const stat = await nachbearbeiten(ziel, { theme: T.THEME, firma: T.FIRMA, schraffur: { merkfarbe: T.HEX.schraffur, bg: T.HEX.eigenmittel, fg: T.HEX.schraffurLinie }, diagramme: anweisungen, leerePlatzhalter: leer,
     folientitel: liste.map(e => e.o.titel), schriften: Object.values(T.F), layouts: layoutBeschreibung(pres), tabellen, altTexte, datum: `${st[3]}-${st[2]}-${st[1]}T00:00:00Z` });
   console.log(`${path.relative(ROOT, ziel)} · ${liste.length} Folien · Abschnitte: ${[...abschnitte].join(', ')}`);

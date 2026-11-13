@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Werte und Texte der Baugruppe „umsetzung“ (Folien 26, 27, A3, A4), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft (Broschüre: Seite, Datei unter broschuere/content/pages/, JSON-Schlüssel) und geprueft. Zahlen stehen genau einmal als Zahl; in den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul füllt (folien/_umsetzung.cjs, felder): {name} setzt die Ziffern, {name:wort} das Zahlwort. {eigenmittel} kommt aus daten/werte.json (Lauf modellhaus, tab.eigenmittel_mindestens). Die gefüllten Texte prüft der Bau gegen das Feld „inhalt“ des Konzepts.",
+  "_hinweis": "Werte und Texte der Baugruppe „umsetzung“ (Folien 26, 27, A2, A3), die daten/werte.json nicht führt. Je Eintrag wert, einheit, herkunft (Broschüre: Seite, Datei unter broschuere/content/pages/, JSON-Schlüssel) und geprueft. Zahlen stehen genau einmal als Zahl; in den Texten steht dafür ein Platzhalter in geschweiften Klammern, den das Folienmodul füllt (folien/_umsetzung.cjs, felder): {name} setzt die Ziffern, {name:wort} das Zahlwort. {eigenmittel} kommt aus daten/werte.json (Lauf modellhaus, tab.eigenmittel_mindestens). Die gefüllten Texte prüft der Bau gegen das Feld „inhalt“ des Konzepts.",
 
   "antragsweg": {
     "_hinweis": "Folie 26. Acht Stationen in zwei Reihen, dazwischen das Warnband zur Bewilligung, darunter eine Zeile zum Vorhabenbeginn.",
@@ -13,7 +13,7 @@
         { "nr": 1, "titel": "Vorgespräch", "zustaendig": "Wohnraumförderstelle mit Ihnen", "text": "Nachweise und Unterlagen vorab klären", "zeile": "stations[0]: title, lane mit with, body" },
         { "nr": 2, "titel": "Antrag", "zustaendig": "Sie", "text": "bei der Wohnraumförderstelle am Bauort", "zeile": "stations[1]: title, lane, body ohne den Zusatz zu 2.6" },
         { "nr": 3, "titel": "Stellungnahme", "zustaendig": "Wohnraumförderstelle", "text": "Bedarfsbestätigung, Weiterleitung an die NBank", "zeile": "stations[2]: title, lane, body ohne die Anhörung der Gemeinde" },
-        { "nr": 4, "titel": "Förderentscheidung", "zustaendig": "NBank", "text": "Fördervertrag; Ziel: höchstens {entscheidung_monate:wort} Monate", "signal": true, "zeile": "stations[3]: lane, body verdichtet, deadline; der Titel heißt seit 12.11.2026 „Förderentscheidung“ wie in Station 5 und im Hinweis auf A9 (die Broschüre S. 19 nennt die Station seit 12.11.2026 ebenso; auf der Folie standen sonst drei Wörter für einen Akt: Entscheidung 34); nur „Fördervertrag“: In Programmteil 2.1 (Darlehen plus Zuschuss) schließt die NBank immer einen Fördervertrag, einen Bescheid gibt es nur bei reiner Zuschussförderung (RL Nr. 12.3.1)" },
+        { "nr": 4, "titel": "Förderentscheidung", "zustaendig": "NBank", "text": "Fördervertrag; Ziel: höchstens {entscheidung_monate:wort} Monate", "signal": true, "zeile": "stations[3]: lane, body verdichtet, deadline; der Titel heißt seit 12.11.2026 „Förderentscheidung“ wie in Station 5 und im Hinweis auf A8 (die Broschüre S. 19 nennt die Station seit 12.11.2026 ebenso; auf der Folie standen sonst drei Wörter für einen Akt: Entscheidung 34); nur „Fördervertrag“: In Programmteil 2.1 (Darlehen plus Zuschuss) schließt die NBank immer einen Fördervertrag, einen Bescheid gibt es nur bei reiner Zuschussförderung (RL Nr. 12.3.1)" },
         { "nr": 5, "titel": "Bauausführung", "zustaendig": "Sie", "text": "Baubeginn spätestens {baubeginn_monate:wort} Monate nach Bekanntgabe der Förderentscheidung", "zeile": "stations[4]: title, lane, deadline ohne „unverzüglich“" },
         { "nr": 6, "titel": "Auszahlung", "zustaendig": "NBank", "text": "in Raten nach Baufortschritt", "zeile": "stations[5]: title, lane, body verdichtet" },
         { "nr": 7, "titel": "Fertigstellung", "zustaendig": "Wohnraumförderstelle mit Ihnen", "text": "Fertigstellung anzeigen; Vermietung nur mit Wohnberechtigungsschein", "zeile": "stations[6]: title, lane mit with, body verdichtet" },
@@ -75,8 +75,8 @@
   },
 
   "voraussetzungen": {
-    "_hinweis": "Folie A3, linke Seite. Sechs Fragen des Grundchecks; alle sechs gelten für Programmteil 2.1 (Chips der Broschüre: alle, alle, 2.1–2.4, 2.1/2.2/2.6, 2.1–2.4, 2.1/2.2/2.4).",
-    "titel": { "wert": "Grundcheck für Programmteil 2.1", "einheit": "Text", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[1].heading („Grundcheck: sechs Voraussetzungen“); Wortlaut des Konzepts (Folie A3)", "geprueft": true },
+    "_hinweis": "Folie A2, linke Seite. Sechs Fragen des Grundchecks; alle sechs gelten für Programmteil 2.1 (Chips der Broschüre: alle, alle, 2.1–2.4, 2.1/2.2/2.6, 2.1–2.4, 2.1/2.2/2.4).",
+    "titel": { "wert": "Grundcheck für Programmteil 2.1", "einheit": "Text", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[1].heading („Grundcheck: sechs Voraussetzungen“); Wortlaut des Konzepts (Folie A2)", "geprueft": true },
     "mindest_wohnungen": { "wert": 3, "einheit": "Wohnungen je Mehrfamilienhaus (ab)", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[1].items[2]", "geprueft": true },
     "fragen": {
       "wert": [
@@ -94,7 +94,7 @@
   },
 
   "bedarf": {
-    "_hinweis": "Folie A3, rechte Seite. Ringdiagramm mit zwei Segmenten; Stand der Karte: abgerufen am 21.10.2026 (Faktenbasis der Broschüre, broschuere/recherche/factbase.md, G2-26; die Broschüre S. 23 nennt die Karte seit ihrem Lektorat vom 11.11.2026 ohne Abrufdatum).",
+    "_hinweis": "Folie A2, rechte Seite. Ringdiagramm mit zwei Segmenten; Stand der Karte: abgerufen am 21.10.2026 (Faktenbasis der Broschüre, broschuere/recherche/factbase.md, G2-26; die Broschüre S. 23 nennt die Karte seit ihrem Lektorat vom 11.11.2026 ohne Abrufdatum).",
     "titel": { "wert": "Bedarfslage auf der NBank-Karte", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].title", "geprueft": true },
     "bezug": { "wert": "Einheits- und Samtgemeinden", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.unit", "geprueft": true },
     "gegeben": { "wert": 306, "einheit": "Einheits- und Samtgemeinden", "bezeichnung": "Bedarf gegeben", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.segments[0] (value, label)", "geprueft": true },
@@ -103,7 +103,7 @@
   },
 
   "vorhabenbeginn": {
-    "_hinweis": "Folie A4. Drei Spalten in der Reihenfolge der Broschüre. Die Leistungsphasen 6 und 7 kommen aus leistungen.marke.nach; „2.5“ ist die Nummer des Programmteils.",
+    "_hinweis": "Folie A3. Drei Spalten in der Reihenfolge der Broschüre. Die Leistungsphasen 6 und 7 kommen aus leistungen.marke.nach; „2.5“ ist die Nummer des Programmteils.",
     "spalten": {
       "wert": [
         { "titel": "Zulässig", "icon": "check", "icon_text": "Haken", "punkte": [
@@ -122,7 +122,7 @@
           "bei 2.5: Mietvertrag oder Überlassung der Wohnung" ], "zeile": "columns[2]" }
       ],
       "einheit": "Text mit Feldern",
-      "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[2].data.columns[0..2] (title, items); icon und icon_text: Kopf-Icons nach dem Konzept (Folie A4), Bezeichnung für Vorleseprogramme",
+      "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[2].data.columns[0..2] (title, items); icon und icon_text: Kopf-Icons nach dem Konzept (Folie A3), Bezeichnung für Vorleseprogramme",
       "geprueft": true
     }
   }

@@ -133,6 +133,8 @@ const SKALA = {
   dicht:         { fontFace: F.text, fontSize: 14, zeileMal: 1.12, farbe: 'text' },
   klein:         { fontFace: F.text, fontSize: 12, zeileMal: 1.12, farbe: 'sekundaer' },
   kleinText:     { fontFace: F.text, fontSize: 12, zeileMal: 1.12, farbe: 'text' },
+  // Hinweis am Diagramm (B.hinweis, G8 vom 13.11.2026): Work Sans Light 12 pt im grauen Kasten mit Info-Symbol
+  hinweis:       { fontFace: F.light, fontSize: 12, zeileMal: 1.12, farbe: 'text' },
   deck:          { fontFace: F.montLight, fontSize: 14, zeileMal: 1.10, farbe: 'text' },
   kicker:        { fontFace: F.mont, bold: true, fontSize: 12, weite: 1.0, farbe: 'titel', versal: true },
   modultitel:    { fontFace: F.mont, bold: true, fontSize: 16, farbe: 'titel' },
@@ -161,7 +163,7 @@ const MIN = { fliess: 14, tabelle: 12, beschriftung: 10 };
 // Mindestgröße je Textrolle; Rollen ohne Eintrag gelten als Beschriftung (10 pt)
 const ROLLENMIN = {
   vorspann: 14, fliess: 14, dicht: 14,
-  klein: 12, kleinText: 12, sub: 12, tabellenkopf: 12, deck: 12, modultitel: 12, diagrammtitel: 12, station: 12, stationKlein: 12, zitatName: 12, zitatQuelle: 12,
+  klein: 12, kleinText: 12, hinweis: 12, sub: 12, tabellenkopf: 12, deck: 12, modultitel: 12, diagrammtitel: 12, station: 12, stationKlein: 12, zitatName: 12, zitatQuelle: 12,
   bezeichnung: 12, wert: 12, wertGross: 12, kernwert: 12, vorsatz: 11, kennlabel: 12, kicker: 11, zitat: 14,
   label: 10, achse: 10, legende: 10,
 };

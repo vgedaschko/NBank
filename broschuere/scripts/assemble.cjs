@@ -52,6 +52,7 @@ const HYPH_EXCEPTIONS = new Map(Object.entries({
   'belegungsbindung': 'belegungs-bindung',
   'förderentscheidung': 'förder-entscheidung',
   'verwaltungskostenbeitrag': 'verwaltungs-kosten-beitrag',
+  'verwaltungsvorschriften': 'verwaltungs-vorschriften',
   'kapitalkosten': 'kapital-kosten',
   'kostengruppe': 'kosten-gruppe',
   'bemessungsgrenze': 'bemessungs-grenze',

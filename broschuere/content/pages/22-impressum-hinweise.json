@@ -51,14 +51,30 @@
       "body": "Alle Angaben ohne Gewähr, Stand 11/2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind Rechenbeispiele, keine Förderzusage."
     },
     {
-      "type": "text",
-      "heading": "Rechtsgrundlage",
-      "body": "RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtschaft, Verkehr und Bauen vom 25.06.2026 (Nds. MBl. 2026 Nr. 319), gültig vom 01.07.2026 bis 31.12.2031; ergänzend Niedersächsisches Wohnraum- und Wohnquartierfördergesetz (NWoFG) mit Durchführungsverordnung (DVO-NWoFG) und Wohngeldverordnung (WoGV, Mietenstufen)."
-    },
-    {
-      "type": "text",
-      "heading": "Quellen",
-      "body": "**Zitate:** Grant Hendrik Tonne und Michael Kiesewetter, Pressemitteilung MW vom 03.07.2026 (→ S. 2, 6). **Marktzahlen:** NBank-Wohnungsmarktbericht 2025 (→ S. 3, 7); NBank-Pressemitteilung zur Wohnungsmarktbeobachtung vom 05.12.2025 (→ S. 2); Landesregierung, Pressemitteilung vom 25.11.2025 (→ S. 17); NBank-Landkarte Wohnraumförderung (→ S. 17); ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20, und S. 34, Abb. 23 (→ S. 10)."
+      "type": "legal-sources",
+      "heading": "Rechtsquellen",
+      "groups": [
+        {
+          "label": "Bundesrecht",
+          "items": [
+            "Wohngeldverordnung (WoGV) in der Fassung der Bekanntmachung vom 19.10.2001 (BGBl. I S. 2722), zuletzt geändert durch Artikel 2 der Verordnung vom 21.10.2024 (BGBl. 2024 I Nr. 314)"
+          ]
+        },
+        {
+          "label": "Landesrecht",
+          "items": [
+            "Niedersächsisches Gesetz über die soziale Wohnraumförderung und die Förderung von Wohnquartieren (NWoFG) vom 29.10.2009 (Nds. GVBl. S. 403), zuletzt geändert durch Artikel 11 des Gesetzes vom 18.12.2025 (Nds. GVBl. 2025 Nr. 106)",
+            "Verordnung zur Durchführung des Niedersächsischen Wohnraum- und Wohnquartierfördergesetzes (DVO-NWoFG) vom 30.07.2025 (Nds. GVBl. 2025 Nr. 58)"
+          ]
+        },
+        {
+          "label": "Verwaltungsvorschriften",
+          "items": [
+            "Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum (RL Mietwohnraum 2026), Runderlass des Ministeriums für Wirtschaft, Verkehr und Bauen vom 25.06.2026, Az. 60-25110-3/000-25 (Nds. MBl. 2026 Nr. 319), gültig vom 01.07.2026 bis 31.12.2031"
+          ]
+        }
+      ],
+      "note": "Änderungsrunde 13.11.2026 (B22.1 mit Rückfrage 7): Rechtsquellenverzeichnis statt „Rechtsgrundlage“, drei Gruppen, ein Eintrag je Absatz mit hängendem Einzug; nur die vier Einträge der Änderungsdatei. Belege: Pruefung-Schritt-1.md Abschnitt 3 (gesetze-im-internet.de, recht.bund.de, VORIS, Nds. GVBl. 2025 Nr. 58, RL-Text). Die Quellen stehen seitdem als Tabelle auf S. 23 (B22.2)."
     }
   ],
   "footnotes": [],
@@ -75,13 +91,8 @@
     "F246",
     "F290",
     "F293",
-    "G3-01",
-    "G3-02",
-    "F306",
-    "F311",
-    "F319",
-    "F089",
-    "G2-25"
+    "F037",
+    "G2-19"
   ],
   "pgn_sources": [
     "pgn-facts.md §1 Impressum: „Planungsgemeinschaft Nord GmbH“, „Große Straße 49, 27356 Rotenburg (Wümme)“, Telefon „(+49) 4261 9293-0“, Telefax „(+49) 4261 9293-90“, info@pgn-architekten.de, www.pgn-architekten.de, „HRB 70348“, „Registergericht: Amtsgericht Walsrode“, USt-IdNr. „DE 116 324 794“. Herausgeberzeile ohne Klammerzusatz: „PGN Architekten und Ingenieure“ ist nicht belegt (Website/Logo: „Architekten. Stadtplaner. Ingenieure.“, §1/§5); das Logo auf U1 und U4 trägt die belegte Unterzeile (das Impressum trägt seit 13.11.2026 den Standardfuß mit der Wortmarke).",
@@ -92,5 +103,6 @@
     "INTERN, nicht drucken: Bei Veröffentlichung ab 01.01.2027 Geschäftsführung aktualisieren.",
     "INTERN, nicht drucken: Herausgeberzeile (nur Firmenname, ohne Klammerzusatz) und das Label „Geschäftsführung“ statt „Vertreten durch“ mit PGN bestätigen."
   ],
-  "visual_idea": "Ruhige Innenseite auf Weiß, linke Seite der Doppelseite 22|23 (Impressum | Quellen und Notizen) seit der Änderungsrunde vom 13.11.2026 (vorher U3). Kopfzeile mit Rubrik „PGN“ wie S. 21 und 23, Standardfuß mit Blatt 21. Gemeinsame Horizonte mit S. 23: Kopfzeile 14 mm, H1 26 mm, erste Bandlinie 68,5 mm. Headline „Impressum und Hinweise“ in Montserrat Black Versalien (25 pt) mit roter Titellinie; darunter ein Satz in Work Sans 12 pt (Vorspann): NBank und Land Niedersachsen sind nicht Herausgeber. Zeile 1 (Oberkante = Kopf der Quellentabelle S. 23; dieselbe Höhe wie der Modulkopf „Leistungen und Auftraggeber“ S. 21): Impressum als Schriftfeld mit sechs Zeilen – Herausgeber, Kontakt, Geschäftsführung, Registergericht, USt-IdNr., Bildnachweis; Labels in Montserrat 700 Versalien, 8,5 pt, grau (3 Spalten), Werte in Work Sans 9,5 pt (9 Spalten), Haarlinien zwischen den Zeilen, kräftige Linie oben und unten. Zeile 2 (Höhe wie der Modulkopf Referenzen S. 21): zentraler Rechtshinweis als einziger gerahmter Hinweis der Broschüre – Papierfläche, schwarze Linie links, Titel „Hinweis“ als Modultitel (Montserrat 800, 12 pt, gemischt), Text in Work Sans 9,5 pt; einziger Ort für den Stand 11/2026 neben U1. Zeile 3 (Höhe wie die Referenzkacheln S. 21): Rechtsgrundlage | Quellen zweispaltig, Zwischentitel als Modultitel (Montserrat 800, 12 pt, gemischt), Text 9,5 pt. Fuß: Plankopf wie alle Innenseiten (Blatt 21, PGN-Wortmarke, Kolumnentitel). Rot nur: Titellinie und Wortmarke. Keine Platzhalter mehr; kein NBank- oder Landeslogo. Jede Angabe steht auf der Seite genau einmal."
+  "visual_idea": "Ruhige Innenseite auf Weiß, linke Seite der Doppelseite 22|23 (Impressum | Quellen und Notizen) seit der Änderungsrunde vom 13.11.2026 (vorher U3). Kopfzeile mit Rubrik „PGN“ wie S. 21 und 23, Standardfuß mit Blatt 21. Gemeinsame Horizonte mit S. 23: Kopfzeile 14 mm, H1 26 mm, erste Bandlinie 68,5 mm. Headline „Impressum und Hinweise“ in Montserrat Black Versalien (25 pt) mit roter Titellinie; darunter ein Satz in Work Sans 12 pt (Vorspann): NBank und Land Niedersachsen sind nicht Herausgeber. Zeile 1 (Oberkante = Kopf der Quellentabelle S. 23): Impressum als Schriftfeld mit sechs Zeilen – Herausgeber, Kontakt, Geschäftsführung, Registergericht, USt-IdNr., Bildnachweis; Labels in Montserrat 700 Versalien, 8,5 pt, grau (3 Spalten), Werte in Work Sans 9,5 pt (9 Spalten), Haarlinien zwischen den Zeilen, kräftige Linie oben und unten. Zeile 2: zentraler Rechtshinweis als einziger gerahmter Hinweis der Broschüre – Papierfläche, schwarze Linie links, Titel „Hinweis“ als Modultitel (Montserrat 800, 12 pt, gemischt), Text in Work Sans 9,5 pt; einziger Ort für den Stand 11/2026 neben U1. Zeile 3, unten am Satzspiegel (273 mm): „Rechtsquellen“ als Modultitel (Montserrat 800, 12 pt, gemischt) mit Haarlinie darüber, drei Gruppen Bundesrecht, Landesrecht, Verwaltungsvorschriften (Label wie im Schriftfeld, 3 Spalten), Einträge in Work Sans 9,5 pt (9 Spalten), ein Eintrag je Absatz mit hängendem Einzug. Die Quellen stehen als Tabelle auf S. 23. Fuß: Plankopf wie alle Innenseiten (Blatt 21, PGN-Wortmarke, Kolumnentitel). Rot nur: Titellinie und Wortmarke. Keine Platzhalter mehr; kein NBank- oder Landeslogo. Jede Angabe steht auf der Seite genau einmal.",
+  "visual_idea_note": "Seit 13.11.2026: Impressum und Hinweis in natürlicher Höhe (die festen Zeilenhöhen von 61 mm entfallen), gleicher Abstand über und unter dem Hinweis; Rechtsquellen schließen unten am Satzspiegel (273 mm, Unterkante wie die Notizfläche auf S. 23). Zeile 1 ab 68,5 mm = Kopf der Quellentabelle auf S. 23."
 }

@@ -98,20 +98,21 @@
             "icon": "verordnung",
             "title": "Bedarfsverordnung der Gemeinde",
             "body": "Per Verordnung legt die Gemeinde für ein Gebiet mit erhöhtem Wohnungsbedarf ein Benennungsrecht fest (Rang 2). Auf Verlangen vermieten Sie dann an einen von mindestens drei benannten wohnberechtigten Haushalten. Genossenschaftlicher Wohnraum lässt sich ausnehmen."
-          },
-          {
-            "icon": "bauherrin",
-            "title": "Kommune als Bauherrin",
-            "body": "Kommunen sind selbst antragsberechtigt; für sie gilt zusätzlich das Vergaberecht."
           }
         ]
-      }
+      },
+      "note": "Änderungsrunde 13.11.2026 (B17.2): zwei Spalten; „Kommune als Bauherrin“ entfällt. Texte unverändert."
     },
     {
-      "type": "text",
-      "role_hint": "band",
+      "type": "bullets",
+      "role_hint": "kasten",
       "heading": "Freistellung von der Belegungsbindung",
-      "body": "Findet sich nachweislich kein wohnberechtigter Haushalt, kann die Wohnraumförderstelle befristet freistellen. Antrag in der Regel spätestens vier Wochen vor Freiwerden oder Bezugsfertigkeit. Freistellung höchstens fünf Jahre, einmal verlängerbar. Die Mietbindung bleibt. Ausgleich: in der Regel 0,50 € je m² und Monat (nicht auf die Mieter umlegbar) oder Belegungsrechte an Ersatzwohnungen."
+      "items": [
+        "Wann: wenn sich nachweislich kein wohnberechtigter Haushalt findet. Antrag in der Regel spätestens vier Wochen vor Freiwerden oder Bezugsfertigkeit.",
+        "Wie lange: befristet, höchstens fünf Jahre, einmal verlängerbar. Die Mietbindung bleibt.",
+        "Ausgleich: in der Regel 0,50 € je m² und Monat, nicht auf die Mieter umlegbar, oder Belegungsrechte an Ersatzwohnungen."
+      ],
+      "note": "Änderungsrunde 13.11.2026 (B17.3, Rückfrage 13): Kasten mit drei Stichpunkten aus dem bisherigen Text (Wann, Wie lange, Ausgleich); Beleg factbase G2-40 (VV NWoFG 2026)."
     }
   ],
   "footnotes": [],
@@ -149,8 +150,9 @@
     "F023",
     "G2-40"
   ],
-  "visual_idea": "Rechte Seite der Doppelseite 16|17 (Bindungen | Standort und Kommune), seit der Änderungsrunde vom 13.11.2026. Gemeinsame Horizonte mit S. 16: Kopfzeile in der Höhe der Kopfzeile mit Schlüsselplan (hier ohne Schlüsselplan), H1, erste Bandlinie = Oberkante Leiter und Ring (85,8 mm), Unterkante 273 mm. Kein Baustein-Register (programmübergreifend), stattdessen Register in PGN-Rot #B71E3F, eckig. Dichte Seite (.page--dicht, Text 9 pt). Kopf nach der Stufung (styles.css §8b): Kopfzeile mit Rubrik „Umsetzung“ (8,5 pt Versalien in Schwarz); Headline in Montserrat Black Versalien 25 pt mit senkrechter roter 2-pt-Linie links, Rot nur am Wort „Bedarf“; Unterzeile in Work Sans 12 pt, gemischt gesetzt, drei Kennwörter halbfett in Schwarz; erster Satz als Vorspann in Work Sans 12 pt, der Rest als Text. Dominantes Element links (ca. 55 % der Breite): Vorrang-Leiter mit sechs Stufen, Rang 1 oben und am breitesten; Rangnummern groß in Montserrat Black in PGN-Rot (graustufenfest), daneben dünne Linienicons in Anthrazit (Schloss, Paragraf, Barett, Welle, Stufenpfeil, Bauplan), Label in Montserrat 600 Versalien, Detail in Work Sans; Fußzeile der Leiter klein auf #F4F3F2. Rechts der Ring „Bedarfslage auf der NBank-Karte“: 306 und 96 mit Direktbeschriftung, im Ringloch ein echter QR-Code mit Label „Aktuelle Karte“; kein Landkarten-Nachbau. Unter dem Ring die zweisätzige Notiz (Bedarfsbestätigung in beiden Fällen; Nachweis bei „gesondert nachweisen“ = Vermutung widerlegt) ohne eigene Überschrift, höchstens acht Zeilen (sonst verschiebt sich die erste Bandlinie gegenüber S. 16). Untere Hälfte: „Instrumente der Kommune“ als drei gleich breite, eckige Karten über die volle Breite, je ein Linienicon (Dokument, Paragraf, Kran) über Titel und Kurztext, feine senkrechte Trennlinien statt Rahmen. Darunter als drittes Modul „Freistellung von der Belegungsbindung“ als schmale Textzeile über die volle Breite, Überschrift als Run-in in Work Sans Bold (mit Punkt) – kein Kasten, keine Fläche, keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile, kein Zitat.",
+  "visual_idea": "Rechte Seite der Doppelseite 16|17 (Bindungen | Standort und Kommune), seit der Änderungsrunde vom 13.11.2026. Gemeinsame Horizonte mit S. 16: Kopfzeile in der Höhe der Kopfzeile mit Schlüsselplan (hier ohne Schlüsselplan), H1, erste Bandlinie = Oberkante Leiter und Ring (85,8 mm), Unterkante 273 mm. Kein Baustein-Register (programmübergreifend), stattdessen Register in PGN-Rot #B71E3F, eckig. Dichte Seite (.page--dicht, Text 9 pt). Kopf nach der Stufung (styles.css §8b): Kopfzeile mit Rubrik „Umsetzung“ (8,5 pt Versalien in Schwarz); Headline in Montserrat Black Versalien 25 pt mit senkrechter roter 2-pt-Linie links, Rot nur am Wort „Bedarf“; Unterzeile in Work Sans 12 pt, gemischt gesetzt, drei Kennwörter halbfett in Schwarz; Vorspann ein Absatz in Work Sans 12 pt über die volle Breite (seit 13.11.2026, B17.1). Dominantes Element links (ca. 55 % der Breite): Vorrang-Leiter mit sechs Stufen, Rang 1 oben und am breitesten; Rangnummern groß in Montserrat Black in PGN-Rot (graustufenfest), daneben dünne Linienicons in Anthrazit (Schloss, Paragraf, Barett, Welle, Stufenpfeil, Bauplan), Label in Montserrat 600 Versalien, Detail in Work Sans; Fußzeile der Leiter klein auf #F4F3F2. Rechts der Ring „Bedarfslage auf der NBank-Karte“: 306 und 96 mit Direktbeschriftung, im Ringloch ein echter QR-Code mit Label „Aktuelle Karte“; kein Landkarten-Nachbau. Unter dem Ring die zweisätzige Notiz (Bedarfsbestätigung in beiden Fällen; Nachweis bei „gesondert nachweisen“ = Vermutung widerlegt) ohne eigene Überschrift, höchstens acht Zeilen (sonst verschiebt sich die erste Bandlinie gegenüber S. 16). Untere Hälfte: „Instrumente der Kommune“ als zwei eckige Karten über die volle Breite (seit 13.11.2026, B17.2), je ein Linienicon (Dokument, Paragraf) über Titel und Kurztext, feine senkrechte Trennlinie statt Rahmen. Darunter als drittes Modul „Freistellung von der Belegungsbindung“ als Kasten auf #F4F3F2 über die volle Breite mit drei Stichpunkten Wann, Wie lange, Ausgleich (seit 13.11.2026, B17.3); keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile, kein Zitat.",
   "open_points": [
     "Korrekturlauf 1 (globale Regeln B, ohne Kundenkommentar auf dieser Seite): H1 „Wo Bedarf gilt – und was Kommunen tun können“ (Muster „… – und was …“, das der Kunde auf S. 4 als Schülerreferat beanstandet hat) → „Bedarf am Standort und die Rolle der Kommune“; Deck-Dreiklang „Sechs Gebietsarten, eine Karte, drei Hebel“ → Aussage „Der Standort entscheidet über Förderfähigkeit, Vorrang und Mieterkreis“; Handlungsanweisung „Klären Sie den Standort zuerst …“ gestrichen, dafür die Bedarfsvermutung verständlich erklärt (vgl. Kommentar S. 4 alt „verständlicher formulieren“); „Werkzeugkasten“ → „Instrumente der Kommune“; Run-in-Frage „Kein WBS-Haushalt gefunden?“ → „Freistellung von der Belegungsbindung“; „Immer nötig“ → „In beiden Fällen nötig“ (gilt für beide Kartenkategorien, nicht für 2.3–2.5); Ausgleich „etwa 0,50 €“ → „in der Regel 0,50 €“ (VV NWoFG Nr. 9.3.2: „soll … betragen“, G2-40)."
-  ]
+  ],
+  "lead_note": "Änderungsrunde 13.11.2026 (B17.1, Rückfrage 12): ein Absatz in 12 pt über die volle Breite (vorher erster Satz als Vorspann, Rest als Text in 9 pt). Er läuft in fünf Zeilen; Unterzeile und Vorspann stehen deshalb mit Zeilenabstand 1,25 und engeren Abständen, damit die erste Bandlinie bei 85,8 mm bleibt (gemeinsam mit S. 16)."
 }

@@ -101,9 +101,10 @@ Den Ordner immer vollständig weitergeben (IDML, `Links/` und `Document Fonts/` 
 `LIESMICH.txt` wird bei jedem Lauf aus den Daten des Exports erzeugt (`scripts/idml/liesmich.cjs`). Zahlen,
 Seitenlisten und die Checkliste dort stimmen also immer mit dem gelieferten Paket überein.
 
-Kennzahlen des Exports vom 13.11.2026 (nach der Änderungsrunde: ohne Blatt „Stichtag“, mit S. 23 „Quellen und Notizen“): 24 Seiten
-in 13 Druckbögen, 632 Textrahmen mit 1096 Absätzen, 11 Tabellen, 668 Flächen und Linien, 82 Grafikrahmen (70 PDF-Dateien in
-`Links/`, 12 Objekte auf der Musterseite), 178 Absatzformate plus 2 Basisformate, 43 Zeichenformate, 25 Farbfelder, 13 Schriftschnitte.
+Kennzahlen des Exports vom 13.11.2026 (nach der Änderungsrunde: ohne Blatt „Stichtag“, mit S. 23 „Quellen und Notizen“, Inhalte
+der Seiten 2–24 nachgezogen, darunter die Quellentabelle S. 23 und die Rechtsquellen S. 22): 24 Seiten in 13 Druckbögen,
+639 Textrahmen mit 1144 Absätzen, 11 Tabellen, 682 Flächen und Linien, 81 Grafikrahmen (69 PDF-Dateien in `Links/`, 12 Objekte
+auf der Musterseite), 178 Absatzformate plus 2 Basisformate, 40 Zeichenformate, 25 Farbfelder, 13 Schriftschnitte.
 
 ## Abbildung HTML → InDesign
 

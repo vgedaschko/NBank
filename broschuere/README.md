@@ -17,7 +17,7 @@ Die Broschüre umfasst 24 Seiten im Format DIN A4 hoch und erklärt die **RL Mie
 Zielgruppen sind Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren, Projektentwicklung und Kommunen.
 Die Broschüre liest die Richtlinie wie ein Investment-Memo: zuerst die Zahlen, dann die Orientierung und die Ertragsseite,
 dann die Finanzierung mit Modellrechnung und Wirtschaftlichkeit, danach die übrigen Programmteile, Standort, Kommune und
-Antragsweg, zuletzt die Leistungen von PGN. Redaktionsstand: **13.11.2026** (Korrekturlauf 1, danach Bemessungsgrenzen seit 01.10.2026, Bankzins und Stand nachgezogen; Änderungsrunde vom 13.11.2026: Blatt „Stichtag 31.12.2026“ gestrichen, neue Seite „Quellen und Notizen“ vor der Rückseite). Der Stand „11/2026“ steht nur auf U1 und im Impressum (S. 22), nicht in den Fußzeilen. Stand der Gestaltung: **12.11.2026**, Stufung und Zuteilung nach `DESIGN.md` §0a.
+Antragsweg, zuletzt die Leistungen von PGN. Redaktionsstand: **13.11.2026** (Korrekturlauf 1, danach Bemessungsgrenzen seit 01.10.2026, Bankzins und Stand nachgezogen; Änderungsrunde vom 13.11.2026: Blatt „Stichtag 31.12.2026“ gestrichen, neue Seite „Quellen und Notizen“ vor der Rückseite mit der Quellentabelle, Rechtsquellen im Impressum S. 22). Der Stand „11/2026“ steht nur auf U1 und im Impressum (S. 22), nicht in den Fußzeilen. Stand der Gestaltung: **12.11.2026**, Stufung und Zuteilung nach `DESIGN.md` §0a.
 
 ## Dateien in `dist/`
 
@@ -53,7 +53,7 @@ Dateinamen, `data-page`, Anker `#seite-NN`, die Vorschaubilder `seite-NN.png` un
 | 1 | U1 | Umschlag · Titel | Wohnraum, der sich rechnet. |
 | 2 | U2 | Editorial | Damit sich Investieren wieder rechnet (Editorial, Inhalt) |
 | 23 | U3 | PGN · Quellen und Notizen | Quellen und Notizen |
-| 24 | U4 | Umschlag · Rückseite | Aus Ihrer guten Idee – machen wir den besten Plan. |
+| 24 | U4 | Umschlag · Rückseite | Aus Ihrer guten Idee machen wir den besten Plan. (seit 13.11.2026 ohne Gedankenstrich, zweite Stimme „Aus Ihrer guten Idee“) |
 
 **Innenteil (S. 3–22)**
 
@@ -81,7 +81,8 @@ Dateinamen, `data-page`, Anker `#seite-NN`, die Vorschaubilder `seite-NN.png` un
 | 22 | PGN · Impressum | Impressum und Hinweise |
 
 S. 8, 10, 11, 13, 14, 15 und 16 tragen im H1 eine zweite Stimme über der Hauptzeile. Auf der Seite steht kein Doppelpunkt
-dazwischen; hier und im PDF-Lesezeichen sind beide mit Doppelpunkt verbunden. Jede Innenseite hat eine Kopfzeile mit der
+dazwischen; hier und im PDF-Lesezeichen sind beide mit Doppelpunkt verbunden. U4 trägt die zweite Stimme „Aus Ihrer guten Idee“ mit `data-satz` am H1:
+im Lesezeichen ohne Doppelpunkt („Aus Ihrer guten Idee machen wir den besten Plan.“), wie S. 2 und 3. Jede Innenseite hat eine Kopfzeile mit der
 Rubrik, dem ersten Teil des Kolumnentitels (`DESIGN.md` §0a).
 
 ## Platzhalter – was PGN vor dem Druck liefert

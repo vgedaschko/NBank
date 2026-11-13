@@ -98,7 +98,8 @@
     {
       "type": "text",
       "heading": "Ablauf und Kombination",
-      "body": "Auszahlung: bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abschluss. Bearbeitungsentgelt: einmalig 0,75 % des Zuschusses. Eigenmittel: mindestens 20 % der zuwendungsfähigen Kosten, davon soll mindestens die Hälfte Geld sein.\n\nZusätzlich nutzbar: Bundesförderung BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen; eines von beiden, das andere frühestens drei Jahre später. Decken öffentliche Mittel samt NBank-Zuschuss mehr als 60 % derselben Kosten, wird die BEG gekürzt (Kommunen bei BEG Einzelmaßnahmen: 90 %)."
+      "body": "Auszahlung: bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abschluss. Bearbeitungsentgelt: einmalig 0,75 % des Zuschusses. Eigenmittel: mindestens 20 % der zuwendungsfähigen Kosten, davon soll mindestens die Hälfte Geld sein.\n\nZusätzlich nutzbar: Bundesförderung BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen; eines von beiden, das andere frühestens drei Jahre später. Decken öffentliche Mittel samt NBank-Zuschuss mehr als 60 % derselben Kosten, wird die BEG gekürzt (Kommunen bei BEG Einzelmaßnahmen: 90 %).\n\nAb 01.01.2027 gilt eine neue Rechennorm für Energiebedarfsausweise. Die Klassengrenzen bleiben unverändert.",
+      "note": "Änderungsrunde 13.11.2026 (B14.2, Rückfrage 9): Der Satz zur Rechennorm steht als letzter Absatz hier, in der Zeile, die das gestrichene Wahlrecht frei gemacht hat (B14.1). Unter dem Diagramm „Effizienzklassen“ passt er nicht, ohne die Bandlinie zu verschieben; die Bandlinie auf S. 14 und 15 bleibt. „Ab 01.01.2027“ halbfett wie die übrigen Einstiege des Blocks. Beleg: factbase G3-15 bis G3-17 (BGBl. 2026 I Nr. 226)."
     },
     {
       "type": "text",
@@ -141,6 +142,9 @@
     "G3-12",
     "G3-13",
     "G3-14",
+    "G3-15",
+    "G3-16",
+    "G3-17",
     "G3-18",
     "G3-19"
   ],

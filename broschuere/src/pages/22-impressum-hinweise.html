@@ -2,39 +2,43 @@
   <style>
     /* Seite 22 · Impressum und Hinweise · Planwerk. Linke Seite der Doppelseite 22|23 (Impressum | Quellen und Notizen).
        Seit der Änderungsrunde vom 13.11.2026 eine Innenseite (vorher U3): Kopfzeile mit Rubrik „PGN“ wie S. 21 und 23,
-       Standardfuß mit Blatt 21. Gemeinsame Horizonte mit S. 23: Kopfzeile 14 mm · H1 26 mm · Zeile 1 ab 68,5 mm
-       (Impressum als Schriftfeld = Modulkopf „Leistungen und Auftraggeber“ + Werte) · Zeile 2 ab 136,5 mm (Hinweis = Modulkopf
-       Referenzen) · Zeile 3 ab 197,5 mm (Rechtsgrundlage, Quellen). Die Zeilen 2 und 3 lagen bis 13.11.2026 auf den Horizonten
-       von „Über PGN“ (Modulkopf und Referenzreihe); die Seite steht seitdem neben „Quellen und Notizen“.
+       Standardfuß mit Blatt 21. Gemeinsame Horizonte mit S. 23: Kopfzeile 14 mm · H1 26 mm · Zeile 1 ab 68,5 mm (Impressum
+       als Schriftfeld = Kopf der Quellentabelle) · Unterkante 273 mm (Rechtsquellen = Unterkante der Notizfläche).
+       Änderungsrunde 13.11.2026 (B22.1, B22.2): „Rechtsgrundlage“ ist das Rechtsquellenverzeichnis „Rechtsquellen“ in drei
+       Gruppen (Bundesrecht, Landesrecht, Verwaltungsvorschriften), ein Eintrag je Absatz mit hängendem Einzug; die
+       Quellenliste steht als Tabelle auf S. 23. Das Label „Verwaltungsvorschriften“ trennt an der Wortfuge (.u-hyphens,
+       Ausnahme in assemble.cjs). Die festen Zeilenhöhen von 61 mm (Horizonte von „Über PGN“) entfallen:
+       Impressum und Hinweis stehen in ihrer natürlichen Höhe, die Rechtsquellen schließen unten am Satzspiegel; über und
+       unter dem Hinweis bleibt derselbe Abstand (8,9 mm).
        Korrekturlauf 1: „Verantwortlich für den Inhalt“ und „Druck“ entfallen (§ 7 Abs. 3, § 8 Abs. 2 NPresseG), Bildnachweis
        als sechste Zeile des Schriftfelds, Stand nur noch im Hinweis, Rolle der Stellen nur noch einmal (Hinweis) – jede Angabe
        steht auf der Seite genau einmal. Farben nur über Tokens.
        Stufung und Zuteilung nach styles.css §8b: H1 25 pt, Vorspann 12 pt, Modultitel 12 pt gemischt („Hinweis“,
-       „Rechtsgrundlage“, „Quellen“), Text 9,5 pt, Labels im Schriftfeld 8,5 pt Versalien. Rot nur: Titellinie und Logo. */
+       „Rechtsquellen“), Text 9,5 pt, Labels im Schriftfeld und der Rechtsquellen 8,5 pt Versalien. Rot nur: Titellinie. */
     .page[data-page="22"] .p23-head { height: 35.5mm; }   /* H1 ab 26 mm, Zeile 1 ab 68,5 mm */
     .page[data-page="22"] .p23-head .lead { margin-top: 4.5mm; max-width: none; }   /* ein Satz, eine Zeile */
 
     /* Zeile 1: Impressum als Schriftfeld (Label 3 Spalten | Wert 9 Spalten) */
-    .page[data-page="22"] .p23-imprint { display: flex; flex-direction: column; height: 61mm; margin-top: 7mm; border-top: var(--rule-w) solid var(--rule-strong); }
-    .page[data-page="22"] .p23-imprint > div { flex: 1 0 auto; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-content: center; padding: 1mm 0; border-bottom: var(--hair) solid var(--rule); }
+    .page[data-page="22"] .p23-imprint { margin-top: 7mm; border-top: var(--rule-w) solid var(--rule-strong); }
+    .page[data-page="22"] .p23-imprint > div { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); padding: 2.2mm 0 2.3mm; border-bottom: var(--hair) solid var(--rule); }
     .page[data-page="22"] .p23-imprint > div:last-child { border-bottom: var(--rule-w) solid var(--rule-strong); }
     .page[data-page="22"] .p23-imprint dt { grid-column: 1 / span 3; padding-top: .55mm; font: 700 var(--fs-micro)/1.3 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
     .page[data-page="22"] .p23-imprint dd { grid-column: 4 / span 9; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg); }
     .page[data-page="22"] .p23-firm { font-weight: 600; }
 
     /* Zeile 2: zentraler Rechtshinweis – einziger gerahmter Hinweis des Hefts */
-    .page[data-page="22"] .p23-row2 { height: 61mm; margin-top: 7mm; }
-    .page[data-page="22"] .p23-note { padding: 5.4mm 7mm 6mm 7mm; background: var(--surface-2); border-top: 0; border-left: var(--rule-accent) solid var(--fg); }
+    .page[data-page="22"] .p23-note { margin-top: 8.9mm; padding: 5.4mm 7mm 6mm 7mm; background: var(--surface-2); border-top: 0; border-left: var(--rule-accent) solid var(--fg); }
     .page[data-page="22"] .p23-note .callout__title { margin-top: 0; font: 800 var(--fs-h3)/1.2 var(--font-display); letter-spacing: 0; text-transform: none; }
     .page[data-page="22"] .p23-note .callout__body { margin-top: 1.6mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
 
-    /* Zeile 3: Rechtsgrundlage | Quellen */
-    .page[data-page="22"] .p23-legal { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
-    .page[data-page="22"] .p23-legal > div { grid-column: span 6; border-top: var(--hair) solid var(--rule-strong); padding-top: 2.4mm; }
-    .page[data-page="22"] .p23-legal p { margin-top: 1.6mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
-    .page[data-page="22"] .p23-legal p b { color: var(--fg); }
-    .page[data-page="22"] .p23-legal a { color: inherit; }
-
+    /* Zeile 3: Rechtsquellen (Gruppe 3 Spalten | Einträge 9 Spalten wie das Schriftfeld), schließt unten am Satzspiegel */
+    .page[data-page="22"] .p23-rq { margin-top: auto; padding-top: 2.4mm; border-top: var(--hair) solid var(--rule-strong); }
+    .page[data-page="22"] .p23-rq__group { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: 2.6mm; }
+    .page[data-page="22"] .p23-rq__group + .p23-rq__group { margin-top: 2.2mm; padding-top: 2.2mm; border-top: var(--hair) solid var(--rule); }
+    .page[data-page="22"] .p23-rq__label { grid-column: 1 / span 3; padding-top: .55mm; font: 700 var(--fs-micro)/1.3 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg-3); }
+    .page[data-page="22"] .p23-rq__list { grid-column: 4 / span 9; }
+    .page[data-page="22"] .p23-rq__list p { padding-left: 4mm; text-indent: -4mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }   /* hängender Einzug */
+    .page[data-page="22"] .p23-rq__list p + p { margin-top: 1.2mm; }
   </style>
 
   <header class="page__header"><span class="page__section">PGN</span></header>
@@ -52,23 +56,33 @@
     <div><dt>Bildnachweis</dt><dd>Alle Visualisierungen, Zeichnungen und Diagramme: <span class="u-nowrap">Planungsgemeinschaft Nord GmbH</span></dd></div>
   </dl>
 
-  <div class="p23-row2">
   <aside class="callout p23-note" aria-labelledby="p23-hinweis">
     <h2 class="callout__title" id="p23-hinweis">Hinweis</h2>
     <p class="callout__body">Alle Angaben ohne Gewähr, Stand 11/2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind <span class="u-nohyphens">Rechenbeispiele,</span> <span class="u-nowrap">keine Förderzusage.</span></p>
   </aside>
-  </div>
 
-  <div class="p23-legal">
-    <div>
-      <h2 class="h3">Rechtsgrundlage</h2>
-      <p>RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtschaft, Verkehr und Bauen vom 25.06.2026 (Nds. MBl. 2026 Nr. 319), gültig vom 01.07.2026 bis 31.12.2031; ergänzend <span class="u-nohyphens">Niedersächsisches</span> Wohnraum- und Wohnquartierfördergesetz (NWoFG) mit Durchführungsverordnung (DVO-NWoFG) und Wohngeldverordnung (WoGV, Mietenstufen).</p>
+  <section class="p23-rq" aria-labelledby="p23-rq-h">
+    <h2 class="h3" id="p23-rq-h">Rechtsquellen</h2>
+    <div class="p23-rq__group">
+      <h3 class="p23-rq__label">Bundesrecht</h3>
+      <div class="p23-rq__list">
+        <p>Wohngeldverordnung (WoGV) in der Fassung der Bekanntmachung vom 19.10.2001 (BGBl. I S. 2722), zuletzt geändert durch Artikel 2 der Verordnung vom 21.10.2024 (BGBl. 2024 I Nr. 314)</p>
+      </div>
     </div>
-    <div>
-      <h2 class="h3">Quellen</h2>
-      <p><b class="u-nohyphens">Zitate:</b> Grant Hendrik Tonne und Michael Kiesewetter, Pressemitteilung MW vom 03.07.2026 (<a href="#seite-02">→&nbsp;S.&nbsp;1</a>, <a href="#seite-06">5</a>). <b class="u-nohyphens">Marktzahlen:</b> NBank-Wohnungsmarktbericht 2025 (<a href="#seite-03">→&nbsp;S.&nbsp;2</a>, <a href="#seite-07">6</a>); NBank-Pressemitteilung zur Wohnungsmarktbeobachtung vom 05.12.2025 (<a href="#seite-02">→&nbsp;S.&nbsp;1</a>); Landesregierung, Pressemitteilung vom 25.11.2025 (<a href="#seite-17">→&nbsp;S.&nbsp;16</a>); NBank-Landkarte Wohnraumförderung (<a href="#seite-17">→&nbsp;S.&nbsp;16</a>); ARGE e.&nbsp;V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S.&nbsp;32, Abb.&nbsp;20, und S.&nbsp;34, Abb.&nbsp;23 (<a href="#seite-10">→&nbsp;S.&nbsp;9</a>).</p>
+    <div class="p23-rq__group">
+      <h3 class="p23-rq__label">Landesrecht</h3>
+      <div class="p23-rq__list">
+        <p>Niedersächsisches Gesetz über die soziale Wohnraumförderung und die Förderung von Wohnquartieren (NWoFG) vom 29.10.2009 (Nds. GVBl. S. 403), zuletzt geändert durch Artikel 11 des Gesetzes vom 18.12.2025 (Nds. GVBl. 2025 Nr. 106)</p>
+        <p>Verordnung zur Durchführung des Niedersächsischen Wohnraum- und Wohnquartierfördergesetzes (DVO-NWoFG) vom 30.07.2025 (Nds. GVBl. 2025 Nr. 58)</p>
+      </div>
     </div>
-  </div>
+    <div class="p23-rq__group">
+      <h3 class="p23-rq__label u-hyphens">Verwaltungsvorschriften</h3>
+      <div class="p23-rq__list">
+        <p>Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum (RL Mietwohnraum 2026), Runderlass des Ministeriums für Wirtschaft, Verkehr und Bauen vom 25.06.2026, Az. 60-25110-3/000-25 (Nds. MBl. 2026 Nr. 319), gültig vom 01.07.2026 bis 31.12.2031</p>
+      </div>
+    </div>
+  </section>
 
   <footer class="page__foot" aria-hidden="true"><span class="page__folio">21</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>PGN · Impressum</b></span></span></footer>
 </section>

@@ -24,7 +24,7 @@ aber Korrektheit entsteht durch präzise Hauptaussagen, nicht durch Dutzende Abs
 | **Überkompensation / Beihilfe-Vorbehalt** | Raus aus allen Seiten außer: einmal kurz auf der Seite „Konditionen und Kosten“ (S. 9) als eigene Zeile in den Eckdaten, und im zentralen Hinweis. |
 | **„eigene Berechnung“, „eigene Ableitung“, „Annahme“** | Raus. Modellrechnungen tragen genau **einen** Stempel „Modellrechnung“ (S. 14). Im Kapitel „Modellrechnung“ (S. 10–12) trägt die Kopfzeile das Wort (Rubrik); dort steht kein Stempel. Abgeleitete Tabellen (z. B. Einkommensgrenzen B/C) bekommen statt Disclaimer eine knappe Legende – nicht doppelt als Unterzeile und Legende (Korrekturlauf 1, S. 6). |
 | **„mit der NBank klären“, „Stand bis 21.10.2026 auf nbank.de nicht auffindbar“** | Komplett raus. Das sind Recherche-Notizen, keine Kundeninformation. Wo ein Wert regelmäßig fortgeschrieben wird: „Ausgangswert; aktueller Wert auf nbank.de“ – einmal pro Größe, nicht pro Seite. Offene Fachfragen stehen nur in `content/copy.md` (Anhang) für die interne Freigabe. |
-| **Fundstellen-/Quellenzeilen** | Komplett raus von allen Seiten. Belege liegen in `recherche/factbase.md`. Das Impressum (S. 22) nennt die Rechtsgrundlage einmal (RL Mietwohnraum 2026, Nds. MBl. 2026 Nr. 319) und die Quellen der Zitate/Marktzahlen. **Ausnahme** (Änderungsrunde 13.11.2026, B6.1): Unter dem Diagramm „Mietentwicklung und Markt“ (S. 7) steht die Zeile „Quelle: NBank-Wohnungsmarktbericht 2025“ für die Angebotsmieten. Sie ist die einzige Quellenzeile an einem Diagramm; weitere kommen nicht dazu. |
+| **Fundstellen-/Quellenzeilen** | Komplett raus von allen Seiten. Belege liegen in `recherche/factbase.md`. Das Impressum (S. 22) nennt die Rechtsquellen einmal (seit 13.11.2026 als Verzeichnis in drei Gruppen: Bundesrecht, Landesrecht, Verwaltungsvorschriften; B22.1). Die Quellen der Zitate, Marktzahlen und Konditionen stehen als Tabelle „Quelle | Verwendet auf“ auf S. 23 „Quellen und Notizen“ (B22.2), je Zeile „Herausgeber (Jahr): Titel. Fundstelle.“ **Ausnahme** (Änderungsrunde 13.11.2026, B6.1): Unter dem Diagramm „Mietentwicklung und Markt“ (S. 7) steht die Zeile „Quelle: NBank-Wohnungsmarktbericht 2025“ für die Angebotsmieten. Sie ist die einzige Quellenzeile an einem Diagramm; weitere kommen nicht dazu. |
 | **Fußnoten** | Maximal **eine** kurze Fußnote pro Seite, nur wenn sie eine echte Bedingung trägt, die nicht in den Text passt. Lieber die Bedingung in den Satz holen. |
 | **Achtung-Kästen** | Genau einer in der ganzen Broschüre: **Vorhabenbeginn** – „Erst Bewilligung, dann Vertrag“ (prominent auf dem Antragsweg, S. 18, und als Kurzverweis max. einzeilig auf S. 4 oder S. 5). Der zweite Kasten (Frist 31.12.2026, Wahlrecht Modernisierung) ist am 13.11.2026 mit dem Blatt „Stichtag“ entfallen: Bei Veröffentlichung ist die Frist abgelaufen. Alle übrigen Achtung-/Hinweis-Kästen: in den Text integrieren oder streichen. |
 | **Kalkulationsnotiz** | Entfällt ganz (Korrekturlauf 1, §8.1). |
@@ -110,13 +110,18 @@ Gelten auf allen Seiten – auch dort, wo kein Kommentar steht.
 Klar, norddeutsch, verbindlich. Kein KI-Ton, keine Floskeln, keine Prosa.
 
 1. **Aussage zuerst, ein Gedanke je Satz.** Zahl, Bedingung, Frist. Schlüsse zieht der Leser (§8.1).
-2. **Keine Einschübe mit Gedankenstrich.** Komma, Semikolon, Klammer oder neuer Satz. Ausnahmen: wörtliche Zitate und die
-   PGN-Claims von der Website („Aus Ihrer guten Idee – machen wir den besten Plan.“, Signatur „Ihre PGN – …“).
+2. **Keine Einschübe mit Gedankenstrich.** Komma, Semikolon, Klammer oder neuer Satz. Ausnahmen: wörtliche Zitate, Werktitel in
+   der Quellentabelle (S. 23) und die Signatur „Ihre PGN – …“ (S. 2). Den Website-Claim „Aus Ihrer guten Idee – machen wir den
+   besten Plan.“ setzt U4 seit der Änderungsrunde vom 13.11.2026 (BRück.1) ohne Gedankenstrich wie Folie 28 des Vortrags:
+   „Aus Ihrer guten Idee“ als zweite Stimme, darunter „machen wir den besten Plan.“; der Zeilenwechsel steht an der Stelle
+   des Strichs.
 3. **Keine Gegensatz-Figuren** („nicht X, sondern Y“, „verschiebt das Niveau, nicht den Vergleich“). Sagen, was gilt.
 4. **Keine Ankündigungen und Rahmungen** („Für Ihre Rechnung heißt das vor allem“, „Im Mittelpunkt steht“, „folgt der
    Logik“, „mit Blick auf“). Den Inhalt nennen.
 5. **Keine Bilder und Werbeformeln** („greifen ineinander“, „unter einem Dach“, „aus einer Hand“, „von der ersten Idee
-   bis …“, „zehrt auf“). Sagen, was PGN tut.
+   bis …“, „zehrt auf“). Sagen, was PGN tut. Einzige Ausnahme (Änderungsrunde 13.11.2026, B19.1 mit Rückfrage 14): S. 19,
+   Kasten „Schlüsselfertig mit der PGN Projektgesellschaft Nord“, Stichpunkt „Projektentwicklung, Projektmanagement und
+   Projektcontrolling aus einer Hand“ (die Website nennt die drei Leistungen). Sonst nirgends.
 6. **Keine Dreierreihen als Stilmittel.** Aufzählungen nur, wenn alle Glieder fachlich nötig sind.
 7. **Modellrechnung S. 11:** Der Vergleich „frei finanziert“ zeigt Darlehen, Kapitaldienst und die Miete, bei der der
    Zahlungsüberschuss null ist. Keine Renditen, keine Marktmiete, kein Fazit-Satz. Werte aus der VOFI-Mappe v3

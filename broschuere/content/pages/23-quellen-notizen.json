@@ -13,9 +13,53 @@
       "role_hint": "quellen",
       "caption": "Quellen und die Seiten, auf denen sie verwendet werden",
       "caption_visible": false,
-      "columns": ["Quelle", "Verwendet auf"],
-      "rows": [],
-      "note": "Zeilen in der Form „Herausgeber (Jahr): Titel. Fundstelle.“ | Blattnummern nach der neuen Zählung; setzt der Teil „Blätter 14 bis Rückseite“ (B22.2). Bis dahin steht im Partial eine leere Zeile, weil InDesign eine Körperzeile braucht."
+      "columns": [
+        "Quelle",
+        "Verwendet auf"
+      ],
+      "rows": [
+        [
+          "Niedersächsisches Ministerium für Wirtschaft, Verkehr und Bauen (2026): Niedersachsen stellt soziale Wohnraumförderung neu auf. Presseinformation vom 03.07.2026, aktualisiert am 09.07.2026.",
+          "1, 5"
+        ],
+        [
+          "NBank (2025): Wohnungsmarktbeobachtung 2025. Zeit umzubauen. S. 33–34 und S. 45, Abb. 19.",
+          "2, 6"
+        ],
+        [
+          "Deutscher Bundestag (2026): Antwort der Bundesregierung auf die Kleine Anfrage „Die mieten- und wohnungspolitische Entwicklung in Niedersachsen“. Drucksache 21/7303 vom 21.07.2026, S. 12.",
+          "2"
+        ],
+        [
+          "NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Neubau, Änderung, Erweiterung und erstmaliger Erwerb), Stand 05.11.2026. S. 3.",
+          "2, 3, 7, 9"
+        ],
+        [
+          "NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Allgemeine Mietwohnraumförderung), Stand 01.04.2026. S. 1–2.",
+          "3"
+        ],
+        [
+          "NBank (o. J.): Landkarte Wohnraumförderung, Bedarfsnachweise. Programmseite „Mietwohnungen in Mehrfamilienhäusern“, abgerufen am 21.10.2026.",
+          "3, 16, 19"
+        ],
+        [
+          "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 – Bedarf und Erleichterung (Endbericht). S. 32, Abb. 20, und S. 34, Abb. 23.",
+          "9"
+        ],
+        [
+          "Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen bei 10 Jahren Zinsbindung. Wert vom 10.11.2026.",
+          "10"
+        ],
+        [
+          "NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern auf den Ostfriesischen Inseln, Stand 05.11.2026. S. 3.",
+          "13"
+        ],
+        [
+          "Niedersächsische Staatskanzlei (2025): Niedersachsen verlängert die Gebietsbestimmung für Umwandlungsschutz und Mietpreisbremse bis Ende 2029. Presseinformation vom 25.11.2025.",
+          "16"
+        ]
+      ],
+      "note": "Änderungsrunde 13.11.2026 (B22.2 mit Rückfrage 8): zehn Quellen, je eine Zeile in der Form „Herausgeber (Jahr): Titel. Fundstelle.“; „Verwendet auf“ nennt gedruckte Seitenzahlen (Verweise auf die Bogenseite), an den fertigen Seiten nachgeprüft. Grundlage Pruefung-Schritt-1.md Abschnitt 4: gestrichen die NBank-Pressemitteilung vom 05.12.2025 (belegte nur den alten Einstieg S. 1); neu BT-Drs. 21/7303, Produktinformation Stand 01.04.2026, zwei Produktinformationen Stand 05.11.2026, Dr. Klein. Reihenfolge nach der ersten Seite, auf der die Quelle verwendet wird. Belege im Projekt: recherche/quellen/ (BT-Drs., Produktinformationen, ARGE, Dr. Klein), factbase F291/G3-01/G3-02 (MW), F306/F307/F311 (Wohnungsmarktbericht), F319/G2-20 (Staatskanzlei), F089/G2-25/G2-26 (Landkarte)."
     },
     {
       "type": "notes",
@@ -25,12 +69,24 @@
     }
   ],
   "footnotes": [],
-  "fact_ids": [],
+  "fact_ids": [
+    "G3-01",
+    "G3-02",
+    "F291",
+    "F306",
+    "F307",
+    "F311",
+    "F319",
+    "G2-20",
+    "F089",
+    "G2-25",
+    "G2-26"
+  ],
   "pgn_sources": [
     "Änderungsrunde vom 13.11.2026, B15.1 (Entscheidung mit Rückfrage 8 und 24): neue Seite vor der Rückseite, oben die Quellentabelle über die volle Breite, darunter „Notizen“ mit Planraster; im Inhaltsverzeichnis „22 Quellen und Notizen“. B22.2: Quellen als Tabelle mit den Spalten „Quelle“ und „Verwendet auf“."
   ],
   "open_points": [
-    "Zeilen der Quellentabelle (B22.2) folgen; dann die Quellen auf S. 22 (Impressum) streichen."
+    "Dr. Klein Wowi Finanz AG: Ob die PGN die Zinsangabe mit Quelle nennen darf, ist offen (OFFENE-PUNKTE.md b6)."
   ],
   "visual_idea": "Rechte Seite der Doppelseite 22|23 (Impressum | Quellen und Notizen), letzte Innenseite vor U4. Kopfzeile mit Rubrik „PGN“ wie S. 21 und 22; H1 „Quellen und Notizen“ in Montserrat Black Versalien 25 pt mit roter Titellinie, kein Vorspann. Gemeinsame Horizonte mit S. 22: Kopfzeile 14 mm, H1 26 mm, erste Bandlinie 68,5 mm (Kopf der Quellentabelle = Oberkante Impressum-Schriftfeld), Unterkante 273 mm. Quellentabelle über die volle Breite: Quelle 9 Spalten | Verwendet auf 3 Spalten, Tabellenkopf 8,5 pt Versalien mit kräftiger Linie oben, Text 9,5 pt, Haarlinien zwischen den Zeilen. Darunter „Notizen“ als Modultitel (Montserrat 800, 12 pt, gemischt) mit Haarlinie darüber und eine Fläche im 5-mm-Planraster bis zur Satzspiegel-Unterkante. Fuß wie alle Innenseiten mit Blatt 22. Rot nur: Titellinie und Wortmarke."
 }

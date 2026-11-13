@@ -1,7 +1,10 @@
 <section class="page page--u4" data-page="24" id="seite-24" aria-label="Rückseite">
   <style>
     /* U4 – Rotpause. Schriftfeld im selben Raster wie U1: .back__stamp--2row (styles.css 7).
-       Claim auf der Titelachse von U1: Text bei 14 mm, weiße Linie auf der Rahmenlinie (wie die weiße Titellinie U1) */
+       Claim auf der Titelachse von U1: Text bei 14 mm, weiße Linie auf der Rahmenlinie (wie die weiße Titellinie U1).
+       Seit der Änderungsrunde vom 13.11.2026 (BRück.1) ohne Gedankenstrich wie Folie 28 des Vortrags: „Aus Ihrer guten
+       Idee“ als zweite Stimme, darunter „machen wir den besten Plan.“; der Zeilenwechsel steht an der Stelle des Strichs.
+       data-satz am H1: Das PDF-Lesezeichen verbindet beide Teile mit Leerzeichen, nicht mit Doppelpunkt. */
     .page[data-page="24"] .back__claim { left: var(--frame-inset); right: 20mm; }
     .page[data-page="24"] .back__claim .claim { margin-top: 0; border-left-width: .9mm; padding-left: 5.1mm; }
     /* Korrekturlauf 1: U4|U1 durchgehend rot – Schriftfeld auf dem Verlauf wie U1, weiße Linien; weiß bleiben nur das QR-Feld
@@ -73,7 +76,7 @@
 <g class="sig-g-north"><circle cx="178" cy="125.5" r="4.4"/><path class="sig-g-north-fill" d="M178,122L179.8,128.4L178,127.3Z"/><path d="M178,122L176.2,128.4L178,127.3Z"/><text x="171" y="126.6" text-anchor="end">REGELGESCHOSS · M 1:200</text></g></svg></div>
   <div class="planframe" aria-hidden="true"></div>
   <div class="back__claim">
-    <h1 class="claim"><span class="light">Aus Ihrer guten Idee –</span> machen wir den <em>besten Plan</em>.</h1>
+    <h1 class="claim" data-satz><span class="light">Aus Ihrer guten Idee</span> machen wir den <em>besten Plan</em>.</h1>
   </div>
   <div class="back__stamp back__stamp--2row">
     <div class="back__invite">

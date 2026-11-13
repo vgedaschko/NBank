@@ -432,7 +432,7 @@ function browserFontTuples() {
       c.querySelectorAll('br').forEach((x) => x.replaceWith(' '));
       // Zweite Stimme (.light) und Hauptzeile: im Lesezeichen durch „: “ getrennt, auch wenn im Quelltext kein
       // Leerzeichen dazwischen steht; kein Doppelpunkt, wenn die zweite Stimme schon mit einem Satzzeichen endet
-      // oder der Titel als ein Satz durchläuft (Attribut data-satz am H1, S. 2 und S. 3)
+      // oder der Titel als ein Satz durchläuft (Attribut data-satz am H1, S. 2, S. 3 und U4)
       c.querySelectorAll('.light').forEach((x) => {
         const t = x.textContent.replace(/\s+/g, ' ').trim();
         let rest = '';

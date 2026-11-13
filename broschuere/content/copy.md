@@ -14,7 +14,7 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 - Platzhalter in eckigen Klammern – `[PGN-Rechnung: …]` – sind seit 09.11.2026 im Heft ersetzt (Werte der PGN-Beispielrechnung, vorläufig; → Anhang B, Nr. 1).
 - Wortzählung je Seite: *Fließtext* = Subline, Lead, Texte, Listen, Checklisten, FAQ, Leistungen, Notizen, Bildunterschriften, Zitate, Kachel-Labels und -Unterzeilen, Schriftfeld; *Grafik/Tabelle* = Text in Diagrammen und Tabellen (auch Eckdaten, Entscheidungsbaum, Swimlane); *Kontakt-/Referenzdaten* separat. Headline, zweite Stimme und Rubrik sind nicht mitgezählt.
 
-**Inhalt:** [S. 1](#seite-1) Wohnraum, der sich rechnet. · [S. 2](#seite-2) Damit sich Investieren wieder rechnet · [S. 3](#seite-3) Die Förderung in Zahlen · [S. 4](#seite-4) Richtlinie 2026: Neuerungen und Voraussetzungen · [S. 5](#seite-5) Programmteil nach Vorhaben · [S. 6](#seite-6) Ihr Mieterkreis: drei Einkommensgruppen · [S. 7](#seite-7) Höchstmieten und Mietentwicklung · [S. 8](#seite-8) Neubau, Änderung, Ersterwerb: Bis zu 80 % Förderquote · [S. 9](#seite-9) Konditionen und Kosten · [S. 10](#seite-10) 14 Wohnungen, 3,0 Mio. €: bis zu 2,4 Mio. € Förderung · [S. 11](#seite-11) Alle drei Gruppen tragen sich ab Jahr 1: 15.003 € Zahlungsüberschuss in A · [S. 12](#seite-12) Über 1,91 % Tilgung liegt Gruppe A vorn · [S. 13](#seite-13) Energetisch hochwertiger Neubau: Reiner Zuschuss statt Darlehen · [S. 14](#seite-14) Ostfriesische Inseln: Höhere Kostengrenze, 10 % Eigenmittel · [S. 15](#seite-15) Klimagerechte Modernisierung: Zuschuss nach Effizienzsteigerung · [S. 16](#seite-16) Belegungs- und Mietbindungen: Bindungen erwerben oder verlängern · [S. 17](#seite-17) Bedarf am Standort und die Rolle der Kommune · [S. 18](#seite-18) Vom Vorgespräch bis zum Verwendungsnachweis · [S. 19](#seite-19) Unsere Leistungen im Förderprojekt · [S. 20](#seite-20) Unterlagen, Kontakte und Verfahrensdetails · [S. 21](#seite-21) Ihre Generalplaner aus dem Norden. Seit 1981. · [S. 22](#seite-22) Impressum und Hinweise · [S. 23](#seite-23) Quellen und Notizen · [S. 24](#seite-24) Aus Ihrer guten Idee – machen wir den besten Plan. · [Anhang A](#anhang-a) Offene fachliche Rückfragen an die NBank · [Anhang B](#anhang-b) Vor dem Druck mit PGN klären
+**Inhalt:** [S. 1](#seite-1) Wohnraum, der sich rechnet. · [S. 2](#seite-2) Damit sich Investieren wieder rechnet · [S. 3](#seite-3) Die Förderung in Zahlen · [S. 4](#seite-4) Richtlinie 2026: Neuerungen und Voraussetzungen · [S. 5](#seite-5) Programmteil nach Vorhaben · [S. 6](#seite-6) Ihr Mieterkreis: drei Einkommensgruppen · [S. 7](#seite-7) Höchstmieten und Mietentwicklung · [S. 8](#seite-8) Neubau, Änderung, Ersterwerb: Bis zu 80 % Förderquote · [S. 9](#seite-9) Konditionen und Kosten · [S. 10](#seite-10) 14 Wohnungen, 3,0 Mio. €: bis zu 2,4 Mio. € Förderung · [S. 11](#seite-11) Alle drei Gruppen tragen sich ab Jahr 1: 15.003 € Zahlungsüberschuss in A · [S. 12](#seite-12) Über 1,91 % Tilgung liegt Gruppe A vorn · [S. 13](#seite-13) Energetisch hochwertiger Neubau: Reiner Zuschuss statt Darlehen · [S. 14](#seite-14) Ostfriesische Inseln: Höhere Kostengrenze, 10 % Eigenmittel · [S. 15](#seite-15) Klimagerechte Modernisierung: Zuschuss nach Effizienzsteigerung · [S. 16](#seite-16) Belegungs- und Mietbindungen: Bindungen erwerben oder verlängern · [S. 17](#seite-17) Bedarf am Standort und die Rolle der Kommune · [S. 18](#seite-18) Vom Vorgespräch bis zum Verwendungsnachweis · [S. 19](#seite-19) Unsere Leistungen im Förderprojekt · [S. 20](#seite-20) Unterlagen, Kontakte und Verfahrensdetails · [S. 21](#seite-21) Ihre Generalplaner aus dem Norden. Seit 1981. · [S. 22](#seite-22) Impressum und Hinweise · [S. 23](#seite-23) Quellen und Notizen · [S. 24](#seite-24) Aus Ihrer guten Idee machen wir den besten Plan. · [Anhang A](#anhang-a) Offene fachliche Rückfragen an die NBank · [Anhang B](#anhang-b) Vor dem Druck mit PGN klären
 
 ---
 
@@ -826,6 +826,8 @@ Auszahlung: bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abs
 
 Zusätzlich nutzbar: Bundesförderung BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen; eines von beiden, das andere frühestens drei Jahre später. Decken öffentliche Mittel samt NBank-Zuschuss mehr als 60 % derselben Kosten, wird die BEG gekürzt (Kommunen bei BEG Einzelmaßnahmen: 90 %).
 
+**Ab 01.01.2027** gilt eine neue Rechennorm für Energiebedarfsausweise. Die Klassengrenzen bleiben unverändert. *(Änderungsrunde 13.11.2026, B14.2: in der Zeile, die das gestrichene Wahlrecht frei gemacht hat; unter dem Diagramm „Effizienzklassen“ passt der Satz nicht, ohne die Bandlinie zu verschieben.)*
+
 *[Angebotssatz]* Energetische Gesamtmaßnahmen planen wir mit eigener Architektur und Haustechnik.
 
 ---
@@ -873,9 +875,7 @@ Zweite Stimme: Belegungs- und Mietbindungen
 
 *Der Standort entscheidet über Förderfähigkeit, Vorrang und Mieterkreis*
 
-**Für 2.1, 2.2 und 2.6 muss am Bauort ein nicht nur kurzfristiger Bedarf an gebundenen Mietwohnungen bestehen.**
-
-In sechs Gebietsarten gilt er als gegeben, überall sonst wird er vermutet, sofern die NBank das nicht widerlegt hat. Modernisierung (2.3), Inseln (2.4) und Bindungserwerb (2.5) setzen keinen Bedarfsnachweis voraus.
+**Für 2.1, 2.2 und 2.6 muss am Bauort ein nicht nur kurzfristiger Bedarf an gebundenen Mietwohnungen bestehen. In sechs Gebietsarten gilt er als gegeben, überall sonst wird er vermutet, sofern die NBank das nicht widerlegt hat. Modernisierung (2.3), Inseln (2.4) und Bindungserwerb (2.5) setzen keinen Bedarfsnachweis voraus.** *(Änderungsrunde 13.11.2026, B17.1: ein Absatz in 12 pt über die volle Breite.)*
 
 **Grafik (ladder): Bedarf gilt als gegeben, Vorrang in dieser Reihenfolge**
 
@@ -900,11 +900,16 @@ QR-Code in der Ringmitte, Label „Aktuelle Karte“ → Landkarte Wohnraumförd
 
 - **Konzept oder Festlegung:** Ein Wohnraumversorgungskonzept oder eine kommunale Festlegung (Rang 6) belegt den Bedarf. Dann kann die NBank auch die Gruppen B und C zulassen (→ S. 6; nicht bei 2.5).
 - **Bedarfsverordnung der Gemeinde:** Per Verordnung legt die Gemeinde für ein Gebiet mit erhöhtem Wohnungsbedarf ein Benennungsrecht fest (Rang 2). Auf Verlangen vermieten Sie dann an einen von mindestens drei benannten wohnberechtigten Haushalten. Genossenschaftlicher Wohnraum lässt sich ausnehmen.
-- **Kommune als Bauherrin:** Kommunen sind selbst antragsberechtigt; für sie gilt zusätzlich das Vergaberecht.
+
+*(Änderungsrunde 13.11.2026, B17.2: zwei Spalten; „Kommune als Bauherrin“ entfällt.)*
 
 #### Freistellung von der Belegungsbindung
 
-Findet sich nachweislich kein wohnberechtigter Haushalt, kann die Wohnraumförderstelle befristet freistellen. Antrag in der Regel spätestens vier Wochen vor Freiwerden oder Bezugsfertigkeit. Freistellung höchstens fünf Jahre, einmal verlängerbar. Die Mietbindung bleibt. Ausgleich: in der Regel 0,50 € je m² und Monat (nicht auf die Mieter umlegbar) oder Belegungsrechte an Ersatzwohnungen.
+*Kasten (Änderungsrunde 13.11.2026, B17.3):*
+
+- **Wann:** wenn sich nachweislich kein wohnberechtigter Haushalt findet. Antrag in der Regel spätestens vier Wochen vor Freiwerden oder Bezugsfertigkeit.
+- **Wie lange:** befristet, höchstens fünf Jahre, einmal verlängerbar. Die Mietbindung bleibt.
+- **Ausgleich:** in der Regel 0,50 € je m² und Monat, nicht auf die Mieter umlegbar, oder Belegungsrechte an Ersatzwohnungen.
 
 ---
 
@@ -926,7 +931,7 @@ Bahnen: Sie · Wohnraumförderstelle · NBank
 1. **Vorgespräch** (Wohnraumförderstelle + Sie): Nachweise und Unterlagen vorab klären
 2. **Antrag** (Sie): bei der Wohnraumförderstelle am Bauort; für 2.6 erst nach dem Prolongationsangebot (→ S. 16)
 3. **Stellungnahme** (Wohnraumförderstelle): Bedarfsbestätigung, ggf. Anhörung der Gemeinde, Weiterleitung an die NBank
-4. **Förderentscheidung** (NBank): Fördervertrag, bei reinem Zuschuss Bewilligungsbescheid · *Fähnchen: Ziel: höchstens drei Monate*
+4. **Förderentscheidung** (NBank): Fördervertrag, bei reinem Zuschuss Bewilligungsbescheid · *Fähnchen: Bearbeitungszeit der NBank: Ziel höchstens drei Monate*
 5. **Bauausführung** (Sie): Aufträge im Wettbewerb vergeben, Baubeginn anzeigen (→ S. 20) · *Fähnchen: Baubeginn unverzüglich, spätestens vier Monate nach Bekanntgabe der Förderentscheidung*
 6. **Auszahlung** (NBank): in Raten auf Ihre Anforderung, nach Baufortschritt (→ S. 9)
 7. **Fertigstellung** (Wohnraumförderstelle + Sie): Fertigstellung anzeigen; Vermietung nur mit WBS; letzte 10 % nach Schlussbescheinigung und Belegung
@@ -965,16 +970,19 @@ Klammer Station 5–7: bei Bauvorhaben
 6. **Bauleitung** · *Leistungsphase 8* – Wir überwachen Ausführung und Termine und dokumentieren den Baufortschritt für die Auszahlung der Teilraten (→ S. 9).
 7. **Fertigstellung und Nachweis** · *Leistungsphasen 8–9* – Wir bereiten die Fertigstellungsanzeige mit Bescheinigung der Bauleitung vor und liefern Bau- und Kostendaten für Ihren Verwendungsnachweis (→ S. 18).
 
-**HOAI-Skala:** LPH 1 Grundlagen · LPH 2 Vorplanung · LPH 3 Entwurf · LPH 4 Genehmigung · LPH 5 Ausführungsplanung · LPH 6 Vorbereitung der Vergabe · LPH 7 Mitwirkung bei der Vergabe · LPH 8 Objektüberwachung · LPH 9 Objektbetreuung
+**HOAI-Skala** (seit 13.11.2026, B19.3: Name im Feld direkt unter der Nummer)**:** LPH 1 Grundlagen · LPH 2 Vorplanung · LPH 3 Entwurf · LPH 4 Genehmigung · LPH 5 Ausführungsplanung · LPH 6 Vorbereitung der Vergabe · LPH 7 Mitwirkung bei der Vergabe · LPH 8 Objektüberwachung · LPH 9 Objektbetreuung
 Marke „Bewilligung“ zwischen LPH 6 und 7 · links: Planungsauftrag LPH 1–6: vor der Bewilligung möglich · rechts: ab LPH 7: erst nach der Bewilligung
 
-#### Schlüsselfertig
+#### Schlüsselfertig mit der PGN Projektgesellschaft Nord
 
-Über die PGN Projektgesellschaft Nord GmbH bauen wir auch schlüsselfertig als Generalübernehmer. Förderfähig ist das, wenn Sie mindestens drei Unternehmen zum Angebot auffordern, erst nach der Bewilligung beauftragen und der Generalübernehmer vorab schriftlich der Prüfung von Kalkulation, Nachunternehmervergabe und Abrechnung zustimmt.
+*Kasten über die volle Breite (Änderungsrunde 13.11.2026, B19.1 mit Rückfrage 14; „Für Kommunen“ entfällt, B19.2)*
 
-#### Für Kommunen
+Die PGN Projektgesellschaft Nord GmbH entwickelt Projekte und baut Wohn- und Gewerbebauten schlüsselfertig als Generalübernehmer, einschließlich Planung und Erschließung.
 
-Unsere Stadtplanung erarbeitet Bebauungspläne, auch mit Festlegungen für geförderten Mietwohnraum (→ S. 17).
+**Ihr Vorteil:**
+
+- ein fester Vertragspartner für das ganze Vorhaben
+- Projektentwicklung, Projektmanagement und Projektcontrolling aus einer Hand
 
 ---
 
@@ -1081,20 +1089,30 @@ NBank und Land Niedersachsen sind nicht Herausgeber dieser Broschüre.
 >
 > Alle Angaben ohne Gewähr, Stand 11/2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind Rechenbeispiele, keine Förderzusage.
 
-#### Rechtsgrundlage
+#### Rechtsquellen
 
-RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtschaft, Verkehr und Bauen vom 25.06.2026 (Nds. MBl. 2026 Nr. 319), gültig vom 01.07.2026 bis 31.12.2031; ergänzend Niedersächsisches Wohnraum- und Wohnquartierfördergesetz (NWoFG) mit Durchführungsverordnung (DVO-NWoFG) und Wohngeldverordnung (WoGV, Mietenstufen).
+*(Änderungsrunde 13.11.2026, B22.1 mit Rückfrage 7: Rechtsquellenverzeichnis in drei Gruppen, ein Eintrag je Absatz mit hängendem Einzug. Die Quellen stehen als Tabelle auf S. 23.)*
 
-#### Quellen
+**Bundesrecht**
 
-**Zitate:** Grant Hendrik Tonne und Michael Kiesewetter, Pressemitteilung MW vom 03.07.2026 (→ S. 2, 6). **Marktzahlen:** NBank-Wohnungsmarktbericht 2025 (→ S. 3, 7); NBank-Pressemitteilung zur Wohnungsmarktbeobachtung vom 05.12.2025 (→ S. 2); Landesregierung, Pressemitteilung vom 25.11.2025 (→ S. 17); NBank-Landkarte Wohnraumförderung (→ S. 17); ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20, und S. 34, Abb. 23 (→ S. 10).
+Wohngeldverordnung (WoGV) in der Fassung der Bekanntmachung vom 19.10.2001 (BGBl. I S. 2722), zuletzt geändert durch Artikel 2 der Verordnung vom 21.10.2024 (BGBl. 2024 I Nr. 314)
+
+**Landesrecht**
+
+Niedersächsisches Gesetz über die soziale Wohnraumförderung und die Förderung von Wohnquartieren (NWoFG) vom 29.10.2009 (Nds. GVBl. S. 403), zuletzt geändert durch Artikel 11 des Gesetzes vom 18.12.2025 (Nds. GVBl. 2025 Nr. 106)
+
+Verordnung zur Durchführung des Niedersächsischen Wohnraum- und Wohnquartierfördergesetzes (DVO-NWoFG) vom 30.07.2025 (Nds. GVBl. 2025 Nr. 58)
+
+**Verwaltungsvorschriften**
+
+Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum (RL Mietwohnraum 2026), Runderlass des Ministeriums für Wirtschaft, Verkehr und Bauen vom 25.06.2026, Az. 60-25110-3/000-25 (Nds. MBl. 2026 Nr. 319), gültig vom 01.07.2026 bis 31.12.2031
 
 ---
 
 <a id="seite-23"></a>
 ## Seite 23 – PGN · Quellen und Notizen
 
-<sub>U3 · Layout: sources-notes · Kolumnentitel: PGN · Quellen und Notizen · Wörter: Fließtext 0, Grafik/Tabelle 4 (die Quellen folgen)</sub>
+<sub>U3 · Layout: sources-notes · Kolumnentitel: PGN · Quellen und Notizen · Wörter: Fließtext 0, Tabelle zehn Quellen</sub>
 
 *PGN*
 
@@ -1102,9 +1120,20 @@ RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtsc
 
 **Quellen** (Tabelle über die volle Breite)
 
+*(Änderungsrunde 13.11.2026, B22.2 mit Rückfrage 8. „Verwendet auf“ nennt die gedruckte Seitenzahl, an den fertigen Seiten nachgeprüft.)*
+
 | Quelle | Verwendet auf |
 |---|---|
-| *[Einträge folgen: „Herausgeber (Jahr): Titel. Fundstelle.“ | Blattnummern]* | |
+| Niedersächsisches Ministerium für Wirtschaft, Verkehr und Bauen (2026): Niedersachsen stellt soziale Wohnraumförderung neu auf. Presseinformation vom 03.07.2026, aktualisiert am 09.07.2026. | 1, 5 |
+| NBank (2025): Wohnungsmarktbeobachtung 2025. Zeit umzubauen. S. 33–34 und S. 45, Abb. 19. | 2, 6 |
+| Deutscher Bundestag (2026): Antwort der Bundesregierung auf die Kleine Anfrage „Die mieten- und wohnungspolitische Entwicklung in Niedersachsen“. Drucksache 21/7303 vom 21.07.2026, S. 12. | 2 |
+| NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Neubau, Änderung, Erweiterung und erstmaliger Erwerb), Stand 05.11.2026. S. 3. | 2, 3, 7, 9 |
+| NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Allgemeine Mietwohnraumförderung), Stand 01.04.2026. S. 1–2. | 3 |
+| NBank (o. J.): Landkarte Wohnraumförderung, Bedarfsnachweise. Programmseite „Mietwohnungen in Mehrfamilienhäusern“, abgerufen am 21.10.2026. | 3, 16, 19 |
+| ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 – Bedarf und Erleichterung (Endbericht). S. 32, Abb. 20, und S. 34, Abb. 23. | 9 |
+| Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen bei 10 Jahren Zinsbindung. Wert vom 10.11.2026. | 10 |
+| NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern auf den Ostfriesischen Inseln, Stand 05.11.2026. S. 3. | 13 |
+| Niedersächsische Staatskanzlei (2025): Niedersachsen verlängert die Gebietsbestimmung für Umwandlungsschutz und Mietpreisbremse bis Ende 2029. Presseinformation vom 25.11.2025. | 16 |
 
 #### Notizen
 
@@ -1117,7 +1146,9 @@ RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtsc
 
 <sub>U4 · Layout: back-cover · kein Kolumnentitel, keine Seitenzahl · Wörter: Fließtext 25, Grafik/Tabelle 0, Kontakt-/Referenzdaten 17</sub>
 
-### Aus Ihrer guten Idee – machen wir den besten Plan.
+### Aus Ihrer guten Idee machen wir den besten Plan.
+
+*Claim ohne Gedankenstrich wie Folie 28 des Vortrags (Änderungsrunde 13.11.2026, BRück.1): „Aus Ihrer guten Idee“ als zweite Stimme, darunter „machen wir den besten Plan.“*
 
 **Wir planen Ihr Vorhaben im geförderten Mietwohnungsbau, in allen Leistungsphasen. Sprechen Sie uns an.**
 
@@ -1231,7 +1262,7 @@ Das Heft schreibt wörtlich nach der Website „Seit 1981“ (S. 21 Headline; im
 ### 6. Freigabe Zitate
 
 - Grant Hendrik Tonne (S. 2) und Michael Kiesewetter (S. 6), wörtlich aus der MW-Pressemitteilung vom 03.07.2026: Verwendung in einer Broschüre der PGN mit den Pressestellen von MW und NBank abstimmen (→ Anhang A Nr. 14); bis zur Freigabe beide Zitate unverändert lassen.
-- PGN-Claims wörtlich von der Website freigeben: „Aus Ihrer guten Idee – machen wir den besten Plan.“ (U4), „Ihre Generalplaner aus dem Norden. Seit 1981.“ (S. 21), „Ein Ansprechpartner für alles“ (S. 19), Werte „Verantwortung. Kostensicherheit. Innovation. Vertrauen.“ unter „Für Sie denken wir an:“ (S. 21), Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ (S. 2).
+- PGN-Claims wörtlich von der Website freigeben: „Aus Ihrer guten Idee – machen wir den besten Plan.“ (U4; seit 13.11.2026 ohne Gedankenstrich in zwei Teilen gesetzt, BRück.1), „Ihre Generalplaner aus dem Norden. Seit 1981.“ (S. 21), „Ein Ansprechpartner für alles“ (S. 19), Werte „Verantwortung. Kostensicherheit. Innovation. Vertrauen.“ unter „Für Sie denken wir an:“ (S. 21), Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ (S. 2).
 
 ### 7. Leistungsaussagen, Referenzen, Kontakt
 
@@ -1239,7 +1270,7 @@ Das Heft schreibt wörtlich nach der Website „Seit 1981“ (S. 21 Headline; im
 - S. 19, Station 1: „… ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung“ ersetzt die gestrichene Rechen-Zusage – als Leistung bestätigen.
 - S. 19, Station 5: „Wir schreiben die Bauleistungen richtlinienkonform aus und vergeben sie nach der Bewilligung“ (Kundenwortlaut). Rechtlich vergibt der Bauherr als Zuwendungsempfänger; PGN führt Ausschreibung und Vergabe für ihn durch – Formulierung bestätigen.
 - S. 19: gestufte Beauftragung bestätigen (LPH 1–6 vor, ab LPH 7 nach der Bewilligung); Zulieferung für den Verwendungsnachweis (Station 7) als Leistung bestätigen – übernimmt PGN den Verwendungsnachweis selbst, Text anpassen.
-- S. 19 „Schlüsselfertig“: Erteilt die PGN Projektgesellschaft Nord GmbH als Generalübernehmer die schriftliche Prüfzustimmung (Kalkulation, Nachunternehmervergabe, Abrechnung)? Wenn ja, Satz „Diese Zustimmung geben wir.“ ergänzen. Intern beachten: Der GÜ-Vertrag ist ein Werkvertrag – vor der Bewilligung geschlossen, ist er Vorhabenbeginn.
+- S. 19 „Schlüsselfertig mit der PGN Projektgesellschaft Nord“ (seit 13.11.2026, B19.1, ohne Bezug zur Förderung): „ein fester Vertragspartner für das ganze Vorhaben“ und „aus einer Hand“ stehen nicht wörtlich auf der Website, freigeben. Ob die Gesellschaft Tochter- oder Schwestergesellschaft der PGN ist, ist offen (Website: „Tochterfirma“, pgn-facts.md: „Schwestergesellschaft“); der Satz dazu steht nicht im Heft. Die Förderbedingungen für einen Generalübernehmer (drei Unternehmen auffordern, erst nach der Bewilligung beauftragen, schriftliche Prüfzustimmung) stehen seitdem nicht mehr im Heft; S. 20 nennt nur die Vergaberegel. Intern beachten: Der GÜ-Vertrag ist ein Werkvertrag – vor der Bewilligung geschlossen, ist er Vorhabenbeginn.
 - S. 15: Angebotssatz „Energetische Gesamtmaßnahmen planen wir mit eigener Architektur und Haustechnik.“ bestätigen (einziger PGN-Satz auf den Fachseiten S. 3–18).
 - S. 21: Referenzauswahl, Nennung der Auftraggeber (Wohnungsbau-Genossenschaft Rotenburg (Wümme) eG, kwg Kreiswohnbaugesellschaft Hildesheim mbH, IDB mbH & Co. Stade-Altes Land KG) und die Förderangabe „Mit Förderung der NBank“ (Brauerstraße, Website: „N-Bank“; ebenso Bildzeile U1) freigeben.
 - U4: persönliche Ansprechperson gewünscht? Belegt wäre Norbert Behrens, Geschäftsführung – Akquisition, (+49) 4261 9293-71 (Stand 21.10.2026); nur nach Freigabe.

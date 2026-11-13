@@ -36,7 +36,7 @@ function betragUndAnteil(fmt, wert, bezug) {
 // o: { art: 'gefördert' | 'frei finanziert', titel, sub (Modulkopf),
 //      quelle: { name, wert, zusatz },                          Sollmiete links
 //      marke:  { wert, text: [Bezeichnung, Betrag] } (nur Folie 18)   senkrechte Maßkette links der Quelle von der Oberkante bis zur Höhe dieses Betrags
-//      umriss: { wert, text: [Bezeichnung, Betrag] } (nur Folie 17)   gestrichelter Umriss, der den Balken der Quelle bis zur Höhe dieses Betrags fortsetzt
+//      umriss: { wert, text: [Bezeichnung, …, Betrag] } (nur Folie 17)   gestrichelter Umriss, der den Balken der Quelle bis zur Höhe dieses Betrags fortsetzt
 //      knoten: { name, wert },                                   Überschuss vor Kapitaldienst
 //      ziele:  [{ id, name, wert, rolle, ueberKnoten }]          von oben; ueberKnoten: Der Strom läuft über den Knoten in der Mitte
 //      klammer: { name, wert, ziele: [id, …] },                  fasst Ziele zum Kapitaldienst
@@ -93,16 +93,18 @@ function zahlungsfluss(ctx, s, o) {
   B.text(s, wl(fmt.euro(o.quelle.wert), 'Quelle'), { x: lx, y: qy + 0.21, w: lw, h: 0.37, rolle: 'kernwert', align: 'right', valign: 'middle', einzeilig: true, name: 'Quelle Betrag' });
   B.text(s, wl(o.quelle.zusatz, 'Quelle'), { x: lx, y: qy + 0.58, w: lw, h: 0.21, rolle: 'klein', align: 'right', valign: 'middle', einzeilig: true, name: 'Quelle Zusatz' });
   if (o.umriss) {
-    // Umriss an der Quelle: Er setzt den Balken im selben Maßstab nach unten fort bis zur Höhe des Betrags (auf Folie 17 die nötige Sollmiete
+    // Umriss an der Quelle: Er setzt den Balken im selben Maßstab nach unten fort bis zur Höhe des Betrags (auf Folie 17 die kostendeckende Sollmiete
     // frei finanziert, die Quelle der Folie 18). So steht der Bezug zum anderen Fall auf der Folie selbst. Gestrichelt im Referenzgrau, ohne
     // Füllung; die Bänder beginnen rechts neben dem Balken und bleiben frei. Die zwei Zeilen enden bündig mit der Unterkante des Umrisses.
-    const y0 = L.oben + zoll(o.quelle.wert), y1 = L.oben + zoll(o.umriss.wert), [zeile1, zeile2] = o.umriss.text, uw = L.quelle - 0.14 - lx;
-    wl(`${zeile1} ${zeile2}`, 'Umriss an der Quelle');
+    // text: Zeilen der Bezeichnung, die letzte Zeile ist der Betrag. Seit der Änderungsrunde vom 13.11.2026 (F17.2) steht die Bezeichnung in zwei
+    // Zeilen („frei finanziert“ | „kostendeckend:“): In einer Zeile ist sie breiter als das Feld links der Quelle
+    const y0 = L.oben + zoll(o.quelle.wert), y1 = L.oben + zoll(o.umriss.wert), zeilen = o.umriss.text, n = zeilen.length, uw = L.quelle - 0.14 - lx;
+    wl(zeilen.join(' '), 'Umriss an der Quelle');
     if (o.umriss.wert <= o.quelle.wert) throw new Error('zahlungsfluss: Der Umriss an der Quelle braucht einen Betrag über dem der Quelle.');
-    if (y1 - 0.42 < qy + 0.79 + 0.10) ctx.P.melde('Umriss an der Quelle: Die zwei Zeilen stoßen an den Zusatz der Quelle.');
-    s.addShape('rect', { x: L.quelle, y: y0, w: L.knotenBreite, h: y1 - y0, fill: { type: 'none' }, line: { color: ctx.C.referenz, width: 0.75, dashType: 'dash' }, objectName: 'Umriss nötige Sollmiete frei finanziert' });
-    B.text(s, zeile1, { x: lx, y: y1 - 0.42, w: uw, h: 0.21, rolle: 'kleinText', align: 'right', valign: 'middle', einzeilig: true, name: 'Umriss Bezeichnung' });
-    B.text(s, zeile2, { x: lx, y: y1 - 0.21, w: uw, h: 0.21, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Umriss Betrag' });
+    if (y1 - 0.21 * n < qy + 0.79 + 0.10) ctx.P.melde(`Umriss an der Quelle: Die ${n} Zeilen stoßen an den Zusatz der Quelle.`);
+    s.addShape('rect', { x: L.quelle, y: y0, w: L.knotenBreite, h: y1 - y0, fill: { type: 'none' }, line: { color: ctx.C.referenz, width: 0.75, dashType: 'dash' }, objectName: 'Umriss kostendeckende Sollmiete frei finanziert' });
+    zeilen.slice(0, -1).forEach((z, i) => B.text(s, z, { x: lx, y: y1 - 0.21 * (n - i), w: uw, h: 0.21, rolle: 'kleinText', align: 'right', valign: 'middle', einzeilig: true, name: 'Umriss Bezeichnung' + (i ? ' ' + (i + 1) : '') }));
+    B.text(s, zeilen[n - 1], { x: lx, y: y1 - 0.21, w: uw, h: 0.21, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Umriss Betrag' });
   }
 
   // Knoten: Bezeichnung und Betrag in einer Zeile, mittig über dem Balken

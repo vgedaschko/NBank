@@ -38,8 +38,12 @@ module.exports = {
       B.textAufPlot(s, fmt.zahl(o.wert), { x: mitte - 0.40, y: oben(o.i) - 0.27, w: 0.80, h: 0.24, rolle: 'wert', align: 'center', valign: 'middle', name: 'Wert ' + o.reihe });
     }
 
-    B.planlegende(s, { platzhalter: 'kommentar', pt: 16, eintraege: [
-      { titel: 'Annahmen', text: `Frei finanziert: gleiches Haus, Eigenmittel ${fmt.mio(M('fin.eigenmittel.Frei'))}, Bankdarlehen ${fmt.mio(M('fin.bankdarlehen.Frei'))} zu ${fmt.prozent(M('eingabe.zins_bank'), 2)} Zins, jährliche Annuität über ${M('eingabe.laufzeit_bank')} Jahre. Objektverwaltung und Instandhaltung wie gefördert.` },
-      { text: `Gefördert: Zuschuss ${fmt.mio(M('fin.zuschuss.A'))}, Darlehen ${fmt.mio(M('fin.darlehen_nbank.A'))} zu ${fmt.prozent(M('jr1.satz.zins_nbank'))} Zins, Tilgung ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)} p. a.` }].map(e => ({ ...e, text: ctx.wortlaut(e.text, 'Annahmen') })) });
+    // Annahmen als Stichpunkte in 14 pt (Änderungsrunde vom 13.11.2026, F16.1, G9; bis dahin zwei Absätze in 16 pt). Der Wortlaut bleibt, je Satz
+    // ein Stichpunkt; der Satz zur Bewirtschaftung steht als eigener Punkt unter der frei finanzierten Rechnung, zu der er gehört
+    const wl = t => ctx.wortlaut(t, 'Stichpunkt');
+    B.stichpunkte(s, { platzhalter: 'kommentar', gruppen: [{ titel: ctx.wortlaut('Annahmen', 'Überschrift'), punkte: [
+      wl(`Frei finanziert: gleiches Haus, Eigenmittel ${fmt.mio(M('fin.eigenmittel.Frei'))}, Bankdarlehen ${fmt.mio(M('fin.bankdarlehen.Frei'))} zu ${fmt.prozent(M('eingabe.zins_bank'), 2)} Zins, jährliche Annuität über ${M('eingabe.laufzeit_bank')} Jahre`),
+      wl('Objektverwaltung und Instandhaltung wie gefördert'),
+      wl(`Gefördert: Zuschuss ${fmt.mio(M('fin.zuschuss.A'))}, Darlehen ${fmt.mio(M('fin.darlehen_nbank.A'))} zu ${fmt.prozent(M('jr1.satz.zins_nbank'))} Zins, Tilgung ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)} p. a.`)] }] });
   },
 };

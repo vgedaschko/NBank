@@ -1082,7 +1082,9 @@ function bausteine(pres, kx) {
       if (n > 8) P.hinweis(`Stichpunkte: ${n} Punkte in einer Spalte.`);
       P.mindest('Stichpunkte', pt, 14);
     }
-    if (o.platzhalter) s.addText(runs, { placeholder: o.platzhalter });
+    // align auch im Platzhalter: Ohne Ausrichtung beginnt pptxgenjs bei jedem Lauf mit Aufzählungszeichen einen neuen Absatz, und ein weicher
+    // Umbruch („\n“ im Stichpunkt) würde zum neuen Stichpunkt (Folie 20)
+    if (o.platzhalter) s.addText(runs, { placeholder: o.platzhalter, align: 'left' });
     else s.addText(runs, opt(st, geo, { objectName: o.name || 'Stichpunkte' }));
     return { ...geo, unten: geo.y + hoehe };
   };
@@ -1467,14 +1469,18 @@ function bausteine(pres, kx) {
   //      Achsbeschriftung 0,22 Zoll: rand.l im Diagramm entsprechend wählen (yVersatz verschiebt ihn nach rechts).
   // o.x: Titel der waagerechten Achse unter der Achsbeschriftung, mittig zur Plotfläche. xAusrichtung: 'rechts' | 'links' statt mittig;
   //      xAbstand: Oberkante des Titels unter der Achse (Vorgabe 0,28: eine Zeile Achsbeschriftung; das Diagramm braucht dafür rand.u ab 0,50); xVon, xBis: andere Breite als die Plotfläche.
+  //      yVon, yBis: andere Höhe als die Plotfläche für den senkrechten Titel (Folien 20 und 21 seit 13.11.2026: Das Diagramm ist für den
+  //      Hinweiskasten niedriger, der Titel läuft in die Ränder über und unter der Plotfläche); geprüft wird dann gegen genau diese Höhe.
   B.achsentitel = (s, d, o) => {
     if (!d || !d.plot) throw new Error('B.achsentitel: Rückgabe eines Diagramms (D.*) fehlt.');
     if (!o || (!o.x && !o.y)) throw new Error('B.achsentitel: x oder y fehlt (Text des Achsentitels).');
     const st = stil('achse'), p = d.plot;
     if (o.y) {
-      const t = schutz(String(o.y));
-      if (P) P.zeile('Achsentitel senkrecht', t, st, p.h + 0.30);
-      s.addText(t, opt(st, { x: +(d.x + (o.yVersatz || 0)).toFixed(3), y: p.y, w: 0.22, h: p.h }, { align: 'center', valign: 'middle', vert: 'vert270', wrap: false, objectName: 'Achsentitel senkrecht' }));
+      const t = schutz(String(o.y)), eigen = typeof o.yVon === 'number' || typeof o.yBis === 'number';
+      const y0 = typeof o.yVon === 'number' ? o.yVon : p.y, y1 = typeof o.yBis === 'number' ? o.yBis : p.y + p.h;
+      if (eigen && !(y0 <= p.y && y1 >= p.y + p.h)) throw new Error('B.achsentitel: yVon und yBis müssen die Plotfläche einschließen.');
+      if (P) P.zeile('Achsentitel senkrecht', t, st, eigen ? y1 - y0 : p.h + 0.30);
+      s.addText(t, opt(st, { x: +(d.x + (o.yVersatz || 0)).toFixed(3), y: +y0.toFixed(3), w: 0.22, h: +(y1 - y0).toFixed(3) }, { align: 'center', valign: 'middle', vert: 'vert270', wrap: false, objectName: 'Achsentitel senkrecht' }));
     }
     if (o.x) {
       const x0 = typeof o.xVon === 'number' ? o.xVon : p.x, x1 = typeof o.xBis === 'number' ? o.xBis : p.x + p.w;

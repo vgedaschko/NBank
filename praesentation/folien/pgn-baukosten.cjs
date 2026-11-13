@@ -38,7 +38,7 @@ module.exports = {
 
     // ---- Kopf, Legende, Diagramm ---------------------------------------------------------------------------------------------------------
     B.modulkopf(s, { x: colX(1), y: ZONE.diagramm.kopf, w: span(12), titel: wl('Herstellungs- und Grundstückskosten je m² Wohnfläche, PGN und ARGE', 'Diagrammtitel'),
-      sub: wl('in €, Bruttokosten, Kostenstand Q4 2025 · Minimum, Median und Maximum je Kostengruppe', 'Untertitel') });
+      sub: wl('in €, Bruttokosten, Kostenstand Q4 2025', 'Untertitel') });   // „Minimum, Median und Maximum“ nennt die Legende (F22.1, wie F3.2)
     KG.legende(ctx, s, { eintraege: [{ text: wl('ARGE, deutsche Großstädte', 'Legende'), art: 'bezug' }, { text: wl('PGN, fünf Projekte', 'Legende'), art: 'tinte' }],
       spanne: wl('Säule: Minimum bis Maximum · Strich und Wert: Median', 'Legende') });
     KG.spannen(ctx, s, { name: 'Diagramm Kostenspannen', achse: { min: 0, max: 10000, schritt: 2000, format: 'ganz' }, achsentitel: wl('€ je m² Wohnfläche', 'Achsentitel'), label: wl('PGN zu ARGE', 'Prozentzeile'),

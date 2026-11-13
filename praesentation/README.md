@@ -42,10 +42,10 @@ behalten und stufen, nichts abräumen, nichts Neues erfinden.
   Folie 6 an dieser Stelle die Kennzahl der Broschüre (28 %).
 - **Diagrammfolien** (`PGN_DIAGRAMM`, `PGN_DIAGRAMM_MR`): Diagramm über sieben Spalten, Text oder Kennzahlen über fünf. Titel, Untertitel,
   Legende und Diagramm beginnen auf allen Folien auf denselben Höhen (`ZONE.diagramm`); der Kopf frei gebauter Module (`B.modulkopf`: Folien 17
-  bis 19, Anhang) liegt genauso. Passt ein Untertitel nicht in eine Zeile, steht er in zwei (`B.diagrammkopf` mit `sub` als Liste; derzeit auf
-  keiner Folie); gekürzt wird nicht. Auf Folie 22 ist die
+  bis 19, Anhang) liegt genauso. Passt ein Untertitel nicht in eine Zeile, steht er in zwei (`B.diagrammkopf` mit `sub` als Liste; bei
+  `B.modulkopf` die zweite Zeile als eigenes Textfeld darunter: seit 13.11.2026 Folie 19); gekürzt wird nicht. Auf Folie 22 ist die
   zweite Zeile entfallen: Sie sagte dasselbe wie das Modul „Grundlage“ rechts. Ihre Teilung behalten Folie 15 (Tabelle über acht Spalten), die frei gebauten Folien 14 und 27
-  (8 + 4) und 19 (6 + 6) und die Anhangfolien A4, A6 und A7 (8 + 4). Seit 13.11.2026 stehen auch die Folien 10 und 11 frei gebaut in 6 + 6:
+  (8 + 4) und die Anhangfolien A4, A6 und A7 (8 + 4); Folie 19 steht seit 13.11.2026 in 5 + 7 (bis dahin 6 + 6: Rechenweg breiter, F19.3). Seit 13.11.2026 stehen auch die Folien 10 und 11 frei gebaut in 6 + 6:
   Ihre Stichpunkte in 14 pt (G9) passen auch mit engeren Abständen nicht in fünf Spalten.
 - **Keine Sprechernotizen** (Entscheidung 32): Das Konzept führt kein Feld `notizen`, die Mappe trägt keine Notizseite. Das Feld `quellen`
   bleibt als Quellenangabe je Folie; aus ihm rechnet die Quellenfolie A8 ihre Blattnummern.
@@ -81,6 +81,25 @@ Folien 1 bis 12 nach der Änderungsrunde (Kennungen F1 bis F12):
   in die Inhaltszone); die Werte bis 30.06.2026 stehen in `daten/regeln.json` (NBank-Produktinformation, Stand 01.04.2026).
 - **Folien 10 bis 12:** Hinweiskästen (EH-40-Zuschlag, Zins ab Jahr 36), Stichpunkte in 14 pt (Folien 10 und 11, Teilung 6 + 6), Tilgung als
   dritte Kennzahl der Folie 12 („mind. 2,38 % p. a.“; `B.kennzahl` mit `vor` und `kompakt`).
+
+Folien 13 bis 24 nach der Änderungsrunde (Kennungen F13 bis F24):
+
+- **Trenner 13:** „Modellrechnung: 14 Wohnungen, gefördert und frei finanziert“ in drei Zeilen, Vorspann mit dem Modellhaus (Zahl der Wohnungen
+  und Wohnfläche aus der Rechenmappe).
+- **Folie 14:** Rechenweg mit der Zeile „Bemessungsgrenze 5.460 € je m²: eingehalten“ über dem Hinweis zum Grundstück (beide als Hinweiszeilen
+  ohne Nummer in einer Zeile des Rechenblatts); die zwei Sätze zu den Eigenmitteln im Hinweiskasten; Diagramm und Zeilen enger.
+- **Folien 15, 16, 20, 21, 23:** Stichpunkte in 14 pt (G9); Hinweiskästen auf den Folien 14, 15, 20 und 21 (G8). Auf den Folien 20 und 21 ist
+  das Diagramm dafür niedriger, der senkrechte Achsentitel läuft in die Ränder über und unter der Plotfläche (`B.achsentitel` mit `yVon`, `yBis`).
+- **Folien 17 bis 19:** Titel mit den Anteilen von Zins und Tilgung (17, 18) und der kostendeckenden Anfangsmiete (19); Begriffe nach G4
+  („frei finanziert kostendeckend“, „Kostendeckende Sollmiete“). Folie 19: Mietausfall als eigene Zeile des Rechenwegs, Teilung 5 + 7.
+- **Folie 20:** Titel mit dem Tilgungssatz, bis zu dem alle drei Gruppen einen Zahlungsüberschuss haben (2,90 %, der Satz von C); der
+  Hinweiskasten verweist auf Folie 23 (`VERWEISE`).
+- **Folie 21:** Hinweiskasten zur Gegenprobe ohne Mieterhöhung (Lauf `modellhaus_ohne_mieterhoehung`; das Modul prüft Jahr 1 bis 35 in A, B, C).
+- **Folie 23:** Spaltenköpfe „Modellhaus“, „ARGE-Median“, „Bemessungs-/grenze“ über den Beträgen; die Kosten, bis zu denen A, B und C einen
+  Zahlungsüberschuss haben, rechnet `kostenSchwelle` in `folien/_rechnung.cjs` aus den drei Kostenläufen (auf 10 € abgerundet: 5.150, 4.380,
+  4.220 €; Titel und Folie 24 nutzen denselben Wert).
+- **Folie 24:** neu aufgebaut (Layout „Inhalt · Modellrechnung“): drei Schritte mit Pfeilen, Ergebniszeile über die ganze Breite, zwei
+  Bedingungen für Gruppe A (Herstellungskosten bis rund 5.150 € je m², Tilgungssatz bis 3,65 %), Schlusssatz.
 
 Die Anhangfolie A6 zeigt die Eigenkapitalrendite des Modellhauses über 35 Jahre, vor Steuern. Sie ist die einzige Folie mit Rendite und
 Marktmiete des Modellhauses und zeigt die Rendite als Paar „mit Restwert“ und „ohne Restwert“ mit dem Anteil des Restwerts am Endvermögen;
@@ -254,7 +273,7 @@ Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten 
   als Zahlen in den Folienmodulen und folgen neuen Werten nicht von selbst; die Module melden Werte außerhalb der Achse. Renditen, Restwert und Marktmiete stehen auf der Sperrliste von `daten/werte_aus_vofi.py`; die benannte Ausnahme
   `anhang_rendite` (erlaubt vom Auftraggeber am 11.11.2026) öffnet genau die Zellen der Folie A6 für den Lauf `modellhaus_rendite`.
   `daten/pruefe_werte.py` prüft, dass kein anderer Lauf einen solchen Wert führt. Titel, die eine Zahl nennen, stehen im Konzept und folgen nicht von selbst; der Bau und das Prüfskript
-  melden die Abweichung. Die Titel der Folien 15 bis 18 setzt das Modul aus der Rechenmappe und prüft sie gegen das Konzept (`ctx.titelzeilen`).
+  melden die Abweichung. Die Titel der Folien 15 bis 18, 20 und 21 setzt das Modul aus der Rechenmappe und prüft sie gegen das Konzept (`ctx.titelzeilen`).
 - **Regelwerte, Marktzahlen, Fristen, Kontaktdaten:** in der Datendatei der Baugruppe, mit `herkunft` und `geprueft`.
 - **Quellenzeile im Schriftfeld:** Wortlaut in `daten/markt.json` (`quelle_kurz` des Blocks; Folie 10: `daten/regeln.json`, Block `hoechstmiete`) und im Feld `inhalt` der Folie im Konzept;
   das Modul setzt sie mit `B.quelle`. Eine weitere Folie mit Quellenzeile braucht einen Eintrag in `QUELLENZEILEN` (`pruefe_folien.py`).
@@ -323,7 +342,7 @@ weiter „Entscheidung“.
 
 Durchsicht nach dem Ausrollen vom 12.11.2026 (Entscheidung 35 des Konzepts): Drei weitere Titel stehen ohne Doppelpunkt am Zeilenende
 (Folien 5, 14 und 22, mit denselben Zahlen; vom Auftraggeber am 12.11.2026 freigegeben). Das Label der Hauptzahl der Folie 5 heißt „je m² und Monat“, der Untertitel der Folie 22 steht in
-einer Zeile, der Eintrag „Höchstmiete“ der Folie 24 nennt den Betrag nicht noch einmal. Die Blatt-Zelle des Anhangs heißt „Blatt“.
+einer Zeile, der Eintrag „Höchstmiete“ der Folie 24 nennt den Betrag nicht noch einmal (seit 13.11.2026 ist Folie 24 neu aufgebaut). Die Blatt-Zelle des Anhangs heißt „Blatt“.
 
 Bekannte Abweichungen von Muster 2, über die der Auftraggeber entscheidet:
 

@@ -40,4 +40,16 @@ function linienLegende(ctx, s) {
 // Die drei Reihen eines Liniendiagramms aus einer Funktion g → Werte
 const linienReihen = werte => G.map(g => ({ name: 'Gruppe ' + g, werte: werte(g), art: LINIEN[g].art, strich: LINIEN[g].strich }));
 
-module.exports = { G, KOSTENLAEUFE, LINIEN, pruefe, mietenstufeKlasse, prozentKurz, kostenstand, linienLegende, linienReihen };
+// Herstellungskosten je m², bis zu denen Gruppe g in Jahr 1 einen Zahlungsüberschuss hat (Folien 23 und 24): Nullstelle der Geraden zwischen dem
+// Modellhaus und der Bemessungsgrenze (erster und letzter Kostenlauf; bis zur Grenze ist der Zusammenhang linear, geprüft am mittleren Lauf),
+// auf 10 € abgerundet (Entscheidung des Auftraggebers zu Rückfrage 4 vom 13.11.2026). Abgerundet bleibt bei diesen Kosten noch ein Überschuss.
+// Rückgabe: { genau, rund }
+function kostenSchwelle(ctx, g) {
+  const [k0, k1, k2] = KOSTENLAEUFE.map(l => ctx.W(l, 'eingabe.herstellungskosten_qm')), [z0, z1, z2] = KOSTENLAEUFE.map(l => ctx.W(l, `jr1.zahlungsueberschuss.${g}`));
+  const genau = k0 + z0 * (k2 - k0) / (z0 - z2);
+  ctx.gleich(`Nullstelle der Gruppe ${g}, am mittleren Kostenlauf`, k0 + z0 * (k1 - k0) / (z0 - z1), genau, 1);
+  pruefe(z0 > 0 && z2 < 0, `Die Nullstelle der Gruppe ${g} liegt nicht zwischen Modellhaus und Bemessungsgrenze; der Zusammenhang ist dort nicht mehr linear.`);
+  return { genau, rund: Math.floor(genau / 10) * 10 };
+}
+
+module.exports = { G, KOSTENLAEUFE, LINIEN, pruefe, mietenstufeKlasse, prozentKurz, kostenstand, linienLegende, linienReihen, kostenSchwelle };

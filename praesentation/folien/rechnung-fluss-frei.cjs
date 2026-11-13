@@ -1,8 +1,8 @@
 // Folie 18 · PGN_INHALT_MR: Zahlungsfluss in Jahr 1 für dasselbe Haus frei finanziert, als Flussdiagramm aus nativen Formen (folien/_fluss.cjs),
 // im selben Maßstab und mit derselben Lage der Knoten wie Folie 17. Quelle ist die Sollmiete, bei der der Zahlungsüberschuss null ist:
-// nötige Miete je m² und Monat × Wohnfläche × 12. Eine Maßkette links der Quelle misst den Teil, den die Sollmiete zur Höchstmiete der Folie 17 deckt.
+// kostendeckende Anfangsmiete je m² und Monat × Wohnfläche × 12. Eine Maßkette links der Quelle misst den Teil, den die Sollmiete zur Höchstmiete der Folie 17 deckt.
 // Alle Zahlen aus werte.json (Lauf modellhaus); frei.zins_jahr1 und frei.tilgung_jahr1 stehen dort als Auszahlung negativ.
-// Im Modul gerechnet: nötige Sollmiete, Mietausfall dazu, Anteile; Belege mit Formel in daten/pruefung.json. Kein Rot im Diagramm.
+// Im Modul gerechnet: kostendeckende Sollmiete, Mietausfall dazu, Anteile; Belege mit Formel in daten/pruefung.json. Kein Rot im Diagramm.
 'use strict';
 const Fl = require('./_fluss.cjs');
 
@@ -14,12 +14,13 @@ module.exports = {
     const mieteQm = M('dscr.noetige_miete.Frei'), miete = mieteQm * M('eingabe.wohnflaeche') * 12, ausfall = M('eingabe.mietausfall') * miete;
     const verwaltung = M('jr1.objektverwaltung.Frei'), instand = M('jr1.instandhaltung.Frei'), kd = M('dscr.kapitaldienst_jahr1.Frei');
     const zins = -M('frei.zins_jahr1'), tilgung = -M('frei.tilgung_jahr1'), vorKd = miete - ausfall - verwaltung - instand, rest = vorKd - kd;
-    // Titel: Anteil des Zinses an der nötigen Sollmiete aus der Mappe (Signaturwort, eine Nachkommastelle wie am Ziel); Gegenprobe gegen das Konzept in ctx.titelzeilen
-    const anteilZins = fmt.prozent(zins / miete, 1);
-    const s = ctx.folie(ctx.titelzeilen(['Frei finanziert sind', `${anteilZins} der Miete Zins`], anteilZins));
+    // Titel: Anteile von Zins und Tilgung an der kostendeckenden Sollmiete aus der Mappe (Signaturwort der Anteil des Zinses, eine Nachkommastelle
+    // wie an den Zielen); Gegenprobe gegen das Konzept in ctx.titelzeilen. Seit der Änderungsrunde vom 13.11.2026 (F18.1) nennt der Titel beide Anteile
+    const anteilZins = fmt.prozent(zins / miete, 1), anteilTilgung = fmt.prozent(tilgung / miete, 1);
+    const s = ctx.folie(ctx.titelzeilen([`Frei finanziert fließen ${anteilZins} der Miete`, `in den Zins, ${anteilTilgung} in die Tilgung`], anteilZins));
     B.register(s, '2.1');
-    // Gegenproben: Rechenweg der nötigen Miete, Zerlegung des Kapitaldienstes, Zahlungsüberschuss null
-    Fl.probe(ctx, 'nötige Sollmiete = (Kapitaldienst + Objektverwaltung + Instandhaltung) ÷ (1 − Mietausfall)', (kd + verwaltung + instand) / (1 - M('eingabe.mietausfall')), miete);
+    // Gegenproben: Rechenweg der kostendeckenden Anfangsmiete, Zerlegung des Kapitaldienstes, Zahlungsüberschuss null
+    Fl.probe(ctx, 'kostendeckende Sollmiete = (Kapitaldienst + Objektverwaltung + Instandhaltung) ÷ (1 − Mietausfall)', (kd + verwaltung + instand) / (1 - M('eingabe.mietausfall')), miete);
     Fl.probe(ctx, 'Kapitaldienst = Zins + Tilgung', zins + tilgung, kd);
     Fl.probe(ctx, 'Überschuss vor Kapitaldienst = Kapitaldienst (Zahlungsüberschuss null)', vorKd, kd);
     Fl.probe(ctx, 'Objektverwaltung und Instandhaltung wie gefördert', verwaltung + instand, M('jr1.objektverwaltung.A') + M('jr1.instandhaltung.A'));
@@ -27,7 +28,7 @@ module.exports = {
     const hoechst = M('jr1.sollmiete.A');
     Fl.zahlungsfluss(ctx, s, {
       art: 'frei finanziert', titel: 'Zahlungsfluss in Jahr 1, frei finanziert', sub: 'in € p. a. und in % der Sollmiete · Miete, bei der der Zahlungsüberschuss null ist · gleicher Maßstab wie gefördert',
-      quelle: { name: 'Nötige Sollmiete', wert: miete, zusatz: `${fmt.euroDez(mieteQm)} je m² und Monat` },
+      quelle: { name: 'Kostendeckende Sollmiete', wert: miete, zusatz: `${fmt.euroDez(mieteQm)} je m² und Monat` },
       marke: { wert: hoechst, text: ['Sollmiete zur Höchstmiete:', fmt.euro(hoechst)] },
       knoten: { name: 'Überschuss vor Kapitaldienst', wert: kd },
       ziele: [

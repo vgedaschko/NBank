@@ -10,9 +10,12 @@ module.exports = {
   id: 'rechnung-fluss-gefoerdert',
   bau(ctx) {
     const { B, W, fmt } = ctx, M = k => W('modellhaus', k);
-    // Titel: Anteil der Tilgung an der Sollmiete aus der Mappe (Signaturwort, eine Nachkommastelle wie am Ziel); Gegenprobe gegen das Konzept in ctx.titelzeilen
+    // Titel: Anteile von Zins und Tilgung an der Sollmiete aus der Mappe (Signaturwort der Anteil der Tilgung, eine Nachkommastelle wie am Ziel);
+    // Gegenprobe gegen das Konzept in ctx.titelzeilen. Seit der Änderungsrunde vom 13.11.2026 (F17.1) nennt der Titel beide Anteile wie Folie 18.
+    // Der Zins des NBank-Darlehens ist bis Jahr 35 null: Der Anteil steht dann ohne Nachkommastelle („0 %“)
+    const zinsA = M('jr1.zins_nbank.A'), anteilZins = zinsA === 0 ? fmt.prozent(0) : fmt.prozent(zinsA / M('jr1.sollmiete.A'), 1);
     const anteilTilgung = fmt.prozent(M('jr1.tilgung_nbank.A') / M('jr1.sollmiete.A'), 1);
-    const s = ctx.folie(ctx.titelzeilen([`Gefördert fließen ${anteilTilgung} der Miete`, 'in die Tilgung'], anteilTilgung));
+    const s = ctx.folie(ctx.titelzeilen([`Gefördert fließen ${anteilZins} der Miete`, `in den Zins, ${anteilTilgung} in die Tilgung`], anteilTilgung));
     B.register(s, '2.1');
 
     const miete = M('jr1.sollmiete.A'), ausfall = M('jr1.mietausfall.A'), verwaltung = M('jr1.objektverwaltung.A'), instand = M('jr1.instandhaltung.A');
@@ -23,13 +26,13 @@ module.exports = {
     Fl.probe(ctx, 'Überschuss vor Kapitaldienst = Verwaltungskostenbeitrag + Zins + Tilgung + Zahlungsüberschuss', beitrag + zins + tilgung + rest, vorKd);
     Fl.probe(ctx, 'Kapitaldienst = Verwaltungskostenbeitrag + Zins + Tilgung', beitrag + zins + tilgung, kd);
     Fl.probe(ctx, 'Sollmiete = Höchstmiete × Wohnfläche × 12', M('fin.miete_jahr1.A') * M('eingabe.wohnflaeche') * 12, miete);
-    // Bezug zur Folie 18: nötige Sollmiete frei finanziert, gerechnet wie dort
+    // Bezug zur Folie 18: kostendeckende Sollmiete frei finanziert, gerechnet wie dort
     const frei = M('dscr.noetige_miete.Frei') * M('eingabe.wohnflaeche') * 12;
 
     Fl.zahlungsfluss(ctx, s, {
       art: 'gefördert', titel: 'Zahlungsfluss in Jahr 1, gefördert', sub: 'in € p. a. und in % der Sollmiete · Modellhaus, Gruppe A · gleicher Maßstab wie frei finanziert',
       quelle: { name: 'Sollmiete zur Höchstmiete', wert: miete, zusatz: `${fmt.euroDez(M('fin.miete_jahr1.A'))} je m² und Monat` },
-      umriss: { wert: frei, text: ['frei finanziert nötig:', fmt.euro(frei)] },
+      umriss: { wert: frei, text: ['frei finanziert', 'kostendeckend:', fmt.euro(frei)] },   // bis 13.11.2026 „frei finanziert nötig:“ in einer Zeile (F17.2, G4)
       knoten: { name: 'Überschuss vor Kapitaldienst', wert: vorKd },
       ziele: [
         { id: 'tilgung', name: 'Tilgung', wert: tilgung, rolle: 'tilgung', ueberKnoten: true },

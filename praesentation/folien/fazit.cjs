@@ -1,40 +1,74 @@
-// Folie 24 · Zusammenfassung der Rechnung (PGN_KENNZAHLEN_MR): drei Kennzahlen des Modellhauses mit ihrer Bedingung, darunter über zwölf
-// Spalten die drei Größen, von denen das Ergebnis abhängt. Diese drei Größen nennt der Folientitel; der Block darunter trägt deshalb
-// nur die Modulkopf-Linie und keinen eigenen Titel, der den Folientitel wiederholt. Papierton, Daumenregister 2.1. Kein Diagramm, kein wertender Satz.
-// Alle Zahlen aus werte.json, Lauf modellhaus; jeder Text wird gegen den Wortlaut des Konzepts geprüft. Die Kacheltexte brechen am Satzanfang
-// („Bindung …“, „Höchstmiete …“), damit Bezeichnung und Wert in einer Zeile stehen.
+// Folie 24 · Zusammenfassung der Rechnung (PGN_INHALT_MR), seit der Änderungsrunde vom 13.11.2026 neu aufgebaut (F24.1, bis dahin drei
+// Kennzahl-Kacheln im Layout PGN_KENNZAHLEN_MR): oben drei Schritte nebeneinander (Förderung, Kapitaldienst, Miete), mit Pfeilen verbunden;
+// darunter die Ergebniszeile über die ganze Breite (weiß auf Rot), unten die zwei Bedingungen (Herstellungskosten, Tilgungssatz) und der
+// Schlusssatz. Alle Zahlen gelten für das Modellhaus in Gruppe A und kommen aus werte.json (Lauf modellhaus; die Kostenschwelle aus den drei
+// Kostenläufen wie auf Folie 23). Jeder Text wird gegen den Wortlaut des Konzepts geprüft. Papierton, Daumenregister 2.1. Kein Diagramm.
 'use strict';
+const R = require('./_rechnung.cjs');
+const { breite } = require('../lib/passpruefung.cjs');
 
 module.exports = {
   id: 'fazit',
   bau(ctx) {
-    const { B, W, P, fmt, colX, span, ZONE, Raster } = ctx, s = ctx.folie(), M = k => W('modellhaus', k), wl = (t, was) => ctx.wortlaut(t, was);
+    const { B, W, F, C, fmt, colX, span, Y, Raster } = ctx, s = ctx.folie(), M = k => W('modellhaus', k), wl = (t, was) => ctx.wortlaut(t, was);
     B.register(s, '2.1');
 
-    // Kachel 1: Förderung. „je … Darlehen und Zuschuss“ gilt nur, solange beide gleich hoch sind
-    if (M('fin.darlehen_nbank.A') !== M('fin.zuschuss.A')) P.melde('Kachel 1: Darlehen und Zuschuss sind in Gruppe A nicht gleich hoch; der Satz „je … Darlehen und Zuschuss“ stimmt dann nicht.');
-    wl(fmt.mio(M('fin.foerderung.A')), 'Kachel 1');
-    B.kennzahlFeld(s, 0, { vorsatz: wl('bis zu'), zahl: fmt.mioZahl(M('fin.foerderung.A')), einheit: 'Mio. €', label: wl('Förderung'),
-      text: wl(`${fmt.prozent(M('fin.foerderquote.A'))} von ${fmt.mio(M('fin.gesamtkosten.A'))}: je ${fmt.mio(M('fin.zuschuss.A'))} Darlehen und Zuschuss.\nBindung ${M('tab.bindung')} Jahre.`, 'Kachel 1') });
+    // Aussagen der Folie gegen die Mappe: Die Förderquote bezieht sich auf die Herstellungskosten (Grundstück nicht angesetzt, unter der
+    // Bemessungsgrenze); das Darlehen ist bis Jahr 35 zinsfrei; in Gruppe A gibt es kein Jahr mit Fehlbetrag
+    R.pruefe(M('fin.zuwendungsfaehige_kosten.A') === M('fin.herstellungskosten') && M('fin.grundstueck') === 0,
+      'Die zuwendungsfähigen Kosten sind nicht mehr die Herstellungskosten; „80 % der Herstellungskosten“ auf Folie 24 stimmt dann nicht.');
+    R.pruefe(M('tab.zins_nbank_bis_jahr35') === 0, 'Das NBank-Darlehen ist in den ersten Jahren nicht mehr zinsfrei; Schritt 1 der Folie 24 anpassen.');
+    R.pruefe(M('liq.jahre_mit_fehlbetrag.A') === 0 && M('jr1.zahlungsueberschuss.A') > 0, 'Gruppe A hat ein Jahr mit Fehlbetrag; die Ergebniszeile der Folie 24 stimmt dann nicht.');
 
-    // Kachel 2: Kapitaldienst in Jahr 1, gefördert gegen frei finanziert
-    wl(fmt.euro(M('dscr.kapitaldienst_jahr1.A')), 'Kachel 2');
-    B.kennzahlFeld(s, 1, { vorsatz: wl('Kapitaldienst in Jahr 1'), zahl: fmt.zahl(M('dscr.kapitaldienst_jahr1.A')), einheit: '€', label: wl('gefördert, Gruppe A'),
-      text: wl(`Frei finanziert: ${fmt.euro(M('dscr.kapitaldienst_jahr1.Frei'))}.`, 'Kachel 2') });
+    // ---- Drei Schritte nebeneinander, mit Pfeilen verbunden: je Schritt Oberlinie, Achskreis mit der Nummer, Titel (Modultitel 16 pt) und Text
+    // (14 pt, je Satz eine Zeile). Drei gleich breite Felder über die ganze Breite des Satzspiegels, zwischen ihnen 0,60 Zoll für den Pfeil
+    const schritte = [
+      { titel: 'Förderung', saetze: [`${fmt.prozent(M('fin.foerderquote.A'))} der Herstellungskosten.`, `${fmt.mio(M('fin.foerderung.A'))}, davon ${fmt.mio(M('fin.zuschuss.A'))} Zuschuss.`,
+        `Darlehen ${M('tab.zinsfreie_jahre')} Jahre zinsfrei.`] },
+      { titel: 'Kapitaldienst', saetze: [`${fmt.euro(M('dscr.kapitaldienst_jahr1.A'))} p. a. in Jahr 1.`, `Frei finanziert: ${fmt.euro(M('dscr.kapitaldienst_jahr1.Frei'))}.`] },
+      { titel: 'Miete', saetze: [`${fmt.euroDez(M('dscr.noetige_miete.A'))} je m², kostendeckend.`, `Höchstmiete: ${fmt.euroDez(M('fin.miete_jahr1.A'))}.`,
+        `Frei finanziert: ${fmt.euroDez(M('dscr.noetige_miete.Frei'))}.`] }];
+    const steg = 0.60, w = +((Raster.CW - 2 * steg) / 3).toFixed(3), y0 = Y.inhalt, kreis = 0.42, zeileTitel = y0 + 0.30;
+    let unten = 0;
+    schritte.forEach((st, i) => {
+      const x = +(colX(1) + i * (w + steg)).toFixed(3);
+      wl(`${i + 1}. ${st.titel}: ${st.saetze.join(' ')}`, `Schritt ${i + 1}`);
+      B.linie(s, { x, y: y0, w, art: 'modul', name: `Schritt ${i + 1} Linie` });
+      B.achskreis(s, { cx: x + kreis / 2, cy: zeileTitel, d: kreis, pt: 14, text: String(i + 1), name: `Schritt ${i + 1} Nummer` });
+      B.text(s, st.titel, { x: x + kreis + 0.14, y: zeileTitel - 0.18, w: w - kreis - 0.14, h: 0.36, rolle: 'modultitel', valign: 'middle', einzeilig: true, name: `Schritt ${i + 1} Titel` });
+      const r = B.text(s, st.saetze.join('\n'), { x, y: y0 + 0.62, w, rolle: 'dicht', name: `Text Schritt ${i + 1}` });
+      unten = Math.max(unten, r.unten);
+      // Pfeil zum nächsten Schritt: mittig im Steg, auf der Höhe der Titelzeile
+      if (i < schritte.length - 1) B.icon(s, { name: 'pfeil', farbe: 'tinte', x: +(x + w + (steg - 0.30) / 2).toFixed(3), y: +(zeileTitel - 0.15).toFixed(3), d: 0.30, altText: 'Pfeil zum nächsten Schritt' });
+    });
 
-    // Kachel 3: nötige Miete in Jahr 1 (Miete je m² und Monat, bei der der Zahlungsüberschuss null ist) gegen die Höchstmiete
-    B.kennzahlFeld(s, 2, { vorsatz: wl('Nötige Miete in Jahr 1'), zahl: wl(fmt.dez(M('dscr.noetige_miete.A')), 'Kachel 3'), einheit: wl('€ je m²', 'Kachel 3'), label: wl('gefördert, Gruppe A'),
-      text: wl(`Frei finanziert: ${fmt.euroDez(M('dscr.noetige_miete.Frei'))}.\nHöchstmiete: ${fmt.euroDez(M('fin.miete_jahr1.A'))}.`, 'Kachel 3') });
+    // ---- Ergebniszeile über die ganze Breite, weiß auf Rot: der Betrag als Kernwert (24 pt), der Rest in Montserrat Bold 16 pt, auf einer Grundlinie
+    const yE = +(unten + 0.30).toFixed(3), hE = 0.62, betrag = fmt.euro(M('jr1.zahlungsueberschuss.A')), rest = 'Zahlungsüberschuss in Jahr 1, kein Jahr mit Fehlbetrag';
+    wl(`${betrag} ${rest}`, 'Ergebniszeile');
+    B.kasten(s, { x: colX(1), y: yE, w: Raster.CW, h: hE, farbe: C.rot, name: 'Ergebniszeile Fläche' });
+    const bb = breite(ctx.schutz(betrag), { fontFace: F.xbold, fontSize: 24 }) + 0.06, innen = 0.20;
+    B.text(s, betrag, { x: colX(1) + innen, y: yE, w: bb, h: hE, rolle: 'kernwert', farbe: 'FFFFFF', valign: 'middle', einzeilig: true, name: 'Ergebniszeile Betrag' });
+    B.text(s, rest, { x: colX(1) + innen + bb + 0.10, y: yE + 0.035, w: Raster.CW - 2 * innen - bb - 0.10, h: hE, rolle: 'kennlabel', farbe: 'FFFFFF', valign: 'middle', einzeilig: true, name: 'Ergebniszeile Text' });
 
-    // Planlegende über zwölf Spalten: Modulkopf-Linie und drei Einträge im Raster 4 + 4 + 4
-    const y = B.modulkopf(s, { x: colX(1), y: ZONE.kennzahlen.darunter, w: Raster.CW });
-    // Tilgungssatz: Annahme der Rechnung und die Sätze, bei denen der Zahlungsüberschuss in Jahr 1 null ist (Übersicht 3.8): zuerst in C, zuletzt in A
-    const nullA = M('liq.breakeven_tilgung.A'), nullB = M('liq.breakeven_tilgung.B'), nullC = M('liq.breakeven_tilgung.C');
-    if (!(M('eingabe.tilgung_nbank') < nullC && nullC < nullB && nullB < nullA)) P.melde('Die Tilgungssätze, bei denen der Zahlungsüberschuss null wird, liegen nicht mehr in der Reihenfolge C, B, A über der Annahme; Eintrag „Tilgungssatz“ der Folie 24 anpassen.');
-    [['Tilgungssatz', `Annahme ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)} p. a., null in C bei ${fmt.prozent(nullC, 2)}, in A bei ${fmt.prozent(nullA, 2)}. Den Satz legt die NBank fest.`],
-      ['Herstellungskosten je m²', `Zuwendungsfähig bis zur Bemessungsgrenze, seit ${ctx.X('regeln', 'bemessungsgrenze.gilt_seit')} ${fmt.zahl(M('fin.bemessungsgrenze_qm'))} € in Mietenstufe IV–VII.`],
-      // Der Betrag der Höchstmiete steht einmal, in Kachel 3 direkt darüber
-      ['Höchstmiete', 'Nach Einkommensgruppe und Mietenstufe.']].forEach(([titel, text], i) =>
-      B.planlegende(s, { x: colX(1 + 4 * i), y, w: span(4), pt: 14, eintraege: [{ titel: wl(titel, 'Planlegende'), text: wl(text, 'Planlegende') }], name: 'Planlegende ' + titel }));   // ohne h: Die Höhe folgt dem Text
+    // ---- Zwei Bedingungen in 6 + 6: Tilgung und Herstellungskosten, unter denen das Ergebnis gilt. Die Kostenschwelle ist die der Gruppe A
+    // (R.kostenSchwelle, wie Folie 23), die Tilgungsschwelle der Satz, bei dem der Zahlungsüberschuss in A null ist (Übersicht 3.8; Entscheidung
+    // zu Rückfrage 5: Die Folie zeigt durchgehend Gruppe A)
+    const kostenA = R.kostenSchwelle(ctx, 'A').rund, yB = +(yE + hE + 0.34).toFixed(3);
+    const bedingungen = [
+      ['Herstellungskosten', `bis rund ${fmt.euro(kostenA)} je m². Modellhaus: ${fmt.euro(M('eingabe.herstellungskosten_qm'))}.`],
+      ['Tilgungssatz', `bis ${fmt.prozent(M('liq.breakeven_tilgung.A'), 2)} p. a. Annahme: ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)}.\nDen Satz legt die NBank fest.`]];
+    R.pruefe(M('eingabe.herstellungskosten_qm') < kostenA && M('eingabe.tilgung_nbank') < M('liq.breakeven_tilgung.A'), 'Das Modellhaus liegt nicht mehr unter den Schwellen der Folie 24.');
+    let untenB = 0;
+    bedingungen.forEach(([titel, text], i) => {
+      wl(`${titel}: ${text.replace('\n', ' ')}`, `Bedingung ${i + 1}`);
+      const r = B.planlegende(s, { x: colX(1 + 6 * i), y: yB, w: span(6), pt: 14, linie: true, eintraege: [{ titel, text }], name: 'Planlegende ' + titel });
+      untenB = Math.max(untenB, r.unten);
+    });
+
+    // ---- Schlusssatz (Entscheidung zu Rückfrage 5: bleibt), an der Unterkante der Inhaltszone
+    const schluss = wl('Alle Zahlen gelten für das Modellhaus in Gruppe A und stehen auf den Folien davor.', 'Schlusssatz');
+    const hS = B.hoehe(schluss, { rolle: 'dicht', w: Raster.CW });
+    R.pruefe(untenB + 0.20 <= Y.inhaltEnde - hS, 'Folie 24: Der Schlusssatz stößt an die Bedingungen.');
+    B.text(s, schluss, { x: colX(1), y: +(Y.inhaltEnde - hS).toFixed(3), w: Raster.CW, h: hS, rolle: 'dicht', farbe: 'sekundaer', name: 'Text Schlusssatz' });
   },
 };

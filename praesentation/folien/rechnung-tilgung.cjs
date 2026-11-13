@@ -3,13 +3,21 @@
 // Jahresrechnung mit den drei Werten, Achskreise an den Linienenden. Kein Rot im Diagramm. Die Achse reicht bis 4,0 %: So schneiden alle drei
 // Geraden die Nulllinie im Bild (Tilgungssatz, bei dem der Zahlungsüberschuss null ist; Übersicht 3.8).
 // Stützpunkte: Zahlungsüberschuss vor Tilgung − Satz × NBank-Darlehen (werte.json, Lauf modellhaus), gegen das Raster der Mappe geprüft.
+// Seit der Änderungsrunde vom 13.11.2026 (F20.1 bis F20.3): Titel mit dem Satz, bis zu dem alle drei Gruppen einen Zahlungsüberschuss haben;
+// rechts Stichpunkte in 14 pt unter „Ergebnis“ und „Tilgungssatz“ (G9); unter dem Diagramm der Hinweiskasten zu den Herstellungskosten (G8),
+// das Diagramm ist dafür niedriger.
 'use strict';
 const R = require('./_rechnung.cjs');
 
 module.exports = {
   id: 'rechnung-tilgung',
   bau(ctx) {
-    const { B, D, W, fmt } = ctx, s = ctx.folie(), M = k => W('modellhaus', k), G = R.G;
+    const { B, D, W, fmt, ZONE } = ctx, M = k => W('modellhaus', k), G = R.G, p2 = v => fmt.prozent(v, 2);
+    // Titel: Bis zu diesem Satz bleibt in allen drei Gruppen ein Zahlungsüberschuss; das ist der kleinste der drei Sätze, bei denen er null wird
+    // (Übersicht 3.8, hier der von C). Gerundet darf der Wert nicht über dem der Mappe liegen, sonst stimmt „bis“ nicht
+    const nullBei = Object.fromEntries(G.map(g => [g, M(`liq.breakeven_tilgung.${g}`)])), grenze = Math.min(...G.map(g => nullBei[g]));
+    R.pruefe(Math.round(grenze * 1e4) / 1e4 <= grenze, 'Der Satz im Titel der Folie 20 ist aufgerundet; „bis“ stimmt dann nicht.');
+    const s = ctx.folie(ctx.titelzeilen([`Bis ${p2(grenze)} Tilgung bleibt in allen`, 'drei Gruppen ein Zahlungsüberschuss'], p2(grenze)));
     B.register(s, '2.1');
     B.diagrammkopf(s, { titel: 'Zahlungsüberschuss je Tilgungssatz', sub: 'Jahr 1, in € p. a. · Tilgungssatz p. a. auf das NBank-Darlehen' });
     R.linienLegende(ctx, s);
@@ -30,7 +38,17 @@ module.exports = {
     R.pruefe(bester[raster.indexOf(0)] === 'C' && !bester.includes('B') && Math.abs(bei('C', schwelle) - bei('A', schwelle)) < 1 && M('tilg.schwelle.B_gegen_A') < schwelle,
       'Die Aussagen „unter der Schwelle C, darüber A, B nie vorn“ treffen nicht mehr zu.');
 
-    const d = D.linien(s, { kategorien: saetze.map(t => fmt.prozent(t, 1)), name: 'Diagramm Zahlungsüberschuss je Tilgungssatz', rand: { l: 1.06, r: 0.55, o: 0.50, u: 0.50 },
+    // Hinweiskasten unter dem Diagramm, so breit wie dieses (G8, F20.3): Die Schwellen gelten für die Herstellungskosten des Modellhauses; bei
+    // höheren Kosten liegen sie niedriger (geprüft an den Läufen mit dem ARGE-Median und der Bemessungsgrenze, Folie 23). Das Diagramm endet
+    // um die Höhe des Kastens und 0,12 Zoll Abstand höher
+    const kosten = ['modellhaus_kosten_4631', 'modellhaus_kosten_5460'];
+    R.pruefe(kosten.every(l => W(l, 'eingabe.herstellungskosten_qm') > M('eingabe.herstellungskosten_qm') && G.every(g => W(l, `liq.breakeven_tilgung.${g}`) < nullBei[g])),
+      'Bei höheren Herstellungskosten liegen die Sätze, bei denen der Zahlungsüberschuss null wird, nicht mehr niedriger; der Hinweiskasten der Folie 20 stimmt dann nicht.');
+    const folie23 = ctx.outline.folien.find(f => f.id === 'rechnung-kosten').nr, cz = ZONE.diagramm.chart;
+    const hinweis = ctx.wortlaut(`Gilt für Herstellungskosten von ${fmt.euro(M('eingabe.herstellungskosten_qm'))} je m². Bei höheren Kosten liegen die Schwellen niedriger, siehe Folie ${folie23}.`, 'Hinweiskasten');
+    const hh = B.hinweisHoehe(hinweis, { w: cz.w });
+    // Der Rand über der Plotfläche ist 0,44 statt 0,50 (die Maßkette braucht 0,40), der Abstand zum Kasten 0,10 statt 0,12
+    const d = D.linien(s, { x: cz.x, y: cz.y, w: cz.w, h: +(cz.h - hh - 0.10).toFixed(3), kategorien: saetze.map(t => fmt.prozent(t, 1)), name: 'Diagramm Zahlungsüberschuss je Tilgungssatz', rand: { l: 1.06, r: 0.55, o: 0.44, u: 0.50 },
       reihen: R.linienReihen(reihe), achse: ACHSE });
     const xSatz = t => d.katMitte(t / saetze[1]), band = oben => (d.yWert(oben) + d.yWert(oben - ACHSE.schritt)) / 2;   // Mitte des Bandes unter der Gitterlinie „oben“
 
@@ -52,24 +70,32 @@ module.exports = {
     // Bezeichnung der Marke im untersten Band links der Marke: Dort läuft keine Linie, solange alle drei Geraden bei der Marke über null liegen
     R.pruefe(G.every(g => bei(g, tJahr) > 0), 'Bei der Marke liegt eine Gerade unter null; die Bezeichnung „Jahresrechnung“ links der Marke stünde auf ihr.');
     B.text(s, ctx.wortlaut(`Jahresrechnung: ${fmt.prozent(tJahr, 2)}`, 'Markentext'), { x: xM - 0.08 - 1.90, y: band(ACHSE.min + ACHSE.schritt) - 0.10, w: 1.90, h: 0.20, rolle: 'achse', farbe: 'text', align: 'right', valign: 'middle', einzeilig: true, name: 'Markentext' });
-    B.achsentitel(s, d, { y: ctx.wortlaut('Zahlungsüberschuss in € p. a.', 'Achsentitel'), x: ctx.wortlaut('Tilgungssatz p. a.', 'Achsentitel') });
+    // Der senkrechte Achsentitel ist länger als die niedrigere Plotfläche: Er läuft in die Ränder darüber und darunter (links der Achsbeschriftung
+    // steht dort nichts; die Legende endet über dem Diagramm)
+    B.achsentitel(s, d, { y: ctx.wortlaut('Zahlungsüberschuss in € p. a.', 'Achsentitel'), x: ctx.wortlaut('Tilgungssatz p. a.', 'Achsentitel'), yVon: d.y + 0.08, yBis: d.plot.y + d.plot.h + 0.24 });
 
     B.linienenden(s, { x: xSatz(saetze[n]) + 0.30, eintraege: G.map(g => ({ kreis: g, y: d.yWert(bei(g, saetze[n])) })) });
+    B.hinweis(s, { x: cz.x, y: ctx.Y.inhaltEnde, unten: true, w: cz.w, name: 'Schwellen', text: hinweis });
 
-    // Kommentar: zuerst das Ergebnis beim Satz der Jahresrechnung (in allen drei Gruppen ein Zahlungsüberschuss, am höchsten in A), dann die Sätze,
-    // bei denen er null wird (Übersicht 3.8), die Festlegung durch die NBank und zuletzt die Schwelle C gegen A wie in der Broschüre S. 12.
-    // Die Zulassung von B und C steht auf den Folien 10 und 15.
-    const nullBei = Object.fromEntries(G.map(g => [g, M(`liq.breakeven_tilgung.${g}`)]));
+    // Stichpunkte unter zwei Überschriften (F20.2, G9; bis 13.11.2026 vier Absätze in 16 pt): unter „Ergebnis“ zuerst der Satz der
+    // Jahresrechnung (in allen drei Gruppen ein Zahlungsüberschuss, am höchsten in A), dann die Sätze, bei denen er null wird (Übersicht 3.8),
+    // und die Schwelle C gegen A wie in der Broschüre S. 12; unter „Tilgungssatz“ die Festlegung durch die NBank und die Untergrenze bei linearer
+    // Tilgung. Die Zulassung von B und C steht auf den Folien 10 und 15.
     R.pruefe(G.every(g => bei(g, tJahr) > 0) && bei('A', tJahr) > bei('B', tJahr) && bei('A', tJahr) > bei('C', tJahr),
       'Die Aussage „beim Satz der Jahresrechnung bleibt in allen drei Gruppen ein Zahlungsüberschuss, am höchsten in A“ trifft nicht mehr zu.');
     R.pruefe(tJahr < nullBei.C && nullBei.C < nullBei.B && nullBei.B < nullBei.A && nullBei.A <= saetze[n] && G.every(g => Math.abs(bei(g, nullBei[g])) < 0.5),
       'Die Sätze, bei denen der Zahlungsüberschuss null wird (Übersicht 3.8), liegen nicht mehr in der Reihenfolge C, B, A über dem Satz der Jahresrechnung und im Bereich der Achse.');
-    const p2 = v => fmt.prozent(v, 2);
-    B.planlegende(s, { platzhalter: 'kommentar', eintraege: [
-      { text: `Bei ${p2(tJahr)} Tilgung bleibt in allen drei Gruppen ein Zahlungsüberschuss. Am höchsten ist er in A.` },
-      { text: `Null wird er in C bei ${p2(nullBei.C)}, in B bei ${p2(nullBei.B)} und in A bei ${p2(nullBei.A)} Tilgung.` },
+    const wl = t => ctx.wortlaut(t, 'Stichpunkt');
+    B.stichpunkte(s, { platzhalter: 'kommentar', gruppen: [
+      { titel: ctx.wortlaut('Ergebnis', 'Überschrift'), punkte: [
+        wl(`bei ${p2(tJahr)} Tilgung Zahlungsüberschuss in allen drei Gruppen, am höchsten in A`),
+        // weicher Umbruch nach „in C,“: Sonst bräche die Zeile zwischen dem Satz von B und „in B“
+        wl(`Zahlungsüberschuss null bei ${p2(nullBei.C)} in C, ${p2(nullBei.B)} in B, ${p2(nullBei.A)} in A`).replace('in C, ', 'in C, \n'),
+        wl(`unter ${p2(schwelle)} Tilgung hat C den höchsten Zahlungsüberschuss, darüber A`),
+        wl('B hat bei keinem Tilgungssatz den höchsten')] },
       // Untergrenze bei linearer Tilgung: 1 ÷ Höchstlaufzeit (RL Nr. 5.3.5); mit diesem Satz rechnet die Jahresrechnung
-      { text: `Den Tilgungssatz legt die NBank fest. Linear über ${M('tab.laufzeit_hoechstens')} Jahre sind es rechnerisch mindestens ${p2(1 / M('tab.laufzeit_hoechstens'))}.` },
-      { text: `Unter ${p2(schwelle)} läge C vorn, B in keinem Fall.` }].map(e => ({ text: ctx.wortlaut(e.text, 'Kommentar') })) });
+      { titel: ctx.wortlaut('Tilgungssatz', 'Überschrift'), punkte: [
+        wl('legt die NBank fest'),
+        wl(`rechnerisch mindestens ${p2(1 / M('tab.laufzeit_hoechstens'))}, linear über ${M('tab.laufzeit_hoechstens')} Jahre`)] }] });
   },
 };

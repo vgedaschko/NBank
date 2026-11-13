@@ -7,6 +7,8 @@
   "bis_2026_06_30": {
     "darlehen_anteil": { "wert": 0.75, "einheit": "Anteil der Gesamtkosten", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].rows[0][1]", "geprueft": true },
     "tilgungsnachlass": { "wert": 0.30, "einheit": "Anteil des Darlehens", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].rows[0][1]", "geprueft": true },
+    "eigenmittel": { "wert": 0.25, "einheit": "Anteil der Gesamtkosten", "herkunft": "NBank-Produktinformation „Allgemeine Mietwohnraumförderung“, Stand 01.04.2026, S. 3: „Die Eigenleistungen müssen 25 % der Gesamtkosten … betragen“; Volltext unter ../broschuere/recherche/quellen/ (Folie 9, Änderungsrunde vom 13.11.2026)", "geprueft": true },
+    "eigenmittel_geld": { "wert": 0.10, "einheit": "Anteil der Gesamtkosten", "herkunft": "NBank-Produktinformation „Allgemeine Mietwohnraumförderung“, Stand 01.04.2026, S. 3: „wobei mind. 10 % der Gesamtkosten durch Eigenleistungen in Form eigener Geldmittel oder des Wertes des … lastenfreien Baugrundstücks zu erbringen sind“ (Folie 9)", "geprueft": true },
     "bemessung": {
       "I": { "wert": 5330, "einheit": "€/m² Wohnfläche, Gesamtkosten, Mietenstufe I–III", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].rows[1][1]", "geprueft": true },
       "IV": { "wert": 5550, "einheit": "€/m² Wohnfläche, Gesamtkosten, Mietenstufe IV–VII", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].rows[1][1]", "geprueft": true }
@@ -16,10 +18,22 @@
       "IV": { "wert": 6.60, "einheit": "€/m² Monat, Mietenstufe IV–VII", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[0].rows[2][1]", "geprueft": true }
     }
   },
+  "eigenmittel_neu": {
+    "_hinweis": "Folie 9, Zeile Eigenmittel: Anteil der Eigenmittel, der Geld oder lastenfreies Grundstück sein soll (RL Nr. 5.2.6). Mit tab.eigenmittel_mindestens (20 %) ergibt er die 10 %, die auch nach bis_2026_06_30.eigenmittel_geld galten („weiter mindestens 10 %“); das Folienmodul prüft das.",
+    "geld_anteil": { "wert": 0.5, "einheit": "Anteil der Eigenmittel", "herkunft": "RL Mietwohnraum 2026, Nr. 5.2.6: „Mindestens 50 % der Eigenmittel sollen in Form eigener Geldmittel oder des Wertes des nicht durch Fremdmittel finanzierten, nachweislich grundbuchlastenfreien Baugrundstücks erbracht werden.“ (Prüfung Schritt 1 vom 13.11.2026); Broschüre S. 8 und Folie 11: „Davon soll mindestens die Hälfte Geld oder lastenfreies Grundstück sein“", "geprueft": true }
+  },
   "mietpfad": {
     "_hinweis": "Programmteil 2.1, Gruppe A, Mietenstufe IV–VII. Auf den Cent abgerundete Werte der Broschüre (7,2182 → 7,21 und 7,6621 → 7,66; bis zum Lektorat der Broschüre vom 11.11.2026 stand ab Jahr 7 der Wert 7,65, gerechnet aus dem gerundeten Wert 7,21); die Mappe rechnet ungerundet weiter (zr.miete.A).",
     "jahr4": { "wert": 7.21, "einheit": "€/m² Monat", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.points[1].value", "geprueft": true },
     "jahr7": { "wert": 7.66, "einheit": "€/m² Monat", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.points[2].value", "geprueft": true }
+  },
+  "zins_ab_jahr36": {
+    "_hinweis": "Folie 12, Hinweiskasten unter dem Zeitstrahl (Änderungsrunde vom 13.11.2026, F12.2).",
+    "aufschlag": { "wert": 3, "einheit": "Prozentpunkte über dem Basiszinssatz nach § 247 BGB, höchstens marktüblich", "herkunft": "RL Mietwohnraum 2026, Nr. 5.3.4: „Im Anschluss ist das Darlehen jährlich mit einem Zinssatz, der bis zu drei Prozentpunkte über dem zum Zeitpunkt der Zinserhöhung gültigen Basiszinssatz gemäß § 247 BGB liegt, jedoch den marktüblichen Zinssatz nicht überschreitet, zu verzinsen.“ Gleichlautend in der NBank-Produktinformation, Stand 05.11.2026 (Prüfung Schritt 1 vom 13.11.2026); Broschüre S. 9 (Zeile Zins)", "geprueft": true }
+  },
+  "hoechstmiete": {
+    "_hinweis": "Folie 10 (hoechstmiete): Quellenzeile im Schriftfeld (Änderungsrunde vom 13.11.2026, F10.3). Die Folie zeigt neben den Höchstmieten der Richtlinie die Angebotsmieten 2024 aus dem NBank-Wohnungsmarktbericht 2025, deren Quelle bis dahin auf der Folie fehlte.",
+    "quelle_kurz": { "wert": "Quellen: RL Mietwohnraum 2026; NBank-Wohnungsmarktbericht 2025", "einheit": "Quellenangabe, Kurzform für das Schriftfeld der Folie", "herkunft": "Änderungsrunde vom 13.11.2026, F10.3 (Wortlaut der Umsetzungsliste); die volle Angabe steht auf der Quellenfolie im Anhang", "geprueft": true }
   },
   "angebotsmiete": {
     "jahr": { "wert": 2024, "einheit": "Jahr", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.reference_lines[0].label", "geprueft": true },

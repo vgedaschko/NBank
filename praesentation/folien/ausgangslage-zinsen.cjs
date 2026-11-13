@@ -5,7 +5,7 @@
 // markiert das Ende der Reihe „10 Jahre“. Zwei feine gestrichelte Marken tragen ihre Werte untereinander: das Mittel Q1 2020 (zinsen.marken) und
 // der letzte Monat der Reihe (seit 12.11.2026 an der Stelle des Mittels Q4 2025, Wunsch des Auftraggebers).
 // Eine Kennzahlenspalte gibt es seit 12.11.2026 nicht mehr (Wunsch des Auftraggebers): Der Titel nennt beide Werte (Sollzins im letzten Monat
-// der Reihe und Mittel Q1 2020, je 10 Jahre Zinsbindung); mit beiden rechnet die Folie 5. Die Legende trägt die Zinsbindung.
+// der Reihe und Mittel Q1 2020) und die Zinsbindung (10 Jahre); mit beiden Werten rechnet die Folie 5. Die Legende trägt die Zinsbindung.
 // Zinsreihe aus daten/markt.json (Dr. Klein Wowi Finanz AG, an der Quelle gelesen am 12.11.2026), Zins des Bankdarlehens und Zinsbindung aus daten/werte.json.
 'use strict';
 const E = require('./_einstieg.cjs');
@@ -61,10 +61,12 @@ module.exports = {
     // Heutiger Stand: Punkt am Ende der Reihe „10 Jahre“
     FEIN.endpunkt(ctx, s, { cx: d.katMitte(n), cy: d.yWert(reihen[0].werte[n]), art: reihen[0].art, name: 'Linienende Punkt 10 Jahre' });
 
-    // Der Zins des Bankdarlehens kommt aus der Mappe und ist der letzte Wert der Reihe „10 Jahre“. Der Titel nennt ihn und das Mittel Q1 2020.
-    const zinsBank = W('modellhaus', 'eingabe.zins_bank');
+    // Der Zins des Bankdarlehens kommt aus der Mappe und ist der letzte Wert der Reihe „10 Jahre“. Der Titel nennt ihn, das Mittel Q1 2020 und die
+    // Zinsbindung der Mappe (seit 13.11.2026: „Sollzins bei 10 Jahren Zinsbindung seit 2020 von 0,46 auf 3,86 % gestiegen“, F4.1)
+    const zinsBank = W('modellhaus', 'eingabe.zins_bank'), bindung = W('modellhaus', 'eingabe.zinsbindung');
     ctx.gleich('Zins des Bankdarlehens (Mappe) gegen den letzten Monatswert der Reihe „10 Jahre“', zinsBank * 100, reihen[0].werte[n]);
-    for (const v of [fmt.dez(zinsBank * 100), fmt.dez(marken[0].z10)]) if (!ctx.o.titel.includes(`${v} %`)) P.melde(`Titel der Folie nennt ${v} % nicht; der Wert des letzten Monats und das Mittel Q1 2020 stehen dann nicht im Titel.`);
+    if (!ctx.glatt(ctx.o.titel).includes(`von ${fmt.dez(marken[0].z10)} auf ${fmt.dez(zinsBank * 100)} %`)) P.melde(`Titel der Folie nennt nicht „von ${fmt.dez(marken[0].z10)} auf ${fmt.dez(zinsBank * 100)} %“ (Mittel Q1 2020 und Wert des letzten Monats).`);
+    if (!ctx.o.titel.includes(`${bindung} Jahren Zinsbindung`)) P.melde(`Titel der Folie nennt die Zinsbindung der Mappe (${bindung} Jahre) nicht.`);
 
     // ---- Schriftfeld: Quellenzeile in Kurzform (daten/markt.json, zinsen.quelle_kurz); die volle Angabe steht auf der Quellenfolie im Anhang ----
     B.quelle(s, ctx.wortlaut(X('markt', 'zinsen.quelle_kurz'), 'Quellenzeile'));

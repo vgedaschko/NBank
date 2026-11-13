@@ -86,6 +86,9 @@ STEMPEL = ["rechnung-finanzierung", "rechnung-jahr1", "rechnung-kapitaldienst", 
 # (Form „Abschnitt im Kopf“: 1 bis 4 wie Agenda und Trenner, im Anhang „A“). Das Thema der Folie steht im Schriftfeld (Form „Rubrik“). Im Konzept
 # stehen beide im Feld „inhalt“ als Kicker: „ABSCHNITT · THEMA“. Kopf und Schriftfeld sagen nie dasselbe.
 KOPFZEICHEN = "Abschnitt im Kopf"
+# Einzige Ausnahme (Änderungsrunde vom 13.11.2026, F7.1): Der Kopf der Agenda heißt „Agenda“ und trägt kein Zeichen des Abschnitts. Das Schriftfeld
+# nennt weiter das Thema („Inhalt des Vortrags“); Kopf und Schriftfeld sagen auch dort nicht dasselbe.
+KOPF_AUSNAHME = {"agenda": "AGENDA"}
 # Register der Agenda: Der Vortrag behandelt 2.1; für 2.2 bis 2.6 steht die Seite der Broschüre (Festlegung zum Umbau)
 # gedruckte Seitenzahlen der Broschüre (seit 13.11.2026 = Bogenseite − 1, der Titel zählt nicht mit)
 REGISTER = {"2.1": "in diesem Vortrag", "2.2": "Broschüre S. 12", "2.3": "Broschüre S. 14", "2.4": "Broschüre S. 13", "2.5": "Broschüre S. 15", "2.6": "Broschüre S. 15"}
@@ -130,8 +133,9 @@ SCHWELLE_FOLIE = "anhang-tilgungsschwelle"
 
 # ---- Quellenzeile im Schriftfeld: Folie → Block in daten/markt.json (Feld quelle_kurz). Die Form „Quellenzeile“ trägt genau diesen Wortlaut,
 # in höchstens zwei Zeilen; auf keiner anderen Folie gibt es eine solche Form ----------------------------------------------------------------
+# Ein Block einer anderen Datendatei steht als „datei#block“ (Folie 10: daten/regeln.json, Block hoechstmiete; Änderungsrunde vom 13.11.2026, F10.3)
 QUELLENZEILEN = {"einstieg-baukosten": "baukosten", "ausgangslage-zinsen": "zinsen", "einstieg-kapitaldienst": "kapitaldienst",
-                 "einstieg-bestand": "bestand", "pgn-baukosten": "kosten"}
+                 "einstieg-bestand": "bestand", "hoechstmiete": "regeln#hoechstmiete", "pgn-baukosten": "kosten"}
 
 # ---- E6: Gedankenstrich als Einschub -----------------------------------------------------------------------------------
 # Ein Halbgeviertstrich zwischen Leerzeichen ist ein Einschub. Bis-Striche stehen ohne Leerzeichen („1–3“, „IV–VII“); ein Strich allein in
@@ -224,10 +228,16 @@ KERNWERTE = [
     (RENDITE + "projektkonto_tiefststand.Frei", "zahl", "−1.691", [RENDITE_FOLIE]),
 ]
 # ---- Kernwerte der Ausgangslage und des Kostenvergleichs: Werte der Datendateien und daraus gerechnete Größen, in derselben Schreibweise ----
-KOSTEN_2020 = "(markt#baukosten.herstellung.q1_2020 + markt#baukosten.grundstueck.q1_2020)"
-KOSTEN_HEUTE = "(markt#baukosten.herstellung.q4_2025 + markt#baukosten.grundstueck.q4_2025)"
-FAKTOR_2020 = "monatsrate(markt#kapitaldienst.zins_q1_2020 / 100, modellhaus:eingabe.laufzeit_bank)"   # Monatsrate je Euro Darlehen bei 0,46 % über 30 Jahre
-FAKTOR_HEUTE = "monatsrate(modellhaus:eingabe.zins_bank, modellhaus:eingabe.laufzeit_bank)"            # dasselbe bei 3,86 %
+# Folie 5 (seit der Änderungsrunde vom 13.11.2026, F5.1): nur Herstellungskosten (ohne Grundstück), jährliche Annuität über 30 Jahre. Die Folie
+# liest ihre Werte aus der Rechenmappe (Tabelle 5, kd5.*); das Prüfskript rechnet sie hier unabhängig aus den Datendateien nach (jahresrate).
+# Bis 13.11.2026: Grundstück und Herstellung, monatliche Rate (monatsrate), 8,93 und 20,25 €
+KOSTEN_2020 = "markt#baukosten.herstellung.q1_2020"
+KOSTEN_HEUTE = "markt#baukosten.herstellung.q4_2025"
+SATZ_2020 = "jahresrate(markt#kapitaldienst.zins_q1_2020 / 100, modellhaus:eingabe.laufzeit_bank)"   # Kapitaldienstsatz bei 0,46 % über 30 Jahre
+SATZ_HEUTE = "jahresrate(modellhaus:eingabe.zins_bank, modellhaus:eingabe.laufzeit_bank)"            # dasselbe bei 3,86 %
+TILGUNG_2020 = f"{SATZ_2020} - markt#kapitaldienst.zins_q1_2020 / 100"                               # anfängliche Tilgung
+TILGUNG_HEUTE = f"{SATZ_HEUTE} - modellhaus:eingabe.zins_bank"
+FAKTOR_2020, FAKTOR_HEUTE = f"({SATZ_2020} / 12)", f"({SATZ_HEUTE} / 12)"                             # je Euro Darlehen und Monat
 KD_2020 = f"markt#kapitaldienst.fremdkapital * {KOSTEN_2020} * {FAKTOR_2020}"     # Kapitaldienst je m² und Monat
 KD_HEUTE = f"markt#kapitaldienst.fremdkapital * {KOSTEN_HEUTE} * {FAKTOR_HEUTE}"
 KD_BAUKOSTEN = f"markt#kapitaldienst.fremdkapital * ({KOSTEN_HEUTE} - {KOSTEN_2020}) * {FAKTOR_2020}"
@@ -251,15 +261,26 @@ KERNWERTE_MARKT = [
     ("markt#zinsen.z30.wert.130", "prozentwert2", "4,13 %", ["ausgangslage-zinsen"]),
     ("markt#zinsen.marken.wert.0.z20", "prozentwert2", "0,87 %", ["ausgangslage-zinsen"]),
     ("markt#zinsen.marken.wert.0.z30", "prozentwert2", "0,98 %", ["ausgangslage-zinsen"]),
-    (KOSTEN_2020, "euro", "3.754 €", ["einstieg-kapitaldienst"]),
-    (KOSTEN_HEUTE, "euro", "5.392 €", ["einstieg-kapitaldienst"]),
+    (KOSTEN_2020, "euro", "3.028 €", ["einstieg-kapitaldienst"]),
+    (KOSTEN_HEUTE, "euro", "4.631 €", ["einstieg-kapitaldienst"]),
     ("markt#kapitaldienst.fremdkapital", "prozent0", "80 %", ["einstieg-kapitaldienst"]),
-    (KD_2020, "euro2", "8,93 €", ["einstieg-kapitaldienst"]),
-    (KD_HEUTE, "euro2", "20,25 €", ["einstieg-kapitaldienst"]),
-    (f"{KD_HEUTE} - {KD_2020}", "euro2vz", "+11,31 €", ["einstieg-kapitaldienst"]),
-    (KD_BAUKOSTEN, "euro2vz", "+3,90 €", ["einstieg-kapitaldienst"]),
-    (KD_ZINS, "euro2vz", "+5,16 €", ["einstieg-kapitaldienst"]),
+    (KD_2020, "euro2", "7,22 €", ["einstieg-kapitaldienst"]),
+    (KD_HEUTE, "euro2", "17,55 €", ["einstieg-kapitaldienst"]),
+    (f"{KD_HEUTE} - {KD_2020}", "euro2vz", "+10,33 €", ["einstieg-kapitaldienst"]),
+    (KD_BAUKOSTEN, "euro2vz", "+3,82 €", ["einstieg-kapitaldienst"]),
+    (KD_ZINS, "euro2vz", "+4,26 €", ["einstieg-kapitaldienst"]),
     (KD_WECHSELWIRKUNG, "euro2vz", "+2,25 €", ["einstieg-kapitaldienst"]),
+    (TILGUNG_2020, "prozent3", "3,116 %", ["einstieg-kapitaldienst"]),
+    (TILGUNG_HEUTE, "prozent3", "1,825 %", ["einstieg-kapitaldienst"]),
+    (SATZ_2020, "prozent3", "3,576 %", ["einstieg-kapitaldienst"]),
+    (SATZ_HEUTE, "prozent3", "5,685 %", ["einstieg-kapitaldienst"]),
+    # Dieselben Werte aus der Rechenmappe (Tabelle 5), mit der die Folie gebaut ist: Mappe und Nachrechnung stimmen überein
+    ("modellhaus:kd5.kapitaldienst.q1_2020", "euro2", "7,22 €", ["einstieg-kapitaldienst"]),
+    ("modellhaus:kd5.kapitaldienst.heute", "euro2", "17,55 €", ["einstieg-kapitaldienst"]),
+    ("modellhaus:kd5.anstieg", "euro2vz", "+10,33 €", ["einstieg-kapitaldienst"]),
+    ("modellhaus:kd5.zerlegung.herstellungskosten", "euro2vz", "+3,82 €", ["einstieg-kapitaldienst"]),
+    ("modellhaus:kd5.zerlegung.zins", "euro2vz", "+4,26 €", ["einstieg-kapitaldienst"]),
+    ("modellhaus:kd5.zerlegung.wechselwirkung", "euro2vz", "+2,25 €", ["einstieg-kapitaldienst"]),
     ("markt#bestand.reihe.wert.2016", "zahl", "85.766", ["einstieg-bestand"]),
     ("markt#bestand.reihe.wert.2024", "zahl", "50.495", ["einstieg-bestand"]),
     ("markt#bestand.reihe.wert.2025", "zahl", "50.920", ["einstieg-bestand"]),
@@ -288,6 +309,13 @@ KERNSAETZE = [
     ("eckdaten-zeitstrahl", "{a} Zins ab Auszahlung bis Ende Jahr {b}", {"a": ("tab.zins_nbank_bis_jahr35", "prozent0"), "b": ("tab.zinsfreie_jahre", "zahl")}),
     ("eckdaten-zeitstrahl", "{a} p. a.", {"a": ("tab.verwaltungskostenbeitrag", "prozent1")}),
     ("eckdaten-zeitstrahl", "{a} / {b}", {"a": ("tab.bearbeitungsentgelt_darlehen", "prozent0"), "b": ("tab.bearbeitungsentgelt_zuschuss", "prozent2")}),
+    # Folie 12 seit der Änderungsrunde vom 13.11.2026 (F12.1, F12.2): Tilgung als dritte Kennzahl, Zins ab Jahr 36 im Hinweiskasten
+    ("eckdaten-zeitstrahl", "mind. {a} p. a.", {"a": ("eingabe.tilgung_nbank", "prozent2")}),
+    ("eckdaten-zeitstrahl", "Rechnerisch bei {a} Jahren Laufzeit. Den Satz legt die NBank fest.", {"a": ("tab.laufzeit_hoechstens", "zahl")}),
+    ("eckdaten-zeitstrahl", "Ab Jahr {a}: Zins bis zu {b} Prozentpunkte über dem Basiszinssatz (§ 247 BGB), höchstens marktüblich.",
+     {"a": ("modellhaus:tab.zinsfreie_jahre + 1", "zahl"), "b": ("regeln#zins_ab_jahr36.aufschlag", "zahl")}),
+    # Folie 10 seit der Änderungsrunde vom 13.11.2026 (F10.1): Titel mit der kleinsten und der größten Höchstmiete
+    ("hoechstmiete", "Höchstmiete von {a} bis {b} je m², drei Jahre fest", {"a": ("tab.hoechstmiete.I.A", "dez2"), "b": ("tab.hoechstmiete.IV.C", "euro2")}),
     ("anhang-eckdaten", "Verwaltungskostenbeitrag {a} p. a. auf das Restkapital", {"a": ("tab.verwaltungskostenbeitrag", "prozent1")}),
     ("anhang-eckdaten", "Bearbeitungsentgelt {a} des bewilligten Darlehens und {b} des bewilligten Zuschusses",
      {"a": ("tab.bearbeitungsentgelt_darlehen", "prozent0"), "b": ("tab.bearbeitungsentgelt_zuschuss", "prozent2")}),
@@ -310,15 +338,23 @@ KERNSAETZE = [
     ("rechnung-jahr1", "Zins NBank-Darlehen, {a}", {"a": ("tab.zins_nbank_bis_jahr35", "prozent0")}),
     ("rechnung-miete", "Höchstmiete Gruppe A: {a}", {"a": ("fin.miete_jahr1.A", "euro2")}),
     # Folien des Umbaus: die Aussage des Titels und die Angaben, die eine Zahl an ihr Wort binden
-    ("ausgangslage-zinsen", "Kredite kosten {a}, Anfang 2020 waren es {b}", {"a": ("eingabe.zins_bank", "prozent2"), "b": ("markt#kapitaldienst.zins_q1_2020", "prozentwert2")}),
+    # Titel der Folien 3, 4 und 6 seit der Änderungsrunde vom 13.11.2026 (F3.1, F4.1, F6.1)
+    ("einstieg-baukosten", "Herstellungskosten seit 2020 um {a} gestiegen", {"a": ("markt#baukosten.herstellung.q4_2025 / markt#baukosten.herstellung.q1_2020 - 1", "prozent1")}),
+    ("ausgangslage-zinsen", "Sollzins bei {c} Jahren Zinsbindung seit 2020 von {b} auf {a} gestiegen",
+     {"a": ("eingabe.zins_bank", "prozent2"), "b": ("markt#kapitaldienst.zins_q1_2020", "dez2"), "c": ("eingabe.zinsbindung", "zahl")}),
     ("einstieg-kapitaldienst", "Kapitaldienst je m² und Monat seit 2020 von {a} auf {b} gestiegen", {"a": (KD_2020, "dez2"), "b": (KD_HEUTE, "euro2")}),
     ("einstieg-kapitaldienst", "{a} · {b}", {"a": (KD_BAUKOSTEN, "euro2vz"), "b": (f"({KD_BAUKOSTEN}) / (({KD_HEUTE}) - ({KD_2020}))", "prozent0")}),
     ("einstieg-kapitaldienst", "{a} · {b}", {"a": (KD_ZINS, "euro2vz"), "b": (f"({KD_ZINS}) / (({KD_HEUTE}) - ({KD_2020}))", "prozent0")}),
     ("einstieg-kapitaldienst", "{a} · {b}", {"a": (KD_WECHSELWIRKUNG, "euro2vz"), "b": (f"({KD_WECHSELWIRKUNG}) / (({KD_HEUTE}) - ({KD_2020}))", "prozent0")}),
-    ("einstieg-bestand", "{a} weniger gebundene Wohnungen als 2016", {"a": ("-(" + BESTAND_RUECKGANG + ")", "prozent1")}),
+    ("einstieg-bestand", "Bestand gebundener Wohnungen seit 2016 um {a} gesunken", {"a": ("-(" + BESTAND_RUECKGANG + ")", "prozent1")}),
     ("agenda", "Thema ist Programmteil 2.1: Neubau mit Darlehen und Zuschuss", {}),
     ("agenda", "Die Programmteile 2.2 bis 2.6 stehen in der Broschüre und im Anhang A1.", {}),
-    ("neu-seit-juli", "Seit 01.07.2026 ersetzt der Zuschuss den Tilgungsnachlass", {}),
+    # Folie 9 seit der Änderungsrunde vom 13.11.2026 (F9.1): Titel und die Wirkung in der Tabelle, je an ihre Quellen gebunden
+    ("neu-seit-juli", "Zuschuss von bis zu {a} ersetzt seit 01.07.2026 den Tilgungsnachlass", {"a": ("tab.quote_zuschuss.A", "prozent0")}),
+    ("neu-seit-juli", "A: von {a} auf {b} der Kosten. B und C: neu",
+     {"a": ("regeln#bis_2026_06_30.tilgungsnachlass * regeln#bis_2026_06_30.darlehen_anteil * 100", "dez1"), "b": ("tab.quote_zuschuss.A", "prozent0")}),
+    ("neu-seit-juli", "{a} (Stand 01.10.2026), nur Herstellungskosten", {"a": ("tab.bemessungsgrenze.IV", "euro")}),
+    ("neu-seit-juli", "Darlehen und Zuschuss bis {a} der zuwendungsfähigen Kosten", {"a": ("modellhaus:tab.quote_darlehen.A + modellhaus:tab.quote_zuschuss.A", "prozent0")}),
     ("rechnung-fluss-gefoerdert", "Gefördert fließen {a} der Miete in die Tilgung", {"a": ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
     ("rechnung-fluss-gefoerdert", "{a} je m² und Monat", {"a": ("fin.miete_jahr1.A", "euro2")}),
     ("rechnung-fluss-gefoerdert", "{a} · {b}", {"a": ("jr1.tilgung_nbank.A", "euro"), "b": ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
@@ -458,8 +494,15 @@ KERNWERTE_FORM = [
     ("markt#baukosten.grundstueck.q4_2025", "zahl", "einstieg-baukosten", "Median Grundstück Q4 2025", None, "{a}"),
     (KD_2020, "euro2", "einstieg-kapitaldienst", "Summe Q1 2020", None, "{a}"),
     (KD_HEUTE, "euro2", "einstieg-kapitaldienst", "Summe Heute", None, "{a}"),
+    # Tabelle „Rechenweg“ der Folie 5: Zeile 1 Herstellungskosten, 2 Fremdkapitalanteil, 3 Sollzins, 4 Tilgung, 5 Kapitaldienstsatz, 6 Kapitaldienst
     (KOSTEN_2020, "euro", "einstieg-kapitaldienst", "Tabelle Rechenweg", (1, 1), "{a}"),
     (KOSTEN_HEUTE, "euro", "einstieg-kapitaldienst", "Tabelle Rechenweg", (1, 2), "{a}"),
+    (TILGUNG_2020, "prozent3", "einstieg-kapitaldienst", "Tabelle Rechenweg", (4, 1), "{a}"),
+    (TILGUNG_HEUTE, "prozent3", "einstieg-kapitaldienst", "Tabelle Rechenweg", (4, 2), "{a}"),
+    (SATZ_2020, "prozent3", "einstieg-kapitaldienst", "Tabelle Rechenweg", (5, 1), "{a}"),
+    (SATZ_HEUTE, "prozent3", "einstieg-kapitaldienst", "Tabelle Rechenweg", (5, 2), "{a}"),
+    (KD_2020, "euro2", "einstieg-kapitaldienst", "Tabelle Rechenweg", (6, 1), "{a}"),
+    (KD_HEUTE, "euro2", "einstieg-kapitaldienst", "Tabelle Rechenweg", (6, 2), "{a}"),
     ("markt#kapitaldienst.fremdkapital", "prozent0", "einstieg-kapitaldienst", "Tabelle Rechenweg", (2, 1), "{a}"),
     ("markt#kapitaldienst.fremdkapital", "prozent0", "einstieg-kapitaldienst", "Tabelle Rechenweg", (2, 2), "{a}"),
     ("markt#kapitaldienst.zins_q1_2020", "prozentwert2", "einstieg-kapitaldienst", "Tabelle Rechenweg", (3, 1), "{a}"),
@@ -898,7 +941,7 @@ class Belege:
         else:
             self._nimm(self.dateien, o, f"{datei} {pfad}", art)
 
-    # Formeln in daten/pruefung.json: Grundrechenarten, Klammern, runde(x, n), monatsrate(i, jahre) und Verweise.
+    # Formeln in daten/pruefung.json: Grundrechenarten, Klammern, runde(x, n), jahresrate(i, jahre), monatsrate(i, jahre) und Verweise.
     #   lauf:schluessel oder lauf:schluessel[i]   Wert aus daten/werte.json
     #   datei#pfad                                 Wert aus einer Datendatei (daten/<datei>.json, Punktpfad; Feld „wert“; in Listen die Stelle ab 0)
     def rechne(self, formel):
@@ -933,10 +976,13 @@ class Belege:
                 return ops[type(n.op)](wert(n.operand))
             if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == "runde" and len(n.args) == 2:
                 return runde(wert(n.args[0]), int(wert(n.args[1])))
+            if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == "jahresrate" and len(n.args) == 2:
+                i, jahre = wert(n.args[0]), wert(n.args[1])      # Kapitaldienstsatz einer jährlichen Annuität (Rechenmappe, PMT ÷ Darlehen)
+                return i / (1 - (1 + i) ** (-jahre))
             if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == "monatsrate" and len(n.args) == 2:
                 i, jahre = wert(n.args[0]), wert(n.args[1])      # Rate je Euro Annuitätendarlehen bei monatlicher Zahlung
                 return (i / 12) / (1 - (1 + i / 12) ** (-12 * jahre))
-            raise ValueError("nur Zahlen, Verweise, + − × ÷, Klammern, runde(x, n) und monatsrate(i, jahre)")
+            raise ValueError("nur Zahlen, Verweise, + − × ÷, Klammern, runde(x, n), jahresrate(i, jahre) und monatsrate(i, jahre)")
         return wert(ast.parse(ausdruck, mode="eval").body)
 
     def beleg(self, v, nk, prozent=False, mio=False, euro=False):
@@ -1190,14 +1236,16 @@ def main(argv):
             continue
         im_konzept = re.search(r"Kicker: „([^“]+)“", k["inhalt"])
         teile = im_konzept.group(1).split(" · ", 1) if im_konzept else []
-        if len(teile) != 2 or teile[0].upper() != ab or not teile[1].strip():
-            m.append(f"Folie {nr(i)}: Der Kicker im Konzept ({teile}) hat nicht die Form „{ab} · THEMA“")
+        kopf = KOPF_AUSNAHME.get(k["id"], ab)
+        if len(teile) != 2 or teile[0].upper() != kopf or not teile[1].strip():
+            m.append(f"Folie {nr(i)}: Der Kicker im Konzept ({teile}) hat nicht die Form „{kopf} · THEMA“")
             continue
         thema = glatt(teile[1]).upper()
-        if kicker != [ab]:
-            m.append(f"Folie {nr(i)}: Kopf {kicker} statt des Abschnitts „{ab}“")
-        if zeichen != [zeichen_von(k["abschnitt"])]:
-            m.append(f"Folie {nr(i)}: Zeichen des Abschnitts im Kopf {zeichen} statt „{zeichen_von(k['abschnitt'])}“")
+        if kicker != [kopf]:
+            m.append(f"Folie {nr(i)}: Kopf {kicker} statt „{kopf}“")
+        zeichen_soll = [] if k["id"] in KOPF_AUSNAHME else [zeichen_von(k["abschnitt"])]
+        if zeichen != zeichen_soll:
+            m.append(f"Folie {nr(i)}: Zeichen des Abschnitts im Kopf {zeichen} statt {zeichen_soll}")
         if rubrik != [thema]:
             m.append(f"Folie {nr(i)}: Thema im Schriftfeld {rubrik} statt „{thema}“")
         if rubrik and rubrik == kicker:
@@ -1363,7 +1411,7 @@ def main(argv):
 
     # Quellenzeile im Schriftfeld: genau auf den festgelegten Folien, im Wortlaut der Datendatei, höchstens zwei Zeilen
     m = []
-    markt = json.loads((DATEN / "markt.json").read_text(encoding="utf-8"))
+    datendateien = {}
     for i, (f, k) in enumerate(paare):
         formen = [fo for fo in f["formen"] if fo["name"] == "Quellenzeile"]
         block = QUELLENZEILEN.get(k["id"])
@@ -1371,9 +1419,13 @@ def main(argv):
             if formen:
                 m.append(f"Folie {nr(i)} ({k['id']}): trägt eine Quellenzeile im Schriftfeld, ist dafür aber nicht festgelegt (QUELLENZEILEN)")
             continue
-        soll = glatt((markt.get(block, {}).get("quelle_kurz") or {}).get("wert", ""))
+        datei, _, blk = block.rpartition("#")
+        datei = datei or "markt"
+        if datei not in datendateien:
+            datendateien[datei] = json.loads((DATEN / f"{datei}.json").read_text(encoding="utf-8"))
+        soll = glatt((datendateien[datei].get(blk, {}).get("quelle_kurz") or {}).get("wert", ""))
         if not soll:
-            m.append(f"Folie {nr(i)} ({k['id']}): daten/markt.json führt {block}.quelle_kurz nicht")
+            m.append(f"Folie {nr(i)} ({k['id']}): daten/{datei}.json führt {blk}.quelle_kurz nicht")
             continue
         if len(formen) != 1:
             m.append(f"Folie {nr(i)} ({k['id']}): {len(formen)} Formen „Quellenzeile“, erwartet wird eine mit „{soll}“")
@@ -1381,7 +1433,7 @@ def main(argv):
         zeilen = [a["text"] for a in formen[0]["absaetze"] if a["text"].strip()]
         ist = glatt(" ".join(zeilen))
         if ist != soll:
-            m.append(f"Folie {nr(i)} ({k['id']}): Quellenzeile „{ist}“ statt „{soll}“ (daten/markt.json, {block}.quelle_kurz)")
+            m.append(f"Folie {nr(i)} ({k['id']}): Quellenzeile „{ist}“ statt „{soll}“ (daten/{datei}.json, {blk}.quelle_kurz)")
         if len(zeilen) > 2:
             m.append(f"Folie {nr(i)} ({k['id']}): Quellenzeile in {len(zeilen)} Zeilen (höchstens zwei)")
         if soll not in glatt(k["inhalt"]):
@@ -1515,9 +1567,9 @@ def main(argv):
             return B.werte["laeufe"][lauf or "modellhaus"]["werte"][k]["wert"]
         return B.rechne(quelle)
     plus = lambda v, text: ("+" if v > 0 else "") + text
-    fmt = {"euro": lambda v: zahl_de(v) + " €", "euro2": lambda v: zahl_de(v, 2) + " €", "dez2": lambda v: zahl_de(v, 2), "zahl": lambda v: zahl_de(v),
+    fmt = {"euro": lambda v: zahl_de(v) + " €", "euro2": lambda v: zahl_de(v, 2) + " €", "dez1": lambda v: zahl_de(v, 1), "dez2": lambda v: zahl_de(v, 2), "zahl": lambda v: zahl_de(v),
            "mio": lambda v: zahl_de(v / 1e6, 1) + " Mio. €", "prozent0": lambda v: zahl_de(v * 100, 0) + " %", "prozent1": lambda v: zahl_de(v * 100, 1) + " %",
-           "prozent2": lambda v: zahl_de(v * 100, 2) + " %",
+           "prozent2": lambda v: zahl_de(v * 100, 2) + " %", "prozent3": lambda v: zahl_de(v * 100, 3) + " %",
            # Wert steht schon in Prozent · mit Vorzeichen: Plus vor positiven Werten, Minus U+2212 vor negativen
            "prozentwert2": lambda v: zahl_de(v, 2) + " %", "prozent1vz": lambda v: plus(v, zahl_de(v * 100, 1) + " %"), "euro2vz": lambda v: plus(v, zahl_de(v, 2) + " €"),
            # Tabelle der Renditefolie: Millionen ohne Einheit in der Zelle · Strich, wo die Mappe „n. v.“ führt · „über 100 %“ für einen Anteil über 1

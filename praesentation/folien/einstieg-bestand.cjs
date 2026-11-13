@@ -1,8 +1,9 @@
 // Folie 6 · PGN_DIAGRAMM: Bestand gebundener Mietwohnungen in Niedersachsen, 31.12.2016 bis 31.12.2025, als natives Säulendiagramm über
 // sieben Spalten. Feine Zeichnung wie auf den Folien 3 und 5 (D.saeulen mit fein: true): eine Reihe, jede Säule mit feiner Kontur; die Jahre bis
 // 2024 als helle Fläche, 2025 in Tinte. Beschriftet sind der erste Wert, der Wert der Broschüre für 2024 (beide in Grau) und der letzte (in
-// Tinte). Die Maßkette über dem Diagramm misst von der ersten bis zur letzten Säule und trägt den Rückgang. Rechts die Hauptzahl der Folie
-// (Rückgang) und darunter die Kennzahl der Broschüre S. 3 (28 % der 2015 bis 2024 ausgelaufenen Bindungen ersetzt).
+// Tinte). Die Maßkette über dem Diagramm misst von der ersten bis zur letzten Säule und trägt den Rückgang. Rechts steht die Kennzahl der
+// Broschüre S. 3 (28 % der 2015 bis 2024 ausgelaufenen Bindungen ersetzt). Die frühere Hauptzahl mit dem Rückgang ist seit 13.11.2026 gestrichen
+// (F6.2, G11): Titel und Maßkette nennen ihn schon; die Kennzahl der Broschüre bekommt ihren Platz ab y 2,10.
 // Reihe aus daten/markt.json, Block bestand (Altfassung Folie 4, nicht nachgeprüft); Zahlen 2015 bis 2024 aus dem Block markt (Broschüre S. 3).
 // Rot im Diagramm nur am Maßkettenwert: Das ist die Zahl des Titels. Kein Schlüsselplan: Die Folie behandelt keinen Programmteil.
 'use strict';
@@ -53,9 +54,11 @@ module.exports = {
     [0, n].forEach(i => { const bis = oben(i) - 0.05; if (bis > yM + 0.06) B.linie(s, { x: d.katMitte(i), y: yM, h: bis - yM, art: 'mass', pt: 0.5, name: 'Maßhilfslinie ' + jahre[i] }); });
     B.masskette(s, { x: d.katMitte(0), y: yM, w: d.katMitte(n) - d.katMitte(0), segmente: [{ anteil: 1, text: wl(`${minus} %`, 'Maßkette'), akzent: true }] });
 
-    // ---- Rechte Spalte: Hauptzahl und Kennzahl der Broschüre ----------------------------------------------------------------------
-    B.hauptzahl(s, { gross: true, vorsatz: T('hauptzahl_vorsatz'), zahl: minus, einheit: '%', label: T('hauptzahl_label') });
-    B.nebenzahl(s, { vorsatz: T('kennzahl_vorsatz'), zahl: wl(fmt.zahl(quote * 100), 'Kennzahl'), einheit: '%', label: T('kennzahl_label'), text: T('kennzahl_text') });
+    // ---- Rechte Spalte: Kennzahl der Broschüre an der Stelle der früheren Hauptzahl (60 pt, ab y 2,10), mit Vorsatz, Label und Text ----------
+    const sp = ctx.ZONE.diagramm.spalte;
+    const k = B.kennzahl(s, { x: sp.x, y: sp.y1, w: sp.w, gross: true, vorsatz: T('kennzahl_vorsatz'), zahl: wl(fmt.zahl(quote * 100), 'Kennzahl'), einheit: '%', label: T('kennzahl_label'),
+      text: B.zweizeilig(T('kennzahl_text'), { w: sp.w, rolle: 'dicht' }) });
+    if (k.unten > sp.ende + 0.005) P.melde(`Kennzahl endet bei y ${k.unten.toFixed(2)}, die Inhaltszone bei ${sp.ende.toFixed(2)}.`);
 
     // ---- Schriftfeld: Quellenzeile in Kurzform (daten/markt.json, bestand.quelle_kurz); die volle Angabe steht auf der Quellenfolie im Anhang ----
     B.quelle(s, ctx.wortlaut(X('markt', 'bestand.quelle_kurz'), 'Quellenzeile'));

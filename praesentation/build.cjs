@@ -176,7 +176,8 @@ async function main() {
         const [kAbschnitt, ...kRest] = String(kicker).split(' · ');
         const k = T.versal(kAbschnitt);
         thema = kRest.join(' · ') || null;
-        B.achskreis(slide, { cx: T.X0 + 0.15, cy: T.Y.kicker + 0.15, groesse: 'S', text: abschnittszeichen(o.abschnitt, arg.probe ? [] : outline.folien), name: KOPFZEICHEN });
+        // opt.kopfzeichen: false lässt das Zeichen weg (nur Folie 7: Kopf „Agenda“ ohne Kapitelnummer, Änderungsrunde vom 13.11.2026, F7.1)
+        if (opt.kopfzeichen !== false) B.achskreis(slide, { cx: T.X0 + 0.15, cy: T.Y.kicker + 0.15, groesse: 'S', text: abschnittszeichen(o.abschnitt, arg.probe ? [] : outline.folien), name: KOPFZEICHEN });
         P.zeile('Kicker', k, { fontFace: T.F.mont, bold: true, fontSize: 12, weite: 1.0 }, +(T.Y.kickerW / 1.1).toFixed(2));   // 10 % Reserve im Kickerfeld
         slide.addText(k, { placeholder: 'kicker' });
       }

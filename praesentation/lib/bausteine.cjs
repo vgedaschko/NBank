@@ -703,12 +703,17 @@ function bausteine(pres, kx) {
   // Das Label steht in beiden Größen der Zahl in 16 pt (Rolle kennlabel): Zwei Kacheln einer Spalte tragen oft dasselbe Label.
   // o: { x, y, w, vorsatz, zahl, einheit, label, text, gross: true (60 pt) }. Rückgabe: { unten }
   // Mehrere Zahlen mit je eigener Einheit („1 % / 0,75 %“): statt zahl und einheit teile: [{ zahl, einheit }], trenner: '/'
+  // vor: Zusatz vor der Zahl in der Größe der Einheit („mind. 2,38 % p. a.“, Folie 12). kompakt: true (nur 44 pt, ohne Vorsatz): Die Zeile des
+  // Vorsatzes entfällt, Zahl, Label und Text rücken 0,24 Zoll höher (Folie 12: drei Kacheln unter Zeitstrahl und Hinweiskasten)
   B.kennzahl = (s, o) => {
     brauche('B.kennzahl', o, ['x', 'y', 'w']);
     const teile = Array.isArray(o.teile) && o.teile.length ? o.teile : o.zahl === undefined || o.zahl === null ? null : [{ zahl: o.zahl, einheit: o.einheit }];
     if (!teile) throw new Error('B.kennzahl: zahl fehlt (oder teile: [{ zahl, einheit }]).');
     const gross = !!o.gross, pt = gross ? 60 : 44, zs = { fontFace: F.xbold, fontSize: pt }, es = { fontFace: F.xbold, fontSize: pt / 2 };
+    if (o.kompakt && (gross || o.vorsatz)) throw new Error('B.kennzahl: kompakt gibt es nur in 44 pt und ohne Vorsatz.');
+    const hoch = o.kompakt ? 0.24 : 0;
     const runs = [], pruef = [], lauf = (text, zahl) => { runs.push({ text, options: zahl ? {} : { fontSize: pt / 2 } }); pruef.push({ text, stil: zahl ? zs : es }); };
+    if (o.vor) lauf(schutz(o.vor).replace(/ /g, NBSP) + NBSP, false);
     teile.forEach((t, i) => {
       if (t.zahl === undefined || t.zahl === null) throw new Error('B.kennzahl: Ein Teil hat keine zahl.');
       if (i) lauf(NBSP + (o.trenner || '/') + NBSP, true);
@@ -718,8 +723,8 @@ function bausteine(pres, kx) {
     if (P) P.zeile(`Kennzahl ${pt} pt`, pruef, null, o.w);
     B.linie(s, { x: o.x, y: o.y, w: o.w, art: 'tinte', name: 'Kennzahl Oberlinie' });
     if (o.vorsatz) B.text(s, o.vorsatz, { x: o.x, y: o.y + 0.10, w: o.w, h: 0.22, rolle: 'vorsatz', valign: 'middle', einzeilig: true, name: 'Kennzahl Vorsatz' });
-    s.addText(runs, { x: o.x, y: o.y + (gross ? 0.60 : 0.34), w: o.w, h: gross ? 1.05 : 0.72, margin: 0, isTextBox: true, fontFace: F.xbold, fontSize: pt, lineSpacing: pt, color: cs.titel, valign: 'middle', objectName: 'Kennzahl ' + teile.map(t => t.zahl).join(' / ') });
-    let y = o.y + (gross ? 1.80 : 1.10);
+    s.addText(runs, { x: o.x, y: o.y + (gross ? 0.60 : 0.34 - hoch), w: o.w, h: gross ? 1.05 : 0.72, margin: 0, isTextBox: true, fontFace: F.xbold, fontSize: pt, lineSpacing: pt, color: cs.titel, valign: 'middle', objectName: 'Kennzahl ' + teile.map(t => t.zahl).join(' / ') });
+    let y = o.y + (gross ? 1.80 : 1.10 - hoch);
     if (o.label) { const r = B.text(s, o.label, { x: o.x, y, w: o.w, rolle: 'kennlabel', name: 'Kennzahl Label' }); y = Math.max(r.unten + 0.02, y + 0.30); }
     if (o.text) { const r = B.text(s, o.text, { x: o.x, y, w: o.w, h: o.textH, rolle: 'dicht', name: 'Kennzahl Text' }); y = r.unten; }
     return { unten: y };
@@ -1059,10 +1064,13 @@ function bausteine(pres, kx) {
       hoehe += zeilenzahl(tit, tt, geo.w) * zeilenhoehe({ ...tt, zeileMal: st.zeileMal }) + (gi ? vor : 0) / 72 + 3 / 72;
       if (P) P.zeile(`Stichpunkte, Überschrift „${g.titel}“`, tit, tt, geo.w);
       g.punkte.forEach((p, pi) => {
-        const t = schutz(p).replace(/\*\*/g, ''), letzter = letzteGruppe && pi === g.punkte.length - 1;
-        runs.push({ text: t, options: { fontFace: st.fontFace, fontSize: pt, color: st.color, bullet: { characterCode: '25A0', indent: 16 }, paraSpaceAfter: nach, breakLine: !letzter } });
-        hoehe += zeilenzahl(t, st, wPunkt) * zeilenhoehe(st) + nach / 72;
-        if (P) P.block('Stichpunkt', t, st, wPunkt, Math.max(geo.h, 1));
+        // „\n“ in einem Stichpunkt bricht die Zeile im selben Absatz (weicher Umbruch, kein neuer Marker): etwa vor einem Wertepaar, damit
+        // „IV–VII“ nicht am Halbgeviertstrich bricht (Folie 11). Das Leerzeichen vor dem Umbruch bleibt im Text
+        const teile = schutz(p).replace(/\*\*/g, '').split('\n'), letzter = letzteGruppe && pi === g.punkte.length - 1;
+        teile.forEach((t, ti) => runs.push({ text: t, options: { fontFace: st.fontFace, fontSize: pt, color: st.color, bullet: { characterCode: '25A0', indent: 16 }, paraSpaceAfter: nach,
+          ...(ti ? { softBreakBefore: true } : {}), breakLine: ti === teile.length - 1 && !letzter } }));
+        hoehe += teile.reduce((a, t) => a + zeilenzahl(t, st, wPunkt), 0) * zeilenhoehe(st) + nach / 72;
+        if (P) teile.forEach(t => P.block('Stichpunkt', t, st, wPunkt, Math.max(geo.h, 1)));
         n++;
       });
     });

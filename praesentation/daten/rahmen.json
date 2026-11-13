@@ -57,6 +57,7 @@
       "gesetze": { "wert": "ergänzend NWoFG, DVO-NWoFG und WoGV", "einheit": "Text", "herkunft": "Broschüre S. 23 (23-impressum-hinweise.json, blocks[3] Rechtsgrundlage; Kurzform ohne die ausgeschriebenen Gesetzesnamen)", "geprueft": true },
       "zinsreihe": { "wert": "Zinsreihe: Dr. Klein Wowi Finanz AG (2026), Zinsentwicklung für die Wohnungswirtschaft, Monatswerte 01/2016 bis 11/2026", "einheit": "Text", "herkunft": "Altfassung Folie 24 (Quellenzeile)", "geprueft": false },
       "regeln_bis_2026": { "wert": "NBank-Produktinformation „Allgemeine Mietwohnraumförderung“, Stand 01.04.2026 (Förderkonditionen bis 30.06.2026)", "einheit": "Text", "herkunft": "Recherche zur Broschüre, broschuere/recherche/factbase.md, F018 (Produktinformation der NBank, Stand 01.04.2026: Darlehen bis 75 % der Gesamtkosten, Tilgungsnachlass 30 %, Bemessung 5.330/5.550 € je m²); Broschüre S. 4 führt die Werte ohne eigene Quellenzeile", "geprueft": true },
+      "produktinfo_2026": { "wert": "NBank-Produktinformation „Mietwohnungen in Mehrfamilienhäusern“, Stand 05.11.2026", "einheit": "Text", "herkunft": "Volltext unter ../broschuere/recherche/quellen/ (Förderkonditionen seit 01.07.2026, Bemessungsgrenzen seit 01.10.2026); seit der Änderungsrunde vom 13.11.2026 in der Quellenangabe der Folie 9 (F9.1, Rückfrage 6). Steht in der Zeile „alle“: Sie setzt die Richtlinie für alle Folien um (Förderkonditionen seit 01.07.2026, Bemessungsgrenzen der Folien 9, 11, 14, 23 und A7); eine eigene Zeile passt nicht mehr in die Inhaltszone", "geprueft": true },
       "wohnungsmarktbericht": { "wert": "NBank-Wohnungsmarktbericht 2025", "einheit": "Text", "herkunft": "Broschüre S. 23 (23-impressum-hinweise.json, blocks[4] Quellen)", "geprueft": true },
       "modellrechnung": { "wert": "Modellrechnung der Planungsgemeinschaft Nord GmbH (Rechenmappe {version}, Stand {stand})", "einheit": "Text mit Feldern", "herkunft": "Konzept, Folie quellen; {version} aus werte.json meta.mappe, {stand} aus werte.json meta.mappe_stand", "geprueft": true },
       "kosten_pgn": { "wert": "Folien 22 und 23: PGN (2026): eigene Auswertung von fünf Projekten, Kostenstand Q4 2025", "einheit": "Text", "herkunft": "Altfassung Folie 11 und 12 (Quellenzeile). „Folien 22 und 23:“ steht davor, weil die Zeile der Quellentabelle auch die Folien 3 und 5 nennt, dort aber nur ARGE-Werte stehen", "geprueft": false },
@@ -67,7 +68,7 @@
       "landesregierung": { "wert": "Landesregierung, Pressemitteilung vom 25.11.2025", "einheit": "Text", "herkunft": "Broschüre S. 23 (23-impressum-hinweise.json, blocks[4] Quellen)", "geprueft": true }
     },
     "zeilen": [
-      { "folien": "alle", "angaben": ["richtlinie", "gesetze"], "kennung": ["RL Mietwohnraum 2026", "NWoFG"] },
+      { "folien": "alle", "angaben": ["richtlinie", "gesetze", "produktinfo_2026"], "kennung": ["RL Mietwohnraum 2026", "NWoFG", "NBank-Produktinformation „Mietwohnungen in Mehrfamilienhäusern“"] },
       { "angaben": ["kosten_arge", "kosten_pgn"], "kennung": ["ARGE e. V.", "eigene Auswertung von fünf Projekten"] },
       { "angaben": ["zinsreihe", "eigene_rechnung"], "kennung": ["Dr. Klein Wowi Finanz AG", "eigene Rechnung der PGN"] },
       { "angaben": ["wohnungsmarktbericht", "bestand"], "kennung": ["NBank-Wohnungsmarktbericht 2025", "BT-Drs. 21/7303"] },

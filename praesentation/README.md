@@ -37,13 +37,16 @@ behalten und stufen, nichts abräumen, nichts Neues erfinden.
 - **Rot:** Titellinie, Signaturwort, Reiter 2.1, Zuschuss in Daten, Ergebniszeile, höchstens eine hervorgehobene Kennzahl je Diagramm, Logo.
   Dunkelrot bleibt Signal (Bewilligung, Frist): gefüllter Achskreis und Warnband; der Titel der Station daneben steht in Tinte wie die
   übrigen (Folie 26). Einheiten, Labels, Maßketten, die 80-%-Achse und Aufzählungszeichen stehen in Tinte oder Grau.
-- **Kennzahl:** Derselbe Wert steht auf einer Folie neben dem Titel nur einmal groß (Folie 5: Hauptzahl rechts, die Summen über den Säulen
-  in 12 pt; Folie 19: Werte an den Balken, die Ergebniszeile der Tabelle in 16 pt).
+- **Kennzahl:** Derselbe Wert steht auf einer Folie neben dem Titel nur einmal groß (Folie 19: Werte an den Balken, die Ergebniszeile der
+  Tabelle in 16 pt). Seit 13.11.2026 tragen die Folien 5 und 6 keine Hauptzahl mehr (G11): Folie 5 zeigt rechts Formel und Rechenweg,
+  Folie 6 an dieser Stelle die Kennzahl der Broschüre (28 %).
 - **Diagrammfolien** (`PGN_DIAGRAMM`, `PGN_DIAGRAMM_MR`): Diagramm über sieben Spalten, Text oder Kennzahlen über fünf. Titel, Untertitel,
   Legende und Diagramm beginnen auf allen Folien auf denselben Höhen (`ZONE.diagramm`); der Kopf frei gebauter Module (`B.modulkopf`: Folien 17
-  bis 19, Anhang) liegt genauso. Passt ein Untertitel nicht in eine Zeile, steht er in zwei (Folie 5); gekürzt wird nicht. Auf Folie 22 ist die
+  bis 19, Anhang) liegt genauso. Passt ein Untertitel nicht in eine Zeile, steht er in zwei (`B.diagrammkopf` mit `sub` als Liste; derzeit auf
+  keiner Folie); gekürzt wird nicht. Auf Folie 22 ist die
   zweite Zeile entfallen: Sie sagte dasselbe wie das Modul „Grundlage“ rechts. Ihre Teilung behalten Folie 15 (Tabelle über acht Spalten), die frei gebauten Folien 14 und 27
-  (8 + 4) und 19 (6 + 6) und die Anhangfolien A4, A6 und A7 (8 + 4).
+  (8 + 4) und 19 (6 + 6) und die Anhangfolien A4, A6 und A7 (8 + 4). Seit 13.11.2026 stehen auch die Folien 10 und 11 frei gebaut in 6 + 6:
+  Ihre Stichpunkte in 14 pt (G9) passen auch mit engeren Abständen nicht in fünf Spalten.
 - **Keine Sprechernotizen** (Entscheidung 32): Das Konzept führt kein Feld `notizen`, die Mappe trägt keine Notizseite. Das Feld `quellen`
   bleibt als Quellenangabe je Folie; aus ihm rechnet die Quellenfolie A8 ihre Blattnummern.
 
@@ -64,6 +67,20 @@ Festlegungen des Auftraggebers (`../aenderungen-2026-11/Umsetzung.md`, Kennung G
   weiter 1 bis 8 (Mietausfall als Unterzeile von Zeile 1).
 - **Anhang:** Die Anhangfolie zur Frist 31.12.2026 (bisher A2) ist entfallen, das Wahlrecht ist bei Veröffentlichung abgelaufen (G1).
   A3 bis A9 heißen seitdem A2 bis A8; der Vortrag hat 37 Folien.
+
+Folien 1 bis 12 nach der Änderungsrunde (Kennungen F1 bis F12):
+
+- **Trenner 2 und 8:** Titel in drei Zeilen („Ausgangslage: Herstellungskosten, Zinsen, Kapitaldienst, Bestand“, „Programmteil 2.1: Neuerungen,
+  Höchstmiete, Fördersätze, Eckdaten“), Signaturwort die Themen nach dem Doppelpunkt; die Agenda nennt dieselben Themen (der Bau meldet einen
+  Hinweis, wenn die Zeile Inhalt eines Abschnitts nicht dem Titel seines Trenners folgt).
+- **Folie 5:** rechnet die Rechenmappe (Blatt Tabellen, Tabelle 5; `kd5.*`): nur Herstellungskosten, jährliche Annuität über 30 Jahre, 7,22 und
+  17,55 € je m² und Monat. Rechts Formel und Rechenweg statt der Hauptzahl, Tilgung und Kapitaldienstsatz mit drei Nachkommastellen.
+- **Folie 7:** Kopf „Agenda“ ohne Zeichen des Abschnitts (`ctx.folie({ kopfzeichen: false })`; einzige Ausnahme in `pruefe_folien.py`,
+  `KOPF_AUSNAHME`); das Schriftfeld nennt weiter „Inhalt des Vortrags“.
+- **Folie 9:** native Tabelle „Programmteil 2.1 im Vergleich“ (fünf Zeilen, 12 pt wie die Tabellen der Folien 15 und A1; in 14 pt passt sie nicht
+  in die Inhaltszone); die Werte bis 30.06.2026 stehen in `daten/regeln.json` (NBank-Produktinformation, Stand 01.04.2026).
+- **Folien 10 bis 12:** Hinweiskästen (EH-40-Zuschlag, Zins ab Jahr 36), Stichpunkte in 14 pt (Folien 10 und 11, Teilung 6 + 6), Tilgung als
+  dritte Kennzahl der Folie 12 („mind. 2,38 % p. a.“; `B.kennzahl` mit `vor` und `kompakt`).
 
 Die Anhangfolie A6 zeigt die Eigenkapitalrendite des Modellhauses über 35 Jahre, vor Steuern. Sie ist die einzige Folie mit Rendite und
 Marktmiete des Modellhauses und zeigt die Rendite als Paar „mit Restwert“ und „ohne Restwert“ mit dem Anteil des Restwerts am Endvermögen;
@@ -144,7 +161,7 @@ noch das Konzept Sprechernotizen trägt. Die Summe am Ende nennt 34 Prüfungen (
   `daten/pruefung.json` belegen nur Zahlen dieser Folie. Jede Zahl ihrer Tabelle ist an ihre Zelle der Rechenmappe gebunden (`KERNWERTE_FORM`),
   ebenso jede Zahl der Tabelle „Rechenweg“ der Folie 19.
 - **Quellenzeilen:** Die Form „Quellenzeile“ steht genau auf den Folien der Liste `QUELLENZEILEN`, im Wortlaut von `daten/markt.json`
-  (`quelle_kurz` des Blocks), in höchstens zwei Zeilen. Die Prüfung von Kopf und Schriftfeld liest als Thema nur die Form „Rubrik“.
+  (`quelle_kurz` des Blocks; ein Block einer anderen Datendatei steht als `datei#block`, Folie 10: `regeln#hoechstmiete`), in höchstens zwei Zeilen. Die Prüfung von Kopf und Schriftfeld liest als Thema nur die Form „Rubrik“.
 - **Zahlen:** Jede Zahl braucht einen Beleg in `daten/werte.json`, in einer Datendatei oder in `daten/pruefung.json`; das gilt
   auch für die Alternativtexte der Diagramme und Flussdiagramme, die jeden Strom mit Betrag und Anteil nennen. Die
   Einheit zählt: Vor „%“ belegt nur ein Anteil oder eine Prozentangabe, vor „€“ und „Mio.“ nur ein Eurobetrag. Zahlen hinter
@@ -155,7 +172,7 @@ noch das Konzept Sprechernotizen trägt. Die Summe am Ende nennt 34 Prüfungen (
   „Bearbeitungsentgelt 1 % des bewilligten Darlehens und 0,75 % des bewilligten Zuschusses“), einige auch in den Diagrammdaten.
   Die Listen `KERNWERTE` (Modellhaus), `KERNWERTE_MARKT` (Ausgangslage und Kostenvergleich), `KERNSAETZE` und `KERNWERTE_DIAGRAMM`
   stehen am Anfang des Skripts. Eine Quelle ist ein Schlüssel der Rechenmappe oder eine Formel wie in `daten/pruefung.json`; so sind
-  auch gerechnete Größen gebunden (Kapitaldienst je m² 8,93 und 20,25 €, kostendeckende Sollmiete frei finanziert 154.939 €). Die Liste
+  auch gerechnete Größen gebunden (Kapitaldienst je m² 7,22 und 17,55 €, mit der Funktion `jahresrate` aus den Datendateien nachgerechnet; kostendeckende Sollmiete frei finanziert 154.939 €). Die Liste
   `NICHT_AUF_FOLIE` nennt Wendungen, die nach der Textprüfung vom 12.11.2026 gestrichen sind und nicht auf ihre Folie zurückkehren dürfen
   (Entscheidung 34: „Der Vortrag behandelt 2.1.“, „Entscheidung“ neben „Förderentscheidung“, „Baukosten der PGN“).
 - **Werte an den Diagrammen der Folien 3 bis 6 und 22** stehen als Textfelder neben ihrer Bezeichnung und zum Teil mehrfach auf der
@@ -204,10 +221,10 @@ Beim Öffnen darf keine Meldung „Reparieren“ erscheinen. Geprüft ist bisher
 - **Folie 22:** Werte, Maßzeichen der Spanne und Pfeilspitze mit „Maximum 8.592“ sitzen neben und über den Säulen
   (Abstandsbreite 156 %, Überlappung −12 %); die Flächen in der Grundfarbe unterbrechen die Gitterlinien an 4.631 und 3.713 mit Absicht.
   Die gestrichelte Marke „Ansatz im Modellhaus“ gibt es seit 11.11.2026 nicht mehr.
-- **Folien 3 bis 6 und 22, Schriftfeld:** Die Quellenzeile steht rechtsbündig vor der Blatt-Zelle und bricht nicht von selbst um. Ist eine
-  Schrift auf dem Vortragsrechner breiter, läuft sie nach links auf die Rubrik zu; auf den Folien 6 und 22 steht sie in zwei Zeilen.
-- **Folie 5, Untertitel des Diagramms:** zwei Zeilen im Platzhalter, von Hand gebrochen. Legende und Diagramm stehen darunter in
-  freier Lage und rücken nicht nach, wenn PowerPoint die Zeilen höher rechnet.
+- **Folien 3 bis 6, 10 und 22, Schriftfeld:** Die Quellenzeile steht rechtsbündig vor der Blatt-Zelle und bricht nicht von selbst um. Ist eine
+  Schrift auf dem Vortragsrechner breiter, läuft sie nach links auf die Rubrik zu; auf den Folien 5, 6 und 22 steht sie in zwei Zeilen.
+- **Folie 5, Rechenweg:** Die Spalte der Bezeichnungen ist so breit, dass „Kapitaldienst je m² und Monat“ gerade in eine Zeile passt (rechter
+  Zellrand 0,02 Zoll). Rechnet PowerPoint die Schrift breiter, bricht die Zeile um, und die Tabelle reicht an das Schriftfeld.
 - **Folie A6:** Die Tabelle hat sieben gleich hohe Zeilen; die Bezeichnungen der Zeilen 3 und 7 stehen in zwei Zeilen. Rechnet PowerPoint
   eine Bezeichnung breiter, bricht sie in ihrer Zeile um, die Tabelle wächst dabei nicht.
 - **Folien 4 bis 6 nacheinander zeigen:** Die Jahre der Folie 4 sind Textfelder, die Jahre der Folie 6 und die Kategorien der Folie 5
@@ -239,7 +256,7 @@ Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten 
   `daten/pruefe_werte.py` prüft, dass kein anderer Lauf einen solchen Wert führt. Titel, die eine Zahl nennen, stehen im Konzept und folgen nicht von selbst; der Bau und das Prüfskript
   melden die Abweichung. Die Titel der Folien 15 bis 18 setzt das Modul aus der Rechenmappe und prüft sie gegen das Konzept (`ctx.titelzeilen`).
 - **Regelwerte, Marktzahlen, Fristen, Kontaktdaten:** in der Datendatei der Baugruppe, mit `herkunft` und `geprueft`.
-- **Quellenzeile im Schriftfeld:** Wortlaut in `daten/markt.json` (`quelle_kurz` des Blocks) und im Feld `inhalt` der Folie im Konzept;
+- **Quellenzeile im Schriftfeld:** Wortlaut in `daten/markt.json` (`quelle_kurz` des Blocks; Folie 10: `daten/regeln.json`, Block `hoechstmiete`) und im Feld `inhalt` der Folie im Konzept;
   das Modul setzt sie mit `B.quelle`. Eine weitere Folie mit Quellenzeile braucht einen Eintrag in `QUELLENZEILEN` (`pruefe_folien.py`).
   Der Bau bricht ab, wenn die Zeile mehr als zwei Zeilen braucht oder an die Rubrik stößt.
 - **Neuer gerechneter Wert:** Eintrag in `daten/pruefung.json` (`gerechnet`, mit Formel), sonst meldet das Prüfskript
@@ -261,8 +278,8 @@ Diagramme übernimmt LibreOffice nicht. Wer ein PDF mit diesen Alternativtexten 
 Nicht auf die Folien gehören Deckungsgrade. Renditen und eine Marktmiete des Modellhauses stehen nur auf der Anhangfolie A6, die Rendite
 dort als Paar „mit Restwert“ und „ohne Restwert“ mit dem Restwertanteil (Entscheidung 24 des Konzepts). Auf alle anderen Folien gehören
 sie nicht.
-Quellen stehen auf der Anhangfolie A8 und je Folie im Konzept (Feld `quellen`, in `INHALT.md` „Quellenangabe“). Die Folien 3 bis 6 und 22
-tragen dazu eine kurze Quellenzeile im Schriftfeld (Entscheidung 25); die volle Angabe bleibt auf A8.
+Quellen stehen auf der Anhangfolie A8 und je Folie im Konzept (Feld `quellen`, in `INHALT.md` „Quellenangabe“). Die Folien 3 bis 6, 10 und 22
+tragen dazu eine kurze Quellenzeile im Schriftfeld (Entscheidung 25; Folie 10 seit 13.11.2026, F10.3); die volle Angabe bleibt auf A8.
 
 ## Ungeprüfte Angaben
 
@@ -316,5 +333,5 @@ Bekannte Abweichungen von Muster 2, über die der Auftraggeber entscheidet:
 - **Rot auf A7:** Marke der Jahresrechnung, Feld „Gruppe A vorn“ und Fläche stehen auf Wunsch des Auftraggebers vom 11.11.2026 in Rot
   (Entscheidung 30). Nach Muster 2 stünden Hilfslinie und Labels in Tinte wie auf Folie 20. Am 12.11.2026 bestätigt: Es bleibt bei Rot.
 - **Titel im Anhang:** A1 bis A5 und A8 tragen kein Signaturwort in Rot, A6 und A7 tragen eines. Der Bau verlangt es nur auf Inhaltsfolien.
-- **Doppelpunkt am Zeilenende:** Die Titel der Folien 7, 10 und 23 behalten ihn; ohne neuen Wortlaut lässt er sich dort nicht vermeiden.
-- **Folie 10:** Der Text rechts steht in 14 pt (Tabelle und zwei Einträge), auf der Nachbarfolie 11 in 16 pt. In 16 pt passt er nur gekürzt.
+- **Doppelpunkt am Zeilenende:** Die Titel der Folien 7 und 23 behalten ihn; ohne neuen Wortlaut lässt er sich dort nicht vermeiden (Folie 10
+  seit 13.11.2026 ohne Doppelpunkt).

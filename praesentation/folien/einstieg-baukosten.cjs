@@ -24,17 +24,18 @@ module.exports = {
     gruppen[0].akzent = true;
     if (gruppen.length !== 7 || gruppen[0].k !== 'herstellung') P.melde(`Die Folie zeigt die Herstellung und sechs Kostengruppen; baukosten.auf_der_folie nennt ${gruppen.length}.`);
 
-    // Gegenproben: derselbe Median steht im Block kosten (Folie 22); der Titel sagt „gut die Hälfte“; die sechs Kostengruppen ohne Grundstück
-    // ergeben die Herstellung (Q4 2025 genau, Q1 2020 bis auf 0,01 €)
+    // Gegenproben: derselbe Median steht im Block kosten (Folie 22); der Titel nennt den Anstieg der Herstellung (seit 13.11.2026 als Zahl,
+    // F3.1; bis dahin „gut die Hälfte“); die sechs Kostengruppen ohne Grundstück ergeben die Herstellung (Q4 2025 genau, Q1 2020 bis auf 0,01 €)
     for (const g of gruppen) ctx.gleich(`Median ${g.name} Q4 2025 gegen kosten.spannen.arge`, g.neu, X('markt', `kosten.spannen.arge.${g.k}.median`), 2);
-    if (gruppen[0].plus < 0.5 || gruppen[0].plus >= 0.6) P.melde(`Titel „gut die Hälfte“: Die Herstellung ist um ${fmt.prozent(gruppen[0].plus, 1)} gestiegen.`);
+    const titelZahl = fmt.prozent(gruppen[0].plus, 1);
+    if (!ctx.glatt(ctx.o.titel).includes(ctx.glatt(titelZahl)) || !ctx.o.titel.includes(String(K('von_jahr')))) P.melde(`Titel der Folie nennt den Anstieg der Herstellung seit ${K('von_jahr')} nicht mit ${titelZahl}.`);
     const teile = gruppen.filter(g => !['herstellung', 'grundstueck'].includes(g.k));
     for (const q of ['alt', 'neu']) ctx.gleich(`Summe KG 200 bis 700 gegen Herstellung (${q === 'alt' ? staende[0] : staende[1]})`, teile.reduce((a, g) => a + g[q], 0), gruppen[0][q], 1);
     gruppen.forEach(g => wl(`„${g.kurz}“ · „${g.kg}“ ${z(g.alt)} | ${z(g.neu)} · ${g.aenderung}`, `Medianwerte ${g.name}`));
 
     // ---- Kopf, Legende, Diagramm ---------------------------------------------------------------------------------------------------------
     B.modulkopf(s, { x: colX(1), y: ZONE.diagramm.kopf, w: span(12), titel: wl('Herstellungs- und Grundstückskosten je m² Wohnfläche', 'Diagrammtitel'),
-      sub: wl('in €, Bruttokosten, deutsche Großstädte · Minimum, Median und Maximum je Kostengruppe', 'Untertitel') });
+      sub: wl('in €, Bruttokosten, deutsche Großstädte', 'Untertitel') });   // „Minimum, Median und Maximum“ nennt die Legende (F3.2)
     KG.legende(ctx, s, { eintraege: [{ text: wl(staende[0], 'Legende'), art: 'bezug' }, { text: wl(staende[1], 'Legende'), art: 'tinte' }],
       spanne: wl('Säule: Minimum bis Maximum · Strich und Wert: Median', 'Legende') });
     KG.spannen(ctx, s, { name: 'Diagramm Herstellungskosten', achse: { min: 0, max: 10000, schritt: 2000, format: 'ganz' }, achsentitel: wl('€ je m² Wohnfläche', 'Achsentitel'), label: wl('Veränderung', 'Prozentzeile'),

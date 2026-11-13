@@ -20,7 +20,9 @@ module.exports = {
 
     // Rechtshinweis: genau einmal im Vortrag, Wortlaut der Broschüre S. 23. Der Kasten schließt als Fuß an die Tabelle an (eine Linie statt
     // zweier dicht übereinander): Stichwort in der Spalte „Folie“, Text in der Spalte „Quelle“
-    const k = B.hinweisKasten(s, { x, y: t.unten, w, spalte, stichwort: wl('Hinweis'), text: wl(Q('hinweis'), 'Hinweis') });
+    // Innenrand 0,09 statt 0,18 (Änderungsrunde vom 13.11.2026): Die Zeile „alle“ nennt seitdem auch die NBank-Produktinformation, Stand 05.11.2026
+    // (Quelle der Folie 9, F9.1), und braucht eine Textzeile mehr
+    const k = B.hinweisKasten(s, { x, y: t.unten, w, spalte, rand: 0.09, stichwort: wl('Hinweis'), text: wl(Q('hinweis'), 'Hinweis') });
 
     // Herausgeber und Bildnachweis: zwei Zeilen in 12 pt an der Unterkante der Inhaltszone (wie die Notiz unter einer Tabelle)
     const saetze = `${wl(Q('herausgeber'), 'Herausgeber')}\n${wl(Q('bildnachweis'), 'Bildnachweis')}`, h = B.hoehe(saetze, { rolle: 'kleinText', w }), y = +(Y.inhaltEnde - h).toFixed(3);

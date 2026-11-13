@@ -5,19 +5,27 @@
 // Der Satz unter dem Modultitel nennt, wo die übrigen Programmteile stehen. Den Fokus nennen der Titel der Folie und das Feld 2.1 des Registers;
 // der frühere erste Satz („Der Vortrag behandelt 2.1.“) sagte dasselbe ein drittes Mal und ist gestrichen (Entscheidung 34).
 // Kein Schlüsselplan in der Kickerzeile: Das Register steht auf der Folie. Rot nur am Feld 2.1 (Chip und Ton seiner Programmfarbe).
+// Der Kopf heißt „Agenda“, ohne Zeichen des Abschnitts (F7.1); die Prüfung von Kopf und Schriftfeld nimmt nur diese Folie davon aus.
 'use strict';
 const S = require('./_struktur.cjs');
 
 module.exports = {
   id: 'agenda',
   bau(ctx) {
-    const { B, X, P, colX, Y, Raster, outline } = ctx, s = ctx.folie(), wl = (t, was) => ctx.wortlaut(t, was);
+    // Kopf „Agenda“ ohne Zeichen des Abschnitts (Änderungsrunde vom 13.11.2026, F7.1); das Schriftfeld nennt weiter „Inhalt des Vortrags“
+    const { B, X, P, colX, Y, Raster, outline } = ctx, s = ctx.folie({ kopfzeichen: false }), wl = (t, was) => ctx.wortlaut(t, was);
 
     // ---- Abschnitte: Zahl, Reihenfolge und Namen wie im Konzept (Feld „abschnitt“ der Folien des Hauptteils) ------------------------------
     const stationen = X('rahmen', 'agenda.abschnitte'), imKonzept = S.abschnitte(ctx);
     if (stationen.length !== imKonzept.length || stationen.some((t, i) => t.name !== imKonzept[i] || String(t.nr) !== String(i + 1)))
       P.melde(`Agenda: daten/rahmen.json nennt die Abschnitte ${stationen.map(t => `${t.nr} ${t.name}`).join(', ')}; das Konzept hat ${imKonzept.map((a, i) => `${i + 1} ${a}`).join(', ')}.`);
     stationen.forEach(t => wl(`„${t.nr}“ · „${t.name}“ · „${t.inhalt}“`, `Abschnitt ${t.nr}`));
+    // G10: Die Zeile Inhalt nennt die Themen des Kapitels wie der Titel seines Trenners nach dem Doppelpunkt („Ausgangslage: Herstellungskosten, …“)
+    const trenner = outline.folien.filter(f => f.layout === 'PGN_ABSCHNITT_ROT');
+    stationen.forEach(t => {
+      const tr = trenner.find(f => f.abschnitt === t.name), themen = tr && (ctx.glatt(tr.titel).match(/^[^:]+:\s*(.+)$/) || [])[1];
+      if (themen !== ctx.glatt(t.inhalt)) P.hinweis(`Agenda: Abschnitt ${t.nr} nennt „${t.inhalt}“, der Titel seines Trenners nach dem Doppelpunkt „${themen || (tr ? tr.titel : 'kein Trenner')}“ (G10).`);
+    });
     // Je Abschnitt drei Rasterspalten. Die Achskreise beginnen 0,04 über der Inhaltskante: Ein Kreis wirkt tiefer als eine Linie auf derselben Höhe,
     // und das Register darunter braucht die Höhe für dreizeilige Namen. steg 0,10: Die Textfelder reichen bis 0,10 Zoll vor die nächste Achslinie
     // (2,76 Zoll); die erste Zeile des Abschnitts 2 hat so gut 8 % Luft und bricht auch mit etwas breiterer Schrift nicht in drei Zeilen.

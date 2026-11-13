@@ -1189,9 +1189,7 @@
       "geprueft": true
     },
     "texte": {
-      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter. hauptzahl_…: Hauptzahl der Folie 6 (Rückgang der Reihe im Block „bestand“, {von_jahr} und {bis_jahr} aus bestand.von und bestand.bis). kennzahl_…: Kennzahl der Broschüre S. 3; das Label ist auf eine Zeile gekürzt (Broschüre: „der ausgelaufenen Sozialbindungen ersetzt“).",
-      "hauptzahl_vorsatz": "{von_jahr} bis {bis_jahr}",
-      "hauptzahl_label": "gebundene Mietwohnungen",
+      "_hinweis": "Wortlaut des Konzepts (daten/outline.json, Feld „inhalt“); Zahlen als Platzhalter. kennzahl_…: Kennzahl der Broschüre S. 3, seit 13.11.2026 an der Stelle der früheren Hauptzahl der Folie 6 (die Hauptzahl mit dem Rückgang 2016 bis 2025 ist gestrichen, Änderungsrunde F6.2); das Label ist auf eine Zeile gekürzt (Broschüre: „der ausgelaufenen Sozialbindungen ersetzt“).",
       "kennzahl_vorsatz": "{seit} bis {bis}",
       "kennzahl_label": "ausgelaufener Bindungen ersetzt",
       "kennzahl_text": "{ausgelaufen} Bindungen ausgelaufen, rund {neu_rund} Wohnungen neu gefördert."
@@ -1470,11 +1468,11 @@
     }
   },
   "kapitaldienst": {
-    "_hinweis": "Folie 5 (einstieg-kapitaldienst). Eingangswerte der Rechnung „Kapitaldienst je m² Wohnfläche und Monat, Q1 2020 gegen heute“. Kosten je m²: baukosten.herstellung + baukosten.grundstueck (Q1 2020 und Q4 2025). Zins heute, Laufzeit und Zinsbindung kommen aus daten/werte.json (Lauf modellhaus: eingabe.zins_bank, eingabe.laufzeit_bank, eingabe.zinsbindung); „heute“ heißt: Kosten Q4 2025, Zins November 2026 (letzter Wert der Reihe zinsen.z10, 10.11.2026). Methode wie in der Altfassung Folie 5: Annuitätendarlehen mit monatlicher Rate, Monatsrate je Euro Darlehen = (i ÷ 12) ÷ (1 − (1 + i ÷ 12)^−(12 × n)), Kapitaldienst je m² und Monat = Kosten × Fremdkapitalanteil × Monatsrate (8,93 und 20,25 €). Die Rechenmappe rechnet das Modellhaus mit einer Jahresrate; damit wären es 8,95 und 20,44 €. Zerlegung des Anstiegs: Herstellungskosten = neue Kosten zum alten Zins minus alt; Zins = alte Kosten zum neuen Zins minus alt; Wechselwirkung = Rest. Ergebnisse und Formeln stehen in daten/pruefung.json; das Folienmodul rechnet sie aus diesen Eingangswerten. Die Folie ist keine Modellrechnung (weißer Grund, kein Papierton): Medianwerte deutscher Großstädte je m², kein einzelnes Haus.",
+    "_hinweis": "Folie 5 (einstieg-kapitaldienst). Seit der Änderungsrunde vom 13.11.2026 (F5.1, G12) rechnet die Rechenmappe die Folie: Blatt Tabellen, Tabelle 5 „Kapitaldienst je m² (Folie 5)“ (werte.json, Lauf modellhaus, Schlüssel kd5.*). Grundlage sind nur die Herstellungskosten KG 200–700 (baukosten.herstellung, Q1 2020 und Q4 2025), ohne Grundstück; gerechnet wird eine jährliche Annuität über 30 Jahre wie die freie Finanzierung der Folie 16: Kapitaldienstsatz = i ÷ (1 − (1 + i)^−n), anfängliche Tilgung = Kapitaldienstsatz − i, Kapitaldienst je m² und Monat = Herstellungskosten × Fremdkapitalanteil × Kapitaldienstsatz ÷ 12 (7,22 und 17,55 €). „Heute“ heißt: Kosten Q4 2025, Zins November 2026 (letzter Wert der Reihe zinsen.z10, 10.11.2026; eingabe.zins_bank). Zerlegung des Anstiegs: Herstellungskosten = neue Kosten zum alten Zins minus alt; Zins = alte Kosten zum neuen Zins minus alt; Wechselwirkung = Rest. Die Methode lehnt sich an die Kapitaldienst-Methode des GdW an (Präsentation zur Jahrespressekonferenz 2026, S. 15); anders als dort rechnet die Folie mit 80 % Fremdkapital und Annuitätentilgung. Die Einträge hier sind die Eingangswerte, gegen die das Folienmodul die Tabelle 5 der Mappe prüft; pruefe_folien.py rechnet die Werte mit diesen Eingangswerten nach (jahresrate). Bis 13.11.2026 rechnete das Modul selbst, mit Grundstück und monatlicher Rate (8,93 und 20,25 €). Die Folie ist keine Modellrechnung (weißer Grund, kein Papierton): Medianwerte deutscher Großstädte je m², kein einzelnes Haus.",
     "fremdkapital": {
       "wert": 0.8,
-      "einheit": "Anteil der Gesamtkosten (Grundstück und Herstellung), der als Bankdarlehen finanziert wird",
-      "herkunft": "Altfassung Folie 5, Kasten „Finanzierung“ (80 % Fremdkapital, 20 % Eigenkapital der Gesamtkosten); derselbe Anteil wie im Modellhaus frei finanziert (werte.json: fin.bankdarlehen.Frei ÷ fin.gesamtkosten.Frei)",
+      "einheit": "Anteil der Herstellungskosten, der als Bankdarlehen finanziert wird",
+      "herkunft": "Altfassung Folie 5, Kasten „Finanzierung“ (80 % Fremdkapital, 20 % Eigenkapital); derselbe Anteil wie im Modellhaus frei finanziert (werte.json: fin.bankdarlehen.Frei ÷ fin.gesamtkosten.Frei) und wie in der Rechenmappe, Tabelle 5 (kd5.fremdkapitalanteil)",
       "geprueft": true
     },
     "zins_q1_2020": {
@@ -1484,15 +1482,15 @@
       "geprueft": true
     },
     "quelle": {
-      "wert": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23; Dr. Klein Wowi Finanz AG (2026), Zinsentwicklung für die Wohnungswirtschaft; eigene Rechnung der PGN (Annuitätendarlehen über 30 Jahre, monatliche Rate)",
+      "wert": "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 34, Abb. 23; Dr. Klein Wowi Finanz AG (2026), Zinsentwicklung für die Wohnungswirtschaft; eigene Rechnung der PGN (Rechenmappe, Tabelle 5: jährliche Annuität über 30 Jahre, ohne Grundstück), Methode in Anlehnung an GdW (2026): Präsentation zur Jahrespressekonferenz 2026, S. 15 (Kapitaldienst-Methode)",
       "einheit": "Quellenangabe",
-      "herkunft": "Aufbau nach der Altfassung Folie 5 (dort: eigene Berechnung, Annuitätendarlehen, Volltilgung über 30 Jahre); ARGE-Werte und Zinsreihe am 12.11.2026 an den Quellen gelesen; Rechnung der PGN mit monatlicher Rate",
+      "herkunft": "Aufbau nach der Altfassung Folie 5 (dort: eigene Berechnung, Annuitätendarlehen, Volltilgung über 30 Jahre); ARGE-Werte und Zinsreihe am 12.11.2026 an den Quellen gelesen; Rechnung seit 13.11.2026 in der Rechenmappe (Tabelle 5); GdW-Präsentation im Volltext unter ../broschuere/recherche/quellen/ (Änderungsrunde vom 13.11.2026, F5.8)",
       "geprueft": true
     },
     "quelle_kurz": {
-      "wert": "Quellen: ARGE e. V. (2026), S. 34; Dr. Klein Wowi Finanz AG (2026); eigene Rechnung",
+      "wert": "Quellen: ARGE e. V. (2026), S. 34; Dr. Klein Wowi Finanz AG (2026); eigene Rechnung; Methode in Anlehnung an GdW (2026), Kapitaldienst-Methode",
       "einheit": "Quellenangabe, Kurzform für das Schriftfeld der Folie",
-      "herkunft": "Kurzform von kapitaldienst.quelle für das Schriftfeld der Folie 5 (Altfassung Folie 5, Quellenzeile; die Rechnung ist die der PGN); die volle Angabe steht auf der Quellenfolie im Anhang",
+      "herkunft": "Kurzform von kapitaldienst.quelle für das Schriftfeld der Folie 5 (Altfassung Folie 5, Quellenzeile; die Rechnung ist die der PGN; der Zusatz zur Methode nach der Änderungsrunde vom 13.11.2026, F5.8); die volle Angabe steht auf der Quellenfolie im Anhang",
       "geprueft": true
     }
   },

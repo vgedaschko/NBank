@@ -158,6 +158,13 @@ Modellhaus ist Projekt 2 (KONZEPT-v3.md, Abschnitt R, Entscheidung des Auftragge
   Sollwerte laut Konzept (F.3–5): für L2 zusätzlich die Übersicht des Modellhauses (Konzept R.4), für L69 und L70 die
   Größen der Sensitivität; alle aus der Referenzrechnung erzeugt.
   Regression: Die Projektnamen auf den Blättern Gefördert A/B/C und NBank gelten im neuen Wortlaut als gleich.
+
+Broschüre S. 11 und 12 (Änderungsrunde vom 13.11.2026, G2, B10.1–B10.3, B11.2)
+  Die Jahresrechnung S. 11 zählt 1 bis 9 (Mietausfall/Leerstand ist eigene Zeile 2), der Rechenweg S. 12 1 bis 6
+  (Mietausfall eigene Zeile 3, Schwelle „Zeile 5 ÷ 1“). F9 ordnet die Zeilen wie vorher der Reihe nach der Übersicht zu
+  (S. 11: 29–36 und 38; S. 12: 66–70) und prüft zusätzlich die Nummern ohne Lücke, die Zahl der Zeilen, den Bezug der
+  Schwelle und des Verwaltungskostenbeitrags S. 12 und den Bezug „(Zeile 9 = null)“ der letzten Vergleichszeile S. 11.
+  Die Annahmen S. 11 heißen „jährliche Annuität über 30 Jahre“. Die Mappe zählt ihre Jahresrechnung unverändert.
 """
 import argparse
 import concurrent.futures as cf
@@ -4466,10 +4473,15 @@ def pruefe_broschuere(b, w, sens):
     for i, lab in enumerate(ch["totals"]["labels"]):
         bro(p, f"S. 11 totals.labels (Förderung) {GRUPPEN[i]} ↔ {'DEF'[i]}15", u(f"{'DEF'[i]}15"), lab, faktor=fk)
     tab = block(s11, "table", role_hint="dominant")
+    # Seit der Änderungsrunde vom 13.11.2026 (G2) zählt die Jahresrechnung des Hefts 1 bis 9: Mietausfall/Leerstand ist eigene Zeile 2
+    # (in der Mappe weiter Zeile 1 mit Unterzeile). Zeile k des Hefts gehört zur k-ten Zelle der Übersicht unten.
     zeilen = [29, 30, 31, 32, 33, 34, 35, 36, 38]
+    p.check(len(tab["rows"]) == len(zeilen), "S. 11 Jahresrechnung: Zahl der Zeilen", len(tab["rows"]), len(zeilen))
+    p.check([r[0] for r in tab["rows"]] == [str(k + 1) for k in range(len(zeilen))], "S. 11 Jahresrechnung: Zeilennummern",
+            [r[0] for r in tab["rows"]], "1 bis 9 ohne Lücke")
     for row, z in zip(tab["rows"], zeilen):
         for i in range(3):
-            bro(p, f"S. 11 Zeile {row[0] or '1a'} {GRUPPEN[i]} ↔ {'DEF'[i]}{z}", u(f"{'DEF'[i]}{z}"), row[2 + i])
+            bro(p, f"S. 11 Zeile {row[0]} {GRUPPEN[i]} ↔ {'DEF'[i]}{z}", u(f"{'DEF'[i]}{z}"), row[2 + i])
     for i in range(3):
         bro(p, f"S. 11 Bearbeitungsentgelte {GRUPPEN[i]} ↔ {'DEF'[i]}39", u(f"{'DEF'[i]}39"), tab["aside_row"][2 + i])
         p.check(abs(u(f"{'DEF'[i]}37") or 0) < 0.005, f"S. 11 kein Bank-Kapitaldienst {GRUPPEN[i]} ↔ {'DEF'[i]}37",
@@ -4510,6 +4522,12 @@ def pruefe_broschuere(b, w, sens):
     else:
         p.check(abs((u("D110") or 0) - 1) < 1e-12, "S. 11 Vergleich: DSCR-Ziel 1,0 ↔ D110", u("D110"), 1)
         ziele = (("D14", None), ("D13", "G18"), ("D111", "G111"), ("D112", "G112"))
+        # Die letzte Zeile nennt die Zeile der Jahresrechnung, die bei dieser Miete null ist: die Zeile, die zu Übersicht Zeile 38
+        # (Zahlungsüberschuss) gehört
+        nr = tab["rows"][zeilen.index(38)][0] if len(tab["rows"]) == len(zeilen) else None
+        p.check(len(vg["rows"]) == 4 and f"(Zeile {nr} = null)" in str(vg["rows"][-1][0]),
+                "S. 11 Vergleich: letzte Zeile nennt die Zeile des Zahlungsüberschusses", vg["rows"][-1][0] if vg["rows"] else None,
+                f"„… (Zeile {nr} = null)“")
         for row, (za, zf) in zip(vg["rows"], ziele):
             bro_betrag(p, f"S. 11 Vergleich {row[0]} A ↔ {za}", u(za), row[1])
             if zf is None:
@@ -4519,7 +4537,7 @@ def pruefe_broschuere(b, w, sens):
     txt = block(s11, "text", heading="Annahmen")["body"]
     g = regex_zahl(p, "S. 11 Annahmen frei", txt,
                    r"Eigenmittel ([\d.,]+ (?:Mio\. )?€), Bankdarlehen ([\d.,]+ (?:Mio\. )?€) zu ([\d,]+) % Zins, "
-                   r"Annuität über (\d+) Jahre")
+                   r"jährliche Annuität über (\d+) Jahre")
     if g:
         bro_betrag(p, "S. 11 Annahmen Eigenmittel frei ↔ G19", u("G19"), g[0])
         bro_betrag(p, "S. 11 Annahmen Bankdarlehen frei ↔ G18", u("G18"), g[1])
@@ -4563,14 +4581,23 @@ def pruefe_broschuere(b, w, sens):
         if ist_zahl(ts) and abs(ts - grenze) > 0.0001:
             p.gleich(f"S. 12 höchster Überschuss bei {fmt(ts)} ↔ G{55 + k}", u(f"G{55 + k}"), links if ts < grenze else rechts)
     tab = block(s12, "table", role_hint="rechenweg")
-    # Rechenweg Zeile für Zeile gegen Übersicht 4.12–4.16 (Runde 2, KO3), Schwellen 4.9/4.10, Einmalzeile 4.18
-    for row, z in zip(tab["rows"], (66, 67, 68, 69, 70)):
+    # Rechenweg Zeile für Zeile gegen Übersicht 4.12–4.16 (Runde 2, KO3), Schwellen 4.9/4.10, Einmalzeile 4.18. Seit der Änderungsrunde
+    # vom 13.11.2026 (B11.2) zählt der Rechenweg 1 bis 6 (Mietausfall eigene Zeile 3); die Schwelle ist Zeile 5 ÷ Zeile 1
+    rw = tab["rows"]
+    p.check([r[0] for r in rw] == [str(k + 1) for k in range(6)], "S. 12 Rechenweg: Zeilennummern", [r[0] for r in rw],
+            "1 bis 6 ohne Lücke")
+    for row, z in zip(rw, (66, 67, 68, 69, 70)):
         for i, c in enumerate("EF"):
-            bro(p, f"S. 12 Rechenweg {row[0] or '2a'} {'BC'[i]} ↔ {c}{z}", u(f"{c}{z}"), row[2 + i])
+            bro(p, f"S. 12 Rechenweg {row[0]} {'BC'[i]} ↔ {c}{z}", u(f"{c}{z}"), row[2 + i])
+    if len(rw) == 6:
+        p.check(f"(Zeile {rw[4][0]} ÷ {rw[0][0]})" in str(rw[5][1]), "S. 12 Rechenweg: Bezug der Tilgungsschwelle", rw[5][1],
+                f"„(Zeile {rw[4][0]} ÷ {rw[0][0]})“ (Mehrüberschuss vor Tilgung ÷ Mehrschuld)")
+        p.check(f"von Zeile {rw[0][0]}" in str(rw[3][1]), "S. 12 Rechenweg: Bezug des Verwaltungskostenbeitrags", rw[3][1],
+                f"„… von Zeile {rw[0][0]}“ (Mehrschuld)")
     for i, c in enumerate("EF"):
-        bro(p, f"S. 12 Rechenweg 2 {'BC'[i]} ↔ {c}29−D29", dz(u(f"{c}29"), u("D29")), tab["rows"][1][2 + i])
-        bro(p, f"S. 12 Rechenweg 5 {'BC'[i]} ↔ {'E63' if c == 'E' else 'F64'}", u("E63" if c == "E" else "F64"),
-            tab["rows"][5][2 + i])
+        bro(p, f"S. 12 Rechenweg 2 {'BC'[i]} ↔ {c}29−D29", dz(u(f"{c}29"), u("D29")), rw[1][2 + i])
+        bro(p, f"S. 12 Rechenweg 6 {'BC'[i]} ↔ {'E63' if c == 'E' else 'F64'}", u("E63" if c == "E" else "F64"),
+            rw[5][2 + i])
         bro(p, f"S. 12 Mehr-Entgelte {'BC'[i]} ↔ {c}72", u(f"{c}72"), tab["aside_row"][2 + i])
     calc = s12["calculation"]["A_B_C"]
     for key, z, fk in (("zuschuss_mio", 14, 1e6), ("darlehen_mio", 13, 1e6), ("hoechstmiete_eur_m2", 26, 1.0),

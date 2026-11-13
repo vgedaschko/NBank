@@ -101,67 +101,67 @@
           "89.424"
         ],
         [
-          "",
+          "2",
           "− Mietausfall/Leerstand, 2 % der Sollmiete",
           "1.351",
           "1.630",
           "1.788"
         ],
         [
-          "2",
+          "3",
           "− Objektverwaltung, 367 € je Wohnung p. a. (Betriebskosten voll umgelegt)",
           "5.138",
           "5.138",
           "5.138"
         ],
         [
-          "3",
+          "4",
           "− Instandhaltung, 14,40 € je m² p. a.",
           "11.923",
           "11.923",
           "11.923"
         ],
         [
-          "4",
+          "5",
           "= Überschuss vor Kapitaldienst",
           "49.152",
           "62.784",
           "70.574"
         ],
         [
-          "5",
+          "6",
           "− Verwaltungskostenbeitrag, 0,5 % des Restkapitals (Jahr 1, nach Vollauszahlung)",
           "5.927",
           "8.890",
           "10.372"
         ],
         [
-          "6",
+          "7",
           "− Zins NBank-Darlehen, 0 % bis Ende Jahr 35",
           "0",
           "0",
           "0"
         ],
         [
-          "7",
+          "8",
           "− Tilgung 2,38 % p. a. (Annahme: 42 Jahre) auf 1,2 | 1,8 | 2,1 Mio. € Darlehen",
           "28.223",
           "42.334",
           "49.390"
         ],
         [
-          "8",
+          "9",
           "= Zahlungsüberschuss p. a.",
           "15.003",
           "11.560",
           "10.812"
         ]
       ],
-      "result_row": "8",
+      "result_row": "9",
       "subtotal_rows": [
-        "4"
+        "5"
       ],
-      "values_source": "VOFI-Mappe v3 (PGN_VOFI_Mietwohnraum_2026_v3.xlsx), Projekt 2 (PGN-Projekt in Neu Wulmstorf; Modellhaus seit 11.11.2026): Eingabe 5.1 Mietausfall 2,0 %, 5.2 Objektverwaltung 367 € je Wohnung, 5.3 Instandhaltung 14,40 € je m² (Kostenstand 2026), 3.1 Tilgung 2,38 % p. a. (1/42: linear über die Höchstlaufzeit von 42 Jahren, RL Nr. 5.3.5) als PGN-Annahme; den Satz legt die NBank fest; Jahresrechnung = Übersicht Zeilen 29–39, jede Zelle einzeln auf volle Euro gerundet (Spaltensummen können um 1 € abweichen); Abgleich mit pruefe_vofi.py (F9) und mit der Präsentation nach der Umstellung offen (→ copy.md Anhang B Nr. 1). Werte gelten für Jahr 1.",
+      "values_source": "VOFI-Mappe v3 (PGN_VOFI_Mietwohnraum_2026_v3.xlsx), Projekt 2 (PGN-Projekt in Neu Wulmstorf; Modellhaus seit 11.11.2026): Eingabe 5.1 Mietausfall 2,0 %, 5.2 Objektverwaltung 367 € je Wohnung, 5.3 Instandhaltung 14,40 € je m² (Kostenstand 2026), 3.1 Tilgung 2,38 % p. a. (1/42: linear über die Höchstlaufzeit von 42 Jahren, RL Nr. 5.3.5) als PGN-Annahme; den Satz legt die NBank fest; Jahresrechnung = Übersicht Zeilen 29–39 (die Mappe zählt ihre Zeilen weiter 1 bis 8 mit Mietausfall ohne Nummer; das Heft seit 13.11.2026 1 bis 9), jede Zelle einzeln auf volle Euro gerundet (Spaltensummen können um 1 € abweichen); Abgleich mit pruefe_vofi.py (F9) und mit der Präsentation nach der Umstellung offen (→ copy.md Anhang B Nr. 1). Werte gelten für Jahr 1.",
       "aside_row": [
         "",
         "Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte (1 % des Darlehens + 0,75 % des Zuschusses)",
@@ -169,7 +169,7 @@
         "22.226",
         "22.966"
       ],
-      "row_note": "Zeile 1 = Sollmiete abzüglich Mietausfall/Leerstand (Erlösschmälerung als Unterzeile ohne eigene Nummer, keine Aufwandszeile – Korrekturlauf 1, ENTSCHEIDUNGEN E)"
+      "row_note": "Zeilen 1 bis 9 seit der Änderungsrunde vom 13.11.2026 (G2, B10.1): Mietausfall/Leerstand ist eigene Zeile 2 (Erlösschmälerung unter der Sollmiete, keine Aufwandszeile – Korrekturlauf 1, ENTSCHEIDUNGEN E; bis 13.11.2026 Unterzeile ohne Nummer)"
     },
     {
       "type": "table",
@@ -196,18 +196,18 @@
           "134.779 €"
         ],
         [
-          "Miete je m² und Monat, bei der Zeile 8 null ist",
+          "Kostendeckende Anfangsmiete je m² und Monat (Zeile 9 = null)",
           "5,26 €",
           "15,59 €"
         ]
       ],
-      "result_row": "Miete je m² und Monat, bei der Zeile 8 null ist",
+      "result_row": "Kostendeckende Anfangsmiete je m² und Monat (Zeile 9 = null)",
       "values_source": "VOFI-Mappe v3 (PGN_VOFI_Mietwohnraum_2026_v3.xlsx), Projekt 2: Übersicht 8.2 Kapitaldienst Jahr 1 und 8.3 nötige Miete für DSCR-Ziel 1,0 (A und Frei), 1.10 Bankdarlehen frei; Eingaben 6.1 Zins Bank 3,86 %, 6.4 Laufzeit 30 Jahre (PGN-Annahmen); Eigenmittel frei wie gefördert (1.11)."
     },
     {
       "type": "text",
       "heading": "Annahmen",
-      "body": "Frei finanziert: gleiches Haus, Eigenmittel 0,6 Mio. €, Bankdarlehen 2,4 Mio. € zu 3,86 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern. In den geförderten Varianten ist die Tilgung gleichmäßig auf die Höchstlaufzeit von 42 Jahren verteilt. Den Satz legt die NBank fest (→ S. 9). B und C gegenüber A → S. 12"
+      "body": "Frei finanziert: gleiches Haus, Eigenmittel 0,6 Mio. €, Bankdarlehen 2,4 Mio. € zu 3,86 % Zins, jährliche Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern. In den geförderten Varianten ist die Tilgung gleichmäßig auf die Höchstlaufzeit von 42 Jahren verteilt. Den Satz legt die NBank fest (→ S. 9). B und C gegenüber A → S. 12"
     }
   ],
   "footnotes": [],
@@ -234,6 +234,6 @@
     "G2-20",
     "G1-29"
   ],
-  "visual_idea": "Akzentseite im Rhythmus der Doppelseite 10|11 im Kapitel „Modellrechnung“ (S. 10 Finanzierungsaufbau | S. 11 Wirtschaftlichkeit), Fläche #F4F3F2. Kopf wie S. 10: Kopfzeile mit Rubrik „Modellrechnung“ und Schlüsselplan, ohne Stempel; Headline in Montserrat Black Versalien 25 pt mit senkrechter roter 2-pt-Linie links, „Alle drei Gruppen tragen sich ab Jahr 1“ als zweite Stimme (Montserrat 300, 15,5 pt) darüber, Rot nur an der Zahl 15.003 €; erster Satz als Vorspann in Work Sans 12 pt, der Rest als Text 9,5 pt. Baustein-Register 2.1 (--baustein-21) mit Nummer am Seitenrand. Oben das Finanzierungsdiagramm „Finanzierung in Mio. €“: drei gestapelte Säulen Darlehen (--color-loan), Zuschuss (--color-grant), Eigenmittel (--color-equity, Vektorschraffur, „mind.“), Werte in den Segmenten, Eigenmittelwert neben der Säule; die 80-%-Linie (0,25 mm, feiner Strichpunkt in PGN-Rot) läuft hinter den Säulen und ist nur in den Zwischenräumen sichtbar, „2,4“ darunter. Titel und Farbschlüssel stehen über der Positionsspalte der Tabelle, die Säulen exakt über den Tabellenspalten A | B | C. Darunter als dominantes Element die Jahresrechnung als Wasserfall-Tabelle (€ p. a.) – zwei getrennte, gleich ausgerichtete Elemente mit identischer Spaltenfolge A | B | C, nie eine gemeinsame Grundlinie (Mio. € und € p. a. nicht an einer Achse). Zeilennummern 1–8 im grauen Kopfstreifen; Zeile 1 = Sollmiete mit Unterzeile „− Mietausfall/Leerstand“ (Erlösschmälerung, ohne eigene Nummer); Rechenzeichen (−, =) vor den Positionen, Summenstriche über den Zeilen 4 und 8, Beträge rechtsbündig mit tabellarischen Ziffern. Werte der PGN-Rechnung (Projekt 2 der Mappe, seit 11.11.2026) als normale Zahlenzellen, negative Ergebnisse mit Minuszeichen (U+2212); Tabellenkopf „Jahr 1“. Ergebniszeile 8 in PGN-Rot, Schrift weiß. Bearbeitungsentgelte als abgesetzte Zeile unter der Tabelle (kleiner, ohne Zeilennummer, nicht Teil der Summenlogik). Unteres Band zweispaltig, unten am Satzspiegel (Oberkante = Band „Sensitivität“ S. 10): links die Vergleichstabelle „Zum Vergleich: frei finanziert“ (A | Frei, vier Zeilen, Ergebniszeile fett), rechts „Annahmen“ mit Verweis auf S. 12. Keine Kalkulationsnotiz, kein Angebotssatz (Korrekturlauf 1), kein Achtung-Kasten, keine Fußnote, keine Quellenzeile. Produktion: 10|11 liegen nicht auf einem Druckbogen (physische Heftmitte ist 12|13) – kein Element zwingend über den Bund führen.",
+  "visual_idea": "Akzentseite im Rhythmus der Doppelseite 10|11 im Kapitel „Modellrechnung“ (S. 10 Finanzierungsaufbau | S. 11 Wirtschaftlichkeit), Fläche #F4F3F2. Kopf wie S. 10: Kopfzeile mit Rubrik „Modellrechnung“ und Schlüsselplan, ohne Stempel; Headline in Montserrat Black Versalien 25 pt mit senkrechter roter 2-pt-Linie links, „Alle drei Gruppen tragen sich ab Jahr 1“ als zweite Stimme (Montserrat 300, 15,5 pt) darüber, Rot nur an der Zahl 15.003 €; erster Satz als Vorspann in Work Sans 12 pt, der Rest als Text 9,5 pt. Baustein-Register 2.1 (--baustein-21) mit Nummer am Seitenrand. Oben das Finanzierungsdiagramm „Finanzierung in Mio. €“: drei gestapelte Säulen Darlehen (--color-loan), Zuschuss (--color-grant), Eigenmittel (--color-equity, Vektorschraffur, „mind.“), Werte in den Segmenten, Eigenmittelwert neben der Säule; die 80-%-Linie (0,25 mm, feiner Strichpunkt in PGN-Rot) läuft hinter den Säulen und ist nur in den Zwischenräumen sichtbar, „2,4“ darunter. Titel und Farbschlüssel stehen über der Positionsspalte der Tabelle, die Säulen exakt über den Tabellenspalten A | B | C. Darunter als dominantes Element die Jahresrechnung als Wasserfall-Tabelle (€ p. a.) – zwei getrennte, gleich ausgerichtete Elemente mit identischer Spaltenfolge A | B | C, nie eine gemeinsame Grundlinie (Mio. € und € p. a. nicht an einer Achse). Zeilennummern 1–9 im grauen Kopfstreifen (seit 13.11.2026, G2); Zeile 2 = „− Mietausfall/Leerstand“ (Erlösschmälerung unter der Sollmiete, eigene Nummer); Rechenzeichen (−, =) vor den Positionen, Summenstriche über den Zeilen 5 und 9, Beträge rechtsbündig mit tabellarischen Ziffern. Werte der PGN-Rechnung (Projekt 2 der Mappe, seit 11.11.2026) als normale Zahlenzellen, negative Ergebnisse mit Minuszeichen (U+2212); Tabellenkopf „Jahr 1“. Ergebniszeile 9 in PGN-Rot, Schrift weiß. Bearbeitungsentgelte als abgesetzte Zeile unter der Tabelle (kleiner, ohne Zeilennummer, nicht Teil der Summenlogik). Unteres Band zweispaltig, unten am Satzspiegel (Oberkante = Band „Sensitivität“ S. 10): links die Vergleichstabelle „Zum Vergleich: frei finanziert“ (A | Frei, vier Zeilen, Ergebniszeile fett), rechts „Annahmen“ mit Verweis auf S. 12. Keine Kalkulationsnotiz, kein Angebotssatz (Korrekturlauf 1), kein Achtung-Kasten, keine Fußnote, keine Quellenzeile. Produktion: 10|11 liegen nicht auf einem Druckbogen (physische Heftmitte ist 12|13) – kein Element zwingend über den Bund führen.",
   "page_variant": "accent"
 }

@@ -79,7 +79,7 @@ Anmerkungen: Fachseiten unter 180 Wörtern Fließtext (S. 3, 4, 5, 6, 9, 10, 11,
 - Inhaltsverzeichnis U2 mit acht Kapitel-Linien; Einträge = Kolumnentitel (S. 4 „Neuerungen und Grundcheck“, S. 9 „Eckdaten“, S. 12 „Mix und Tilgung“). Kolumnentitel S. 2 „Editorial“.
 - Begriffe: „Spielregeln“ → „Förderbedingungen“ (S. 13) bzw. „Vermietungsbedingungen“ (S. 7); „Term Sheet“ → „Eckdaten“ (S. 9). Kalkulationsnotizen, Belehrungen, Teaser und Detailversprechen sind gestrichen (§8.1–8.3).
 - Headlines: S. 4 „Richtlinie 2026: Neuerungen und Voraussetzungen“, S. 16 „Wahlrecht für Modernisierungsanträge“, S. 17 „Bindungen erwerben oder verlängern“.
-- S. 11: Mietausfall/Leerstand als Erlösschmälerung in Zeile 1 (Unterzeile ohne eigene Nummer), nicht als Aufwandszeile; A/B/C-Absatz kurz, Vertiefung auf S. 12.
+- S. 11: Mietausfall/Leerstand als Erlösschmälerung in Zeile 1 (Unterzeile ohne eigene Nummer), nicht als Aufwandszeile; A/B/C-Absatz kurz, Vertiefung auf S. 12. (Seit 13.11.2026 eigene Zeile 2, siehe unten.)
 - S. 2, 10–12 (10.11.2026): Das Kapitel S. 10–12 heißt „Modellrechnung“ (Inhaltsverzeichnis, Kicker, Kolumnentitel). Der Stempel im Kopf entfällt; S. 10 trägt neben dem Kicker einen Hinweis als schlichten Text (seit 11.11.2026 „Rechenbeispiel, keine Förderzusage“). Editorial S. 2: „Die Modellrechnung auf S. 10–12 zeigt für 14 Wohnungen …“ (bis 11.11.2026: 20 Wohnungen).
 - S. 11 (10.11.2026): Kasten „B und C gegenüber A“ ersetzt durch „Zum Vergleich: frei finanziert“ (Werte aus der VOFI-Mappe v3; keine Renditen, keine Marktmiete). Ton-Durchgang über alle Seiten nach REDAKTIONSREGELN §9.
 - S. 11/12 (09.11.2026): Werte der PGN-Beispielrechnung vorläufig eingesetzt (Schlussabgleich offen, → Anhang B, Nr. 1) – Mietausfall 2 %, Objektverwaltung 367 € je Wohnung, Instandhaltung 14,40 € je m² (Kostenstand 2026), Tilgung 2,38 % als Annahme (seit 10.11.2026: linear über die Höchstlaufzeit von 42 Jahren, vorher 2,5 %); Jahresrechnung zeigt Jahr 1; Tilgungsschwellen mit Mietausfall. Die Werte selbst stehen seit 11.11.2026 im letzten Eintrag dieser Liste.
@@ -92,6 +92,7 @@ Anmerkungen: Fachseiten unter 180 Wörtern Fließtext (S. 3, 4, 5, 6, 9, 10, 11,
 - Modellrechnung S. 10–12 (Entscheidung des Auftraggebers, 11.11.2026): Das Modellhaus ist ein PGN-Projekt in Neu Wulmstorf, Landkreis Harburg (die Straße wird nicht genannt): 14 Wohnungen, 828 m² Wohnfläche, Herstellungskosten 3.579 € je m² (Median aus fünf PGN-Projekten, Kostengruppen 200 bis 700, Kostenstand Q4 2025), Grundstück im Bestand und nicht angesetzt, Mietenstufe VI, Effizienzhaus 55. Werte aus Projekt 2 der VOFI-Mappe v3. Headlines: S. 10 „14 Wohnungen, 3,0 Mio. €: bis zu 2,4 Mio. € Förderung“, S. 11 „Alle drei Gruppen tragen sich ab Jahr 1: 15.003 € Zahlungsüberschuss in A“ (Kunde), S. 12 „Über 1,91 % Tilgung liegt Gruppe A vorn“. Hinweis im Kopf S. 10 „Rechenbeispiel, keine Förderzusage“, im zentralen Hinweis U3 entsprechend „Rechenbeispiele“. S. 10: Rechenweg ohne Zeile „+ Grundstück“, Haus mit 14 Fenstern, Sensitivität als Tabelle mit drei Ansätzen der Herstellungskosten (3.579 | 4.631 | 5.460 € je m², die dritte Spalte seit 12.11.2026 an der Bemessungsgrenze ab 01.10.2026) statt des Wasserfalls zu 5.200 €. S. 10 und 11: Headline in 20 pt, weil die erste Zeile der S. 11 in 25 pt nicht auf den Satzspiegel passt. S. 12: Achsen 0–3,0 % und −10.000 bis +20.000 €, Marke beim Tilgungssatz der S. 11, Maßkette „vorn: Gruppe C | Gruppe A“. Folgeänderungen: S. 2 („für 14 Wohnungen“), S. 13 (Marke „Modell S. 10“ bei 211.672 € je Wohnung, Notiz, Lage der Knick-Beschriftung). Mit dem früheren Modellhaus (20 Wohnungen, 7,0 Mio. €) schlossen B und C Jahr 1 mit einem Fehlbetrag; das gilt nicht mehr.
 - Stufung der Gestaltung (12.11.2026, `DESIGN.md` §0a): Jede Innenseite trägt eine Kopfzeile mit der Rubrik (erster Teil des Kolumnentitels), Seiten eines Programmteils dazu den Schlüsselplan. Die rote Kicker-Zeile über der Headline entfällt, die Kolumnentitel im Fuß bleiben. Headlines stehen wieder durchgehend in 25 pt. Trug der frühere Kicker Inhalt oder passt der Titel in 25 pt nicht, steht der erste Teil als zweite Stimme über der Hauptzeile, ohne Doppelpunkt: S. 8 „Neubau, Änderung, Ersterwerb“, S. 10 „14 Wohnungen, 3,0 Mio. €“ über „bis zu 2,4 Mio. € Förderung“, S. 11 „Alle drei Gruppen tragen sich ab Jahr 1“ über „15.003 € Zahlungsüberschuss in A“, S. 13 „Energetisch hochwertiger Neubau“, S. 14 „Ostfriesische Inseln“, S. 15 „Klimagerechte Modernisierung“, S. 17 „Belegungs- und Mietbindungen“ (ohne „im Bestand“). Ohne Ersatz entfallen die Kicker S. 3 „Kennzahlen“, S. 4 „Vergleich und Grundcheck“, S. 5 „Navigator“, S. 9 „Eckdaten · Programmteil 2.1“, S. 16 „Stichtag 31.12.2026“, S. 18 „Standort und Kommune“, S. 19 „Antragsweg“, S. 20 „Mit PGN“, S. 21 „Service“ und S. 22 „Über PGN“. Lange Vorspanne sind geteilt (S. 7, 10, 11, 18: erster Satz Vorspann, Rest Text). Modultitel mit Einheit stehen ohne Komma (S. 6, 7, 11, 12, 13). Seitenverweise stehen halbfett im Text statt als Chip. Der Hinweis „Rechenbeispiel, keine Förderzusage“ steht auf S. 10 unter dem Titel des Finanzierungsdiagramms. Textkorrekturen: S. 2 (Satz „Das Heft nennt je Programmteil Fördersätze, Höchstmieten, Bindungen und Fristen.“ gestrichen, keine Fettung am Verweis auf die Modellrechnung), S. 12 (Notizsatz „Unter 1,91 % Tilgung hat C den höchsten Zahlungsüberschuss, darüber A.“ gestrichen, die Headline trägt ihn; „Über die Laufzeit“ auf einen Satz gekürzt; der Absatz zu Mietausfall und Kosten steht darunter statt am Tabellenfuß), S. 18 (Freistellung in zwei Sätzen), S. 20 (Leistungen 2 bis 4), S. 21 (Beispielsatz zur vorzeitigen Rückzahlung), U3 (Quelle des ARGE-Werts ergänzt).
 - Änderungsrunde vom 13.11.2026 (`aenderungen-2026-11/Umsetzung.md`, G1, G7, B15.1): Das Wahlrecht für Modernisierungsanträge ist bei Veröffentlichung abgelaufen. Das Blatt „Stichtag 31.12.2026“ (bisher S. 16) entfällt, ebenso die Kachel auf S. 3, der Pin an 2.3 auf S. 5 und die letzte Zeile von „Ablauf und Kombination“ auf S. 15. Die Seiten 17–23 rücken auf S. 16–22 (gedruckt 15–21); neue S. 23 „Quellen und Notizen“ (Quellentabelle oben, Notizen im Planraster) vor der Rückseite. Das Impressum (S. 22) ist eine Innenseite mit Kopfzeile „PGN“ und Fuß mit Blatt 21. Stand auf U1 und im Impressum „11/2026“. Doppelseiten ab S. 16 neu gepaart: 16|17, 18|19, 20|21, 22|23.
+- Änderungsrunde vom 13.11.2026, Inhalte der Blätter 1 bis 11 (S. 2–12; `aenderungen-2026-11/Umsetzung.md`, B1.1 bis B11.2 und G2): S. 2 Vorwort in drei Absätzen und einer Schriftgröße mit Initiale „B“ (Vorspann und die Sätze zu Baukosten, Krediten, Baugenehmigungen und „seit 1981“ entfallen), „Ihr Einstieg“ ohne „Kommunen“; S. 3 Bestandszeile „Bestand 2025: 50.920 Sozialwohnungen, 40,6 % weniger als 2016“; S. 4 Tabelle „Programmteil 2.1 im Vergleich“ wie Folie 9 (fünf Zeilen, Spalte „Wirkung“); S. 6 Bedingungen für B und C als fünf Stichpunkte; S. 7 Quellenzeile am Diagramm „Mietentwicklung und Markt“; S. 9 Tilgung „rechnerisch mindestens 2,38 % p. a. bei 42 Jahren Laufzeit“; S. 10 Steckbrief statt Vorspann, Satz zur Kostenschwelle unter der Sensitivität; S. 11 Jahresrechnung 1 bis 9 (Mietausfall eigene Zeile 2), Vergleich „Kostendeckende Anfangsmiete je m² und Monat (Zeile 9 = null)“, „jährliche Annuität über 30 Jahre“; S. 12 Notiz „Unter 1,91 % Tilgung liegt C vorn, darüber A“, Rechenweg 1 bis 6 (Mietausfall eigene Zeile 3, „Zeile 5 ÷ 1“).
 
 ---
 
@@ -131,11 +132,13 @@ Schriftfeld: **Herausgeber** Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme) 
 
 ### Damit sich Investieren wieder rechnet
 
-**Bauen kostet mehr als doppelt so viel wie vor 25 Jahren, Kredite kosteten Ende 2025 drei bis vier Prozent, und die Zahl der Baugenehmigungen hat sich seit 2021 mehr als halbiert.**
+Bezahlbarer Wohnraum fehlt in Niedersachsen. Gebaut wird er trotzdem zu selten, weil sich der Neubau bei den heutigen Kosten und Zinsen kaum noch rechnet.
 
-Seit dem 01.07.2026 gilt die Richtlinie Mietwohnraum 2026 (RL), befristet bis 31.12.2031. Statt Tilgungsnachlässen gibt es jetzt nicht rückzahlbare Zuschüsse.
+Seit dem 01.07.2026 gilt die Richtlinie Mietwohnraum 2026. Das Land fördert damit bis zu 80 % der Kosten. Einen Teil davon zahlt es als Zuschuss, der nicht zurückgezahlt wird. Geförderter Mietwohnraum wird so wieder zu einer Investition, die sich trägt.
 
-Wir planen seit 1981 Bauprojekte, heute von Rotenburg (Wümme) aus in ganz Norddeutschland. Die Modellrechnung auf S. 10–12 zeigt für 14 Wohnungen Finanzierung, Zahlungsüberschuss und den Mix der Einkommensgruppen, zum Vergleich auch frei finanziert.
+Wer die Förderung nutzen will, muss sie früh mitdenken: beim Standort, bei der Planung und bei den Kosten. Diese Broschüre zeigt, was die Richtlinie bietet, welche Konditionen gelten und wie sich Ihr gefördertes Vorhaben rechnet. Wir freuen uns darauf, es mit Ihnen zu besprechen und zu planen.
+
+*Vorwort zweispaltig in einer Schriftgröße, Initiale „B“; kein Vorspann (Änderungsrunde 13.11.2026, B1.1).*
 
 *Ihre PGN – Architekten. Stadtplaner. Ingenieure.*
 
@@ -148,7 +151,6 @@ Wir planen seit 1981 Bauprojekte, heute von Rotenburg (Wümme) aus in ganz Nordd
 - **Wohnungsunternehmen und Genossenschaften:** Neubau, Modernisierung und Bindungen im Bestand; genossenschaftlich überlassener Wohnraum gilt als Mietwohnraum. → S. 8–16
 - **Investorinnen und Investoren:** Konditionen und Modellrechnung für 14 Wohnungen. → S. 9–12
 - **Projektentwicklung:** Gefördert wird auch der Ersterwerb bis zwei Jahre nach Fertigstellung. Wer kauft, schließt den Kaufvertrag erst nach der Bewilligung, vorher nur mit folgenlosem Rücktrittsrecht. → S. 8, 18
-- **Kommunen:** Selbst antragsberechtigt. Wo die Gemeinde geförderten Mietwohnraum im Bebauungsplan, städtebaulichen Vertrag oder Baulandmodell festlegt, gilt der für die Bewilligung nötige Bedarf als gegeben. → S. 17
 
 #### Inhalt
 
@@ -192,7 +194,7 @@ Bezugsgröße der Förderquote: in 2.1 die Herstellungskosten bis zur Bemessungs
 
 - Kernbotschaft: Von 2015 bis 2024 hat die Neuförderung **28 %** der ausgelaufenen Sozialbindungen ersetzt.
 - Diagramm: 58 Quadrate (1 Quadrat = 1.000 Wohnungen), 16 gefüllt; Gesamtmaß „2015–2024: 58.024 Bindungen ausgelaufen“; Teilmaß „rund 16.000 neu gefördert“ | „nicht ersetzt“
-- Fußzeile: 1 Quadrat = 1.000 Wohnungen · Bestand 2024: 50.495 Sozialwohnungen, gegenüber 2015 nahezu halbiert
+- Fußzeile: 1 Quadrat = 1.000 Wohnungen · Bestand 2025: 50.920 Sozialwohnungen, 40,6 % weniger als 2016
 - Seitenverweis: Bedarf am Standort → S. 17
 
 ---
@@ -206,15 +208,17 @@ Bezugsgröße der Förderquote: in 2.1 die Herstellungskosten bis zur Bemessungs
 
 ### Richtlinie 2026: Neuerungen und Voraussetzungen
 
-**Programmteil 2.1 im Vergleich · Höchstsätze**
+**Programmteil 2.1 im Vergleich**
 
-|   | bis 30.06.2026 | seit 01.07.2026 |
-|---|---|---|
-| Instrument | zinsloses Darlehen, 75 % der Gesamtkosten; Tilgungsnachlass 30 % des Darlehens nur bei geringen Einkommen | Darlehen + Zuschuss statt Tilgungsnachlass; zusammen 80 % der zuwendungsfähigen Kosten (Gruppe A: je 40 %) |
-| Bemessung je m² Wohnfläche | 5.330/5.550 € Gesamtkosten, Neubau inkl. Grundstück | 5.250/5.460 € Herstellungskosten (seit 01.10.2026); Grundstück separat bis Bodenrichtwert |
-| Mieterkreis und Höchstmiete Jahre 1–3 (nettokalt je m²) | geringe und mittlere Einkommen; 6,30/6,60 € (geringe) | Gruppen A, B, C (B/C nur mit Zulassung); A: 6,50/6,80 € |
+| Merkmal | Bis 30.06.2026 | Seit 01.07.2026 | Wirkung |
+|---|---|---|---|
+| Förderquote | Darlehen bis 75 % der Gesamtkosten | Darlehen und Zuschuss bis 80 % der zuwendungsfähigen Kosten | +5 Prozentpunkte |
+| Nicht rückzahlbar | Tilgungsnachlass 30 % des Darlehens, nur bei geringen Einkommen | Zuschuss bis 40 % (A), 20 % (B), 10 % (C) der Kosten | A: von 22,5 auf 40 % der Kosten. B und C: neu |
+| Eigenmittel | 25 % der Gesamtkosten | 20 % der zuwendungsfähigen Kosten | −5 Prozentpunkte. Geld oder Grundstück weiter mindestens 10 % |
+| Bemessungsgrenze je m², Mietenstufe I–III / IV–VII | 5.330 / 5.550 €, Gesamtkosten mit Grundstück | 5.250 / 5.460 € (Stand 01.10.2026), nur Herstellungskosten. Grundstück zusätzlich bis zum Bodenrichtwert | Das Grundstück zählt nicht mehr auf die Grenze |
+| Höchstmiete Jahr 1 bis 3 je m², Mietenstufe I–III / IV–VII | 6,30 / 6,60 € (geringe Einkommen) | 6,50 / 6,80 € (Gruppe A) | +0,20 € |
 
-*Tabellenfuß:* Wertepaare: Mietenstufe I–III/IV–VII · Bemessung nicht direkt vergleichbar
+*Tabelle wie Folie 9 des Vortrags (Änderungsrunde 13.11.2026, B3.1); kein Tabellenfuß.*
 
 #### Grundcheck: sechs Voraussetzungen
 
@@ -297,7 +301,12 @@ Ferienwohnungen, Ferien- und Wochenendhäuser · Heime nach Heimrecht (NuWG) · 
 | je weitere Person ab der dritten, zusätzlich je Kind | +3.750 | +5.250 | +6.000 |
 
 *Zulassung von B und C:*
-- **bis +60 %:** wenn eines zutrifft: kommunales Wohnraumversorgungs- oder städtebauliches Entwicklungskonzept · kommunale Festlegung von gefördertem Wohnraum (Bebauungsplan, städtebaulicher Vertrag, Baulandmodell) · Gemeindeverordnung zu erhöhtem Wohnungsbedarf · angespannter Wohnungsmarkt per Verordnung · Wohnraum nur für Ältere, Menschen mit Behinderungen, Hilfe- oder Pflegebedürftige
+- **bis +60 %:** wenn eines zutrifft:
+  - kommunales Wohnraumversorgungs- oder städtebauliches Entwicklungskonzept
+  - kommunale Festlegung von gefördertem Wohnraum (Bebauungsplan, städtebaulicher Vertrag, Baulandmodell)
+  - Gemeindeverordnung zu erhöhtem Wohnungsbedarf
+  - angespannter Wohnungsmarkt per Verordnung
+  - Wohnraum nur für Ältere, Menschen mit Behinderungen, Hilfe- oder Pflegebedürftige
 - **sonst nur bis +20 %:** ab zwölf zusammenhängenden Wohnungen, für höchstens die Hälfte davon; Gruppe C entfällt
 
 #### Nachweis
@@ -362,6 +371,8 @@ Sie gilt drei Jahre lang, danach darf die Miete begrenzt steigen.
 - Achse: 0 bis 12 € je m², Beschriftung alle 2 €
 
 *Bildunterschrift:* Ab Jahr 4 höchstens +6,15 % in drei Jahren (Betriebskosten ausgenommen), auch bei Wiedervermietung; keine Staffel- oder Indexmiete.
+
+*Quellenzeile:* Quelle: NBank-Wohnungsmarktbericht 2025
 
 #### Mietenstufe
 
@@ -469,7 +480,7 @@ Achse: Jahre ab Bezugsfertigkeit, Marken 0 · 35 · 42
 | Sätze (Höchstwerte) | Darlehen 40/60/70 % plus Zuschuss 40/20/10 % (Gruppe A/B/C), zusammen 80 % der zuwendungsfähigen Kosten; Zuschuss nur mit Darlehen, B und C nur mit Zulassung. Zuschlag auf den Zuschuss: Modellprojekt +5, Housing First +10 Prozentpunkte → S. 8 |
 | Eigenmittel | mindestens 20 % der zuwendungsfähigen Kosten, mit Zuschlag entsprechend weniger; davon soll mindestens die Hälfte Geld oder lastenfreies Grundstück sein |
 | Zins | 0 % bis Ende des 35. Jahres nach Bezugsfertigkeit; danach bis zu 3 Prozentpunkte über dem Basiszinssatz, höchstens marktüblich |
-| Tilgung | Satz legt die NBank fest; Beginn nach vollständiger Auszahlung, spätestens zwei Jahre nach dem Monat, der auf die Bekanntgabe der Förderentscheidung folgt → S. 20 |
+| Tilgung | Satz legt die NBank fest, rechnerisch mindestens 2,38 % p. a. bei 42 Jahren Laufzeit; Beginn nach vollständiger Auszahlung, spätestens zwei Jahre nach dem Monat, der auf die Bekanntgabe der Förderentscheidung folgt → S. 20 |
 | Kosten, laufend | Verwaltungskostenbeitrag 0,5 % p. a. auf das Restkapital, ab Auszahlungsbeginn |
 | Kosten, einmalig | Bearbeitungsentgelt 1 % des bewilligten Darlehens und 0,75 % des bewilligten Zuschusses, jeweils mit der ersten Auszahlung verrechnet |
 | Auszahlung | in Raten nach Baufortschritt (Neubau: Zeitstrahl oben); Darlehen und Zuschuss je Rate anteilig, Ihre Eigenmittel in der Regel zuerst |
@@ -493,9 +504,16 @@ Zweite Stimme: 14 Wohnungen, 3,0 Mio. €
 
 #### Das Modellhaus
 
-**14 Neubauwohnungen nach Programmteil 2.1, alle für Einkommensgruppe A (B und C → S. 11).**
+- **Ort:** Neu Wulmstorf, Landkreis Harburg
+- **Wohnungen:** 14, alle für Einkommensgruppe A (B und C → S. 11)
+- **Wohnfläche:** 828 m², im Schnitt 59 m²
+- **Standard:** Effizienzhaus 55, kein EH-40-Zuschlag
+- **Standort:** Mietenstufe VI, angespannter Wohnungsmarkt per Verordnung
+- **Herstellungskosten:** 3.579 € je m², Median aus fünf PGN-Projekten
+- **Bemessungsgrenze:** 5.460 € je m², eingehalten
+- **Grundstück:** im Bestand, nicht angesetzt
 
-Ein PGN-Projekt in Neu Wulmstorf, Landkreis Harburg, zusammen 828 m² Wohnfläche, im Schnitt 59 m². Effizienzhaus 55, kein EH-40-Zuschlag. Standort: Mietenstufe VI, angespannter Wohnungsmarkt per Verordnung; der Bedarf gilt als gegeben. Herstellungskosten 3.579 € je m², der Median aus fünf PGN-Projekten. Das liegt 1.881 € unter der Bemessungsgrenze von 5.460 € (Mietenstufe IV–VII, seit 01.10.2026) und ist voll zuwendungsfähig. Grundstück im Bestand, nicht angesetzt.
+*Steckbrief statt Vorspann und Absatz (Änderungsrunde 13.11.2026, B9.1).*
 
 **Grafik (stacked-bar): Finanzierung 3,0 Mio. €, Höchstsätze**
 
@@ -531,9 +549,9 @@ Maßkette: Förderung 2,4 Mio. € (80 %) über Zuschuss und Darlehen
 | Eigenmittel, mindestens 20 % | 592.682 | 766.894 | 904.176 |
 | **Zahlungsüberschuss Jahr 1 in A** | **15.003** | **4.965** | **−2.945** |
 
-*Tabellenfuß:* Über der Bemessungsgrenze sinkt die Förderquote auf die Gesamtkosten unter 80 %.
+*Tabellenfuß:* Über der Bemessungsgrenze sinkt die Förderquote auf die Gesamtkosten unter 80 %. Gruppe A hat bis rund 5.150 € je m² einen Zahlungsüberschuss.
 
-*Werte: VOFI-Mappe v3, Projekt 2, je Spalte ein Lauf mit Eingabe 2.1 (Übersicht 1.1, 1.7, 1.11 und Zeile 8 der Jahresrechnung).*
+*Werte: VOFI-Mappe v3, Projekt 2, je Spalte ein Lauf mit Eingabe 2.1 (Übersicht 1.1, 1.7, 1.11 und Zeile 9 der Jahresrechnung S. 11).*
 
 ---
 
@@ -568,16 +586,16 @@ Einheit: Mio. €
 |   | Position | A | B | C |
 |---|---|---|---|---|
 | 1 | Sollmiete: Höchstmiete nettokalt, Mietenstufe IV–VII (828 m² × 6,80 \| 8,20 \| 9,00 € × 12) | 67.565 | 81.475 | 89.424 |
-|   | − Mietausfall/Leerstand, 2 % der Sollmiete | 1.351 | 1.630 | 1.788 |
-| 2 | − Objektverwaltung, 367 € je Wohnung p. a. (Betriebskosten voll umgelegt) | 5.138 | 5.138 | 5.138 |
-| 3 | − Instandhaltung, 14,40 € je m² p. a. | 11.923 | 11.923 | 11.923 |
-| 4 | = Überschuss vor Kapitaldienst | 49.152 | 62.784 | 70.574 |
-| 5 | − Verwaltungskostenbeitrag, 0,5 % des Restkapitals (Jahr 1, nach Vollauszahlung) | 5.927 | 8.890 | 10.372 |
-| 6 | − Zins NBank-Darlehen, 0 % bis Ende Jahr 35 | 0 | 0 | 0 |
-| 7 | − Tilgung 2,38 % p. a. (Annahme: 42 Jahre) auf 1,2 \| 1,8 \| 2,1 Mio. € Darlehen | 28.223 | 42.334 | 49.390 |
-| 8 | = Zahlungsüberschuss p. a. | 15.003 | 11.560 | 10.812 |
+| 2 | − Mietausfall/Leerstand, 2 % der Sollmiete | 1.351 | 1.630 | 1.788 |
+| 3 | − Objektverwaltung, 367 € je Wohnung p. a. (Betriebskosten voll umgelegt) | 5.138 | 5.138 | 5.138 |
+| 4 | − Instandhaltung, 14,40 € je m² p. a. | 11.923 | 11.923 | 11.923 |
+| 5 | = Überschuss vor Kapitaldienst | 49.152 | 62.784 | 70.574 |
+| 6 | − Verwaltungskostenbeitrag, 0,5 % des Restkapitals (Jahr 1, nach Vollauszahlung) | 5.927 | 8.890 | 10.372 |
+| 7 | − Zins NBank-Darlehen, 0 % bis Ende Jahr 35 | 0 | 0 | 0 |
+| 8 | − Tilgung 2,38 % p. a. (Annahme: 42 Jahre) auf 1,2 \| 1,8 \| 2,1 Mio. € Darlehen | 28.223 | 42.334 | 49.390 |
+| 9 | = Zahlungsüberschuss p. a. | 15.003 | 11.560 | 10.812 |
 
-*Zeile 1 = Sollmiete abzüglich Mietausfall/Leerstand (Erlösschmälerung als Unterzeile ohne eigene Nummer, keine Aufwandszeile).*
+*Zeilen 1 bis 9 (Änderungsrunde 13.11.2026, G2): Mietausfall/Leerstand ist eigene Zeile 2, Erlösschmälerung unter der Sollmiete, keine Aufwandszeile.*
 
 *Abgesetzte Zeile:* Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte (1 % des Darlehens + 0,75 % des Zuschusses): 20.744 · 22.226 · 22.966 € (A · B · C)
 
@@ -588,13 +606,13 @@ Einheit: Mio. €
 | Zuschuss | 1,2 Mio. € | 0 |
 | Darlehen | 1,2 Mio. € | 2,4 Mio. € |
 | Kapitaldienst p. a. | 34.150 € | 134.779 € |
-| **Miete je m² und Monat, bei der Zeile 8 null ist** | **5,26 €** | **15,59 €** |
+| **Kostendeckende Anfangsmiete je m² und Monat (Zeile 9 = null)** | **5,26 €** | **15,59 €** |
 
 *Werte: VOFI-Mappe v3, Projekt 2, Übersicht 8.2 und 8.3 (DSCR-Ziel 1,0), Eingaben 6.1 und 6.4.*
 
 #### Annahmen
 
-Frei finanziert: gleiches Haus, Eigenmittel 0,6 Mio. €, Bankdarlehen 2,4 Mio. € zu 3,86 % Zins, Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern. In den geförderten Varianten ist die Tilgung gleichmäßig auf die Höchstlaufzeit von 42 Jahren verteilt. Den Satz legt die NBank fest (→ S. 9). B und C gegenüber A → S. 12
+Frei finanziert: gleiches Haus, Eigenmittel 0,6 Mio. €, Bankdarlehen 2,4 Mio. € zu 3,86 % Zins, jährliche Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern. In den geförderten Varianten ist die Tilgung gleichmäßig auf die Höchstlaufzeit von 42 Jahren verteilt. Den Satz legt die NBank fest (→ S. 9). B und C gegenüber A → S. 12
 
 ---
 
@@ -621,7 +639,7 @@ Maßkette über dem Diagramm: 0–1,91 %: „vorn: Gruppe C“ | 1,91–3,0 %: �
 Marke im Diagramm: „S. 11: 2,38 %“ (Tilgungssatz der Jahresrechnung)
 Flächen: „über null: Vorteil gegenüber A“ · „unter null: Nachteil gegenüber A“
 
-*Notiz am Diagramm:* **B** liegt in dieser Rechnung nie vorn. Unter 1,80 % liegt C vor B, darüber A. Ein Mix aus A, B und C liegt anteilig dazwischen.
+*Notiz am Diagramm:* **B** liegt in dieser Rechnung nie vorn. Unter 1,91 % Tilgung liegt C vorn, darüber A. Ein Mix aus A, B und C liegt anteilig dazwischen.
 
 Bei **2,38 %** Tilgung wie auf S. 11 liegt A vorn. B bleibt 3.443 € darunter, C 4.190 €.
 
@@ -633,12 +651,12 @@ Bei 0 % zeigt das Diagramm den Mehrüberschuss vor Tilgung. Jeder Prozentpunkt T
 |---|---|---|---|
 | 1 | Mehrschuld: Darlehen 1,8 \| 2,1 statt 1,2 Mio. € (→ S. 11) | 592.682 | 889.024 |
 | 2 | Mehr-Sollmiete p. a. (828 m² × 1,40 \| 2,20 € × 12) | 13.910 | 21.859 |
-|   | − Mietausfall 2 % | 278 | 437 |
-| 3 | − Verwaltungskostenbeitrag, 0,5 % von Zeile 1 | 2.963 | 4.445 |
-| 4 | = Mehrüberschuss vor Tilgung | 10.669 | 16.977 |
-| 5 | Tilgungsschwelle (Zeile 4 ÷ 1) | 1,80 % | 1,91 % |
+| 3 | − Mietausfall 2 % | 278 | 437 |
+| 4 | − Verwaltungskostenbeitrag, 0,5 % von Zeile 1 | 2.963 | 4.445 |
+| 5 | = Mehrüberschuss vor Tilgung | 10.669 | 16.977 |
+| 6 | Tilgungsschwelle (Zeile 5 ÷ 1) | 1,80 % | 1,91 % |
 
-*Zeile 2 = Mehr-Sollmiete abzüglich Mietausfall 2 % (Unterzeile ohne eigene Nummer, wie S. 11, Zeile 1).*
+*Zeilen 1 bis 6 (Änderungsrunde 13.11.2026, B11.2): Mietausfall 2 % ist eigene Zeile 3, wie S. 11, Zeile 2.*
 
 *Abgesetzte Zeile:* Einmalig: Mehr an Bearbeitungsentgelten: 1.482 · 2.223 € (B · C)
 
@@ -1156,14 +1174,14 @@ Interne Liste, nicht Teil der Broschüre. Alles, was PGN liefern, bestätigen od
 |---|---|---|
 | S. 10, Rechenweg | Gefördert A H90, Übersicht D10, D19 | Herstellungskosten 828 m² × 3.579 € = 2.963.412 = zuwendungsfähige Kosten; Eigenmittel 592.682; keine Zeile Grundstück |
 | S. 10, Sensitivität | drei Läufe mit Eingabe 2.1 = 3.579 / 4.631 / 5.460 € je m²; Übersicht D9, D15, D19, D38 | Gesamtkosten 2.963.412 / 3.834.468 / 4.520.880; Förderung 2.370.730 / 3.067.574 / 3.616.704; Eigenmittel 592.682 / 766.894 / 904.176; Zahlungsüberschuss Jahr 1 in A 15.003 / 4.965 / −2.945 |
-| S. 11, 1 (Unterzeile) | 2,0 % der Sollmiete (Eingabe 5.1, F29) | − Mietausfall/Leerstand, 2 % der Sollmiete: 1.351 / 1.630 / 1.788 |
-| S. 11, 2 | 367 € je Wohnung p. a., nur Verwaltung; Betriebskosten voll umgelegt (Eingabe 5.2, F30) | − Objektverwaltung, 367 € je Wohnung p. a. (Betriebskosten voll umgelegt): 5.138 je Spalte |
-| S. 11, 3 | 14,40 € je m² Wohnfläche p. a. (Eingabe 5.3, F31) | − Instandhaltung, 14,40 € je m² p. a.: 11.923 je Spalte |
-| S. 11, 4 | Zwischensumme (Übersicht Zeile 33) | 49.152 / 62.784 / 70.574 |
-| S. 11, 7 | 2,38 % p. a. linear (1/42, Höchstlaufzeit) ab Jahr 1 (Eingabe 3.1, F17) – **PGN-Annahme**, keine Projektgröße; den Satz legt die NBank fest (→ Anhang A Nr. 9) | − Tilgung 2,38 % p. a. (Annahme: 42 Jahre): 28.223 / 42.334 / 49.390 |
-| S. 11, 8 | Ergebnis Zeile 4 − 5 − 6 − 7 (Übersicht Zeile 38) | 15.003 / 11.560 / 10.812 |
-| S. 11, Vergleich | Übersicht 8.2, 8.3 (D und G), 1.10 | Kapitaldienst 34.150 / 134.779 € (A / Frei); Miete, bei der Zeile 8 null ist: 5,26 / 15,59 € je m² |
-| S. 12, Rechenweg | Übersicht 4.9–4.18 | Unterzeile − Mietausfall 2 %: 278 / 437 (B / C); Tilgungsschwellen 1,80 % (B) / 1,91 % (C); Schnittpunkt C/B 2,13 % |
+| S. 11, 2 | 2,0 % der Sollmiete (Eingabe 5.1, F29) | − Mietausfall/Leerstand, 2 % der Sollmiete: 1.351 / 1.630 / 1.788 |
+| S. 11, 3 | 367 € je Wohnung p. a., nur Verwaltung; Betriebskosten voll umgelegt (Eingabe 5.2, F30) | − Objektverwaltung, 367 € je Wohnung p. a. (Betriebskosten voll umgelegt): 5.138 je Spalte |
+| S. 11, 4 | 14,40 € je m² Wohnfläche p. a. (Eingabe 5.3, F31) | − Instandhaltung, 14,40 € je m² p. a.: 11.923 je Spalte |
+| S. 11, 5 | Zwischensumme (Übersicht Zeile 33) | 49.152 / 62.784 / 70.574 |
+| S. 11, 8 | 2,38 % p. a. linear (1/42, Höchstlaufzeit) ab Jahr 1 (Eingabe 3.1, F17) – **PGN-Annahme**, keine Projektgröße; den Satz legt die NBank fest (→ Anhang A Nr. 9) | − Tilgung 2,38 % p. a. (Annahme: 42 Jahre): 28.223 / 42.334 / 49.390 |
+| S. 11, 9 | Ergebnis Zeile 5 − 6 − 7 − 8 (Übersicht Zeile 38) | 15.003 / 11.560 / 10.812 |
+| S. 11, Vergleich | Übersicht 8.2, 8.3 (D und G), 1.10 | Kapitaldienst 34.150 / 134.779 € (A / Frei); kostendeckende Anfangsmiete (Zeile 9 = null): 5,26 / 15,59 € je m² |
+| S. 12, Rechenweg | Übersicht 4.9–4.18 | Zeile 3 − Mietausfall 2 %: 278 / 437 (B / C); Tilgungsschwellen 1,80 % (B) / 1,91 % (C); Schnittpunkt C/B 2,13 % |
 | S. 12, Tabellenfuß | Übersicht 3.8 | Zahlungsüberschuss null bei 3,65 % / 3,03 % / 2,90 % Tilgung |
 
 Die Zellen sind einzeln auf volle Euro gerundet; in den Spalten A und C der Jahresrechnung weichen Summen deshalb um 1 € ab (A: 67.565 − 1.351 − 5.138 − 11.923 = 49.153, gezeigt 49.152). Die Werte gelten für Jahr 1; Jahr 2 und 3 laut Mappe: A 14.802 / 14.595 €, B 11.430 / 11.294 €, C 10.718 / 10.617 €. Mehrüberschuss vor Tilgung 10.669 € (B) / 16.977 € (C), beim Tilgungssatz der S. 11 −3.443 € / −4.190 €, bei 3,0 % −7.112 € / −9.694 €. Die Werte des früheren Modellhauses (20 Wohnungen, 1.400 m², 4.500 € je m², Grundstück 700.000 €) stehen in `zulieferungen/vofi-pruefung/PRUEFBERICHT.md` Abschnitt 5 und `referenzrechnung-ergebnis.md` Abschnitt 2.
@@ -1194,7 +1212,7 @@ Zur Entscheidung durch PGN:
 
 ### 3. Gründungsjahr-Angabe (S. 2, S. 21)
 
-Das Heft schreibt wörtlich nach der Website „Seit 1981“ (S. 2 Editorial, S. 21 Headline) und „45 Jahre PGN“ (Label S. 21) – nie „gegründet 1981“. Hintergrund: Laut Rotenburger Kreiszeitung vom 21.09.2026 (auf der PGN-Website verlinkt) entstand die Firma 1979 in Visselhövede, Norbert Behrens stieg 1981 ein; der Umzug nach Rotenburg (Wümme) folgte 1990 (deshalb S. 2: „heute von Rotenburg (Wümme) aus“). PGN bestätigt die Formulierung.
+Das Heft schreibt wörtlich nach der Website „Seit 1981“ (S. 21 Headline; im Editorial S. 2 seit dem Vorwort vom 13.11.2026 nicht mehr) und „45 Jahre PGN“ (Label S. 21) – nie „gegründet 1981“. Hintergrund: Laut Rotenburger Kreiszeitung vom 21.09.2026 (auf der PGN-Website verlinkt) entstand die Firma 1979 in Visselhövede, Norbert Behrens stieg 1981 ein; der Umzug nach Rotenburg (Wümme) folgte 1990 (deshalb S. 2: „heute von Rotenburg (Wümme) aus“). PGN bestätigt die Formulierung.
 
 ### 4. Bildrechte und Originalfotos
 

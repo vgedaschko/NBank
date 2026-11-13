@@ -6,11 +6,12 @@
   "kicker": "Editorial",
   "headline_light": "Damit sich Investieren",
   "headline": "wieder rechnet",
-  "lead": "Bauen kostet mehr als doppelt so viel wie vor 25 Jahren, Kredite kosteten Ende 2025 drei bis vier Prozent, und die Zahl der Baugenehmigungen hat sich seit 2021 mehr als halbiert.",
   "blocks": [
     {
       "type": "text",
-      "body": "Seit dem 01.07.2026 gilt die Richtlinie Mietwohnraum 2026 (RL), befristet bis 31.12.2031. Statt Tilgungsnachlässen gibt es jetzt nicht rückzahlbare Zuschüsse.\n\nWir planen seit 1981 Bauprojekte, heute von Rotenburg (Wümme) aus in ganz Norddeutschland. Die Modellrechnung auf S. 10–12 zeigt für 14 Wohnungen Finanzierung, Zahlungsüberschuss und den Mix der Einkommensgruppen, zum Vergleich auch frei finanziert.",
+      "role_hint": "vorwort",
+      "note": "Vorwort seit der Änderungsrunde vom 13.11.2026 (B1.1): drei Absätze zweispaltig in einer Schriftgröße, Initiale „B“; der Vorspann und die Sätze zu Baukosten, Krediten, Baugenehmigungen und „seit 1981“ entfallen.",
+      "body": "Bezahlbarer Wohnraum fehlt in Niedersachsen. Gebaut wird er trotzdem zu selten, weil sich der Neubau bei den heutigen Kosten und Zinsen kaum noch rechnet.\n\nSeit dem 01.07.2026 gilt die Richtlinie Mietwohnraum 2026. Das Land fördert damit bis zu 80 % der Kosten. Einen Teil davon zahlt es als Zuschuss, der nicht zurückgezahlt wird. Geförderter Mietwohnraum wird so wieder zu einer Investition, die sich trägt.\n\nWer die Förderung nutzen will, muss sie früh mitdenken: beim Standort, bei der Planung und bei den Kosten. Diese Broschüre zeigt, was die Richtlinie bietet, welche Konditionen gelten und wie sich Ihr gefördertes Vorhaben rechnet. Wir freuen uns darauf, es mit Ihnen zu besprechen und zu planen.",
       "signature": "Ihre PGN – Architekten. Stadtplaner. Ingenieure."
     },
     {
@@ -27,8 +28,7 @@
       "items": [
         "**Wohnungsunternehmen und Genossenschaften:** Neubau, Modernisierung und Bindungen im Bestand; genossenschaftlich überlassener Wohnraum gilt als Mietwohnraum. → S. 8–16",
         "**Investorinnen und Investoren:** Konditionen und Modellrechnung für 14 Wohnungen. → S. 9–12",
-        "**Projektentwicklung:** Gefördert wird auch der Ersterwerb bis zwei Jahre nach Fertigstellung. Wer kauft, schließt den Kaufvertrag erst nach der Bewilligung, vorher nur mit folgenlosem Rücktrittsrecht. → S. 8, 18",
-        "**Kommunen:** Selbst antragsberechtigt. Wo die Gemeinde geförderten Mietwohnraum im Bebauungsplan, städtebaulichen Vertrag oder Baulandmodell festlegt, gilt der für die Bewilligung nötige Bedarf als gegeben. → S. 17"
+        "**Projektentwicklung:** Gefördert wird auch der Ersterwerb bis zwei Jahre nach Fertigstellung. Wer kauft, schließt den Kaufvertrag erst nach der Bewilligung, vorher nur mit folgenlosem Rücktrittsrecht. → S. 8, 18"
       ]
     },
     {
@@ -115,7 +115,6 @@
   ],
   "footnotes": [],
   "fact_ids": [
-    "F310",
     "F009",
     "F015",
     "F018",
@@ -133,10 +132,8 @@
     "F003"
   ],
   "pgn_sources": [
-    "pgn-facts.md §1 Arbeitsgebiet („Von Rotenburg (Wümme) aus … Bauprojekte in ganz Norddeutschland“) – nur als heutige Aussage („heute“)",
-    "pgn-facts.md §3 Claim „100% Kundenfokus. Seit 1981.“; Chronik: 1981 Beginn in Visselhövede, 1990 Umzug nach Rotenburg (Wümme) – daher nicht „seit 1981 von Rotenburg aus“",
     "pgn-facts.md §6/§8 Kundengruppen (Kommunen, Investoren, Wohnungsbauunternehmen, Wohnungsbaugenossenschaften)",
     "pgn-facts.md §1/§5 Seitentitel „Architekten. Stadtplaner. Ingenieure.“"
   ],
-  "visual_idea": "Zweispaltig, ruhig, viel Weißraum. Kopf: Kopfzeile mit Rubrik „Editorial“ links und „Inhalt“ über der Inhaltsspalte (8,5 pt Versalien in Schwarz); Headline in Montserrat Black Versalien 25 pt mit senkrechter roter 2-pt-Linie links, „Damit sich Investieren“ als zweite Stimme (Montserrat 300, 15,5 pt) darüber, Rot nur am Wort „rechnet“. Linke Spalte: Vorspann in Work Sans 12 pt, darunter das Editorial in Work Sans; Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ als Zeile in Montserrat 600 Versalien mit feiner roter Linie davor, kein Personenname, kein Porträt. Darunter das Tonne-Zitat mit übergroßen, eckig gesetzten Anführungszeichen in PGN-Rot, Attribution klein in Anthrazit (Name, Funktion, „Pressemitteilung MW vom 03.07.2026“). Rechte Spalte, bildbestimmend (das dominante Element der Seite): Inhalt als Linienplan – acht senkrechte Kapitel-Linien in Anthrazit (Kapitelnamen = erster Teil der Kolumnentitel), Haltestellen als Quadrate ohne Rundungen, Seitenzahl in Montserrat Black; Programmteil-Stationen tragen den Baustein-Chip 2.1–2.6 in den Baustein-Farben (Ziffer eingeschrieben, graustufenfest), S. 16 (2.5 und 2.6) als eine Haltestelle mit zwei Chips übereinander, die Kapitel-Linie „PGN“ (S. 21–23) in PGN-Rot; die Kapitel-Linie „Modellrechnung“ (S. 10–12) leicht hervorgehoben. Unten über die volle Breite vier Einstiegs-Kacheln auf #F4F3F2, je ein Linienicon (Wohnblock, Diagramm, Kran, Rathaus), fett gesetzter Vorsatz als Kachelkopf, Seitenverweis halbfett im Text, ohne Kästchen. Keine Kästen, keine Fußnoten, keine Quellenzeile."
+  "visual_idea": "Zweispaltig, ruhig, viel Weißraum. Kopf: Kopfzeile mit Rubrik „Editorial“ links und „Inhalt“ über der Inhaltsspalte (8,5 pt Versalien in Schwarz); Headline in Montserrat Black Versalien 25 pt mit senkrechter roter 2-pt-Linie links, „Damit sich Investieren“ als zweite Stimme (Montserrat 300, 15,5 pt) darüber, Rot nur am Wort „rechnet“. Linke Spalte: das Vorwort in Work Sans 9,5 pt, zweispaltig mit Initiale „B“, ohne Vorspann (13.11.2026); Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ als Zeile in Montserrat 600 Versalien mit feiner roter Linie davor, kein Personenname, kein Porträt. Darunter das Tonne-Zitat mit übergroßen, eckig gesetzten Anführungszeichen in PGN-Rot, Attribution klein in Anthrazit (Name, Funktion, „Pressemitteilung MW vom 03.07.2026“). Rechte Spalte, bildbestimmend (das dominante Element der Seite): Inhalt als Linienplan – acht senkrechte Kapitel-Linien in Anthrazit (Kapitelnamen = erster Teil der Kolumnentitel), Haltestellen als Quadrate ohne Rundungen, Seitenzahl in Montserrat Black; Programmteil-Stationen tragen den Baustein-Chip 2.1–2.6 in den Baustein-Farben (Ziffer eingeschrieben, graustufenfest), S. 16 (2.5 und 2.6) als eine Haltestelle mit zwei Chips übereinander, die Kapitel-Linie „PGN“ (S. 21–23) in PGN-Rot; die Kapitel-Linie „Modellrechnung“ (S. 10–12) leicht hervorgehoben. Unten über die volle Breite drei Einstiegs-Kacheln (seit 13.11.2026 ohne „Kommunen“) auf #F4F3F2, je ein Linienicon (Wohnblock, Diagramm, Kran), fett gesetzter Vorsatz als Kachelkopf, Seitenverweis halbfett im Text, ohne Kästchen. Keine Kästen, keine Fußnoten, keine Quellenzeile."
 }

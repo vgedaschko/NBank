@@ -3,7 +3,10 @@
     /* S. 6 · Mieterkreis (linke Seite der Doppelseite 06|07) · Planwerk.
        Gemeinsame Horizonte mit S. 7: Kopfzeile, H1 (zwei Zeilen in 25 pt), erste Bandlinie bei 50,7 mm (wie S. 11),
        Unterkante des Satzspiegels bei 273 mm. Zone C steht unten am Satzspiegel; ihre Oberkante liegt bewusst nicht
-       auf der Höhe von S. 7 (hier 194,3 mm, dort 179,8 mm): Band 1 braucht hier 138 mm, Zone C auf S. 7 93 mm.
+       auf der Höhe von S. 7 (hier 200,3 mm, dort 179,8 mm): Band 1 braucht hier 146 mm, Zone C auf S. 7 93 mm.
+       Seit dem 13.11.2026 (B5.1, Rückfrage 10) stehen die Bedingungen für B und C als Stichpunkte; das Band „Nachweis | Zitat“
+       rückt dafür 6 mm tiefer. Platz geben engere Abstände im Zulassungsband und im Zitat (Zeilenabstand 1,28, Zitattext
+       auf der Höhe des Titels „Nachweis“); Zone C steht ohne Reserve, der Nachweis füllt sie genau.
        Band 1 wie S. 11: Vorspann unter der Haarlinie, darunter der Titel der Einkommensleiter ohne eigene Modullinie.
        Dominant: Einkommensleiter über den Satzspiegel (SVG, 1 Einheit = 1 mm, Maßstab 1 mm = 1.000 €),
        Zulassungsband als Teil der Grafik (7 Spalten) neben der Wohnflächentabelle (5 Spalten; der Titel braucht in 12 pt
@@ -12,7 +15,7 @@
        .page--dicht durchgehend in 9 pt. Der Seitenverweis auf S. 11–12 steht am Ende des Nachweis-Moduls; so läuft
        der Diagrammtitel mit Einheit in einer Zeile. */
     .page[data-page="06"] { --fs-module: var(--fs-small); }   /* .page--dicht setzt --fs-small auf 9 pt; --fs-module ist an :root schon aufgelöst und bliebe sonst bei 9,5 pt */
-    .page[data-page="06"] .p06-b { --row-gap: 2.4mm; margin-top: 6.4mm; margin-bottom: 4.5mm; align-content: start; }   /* Zone C hängt unten am Satzspiegel (.l-bottom); Abstand zu Band 1 mindestens 4,5 mm, gesetzt 5,3 mm */
+    .page[data-page="06"] .p06-b { --row-gap: 1.8mm; margin-top: 6.4mm; margin-bottom: 4mm; align-content: start; }   /* Zone C hängt unten am Satzspiegel (.l-bottom); Abstand zu Band 1 mindestens 4 mm, gesetzt 4 mm */
 
     /* Vorspann */
     .page[data-page="06"] .p06-intro { border-top: var(--hair) solid var(--rule-strong); padding-top: 3mm; }
@@ -27,15 +30,18 @@
     .page[data-page="06"] .chart__svg .p06-va { font-weight: 800; }
 
     /* Zulassungsband: Papier, Kopf 0,3 mm wie das Modul, zwei Zeilen; der Vorlauf steht halbfett in Schwarz.
-       „Gemeindeverordnung“ trennt nur an der Wortfuge (&shy; zwischen zwei .u-nohyphens). Die übrigen Trennungen im
-       Band bleiben der Automatik überlassen: Nur an Wortfugen gesetzt läuft das Band zwei Zeilen länger (8,8 mm),
-       die Seite hat 0,8 mm Reserve. */
-    .page[data-page="06"] .p06-adm { align-self: stretch; background: var(--surface-2); border-top: var(--rule-w) solid var(--rule-strong); padding: 3.2mm 3mm 3.2mm; }
-    .page[data-page="06"] .p06-adm__list { margin-top: 2.2mm; }
+       „Gemeindeverordnung“ trennt nur an der Wortfuge (&shy; zwischen zwei .u-nohyphens). */
+    .page[data-page="06"] .p06-adm { align-self: stretch; background: var(--surface-2); border-top: var(--rule-w) solid var(--rule-strong); padding: 2.8mm 3mm 2.8mm; }
+    .page[data-page="06"] .p06-adm__list { margin-top: 1.6mm; }
     .page[data-page="06"] .p06-adm__row { font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="06"] .p06-adm__row + .p06-adm__row { margin-top: 2.2mm; padding-top: 2.2mm; border-top: var(--hair) solid var(--rule); }
+    .page[data-page="06"] .p06-adm__row + .p06-adm__row { margin-top: 1.8mm; padding-top: 1.8mm; border-top: var(--hair) solid var(--rule); }
     .page[data-page="06"] .p06-adm__row > dt, .page[data-page="06"] .p06-adm__row > dd { display: inline; }
     .page[data-page="06"] .p06-adm__row > dt { margin-right: 1.2mm; font: 700 var(--fs-module)/1 var(--font-display); color: var(--fg); white-space: nowrap; }
+    /* Fünf Bedingungen für B und C bis +60 % (§ 4 Abs. 1 DVO-NWoFG) als Stichpunkte, eine je Zeile (Änderungsrunde 13.11.2026,
+       B5.1); die +20-%-Regel bleibt eigene Zeile darunter. Die Liste steht im dd als Block, Marke schwarz (§8b). */
+    .page[data-page="06"] .p06-adm__cond { margin-top: .8mm; }
+    .page[data-page="06"] .p06-adm__cond > li { color: var(--fg-2); }
+    .page[data-page="06"] .p06-adm__cond > li + li { margin-top: .3mm; }
 
     /* Angemessene Wohnfläche */
     .page[data-page="06"] .p06-wf { padding-top: 3.2mm; border-top-width: var(--rule-w); }
@@ -51,7 +57,10 @@
     .page[data-page="06"] .p06-nw__text { margin-top: 2.2mm; }
     .page[data-page="06"] .p06-nw__text p + p { margin-top: 2.2mm; }
     .page[data-page="06"] .p06-nw__ref { margin-top: 2.2mm; }
-    .page[data-page="06"] .p06-quote .quote__text { font-size: var(--fs-lead); -webkit-hyphens: none; hyphens: none; }
+    .page[data-page="06"] .p06-quote { padding-top: 3mm; }
+    .page[data-page="06"] .p06-quote::before { top: 3.6mm; }
+    .page[data-page="06"] .p06-quote .quote__text { font-size: var(--fs-lead); line-height: 1.28; -webkit-hyphens: none; hyphens: none; }
+    .page[data-page="06"] .p06-quote .quote__by { margin-top: 2.2mm; }
   </style>
 
   <header class="page__header"><span class="page__section">Ertragsseite</span></header>
@@ -72,7 +81,14 @@
     <aside class="l-span-7 p06-adm" aria-labelledby="p06-adm-h">
       <h3 class="chart__title p06-adm__title" id="p06-adm-h">Zulassung von B und C</h3>
       <dl class="p06-adm__list">
-        <div class="p06-adm__row"><dt>bis +60&nbsp;%</dt> <dd>wenn eines zutrifft: kommunales Wohnraumversorgungs- oder städtebauliches Entwicklungskonzept&nbsp;· kommunale Festlegung von gefördertem Wohnraum (Bebauungsplan, städtebaulicher Vertrag, Baulandmodell)&nbsp;· <span class="u-nohyphens">Gemeinde</span>&shy;<span class="u-nohyphens">verordnung</span> zu erhöhtem Wohnungsbedarf&nbsp;· angespannter Wohnungsmarkt per Verordnung&nbsp;· Wohnraum nur für Ältere, Menschen mit Behinderungen, Hilfe- oder Pflegebedürftige</dd></div>
+        <div class="p06-adm__row"><dt>bis +60&nbsp;%</dt> <dd>wenn eines zutrifft:
+          <ul class="bullets bullets--compact p06-adm__cond">
+            <li>kommunales Wohnraumversorgungs- oder städtebauliches Entwicklungskonzept</li>
+            <li>kommunale Festlegung von gefördertem Wohnraum (Bebauungsplan, städtebaulicher Vertrag, Baulandmodell)</li>
+            <li><span class="u-nohyphens">Gemeinde</span>&shy;<span class="u-nohyphens">verordnung</span> zu erhöhtem Wohnungsbedarf</li>
+            <li>angespannter Wohnungsmarkt per Verordnung</li>
+            <li>Wohnraum nur für Ältere, Menschen mit Behinderungen, Hilfe- oder Pflegebedürftige</li>
+          </ul></dd></div>
         <div class="p06-adm__row"><dt>sonst nur bis +20&nbsp;%</dt> <dd>ab zwölf zusammenhängenden Wohnungen, für höchstens die Hälfte davon; Gruppe C entfällt</dd></div>
       </dl>
     </aside>

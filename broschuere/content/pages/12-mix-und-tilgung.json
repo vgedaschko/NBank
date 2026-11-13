@@ -102,7 +102,7 @@
           "meaning": "Tilgungssatz der Jahresrechnung S. 11 (1/42 = 2,381 %): B −3.443 €, C −4.190 € gegenüber A"
         }
       },
-      "note": "**B** liegt in dieser Rechnung nie vorn. Unter 1,80 % liegt C vor B, darüber A. Ein Mix aus A, B und C liegt anteilig dazwischen.\n\nBei **2,38 %** Tilgung wie auf S. 11 liegt A vorn. B bleibt 3.443 € darunter, C 4.190 €.\n\nBei 0 % zeigt das Diagramm den Mehrüberschuss vor Tilgung. Jeder Prozentpunkt Tilgung mindert den Mehrüberschuss von B um 5.927 €, von C um 8.890 €."
+      "note": "**B** liegt in dieser Rechnung nie vorn. Unter 1,91 % Tilgung liegt C vorn, darüber A. Ein Mix aus A, B und C liegt anteilig dazwischen.\n\nBei **2,38 %** Tilgung wie auf S. 11 liegt A vorn. B bleibt 3.443 € darunter, C 4.190 €.\n\nBei 0 % zeigt das Diagramm den Mehrüberschuss vor Tilgung. Jeder Prozentpunkt Tilgung mindert den Mehrüberschuss von B um 5.927 €, von C um 8.890 €."
     },
     {
       "type": "table",
@@ -128,41 +128,41 @@
           "21.859"
         ],
         [
-          "",
+          "3",
           "− Mietausfall 2 %",
           "278",
           "437"
         ],
         [
-          "3",
+          "4",
           "− Verwaltungskostenbeitrag, 0,5 % von Zeile 1",
           "2.963",
           "4.445"
         ],
         [
-          "4",
+          "5",
           "= Mehrüberschuss vor Tilgung",
           "10.669",
           "16.977"
         ],
         [
-          "5",
-          "Tilgungsschwelle (Zeile 4 ÷ 1)",
+          "6",
+          "Tilgungsschwelle (Zeile 5 ÷ 1)",
           "1,80 %",
           "1,91 %"
         ]
       ],
       "subtotal_rows": [
-        "4"
+        "5"
       ],
-      "result_row": "5",
+      "result_row": "6",
       "aside_row": [
         "",
         "Einmalig: Mehr an Bearbeitungsentgelten",
         "1.482",
         "2.223"
       ],
-      "row_note": "Zeile 2 = Mehr-Sollmiete abzüglich Mietausfall 2 % (Unterzeile ohne eigene Nummer, wie S. 11, Zeile 1)",
+      "row_note": "Zeilen 1 bis 6 seit der Änderungsrunde vom 13.11.2026 (B11.2): Mietausfall 2 % ist eigene Zeile 3 (wie S. 11, Zeile 2); die Tilgungsschwelle ist Zeile 5 ÷ Zeile 1",
       "note": "Ein Mietausfall über 2 % und höhere zuwendungsfähige Kosten je m² senken beide Schwellen, denn die Mehrmiete je m² ist fest vorgegeben und die Mehrschuld wächst mit den Kosten. Der Zahlungsüberschuss in Jahr 1 wird null bei einer Tilgung von 3,65 % in A, 3,03 % in B und 2,90 % in C."
     },
     {
@@ -242,10 +242,10 @@
       "Bei 2,5 %: B 10.668,78 − 14.817,06 = −4.148 €; C 16.976,90 − 22.225,59 = −5.249 €",
       "Bei 3,0 % (Ende der Achse): B 10.668,78 − 17.780,47 = −7.112 €; C 16.976,90 − 26.670,71 = −9.694 €",
       "Beim Satz der S. 11 (2,381 %): B 10.668,78 − 14.111,49 = −3.443 €; C 16.976,90 − 21.167,23 = −4.190 €",
-      "Kontrolle gegen S. 11, Zeile 8: B − A = 11.559,80 − 15.002,51 = −3.442,71 €; C − A = 10.812,18 − 15.002,51 = −4.190,33 €",
+      "Kontrolle gegen S. 11, Zeile 9: B − A = 11.559,80 − 15.002,51 = −3.442,71 €; C − A = 10.812,18 − 15.002,51 = −4.190,33 €",
       "C gegenüber B: 6.308 € − t × 296.341 € > 0 für t < 2,13 % → unter 1,91 % ist C die beste Variante, darüber A; B nie",
       "Bearbeitungsentgelte einmalig, Differenz zu A: B 22.225,59 − 20.743,88 = 1.481,71 €; C 22.966,44 − 20.743,88 = 2.222,56 € (= 0,25 % der Mehrschuld)",
-      "Tragbare Tilgung, bei der Zeile 8 der S. 11 null wird (Übersicht 3.8): A (49.152,30 − 5.926,82) ÷ 1.185.364,80 = 3,65 %; B (62.784,50 − 8.890,24) ÷ 1.778.047,20 = 3,03 %; C (70.574,32 − 10.371,94) ÷ 2.074.388,40 = 2,90 %",
+      "Tragbare Tilgung, bei der Zeile 9 der S. 11 null wird (Übersicht 3.8): A (49.152,30 − 5.926,82) ÷ 1.185.364,80 = 3,65 %; B (62.784,50 − 8.890,24) ÷ 1.778.047,20 = 3,03 %; C (70.574,32 − 10.371,94) ÷ 2.074.388,40 = 2,90 %",
       "Allgemein: Schwelle = (1 − Mietausfall) × 12 × Mehrmiete je m² ÷ (Mehr-Darlehenssatz × zuwendungsfähige Kosten je m²) − 0,5 %; bei 3.579 € je m² und 2 % Mietausfall B 0,98 × 16,80 ÷ 715,80 − 0,5 % = 0,98 × 2,347 % − 0,5 % = 1,80 %, C 0,98 × 26,40 ÷ 1.073,70 − 0,5 % = 0,98 × 2,459 % − 0,5 % = 1,91 %; bei 5.000 € je m² 1,15 % und 1,22 %"
     ]
   },
@@ -277,5 +277,5 @@
     "Modellhaus seit 11.11.2026 (Entscheidung des Auftraggebers): PGN-Projekt in Neu Wulmstorf, Projekt 2 der VOFI-Mappe v3 (PGN_VOFI_Mietwohnraum_2026_v3.xlsx). Mietausfall 2,0 % der Sollmiete (Eingabe 5.1): Rechenweg-Unterzeile 278 | 437 €, Schwellen 0,98 × 2,347 % − 0,5 % = 1,80 % (B) bzw. 0,98 × 2,459 % − 0,5 % = 1,91 % (C), Schnittpunkt C/B 2,13 %. Bei 2,38 % Tilgung schließen A, B und C Jahr 1 mit einem Zahlungsüberschuss (15.003 | 11.560 | 10.812 €). Abgleich mit pruefe_vofi.py (F9) und mit der Präsentation nach der Umstellung offen (→ copy.md Anhang B Nr. 1).",
     "Korrekturlauf 1 (Kunde PGN, Kommentar S. 11 alt: „Wie sieht der optimale Mix aus? … Rolle des Tilgungssatzes“): Seite neu nach ENTSCHEIDUNGEN.md D. Keine Empfehlung, nur Entscheidungslogik; keine eigenen Annahmen (Tilgungssatz legt die NBank fest, Diagramm daher als Bandbreite 0–3,0 %; die 2,38 % der Jahresrechnung S. 11 sind PGN-Annahme und im Diagramm markiert)."
   ],
-  "visual_idea": "Linke Seite der Doppelseite 12|13 (physische Heftmitte, ein Druckbogen), weiß; Kapitel „Modellrechnung“ (Daumenregister 2.1 links). Kopf wie S. 11: Kopfzeile mit Rubrik „Modellrechnung“ und Schlüsselplan, H1 zweizeilig in 25 pt, Rot nur an der Zahl 1,91 %, Vorspann in 12 pt über die volle Breite. Dominant: Liniendiagramm „Mehrüberschuss je Tilgungssatz“ in Spalten 4–12 am Bund – x-Achse Tilgungssatz 0–3,0 %, y-Achse Mehrüberschuss gegenüber A in € p. a. (−10.000 bis +20.000), Nulllinie kräftig; C durchgezogen, B gestrichelt, beide in Tinte, Gruppen als Achskreise am Linienende, Werte vor Tilgung (16.977 / 10.669) fett neben dem Linienanfang, Schwellen als Punkte auf der Nulllinie (B: 1,80 %, C: 1,91 %), gestrichelte Marke beim Tilgungssatz der S. 11 (2,38 %); darüber eine Maßkette „vorn: Gruppe C | Gruppe A“ mit Teilung bei 1,91 %. Kein Rot im Diagramm (Rot = Zuschuss). Notiz in der äußeren Marginalspalte (Spalten 1–3), spiegelbildlich zu S. 13. Unteres Band: Rechenweg als Rechenblatt-Tabelle (Spalten 1–7, Zeilen 1–5, Zeile 2 mit Unterzeile „− Mietausfall 2 %“, Ergebniszeile rot) mit Einmal-Zeile Bearbeitungsentgelte; daneben (Spalten 8–12) „Zulassung von B und C“, „Über die Laufzeit“ und darunter, mit Haarlinie abgesetzt, der Absatz zu Mietausfall und Kosten. Horizonte mit S. 13: Kopfzeile und Oberkante H1."
+  "visual_idea": "Linke Seite der Doppelseite 12|13 (physische Heftmitte, ein Druckbogen), weiß; Kapitel „Modellrechnung“ (Daumenregister 2.1 links). Kopf wie S. 11: Kopfzeile mit Rubrik „Modellrechnung“ und Schlüsselplan, H1 zweizeilig in 25 pt, Rot nur an der Zahl 1,91 %, Vorspann in 12 pt über die volle Breite. Dominant: Liniendiagramm „Mehrüberschuss je Tilgungssatz“ in Spalten 4–12 am Bund – x-Achse Tilgungssatz 0–3,0 %, y-Achse Mehrüberschuss gegenüber A in € p. a. (−10.000 bis +20.000), Nulllinie kräftig; C durchgezogen, B gestrichelt, beide in Tinte, Gruppen als Achskreise am Linienende, Werte vor Tilgung (16.977 / 10.669) fett neben dem Linienanfang, Schwellen als Punkte auf der Nulllinie (B: 1,80 %, C: 1,91 %), gestrichelte Marke beim Tilgungssatz der S. 11 (2,38 %); darüber eine Maßkette „vorn: Gruppe C | Gruppe A“ mit Teilung bei 1,91 %. Kein Rot im Diagramm (Rot = Zuschuss). Notiz in der äußeren Marginalspalte (Spalten 1–3), spiegelbildlich zu S. 13. Unteres Band: Rechenweg als Rechenblatt-Tabelle (Spalten 1–7, Zeilen 1–6 seit 13.11.2026, Zeile 3 „− Mietausfall 2 %“ mit eigener Nummer, Ergebniszeile 6 rot) mit Einmal-Zeile Bearbeitungsentgelte; daneben (Spalten 8–12) „Zulassung von B und C“, „Über die Laufzeit“ und darunter, mit Haarlinie abgesetzt, der Absatz zu Mietausfall und Kosten. Horizonte mit S. 13: Kopfzeile und Oberkante H1."
 }

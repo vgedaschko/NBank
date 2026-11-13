@@ -10,13 +10,19 @@
        Modellhaus seit 11.11.2026: PGN-Projekt in Neu Wulmstorf (VOFI-Mappe v3, Projekt 2; Übersicht Zeilen 9–26). Das Grundstück ist im
        Bestand und nicht angesetzt, der Rechenweg hat deshalb keine Zeile „+ Grundstück“. Band 3: Tabelle mit drei Ansätzen der
        Herstellungskosten (3.579 | 4.631 | 5.460 € je m², je Spalte ein Lauf der Mappe mit Eingabe 2.1) statt des Wasserfalls zu 5.200 €. */
-    /* Bänder: Haus | Modellhaus · Rechenweg | Kennzahlen · Sensitivität (Tabelle, volle Breite) */
+    /* Bänder: Haus | Modellhaus (Steckbrief) · Rechenweg | Kennzahlen · Sensitivität (Tabelle, volle Breite) */
     .page[data-page="10"] .p10-band { --row-gap: 0; align-items: stretch; }
     .page[data-page="10"] .p10-c { margin-top: 6.4mm; }
     .page[data-page="10"] .p10-d { margin-top: 11mm; }
     .page[data-page="10"] .p10-spec { border-top: var(--hair) solid var(--rule-strong); padding-top: 3mm; }
-    .page[data-page="10"] .p10-spec .lead { margin-top: 2.6mm; max-width: none; }
-    .page[data-page="10"] .p10-spec .body { margin-top: 2.2mm; color: var(--fg-2); }
+    /* Steckbrief „Das Modellhaus“ (Änderungsrunde 13.11.2026, B9.1, Rückfrage 11): acht Zeilen „Bezeichnung: Angabe“ statt
+       Vorspann und Absatz; Text 9,5 pt, Bezeichnung halbfett in Schwarz als Vorlauf, Haarlinie zwischen den Zeilen. Als
+       Tabelle mit eigener Bezeichnungsspalte liefe der Steckbrief in fünf Spalten 113 mm hoch (Haus: 94 mm). */
+    .page[data-page="10"] .p10-steck { margin-top: 2.2mm; }
+    .page[data-page="10"] .p10-steck > div { padding: 1.3mm 0 1.4mm; border-top: var(--hair) solid var(--rule); font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
+    .page[data-page="10"] .p10-steck > div:first-child { border-top: 0; padding-top: 0; }
+    .page[data-page="10"] .p10-steck dt, .page[data-page="10"] .p10-steck dd { display: inline; }
+    .page[data-page="10"] .p10-steck dt { font-weight: 600; color: var(--fg); }
     .page[data-page="10"] .p10-house .chart__svg { margin-top: 4.2mm; }
     /* Haus */
     .page[data-page="10"] .p10-win { fill: var(--surface-2); }
@@ -34,17 +40,19 @@
     .page[data-page="10"] .p10-kf .kf__fig { margin-top: 2.4mm; }
     .page[data-page="10"] .p10-kf .kf__label { margin-top: 2.2mm; }
     /* Sensitivität: Tabelle mit drei Kostenansätzen (Wertspalten je 42 mm, Kopf = Ansatz in € je m² mit Herkunft).
-       Zeilenabstände knapp wie in der Vergleichstabelle S. 11; Oberkante des Bands = Oberkante des unteren Bands S. 11 (219,4 mm).
+       Zeilenabstände knapp; Oberkante des Bands = Oberkante des unteren Bands S. 11 (219,4 mm). Seit dem 13.11.2026 (B9.2)
+       trägt der Fuß zwei Sätze; dafür stehen Zeilen und Kopf enger (Zeilenabstand 1,35 wie die Tabellen des Systems).
        Die Fußzeile der Tabelle schließt ohne Innenabstand mit dem Satzspiegel. */
-    .page[data-page="10"] .p10-sens-t { margin-top: 1.6mm; table-layout: fixed; }
-    .page[data-page="10"] .p10-sens-t tbody td { padding-top: .6mm; padding-bottom: .6mm; }
+    .page[data-page="10"] .p10-sens-t { margin-top: 1.2mm; table-layout: fixed; }
+    .page[data-page="10"] .p10-sens-t tbody td { padding-top: .35mm; padding-bottom: .35mm; line-height: 1.35; }
     .page[data-page="10"] .p10-sens-t col.p10-s-val { width: 42mm; }
     .page[data-page="10"] .p10-sens-t col.p10-s-val:last-child { width: 39.6mm; }   /* letzte Zelle ohne rechten Innenabstand: Zahlenkanten im gleichen Abstand von 42 mm */
-    .page[data-page="10"] .p10-sens-t thead th { padding-bottom: 1mm; }
+    .page[data-page="10"] .p10-sens-t thead th { padding-bottom: .6mm; }
     .page[data-page="10"] .p10-sens-t thead th.num { white-space: normal; }
     .page[data-page="10"] .p10-sens-t thead .big { display: block; margin-left: 0; }
     .page[data-page="10"] .p10-sens-t thead .sub { margin-top: .6mm; white-space: nowrap; }
-    .page[data-page="10"] .p10-sens-t tfoot td { padding-top: 1.35mm; padding-bottom: 0; border-bottom: 0; font-size: var(--fs-micro); line-height: 1.3; color: var(--fg-3); }
+    .page[data-page="10"] .p10-sens-t tfoot td { padding-top: 1mm; padding-bottom: 0; border-bottom: 0; font-size: var(--fs-micro); line-height: 1.3; color: var(--fg-3); }
+    .page[data-page="10"] .p10-sens-t tfoot tr.p10-sens-a td { padding-top: .2mm; }   /* zweiter Satz unter der Tabelle (Änderungsrunde 13.11.2026, B9.2) */
     /* 80-%-Linie filigran: 0,25 mm in Diagramm-Einheiten (die globale .cap-line setzt „.25mm“, das in der mm-viewBox als
        0,95 mm wirkt); liegt hinter dem Haus, sichtbar nur als Höhenmarke links und rechts, Strich durchgehend */
     .page[data-page="10"] .p10-house__svg .cap-line { stroke-width: .25; stroke-dasharray: none; }
@@ -72,9 +80,17 @@
       <svg class="chart__svg p10-house__svg" viewBox="0 0 102.92 77.4" width="102.92mm" height="77.4mm" role="img" aria-label="Finanzierung des Modellhauses mit Gesamtkosten von 3,0 Millionen Euro, Höchstsätze, dargestellt als Haus mit fünf gleich hohen Geschossen zu je 20 Prozent: unten zwei Geschosse Zuschuss 1,2 Millionen Euro (40 Prozent), darüber zwei Geschosse Darlehen 1,2 Millionen Euro (40 Prozent), oben ein Geschoss Eigenmittel 0,6 Millionen Euro (mindestens 20 Prozent). Maßkette Förderung aus Zuschuss und Darlehen: 2,4 Millionen Euro, 80 Prozent."><rect class="c-muted" x="25" y="3.8" width="35.2" height="1.2"/><polygon class="ill-pv" points="27.4,3.8 33.8,3.8 33,1.4 26.6,1.4"/><polygon class="ill-pv" points="35.3,3.8 41.7,3.8 40.9,1.4 34.5,1.4"/><polygon class="ill-pv" points="43.2,3.8 49.6,3.8 48.8,1.4 42.4,1.4"/><polygon class="ill-pv" points="51.1,3.8 57.5,3.8 56.7,1.4 50.3,1.4"/><path class="cap-line" d="M19.8,19H65.6"/><rect class="c-grant" x="25.6" y="61.15" width="34" height="13.85"/><rect class="p10-win" x="30.5" y="64.975" width="4.8" height="6.2"/><rect class="p10-win" x="40.2" y="64.975" width="4.8" height="6.2"/><rect class="p10-win" x="49.9" y="64.975" width="4.8" height="6.2"/><rect class="c-grant" x="25.6" y="47.35" width="34" height="13.5"/><rect class="p10-win" x="30.5" y="51" width="4.8" height="6.2"/><rect class="p10-win" x="40.2" y="51" width="4.8" height="6.2"/><rect class="p10-win" x="49.9" y="51" width="4.8" height="6.2"/><rect class="c-loan" x="25.6" y="33.15" width="34" height="13.5"/><rect class="p10-win" x="30.5" y="36.8" width="4.8" height="6.2"/><rect class="p10-win" x="40.2" y="36.8" width="4.8" height="6.2"/><rect class="p10-win" x="49.9" y="36.8" width="4.8" height="6.2"/><rect class="c-loan" x="25.6" y="19" width="34" height="13.85"/><rect class="p10-win" x="30.5" y="22.825" width="4.8" height="6.2"/><rect class="p10-win" x="40.2" y="22.825" width="4.8" height="6.2"/><rect class="p10-win" x="49.9" y="22.825" width="4.8" height="6.2"/><rect class="c-equity" x="25.6" y="5" width="34" height="14"/><path class="hatch" data-hatch="25.7 5.1 33.8 13.8" d="M25.7,6.544L27.144,5.1M25.7,8.241L28.841,5.1M25.7,9.938L30.538,5.1M25.7,11.635L32.235,5.1M25.7,13.332L33.932,5.1M25.7,15.029L35.629,5.1M25.7,16.726L37.326,5.1M25.7,18.423L39.023,5.1M26.921,18.9L40.721,5.1M28.618,18.9L42.418,5.1M30.315,18.9L44.115,5.1M32.012,18.9L45.812,5.1M33.709,18.9L47.509,5.1M35.406,18.9L49.206,5.1M37.103,18.9L50.903,5.1M38.8,18.9L52.6,5.1M40.497,18.9L54.297,5.1M42.194,18.9L55.994,5.1M43.891,18.9L57.691,5.1M45.588,18.9L59.388,5.1M47.285,18.9L59.5,6.685M48.982,18.9L59.5,8.382M50.679,18.9L59.5,10.079M52.376,18.9L59.5,11.776M54.073,18.9L59.5,13.473M55.77,18.9L59.5,15.17M57.468,18.9L59.5,16.868M59.165,18.9L59.5,18.565"/><rect class="c-equity-frame" x="25.7" y="5.1" width="33.8" height="13.8"/><rect class="p10-win p10-win--eq" x="35.45" y="9" width="4.6" height="6"/><rect class="p10-win p10-win--eq" x="45.15" y="9" width="4.6" height="6"/><path class="p10-ground" d="M19.4,75H66"/><path class="dim-line" stroke-width=".12" d="M60.4,5H64.3M60.4,19H64.3M60.4,47H64.3M60.4,75H64.3"/><path class="dim-line" d="M63,3.7V76.3"/><path class="dim-tick" d="M62.1,5.9L63.9,4.1M62.1,19.9L63.9,18.1M62.1,47.9L63.9,46.1M62.1,75.9L63.9,74.1"/><path class="dim-line" stroke-width=".12" d="M24.8,19H21.1M24.8,75H21.1"/><path class="dim-line" d="M22.4,17.7V76.3"/><path class="dim-tick" d="M21.5,19.9L23.3,18.1M21.5,75.9L23.3,74.1"/><text class="p10-lab" x="66.2" y="10.5"><tspan class="t-b">Eigenmittel</tspan> · mind. 20 %</text><text class="t-num" x="65.95" y="17">0,6<tspan class="t-unit" dx="0.9">Mio. €</tspan></text><text class="p10-lab" x="66.2" y="31.5"><tspan class="t-b">Darlehen</tspan> · 40 %</text><text class="t-num" x="65.95" y="38">1,2<tspan class="t-unit" dx="0.9">Mio. €</tspan></text><text class="p10-lab" x="66.2" y="59.5"><tspan class="t-b">Zuschuss</tspan> · 40 %</text><text class="t-num t-acc" x="65.95" y="66">1,2<tspan class="t-unit" dx="0.9">Mio. €</tspan></text><text class="p10-lab t-end" x="19.4" y="43.9"><tspan class="t-b">Förderung</tspan></text><text class="t-val-ink t-acc t-end" x="19.4" y="48.2">2,4<tspan class="t-unit" dx="0.9">Mio. €</tspan></text><text class="p10-lab t-end" x="19.4" y="52.4">80 %</text></svg>
     </figure>
     <div class="l-span-5 p10-spec">
-      <h2 class="chart__title">Das Modellhaus</h2>
-      <p class="lead u-hyphens">14 Neubauwohnungen nach Programmteil 2.1, alle für Einkommensgruppe A (B&nbsp;und&nbsp;C <span class="u-nowrap"><a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;10</a>).</span></p>
-      <p class="body u-hyphens">Ein PGN-Projekt in Neu Wulmstorf, <span class="u-nohyphens">Landkreis</span> Harburg, zusammen 828 m² Wohn&shy;fläche, im Schnitt 59 m². Effizienzhaus 55, kein EH-40-Zuschlag. Standort: Mietenstufe VI, angespannter Wohnungsmarkt per Verordnung; der Bedarf gilt als gegeben. Herstellungskosten 3.579 € je m², der Median aus fünf PGN-Projekten. Das liegt 1.881 € unter der Bemessungsgrenze von 5.460 € (Mietenstufe IV–VII, seit 01.10.2026) und ist voll zuwendungsfähig. Grundstück im Bestand, nicht angesetzt.</p>
+      <h2 class="chart__title" id="p10-spec-h">Das Modellhaus</h2>
+      <dl class="p10-steck" aria-labelledby="p10-spec-h">
+        <div><dt>Ort:</dt> <dd>Neu Wulmstorf, <span class="u-nohyphens">Landkreis</span> Harburg</dd></div>
+        <div><dt>Wohnungen:</dt> <dd>14, alle für Einkommensgruppe&nbsp;A <span class="u-nowrap">(B und C <a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;10</a>)</span></dd></div>
+        <div><dt>Wohnfläche:</dt> <dd>828&nbsp;m², im Schnitt 59&nbsp;m²</dd></div>
+        <div><dt>Standard:</dt> <dd>Effizienzhaus 55, kein <span class="u-nowrap">EH-40-Zuschlag</span></dd></div>
+        <div><dt>Standort:</dt> <dd>Mietenstufe VI, angespannter Wohnungsmarkt per Verordnung</dd></div>
+        <div><dt>Herstellungskosten:</dt> <dd>3.579&nbsp;€ je&nbsp;m², Median aus fünf PGN-Projekten</dd></div>
+        <div><dt>Bemessungsgrenze:</dt> <dd>5.460&nbsp;€ je&nbsp;m², <span class="u-nohyphens">eingehalten</span></dd></div>
+        <div><dt>Grundstück:</dt> <dd>im Bestand, nicht angesetzt</dd></div>
+      </dl>
     </div>
   </div>
 
@@ -120,6 +136,7 @@
       </tbody>
       <tfoot>
         <tr><td colspan="4">Über der Bemessungsgrenze sinkt die Förderquote auf die Gesamtkosten unter 80 %.</td></tr>
+        <tr class="p10-sens-a"><td colspan="4">Gruppe A hat bis rund 5.150&nbsp;€ je&nbsp;m² einen Zahlungsüberschuss.</td></tr>
       </tfoot>
     </table>
   </section>

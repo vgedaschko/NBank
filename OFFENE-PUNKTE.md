@@ -71,7 +71,7 @@ Für die Durchsicht liegt `Aenderungsvorschlaege-Broschuere-und-Vortrag.docx` be
 | b21 | Broschüre U1, S. 21, 19 | Bildrechte und Originalfotos in Druckauflösung; U1-Bildzeile „19 barrierefreie Wohnungen · mit Förderung der NBank“ bestätigen. | muss |
 | b22 | Broschüre U1, U4 | Logo, CI und Druckfarben freigeben (Negativ-Wortmarke, CMYK- oder Pantone-Werte für PGN-Rot, Andruck des roten Umschlags). | muss vor Druck |
 | b23 | Broschüre S. 22 | Impressum: Herausgeberzeile, Bezeichnung „Geschäftsführung“, Stand der Geschäftsführung ab 01.01.2027, PDF-Metadaten. | sollte |
-| b24 | Broschüre S. 2, 21 | „Seit 1981“ und „45 Jahre PGN“ bestätigen (laut Presse entstand die Firma 1979, Einstieg Behrens 1981). | sollte |
+| b24 | Broschüre S. 21 | „Seit 1981“ und „45 Jahre PGN“ bestätigen (laut Presse entstand die Firma 1979, Einstieg Behrens 1981). | sollte |
 | b25 | Broschüre U4, S. 19, 21 | Website-Wortlaut freigeben (Claim U4, „Ein Ansprechpartner für alles“, Wertezeile S. 21); Bezeichnung „Förder-Check“; Ansprechperson auf U4. | sollte |
 | b26 | Broschüre S. 6, 2, 3, 12, U1, U4 | Offene Punkte aus Korrekturlauf 1: Notiz ohne Text auf S. 6, Headline S. 2, Kachel 2.5 auf S. 3, Seite 12 freigeben, Ermessensentscheidungen am Umschlag. | sollte |
 | b27 | Broschüre, `content/copy.md`, Anhang A | 19 fachliche Rückfragen an die NBank vor der Druckfreigabe. Nr. 1 (Bemessungsgrenze) und Nr. 9 (Tilgung) betreffen die Rechnung, siehe b1 und b2. | sollte |

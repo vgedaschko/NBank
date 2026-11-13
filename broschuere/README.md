@@ -104,8 +104,8 @@ Präsentation und Broschüre werden am Ende abgeglichen; offene Punkte in Anhang
 | 11 | nicht umlagefähige Bewirtschaftungskosten `[… € je Wohnung p. a.]` | Objektverwaltung 367 € je Wohnung p. a., Betriebskosten voll umgelegt: 5.138 € |
 | 11 | Instandhaltung `[… € je m² p. a.]` | 14,40 € je m² p. a.: 11.923 € |
 | 11 | Tilgung `[Tilgungssatz … %]` | 2,38 % p. a. (Annahme: linear über 42 Jahre): 28.223 / 42.334 / 49.390 € |
-| 11 | Zeilen 4 und 8 `[PGN-Rechnung]` | 49.152 / 62.784 / 70.574 € und 15.003 / 11.560 / 10.812 € (Jahr 1) |
-| 12 | Mietausfall `[… %]` im Rechenweg | Unterzeile 278 / 437 € (B / C); Tilgungsschwellen 1,80 % / 1,91 % |
+| 11 | Zeilen 4 und 8 `[PGN-Rechnung]` (seit 13.11.2026 Zeilen 5 und 9: Mietausfall ist eigene Zeile 2) | 49.152 / 62.784 / 70.574 € und 15.003 / 11.560 / 10.812 € (Jahr 1) |
+| 12 | Mietausfall `[… %]` im Rechenweg | Zeile 3 (seit 13.11.2026 mit eigener Nummer): 278 / 437 € (B / C); Tilgungsschwellen 1,80 % / 1,91 % |
 
 Das Impressum (S. 22) trägt seit Korrekturlauf 1 keine Platzhalter mehr: „Verantwortlich für den Inhalt“ und „Druck“ entfallen
 (§ 8 Abs. 2, § 7 Abs. 3 NPresseG), der Bildnachweis lautet „Planungsgemeinschaft Nord GmbH“.
@@ -114,7 +114,7 @@ Außerdem vor dem Druck zu bestätigen oder freizugeben (ohne Platzhalter im Hef
 Schlussabgleich S. 10–12 mit VOFI-Mappe und Präsentation, Angaben zum PGN-Projekt und Kostenansätze S. 10 (3.579 € PGN, 4.631 € ARGE),
 Kostenstand 2026, „Betriebskosten voll umgelegt“, Tilgungssatz 2,38 % (NBank abgestimmt?); der Tenor S. 11 ist seit 11.11.2026
 entschieden („Alle drei Gruppen tragen sich ab Jahr 1“), der Verweis S. 4 → S. 11 bleibt gestrichen, bis PGN entscheidet;
-Geschäftsführung, Herausgeberzeile und PDF-Metadaten (Impressum S. 22); Formulierung „Seit 1981“ (S. 2, 21); Bildrechte und
+Geschäftsführung, Herausgeberzeile und PDF-Metadaten (Impressum S. 22); Formulierung „Seit 1981“ (S. 21); Bildrechte und
 hochaufgelöste Originale (U1, S. 19, 21); Negativ-Logo, CMYK-/Pantone-Werte und CI-Anwendung; Zitate Tonne (S. 2) und
 Kiesewetter (S. 6); PGN-Claims, Leistungsaussagen S. 19, Referenzen S. 21 und eine mögliche Ansprechperson auf U4.
 

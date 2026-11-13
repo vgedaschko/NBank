@@ -8,30 +8,46 @@
   "blocks": [
     {
       "type": "table",
-      "caption": "Programmteil 2.1 im Vergleich · Höchstsätze",
+      "caption": "Programmteil 2.1 im Vergleich",
       "columns": [
-        "",
-        "bis 30.06.2026",
-        "seit 01.07.2026"
+        "Merkmal",
+        "Bis 30.06.2026",
+        "Seit 01.07.2026",
+        "Wirkung"
       ],
       "rows": [
         [
-          "Instrument",
-          "zinsloses Darlehen, 75 % der Gesamtkosten; Tilgungsnachlass 30 % des Darlehens nur bei geringen Einkommen",
-          "Darlehen + Zuschuss statt Tilgungsnachlass; zusammen 80 % der zuwendungsfähigen Kosten (Gruppe A: je 40 %)"
+          "Förderquote",
+          "Darlehen bis 75 % der Gesamtkosten",
+          "Darlehen und Zuschuss bis 80 % der zuwendungsfähigen Kosten",
+          "+5 Prozentpunkte"
         ],
         [
-          "Bemessung je m² Wohnfläche",
-          "5.330/5.550 € Gesamtkosten, Neubau inkl. Grundstück",
-          "5.250/5.460 € Herstellungskosten (seit 01.10.2026); Grundstück separat bis Bodenrichtwert"
+          "Nicht rückzahlbar",
+          "Tilgungsnachlass 30 % des Darlehens, nur bei geringen Einkommen",
+          "Zuschuss bis 40 % (A), 20 % (B), 10 % (C) der Kosten",
+          "A: von 22,5 auf 40 % der Kosten. B und C: neu"
         ],
         [
-          "Mieterkreis und Höchstmiete Jahre 1–3 (nettokalt je m²)",
-          "geringe und mittlere Einkommen; 6,30/6,60 € (geringe)",
-          "Gruppen A, B, C (B/C nur mit Zulassung); A: 6,50/6,80 €"
+          "Eigenmittel",
+          "25 % der Gesamtkosten",
+          "20 % der zuwendungsfähigen Kosten",
+          "−5 Prozentpunkte. Geld oder Grundstück weiter mindestens 10 %"
+        ],
+        [
+          "Bemessungsgrenze je m², Mietenstufe I–III / IV–VII",
+          "5.330 / 5.550 €, Gesamtkosten mit Grundstück",
+          "5.250 / 5.460 € (Stand 01.10.2026), nur Herstellungskosten. Grundstück zusätzlich bis zum Bodenrichtwert",
+          "Das Grundstück zählt nicht mehr auf die Grenze"
+        ],
+        [
+          "Höchstmiete Jahr 1 bis 3 je m², Mietenstufe I–III / IV–VII",
+          "6,30 / 6,60 € (geringe Einkommen)",
+          "6,50 / 6,80 € (Gruppe A)",
+          "+0,20 €"
         ]
       ],
-      "note": "Wertepaare: Mietenstufe I–III/IV–VII · Bemessung nicht direkt vergleichbar"
+      "note": "Seit der Änderungsrunde vom 13.11.2026 (B3.1, Rückfrage 6) wie Folie 9 des Vortrags: dieselben fünf Zeilen und vier Spalten, Wortlaut wie praesentation/daten/outline.json (Folie neu-seit-juli). Werte bis 30.06.2026: NBank-Produktinformation „Allgemeine Mietwohnraumförderung“, Stand 01.04.2026 (factbase F018, G1-13); seit 01.07.2026: RL Nr. 5.2.6, 5.3.2.2, 5.3.2.3, 5.3.3, 5.4.4 und NBank-Produktinformation, Stand 05.11.2026. Im Heft ohne Tabellenfuß; das Merkmal bricht vor „Mietenstufe“."
     },
     {
       "type": "checklist",
@@ -56,6 +72,9 @@
   "fact_ids": [
     "F018",
     "G1-13",
+    "G1-01",
+    "G1-10",
+    "F010",
     "F284",
     "F098",
     "F097",
@@ -90,5 +109,5 @@
     "Zusammensetzung der Eigenmittel: mindestens die Hälfte Geld oder lastenfreies Grundstück (2.3: Geld); Modellprojekte und Housing First ggf. weniger Eigenmittel",
     "Rücktrittsklauseln und vorzeitiger Vorhabenbeginn; nicht als Beginn gelten Grundstückskauf und Planung bis Leistungsphase 6 HOAI"
   ],
-  "visual_idea": "Spürbar mehr Ruhe als in v1. Kopf: Kopfzeile mit Rubrik „Überblick“ (8,5 pt Versalien in Schwarz); Headline „Richtlinie 2026: Neuerungen und Voraussetzungen“ (Rot nur am Wort „Neuerungen“) in Montserrat Black Versalien 25 pt mit roter 2-pt-Linie links; rechts auf der Headline-Grundlinie klein der Tabellenkopf „Wertepaare: Mietenstufe I–III/IV–VII · Bemessung nicht direkt vergleichbar“; Caption „Programmteil 2.1 im Vergleich · Höchstsätze“ (deshalb kein „bis zu“ in den Zellen). Kein Lead. Obere Hälfte, dominantes Element: die schlanke Vorher/Nachher-Tabelle mit drei Zeilen, Spalte „bis 30.06.2026“ in Grau (#757474), Spalte „seit 01.07.2026“ in PGN-Rot, dazwischen feine Pfeile; Zeilenmarker links als Baustein-Chip 2.1. Kein Nachsatz zur Modernisierungsfrist (steht auf S. 3, 5 und 14/15), kein Frist-Band, kein Kasten. Danach viel Weißraum. Untere Hälfte: Zwischenüberschrift „Grundcheck: sechs Voraussetzungen“, darunter der Grundcheck als druckbare Ankreuzliste mit sechs leeren Quadraten (eckig, Anthrazit-Kontur), je Zeile Frage in Work Sans Bold, Erläuterung in Work Sans; rechts die Programmteil-Chips 2.1–2.6 in fester Spaltenfolge (zutreffende in Baustein-Farbe, übrige als Geisterziffer ohne Kontur), einmal die Legende „gilt für“ über der Chipspalte; die Klammer-Tags am Zeilenende werden als Chips gesetzt, nicht als Text gedruckt. Schlusssatz „Ausnahmen … → S. 20“ als einfache Textzeile unter der Liste, ohne Kasten, ohne Ampel, ohne Aufforderung. Ton (Korrekturlauf 1): Prüfpunkte neutral und technisch formuliert, Vorhabenbeginn als Definition statt Verbotsliste. Keine Fußnote, keine Quellenzeile, keine Kurzmarke."
+  "visual_idea": "Spürbar mehr Ruhe als in v1. Kopf: Kopfzeile mit Rubrik „Überblick“ (8,5 pt Versalien in Schwarz); Headline „Richtlinie 2026: Neuerungen und Voraussetzungen“ (Rot nur am Wort „Neuerungen“) in Montserrat Black Versalien 25 pt mit roter 2-pt-Linie links; Caption „Programmteil 2.1 im Vergleich“ mit Baustein-Chip 2.1. Kein Lead. Obere Hälfte, dominantes Element (seit der Änderungsrunde vom 13.11.2026, B3.1, wie Folie 9 des Vortrags): Vergleichstabelle mit vier Spalten (Merkmal · Bis 30.06.2026 · Seit 01.07.2026 · Wirkung) und fünf Zeilen (Förderquote, nicht rückzahlbarer Teil, Eigenmittel, Bemessungsgrenze, Höchstmiete Jahr 1 bis 3), Datum im Kopf als Kernwert (bis in Grau, seit in PGN-Rot), Spalte „Seit“ auf Papierfläche, Text 9,5 pt, keine Pfeilspalte, kein Tabellenfuß. Kein Nachsatz zur Modernisierungsfrist (steht auf S. 3, 5 und 14/15), kein Frist-Band, kein Kasten. Danach etwas Luft. Untere Hälfte: Zwischenüberschrift „Grundcheck: sechs Voraussetzungen“, darunter der Grundcheck als druckbare Ankreuzliste mit sechs leeren Quadraten (eckig, Anthrazit-Kontur), je Zeile Frage in Work Sans Bold, Erläuterung in Work Sans; rechts die Programmteil-Chips 2.1–2.6 in fester Spaltenfolge (zutreffende in Baustein-Farbe, übrige als Geisterziffer ohne Kontur), einmal die Legende „gilt für“ über der Chipspalte; die Klammer-Tags am Zeilenende werden als Chips gesetzt, nicht als Text gedruckt. Schlusssatz „Ausnahmen … → S. 20“ als einfache Textzeile unter der Liste, ohne Kasten, ohne Ampel, ohne Aufforderung. Ton (Korrekturlauf 1): Prüfpunkte neutral und technisch formuliert, Vorhabenbeginn als Definition statt Verbotsliste. Keine Fußnote, keine Quellenzeile, keine Kurzmarke."
 }

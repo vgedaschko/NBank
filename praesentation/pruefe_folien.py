@@ -587,6 +587,10 @@ KERNWERTE_FORM = [
 ]
 # Tabelle der Anhangfolie zur Tilgungsschwelle (A7): Zeile 0 ist der Kopf mit den Herstellungskosten je m² der drei Läufe (Spalten 1 bis 3),
 # Zeile 1 die Schwelle B gegenüber A, Zeile 2 die Schwelle C gegenüber A. Jede Zahl ist an ihren Lauf der Rechenmappe gebunden.
+# Über den Beträgen des Kopfs stehen seit der Prüfrunde 1 zur Änderungsrunde vom 13.11.2026 die Namen der Läufe wie auf Folie 23 (Entscheidung
+# nach der Rückfragerunde zu A7; „Bemessungs-/grenze“ zweizeilig, Rückfrage 23): je eine Form „Spaltenkopf …“ über ihrer Wertspalte, von links
+# nach rechts in der Reihenfolge der Läufe (SCHWELLE_KOEPFE, Prüfung „Kernwerte in ihrer Form oder Tabellenzelle“)
+SCHWELLE_KOEPFE = [("Spaltenkopf Modellhaus", "Modellhaus"), ("Spaltenkopf ARGE-Median", "ARGE-Median"), ("Spaltenkopf Bemessungs-grenze", "Bemessungs- grenze")]
 KERNWERTE_FORM += [(lauf + key, art, SCHWELLE_FOLIE, "Tabelle Schwellen", (zeile, sp), "{a}")
                    for sp, lauf in enumerate(("modellhaus:", K_ARGE, K_GRENZE), start=1)
                    for zeile, key, art in ((0, "eingabe.herstellungskosten_qm", "euro"), (1, "tilg.schwelle.B_gegen_A", "prozent2"), (2, "tilg.schwelle.C_gegen_A", "prozent2"))]
@@ -817,7 +821,9 @@ def lies_mappe(datei):
                 nv = el.find(f"{P}nvSpPr/{P}cNvPr")
                 ph = el.find(f"{P}nvSpPr/{P}nvPr/{P}ph")
                 tx = el.find(P + "txBody")
-                form = {"name": nv.get("name") or "", "art": "text", "ph": None, "descr": nv.get("descr"), "absaetze": absaetze(tx) if tx is not None else []}
+                off = el.find(f"{P}spPr/{A}xfrm/{A}off")
+                form = {"name": nv.get("name") or "", "art": "text", "ph": None, "descr": nv.get("descr"), "absaetze": absaetze(tx) if tx is not None else [],
+                        "x": int(off.get("x")) / 914400 if off is not None else None}   # linke Kante in Zoll (None: Lage aus dem Layout)
                 if ph is not None:
                     form["ph"] = "title" if ph.get("type") == "title" else ph.get("idx")
                 f["formen"].append(form)
@@ -1315,6 +1321,12 @@ def main(argv):
             m.append(f"Folie {nr(i)}: Thema im Schriftfeld {rubrik} statt „{thema}“")
         if rubrik and rubrik == kicker:
             m.append(f"Folie {nr(i)}: Kopf und Schriftfeld sagen dasselbe ({rubrik})")
+        if k["id"] in KOPF_AUSNAHME:
+            # Ohne Zeichen des Abschnitts steht der Kopf an der Titelkante (Prüfrunde 1 zur Änderungsrunde vom 13.11.2026): keine Lücke links
+            kx = [fo.get("x") for fo in f["formen"] if fo["name"] == "Kicker"]
+            tx = [fo.get("x") for fo in f["formen"] if fo["ph"] == "title"]
+            if len(kx) != 1 or len(tx) != 1 or None in kx + tx or abs(kx[0] - tx[0]) > 0.005:
+                m.append(f"Folie {nr(i)}: Der Kopf ohne Zeichen steht nicht an der Titelkante (Kicker x {kx}, Titel x {tx})")
         if k["id"] == "agenda":
             namen = [t for n in range(1, 10) for t in text_von(f, f"Abschnitt {n} Name")]
             kreise = [t for n in range(1, 10) for t in text_von(f, f"Achskreis {n}")]
@@ -1752,7 +1764,20 @@ def main(argv):
         if texte != [soll]:
             wo = f"„{form}“" + (f", Zeile {zelle[0] + 1}, Spalte {zelle[1] + 1}" if zelle else "")
             m.append(f"Folie {nr(i)} ({fid}), {wo}: steht {texte or 'nicht auf der Folie'}; erwartet „{soll}“ ({quelle})")
-    ber.pruefung("Kernwerte in ihrer Form oder Tabellenzelle", m, f"{len(KERNWERTE_FORM)} Werte auf {len({fid for _, _, fid, _, _, _ in KERNWERTE_FORM})} Folien")
+    # Köpfe der Wertspalten der Tabelle „Schwelle gegenüber A“ (A7): Name über dem Betrag, links nach rechts Modellhaus, ARGE-Median, Bemessungsgrenze
+    if SCHWELLE_FOLIE in je_id:
+        i, f = je_id[SCHWELLE_FOLIE]
+        lagen = []
+        for form, soll in SCHWELLE_KOEPFE:
+            gefunden = [fo for fo in f["formen"] if glatt(fo["name"]) == form]
+            texte = [glatt(" ".join(a["text"] for a in fo["absaetze"])) for fo in gefunden]
+            if texte != [soll]:
+                m.append(f"Folie {nr(i)} ({SCHWELLE_FOLIE}), „{form}“: steht {texte or 'nicht auf der Folie'}; erwartet „{soll}“ über der Wertspalte")
+            lagen += [fo.get("x") for fo in gefunden]
+        if len(lagen) == len(SCHWELLE_KOEPFE) and (None in lagen or lagen != sorted(lagen)):
+            m.append(f"Folie {nr(i)} ({SCHWELLE_FOLIE}): Die Spaltenköpfe stehen nicht von links nach rechts in der Reihenfolge {[t for _, t in SCHWELLE_KOEPFE]} (x {lagen})")
+    ber.pruefung("Kernwerte in ihrer Form oder Tabellenzelle", m, f"{len(KERNWERTE_FORM)} Werte auf {len({fid for _, _, fid, _, _, _ in KERNWERTE_FORM})} Folien; "
+                 f"{len(SCHWELLE_KOEPFE)} Spaltenköpfe der Folie {SCHWELLE_FOLIE}")
 
     # ---- Verweise ------------------------------------------------------------------------------------------------------------
     m = []

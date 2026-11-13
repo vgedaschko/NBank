@@ -91,17 +91,30 @@ module.exports = {
     });
 
     // ---- Rechte Spalte: die Schwellen der drei Läufe als Tabelle, darunter Stichpunkte unter zwei Überschriften ------------------------
-    // Spalten wie auf Folie 23: Modellhaus, ARGE-Median, Bemessungsgrenze
-    const x1 = colX(8), w1 = span(5), kopf = kostenLauf.map(k => fmt.euro(k));
-    const yT = B.modulkopf(s, { x: x1, y: y0, w: w1, titel: wl('Schwelle gegenüber A', 'Modultitel'), sub: wl('Tilgungssatz p. a. bei drei Herstellungskosten', 'Untertitel') });
-    // dicht: Zeilenhöhe genau nach dem Text (seit 13.11.2026), damit die Stichpunkte darunter Platz haben
-    const t = B.tabelle(s, { x: x1, y: yT, w: w1, pt: 12, dicht: true, name: 'Tabelle Schwellen',
-      spalten: [{ kopf: wl('je m²', 'Spaltenkopf'), art: 'text' }, ...kopf.map(k => ({ kopf: k, breite: 0.94, art: 'zahl' }))],
+    // Spalten wie auf Folie 23: Modellhaus, ARGE-Median, Bemessungsgrenze. Seit der Prüfrunde 1 zur Änderungsrunde vom 13.11.2026 (Entscheidung
+    // nach der Rückfragerunde zu A7) stehen die Namen über den Beträgen wie auf Folie 23: gemischt in Work Sans SemiBold 12 pt (Rolle „bezeichnung“),
+    // „Bemessungs-/grenze“ zweizeilig (Rückfrage 23). Wertspalten 1,27 Zoll wie auf Folie 23: „ARGE-Median“ braucht in 12 pt gut 1,13 Zoll.
+    // Der Kopf hat drei Zeilen; die Namen stehen als Textfelder über dem Betrag, unten bündig, ganz im Kopf (darüber steht der Untertitel)
+    const x1 = colX(8), w1 = span(5), kopf = kostenLauf.map(k => fmt.euro(k)), wb = 1.27;
+    const namen = [[wl('Modellhaus', 'Spaltenkopf')], [wl('ARGE-Median', 'Spaltenkopf')], ['Bemessungs-', 'grenze']];
+    wl('Bemessungs-/grenze', 'Spaltenkopf');
+    const yK = B.modulkopf(s, { x: x1, y: y0, w: w1, titel: wl('Schwelle gegenüber A', 'Modultitel'), sub: wl('Tilgungssatz p. a. bei drei Herstellungskosten', 'Untertitel') });
+    // Die Tabelle beginnt 0,06 Zoll unter dem Untertitel statt 0,12 (B.modulkopf rechnet 0,12 Luft): Mit dem dreizeiligen Kopf hätten die
+    // Stichpunkte in 14 pt sonst keinen Platz. Die erste Zeile des Kopfs trägt nur „Bemessungs-“, rechts unter dem Ende des Untertitels
+    const yT = +(yK - 0.06).toFixed(3);
+    // dicht: Zeilenhöhe genau nach dem Text (seit 13.11.2026), Zellränder enger wie auf Folie A1 (Rückfrage 19: Abstände enger), damit die
+    // Stichpunkte darunter Platz haben. Die Schrift bleibt 12 pt
+    const t = B.tabelle(s, { x: x1, y: yT, w: w1, pt: 12, dicht: true, zellrand: [0.04, 0.03], name: 'Tabelle Schwellen',
+      spalten: [{ kopf: wl('je m²', 'Spaltenkopf'), art: 'text' }, ...kopf.map(k => ({ kopf: `\n\n${k}`, breite: wb, art: 'zahl' }))],
       zeilen: ['B', 'C'].map(g => [wl('Gruppe ' + g, 'Tabelle'), ...laeufe.map(l => p2(W(l, `tilg.schwelle.${g}_gegen_A`)))]) });
+    // Namen über den Beträgen: unten bündig eine Zeile (0,20) über dem Betrag, rechtsbündig mit dem rechten Zellrand der Tabelle (wie Folie 23)
+    namen.forEach((zeilen, i) => { const sp = t.spalten[i + 1], h = +(0.235 * zeilen.length).toFixed(3);
+      B.text(s, zeilen.join('\n'), { x: sp.x + 0.04, y: +(yT + t.kopfH - 0.03 - 0.20 - h).toFixed(3), w: sp.w - 0.12, h, rolle: 'bezeichnung', align: 'right', valign: 'bottom', name: `Spaltenkopf ${zeilen.join('')}` }); });
     // Seit der Änderungsrunde vom 13.11.2026 (F37.1, G9) Stichpunkte in 14 pt unter zwei Überschriften im Wortlaut der Änderungsdatei; bis dahin drei
-    // Absätze (der erste nannte, wofür die drei Kosten stehen; die Datei führt ihn nicht mehr)
-    const yS1 = t.unten + 0.12;
-    B.stichpunkte(s, { x: x1, y: yS1, w: w1, h: Y.inhaltEnde - yS1, titelAbstand: 6, punktAbstand: 2, gruppen: [
+    // Absätze (der erste nannte, wofür die drei Kosten stehen; die Datei führt ihn nicht mehr). Seit den Spaltenköpfen (Prüfrunde 1) ohne Abstand
+    // nach den Stichpunkten und mit 2 pt vor der zweiten Überschrift (Rückfrage 19: Abstände enger)
+    const yS1 = +(t.unten + 0.08).toFixed(3);
+    B.stichpunkte(s, { x: x1, y: yS1, w: w1, h: Y.inhaltEnde - yS1, titelAbstand: 2, punktAbstand: 0, gruppen: [
       { titel: wl('Lesehilfe', 'Überschrift'), punkte: ['über der Linie „C gegenüber A“ hat A den höchsten Zahlungsüberschuss in Jahr 1', 'unter der Linie hat C den höchsten',
         'B hat ihn bei keinem Tilgungssatz'].map(p => wl(p, 'Stichpunkt')) },
       // die Überschrift bricht vor „mit den Kosten sinkt“: In einer Zeile ist sie breiter als fünf Spalten

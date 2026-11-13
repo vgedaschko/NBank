@@ -20,6 +20,8 @@
 // 15 Keine Sprechernotizen: Notizseiten, die pptxgenjs zu jeder Folie anlegt, samt Beziehungen entfernt
 // 16 Paket: [Content_Types].xml ohne tote Einträge und mit image/jpeg
 // 17 Wiederholbarkeit: festes Datum in den Eigenschaften und an den ZIP-Einträgen, Abschnitts-IDs aus dem Abschnittsnamen
+// 18 Lage eines Platzhalters auf einer einzelnen Folie: pptxgenjs übernimmt für gefüllte Platzhalter immer die Lage aus dem Layout. Die Folie
+//    trägt danach die verlangte linke Kante (bisher nur Folie 7: Kopf „Agenda“ ohne Zeichen des Abschnitts an der Titelkante)
 'use strict';
 const fs = require('fs');
 const crypto = require('crypto');
@@ -54,11 +56,12 @@ function themeXml(xml, theme) {
 //      layouts: { PGN_INHALT: { anzeige: 'Inhalt', platzhalter: { 101: { name: 'kicker', anker: 'middle', idx: 10 }, title: { name: 'title', anker: 'top' } } } },
 //      tabellen: { 'slide4.xml': [{ kopfzeile: false, kopfspalte: true }] } (in der Reihenfolge, in der die Folie sie anlegt),
 //      altTexte: { 'slide15.xml': { 'Objektname': 'Alternativtext' } } (Formen, die einen Alternativtext tragen; der Name ist je Folie eindeutig),
-//      datum: '2026-09-30T00:00:00Z' (Stand der Inhalte; steht in den Eigenschaften und an den ZIP-Einträgen) }
+//      datum: '2026-09-30T00:00:00Z' (Stand der Inhalte; steht in den Eigenschaften und an den ZIP-Einträgen),
+//      lagen: { 'slide7.xml': { Kicker: { x: 0.667 } } } (linke Kante in Zoll für die Form mit diesem Objektnamen; genau eine Form je Name) }
 async function nachbearbeiten(datei, o) {
   const zip = await JSZip.loadAsync(fs.readFileSync(datei));
   const stat = { theme: 0, formen: 0, reihen: 0, labels: 0, striche: 0, marker: 0, platzhalter: 0, arbeitsmappen: 0, ausgeblendet: 0, absaetze: 0, absatzAbweichend: [], masterAbstand: 0,
-    dekorativ: 0, altTexte: 0, tabellen: 0, layoutPlatzhalter: 0, idx: 0, diagrammSchema: 0, nullen: 0, notizteile: 0, inhaltstypen: 0, flaechen: 0, punktKonturen: 0, ohneHoehe: 0 };
+    dekorativ: 0, altTexte: 0, tabellen: 0, layoutPlatzhalter: 0, idx: 0, diagrammSchema: 0, nullen: 0, notizteile: 0, inhaltstypen: 0, flaechen: 0, punktKonturen: 0, ohneHoehe: 0, lagen: 0 };
   const datum = o.datum || '2026-01-01T00:00:00Z', zipDatum = new Date(datum);
   if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(datum) || isNaN(zipDatum)) throw new Error(`Nachbearbeitung: datum „${datum}“ ist kein Zeitpunkt der Form 2026-09-30T00:00:00Z.`);
   const layoutVon = {};      // 'ppt/slideLayouts/slideLayout5.xml' → Beschreibung des Layouts aus o.layouts
@@ -138,6 +141,18 @@ async function nachbearbeiten(datei, o) {
         }
       }
       if (name.startsWith('ppt/slides/')) {
+        // 18 Lage einzelner Platzhalter dieser Folie: linke Kante der Form mit dem genannten Objektnamen (genau eine Form je Name, sonst Abbruch)
+        for (const [form, lage] of Object.entries((o.lagen || {})[kurz] || {})) {
+          let n = 0;
+          xml = xml.replace(/<p:sp>[\s\S]*?<\/p:sp>/g, sp => {
+            const nm = (sp.match(/<p:cNvPr id="\d+" name="([^"]*)"/) || [])[1];
+            if (nm === undefined || entXml(nm) !== form) return sp;
+            n++;
+            return sp.replace(/(<a:xfrm\b[^>]*>\s*<a:off x=")\d+(")/, (m, a, b) => `${a}${Math.round(lage.x * 914400)}${b}`);
+          });
+          if (n !== 1) throw new Error(`${name}: Die Lage für „${form}“ trifft ${n} Formen; der Objektname muss auf der Folie genau einmal vorkommen.`);
+          stat.lagen++;
+        }
         // 14 Alternativtexte an Formen: Die Form mit dem genannten Namen bekommt „descr“ (genau eine Form je Name, sonst Abbruch)
         for (const [form, text] of Object.entries((o.altTexte || {})[kurz] || {})) {
           let n = 0;

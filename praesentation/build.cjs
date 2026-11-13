@@ -116,7 +116,7 @@ async function main() {
   pres.author = T.FIRMA; pres.company = T.FIRMA; pres.revision = '1';
   definiereLayouts(pres);
 
-  const P = new Pruefung(), anweisungen = {}, leer = {}, tabellen = {}, altTexte = {}, warnungen = [];
+  const P = new Pruefung(), anweisungen = {}, leer = {}, tabellen = {}, altTexte = {}, lagen = {}, warnungen = [];
   const warnAlt = console.warn;
   console.warn = (...a) => { warnungen.push(a.join(' ')); };
   const abschnitte = new Set();
@@ -176,7 +176,10 @@ async function main() {
         const [kAbschnitt, ...kRest] = String(kicker).split(' · ');
         const k = T.versal(kAbschnitt);
         thema = kRest.join(' · ') || null;
-        // opt.kopfzeichen: false lässt das Zeichen weg (nur Folie 7: Kopf „Agenda“ ohne Kapitelnummer, Änderungsrunde vom 13.11.2026, F7.1)
+        // opt.kopfzeichen: false lässt das Zeichen weg (nur Folie 7: Kopf „Agenda“ ohne Kapitelnummer, Änderungsrunde vom 13.11.2026, F7.1).
+        // Der Kicker steht dann an der Titelkante (X0) statt rechts neben dem Zeichen: Sonst bliebe links eine Lücke, und der Kopf fluchtete nicht
+        // mit Titel und Inhalt (Prüfrunde 1). Die Nachbearbeitung setzt die Lage auf der Folie (pptxgenjs nimmt für Platzhalter die des Layouts)
+        if (opt.kopfzeichen === false) lagen[`slide${nr + 1}.xml`] = { ...(lagen[`slide${nr + 1}.xml`] || {}), Kicker: { x: T.X0 } };
         if (opt.kopfzeichen !== false) B.achskreis(slide, { cx: T.X0 + 0.15, cy: T.Y.kicker + 0.15, groesse: 'S', text: abschnittszeichen(o.abschnitt, arg.probe ? [] : outline.folien), name: KOPFZEICHEN });
         P.zeile('Kicker', k, { fontFace: T.F.mont, bold: true, fontSize: 12, weite: 1.0 }, +(T.Y.kickerW / 1.1).toFixed(2));   // 10 % Reserve im Kickerfeld
         slide.addText(k, { placeholder: 'kicker' });
@@ -270,7 +273,7 @@ async function main() {
   const st = String(daten.X('rahmen', 'titel.datum_datei')).match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
   if (!st) throw new Error('daten/rahmen.json: titel.datum_datei ist kein Datum der Form TT.MM.JJJJ.');
   const stat = await nachbearbeiten(ziel, { theme: T.THEME, firma: T.FIRMA, schraffur: { merkfarbe: T.HEX.schraffur, bg: T.HEX.eigenmittel, fg: T.HEX.schraffurLinie }, diagramme: anweisungen, leerePlatzhalter: leer,
-    folientitel: liste.map(e => e.o.titel), schriften: Object.values(T.F), layouts: layoutBeschreibung(pres), tabellen, altTexte, datum: `${st[3]}-${st[2]}-${st[1]}T00:00:00Z` });
+    folientitel: liste.map(e => e.o.titel), schriften: Object.values(T.F), layouts: layoutBeschreibung(pres), tabellen, altTexte, lagen, datum: `${st[3]}-${st[2]}-${st[1]}T00:00:00Z` });
   console.log(`${path.relative(ROOT, ziel)} · ${liste.length} Folien · Abschnitte: ${[...abschnitte].join(', ')}`);
   console.log(`Nachbearbeitung: Theme „${T.THEME.name}“, Schraffur ${stat.formen} Formen und ${stat.reihen} Reihen, ${stat.striche} Stricharten, ${stat.flaechen} Flächen unter Linien, ${stat.punktKonturen} Konturen je Datenpunkt, ${stat.ohneHoehe} Segmente ohne Höhe ohne Linie, ${stat.labels} Beschriftungsfarben, ${stat.ausgeblendet} Beschriftungen ausgeblendet, ${stat.marker} Marker, ${stat.platzhalter} leere Platzhalter entfernt, ${stat.arbeitsmappen} Arbeitsmappen, ${stat.absaetze} Absätze bereinigt`);
   console.log(`Datei: ${stat.layoutPlatzhalter} Platzhalter der Layouts mit Innenabstand und Anker, ${stat.idx} Platzhalternummern gesetzt, ${stat.diagrammSchema} Stellen der Diagramme nach Schema, ${stat.nullen} Nullwerte in Arbeitsmappen, ${stat.dekorativ} Formen dekorativ, ${stat.altTexte} Formen mit Alternativtext, ${stat.tabellen} Tabellen gekennzeichnet, ${stat.notizteile} Teile leerer Notizseiten entfernt, ${stat.inhaltstypen} tote Inhaltstypen entfernt`);

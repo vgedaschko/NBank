@@ -43,7 +43,10 @@ module.exports = {
     });
 
     // ---- Ergebniszeile über die ganze Breite, weiß auf Rot: der Betrag als Kernwert (24 pt), der Rest in Montserrat Bold 16 pt, auf einer Grundlinie
-    const yE = +(unten + 0.30).toFixed(3), hE = 0.62, betrag = fmt.euro(M('jr1.zahlungsueberschuss.A')), rest = 'Zahlungsüberschuss in Jahr 1, kein Jahr mit Fehlbetrag';
+    // Abstände (Prüfrunde 1 zur Änderungsrunde vom 13.11.2026): Schritte, Ergebniszeile, Bedingungen und Schlusssatz stehen mit gleichem sichtbarem
+    // Abstand von rund 0,43 Zoll untereinander. Das Textfeld der Schritte reicht im Bild rund 0,36 Zoll unter die letzte Zeile (es rechnet eine
+    // Zeile Reserve und den Zeilenabstand mit); bis dahin lag die Ergebniszeile 0,30 Zoll unter dem Feld und darüber ein Loch von 0,66 Zoll
+    const yE = +(unten + 0.07).toFixed(3), hE = 0.62, betrag = fmt.euro(M('jr1.zahlungsueberschuss.A')), rest = 'Zahlungsüberschuss in Jahr 1, kein Jahr mit Fehlbetrag';
     wl(`${betrag} ${rest}`, 'Ergebniszeile');
     B.kasten(s, { x: colX(1), y: yE, w: Raster.CW, h: hE, farbe: C.rot, name: 'Ergebniszeile Fläche' });
     const bb = breite(ctx.schutz(betrag), { fontFace: F.xbold, fontSize: 24 }) + 0.06, innen = 0.20;
@@ -53,7 +56,7 @@ module.exports = {
     // ---- Zwei Bedingungen in 6 + 6: Tilgung und Herstellungskosten, unter denen das Ergebnis gilt. Die Kostenschwelle ist die der Gruppe A
     // (R.kostenSchwelle, wie Folie 23), die Tilgungsschwelle der Satz, bei dem der Zahlungsüberschuss in A null ist (Übersicht 3.8; Entscheidung
     // zu Rückfrage 5: Die Folie zeigt durchgehend Gruppe A)
-    const kostenA = R.kostenSchwelle(ctx, 'A').rund, yB = +(yE + hE + 0.34).toFixed(3);
+    const kostenA = R.kostenSchwelle(ctx, 'A').rund, yB = +(yE + hE + 0.43).toFixed(3);
     const bedingungen = [
       ['Herstellungskosten', `bis rund ${fmt.euro(kostenA)} je m². Modellhaus: ${fmt.euro(M('eingabe.herstellungskosten_qm'))}.`],
       ['Tilgungssatz', `bis ${fmt.prozent(M('liq.breakeven_tilgung.A'), 2)} p. a. Annahme: ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)}.\nDen Satz legt die NBank fest.`]];

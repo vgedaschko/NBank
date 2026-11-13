@@ -121,3 +121,10 @@ Klar, norddeutsch, verbindlich. Kein KI-Ton, keine Floskeln, keine Prosa.
 7. **Modellrechnung S. 11:** Der Vergleich „frei finanziert“ zeigt Darlehen, Kapitaldienst und die Miete, bei der der
    Zahlungsüberschuss null ist. Keine Renditen, keine Marktmiete, kein Fazit-Satz. Werte aus der VOFI-Mappe v3
    (Übersicht 8.2, 8.3; Eingaben 6.1, 6.4); `vofi/pruefe_vofi.py` (F9) prüft sie mit.
+
+## 10. Seitenzählung (Kunde PGN, 13.11.2026)
+
+Gedruckt zählt die Broschüre ab der ersten Inhaltsseite mit 1; der Titel zählt nicht mit. Gedruckte Seitenzahl =
+Bogenseite − 1. Jeder Verweis im Seitentext („→ S. 9“, „Modell S. 9“, Inhaltsverzeichnis) nennt die gedruckte Zahl; sein
+Anker bleibt die Bogenseite (`href="#seite-10"` zeigt „S. 9“). Diese Regeln und alle Arbeitsunterlagen nennen die
+Bogenseite, also die Nummer im Dateinamen.

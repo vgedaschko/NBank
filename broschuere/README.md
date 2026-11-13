@@ -36,6 +36,12 @@ Arbeitsdateien (nicht versioniert, siehe `.gitignore`): `dist/preview/seite-01.p
 Rückendrahtheftung: Umschlag (4 Seiten) um einen Innenteil von 20 Seiten. Doppelseiten 2|3, 4|5 … 22|23; die
 Doppelseite 10|11 „Modellrechnung“ trägt Finanzierung und Wirtschaftlichkeit, physische Heftmitte ist 12|13.
 
+**Seitenzählung (seit 13.11.2026):** Gedruckt zählt die Broschüre ab der ersten Inhaltsseite mit 1; der Titel trägt keine
+Zahl. Gedruckte Seitenzahl = Bogenseite − 1. Das gilt für Fußzeile, Inhaltsverzeichnis, Verweise im Text, Lesezeichen und
+Seitenbeschriftung der PDFs sowie die automatische Seitenzahl im InDesign-Paket (Abschnitt 1: Titel „A“, Abschnitt 2 ab 1).
+Dateinamen, `data-page`, Anker `#seite-NN`, die Vorschaubilder `seite-NN.png` und alle Arbeitsunterlagen (diese Datei,
+`content/`, `korrektur/`, `OFFENE-PUNKTE.md`) nennen weiter die Bogenseite 1 bis 24. Die Übersicht unten nennt Bogenseiten.
+
 **Umschlag**
 
 | S. | Seite | Kolumnentitel | Überschrift |

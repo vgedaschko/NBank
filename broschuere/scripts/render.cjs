@@ -395,7 +395,8 @@ function browserFontTuples() {
         let name = clean(a.getAttribute('aria-label') || textOf(a));
         const ref = href.match(/^#seite-(\d+)$/);
         if (ref) {
-          const no = Number(ref[1]);
+          // Gedruckte Seitenzahl = Bogenseite − 1: Die erste Inhaltsseite (Bogenseite 2) trägt die 1, der Umschlag keine Zahl
+          const no = Number(ref[1]) - 1;
           if (/^(→ ?)?(S\. ?)?\d+$/.test(name)) name = `Verweis auf Seite ${no}`;
           else name = name.replace(/ ?→ ?S\. ?(\d+)$/, ' – Verweis auf Seite $1');
         } else if (/^tel:/.test(href)) name = `Telefon ${name}`;
@@ -723,7 +724,9 @@ async function finishPdf(file, { outline, docTitle, offset, print, links = [], p
   };
   outline.forEach((p) => {
     if (p.index >= pages.length) return;
-    top.push({ title: `S. ${p.no} · ${p.title || 'Seite ' + p.no}`, page: p.index, y: p.y, children: p.children });
+    // Lesezeichen mit der gedruckten Seitenzahl (Bogenseite − 1); der Umschlag vorn heißt „Titel“, die letzte Seite „Rückseite“
+    const nr = Number(p.no) - 1;
+    top.push({ title: nr < 1 ? `Titel · ${p.title || 'Umschlag'}` : p.index === pages.length - 1 ? `Rückseite · ${p.title || 'Umschlag'}` : `S. ${nr} · ${p.title || 'Seite ' + nr}`, page: p.index, y: p.y, children: p.children });
   });
   if (top.length) {
     const refs = mkItems(top, outlinesRef);
@@ -734,6 +737,10 @@ async function finishPdf(file, { outline, docTitle, offset, print, links = [], p
     root.set(PDFName.of('Count'), PDFNumber.of(refs.length));
     ctx.assign(outlinesRef, root);
     catalog.set(PDFName.of('Outlines'), outlinesRef);
+    // Seitenzählung im PDF-Betrachter wie im Heft: Umschlag „Titel“, ab der zweiten PDF-Seite 1, 2, 3 …
+    const labels = ctx.obj({});
+    labels.set(PDFName.of('Nums'), ctx.obj([PDFNumber.of(0), ctx.obj({ P: PDFHexString.fromText('Titel') }), PDFNumber.of(1), ctx.obj({ S: PDFName.of('D'), St: PDFNumber.of(1) })]));
+    catalog.set(PDFName.of('PageLabels'), labels);
     catalog.set(PDFName.of('PageMode'), PDFName.of('UseOutlines'));
   }
 

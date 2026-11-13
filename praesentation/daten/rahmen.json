@@ -36,14 +36,14 @@
       "aktiv": "2.1",
       "wert": [
         { "nr": "2.1", "verweis": "in diesem Vortrag" },
-        { "nr": "2.2", "verweis": "Broschüre S. 13" },
-        { "nr": "2.3", "verweis": "Broschüre S. 15" },
-        { "nr": "2.4", "verweis": "Broschüre S. 14" },
-        { "nr": "2.5", "verweis": "Broschüre S. 17" },
-        { "nr": "2.6", "verweis": "Broschüre S. 17" }
+        { "nr": "2.2", "verweis": "Broschüre S. 12" },
+        { "nr": "2.3", "verweis": "Broschüre S. 14" },
+        { "nr": "2.4", "verweis": "Broschüre S. 13" },
+        { "nr": "2.5", "verweis": "Broschüre S. 16" },
+        { "nr": "2.6", "verweis": "Broschüre S. 16" }
       ],
       "einheit": "Programmteil und Fundstelle",
-      "herkunft": "Broschüre, Seiten der Programmteile: 13-programmteil-2-2-eh40.json (S. 13), 14-programmteil-2-4-inseln.json (S. 14), 15-programmteil-2-3-modernisierung.json (S. 15), 17-programmteil-2-5-2-6-bindungen.json (S. 17); Programmteil 2.1 steht in der Broschüre auf S. 8 bis 12",
+      "herkunft": "Broschüre, Seiten der Programmteile, gedruckte Seitenzahl (seit 13.11.2026 = Bogenseite − 1, der Titel zählt nicht mit): 13-programmteil-2-2-eh40.json (S. 12), 14-programmteil-2-4-inseln.json (S. 13), 15-programmteil-2-3-modernisierung.json (S. 14), 17-programmteil-2-5-2-6-bindungen.json (S. 16); Programmteil 2.1 steht in der Broschüre auf S. 7 bis 11",
       "geprueft": true
     }
   },

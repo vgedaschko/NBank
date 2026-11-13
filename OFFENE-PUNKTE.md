@@ -4,6 +4,11 @@ Stand 12.11.2026. Aufgenommen ist nur, was aus dem Verlauf der Arbeit oder aus d
 (`praesentation/daten/outline.json`: offene Fragen und ungeprüfte Angaben; `praesentation/README.md`;
 `broschuere/content/copy.md`, Anhang A und B). Wichtigkeit: muss / sollte / kann.
 
+**Seitenzählung der Broschüre (13.11.2026):** Gedruckt zählt die Broschüre ab der ersten Inhaltsseite mit 1, der Titel
+zählt nicht mit. Diese Datei nennt wie alle Arbeitsunterlagen weiter die Bogenseite (gedruckte Seitenzahl = Bogenseite − 1).
+Im InDesign-Paket bilden zwei Abschnitte die Zählung ab (Titel „A“, danach ab 1); das ist beim Öffnen in InDesign zu prüfen.
+Für die Durchsicht liegt `Aenderungsvorschlaege-Broschuere-und-Vortrag.docx` bereit (zehn leere Zeilen je Seite und Folie).
+
 ## a) Was noch zu ändern ist (Bearbeitung)
 
 | Nr. | Folie oder Datei | Was fehlt | Wichtig |

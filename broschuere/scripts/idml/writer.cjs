@@ -442,7 +442,11 @@ function writeIdml(doc, opts = {}) {
 
   // ---- designmap.xml -------------------------------------------------------------------------------------------------
   const storyIds = stories.map((s) => s.self).concat([backing]);
-  const sectionStart = pageSelf.get(pages[0]);
+  // Abschnitte: Mit automatischer Seitenzahl und Versatz zählt der Titel nicht mit (Abschnitt 1, Großbuchstaben: „A“),
+  // die Inhaltsseiten laufen arabisch ab 1 (Abschnitt 2). Ohne Versatz ein Abschnitt über alle Seiten.
+  const versatz = doc.stats && doc.stats.autoFolio ? Math.min(doc.stats.folioVersatz || 0, pages.length - 1) : 0;
+  const section = (start, length, style) => `<Section${attrs([['Self', id()], ['Length', length], ['Name', ''], ['ContinueNumbering', 'false'], ['IncludeSectionPrefix', 'false'], ['PageNumberStart', 1], ['Marker', ''], ['PageStart', pageSelf.get(pages[start])], ['SectionPrefix', '']])}><Properties><PageNumberStyle type="enumeration">${style}</PageNumberStyle></Properties></Section>`;
+  const sections = versatz ? [section(0, versatz, 'UpperLetters'), section(versatz, pages.length - versatz, 'Arabic')] : [section(0, pages.length, 'Arabic')];
   const swatchRefs = ['Swatch/None', 'Color/Registration', 'Color/Paper', 'Color/Black', ...doc.swatches.map((s) => s.self)];
   files['designmap.xml'] = HDR + `<?aid style="50" type="document" readerVersion="6.0" featureSet="257" product="${DOM}(1)" ?>\n` +
     `<Document${attrs([['xmlns:idPkg', 'http://ns.adobe.com/AdobeInDesign/idml/1.0/packaging'], ['DOMVersion', DOM], ['Self', 'd'], ['StoryList', storyIds.join(' ')], ['Name', doc.docName || 'Dokument.indd'],
@@ -460,7 +464,7 @@ function writeIdml(doc, opts = {}) {
     ...LAYERS.map((l) => `<Layer${attrs([['Self', l.self], ['Name', l.name], ['Visible', 'true'], ['Locked', 'false'], ['IgnoreWrap', 'false'], ['ShowGuides', 'true'], ['LockGuides', 'false'], ['UI', 'true'], ['Expendable', 'true'], ['Printable', 'true']])}><Properties><LayerColor type="enumeration">${l.color}</LayerColor></Properties></Layer>`),
     ...masters.map((ms) => `<idPkg:MasterSpread src="MasterSpreads/MasterSpread_${ms.self}.xml"/>`),
     ...spreads.map((sp) => `<idPkg:Spread src="Spreads/Spread_${sp.spreadSelf}.xml"/>`),
-    `<Section${attrs([['Self', id()], ['Length', pages.length], ['Name', ''], ['ContinueNumbering', 'false'], ['IncludeSectionPrefix', 'false'], ['PageNumberStart', 1], ['Marker', ''], ['PageStart', sectionStart], ['SectionPrefix', '']])}><Properties><PageNumberStyle type="enumeration">Arabic</PageNumberStyle></Properties></Section>`,
+    ...sections,
     '<idPkg:BackingStory src="XML/BackingStory.xml"/>',
     ...stories.map((s) => `<idPkg:Story src="Stories/Story_${s.self}.xml"/>`),
     `<ColorGroup Self="ColorGroup/[Root Color Group]" Name="[Root Color Group]" IsRootColorGroup="true">` + swatchRefs.map((r) => `<ColorGroupSwatch Self="${id()}" SwatchItemRef="${esc(r)}"/>`).join('') + '</ColorGroup>',

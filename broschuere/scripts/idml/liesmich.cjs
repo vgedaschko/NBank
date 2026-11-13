@@ -107,7 +107,9 @@ außen ${de(mm(m.right))} mm${doc.grid ? `, Spaltenraster ${doc.grid.count} Spal
 Musterseiten:
 ${masters.map((x) => `  „${x.name}“: ${x.note}`).join('\n')}
 ${autoFolio ? `Die Seitenzahl im Fuß ist die automatische Seitenzahl (Schrift > Sonderzeichen einfügen > Marken > Aktuelle
-Seitenzahl); sie folgt beim Einfügen oder Verschieben von Seiten.` : 'Die Seitenzahl im Fuß ist fester Text.'}
+Seitenzahl); sie folgt beim Einfügen oder Verschieben von Seiten.${doc.stats.folioVersatz ? `
+Der Titel zählt nicht mit: Abschnitt 1 ist der Titel (Seite „A“), Abschnitt 2 beginnt auf der ersten Inhaltsseite mit 1
+(Layout > Nummerierungs- und Abschnittsoptionen). Die Seitenangaben „S. n“ in dieser Datei meinen die Bogenseite 1 bis ${doc.pages.length}.` : ''}` : 'Die Seitenzahl im Fuß ist fester Text.'}
 ${doc.stats.masterItems ? `Die gleichbleibenden Teile der Fußzeile (Linien, Logo, „Blatt“, Seitenzahl, Stand) liegen auf der Musterseite
 „A-Inhalt“; seitenabhängige Teile (Projekttitel mit Rubrik) und das Programmteil-Register stehen auf den Seiten.
 Beim Einfügen einer Seite mit „A-Inhalt“ erscheint die Fußzeile automatisch; die Rubrik von einer Nachbarseite
@@ -254,7 +256,7 @@ Immer angeben: InDesign-Version (Hilfe bzw. InDesign > Über InDesign) und Betri
 [ ] 3. Fehlende Verknüpfungen: Fenster > Verknüpfungen – ${pkg.links.length} Dateien, keine mit Fragezeichen- oder Warnsymbol?
        Zurückmelden: Anzahl fehlender/geänderter Dateien; ob „Erneut mit Ordner verknüpfen …“ (Links/) geholfen hat.
 [ ] 4. Seitenzahl und Doppelseiten: Fenster > Seiten – ${n} Seiten in ${pkg.spreads} Druckbögen ${spreads[0]} ${spreads[1] || ''} … ${spreads[spreads.length - 1]},
-       Musterseiten wie unter 1., automatische Seitenzahl im Fuß stimmt mit der Seite überein?
+       Musterseiten wie unter 1., automatische Seitenzahl im Fuß ${doc.stats.folioVersatz ? 'beginnt auf der ersten Inhaltsseite mit 1 (Seitenbedienfeld: A, 1, 2 …)' : 'stimmt mit der Seite überein'}?
        Zurückmelden: abweichende Seitenzahl, Anordnung oder Musterseite.
 [ ] 5. Stichproben gegen ${ref} (Ansicht 100–200 %, Vorschaumodus W):
 ${samples.map((s) => `       S. ${String(s.n).padEnd(3)}${s.title ? `„${s.title}“` : ''}${s.bits.length ? `${s.title ? ' – ' : ''}${s.bits.join(', ')}` : ''}`).join('\n')}

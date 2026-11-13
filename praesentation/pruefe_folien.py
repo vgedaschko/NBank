@@ -86,7 +86,8 @@ STEMPEL = ["rechnung-finanzierung", "rechnung-jahr1", "rechnung-kapitaldienst", 
 # stehen beide im Feld „inhalt“ als Kicker: „ABSCHNITT · THEMA“. Kopf und Schriftfeld sagen nie dasselbe.
 KOPFZEICHEN = "Abschnitt im Kopf"
 # Register der Agenda: Der Vortrag behandelt 2.1; für 2.2 bis 2.6 steht die Seite der Broschüre (Festlegung zum Umbau)
-REGISTER = {"2.1": "in diesem Vortrag", "2.2": "Broschüre S. 13", "2.3": "Broschüre S. 15", "2.4": "Broschüre S. 14", "2.5": "Broschüre S. 17", "2.6": "Broschüre S. 17"}
+# gedruckte Seitenzahlen der Broschüre (seit 13.11.2026 = Bogenseite − 1, der Titel zählt nicht mit)
+REGISTER = {"2.1": "in diesem Vortrag", "2.2": "Broschüre S. 12", "2.3": "Broschüre S. 14", "2.4": "Broschüre S. 13", "2.5": "Broschüre S. 16", "2.6": "Broschüre S. 16"}
 SCHRIFTEN = ("Montserrat", "Work Sans")
 FIRMA = "Planungsgemeinschaft Nord GmbH"
 TITEL_DER_MAPPE = "Mietwohnraumförderung Niedersachsen 2026 – Vortrag"

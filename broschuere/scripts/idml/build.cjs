@@ -10,6 +10,9 @@ const MM = 72 / 25.4;
 const HYPHENATION = { wordsLongerThan: 7, afterFirst: 3, beforeLast: 3, ladderLimit: 0, zone: 0, capitalized: true };
 // Container der Seitenzahl (wird automatische Seitenzahl)
 const FOLIO_CLASSES = ['page__folio', 'folio'];
+// Gedruckte Seitenzahl = Bogenseite − FOLIO_VERSATZ: Der Titel zählt nicht mit, die erste Inhaltsseite trägt die 1.
+// Das Paket bildet das mit zwei Abschnitten ab (Titel „A“, danach arabisch ab 1); Dateinamen und data-page bleiben die Bogenseite.
+const FOLIO_VERSATZ = 1;
 const r2 = (v) => Math.round(v * 100) / 100;
 const r3 = (v) => Math.round(v * 1000) / 1000;
 
@@ -312,8 +315,9 @@ function buildDocument(model, { fonts, graphics, opts }) {
       paras.forEach((p) => {
         if (!(p.containerCls || []).some((c) => FOLIO_CLASSES.includes(c))) return;
         const runs = p.fruns.filter((r) => r.text.trim());
-        if (runs.length !== 1 || runs[0].text.trim() !== String(pg.number)) return;
-        runs[0].text = runs[0].text.replace(String(pg.number), '\uE018');
+        const gedruckt = String(pg.number - FOLIO_VERSATZ);
+        if (runs.length !== 1 || runs[0].text.trim() !== gedruckt) return;
+        runs[0].text = runs[0].text.replace(gedruckt, '\uE018');
         p.text = p.fruns.map((r) => r.text).join('');
         autoFolio++;
       });
@@ -1007,7 +1011,7 @@ function buildDocument(model, { fonts, graphics, opts }) {
       tables: pages.reduce((n, p) => n + p.items.filter((i) => i.kind === 'table').length, 0),
       shapes: pages.reduce((n, p) => n + p.items.filter((i) => i.kind === 'shape' || i.kind === 'line').length, 0) + [...master.left, ...master.right].filter((i) => i.kind === 'shape' || i.kind === 'line').length,
       graphics: pages.reduce((n, p) => n + p.items.filter((i) => i.kind === 'graphic').length, 0) + [...master.left, ...master.right].filter((i) => i.kind === 'graphic').length,
-      autoFolio, protectedWords, prettyParas, prettyBreaks, hangCells, widenedCells,
+      autoFolio, folioVersatz: FOLIO_VERSATZ, protectedWords, prettyParas, prettyBreaks, hangCells, widenedCells,
       widenedTables: pages.reduce((n, p) => n + p.items.filter((i) => i.kind === 'table' && i.table.widened).length, 0),
     },
   };

@@ -2,7 +2,7 @@
 const mm = (pt) => (pt / 72) * 25.4;
 const de = (v, d = 1) => v.toFixed(d).replace('.', ',');
 // Stichprobenseiten der Checkliste „Erster Test in InDesign“ (Kundenvorgabe; fehlende Seiten entfallen) – INDESIGN.md
-const STICHPROBE = [1, 9, 11, 20, 24];
+const STICHPROBE = [1, 9, 11, 19, 24];
 const clean = (s) => String(s || '').replace(/[\u00AD\uFEFF]/g, '').replace(/[\u2028\s]+/g, ' ').trim();
 
 // Kurzbeschreibung einer Seite für die Stichprobe: Überschrift, Musterseite, Tabellen, Grafiken
@@ -114,7 +114,7 @@ ${doc.stats.masterItems ? `Die gleichbleibenden Teile der Fußzeile (Linien, Log
 „A-Inhalt“; seitenabhängige Teile (Projekttitel mit Rubrik) und das Programmteil-Register stehen auf den Seiten.
 Beim Einfügen einer Seite mit „A-Inhalt“ erscheint die Fußzeile automatisch; die Rubrik von einer Nachbarseite
 kopieren und anpassen. Die Kopfzeile der Innenseiten (Rubrik links, auf Seiten eines Programmteils rechts der
-Schlüsselplan 2.1–2.6) steht ebenfalls auf den Seiten: Absatzformat „Kopfzeile Rubrik“, Linie „Kopfzeile Linie“.${hasB ? ` Seiten ohne die Standard-Fußzeile (z. B. mit eigener Fußzeile wie das Impressum)
+Schlüsselplan 2.1–2.6) steht ebenfalls auf den Seiten: Absatzformat „Kopfzeile Rubrik“, Linie „Kopfzeile Linie“.${hasB ? ` Seiten ohne die Standard-Fußzeile (z. B. mit eigener Fußzeile)
 tragen „B-Inhalt ohne Fuß“ – gleicher Satzspiegel, keine Musterobjekte.` : ''}` : 'Kolumnentitel, Logo und Register stehen als normale Objekte auf den Seiten.'}
 
 Ebenen (von oben nach unten): Text · Grafiken · Hintergrund.

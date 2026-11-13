@@ -7,7 +7,13 @@
        des Baums und die Kacheln 2.5 und 2.6 sind um dasselbe Maß nach unten gerückt.
        Stufung 11/2026: Kachel 2.4 reicht 1,4 mm weiter unter ihren Ja-Pfeil (Programmnummer in 17 pt steht unten so frei wie
        links); im Baum liegt alles ab der Frage zu 2.2 um dasselbe Maß tiefer, ebenso die Kacheln 2.2 bis 2.6. Die Headline ist
-       zweizeilig; über und unter dem Kurzverweis stehen je rund 5 mm (oben .u-mt-5, unten ergibt es sich aus der Seitenhöhe).
+       zweizeilig; über und unter dem Kurzverweis steht gleich viel Luft (oben fest, unten ergibt es sich aus der Seitenhöhe).
+       Änderungsrunde 13.11.2026: Der Hinweis auf das Wahlrecht in Kachel 2.3 ist entfallen. Kachel 2.3 ist um diese Zeile
+       (5,97 mm) niedriger; die Kacheln 2.5 und 2.6 rücken um dasselbe Maß nach oben, die Äste C und D des Baums um 4,3 mm (enger
+       geht es nicht: zwischen der Raute zu 2.3 und dem Achskreis C bleiben 1,9 mm wie zwischen C und D). Die Ja-Pfeile treffen
+       weiter die Programmnummer: 2.5 trägt den Seitenverweis deshalb über der Nummer wie 2.4 und 2.6; Kachel 2.6 ist 0,42 mm
+       höher, damit ihre Nummer unten so frei steht wie in 2.4. Baum und Kacheln enden gemeinsam bei 160,62 mm. Über und unter
+       dem Kurzverweis stehen je 7,75 mm.
        Rauten: Ja-Ausgang rechts, Nein-Ausgang senkrecht; beide Etiketten (.p05-yn) stehen auf ihrem Pfad direkt an der Raute.
        Stufung nach styles.css §8b: Kopfzeile mit Rubrik, H1 25 pt, Vorspann und Modultitel 12 pt, Text 9,5 pt, Labels 8,5 pt;
        im Baum stehen die Ausgangslagen und die Achsbuchstaben in 9,5 pt (3,35 px) wie der Kacheltext, Fragen und Pfadnamen in 8,5 pt; Programmnummern der
@@ -55,9 +61,8 @@
     /* Pin: kleines eckiges Fähnchen in eigener Zeile unter den Feldern */
     .page[data-page="05"] .p05-pin { display: flex; width: fit-content; margin-top: .5mm; align-items: center; gap: 1.2mm; padding: .5mm 1.5mm .4mm 0; border: var(--hair) solid var(--rule-strong); background: var(--surface); font: 600 var(--fs-micro)/1.2 var(--font-text); color: var(--fg); white-space: nowrap; }
     .page[data-page="05"] .p05-pin::before { content: ""; align-self: stretch; width: 1.3mm; margin: -.5mm 0 -.4mm; background: var(--bs); }
-    .page[data-page="05"] .p05-pin--frist { border-color: var(--signal-fill); }
-    .page[data-page="05"] .p05-pin--frist::before { background: var(--signal-fill); }
 
+    .page[data-page="05"] .p05-ref { margin-top: 7.75mm; }   /* gleich viel Luft über und unter dem Kurzverweis */
     /* Kurzverweis Vorhabenbeginn: global .callout--ref; Wortleiste mit Run-in-Titel (.runin).
        Beide Titel arbeiten als Modultitel: 12 pt, Montserrat 800, gemischt (seitenlokal, die globalen Regeln setzen Versalien in 9,5 pt) */
     .page[data-page="05"] .callout--ref .callout__body b { margin-right: 2mm; font: 800 var(--fs-h3)/1.2 var(--font-display); letter-spacing: 0; text-transform: none; }
@@ -79,20 +84,20 @@
   <div class="module p05-nav">
     <figure class="chart p05-tree" role="group" aria-labelledby="p05-tree-h">
       <figcaption class="chart__head"><h2 class="chart__title" id="p05-tree-h">Was haben Sie vor?</h2></figcaption>
-      <svg class="chart__svg p05-svg" viewBox="0 0 72.08 166.17" width="72.08mm" height="166.17mm" role="img" aria-label="Entscheidungsbaum „Was haben Sie vor?“ mit vier Ausgangslagen. A – Wohnraum im Mehrfamilienhaus neu schaffen oder bis zwei Jahre nach Fertigstellung erstmals erwerben: Auf Borkum, Norderney, Juist, Wangerooge, Baltrum, Langeoog oder Spiekeroog? Ja: Programmteil 2.4; Nein: nächste Frage. Neubau ab Effizienzhaus 40, nur Zuschuss gewünscht? Ja: Programmteil 2.2; Nein: Programmteil 2.1. B – Bestand klimagerecht modernisieren: Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt und nach der Modernisierung mindestens zwei Energieeffizienzklassen besser (ausnahmsweise eine, wenn die NBank das zulässt)? Ja: Programmteil 2.3. C – Freie Bestandswohnung für Gruppe A binden: Frei, ungebunden, vor der Bewilligung weder vermietet noch überlassen? Ja: Programmteil 2.5. D – Auslaufende Landesbindung verlängern: Bindung aus Landesförderung nach altem Recht läuft planmäßig aus, NBank-Darlehen läuft noch? Ja: Programmteil 2.6.">
+      <svg class="chart__svg p05-svg" viewBox="0 0 72.08 160.62" width="72.08mm" height="160.62mm" role="img" aria-label="Entscheidungsbaum „Was haben Sie vor?“ mit vier Ausgangslagen. A – Wohnraum im Mehrfamilienhaus neu schaffen oder bis zwei Jahre nach Fertigstellung erstmals erwerben: Auf Borkum, Norderney, Juist, Wangerooge, Baltrum, Langeoog oder Spiekeroog? Ja: Programmteil 2.4; Nein: nächste Frage. Neubau ab Effizienzhaus 40, nur Zuschuss gewünscht? Ja: Programmteil 2.2; Nein: Programmteil 2.1. B – Bestand klimagerecht modernisieren: Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt und nach der Modernisierung mindestens zwei Energieeffizienzklassen besser (ausnahmsweise eine, wenn die NBank das zulässt)? Ja: Programmteil 2.3. C – Freie Bestandswohnung für Gruppe A binden: Frei, ungebunden, vor der Bewilligung weder vermietet noch überlassen? Ja: Programmteil 2.5. D – Auslaufende Landesbindung verlängern: Bindung aus Landesförderung nach altem Recht läuft planmäßig aus, NBank-Darlehen läuft noch? Ja: Programmteil 2.6.">
         <circle class="p05-start" cx="1.4" cy="1.2" r="1.2"/>
-        <path class="p05-trunk" d="M1.4 1.2V139.2H3.6"/>
+        <path class="p05-trunk" d="M1.4 1.2V134.9H3.6"/>
         <path class="p05-trunk" d="M1.4 4.6H3.6"/>
         <circle class="axb-c p05-axc" cx="6.1" cy="4.6" r="2.5"/>
         <text x="6.1" y="5.8" class="p05-ax t-mid">A</text>
         <path class="p05-trunk" d="M1.4 75.81H3.6"/>
         <circle class="axb-c p05-axc" cx="6.1" cy="75.81" r="2.5"/>
         <text x="6.1" y="77.01" class="p05-ax t-mid">B</text>
-        <path class="p05-trunk" d="M1.4 115.28H3.6"/>
-        <circle class="axb-c p05-axc" cx="6.1" cy="115.28" r="2.5"/>
-        <text x="6.1" y="116.48" class="p05-ax t-mid">C</text>
-        <circle class="axb-c p05-axc" cx="6.1" cy="139.2" r="2.5"/>
-        <text x="6.1" y="140.4" class="p05-ax t-mid">D</text>
+        <path class="p05-trunk" d="M1.4 110.98H3.6"/>
+        <circle class="axb-c p05-axc" cx="6.1" cy="110.98" r="2.5"/>
+        <text x="6.1" y="112.18" class="p05-ax t-mid">C</text>
+        <circle class="axb-c p05-axc" cx="6.1" cy="134.9" r="2.5"/>
+        <text x="6.1" y="136.1" class="p05-ax t-mid">D</text>
         <text x="10.8" y="5.77" class="p05-label">Wohnraum im Mehrfamilienhaus neu</text>
         <text x="10.8" y="9.72" class="p05-label">schaffen oder bis zwei Jahre nach</text>
         <text x="10.8" y="13.67" class="p05-label">Fertigstellung erstmals erwerben</text>
@@ -133,32 +138,32 @@
         <text x="68.88" y="105.68" class="p05-name t-end">Klimagerechte Modernisierung</text>
         <path class="p05-yes" d="M14.38 104.58H22.89M69.68 104.58H70.18"/>
         <path class="p05-tip" d="M72.08 104.58l-2.2 -1.1v2.2z"/>
-        <text x="10.8" y="116.45" class="p05-label">Freie Bestandswohnung für</text>
-        <text x="10.8" y="120.4" class="p05-label">Gruppe A binden</text>
-        <text x="10.8" y="125.3" class="p05-q">Frei, ungebunden, vor der Bewilligung</text>
-        <text x="10.8" y="129.1" class="p05-q">weder vermietet noch überlassen?</text>
-        <path class="p05-rail" d="M6.1 117.78V130.8"/>
-        <path class="fl-diamond p05-dia" d="M6.1 130.8l2 2l-2 2l-2 -2z"/>
-        <text x="9.6" y="133.85" class="p05-yn">Ja</text>
-        <text x="68.88" y="133.9" class="p05-name t-end">Belegungsbindungen erwerben</text>
-        <path class="p05-yes" d="M14.38 132.8H22.53M69.68 132.8H70.18"/>
-        <path class="p05-tip" d="M72.08 132.8l-2.2 -1.1v2.2z"/>
-        <text x="10.8" y="140.37" class="p05-label">Auslaufende Landesbindung</text>
-        <text x="10.8" y="144.32" class="p05-label">verlängern</text>
-        <text x="10.8" y="149.22" class="p05-q">Bindung aus Landesförderung nach</text>
-        <text x="10.8" y="153.02" class="p05-q">altem Recht läuft planmäßig aus,</text>
-        <text x="10.8" y="156.82" class="p05-q">NBank-Darlehen läuft noch?</text>
-        <path class="p05-rail" d="M6.1 141.7V158.52"/>
-        <path class="fl-diamond p05-dia" d="M6.1 158.52l2 2l-2 2l-2 -2z"/>
-        <text x="9.6" y="161.57" class="p05-yn">Ja</text>
-        <text x="68.88" y="161.62" class="p05-name t-end">Auslaufende Bindungen verlängern</text>
-        <path class="p05-yes" d="M14.38 160.52H16.57M69.68 160.52H70.18"/>
-        <path class="p05-tip" d="M72.08 160.52l-2.2 -1.1v2.2z"/>
+        <text x="10.8" y="112.15" class="p05-label">Freie Bestandswohnung für</text>
+        <text x="10.8" y="116.1" class="p05-label">Gruppe A binden</text>
+        <text x="10.8" y="121" class="p05-q">Frei, ungebunden, vor der Bewilligung</text>
+        <text x="10.8" y="124.8" class="p05-q">weder vermietet noch überlassen?</text>
+        <path class="p05-rail" d="M6.1 113.48V126.5"/>
+        <path class="fl-diamond p05-dia" d="M6.1 126.5l2 2l-2 2l-2 -2z"/>
+        <text x="9.6" y="129.55" class="p05-yn">Ja</text>
+        <text x="68.88" y="129.6" class="p05-name t-end">Belegungsbindungen erwerben</text>
+        <path class="p05-yes" d="M14.38 128.5H22.53M69.68 128.5H70.18"/>
+        <path class="p05-tip" d="M72.08 128.5l-2.2 -1.1v2.2z"/>
+        <text x="10.8" y="136.07" class="p05-label">Auslaufende Landesbindung</text>
+        <text x="10.8" y="140.02" class="p05-label">verlängern</text>
+        <text x="10.8" y="144.92" class="p05-q">Bindung aus Landesförderung nach</text>
+        <text x="10.8" y="148.72" class="p05-q">altem Recht läuft planmäßig aus,</text>
+        <text x="10.8" y="152.52" class="p05-q">NBank-Darlehen läuft noch?</text>
+        <path class="p05-rail" d="M6.1 137.4V154.22"/>
+        <path class="fl-diamond p05-dia" d="M6.1 154.22l2 2l-2 2l-2 -2z"/>
+        <text x="9.6" y="157.27" class="p05-yn">Ja</text>
+        <text x="68.88" y="157.32" class="p05-name t-end">Auslaufende Bindungen verlängern</text>
+        <path class="p05-yes" d="M14.38 156.22H16.57M69.68 156.22H70.18"/>
+        <path class="p05-tip" d="M72.08 156.22l-2.2 -1.1v2.2z"/>
       </svg>
     </figure>
     <figure class="chart p05-tiles" role="group" aria-labelledby="p05-tiles-h">
       <figcaption class="chart__head"><h2 class="chart__title" id="p05-tiles-h">Die sechs Programmteile</h2></figcaption>
-      <div class="p05-tiles__list is-placed" style="height:166.17mm">
+      <div class="p05-tiles__list is-placed" style="height:160.62mm">
         <article class="p05-tile bs-24 p05-tile--up" data-tile="2.4" style="top:0mm;height:34.27mm;--ny:29.87mm" aria-label="2.4 Ostfriesische Inseln">
           <p class="p05-tile__no"><b>2.4</b><a href="#seite-14">S.&nbsp;13</a></p>
           <div class="p05-tile__body">
@@ -193,7 +198,7 @@
             </dl>
           </div>
         </article>
-        <article class="p05-tile bs-23" data-tile="2.3" style="top:92.08mm;height:31.04mm;--ny:12.5mm" aria-label="2.3 Klimagerechte Modernisierung">
+        <article class="p05-tile bs-23" data-tile="2.3" style="top:92.08mm;height:25.07mm;--ny:12.5mm" aria-label="2.3 Klimagerechte Modernisierung">
           <p class="p05-tile__no"><b>2.3</b><a href="#seite-15">S.&nbsp;14</a></p>
           <div class="p05-tile__body">
             <dl class="p05-spec">
@@ -202,11 +207,10 @@
               <div class="p05-f"><dt>Bindung</dt>&nbsp;<dd>25&nbsp;Jahre; vermietete Wohnungen ohne Wohnberechtigungsschein 35&nbsp;Jahre</dd></div>
               <div class="p05-f"><dt>Eigenmittel</dt>&nbsp;<dd class="u-nowrap">mind. 20&nbsp;%</dd></div>
             </dl>
-            <p class="p05-pin p05-pin--frist">Wahlrecht bis 31.12.2026 <a class="pageref" href="#seite-16">→&nbsp;S.&nbsp;15</a></p>
           </div>
         </article>
-        <article class="p05-tile bs-25" data-tile="2.5" style="top:125.12mm;height:16.56mm;--ny:7.68mm" aria-label="2.5 Belegungsbindungen erwerben">
-          <p class="p05-tile__no"><b>2.5</b><a href="#seite-17">S.&nbsp;16</a></p>
+        <article class="p05-tile bs-25 p05-tile--up" data-tile="2.5" style="top:119.15mm;height:16.56mm;--ny:9.35mm" aria-label="2.5 Belegungsbindungen erwerben">
+          <p class="p05-tile__no"><b>2.5</b><a href="#seite-16">S.&nbsp;15</a></p>
           <div class="p05-tile__body">
             <dl class="p05-spec">
               <div class="p05-f p05-f--instr"><dt>Instrument</dt>&nbsp;<dd><span class="p05-sws" aria-hidden="true"><i class="sw sw--grant"></i></span>Zuschuss</dd></div>
@@ -215,8 +219,8 @@
             </dl>
           </div>
         </article>
-        <article class="p05-tile bs-26 p05-tile--up" data-tile="2.6" style="top:143.68mm;height:22.49mm;--ny:16.84mm" aria-label="2.6 Auslaufende Bindungen verlängern">
-          <p class="p05-tile__no"><b>2.6</b><a href="#seite-17">S.&nbsp;16</a></p>
+        <article class="p05-tile bs-26 p05-tile--up" data-tile="2.6" style="top:137.71mm;height:22.91mm;--ny:18.51mm" aria-label="2.6 Auslaufende Bindungen verlängern">
+          <p class="p05-tile__no"><b>2.6</b><a href="#seite-16">S.&nbsp;15</a></p>
           <div class="p05-tile__body">
             <dl class="p05-spec">
               <div class="p05-f p05-f--instr"><dt>Instrument</dt>&nbsp;<dd><span class="p05-sws" aria-hidden="true"><i class="sw sw--grant"></i></span>Zuschuss zur Zinsverbilligung</dd></div>
@@ -230,9 +234,9 @@
     </figure>
   </div>
 
-  <aside class="callout callout--achtung callout--inline callout--ref u-mt-5">
+  <aside class="callout callout--achtung callout--inline callout--ref p05-ref">
     <p class="callout__label"><svg class="icon icon--stopp" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.3 2.8h7.4l5.3 5.3v7.4l-5.3 5.3H8.3L3 15.5V8.1z M7.2 10.9v2.2h9.6v-2.2z" fill="currentColor" fill-rule="evenodd"/></svg></p>
-    <p class="callout__body"><b>Erst Bewilligung, dann Vertrag</b> <a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;18</a></p>
+    <p class="callout__body"><b>Erst Bewilligung, dann Vertrag</b> <a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;17</a></p>
   </aside>
 
   <section class="p05-nf l-bottom" aria-labelledby="p05-nf-h">

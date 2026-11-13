@@ -39,9 +39,9 @@
       "chip_legend": "gilt für",
       "items": [
         "**Antragsberechtigt, Finanzierung gesichert?** Privatpersonen, Unternehmen mit eigener Rechtspersönlichkeit, Genossenschaften, Kommunen; die erzielbare Miete muss Finanzierung und Bewirtschaftung auf Dauer decken. [alle]",
-        "**Vor der Bewilligung nicht begonnen?** Als Beginn zählen Baubeginn sowie Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück), nicht Planung bis Leistungsphase 6 HOAI; bei 2.5 Mietvertrag oder Überlassung → S. 19. [alle]",
+        "**Vor der Bewilligung nicht begonnen?** Als Beginn zählen Baubeginn sowie Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück), nicht Planung bis Leistungsphase 6 HOAI; bei 2.5 Mietvertrag oder Überlassung → S. 18. [alle]",
         "**Mehrfamilienhaus ab drei Wohnungen?** Bei Modernisierung: fertiggestellt vor dem 08.12.2004. [2.1–2.4]",
-        "**Bedarf am Standort?** In sechs Gebietsarten gilt er als gegeben, sonst wird er vermutet, sofern die NBank-Karte keinen gesonderten Nachweis verlangt → S. 18. [2.1, 2.2, 2.6]",
+        "**Bedarf am Standort?** In sechs Gebietsarten gilt er als gegeben, sonst wird er vermutet, sofern die NBank-Karte keinen gesonderten Nachweis verlangt → S. 17. [2.1, 2.2, 2.6]",
         "**Mindestens 20 % Eigenmittel?** Bezogen auf die zuwendungsfähigen Kosten; auf den Inseln 10 % der zuwendungsfähigen Herstellungskosten. [2.1–2.4]",
         "**Grundstück gesichert?** Eigentum, Erbbaurecht oder gesicherter Erwerb. [2.1, 2.2, 2.4]"
       ]
@@ -49,7 +49,7 @@
     {
       "type": "text",
       "role_hint": "schlusssatz",
-      "body": "**Ausnahmen** für gemeinschaftliche Wohnformen, Reihen- und Doppelhäuser → S. 21."
+      "body": "**Ausnahmen** für gemeinschaftliche Wohnformen, Reihen- und Doppelhäuser → S. 20."
     }
   ],
   "footnotes": [],
@@ -90,5 +90,5 @@
     "Zusammensetzung der Eigenmittel: mindestens die Hälfte Geld oder lastenfreies Grundstück (2.3: Geld); Modellprojekte und Housing First ggf. weniger Eigenmittel",
     "Rücktrittsklauseln und vorzeitiger Vorhabenbeginn; nicht als Beginn gelten Grundstückskauf und Planung bis Leistungsphase 6 HOAI"
   ],
-  "visual_idea": "Spürbar mehr Ruhe als in v1. Kopf: Kopfzeile mit Rubrik „Überblick“ (8,5 pt Versalien in Schwarz); Headline „Richtlinie 2026: Neuerungen und Voraussetzungen“ (Rot nur am Wort „Neuerungen“) in Montserrat Black Versalien 25 pt mit roter 2-pt-Linie links; rechts auf der Headline-Grundlinie klein der Tabellenkopf „Wertepaare: Mietenstufe I–III/IV–VII · Bemessung nicht direkt vergleichbar“; Caption „Programmteil 2.1 im Vergleich · Höchstsätze“ (deshalb kein „bis zu“ in den Zellen). Kein Lead. Obere Hälfte, dominantes Element: die schlanke Vorher/Nachher-Tabelle mit drei Zeilen, Spalte „bis 30.06.2026“ in Grau (#757474), Spalte „seit 01.07.2026“ in PGN-Rot, dazwischen feine Pfeile; Zeilenmarker links als Baustein-Chip 2.1. Kein Nachsatz zur Modernisierungsfrist (steht auf S. 3, 5 und 14/15), kein Frist-Band, kein Kasten. Danach viel Weißraum. Untere Hälfte: Zwischenüberschrift „Grundcheck: sechs Voraussetzungen“, darunter der Grundcheck als druckbare Ankreuzliste mit sechs leeren Quadraten (eckig, Anthrazit-Kontur), je Zeile Frage in Work Sans Bold, Erläuterung in Work Sans; rechts die Programmteil-Chips 2.1–2.6 in fester Spaltenfolge (zutreffende in Baustein-Farbe, übrige als Geisterziffer ohne Kontur), einmal die Legende „gilt für“ über der Chipspalte; die Klammer-Tags am Zeilenende werden als Chips gesetzt, nicht als Text gedruckt. Schlusssatz „Ausnahmen … → S. 21“ als einfache Textzeile unter der Liste, ohne Kasten, ohne Ampel, ohne Aufforderung. Ton (Korrekturlauf 1): Prüfpunkte neutral und technisch formuliert, Vorhabenbeginn als Definition statt Verbotsliste. Keine Fußnote, keine Quellenzeile, keine Kurzmarke."
+  "visual_idea": "Spürbar mehr Ruhe als in v1. Kopf: Kopfzeile mit Rubrik „Überblick“ (8,5 pt Versalien in Schwarz); Headline „Richtlinie 2026: Neuerungen und Voraussetzungen“ (Rot nur am Wort „Neuerungen“) in Montserrat Black Versalien 25 pt mit roter 2-pt-Linie links; rechts auf der Headline-Grundlinie klein der Tabellenkopf „Wertepaare: Mietenstufe I–III/IV–VII · Bemessung nicht direkt vergleichbar“; Caption „Programmteil 2.1 im Vergleich · Höchstsätze“ (deshalb kein „bis zu“ in den Zellen). Kein Lead. Obere Hälfte, dominantes Element: die schlanke Vorher/Nachher-Tabelle mit drei Zeilen, Spalte „bis 30.06.2026“ in Grau (#757474), Spalte „seit 01.07.2026“ in PGN-Rot, dazwischen feine Pfeile; Zeilenmarker links als Baustein-Chip 2.1. Kein Nachsatz zur Modernisierungsfrist (steht auf S. 3, 5 und 14/15), kein Frist-Band, kein Kasten. Danach viel Weißraum. Untere Hälfte: Zwischenüberschrift „Grundcheck: sechs Voraussetzungen“, darunter der Grundcheck als druckbare Ankreuzliste mit sechs leeren Quadraten (eckig, Anthrazit-Kontur), je Zeile Frage in Work Sans Bold, Erläuterung in Work Sans; rechts die Programmteil-Chips 2.1–2.6 in fester Spaltenfolge (zutreffende in Baustein-Farbe, übrige als Geisterziffer ohne Kontur), einmal die Legende „gilt für“ über der Chipspalte; die Klammer-Tags am Zeilenende werden als Chips gesetzt, nicht als Text gedruckt. Schlusssatz „Ausnahmen … → S. 20“ als einfache Textzeile unter der Liste, ohne Kasten, ohne Ampel, ohne Aufforderung. Ton (Korrekturlauf 1): Prüfpunkte neutral und technisch formuliert, Vorhabenbeginn als Definition statt Verbotsliste. Keine Fußnote, keine Quellenzeile, keine Kurzmarke."
 }

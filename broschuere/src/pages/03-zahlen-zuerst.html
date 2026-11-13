@@ -3,8 +3,9 @@
     /* Seite 03 · Kennzahlen: Kachelraster 4 × 2 (dominant) + Marktband · Planwerk · Farben nur über Tokens.
        Stufung nach styles.css §8b: Kopfzeile mit Rubrik, H1 25 pt mit zweiter Stimme, Begriff als Modul (Label 8,5 pt, Titel 12 pt),
        Kacheln: Label 8,5 pt, Kernwert, Text; Marktband: Modultitel 12 pt, Aussage 15,5 pt. */
-    /* Dichte Seite (.page--dicht, 9 pt): Die Kacheln sind 41 mm breit; in 9,5 pt passt „Modernisierungsanträge“ nicht in die
-       Zeile, und beide Reihen samt Marktband brauchen 7 mm mehr als der Satzspiegel hat. --fs-module wird in :root aufgelöst
+    /* Dichte Seite (.page--dicht, 9 pt): Mit acht Kacheln lief die Seite in 9,5 pt 7 mm über. Seit dem 13.11.2026 (sieben
+       Kacheln) geht sie in 9,5 pt auf, die zweite Kachelreihe stünde dann aber 4,3 mm tiefer als die Zitatlinie auf S. 2; die
+       Seite bleibt dicht, bis das entschieden ist. --fs-module wird in :root aufgelöst
        und folgt .page--dicht nicht von selbst, deshalb hier neu gebunden: Kacheltext und Begriff stehen wie die Labels in 9 pt. */
     .page[data-page="03"] { --fs-module: var(--fs-small); }
     .page[data-page="03"] .p03-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start; }
@@ -16,12 +17,12 @@
     .page[data-page="03"] .p03-term .term__word { font: 800 var(--fs-h3)/1.2 var(--font-display); }
     .page[data-page="03"] .p03-term .term__text { margin-top: 1.4mm; }
 
-    /* Raster: vier Spalten, je Kachel vier gemeinsame Zeilen (Zahl · Einheit · Label · Text) → Label und Text je Reihe auf einer Linie;
+    /* Raster: oben vier Kacheln (je 3 Spalten), unten drei (je 4 Spalten), je Kachel vier gemeinsame Zeilen (Zahl · Einheit · Label · Text) → Label und Text je Reihe auf einer Linie;
        Programmteil-Chip sitzt rechts oben an der Kachellinie */
-    .page[data-page="03"] .p03-kf { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(4, auto) 9.6mm repeat(4, auto); row-gap: 0; margin-top: 9.335mm; }   /* 2. Reihe bündig mit der Zitatlinie auf S. 2 (139,6 mm): 10 mm abzüglich der 0,665 mm, um die der Begriff höher steht; das Raster bleibt damit auf den Punkt, wo es stand */
+    .page[data-page="03"] .p03-kf { grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(4, auto) 9.6mm repeat(4, auto); row-gap: 0; margin-top: 9.335mm; }   /* 2. Reihe bündig mit der Zitatlinie auf S. 2 (139,6 mm): 10 mm abzüglich der 0,665 mm, um die der Begriff höher steht; das Raster bleibt damit auf den Punkt, wo es stand */
     .page[data-page="03"] .p03-kf > .kf { grid-column: auto; display: grid; grid-template-rows: subgrid; row-gap: 0; border-top-width: var(--rule-heavy); padding-top: 0; }
-    .page[data-page="03"] .p03-kf > .kf:nth-child(-n+4) { grid-row: 1 / span 4; }
-    .page[data-page="03"] .p03-kf > .kf:nth-child(n+5) { grid-row: 6 / span 4; }
+    .page[data-page="03"] .p03-kf > .kf:nth-child(-n+4) { grid-row: 1 / span 4; grid-column: span 3; }
+    .page[data-page="03"] .p03-kf > .kf:nth-child(n+5) { grid-row: 6 / span 4; grid-column: span 4; }   /* untere Reihe: drei Kacheln gleichmäßig über die Breite */
     .page[data-page="03"] .p03-kf .kf__fig { grid-row: 1; align-self: start; margin-top: 2.6mm; }
     .page[data-page="03"] .p03-kf > .kf:not(:nth-child(4n+1))::before { content: ""; position: absolute; left: calc(var(--gutter) / -2); top: 0; bottom: 0; width: var(--hair); background: var(--rule); }   /* Haarlinie im Steg */
     .page[data-page="03"] .p03-kf .kf__sub { grid-row: 2; margin-top: 1.4mm; }
@@ -33,9 +34,6 @@
     .page[data-page="03"] .p03-chip { position: absolute; bottom: 100%; right: 0; display: inline-flex; align-items: center; gap: .9mm; font: 700 var(--fs-micro)/1 var(--font-display); color: var(--fg-3); }
     .page[data-page="03"] .p03-chip .bs-badge__no { padding: 1mm 1.5mm .9mm; }   /* Reiter auf der Kachellinie (wie die Farbkante im Schlüsselplan) */
     .page[data-page="03"] .p03-kf__split { border-image: linear-gradient(90deg, var(--bs-21) 0 calc(100% - 9.7mm), var(--bs-24) calc(100% - 9.7mm) 100%) 1; }   /* Farbwechsel mittig im Schrägstrich zwischen den Reitern 2.1 / 2.4 (bei 50 % lag er 1,2 mm links neben dem roten Reiter) */
-    /* Stichtag: gleicher Aufbau, Signal nur als Linie und Datum */
-    .page[data-page="03"] .p03-kf__date { border-top-color: var(--signal-fill); }
-    .page[data-page="03"] .p03-kf__date .kf__num { font-size: var(--fs-fig-s); color: var(--signal-text); }
 
     /* Marktband (Anthrazit-Verlauf), oben bündig mit „Ihr Einstieg“ auf S. 2. Korrekturlauf 1: eine Kernbotschaft, ein Diagramm
        (Einheitenquadrate 1 = 1.000 Wohnungen mit zweistufiger Maßkette: Gesamtmaß 58.024 ausgelaufen, Teilmaß rund 16.000 neu gefördert) */
@@ -111,21 +109,15 @@
       <p class="kf__fig"><span class="kf__pre">Festbetrag</span><span class="kf__num">3,00<span class="kf__unit">€</span></span></p>
       <p class="kf__sub">je m² Wohnfläche und Monat</p>
       <p class="kf__label">Zuschuss für den Bindungserwerb</p>
-      <p class="kf__text">15–20&nbsp;Jahre Bindung; ab 5&nbsp;Jahren 2,00&nbsp;€, ab 10&nbsp;Jahren 2,50&nbsp;€; nur Gruppe&nbsp;A <a class="pageref" href="#seite-17">→&nbsp;S.&nbsp;16</a></p>
+      <p class="kf__text">15–20&nbsp;Jahre Bindung; ab 5&nbsp;Jahren 2,00&nbsp;€, ab 10&nbsp;Jahren 2,50&nbsp;€; nur Gruppe&nbsp;A <a class="pageref" href="#seite-16">→&nbsp;S.&nbsp;15</a></p>
       <span class="p03-chip"><span class="bs-badge"><b class="bs-badge__no"><span class="u-sr">Programmteil </span>2.5</b></span></span>
-    </article>
-
-    <article class="kf p03-kf__date">
-      <p class="kf__fig"><span class="kf__pre">Stichtag</span><span class="kf__num">31.12.2026</span></p>
-      <p class="kf__label">Wahlrecht für Modernisierungs&shy;anträge</p>
-      <p class="kf__text">Geht Ihr Antrag bis dahin bei der Wohnraumförderstelle ein, können Sie das alte Recht wählen <a class="pageref" href="#seite-16">→&nbsp;S.&nbsp;15</a></p>
     </article>
   </div>
 
   <figure class="chart p03-market on-dark l-bottom" role="group" aria-labelledby="p03-markt">
     <figcaption class="p03-market__head">
       <h2 class="chart__title" id="p03-markt">Markt in Niedersachsen</h2>
-      <a class="pageref" href="#seite-18">Bedarf am Standort →&nbsp;S.&nbsp;17</a>
+      <a class="pageref" href="#seite-17">Bedarf am Standort →&nbsp;S.&nbsp;16</a>
     </figcaption>
     <p class="p03-market__msg u-nohyphens">Von 2015 bis 2024 hat die Neuförderung <span class="p03-hl">28&nbsp;%</span> der ausgelaufenen Sozialbindungen ersetzt.</p>
     <svg class="chart__svg p03-units" viewBox="0 0 168.01 23.64" width="168.01mm" height="23.64mm" role="img" aria-label="Niedersachsen 2015 bis 2024: Bei 58.024 Wohnungen sind die Belegungs- und Mietbindungen ausgelaufen; neu gefördert wurden rund 16.000 Wohnungen, das sind 28 Prozent. Ein Quadrat steht für 1.000 Wohnungen: 16 von 58 Quadraten sind gefüllt.">

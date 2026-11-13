@@ -1,6 +1,6 @@
 # Wohnraum, der sich rechnet. – Mietwohnraumförderung Niedersachsen 2026 · Broschürentext zur Freigabe
 
-**PGN-Fassung, Korrekturlauf 1** · Herausgeberin: Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme) · Bewilligungsstelle: NBank · Antragsstelle: kommunale Wohnraumförderstelle · Rechtsgrundlage: RL Mietwohnraum 2026 (RdErl. d. MW v. 25.06.2026, Nds. MBl. 2026 Nr. 319, in Kraft seit 01.07.2026) · DIN A4 hoch, 24 Seiten (U1–U4 + 20 Innenseiten), Rückendraht · **Stand der Inhalte: 30.09.2026** (U1 und U3) · Redaktionsstand: 12.11.2026 (Korrekturlauf 1; Lektorat vom 11.11.2026 eingearbeitet; Modellrechnung S. 10–12 seit 11.11.2026 mit den Werten eines PGN-Projekts in Neu Wulmstorf; Kopfzeile, zweite Stimme und Textkorrekturen der Stufung vom 12.11.2026 nachgezogen)
+**PGN-Fassung, Korrekturlauf 1** · Herausgeberin: Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme) · Bewilligungsstelle: NBank · Antragsstelle: kommunale Wohnraumförderstelle · Rechtsgrundlage: RL Mietwohnraum 2026 (RdErl. d. MW v. 25.06.2026, Nds. MBl. 2026 Nr. 319, in Kraft seit 01.07.2026) · DIN A4 hoch, 24 Seiten (U1–U4 + 20 Innenseiten), Rückendraht · **Stand der Inhalte: 11/2026** (U1 und Impressum S. 22) · Redaktionsstand: 12.11.2026 (Korrekturlauf 1; Lektorat vom 11.11.2026 eingearbeitet; Modellrechnung S. 10–12 seit 11.11.2026 mit den Werten eines PGN-Projekts in Neu Wulmstorf; Kopfzeile, zweite Stimme und Textkorrekturen der Stufung vom 12.11.2026 nachgezogen; Änderungsrunde vom 13.11.2026: Blatt „Stichtag 31.12.2026“ gestrichen, die Seiten ab S. 17 rücken eine Nummer vor, neue S. 23 „Quellen und Notizen“ vor der Rückseite)
 
 Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive Tabellen, Diagrammdaten und Kästen – zur fachlichen und redaktionellen Freigabe. Maßgeblich für den Wortlaut sind die Seiten in `src/pages/`; die Seiten-JSONs in `content/pages/` führen denselben Text und die Daten, diese Datei gibt beides wieder. Gestaltung, Farben und Icons (Feld `visual_idea`) sind hier nicht abgebildet. Verbindliche Regeln: `content/REDAKTIONSREGELN.md` (§8: Regeln aus Korrekturlauf 1) und `korrektur/lauf-1/ENTSCHEIDUNGEN.md`.
 
@@ -10,11 +10,11 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 - Hat die Headline eine zweite Stimme (leichte Zeile über der Hauptzeile), steht sie als Zeile „Zweite Stimme:“ über der Headline, ohne Doppelpunkt zwischen beiden. Im Inhalt unten und im PDF-Lesezeichen sind beide mit Doppelpunkt verbunden. Auf S. 2, S. 3 und U4 läuft ein Satz über beide Zeilen; dort steht die Headline hier ungeteilt.
 - *Unterzeile* kursiv unter der Headline, **Vorspann** fett. Ist der Vorspann geteilt, folgt der Rest als normaler Absatz direkt darunter.
 - „Grafik (…)“ = Daten und Beschriftungen eines Diagramms; die Gestaltung folgt im Layout. ☐ = Ankreuzkästchen; „gilt für“ = Programmteil-Chips. Seitenverweise („→ S. 8“) stehen halbfett im Text, ohne Kästchen. Modultitel mit Einheit führen die Einheit ohne Komma („Rechenweg in €“).
-- Kästen und Marken: **[Achtung]** / **[Achtung · Frist]** (genau zwei im Heft), **[Achtung-Einzeiler]** (Kurzverweis auf den Kasten S. 19), **[Hinweis am Diagramm]** (nur S. 10, Unterzeile unter dem Titel des Finanzierungsdiagramms), **[Zentraler Rechtshinweis]** (nur U3), *[Angebotssatz]* (PGN-Satz auf einer Fachseite).
+- Kästen und Marken: **[Achtung]** (genau einer im Heft, seit 13.11.2026), **[Achtung-Einzeiler]** (Kurzverweis auf den Kasten S. 18), **[Hinweis am Diagramm]** (nur S. 10, Unterzeile unter dem Titel des Finanzierungsdiagramms), **[Zentraler Rechtshinweis]** (nur Impressum S. 22), *[Angebotssatz]* (PGN-Satz auf einer Fachseite).
 - Platzhalter in eckigen Klammern – `[PGN-Rechnung: …]` – sind seit 09.11.2026 im Heft ersetzt (Werte der PGN-Beispielrechnung, vorläufig; → Anhang B, Nr. 1).
 - Wortzählung je Seite: *Fließtext* = Subline, Lead, Texte, Listen, Checklisten, FAQ, Leistungen, Notizen, Bildunterschriften, Zitate, Kachel-Labels und -Unterzeilen, Schriftfeld; *Grafik/Tabelle* = Text in Diagrammen und Tabellen (auch Eckdaten, Entscheidungsbaum, Swimlane); *Kontakt-/Referenzdaten* separat. Headline, zweite Stimme und Rubrik sind nicht mitgezählt.
 
-**Inhalt:** [S. 1](#seite-1) Wohnraum, der sich rechnet. · [S. 2](#seite-2) Damit sich Investieren wieder rechnet · [S. 3](#seite-3) Die Förderung in Zahlen · [S. 4](#seite-4) Richtlinie 2026: Neuerungen und Voraussetzungen · [S. 5](#seite-5) Programmteil nach Vorhaben · [S. 6](#seite-6) Ihr Mieterkreis: drei Einkommensgruppen · [S. 7](#seite-7) Höchstmieten und Mietentwicklung · [S. 8](#seite-8) Neubau, Änderung, Ersterwerb: Bis zu 80 % Förderquote · [S. 9](#seite-9) Konditionen und Kosten · [S. 10](#seite-10) 14 Wohnungen, 3,0 Mio. €: bis zu 2,4 Mio. € Förderung · [S. 11](#seite-11) Alle drei Gruppen tragen sich ab Jahr 1: 15.003 € Zahlungsüberschuss in A · [S. 12](#seite-12) Über 1,91 % Tilgung liegt Gruppe A vorn · [S. 13](#seite-13) Energetisch hochwertiger Neubau: Reiner Zuschuss statt Darlehen · [S. 14](#seite-14) Ostfriesische Inseln: Höhere Kostengrenze, 10 % Eigenmittel · [S. 15](#seite-15) Klimagerechte Modernisierung: Zuschuss nach Effizienzsteigerung · [S. 16](#seite-16) Wahlrecht für Modernisierungsanträge · [S. 17](#seite-17) Belegungs- und Mietbindungen: Bindungen erwerben oder verlängern · [S. 18](#seite-18) Bedarf am Standort und die Rolle der Kommune · [S. 19](#seite-19) Vom Vorgespräch bis zum Verwendungsnachweis · [S. 20](#seite-20) Unsere Leistungen im Förderprojekt · [S. 21](#seite-21) Unterlagen, Kontakte und Verfahrensdetails · [S. 22](#seite-22) Ihre Generalplaner aus dem Norden. Seit 1981. · [S. 23](#seite-23) Impressum und Hinweise · [S. 24](#seite-24) Aus Ihrer guten Idee – machen wir den besten Plan. · [Anhang A](#anhang-a) Offene fachliche Rückfragen an die NBank · [Anhang B](#anhang-b) Vor dem Druck mit PGN klären
+**Inhalt:** [S. 1](#seite-1) Wohnraum, der sich rechnet. · [S. 2](#seite-2) Damit sich Investieren wieder rechnet · [S. 3](#seite-3) Die Förderung in Zahlen · [S. 4](#seite-4) Richtlinie 2026: Neuerungen und Voraussetzungen · [S. 5](#seite-5) Programmteil nach Vorhaben · [S. 6](#seite-6) Ihr Mieterkreis: drei Einkommensgruppen · [S. 7](#seite-7) Höchstmieten und Mietentwicklung · [S. 8](#seite-8) Neubau, Änderung, Ersterwerb: Bis zu 80 % Förderquote · [S. 9](#seite-9) Konditionen und Kosten · [S. 10](#seite-10) 14 Wohnungen, 3,0 Mio. €: bis zu 2,4 Mio. € Förderung · [S. 11](#seite-11) Alle drei Gruppen tragen sich ab Jahr 1: 15.003 € Zahlungsüberschuss in A · [S. 12](#seite-12) Über 1,91 % Tilgung liegt Gruppe A vorn · [S. 13](#seite-13) Energetisch hochwertiger Neubau: Reiner Zuschuss statt Darlehen · [S. 14](#seite-14) Ostfriesische Inseln: Höhere Kostengrenze, 10 % Eigenmittel · [S. 15](#seite-15) Klimagerechte Modernisierung: Zuschuss nach Effizienzsteigerung · [S. 16](#seite-16) Belegungs- und Mietbindungen: Bindungen erwerben oder verlängern · [S. 17](#seite-17) Bedarf am Standort und die Rolle der Kommune · [S. 18](#seite-18) Vom Vorgespräch bis zum Verwendungsnachweis · [S. 19](#seite-19) Unsere Leistungen im Förderprojekt · [S. 20](#seite-20) Unterlagen, Kontakte und Verfahrensdetails · [S. 21](#seite-21) Ihre Generalplaner aus dem Norden. Seit 1981. · [S. 22](#seite-22) Impressum und Hinweise · [S. 23](#seite-23) Quellen und Notizen · [S. 24](#seite-24) Aus Ihrer guten Idee – machen wir den besten Plan. · [Anhang A](#anhang-a) Offene fachliche Rückfragen an die NBank · [Anhang B](#anhang-b) Vor dem Druck mit PGN klären
 
 ---
 
@@ -24,19 +24,19 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 
 | Element | Regel | Ist | Fundstellen im Heft |
 |---|---|---|---|
-| Zentraler Rechtshinweis | genau 1× (U3), Wortlaut fest | 1 | S. 23 |
-| Achtung-Kästen | genau 2 | 2 | S. 19 „Erst Bewilligung, dann Vertrag“ (+ Einzeiler S. 5 „Erst Bewilligung, dann Vertrag“) · S. 16 „Frist 31.12.2026“ |
+| Zentraler Rechtshinweis | genau 1× (Impressum), Wortlaut fest | 1 | S. 22 |
+| Achtung-Kästen | genau 1 (bis 13.11.2026 zwei; der Frist-Kasten 31.12.2026 ist mit dem Blatt „Stichtag“ entfallen) | 1 | S. 18 „Erst Bewilligung, dann Vertrag“ (+ Einzeiler S. 5 „Erst Bewilligung, dann Vertrag“) |
 | Kalkulationsnotizen | entfallen (§8.1) | 0 | – |
-| Überkompensation / Beihilferecht | nur S. 9 und U3 | 2 | S. 9 (Eckdaten-Zeile), S. 23 |
+| Überkompensation / Beihilferecht | nur S. 9 und Impressum | 2 | S. 9 (Eckdaten-Zeile), S. 22 |
 | Fußnoten | höchstens 1 je Seite | 0 | – |
 | Stempel „Modellrechnung“ | 1× je Rechnung außerhalb des Kapitels „Modellrechnung“; im Kapitel (S. 10–12) trägt die Kopfzeile das Wort (Rubrik) | 1 | S. 14 |
-| „Rechenbeispiel“ / „keine Förderzusage“ (bis 11.11.2026 „fiktives Beispiel“) | nur S. 10 (Unterzeile unter dem Titel des Finanzierungsdiagramms) und U3 | 2 | S. 10, S. 23 |
+| „Rechenbeispiel“ / „keine Förderzusage“ (bis 11.11.2026 „fiktives Beispiel“) | nur S. 10 (Unterzeile unter dem Titel des Finanzierungsdiagramms) und Impressum | 2 | S. 10, S. 22 |
 | Zitate | höchstens 2, wörtlich, mit Quelle | 2 | S. 2 Tonne · S. 6 Kiesewetter |
 | „seit 01.10.2026 … aktueller Wert auf nbank.de“ | 1× je Größe | 1 | S. 8 (Bemessungsgrenze) |
-| Stand-Angabe | nur U1 und U3 (§8.5), nicht in den Fußzeilen | 2 | S. 1 (Schriftfeld), S. 23 (Hinweis); Zeitleiste S. 16 mit Marke „Stand 12.11.2026“ |
+| Stand-Angabe | nur U1 und Impressum (§8.5), nicht in den Fußzeilen; „Stand 11/2026“ | 2 | S. 1 (Schriftfeld), S. 22 (Hinweis) |
 | „eigene Berechnung/Ableitung/Annahme“, „mit der NBank klären“, „laut NBank“, Fundstellen-/Quellenzeilen, RL-Nr.-Klammern | 0 | 0 | – |
 | Belehrungen, Versprechen, flapsige Begriffe („Spielregeln“, „Term Sheet“, „Kalkulieren Sie …“, „Wir rechnen Ihr Projekt …“) | 0 (§8.1–8.3) | 0 | – |
-| PGN-„wir“ auf Fachseiten (S. 3–19) | Angebotssätze allgemein, ohne Detailversprechen | 1 | S. 15 (S. 11 und S. 19 entfallen; S. 19 trägt nur einen sachlichen Verweis auf S. 20) |
+| PGN-„wir“ auf Fachseiten (S. 3–18) | Angebotssätze allgemein, ohne Detailversprechen | 1 | S. 15 (S. 11 und S. 18 entfallen; S. 18 trägt nur einen sachlichen Verweis auf S. 19) |
 | Fachseiten-Länge (Fließtext) | Ziel 180–250, hart 280 | max. 251 | S. 8; keine Fachseite über 280 |
 
 **Wörter je Seite**
@@ -58,22 +58,22 @@ Diese Fassung gibt den vollständigen Text aller 24 Seiten wieder – inklusive 
 | 13 | innen | Neubau · Programmteil 2.2 | 250 | 33 | – | 220 | 0 |
 | 14 | innen | Neubau · Programmteil 2.4 | 188 | 54 | – | 200 | 0 |
 | 15 | innen | Bestand · Programmteil 2.3 | 224 | 78 | – | 240 | 0 |
-| 16 | innen | Bestand · Stichtag 31.12.2026 | 129 | 171 | – | 220 | 0 |
-| 17 | innen | Bestand · Programmteile 2.5 und 2.6 | 39 | 311 | – | 220 | 0 |
-| 18 | innen | Umsetzung · Standort und Kommune | 138 | 170 | – | 230 | 0 |
-| 19 | innen | Umsetzung · Antragsweg | 53 | 208 | – | 210 | 0 |
-| 20 | innen | Umsetzung · Mit PGN | 214 | 0 | – | 240 | 0 |
-| 21 | innen | Umsetzung · Unterlagen und Kontakte | 256 | 0 | 55 | 250 | 0 |
-| 22 | innen | PGN · Über uns | 88 | 0 | 74 | 200 | 0 |
-| 23 | U3 | PGN · Impressum (U3) | 122 | 0 | 49 | 180 | 0 |
+| 16 | innen | Bestand · Programmteile 2.5 und 2.6 | 39 | 311 | – | 220 | 0 |
+| 17 | innen | Umsetzung · Standort und Kommune | 138 | 170 | – | 230 | 0 |
+| 18 | innen | Umsetzung · Antragsweg | 53 | 208 | – | 210 | 0 |
+| 19 | innen | Umsetzung · Mit PGN | 214 | 0 | – | 240 | 0 |
+| 20 | innen | Umsetzung · Unterlagen und Kontakte | 256 | 0 | 55 | 250 | 0 |
+| 21 | innen | PGN · Über uns | 88 | 0 | 74 | 200 | 0 |
+| 22 | innen | PGN · Impressum | 122 | 0 | 49 | 180 | 0 |
+| 23 | U3 | PGN · Quellen und Notizen | 0 | 4 | – | – | 0 |
 | 24 | U4 | Umschlag · Rückseite (U4) | 25 | 0 | 17 | 45 | 0 |
-| | | **Summe** | **3454** | **2340** | **195** | | **0** |
+| | | **Summe** | **3325** | **2173** | **195** | | **0** |
 
-Stand der Zählung: Korrekturlauf 1 (24.10.2026). Nach dem Lektorat vom 11.11.2026 und den Textkorrekturen vom 12.11.2026 ist nicht neu gezählt; die Angaben „Wörter“ in dieser Tabelle und in den Seitenköpfen unten geben den Stand davor wieder.
+Stand der Zählung: Korrekturlauf 1 (24.10.2026). Nach dem Lektorat vom 11.11.2026 und den Textkorrekturen vom 12.11.2026 ist nicht neu gezählt; die Angaben „Wörter“ in dieser Tabelle und in den Seitenköpfen unten geben den Stand davor wieder. Änderungsrunde vom 13.11.2026: Zeile „Stichtag 31.12.2026“ (129 | 171 Wörter) gestrichen, die Zeilen danach eine Seite vor, neue Zeile „Quellen und Notizen“ (Tabellenkopf und Modultitel, die Quellen folgen); Summe ohne Neuzählung der übrigen Seiten.
 
-Anmerkungen: Fachseiten unter 180 Wörtern Fließtext (S. 3, 4, 5, 6, 9, 10, 11, 16, 17, 18, 19) tragen ihren Inhalt überwiegend in Kacheln, Tabellen und Diagrammen – Vergleichstabelle, Entscheidungsbaum, Eckdaten, Rechenweg, Zeitleiste, Swimlane. S. 21 ist Service-Sammelseite der PGN-Strecke und nimmt die Pflicht-Sonderfälle von S. 4, 9 und 19 auf (256 Wörter Fließtext, davon rund 60 in der Unterlagen-Checkliste; Korrekturlauf 1: Beispiel zur vorzeitigen Rückzahlung ergänzt). Die Zählung ist maschinell aus den JSONs erzeugt (Korrekturlauf 1 neu gezählt).
+Anmerkungen: Fachseiten unter 180 Wörtern Fließtext (S. 3, 4, 5, 6, 9, 10, 11, 16, 17, 18) tragen ihren Inhalt überwiegend in Kacheln, Tabellen und Diagrammen – Vergleichstabelle, Entscheidungsbaum, Eckdaten, Rechenweg, Zeitleiste, Swimlane. S. 20 ist Service-Sammelseite der PGN-Strecke und nimmt die Pflicht-Sonderfälle von S. 4, 9 und 18 auf (256 Wörter Fließtext, davon rund 60 in der Unterlagen-Checkliste; Korrekturlauf 1: Beispiel zur vorzeitigen Rückzahlung ergänzt). Die Zählung ist maschinell aus den JSONs erzeugt (Korrekturlauf 1 neu gezählt).
 
-**Abweichungen vom Seitenplan und Entscheidungen aus Korrekturlauf 1** (Kunde PGN, 58 Kommentare; `korrektur/lauf-1/ENTSCHEIDUNGEN.md`)
+**Abweichungen vom Seitenplan und Entscheidungen aus Korrekturlauf 1** (Kunde PGN, 58 Kommentare; `korrektur/lauf-1/ENTSCHEIDUNGEN.md`). Die Einträge bis 12.11.2026 nennen die Seiten in der Zählung vor der Änderungsrunde vom 13.11.2026 (damals S. 16 „Stichtag“, S. 17–23 heute S. 16–22).
 
 - Seitenstruktur: neue S. 12 (Kapitel „Modellrechnung“, S. 10–12; Headline „Über 1,91 % Tilgung liegt Gruppe A vorn“, Muster seit dem Lektorat vom 11.11.2026, vorher „Welcher Mix rechnet sich?“); 2.2, 2.4, 2.3 und Stichtag rücken auf S. 13–16; 2.5 und 2.6 stehen kompakt zusammen auf S. 17 („der Vollständigkeit halber“). 2.1 bleibt vor den übrigen Programmteilen (Kundenentscheidung).
 - Inhaltsverzeichnis U2 mit acht Kapitel-Linien; Einträge = Kolumnentitel (S. 4 „Neuerungen und Grundcheck“, S. 9 „Eckdaten“, S. 12 „Mix und Tilgung“). Kolumnentitel S. 2 „Editorial“.
@@ -91,6 +91,7 @@ Anmerkungen: Fachseiten unter 180 Wörtern Fließtext (S. 3, 4, 5, 6, 9, 10, 11,
 - Lektorat (11.11.2026): 73 Befunde und die Muster M1 bis M11 eingearbeitet, soweit nicht dem Kunden vorbehalten (Maßkette U1, Kasten „Über die Laufzeit“ S. 12, Headlines U1 und S. 2). Neue Headlines: S. 3 „Die Förderung in Zahlen“, S. 5 „Programmteil nach Vorhaben“, S. 9 „Konditionen und Kosten“, S. 11 und S. 12 (Kunde; Wortlaut seit 11.11.2026 im nächsten Eintrag), S. 20 „Unsere Leistungen im Förderprojekt“. Entfallen: Unterzeile S. 16, Vorspann S. 19, Block „Eigenmittel“ S. 8 (Regel steht in den Eckdaten S. 9), Verweise S. 4 → S. 11, S. 7 → S. 15 und S. 16, S. 21 → S. 11. Mietentwicklung S. 7: ab Jahr 7 höchstens 7,66 € (vorher 7,65 €).
 - Modellrechnung S. 10–12 (Entscheidung des Auftraggebers, 11.11.2026): Das Modellhaus ist ein PGN-Projekt in Neu Wulmstorf, Landkreis Harburg (die Straße wird nicht genannt): 14 Wohnungen, 828 m² Wohnfläche, Herstellungskosten 3.579 € je m² (Median aus fünf PGN-Projekten, Kostengruppen 200 bis 700, Kostenstand Q4 2025), Grundstück im Bestand und nicht angesetzt, Mietenstufe VI, Effizienzhaus 55. Werte aus Projekt 2 der VOFI-Mappe v3. Headlines: S. 10 „14 Wohnungen, 3,0 Mio. €: bis zu 2,4 Mio. € Förderung“, S. 11 „Alle drei Gruppen tragen sich ab Jahr 1: 15.003 € Zahlungsüberschuss in A“ (Kunde), S. 12 „Über 1,91 % Tilgung liegt Gruppe A vorn“. Hinweis im Kopf S. 10 „Rechenbeispiel, keine Förderzusage“, im zentralen Hinweis U3 entsprechend „Rechenbeispiele“. S. 10: Rechenweg ohne Zeile „+ Grundstück“, Haus mit 14 Fenstern, Sensitivität als Tabelle mit drei Ansätzen der Herstellungskosten (3.579 | 4.631 | 5.460 € je m², die dritte Spalte seit 12.11.2026 an der Bemessungsgrenze ab 01.10.2026) statt des Wasserfalls zu 5.200 €. S. 10 und 11: Headline in 20 pt, weil die erste Zeile der S. 11 in 25 pt nicht auf den Satzspiegel passt. S. 12: Achsen 0–3,0 % und −10.000 bis +20.000 €, Marke beim Tilgungssatz der S. 11, Maßkette „vorn: Gruppe C | Gruppe A“. Folgeänderungen: S. 2 („für 14 Wohnungen“), S. 13 (Marke „Modell S. 10“ bei 211.672 € je Wohnung, Notiz, Lage der Knick-Beschriftung). Mit dem früheren Modellhaus (20 Wohnungen, 7,0 Mio. €) schlossen B und C Jahr 1 mit einem Fehlbetrag; das gilt nicht mehr.
 - Stufung der Gestaltung (12.11.2026, `DESIGN.md` §0a): Jede Innenseite trägt eine Kopfzeile mit der Rubrik (erster Teil des Kolumnentitels), Seiten eines Programmteils dazu den Schlüsselplan. Die rote Kicker-Zeile über der Headline entfällt, die Kolumnentitel im Fuß bleiben. Headlines stehen wieder durchgehend in 25 pt. Trug der frühere Kicker Inhalt oder passt der Titel in 25 pt nicht, steht der erste Teil als zweite Stimme über der Hauptzeile, ohne Doppelpunkt: S. 8 „Neubau, Änderung, Ersterwerb“, S. 10 „14 Wohnungen, 3,0 Mio. €“ über „bis zu 2,4 Mio. € Förderung“, S. 11 „Alle drei Gruppen tragen sich ab Jahr 1“ über „15.003 € Zahlungsüberschuss in A“, S. 13 „Energetisch hochwertiger Neubau“, S. 14 „Ostfriesische Inseln“, S. 15 „Klimagerechte Modernisierung“, S. 17 „Belegungs- und Mietbindungen“ (ohne „im Bestand“). Ohne Ersatz entfallen die Kicker S. 3 „Kennzahlen“, S. 4 „Vergleich und Grundcheck“, S. 5 „Navigator“, S. 9 „Eckdaten · Programmteil 2.1“, S. 16 „Stichtag 31.12.2026“, S. 18 „Standort und Kommune“, S. 19 „Antragsweg“, S. 20 „Mit PGN“, S. 21 „Service“ und S. 22 „Über PGN“. Lange Vorspanne sind geteilt (S. 7, 10, 11, 18: erster Satz Vorspann, Rest Text). Modultitel mit Einheit stehen ohne Komma (S. 6, 7, 11, 12, 13). Seitenverweise stehen halbfett im Text statt als Chip. Der Hinweis „Rechenbeispiel, keine Förderzusage“ steht auf S. 10 unter dem Titel des Finanzierungsdiagramms. Textkorrekturen: S. 2 (Satz „Das Heft nennt je Programmteil Fördersätze, Höchstmieten, Bindungen und Fristen.“ gestrichen, keine Fettung am Verweis auf die Modellrechnung), S. 12 (Notizsatz „Unter 1,91 % Tilgung hat C den höchsten Zahlungsüberschuss, darüber A.“ gestrichen, die Headline trägt ihn; „Über die Laufzeit“ auf einen Satz gekürzt; der Absatz zu Mietausfall und Kosten steht darunter statt am Tabellenfuß), S. 18 (Freistellung in zwei Sätzen), S. 20 (Leistungen 2 bis 4), S. 21 (Beispielsatz zur vorzeitigen Rückzahlung), U3 (Quelle des ARGE-Werts ergänzt).
+- Änderungsrunde vom 13.11.2026 (`aenderungen-2026-11/Umsetzung.md`, G1, G7, B15.1): Das Wahlrecht für Modernisierungsanträge ist bei Veröffentlichung abgelaufen. Das Blatt „Stichtag 31.12.2026“ (bisher S. 16) entfällt, ebenso die Kachel auf S. 3, der Pin an 2.3 auf S. 5 und die letzte Zeile von „Ablauf und Kombination“ auf S. 15. Die Seiten 17–23 rücken auf S. 16–22 (gedruckt 15–21); neue S. 23 „Quellen und Notizen“ (Quellentabelle oben, Notizen im Planraster) vor der Rückseite. Das Impressum (S. 22) ist eine Innenseite mit Kopfzeile „PGN“ und Fuß mit Blatt 21. Stand auf U1 und im Impressum „11/2026“. Doppelseiten ab S. 16 neu gepaart: 16|17, 18|19, 20|21, 22|23.
 
 ---
 
@@ -117,7 +118,7 @@ Bildzeile: **Referenzprojekt** Brauerstraße, Rotenburg (Wümme) · 19 barrieref
 
 *[Logo PGN – logo-rot.svg auf weißem Logofeld; logo-negativ.svg bzw. logo-weiss.svg auf Rot erst nach Freigabe durch PGN]*
 
-Schriftfeld: **Herausgeber** Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme) · **Stand** 12.11.2026 – keine Blattnummer auf dem Umschlag
+Schriftfeld: **Herausgeber** Planungsgemeinschaft Nord GmbH, Rotenburg (Wümme) · **Stand** 11/2026 – keine Blattnummer auf dem Umschlag
 
 ---
 
@@ -144,10 +145,10 @@ Wir planen seit 1981 Bauprojekte, heute von Rotenburg (Wümme) aus in ganz Nordd
 
 #### Ihr Einstieg
 
-- **Wohnungsunternehmen und Genossenschaften:** Neubau, Modernisierung und Bindungen im Bestand; genossenschaftlich überlassener Wohnraum gilt als Mietwohnraum. → S. 8–17
+- **Wohnungsunternehmen und Genossenschaften:** Neubau, Modernisierung und Bindungen im Bestand; genossenschaftlich überlassener Wohnraum gilt als Mietwohnraum. → S. 8–16
 - **Investorinnen und Investoren:** Konditionen und Modellrechnung für 14 Wohnungen. → S. 9–12
-- **Projektentwicklung:** Gefördert wird auch der Ersterwerb bis zwei Jahre nach Fertigstellung. Wer kauft, schließt den Kaufvertrag erst nach der Bewilligung, vorher nur mit folgenlosem Rücktrittsrecht. → S. 8, 19
-- **Kommunen:** Selbst antragsberechtigt. Wo die Gemeinde geförderten Mietwohnraum im Bebauungsplan, städtebaulichen Vertrag oder Baulandmodell festlegt, gilt der für die Bewilligung nötige Bedarf als gegeben. → S. 18
+- **Projektentwicklung:** Gefördert wird auch der Ersterwerb bis zwei Jahre nach Fertigstellung. Wer kauft, schließt den Kaufvertrag erst nach der Bewilligung, vorher nur mit folgenlosem Rücktrittsrecht. → S. 8, 18
+- **Kommunen:** Selbst antragsberechtigt. Wo die Gemeinde geförderten Mietwohnraum im Bebauungsplan, städtebaulichen Vertrag oder Baulandmodell festlegt, gilt der für die Bewilligung nötige Bedarf als gegeben. → S. 17
 
 #### Inhalt
 
@@ -156,9 +157,9 @@ Wir planen seit 1981 Bauprojekte, heute von Rotenburg (Wümme) aus in ganz Nordd
 - **Finanzierung:** S. 8 Neubau, Änderung, Ersterwerb [2.1] · S. 9 Eckdaten
 - **Modellrechnung:** S. 10 Finanzierung · S. 11 Wirtschaftlichkeit · S. 12 Mix und Tilgung
 - **Neubau:** S. 13 EH-40-Neubau [2.2] · S. 14 Ostfriesische Inseln [2.4]
-- **Bestand:** S. 15 Modernisierung [2.3] · S. 16 Stichtag 31.12.2026 · S. 17 Bindungserwerb und Bindungsverlängerung [2.5/2.6]
-- **Umsetzung:** S. 18 Standort und Kommune · S. 19 Antragsweg · S. 20 Unsere Leistungen im Förderprojekt · S. 21 Unterlagen, Kontakte, Verfahrensdetails
-- **PGN:** S. 22 Über PGN · S. 23 Impressum und Hinweise
+- **Bestand:** S. 15 Modernisierung [2.3] · S. 16 Bindungserwerb und Bindungsverlängerung [2.5/2.6]
+- **Umsetzung:** S. 17 Standort und Kommune · S. 18 Antragsweg · S. 19 Unsere Leistungen im Förderprojekt · S. 20 Unterlagen, Kontakte, Verfahrensdetails
+- **PGN:** S. 21 Über PGN · S. 22 Impressum und Hinweise · S. 23 Quellen und Notizen
 
 ---
 
@@ -181,8 +182,7 @@ Wir planen seit 1981 Bauprojekte, heute von Rotenburg (Wümme) aus in ganz Nordd
 | Seit 01.10.2026 | **5.250/5.460 € je m² Wohnfläche** | Bemessungsgrenze Herstellungskosten | Mietenstufe I–III/IV–VII; halbjährlich fortgeschrieben → S. 8 | 2.1 |
 | bis zu | **90.000 €** | Zuschuss je Wohnung im EH-40-Neubau | Gruppe A, höchstens 50 % der zuwendungsfähigen Kosten; nicht mit 2.1 kombinierbar → S. 13 | 2.2 |
 | bis zu | **31.000 €** | Modernisierungszuschuss je gebundener Wohnung | Gruppe A, ab 5 Effizienzklassen besser; höchstens 40 % der zuwendungsfähigen Kosten → S. 15 | 2.3 |
-| Festbetrag | **3,00 € je m² Wohnfläche und Monat** | Zuschuss für den Bindungserwerb | 15–20 Jahre Bindung; ab 5 Jahren 2,00 €, ab 10 Jahren 2,50 €; nur Gruppe A → S. 17 | 2.5 |
-| Stichtag | **31.12.2026** | Wahlrecht für Modernisierungsanträge | Geht Ihr Antrag bis dahin bei der Wohnraumförderstelle ein, können Sie das alte Recht wählen → S. 16 |   |
+| Festbetrag | **3,00 € je m² Wohnfläche und Monat** | Zuschuss für den Bindungserwerb | 15–20 Jahre Bindung; ab 5 Jahren 2,00 €, ab 10 Jahren 2,50 €; nur Gruppe A → S. 16 | 2.5 |
 
 #### Begriff: zuwendungsfähige Kosten
 
@@ -193,7 +193,7 @@ Bezugsgröße der Förderquote: in 2.1 die Herstellungskosten bis zur Bemessungs
 - Kernbotschaft: Von 2015 bis 2024 hat die Neuförderung **28 %** der ausgelaufenen Sozialbindungen ersetzt.
 - Diagramm: 58 Quadrate (1 Quadrat = 1.000 Wohnungen), 16 gefüllt; Gesamtmaß „2015–2024: 58.024 Bindungen ausgelaufen“; Teilmaß „rund 16.000 neu gefördert“ | „nicht ersetzt“
 - Fußzeile: 1 Quadrat = 1.000 Wohnungen · Bestand 2024: 50.495 Sozialwohnungen, gegenüber 2015 nahezu halbiert
-- Seitenverweis: Bedarf am Standort → S. 18
+- Seitenverweis: Bedarf am Standort → S. 17
 
 ---
 
@@ -219,13 +219,13 @@ Bezugsgröße der Förderquote: in 2.1 die Herstellungskosten bis zur Bemessungs
 #### Grundcheck: sechs Voraussetzungen
 
 - ☐ **Antragsberechtigt, Finanzierung gesichert?** Privatpersonen, Unternehmen mit eigener Rechtspersönlichkeit, Genossenschaften, Kommunen; die erzielbare Miete muss Finanzierung und Bewirtschaftung auf Dauer decken. *(gilt für: alle)*
-- ☐ **Vor der Bewilligung nicht begonnen?** Als Beginn zählen Baubeginn sowie Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück), nicht Planung bis Leistungsphase 6 HOAI; bei 2.5 Mietvertrag oder Überlassung → S. 19. *(gilt für: alle)*
+- ☐ **Vor der Bewilligung nicht begonnen?** Als Beginn zählen Baubeginn sowie Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück), nicht Planung bis Leistungsphase 6 HOAI; bei 2.5 Mietvertrag oder Überlassung → S. 18. *(gilt für: alle)*
 - ☐ **Mehrfamilienhaus ab drei Wohnungen?** Bei Modernisierung: fertiggestellt vor dem 08.12.2004. *(gilt für: 2.1–2.4)*
-- ☐ **Bedarf am Standort?** In sechs Gebietsarten gilt er als gegeben, sonst wird er vermutet, sofern die NBank-Karte keinen gesonderten Nachweis verlangt → S. 18. *(gilt für: 2.1, 2.2, 2.6)*
+- ☐ **Bedarf am Standort?** In sechs Gebietsarten gilt er als gegeben, sonst wird er vermutet, sofern die NBank-Karte keinen gesonderten Nachweis verlangt → S. 17. *(gilt für: 2.1, 2.2, 2.6)*
 - ☐ **Mindestens 20 % Eigenmittel?** Bezogen auf die zuwendungsfähigen Kosten; auf den Inseln 10 % der zuwendungsfähigen Herstellungskosten. *(gilt für: 2.1–2.4)*
 - ☐ **Grundstück gesichert?** Eigentum, Erbbaurecht oder gesicherter Erwerb. *(gilt für: 2.1, 2.2, 2.4)*
 
-**Ausnahmen** für gemeinschaftliche Wohnformen, Reihen- und Doppelhäuser → S. 21.
+**Ausnahmen** für gemeinschaftliche Wohnformen, Reihen- und Doppelhäuser → S. 20.
 
 ---
 
@@ -248,7 +248,6 @@ Bezugsgröße der Förderquote: in 2.1 die Herstellungskosten bis zur Bemessungs
   - Pin an 2.2: *Nicht mit 2.1 kombinierbar*
 - **B – Bestand klimagerecht modernisieren**
   - Mehrfamilienhaus vor dem 08.12.2004 fertiggestellt und nach der Modernisierung mindestens zwei Energieeffizienzklassen besser (ausnahmsweise eine, wenn die NBank das zulässt)? Ja → 2.3
-  - Pin an 2.3: *Wahlrecht bis 31.12.2026 → S. 16*
 - **C – Freie Bestandswohnung für Gruppe A binden**
   - Frei, ungebunden, vor der Bewilligung weder vermietet noch überlassen? Ja → 2.5
 - **D – Auslaufende Landesbindung verlängern**
@@ -263,10 +262,10 @@ Bezugsgröße der Förderquote: in 2.1 die Herstellungskosten bis zur Bemessungs
 | **2.2** Energetisch hochwertiger Neubau | nur Zuschuss | Bis zu: A 50 · B 40 · C 30 %, höchstens 90.000/75.000/60.000 € je Wohnung | 35 Jahre | mind. 20 % | S. 13 |
 | **2.4** Ostfriesische Inseln | Darlehen + Zuschuss | Bis zu: zusammen 90 % der Herstellungskosten + 100 % der Grundstückskosten | 35 Jahre | mind. 10 % der zuwendungsfähigen Herstellungskosten | S. 14 |
 | **2.3** Klimagerechte Modernisierung | Zuschuss je gebundener Wohnung | Bis zu: 10–40 %, höchstens 9.000–31.000 € | 25 Jahre; vermietete Wohnungen ohne Wohnberechtigungsschein 35 Jahre | mind. 20 % | S. 15 |
-| **2.5** Belegungsbindungen erwerben | Zuschuss | Festbetrag: 2,00–3,00 € je m² und Monat, nach Bindungsdauer gestaffelt | 5–20 Jahre | – | S. 17 |
-| **2.6** Auslaufende Bindungen verlängern | Zuschuss zur Zinsverbilligung | Zins: 0 % auf bis zu 100 % der Restschuld, längstens 20 Jahre | + bis zu 20 Jahre | – | S. 17 |
+| **2.5** Belegungsbindungen erwerben | Zuschuss | Festbetrag: 2,00–3,00 € je m² und Monat, nach Bindungsdauer gestaffelt | 5–20 Jahre | – | S. 16 |
+| **2.6** Auslaufende Bindungen verlängern | Zuschuss zur Zinsverbilligung | Zins: 0 % auf bis zu 100 % der Restschuld, längstens 20 Jahre | + bis zu 20 Jahre | – | S. 16 |
 
-> **[Achtung-Einzeiler]** **Erst Bewilligung, dann Vertrag** → S. 19
+> **[Achtung-Einzeiler]** **Erst Bewilligung, dann Vertrag** → S. 18
 
 #### Nicht förderfähig
 
@@ -470,13 +469,13 @@ Achse: Jahre ab Bezugsfertigkeit, Marken 0 · 35 · 42
 | Sätze (Höchstwerte) | Darlehen 40/60/70 % plus Zuschuss 40/20/10 % (Gruppe A/B/C), zusammen 80 % der zuwendungsfähigen Kosten; Zuschuss nur mit Darlehen, B und C nur mit Zulassung. Zuschlag auf den Zuschuss: Modellprojekt +5, Housing First +10 Prozentpunkte → S. 8 |
 | Eigenmittel | mindestens 20 % der zuwendungsfähigen Kosten, mit Zuschlag entsprechend weniger; davon soll mindestens die Hälfte Geld oder lastenfreies Grundstück sein |
 | Zins | 0 % bis Ende des 35. Jahres nach Bezugsfertigkeit; danach bis zu 3 Prozentpunkte über dem Basiszinssatz, höchstens marktüblich |
-| Tilgung | Satz legt die NBank fest; Beginn nach vollständiger Auszahlung, spätestens zwei Jahre nach dem Monat, der auf die Bekanntgabe der Förderentscheidung folgt → S. 21 |
+| Tilgung | Satz legt die NBank fest; Beginn nach vollständiger Auszahlung, spätestens zwei Jahre nach dem Monat, der auf die Bekanntgabe der Förderentscheidung folgt → S. 20 |
 | Kosten, laufend | Verwaltungskostenbeitrag 0,5 % p. a. auf das Restkapital, ab Auszahlungsbeginn |
 | Kosten, einmalig | Bearbeitungsentgelt 1 % des bewilligten Darlehens und 0,75 % des bewilligten Zuschusses, jeweils mit der ersten Auszahlung verrechnet |
 | Auszahlung | in Raten nach Baufortschritt (Neubau: Zeitstrahl oben); Darlehen und Zuschuss je Rate anteilig, Ihre Eigenmittel in der Regel zuerst |
-| Sicherheiten | nachrangige Grundschuld direkt nach dem Bankdarlehen; Details → S. 21 |
+| Sicherheiten | nachrangige Grundschuld direkt nach dem Bankdarlehen; Details → S. 20 |
 | Versicherung | Brand ab Baubeginn, Sturm ab Bezugsfertigkeit, jeweils gleitender Neuwert, bis zur vollständigen Rückzahlung |
-| Vorzeitige Rückzahlung | Bei freiwilliger Rückzahlung des Darlehens in voller Höhe ist der Zuschuss anteilig für die restliche Bindungsdauer zurückzuzahlen; die Bindungen enden frühestens 20 Jahre nach Bindungsbeginn → S. 21 |
+| Vorzeitige Rückzahlung | Bei freiwilliger Rückzahlung des Darlehens in voller Höhe ist der Zuschuss anteilig für die restliche Bindungsdauer zurückzuzahlen; die Bindungen enden frühestens 20 Jahre nach Bindungsbeginn → S. 20 |
 | Beihilferecht | Die NBank begrenzt jede Förderung so, dass die Eigenkapitalrendite angemessen bleibt (Prüfung auf Überkompensation). Bis 1 Prozentpunkt über dem 30-jährigen Swapsatz gilt sie stets als angemessen |
 
 ---
@@ -809,55 +808,12 @@ Auszahlung: bis zu 30 % nach Baubeginn, 60 % gegen Kostennachweis, 10 % nach Abs
 
 Zusätzlich nutzbar: Bundesförderung BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen; eines von beiden, das andere frühestens drei Jahre später. Decken öffentliche Mittel samt NBank-Zuschuss mehr als 60 % derselben Kosten, wird die BEG gekürzt (Kommunen bei BEG Einzelmaßnahmen: 90 %).
 
-Antrag bis 31.12.2026 bei der Wohnraumförderstelle: altes Recht verbindlich wählbar (→ S. 16).
-
 *[Angebotssatz]* Energetische Gesamtmaßnahmen planen wir mit eigener Architektur und Haustechnik.
 
 ---
 
 <a id="seite-16"></a>
-## Seite 16 – Bestand · Stichtag 31.12.2026
-
-<sub>innen · Layout: timeline · Kolumnentitel: Bestand · Stichtag 31.12.2026 · Wörter: Fließtext 129, Grafik/Tabelle 171</sub>
-
-*Bestand · Schlüsselplan: Programmteil 2.3*
-
-### Wahlrecht für Modernisierungsanträge
-
-> **[Achtung · Frist] Frist 31.12.2026**
->
-> Geht Ihr Modernisierungsantrag bis 31.12.2026 bei der Wohnraumförderstelle ein, können Sie darin ausdrücklich das alte Recht (Förderregeln 2024) wählen. **Die Wahl ist bindend**. Das alte Recht gilt dann bis zum Abschluss des Verfahrens. Ohne Wahl gilt die RL 2026. Neubau, Ersterwerb und alle übrigen Vorhaben werden nur nach RL 2026 gefördert.
-
-**Grafik (timeline): Stichtage Juni 2026 bis Dezember 2031**
-
-Zeitraum 2026-06 bis 2031-12, gestaucht zwischen 2027 und 2031; Marke „Stand 12.11.2026“
-- **30.06.2026** Förderregeln 2024 enden *(vergangen, gedämpft)*
-- **01.07.2026** RL Mietwohnraum 2026 in Kraft *(vergangen, gedämpft)*
-- **31.12.2026** Wahlrecht Modernisierung – Antragseingang bei der Wohnraumförderstelle *(Signal-Pin)*
-- **01.01.2027** Neue Rechennorm für Energiebedarfsausweise – Klassengrenzen unverändert
-- **2027** Neue Mietenstufen geplant – Entwurf *(gestrichelt)*
-- **31.12.2031** RL Mietwohnraum 2026 läuft aus
-
-**Altes Recht und RL 2026 im Vergleich**
-
-|   | Altes Recht | RL 2026 · Programmteil 2.3 |
-|---|---|---|
-| Förderart | anfangs zinsloses Darlehen bis zu 75 % der Kosten, höchstens zwei Drittel eines vergleichbaren Neubaus; 30 % Tilgungsnachlass bei geringen Einkommen | Zuschuss mit Höchstsatz 10–40 % je nach Klassensprung und Einkommensgruppe, höchstens 9.000–31.000 € je gebundener Wohnung |
-| Zins und Kosten | 0 % Zins für 35 Jahre (geringe Einkommen) bzw. 30 Jahre (mittlere), danach marktüblich; 0,5 % Verwaltungskostenbeitrag p. a. | kein Darlehen; 0,75 % Bearbeitungsentgelt |
-| Barrierefreiheit | +5.000 € Zuschuss je barrierefreier Wohnung | Teil der Gesamtmaßnahme, kein gesonderter Zuschuss |
-| Höhere Einkommen | mittlere Einkommen: nur energetisch, ohne Tilgungsnachlass | Gruppen B und C mit niedrigeren Sätzen |
-| Kombination | nicht für eine Maßnahme, die nach RL Mietwohnraum, Junges Wohnen oder Wohneigentum 2026 gefördert wird | mit BEG Wohngebäude (KfW 261) oder BEG Einzelmaßnahmen (→ S. 15) |
-
-#### Drei Prüffragen
-
-- ☐ Fertiggestellt zwischen 01.02.2002 und 07.12.2004? Dann nur RL 2026. Das alte Recht setzt die Fertigstellung vor dem 01.02.2002 voraus.
-- ☐ Antrag mit ausdrücklicher Wahl bis 31.12.2026 bei der Wohnraumförderstelle? Sonst gilt die RL 2026.
-- ☐ Zwei Effizienzklassen erreichbar? Die RL 2026 verlangt mindestens zwei, in Ausnahmen eine (→ S. 15).
-
----
-
-<a id="seite-17"></a>
-## Seite 17 – Bestand · Programmteile 2.5 und 2.6
+## Seite 16 – Bestand · Programmteile 2.5 und 2.6
 
 <sub>innen · Layout: program-detail · Kolumnentitel: Bestand · Programmteile 2.5 und 2.6 · Wörter: Fließtext 39, Grafik/Tabelle 311</sub>
 
@@ -876,7 +832,7 @@ Zweite Stimme: Belegungs- und Mietbindungen
 |   | 2.5 Bindungen erwerben | 2.6 Bindungen verlängern |
 |---|---|---|
 | Förderung | **2,00–3,00 €** – Zuschuss je m² Wohnfläche und Monat der Bindung: ab 5 Jahren **2,00 €**, ab 10 Jahren **2,50 €**, 15–20 Jahre **3,00 €**; 60 m² über 20 Jahre: **43.200 €** | **0 %** – Zins auf bis zu **100 %** der Restschuld, solange das NBank-Darlehen läuft, längstens **20 Jahre**; nicht rückzahlbar, kein neues Darlehen |
-| Wohnung | frei, ohne andere Belegungsbindung; nicht im direkten Anschluss an eine auslaufende Bindung (dafür 2.6) | vom Land gefördert, Bindung läuft planmäßig aus, ist nicht bereits ausgelaufen; Bedarf besteht fort (→ S. 18) |
+| Wohnung | frei, ohne andere Belegungsbindung; nicht im direkten Anschluss an eine auslaufende Bindung (dafür 2.6) | vom Land gefördert, Bindung läuft planmäßig aus, ist nicht bereits ausgelaufen; Bedarf besteht fort (→ S. 17) |
 | Zustand, Größe | *beide:* abgeschlossen, zur dauernden Wohnnutzung geeignet, gut erhalten, angemessen groß, mit Mindestausstattung (u. a. Heizung, Bad, Küchenanschluss) |   |
 | Berechtigt | Eigentum, Erbbaurecht oder vergleichbares langfristiges Nutzungsrecht | Eigentum und Rückzahlungspflicht für das laufende NBank-Darlehen |
 | Mieterkreis | nur Einkommensgruppe A; bei Bindung für eine besondere Bedarfsgruppe (z. B. wohnungslose Menschen) nur an diese; Nachweis: wohnungsbezogener WBS | bestehende Belegungs- und Mietbindung läuft unverändert weiter |
@@ -888,8 +844,8 @@ Zweite Stimme: Belegungs- und Mietbindungen
 
 ---
 
-<a id="seite-18"></a>
-## Seite 18 – Umsetzung · Standort und Kommune
+<a id="seite-17"></a>
+## Seite 17 – Umsetzung · Standort und Kommune
 
 <sub>innen · Layout: infographic · Kolumnentitel: Umsetzung · Standort und Kommune · Wörter: Fließtext 138, Grafik/Tabelle 170</sub>
 
@@ -934,8 +890,8 @@ Findet sich nachweislich kein wohnberechtigter Haushalt, kann die Wohnraumförde
 
 ---
 
-<a id="seite-19"></a>
-## Seite 19 – Umsetzung · Antragsweg
+<a id="seite-18"></a>
+## Seite 18 – Umsetzung · Antragsweg
 
 <sub>innen · Layout: process · Kolumnentitel: Umsetzung · Antragsweg · Wörter: Fließtext 53, Grafik/Tabelle 208</sub>
 
@@ -945,15 +901,15 @@ Findet sich nachweislich kein wohnberechtigter Haushalt, kann die Wohnraumförde
 
 **Grafik (swimlane): Ablauf und Zuständigkeiten**
 
-*Verweis im Kopf der Grafik:* Leistungen der PGN zu diesen Schritten → S. 20
+*Verweis im Kopf der Grafik:* Leistungen der PGN zu diesen Schritten → S. 19
 
 Bahnen: Sie · Wohnraumförderstelle · NBank
 
 1. **Vorgespräch** (Wohnraumförderstelle + Sie): Nachweise und Unterlagen vorab klären
-2. **Antrag** (Sie): bei der Wohnraumförderstelle am Bauort; für 2.6 erst nach dem Prolongationsangebot (→ S. 17)
+2. **Antrag** (Sie): bei der Wohnraumförderstelle am Bauort; für 2.6 erst nach dem Prolongationsangebot (→ S. 16)
 3. **Stellungnahme** (Wohnraumförderstelle): Bedarfsbestätigung, ggf. Anhörung der Gemeinde, Weiterleitung an die NBank
 4. **Förderentscheidung** (NBank): Fördervertrag, bei reinem Zuschuss Bewilligungsbescheid · *Fähnchen: Ziel: höchstens drei Monate*
-5. **Bauausführung** (Sie): Aufträge im Wettbewerb vergeben, Baubeginn anzeigen (→ S. 21) · *Fähnchen: Baubeginn unverzüglich, spätestens vier Monate nach Bekanntgabe der Förderentscheidung*
+5. **Bauausführung** (Sie): Aufträge im Wettbewerb vergeben, Baubeginn anzeigen (→ S. 20) · *Fähnchen: Baubeginn unverzüglich, spätestens vier Monate nach Bekanntgabe der Förderentscheidung*
 6. **Auszahlung** (NBank): in Raten auf Ihre Anforderung, nach Baufortschritt (→ S. 9)
 7. **Fertigstellung** (Wohnraumförderstelle + Sie): Fertigstellung anzeigen; Vermietung nur mit WBS; letzte 10 % nach Schlussbescheinigung und Belegung
 8. **Verwendungsnachweis** (Sie): an die Wohnraumförderstelle; ein einfacher Nachweis genügt · *Fähnchen: innerhalb von sechs Monaten nach Erfüllung des Förderzwecks*
@@ -967,13 +923,13 @@ Klammer Station 5–7: bei Bauvorhaben
 **Grafik (ampel): Verträge und Maßnahmen vor der Bewilligung**
 
 - **✓ Zulässig:** Baugrundstück kaufen oder Erbbaurecht bestellen · nicht bindende Reservierung beim Kauf · Planung bis einschließlich Leistungsphase 6 HOAI · Baugrund untersuchen, Grundstück herrichten
-- **! Bedingt zulässig:** Vertrag mit eindeutigem, folgenlosem Rücktrittsrecht oder eindeutiger Bedingung für den Fall, dass die Förderung ausbleibt; die NBank prüft die Klausel im Einzelfall · vorzeitiger Vorhabenbeginn nach Zulassung durch die NBank (→ S. 21)
+- **! Bedingt zulässig:** Vertrag mit eindeutigem, folgenlosem Rücktrittsrecht oder eindeutiger Bedingung für den Fall, dass die Förderung ausbleibt; die NBank prüft die Klausel im Einzelfall · vorzeitiger Vorhabenbeginn nach Zulassung durch die NBank (→ S. 20)
 - **✗ Förderschädlich:** Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer Baugrundstück) · beim Ersterwerb: bindender Kaufvertrag über die Wohnungen · Beauftragung ab Leistungsphase 7 HOAI · erster Spatenstich · bei 2.5: Mietvertrag oder Überlassung der Wohnung
 
 ---
 
-<a id="seite-20"></a>
-## Seite 20 – Umsetzung · Mit PGN
+<a id="seite-19"></a>
+## Seite 19 – Umsetzung · Mit PGN
 
 <sub>innen · Layout: services · Kolumnentitel: Umsetzung · Mit PGN · Wörter: Fließtext 214, Grafik/Tabelle 0</sub>
 
@@ -989,7 +945,7 @@ Klammer Station 5–7: bei Bauvorhaben
 4. **Antragsunterlagen** · *Vorgespräch und Antrag* – Wir erstellen den baufachlichen Teil: Pläne, Wohnflächen- und Raumberechnung, Baubeschreibung und Kostenaufteilung.
 5. **Ausführungsplanung und Vergabe** · *Leistungsphasen 5–7* – Wir schreiben die Bauleistungen richtlinienkonform aus und vergeben sie nach der Bewilligung.
 6. **Bauleitung** · *Leistungsphase 8* – Wir überwachen Ausführung und Termine und dokumentieren den Baufortschritt für die Auszahlung der Teilraten (→ S. 9).
-7. **Fertigstellung und Nachweis** · *Leistungsphasen 8–9* – Wir bereiten die Fertigstellungsanzeige mit Bescheinigung der Bauleitung vor und liefern Bau- und Kostendaten für Ihren Verwendungsnachweis (→ S. 19).
+7. **Fertigstellung und Nachweis** · *Leistungsphasen 8–9* – Wir bereiten die Fertigstellungsanzeige mit Bescheinigung der Bauleitung vor und liefern Bau- und Kostendaten für Ihren Verwendungsnachweis (→ S. 18).
 
 **HOAI-Skala:** LPH 1 Grundlagen · LPH 2 Vorplanung · LPH 3 Entwurf · LPH 4 Genehmigung · LPH 5 Ausführungsplanung · LPH 6 Vorbereitung der Vergabe · LPH 7 Mitwirkung bei der Vergabe · LPH 8 Objektüberwachung · LPH 9 Objektbetreuung
 Marke „Bewilligung“ zwischen LPH 6 und 7 · links: Planungsauftrag LPH 1–6: vor der Bewilligung möglich · rechts: ab LPH 7: erst nach der Bewilligung
@@ -1000,12 +956,12 @@ Marke „Bewilligung“ zwischen LPH 6 und 7 · links: Planungsauftrag LPH 1–6
 
 #### Für Kommunen
 
-Unsere Stadtplanung erarbeitet Bebauungspläne, auch mit Festlegungen für geförderten Mietwohnraum (→ S. 18).
+Unsere Stadtplanung erarbeitet Bebauungspläne, auch mit Festlegungen für geförderten Mietwohnraum (→ S. 17).
 
 ---
 
-<a id="seite-21"></a>
-## Seite 21 – Umsetzung · Unterlagen und Kontakte
+<a id="seite-20"></a>
+## Seite 20 – Umsetzung · Unterlagen und Kontakte
 
 <sub>innen · Layout: service-checklist · Kolumnentitel: Umsetzung · Unterlagen und Kontakte · Wörter: Fließtext 256, Grafik/Tabelle 0, Kontakt-/Referenzdaten 55</sub>
 
@@ -1016,7 +972,7 @@ Unsere Stadtplanung erarbeitet Bebauungspläne, auch mit Festlegungen für gefö
 - **Antragstellung:** Wohnraumförderstelle am Bauort · Landkreis, Stadt oder Gemeinde: Vorabklärung, Formulare, Antrag
 - **Förderberatung:** NBank-Förderberatung Wohnraumförderung · 0511 30031-9333 · Mo–Fr 08:00–17:00 Uhr · wohnraumfoerderung@nbank.de · fünf Beratungsstellen im Land
 - **Aktuelle Informationen:** nbank.de · Verzeichnis der Wohnraumförderstellen, Bemessungsgrenzen, NBank-Karte, Vordrucke, Arbeitshilfen, Entgeltkatalog, Bauschild-Vorgaben
-- **Planung und Unterlagen:** PGN · (+49) 4261 9293-0 · Wir planen Ihr Vorhaben und erstellen die baufachlichen Antragsunterlagen (→ S. 20) · info@pgn-architekten.de
+- **Planung und Unterlagen:** PGN · (+49) 4261 9293-0 · Wir planen Ihr Vorhaben und erstellen die baufachlichen Antragsunterlagen (→ S. 19) · info@pgn-architekten.de
 
 #### Unterlagen (Auszug)
 
@@ -1042,7 +998,7 @@ Unsere Stadtplanung erarbeitet Bebauungspläne, auch mit Festlegungen für gefö
 - **Vorzeitige Rückzahlung.** Die Bindungen enden mit Ablauf des zehnten Kalenderjahres nach dem Rückzahlungsjahr, frühestens 20 Jahre nach Bindungsbeginn, spätestens zum regulären Ende.
   Beispiel: Bindungsbeginn 2028. Bei Rückzahlung 2040 enden die Bindungen am 31.12.2050; bei Rückzahlung 2032 erst 2048.
 
-**Beginn, Vergabe, Anzeigen** *(zu S. 19)*
+**Beginn, Vergabe, Anzeigen** *(zu S. 18)*
 
 - **Vorzeitiger Vorhabenbeginn.** Nur nach Zulassung durch die NBank, beantragt frühestens mit dem Förderantrag, auf eigenes Risiko.
 - **Vergabe.** Mindestens drei Unternehmen zum Angebot auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis 25.000 € netto.
@@ -1050,8 +1006,8 @@ Unsere Stadtplanung erarbeitet Bebauungspläne, auch mit Festlegungen für gefö
 
 ---
 
-<a id="seite-22"></a>
-## Seite 22 – PGN · Über uns
+<a id="seite-21"></a>
+## Seite 21 – PGN · Über uns
 
 <sub>innen · Layout: about-references · Kolumnentitel: PGN · Über uns · Wörter: Fließtext 88, Grafik/Tabelle 0, Kontakt-/Referenzdaten 74</sub>
 
@@ -1069,7 +1025,7 @@ Verantwortung. · Kostensicherheit. · Innovation. · Vertrauen.
 
 #### Leistungen und Auftraggeber
 
-Wir arbeiten für Wohnungsunternehmen und Wohnungsbaugenossenschaften, Investorinnen und Investoren, öffentliche Bauträger und Kommunen. Generalplanung, Architektur, Tragwerksplanung, Haustechnik sowie Stadt- und Landschaftsplanung leisten wir im eigenen Haus, in allen Leistungsphasen und mit einem Ansprechpartner für Ihr Vorhaben. Im Projektcontrolling planen und überwachen wir Kosten und Termine, abgestimmt auf Ihre Finanzierung. Die **PGN Projektgesellschaft Nord GmbH** entwickelt Projekte und baut schlüsselfertig (→ S. 20).
+Wir arbeiten für Wohnungsunternehmen und Wohnungsbaugenossenschaften, Investorinnen und Investoren, öffentliche Bauträger und Kommunen. Generalplanung, Architektur, Tragwerksplanung, Haustechnik sowie Stadt- und Landschaftsplanung leisten wir im eigenen Haus, in allen Leistungsphasen und mit einem Ansprechpartner für Ihr Vorhaben. Im Projektcontrolling planen und überwachen wir Kosten und Termine, abgestimmt auf Ihre Finanzierung. Die **PGN Projektgesellschaft Nord GmbH** entwickelt Projekte und baut schlüsselfertig (→ S. 19).
 
 **Wohnungsbau-Referenzen** <sub>(rechts im Modulkopf: Weitere Projekte: → pgn-architekten.de)</sub>
 
@@ -1085,10 +1041,12 @@ Wir arbeiten für Wohnungsunternehmen und Wohnungsbaugenossenschaften, Investori
 
 ---
 
-<a id="seite-23"></a>
-## Seite 23 – PGN · Impressum (U3)
+<a id="seite-22"></a>
+## Seite 22 – PGN · Impressum
 
-<sub>U3 · Layout: imprint · kein Kolumnentitel, keine Seitenzahl · Wörter: Fließtext 122, Grafik/Tabelle 0, Kontakt-/Referenzdaten 49</sub>
+<sub>innen · Layout: imprint · Kolumnentitel: PGN · Impressum · Wörter: Fließtext 122, Grafik/Tabelle 0, Kontakt-/Referenzdaten 49</sub>
+
+*PGN*
 
 ### Impressum und Hinweise
 
@@ -1103,7 +1061,7 @@ NBank und Land Niedersachsen sind nicht Herausgeber dieser Broschüre.
 
 > **[Zentraler Rechtshinweis] Hinweis**
 >
-> Alle Angaben ohne Gewähr, Stand 12.11.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind Rechenbeispiele, keine Förderzusage.
+> Alle Angaben ohne Gewähr, Stand 11/2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind Rechenbeispiele, keine Förderzusage.
 
 #### Rechtsgrundlage
 
@@ -1111,9 +1069,28 @@ RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtsc
 
 #### Quellen
 
-**Zitate:** Grant Hendrik Tonne und Michael Kiesewetter, Pressemitteilung MW vom 03.07.2026 (→ S. 2, 6). **Marktzahlen:** NBank-Wohnungsmarktbericht 2025 (→ S. 3, 7); NBank-Pressemitteilung zur Wohnungsmarktbeobachtung vom 05.12.2025 (→ S. 2); Landesregierung, Pressemitteilung vom 25.11.2025 (→ S. 18); NBank-Landkarte Wohnraumförderung (→ S. 18); ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20, und S. 34, Abb. 23 (→ S. 10).
+**Zitate:** Grant Hendrik Tonne und Michael Kiesewetter, Pressemitteilung MW vom 03.07.2026 (→ S. 2, 6). **Marktzahlen:** NBank-Wohnungsmarktbericht 2025 (→ S. 3, 7); NBank-Pressemitteilung zur Wohnungsmarktbeobachtung vom 05.12.2025 (→ S. 2); Landesregierung, Pressemitteilung vom 25.11.2025 (→ S. 17); NBank-Landkarte Wohnraumförderung (→ S. 17); ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht), S. 32, Abb. 20, und S. 34, Abb. 23 (→ S. 10).
 
-*[Logo PGN – logo-rot.svg]*
+---
+
+<a id="seite-23"></a>
+## Seite 23 – PGN · Quellen und Notizen
+
+<sub>U3 · Layout: sources-notes · Kolumnentitel: PGN · Quellen und Notizen · Wörter: Fließtext 0, Grafik/Tabelle 4 (die Quellen folgen)</sub>
+
+*PGN*
+
+### Quellen und Notizen
+
+**Quellen** (Tabelle über die volle Breite)
+
+| Quelle | Verwendet auf |
+|---|---|
+| *[Einträge folgen: „Herausgeber (Jahr): Titel. Fundstelle.“ | Blattnummern]* | |
+
+#### Notizen
+
+*[Fläche im 5-mm-Planraster bis zur Satzspiegel-Unterkante, ohne Text]*
 
 ---
 
@@ -1135,7 +1112,7 @@ RL Mietwohnraum 2026, Runderlass des Niedersächsischen Ministeriums für Wirtsc
 
 QR-Code → https://www.pgn-architekten.de (Label „www.pgn-architekten.de“)
 
-Schriftfeld: **Informationsbroschüre** Mietwohnraumförderung Niedersachsen 2026 – kein Stand (nur U1 und U3), keine Blattnummer auf dem Umschlag
+Schriftfeld: **Informationsbroschüre** Mietwohnraumförderung Niedersachsen 2026 – kein Stand (nur U1 und Impressum S. 22), keine Blattnummer auf dem Umschlag
 
 ---
 
@@ -1146,23 +1123,23 @@ Interne Liste, nicht Teil der Broschüre. Nach der Hinweis-Diät sind diese Punk
 
 1. **Bemessungsgrenzen:** erledigt am 12.11.2026. Die NBank nennt in den Produktinformationen (Stand 05.11.2026) die Werte seit 01.10.2026: 5.250 € (Mietenstufe I–III) und 5.460 € (IV–VII), Inseln 7.875 € und 8.190 €. S. 3, 4, 8, 10 und 14 nennen diese Werte; die Sensitivität S. 10 rechnet in der dritten Spalte mit 5.460 €.
 2. **Zuschläge in 2.1:** Lassen sich Housing First (+10 Prozentpunkte) und Modellprojekt (+5 Prozentpunkte) addieren? Vordruck 1011 nennt höchstens 85 % bzw. 90 %. Dürfen die Eigenmittel bei einem Zuschlag entsprechend unter 20 % sinken? Das Heft schreibt „mit Zuschlag entsprechend weniger“ (RL Nr. 5.2.6: „soweit sich aus den Fördersätzen nichts anderes ergibt“). (S. 3, 8, 9)
-3. **Antragsberechtigung:** Können Personengesellschaften ohne eigene Rechtspersönlichkeit (z. B. GbR) gefördert werden? Im Heft nicht erwähnt. (S. 4, 21)
+3. **Antragsberechtigung:** Können Personengesellschaften ohne eigene Rechtspersönlichkeit (z. B. GbR) gefördert werden? Im Heft nicht erwähnt. (S. 4, 20)
 4. **§ 4 Abs. 2 DVO-NWoFG** (bis +20 % für höchstens die Hälfte der Wohnungen ab 12 Wohnungen): Welche Fördersätze und Höchstmieten gelten für diese Wohnungen? (S. 6)
 5. **A-Haushalte in B/C-Wohnungen:** Teilt die NBank die Auslegung, dass A-Haushalte einziehen dürfen und dann die B/C-Höchstmiete zahlen (§ 7 NWoFG, RL Nr. 1.6)? Im Heft nicht mehr erwähnt. (S. 6)
 6. **Ostfriesische Inseln:** (a) Gilt der EH-40-Mietaufschlag von bis zu 0,30 € auch in 2.4? (b) Welche Mietenstufe und welche Mietobergrenzen gelten auf den Inseln in 2.2 und 2.3 (die Inselgemeinden stehen in Mietenstufe V)? (c) Wie grenzt sich ein EH-40-Neubau auf den Inseln zwischen 2.4 und 2.2 ab? (d) Wie wird der Ersterwerb in 2.4 bemessen? (e) Gelten die Sicherheitenregeln aus 2.1 auch in 2.4? (S. 5, 7, 9, 14)
 7. **2.2 EH-40-Neubau:** Gelten Bemessungsgrenze je m² und Bodenrichtwert-Deckel? Nr. 6.3.2 verweist nicht darauf. Dürfen 2.1 und 2.2 im selben Gebäude für verschiedene Wohnungen genutzt werden, mit getrennten Anträgen? (S. 13)
 8. **Überkompensationsprüfung:** Welchen 30-jährigen Swapsatz verwendet die NBank (Quelle, Referenz EURIBOR oder €STR, Stichtag, Mittelung), und welchen Betrachtungszeitraum? (S. 9)
 9. **Tilgung:** Welche Tilgungsmodalitäten (Satz, Rhythmus) setzt die NBank in der Regel fest? Die RL nennt keinen Satz; relevant für die Eckdaten (S. 9) und die Jahresrechnung der Modellrechnung (S. 11: Tilgung 2,38 % p. a. als PGN-Annahme, linear über 42 Jahre; S. 11/12: Tilgungsschwellen 1,91 % (C) bzw. 1,80 % (B)).
-10. **Mietenstufen ab 01.01.2027** (Entwurf BR-Drs. 474/26): Wie wirkt eine Neuzuordnung auf laufende Anträge und bereits bewilligte Vorhaben (Bedarf, Bemessungsgrenze, Höchstmiete)? (S. 7, 16, 18)
-11. **Klassensprung ab 2027:** Wie bewertet die NBank den Klassensprung, wenn Ausgangs- und Abschlussausweis auf unterschiedlichen Rechennormen beruhen (DIN V 18599 → DIN/TS 18599:2025-10)? (S. 15, 16)
-12. **Antragsunterlagen:** Gilt die Checkliste vom 20.07.2025 für die RL 2026 weiter, oder erscheint eine aktualisierte Fassung? Der bisherige Stand-Hinweis („Grundlage: NBank-Checklisten vom 20.07.2025 (vor der RL 2026) und 22.09.2026 (2.5). Nachforderungen sind möglich.“) ist im Heft entfallen. (S. 21)
+10. **Mietenstufen ab 01.01.2027** (Entwurf BR-Drs. 474/26): Wie wirkt eine Neuzuordnung auf laufende Anträge und bereits bewilligte Vorhaben (Bedarf, Bemessungsgrenze, Höchstmiete)? (S. 7, 17)
+11. **Klassensprung ab 2027:** Wie bewertet die NBank den Klassensprung, wenn Ausgangs- und Abschlussausweis auf unterschiedlichen Rechennormen beruhen (DIN V 18599 → DIN/TS 18599:2025-10)? (S. 15)
+12. **Antragsunterlagen:** Gilt die Checkliste vom 20.07.2025 für die RL 2026 weiter, oder erscheint eine aktualisierte Fassung? Der bisherige Stand-Hinweis („Grundlage: NBank-Checklisten vom 20.07.2025 (vor der RL 2026) und 22.09.2026 (2.5). Nachforderungen sind möglich.“) ist im Heft entfallen. (S. 20)
 13. **Hinweis, nicht broschürenrelevant:** In der Arbeitshilfe „Kosten-Finanzierungsaufteilung (08/26)“ verweist die Darlehensprüfung für Gruppe C auf Zelle E21 statt E15.
 14. **Redaktionell:** Das Zitat von Michael Kiesewetter (S. 6; MW-Presseinformation vom 03.07.2026) steht jetzt in einer Broschüre der PGN – Verwendung bitte mit der NBank-Pressestelle abstimmen (Freigabe beider Zitate → Anhang B, Nr. 6).
 15. **KfW bei Änderung und Erweiterung (2.1):** Lassen sich KfW 298 oder 296 mit Dachausbau, Aufstockung oder Anbau nach 2.1 kombinieren? Die KfW-Merkblätter regeln das nicht ausdrücklich (Rückfrage an KfW bzw. Hausbank; im Heft nur Neubau und Ersterwerb genannt). (S. 8, 14)
 16. **Modernisierung (2.3), Gebäudekosten je Wohnung:** Die RL nennt keinen Schlüssel, nach dem gebäudebezogene Modernisierungskosten auf gebundene und ungebundene Wohnungen verteilt werden; die NBank-Arbeitshilfe „Kosten-Finanzierungsaufteilung“ (08/2026) verteilt nach Wohnflächenanteil × Anteil umbauter Raum. Rechnet die NBank im Bewilligungsverfahren genauso? (S. 15)
 17. **Modernisierung (2.3) und BEG:** Zählt der NBank-Zuschuss bei der 60-%-Kumulierungsgrenze von BEG WG (KfW 261) bzw. BEG EM als öffentliches Fördermittel mit, soweit er dieselben Kosten betrifft? Das Heft folgt dem Wortlaut der BEG-Regeln und rechnet ihn ein. (S. 15)
-18. **Bindungserwerb (2.5), Zwischenlaufzeiten:** Bestätigt die NBank, dass bei Bindungsdauern zwischen den Stufen der Satz der erreichten Stufe gilt (z. B. 12 Jahre: 2,50 €)? Die RL regelt das nicht ausdrücklich; im Heft steht die Lesart nach dem Wortlaut „mindestens zehnjährig“. (S. 17)
-19. **Bindungserwerb (2.5), andere Förderungen:** Welche Förderungen für denselben Zweck lassen sich mit dem Bindungserwerb kombinieren (RL Nr. 11.4), und wie prüft die NBank dabei die Überkompensation? Der Hinweis steht nicht im Heft. (S. 17)
+18. **Bindungserwerb (2.5), Zwischenlaufzeiten:** Bestätigt die NBank, dass bei Bindungsdauern zwischen den Stufen der Satz der erreichten Stufe gilt (z. B. 12 Jahre: 2,50 €)? Die RL regelt das nicht ausdrücklich; im Heft steht die Lesart nach dem Wortlaut „mindestens zehnjährig“. (S. 16)
+19. **Bindungserwerb (2.5), andere Förderungen:** Welche Förderungen für denselben Zweck lassen sich mit dem Bindungserwerb kombinieren (RL Nr. 11.4), und wie prüft die NBank dabei die Überkompensation? Der Hinweis steht nicht im Heft. (S. 16)
 
 ---
 
@@ -1195,7 +1172,7 @@ Noch zu bestätigen (ohne Platzhalter im Heft):
 
 - **Schlussabgleich:** Die Werte der S. 10–12 sind am 11.11.2026 Zelle für Zelle gegen die Mappe geprüft (Projekt 2; Übersicht Zeilen 9–26, 29–39, 49, 55–72, 111–112; Sensitivität aus zwei weiteren Läufen). Die Prüfung der Mappe (`pruefe_vofi.py`, F9) und der Abgleich der Präsentation lesen die Seiten-JSONs und laufen seit 12.11.2026 ohne Abweichung durch. Ändern sich Annahmen, rechnet die Redaktion S. 10–12 und die Marke auf S. 13 nach.
 - **Angaben zum Projekt:** Ort, 14 Wohnungen, 828 m², Effizienzhaus 55 und „Grundstück im Bestand, nicht angesetzt“ für die Veröffentlichung freigeben. Der Wohnungsmix liegt der Redaktion nicht vor; der Vorspann S. 10 nennt die mittlere Größe (59 m²).
-- **Kostenansätze S. 10:** 3.579 € je m² (Median aus fünf PGN-Projekten, Kostengruppen 200 bis 700, Kostenstand Q4 2025) und 4.631 € je m² (ARGE-Median deutscher Großstädte, Q4 2025) bestätigen. Die Quelle des ARGE-Werts steht seit 12.11.2026 auf U3 unter „Quellen“ (ARGE e. V. (2026): Wohnungsbau in Deutschland 2026, Endbericht, S. 32, Abb. 20, und S. 34, Abb. 23); die Rückfrage dazu ist erledigt.
+- **Kostenansätze S. 10:** 3.579 € je m² (Median aus fünf PGN-Projekten, Kostengruppen 200 bis 700, Kostenstand Q4 2025) und 4.631 € je m² (ARGE-Median deutscher Großstädte, Q4 2025) bestätigen. Die Quelle des ARGE-Werts steht seit 12.11.2026 im Impressum (S. 22) unter „Quellen“ (ARGE e. V. (2026): Wohnungsbau in Deutschland 2026, Endbericht, S. 32, Abb. 20, und S. 34, Abb. 23); die Rückfrage dazu ist erledigt.
 - **Betriebskosten voll umgelegt:** Zeile 2 sagt ausdrücklich „(Betriebskosten voll umgelegt)“, die Mappe setzt keine nicht umlagefähigen Betriebskosten an (auch nicht bei Leerstand). Bestätigen, dass das bewusst so ist (PRUEFBERICHT 6 Nr. 3).
 - **Tilgungssatz 2,38 %:** mit der NBank abgestimmt oder eigene PGN-Setzung? (PRUEFBERICHT 6 Nr. 1; → Anhang A Nr. 9). Im Heft als „(Annahme)“ gekennzeichnet.
 - **Preisstand:** 367 € und 14,40 € je m² sind Werte von 2026; auf das erste Bewirtschaftungsjahr 2028 fortgeschrieben (Eingabe 5.5 = 2) sinkt der Zahlungsüberschuss in Jahr 1 um rund 690 € je Gruppe auf 14.313 / 10.871 / 10.123 €.
@@ -1205,48 +1182,48 @@ Noch zu bestätigen (ohne Platzhalter im Heft):
 Zur Entscheidung durch PGN:
 
 - **(a) Tenor S. 11:** erledigt. Mit dem PGN-Projekt schließen A, B und C Jahr 1 mit einem Zahlungsüberschuss (15.003 / 11.560 / 10.812 €); die Mappe zeigt in Jahr 1 bis 35 kein Jahr mit Fehlbetrag (Übersicht 3.6). Headline (Kunde, 11.11.2026): „Alle drei Gruppen tragen sich ab Jahr 1: 15.003 € Zahlungsüberschuss in A“, seit 12.11.2026 als zweite Stimme und Hauptzeile gesetzt, ohne Doppelpunkt. Beim früheren Modellhaus schlossen B und C Jahr 1 mit einem Fehlbetrag.
-- **(b) Tilgungsaufschub:** Bei einem vorübergehenden Fehlbetrag kann die NBank den Beginn der Tilgung bis zu fünf Jahre hinausschieben (RL Nr. 5.3.5, Ermessen, kein Anspruch; im Heft auf S. 21 unter „Tilgungsaufschub“). Für das Modellhaus gibt es dazu keinen Anlass mehr; ein Hinweis auf S. 11 entfällt.
+- **(b) Tilgungsaufschub:** Bei einem vorübergehenden Fehlbetrag kann die NBank den Beginn der Tilgung bis zu fünf Jahre hinausschieben (RL Nr. 5.3.5, Ermessen, kein Anspruch; im Heft auf S. 20 unter „Tilgungsaufschub“). Für das Modellhaus gibt es dazu keinen Anlass mehr; ein Hinweis auf S. 11 entfällt.
 - **(c) Verweis S. 4 → S. 11:** Der Grundcheck auf S. 4 sagte „die erzielbare Miete muss Finanzierung und Bewirtschaftung auf Dauer decken → S. 11“. Der Verweis ist im Lektorat vom 11.11.2026 gestrichen (Befund Nr. 11), weil B und C das beim früheren Modellhaus in Jahr 1 nicht erfüllten; der Satz selbst bleibt. Mit dem PGN-Projekt erfüllen es alle drei Gruppen. Ob der Verweis zurückkommt, entscheidet PGN; im Heft steht er zurzeit nicht.
 - **(d) Kosten über dem Modellhaus:** Bei 4.631 € je m² bleibt in Jahr 1 nur in A ein Zahlungsüberschuss (4.965 €); an der Bemessungsgrenze von 5.460 € fehlen auch in A 2.945 €. B und C schließen in beiden Fällen mit einem Fehlbetrag (B −3.497 / −15.362 €, C −6.754 / −20.597 €). A trägt sich bis rund 5.150 € je m². Die Tabelle S. 10 zeigt Gruppe A. Soll sie B und C nennen, entscheidet PGN.
 
-### 2. Impressum und Geschäftsführung (U3)
+### 2. Impressum und Geschäftsführung (S. 22)
 
 - Bei Veröffentlichung ab 01.01.2027 Geschäftsführung aktualisieren.
 - Herausgeberzeile: Im Heft steht nur der Firmenname „Planungsgemeinschaft Nord GmbH“. Der Zusatz „PGN Architekten und Ingenieure“ (REDAKTIONSREGELN §1) ist auf der Website nicht belegt (dort: „Architekten. Stadtplaner. Ingenieure.“) – Wortlaut bestätigen. Ebenso das Label „Geschäftsführung“ (vier Namen laut Team-Seite) statt „Vertreten durch“ (Website-Impressum: nur Norbert Behrens).
 - PDF-Metadaten (Titel, Autor „Planungsgemeinschaft Nord GmbH“, Betreff) bestätigen.
 
-### 3. Gründungsjahr-Angabe (S. 2, S. 22)
+### 3. Gründungsjahr-Angabe (S. 2, S. 21)
 
-Das Heft schreibt wörtlich nach der Website „Seit 1981“ (S. 2 Editorial, S. 22 Headline) und „45 Jahre PGN“ (Label S. 22) – nie „gegründet 1981“. Hintergrund: Laut Rotenburger Kreiszeitung vom 21.09.2026 (auf der PGN-Website verlinkt) entstand die Firma 1979 in Visselhövede, Norbert Behrens stieg 1981 ein; der Umzug nach Rotenburg (Wümme) folgte 1990 (deshalb S. 2: „heute von Rotenburg (Wümme) aus“). PGN bestätigt die Formulierung.
+Das Heft schreibt wörtlich nach der Website „Seit 1981“ (S. 2 Editorial, S. 21 Headline) und „45 Jahre PGN“ (Label S. 21) – nie „gegründet 1981“. Hintergrund: Laut Rotenburger Kreiszeitung vom 21.09.2026 (auf der PGN-Website verlinkt) entstand die Firma 1979 in Visselhövede, Norbert Behrens stieg 1981 ein; der Umzug nach Rotenburg (Wümme) folgte 1990 (deshalb S. 2: „heute von Rotenburg (Wümme) aus“). PGN bestätigt die Formulierung.
 
 ### 4. Bildrechte und Originalfotos
 
-- Hochaufgelöste Originale anfordern: Die Website-Panoramen der Referenzen S. 22 haben 1800 × 740 px; der Dateiname der Brauerstraße deutet auf ein Original mit 5120 px Breite.
+- Hochaufgelöste Originale anfordern: Die Website-Panoramen der Referenzen S. 21 haben 1800 × 740 px; der Dateiname der Brauerstraße deutet auf ein Original mit 5120 px Breite.
 - Wo vorhanden, Originalfotos fertiggestellter Gebäude statt Visualisierungen bereitstellen (Lindenhof ist fertiggestellt); im Heft trägt jede Visualisierung das Label „Visualisierung“.
-- Optionales Teamfoto S. 20 (planung_big.jpg): Nutzungsrecht und Einverständnis der abgebildeten Personen.
-- S. 14, Lageskizze der Ostfriesischen Inseln: eigene, stark generalisierte Umrisse (13–28 Punkte je Insel), gezeichnet nach OSM-Küstenlinien (© OpenStreetMap-Mitwirkende, ODbL). Entscheiden, ob der Bildnachweis auf U3 ergänzt wird: „Inselumrisse S. 14 generalisiert nach OpenStreetMap (© OpenStreetMap-Mitwirkende, ODbL)“.
+- Optionales Teamfoto S. 19 (planung_big.jpg): Nutzungsrecht und Einverständnis der abgebildeten Personen.
+- S. 14, Lageskizze der Ostfriesischen Inseln: eigene, stark generalisierte Umrisse (13–28 Punkte je Insel), gezeichnet nach OSM-Küstenlinien (© OpenStreetMap-Mitwirkende, ODbL). Entscheiden, ob der Bildnachweis im Impressum (S. 22) ergänzt wird: „Inselumrisse S. 14 generalisiert nach OpenStreetMap (© OpenStreetMap-Mitwirkende, ODbL)“.
 
 ### 5. Freigabe Logo, CI und CMYK-Werte
 
-- Negativ-Wortmarke (`logo-negativ.svg` / `logo-weiss.svg`) für den roten Umschlag U1 und U4 freigeben (bis dahin `logo-rot.svg` auf weißem Logofeld; danach können die weißen Logofelder entfallen); `logo-rot.svg` auf U3; Grün (#26772B, ggf. `logo-gruen.svg`) nur für die PGN Projektgesellschaft Nord GmbH (S. 20, 22).
+- Negativ-Wortmarke (`logo-negativ.svg` / `logo-weiss.svg`) für den roten Umschlag U1 und U4 freigeben (bis dahin `logo-rot.svg` auf weißem Logofeld; danach können die weißen Logofelder entfallen); Grün (#26772B, ggf. `logo-gruen.svg`) nur für die PGN Projektgesellschaft Nord GmbH (S. 19, 21).
 - Druckfarben: CMYK- bzw. Pantone-Werte für PGN-Rot #B71E3F (Verlauf nach #8B2939), Anthrazit #3C3C3B und Grün #26772B bei PGN oder der Agentur (klar Werbeagentur GmbH) erfragen – keine automatische Umrechnung. PGN-Rot für den durchgehend roten Umschlag möglichst als Sonderfarbe.
 - Andruck des roten Umschlags prüfen: weiße Linien von 0,16 mm und Klinkertextur der Axonometrie auf dem Rotverlauf (U1).
-- Anwendung des PGN-CI im Heft freigeben (Montserrat/Work Sans, rote 2-pt-Linie, roter Verlauf, Werte-Icons S. 22, Low-Poly-Ornament U4 als Vektor oder Hi-Res).
+- Anwendung des PGN-CI im Heft freigeben (Montserrat/Work Sans, rote 2-pt-Linie, roter Verlauf, Werte-Icons S. 21, Low-Poly-Ornament U4 als Vektor oder Hi-Res).
 
 ### 6. Freigabe Zitate
 
 - Grant Hendrik Tonne (S. 2) und Michael Kiesewetter (S. 6), wörtlich aus der MW-Pressemitteilung vom 03.07.2026: Verwendung in einer Broschüre der PGN mit den Pressestellen von MW und NBank abstimmen (→ Anhang A Nr. 14); bis zur Freigabe beide Zitate unverändert lassen.
-- PGN-Claims wörtlich von der Website freigeben: „Aus Ihrer guten Idee – machen wir den besten Plan.“ (U4), „Ihre Generalplaner aus dem Norden. Seit 1981.“ (S. 22), „Ein Ansprechpartner für alles“ (S. 20), Werte „Verantwortung. Kostensicherheit. Innovation. Vertrauen.“ unter „Für Sie denken wir an:“ (S. 22), Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ (S. 2).
+- PGN-Claims wörtlich von der Website freigeben: „Aus Ihrer guten Idee – machen wir den besten Plan.“ (U4), „Ihre Generalplaner aus dem Norden. Seit 1981.“ (S. 21), „Ein Ansprechpartner für alles“ (S. 19), Werte „Verantwortung. Kostensicherheit. Innovation. Vertrauen.“ unter „Für Sie denken wir an:“ (S. 21), Signatur „Ihre PGN – Architekten. Stadtplaner. Ingenieure.“ (S. 2).
 
 ### 7. Leistungsaussagen, Referenzen, Kontakt
 
-- S. 20/24: Bezeichnung „Förder-Check“ freigeben (auf der Website nicht belegt). Bis dahin steht neutral „Förderung und Machbarkeit“ (S. 20); U4 nennt nach Korrekturlauf 1 (Regel B3) keinen Angebotsnamen („Wir planen Ihr Vorhaben im geförderten Mietwohnungsbau, in allen Leistungsphasen. Sprechen Sie uns an.“).
-- S. 20, Station 1: „… ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung“ ersetzt die gestrichene Rechen-Zusage – als Leistung bestätigen.
-- S. 20, Station 5: „Wir schreiben die Bauleistungen richtlinienkonform aus und vergeben sie nach der Bewilligung“ (Kundenwortlaut). Rechtlich vergibt der Bauherr als Zuwendungsempfänger; PGN führt Ausschreibung und Vergabe für ihn durch – Formulierung bestätigen.
-- S. 20: gestufte Beauftragung bestätigen (LPH 1–6 vor, ab LPH 7 nach der Bewilligung); Zulieferung für den Verwendungsnachweis (Station 7) als Leistung bestätigen – übernimmt PGN den Verwendungsnachweis selbst, Text anpassen.
-- S. 20 „Schlüsselfertig“: Erteilt die PGN Projektgesellschaft Nord GmbH als Generalübernehmer die schriftliche Prüfzustimmung (Kalkulation, Nachunternehmervergabe, Abrechnung)? Wenn ja, Satz „Diese Zustimmung geben wir.“ ergänzen. Intern beachten: Der GÜ-Vertrag ist ein Werkvertrag – vor der Bewilligung geschlossen, ist er Vorhabenbeginn.
-- S. 15: Angebotssatz „Energetische Gesamtmaßnahmen planen wir mit eigener Architektur und Haustechnik.“ bestätigen (einziger PGN-Satz auf den Fachseiten S. 3–19).
-- S. 22: Referenzauswahl, Nennung der Auftraggeber (Wohnungsbau-Genossenschaft Rotenburg (Wümme) eG, kwg Kreiswohnbaugesellschaft Hildesheim mbH, IDB mbH & Co. Stade-Altes Land KG) und die Förderangabe „Mit Förderung der NBank“ (Brauerstraße, Website: „N-Bank“; ebenso Bildzeile U1) freigeben.
+- S. 19/24: Bezeichnung „Förder-Check“ freigeben (auf der Website nicht belegt). Bis dahin steht neutral „Förderung und Machbarkeit“ (S. 19); U4 nennt nach Korrekturlauf 1 (Regel B3) keinen Angebotsnamen („Wir planen Ihr Vorhaben im geförderten Mietwohnungsbau, in allen Leistungsphasen. Sprechen Sie uns an.“).
+- S. 19, Station 1: „… ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung“ ersetzt die gestrichene Rechen-Zusage – als Leistung bestätigen.
+- S. 19, Station 5: „Wir schreiben die Bauleistungen richtlinienkonform aus und vergeben sie nach der Bewilligung“ (Kundenwortlaut). Rechtlich vergibt der Bauherr als Zuwendungsempfänger; PGN führt Ausschreibung und Vergabe für ihn durch – Formulierung bestätigen.
+- S. 19: gestufte Beauftragung bestätigen (LPH 1–6 vor, ab LPH 7 nach der Bewilligung); Zulieferung für den Verwendungsnachweis (Station 7) als Leistung bestätigen – übernimmt PGN den Verwendungsnachweis selbst, Text anpassen.
+- S. 19 „Schlüsselfertig“: Erteilt die PGN Projektgesellschaft Nord GmbH als Generalübernehmer die schriftliche Prüfzustimmung (Kalkulation, Nachunternehmervergabe, Abrechnung)? Wenn ja, Satz „Diese Zustimmung geben wir.“ ergänzen. Intern beachten: Der GÜ-Vertrag ist ein Werkvertrag – vor der Bewilligung geschlossen, ist er Vorhabenbeginn.
+- S. 15: Angebotssatz „Energetische Gesamtmaßnahmen planen wir mit eigener Architektur und Haustechnik.“ bestätigen (einziger PGN-Satz auf den Fachseiten S. 3–18).
+- S. 21: Referenzauswahl, Nennung der Auftraggeber (Wohnungsbau-Genossenschaft Rotenburg (Wümme) eG, kwg Kreiswohnbaugesellschaft Hildesheim mbH, IDB mbH & Co. Stade-Altes Land KG) und die Förderangabe „Mit Förderung der NBank“ (Brauerstraße, Website: „N-Bank“; ebenso Bildzeile U1) freigeben.
 - U4: persönliche Ansprechperson gewünscht? Belegt wäre Norbert Behrens, Geschäftsführung – Akquisition, (+49) 4261 9293-71 (Stand 21.10.2026); nur nach Freigabe.
 
 ### 8. Offene Punkte aus Korrekturlauf 1
@@ -1255,5 +1232,5 @@ Das Heft schreibt wörtlich nach der Website „Seit 1981“ (S. 2 Editorial, S.
 - **U1, Bildzeile:** „Referenzprojekt Brauerstraße, Rotenburg (Wümme) · 19 barrierefreie Wohnungen · mit Förderung der NBank“ statt des Vorschlags „19 geförderte Mietwohnungen“ – dass alle 19 Wohnungen gefördert sind, ist nicht belegt. Bestätigen oder die Zahl der geförderten Wohnungen liefern.
 - **U1/U4, Ermessensentscheidungen:** Blattnummer auch auf U4 entfernt (Vorgabe nur für U1); U4-Schriftfeld ebenfalls rot, damit U4|U1 aufgeklappt durchgehend rot ist – bestätigen.
 - **S. 2, Headline** „Damit sich Investieren wieder rechnet“ bleibt. Falls PGN sie als Versprechen liest: sachliche Alternative „Zuschuss statt Tilgungsnachlass“.
-- **S. 3/17, Umfang 2.5 und 2.6:** Beide stehen kompakt auf S. 17; die Kachel „3,00 € Zuschuss für den Bindungserwerb (2.5)“ auf S. 3 bleibt. Soll 2.5/2.6 weiter zurücktreten, wäre dort eine andere Kennzahl möglich (z. B. 2.4) – Kundenentscheidung.
+- **S. 3/16, Umfang 2.5 und 2.6:** Beide stehen kompakt auf S. 16; die Kachel „3,00 € Zuschuss für den Bindungserwerb (2.5)“ auf S. 3 bleibt. Soll 2.5/2.6 weiter zurücktreten, wäre dort eine andere Kennzahl möglich (z. B. 2.4) – Kundenentscheidung.
 - **S. 12 (neu), „Über 1,91 % Tilgung liegt Gruppe A vorn“** (vorher „Welcher Mix rechnet sich?“): Seite freigeben – Entscheidungslogik ohne Empfehlung, Rechnung aus den Zahlen von S. 10/11, Schwellen mit 2 % Mietausfall (1,80 % / 1,91 %, → Nr. 1).

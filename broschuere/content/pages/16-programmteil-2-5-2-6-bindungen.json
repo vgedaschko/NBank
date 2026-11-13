@@ -1,5 +1,5 @@
 {
-  "no": 17,
+  "no": 16,
   "slug": "programmteil-2-5-2-6-bindungen",
   "layout_type": "program-detail",
   "running_title": "Bestand · Programmteile 2.5 und 2.6",
@@ -50,7 +50,7 @@
           "label": "Wohnung",
           "cells": [
             "frei, ohne andere Belegungsbindung; nicht im direkten Anschluss an eine auslaufende Bindung (dafür 2.6)",
-            "vom Land gefördert, Bindung läuft planmäßig aus, ist nicht bereits ausgelaufen; Bedarf besteht fort (→ S. 18)"
+            "vom Land gefördert, Bindung läuft planmäßig aus, ist nicht bereits ausgelaufen; Bedarf besteht fort (→ S. 17)"
           ]
         },
         {
@@ -143,5 +143,5 @@
     "F255",
     "F279"
   ],
-  "visual_idea": "Korrekturlauf 1: 2.5 und 2.6 kompakt auf einer Seite („der Vollständigkeit halber“). Rechte Seite der Bestandsdoppelseite 16|17. Zwei Daumenregister 2.5 (--bs-25) und 2.6 (--bs-26) am Außenrand, Schlüsselplan mit beiden Programmteilen aktiv. Kopf wie die übrigen Programmseiten (program-head--master): Kopfzeile mit Rubrik „Bestand“ und Schlüsselplan (2.5 und 2.6 aktiv); „Belegungs- und Mietbindungen“ als zweite Stimme (Montserrat 300, 15,5 pt, Versalien) über dem H1 in Montserrat Black Versalien 25 pt mit roter Titellinie, Rot nur am Wort „Bindungen“; Unterzeile in Work Sans 12 pt, gemischt gesetzt, mit den beiden Kennwerten halbfett in Schwarz; Gegenstandssatz darunter. Nummernblock außen: „2.5“ und „2.6“ übereinander in den Programmfarben (46 pt), darunter „Programmteile“ und die Chips „Zuschuss“ | „Zinsverbilligung“. Dominant: Eckdaten-Vergleich über die volle Satzbreite im Spaltenraster der Vergleichstabelle auf S. 16 (Bezeichnung 2 Spalten + Steg | 2.5 Spalten 3–7 + Steg | 2.6 Spalten 8–12); Spaltenköpfe mit Balken in der Programmfarbe und Nummernchip; erste Zeile „Förderung“ mit den Kennwerten 2,00–3,00 € und 0 % in Montserrat 800 (21 pt, Einheit rot); Zeilen, die für beide Programmteile gelten (Zustand/Größe, Miete ab Jahr 4), laufen über beide Spalten und tragen die Chips 2.5 | 2.6; Stopp-Marke vor „Vor der Bewilligung weder Mietvertrag noch Überlassung“. Kein Diagramm, kein Stempel, keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile."
+  "visual_idea": "Korrekturlauf 1: 2.5 und 2.6 kompakt auf einer Seite („der Vollständigkeit halber“). Seit der Änderungsrunde vom 13.11.2026 linke Seite der Doppelseite 16|17 (Bindungen | Standort und Kommune); Nummernblock, Programm-Tags und Register stehen außen links. Gemeinsame Horizonte mit S. 17: Kopfzeile mit Schlüsselplan (S. 17 hält dieselbe Höhe), H1, erste Bandlinie = Oberkante Spaltenkopf (85,8 mm), Unterkante 273 mm. Zwei Daumenregister 2.5 (--bs-25) und 2.6 (--bs-26) am Außenrand, Schlüsselplan mit beiden Programmteilen aktiv. Kopf wie die übrigen Programmseiten (program-head--master): Kopfzeile mit Rubrik „Bestand“ und Schlüsselplan (2.5 und 2.6 aktiv); „Belegungs- und Mietbindungen“ als zweite Stimme (Montserrat 300, 15,5 pt, Versalien) über dem H1 in Montserrat Black Versalien 25 pt mit roter Titellinie, Rot nur am Wort „Bindungen“; Unterzeile in Work Sans 12 pt, gemischt gesetzt, mit den beiden Kennwerten halbfett in Schwarz; Gegenstandssatz darunter. Nummernblock außen: „2.5“ und „2.6“ übereinander in den Programmfarben (46 pt), darunter „Programmteile“ und die Chips „Zuschuss“ | „Zinsverbilligung“. Dominant: Eckdaten-Vergleich über die volle Satzbreite (Bezeichnung 2 Spalten + Steg | 2.5 Spalten 3–7 + Steg | 2.6 Spalten 8–12); Spaltenköpfe mit Balken in der Programmfarbe und Nummernchip; erste Zeile „Förderung“ mit den Kennwerten 2,00–3,00 € und 0 % in Montserrat 800 (21 pt, Einheit rot); Zeilen, die für beide Programmteile gelten (Zustand/Größe, Miete ab Jahr 4), laufen über beide Spalten und tragen die Chips 2.5 | 2.6; Stopp-Marke vor „Vor der Bewilligung weder Mietvertrag noch Überlassung“. Kein Diagramm, kein Stempel, keine Kalkulationsnotiz, keine Fußnote, keine Quellenzeile."
 }

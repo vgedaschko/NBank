@@ -1,9 +1,12 @@
-<section class="page page--dicht" data-page="18" id="seite-18">
+<section class="page page--dicht" data-page="17" id="seite-17">
   <style>
-    /* Seite 18 · Standort und Kommune · Planwerk. Linke Seite der Doppelseite 18|19 „Umsetzung“.
+    /* Seite 17 · Standort und Kommune · Planwerk. Rechte Seite der Doppelseite 16|17 „Bestand | Umsetzung“ (seit der
+       Änderungsrunde vom 13.11.2026; vorher linke Seite neben dem Antragsweg).
        Dominant: Vorrang-Leiter (7 Spalten) als Treppe im Schnitt; daneben der Ring mit QR-Code (5 Spalten).
        Unten „Instrumente der Kommune“ in drei Karten und die Zeile „Freistellung von der Belegungsbindung“.
-       Gemeinsame Horizonte mit S. 19: Kopfzeile, H1, Oberkante Instrumente = Oberkante Ampel (199,1 mm), Unterkante.
+       Gemeinsame Horizonte mit S. 16: Kopfzeile in der Höhe der Kopfzeile mit Schlüsselplan (8,46 mm; hier ohne Schlüsselplan),
+       H1, erste Bandlinie = Oberkante Leiter und Ring (85,8 mm) = Oberkante Spaltenkopf der Vergleichstabelle auf S. 16,
+       Unterkante 273 mm.
        Farben nur über Tokens. Korrekturlauf 1: H1/Deck/Lead sachlich (kein Dreiklang-Teaser, keine Handlungsanweisung),
        Run-in als Aussage statt Frage.
        Stufung und Zuteilung nach styles.css §8b: Kopfzeile mit Rubrik statt Kicker, H1 25 pt, Unterzeile und Vorspann
@@ -13,62 +16,63 @@
        nicht auf. --fs-module wird in :root aufgelöst und folgt .page--dicht nicht von selbst, deshalb hier neu gebunden.
        Modultext mit Zeilenabstand 1,34, einheitlich auf der ganzen Seite. */
 
-    .page[data-page="18"] { --fs-module: var(--fs-small); --lh-module: 1.34; }
+    .page[data-page="17"] { --fs-module: var(--fs-small); --lh-module: 1.34; }
+    .page[data-page="17"] .page__header { min-height: 8.46mm; }   /* Höhe der Kopfzeile mit Schlüsselplan wie auf S. 16 (Doppelseite nie gemischt) */
 
     /* Kopf ------------------------------------------------------------------- */
-    .page[data-page="18"] .p18-head .deck { margin-top: 3mm; }
-    .page[data-page="18"] .p18-head .lead { margin-top: 3.4mm; }
-    .page[data-page="18"] .p18-head .body { margin-top: 2.2mm; color: var(--fg-2); }
-    .page[data-page="18"] .p18-head .body b { font-weight: 600; color: var(--fg); }   /* Programmnummern wie im Vorspann: Schwarz */
+    .page[data-page="17"] .p18-head .deck { margin-top: 3mm; }
+    .page[data-page="17"] .p18-head .lead { margin-top: 3.4mm; }
+    .page[data-page="17"] .p18-head .body { margin-top: 2.2mm; color: var(--fg-2); }
+    .page[data-page="17"] .p18-head .body b { font-weight: 600; color: var(--fg); }   /* Programmnummern wie im Vorspann: Schwarz */
 
     /* Beide Spalten des Bandes schließen unten gemeinsam: der Kasten unter der Leiter steht an der Unterkante */
-    .page[data-page="18"] .p18-main { margin-top: 6.94mm; align-items: stretch; }   /* Oberkante „Instrumente“ = Oberkante Ampel auf S. 19 */
-    .page[data-page="18"] .p18-ladder { display: flex; flex-direction: column; }
+    .page[data-page="17"] .p18-main { margin-top: 5.23mm; align-items: stretch; }   /* Oberkante Leiter und Ring = Oberkante Spaltenkopf auf S. 16 (85,8 mm) */
+    .page[data-page="17"] .p18-ladder { display: flex; flex-direction: column; }
 
     /* Vorrang-Leiter: Stufen 28 → 8 mm (Rang 1 oben, am breitesten), Grautonleiter seq-6 → seq-1 --------------------- */
-    .page[data-page="18"] .p18-ranks { margin-top: 3.4mm; margin-bottom: 3.4mm; }
-    .page[data-page="18"] .p18-rank { display: grid; grid-template-columns: 28mm 5mm minmax(0, 1fr); column-gap: 3mm; align-items: center; min-height: 10.2mm; }
-    .page[data-page="18"] .p18-step { align-self: start; height: 10.2mm; width: var(--w); display: flex; align-items: center; justify-content: flex-end; padding-right: 1.6mm; border-bottom: .4mm solid var(--surface); font: 900 var(--fs-h3)/1 var(--font-display); letter-spacing: -.02em; font-variant-numeric: lining-nums tabular-nums; }
-    .page[data-page="18"] .p18-rank:last-child .p18-step { border-bottom: 0; box-shadow: inset 0 0 0 var(--hair) var(--seq-3); }
-    .page[data-page="18"] .p18-rank .icon { align-self: start; width: 5mm; height: 5mm; margin-top: 2.6mm; color: var(--fg); }
+    .page[data-page="17"] .p18-ranks { margin-top: 3.4mm; margin-bottom: 3.4mm; }
+    .page[data-page="17"] .p18-rank { display: grid; grid-template-columns: 28mm 5mm minmax(0, 1fr); column-gap: 3mm; align-items: center; min-height: 10.2mm; }
+    .page[data-page="17"] .p18-step { align-self: start; height: 10.2mm; width: var(--w); display: flex; align-items: center; justify-content: flex-end; padding-right: 1.6mm; border-bottom: .4mm solid var(--surface); font: 900 var(--fs-h3)/1 var(--font-display); letter-spacing: -.02em; font-variant-numeric: lining-nums tabular-nums; }
+    .page[data-page="17"] .p18-rank:last-child .p18-step { border-bottom: 0; box-shadow: inset 0 0 0 var(--hair) var(--seq-3); }
+    .page[data-page="17"] .p18-rank .icon { align-self: start; width: 5mm; height: 5mm; margin-top: 2.6mm; color: var(--fg); }
     /* Rang 6: zweizeiliges Detail – Stufe bleibt 10,2 mm hoch (gleiche Steigung), Text läuft darunter weiter */
-    .page[data-page="18"] .p18-rank:last-child .p18-rank__txt { justify-content: flex-start; padding-top: .9mm; }
-    .page[data-page="18"] .p18-rank__txt { align-self: stretch; display: flex; flex-direction: column; justify-content: center; padding: .6mm 0 .7mm; border-bottom: var(--hair) solid var(--rule); }
-    .page[data-page="18"] .p18-rank:last-child .p18-rank__txt { border-bottom: 0; }
-    .page[data-page="18"] .p18-rank__label { font: 700 var(--fs-body)/1.25 var(--font-display); color: var(--fg); }
-    .page[data-page="18"] .p18-rank__detail { margin-top: .3mm; font-size: var(--fs-module); line-height: 1.3; color: var(--fg-2); }
-    .page[data-page="18"] .p18-ladder__foot { margin-top: auto; padding: 2.1mm 3.4mm 2.3mm; background: var(--surface-2); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="18"] .p18-ladder__foot b { color: var(--fg); }
+    .page[data-page="17"] .p18-rank:last-child .p18-rank__txt { justify-content: flex-start; padding-top: .9mm; }
+    .page[data-page="17"] .p18-rank__txt { align-self: stretch; display: flex; flex-direction: column; justify-content: center; padding: .6mm 0 .7mm; border-bottom: var(--hair) solid var(--rule); }
+    .page[data-page="17"] .p18-rank:last-child .p18-rank__txt { border-bottom: 0; }
+    .page[data-page="17"] .p18-rank__label { font: 700 var(--fs-body)/1.25 var(--font-display); color: var(--fg); }
+    .page[data-page="17"] .p18-rank__detail { margin-top: .3mm; font-size: var(--fs-module); line-height: 1.3; color: var(--fg-2); }
+    .page[data-page="17"] .p18-ladder__foot { margin-top: auto; padding: 2.1mm 3.4mm 2.3mm; background: var(--surface-2); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="17"] .p18-ladder__foot b { color: var(--fg); }
 
     /* Ring + QR: QR als eigener Link über der Ringmitte (nicht im role="img"-SVG). Lage in viewBox-Einheiten des
        Rings (72,1 × 44): QR-Fläche 49 × 0,36 = 17,64 (45 Module + 2 Module Rand), Mitte (20, 20,4). */
-    .page[data-page="18"] .p18-plot { position: relative; margin-top: 3.4mm; }
-    .page[data-page="18"] .p18-plot .chart__svg { margin-top: 0; }
-    .page[data-page="18"] .p18-qr { position: absolute; left: calc(100% * 11.18 / 72.1); top: calc(100% * 11.58 / 44); width: calc(100% * 17.64 / 72.1); display: block; }
-    .page[data-page="18"] .p18-qr svg { display: block; width: 100%; height: auto; }
-    .page[data-page="18"] .p18-ring-a { fill: var(--fg); }
-    .page[data-page="18"] .p18-ring-b { fill: var(--seq-4); }
-    .page[data-page="18"] .p18-sw-a { fill: var(--fg); }
-    .page[data-page="18"] .p18-sw-b { fill: var(--seq-4); }
-    .page[data-page="18"] .p18-ring__note { margin-top: 3mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="18"] .p18-ring__note b { color: var(--fg); }
+    .page[data-page="17"] .p18-plot { position: relative; margin-top: 3.4mm; }
+    .page[data-page="17"] .p18-plot .chart__svg { margin-top: 0; }
+    .page[data-page="17"] .p18-qr { position: absolute; left: calc(100% * 11.18 / 72.1); top: calc(100% * 11.58 / 44); width: calc(100% * 17.64 / 72.1); display: block; }
+    .page[data-page="17"] .p18-qr svg { display: block; width: 100%; height: auto; }
+    .page[data-page="17"] .p18-ring-a { fill: var(--fg); }
+    .page[data-page="17"] .p18-ring-b { fill: var(--seq-4); }
+    .page[data-page="17"] .p18-sw-a { fill: var(--fg); }
+    .page[data-page="17"] .p18-sw-b { fill: var(--seq-4); }
+    .page[data-page="17"] .p18-ring__note { margin-top: 3mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="17"] .p18-ring__note b { color: var(--fg); }
 
     /* Instrumente der Kommune: drei Karten, Haarlinie in der Stegmitte statt Rahmen. Kartenbreiten nach Textmenge
        (54,5 | 77,5 | 38 mm statt 4 | 5 | 3 Spalten): so läuft die mittlere Karte in sechs statt sieben Zeilen. */
-    .page[data-page="18"] .p18-tools { margin-top: 6.4mm; }
-    .page[data-page="18"] .p18-cards { display: grid; grid-template-columns: 54.5mm 77.5mm minmax(0, 1fr); column-gap: var(--gutter); margin-top: 3mm; }
-    .page[data-page="18"] .p18-card { position: relative; }
-    .page[data-page="18"] .p18-card + .p18-card::before { content: ""; position: absolute; left: calc(var(--gutter) / -2); top: 0; bottom: 0; width: var(--hair); background: var(--rule); }
-    .page[data-page="18"] .p18-card__head { display: flex; align-items: center; gap: 2.4mm; min-height: 8mm; }
-    .page[data-page="18"] .p18-card__head .icon { width: 6.4mm; height: 6.4mm; color: var(--fg); }
-    .page[data-page="18"] .p18-card__title { font: 700 var(--fs-body)/1.25 var(--font-display); letter-spacing: 0; text-transform: none; color: var(--fg); }
-    .page[data-page="18"] .p18-card__body { margin-top: 1.3mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="17"] .p18-tools { margin-top: 6.4mm; }
+    .page[data-page="17"] .p18-cards { display: grid; grid-template-columns: 54.5mm 77.5mm minmax(0, 1fr); column-gap: var(--gutter); margin-top: 3mm; }
+    .page[data-page="17"] .p18-card { position: relative; }
+    .page[data-page="17"] .p18-card + .p18-card::before { content: ""; position: absolute; left: calc(var(--gutter) / -2); top: 0; bottom: 0; width: var(--hair); background: var(--rule); }
+    .page[data-page="17"] .p18-card__head { display: flex; align-items: center; gap: 2.4mm; min-height: 8mm; }
+    .page[data-page="17"] .p18-card__head .icon { width: 6.4mm; height: 6.4mm; color: var(--fg); }
+    .page[data-page="17"] .p18-card__title { font: 700 var(--fs-body)/1.25 var(--font-display); letter-spacing: 0; text-transform: none; color: var(--fg); }
+    .page[data-page="17"] .p18-card__body { margin-top: 1.3mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
 
     /* Freistellung von der Belegungsbindung – Textzeile über die volle Breite, Run-in, kein Kasten; schließt unten am
        Satzspiegel (margin-top: auto), darüber bleiben 4 mm */
-    .page[data-page="18"] .p18-wbs { margin-top: auto; padding-top: 2.2mm; border-top: var(--hair) solid var(--rule); column-count: 2; column-gap: var(--gutter); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="18"] .p18-wbs__h { display: inline; font: 700 var(--fs-module)/var(--lh-module) var(--font-text); color: var(--fg); }
-    .page[data-page="18"] .p18-wbs__h + p { display: inline; }
+    .page[data-page="17"] .p18-wbs { margin-top: auto; padding-top: 2.2mm; border-top: var(--hair) solid var(--rule); column-count: 2; column-gap: var(--gutter); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="17"] .p18-wbs__h { display: inline; font: 700 var(--fs-module)/var(--lh-module) var(--font-text); color: var(--fg); }
+    .page[data-page="17"] .p18-wbs__h + p { display: inline; }
   </style>
 
   <header class="page__header"><span class="page__section">Umsetzung</span></header>
@@ -170,5 +174,5 @@
     <p>Findet sich nachweislich kein wohnberechtigter Haushalt, kann die Wohnraumförderstelle befristet freistellen. Antrag in der Regel spätestens vier Wochen vor Freiwerden oder Bezugsfertigkeit. Freistellung höchstens fünf Jahre, einmal verlängerbar. Die Mietbindung bleibt. Ausgleich: in der Regel 0,50 € je m² und Monat (nicht auf die Mieter umlegbar) oder Belegungsrechte <span class="u-nowrap">an Ersatzwohnungen.</span></p>
   </section>
 
-  <footer class="page__foot" aria-hidden="true"><span class="page__folio">17</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Standort und Kommune</b></span></span></footer>
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">16</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Standort und Kommune</b></span></span></footer>
 </section>

@@ -1,12 +1,15 @@
-<section class="page page--dicht" data-page="19" id="seite-19">
+<section class="page page--dicht" data-page="18" id="seite-18">
   <style>
-    /* Seite 19 · Antragsweg · Planwerk (entlastet). Rechte Seite der Doppelseite 18|19 „Umsetzung“.
+    /* Seite 18 · Antragsweg · Planwerk (entlastet). Linke Seite der Doppelseite 18|19 „Umsetzung“ (seit der Änderungsrunde
+       vom 13.11.2026; vorher rechte Seite neben Standort und Kommune). Gemeinsame Horizonte mit S. 19: Kopfzeile, H1,
+       Unterkante 273 mm. Die erste Bandlinie liegt hier bei 50,7 mm, auf S. 19 unter der Unterzeile bei 59,5 mm; gleich hoch
+       stehen sie nur mit einem anderen Kopf auf S. 19.
        Dominant: Swimlane „Acht Schritte, drei Beteiligte“ in zwei Zeilen à vier Stationen. Über jeder Zeile ein Bahnstreifen
        (Sie · Wohnraumförderstelle · NBank, Papier/Weiß/Papier, je 7 mm), Quadrat-Marken 6 mm in Fast-Schwarz (Poché), Weg 0,35 mm
        Anthrazit; „mit Ihnen“ = Marke über zwei Bahnen (oberes Feld Kontur). Texte darunter in Spalten, deren linke Kante
        die Marke trägt (SVG-Koordinaten = Spaltengrenzen in mm). Unten: Achtung-Kasten und Ampel in drei Spalten
-       (Spalten 1–4 · 5–8 · 9–12 = Instrumente der Kommune S. 18).
-       Korrekturlauf 1: kein Angebotssatz mehr, sondern ein sachlicher Verweis auf S. 20; Ampelköpfe
+       (Spalten 1–4 · 5–8 · 9–12).
+       Korrekturlauf 1: kein Angebotssatz mehr, sondern ein sachlicher Verweis auf S. 19; Ampelköpfe
        je genau ein Symbol (✓ / ! / ✗), kein zusätzliches Stopp-Icon in „Förderschädlich“.
        Stufung und Zuteilung nach styles.css §8b: Rubrik in der Kopfzeile, H1 25 pt, Modultitel 12 pt gemischt (auch der Titel
        des Achtung-Kastens), Text 9 pt (dichte Seite, siehe unten), Labels 8,5 pt in Versalien (Stationstitel, Ampelköpfe),
@@ -16,56 +19,56 @@
     /* Dichte Seite (.page--dicht, 9 pt): Die Stationsspalten (30–54 mm) und die Ampelspalten (53 mm) brechen in 9,5 pt je eine
        Zeile mehr, die Seite läuft 10,8 mm über; mit engeren Abständen allein bleiben 5,9 mm. --fs-module ist in :root an
        --fs-small gebunden und folgt .page--dicht nicht von selbst, deshalb hier neu gebunden. */
-    .page[data-page="19"] { --fs-module: var(--fs-small); }
+    .page[data-page="18"] { --fs-module: var(--fs-small); }
 
     /* Swimlane ------------------------------------------------------------------------------------------------- */
-    .page[data-page="19"] .p19-lane { margin-top: 6.4mm; }
-    .page[data-page="19"] .p19-lane .chart__head { align-items: baseline; }
-    .page[data-page="19"] .p19-lane .offer { grid-column: 2; margin-top: 0; }
-    .page[data-page="19"] .p19-ref { font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); }
-    .page[data-page="19"] .p19-row { margin-top: 3.1mm; }
+    .page[data-page="18"] .p19-lane { margin-top: 6.4mm; }
+    .page[data-page="18"] .p19-lane .chart__head { align-items: baseline; }
+    .page[data-page="18"] .p19-lane .offer { grid-column: 2; margin-top: 0; }
+    .page[data-page="18"] .p19-ref { font: 500 var(--fs-micro)/1.2 var(--font-text); color: var(--fg-2); }
+    .page[data-page="18"] .p19-row { margin-top: 3.1mm; }
     /* Kompositum nur an der Fuge trennen (von Hand gesetztes &shy;, Automatik aus) */
-    .page[data-page="19"] .p19-hy { -webkit-hyphens: manual !important; hyphens: manual !important; }
-    .page[data-page="19"] .p19-row + .p19-row { margin-top: 4mm; }
-    .page[data-page="19"] .p19-strip { display: block; width: 180mm; height: auto; overflow: visible; }
-    .page[data-page="19"] .p19-band { fill: var(--surface-2); }
-    .page[data-page="19"] .p19-path { fill: none; stroke: var(--fg-2); stroke-width: .35; stroke-linejoin: miter; }
-    .page[data-page="19"] .p19-arrow { fill: var(--fg-2); }
-    .page[data-page="19"] .p19-mk { fill: var(--fg); }
-    .page[data-page="19"] .p19-with { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }
-    .page[data-page="19"] .p19-strip text { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 600; fill: var(--fg-3); }
-    .page[data-page="19"] .p19-strip .p19-no { font-family: var(--font-display); font-size: 3px; font-weight: 900; fill: var(--on-data); text-anchor: middle; font-variant-numeric: tabular-nums; }
-    .page[data-page="19"] .p19-strip .p19-brk-t { font-family: var(--font-display); font-weight: 700; letter-spacing: .3px; text-transform: uppercase; fill: var(--fg-3); text-anchor: middle; }
-    .page[data-page="19"] .p19-brk { fill: none; stroke: var(--fg-3); stroke-width: .25; }
+    .page[data-page="18"] .p19-hy { -webkit-hyphens: manual !important; hyphens: manual !important; }
+    .page[data-page="18"] .p19-row + .p19-row { margin-top: 4mm; }
+    .page[data-page="18"] .p19-strip { display: block; width: 180mm; height: auto; overflow: visible; }
+    .page[data-page="18"] .p19-band { fill: var(--surface-2); }
+    .page[data-page="18"] .p19-path { fill: none; stroke: var(--fg-2); stroke-width: .35; stroke-linejoin: miter; }
+    .page[data-page="18"] .p19-arrow { fill: var(--fg-2); }
+    .page[data-page="18"] .p19-mk { fill: var(--fg); }
+    .page[data-page="18"] .p19-with { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }
+    .page[data-page="18"] .p19-strip text { font-family: var(--font-text); font-size: var(--svg-fs-s); font-weight: 600; fill: var(--fg-3); }
+    .page[data-page="18"] .p19-strip .p19-no { font-family: var(--font-display); font-size: 3px; font-weight: 900; fill: var(--on-data); text-anchor: middle; font-variant-numeric: tabular-nums; }
+    .page[data-page="18"] .p19-strip .p19-brk-t { font-family: var(--font-display); font-weight: 700; letter-spacing: .3px; text-transform: uppercase; fill: var(--fg-3); text-anchor: middle; }
+    .page[data-page="18"] .p19-brk { fill: none; stroke: var(--fg-3); stroke-width: .25; }
 
-    .page[data-page="19"] .p19-stations { display: grid; column-gap: 4mm; margin-top: 2.6mm; }
-    .page[data-page="19"] .p19-row--1 .p19-stations { grid-template-columns: 34mm 44mm 42mm 48mm; }
-    .page[data-page="19"] .p19-row--2 .p19-stations { grid-template-columns: 54mm 30mm 40mm 44mm; }
-    .page[data-page="19"] .p19-st { min-width: 0; }
-    .page[data-page="19"] .p19-st__title { font: 800 var(--fs-micro)/1.2 var(--font-display); letter-spacing: .03em; text-transform: uppercase; color: var(--fg); white-space: nowrap; }
-    .page[data-page="19"] .p19-st__title--tight { letter-spacing: 0; }   /* „Verwendungsnachweis“ (nowrap) lief mit .03em 1,4 mm über den rechten Satzspiegelrand */
-    .page[data-page="19"] .p19-st__text { margin-top: 1.2mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="19"] .p19-st__due { display: grid; grid-template-columns: 4.6mm minmax(0, 1fr); margin-top: 1.6mm; font: 600 var(--fs-module)/1.32 var(--font-text); color: var(--fg); }
-    .page[data-page="19"] .p19-st__due .icon { width: 3.6mm; height: 3.6mm; margin-top: .1mm; color: var(--signal-text); }
+    .page[data-page="18"] .p19-stations { display: grid; column-gap: 4mm; margin-top: 2.6mm; }
+    .page[data-page="18"] .p19-row--1 .p19-stations { grid-template-columns: 34mm 44mm 42mm 48mm; }
+    .page[data-page="18"] .p19-row--2 .p19-stations { grid-template-columns: 54mm 30mm 40mm 44mm; }
+    .page[data-page="18"] .p19-st { min-width: 0; }
+    .page[data-page="18"] .p19-st__title { font: 800 var(--fs-micro)/1.2 var(--font-display); letter-spacing: .03em; text-transform: uppercase; color: var(--fg); white-space: nowrap; }
+    .page[data-page="18"] .p19-st__title--tight { letter-spacing: 0; }   /* „Verwendungsnachweis“ (nowrap) lief mit .03em 1,4 mm über den rechten Satzspiegelrand */
+    .page[data-page="18"] .p19-st__text { margin-top: 1.2mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="18"] .p19-st__due { display: grid; grid-template-columns: 4.6mm minmax(0, 1fr); margin-top: 1.6mm; font: 600 var(--fs-module)/1.32 var(--font-text); color: var(--fg); }
+    .page[data-page="18"] .p19-st__due .icon { width: 3.6mm; height: 3.6mm; margin-top: .1mm; color: var(--signal-text); }
 
     /* Achtung-Kasten (einer von zwei im Heft): Stopp-Marke + Titel links (4 Spalten), Text ab Spalte 5 ---------------- */
-    .page[data-page="19"] .p19-stop { display: grid; grid-template-columns: calc(4 * var(--col) + 3 * var(--gutter) - 4mm) minmax(0, 1fr); column-gap: var(--gutter); align-items: baseline; margin-top: 8mm; padding: 3.6mm 4mm 4mm; }   /* Titel in Spalten 1–4, Text ab Spalte 5 = Kante der Ampelspalte „Bedingt zulässig“; erste Titelzeile und erste Textzeile auf einer Grundlinie */
-    .page[data-page="19"] .p19-stop__title { font: 800 var(--fs-h3)/1.2 var(--font-display); letter-spacing: 0; color: var(--fg); }
-    .page[data-page="19"] .p19-stop__title .icon { width: 4.6mm; height: 4.6mm; margin-left: -.575mm; margin-right: 2.175mm; vertical-align: -.75mm; color: var(--accent); }   /* Achteck (x 3–21 von 24) bündig mit der Textkante der Folgezeilen; Textlage unverändert */
-    .page[data-page="19"] .p19-stop .callout__body { margin-top: 0; }
+    .page[data-page="18"] .p19-stop { display: grid; grid-template-columns: calc(4 * var(--col) + 3 * var(--gutter) - 4mm) minmax(0, 1fr); column-gap: var(--gutter); align-items: baseline; margin-top: 8mm; padding: 3.6mm 4mm 4mm; }   /* Titel in Spalten 1–4, Text ab Spalte 5 = Kante der Ampelspalte „Bedingt zulässig“; erste Titelzeile und erste Textzeile auf einer Grundlinie */
+    .page[data-page="18"] .p19-stop__title { font: 800 var(--fs-h3)/1.2 var(--font-display); letter-spacing: 0; color: var(--fg); }
+    .page[data-page="18"] .p19-stop__title .icon { width: 4.6mm; height: 4.6mm; margin-left: -.575mm; margin-right: 2.175mm; vertical-align: -.75mm; color: var(--accent); }   /* Achteck (x 3–21 von 24) bündig mit der Textkante der Folgezeilen; Textlage unverändert */
+    .page[data-page="18"] .p19-stop .callout__body { margin-top: 0; }
 
     /* Ampel: drei gleich breite Spalten, Köpfe hell · mittel · dunkel (graustufenfest, Symbol zusätzlich zur Fläche) -- */
     /* Die Ampel steht an der Satzspiegel-Unterkante (.l-bottom am Element); der Abstand zum Achtung-Kasten ergibt sich daraus (8 mm). */
-    .page[data-page="19"] .p19-amp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: 3mm; }
-    .page[data-page="19"] .p19-amp__list { margin-top: .6mm; }
-    .page[data-page="19"] .p19-amp__head { display: flex; align-items: center; gap: 2mm; height: 6.6mm; padding: 0 2.6mm; font: 800 var(--fs-micro)/1.2 var(--font-display); letter-spacing: .05em; text-transform: uppercase; }
-    .page[data-page="19"] .p19-amp__sym { flex: none; width: 4.6mm; font: 900 var(--fs-h3)/1 var(--font-display); text-align: center; }
-    .page[data-page="19"] .p19-amp--ok .p19-amp__head { background: var(--surface-2); color: var(--fg); }
-    .page[data-page="19"] .p19-amp--check .p19-amp__head { background: var(--seq-2); color: var(--fg); }
-    .page[data-page="19"] .p19-amp--stop .p19-amp__head { background: var(--grad-dark); color: var(--white); }
-    .page[data-page="19"] .p19-amp__list > li { position: relative; padding: 1mm 0 1.1mm 4mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="19"] .p19-amp__list > li:last-child { border-bottom: 0; }
-    .page[data-page="19"] .p19-amp__list > li::before { content: ""; position: absolute; left: .2mm; top: calc(1mm + .52em); width: 1.4mm; height: 1.4mm; background: var(--fg); }
+    .page[data-page="18"] .p19-amp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: 3mm; }
+    .page[data-page="18"] .p19-amp__list { margin-top: .6mm; }
+    .page[data-page="18"] .p19-amp__head { display: flex; align-items: center; gap: 2mm; height: 6.6mm; padding: 0 2.6mm; font: 800 var(--fs-micro)/1.2 var(--font-display); letter-spacing: .05em; text-transform: uppercase; }
+    .page[data-page="18"] .p19-amp__sym { flex: none; width: 4.6mm; font: 900 var(--fs-h3)/1 var(--font-display); text-align: center; }
+    .page[data-page="18"] .p19-amp--ok .p19-amp__head { background: var(--surface-2); color: var(--fg); }
+    .page[data-page="18"] .p19-amp--check .p19-amp__head { background: var(--seq-2); color: var(--fg); }
+    .page[data-page="18"] .p19-amp--stop .p19-amp__head { background: var(--grad-dark); color: var(--white); }
+    .page[data-page="18"] .p19-amp__list > li { position: relative; padding: 1mm 0 1.1mm 4mm; border-bottom: var(--hair) solid var(--rule); font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="18"] .p19-amp__list > li:last-child { border-bottom: 0; }
+    .page[data-page="18"] .p19-amp__list > li::before { content: ""; position: absolute; left: .2mm; top: calc(1mm + .52em); width: 1.4mm; height: 1.4mm; background: var(--fg); }
 
   </style>
 
@@ -74,7 +77,7 @@
 
   <!-- Dominant: Swimlane -->
   <figure class="chart module p19-lane" role="group" aria-labelledby="p19-lane-h">
-    <figcaption class="chart__head chart__head--inline"><h2 class="chart__title" id="p19-lane-h">Ablauf und Zuständigkeiten</h2><p class="offer p19-ref">Leistungen der PGN zu diesen Schritten <a class="pageref" href="#seite-20">→&nbsp;S.&nbsp;19</a></p></figcaption>
+    <figcaption class="chart__head chart__head--inline"><h2 class="chart__title" id="p19-lane-h">Ablauf und Zuständigkeiten</h2><p class="offer p19-ref">Leistungen der PGN zu diesen Schritten <a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;18</a></p></figcaption>
 
     <!-- Zeile 1: Stationen 1–4. Spalten 34 · 44 · 42 · 48 mm, Steg 4 → Marken bei x 0 · 38 · 86 · 132.
          Bahnen y 0–5 (Sie, Papier) · 5–10 (Förderstelle) · 10–15 (NBank, Papier); Mitten 2,5 · 7,5 · 12,5; Marken 4,4 mm -->
@@ -100,7 +103,7 @@
         </li>
         <li class="p19-st">
           <h3 class="p19-st__title">Antrag</h3>
-          <p class="p19-st__text">bei der Wohnraumförderstelle am Bauort; für 2.6 erst nach dem <span class="u-nohyphens p19-hy">Prolongations&shy;angebot</span> <span class="u-nowrap">(<a class="pageref" href="#seite-17">→&nbsp;S.&nbsp;16</a>)</span></p>
+          <p class="p19-st__text">bei der Wohnraumförderstelle am Bauort; für 2.6 erst nach dem <span class="u-nohyphens p19-hy">Prolongations&shy;angebot</span> <span class="u-nowrap">(<a class="pageref" href="#seite-16">→&nbsp;S.&nbsp;15</a>)</span></p>
         </li>
         <li class="p19-st">
           <h3 class="p19-st__title">Stellungnahme</h3>
@@ -135,7 +138,7 @@
       <ol class="p19-stations" start="5">
         <li class="p19-st">
           <h3 class="p19-st__title">Bauausführung</h3>
-          <p class="p19-st__text">Aufträge im Wettbewerb vergeben, Baubeginn anzeigen <span class="u-nowrap">(<a class="pageref" href="#seite-21">→&nbsp;S.&nbsp;20</a>)</span></p>
+          <p class="p19-st__text">Aufträge im Wettbewerb vergeben, Baubeginn anzeigen <span class="u-nowrap">(<a class="pageref" href="#seite-20">→&nbsp;S.&nbsp;19</a>)</span></p>
           <p class="p19-st__due"><svg class="icon icon--kalender" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.4" y="5" width="17.2" height="15.4" rx="1"/><path d="M3.4 9.6h17.2M8 3v4M16 3v4"/><path d="M13.6 13.2h3.4v3.4h-3.4z" fill="currentColor" stroke="none"/></svg><span>Baubeginn unverzüglich, spätestens vier Monate nach Bekanntgabe der <span class="u-nohyphens">Förderentscheidung</span></span></p>
         </li>
         <li class="p19-st">
@@ -178,7 +181,7 @@
         <h3 class="p19-amp__head" id="p19-amp-2"><span class="p19-amp__sym">!</span>Bedingt zulässig</h3>
         <ul class="p19-amp__list">
           <li>Vertrag mit eindeutigem, folgenlosem Rücktrittsrecht oder eindeutiger Bedingung für den Fall, dass die Förderung ausbleibt; die NBank prüft die Klausel im Einzelfall</li>
-          <li>vorzeitiger Vorhabenbeginn nach Zulassung durch die NBank <span class="u-nowrap">(<a class="pageref" href="#seite-21">→&nbsp;S.&nbsp;20</a>)</span></li>
+          <li>vorzeitiger Vorhabenbeginn nach Zulassung durch die NBank <span class="u-nowrap">(<a class="pageref" href="#seite-20">→&nbsp;S.&nbsp;19</a>)</span></li>
         </ul>
       </section>
       <section class="p19-amp--stop" aria-labelledby="p19-amp-3">
@@ -195,5 +198,5 @@
   </figure>
 
 
-  <footer class="page__foot" aria-hidden="true"><span class="page__folio">18</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Antragsweg</b></span></span></footer>
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">17</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Antragsweg</b></span></span></footer>
 </section>

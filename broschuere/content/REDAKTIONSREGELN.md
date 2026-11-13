@@ -19,14 +19,14 @@ aber Korrektheit entsteht durch präzise Hauptaussagen, nicht durch Dutzende Abs
 
 | Element | Regel |
 |---|---|
-| **Zentraler Rechtshinweis** | Steht **einmal** auf U3 (Impressum): „Alle Angaben ohne Gewähr, Stand 12.11.2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind Rechenbeispiele, keine Förderzusage.“ Danach wird nichts davon auf Fachseiten wiederholt. (Seit 11.11.2026 „Rechenbeispiele“ statt „fiktive Beispiele“: das Modellhaus S. 10–12 ist ein PGN-Projekt.) |
+| **Zentraler Rechtshinweis** | Steht **einmal** im Impressum (S. 22): „Alle Angaben ohne Gewähr, Stand 11/2026. Maßgeblich sind die RL Mietwohnraum 2026 und die Förderentscheidung der NBank. Fördersätze und Beträge sind Höchstwerte; die NBank prüft jede Förderung auf Überkompensation (EU-Beihilferecht). Modellrechnungen sind Rechenbeispiele, keine Förderzusage.“ Danach wird nichts davon auf Fachseiten wiederholt. (Seit 11.11.2026 „Rechenbeispiele“ statt „fiktive Beispiele“: das Modellhaus S. 10–12 ist ein PGN-Projekt.) |
 | **„bis zu“** | Nur in Headlines, Kennzahlen-Kacheln und Tabellen-/Diagrammköpfen („Höchstsätze“, „bis zu“) – **nicht** vor jeder Zahl im Fließtext, wenn der Kontext klar ist. Wo eine Zahl ohne Kontext als fester Wert missverstanden würde, bleibt „bis zu“. |
 | **Überkompensation / Beihilfe-Vorbehalt** | Raus aus allen Seiten außer: einmal kurz auf der Seite „Konditionen und Kosten“ (S. 9) als eigene Zeile in den Eckdaten, und im zentralen Hinweis. |
 | **„eigene Berechnung“, „eigene Ableitung“, „Annahme“** | Raus. Modellrechnungen tragen genau **einen** Stempel „Modellrechnung“ (S. 14). Im Kapitel „Modellrechnung“ (S. 10–12) trägt die Kopfzeile das Wort (Rubrik); dort steht kein Stempel. Abgeleitete Tabellen (z. B. Einkommensgrenzen B/C) bekommen statt Disclaimer eine knappe Legende – nicht doppelt als Unterzeile und Legende (Korrekturlauf 1, S. 6). |
 | **„mit der NBank klären“, „Stand bis 21.10.2026 auf nbank.de nicht auffindbar“** | Komplett raus. Das sind Recherche-Notizen, keine Kundeninformation. Wo ein Wert regelmäßig fortgeschrieben wird: „Ausgangswert; aktueller Wert auf nbank.de“ – einmal pro Größe, nicht pro Seite. Offene Fachfragen stehen nur in `content/copy.md` (Anhang) für die interne Freigabe. |
-| **Fundstellen-/Quellenzeilen** | Komplett raus von allen Seiten. Belege liegen in `recherche/factbase.md`. U3 nennt die Rechtsgrundlage einmal (RL Mietwohnraum 2026, Nds. MBl. 2026 Nr. 319) und die Quellen der Zitate/Marktzahlen. |
+| **Fundstellen-/Quellenzeilen** | Komplett raus von allen Seiten. Belege liegen in `recherche/factbase.md`. Das Impressum (S. 22) nennt die Rechtsgrundlage einmal (RL Mietwohnraum 2026, Nds. MBl. 2026 Nr. 319) und die Quellen der Zitate/Marktzahlen. |
 | **Fußnoten** | Maximal **eine** kurze Fußnote pro Seite, nur wenn sie eine echte Bedingung trägt, die nicht in den Text passt. Lieber die Bedingung in den Satz holen. |
-| **Achtung-Kästen** | Genau zwei in der ganzen Broschüre: (1) **Vorhabenbeginn** – „Erst Bewilligung, dann Vertrag“ (prominent auf dem Antragsweg, S. 19, und als Kurzverweis max. einzeilig auf S. 4 oder S. 5); (2) **Frist 31.12.2026** Wahlrecht Modernisierung (S. 16). Alle übrigen Achtung-/Hinweis-Kästen: in den Text integrieren oder streichen. |
+| **Achtung-Kästen** | Genau einer in der ganzen Broschüre: **Vorhabenbeginn** – „Erst Bewilligung, dann Vertrag“ (prominent auf dem Antragsweg, S. 18, und als Kurzverweis max. einzeilig auf S. 4 oder S. 5). Der zweite Kasten (Frist 31.12.2026, Wahlrecht Modernisierung) ist am 13.11.2026 mit dem Blatt „Stichtag“ entfallen: Bei Veröffentlichung ist die Frist abgelaufen. Alle übrigen Achtung-/Hinweis-Kästen: in den Text integrieren oder streichen. |
 | **Kalkulationsnotiz** | Entfällt ganz (Korrekturlauf 1, §8.1). |
 | **„keine Förderzusage“, „Rechenbeispiel“** | Nur im zentralen Hinweis und einmal in der Modellrechnung (S. 10, schlichter Text unter dem Titel des Finanzierungsdiagramms: „Rechenbeispiel, keine Förderzusage“). |
 | **RL-Nummern im Text** | Nur wo sie dem Leser nützen (Programmteil 2.1–2.6 als Orientierung). Keine „(RL Nr. 5.3.3.2)“-Klammern im Fließtext. |
@@ -37,7 +37,7 @@ aber Korrektheit entsteht durch präzise Hauptaussagen, nicht durch Dutzende Abs
   Kosten (0,5 % Verwaltungskostenbeitrag p. a., 1 % / 0,75 % Bearbeitungsentgelt) – korrekt und vollständig.
 - Entscheidende Bedingungen, ohne die eine Aussage falsch wird: Zuschuss in 2.1 nur zusammen mit dem Darlehen;
   Grundsatz Einkommensgruppe A (B/C nur mit Zulassung in der Förderentscheidung); Förderausschluss bei Vorhabenbeginn
-  vor Bewilligung; Wahlrecht Altrecht nur für Modernisierungsanträge mit Eingang bis 31.12.2026; Bemessungsgrenzen
+  vor Bewilligung; Bemessungsgrenzen
   als Ausgangswerte mit halbjährlicher Fortschreibung; 2.2 nicht mit 2.1 kumulierbar.
 - Wörtliche Zitate bleiben wörtlich.
 
@@ -99,7 +99,7 @@ Gelten auf allen Seiten – auch dort, wo kein Kommentar steht.
    PGN-Leistungen allgemein und souverän formulieren, ohne Detailversprechen (keine Drohne, keine Freisitz-Zehntel;
    statt „mindestens drei Angebote“: „richtlinienkonform ausschreiben und vergeben“).
 4. **Bauherren-Perspektive**, nicht Planer-Perspektive – besonders im Editorial: Was hat der Investor davon?
-5. **Stand: 12.11.2026** – nur auf U1 und im Impressum/Rechtshinweis (U3), **nicht in den Fußzeilen** der Innenseiten.
+5. **Stand: 11/2026** (seit der Änderungsrunde vom 13.11.2026, Regel G7) – nur auf U1 und im Impressum/Rechtshinweis (S. 22), **nicht in den Fußzeilen** der Innenseiten.
    Quellen- und Abrufdaten mit anderem Sinn („abgerufen am …“) bleiben unverändert. Keine Blattnummer „U1“ auf dem Titel.
 6. **Fachlich bleibt alles korrekt** (Abschnitt 3 gilt weiter): Sätze, Beträge, Fristen, Kosten und die entscheidenden
    Bedingungen nie wegkürzen – Kürzen heißt Ton und Floskeln streichen, nicht Inhalt.
@@ -128,3 +128,8 @@ Gedruckt zählt die Broschüre ab der ersten Inhaltsseite mit 1; der Titel zähl
 Bogenseite − 1. Jeder Verweis im Seitentext („→ S. 9“, „Modell S. 9“, Inhaltsverzeichnis) nennt die gedruckte Zahl; sein
 Anker bleibt die Bogenseite (`href="#seite-10"` zeigt „S. 9“). Diese Regeln und alle Arbeitsunterlagen nennen die
 Bogenseite, also die Nummer im Dateinamen.
+
+Seit der Änderungsrunde vom 13.11.2026 (Regel G1) gibt es kein Blatt „Stichtag 31.12.2026“ mehr: Die Bogenseiten 17 bis 23
+heißen 16 bis 22, neue Bogenseite 23 ist „Quellen und Notizen“ vor der Rückseite. Inhaltsverzeichnis gedruckt: … 15
+Bindungen, 16 Standort, 17 Antragsweg, 18 Leistungen, 19 Unterlagen, 20 Über PGN, 21 Impressum und Hinweise, 22 Quellen und
+Notizen. Das Wahlrecht für Modernisierungsanträge wird im Heft nicht mehr erwähnt.

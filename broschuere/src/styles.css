@@ -131,7 +131,7 @@
   --horizon: 196mm;          /* Oberkante Schriftfeld U1 = U4 („Horizont“ über den aufgeklappten Umschlag) */
   --safe: 5mm;
   --rule-hang: 5.75mm;       /* rote Titellinie hängt links neben dem Satzspiegel */
-  --station-mk: 4.4mm;       /* Quadrat-Marke einer Station (Antragsweg S. 19, Leistungen S. 20, Prozessband) */
+  --station-mk: 4.4mm;       /* Quadrat-Marke einer Station (Antragsweg S. 18, Leistungen S. 19, Prozessband) */
 
   /* 1.6 Abstände */
   --sp-1: 1mm;
@@ -433,7 +433,7 @@ abbr { text-decoration: none; }
 .page__section b { color: var(--accent-text); margin-right: 1.6mm; font-weight: 800; font-size: var(--fs-label-accent); }
 
 /* Fuß = Mini-Plankopf: [Blatt NN] [PGN] [Projekt · Rubrik] – außen die Blattnummer, daneben die Wortmarke.
-   Kein Stand in der Fußzeile (Korrekturlauf 1: Stand nur auf U1 und im Impressum U3).
+   Kein Stand in der Fußzeile (Korrekturlauf 1: Stand nur auf U1 und im Impressum S. 22).
    Markup: <footer class="page__foot" aria-hidden="true"><span class="page__folio">8</span><span class="page__running">
    <span>Titel<span class="sep">·</span><b>Rubrik</b></span></span></footer> */
 .page__foot {
@@ -743,7 +743,7 @@ abbr { text-decoration: none; }
 .kicker-row { display: flex; justify-content: space-between; align-items: center; gap: 4mm; height: 7mm; }
 .kicker-row > .kicker { flex: none; white-space: nowrap; }
 .kicker-row + .h1 { margin-top: 3.4mm; }
-.lead--cols-2 { max-width: none; column-count: 2; column-gap: var(--gutter); }   /* langer Vorspann auf dichten Seiten (S. 18) */
+.lead--cols-2 { max-width: none; column-count: 2; column-gap: var(--gutter); }   /* langer Vorspann auf dichten Seiten (S. 17) */
 
 /* -----------------------------------------------------------------------------
    5 · LAYOUT-UTILITIES
@@ -1421,7 +1421,7 @@ abbr { text-decoration: none; }
 
 /* 6.12 Badges, Tags, Programmteil-Kennzeichnung ------------------------------- */
 .badge { display: inline-flex; align-items: center; gap: 1mm; padding: .85mm 1.5mm .75mm; border: var(--hair) solid var(--rule-strong); font: 700 var(--fs-micro)/1 var(--font-display); letter-spacing: .03em; color: var(--fg); white-space: nowrap; font-variant-numeric: tabular-nums; }
-.badge--form { gap: 0; margin-inline: .4mm; }   /* Vordruck-Kasten im Fließtext: Klammern davor/dahinter stießen an den Rahmen (S. 17, 21) */
+.badge--form { gap: 0; margin-inline: .4mm; }   /* Vordruck-Kasten im Fließtext: Klammern davor/dahinter stießen an den Rahmen (S. 16, 20) */
 .badge__pre { font-family: var(--font-text); font-weight: 500; color: var(--fg-3); letter-spacing: 0; -webkit-hyphens: none; hyphens: none; }
 .badge--frist { background: var(--signal-fill); border-color: var(--signal-fill); color: var(--on-signal); }
 .badge--accent { border-color: var(--accent-text); color: var(--accent-text); }
@@ -1562,7 +1562,7 @@ abbr { text-decoration: none; }
 .toc__page { font: 800 10pt/1 var(--font-display); color: var(--fg); font-variant-numeric: lining-nums tabular-nums; }
 /* Inhalt als Linienplan (U2): je Kapitel eine Linie (Pseudo-Element-Striche), Haltestellen als Quadrate, Programmteile als
    Chip mit Nummer auf der Linie. Steuergrößen: --lp-pg (Seitenzahl), --lp-mk (Marke), --lp-gap, --lp-w (Linie), --lp-c (Farbe).
-   .lp__line--em = Mittel-Doppelseite (Papier, kräftige Linie), --pgn = PGN-Teil (Rot); .lp__mk--signal = Stichtag. */
+   .lp__line--em = Mittel-Doppelseite (Papier, kräftige Linie), --pgn = PGN-Teil (Rot). */
 .lp { --lp-pg: 6.2mm; --lp-mk: 7.4mm; --lp-gap: 1.7mm; --lp-w: .7mm; --lp-c: var(--fg-2); --lp-x: calc(var(--lp-pg) + var(--lp-gap) + var(--lp-mk) / 2); }
 .lp__line { position: relative; }
 .lp__line + .lp__line { margin-top: 1.6mm; }
@@ -1577,8 +1577,6 @@ abbr { text-decoration: none; }
 .lp__t { font: 500 var(--fs-module)/4.2mm var(--font-text); color: var(--fg); }
 .lp__mk { justify-self: center; width: 2.9mm; height: 2.9mm; margin-top: .65mm; background: var(--surface); box-shadow: inset 0 0 0 .4mm var(--lp-c); }
 .lp__mk--bs { width: auto; height: auto; margin-top: .1mm; padding: .75mm 1.1mm .65mm; background: var(--bs); box-shadow: none; font: 800 var(--fs-micro)/1 var(--font-display); letter-spacing: .02em; color: var(--on-bs); font-variant-numeric: tabular-nums; }
-.lp__mk--signal { background: var(--signal-fill); box-shadow: none; }
-.lp__t--signal { font-weight: 600; color: var(--signal-text); }
 .lp__line--em { --lp-w: 1.1mm; --lp-c: var(--fg); background: var(--surface-2); padding-bottom: 1.2mm; }
 .lp__line--pgn { --lp-c: var(--accent); }
 .lp__line--pgn .lp__name { color: var(--accent-text); font-size: var(--fs-label-accent); }

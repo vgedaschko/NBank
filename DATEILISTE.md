@@ -135,14 +135,14 @@ Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die B
 | `broschuere/content/pages/13-programmteil-2-2-eh40.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
 | `broschuere/content/pages/14-programmteil-2-4-inseln.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
 | `broschuere/content/pages/15-programmteil-2-3-modernisierung.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
-| `broschuere/content/pages/16-stichtag-wahlrecht-fristen.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
-| `broschuere/content/pages/17-programmteil-2-5-2-6-bindungen.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
-| `broschuere/content/pages/18-standort-und-kommune.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
-| `broschuere/content/pages/19-antragsweg.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
-| `broschuere/content/pages/20-pgn-leistungen.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
-| `broschuere/content/pages/21-unterlagen-kontakte.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
-| `broschuere/content/pages/22-ueber-pgn.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
-| `broschuere/content/pages/23-impressum-hinweise.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
+| `broschuere/content/pages/16-programmteil-2-5-2-6-bindungen.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
+| `broschuere/content/pages/17-standort-und-kommune.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
+| `broschuere/content/pages/18-antragsweg.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
+| `broschuere/content/pages/19-pgn-leistungen.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
+| `broschuere/content/pages/20-unterlagen-kontakte.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
+| `broschuere/content/pages/21-ueber-pgn.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
+| `broschuere/content/pages/22-impressum-hinweise.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
+| `broschuere/content/pages/23-quellen-notizen.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
 | `broschuere/content/pages/24-umschlag-rueckseite.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
 | `broschuere/content/plan.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
 | `broschuere/dist/PGN-Mietwohnraumfoerderung-2026-InDesign.zip` | aktuell | Handout (Broschüre) | InDesign-Paket, aus demselben Bau |
@@ -575,14 +575,14 @@ Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die B
 | `broschuere/src/pages/13-programmteil-2-2-eh40.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
 | `broschuere/src/pages/14-programmteil-2-4-inseln.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
 | `broschuere/src/pages/15-programmteil-2-3-modernisierung.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
-| `broschuere/src/pages/16-stichtag-wahlrecht-fristen.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
-| `broschuere/src/pages/17-programmteil-2-5-2-6-bindungen.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
-| `broschuere/src/pages/18-standort-und-kommune.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
-| `broschuere/src/pages/19-antragsweg.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
-| `broschuere/src/pages/20-pgn-leistungen.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
-| `broschuere/src/pages/21-unterlagen-kontakte.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
-| `broschuere/src/pages/22-ueber-pgn.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
-| `broschuere/src/pages/23-impressum-hinweise.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
+| `broschuere/src/pages/16-programmteil-2-5-2-6-bindungen.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
+| `broschuere/src/pages/17-standort-und-kommune.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
+| `broschuere/src/pages/18-antragsweg.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
+| `broschuere/src/pages/19-pgn-leistungen.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
+| `broschuere/src/pages/20-unterlagen-kontakte.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
+| `broschuere/src/pages/21-ueber-pgn.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
+| `broschuere/src/pages/22-impressum-hinweise.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
+| `broschuere/src/pages/23-quellen-notizen.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
 | `broschuere/src/pages/24-umschlag-rueckseite.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
 | `broschuere/src/styles.css` | aktuell | Bauskript Broschüre | Gestaltungsregeln, Vorlage oder Einstellung |
 | `broschuere/src/template.html` | aktuell | Bauskript Broschüre | Gestaltungsregeln, Vorlage oder Einstellung |

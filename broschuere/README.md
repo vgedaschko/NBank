@@ -17,7 +17,7 @@ Die Broschüre umfasst 24 Seiten im Format DIN A4 hoch und erklärt die **RL Mie
 Zielgruppen sind Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren, Projektentwicklung und Kommunen.
 Die Broschüre liest die Richtlinie wie ein Investment-Memo: zuerst die Zahlen, dann die Orientierung und die Ertragsseite,
 dann die Finanzierung mit Modellrechnung und Wirtschaftlichkeit, danach die übrigen Programmteile, Standort, Kommune und
-Antragsweg, zuletzt die Leistungen von PGN. Redaktionsstand: **12.11.2026** (Korrekturlauf 1, danach Bemessungsgrenzen seit 01.10.2026, Bankzins und Stand nachgezogen; Stand steht nur auf U1 und U3, nicht in den Fußzeilen). Stand der Gestaltung: **12.11.2026**, Stufung und Zuteilung nach `DESIGN.md` §0a.
+Antragsweg, zuletzt die Leistungen von PGN. Redaktionsstand: **13.11.2026** (Korrekturlauf 1, danach Bemessungsgrenzen seit 01.10.2026, Bankzins und Stand nachgezogen; Änderungsrunde vom 13.11.2026: Blatt „Stichtag 31.12.2026“ gestrichen, neue Seite „Quellen und Notizen“ vor der Rückseite). Der Stand „11/2026“ steht nur auf U1 und im Impressum (S. 22), nicht in den Fußzeilen. Stand der Gestaltung: **12.11.2026**, Stufung und Zuteilung nach `DESIGN.md` §0a.
 
 ## Dateien in `dist/`
 
@@ -35,10 +35,14 @@ Arbeitsdateien (nicht versioniert, siehe `.gitignore`): `dist/preview/seite-01.p
 
 Rückendrahtheftung: Umschlag (4 Seiten) um einen Innenteil von 20 Seiten. Doppelseiten 2|3, 4|5 … 22|23; die
 Doppelseite 10|11 „Modellrechnung“ trägt Finanzierung und Wirtschaftlichkeit, physische Heftmitte ist 12|13.
+Seit der Änderungsrunde vom 13.11.2026 (Regel G1) gibt es das Blatt „Stichtag 31.12.2026“ nicht mehr: Die früheren
+Bogenseiten 17–23 heißen 16–22 (gedruckt 15–21), neu ist S. 23 „Quellen und Notizen“ (gedruckt 22) auf der Innenseite des
+hinteren Umschlags. Das Impressum steht damit im Innenteil (S. 22, gedruckt 21). Die Doppelseiten ab S. 16 sind neu
+gepaart: 16|17, 18|19, 20|21, 22|23 (Horizonte je Paar: `DESIGN.md` §0a).
 
 **Seitenzählung (seit 13.11.2026):** Gedruckt zählt die Broschüre ab der ersten Inhaltsseite mit 1; der Titel trägt keine
 Zahl. Gedruckte Seitenzahl = Bogenseite − 1. Das gilt für Fußzeile, Inhaltsverzeichnis, Verweise im Text, Lesezeichen und
-Seitenbeschriftung der PDFs sowie die automatische Seitenzahl im InDesign-Paket (Abschnitt 1: Titel „A“, Abschnitt 2 ab 1).
+Seitenbeschriftung der PDFs (Umschlag vorn „Titel“, Rückseite „Rückseite“) sowie die automatische Seitenzahl im InDesign-Paket (Abschnitt 1: Titel „A“, Abschnitt 2 ab 1).
 Dateinamen, `data-page`, Anker `#seite-NN`, die Vorschaubilder `seite-NN.png` und alle Arbeitsunterlagen (diese Datei,
 `content/`, `korrektur/`, `OFFENE-PUNKTE.md`) nennen weiter die Bogenseite 1 bis 24. Die Übersicht unten nennt Bogenseiten.
 
@@ -48,7 +52,7 @@ Dateinamen, `data-page`, Anker `#seite-NN`, die Vorschaubilder `seite-NN.png` un
 |---:|---|---|---|
 | 1 | U1 | Umschlag · Titel | Wohnraum, der sich rechnet. |
 | 2 | U2 | Editorial | Damit sich Investieren wieder rechnet (Editorial, Inhalt) |
-| 23 | U3 | PGN · Impressum | Impressum und Hinweise |
+| 23 | U3 | PGN · Quellen und Notizen | Quellen und Notizen |
 | 24 | U4 | Umschlag · Rückseite | Aus Ihrer guten Idee – machen wir den besten Plan. |
 
 **Innenteil (S. 3–22)**
@@ -68,15 +72,15 @@ Dateinamen, `data-page`, Anker `#seite-NN`, die Vorschaubilder `seite-NN.png` un
 | 13 | Neubau · Programmteil 2.2 | Energetisch hochwertiger Neubau: Reiner Zuschuss statt Darlehen |
 | 14 | Neubau · Programmteil 2.4 | Ostfriesische Inseln: Höhere Kostengrenze, 10 % Eigenmittel |
 | 15 | Bestand · Programmteil 2.3 | Klimagerechte Modernisierung: Zuschuss nach Effizienzsteigerung |
-| 16 | Bestand · Stichtag 31.12.2026 | Wahlrecht für Modernisierungsanträge |
-| 17 | Bestand · Programmteile 2.5 und 2.6 | Belegungs- und Mietbindungen: Bindungen erwerben oder verlängern |
-| 18 | Umsetzung · Standort und Kommune | Bedarf am Standort und die Rolle der Kommune |
-| 19 | Umsetzung · Antragsweg | Vom Vorgespräch bis zum Verwendungsnachweis |
-| 20 | Umsetzung · Mit PGN | Unsere Leistungen im Förderprojekt |
-| 21 | Umsetzung · Unterlagen und Kontakte | Unterlagen, Kontakte und Verfahrensdetails |
-| 22 | PGN · Über uns | Ihre Generalplaner aus dem Norden. Seit 1981. |
+| 16 | Bestand · Programmteile 2.5 und 2.6 | Belegungs- und Mietbindungen: Bindungen erwerben oder verlängern |
+| 17 | Umsetzung · Standort und Kommune | Bedarf am Standort und die Rolle der Kommune |
+| 18 | Umsetzung · Antragsweg | Vom Vorgespräch bis zum Verwendungsnachweis |
+| 19 | Umsetzung · Mit PGN | Unsere Leistungen im Förderprojekt |
+| 20 | Umsetzung · Unterlagen und Kontakte | Unterlagen, Kontakte und Verfahrensdetails |
+| 21 | PGN · Über uns | Ihre Generalplaner aus dem Norden. Seit 1981. |
+| 22 | PGN · Impressum | Impressum und Hinweise |
 
-S. 8, 10, 11, 13, 14, 15 und 17 tragen im H1 eine zweite Stimme über der Hauptzeile. Auf der Seite steht kein Doppelpunkt
+S. 8, 10, 11, 13, 14, 15 und 16 tragen im H1 eine zweite Stimme über der Hauptzeile. Auf der Seite steht kein Doppelpunkt
 dazwischen; hier und im PDF-Lesezeichen sind beide mit Doppelpunkt verbunden. Jede Innenseite hat eine Kopfzeile mit der
 Rubrik, dem ersten Teil des Kolumnentitels (`DESIGN.md` §0a).
 
@@ -103,16 +107,16 @@ Präsentation und Broschüre werden am Ende abgeglichen; offene Punkte in Anhang
 | 11 | Zeilen 4 und 8 `[PGN-Rechnung]` | 49.152 / 62.784 / 70.574 € und 15.003 / 11.560 / 10.812 € (Jahr 1) |
 | 12 | Mietausfall `[… %]` im Rechenweg | Unterzeile 278 / 437 € (B / C); Tilgungsschwellen 1,80 % / 1,91 % |
 
-U3 trägt seit Korrekturlauf 1 keine Platzhalter mehr: „Verantwortlich für den Inhalt“ und „Druck“ entfallen
+Das Impressum (S. 22) trägt seit Korrekturlauf 1 keine Platzhalter mehr: „Verantwortlich für den Inhalt“ und „Druck“ entfallen
 (§ 8 Abs. 2, § 7 Abs. 3 NPresseG), der Bildnachweis lautet „Planungsgemeinschaft Nord GmbH“.
 
 Außerdem vor dem Druck zu bestätigen oder freizugeben (ohne Platzhalter im Heft, Details in Anhang B):
 Schlussabgleich S. 10–12 mit VOFI-Mappe und Präsentation, Angaben zum PGN-Projekt und Kostenansätze S. 10 (3.579 € PGN, 4.631 € ARGE),
 Kostenstand 2026, „Betriebskosten voll umgelegt“, Tilgungssatz 2,38 % (NBank abgestimmt?); der Tenor S. 11 ist seit 11.11.2026
 entschieden („Alle drei Gruppen tragen sich ab Jahr 1“), der Verweis S. 4 → S. 11 bleibt gestrichen, bis PGN entscheidet;
-Geschäftsführung, Herausgeberzeile und PDF-Metadaten (U3); Formulierung „Seit 1981“ (S. 2, 22); Bildrechte und
-hochaufgelöste Originale (U1, S. 20, 22); Negativ-Logo, CMYK-/Pantone-Werte und CI-Anwendung; Zitate Tonne (S. 2) und
-Kiesewetter (S. 6); PGN-Claims, Leistungsaussagen S. 20, Referenzen S. 22 und eine mögliche Ansprechperson auf U4.
+Geschäftsführung, Herausgeberzeile und PDF-Metadaten (Impressum S. 22); Formulierung „Seit 1981“ (S. 2, 21); Bildrechte und
+hochaufgelöste Originale (U1, S. 19, 21); Negativ-Logo, CMYK-/Pantone-Werte und CI-Anwendung; Zitate Tonne (S. 2) und
+Kiesewetter (S. 6); PGN-Claims, Leistungsaussagen S. 19, Referenzen S. 21 und eine mögliche Ansprechperson auf U4.
 
 ## Aufbau des Repos
 

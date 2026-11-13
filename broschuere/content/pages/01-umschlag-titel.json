@@ -47,7 +47,7 @@
         },
         {
           "label": "Stand",
-          "value": "12.11.2026"
+          "value": "11/2026"
         }
       ],
       "note": "Absenderleiste des Schriftfelds; keine Blattnummer auf dem Umschlag"
@@ -66,7 +66,7 @@
   ],
   "pgn_sources": [
     "pgn-facts.md §1 Firma „Planungsgemeinschaft Nord GmbH“, Sitz Rotenburg (Wümme)",
-    "pgn-facts.md §7a Brauerstraße, Rotenburg (Wümme): Neubau eines Mehrfamilienhauses, 19 WE, „Alle Wohnungen sind barrierefrei …“, „Die Umsetzung wird durch die Förderung der N-Bank unterstützt.“ (Schreibweise NBank; Formulierung wie S. 22)",
+    "pgn-facts.md §7a Brauerstraße, Rotenburg (Wümme): Neubau eines Mehrfamilienhauses, 19 WE, „Alle Wohnungen sind barrierefrei …“, „Die Umsetzung wird durch die Förderung der N-Bank unterstützt.“ (Schreibweise NBank; Formulierung wie S. 21)",
     "assets/pgn/MANIFEST.md: sig-axo-brauerstrasse.svg = Axonometrie nach der Kubatur Brauerstraße, Zeichnung der PGN (Schema); logo-weiss.svg Freigabe [UNSICHER]"
   ],
   "pdf_meta": {

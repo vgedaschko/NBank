@@ -737,9 +737,12 @@ async function finishPdf(file, { outline, docTitle, offset, print, links = [], p
     root.set(PDFName.of('Count'), PDFNumber.of(refs.length));
     ctx.assign(outlinesRef, root);
     catalog.set(PDFName.of('Outlines'), outlinesRef);
-    // Seitenzählung im PDF-Betrachter wie im Heft: Umschlag „Titel“, ab der zweiten PDF-Seite 1, 2, 3 …
+    // Seitenzählung im PDF-Betrachter wie im Heft: Umschlag „Titel“, ab der zweiten PDF-Seite 1, 2, 3 …, die letzte Seite
+    // „Rückseite“ (wie ihr Lesezeichen; U4 trägt keine Zahl)
     const labels = ctx.obj({});
-    labels.set(PDFName.of('Nums'), ctx.obj([PDFNumber.of(0), ctx.obj({ P: PDFHexString.fromText('Titel') }), PDFNumber.of(1), ctx.obj({ S: PDFName.of('D'), St: PDFNumber.of(1) })]));
+    const nums = [PDFNumber.of(0), ctx.obj({ P: PDFHexString.fromText('Titel') }), PDFNumber.of(1), ctx.obj({ S: PDFName.of('D'), St: PDFNumber.of(1) })];
+    if (pages.length > 2) nums.push(PDFNumber.of(pages.length - 1), ctx.obj({ P: PDFHexString.fromText('Rückseite') }));
+    labels.set(PDFName.of('Nums'), ctx.obj(nums));
     catalog.set(PDFName.of('PageLabels'), labels);
     catalog.set(PDFName.of('PageMode'), PDFName.of('UseOutlines'));
   }

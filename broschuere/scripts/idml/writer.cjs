@@ -232,7 +232,7 @@ function writeIdml(doc, opts = {}) {
   // gleichbleibenden Fußzeilen-Objekten – nur für Seiten, deren Fuß wirklich auf die Musterseite gewandert ist
   // (doc.master.pages) bzw. die auf Druckbögen mit ausgeblendeten Musterobjekten stehen. „B-Inhalt ohne Fuß“: gleicher
   // Satzspiegel und gleiches Raster, keine Objekte – für Seiten mit Satzspiegel, aber ohne Standard-Fußzeile (z. B.
-  // Impressum mit eigener Fußzeile; ShowMasterItems gilt je Druckbogen und würde der Nachbarseite den Fuß nehmen).
+  // eine Seite mit eigener Fußzeile; ShowMasterItems gilt je Druckbogen und würde der Nachbarseite den Fuß nehmen).
   // „U-Umschlag“ ohne Ränder für Seiten mit Rand 0 (Umschlag).
   const zeroM = { top: 0, bottom: 0, left: 0, right: 0 };
   const isZero = (m) => m.top + m.bottom + m.left + m.right < 0.5;

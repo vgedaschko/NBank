@@ -1,0 +1,36 @@
+{
+  "no": 23,
+  "slug": "quellen-notizen",
+  "layout_type": "sources-notes",
+  "running_title": "PGN · Quellen und Notizen",
+  "footer": "Standardfuß mit Blatt 22 und Kolumnentitel „PGN · Quellen und Notizen“",
+  "kicker": "PGN",
+  "headline": "Quellen und Notizen",
+  "lead": "",
+  "blocks": [
+    {
+      "type": "table",
+      "role_hint": "quellen",
+      "caption": "Quellen und die Seiten, auf denen sie verwendet werden",
+      "caption_visible": false,
+      "columns": ["Quelle", "Verwendet auf"],
+      "rows": [],
+      "note": "Zeilen in der Form „Herausgeber (Jahr): Titel. Fundstelle.“ | Blattnummern nach der neuen Zählung; setzt der Teil „Blätter 14 bis Rückseite“ (B22.2). Bis dahin steht im Partial eine leere Zeile, weil InDesign eine Körperzeile braucht."
+    },
+    {
+      "type": "notes",
+      "heading": "Notizen",
+      "role_hint": "planraster",
+      "note": "Fläche im 5-mm-Planraster (Vektorzeichnung --planraster) bis zur Satzspiegel-Unterkante, ohne Text."
+    }
+  ],
+  "footnotes": [],
+  "fact_ids": [],
+  "pgn_sources": [
+    "Änderungsrunde vom 13.11.2026, B15.1 (Entscheidung mit Rückfrage 8 und 24): neue Seite vor der Rückseite, oben die Quellentabelle über die volle Breite, darunter „Notizen“ mit Planraster; im Inhaltsverzeichnis „22 Quellen und Notizen“. B22.2: Quellen als Tabelle mit den Spalten „Quelle“ und „Verwendet auf“."
+  ],
+  "open_points": [
+    "Zeilen der Quellentabelle (B22.2) folgen; dann die Quellen auf S. 22 (Impressum) streichen."
+  ],
+  "visual_idea": "Rechte Seite der Doppelseite 22|23 (Impressum | Quellen und Notizen), letzte Innenseite vor U4. Kopfzeile mit Rubrik „PGN“ wie S. 21 und 22; H1 „Quellen und Notizen“ in Montserrat Black Versalien 25 pt mit roter Titellinie, kein Vorspann. Gemeinsame Horizonte mit S. 22: Kopfzeile 14 mm, H1 26 mm, erste Bandlinie 68,5 mm (Kopf der Quellentabelle = Oberkante Impressum-Schriftfeld), Unterkante 273 mm. Quellentabelle über die volle Breite: Quelle 9 Spalten | Verwendet auf 3 Spalten, Tabellenkopf 8,5 pt Versalien mit kräftiger Linie oben, Text 9,5 pt, Haarlinien zwischen den Zeilen. Darunter „Notizen“ als Modultitel (Montserrat 800, 12 pt, gemischt) mit Haarlinie darüber und eine Fläche im 5-mm-Planraster bis zur Satzspiegel-Unterkante. Fuß wie alle Innenseiten mit Blatt 22. Rot nur: Titellinie und Wortmarke."
+}

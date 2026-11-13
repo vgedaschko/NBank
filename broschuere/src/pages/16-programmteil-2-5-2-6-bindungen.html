@@ -1,46 +1,49 @@
-<section class="page" data-page="17" id="seite-17">
+<section class="page" data-page="16" id="seite-16">
   <style>
-    /* S. 17 · Programmteile 2.5 und 2.6 kompakt (rechte Seite der Doppelseite 16|17 „Bestand“, Korrekturlauf 1).
-       Ein dominantes Element: Eckdaten-Vergleich 2.5 | 2.6 im selben Spaltenraster wie die Vergleichstabelle auf S. 16
+    /* S. 16 · Programmteile 2.5 und 2.6 kompakt (linke Seite der Doppelseite 16|17 „Bestand | Umsetzung“, Korrekturlauf 1;
+       seit der Änderungsrunde vom 13.11.2026 links: Programmnummer, Programm-Tags und Daumenregister stehen außen links).
+       Gemeinsame Horizonte mit S. 17: Kopfzeile mit Schlüsselplan (S. 17 hält dieselbe Höhe), H1, erste Bandlinie = Oberkante
+       Spaltenkopf (85,8 mm) = Oberkante Leiter und Ring auf S. 17, Unterkante 273 mm.
+       Ein dominantes Element: Eckdaten-Vergleich 2.5 | 2.6
        (Bezeichnung 2 Spalten + Steg | 2.5 Spalten 3–7 | 2.6 Spalten 8–12).
        Stufung und Zuteilung nach styles.css §8b: Kopfzeile mit Rubrik und Schlüsselplan, H1 in 25 pt mit zweiter Stimme
        statt Kicker; die Spaltenköpfe arbeiten als Modultitel (12 pt, gemischt), Zeilenköpfe als 8,5-pt-Label, Text 9,5 pt
-       mit Zeilenabstand 1,3 wie die Vergleichstabelle auf S. 16. Kennwerte 21 pt, Einheit in Schwarz. Die Tabelle
+       mit Zeilenabstand 1,3. Kennwerte 21 pt, Einheit in Schwarz. Die Tabelle
        schließt unten am Satzspiegel (margin-top: auto), über dem Spaltenkopf bleiben 6 mm. */
-    .page[data-page="17"] .p17-no > span { display: block; color: var(--bs); }
-    .page[data-page="17"] .p17-no > span + span { margin-top: 2.2mm; }
-    .page[data-page="17"] .p17-no { font-size: 46pt; }
-    .page[data-page="17"] .program-head__no .tags { flex-direction: column; align-items: flex-end; gap: 1.2mm; }
+    .page[data-page="16"] .p17-no > span { display: block; color: var(--bs); }
+    .page[data-page="16"] .p17-no > span + span { margin-top: 2.2mm; }
+    .page[data-page="16"] .p17-no { font-size: 46pt; }
+    .page[data-page="16"] .program-head__no .tags { flex-direction: column; align-items: flex-start; gap: 1.2mm; }   /* linke Seite: bündig mit der Programmnummer außen */
     /* Unterzeile: zwei Aussagen, je eine Zeile; der Trennpunkt steht am Umbruch und wird deshalb nicht gesetzt */
-    .page[data-page="17"] .p17-deck__l { display: block; }
+    .page[data-page="16"] .p17-deck__l { display: block; }
 
-    .page[data-page="17"] .p17-tab { margin-top: auto; table-layout: fixed; font-size: var(--fs-module); line-height: 1.3; }
-    .page[data-page="17"] .p17-tab .p17-c1 { width: calc(2 * var(--col) + 2 * var(--gutter)); }
-    .page[data-page="17"] .p17-tab .p17-c2 { width: calc(5 * var(--col) + 5 * var(--gutter)); }
-    .page[data-page="17"] .p17-tab th, .page[data-page="17"] .p17-tab td { padding: 1.1mm 0 1.2mm; }   /* wie S. 16 */
-    .page[data-page="17"] .p17-tab .p17-25 { padding-right: var(--gutter); }
+    .page[data-page="16"] .p17-tab { margin-top: auto; table-layout: fixed; font-size: var(--fs-module); line-height: 1.3; }
+    .page[data-page="16"] .p17-tab .p17-c1 { width: calc(2 * var(--col) + 2 * var(--gutter)); }
+    .page[data-page="16"] .p17-tab .p17-c2 { width: calc(5 * var(--col) + 5 * var(--gutter)); }
+    .page[data-page="16"] .p17-tab th, .page[data-page="16"] .p17-tab td { padding: 1.1mm 0 1.2mm; }
+    .page[data-page="16"] .p17-tab .p17-25 { padding-right: var(--gutter); }
     /* Spaltenköpfe = Modultitel: Balken in der Programmfarbe nur über der Textspalte (Steg bleibt frei), Nummer + Titel */
-    .page[data-page="17"] .p17-tab thead th { position: relative; padding-top: 3.2mm; padding-bottom: 1.8mm; color: var(--fg); font: 800 var(--fs-h3)/1.2 var(--font-display); letter-spacing: 0; text-transform: none; }
-    .page[data-page="17"] .p17-tab thead th.p17-25::before, .page[data-page="17"] .p17-tab thead th.p17-26::before { content: ""; position: absolute; left: 0; top: 0; height: 1.2mm; background: var(--bs); }
-    .page[data-page="17"] .p17-tab thead th.p17-25::before { right: var(--gutter); }
-    .page[data-page="17"] .p17-tab thead th.p17-26::before { right: 0; }
-    .page[data-page="17"] .p17-tab thead .bs-badge__no { margin-right: 1.8mm; font-size: var(--fs-small); padding: .7mm 1.2mm .6mm; letter-spacing: 0; }
-    .page[data-page="17"] .p17-tab tbody th { font: 700 var(--fs-micro)/1.3 var(--font-display); letter-spacing: .07em; text-transform: uppercase; color: var(--fg-3); padding-top: 1.6mm; padding-right: 3mm; }
-    .page[data-page="17"] .p17-tab td { color: var(--text); }
-    .page[data-page="17"] .p17-tab td b:not(.bs-badge__no) { color: var(--fg); }
+    .page[data-page="16"] .p17-tab thead th { position: relative; padding-top: 3.2mm; padding-bottom: 1.8mm; color: var(--fg); font: 800 var(--fs-h3)/1.2 var(--font-display); letter-spacing: 0; text-transform: none; }
+    .page[data-page="16"] .p17-tab thead th.p17-25::before, .page[data-page="16"] .p17-tab thead th.p17-26::before { content: ""; position: absolute; left: 0; top: 0; height: 1.2mm; background: var(--bs); }
+    .page[data-page="16"] .p17-tab thead th.p17-25::before { right: var(--gutter); }
+    .page[data-page="16"] .p17-tab thead th.p17-26::before { right: 0; }
+    .page[data-page="16"] .p17-tab thead .bs-badge__no { margin-right: 1.8mm; font-size: var(--fs-small); padding: .7mm 1.2mm .6mm; letter-spacing: 0; }
+    .page[data-page="16"] .p17-tab tbody th { font: 700 var(--fs-micro)/1.3 var(--font-display); letter-spacing: .07em; text-transform: uppercase; color: var(--fg-3); padding-top: 1.6mm; padding-right: 3mm; }
+    .page[data-page="16"] .p17-tab td { color: var(--text); }
+    .page[data-page="16"] .p17-tab td b:not(.bs-badge__no) { color: var(--fg); }
     /* Kennzahlzeile */
-    .page[data-page="17"] .p17-tab .p17-kf > * { padding-top: 2.2mm; padding-bottom: 2.2mm; }
-    .page[data-page="17"] .p17-tab .p17-kf--num > * { padding-bottom: 0; border-bottom: 0; }
-    .page[data-page="17"] .p17-tab .p17-kf--text > * { padding-top: 0; }
-    .page[data-page="17"] .p17-num { display: block; margin-bottom: 1.6mm; font: 800 var(--fs-fig-m)/1 var(--font-display); letter-spacing: -.01em; color: var(--fg); font-variant-numeric: tabular-nums lining-nums; }
-    .page[data-page="17"] .p17-num small { margin-left: .12em; font-size: .52em; font-weight: 700; letter-spacing: 0; color: var(--fg); }
+    .page[data-page="16"] .p17-tab .p17-kf > * { padding-top: 2.2mm; padding-bottom: 2.2mm; }
+    .page[data-page="16"] .p17-tab .p17-kf--num > * { padding-bottom: 0; border-bottom: 0; }
+    .page[data-page="16"] .p17-tab .p17-kf--text > * { padding-top: 0; }
+    .page[data-page="16"] .p17-num { display: block; margin-bottom: 1.6mm; font: 800 var(--fs-fig-m)/1 var(--font-display); letter-spacing: -.01em; color: var(--fg); font-variant-numeric: tabular-nums lining-nums; }
+    .page[data-page="16"] .p17-num small { margin-left: .12em; font-size: .52em; font-weight: 700; letter-spacing: 0; color: var(--fg); }
     /* gemeinsame Zeilen (gelten für 2.5 und 2.6): über beide Spalten, mit Hinweis-Chip */
-    .page[data-page="17"] .p17-both { display: inline-flex; gap: .8mm; margin-right: 1.6mm; vertical-align: .2mm; }
-    .page[data-page="17"] .p17-both .bs-badge__no { padding: .5mm 1mm .4mm; font-size: var(--fs-micro); letter-spacing: 0; }
-    .page[data-page="17"] .p17-stop { white-space: nowrap; }
-    .page[data-page="17"] .p17-stop .icon { width: 3.4mm; height: 3.4mm; vertical-align: -.7mm; margin-right: .8mm; }
-    .page[data-page="17"] .p17-stop + b { color: var(--signal-text); }
-    .page[data-page="17"] .p17-tab .badge { padding: .45mm 1mm .35mm; vertical-align: .2mm; }
+    .page[data-page="16"] .p17-both { display: inline-flex; gap: .8mm; margin-right: 1.6mm; vertical-align: .2mm; }
+    .page[data-page="16"] .p17-both .bs-badge__no { padding: .5mm 1mm .4mm; font-size: var(--fs-micro); letter-spacing: 0; }
+    .page[data-page="16"] .p17-stop { white-space: nowrap; }
+    .page[data-page="16"] .p17-stop .icon { width: 3.4mm; height: 3.4mm; vertical-align: -.7mm; margin-right: .8mm; }
+    .page[data-page="16"] .p17-stop + b { color: var(--signal-text); }
+    .page[data-page="16"] .p17-tab .badge { padding: .45mm 1mm .35mm; vertical-align: .2mm; }
   </style>
 
   <div class="bs-register bs-25" data-bleed aria-hidden="true">2.5</div>
@@ -83,7 +86,7 @@
       <tr>
         <th scope="row" class="u-nohyphens">Wohnung</th>
         <td class="p17-25">frei, ohne andere Belegungsbindung; nicht im direkten Anschluss an eine auslaufende Bindung (dafür 2.6)</td>
-        <td class="p17-26">vom Land gefördert, Bindung läuft <span class="u-nohyphens">planmäßig</span> aus, ist nicht bereits <span class="u-nohyphens">ausgelaufen</span>; Bedarf besteht fort <span class="u-nowrap">(<a class="pageref" href="#seite-18">→&nbsp;S.&nbsp;17</a>)</span></td>
+        <td class="p17-26">vom Land gefördert, Bindung läuft <span class="u-nohyphens">planmäßig</span> aus, ist nicht bereits <span class="u-nohyphens">ausgelaufen</span>; Bedarf besteht fort <span class="u-nowrap">(<a class="pageref" href="#seite-17">→&nbsp;S.&nbsp;16</a>)</span></td>
       </tr>
       <tr>
         <th scope="row" class="u-nohyphens">Zustand, Größe</th>
@@ -126,5 +129,5 @@
     </tbody>
   </table>
 
-  <footer class="page__foot" aria-hidden="true"><span class="page__folio">16</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Bestand · Programmteile 2.5 und 2.6</b></span></span></footer>
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">15</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Bestand · Programmteile 2.5 und 2.6</b></span></span></footer>
 </section>

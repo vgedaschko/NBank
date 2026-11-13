@@ -1,63 +1,66 @@
-<section class="page page--dicht" data-page="21" id="seite-21">
+<section class="page page--dicht" data-page="20" id="seite-20">
   <style>
-    /* Seite 21 · Unterlagen, Kontakte und Verfahrensdetails · Planwerk. Rechte Seite der Doppelseite 20|21 „Umsetzung“.
+    /* Seite 20 · Unterlagen, Kontakte und Verfahrensdetails · Planwerk. Linke Seite der Doppelseite 20|21 „Umsetzung | PGN“
+       (seit der Änderungsrunde vom 13.11.2026; vorher rechte Seite neben den Leistungen).
        12er-Raster: Lesefeld Spalten 1–8 (zwei Spalten à 4, Haarlinie in der Stegmitte: Ankreuzliste → Verfahrensdetails
        im Telegrammstil mit Run-in-Stichwörtern) · dominant: Kontaktspalte 9–12 als Papierfeld über die volle Höhe des
        Lesefelds bis 273 mm, vier gleich hohe, gleichrangige Felder. Gemeinsamer Horizont: Modulkopf-Linie links = Oberkante
        Kontaktspalte. Rot nur: Titellinie und Programmteilfarben. Farben nur über Tokens.
        Stufung und Zuteilung nach styles.css §8b: Rubrik in der Kopfzeile, H1 25 pt, Modultitel 12 pt gemischt („Unterlagen (Auszug)“,
        „Verfahrensdetails“), Kontaktnamen und Rufnummern 12 pt, Gruppentitel und Kontakt-Labels 8,5 pt Versalien in Schwarz,
-       Text 9 pt. Horizonte wie S. 20: Kopfzeile, H1, erste Bandlinie 59,5 mm, Unterkante 273 mm.
+       Text 9 pt. Gemeinsame Horizonte mit S. 21: Kopfzeile, H1, Unterkante 273 mm. Die erste Bandlinie bleibt bei 59,5 mm
+       (bis 13.11.2026 gemeinsam mit den Leistungen); S. 21 beginnt unter dem Vorspann bei 68,5 mm, tiefer reicht die
+       Spaltenhöhe hier nicht.
        Dichte Seite (.page--dicht, 9 pt): Ankreuzliste und neun Verfahrensdetails laufen in zwei Spalten von je 56,7 mm; in 9,5 pt
        fehlen je Spalte rund 35 mm. --fs-module wird in :root aufgelöst und folgt .page--dicht nicht von selbst, deshalb hier
        neu gebunden. Abstände der Ankreuzliste und der Stichwörter sind auf die Spaltenhöhe von 213,5 mm gezogen. */
-    .page[data-page="21"] { --fs-module: var(--fs-small); }
+    .page[data-page="20"] { --fs-module: var(--fs-small); }
 
-    .page[data-page="21"] .badge { vertical-align: .15mm; }
+    .page[data-page="20"] .badge { vertical-align: .15mm; }
 
     /* Raster: Lesefeld 8 Spalten | Kontakte 4 Spalten, bis Satzspiegelende ----------------------------------------- */
-    .page[data-page="21"] .p21-body { flex: 1 1 auto; min-height: 0; margin-top: 15.16mm; display: grid; grid-template-columns: calc(8 * var(--col) + 7 * var(--gutter)) calc(4 * var(--col) + 3 * var(--gutter)); column-gap: var(--gutter); }
+    .page[data-page="20"] .p21-body { flex: 1 1 auto; min-height: 0; margin-top: 15.16mm; display: grid; grid-template-columns: calc(8 * var(--col) + 7 * var(--gutter)) calc(4 * var(--col) + 3 * var(--gutter)); column-gap: var(--gutter); }
 
     /* Lesefeld: zwei Spalten, Haarlinie in der Stegmitte ------------------------------------------------------------ */
-    .page[data-page="21"] .p21-flow { align-self: start; padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); column-count: 2; column-gap: var(--gutter); column-rule: var(--hair) solid var(--rule); column-fill: balance; }
-    .page[data-page="21"] .p21-flow .chart__title { break-after: avoid; }
+    .page[data-page="20"] .p21-flow { align-self: start; padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); column-count: 2; column-gap: var(--gutter); column-rule: var(--hair) solid var(--rule); column-fill: balance; }
+    .page[data-page="20"] .p21-flow .chart__title { break-after: avoid; }
 
     /* Ankreuzliste */
-    .page[data-page="21"] .p21-check__list { margin-top: 1.8mm; }
-    .page[data-page="21"] .p21-check__list .checklist__item { grid-template-columns: 6mm minmax(0, 1fr); column-gap: 0; padding: .9mm 0 1mm; line-height: var(--lh-module); }
-    .page[data-page="21"] .p21-check__list .checklist__item:first-child { border-top: var(--hair) solid var(--rule); }
-    .page[data-page="21"] .p21-check__list .checklist__item:last-child { border-bottom: 0; }
-    .page[data-page="21"] .p21-check__list .checklist__box { width: 3.6mm; height: 3.6mm; margin-top: .25mm; border-color: var(--fg-2); }
-    .page[data-page="21"] .p21-check__list b:not(.bs-no) { color: var(--fg); }
-    .page[data-page="21"] .p21-check__list .p21-in-paren { margin: 0 .3mm; }
+    .page[data-page="20"] .p21-check__list { margin-top: 1.8mm; }
+    .page[data-page="20"] .p21-check__list .checklist__item { grid-template-columns: 6mm minmax(0, 1fr); column-gap: 0; padding: .9mm 0 1mm; line-height: var(--lh-module); }
+    .page[data-page="20"] .p21-check__list .checklist__item:first-child { border-top: var(--hair) solid var(--rule); }
+    .page[data-page="20"] .p21-check__list .checklist__item:last-child { border-bottom: 0; }
+    .page[data-page="20"] .p21-check__list .checklist__box { width: 3.6mm; height: 3.6mm; margin-top: .25mm; border-color: var(--fg-2); }
+    .page[data-page="20"] .p21-check__list b:not(.bs-no) { color: var(--fg); }
+    .page[data-page="20"] .p21-check__list .p21-in-paren { margin: 0 .3mm; }
 
     /* Verfahrensdetails: Gruppen fließen; Stichwort als Run-in */
-    .page[data-page="21"] .p21-faq { margin-top: 3.2mm; padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
-    .page[data-page="21"] .p21-grp__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 2mm; margin-top: 2.4mm; padding-bottom: 1.1mm; font-size: var(--fs-module); line-height: var(--lh-module); border-bottom: var(--rule-w) solid var(--rule-strong); break-after: avoid; break-inside: avoid; }
-    .page[data-page="21"] .p21-grp__title { padding-top: .5mm; font: 700 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
-    .page[data-page="21"] .p21-qa { padding-top: 1.4mm; }
-    .page[data-page="21"] .p21-qa__item { break-inside: avoid; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="21"] .p21-qa__item + .p21-qa__item { margin-top: 1.8mm; }
-    .page[data-page="21"] .p21-qa__item dt { display: inline; font-weight: 600; color: var(--fg); }
-    .page[data-page="21"] .p21-qa__item dd { display: inline; margin: 0; }
+    .page[data-page="20"] .p21-faq { margin-top: 3.2mm; padding-top: 3mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
+    .page[data-page="20"] .p21-grp__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 2mm; margin-top: 2.4mm; padding-bottom: 1.1mm; font-size: var(--fs-module); line-height: var(--lh-module); border-bottom: var(--rule-w) solid var(--rule-strong); break-after: avoid; break-inside: avoid; }
+    .page[data-page="20"] .p21-grp__title { padding-top: .5mm; font: 700 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
+    .page[data-page="20"] .p21-qa { padding-top: 1.4mm; }
+    .page[data-page="20"] .p21-qa__item { break-inside: avoid; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="20"] .p21-qa__item + .p21-qa__item { margin-top: 1.8mm; }
+    .page[data-page="20"] .p21-qa__item dt { display: inline; font-weight: 600; color: var(--fg); }
+    .page[data-page="20"] .p21-qa__item dd { display: inline; margin: 0; }
     /* Zweite Spalte (Gruppen 2 und 3, der Spaltenwechsel liegt vor Gruppe 2): Der Rest am Spaltenfuß ist auf die Abstände
        verteilt, die Spalte endet knapp über der ersten (272,6 mm, links 272,9 mm). Über Gruppe 3 steht mehr Luft als zwischen
        den Stichwörtern. Gruppe 2 beginnt am Spaltenkopf und trägt keinen oberen Abstand: Der Spaltenausgleich rechnet ihn
        sonst mit und zieht das Lesefeld über 273 mm. Die zweite Spalte muss kürzer bleiben als die erste; nach jeder Änderung
        die Unterkante messen, der OVERFLOW-Check sieht das Lesefeld nicht. */
-    .page[data-page="21"] .p21-grp + .p21-grp .p21-grp__head { margin-top: 0; padding-bottom: 1.5mm; }
-    .page[data-page="21"] .p21-grp + .p21-grp + .p21-grp .p21-grp__head { margin-top: 6mm; }
-    .page[data-page="21"] .p21-grp + .p21-grp .p21-qa { padding-top: 1.8mm; }
-    .page[data-page="21"] .p21-grp + .p21-grp .p21-qa__item + .p21-qa__item { margin-top: 2.5mm; }
+    .page[data-page="20"] .p21-grp + .p21-grp .p21-grp__head { margin-top: 0; padding-bottom: 1.5mm; }
+    .page[data-page="20"] .p21-grp + .p21-grp + .p21-grp .p21-grp__head { margin-top: 6mm; }
+    .page[data-page="20"] .p21-grp + .p21-grp .p21-qa { padding-top: 1.8mm; }
+    .page[data-page="20"] .p21-grp + .p21-grp .p21-qa__item + .p21-qa__item { margin-top: 2.5mm; }
 
     /* Kontakte: dominantes Papierfeld über die volle Höhe, vier gleich hohe Felder mit Haarlinien ------------------- */
-    .page[data-page="21"] .p21-contacts { display: flex; flex-direction: column; padding: 0 2.2mm; background: var(--surface-2); border-top: var(--rule-heavy) solid var(--rule-strong); }
-    .page[data-page="21"] .p21-ct { flex: 1 1 0; padding: 5mm 0 4mm; }
-    .page[data-page="21"] .p21-ct + .p21-ct { border-top: var(--hair) solid var(--rule); }
-    .page[data-page="21"] .p21-ct__name { margin-top: 2mm; font: 700 var(--fs-h3)/1.22 var(--font-display); color: var(--fg); }
-    .page[data-page="21"] .p21-ct__tel { margin-top: 1.6mm; font: 700 var(--fs-h3)/1.25 var(--font-display); color: var(--fg); font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
-    .page[data-page="21"] .p21-ct__text { margin-top: 1.8mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
-    .page[data-page="21"] .p21-contacts .contact__label { font-size: var(--fs-micro); }   /* Label in Schwarz: 8,5 pt wie alle Versal-Labels */
+    .page[data-page="20"] .p21-contacts { display: flex; flex-direction: column; padding: 0 2.2mm; background: var(--surface-2); border-top: var(--rule-heavy) solid var(--rule-strong); }
+    .page[data-page="20"] .p21-ct { flex: 1 1 0; padding: 5mm 0 4mm; }
+    .page[data-page="20"] .p21-ct + .p21-ct { border-top: var(--hair) solid var(--rule); }
+    .page[data-page="20"] .p21-ct__name { margin-top: 2mm; font: 700 var(--fs-h3)/1.22 var(--font-display); color: var(--fg); }
+    .page[data-page="20"] .p21-ct__tel { margin-top: 1.6mm; font: 700 var(--fs-h3)/1.25 var(--font-display); color: var(--fg); font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
+    .page[data-page="20"] .p21-ct__text { margin-top: 1.8mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
+    .page[data-page="20"] .p21-contacts .contact__label { font-size: var(--fs-micro); }   /* Label in Schwarz: 8,5 pt wie alle Versal-Labels */
   </style>
 
   <header class="page__header"><span class="page__section">Umsetzung</span></header>
@@ -97,7 +100,7 @@
         </dl>
       </section>
       <section class="p21-grp" aria-labelledby="p21-g3">
-        <div class="p21-grp__head"><h3 class="p21-grp__title" id="p21-g3">Beginn, Vergabe, Anzeigen</h3><a class="pageref" href="#seite-19">zu S.&nbsp;18</a></div>
+        <div class="p21-grp__head"><h3 class="p21-grp__title" id="p21-g3">Beginn, Vergabe, Anzeigen</h3><a class="pageref" href="#seite-18">zu S.&nbsp;17</a></div>
         <dl class="p21-qa">
           <div class="p21-qa__item"><dt>Vorzeitiger Vorhabenbeginn.</dt> <dd>Nur nach Zulassung durch die NBank, beantragt frühestens mit dem Förderantrag, auf eigenes Risiko.</dd></div>
           <div class="p21-qa__item"><dt>Vergabe.</dt> <dd>Mindestens drei Unternehmen zum Angebot auffordern, Verfahren und Ergebnis dokumentieren; Direktauftrag bis <span class="u-nowrap">25.000 € netto.</span></dd></div>
@@ -129,10 +132,10 @@
       <p class="contact__label contact__label--tight">Planung und Unterlagen</p>
       <p class="p21-ct__name u-nohyphens">PGN</p>
       <p class="p21-ct__tel"><a href="tel:+49426192930">(+49) 4261 9293-0</a></p>
-      <p class="p21-ct__text">Wir planen Ihr Vorhaben und erstellen die baufachlichen Antragsunterlagen <span class="u-nowrap">(<a class="pageref" href="#seite-20">→&nbsp;S.&nbsp;19</a>)&nbsp;·</span> <a class="u-url" href="mailto:info@pgn-architekten.de">info@pgn-architekten.de</a></p>
+      <p class="p21-ct__text">Wir planen Ihr Vorhaben und erstellen die baufachlichen Antragsunterlagen <span class="u-nowrap">(<a class="pageref" href="#seite-19">→&nbsp;S.&nbsp;18</a>)&nbsp;·</span> <a class="u-url" href="mailto:info@pgn-architekten.de">info@pgn-architekten.de</a></p>
     </li>
   </ul>
   </div>
 
-  <footer class="page__foot" aria-hidden="true"><span class="page__folio">20</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Unterlagen und Kontakte</b></span></span></footer>
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">19</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Umsetzung · Unterlagen und Kontakte</b></span></span></footer>
 </section>

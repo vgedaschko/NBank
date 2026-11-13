@@ -1,12 +1,14 @@
 # Offene Punkte bis zur Abstimmung mit der Geschäftsführung
 
-Stand 12.11.2026. Aufgenommen ist nur, was aus dem Verlauf der Arbeit oder aus den Projektdateien hervorgeht
+Stand 13.11.2026. Aufgenommen ist nur, was aus dem Verlauf der Arbeit oder aus den Projektdateien hervorgeht
 (`praesentation/daten/outline.json`: offene Fragen und ungeprüfte Angaben; `praesentation/README.md`;
 `broschuere/content/copy.md`, Anhang A und B). Wichtigkeit: muss / sollte / kann.
 
 **Seitenzählung der Broschüre (13.11.2026):** Gedruckt zählt die Broschüre ab der ersten Inhaltsseite mit 1, der Titel
 zählt nicht mit. Diese Datei nennt wie alle Arbeitsunterlagen weiter die Bogenseite (gedruckte Seitenzahl = Bogenseite − 1).
 Im InDesign-Paket bilden zwei Abschnitte die Zählung ab (Titel „A“, danach ab 1); das ist beim Öffnen in InDesign zu prüfen.
+Seit der Änderungsrunde vom 13.11.2026 fehlt das Blatt „Stichtag 31.12.2026“: Die früheren Bogenseiten 17–23 heißen 16–22,
+neu ist S. 23 „Quellen und Notizen“. Die Seitenangaben unten nennen die neue Zählung.
 Für die Durchsicht liegt `Aenderungsvorschlaege-Broschuere-und-Vortrag.docx` bereit (je Seite und Folie eine leere Zeile, rechts die Spalte „Umgang“: direkt ändern oder erst besprechen).
 
 ## a) Was noch zu ändern ist (Bearbeitung)
@@ -27,6 +29,8 @@ Für die Durchsicht liegt `Aenderungsvorschlaege-Broschuere-und-Vortrag.docx` be
 | a12 | Broschüre, alle Fachseiten | Die beiden Produktinformationen der NBank tragen jetzt den Stand 05.11.2026 (vorher 31.08. und 28.07.2026). Fördersätze und Höchstmieten sind beim Überfliegen unverändert; ein vollständiger Abgleich mit der Broschüre steht aus. | sollte |
 | a13 | Vortrag Folien 4, 5, 16 bis 19, 24, A7; Broschüre S. 11; Excel | Zinsreihe bis 11/2026 nachgezogen, Bankzins 3,86 % (Wert vom 10.11.2026) statt 3,74 % in allen drei Werken, auch für das NBank-Darlehen ab Jahr 36 (Eingabe 3.3). Folie 4: Diagramm über die volle Breite, ohne Kennzahlen rechts. Frei finanziert: Kapitaldienst 134.779 €, nötige Miete 15,59 €. | erledigt 12.11. |
 | a14 | Vortrag Folie A7; Excel (Eingaben 4.3, 4.4, Hinweis 14) | Marktmiete des Modellhauses auf 15,42 € gestellt (Gutachterausschuss Lüneburg, Hamburger Umland, Baualter ab 2023, 40 bis 60 m², Stand 01.01.2026) statt 14,48 €; Herkunft auf A7 und in der Mappe berichtigt. Frei finanziert fehlen zur Marktmiete in Jahr 1 noch 0,17 € je m² (1.691 €). Die Tabelle 2026 ist im Zweitabdruck nachgelesen; die Erstveröffentlichung des Gutachterausschusses sollte die PGN einmal gegenlesen. | erledigt 12.11. |
+| a15 | Broschüre, alle Seiten ab S. 16 | Änderungsrunde vom 13.11.2026: Blatt „Stichtag 31.12.2026“ gestrichen, S. 17–23 rücken auf S. 16–22, neue S. 23 „Quellen und Notizen“; Verweise, Inhaltsverzeichnis, InDesign-Paket nachgezogen. Offen: Die Zeilen der Quellentabelle (S. 23) folgen; auf den neuen Doppelseiten 18|19 und 20|21 liegen die ersten Bandlinien nicht auf gleicher Höhe (Unterzeile S. 19, Vorspann S. 21), S. 19 und 21 sind nicht gespiegelt. | sollte |
+| a16 | Vortrag, `lib/assets.cjs` (QR-Code der Folie A2) | Liest die Broschürenseite `18-standort-und-kommune` (HTML und JSON); sie heißt seit 13.11.2026 `17-standort-und-kommune`. Der Folienbau nutzt nur das fertige Bild; erst ein neuer Lauf von `node lib/assets.cjs` bricht ab. Dateinamen dort nachziehen. | kann |
 
 ## b) Was die PGN liefern oder entscheiden muss
 
@@ -35,7 +39,7 @@ Für die Durchsicht liegt `Aenderungsvorschlaege-Broschuere-und-Vortrag.docx` be
 | Nr. | Folie oder Datei | Was fehlt | Wichtig |
 |---|---|---|---|
 | b1 | Vortrag Folien 15 bis 24; Broschüre S. 9, 11, 12; Excel Eingabe 3.1 | Tilgungssatz: Gerechnet ist mit 2,38 % (gleichmäßig über 42 Jahre). Die Produktinformation der NBank (Stand 05.11.2026) nennt keinen Satz, nur die Rückzahlung in längstens 42 Jahren. Die 2,38 % sind damit der niedrigste zulässige Satz und bleiben als Annahme gekennzeichnet. Den Satz im Einzelfall setzt die NBank fest; erfragen kann man ihn nur dort (Förderberatung). | sollte · geprüft 12.11. |
-| b2 | Vortrag Folien 9, 14, 23, 24, A6, A8; Broschüre S. 3, 4, 8, 10, 12, 13, 14, 16, 21; Excel | Bemessungsgrenze: geprüft am 12.11. Die NBank hat sie zum 01.10.2026 fortgeschrieben: 5.250 € (Mietenstufe I bis III) und 5.460 € (IV bis VII), vorher 4.800 und 5.000 €. Entscheiden: alle drei Werke auf die neuen Werte umstellen? Siehe a10. | erledigt 12.11.: auf die Werte der Produktinformation umgestellt (a10, a11) |
+| b2 | Vortrag Folien 9, 14, 23, 24, A6, A8; Broschüre S. 3, 4, 8, 10, 12, 13, 14, 20; Excel | Bemessungsgrenze: geprüft am 12.11. Die NBank hat sie zum 01.10.2026 fortgeschrieben: 5.250 € (Mietenstufe I bis III) und 5.460 € (IV bis VII), vorher 4.800 und 5.000 €. Entscheiden: alle drei Werke auf die neuen Werte umstellen? Siehe a10. | erledigt 12.11.: auf die Werte der Produktinformation umgestellt (a10, a11) |
 | b3 | Vortrag Folien 14 bis 24, 22; Broschüre S. 10 | Herstellungskosten 3.579 € je m², Spanne und Werte je Kostengruppe. | erledigt · vom Auftraggeber am 12.11. bestätigt |
 | b4 | Vortrag Folien 13, 14; Broschüre S. 10 | Angaben zum Modellhaus für die Veröffentlichung freigeben (Ort, 14 Wohnungen, 828 m², Effizienzhaus 55, Grundstück im Bestand). Sie sind nicht gegen Projektunterlagen geprüft. | muss |
 | b5 | Vortrag Folie 15, A5; Broschüre S. 10, 11 | Neu Wulmstorf: geprüft am 12.11. Die Gemeinde steht in § 1 Abs. 1 der Niedersächsischen Mieterschutzverordnung (Fassung ab 04.12.2025) unter den 57 Kommunen mit angespanntem Wohnungsmarkt, gültig bis 31.12.2029. Die Aussage der Broschüre stimmt. | erledigt |
@@ -51,7 +55,7 @@ Für die Durchsicht liegt `Aenderungsvorschlaege-Broschuere-und-Vortrag.docx` be
 |---|---|---|---|
 | b11 | Vortrag, pptx | In PowerPoint öffnen und durchsehen. Geprüft ist bisher nur das Bild aus LibreOffice. Besonders: Schriftfeld und Rahmen, Folien 3 und 22 (Sockel der Säulen), zweizeilige Untertitel. | muss |
 | b12 | Vortrag Folie 1, A2 | Ort und Datum des Vortrags. Liegt der Termin nach dem 31.12.2026, entfällt A2. | muss |
-| b13 | Vortrag Folie 27; Broschüre U1, S. 22 | Bildrechte Brauerstraße liegen bei der PGN. | erledigt · Auskunft vom 12.11. |
+| b13 | Vortrag Folie 27; Broschüre U1, S. 21 | Bildrechte Brauerstraße liegen bei der PGN. | erledigt · Auskunft vom 12.11. |
 | b14 | Vortrag, alle Folien | Schrift: bei Montserrat und Work Sans bleiben oder auf Aptos umstellen (zurückgestellt als letzter Schritt). Mit Montserrat und Work Sans gibt es in PowerPoint keine Tabellenziffern. | sollte |
 | b15 | Vortrag, Hauptteil | Dauer 33 bis 35 Minuten bei 28 Folien. Reicht die Redezeit? Sonst wandert zuerst Folie 21 in den Anhang. | sollte |
 | b16 | Vortrag Folie 24 | Titel „Tilgungssatz, Kosten und Höchstmiete bestimmen das Ergebnis“ bestätigen. | kann |
@@ -62,16 +66,16 @@ Für die Durchsicht liegt `Aenderungsvorschlaege-Broschuere-und-Vortrag.docx` be
 
 | Nr. | Folie oder Datei | Was fehlt | Wichtig |
 |---|---|---|---|
-| b19 | Broschüre S. 20, 15, 22 | Leistungsaussagen bestätigen: Station 1 (Flächen und Kosten für die Wirtschaftlichkeitsberechnung), Station 5 (Ausschreibung und Vergabe), gestufte Beauftragung, Verwendungsnachweis, „Schlüsselfertig“ (Prüfzustimmung als Generalübernehmer), Angebotssatz S. 15, Referenzen und Auftraggeber S. 22. | muss |
+| b19 | Broschüre S. 19, 15, 21 | Leistungsaussagen bestätigen: Station 1 (Flächen und Kosten für die Wirtschaftlichkeitsberechnung), Station 5 (Ausschreibung und Vergabe), gestufte Beauftragung, Verwendungsnachweis, „Schlüsselfertig“ (Prüfzustimmung als Generalübernehmer), Angebotssatz S. 15, Referenzen und Auftraggeber S. 22. | muss |
 | b20 | Broschüre S. 2, 6 | Zitate Tonne und Kiesewetter aus der Pressemitteilung des Ministeriums vom 03.07.2026: Eine kurze Nachricht an die beiden Pressestellen ist ratsam, weil die Zitate in einer Firmenbroschüre wie eine Empfehlung der PGN durch Minister und NBank gelesen werden können. Rechtlich zwingend ist das nach meiner Einschätzung nicht; ich bin kein Jurist. | sollte |
-| b21 | Broschüre U1, S. 22, 20 | Bildrechte und Originalfotos in Druckauflösung; U1-Bildzeile „19 barrierefreie Wohnungen · mit Förderung der NBank“ bestätigen. | muss |
-| b22 | Broschüre U1, U4, U3 | Logo, CI und Druckfarben freigeben (Negativ-Wortmarke, CMYK- oder Pantone-Werte für PGN-Rot, Andruck des roten Umschlags). | muss vor Druck |
-| b23 | Broschüre U3 | Impressum: Herausgeberzeile, Bezeichnung „Geschäftsführung“, Stand der Geschäftsführung ab 01.01.2027, PDF-Metadaten. | sollte |
-| b24 | Broschüre S. 2, 22 | „Seit 1981“ und „45 Jahre PGN“ bestätigen (laut Presse entstand die Firma 1979, Einstieg Behrens 1981). | sollte |
-| b25 | Broschüre U4, S. 20, 22 | Website-Wortlaut freigeben (Claim U4, „Ein Ansprechpartner für alles“, Wertezeile S. 22); Bezeichnung „Förder-Check“; Ansprechperson auf U4. | sollte |
+| b21 | Broschüre U1, S. 21, 19 | Bildrechte und Originalfotos in Druckauflösung; U1-Bildzeile „19 barrierefreie Wohnungen · mit Förderung der NBank“ bestätigen. | muss |
+| b22 | Broschüre U1, U4 | Logo, CI und Druckfarben freigeben (Negativ-Wortmarke, CMYK- oder Pantone-Werte für PGN-Rot, Andruck des roten Umschlags). | muss vor Druck |
+| b23 | Broschüre S. 22 | Impressum: Herausgeberzeile, Bezeichnung „Geschäftsführung“, Stand der Geschäftsführung ab 01.01.2027, PDF-Metadaten. | sollte |
+| b24 | Broschüre S. 2, 21 | „Seit 1981“ und „45 Jahre PGN“ bestätigen (laut Presse entstand die Firma 1979, Einstieg Behrens 1981). | sollte |
+| b25 | Broschüre U4, S. 19, 21 | Website-Wortlaut freigeben (Claim U4, „Ein Ansprechpartner für alles“, Wertezeile S. 21); Bezeichnung „Förder-Check“; Ansprechperson auf U4. | sollte |
 | b26 | Broschüre S. 6, 2, 3, 12, U1, U4 | Offene Punkte aus Korrekturlauf 1: Notiz ohne Text auf S. 6, Headline S. 2, Kachel 2.5 auf S. 3, Seite 12 freigeben, Ermessensentscheidungen am Umschlag. | sollte |
 | b27 | Broschüre, `content/copy.md`, Anhang A | 19 fachliche Rückfragen an die NBank vor der Druckfreigabe. Nr. 1 (Bemessungsgrenze) und Nr. 9 (Tilgung) betreffen die Rechnung, siehe b1 und b2. | sollte |
-| b28 | Broschüre, InDesign-Paket | In InDesign öffnen. Die Paketprüfung meldet keine Fehler und sechs dokumentierte Warnungen; geöffnet hat es noch niemand. | sollte |
+| b28 | Broschüre, InDesign-Paket | In InDesign öffnen. Die Paketprüfung meldet keine Fehler und fünf dokumentierte Warnungen; geöffnet hat es noch niemand. | sollte |
 
 ### Excel
 

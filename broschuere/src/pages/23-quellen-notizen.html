@@ -1,0 +1,56 @@
+<section class="page" data-page="23" id="seite-23" aria-label="Quellen und Notizen">
+  <style>
+    /* Seite 23 · Quellen und Notizen · Planwerk. Rechte Seite der Doppelseite 22|23 (Impressum | Quellen und Notizen), letzte
+       Seite vor der Rückseite (Änderungsrunde 13.11.2026, B15.1 mit Rückfrage 8 und 24). Kopfzeile mit Rubrik „PGN“ wie S. 21
+       und 22, Fuß mit Blatt 22. Gemeinsame Horizonte mit S. 22 (feste Kopfhöhe wie dort): Kopfzeile · H1 ab 26 mm · erste
+       Bandlinie bei 68,5 mm (Kopf der Quellentabelle = Oberkante Impressum).
+       Oben die Quellentabelle über die volle Breite (Quelle 9 Spalten | Verwendet auf 3 Spalten); ihre Zeilen setzt der Teil
+       „Blätter 14 bis Rückseite“ (B22.2), bis dahin steht dort eine leere Zeile. Darunter „Notizen“: Modultitel 12 pt mit Linie wie die
+       Modultitel auf S. 22, Fläche im 5-mm-Planraster (Vektorzeichnung --planraster, styles.css; nicht gekachelt) bis zur
+       Satzspiegel-Unterkante. Stufen nach styles.css §8b: H1 25 pt, Modultitel 12 pt, Tabellenkopf 8,5 pt Versalien, Text
+       9,5 pt. Rot nur: Titellinie. Farben nur über Tokens. */
+    .page[data-page="23"] .p23q-head { height: 35.5mm; }   /* H1 ab 26 mm, Tabelle ab 68,5 mm wie das Impressum auf S. 22 */
+
+    /* Quellentabelle: volle Breite, Spaltenkopf mit kräftiger Linie oben (= erste Bandlinie, wie das Impressum gegenüber) */
+    .page[data-page="23"] .p23q-src { margin-top: 7mm; table-layout: fixed; font-size: var(--fs-body); line-height: var(--lh-body); }
+    .page[data-page="23"] .p23q-src .p23q-c1 { width: calc(9 * var(--col) + 9 * var(--gutter)); }
+    .page[data-page="23"] .p23q-src thead th { padding-top: 2.4mm; border-top: var(--rule-w) solid var(--rule-strong); }
+
+    /* Notizen: Rest der Seite bis 273 mm */
+    .page[data-page="23"] .p23q-notes { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 40mm; margin-top: 9mm; padding-top: 2.4mm; border-top: var(--hair) solid var(--rule-strong); }
+    .page[data-page="23"] .p23q-grid {
+      flex: 1 1 auto;
+      margin-top: 3mm;
+      border: var(--hair) solid var(--rule);
+      background-color: var(--surface);
+      background-image: var(--planraster);   /* 5-mm-Planraster als Vektorzeichnung, nicht gekachelt */
+      background-size: 180mm 260mm;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+    }
+  </style>
+
+  <header class="page__header"><span class="page__section">PGN</span></header>
+  <header class="p23q-head">
+    <h1 class="h1">Quellen und Notizen</h1>
+  </header>
+
+  <table class="table p23q-src">
+    <caption class="u-sr">Quellen und die Seiten, auf denen sie verwendet werden</caption>
+    <colgroup><col class="p23q-c1"><col></colgroup>
+    <thead>
+      <tr><th scope="col">Quelle</th><th scope="col">Verwendet auf</th></tr>
+    </thead>
+    <tbody>
+      <!-- Zeilen: „Herausgeber (Jahr): Titel. Fundstelle.“ | Blattnummern (B22.2). Bis dahin eine leere Zeile (InDesign braucht eine Körperzeile). -->
+      <tr><td></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <section class="p23q-notes" aria-labelledby="p23q-notizen">
+    <h2 class="h3" id="p23q-notizen">Notizen</h2>
+    <div class="p23q-grid" aria-hidden="true"></div>
+  </section>
+
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">22</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>PGN · Quellen und Notizen</b></span></span></footer>
+</section>

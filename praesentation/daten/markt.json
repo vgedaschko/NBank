@@ -1130,9 +1130,9 @@
         "Bindung",
         "Eigenmittel"
       ],
-      "fusszeile": {
+      "hinweis": {
         "wert": "Den Antrag stellen Sie bei der Wohnraumförderstelle am Bauort, die NBank bewilligt.",
-        "einheit": "Text",
+        "einheit": "Text (Hinweiskasten unter der Tabelle; bis zur Änderungsrunde vom 13.11.2026 eine Zeile in 12 pt, F30.1 und G8)",
         "herkunft": "Broschüre S. 5, 05-navigator.json, lead",
         "geprueft": true
       }

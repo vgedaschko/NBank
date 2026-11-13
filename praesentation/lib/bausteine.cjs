@@ -926,18 +926,20 @@ function bausteine(pres, kx) {
 
   // Allgemeine Tabelle (Anhang, Quellen, Eckdaten). Zeilenhöhen folgen dem Text.
   // o: { x, y, w, spalten: [{ kopf, breite, art: text | zahl | stichwort, randRechts }], zeilen: [[Zelle, …] | { zellen: [], trennlinie: true, flaeche: true }],
-  //      pt: 12 | 14, kopf: true, dicht, zeilenH, zielHoehe, schlusslinie: true, messen }
+  //      pt: 12 | 14, kopf: true, dicht, zeilenH, zielHoehe, schlusslinie: true, messen, zellrand }
   // Zelle: Text (mit **fett**) oder { text, fett, farbe, align }. Eine Spalte ohne Breite nimmt den Rest.
   // dicht: true      Zeilenhöhe Zeilenzahl × Zeilenmaß + Zellränder + 0,01 (nur 12 pt) für Tabellen, die die Inhaltszone füllen
   // zeilenH          Mindesthöhe je Zeile · zielHoehe: Gesamthöhe mit Kopf; kürzere Tabellen bekommen dafür eine gemeinsame Mindesthöhe je Zeile
   // schlusslinie     false lässt die Linie unter der letzten Zeile weg (wenn ein Kasten oder eine Linie direkt anschließt)
   // messen: true     rechnet nur und zeichnet nichts (Höhen vorab, zum Beispiel für zwei Tabellen, die auf gleicher Höhe enden)
   // randRechts       rechter Zellrand einer Spalte in Zoll (Vorgabe 0,08); die letzte Spalte kommt mit weniger aus
+  // zellrand         [oben, unten]: Zellränder in Zoll (Vorgabe [0,06, 0,05]); enger für Tabellen, unter denen ein Hinweiskasten Platz braucht
+  //                  (seit 13.11.2026 Folie A1: [0,04, 0,03], Folie A8: [0,03, 0,03]). Die Schrift bleibt
   // Rückgabe: { x, y, w, h, unten, kopfH, zeilen: [{ y, h, n }], spalten: [{ x, w }], zeilenzahl, zeilenmass, rand: { oben, seite } }
   B.tabelle = (s, o) => {
     brauche('B.tabelle', o, ['x', 'y', 'w']);
     if (!Array.isArray(o.spalten) || !o.spalten.length || !Array.isArray(o.zeilen) || !o.zeilen.length) throw new Error('B.tabelle: spalten und zeilen fehlen.');
-    const dicht = !!o.dicht, pt = o.pt || 12, OBEN = 0.06, UNTEN = 0.05, SEITE = 0.08, mitKopf = o.kopf !== false && o.spalten.some(c => c.kopf);
+    const dicht = !!o.dicht, pt = o.pt || 12, [OBEN, UNTEN] = o.zellrand || [0.06, 0.05], SEITE = 0.08, mitKopf = o.kopf !== false && o.spalten.some(c => c.kopf);
     if (dicht && pt !== 12) throw new Error('B.tabelle: dicht gibt es nur in 12 pt.');
     // dicht: Zellränder und 0,01 Zoll Zuschlag je Zeile (ohne ihn füllt die Schrift die Zeile bis auf 2 %, und die Zeile wüchse in PowerPoint)
     const st = { fontFace: F.text, fontSize: pt, ...(dicht ? {} : { zeileMal: 1.08 }) }, zh = zeilenhoehe(st), zuschlag = dicht ? OBEN + UNTEN + 0.01 : 0.13;
@@ -1059,10 +1061,13 @@ function bausteine(pres, kx) {
     let hoehe = 0, n = 0;
     o.gruppen.forEach((g, gi) => {
       if (!g || !g.titel || !Array.isArray(g.punkte) || !g.punkte.length) throw new Error(`B.stichpunkte: Gruppe ${gi + 1} braucht titel und punkte.`);
-      const tit = schutz(g.titel), letzteGruppe = gi === o.gruppen.length - 1;
-      runs.push({ text: tit, options: { fontFace: tt.fontFace, bold: !!tt.bold, fontSize: tt.fontSize, color: tt.color, breakLine: true, paraSpaceBefore: gi ? vor + 4 : 0, paraSpaceAfter: 3 } });
-      hoehe += zeilenzahl(tit, tt, geo.w) * zeilenhoehe({ ...tt, zeileMal: st.zeileMal }) + (gi ? vor : 0) / 72 + 3 / 72;
-      if (P) P.zeile(`Stichpunkte, Überschrift „${g.titel}“`, tit, tt, geo.w);
+      // „\n“ in einer Überschrift bricht sie im selben Absatz (weicher Umbruch); jede Zeile muss in die Spalte passen (Folie 27 seit 13.11.2026:
+      // „Erster Schritt:“ | „Förderung und Machbarkeit“)
+      const titZeilen = schutz(g.titel).split('\n'), letzteGruppe = gi === o.gruppen.length - 1;
+      titZeilen.forEach((tz, ti) => runs.push({ text: tz, options: { fontFace: tt.fontFace, bold: !!tt.bold, fontSize: tt.fontSize, color: tt.color, breakLine: ti === titZeilen.length - 1,
+        ...(ti ? { softBreakBefore: true } : {}), paraSpaceBefore: gi ? vor + 4 : 0, paraSpaceAfter: 3 } }));
+      hoehe += titZeilen.reduce((a, tz) => a + zeilenzahl(tz, tt, geo.w), 0) * zeilenhoehe({ ...tt, zeileMal: st.zeileMal }) + (gi ? vor : 0) / 72 + 3 / 72;
+      if (P) titZeilen.forEach(tz => P.zeile(`Stichpunkte, Überschrift „${g.titel.replace(/\n/g, ' ')}“`, tz, tt, geo.w));
       g.punkte.forEach((p, pi) => {
         // „\n“ in einem Stichpunkt bricht die Zeile im selben Absatz (weicher Umbruch, kein neuer Marker): etwa vor einem Wertepaar, damit
         // „IV–VII“ nicht am Halbgeviertstrich bricht (Folie 11). Das Leerzeichen vor dem Umbruch bleibt im Text
@@ -1091,7 +1096,7 @@ function bausteine(pres, kx) {
 
   // ---- 4.12 Ablauf ------------------------------------------------------------------------------------------------------
   // Achsleiste. o: { x, y, w, stationen: [{ nr, titel, zustaendig, text, zusatz, signal }], art: 'reihe' | 'text', groesse: 'S' | 'M' | 'L', versalTitel: true,
-  //      pt: 14 | 12, abstand: 0.12, anteile: [Breite je Station im Verhältnis] }
+  //      pt: 14 | 12, abstand: 0.12, anteile: [Breite je Station im Verhältnis], dicht: false (art „text“: engere Abstände unter dem Kreis) }
   // art „reihe“: bis sechs Stationen mit Titel mittig unter dem Kreis (ohne Titel bis zwölf). art „text“: bis vier Stationen je Reihe mit Titel,
   // Zuständigkeit (12 pt), Text und Zusatz (12 pt, grau) linksbündig ab Kreis. Alle Texte sind wahlfrei. Rückgabe: { punkte: [x der Kreismitten], unten }
   // signal: Der Achskreis der Station ist in Dunkelrot gefüllt. Ihr Titel bleibt in Tinte wie die übrigen: Das Signal trägt der Kreis allein.
@@ -1125,16 +1130,19 @@ function bausteine(pres, kx) {
       o.stationen.forEach((t, i) => {
         const sw = o.w * ant[i] / summe, tw = sw - (o.abstand ?? 0.12), x = xLauf, cx = x + d / 2; punkte.push(cx); xLauf += sw;
         B.achskreis(s, { cx, cy: o.y, groesse: gr, text: t.nr ?? i + 1, variante: t.signal ? 'signal' : 'standard' });
-        let y = o.y + d / 2 + 0.08;
+        // dicht: true (Folie 26 seit 13.11.2026) setzt Titel, Zuständigkeit und Text enger untereinander (Abstand zum Kreis 0,04 statt 0,08, Titel 0,26
+        // statt 0,28, Zuständigkeit 0,20 statt 0,22); die Schriftgrößen bleiben
+        const eng = !!o.dicht;
+        let y = o.y + d / 2 + (eng ? 0.04 : 0.08);
         if (t.titel) {
           const st = stil(o.versalTitel === false ? 'wert' : 'station');
           // Titel der Station gemischt gesetzt wie ein Modultitel (16 pt, Feld 0,28 hoch); versalTitel: false setzt ihn kleiner (Datum einer Zeitleiste, 12 pt)
-          const tt = schutz(t.titel), th = o.versalTitel === false ? 0.24 : 0.28;
+          const tt = schutz(t.titel), th = o.versalTitel === false ? 0.24 : eng ? 0.26 : 0.28;
           if (P) P.zeile('Station', tt, st, tw);
           s.addText(tt, opt(st, { x, y, w: tw, h: th }, { valign: 'middle', objectName: 'Station ' + t.titel })); y += th;
         }
         // Zuständigkeit: 12 pt. Wer handelt, ist Inhalt der Station und muss im Saal lesbar sein (10 pt ist Randbeschriftungen vorbehalten)
-        if (t.zustaendig) { const zs = stil('label', { pt: 12 }); if (P) P.zeile('Zuständigkeit', schutz(t.zustaendig), zs, tw); s.addText(schutz(t.zustaendig), opt(zs, { x, y, w: tw, h: 0.20 }, { valign: 'middle', objectName: 'Zuständigkeit' })); y += 0.22; }
+        if (t.zustaendig) { const zs = stil('label', { pt: 12 }); if (P) P.zeile('Zuständigkeit', schutz(t.zustaendig), zs, tw); s.addText(schutz(t.zustaendig), opt(zs, { x, y, w: tw, h: 0.20 }, { valign: 'middle', objectName: 'Zuständigkeit' })); y += eng ? 0.20 : 0.22; }
         if (t.text) { const r = B.text(s, t.text, { x, y: y + 0.01, w: tw, rolle: ptT >= 14 ? 'dicht' : 'kleinText', pt: ptT, name: 'Stationstext' }); y = r.unten; }
         if (t.zusatz) { const r = B.text(s, t.zusatz, { x, y: y - 0.02, w: tw, rolle: 'klein', name: 'Stationszusatz' }); y = r.unten; }
         unten = Math.max(unten, y);
@@ -1211,9 +1219,12 @@ function bausteine(pres, kx) {
   B.bild = (s, o) => {
     if (!o.altText) throw new Error('B.bild: altText fehlt (Bildbeschreibung für Vorleseprogramme).');
     brauche('B.bild', o, ['x', 'y', 'w']);
-    const h = o.h || +(o.w * 740 / 1800).toFixed(3);
+    // ausschnitt: Höhe eines Ausschnitts in voller Breite; das Bild behält sein Verhältnis und wird oben und unten gleich beschnitten (Folie 27 seit
+    // 13.11.2026: Platz für die Stichpunkte darunter). Ohne ausschnitt steht das ganze Bild
+    const hBild = o.h || +(o.w * 740 / 1800).toFixed(3), h = o.ausschnitt || hBild;
+    if (o.ausschnitt && !(o.ausschnitt > 0 && o.ausschnitt <= hBild)) throw new Error(`B.bild: ausschnitt ${o.ausschnitt} muss zwischen 0 und der Bildhöhe ${hBild} liegen.`);
     if (P && o.w > span(7) + 0.01) P.hinweis(`Bild ist ${o.w} Zoll breit (Planwerk: höchstens sieben Spalten = ${span(7)}).`);
-    s.addImage({ path: asset(o.datei), x: o.x, y: o.y, w: o.w, h, altText: o.altText, objectName: o.name || 'Bild ' + o.datei });
+    s.addImage({ path: asset(o.datei), x: o.x, y: o.y, w: o.w, h: hBild, ...(o.ausschnitt ? { sizing: { type: 'cover', w: o.w, h } } : {}), altText: o.altText, objectName: o.name || 'Bild ' + o.datei });
     const ecke = o.ecke === undefined ? 'Visualisierung' : o.ecke;
     if (ecke) s.addText(ecke, { shape: ST.rect, x: o.x + o.w - 1.25, y: o.y + h - 0.26, w: 1.25, h: 0.26, margin: 0, align: 'center', valign: 'middle', fontFace: F.medium, fontSize: 10, color: C.grau, fill: { color: C.weiss }, line: { type: 'none' }, objectName: 'Bildecke ' + ecke });
     if (o.marken) {

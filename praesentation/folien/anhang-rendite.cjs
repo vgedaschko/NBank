@@ -1,6 +1,6 @@
 // Folie A6 · PGN_ANHANG: Eigenkapitalrendite des Modellhauses über 35 Jahre, vor Steuern, für A, B, C und frei finanziert zur Marktmiete.
-// Links über acht Spalten ein Rechenblatt (12 pt) mit sieben Zeilen, Ergebniszeile „Rendite mit Restwert“ weiß auf Rot wie Zeile 9 der
-// Folie 15; rechts über vier Spalten die Annahmen. Die Folie zeigt die Rendite nur als Paar mit dem Anteil des Restwerts am Endvermögen, wie
+// Links über sieben Spalten ein Rechenblatt (12 pt) mit sieben Zeilen, Ergebniszeile „Rendite mit Restwert“ weiß auf Rot wie Zeile 9 der
+// Folie 15; rechts über fünf Spalten die Annahmen als Stichpunkte in 14 pt (seit 13.11.2026; bis dahin 8 + 4 mit Absätzen). Die Folie zeigt die Rendite nur als Paar mit dem Anteil des Restwerts am Endvermögen, wie
 // es die Rechenmappe verlangt (Blatt Hinweise Nr. 12); der Titel nennt beide Lesarten für Gruppe A.
 // Das Gegenstück zur Rendite mit Restwert heißt hier „ohne Restwert“: Das Grundstück des Modellhauses ist im Bestand und nicht angesetzt, der
 // Bodenwert der Rechenmappe ist deshalb null, und ihre Lesart „nur Bodenwert“ (Übersicht 6.4) rechnet ohne Restwert (Blatt Hinweise Nr. 15).
@@ -34,17 +34,22 @@ module.exports = {
     // Der Titel nennt für Gruppe A beide Lesarten: mit Restwert (Signaturwort) und ohne Restwert
     if (ctx.glatt(ctx.o.titel) !== ctx.glatt(`Rendite in A: ${p2(mit[0])} mit Restwert, ${p2(ohne[0])} ohne Restwert`)) P.melde(`Titel der Folie nennt nicht die Rendite in A mit Restwert (${ctx.glatt(p2(mit[0]))}) und ohne Restwert (${ctx.glatt(p2(ohne[0]))}) aus der Mappe.`);
 
-    // ---- Rechenblatt über acht Spalten -----------------------------------------------------------------------------------------
-    const y0 = Y.anhangInhalt;
-    const yT = B.modulkopf(s, { x: colX(1), y: y0, w: span(8), titel: wl(`Eigenkapitalrendite über ${jahre} Jahre, vor Steuern`, 'Modultitel'),
-      sub: wl(`Endvermögen nach ${jahre} Jahren gegen Eigenkapital bei Bezug · frei finanziert zur Marktmiete`, 'Untertitel') });
+    // ---- Rechenblatt über sieben Spalten ----------------------------------------------------------------------------------------
+    // Seit der Änderungsrunde vom 13.11.2026 (F36.1, G9) in der Teilung 7 + 5 (bis dahin 8 + 4): Die Annahmen als Stichpunkte in 14 pt passen
+    // auch mit engeren Abständen nicht in vier Spalten. Der Untertitel passt nicht mehr in eine Zeile und steht in zwei, getrennt am Mittelpunkt
+    // (gekürzt wird nicht; wie Folie 19: die zweite Zeile als eigenes Textfeld)
+    const y0 = Y.anhangInhalt, WT = span(7);
+    const sub = wl(`Endvermögen nach ${jahre} Jahren gegen Eigenkapital bei Bezug · frei finanziert zur Marktmiete`, 'Untertitel').split(' · ');
+    B.modulkopf(s, { x: colX(1), y: y0, w: WT, titel: wl(`Eigenkapitalrendite über ${jahre} Jahre, vor Steuern`, 'Modultitel'), sub: sub[0] });
+    B.text(s, sub[1], { x: colX(1), y: y0 + 0.64, w: WT, h: 0.22, rolle: 'sub', valign: 'top', einzeilig: true, name: 'Modul-Untertitel 2' });
+    const yT = y0 + 0.98;
     const zeile = (nr, text, werte, art) => ({ nr, text: wl(text, `Zeile ${nr}`), werte: werte.map(w => wl(w, `Zeile ${nr}`)), ...(art ? { art } : {}) });
     // Die Spalte „frei“ ist breiter als die drei anderen (Platz für einen langen Betrag des Projektkontos); die Position behält so ihre Zeile bis
     // auf zwei lange Bezeichnungen.
     // Alle Zeilen sind gleich hoch (zwei Zeilen Bezeichnung passen in jede). Die beiden langen Bezeichnungen brechen an der Sinnfuge: Geschützte
     // Leerzeichen halten „Projektkontos, in €“ und „am Endvermögen“ zusammen (sonst stünde „€“ allein in der zweiten Zeile).
     const nb = t => t.split(' ').join(fmt.NBSP);
-    B.rechenblatt(s, { x: colX(1), y: yT, w: span(8), dicht: true, wertBreite: [1.06, 1.06, 1.06, 1.22], zeilenH: 0.51, ergebnisH: 0.51, name: 'Rechenblatt Rendite',
+    B.rechenblatt(s, { x: colX(1), y: yT, w: WT, dicht: true, wertBreite: [1.06, 1.06, 1.06, 1.22], zeilenH: 0.51, ergebnisH: 0.51, name: 'Rechenblatt Rendite',
       kopf: ['Position', { kreis: 'A' }, { kreis: 'B' }, { kreis: 'C' }, wl('frei', 'Spaltenkopf')], zeilen: [
         zeile(1, 'Eigenkapital bei Bezug, in €', ALLE.map(g => fmt.zahl(M(`fin.eigenkapital.${g}`)))),
         zeile(2, `Jahre mit Fehlbetrag, Jahr 1 bis ${jahre}`, fehljahre.map(v => fmt.zahl(v))),
@@ -54,20 +59,23 @@ module.exports = {
         zeile(6, 'Rendite ohne Restwert', ohne.map(p2)),
         zeile(7, `Anteil des Restwerts ${nb('am Endvermögen')}`, anteil.map(v => fmt.prozent(v)))] });
 
-    // ---- Annahmen über vier Spalten ---------------------------------------------------------------------------------------------
-    // Fünf Absätze: Steuern und Bauphase; das Grundstück (im Bestand, nicht angesetzt); Marktmiete und Liegenschaftszins mit Wert und knapper
-    // Herkunft; Restwert; Projektkonto. „+2 % p. a.“ bleibt zusammen (geschützte Leerzeichen).
+    // ---- Annahmen über fünf Spalten ---------------------------------------------------------------------------------------------
+    // Steuern und Bauphase; das Grundstück (im Bestand, nicht angesetzt); Marktmiete und Liegenschaftszins mit Wert und knapper Herkunft;
+    // Restwert; Projektkonto. „+2 % p. a.“ bleibt zusammen (geschützte Leerzeichen).
     // Die Herkunft der beiden Marktwerte steht in daten/rechnung.json (marktwerte); die Quellenangabe im Konzept (Feld „quellen“) nennt beide Quellen voll.
     const A = k => V('annahme.' + k), Q = k => ctx.X('rechnung', 'marktwerte.' + k);
     for (const k of ['quelle_marktmiete', 'quelle_liegenschaftszins']) {
       if (!ctx.glatt(ctx.o.quellen).includes(ctx.glatt(Q(k)))) P.melde(`Quellenangabe der Folie A6 (Konzept, Feld „quellen“) nennt „${Q(k)}“ nicht (daten/rechnung.json, marktwerte.${k}).`);
     }
-    B.planlegende(s, { x: colX(9), y: y0, w: span(4), linie: true, pt: 14, eintraege: [
-      { titel: wl('Annahmen', 'Modultitel'), text: wl('Vor Steuern, ab Bezug: ohne Bauphase, Abschreibung und Sonder-AfA.', 'Annahmen') },
-      { text: wl('Grundstück im Bestand, nicht angesetzt: weder im Eigenkapital noch im Restwert.', 'Annahmen') },
-      { text: wl(`Marktmiete ${fmt.euroJeQm(A('marktmiete_jahr1'))}: ${Q('herkunft_marktmiete_kurz')}. Liegenschaftszins ${p2(zins[0])}: ${Q('herkunft_liegenschaftszins_kurz')}.`, 'Annahmen') },
-      { text: wl(`Restwert: Ertragswert Ende Jahr ${jahre}. Marktmiete ${nb(`+${fmt.prozent(A('mietsteigerung'))} p. a.`)}`, 'Annahmen') },
-      { text: wl(`Fehlbeträge laufen auf ein Projektkonto zu ${fmt.prozent(A('sollzins'))} Sollzins.`, 'Annahmen') }] });
+    // Seit der Änderungsrunde vom 13.11.2026 (F36.1, G9) als Stichpunkte in 14 pt unter der Überschrift „Annahmen“: je Absatz ein Stichpunkt, der
+    // Absatz zu Marktmiete und Liegenschaftszins in zwei; der Wortlaut bleibt, der Punkt am Ende entfällt
+    B.stichpunkte(s, { x: colX(8), y: y0, w: span(5), h: ctx.Y.inhaltEnde - y0, linie: true, gruppen: [{ titel: wl('Annahmen', 'Überschrift'), punkte: [
+      wl('Vor Steuern, ab Bezug: ohne Bauphase, Abschreibung und Sonder-AfA', 'Stichpunkt'),
+      wl('Grundstück im Bestand, nicht angesetzt: weder im Eigenkapital noch im Restwert', 'Stichpunkt'),
+      wl(`Marktmiete ${fmt.euroJeQm(A('marktmiete_jahr1'))}: ${Q('herkunft_marktmiete_kurz')}`, 'Stichpunkt'),
+      wl(`Liegenschaftszins ${p2(zins[0])}: ${Q('herkunft_liegenschaftszins_kurz')}`, 'Stichpunkt'),
+      wl(`Restwert: Ertragswert Ende Jahr ${jahre}. Marktmiete ${nb(`+${fmt.prozent(A('mietsteigerung'))} p. a.`)}`, 'Stichpunkt'),
+      wl(`Fehlbeträge laufen auf ein Projektkonto zu ${fmt.prozent(A('sollzins'))} Sollzins`, 'Stichpunkt')] }] });
 
     // ---- Gegenproben zu den Zeilen 1 bis 3: In A, B und C gibt es kein Jahr mit Fehlbetrag, das Projektkonto fällt dort nie unter null; frei
     // finanziert gibt es beides. Eigenkapital bei Bezug = Eigenmittel + Bearbeitungsentgelte ---------------------------------------------

@@ -14,20 +14,22 @@ module.exports = {
 
     const zeilen = S.quellenZeilen(ctx);
     // dicht: Tabelle, Hinweis und die beiden Sätze füllen die Inhaltszone; mit dem Zuschlag je Zeile der gewöhnlichen Tabelle passten sieben Zeilen nicht
-    const t = B.tabelle(s, { x, y: Y.anhangInhalt, w, pt: 12, dicht: true, name: 'Quellentabelle', schlusslinie: false,   // die Linie des Hinweis-Kastens schließt die Tabelle
+    // Zellränder 0,03 statt 0,06 und 0,05 (seit der Änderungsrunde vom 13.11.2026): Die Tabelle hat mit den Quellen der Folie A6 eine Zeile mehr
+    // (F38.2); die Schrift bleibt 12 pt
+    const t = B.tabelle(s, { x, y: Y.anhangInhalt, w, pt: 12, dicht: true, zellrand: [0.03, 0.03], name: 'Quellentabelle', schlusslinie: false,   // die Linie des Hinweis-Kastens schließt die Tabelle
       // schmaler rechter Zellrand in der Spalte „Folie“; die Quelle beginnt mit eigenem Zellrand um einen Steg rechts von colX(2)
       spalten: [{ kopf: wl('Folie'), breite: spalte, art: 'stichwort', randRechts: 0.02 }, { kopf: wl('Quelle') }], zeilen: zeilen.map(z => [z.folien, z.text]) });
 
     // Rechtshinweis: genau einmal im Vortrag, Wortlaut der Broschüre S. 23. Der Kasten schließt als Fuß an die Tabelle an (eine Linie statt
     // zweier dicht übereinander): Stichwort in der Spalte „Folie“, Text in der Spalte „Quelle“
-    // Innenrand 0,09 statt 0,18 (Änderungsrunde vom 13.11.2026): Die Zeile „alle“ nennt seitdem auch die NBank-Produktinformation, Stand 05.11.2026
-    // (Quelle der Folie 9, F9.1), und braucht eine Textzeile mehr
-    const k = B.hinweisKasten(s, { x, y: t.unten, w, spalte, rand: 0.09, stichwort: wl('Hinweis'), text: wl(Q('hinweis'), 'Hinweis') });
+    // Innenrand 0,05 statt 0,18 (Änderungsrunde vom 13.11.2026): Die Zeile „alle“ nennt seitdem auch die NBank-Produktinformation, Stand 05.11.2026
+    // (Quelle der Folie 9, F9.1), die Zeile „4, 5“ die GdW-Präsentation, und die Zeile „A6“ ist neu (F38.2)
+    const k = B.hinweisKasten(s, { x, y: t.unten, w, spalte, rand: 0.05, stichwort: wl('Hinweis'), text: wl(Q('hinweis'), 'Hinweis') });
 
     // Herausgeber und Bildnachweis: zwei Zeilen in 12 pt an der Unterkante der Inhaltszone (wie die Notiz unter einer Tabelle)
     const saetze = `${wl(Q('herausgeber'), 'Herausgeber')}\n${wl(Q('bildnachweis'), 'Bildnachweis')}`, h = B.hoehe(saetze, { rolle: 'kleinText', w }), y = +(Y.inhaltEnde - h).toFixed(3);
     // Die Zone ist fast voll: Wächst die Tabelle um eine Zeile, liefe der Kasten in die beiden Sätze (die Zonenprüfung sieht keine Überlagerung)
-    if (k.unten + 0.12 > y) ctx.P.melde(`Quellenfolie: Tabelle und Hinweis reichen bis y ${k.unten.toFixed(2)}, die Sätze zu Herausgeber und Bildnachweis beginnen bei y ${y.toFixed(2)}. Eine Tabellenzeile kürzen oder zusammenfassen.`);
+    if (k.unten + 0.08 > y) ctx.P.melde(`Quellenfolie: Tabelle und Hinweis reichen bis y ${k.unten.toFixed(2)}, die Sätze zu Herausgeber und Bildnachweis beginnen bei y ${y.toFixed(2)}. Eine Tabellenzeile kürzen oder zusammenfassen.`);
     B.text(s, saetze, { x, y, w, h, rolle: 'kleinText', name: 'Herausgeber und Bildnachweis' });
   },
 };

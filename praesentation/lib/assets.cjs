@@ -1,5 +1,5 @@
 // Assets der Broschüre → Bilder für die Folien (assets/). Die Quelle wird nur gelesen.
-// Aufruf: node lib/assets.cjs      (einmalig; der Folienbau liest assets/ danach nur)
+// Aufruf: node lib/assets.cjs      (einmalig; der Folienbau liest assets/ danach nur); node lib/assets.cjs --nur qr-nbank-karte (nur der QR-Code der Folie A2)
 // Im Folienbau: const { asset } = require('./assets.cjs'); asset('logo-rot.png') liefert den Pfad und prüft, dass die Datei da ist.
 'use strict';
 const path = require('path'), fs = require('fs');
@@ -108,8 +108,39 @@ async function erzeuge() {
   return liste;
 }
 
-module.exports = { asset, ASSET_ORDNER: OUT, UI, UI_FARBEN, PIKTO, WERTE };
+// 8 QR-Code zur NBank-Karte (Folie A2, seit der Änderungsrunde vom 13.11.2026, F32.1): derselbe Code wie in der Broschüre, Blatt „Bedarf am
+// Standort und die Rolle der Kommune“ (src/pages/18-standort-und-kommune.html, Inline-SVG im Link a.p18-qr). Die Module werden unverändert
+// übernommen, nicht neu codiert; das Ziel des Links muss das Ziel im Inhalt der Broschüre sein (content/pages/18-standort-und-kommune.json,
+// blocks[1].data.qr.url). Ruhezone vier Module (die Broschüre hat zwei im Bild, den Rest gibt die weiße Ringmitte), Module in Tinte auf Weiß,
+// 20 Pixel je Modul, scharfe Kanten.
+// Aufruf allein: node lib/assets.cjs --nur qr-nbank-karte
+const QR_KARTE = { datei: 'qr-nbank-karte.png', seite: '18-standort-und-kommune', ruhe: 4, px: 20 };
+async function qrNbankKarte() {
+  const sharp = require('sharp');
+  const html = fs.readFileSync(path.resolve(SRC, '..', 'pages', QR_KARTE.seite + '.html'), 'utf8');
+  const inhalt = JSON.parse(fs.readFileSync(path.resolve(SRC, '..', '..', 'content', 'pages', QR_KARTE.seite + '.json'), 'utf8'));
+  const a = html.match(/<a class="p18-qr" href="([^"]+)"[^>]*>\s*<svg viewBox="([-\d. ]+)"[^>]*>([\s\S]*?)<\/svg>\s*<\/a>/);
+  if (!a) throw new Error(`QR-Code der Broschüre nicht gefunden (${QR_KARTE.seite}.html, a.p18-qr).`);
+  const ziel = inhalt.blocks[1].data.qr.url;
+  if (a[1] !== ziel) throw new Error(`QR-Code der Broschüre: Link „${a[1]}“ und Ziel im Inhalt „${ziel}“ weichen ab.`);
+  const pfad = (a[3].match(/<path class="qr-mod" d="([^"]+)"/) || [])[1];
+  if (!pfad) throw new Error('QR-Code der Broschüre: Module (path.qr-mod) fehlen.');
+  // Größe aus den Modulen: das Raster beginnt bei 0, die größte Koordinate plus 1 ist die Kantenlänge
+  const n = Math.max(...[...pfad.matchAll(/M(\d+) (\d+)h(\d+)/g)].map(m => Math.max(+m[1] + +m[3], +m[2] + 1)));
+  if (![21, 25, 29, 33, 37, 41, 45, 49, 53, 57].includes(n)) throw new Error(`QR-Code der Broschüre: ${n} Module je Seite ergeben keine QR-Version.`);
+  const r = QR_KARTE.ruhe, k = n + 2 * r, px = k * QR_KARTE.px;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${-r} ${-r} ${k} ${k}" width="${px}" height="${px}" shape-rendering="crispEdges">` +
+    `<rect x="${-r}" y="${-r}" width="${k}" height="${k}" fill="#FFFFFF"/><path d="${pfad}" fill="#202020"/></svg>`;
+  const buf = await sharp(Buffer.from(svg), { density: 72 }).png({ compressionLevel: 9 }).toBuffer();
+  fs.writeFileSync(path.join(OUT, QR_KARTE.datei), buf);
+  return [`${QR_KARTE.datei.padEnd(36)} ${px}×${px}  ${(buf.length / 1024).toFixed(0)} KB  (${n} Module, Ruhezone ${r}, Ziel ${ziel})`];
+}
+
+module.exports = { asset, ASSET_ORDNER: OUT, UI, UI_FARBEN, PIKTO, WERTE, QR_KARTE };
 
 if (require.main === module) {
-  erzeuge().then(l => { console.log(l.join('\n')); console.log(`${l.length} Dateien in ${OUT}`); }).catch(e => { console.error('Fehler: ' + e.message); process.exit(1); });
+  const nur = process.argv.includes('--nur') ? process.argv[process.argv.indexOf('--nur') + 1] : null;
+  if (nur && nur !== 'qr-nbank-karte') { console.error(`Fehler: --nur kennt nur „qr-nbank-karte“.`); process.exit(1); }
+  (nur ? qrNbankKarte() : erzeuge().then(async l => [...l, ...(await qrNbankKarte())]))
+    .then(l => { console.log(l.join('\n')); console.log(`${l.length} Dateien in ${OUT}`); }).catch(e => { console.error('Fehler: ' + e.message); process.exit(1); });
 }

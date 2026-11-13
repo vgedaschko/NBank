@@ -1,10 +1,10 @@
 // Folie A7 · PGN_ANHANG: Tilgungsschwelle gegenüber Gruppe A je Herstellungskosten. Antwort auf die Rückfrage zu Folie 20, ob die
-// Reihenfolge der Gruppen auch bei anderen Kosten gilt. Links über acht Spalten ein natives Liniendiagramm: zwei Linien (B gegenüber A
+// Reihenfolge der Gruppen auch bei anderen Kosten gilt. Links über sieben Spalten ein natives Liniendiagramm: zwei Linien (B gegenüber A
 // gestrichelt in Tinte, C gegenüber A in Referenzgrau, wie die Gruppen im ganzen Vortrag) über die Herstellungskosten von 2.500 € je m² bis
 // zur Bemessungsgrenze; die Fläche über der Linie C gegenüber A (Gruppe A vorn) in Hauch; waagerechte Marke beim Tilgungssatz der
 // Jahresrechnung in Rot, Punkt am Schnitt mit der Linie C gegenüber A, Maßhilfslinien
-// und Werte bei den drei Kosten der Folie 23. Rechts über vier Spalten die Schwellen dieser drei Läufe als Tabelle (Spalten wie auf Folie 23)
-// und drei Absätze.
+// und Werte bei den drei Kosten der Folie 23. Rechts über fünf Spalten die Schwellen dieser drei Läufe als Tabelle (Spalten wie auf Folie 23)
+// und Stichpunkte in 14 pt (seit 13.11.2026; bis dahin 8 + 4 mit drei Absätzen).
 // Farbe auf Wunsch des Auftraggebers (11.11.2026), anders als auf den Folien 16 bis 23: Hier steht kein Zuschuss, Rot ist frei. Rot tragen die
 // Marke der Jahresrechnung mit ihrer Beschriftung, der Punkt am Schnitt und das Feld „Gruppe A vorn“; die Fläche dazu ist Hauch F7E3E7.
 // Kein Stempel, weißer Grund wie der übrige Anhang.
@@ -43,8 +43,10 @@ module.exports = {
     R.pruefe(kSchnitt > kosten[0] && kSchnitt < K0, 'Der Schnitt der Linie C gegenüber A mit dem Tilgungssatz der Jahresrechnung liegt nicht mehr zwischen dem Achsenanfang und den Kosten des Modellhauses; Titel und Diagramm der Folie A7 anpassen.');
     if (ctx.glatt(ctx.o.titel) !== ctx.glatt(`Bei ${p2(tJahr)} Tilgung liegt Gruppe A ab rund ${fmt.euro(rund)} je m² vorn`)) P.melde(`Titel der Folie A7 nennt nicht den Tilgungssatz der Jahresrechnung (${ctx.glatt(p2(tJahr))}) und die gerundeten Kosten am Schnitt (${ctx.glatt(fmt.euro(rund))}).`);
 
-    // ---- Diagramm über acht Spalten -------------------------------------------------------------------------------------------------
-    const y0 = Y.anhangInhalt, x0 = colX(1), w0 = span(8);
+    // ---- Diagramm über sieben Spalten ------------------------------------------------------------------------------------------------
+    // Seit der Änderungsrunde vom 13.11.2026 (F37.1, G9) in der Teilung 7 + 5 (bis dahin 8 + 4): Die Stichpunkte in 14 pt passen auch mit
+    // engeren Abständen nicht in vier Spalten
+    const y0 = Y.anhangInhalt, x0 = colX(1), w0 = span(7);
     const yL = B.modulkopf(s, { x: x0, y: y0, w: w0, titel: wl('Tilgungsschwelle je Herstellungskosten', 'Modultitel'),
       sub: wl('Tilgungssatz p. a., bis zu dem B oder C in Jahr 1 vor A liegt · Kosten in € je m²', 'Untertitel') });
     const LINIE = { B: R.LINIEN.B, C: R.LINIEN.C }, name = g => wl(`${g} gegenüber A`, 'Legende');
@@ -56,10 +58,13 @@ module.exports = {
     const xA = xK(kosten[0]), xE = xK(grenze);
     // Fläche über der Linie C gegenüber A, vom ersten bis zum letzten Stützpunkt: dort hat Gruppe A den höchsten Zahlungsüberschuss
     B.vieleck(s, { farbe: HEX.hauch, name: 'Fläche Gruppe A vorn', punkte: [{ x: xA, y: plot.y }, { x: xE, y: plot.y }, ...[...kosten].reverse().map(k => ({ x: xK(k), y: yS(schwelle('C', k)) }))] });
-    const d = D.linien(s, { x: x0, y: yD, w: w0, h: hD, kategorien: kat, katLabels: { nur: kat.filter((_, i) => i % 2 === 0) }, name: 'Diagramm Tilgungsschwelle je Herstellungskosten',
+    const d = D.linien(s, { x: x0, y: yD, w: w0, h: hD, kategorien: kat, katLabels: { formen: kat.filter((_, i) => i % 2 === 0) }, name: 'Diagramm Tilgungsschwelle je Herstellungskosten',
       altText: `Liniendiagramm: Die Tilgungsschwelle gegenüber A fällt mit den Herstellungskosten, für C von ${p2(W(laeufe[0], 'tilg.schwelle.C_gegen_A'))} bei ${fmt.euro(K0)} auf ${p2(W(laeufe[2], 'tilg.schwelle.C_gegen_A'))} bei ${fmt.euro(grenze)} je m². Die Linie für B liegt darunter.`,
       rand: RAND, achse: ACHSE, reihen: ['B', 'C'].map(g => ({ name: name(g), werte: reihe(g), art: LINIE[g].art, strich: LINIE[g].strich })) });
     if (['x', 'y', 'w', 'h'].some(k => Math.abs(d.plot[k] - plot[k]) > 1e-6) || Math.abs(d.katMitte(N) - xE) > 1e-6 || Math.abs(d.yWert(2) - yS(0.02)) > 1e-6) throw new Error('Folie A7: Die vorab gerechnete Plotfläche weicht von der des Diagramms ab; die Fläche „Gruppe A vorn“ läge neben den Linien.');
+    // Jede zweite Kosten als Textfeld unter der Achse (seit 13.11.2026): In sieben Spalten liefen die Beschriftungen des Diagramms in LibreOffice,
+    // das den Abstand der Beschriftungen nicht liest, ineinander
+    B.achstexte(s, d);
     B.achsentitel(s, d, { y: wl('Tilgungssatz p. a.', 'Achsentitel'), x: wl('Herstellungskosten in € je m² Wohnfläche', 'Achsentitel') });
     const band = oben => (d.yWert(oben) + d.yWert(oben - ACHSE.schritt)) / 2;                                      // Mitte des Bandes unter der Gitterlinie „oben“
 
@@ -85,21 +90,26 @@ module.exports = {
       if (!kosten.includes(k)) B.text(s, fmt.euro(k), { x: x + 0.07, y: unten - 0.25, w: 0.80, h: 0.20, rolle: 'achse', farbe: 'text', valign: 'middle', einzeilig: true, name: 'Kosten ' + fmt.zahl(k) });
     });
 
-    // ---- Rechte Spalte: die Schwellen der drei Läufe als Tabelle, darunter zwei Absätze ---------------------------------------------
+    // ---- Rechte Spalte: die Schwellen der drei Läufe als Tabelle, darunter Stichpunkte unter zwei Überschriften ------------------------
     // Spalten wie auf Folie 23: Modellhaus, ARGE-Median, Bemessungsgrenze
-    const x1 = colX(9), w1 = span(4), kopf = kostenLauf.map(k => fmt.euro(k));
+    const x1 = colX(8), w1 = span(5), kopf = kostenLauf.map(k => fmt.euro(k));
     const yT = B.modulkopf(s, { x: x1, y: y0, w: w1, titel: wl('Schwelle gegenüber A', 'Modultitel'), sub: wl('Tilgungssatz p. a. bei drei Herstellungskosten', 'Untertitel') });
-    const t = B.tabelle(s, { x: x1, y: yT, w: w1, pt: 12, name: 'Tabelle Schwellen',
+    // dicht: Zeilenhöhe genau nach dem Text (seit 13.11.2026), damit die Stichpunkte darunter Platz haben
+    const t = B.tabelle(s, { x: x1, y: yT, w: w1, pt: 12, dicht: true, name: 'Tabelle Schwellen',
       spalten: [{ kopf: wl('je m²', 'Spaltenkopf'), art: 'text' }, ...kopf.map(k => ({ kopf: k, breite: 0.94, art: 'zahl' }))],
       zeilen: ['B', 'C'].map(g => [wl('Gruppe ' + g, 'Tabelle'), ...laeufe.map(l => p2(W(l, `tilg.schwelle.${g}_gegen_A`)))]) });
-    B.planlegende(s, { x: x1, y: t.unten + 0.22, w: w1, pt: 14, eintraege: [
-      { text: `Modellhaus: ${kopf[0]}. ARGE-Median: ${kopf[1]}. Bemessungsgrenze: ${kopf[2]}.` },
-      { text: 'Vorn liegt die Gruppe mit dem höchsten Zahlungsüberschuss in Jahr 1. Über der Linie „C gegenüber A“ ist das A, darunter C, B in keinem Fall.' },
-      { text: 'Die Schwelle sinkt mit den Kosten: Die Mehrmiete je m² ist fest vorgegeben, die Mehrschuld wächst mit den Kosten.' }].map(e => ({ text: wl(e.text, 'Kommentar') })) });
+    // Seit der Änderungsrunde vom 13.11.2026 (F37.1, G9) Stichpunkte in 14 pt unter zwei Überschriften im Wortlaut der Änderungsdatei; bis dahin drei
+    // Absätze (der erste nannte, wofür die drei Kosten stehen; die Datei führt ihn nicht mehr)
+    const yS1 = t.unten + 0.12;
+    B.stichpunkte(s, { x: x1, y: yS1, w: w1, h: Y.inhaltEnde - yS1, titelAbstand: 6, punktAbstand: 2, gruppen: [
+      { titel: wl('Lesehilfe', 'Überschrift'), punkte: ['über der Linie „C gegenüber A“ hat A den höchsten Zahlungsüberschuss in Jahr 1', 'unter der Linie hat C den höchsten',
+        'B hat ihn bei keinem Tilgungssatz'].map(p => wl(p, 'Stichpunkt')) },
+      // die Überschrift bricht vor „mit den Kosten sinkt“: In einer Zeile ist sie breiter als fünf Spalten
+      { titel: wl('Warum die Schwelle mit den Kosten sinkt', 'Überschrift').replace(' mit den', '\nmit den'), punkte: ['die Mehrmiete je m² ist fest vorgegeben', 'die Mehrschuld wächst mit den Herstellungskosten'].map(p => wl(p, 'Stichpunkt')) }] });
 
-    // ---- Gegenproben zum zweiten Absatz: Die Mehrmiete folgt aus den Höchstmieten, die Mehrschuld aus den Darlehenssätzen -----------------
+    // ---- Gegenproben zu „Warum die Schwelle mit den Kosten sinkt“: Mehrmiete aus den Höchstmieten, Mehrschuld aus den Darlehenssätzen ------
     R.pruefe(R.mietenstufeKlasse(M('eingabe.mietenstufe')) === 'IV–VII' && Math.abs((M('tab.hoechstmiete.IV.C') - M('tab.hoechstmiete.IV.A')) * 12 * M('eingabe.wohnflaeche') - M('tilg.mehr_sollmiete.C')) < 0.005,
-      'Die Mehr-Sollmiete C gegenüber A ist nicht mehr die Differenz der Höchstmieten der Mietenstufe IV–VII; den Absatz „Die Schwelle sinkt mit den Kosten“ der Folie A7 prüfen.');
-    R.pruefe(Math.abs((M('tab.quote_darlehen.C') - M('tab.quote_darlehen.A')) * M('fin.zuwendungsfaehige_kosten.A') - schuld('C')) < 0.005, 'Die Mehrschuld C gegenüber A ist nicht mehr die Differenz der Darlehensquoten mal zuwendungsfähige Kosten; den Absatz „Die Schwelle sinkt mit den Kosten“ der Folie A7 prüfen.');
+      'Die Mehr-Sollmiete C gegenüber A ist nicht mehr die Differenz der Höchstmieten der Mietenstufe IV–VII; die Stichpunkte „Warum die Schwelle mit den Kosten sinkt“ der Folie A7 prüfen.');
+    R.pruefe(Math.abs((M('tab.quote_darlehen.C') - M('tab.quote_darlehen.A')) * M('fin.zuwendungsfaehige_kosten.A') - schuld('C')) < 0.005, 'Die Mehrschuld C gegenüber A ist nicht mehr die Differenz der Darlehensquoten mal zuwendungsfähige Kosten; die Stichpunkte „Warum die Schwelle mit den Kosten sinkt“ der Folie A7 prüfen.');
   },
 };

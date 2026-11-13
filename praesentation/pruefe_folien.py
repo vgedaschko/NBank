@@ -12,7 +12,8 @@ Was geprüft wird (eine Zeile je Prüfung, am Ende die Summe; Rückgabewert 1 be
              Zeichen), Schriftfeld (Thema), Agenda und Trenner mit denselben Abschnittsnamen und derselben Zählung
   Form       nur Montserrat und Work Sans, Mindestgrößen (E3), Alternativtexte (Bilder, Diagramme, Flussdiagramme), keine Folie als Bild,
              keine Animationen, keine Sprechernotizen (weder in der Mappe noch im Konzept)
-  Wortlaut   verbotene Wörter (E5; „Rendite“ und „Marktmiete“ nur auf der Anhangfolie zur Rendite), kein Gedankenstrich als Einschub (E6), das Wort
+  Wortlaut   verbotene Wörter (E5; „Rendite“ und „Marktmiete“ nur auf der Anhangfolie zur Rendite, „Rendite und Tilgungsschwelle“ im Vorspann des
+             Anhangtrenners), kein Gedankenstrich als Einschub (E6), das Wort
              „Modellrechnung“ im Kopf genau der festgelegten Folien, je einmal (E7); Quellenzeile im Schriftfeld genau der festgelegten Folien im
              Wortlaut von daten/markt.json (QUELLENZEILEN)
   Zahlen     jede Zahl in Folientexten, Tabellen, Alternativtexten und Diagrammdaten hat einen Beleg; die Diagrammdaten stehen gleich im Zwischenspeicher
@@ -128,6 +129,10 @@ RENDITE_ERLAUBT = [re.compile(r"^Die NBank begrenzt jede Förderung so, dass die
 # „Marktmiete“ und Zahlen des Laufs modellhaus_rendite. „IRR“, „DSCR“ und „Safe Harbour“ stehen auch dort nicht.
 RENDITE_FOLIE, RENDITE_LAUF = "anhang-rendite", "modellhaus_rendite"
 VERBOTEN_AUSNAHME = {RENDITE_FOLIE: ("Rendite", "Marktmiete")}
+# Ausnahme von E5 nur an einer Stelle (Änderungsrunde vom 13.11.2026, F29.1, Rückfrage 16): Der Vorspann des Anhangtrenners nennt A6 und A7
+# „Rendite und Tilgungsschwelle“. Gebunden an die Kennung der Folie und an genau diese Wendung als Thema zwischen Mittelpunkten oder am Zeilenrand;
+# jedes weitere „Rendite“ auf dem Trenner bleibt ein Fehler.
+RENDITE_TRENNER = ("anhang-trenner", re.compile(r"(?:^|· )Rendite und Tilgungsschwelle(?= ·|$)"))
 # Anhangfolie zur Tilgungsschwelle je Herstellungskosten (Rückfrage zu Folie 20; auf Wunsch des Auftraggebers, 11.11.2026)
 SCHWELLE_FOLIE = "anhang-tilgungsschwelle"
 
@@ -389,24 +394,28 @@ KERNSAETZE = [
     (RENDITE_FOLIE, "Rendite mit Restwert", {}),
     (RENDITE_FOLIE, "Rendite ohne Restwert", {}),
     (RENDITE_FOLIE, "Anteil des Restwerts am Endvermögen", {}),
-    (RENDITE_FOLIE, "Vor Steuern, ab Bezug: ohne Bauphase, Abschreibung und Sonder-AfA.", {}),
+    # Seit der Änderungsrunde vom 13.11.2026 (F36.1) Stichpunkte: je Absatz ein Stichpunkt ohne Schlusspunkt, Marktmiete und Liegenschaftszins getrennt
+    (RENDITE_FOLIE, "Vor Steuern, ab Bezug: ohne Bauphase, Abschreibung und Sonder-AfA", {}),
     # Grundstück im Bestand, nicht angesetzt: an die Eingabe 2.3 der Rechenmappe gebunden (0 €)
-    (RENDITE_FOLIE, "Grundstück im Bestand, {a}: weder im Eigenkapital noch im Restwert.", {"a": ("eingabe.grundstueck", "nicht_angesetzt")}),
+    (RENDITE_FOLIE, "Grundstück im Bestand, {a}: weder im Eigenkapital noch im Restwert", {"a": ("eingabe.grundstueck", "nicht_angesetzt")}),
     # Marktmiete und Liegenschaftszins des Modellhauses gelten für Neu Wulmstorf: Mietübersicht des Gutachterausschusses Lüneburg (Hamburger Umland) und Landesmodell des Oberen Gutachterausschusses
     # (Rechenmappe, Eingabe 4.4 und Blatt Tabellen, Tabelle 4, je Spalte Projekt 2). Der Liegenschaftszins steht mit zwei Nachkommastellen
-    (RENDITE_FOLIE, "Marktmiete {b} je m²: Gutachterausschuss Lüneburg, Hamburger Umland, Neubau, Stand 01.01.2026. Liegenschaftszins {a}: Landesmodell des Oberen Gutachterausschusses.",
-     {"a": (RENDITE + "liegenschaftszins.A", "prozent2"), "b": (RENDITE + "annahme.marktmiete_jahr1", "euro2")}),
+    (RENDITE_FOLIE, "Marktmiete {b} je m²: Gutachterausschuss Lüneburg, Hamburger Umland, Neubau, Stand 01.01.2026", {"b": (RENDITE + "annahme.marktmiete_jahr1", "euro2")}),
+    (RENDITE_FOLIE, "Liegenschaftszins {a}: Landesmodell des Oberen Gutachterausschusses", {"a": (RENDITE + "liegenschaftszins.A", "prozent2")}),
     (RENDITE_FOLIE, "Restwert: Ertragswert Ende Jahr {a}.", {"a": ("tab.zinsfreie_jahre", "zahl")}),
     # Bis 11.11.2026 „Marktmiete +2 %, Boden +1,5 % p. a.“: Ohne angesetztes Grundstück gibt es keinen Bodenwert, die Annahme steht nicht mehr auf der Folie
     (RENDITE_FOLIE, "Marktmiete +{a} p. a.", {"a": (RENDITE + "annahme.mietsteigerung", "prozent0")}),
-    (RENDITE_FOLIE, "Fehlbeträge laufen auf ein Projektkonto zu {a} Sollzins.", {"a": (RENDITE + "annahme.sollzins", "prozent0")}),
+    (RENDITE_FOLIE, "Fehlbeträge laufen auf ein Projektkonto zu {a} Sollzins", {"a": (RENDITE + "annahme.sollzins", "prozent0")}),
     # Anhangfolie zur Tilgungsschwelle (A7): Titel, Marke und die beiden Absätze
     (SCHWELLE_FOLIE, "Bei {a} Tilgung liegt Gruppe A ab rund {b} je m² vorn", {"a": ("eingabe.tilgung_nbank", "prozent2"), "b": (f"runde({KOSTEN_AM_SCHNITT}, -2)", "euro")}),
     (SCHWELLE_FOLIE, "Jahresrechnung: {a}", {"a": ("eingabe.tilgung_nbank", "prozent2")}),
-    (SCHWELLE_FOLIE, "Modellhaus: {a}. ARGE-Median: {b}. Bemessungsgrenze: {c}.",
-     {"a": ("eingabe.herstellungskosten_qm", "euro"), "b": (K_ARGE + "eingabe.herstellungskosten_qm", "euro"), "c": (K_GRENZE + "eingabe.herstellungskosten_qm", "euro")}),
-    (SCHWELLE_FOLIE, "Über der Linie „C gegenüber A“ ist das A, darunter C, B in keinem Fall.", {}),
-    (SCHWELLE_FOLIE, "Die Schwelle sinkt mit den Kosten: Die Mehrmiete je m² ist fest vorgegeben, die Mehrschuld wächst mit den Kosten.", {}),
+    # Seit der Änderungsrunde vom 13.11.2026 (F37.1) Stichpunkte unter „Lesehilfe“ und „Warum die Schwelle mit den Kosten sinkt“ (bis dahin drei
+    # Absätze; der erste, „Modellhaus: … ARGE-Median: … Bemessungsgrenze: …“, steht nicht mehr in der Änderungsdatei)
+    (SCHWELLE_FOLIE, "über der Linie „C gegenüber A“ hat A den höchsten Zahlungsüberschuss in Jahr 1", {}),
+    (SCHWELLE_FOLIE, "unter der Linie hat C den höchsten", {}),
+    (SCHWELLE_FOLIE, "B hat ihn bei keinem Tilgungssatz", {}),
+    (SCHWELLE_FOLIE, "die Mehrmiete je m² ist fest vorgegeben", {}),
+    (SCHWELLE_FOLIE, "die Mehrschuld wächst mit den Herstellungskosten", {}),
     # Folie 15 seit der Änderungsrunde vom 13.11.2026 (F15.3): Annahmen als Stichpunkte (bis dahin „Gerechnet ist Jahr 1 zum Kostenstand 2026, vor Steuern.“)
     ("rechnung-jahr1", "Jahr 1, Kostenstand 2026, vor Steuern", {}),
     ("rechnung-jahr1", "Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte {a} | {b} | {c} €",
@@ -1444,7 +1453,7 @@ def main(argv):
 
     # ---- Wortlaut --------------------------------------------------------------------------------------------------------
     m = []
-    rendite, ausnahme = [], []
+    rendite, ausnahme, trenner = [], [], []
     for i, f in enumerate(F):
         texte = [a["text"] for _, a in folientext(f)] + f["layout"]["texte"] + [d["name"] + " " + " ".join(r["name"] + " " + " ".join(r["kategorien"]) for r in d["reihen"]) for d in f["diagramme"]]
         fid = K[i]["id"] if i < len(K) else None
@@ -1459,11 +1468,16 @@ def main(argv):
                         if any(er.search(glatt(t)) for er in RENDITE_ERLAUBT):
                             rendite.append(nr(i))
                             continue
+                        # Anhangtrenner: nur, wenn jedes „Rendite“ des Absatzes in der erlaubten Wendung steht
+                        if fid == RENDITE_TRENNER[0] and len(RENDITE_TRENNER[1].findall(glatt(t))) == len(muster.findall(t)):
+                            trenner.append(nr(i))
+                            continue
                     m.append(f"Folie {nr(i)}: „{wort}“ in „{glatt(t)[:90]}“")
     m += [f"Folie „{fid}“ (VERBOTEN_AUSNAHME) fehlt im Konzept" for fid in VERBOTEN_AUSNAHME if fid not in {k["id"] for k in K}]
     ber.pruefung("Verbotene Wörter (E5): Rendite, IRR, DSCR, Safe Harbour, Marktmiete", m,
                  f"„Rendite“ und „Marktmiete“ nur auf der Anhangfolie zur Rendite (Folie {', '.join(dict.fromkeys(ausnahme)) or 'keine'}); "
-                 f"sonst „Rendite“ nur in der Beihilferegel (Folie {', '.join(dict.fromkeys(rendite)) or 'keine'})")
+                 f"sonst „Rendite“ nur in der Beihilferegel (Folie {', '.join(dict.fromkeys(rendite)) or 'keine'}) und im Vorspann des Anhangtrenners "
+                 f"als „Rendite und Tilgungsschwelle“ (Folie {', '.join(dict.fromkeys(trenner)) or 'keine'})")
 
     # Quellenzeile im Schriftfeld: genau auf den festgelegten Folien, im Wortlaut der Datendatei, höchstens zwei Zeilen
     m = []

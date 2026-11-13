@@ -1,5 +1,6 @@
 // Folie A4 · PGN_ANHANG: Obergrenzen des Gesamtjahreseinkommens für vier Haushaltstypen als gruppierte Balken in den Gruppentönen A, B, C
-// (Broschüre S. 6), rechts die Zulassung von B und C und der Nachweis (Broschüre S. 12 und 6). Alle Werte aus daten/regeln.json. Kein Rot im Diagramm.
+// (Broschüre S. 6), rechts die Zulassung von B und C und der Nachweis als Stichpunkte in 14 pt (Broschüre S. 12 und 6). Alle Werte aus
+// daten/regeln.json. Kein Rot im Diagramm.
 'use strict';
 module.exports = {
   id: 'anhang-mieterkreis',
@@ -22,9 +23,10 @@ module.exports = {
       reihen: G.map(g => ({ name: 'Gruppe ' + g, art: g, werte: R('einkommensgrenze.' + g) })), achse: { min: 0, max: 80000, schritt: 20000, format: 'ganz' }, rand: { r: 0.30, u: 0.50 }, luecke: 45 });
     B.achsentitel(s, d, { x: ctx.wortlaut('Gesamtjahreseinkommen in €', 'Achsentitel') });
 
-    // ---- Kommentarspalte --------------------------------------------------------------------------------------------
-    B.planlegende(s, { x: colX(9), y: y0, w: span(4), linie: true, pt: 14, eintraege: [
-      { titel: 'Zulassung von B und C', text: R('zulassung.text') },
-      { titel: 'Nachweis', text: R('zulassung.nachweis') }] });
+    // ---- Stichpunkte rechts (seit der Änderungsrunde vom 13.11.2026, F34.1 und G9: je Satz ein Stichpunkt, 14 pt; bis dahin Planlegende) ---------
+    const wl = (t, was) => ctx.wortlaut(t, was);
+    B.stichpunkte(s, { x: colX(9), y: y0, w: span(4), h: Y.inhaltEnde - y0, linie: true, gruppen: [
+      { titel: wl('Zulassung von B und C', 'Überschrift'), punkte: R('zulassung.punkte').map(p => wl(p, 'Stichpunkt')) },
+      { titel: wl('Nachweis', 'Überschrift'), punkte: R('zulassung.nachweis').map(p => wl(p, 'Stichpunkt')) }] });
   },
 };

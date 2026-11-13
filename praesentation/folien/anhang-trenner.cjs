@@ -6,9 +6,10 @@
 module.exports = {
   id: 'anhang-trenner',
   bau(ctx) {
-    // A6 heißt hier „Eigenkapital“: Das Wort „Rendite“ steht nur auf A6 selbst (E5). A7 heißt wie in ihrem Kopf „Tilgungsschwelle“ (bis 12.11.2026
-    // „Tilgung“), A8 wie ihr Titel „Quellen und Hinweis“
-    const themen = ['Programmteile und Frist', 'Voraussetzungen und Verträge', 'Mieterkreis und Eckdaten', 'Eigenkapital und Tilgungsschwelle', 'Quellen und Hinweis'];
+    // Seit der Änderungsrunde vom 13.11.2026 (F29.1): A1 heißt „Programmteile“ (die Frist 31.12.2026 ist mit der Anhangfolie dazu entfallen), A6
+    // „Rendite“ (bis dahin „Eigenkapital“). Das Wort „Rendite“ steht damit außer auf A6 nur hier, als Ausnahme auf Wunsch des Auftraggebers
+    // (Rückfrage 16; pruefe_folien.py: RENDITE_TRENNER). A7 heißt wie in ihrem Kopf „Tilgungsschwelle“, A8 wie ihr Titel „Quellen und Hinweis“
+    const themen = ['Programmteile', 'Voraussetzungen und Verträge', 'Mieterkreis und Eckdaten', 'Rendite und Tilgungsschwelle', 'Quellen und Hinweis'];
     ctx.wortlaut(themen.join(' · '), 'Vorspann');
     ctx.folie({ lead: `${themen[0]} · ${themen[1]}\n${themen[2]} · ${themen[3]}\n${themen[4]}` });
   },

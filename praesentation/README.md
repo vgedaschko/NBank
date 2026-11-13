@@ -13,7 +13,7 @@ Broschüre und in Kurzform auf der Anhangfolie A1.
 | 1 Ausgangslage | 1 bis 7 | Titel; Trenner; Einstieg in vier Folien: Herstellungskosten seit 2020, Bauzinsen, Kapitaldienst je m² und Monat, Bestand gebundener Wohnungen in Niedersachsen; Agenda mit dem Fokus auf Programmteil 2.1 |
 | 2 Programmteil 2.1 | 8 bis 12 | Trenner; Neuerungen seit 01.07.2026, Höchstmiete, Fördersätze, Eckdaten |
 | 3 Modellrechnung | 13 bis 24 | Trenner; Finanzierung, Jahresrechnung, Kapitaldienst; Zahlungsfluss gefördert und frei finanziert als Flussdiagramme im selben Maßstab; kostendeckende Anfangsmiete, Tilgungssatz, Verlauf; Herstellungskosten der PGN gegen ARGE, Kostenszenario; Zusammenfassung |
-| 4 Umsetzung | 25 bis 28 | Trenner; Antragsweg, Leistungen der PGN, Kontakt |
+| 4 Umsetzung | 25 bis 28 | Trenner („Antragsweg und Planung mit PGN“); Antragsweg, Leistungen der PGN, Kontakt |
 | Anhang | A0 bis A8 | Trenner, Programmteile, Voraussetzungen, Verträge vor der Bewilligung, Mieterkreis, Eckdaten, Eigenkapitalrendite des Modellhauses, Tilgungsschwelle je Herstellungskosten, Quellen und Hinweis |
 
 Die Folien des Modellhauses (14 bis 21, 23 und 24) stehen auf Papierton; das Wort „Modellrechnung“ steht im Kopf. Folie 14 trägt oben rechts
@@ -45,7 +45,7 @@ behalten und stufen, nichts abräumen, nichts Neues erfinden.
   bis 19, Anhang) liegt genauso. Passt ein Untertitel nicht in eine Zeile, steht er in zwei (`B.diagrammkopf` mit `sub` als Liste; bei
   `B.modulkopf` die zweite Zeile als eigenes Textfeld darunter: seit 13.11.2026 Folie 19); gekürzt wird nicht. Auf Folie 22 ist die
   zweite Zeile entfallen: Sie sagte dasselbe wie das Modul „Grundlage“ rechts. Ihre Teilung behalten Folie 15 (Tabelle über acht Spalten), die frei gebauten Folien 14 und 27
-  (8 + 4) und die Anhangfolien A4, A6 und A7 (8 + 4); Folie 19 steht seit 13.11.2026 in 5 + 7 (bis dahin 6 + 6: Rechenweg breiter, F19.3). Seit 13.11.2026 stehen auch die Folien 10 und 11 frei gebaut in 6 + 6:
+  (8 + 4) und die Anhangfolie A4 (8 + 4); die Anhangfolien A6 und A7 stehen seit 13.11.2026 in 7 + 5 (Stichpunkte in 14 pt, G9); Folie 19 steht seit 13.11.2026 in 5 + 7 (bis dahin 6 + 6: Rechenweg breiter, F19.3). Seit 13.11.2026 stehen auch die Folien 10 und 11 frei gebaut in 6 + 6:
   Ihre Stichpunkte in 14 pt (G9) passen auch mit engeren Abständen nicht in fünf Spalten.
 - **Keine Sprechernotizen** (Entscheidung 32): Das Konzept führt kein Feld `notizen`, die Mappe trägt keine Notizseite. Das Feld `quellen`
   bleibt als Quellenangabe je Folie; aus ihm rechnet die Quellenfolie A8 ihre Blattnummern.
@@ -100,6 +100,22 @@ Folien 13 bis 24 nach der Änderungsrunde (Kennungen F13 bis F24):
   4.220 €; Titel und Folie 24 nutzen denselben Wert).
 - **Folie 24:** neu aufgebaut (Layout „Inhalt · Modellrechnung“): drei Schritte mit Pfeilen, Ergebniszeile über die ganze Breite, zwei
   Bedingungen für Gruppe A (Herstellungskosten bis rund 5.150 € je m², Tilgungssatz bis 3,65 %), Schlusssatz.
+
+Folien 25 bis A8 nach der Änderungsrunde (Kennungen F25 bis F38):
+
+- **Trenner 25:** „Umsetzung: Antragsweg und Planung mit PGN“ in drei Zeilen; die Agenda nennt dieselben Themen.
+- **Folie 26:** Station 4 „Fördervertrag. Bearbeitungszeit der NBank: Ziel höchstens drei Monate“, Station 7 in zwei Zeilen ohne Semikolon,
+  der Satz zum Vorhabenbeginn im Hinweiskasten. Platz durch engere Abstände: Achskreise M, Reihe 1 0,08 Zoll höher, `B.achsleiste` mit `dicht`.
+- **Folie 27:** Unterzeile „… nach Leistungsphasen 1 bis 9 der HOAI“ über acht Spalten; rechts das Bild als Ausschnitt (1,26 Zoll hoch, ab dem
+  Kopf der Inhaltszone) und Stichpunkte unter „Erster Schritt: Förderung und Machbarkeit“.
+- **Anhangtrenner:** „Programmteile · … · Rendite und Tilgungsschwelle · …“; „Rendite“ ist dort als einzige Ausnahme außerhalb von A6 erlaubt
+  (`RENDITE_TRENNER` in `pruefe_folien.py`).
+- **A1, A2:** Hinweiskästen unter Tabelle und Ring (G8); A1 mit engeren Zellrändern. A2 trägt in der Ringmitte den QR-Code zur NBank-Karte,
+  denselben Code wie die Broschüre (`assets/qr-nbank-karte.png`, `node lib/assets.cjs --nur qr-nbank-karte`), darunter „Aktuelle Karte“. Am
+  13.11.2026 aus dem gerenderten Folienbild dekodiert: Das Ziel ist das der Broschüre.
+- **A4, A6, A7:** Stichpunkte in 14 pt (G9); A6 und A7 in der Teilung 7 + 5, A7 mit den Kosten der Achse als Textfeldern.
+- **A8:** Zeile „4, 5“ mit der GdW-Präsentation (Folie 5), neue Zeile „A6“ mit den Quellen von Marktmiete und Liegenschaftszins (ohne das
+  Wort „Marktmiete“, E5); Tabelle mit engeren Zellrändern, Hinweis-Kasten mit kleinerem Innenrand.
 
 Die Anhangfolie A6 zeigt die Eigenkapitalrendite des Modellhauses über 35 Jahre, vor Steuern. Sie ist die einzige Folie mit Rendite und
 Marktmiete des Modellhauses und zeigt die Rendite als Paar „mit Restwert“ und „ohne Restwert“ mit dem Anteil des Restwerts am Endvermögen;
@@ -176,7 +192,7 @@ noch das Konzept Sprechernotizen trägt. Die Summe am Ende nennt 34 Prüfungen (
 - **Verweise:** „Folie n“ und „Anhang A n“ in Folientexten müssen die Blattnummer der gemeinten Folie nennen
   (`VERWEISE`: Folie, Text, Kennung der gemeinten Folie). So fällt nach einer neuen Zählung jeder Verweis auf, der nicht folgt.
 - **Rendite:** „Rendite“ und „Marktmiete“ stehen nur auf der Anhangfolie A6 (`VERBOTEN_AUSNAHME`, an die Kennung `anhang-rendite`
-  gebunden); „IRR“, „DSCR“ und „Safe Harbour“ stehen nirgends. Die Zahlen des Laufs `modellhaus_rendite` und Einträge mit `nur_folie` in
+  gebunden), „Rendite“ dazu im Vorspann des Anhangtrenners als „Rendite und Tilgungsschwelle“ (`RENDITE_TRENNER`, seit 13.11.2026); „IRR“, „DSCR“ und „Safe Harbour“ stehen nirgends. Die Zahlen des Laufs `modellhaus_rendite` und Einträge mit `nur_folie` in
   `daten/pruefung.json` belegen nur Zahlen dieser Folie. Jede Zahl ihrer Tabelle ist an ihre Zelle der Rechenmappe gebunden (`KERNWERTE_FORM`),
   ebenso jede Zahl der Tabelle „Rechenweg“ der Folie 19.
 - **Quellenzeilen:** Die Form „Quellenzeile“ steht genau auf den Folien der Liste `QUELLENZEILEN`, im Wortlaut von `daten/markt.json`
@@ -244,7 +260,7 @@ Beim Öffnen darf keine Meldung „Reparieren“ erscheinen. Geprüft ist bisher
   Schrift auf dem Vortragsrechner breiter, läuft sie nach links auf die Rubrik zu; auf den Folien 5, 6 und 22 steht sie in zwei Zeilen.
 - **Folie 5, Rechenweg:** Die Spalte der Bezeichnungen ist so breit, dass „Kapitaldienst je m² und Monat“ gerade in eine Zeile passt (rechter
   Zellrand 0,02 Zoll). Rechnet PowerPoint die Schrift breiter, bricht die Zeile um, und die Tabelle reicht an das Schriftfeld.
-- **Folie A6:** Die Tabelle hat sieben gleich hohe Zeilen; die Bezeichnungen der Zeilen 3 und 7 stehen in zwei Zeilen. Rechnet PowerPoint
+- **Folie A6:** Die Tabelle hat sieben gleich hohe Zeilen; die Bezeichnungen der Zeilen 1 bis 4 und 7 stehen in zwei Zeilen (seit 13.11.2026 über sieben Spalten). Rechnet PowerPoint
   eine Bezeichnung breiter, bricht sie in ihrer Zeile um, die Tabelle wächst dabei nicht.
 - **Folien 4 bis 6 nacheinander zeigen:** Die Jahre der Folie 4 sind Textfelder, die Jahre der Folie 6 und die Kategorien der Folie 5
   Achsbeschriftung des Diagramms. In LibreOffice stehen beide auf einer Höhe; in PowerPoint kann der Abstand zur Achse anders ausfallen.

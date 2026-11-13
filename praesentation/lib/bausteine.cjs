@@ -193,11 +193,15 @@ function bausteine(pres, kx) {
         const ro = ti % 2 ? fettStil(st) : {};
         if (letzter && ai < abs.length - 1) ro.breakLine = true;
         if (o.absatz) Object.assign(ro, o.absatz);
+        // absatzVor (pt): Abstand vor jedem Absatz ab dem zweiten („\n“ beginnt einen Absatz), damit zwei Angaben als getrennte Einträge lesbar sind
+        if (o.absatzVor && ai > 0 && ti === 0) ro.paraSpaceBefore = o.absatzVor;
         runs.push({ text: teil, options: ro });
       });
     });
     return runs;
   }
+  // Höhe der Absatzabstände aus absatzVor (pt) in Zoll: einmal je Absatz ab dem zweiten
+  const absatzLuft = (text, o) => (o.absatzVor && !Array.isArray(text) ? (String(text).split('\n').length - 1) * o.absatzVor / 72 : 0);
   const klar = t => (Array.isArray(t) ? t.map(r => r.text).join('') : schutz(t).replace(/\*\*/g, ''));
 
   // Freier Text in einer Rolle der Schriftskala. Ohne h wird die Höhe aus dem Text gerechnet. Rückgabe: { x, y, w, h, unten }
@@ -207,7 +211,7 @@ function bausteine(pres, kx) {
     const st = stil(o.rolle || 'fliess', o);
     let t = klar(text); if (st.versal && o.versal !== false) t = versal(t);
     const zh = zeilenhoehe(st);
-    const h = o.h || +(zeilenzahl(t, st, o.w) * zh + 0.04).toFixed(3);
+    const h = o.h || +(zeilenzahl(t, st, o.w) * zh + absatzLuft(text, o) + 0.04).toFixed(3);
     if (P && o.pruefen !== false) {
       if (o.einzeilig) P.zeile(o.name || `Text (${st.rolle})`, t, st, o.w); else P.block(o.name || `Text (${st.rolle})`, t, st, o.w, Math.max(h, zh), { luft: !!o.h });
     }
@@ -225,7 +229,7 @@ function bausteine(pres, kx) {
     brauche('B.hoehe', o, ['w']);
     const st = stil(o.rolle || 'fliess', o);
     let t = klar(text); if (st.versal && o.versal !== false) t = versal(t);
-    return +(zeilenzahl(t, st, o.w) * zeilenhoehe(st) + 0.04).toFixed(3);
+    return +(zeilenzahl(t, st, o.w) * zeilenhoehe(st) + absatzLuft(text, o) + 0.04).toFixed(3);
   };
 
   // Bricht einen Text, der nicht in eine Zeile der Breite w passt, an der Wortfuge mit den zwei ausgeglichensten Zeilen („\n“). Geschützte
@@ -926,13 +930,16 @@ function bausteine(pres, kx) {
 
   // Allgemeine Tabelle (Anhang, Quellen, Eckdaten). Zeilenhöhen folgen dem Text.
   // o: { x, y, w, spalten: [{ kopf, breite, art: text | zahl | stichwort, randRechts }], zeilen: [[Zelle, …] | { zellen: [], trennlinie: true, flaeche: true }],
-  //      pt: 12 | 14, kopf: true, dicht, zeilenH, zielHoehe, schlusslinie: true, messen, zellrand }
+  //      pt: 12 | 14, kopf: true, dicht, zeilenH, zielHoehe, luftUnten, schlusslinie: true, messen, zellrand }
   // Zelle: Text (mit **fett**) oder { text, fett, farbe, align }. Eine Spalte ohne Breite nimmt den Rest.
   // dicht: true      Zeilenhöhe Zeilenzahl × Zeilenmaß + Zellränder + 0,01 (nur 12 pt) für Tabellen, die die Inhaltszone füllen
   // zeilenH          Mindesthöhe je Zeile · zielHoehe: Gesamthöhe mit Kopf; kürzere Tabellen bekommen dafür eine gemeinsame Mindesthöhe je Zeile
+  // luftUnten        zusätzlicher Innenabstand unten in jeder Zeile (Zoll), gleich für alle Zeilen: Die Höhe folgt weiter dem Text, statt dass kurze
+  //                  Zeilen auf eine gemeinsame Mindesthöhe wachsen (seit der Prüfrunde 2 vom 13.11.2026 Folie 9 statt zielHoehe)
   // schlusslinie     false lässt die Linie unter der letzten Zeile weg (wenn ein Kasten oder eine Linie direkt anschließt)
   // messen: true     rechnet nur und zeichnet nichts (Höhen vorab, zum Beispiel für zwei Tabellen, die auf gleicher Höhe enden)
   // randRechts       rechter Zellrand einer Spalte in Zoll (Vorgabe 0,08); die letzte Spalte kommt mit weniger aus
+  // kopfHervor       (je Spalte) true: Kopf in Tinte statt Grau, wie die hervorgehobene Spalte des Rechenblatts (Betrag des Modellhauses, Folie 23 und A7)
   // zellrand         [oben, unten]: Zellränder in Zoll (Vorgabe [0,06, 0,05]); enger für Tabellen, unter denen ein Hinweiskasten Platz braucht
   //                  (seit 13.11.2026 Folie A1: [0,04, 0,03], Folie A8: [0,03, 0,03]). Die Schrift bleibt
   // Rückgabe: { x, y, w, h, unten, kopfH, zeilen: [{ y, h, n }], spalten: [{ x, w }], zeilenzahl, zeilenmass, rand: { oben, seite } }
@@ -942,14 +949,14 @@ function bausteine(pres, kx) {
     const dicht = !!o.dicht, pt = o.pt || 12, [OBEN, UNTEN] = o.zellrand || [0.06, 0.05], SEITE = 0.08, mitKopf = o.kopf !== false && o.spalten.some(c => c.kopf);
     if (dicht && pt !== 12) throw new Error('B.tabelle: dicht gibt es nur in 12 pt.');
     // dicht: Zellränder und 0,01 Zoll Zuschlag je Zeile (ohne ihn füllt die Schrift die Zeile bis auf 2 %, und die Zeile wüchse in PowerPoint)
-    const st = { fontFace: F.text, fontSize: pt, ...(dicht ? {} : { zeileMal: 1.08 }) }, zh = zeilenhoehe(st), zuschlag = dicht ? OBEN + UNTEN + 0.01 : 0.13;
+    const LUFT = o.luftUnten || 0, st = { fontFace: F.text, fontSize: pt, ...(dicht ? {} : { zeileMal: 1.08 }) }, zh = zeilenhoehe(st), zuschlag = (dicht ? OBEN + UNTEN + 0.01 : 0.13) + LUFT;
     if (P) P.mindest('Tabelle', pt, 12);
     const fest = o.spalten.reduce((a, c) => a + (c.breite || 0), 0), offen = o.spalten.filter(c => !c.breite).length;
     const colW = o.spalten.map(c => +(c.breite || (o.w - fest) / offen).toFixed(3)), rechts = o.spalten.map(c => (typeof c.randRechts === 'number' ? c.randRechts : SEITE));
     if (colW.some(w => !(w > 0)) || Math.abs(colW.reduce((a, b) => a + b, 0) - o.w) > 0.01) throw new Error(`B.tabelle: Spaltenbreiten (${colW.join(' + ')}) ergeben nicht die Breite ${o.w}.`);
     const rows = [], rowH = [], rand = i => [OBEN, rechts[i], UNTEN, SEITE];
     if (mitKopf) {
-      rows.push(o.spalten.map((c, i) => { pruefeKopf(c.kopf, colW[i], SEITE + rechts[i] + 0.02); const z = kopfzelle(c.kopf, c.art === 'zahl' ? 'right' : 'left'); z.options.margin = rand(i); return z; }));
+      rows.push(o.spalten.map((c, i) => { pruefeKopf(c.kopf, colW[i], SEITE + rechts[i] + 0.02); const z = kopfzelle(c.kopf, c.art === 'zahl' ? 'right' : 'left', { farbe: c.kopfHervor ? cs.titel : null }); z.options.margin = rand(i); return z; }));
       // Kopfzeile aus der Schrift: Montserrat Bold 12 pt (0,203 Zoll je Zeile) und die Zellränder, mit Luft 0,33 Zoll; je weitere Zeile 0,20
       rowH.push(kopfHoehe(o.spalten.map(c => c.kopf || ''), 0.33));
     }
@@ -966,7 +973,7 @@ function bausteine(pres, kx) {
         const mst = !zahl && !stich && text.includes('**') ? { ...cst, fontFace: F.semi } : cst, nz = t ? zeilenzahl(t, mst, feld) : 1;
         if (P && t) P.block(`Tabellenzelle (Zeile ${zi + 1}, Spalte ${i + 1})`, t, mst, feld, nz * zeilenhoehe(mst));
         n = Math.max(n, nz);
-        return { text: laeufe(text, cst), options: { fontFace: cst.fontFace, bold: !!cst.bold, fontSize: pt, color: obj.farbe || (zahl || stich ? cs.titel : cs.text), align: obj.align || (zahl ? 'right' : 'left'), valign: 'top', margin: rand(i), border: [no(), no(), unten, no()], ...(fl ? { fill: { color: cs.kasten } } : {}) } };
+        return { text: laeufe(text, cst), options: { fontFace: cst.fontFace, bold: !!cst.bold, fontSize: pt, color: obj.farbe || (zahl || stich ? cs.titel : cs.text), align: obj.align || (zahl ? 'right' : 'left'), valign: 'top', margin: LUFT ? [OBEN, rechts[i], UNTEN + LUFT, SEITE] : rand(i), border: [no(), no(), unten, no()], ...(fl ? { fill: { color: cs.kasten } } : {}) } };
       });
       rows.push(row); rowH.push(Math.max(o.zeilenH || 0, +(n * zh + zuschlag).toFixed(3))); zahlen.push(n);
     });
@@ -1096,7 +1103,8 @@ function bausteine(pres, kx) {
 
   // ---- 4.12 Ablauf ------------------------------------------------------------------------------------------------------
   // Achsleiste. o: { x, y, w, stationen: [{ nr, titel, zustaendig, text, zusatz, signal }], art: 'reihe' | 'text', groesse: 'S' | 'M' | 'L', versalTitel: true,
-  //      pt: 14 | 12, abstand: 0.12, anteile: [Breite je Station im Verhältnis], dicht: false (art „text“: engere Abstände unter dem Kreis) }
+  //      pt: 14 | 12, abstand: 0.12, anteile: [Breite je Station im Verhältnis], dicht: false (art „text“: engere Abstände unter dem Kreis),
+  //      absatzVor: Abstand in pt vor jedem weiteren Absatz („\n“) im Text einer Station }
   // art „reihe“: bis sechs Stationen mit Titel mittig unter dem Kreis (ohne Titel bis zwölf). art „text“: bis vier Stationen je Reihe mit Titel,
   // Zuständigkeit (12 pt), Text und Zusatz (12 pt, grau) linksbündig ab Kreis. Alle Texte sind wahlfrei. Rückgabe: { punkte: [x der Kreismitten], unten }
   // signal: Der Achskreis der Station ist in Dunkelrot gefüllt. Ihr Titel bleibt in Tinte wie die übrigen: Das Signal trägt der Kreis allein.
@@ -1143,7 +1151,7 @@ function bausteine(pres, kx) {
         }
         // Zuständigkeit: 12 pt. Wer handelt, ist Inhalt der Station und muss im Saal lesbar sein (10 pt ist Randbeschriftungen vorbehalten)
         if (t.zustaendig) { const zs = stil('label', { pt: 12 }); if (P) P.zeile('Zuständigkeit', schutz(t.zustaendig), zs, tw); s.addText(schutz(t.zustaendig), opt(zs, { x, y, w: tw, h: 0.20 }, { valign: 'middle', objectName: 'Zuständigkeit' })); y += eng ? 0.20 : 0.22; }
-        if (t.text) { const r = B.text(s, t.text, { x, y: y + 0.01, w: tw, rolle: ptT >= 14 ? 'dicht' : 'kleinText', pt: ptT, name: 'Stationstext' }); y = r.unten; }
+        if (t.text) { const r = B.text(s, t.text, { x, y: y + 0.01, w: tw, rolle: ptT >= 14 ? 'dicht' : 'kleinText', pt: ptT, absatzVor: o.absatzVor, name: 'Stationstext' }); y = r.unten; }
         if (t.zusatz) { const r = B.text(s, t.zusatz, { x, y: y - 0.02, w: tw, rolle: 'klein', name: 'Stationszusatz' }); y = r.unten; }
         unten = Math.max(unten, y);
       });

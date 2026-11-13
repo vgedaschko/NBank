@@ -111,6 +111,8 @@ FLIESSTEXT = re.compile(r"^(Kommentar|Planlegende|Aufzählung|Stichpunkte|Vorspa
                         r"Hinweis Text|Hero-Text|Text (fliess|dicht|vorspann))")
 # G8, G9 (13.11.2026): Hinweiskasten am Diagramm und Stichpunkte rechts
 HINWEIS_SCHRIFT, HINWEIS_PT, STICHPUNKTE_PT = "Work Sans Light", 12, 14
+# Rechter Textblock (G9): Form, deren linke Kante in der rechten Folienhälfte liegt (13,333 Zoll breit, Mitte 6,667)
+RECHTS_AB = 13.333 / 2
 LANGER_ABSATZ = 200   # ein Absatz außerhalb von Tabellen mit mehr Zeichen ist Fließtext, wie auch immer seine Form heißt
 
 # ---- E5: Wörter, die auf keiner Folie stehen ---------------------------------------------------------------------------
@@ -370,6 +372,10 @@ KERNSAETZE = [
      {"a": ("regeln#bis_2026_06_30.tilgungsnachlass * regeln#bis_2026_06_30.darlehen_anteil * 100", "dez1"), "b": ("tab.quote_zuschuss.A", "prozent0")}),
     ("neu-seit-juli", "{a} (Stand 01.10.2026), nur Herstellungskosten", {"a": ("tab.bemessungsgrenze.IV", "euro")}),
     ("neu-seit-juli", "Darlehen und Zuschuss bis {a} der zuwendungsfähigen Kosten", {"a": ("modellhaus:tab.quote_darlehen.A + modellhaus:tab.quote_zuschuss.A", "prozent0")}),
+    # Folie 27 seit der Prüfrunde 2 der Änderungsrunde vom 13.11.2026 (G8): beide Sätze zur Bewilligung in einem Hinweiskasten unter dem Plan,
+    # die Leistungsphasen an die Marke gebunden (letzte vor und erste nach der Bewilligung)
+    ("pgn-leistungen", "Planungsauftrag LPH 1–{a}: vor der Bewilligung möglich. Ab LPH {b}: erst nach der Bewilligung.",
+     {"a": ("umsetzung#leistungen.marke.nach", "zahl"), "b": ("umsetzung#leistungen.marke.nach + 1", "zahl")}),
     # Titel der Folien 17 und 18 seit der Änderungsrunde vom 13.11.2026 (F17.1, F18.1): Anteile von Zins und Tilgung an der Sollmiete
     ("rechnung-fluss-gefoerdert", "Gefördert fließen {z} der Miete in den Zins, {a} in die Tilgung",
      {"z": ("modellhaus:jr1.zins_nbank.A / modellhaus:jr1.sollmiete.A", "prozent0"), "a": ("modellhaus:jr1.tilgung_nbank.A / modellhaus:jr1.sollmiete.A", "prozent1")}),
@@ -704,10 +710,13 @@ def rels(z, teil):
 
 
 def absaetze(txbody):
-    """Absätze eines Textkörpers: [{ text, laeufe: [(text, groesse in pt oder None, schrift oder None)] }]. Zeilenwechsel im Absatz werden zu Leerzeichen."""
+    """Absätze eines Textkörpers: [{ text, laeufe: [(text, groesse in pt oder None, schrift oder None)], aufzaehlung }]. Zeilenwechsel im Absatz
+    werden zu Leerzeichen; aufzaehlung: Der Absatz trägt ein Aufzählungszeichen (a:buChar oder a:buAutoNum in seinen Absatzeigenschaften)."""
     out = []
     for p in txbody.findall(A + "p"):
         laeufe, text = [], ""
+        ppr = p.find(A + "pPr")
+        aufzaehlung = ppr is not None and (ppr.find(A + "buChar") is not None or ppr.find(A + "buAutoNum") is not None)
         for k in p:
             if k.tag == A + "r":
                 t = k.findtext(A + "t") or ""
@@ -720,7 +729,7 @@ def absaetze(txbody):
                 text += " "
             elif k.tag == A + "fld":
                 text += k.findtext(A + "t") or ""
-        out.append({"text": text, "laeufe": laeufe})
+        out.append({"text": text, "laeufe": laeufe, "aufzaehlung": aufzaehlung})
     return out
 
 
@@ -1413,19 +1422,33 @@ def main(argv):
     ber.pruefung(f"Schriftgröße E3: Tabellenzellen mindestens {MIN_TABELLE} pt", zellen, f"{sum(f['tabellen'] for f in F)} Tabellen")
     ber.pruefung(f"Schriftgröße E3: Fließtext mindestens {MIN_FLIESS} pt", fliess, "Kommentar, Planlegende, Aufzählung, Vorspann, Kennzahltext, lange Absätze")
     # G8 und G9 (Änderungsrunde vom 13.11.2026): Hinweise am Diagramm stehen im Hinweiskasten in Work Sans Light 12 pt (B.hinweis, Form
-    # „Hinweiskasten Text“); Stichpunkte rechts (B.stichpunkte, Form „Stichpunkte“) stehen einheitlich in 14 pt
-    hk, sp = [], []
+    # „Hinweiskasten Text“); Stichpunkte rechts stehen einheitlich in 14 pt. Seit der Prüfrunde 2 nicht nur in Formen namens „Stichpunkte …“:
+    # B.stichpunkte im Platzhalter heißt „Kommentar“ (Folien 15, 16, 20, 21, 23). Geprüft wird deshalb jeder Absatz mit Aufzählungszeichen in einer
+    # Form, deren linke Kante in der rechten Folienhälfte liegt, und weiter jede Form „Stichpunkte …“, wo auch immer sie steht. Ein rechter Textblock
+    # steht neben Diagramm, Tabelle oder Plan: Trägt auch die linke Hälfte Aufzählungen, sind es gleichrangige Textspalten (Folie A3, drei
+    # Spalten in 16 pt), keine Stichpunkte rechts
+    hk, sp, sp_n, sp_folien = [], [], 0, set()
     for i, f in enumerate(F):
+        aufz = lambda fo, a: fo["art"] != "zelle" and fo.get("x") is not None and a.get("aufzaehlung")
+        spalten = any(aufz(fo, a) and fo["x"] < RECHTS_AB for fo, a in folientext(f))
         for fo, a in folientext(f):
+            rechts = not spalten and aufz(fo, a) and fo["x"] >= RECHTS_AB
+            if rechts:
+                sp_folien.add(nr(i))
+            if rechts or fo["name"].startswith("Stichpunkte"):
+                sp_n += 1
             for text, pt, schrift in a["laeufe"]:
                 if not text.strip():
                     continue
+                if pt is None and fo["ph"] is not None:
+                    pt = f["layout"]["groessen"].get(fo["ph"])
                 if fo["name"].endswith("Text") and fo["name"].startswith("Hinweiskasten") and (schrift != HINWEIS_SCHRIFT or pt != HINWEIS_PT):
                     hk.append(f"Folie {nr(i)}, „{fo['name']}“: {schrift} {pt} pt „{glatt(text)[:40]}“")
-                if fo["name"].startswith("Stichpunkte") and (schrift or "").startswith("Work Sans") and pt != STICHPUNKTE_PT:
-                    sp.append(f"Folie {nr(i)}, „{fo['name']}“: {pt} pt „{glatt(text)[:40]}“")
+                if (rechts or fo["name"].startswith("Stichpunkte")) and (schrift or "").startswith("Work Sans") and pt != STICHPUNKTE_PT:
+                    sp.append(f"Folie {nr(i)}, „{fo['name']}“{' (Aufzählung im rechten Textblock)' if rechts else ''}: {pt} pt „{glatt(text)[:40]}“")
     ber.pruefung(f"Hinweiskasten (G8): {HINWEIS_SCHRIFT} {HINWEIS_PT} pt", hk, "Formen „Hinweiskasten … Text“")
-    ber.pruefung(f"Stichpunkte rechts (G9): einheitlich {STICHPUNKTE_PT} pt", sp, "Formen „Stichpunkte“")
+    ber.pruefung(f"Stichpunkte rechts (G9): einheitlich {STICHPUNKTE_PT} pt", sp,
+                 f"{sp_n} Absätze: jeder Absatz mit Aufzählungszeichen im rechten Textblock (Form ab Folienmitte, auch „Kommentar“; Folien {', '.join(sorted(sp_folien, key=lambda n: (n.startswith('A'), int(n.lstrip('A')))))}) und alle Formen „Stichpunkte …“")
     m = [f"Folie {nr(i)}, „{d['name']}“: {min(d['groessen']):g} pt" for i, f in enumerate(F) for d in f["diagramme"] if d["groessen"] and min(d["groessen"]) < MIN_BESCHRIFTUNG]
     ber.pruefung(f"Schriftgröße E3: Achsen und Beschriftungen der Diagramme mindestens {MIN_BESCHRIFTUNG} pt", m, f"{sum(len(f['diagramme']) for f in F)} Diagramme")
 

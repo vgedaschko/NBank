@@ -40,7 +40,7 @@
     "lauf": "modellhaus_rendite",
     "erlaubt_von": "Auftraggeber",
     "erlaubt_am": "11.11.2026",
-    "zweck": "Anhangfolie A7 „Eigenkapitalrendite“ (Folie anhang-rendite); auf keiner anderen Folie",
+    "zweck": "Anhangfolie A6 „Eigenkapitalrendite“ (Folie anhang-rendite); auf keiner anderen Folie",
     "bedingung": "Renditen nur als Paar „mit Restwert / nur Bodenwert“ mit dem Restwertanteil (Mappe, Blatt Hinweise, Nr. 12)",
     "zellen": [
      "Übersicht!G47",
@@ -3109,7 +3109,7 @@
    }
   },
   "modellhaus_rendite": {
-   "beschreibung": "Modellhaus (Projekt 2): Eigenkapitalrendite vor Steuern über 35 Jahre als Paar „mit Restwert / nur Bodenwert“ mit Restwertanteil, dazu Projektkonto, Restwert und die Annahmen dahinter. Nur für die Anhangfolie A7 (Folie anhang-rendite); Ausnahme anhang_rendite von der Sperrliste. Das Grundstück ist nicht angesetzt: „nur Bodenwert“ rechnet ohne Restwert (Hinweise Nr. 15). Marktmiete: Gutachterausschuss Lüneburg, Hamburger Umland, Stand 01.01.2026; Liegenschaftszins: Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses.",
+   "beschreibung": "Modellhaus (Projekt 2): Eigenkapitalrendite vor Steuern über 35 Jahre als Paar „mit Restwert / nur Bodenwert“ mit Restwertanteil, dazu Projektkonto, Restwert und die Annahmen dahinter. Nur für die Anhangfolie A6 (Folie anhang-rendite); Ausnahme anhang_rendite von der Sperrliste. Das Grundstück ist nicht angesetzt: „nur Bodenwert“ rechnet ohne Restwert (Hinweise Nr. 15). Marktmiete: Gutachterausschuss Lüneburg, Hamburger Umland, Stand 01.01.2026; Liegenschaftszins: Landesmodell Mehrfamilienhäuser des Oberen Gutachterausschusses.",
    "aenderungen": [
     {
      "blatt": "Eingaben",

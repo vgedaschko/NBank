@@ -23,16 +23,18 @@ module.exports = {
 
     // ---- Lagen: Reihe 1 beginnt am Kopf der Inhaltszone, der Hinweiskasten steht an ihrer Unterkante ------------------------
     // Seit der Änderungsrunde vom 13.11.2026 braucht Station 4 (F26.2) eine Textzeile mehr, und der Hinweiskasten (F26.1) ist höher als die
-    // Zeile in 12 pt davor. Der Platz kommt aus engeren Abständen, die Schriftgrößen bleiben: Achskreise M statt L, Reihe 1 beginnt 0,08 höher,
+    // Zeile in 12 pt davor. Der Platz kommt aus engeren Abständen, die Schriftgrößen bleiben: Achskreise M statt L, Reihe 1 beginnt höher,
     // Titel, Zuständigkeit und Text der Stationen stehen enger (B.achsleiste mit dicht), Luft am Warnband 0,05 statt 0,10.
-    const KREIS = 'M', D_KREIS = 0.40, H_BAND = 0.42, Y_START = Y.inhalt - 0.08;
+    // Station 7 trägt zwei Angaben in zwei Absätzen; 4 pt Abstand vor dem zweiten machen sie als getrennte Einträge lesbar (Prüfrunde 2). Die
+    // 0,06 Zoll dafür kommen aus Reihe 1 (beginnt 0,11 statt 0,08 höher) und dem Abstand zum Hinweiskasten (0,02 statt 0,04).
+    const KREIS = 'M', D_KREIS = 0.40, H_BAND = 0.42, Y_START = Y.inhalt - 0.11, ABSATZ_VOR = 4;
     const LUFT_BAND = 0.05;                                   // Abstand der Texte von Reihe 1 zum Warnband und des Warnbands zu den Achskreisen von Reihe 2
-    const LUFT_HINWEIS = 0.04;                                // Abstand des Hinweiskastens zum Textfeld der letzten Zeile von Reihe 2 (wie bis dahin zur Zeile)
+    const LUFT_HINWEIS = 0.02;                                // Abstand des Hinweiskastens zum Textfeld der letzten Zeile von Reihe 2
     // Die Stationen 2 und 6 sind etwas breiter als die übrigen (3,12 statt 2,94 und 3,00 Zoll): „bei der Wohnraumförderstelle“ ist 2,88 Zoll breit
     // und stünde bei vier gleichen Feldern ohne Abstand vor dem Text der Station 3. So bleiben die Texte von Reihe 1 sicher zweizeilig,
     // und zwischen den Spalten steht überall mindestens 0,2 Zoll. Beide Reihen tragen dieselbe Teilung; die Achskreise stehen übereinander.
     const ANTEILE = [0.98, 1.04, 0.98, 1.00];
-    const leiste = (y, teil) => B.achsleiste(s, { x: colX(1), y, w: Raster.CW, groesse: KREIS, dicht: true, pt: 14, abstand: 0.06, anteile: ANTEILE.slice(0, teil.length), stationen: teil });
+    const leiste = (y, teil) => B.achsleiste(s, { x: colX(1), y, w: Raster.CW, groesse: KREIS, dicht: true, pt: 14, abstand: 0.06, anteile: ANTEILE.slice(0, teil.length), absatzVor: ABSATZ_VOR, stationen: teil });
 
     const r1 = leiste(Y_START + D_KREIS / 2, stationen.slice(0, n1));
     const yBand = +(r1.unten + LUFT_BAND).toFixed(3);

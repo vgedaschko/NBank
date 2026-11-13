@@ -76,9 +76,11 @@ module.exports = {
     // Tilgungssatz der Jahresrechnung als waagerechte Marke in Rot, so lang wie die Linien; am Schnitt mit der Linie C gegenüber A ein Punkt
     // und die gerundeten Kosten
     B.linie(s, { x: xA, y: yS(tJahr), w: xE - xA, art: 'akzent', name: 'Marke Jahresrechnung' });
-    B.text(s, wl(`Jahresrechnung: ${p2(tJahr)}`, 'Markentext'), { x: xE - 2.60, y: yS(tJahr) - 0.27, w: 2.60, h: 0.24, rolle: 'wert', farbe: 'akzent', align: 'right', valign: 'middle', einzeilig: true, name: 'Markentext' });
+    // Beide Beschriftungen stehen auf der Fläche „Gruppe A vorn“ und tragen einen Grund in deren Farbe (B.textAufPlot): Die Gitterlinie bei 2,5 %
+    // liefe sonst durch die Schrift (Prüfrunde 2). Der Markentext endet 0,06 vor dem Ende der Fläche, damit sein Grund nicht über sie hinausragt
+    B.textAufPlot(s, wl(`Jahresrechnung: ${p2(tJahr)}`, 'Markentext'), { x: xE - 2.66, y: yS(tJahr) - 0.27, w: 2.60, h: 0.24, rolle: 'wert', farbe: 'akzent', align: 'right', valign: 'middle', grund: HEX.hauch, name: 'Markentext' });
     B.punkt(s, { cx: xK(kSchnitt), cy: yS(tJahr), art: 'akzent', name: 'Punkt am Schnitt' });
-    B.text(s, wl(`ab rund ${fmt.euro(rund)}`, 'Wert am Schnitt'), { x: xK(kSchnitt) + 0.10, y: yS(tJahr) - 0.27, w: 1.70, h: 0.24, rolle: 'wert', valign: 'middle', einzeilig: true, name: 'Wert am Schnitt' });
+    B.textAufPlot(s, wl(`ab rund ${fmt.euro(rund)}`, 'Wert am Schnitt'), { x: xK(kSchnitt) + 0.10, y: yS(tJahr) - 0.27, w: 1.70, h: 0.24, rolle: 'wert', valign: 'middle', grund: HEX.hauch, name: 'Wert am Schnitt' });
 
     // Die drei Kosten der Folie 23: Maßhilfslinie von der Achse bis zur Linie C gegenüber A, Punkt und Schwelle; unter der Linie stehen die Kosten
     // der beiden Läufe, die keine Achsteilung treffen
@@ -102,10 +104,11 @@ module.exports = {
     // Die Tabelle beginnt 0,06 Zoll unter dem Untertitel statt 0,12 (B.modulkopf rechnet 0,12 Luft): Mit dem dreizeiligen Kopf hätten die
     // Stichpunkte in 14 pt sonst keinen Platz. Die erste Zeile des Kopfs trägt nur „Bemessungs-“, rechts unter dem Ende des Untertitels
     const yT = +(yK - 0.06).toFixed(3);
+    // Der Betrag des Modellhauses steht wie auf Folie 23 in Tinte, die beiden übrigen in Grau (Prüfrunde 2)
     // dicht: Zeilenhöhe genau nach dem Text (seit 13.11.2026), Zellränder enger wie auf Folie A1 (Rückfrage 19: Abstände enger), damit die
     // Stichpunkte darunter Platz haben. Die Schrift bleibt 12 pt
     const t = B.tabelle(s, { x: x1, y: yT, w: w1, pt: 12, dicht: true, zellrand: [0.04, 0.03], name: 'Tabelle Schwellen',
-      spalten: [{ kopf: wl('je m²', 'Spaltenkopf'), art: 'text' }, ...kopf.map(k => ({ kopf: `\n\n${k}`, breite: wb, art: 'zahl' }))],
+      spalten: [{ kopf: wl('je m²', 'Spaltenkopf'), art: 'text' }, ...kopf.map((k, i) => ({ kopf: `\n\n${k}`, breite: wb, art: 'zahl', kopfHervor: i === 0 }))],
       zeilen: ['B', 'C'].map(g => [wl('Gruppe ' + g, 'Tabelle'), ...laeufe.map(l => p2(W(l, `tilg.schwelle.${g}_gegen_A`)))]) });
     // Namen über den Beträgen: unten bündig eine Zeile (0,20) über dem Betrag, rechtsbündig mit dem rechten Zellrand der Tabelle (wie Folie 23)
     namen.forEach((zeilen, i) => { const sp = t.spalten[i + 1], h = +(0.235 * zeilen.length).toFixed(3);

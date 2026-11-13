@@ -49,9 +49,11 @@ module.exports = {
     const yTab = B.modulkopf(s, { x, y: Y.inhalt, w, titel: wl('Programmteil 2.1 im Vergleich', 'Tabellentitel') });
     // Spaltenbreiten in Zoll (zusammen 12,00), so gewählt, dass die fünf Zeilen mit den wenigsten Textzeilen auskommen (2, 2, 2, 3, 3).
     // 12 pt wie die Tabellen der Folien 15 und A1: In 14 pt bräuchte die Tabelle 4,3 Zoll, die Inhaltszone hat unter dem Modulkopf 3,9.
-    // Die Zeilen teilen sich die Höhe bis zur Unterkante der Inhaltszone (zielHoehe)
-    const BREITEN = [2.75, 2.85, 3.30, 3.10];
-    const tab = B.tabelle(s, { x, y: yTab, w, pt: 12, zielHoehe: +(Y.inhaltEnde - yTab).toFixed(3), name: 'Tabelle Programmteil 2.1 im Vergleich',
+    // Seit der Prüfrunde 2 vom 13.11.2026 folgt jede Zeile ihrem Text, mit demselben Innenabstand unten in allen Zeilen (LUFT_UNTEN zusätzlich zum
+    // Zellrand); bis dahin teilten sich die Zeilen die Höhe bis zur Unterkante der Inhaltszone (zielHoehe), und die zweizeiligen standen mit einer
+    // leeren Zeile Luft, die dreizeiligen knapp. Die gewonnene Höhe bleibt als Luft über dem Schriftfeld
+    const BREITEN = [2.75, 2.85, 3.30, 3.10], LUFT_UNTEN = 0.06;
+    const tab = B.tabelle(s, { x, y: yTab, w, pt: 12, luftUnten: LUFT_UNTEN, name: 'Tabelle Programmteil 2.1 im Vergleich',
       spalten: koepfe.map((k, i) => ({ kopf: k, breite: BREITEN[i], art: 'text', ...(i === koepfe.length - 1 ? { randRechts: 0.02 } : {}) })),
       zeilen: zeilen.map(z => [satz(z[0]).replace(', Mietenstufe', ',\nMietenstufe').split('\n').map(l => `**${l}**`).join('\n'), ...z.slice(1).map(satz)]) });
     if (tab.unten > Y.inhaltEnde + 0.005) P.melde(`Tabelle endet bei y ${tab.unten.toFixed(2)}, die Inhaltszone bei ${Y.inhaltEnde.toFixed(2)}.`);

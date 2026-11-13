@@ -43,7 +43,8 @@ module.exports = {
     const wl = t => ctx.wortlaut(t, 'Stichpunkt');
     B.stichpunkte(s, { platzhalter: 'kommentar', gruppen: [{ titel: ctx.wortlaut('Annahmen', 'Überschrift'), punkte: [
       wl(`Frei finanziert: gleiches Haus, Eigenmittel ${fmt.mio(M('fin.eigenmittel.Frei'))}, Bankdarlehen ${fmt.mio(M('fin.bankdarlehen.Frei'))} zu ${fmt.prozent(M('eingabe.zins_bank'), 2)} Zins, jährliche Annuität über ${M('eingabe.laufzeit_bank')} Jahre`),
-      wl('Objektverwaltung und Instandhaltung wie gefördert'),
+      // geschütztes Leerzeichen vor dem letzten Wort: „gefördert“ stünde sonst allein in der Zeile (Prüfrunde 2)
+      wl('Objektverwaltung und Instandhaltung wie gefördert').replace('wie gefördert', `wie${fmt.NBSP}gefördert`),
       wl(`Gefördert: Zuschuss ${fmt.mio(M('fin.zuschuss.A'))}, Darlehen ${fmt.mio(M('fin.darlehen_nbank.A'))} zu ${fmt.prozent(M('jr1.satz.zins_nbank'))} Zins, Tilgung ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)} p. a.`)] }] });
   },
 };

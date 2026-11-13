@@ -40,10 +40,9 @@
     "marke": {
       "nach": { "wert": 6, "einheit": "Leistungsphase, nach der die Bewilligung liegt", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.between[0]", "geprueft": true },
       "text": { "wert": "Bewilligung", "einheit": "Text", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.label", "geprueft": true },
-      "zeichen": { "wert": "±0", "einheit": "Planzeichen im gefüllten Achskreis", "herkunft": "Konzept, Folie antragsweg (Warnband „±0 BEWILLIGUNG“); auf Folie 27 dasselbe Zeichen für dieselbe Stelle", "geprueft": true },
-      "links": { "wert": "Planungsauftrag LPH 1–{lph_vor}: vor der Bewilligung möglich", "einheit": "Text mit Feldern", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.left", "geprueft": true },
-      "rechts": { "wert": "ab LPH {lph_nach}: erst nach der Bewilligung", "einheit": "Text mit Feldern", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.right", "geprueft": true }
+      "zeichen": { "wert": "±0", "einheit": "Planzeichen im gefüllten Achskreis", "herkunft": "Konzept, Folie antragsweg (Warnband „±0 BEWILLIGUNG“); auf Folie 27 dasselbe Zeichen für dieselbe Stelle", "geprueft": true }
     },
+    "hinweis": { "wert": "Planungsauftrag LPH 1–{lph_vor}: vor der Bewilligung möglich. Ab LPH {lph_nach}: erst nach der Bewilligung.", "einheit": "Text mit Feldern (Hinweiskasten unter dem Plan)", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.left und .right. Bis zur Prüfrunde 2 der Änderungsrunde vom 13.11.2026 zwei frei hängende Sätze in 12 pt links und rechts der Marke („Planungsauftrag LPH 1–6: vor der Bewilligung möglich“, „ab LPH 7: erst nach der Bewilligung“); seitdem nach G8 ein Hinweiskasten, beide Sätze mit Schlusspunkt, der zweite groß beginnend", "geprueft": true },
     "zeilen": {
       "wert": [
         { "nr": 1, "text": "Förderung und Machbarkeit", "wort": "vor dem Vorgespräch", "zeile": "items[0]: title, phase" },

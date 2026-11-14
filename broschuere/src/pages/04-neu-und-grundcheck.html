@@ -9,7 +9,7 @@
 
     /* Vergleichstabelle (seit der Änderungsrunde vom 13.11.2026, B3.1, wie Folie 9 des Vortrags): vier Spalten Merkmal ·
        Bis 30.06.2026 · Seit 01.07.2026 · Wirkung, fünf Zeilen. Spalten 42 | 40 | 56 | 42 mm: Merkmal so breit wie
-       „Mietenstufe I–III / IV–VII“ in einer Zeile (bei „Bemessungsgrenze“ zweizeilig, siehe unten), „Seit“ am breitesten (Bemessungsgrenze in vier Zeilen). Text 9,5 pt wie
+       „Mietenstufe I–III / IV–VII“ in einer Zeile, „Seit“ am breitesten (Bemessungsgrenze in vier Zeilen). Text 9,5 pt wie
        alle Tabellen des Hefts, Kopf mit Datum als Kernwert wie bisher, ohne Pfeilspalte. Damit Tabelle und Grundcheck auf
        die Seite passen, stehen Zeilen, Abstand zum Grundcheck und Zeilen der Ankreuzliste enger (Reserve 0,2 mm). */
     .page[data-page="04"] .p04-cmp { margin-top: 6.4mm; }
@@ -27,9 +27,9 @@
     .page[data-page="04"] thead .col-new .p04-date { color: var(--accent-text); }
     .page[data-page="04"] .p04-table tbody th { padding-right: 1.5mm; font: 700 var(--fs-small)/1.32 var(--font-display); color: var(--fg); }
     .page[data-page="04"] .p04-stufe { display: block; font: 400 var(--fs-small)/1.32 var(--font-text); color: var(--fg-2); }   /* Merkmal bricht vor „Mietenstufe“ (wie Folie 9) */
-    /* Zeile „Bemessungsgrenze“: Zusatzzeile zweizeilig („Mietenstufe“ / „I–III / IV–VII“), sonst endet sie 2,3 mm vor
-       „Grundstück“ in der Spalte „Bis“ und liest sich als eine Zeile (Prüfrunde 1). Die Zeile bleibt vierzeilig wie die
-       Spalte „Seit“. Breitere Merkmalspalte geht nicht: alle Spalten sind voll, jede Verschiebung kostet eine Tabellenzeile. */
+    /* Zusatzzeile „Mietenstufe I–III / IV–VII“ in beiden Zeilen gleich einzeilig (Prüfrunde 2 zur Änderungsrunde vom
+       13.11.2026; der Umbruch nach „Mietenstufe“ aus Prüfrunde 1 entfällt). Die Zeile „Bemessungsgrenze“ bleibt vierzeilig
+       wie die Spalte „Seit“. */
     .page[data-page="04"] .p04-table td.col-old { color: var(--fg-3); }
     .page[data-page="04"] .p04-table td.p04-eff { color: var(--fg); }
     .page[data-page="04"] .p04-fig { font: 700 1em/1 var(--font-display); letter-spacing: -.005em; font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
@@ -89,7 +89,7 @@
           <td class="p04-eff">−5 Prozentpunkte. Geld oder Grundstück weiter mindestens 10&nbsp;%</td>
         </tr>
         <tr>
-          <th scope="row">Bemessungsgrenze je&nbsp;m², <span class="p04-stufe">Mietenstufe<br><span class="u-nowrap">I–III / IV–VII</span></span></th>
+          <th scope="row">Bemessungsgrenze je&nbsp;m², <span class="p04-stufe">Mietenstufe <span class="u-nowrap">I–III / IV–VII</span></span></th>
           <td class="col-old"><b class="p04-fig">5.330 / 5.550&nbsp;€</b>, Gesamtkosten mit Grundstück</td>
           <td class="col-new is-hl"><b class="p04-fig">5.250 / 5.460&nbsp;€</b> (Stand 01.10.2026), nur Herstellungskosten. Grundstück zusätzlich bis zum Bodenrichtwert</td>
           <td class="p04-eff">Das Grundstück zählt nicht mehr auf die Grenze</td>

@@ -35,12 +35,17 @@
     .page[data-page="03"] .p03-chip .bs-badge__no { padding: 1mm 1.5mm .9mm; }   /* Reiter auf der Kachellinie (wie die Farbkante im Schlüsselplan) */
     .page[data-page="03"] .p03-kf__split { border-image: linear-gradient(90deg, var(--bs-21) 0 calc(100% - 9.7mm), var(--bs-24) calc(100% - 9.7mm) 100%) 1; }   /* Farbwechsel mittig im Schrägstrich zwischen den Reitern 2.1 / 2.4 (bei 50 % lag er 1,2 mm links neben dem roten Reiter) */
 
-    /* Marktband (Anthrazit-Verlauf), oben bündig mit „Ihr Einstieg“ auf S. 2. Korrekturlauf 1: eine Kernbotschaft, ein Diagramm
-       (Einheitenquadrate 1 = 1.000 Wohnungen mit zweistufiger Maßkette: Gesamtmaß 58.024 ausgelaufen, Teilmaß rund 16.000 neu gefördert) */
-    .page[data-page="03"] .p03-market { display: flex; flex-direction: column; height: 65mm; padding: 4.6mm 6mm 4.6mm; background: var(--grad-dark); }
+    /* Marktband (Anthrazit-Verlauf). Korrekturlauf 1: eine Kernbotschaft, ein Diagramm
+       (Einheitenquadrate 1 = 1.000 Wohnungen mit zweistufiger Maßkette: Gesamtmaß 58.024 ausgelaufen, Teilmaß rund 16.000 neu gefördert).
+       Prüfrunde 2 zur Änderungsrunde vom 13.11.2026: Seit die Kachel „Stichtag“ fehlt, endet die untere Kachelreihe bei 186,6 mm.
+       Das Band wächst deshalb nach oben (Oberkante 196,2 mm), der Abstand Kacheltext → Band ist gleich dem Abstand zwischen den
+       Kachelreihen (9,6 mm). Die gewonnene Höhe steht je zur Hälfte über der Kernbotschaft und über dem Quadratdiagramm,
+       die Schrift bleibt gleich. Eine gemeinsame Oberkante mit „Ihr Einstieg“ auf S. 2 (Linie 220,6 mm) gibt es seit
+       Prüfrunde 1 nicht mehr. */
+    .page[data-page="03"] .p03-market { display: flex; flex-direction: column; height: 76.76mm; padding: 4.6mm 6mm 4.6mm; background: var(--grad-dark); }
     .page[data-page="03"] .p03-market__head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; padding-bottom: 2.6mm; border-bottom: var(--hair) solid var(--rule); }
     .page[data-page="03"] .p03-market__head .pageref { font-size: var(--fs-body); }   /* 1em erbt hier die Grundgröße 9,5 pt; der Verweis steht wie der übrige Text in 9 pt */
-    .page[data-page="03"] .p03-market__msg { max-width: calc(10 * var(--col) + 9 * var(--gutter)); margin-top: 4.4mm; font: 800 15.5pt/1.16 var(--font-display); letter-spacing: -.005em; color: var(--fg); }
+    .page[data-page="03"] .p03-market__msg { max-width: calc(10 * var(--col) + 9 * var(--gutter)); margin-top: 8.4mm; font: 800 15.5pt/1.16 var(--font-display); letter-spacing: -.005em; color: var(--fg); }
     .page[data-page="03"] .p03-hl { color: var(--grant); }
     .page[data-page="03"] .p03-units { display: block; margin-top: auto; overflow: visible; }
     .page[data-page="03"] .p03-ext { stroke: var(--fg-3); stroke-width: .12; fill: none; }

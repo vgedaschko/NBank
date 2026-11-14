@@ -3,17 +3,19 @@
     /* Seite 23 · Quellen und Notizen · Planwerk. Rechte Seite der Doppelseite 22|23 (Impressum | Quellen und Notizen), letzte
        Seite vor der Rückseite (Änderungsrunde 13.11.2026, B15.1 mit Rückfrage 8 und 24). Kopfzeile mit Rubrik „PGN“ wie S. 21
        und 22, Fuß mit Blatt 22. Gemeinsame Horizonte mit S. 22 (feste Kopfhöhe wie dort): Kopfzeile · H1 ab 26 mm · erste
-       Bandlinie bei 68,5 mm (Kopf der Quellentabelle = Oberkante Impressum).
-       Oben die Quellentabelle über die volle Breite (Quelle 9 Spalten | Verwendet auf 3 Spalten), zehn Quellen, je eine
+       Bandlinie bei 52,5 mm (Kopf der Quellentabelle = Oberkante Impressum; Prüfrunde 2 zur Änderungsrunde vom 13.11.2026,
+       vorher 68,5 mm; die gewonnene Höhe geht an die Notizfläche).
+       Oben die Quellentabelle über die volle Breite (Quelle 9 Spalten | Verwendet auf 3 Spalten, dazwischen ein voller Steg), zehn Quellen, je eine
        Zeile in der Form „Herausgeber (Jahr): Titel. Fundstelle.“, die Seitenzahlen als Verweise. Darunter „Notizen“: Modultitel 12 pt mit Linie wie die
        Modultitel auf S. 22, Fläche im 5-mm-Planraster (Vektorzeichnung --planraster, styles.css; nicht gekachelt) bis zur
        Satzspiegel-Unterkante. Stufen nach styles.css §8b: H1 25 pt, Modultitel 12 pt, Tabellenkopf 8,5 pt Versalien, Text
        9,5 pt. Rot nur: Titellinie. Farben nur über Tokens. */
-    .page[data-page="23"] .p23q-head { height: 35.5mm; }   /* H1 ab 26 mm, Tabelle ab 68,5 mm wie das Impressum auf S. 22 */
+    .page[data-page="23"] .p23q-head { height: 19.5mm; }   /* H1 ab 26 mm, Tabelle ab 52,5 mm wie das Impressum auf S. 22 */
 
     /* Quellentabelle: volle Breite, Spaltenkopf mit kräftiger Linie oben (= erste Bandlinie, wie das Impressum gegenüber) */
     .page[data-page="23"] .p23q-src { margin-top: 7mm; table-layout: fixed; font-size: var(--fs-body); line-height: var(--lh-body); }
     .page[data-page="23"] .p23q-src .p23q-c1 { width: calc(9 * var(--col) + 9 * var(--gutter)); }
+    .page[data-page="23"] .p23q-src tr > :first-child { padding-right: var(--gutter); }   /* Quelle endet auf Spalte 9, ein voller Steg bis „Verwendet auf“ (Prüfrunde 2) */
     .page[data-page="23"] .p23q-src thead th { padding-top: 2.4mm; border-top: var(--rule-w) solid var(--rule-strong); }
 
     /* Notizen: Rest der Seite bis 273 mm */

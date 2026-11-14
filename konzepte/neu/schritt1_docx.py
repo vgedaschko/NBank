@@ -15,8 +15,8 @@ TITEL = "Modellrechnung und Fazit: Aussagen je Folie (Schritt 1)"
 VORSPANN = [
     "Stand 14.11.2026. Zahlen aus der Konzepte-Mappe, Blatt Konzepte (Kopie der Rechenmappe v3, Modellhaus). "
     "Rechenläufe mit je einer geänderten Annahme in Kopien dieser Mappe.",
-    "Frei finanziert wird mit 18,36 € Miete gerechnet. Das ist die Miete für eine DSCR von 1,2 in Jahr 1 (Annahme der PGN). "
-    "Die Marktmiete von 15,42 € wird auf diesen Folien jeweils mit angegeben.",
+    "Frei finanziert rechnet auf allen Folien mit der Marktmiete von 15,42 €. Die Miete für eine DSCR von 1,2 "
+    "(18,36 €, Annahme der PGN) steht nur auf Folie 4.",
 ]
 
 # Nr, Thema, Aussage, Zahlen [(Text, Zelle)], Darstellung
@@ -24,7 +24,7 @@ FOLIEN = [
     ("1", "Investition und Finanzierung",
      "3,0 Mio. € Gesamtkosten, rund 0,6 Mio. € Eigenkapital",
      [("Gesamtkosten 3,0 Mio. €", "D52"),
-      ("Eigenkapitaleinsatz rund 0,6 Mio. €", "D56:H56"),
+      ("Eigenkapitaleinsatz rund 0,6 Mio. €", "D56:G56"),
       ("Zuschuss in Gruppe A 1,19 Mio. €", "D53")],
      "Je Variante ein Balken: Eigenkapital, Zuschuss, NBank-Darlehen, Bankdarlehen."),
     ("2", "Kostenbasis",
@@ -32,38 +32,38 @@ FOLIEN = [
      [],
      "Heutige Folie 22, unverändert. Sie wird Folie 2, da alle Ergebnisse der Modellrechnung auf diesen Kosten beruhen."),
     ("3", "Liquidität im ersten Jahr",
-     "Zahlungsüberschuss Jahr 1: gefördert bis 15.003 €, frei 26.956 €",
+     "Zahlungsüberschuss Jahr 1: gefördert bis 15.003 €, frei −1.691 €",
      [("gefördert 10.812 bis 15.003 €", "D61:F61"),
-      ("frei finanziert 26.956 €", "H61"),
-      ("Kapitaldienst Gruppe A 34.150 €, frei finanziert 134.779 €", "D60, H60")],
+      ("frei finanziert −1.691 €", "G61"),
+      ("Kapitaldienst Gruppe A 34.150 €, frei finanziert 134.779 €", "D60, G60")],
      "Je Variante ein Balken: Mieteinnahmen, aufgeteilt in Bewirtschaftungskosten, Kapitaldienst und Zahlungsüberschuss."),
     ("4", "Kapitaldienstdeckung",
      "DSCR 1,2 erfordert frei finanziert 18,36 € Miete",
      [("erforderliche Miete 18,36 €", "D12"),
       ("Marktmiete 15,42 €", "D13"),
-      ("Gruppe C: erforderlich 9,12 €, Höchstmiete 9,00 €", "F22, F19")],
+      ("DSCR zur Marktmiete 0,99", "G62")],
      "Je Variante zwei Balken: erforderliche Miete für DSCR 1,2 und erzielbare Miete (Höchstmiete bzw. Marktmiete). "
      "Dazu: Die DSCR von 1,2 bezieht sich auf das Bankdarlehen frei finanziert. Gefördert besteht kein Bankdarlehen. "
      "Die NBank prüft Eigenmittel und angemessenen Gewinn."),
     ("5", "Liquidität im Zeitverlauf",
-     "Eigenkapitalrückfluss nach 13 bis 23 Jahren",
+     "Eigenkapitalrückfluss nach 21 bis 23 Jahren",
      [("gefördert 22 bis 23 Jahre", "D67:F67"),
-      ("frei finanziert 13 Jahre", "H67"),
-      ("0 Jahre mit Fehlbetrag", "D68:F68, H68")],
+      ("frei finanziert 21 Jahre", "G67"),
+      ("Jahre mit Fehlbetrag: gefördert 0, frei finanziert 1", "D68:G68")],
      "Kumulierter Zahlungsüberschuss Jahr 1 bis 35 je Variante, Eigenkapitaleinsatz als Bezugslinie."),
     ("6", "Rendite",
-     "Eigenkapitalrendite 7,05 bis 8,93 %",
-     [("frei finanziert 8,93 %", "H81"),
-      ("gefördert 7,05 bis 7,40 %", "D81:F81"),
-      ("gefördert ohne Restwert 2,58 bis 2,75 %", "D82:F82")],
+     "Eigenkapitalrendite 7,05 bis 8,36 %",
+     [("gefördert 7,05 bis 7,40 %", "D81:F81"),
+      ("frei finanziert 8,36 %", "G81"),
+      ("ohne Restwert: gefördert 2,58 bis 2,75 %, frei finanziert 4,84 %", "D82:G82")],
      "Je Variante zwei Balken: Eigenkapitalrendite mit und ohne Restwert, Betrachtung über 35 Jahre. "
      "Restwert in allen Varianten auf Basis der Marktmiete."),
     ("7", "Risiken",
      "Größtes Risiko: die Herstellungskosten",
-     [("Herstellungskosten 4.631 €/m²: Gruppe B 3, Gruppe C 6 Jahre mit Fehlbetrag", "E68:F68, Lauf kosten_4631"),
+     [("Herstellungskosten 4.631 €/m²: Jahre mit Fehlbetrag B 3, C 6, frei finanziert 14", "E68:G68, Lauf kosten_4631"),
       ("ohne Mietanpassung in der Bindung: Eigenkapitalrendite Gruppe A 5,08 % statt 7,05 %",
        "D81, Lauf mietanpassung_gefoerdert_0"),
-      ("frei finanziert zur Marktmiete ohne Mietsteigerung: 30 Jahre mit Fehlbetrag", "G68, Lauf mietsteigerung_0")],
+      ("Marktmiete ohne Steigerung: frei finanziert 30 Jahre mit Fehlbetrag", "G68, Lauf mietsteigerung_0")],
      "Tabelle: fünf Rechenläufe mit je einer geänderten Annahme (Herstellungskosten, Mietanpassung, Marktmiete, "
      "Tilgungssatz, Anschlusszins) für alle vier Varianten. Je Feld die Jahre mit Fehlbetrag, Felder mit Fehlbetrag "
      "rot hinterlegt. Die erste Zeile bezieht sich auf Folie 2."),
@@ -82,9 +82,7 @@ ANHANG = ("Anhang: Annahmen mit Wert und Herkunft · Jahresrechnung Jahr 1 im De
 HEUTE = ("Heutige Folien: 14 geht in Folie 1 auf, 22 wird Folie 2, 15 und 16 gehen in 3 auf, 19 in 4, 21 in 5, A6 in 6, "
          "20, 23 und A7 in 7 und den Anhang. 24 entfällt, an ihre Stelle tritt das Fazit. "
          "Kapitel 3 umfasst danach 8 statt 12 Folien.")
-ENTSCHEIDEN = ("Zu entscheiden: Auf Folie 7 wird frei finanziert mit der Marktmiete von 15,42 € gerechnet. Grund: In den "
-               "Rechenläufen ermittelt die Mappe die Miete für DSCR 1,2 jeweils neu (bei 4.631 €/m²: 23,24 €). "
-               "Frei finanziert wiese dann in keinem Lauf einen Fehlbetrag aus. Bitte bestätigen.")
+ENTSCHEIDEN = ""
 BROSCHUERE = "Die Broschüre, Blatt 9 bis 11, wird in Schritt 4 an die freigegebenen Folien angepasst."
 
 
@@ -178,7 +176,8 @@ def baue_docx(pfad):
     absatz(doc, ANHANG, nach=1)
     absatz(doc, HEUTE, nach=1)
     absatz(doc, BROSCHUERE, nach=3)
-    absatz(doc, ENTSCHEIDEN, fett=True, nach=0)
+    if ENTSCHEIDEN:
+        absatz(doc, ENTSCHEIDEN, fett=True, nach=0)
     doc.save(pfad)
 
 
@@ -189,7 +188,7 @@ def baue_md(pfad):
     for nr, frage, aussage, zahlen, darst in FOLIEN:
         zt = "<br>".join(f"{t} ({c})" if c else t for t, c in zahlen)
         z.append(f"| {nr} | {frage} | **{aussage}** | {zt} | {darst} |")
-    z += ["", ANHANG, "", HEUTE, "", BROSCHUERE, "", f"**{ENTSCHEIDEN}**", ""]
+    z += ["", ANHANG, "", HEUTE, "", BROSCHUERE, ""] + ([f"**{ENTSCHEIDEN}**", ""] if ENTSCHEIDEN else [])
     open(pfad, "w").write("\n".join(z))
 
 

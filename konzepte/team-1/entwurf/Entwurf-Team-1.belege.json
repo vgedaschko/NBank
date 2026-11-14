@@ -1,0 +1,1658 @@
+{
+ "werte_datei": "konzepte/mappe/werte_konzepte.json",
+ "folien": {
+  "jahresrechnung": [
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.miete_jahr1.A",
+    "lauf": "team1",
+    "wert": 6.8,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "D111"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.miete_jahr1.B",
+    "lauf": "team1",
+    "wert": 8.2,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "E111"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.miete_jahr1.C",
+    "lauf": "team1",
+    "wert": 9,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "F111"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.miete_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 18.3619606229306,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "H111"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.sollmiete_jahr1.A",
+    "lauf": "team1",
+    "wert": 67564.8,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D112"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.sollmiete_jahr1.B",
+    "lauf": "team1",
+    "wert": 81475.2,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E112"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.sollmiete_jahr1.C",
+    "lauf": "team1",
+    "wert": 89424,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F112"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.sollmiete_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 182444.440749439,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H112"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.mietausfall_jahr1.A",
+    "lauf": "team1",
+    "wert": -1351.296,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D113"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.mietausfall_jahr1.B",
+    "lauf": "team1",
+    "wert": -1629.504,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E113"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.mietausfall_jahr1.C",
+    "lauf": "team1",
+    "wert": -1788.48,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F113"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.mietausfall_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": -3648.88881498877,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H113"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.objektverwaltung_jahr1.A",
+    "lauf": "team1",
+    "wert": -5138,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D114"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.objektverwaltung_jahr1.B",
+    "lauf": "team1",
+    "wert": -5138,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E114"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.objektverwaltung_jahr1.C",
+    "lauf": "team1",
+    "wert": -5138,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F114"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.objektverwaltung_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": -5138,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H114"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.instandhaltung_jahr1.A",
+    "lauf": "team1",
+    "wert": -11923.2,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D115"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.instandhaltung_jahr1.B",
+    "lauf": "team1",
+    "wert": -11923.2,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E115"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.instandhaltung_jahr1.C",
+    "lauf": "team1",
+    "wert": -11923.2,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F115"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.instandhaltung_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": -11923.2,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H115"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.uevk_jahr1.A",
+    "lauf": "team1",
+    "wert": 49152.304,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D116"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.uevk_jahr1.B",
+    "lauf": "team1",
+    "wert": 62784.496,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E116"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.uevk_jahr1.C",
+    "lauf": "team1",
+    "wert": 70574.32,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F116"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.uevk_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 161734.35193445,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H116"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.vkb_jahr1.A",
+    "lauf": "team1",
+    "wert": -5926.824,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D117"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.vkb_jahr1.B",
+    "lauf": "team1",
+    "wert": -8890.236,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E117"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.vkb_jahr1.C",
+    "lauf": "team1",
+    "wert": -10371.942,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F117"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.vkb_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H117"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zins_jahr1.A",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D118"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zins_jahr1.B",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E118"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zins_jahr1.C",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F118"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zins_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": -91510.16256,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H118"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.tilgung_jahr1.A",
+    "lauf": "team1",
+    "wert": -28222.9714285714,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D119"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.tilgung_jahr1.B",
+    "lauf": "team1",
+    "wert": -42334.4571428571,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E119"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.tilgung_jahr1.C",
+    "lauf": "team1",
+    "wert": -49390.2,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F119"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.tilgung_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": -43268.4640520415,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H119"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zue_jahr1.A",
+    "lauf": "team1",
+    "wert": 15002.5085714286,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D121"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zue_jahr1.B",
+    "lauf": "team1",
+    "wert": 11559.8028571429,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E121"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zue_jahr1.C",
+    "lauf": "team1",
+    "wert": 10812.178,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F121"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zue_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 26955.73,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H121"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.kapitaldienst_jahr1.A",
+    "lauf": "team1",
+    "wert": -34149.7954285714,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D120"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.kapitaldienst_jahr1.B",
+    "lauf": "team1",
+    "wert": -51224.6931428571,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E120"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.kapitaldienst_jahr1.C",
+    "lauf": "team1",
+    "wert": -59762.142,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F120"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.kapitaldienst_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": -134778.626612041,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H120"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.dscr_jahr1.A",
+    "lauf": "konzepte",
+    "wert": 1.43931474209877,
+    "einheit": "Faktor",
+    "blatt": "Konzepte",
+    "zelle": "D62"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.dscr_jahr1.B",
+    "lauf": "konzepte",
+    "wert": 1.22566856232607,
+    "einheit": "Faktor",
+    "blatt": "Konzepte",
+    "zelle": "E62"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.dscr_jahr1.C",
+    "lauf": "konzepte",
+    "wert": 1.18092018857022,
+    "einheit": "Faktor",
+    "blatt": "Konzepte",
+    "zelle": "F62"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.dscr_jahr1.frei_dscr",
+    "lauf": "konzepte",
+    "wert": 1.2,
+    "einheit": "Faktor",
+    "blatt": "Konzepte",
+    "zelle": "H62"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.marktmiete_jahr1",
+    "lauf": "konzepte",
+    "wert": 15.42,
+    "einheit": "€/m² Monat",
+    "blatt": "Eingaben",
+    "zelle": "F25"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n2.aufschlag_marktmiete",
+    "lauf": "konzepte",
+    "wert": 0.190788626649197,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D14"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.zue_jahr1.frei_markt",
+    "lauf": "konzepte",
+    "wert": -1690.97,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "G61"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.bearbeitungsentgelte.A",
+    "lauf": "konzepte",
+    "wert": 20743.884,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D57"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.bearbeitungsentgelte.B",
+    "lauf": "konzepte",
+    "wert": 22225.59,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "E57"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.bearbeitungsentgelte.C",
+    "lauf": "konzepte",
+    "wert": 22966.443,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "F57"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.mietausfall",
+    "lauf": "konzepte",
+    "wert": 0.02,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F29"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.objektverwaltung_je_wohnung",
+    "lauf": "konzepte",
+    "wert": 367,
+    "einheit": "€ p. a.",
+    "blatt": "Eingaben",
+    "zelle": "F30"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.instandhaltung_je_qm",
+    "lauf": "konzepte",
+    "wert": 14.4,
+    "einheit": "€/m² p. a.",
+    "blatt": "Eingaben",
+    "zelle": "F31"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.verwaltungskostenbeitrag",
+    "lauf": "konzepte",
+    "wert": 0.005,
+    "einheit": "Anteil",
+    "blatt": "Tabellen",
+    "zelle": "D23"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.zins_nbank_bis_jahr35",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Anteil",
+    "blatt": "Tabellen",
+    "zelle": "D19"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.zins_bank",
+    "lauf": "konzepte",
+    "wert": 0.0386,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F35"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.tilgung_nbank",
+    "lauf": "konzepte",
+    "wert": 0.0238095238095238,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F17"
+   }
+  ],
+  "geldfluss": [
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.sollmiete_jahr1.A",
+    "lauf": "team1",
+    "wert": 67564.8,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D112"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.sollmiete_jahr1.B",
+    "lauf": "team1",
+    "wert": 81475.2,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E112"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.sollmiete_jahr1.C",
+    "lauf": "team1",
+    "wert": 89424,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F112"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.sollmiete_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 182444.440749439,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H112"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.bewirtschaftung_jahr1.A",
+    "lauf": "team1",
+    "wert": -18412.496,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D122"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.bewirtschaftung_jahr1.B",
+    "lauf": "team1",
+    "wert": -18690.704,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E122"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.bewirtschaftung_jahr1.C",
+    "lauf": "team1",
+    "wert": -18849.68,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F122"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.bewirtschaftung_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": -20710.0888149888,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H122"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.vkb_jahr1.A",
+    "lauf": "team1",
+    "wert": -5926.824,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D117"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.vkb_jahr1.B",
+    "lauf": "team1",
+    "wert": -8890.236,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E117"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.vkb_jahr1.C",
+    "lauf": "team1",
+    "wert": -10371.942,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F117"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.vkb_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H117"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zins_jahr1.A",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D118"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zins_jahr1.B",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E118"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zins_jahr1.C",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F118"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zins_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": -91510.16256,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H118"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.tilgung_jahr1.A",
+    "lauf": "team1",
+    "wert": -28222.9714285714,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D119"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.tilgung_jahr1.B",
+    "lauf": "team1",
+    "wert": -42334.4571428571,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E119"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.tilgung_jahr1.C",
+    "lauf": "team1",
+    "wert": -49390.2,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F119"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.tilgung_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": -43268.4640520415,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H119"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zue_jahr1.A",
+    "lauf": "team1",
+    "wert": 15002.5085714286,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D121"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zue_jahr1.B",
+    "lauf": "team1",
+    "wert": 11559.8028571429,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E121"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zue_jahr1.C",
+    "lauf": "team1",
+    "wert": 10812.178,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F121"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.zue_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 26955.73,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H121"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_bewirtschaftung_jahr1.A",
+    "lauf": "team1",
+    "wert": 0.272516103059581,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D124"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_bewirtschaftung_jahr1.B",
+    "lauf": "team1",
+    "wert": 0.229403597659165,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E124"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_bewirtschaftung_jahr1.C",
+    "lauf": "team1",
+    "wert": 0.210789944533906,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F124"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_bewirtschaftung_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 0.113514496412807,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H124"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_vkb_jahr1.A",
+    "lauf": "team1",
+    "wert": 0.0877205882352942,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D125"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_vkb_jahr1.B",
+    "lauf": "team1",
+    "wert": 0.109115853658537,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E125"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_vkb_jahr1.C",
+    "lauf": "team1",
+    "wert": 0.115986111111111,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F125"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_vkb_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H125"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_zins_jahr1.A",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D126"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_zins_jahr1.B",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E126"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_zins_jahr1.C",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F126"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_zins_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 0.501578245870896,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H126"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_tilgung_jahr1.A",
+    "lauf": "team1",
+    "wert": 0.417717086834734,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D127"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_tilgung_jahr1.B",
+    "lauf": "team1",
+    "wert": 0.519599303135889,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E127"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_tilgung_jahr1.C",
+    "lauf": "team1",
+    "wert": 0.552314814814815,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F127"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_tilgung_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 0.237159673785098,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H127"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_zue_jahr1.A",
+    "lauf": "team1",
+    "wert": 0.22204622187039,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D128"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_zue_jahr1.B",
+    "lauf": "team1",
+    "wert": 0.14188124554641,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E128"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_zue_jahr1.C",
+    "lauf": "team1",
+    "wert": 0.120909129540168,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F128"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.anteil_zue_jahr1.frei_dscr",
+    "lauf": "team1",
+    "wert": 0.147747609569644,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H128"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.sollmiete.A",
+    "lauf": "team1",
+    "wert": 3319270.32019959,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D132"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.sollmiete.B",
+    "lauf": "team1",
+    "wert": 4002649.5037701,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "E132"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.sollmiete.C",
+    "lauf": "team1",
+    "wert": 4393151.89438182,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "F132"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.sollmiete.frei_dscr",
+    "lauf": "team1",
+    "wert": 9121214.5123354,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "H132"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.bewirtschaftung.A",
+    "lauf": "team1",
+    "wert": -919351.188198226,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D142"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.bewirtschaftung.B",
+    "lauf": "team1",
+    "wert": -933018.771869636,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "E142"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.bewirtschaftung.C",
+    "lauf": "team1",
+    "wert": -940828.819681871,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "F142"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.bewirtschaftung.frei_dscr",
+    "lauf": "team1",
+    "wert": -1035390.07204094,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "H142"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.vkb.A",
+    "lauf": "team1",
+    "wert": -123475.50425,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D137"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.vkb.B",
+    "lauf": "team1",
+    "wert": -185213.2415,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "E137"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.vkb.C",
+    "lauf": "team1",
+    "wert": -216082.125,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "F137"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.vkb.frei_dscr",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "H137"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.zins.A",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D138"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.zins.B",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "E138"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.zins.C",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "F138"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.zins.frei_dscr",
+    "lauf": "team1",
+    "wert": -1672629.181692,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "H138"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.tilgung.A",
+    "lauf": "team1",
+    "wert": -987804,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D139"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.tilgung.B",
+    "lauf": "team1",
+    "wert": -1481706,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "E139"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.tilgung.C",
+    "lauf": "team1",
+    "wert": -1728657,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "F139"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.tilgung.frei_dscr",
+    "lauf": "team1",
+    "wert": -2370729.5719852,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "H139"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.zue.A",
+    "lauf": "team1",
+    "wert": 1288639.62775137,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D141"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.zue.B",
+    "lauf": "team1",
+    "wert": 1402711.49040046,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "E141"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.zue.C",
+    "lauf": "team1",
+    "wert": 1507583.94969994,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "F141"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.zue.frei_dscr",
+    "lauf": "team1",
+    "wert": 4042465.69,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "H141"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_bewirtschaftung.A",
+    "lauf": "team1",
+    "wert": 0.276973882664351,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D144"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_bewirtschaftung.B",
+    "lauf": "team1",
+    "wert": 0.233100292941169,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E144"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_bewirtschaftung.C",
+    "lauf": "team1",
+    "wert": 0.214158044679732,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F144"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_bewirtschaftung.frei_dscr",
+    "lauf": "team1",
+    "wert": 0.113514496412807,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H144"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_vkb.A",
+    "lauf": "team1",
+    "wert": 0.0371995927835655,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D145"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_vkb.B",
+    "lauf": "team1",
+    "wert": 0.0462726604779028,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E145"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_vkb.C",
+    "lauf": "team1",
+    "wert": 0.0491861265430719,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F145"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_vkb.frei_dscr",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H145"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_zins.A",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D146"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_zins.B",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E146"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_zins.C",
+    "lauf": "team1",
+    "wert": 0,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F146"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_zins.frei_dscr",
+    "lauf": "team1",
+    "wert": 0.183377902079812,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H146"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_tilgung.A",
+    "lauf": "team1",
+    "wert": 0.297596732025309,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D147"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_tilgung.B",
+    "lauf": "team1",
+    "wert": 0.37018130081197,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E147"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_tilgung.C",
+    "lauf": "team1",
+    "wert": 0.393489012344575,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F147"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_tilgung.frei_dscr",
+    "lauf": "team1",
+    "wert": 0.259913805204237,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H147"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_zue.A",
+    "lauf": "team1",
+    "wert": 0.388229792526774,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D148"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_zue.B",
+    "lauf": "team1",
+    "wert": 0.350445745768958,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E148"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_zue.C",
+    "lauf": "team1",
+    "wert": 0.343166816432621,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F148"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1s.anteil_zue.frei_dscr",
+    "lauf": "team1",
+    "wert": 0.44319379667401,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H148"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.miete_jahr1.frei_dscr",
+    "lauf": "konzepte",
+    "wert": 18.3619606229306,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "H49"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.marktmiete_jahr1",
+    "lauf": "konzepte",
+    "wert": 15.42,
+    "einheit": "€/m² Monat",
+    "blatt": "Eingaben",
+    "zelle": "F25"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.mietsteigerung",
+    "lauf": "konzepte",
+    "wert": 0.02,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F26"
+   }
+  ],
+  "fazit": [
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.miete_jahr1.frei_dscr",
+    "lauf": "konzepte",
+    "wert": 18.3619606229306,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "H49"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.marktmiete_jahr1",
+    "lauf": "konzepte",
+    "wert": 15.42,
+    "einheit": "€/m² Monat",
+    "blatt": "Eingaben",
+    "zelle": "F25"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.zins_bank",
+    "lauf": "konzepte",
+    "wert": 0.0386,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F35"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.quote_darlehen.A",
+    "lauf": "konzepte",
+    "wert": 0.4,
+    "einheit": "Anteil",
+    "blatt": "Tabellen",
+    "zelle": "D5"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.quote_zuschuss.A",
+    "lauf": "konzepte",
+    "wert": 0.4,
+    "einheit": "Anteil",
+    "blatt": "Tabellen",
+    "zelle": "D6"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:kern.foerderung.A",
+    "lauf": "konzepte",
+    "wert": 2370729.6,
+    "einheit": "€",
+    "blatt": "Übersicht",
+    "zelle": "D15"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.gesamtkosten.A",
+    "lauf": "konzepte",
+    "wert": 2963412,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D52"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.zinsfreie_jahre",
+    "lauf": "konzepte",
+    "wert": 35,
+    "einheit": "Jahre",
+    "blatt": "Tabellen",
+    "zelle": "D20"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.bindung",
+    "lauf": "konzepte",
+    "wert": 35,
+    "einheit": "Jahre",
+    "blatt": "Tabellen",
+    "zelle": "D26"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.hoechstmiete_VI.A",
+    "lauf": "konzepte",
+    "wert": 6.8,
+    "einheit": "€/m² Monat",
+    "blatt": "Tabellen",
+    "zelle": "D14"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.hoechstmiete_VI.B",
+    "lauf": "konzepte",
+    "wert": 8.2,
+    "einheit": "€/m² Monat",
+    "blatt": "Tabellen",
+    "zelle": "E14"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.hoechstmiete_VI.C",
+    "lauf": "konzepte",
+    "wert": 9,
+    "einheit": "€/m² Monat",
+    "blatt": "Tabellen",
+    "zelle": "F14"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.zue_jahr1.A",
+    "lauf": "konzepte",
+    "wert": 15002.5085714286,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D61"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.zue_jahr1.B",
+    "lauf": "konzepte",
+    "wert": 11559.8028571429,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E61"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.zue_jahr1.C",
+    "lauf": "konzepte",
+    "wert": 10812.178,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F61"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.zue_jahr1.frei_dscr",
+    "lauf": "konzepte",
+    "wert": 26955.73,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H61"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.kapitaldienst_jahr1.A",
+    "lauf": "konzepte",
+    "wert": 34149.7954285714,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D60"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.jahre_fehlbetrag_1_35.A",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "D68"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.jahre_fehlbetrag_1_35.B",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "E68"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.jahre_fehlbetrag_1_35.C",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "F68"
+   },
+   {
+    "datei": "konzepte/team-1/mappe/werte_team.json",
+    "schluessel": "t1.kostenschwelle_zue0.A",
+    "lauf": "team1",
+    "wert": 5151.30746197149,
+    "einheit": "€/m²",
+    "blatt": "Konzepte",
+    "zelle": "D155"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:kern.eigenmittel.A",
+    "lauf": "konzepte",
+    "wert": 592682.4,
+    "einheit": "€",
+    "blatt": "Übersicht",
+    "zelle": "D19"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.ek_vofi_mit_restwert.A",
+    "lauf": "konzepte",
+    "wert": 0.0704541327125663,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D81"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.ek_vofi_mit_restwert.B",
+    "lauf": "konzepte",
+    "wert": 0.0727725156256356,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E81"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.ek_vofi_mit_restwert.C",
+    "lauf": "konzepte",
+    "wert": 0.0739966553810312,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F81"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:n5.ek_vofi_mit_restwert.frei_dscr",
+    "lauf": "konzepte",
+    "wert": 0.0892850205819726,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H81"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_mit_restwert.A",
+    "lauf": "mietanpassung_gefoerdert_0",
+    "wert": 0.0508134949379571,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D81"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_mit_restwert.B",
+    "lauf": "mietanpassung_gefoerdert_0",
+    "wert": 0.0536979775449253,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E81"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_mit_restwert.C",
+    "lauf": "mietanpassung_gefoerdert_0",
+    "wert": 0.0554307061095398,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F81"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_mit_restwert.frei_dscr",
+    "lauf": "mietsteigerung_0",
+    "wert": 0.0581255532859664,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H81"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "konzepte:annahme.herstellungskosten_qm",
+    "lauf": "konzepte",
+    "wert": 3579,
+    "einheit": "€/m²",
+    "blatt": "Eingaben",
+    "zelle": "F11"
+   }
+  ]
+ }
+}

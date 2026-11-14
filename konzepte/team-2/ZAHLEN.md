@@ -6,7 +6,7 @@ Dateien: **Konzepte-Mappe** = `konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konz
 
 Nicht aufgeführt: Folie 24 (heute 22, Herstellungskosten der PGN) und die Anhangfolien A9 (heute 17), A11 (heute 20) und A12 (heute A7) bleiben unverändert; ihre Zahlen kommen wie heute aus `praesentation/daten/werte.json` und `markt.json`. Ausnahme: Die Schwellen der A12 und die tragbaren Tilgungen stehen unten, weil Blatt 11 der Broschüre sie nennt.
 
-Zahl der Einträge: 792.
+Zahl der Einträge: 830.
 
 
 ## F13
@@ -102,6 +102,17 @@ Zahl der Einträge: 792.
 | Bearbeitungsentgelte, A | 20.744 € | ganze € | 20743.9 | Konzepte-Mappe · Konzepte!D57 |
 | Bearbeitungsentgelte, B | 22.226 € | ganze € | 22225.6 | Konzepte-Mappe · Konzepte!E57 |
 | Bearbeitungsentgelte, C | 22.966 € | ganze € | 22966.4 | Konzepte-Mappe · Konzepte!F57 |
+| Zuschuss (Balken, Mio.), A | 1,19 Mio. € | 0,01 Mio. € | 1.18536e+06 | Konzepte-Mappe · Konzepte!D53 |
+| Zuschuss (Balken, Mio.), B | 0,59 Mio. € | 0,01 Mio. € | 592682 | Konzepte-Mappe · Konzepte!E53 |
+| Zuschuss (Balken, Mio.), C | 0,30 Mio. € | 0,01 Mio. € | 296341 | Konzepte-Mappe · Konzepte!F53 |
+| NBank-Darlehen (Balken, Mio.), A | 1,19 Mio. € | 0,01 Mio. € | 1.18536e+06 | Konzepte-Mappe · Konzepte!D54 |
+| NBank-Darlehen (Balken, Mio.), B | 1,78 Mio. € | 0,01 Mio. € | 1.77805e+06 | Konzepte-Mappe · Konzepte!E54 |
+| NBank-Darlehen (Balken, Mio.), C | 2,07 Mio. € | 0,01 Mio. € | 2.07439e+06 | Konzepte-Mappe · Konzepte!F54 |
+| Bankdarlehen, frei (Balken, Mio.) | 2,37 Mio. € | 0,01 Mio. € | 2.37073e+06 | Konzepte-Mappe · Konzepte!H55 |
+| Eigenmittel (Balken, Mio.), A | 0,59 Mio. € | 0,01 Mio. € | 592682 | Konzepte-Mappe · Übersicht!D19 |
+| Eigenmittel (Balken, Mio.), B | 0,59 Mio. € | 0,01 Mio. € | 592682 | Konzepte-Mappe · Übersicht!E19 |
+| Eigenmittel (Balken, Mio.), C | 0,59 Mio. € | 0,01 Mio. € | 592682 | Konzepte-Mappe · Übersicht!F19 |
+| Eigenmittel (Balken, Mio.), frei | 0,59 Mio. € | 0,01 Mio. € | 592682 | Konzepte-Mappe · Übersicht!G19 |
 | Eigenkapital bei Bezug, A | 613.426 € | ganze € | 613426 | Konzepte-Mappe · Konzepte!D56 |
 | Eigenkapital bei Bezug, B | 614.908 € | ganze € | 614908 | Konzepte-Mappe · Konzepte!E56 |
 | Eigenkapital bei Bezug, C | 615.649 € | ganze € | 615649 | Konzepte-Mappe · Konzepte!F56 |
@@ -138,6 +149,10 @@ Zahl der Einträge: 792.
 | Rechenweg 3: Objektverwaltung + Instandhaltung | 17.061 € | ganze € | 17061.2 | Konzepte-Mappe · Konzepte!D11 |
 | Rechenweg 4: Mietausfall | 2 % | ganze % | 0.02 | Konzepte-Mappe · Eingaben!F29 |
 | Rechenweg 4: Sollmiete Jahr 1 frei | 182.444 € | ganze € | 182444 | Konzepte-Mappe · Frei DSCR 1,2!E7 |
+| Rechenweg Spalte DSCR 1,0: DSCR-Ziel der Mappe | 1,00 | 2 Nachkommastellen | 1 | Konzepte-Mappe · Eingaben!F54 |
+| Rechenweg Spalte DSCR 1,0: Überschuss vor Kapitaldienst = Kapitaldienst × 1,0 | 134.779 € | ganze €; gerechnet | 134779 | Kapitaldienst × DSCR 1,0; Teile: Konzepte-Mappe · Konzepte!D10 ¦ Konzepte-Mappe · Eingaben!F54 |
+| Rechenweg Spalte DSCR 1,0: Sollmiete | 154.939 € | ganze €; gerechnet | 154939 | (Kapitaldienst + Objektverwaltung und Instandhaltung) ÷ (1 − Mietausfall); Gegenprobe: ÷ 828 m² ÷ 12 = Übersicht!G112; Teile: Konzepte-Mappe · Konzepte!D10 ¦ Konzepte-Mappe · Konzepte!D11 ¦ Konzepte-Mappe · Eingaben!F29 |
+| Rechenweg 4: 98 % nach Mietausfall | 98 % | ganze %; gerechnet | 0.98 | 1 − Mietausfall; Teile: Konzepte-Mappe · Eingaben!F29 |
 | Rechenweg 5: Wohnfläche | 828 | ganzzahlig | 828 | Konzepte-Mappe · Eingaben!F8 |
 | Rechenweg 5: Miete für DSCR 1,2 frei | 18,36 € | 2 Nachkommastellen | 18.362 | Konzepte-Mappe · Konzepte!D12 |
 | Aufschlag auf die Marktmiete | 19,1 % | 0,1 % | 0.190789 | Konzepte-Mappe · Konzepte!D14 |
@@ -263,6 +278,7 @@ Zahl der Einträge: 792.
 | Tiefster Stand Projektkonto, frei | 0 € | ganze € | 0 | Konzepte-Mappe · Konzepte!H70 |
 | Marke: Bankdarlehen getilgt nach Jahren | 30 | ganzzahlig | 30 | Konzepte-Mappe · Eingaben!F38 |
 | Marke: Ende der Bindung, Jahr | 35 | ganzzahlig | 35 | Konzepte-Mappe · Tabellen!D26 |
+| frei finanziert ohne Kapitaldienst ab Jahr | 31 | ganzzahlig; gerechnet | 31 | Laufzeit Bankdarlehen + 1; Teile: Konzepte-Mappe · Eingaben!F38 |
 
 ## F19, Blatt 11
 
@@ -335,6 +351,7 @@ Zahl der Einträge: 792.
 | Jahre mit DSCR unter 1,2, frei | 0 | ganzzahlig | 0 | Konzepte-Mappe · Konzepte!H73 |
 | DSCR C Jahr 4 (nach der ersten Mieterhöhung) | 1,27 | 2 Nachkommastellen | 1.26937 | Konzepte-Mappe · Konzepte Zeitreihe!Z10 |
 | DSCR frei Jahr 2 | 1,22 | 2 Nachkommastellen | 1.224 | Konzepte-Mappe · Konzepte Zeitreihe!AR8 |
+| Eingabe des Laufs: Tilgung NBank-Darlehen | 2,90 % | 0,01 % | 0.029 | mappe/laeufe/tilgung_2_90.xlsx · Eingaben!E17 · Lauf tilgung_2_90 (geänderte Eingabe, Basis 0.0238095) |
 | Lauf Tilgung 2,90 %: Jahre unter 1,2, B | 8 | ganzzahlig | 8 | mappe/laeufe/tilgung_2_90.xlsx · Konzepte!E73 · Lauf tilgung_2_90 |
 | Lauf Tilgung 2,90 %: Jahre unter 1,2, C | 9 | ganzzahlig | 9 | mappe/laeufe/tilgung_2_90.xlsx · Konzepte!F73 · Lauf tilgung_2_90 |
 
@@ -543,12 +560,26 @@ Zahl der Einträge: 792.
 | Marktmiete: nötiges Eigenkapital | 1,01 Mio. € | 0,01 Mio. € | 1.01259e+06 | Team-2-Kopie · Team 2!C60 |
 | Lauf Tilgung 3,65 %: tiefster Stand Projektkonto, C | −128.266 € | ganze € | -128266 | mappe/laeufe/tilgung_3_65.xlsx · Konzepte!F70 · Lauf tilgung_3_65 |
 | Lauf Kosten 5.460 €: tiefster Stand Projektkonto, C | −239.781 € | ganze € | -239781 | mappe/laeufe/kosten_5460.xlsx · Konzepte!F70 · Lauf kosten_5460 |
+| Eingabe des Laufs: Tilgung NBank-Darlehen 2,90 % | 2,90 % | 0,01 % | 0.029 | mappe/laeufe/tilgung_2_90.xlsx · Eingaben!E17 · Lauf tilgung_2_90 (geänderte Eingabe, Basis 0.0238095) |
+| Eingabe des Laufs: Tilgung NBank-Darlehen 3,65 % | 3,65 % | 0,01 % | 0.0365 | mappe/laeufe/tilgung_3_65.xlsx · Eingaben!E17 · Lauf tilgung_3_65 (geänderte Eingabe, Basis 0.0238095) |
+| Eingabe des Laufs: Herstellungskosten 4.631 € je m² | 4.631 € | ganze € | 4631 | mappe/laeufe/kosten_4631.xlsx · Eingaben!E11 · Lauf kosten_4631 (geänderte Eingabe, Basis 3579) |
+| Eingabe des Laufs: Herstellungskosten 5.460 € je m² | 5.460 € | ganze € | 5460 | mappe/laeufe/kosten_5460.xlsx · Eingaben!E11 · Lauf kosten_5460 (geänderte Eingabe, Basis 3579) |
+| Eingabe des Laufs: keine Mieterhöhung in der Bindung | 0,00 % | 0,01 % | 0 | mappe/laeufe/mietanpassung_gefoerdert_0.xlsx · Tabellen!D28 · Lauf mietanpassung_gefoerdert_0 (geänderte Eingabe, Basis 0.0615) |
+| Eingabe des Laufs: keine Mietsteigerung am Markt | 0 % | ganze % | 0 | mappe/laeufe/mietsteigerung_0.xlsx · Eingaben!E26 · Lauf mietsteigerung_0 (geänderte Eingabe, Basis 0.02) |
+| Eingabe des Laufs: Anschlusszins Bankdarlehen 4,86 % | 4,86 % | 0,01 % | 0.0486 | mappe/laeufe/anschlusszins_plus_1.xlsx · Eingaben!E37 · Lauf anschlusszins_plus_1 (geänderte Eingabe, Basis 0.0386) |
+| Eingabe des Laufs: Anschlusszins Bankdarlehen 2,86 % | 2,86 % | 0,01 % | 0.0286 | mappe/laeufe/anschlusszins_minus_1.xlsx · Eingaben!E37 · Lauf anschlusszins_minus_1 (geänderte Eingabe, Basis 0.0386) |
+| Eingabe des Laufs: Zuschlag Liegenschaftszins (Lauf R1) | 0,60 % | 0,01 % | 0.006 | team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx · Eingaben!E50 · Lauf liegenschaftszins_plus_0_60 (geänderte Eingabe, Basis 0) |
+| Bezug: Liegenschaftszins Basis, Jahr 35 | 2,80 % | 0,01 % | 0.028 | Konzepte-Mappe · Gefördert A!I120 |
+| Bezug: Marktmiete | 15,42 € | 2 Nachkommastellen | 15.42 | Konzepte-Mappe · Konzepte!D13 |
+| Bezug: Miete frei für DSCR 1,2 | 18,36 € | 2 Nachkommastellen | 18.362 | Konzepte-Mappe · Konzepte!D12 |
+| Bezug: DSCR, die die Bank verlangt | 1,20 | 2 Nachkommastellen | 1.2 | Konzepte-Mappe · Konzepte!D6 |
 
 ## F29 Fazit
 
 | Größe | Wert | Rundung | Rohwert | Fundstelle |
 |---|---|---|---|---|
 | Zins Bankdarlehen, 10 Jahre fest | 3,86 % | 0,01 % | 0.0386 | Konzepte-Mappe · Eingaben!F35 |
+| Zinsbindung Bankdarlehen, Jahre | 10 | ganzzahlig | 10 | Konzepte-Mappe · Eingaben!F36 |
 | kostendeckende Anfangsmiete frei finanziert | 15,59 € | 2 Nachkommastellen | 15.5937 | Konzepte-Mappe · Übersicht!G112 |
 | Marktmiete | 15,42 € | 2 Nachkommastellen | 15.42 | Konzepte-Mappe · Eingaben!F25 |
 | Zuschuss A | 40 % | ganze % | 0.4 | Konzepte-Mappe · Tabellen!D6 |
@@ -556,7 +587,10 @@ Zahl der Einträge: 792.
 | Zins NBank-Darlehen | 0 % | ganze % | 0 | Konzepte-Mappe · Tabellen!D19 |
 | zinsfreie Jahre | 35 | ganzzahlig | 35 | Konzepte-Mappe · Tabellen!D20 |
 | Höchstmiete A | 6,80 € | 2 Nachkommastellen | 6.8 | Konzepte-Mappe · Tabellen!D14 |
-| Eigenkapital A | 0,6 Mio. € | 0,1 Mio. € | 613426 | Konzepte-Mappe · Konzepte!D56 |
+| Eigenkapital (0,6 Mio. € in jeder Variante), A | 0,6 Mio. € | 0,1 Mio. € | 613426 | Konzepte-Mappe · Konzepte!D56 |
+| Eigenkapital (0,6 Mio. € in jeder Variante), B | 0,6 Mio. € | 0,1 Mio. € | 614908 | Konzepte-Mappe · Konzepte!E56 |
+| Eigenkapital (0,6 Mio. € in jeder Variante), C | 0,6 Mio. € | 0,1 Mio. € | 615649 | Konzepte-Mappe · Konzepte!F56 |
+| Eigenkapital (0,6 Mio. € in jeder Variante), frei | 0,6 Mio. € | 0,1 Mio. € | 592682 | Konzepte-Mappe · Konzepte!H56 |
 | Zahlungsüberschuss Jahr 1, A | 15.003 € | ganze € | 15002.5 | Konzepte-Mappe · Konzepte!D61 |
 | Jahre mit Fehlbetrag A | 0 | ganzzahlig | 0 | Konzepte-Mappe · Konzepte!D68 |
 | Eigenkapital zurück in Jahr, A | 23 | ganzzahlig | 23 | Team-2-Kopie · Team 2!C49 |
@@ -663,6 +697,10 @@ Zahl der Einträge: 792.
 | Vermögen Jahr 35, B | 7.187.494 € | ganze € | 7.18749e+06 | Konzepte-Mappe · Konzepte!E78 |
 | Vermögen Jahr 35, C | 7.489.203 € | ganze € | 7.4892e+06 | Konzepte-Mappe · Konzepte!F78 |
 | Vermögen Jahr 35, frei | 11.824.305 € | ganze € | 1.18243e+07 | Konzepte-Mappe · Konzepte!H78 |
+| kostendeckende Anfangsmiete, DSCR 1,0, A | 5,26 € | 2 Nachkommastellen | 5.25927 | Konzepte-Mappe · Übersicht!D112 |
+| kostendeckende Anfangsmiete, DSCR 1,0, B | 7,01 € | 2 Nachkommastellen | 7.01283 | Konzepte-Mappe · Übersicht!E112 |
+| kostendeckende Anfangsmiete, DSCR 1,0, C | 7,89 € | 2 Nachkommastellen | 7.88961 | Konzepte-Mappe · Übersicht!F112 |
+| kostendeckende Anfangsmiete, DSCR 1,0, frei | 15,59 € | 2 Nachkommastellen | 15.5937 | Konzepte-Mappe · Übersicht!G112 |
 
 ## A7 Nach der Bindung
 

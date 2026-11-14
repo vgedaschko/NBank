@@ -1,0 +1,1395 @@
+{
+ "werte_datei": "konzepte/team-2/entwurf/folien/werte.json",
+ "folien": {
+  "miete-dscr": [
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n1.dscr_ziel_bank_frei",
+    "lauf": "konzepte",
+    "wert": 1.2,
+    "einheit": "Faktor",
+    "blatt": "Konzepte",
+    "zelle": "D6"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.miete_dscr_ziel.A",
+    "lauf": "konzepte",
+    "wert": 5.96069482589447,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "D50"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.miete_dscr_ziel.B",
+    "lauf": "konzepte",
+    "wert": 8.06496596292071,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "E50"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.miete_dscr_ziel.C",
+    "lauf": "konzepte",
+    "wert": 9.11710153143383,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "F50"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.miete_dscr_ziel.frei_dscr",
+    "lauf": "konzepte",
+    "wert": 18.3619606229306,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "H50"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n3.hoechstmiete.A",
+    "lauf": "konzepte",
+    "wert": 6.8,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "D19"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n3.hoechstmiete.B",
+    "lauf": "konzepte",
+    "wert": 8.2,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "E19"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n3.hoechstmiete.C",
+    "lauf": "konzepte",
+    "wert": 9,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "F19"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n2.marktmiete_jahr1",
+    "lauf": "konzepte",
+    "wert": 15.42,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "D13"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n2.miete_dscr",
+    "lauf": "konzepte",
+    "wert": 18.3619606229306,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "D12"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n3.dscr_jahr1.A",
+    "lauf": "konzepte",
+    "wert": 1.43931474209877,
+    "einheit": "Faktor",
+    "blatt": "Konzepte",
+    "zelle": "D21"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n3.dscr_jahr1.B",
+    "lauf": "konzepte",
+    "wert": 1.22566856232607,
+    "einheit": "Faktor",
+    "blatt": "Konzepte",
+    "zelle": "E21"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n3.dscr_jahr1.C",
+    "lauf": "konzepte",
+    "wert": 1.18092018857022,
+    "einheit": "Faktor",
+    "blatt": "Konzepte",
+    "zelle": "F21"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n3.dscr_ziel_erreicht.A",
+    "lauf": "konzepte",
+    "wert": "ja",
+    "einheit": "Text",
+    "blatt": "Konzepte",
+    "zelle": "D24"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n3.dscr_ziel_erreicht.B",
+    "lauf": "konzepte",
+    "wert": "ja",
+    "einheit": "Text",
+    "blatt": "Konzepte",
+    "zelle": "E24"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n3.dscr_ziel_erreicht.C",
+    "lauf": "konzepte",
+    "wert": "nein",
+    "einheit": "Text",
+    "blatt": "Konzepte",
+    "zelle": "F24"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n3.abstand_hoechstmiete.C",
+    "lauf": "konzepte",
+    "wert": -0.117101531433832,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "F23"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n3.jahre_dscr_unter_ziel.C",
+    "lauf": "konzepte",
+    "wert": 3,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "F26"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:zr.dscr.C",
+    "lauf": "konzepte",
+    "wert": [
+     1.18092018857022,
+     1.18008687899531,
+     1.17913147952428,
+     1.26936608501383,
+     1.26853853992891,
+     1.26758027110358,
+     1.36465118651434,
+     1.36383662798507,
+     1.36288210977257,
+     1.46732594848107,
+     1.4665328856605,
+     1.46558998536763,
+     1.5779874017221,
+     1.57722581699344,
+     1.57630383324921,
+     1.69728334401714,
+     1.69656490478558,
+     1.69567477715104,
+     1.82591693801318,
+     1.82525523771321,
+     1.82440978550919,
+     1.96465175838983,
+     1.96406259079008,
+     1.96327678525513,
+     2.11431733623996,
+     2.11381900772189,
+     2.11311028221525,
+     2.27581525425489,
+     2.27542893942744,
+     2.27481754308731,
+     2.45012585268371,
+     2.44987599948878,
+     2.44938540056086,
+     2.63831561326047,
+     2.63823040464136,
+     2.09179728922483,
+     2.69547163955294,
+     2.78038913895929,
+     2.87137181629827,
+     3.69519680653775,
+     3.8296292239417,
+     3.97500778322602
+    ],
+    "einheit": "Faktor",
+    "blatt": "Konzepte Zeitreihe",
+    "zelle": "Z7:Z48"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n2.aufschlag_marktmiete",
+    "lauf": "konzepte",
+    "wert": 0.190788626649197,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D14"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n2.kapitaldienst_bank_jahr1",
+    "lauf": "konzepte",
+    "wert": 134778.626612041,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D10"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:annahme.dscr_ziel_mappe",
+    "lauf": "konzepte",
+    "wert": 1,
+    "einheit": "Faktor",
+    "blatt": "Eingaben",
+    "zelle": "F54"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.uevk_jahr1.frei_dscr",
+    "lauf": "konzepte",
+    "wert": 161734.35193445,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "H59"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n2.bewirtschaftung_jahr1",
+    "lauf": "konzepte",
+    "wert": 17061.2,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D11"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:annahme.mietausfall",
+    "lauf": "konzepte",
+    "wert": 0.02,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F29"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "team2:jr1.frei_dscr.sollmiete",
+    "lauf": "team2",
+    "wert": 182444.440749439,
+    "einheit": "€ p. a.",
+    "blatt": "Frei DSCR 1,2",
+    "zelle": "E7"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:annahme.wohnflaeche",
+    "lauf": "konzepte",
+    "wert": 828,
+    "einheit": "m²",
+    "blatt": "Eingaben",
+    "zelle": "F8"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "team2:kdam.frei_markt",
+    "lauf": "team2",
+    "wert": 15.5936592777492,
+    "einheit": "€/m² Monat",
+    "blatt": "Übersicht",
+    "zelle": "G112"
+   }
+  ],
+  "risiken": [
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:kern.liegenschaftszins_jahr35.A",
+    "lauf": "konzepte",
+    "wert": 0.028,
+    "einheit": "Anteil",
+    "blatt": "Übersicht",
+    "zelle": "D106"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.liegenschaftszins_35.A",
+    "lauf": "liegenschaftszins_plus_0_60",
+    "wert": 0.034,
+    "einheit": "Anteil",
+    "blatt": "Gefördert A",
+    "zelle": "I120"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n2.marktmiete_jahr1",
+    "lauf": "konzepte",
+    "wert": 15.42,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "D13"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n2.miete_dscr",
+    "lauf": "konzepte",
+    "wert": 18.3619606229306,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "D12"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n1.dscr_ziel_bank_frei",
+    "lauf": "konzepte",
+    "wert": 1.2,
+    "einheit": "Faktor",
+    "blatt": "Konzepte",
+    "zelle": "D6"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_4631:n6.kosten_4631.miete_jahr1.frei_dscr",
+    "lauf": "kosten_4631",
+    "wert": 23.2441953507275,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "H49"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_5460:n6.kosten_5460.miete_jahr1.frei_dscr",
+    "lauf": "kosten_5460",
+    "wert": 27.0915076980124,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "H49"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietsteigerung_0:n6.mietsteigerung_0.jahre_dscr_unter_ziel.frei_dscr",
+    "lauf": "mietsteigerung_0",
+    "wert": 29,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "H73"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_2_90:tilgung_2_90.eingabe",
+    "lauf": "tilgung_2_90",
+    "wert": 0.029,
+    "einheit": null,
+    "blatt": "Eingaben",
+    "zelle": "E17"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_3_65:tilgung_3_65.eingabe",
+    "lauf": "tilgung_3_65",
+    "wert": 0.0365,
+    "einheit": null,
+    "blatt": "Eingaben",
+    "zelle": "E17"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_4631:kosten_4631.eingabe",
+    "lauf": "kosten_4631",
+    "wert": 4631,
+    "einheit": null,
+    "blatt": "Eingaben",
+    "zelle": "E11"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_5460:kosten_5460.eingabe",
+    "lauf": "kosten_5460",
+    "wert": 5460,
+    "einheit": null,
+    "blatt": "Eingaben",
+    "zelle": "E11"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "anschlusszins_plus_1:anschlusszins_plus_1.eingabe",
+    "lauf": "anschlusszins_plus_1",
+    "wert": 0.0486,
+    "einheit": null,
+    "blatt": "Eingaben",
+    "zelle": "E37"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "liegenschaftszins_plus_0_60:liegenschaftszins_plus_0_60.eingabe",
+    "lauf": "liegenschaftszins_plus_0_60",
+    "wert": 0.006,
+    "einheit": null,
+    "blatt": "Eingaben",
+    "zelle": "E50"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.jahre_fehlbetrag_1_35.A",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "D68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.jahre_fehlbetrag_1_35.B",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "E68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.jahre_fehlbetrag_1_35.C",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "F68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.jahre_fehlbetrag_1_35.frei_dscr",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "H68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.ek_vofi_mit_restwert.A",
+    "lauf": "konzepte",
+    "wert": 0.0704541327125663,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.ek_vofi_mit_restwert.B",
+    "lauf": "konzepte",
+    "wert": 0.0727725156256356,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.ek_vofi_mit_restwert.C",
+    "lauf": "konzepte",
+    "wert": 0.0739966553810312,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.ek_vofi_mit_restwert.frei_dscr",
+    "lauf": "konzepte",
+    "wert": 0.0892850205819726,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_2_90:n6.tilgung_2_90.jahre_fehlbetrag_1_35.A",
+    "lauf": "tilgung_2_90",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "D68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_2_90:n6.tilgung_2_90.jahre_fehlbetrag_1_35.B",
+    "lauf": "tilgung_2_90",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "E68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_2_90:n6.tilgung_2_90.jahre_fehlbetrag_1_35.C",
+    "lauf": "tilgung_2_90",
+    "wert": 1,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "F68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_2_90:n6.tilgung_2_90.jahre_fehlbetrag_1_35.frei_dscr",
+    "lauf": "tilgung_2_90",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "H68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_2_90:n6.tilgung_2_90.ek_vofi_mit_restwert.A",
+    "lauf": "tilgung_2_90",
+    "wert": 0.0701341607348929,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_2_90:n6.tilgung_2_90.ek_vofi_mit_restwert.B",
+    "lauf": "tilgung_2_90",
+    "wert": 0.0723267876734783,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_2_90:n6.tilgung_2_90.ek_vofi_mit_restwert.C",
+    "lauf": "tilgung_2_90",
+    "wert": 0.073496594066665,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_2_90:n6.tilgung_2_90.ek_vofi_mit_restwert.frei_dscr",
+    "lauf": "tilgung_2_90",
+    "wert": 0.0892850205819726,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_3_65:n6.tilgung_3_65.jahre_fehlbetrag_1_35.A",
+    "lauf": "tilgung_3_65",
+    "wert": 3,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "D68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_3_65:n6.tilgung_3_65.jahre_fehlbetrag_1_35.B",
+    "lauf": "tilgung_3_65",
+    "wert": 9,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "E68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_3_65:n6.tilgung_3_65.jahre_fehlbetrag_1_35.C",
+    "lauf": "tilgung_3_65",
+    "wert": 9,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "F68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_3_65:n6.tilgung_3_65.jahre_fehlbetrag_1_35.frei_dscr",
+    "lauf": "tilgung_3_65",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "H68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_3_65:n6.tilgung_3_65.ek_vofi_mit_restwert.A",
+    "lauf": "tilgung_3_65",
+    "wert": 0.0697458927903616,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_3_65:n6.tilgung_3_65.ek_vofi_mit_restwert.B",
+    "lauf": "tilgung_3_65",
+    "wert": 0.0715922301847147,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_3_65:n6.tilgung_3_65.ek_vofi_mit_restwert.C",
+    "lauf": "tilgung_3_65",
+    "wert": 0.0725071099027448,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "tilgung_3_65:n6.tilgung_3_65.ek_vofi_mit_restwert.frei_dscr",
+    "lauf": "tilgung_3_65",
+    "wert": 0.0892850205819726,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_4631:n6.kosten_4631.jahre_fehlbetrag_1_35.A",
+    "lauf": "kosten_4631",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "D68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_4631:n6.kosten_4631.jahre_fehlbetrag_1_35.B",
+    "lauf": "kosten_4631",
+    "wert": 3,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "E68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_4631:n6.kosten_4631.jahre_fehlbetrag_1_35.C",
+    "lauf": "kosten_4631",
+    "wert": 6,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "F68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_4631:n6.kosten_4631.jahre_fehlbetrag_1_35.frei_dscr",
+    "lauf": "kosten_4631",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "H68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_4631:n6.kosten_4631.ek_vofi_mit_restwert.A",
+    "lauf": "kosten_4631",
+    "wert": 0.0600880553647576,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_4631:n6.kosten_4631.ek_vofi_mit_restwert.B",
+    "lauf": "kosten_4631",
+    "wert": 0.0613367126512272,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_4631:n6.kosten_4631.ek_vofi_mit_restwert.C",
+    "lauf": "kosten_4631",
+    "wert": 0.0620574794740383,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_4631:n6.kosten_4631.ek_vofi_mit_restwert.frei_dscr",
+    "lauf": "kosten_4631",
+    "wert": 0.084962484585881,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_5460:n6.kosten_5460.jahre_fehlbetrag_1_35.A",
+    "lauf": "kosten_5460",
+    "wert": 3,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "D68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_5460:n6.kosten_5460.jahre_fehlbetrag_1_35.B",
+    "lauf": "kosten_5460",
+    "wert": 12,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "E68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_5460:n6.kosten_5460.jahre_fehlbetrag_1_35.C",
+    "lauf": "kosten_5460",
+    "wert": 12,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "F68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_5460:n6.kosten_5460.jahre_fehlbetrag_1_35.frei_dscr",
+    "lauf": "kosten_5460",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "H68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_5460:n6.kosten_5460.ek_vofi_mit_restwert.A",
+    "lauf": "kosten_5460",
+    "wert": 0.0529725488939088,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_5460:n6.kosten_5460.ek_vofi_mit_restwert.B",
+    "lauf": "kosten_5460",
+    "wert": 0.0526894819728401,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_5460:n6.kosten_5460.ek_vofi_mit_restwert.C",
+    "lauf": "kosten_5460",
+    "wert": 0.0525020294245251,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "kosten_5460:n6.kosten_5460.ek_vofi_mit_restwert.frei_dscr",
+    "lauf": "kosten_5460",
+    "wert": 0.0824772527942728,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.jahre_fehlbetrag_1_35.A",
+    "lauf": "mietanpassung_gefoerdert_0",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "D68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.jahre_fehlbetrag_1_35.B",
+    "lauf": "mietanpassung_gefoerdert_0",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "E68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.jahre_fehlbetrag_1_35.C",
+    "lauf": "mietanpassung_gefoerdert_0",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "F68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.jahre_fehlbetrag_1_35.frei_dscr",
+    "lauf": "mietanpassung_gefoerdert_0",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "H68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_mit_restwert.A",
+    "lauf": "mietanpassung_gefoerdert_0",
+    "wert": 0.0508134949379571,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_mit_restwert.B",
+    "lauf": "mietanpassung_gefoerdert_0",
+    "wert": 0.0536979775449253,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_mit_restwert.C",
+    "lauf": "mietanpassung_gefoerdert_0",
+    "wert": 0.0554307061095398,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_mit_restwert.frei_dscr",
+    "lauf": "mietanpassung_gefoerdert_0",
+    "wert": 0.0892850205819726,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietsteigerung_0:n6.mietsteigerung_0.jahre_fehlbetrag_1_35.A",
+    "lauf": "mietsteigerung_0",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "D68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietsteigerung_0:n6.mietsteigerung_0.jahre_fehlbetrag_1_35.B",
+    "lauf": "mietsteigerung_0",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "E68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietsteigerung_0:n6.mietsteigerung_0.jahre_fehlbetrag_1_35.C",
+    "lauf": "mietsteigerung_0",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "F68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietsteigerung_0:n6.mietsteigerung_0.jahre_fehlbetrag_1_35.frei_dscr",
+    "lauf": "mietsteigerung_0",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "H68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_mit_restwert.A",
+    "lauf": "mietsteigerung_0",
+    "wert": 0.0541789715286938,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_mit_restwert.B",
+    "lauf": "mietsteigerung_0",
+    "wert": 0.0529873468546593,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_mit_restwert.C",
+    "lauf": "mietsteigerung_0",
+    "wert": 0.051990647081039,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_mit_restwert.frei_dscr",
+    "lauf": "mietsteigerung_0",
+    "wert": 0.0581255532859664,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "anschlusszins_plus_1:n6.anschlusszins_plus_1.jahre_fehlbetrag_1_35.A",
+    "lauf": "anschlusszins_plus_1",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "D68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "anschlusszins_plus_1:n6.anschlusszins_plus_1.jahre_fehlbetrag_1_35.B",
+    "lauf": "anschlusszins_plus_1",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "E68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "anschlusszins_plus_1:n6.anschlusszins_plus_1.jahre_fehlbetrag_1_35.C",
+    "lauf": "anschlusszins_plus_1",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "F68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "anschlusszins_plus_1:n6.anschlusszins_plus_1.jahre_fehlbetrag_1_35.frei_dscr",
+    "lauf": "anschlusszins_plus_1",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "H68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "anschlusszins_plus_1:n6.anschlusszins_plus_1.ek_vofi_mit_restwert.A",
+    "lauf": "anschlusszins_plus_1",
+    "wert": 0.0704541327125663,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "anschlusszins_plus_1:n6.anschlusszins_plus_1.ek_vofi_mit_restwert.B",
+    "lauf": "anschlusszins_plus_1",
+    "wert": 0.0727725156256356,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "anschlusszins_plus_1:n6.anschlusszins_plus_1.ek_vofi_mit_restwert.C",
+    "lauf": "anschlusszins_plus_1",
+    "wert": 0.0739966553810312,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "anschlusszins_plus_1:n6.anschlusszins_plus_1.ek_vofi_mit_restwert.frei_dscr",
+    "lauf": "anschlusszins_plus_1",
+    "wert": 0.0884061281361626,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.jahre_fehlbetrag_1_35.A",
+    "lauf": "liegenschaftszins_plus_0_60",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "D68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.jahre_fehlbetrag_1_35.B",
+    "lauf": "liegenschaftszins_plus_0_60",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "E68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.jahre_fehlbetrag_1_35.C",
+    "lauf": "liegenschaftszins_plus_0_60",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "F68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.jahre_fehlbetrag_1_35.frei_dscr",
+    "lauf": "liegenschaftszins_plus_0_60",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "H68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.ek_vofi_mit_restwert.A",
+    "lauf": "liegenschaftszins_plus_0_60",
+    "wert": 0.0675555285968204,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.ek_vofi_mit_restwert.B",
+    "lauf": "liegenschaftszins_plus_0_60",
+    "wert": 0.0699664309808274,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "E81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.ek_vofi_mit_restwert.C",
+    "lauf": "liegenschaftszins_plus_0_60",
+    "wert": 0.0712628824820722,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "F81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.ek_vofi_mit_restwert.frei_dscr",
+    "lauf": "liegenschaftszins_plus_0_60",
+    "wert": 0.0874632932450989,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.jahre_fehlbetrag_1_35.frei_markt",
+    "lauf": "konzepte",
+    "wert": 1,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "G68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.ek_vofi_mit_restwert.frei_markt",
+    "lauf": "konzepte",
+    "wert": 0.0836403538497827,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "G81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.dscr_jahr1.frei_markt",
+    "lauf": "konzepte",
+    "wert": 0.987453730205243,
+    "einheit": "Faktor",
+    "blatt": "Konzepte",
+    "zelle": "G62"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "team2:t2.markt_dscr.darlehen_max",
+    "lauf": "team2",
+    "wert": 1950821.48902332,
+    "einheit": "€",
+    "blatt": "Team 2",
+    "zelle": "C59"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "team2:t2.markt_dscr.mehr_ek",
+    "lauf": "team2",
+    "wert": 419908.11097668,
+    "einheit": "€",
+    "blatt": "Team 2",
+    "zelle": "C61"
+   }
+  ],
+  "fazit": [
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:annahme.zins_bank",
+    "lauf": "konzepte",
+    "wert": 0.0386,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F35"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:annahme.zinsbindung",
+    "lauf": "konzepte",
+    "wert": 10,
+    "einheit": "Jahre",
+    "blatt": "Eingaben",
+    "zelle": "F36"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "team2:kdam.frei_markt",
+    "lauf": "team2",
+    "wert": 15.5936592777492,
+    "einheit": "€/m² Monat",
+    "blatt": "Übersicht",
+    "zelle": "G112"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:annahme.marktmiete_jahr1",
+    "lauf": "konzepte",
+    "wert": 15.42,
+    "einheit": "€/m² Monat",
+    "blatt": "Eingaben",
+    "zelle": "F25"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:annahme.quote_zuschuss.A",
+    "lauf": "konzepte",
+    "wert": 0.4,
+    "einheit": "Anteil",
+    "blatt": "Tabellen",
+    "zelle": "D6"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:annahme.quote_darlehen.A",
+    "lauf": "konzepte",
+    "wert": 0.4,
+    "einheit": "Anteil",
+    "blatt": "Tabellen",
+    "zelle": "D5"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:annahme.zinsfreie_jahre",
+    "lauf": "konzepte",
+    "wert": 35,
+    "einheit": "Jahre",
+    "blatt": "Tabellen",
+    "zelle": "D20"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:annahme.zins_nbank_bis_jahr35",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Anteil",
+    "blatt": "Tabellen",
+    "zelle": "D19"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:annahme.hoechstmiete_VI.A",
+    "lauf": "konzepte",
+    "wert": 6.8,
+    "einheit": "€/m² Monat",
+    "blatt": "Tabellen",
+    "zelle": "D14"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.eigenkapital.A",
+    "lauf": "konzepte",
+    "wert": 613426.284,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D56"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.eigenkapital.B",
+    "lauf": "konzepte",
+    "wert": 614907.99,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "E56"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.eigenkapital.C",
+    "lauf": "konzepte",
+    "wert": 615648.843,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "F56"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.eigenkapital.frei_dscr",
+    "lauf": "konzepte",
+    "wert": 592682.4,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "H56"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "team2:t2.jahr_frei.A",
+    "lauf": "team2",
+    "wert": 23,
+    "einheit": "Jahr",
+    "blatt": "Team 2",
+    "zelle": "C49"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "team2:t2.jahr_frei.frei_dscr",
+    "lauf": "team2",
+    "wert": 13,
+    "einheit": "Jahr",
+    "blatt": "Team 2",
+    "zelle": "G49"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.jahr_ek_erreicht.A",
+    "lauf": "konzepte",
+    "wert": 23,
+    "einheit": "Jahr",
+    "blatt": "Konzepte",
+    "zelle": "D67"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.jahr_ek_erreicht.frei_dscr",
+    "lauf": "konzepte",
+    "wert": 13,
+    "einheit": "Jahr",
+    "blatt": "Konzepte",
+    "zelle": "H67"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.ek_vofi_mit_restwert.A",
+    "lauf": "konzepte",
+    "wert": 0.0704541327125663,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.ek_vofi_mit_restwert.frei_dscr",
+    "lauf": "konzepte",
+    "wert": 0.0892850205819726,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "H81"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:kern.tragbare_tilgung.A",
+    "lauf": "konzepte",
+    "wert": 0.0364659723318931,
+    "einheit": "Anteil",
+    "blatt": "Übersicht",
+    "zelle": "D49"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:annahme.tilgung_nbank",
+    "lauf": "konzepte",
+    "wert": 0.0238095238095238,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F17"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.bearbeitungsentgelte.A",
+    "lauf": "konzepte",
+    "wert": 20743.884,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D57"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n2.miete_dscr",
+    "lauf": "konzepte",
+    "wert": 18.3619606229306,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "D12"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n2.aufschlag_marktmiete",
+    "lauf": "konzepte",
+    "wert": 0.190788626649197,
+    "einheit": "Anteil",
+    "blatt": "Konzepte",
+    "zelle": "D14"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.jahre_fehlbetrag_1_35.A",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "D68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.jahre_fehlbetrag_1_35.B",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "E68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.jahre_fehlbetrag_1_35.C",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Jahre",
+    "blatt": "Konzepte",
+    "zelle": "F68"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.zue_min_1_35.A",
+    "lauf": "konzepte",
+    "wert": 14595.4657914286,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "D65"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.zue_min_1_35.B",
+    "lauf": "konzepte",
+    "wert": 11293.8749771429,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "E65"
+   },
+   {
+    "datei": "konzepte/team-2/entwurf/folien/werte.json",
+    "schluessel": "konzepte:n5.zue_min_1_35.C",
+    "lauf": "konzepte",
+    "wert": 10616.80752,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "F65"
+   }
+  ]
+ }
+}

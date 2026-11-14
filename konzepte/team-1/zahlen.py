@@ -32,6 +32,7 @@ FMT = {
     "qm": lambda x: de(x, 2) + " €",
     "eurqm0": lambda x: de(x, 0) + " €",
     "rund10": lambda x: "rund " + de((x // 10) * 10, 0) + " €",
+    "rund50": lambda x: "rund " + de(round(x / 50) * 50, 0) + " €",
     "pct0": lambda x: de(x * 100, 0) + " %",
     "pct1": lambda x: de(x * 100, 1) + " %",
     "pct2": lambda x: de(x * 100, 2) + " %",
@@ -41,7 +42,7 @@ FMT = {
     "jahr": lambda x: str(int(x)),
 }
 RUNDUNG = {"eur": "ganze €", "eurabs": "ganze €, Betrag (Abzug)", "mio1": "0,1 Mio. €", "mio2": "0,01 Mio. €",
-           "mio2abs": "0,01 Mio. €, Betrag", "qm": "0,01 €", "eurqm0": "ganze €", "rund10": "auf 10 € abgerundet",
+           "mio2abs": "0,01 Mio. €, Betrag", "qm": "0,01 €", "eurqm0": "ganze €", "rund10": "auf 10 € abgerundet", "rund50": "auf 50 € gerundet",
            "pct0": "ganze %", "pct1": "0,1 %", "pct2": "0,01 %", "x2": "0,01", "n": "ganze Zahl", "roh": "wie Mappe", "jahr": "Jahr"}
 
 zeilen = []
@@ -287,6 +288,8 @@ K("annahme.marktmiete_jahr1", o, "1 Ausgangslage: Marktmiete", "qm")
 K("n2.aufschlag_marktmiete", o, "1 Ausgangslage: Aufschlag auf die Marktmiete", "pct0")
 K("kern.foerderung.A", o, "2 Programmteil 2.1: Förderung (Darlehen + Zuschuss)", "mio1")
 K("annahme.quote_zuschuss.A", o, "2 Programmteil 2.1: Zuschuss bis", "pct0")
+K("annahme.quote_darlehen.A", o, "2 Programmteil 2.1: Darlehen A (Kennzahl 80 % = Darlehen + Zuschuss, Tabellen!D5 + D6)", "pct0")
+K("n5.gesamtkosten.A", o, "2 Programmteil 2.1: Gesamtkosten (Label „von 3,0 Mio. €“)", "mio1")
 K("annahme.zinsfreie_jahre", o, "2 Programmteil 2.1: zinsfreie Jahre", "n")
 KV("annahme.hoechstmiete_VI", o, "2 Programmteil 2.1: Höchstmiete Mietenstufe VI", "qm", ["A", "B", "C"])
 K("n5.kapitaldienst_jahr1.A", o, "3 Modellrechnung: Kapitaldienst Jahr 1, A", "eur")
@@ -301,7 +304,9 @@ K("n5.bearbeitungsentgelte.A", o, "4 Umsetzung: Bearbeitungsentgelte A einmalig"
 K("annahme.bemessungsgrenze_VI", o, "4 Umsetzung: Bemessungsgrenze", "eurqm0")
 KV("n5.ek_vofi_mit_restwert", o, "Ergebniszeile: Eigenkapitalrendite mit Restwert, frei", "pct2", ["frei_dscr"])
 L("mietsteigerung_0", "ek_vofi_mit_restwert.frei_dscr", o, "Ergebniszeile: frei ohne Mietsteigerung, Eigenkapitalrendite", "pct2")
-T("t1.kostenschwelle_zue0.A", o, "4 Umsetzung: Herstellungskosten, bis zu denen A sich trägt", "rund10")
+for g in ("A", "B", "C"):
+    L("mietanpassung_gefoerdert_0", f"ek_vofi_mit_restwert.{g}", o, f"Ergebniszeile: gefördert ohne Mieterhöhung, Eigenkapitalrendite, {g}", "pct2")
+T("t1.kostenschwelle_zue0.A", o, "4 Umsetzung: Herstellungskosten, bis zu denen A sich trägt", "rund50")
 K("annahme.herstellungskosten_qm", o, "4 Umsetzung: Herstellungskosten Modellhaus", "eurqm0")
 mietmarke(o)
 

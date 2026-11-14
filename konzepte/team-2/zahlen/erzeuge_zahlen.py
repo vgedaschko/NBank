@@ -18,6 +18,16 @@ KOPIE = "Team-2-Kopie"
 
 def quelle(ref):
     """ref: K:key · K:key[i] · N6:lauf:key · T:key · T:key[i] · R1:key → (rohwert, fundstelle)"""
+    if ref.startswith("E:"):
+        # geänderte Eingabe eines Laufs (Lauf-Datei, Blatt!Zelle laut „aenderungen“)
+        L = ref[2:]
+        if L in K["laeufe"]:
+            ae, datei = K["laeufe"][L]["aenderungen"], f"mappe/laeufe/{L}.xlsx"
+        else:
+            ae, datei = T["laeufe"][L]["aenderungen"], f"team-2/mappe/laeufe/{L}.xlsx"
+        if len(ae) != 1:
+            raise SystemExit(f"Lauf {L}: nicht genau eine Änderung")
+        return ae[0]["neu"], f"{datei} · {ae[0]['blatt']}!{ae[0]['zelle']} · Lauf {L} (geänderte Eingabe, Basis {ae[0]['alt']:.6g})"
     m = re.match(r"^(K|T|R1|N6:[a-z0-9_]+):([^\[]+)(?:\[(\d+)\])?$", ref)
     if not m:
         raise SystemExit(f"Ref unklar: {ref}")
@@ -164,6 +174,10 @@ je(W, "NBank-Darlehen", "K:n5.darlehen_nbank.{v}", "eur", V3)
 z(W, "Bankdarlehen, frei", "K:n5.bankdarlehen.frei_dscr", "eur")
 je(W, "Eigenmittel", "K:kern.eigenmittel.{v}", "eur", [("A", "A"), ("B", "B"), ("C", "C"), ("frei", "frei_markt")])
 je(W, "Bearbeitungsentgelte", "K:n5.bearbeitungsentgelte.{v}", "eur", V3)
+je(W, "Zuschuss (Balken, Mio.)", "K:n5.zuschuss.{v}", "mio2", V3)
+je(W, "NBank-Darlehen (Balken, Mio.)", "K:n5.darlehen_nbank.{v}", "mio2", V3)
+z(W, "Bankdarlehen, frei (Balken, Mio.)", "K:n5.bankdarlehen.frei_dscr", "mio2")
+je(W, "Eigenmittel (Balken, Mio.)", "K:kern.eigenmittel.{v}", "mio2", [("A", "A"), ("B", "B"), ("C", "C"), ("frei", "frei_markt")])
 je(W, "Eigenkapital bei Bezug", "K:n5.eigenkapital.{v}", "eur")
 je(W, "Eigenkapital (Titel: rund 0,6 Mio. €)", "K:n5.eigenkapital.{v}", "mio1")
 je(W, "Miete Jahr 1 je m² (Kategorietext)", "K:n5.miete_jahr1.{v}", "eur2")
@@ -182,6 +196,13 @@ z(W, "Rechenweg 2: Überschuss vor Kapitaldienst für DSCR 1,2", "K:n5.uevk_jahr
 z(W, "Rechenweg 3: Objektverwaltung + Instandhaltung", "K:n2.bewirtschaftung_jahr1", "eur")
 z(W, "Rechenweg 4: Mietausfall", "K:annahme.mietausfall", "pct0")
 z(W, "Rechenweg 4: Sollmiete Jahr 1 frei", "T:jr1.frei_dscr.sollmiete", "eur")
+z(W, "Rechenweg Spalte DSCR 1,0: DSCR-Ziel der Mappe", "K:annahme.dscr_ziel_mappe", "dez2")
+g(W, "Rechenweg Spalte DSCR 1,0: Überschuss vor Kapitaldienst = Kapitaldienst × 1,0", ["K:n2.kapitaldienst_bank_jahr1", "K:annahme.dscr_ziel_mappe"],
+  "Kapitaldienst × DSCR 1,0", lambda a, b: a * b, "eur")
+g(W, "Rechenweg Spalte DSCR 1,0: Sollmiete", ["K:n2.kapitaldienst_bank_jahr1", "K:n2.bewirtschaftung_jahr1", "K:annahme.mietausfall"],
+  "(Kapitaldienst + Objektverwaltung und Instandhaltung) ÷ (1 − Mietausfall); Gegenprobe: ÷ 828 m² ÷ 12 = Übersicht!G112",
+  lambda a, b, c: (a + b) / (1 - c), "eur")
+g(W, "Rechenweg 4: 98 % nach Mietausfall", ["K:annahme.mietausfall"], "1 − Mietausfall", lambda c: 1 - c, "pct0")
 z(W, "Rechenweg 5: Wohnfläche", "K:annahme.wohnflaeche", "int")
 z(W, "Rechenweg 5: Miete für DSCR 1,2 frei", "K:n2.miete_dscr", "eur2")
 z(W, "Aufschlag auf die Marktmiete", "K:n2.aufschlag_marktmiete", "pct1")
@@ -219,6 +240,7 @@ je(W, "Jahre mit Fehlbetrag 36 bis 42", "K:n5.jahre_fehlbetrag_36_42.{v}", "int"
 je(W, "Tiefster Stand Projektkonto", "K:n5.projektkonto_tiefststand.{v}", "eur")
 z(W, "Marke: Bankdarlehen getilgt nach Jahren", "K:annahme.laufzeit_bank", "int")
 z(W, "Marke: Ende der Bindung, Jahr", "K:annahme.bindung", "int")
+g(W, "frei finanziert ohne Kapitaldienst ab Jahr", ["K:annahme.laufzeit_bank"], "Laufzeit Bankdarlehen + 1", lambda a: a + 1, "int")
 
 # ---------------------------------------------------------------- F19 Rückfluss
 W = "F19, Blatt 11"
@@ -239,6 +261,7 @@ z(W, "DSCR Jahr 35, frei (kein Kapitaldienst)", "K:n5.dscr_jahr35.frei_dscr", "r
 je(W, "Jahre mit DSCR unter 1,2", "K:n5.jahre_dscr_unter_ziel.{v}", "int")
 z(W, "DSCR C Jahr 4 (nach der ersten Mieterhöhung)", "K:zr.dscr.C[3]", "dez2")
 z(W, "DSCR frei Jahr 2", "K:zr.dscr.frei_dscr[1]", "dez2")
+z(W, "Eingabe des Laufs: Tilgung NBank-Darlehen", "E:tilgung_2_90", "pct2")
 z(W, "Lauf Tilgung 2,90 %: Jahre unter 1,2, B", "N6:tilgung_2_90:jahre_dscr_unter_ziel.B", "int")
 z(W, "Lauf Tilgung 2,90 %: Jahre unter 1,2, C", "N6:tilgung_2_90:jahre_dscr_unter_ziel.C", "int")
 
@@ -313,10 +336,21 @@ z(W, "Marktmiete: Mehr-Eigenkapital", "T:t2.markt_dscr.mehr_ek", "mio2")
 z(W, "Marktmiete: nötiges Eigenkapital", "T:t2.markt_dscr.ek_noetig", "mio2")
 z(W, "Lauf Tilgung 3,65 %: tiefster Stand Projektkonto, C", "N6:tilgung_3_65:projektkonto_tiefststand.C", "eur")
 z(W, "Lauf Kosten 5.460 €: tiefster Stand Projektkonto, C", "N6:kosten_5460:projektkonto_tiefststand.C", "eur")
+for name, L, fmt in [("Tilgung NBank-Darlehen 2,90 %", "tilgung_2_90", "pct2"), ("Tilgung NBank-Darlehen 3,65 %", "tilgung_3_65", "pct2"),
+                     ("Herstellungskosten 4.631 € je m²", "kosten_4631", "eur"), ("Herstellungskosten 5.460 € je m²", "kosten_5460", "eur"),
+                     ("keine Mieterhöhung in der Bindung", "mietanpassung_gefoerdert_0", "pct2"), ("keine Mietsteigerung am Markt", "mietsteigerung_0", "pct0"),
+                     ("Anschlusszins Bankdarlehen 4,86 %", "anschlusszins_plus_1", "pct2"), ("Anschlusszins Bankdarlehen 2,86 %", "anschlusszins_minus_1", "pct2"),
+                     ("Zuschlag Liegenschaftszins (Lauf R1)", "liegenschaftszins_plus_0_60", "pct2")]:
+    z(W, f"Eingabe des Laufs: {name}", "E:" + L, fmt)
+z(W, "Bezug: Liegenschaftszins Basis, Jahr 35", "T:rw.liegenschaftszins_35.A", "pct2")
+z(W, "Bezug: Marktmiete", "K:n2.marktmiete_jahr1", "eur2")
+z(W, "Bezug: Miete frei für DSCR 1,2", "K:n2.miete_dscr", "eur2")
+z(W, "Bezug: DSCR, die die Bank verlangt", "K:n1.dscr_ziel_bank_frei", "dez2")
 
 # ---------------------------------------------------------------- F29 Fazit
 W = "F29 Fazit"
 z(W, "Zins Bankdarlehen, 10 Jahre fest", "K:annahme.zins_bank", "pct2")
+z(W, "Zinsbindung Bankdarlehen, Jahre", "K:annahme.zinsbindung", "int")
 z(W, "kostendeckende Anfangsmiete frei finanziert", "T:kdam.frei_markt", "eur2")
 z(W, "Marktmiete", "K:annahme.marktmiete_jahr1", "eur2")
 z(W, "Zuschuss A", "K:annahme.quote_zuschuss.A", "pct0")
@@ -324,7 +358,7 @@ z(W, "NBank-Darlehen A", "K:annahme.quote_darlehen.A", "pct0")
 z(W, "Zins NBank-Darlehen", "K:annahme.zins_nbank_bis_jahr35", "pct0")
 z(W, "zinsfreie Jahre", "K:annahme.zinsfreie_jahre", "int")
 z(W, "Höchstmiete A", "K:annahme.hoechstmiete_VI.A", "eur2")
-z(W, "Eigenkapital A", "K:n5.eigenkapital.A", "mio1")
+je(W, "Eigenkapital (0,6 Mio. € in jeder Variante)", "K:n5.eigenkapital.{v}", "mio1")
 z(W, "Zahlungsüberschuss Jahr 1, A", "K:n5.zue_jahr1.A", "eur")
 z(W, "Jahre mit Fehlbetrag A", "K:n5.jahre_fehlbetrag_1_35.A", "int")
 z(W, "Eigenkapital zurück in Jahr, A", "T:t2.jahr_frei.A", "int")
@@ -356,6 +390,8 @@ for key, txt, fmt in [("miete_jahr1", "Miete Jahr 1", "eur2"), ("miete_dscr_ziel
                       ("restschuld_jahr35", "Restschuld Jahr 35", "eur"), ("restwert_jahr35", "Restwert Jahr 35", "eur"),
                       ("vermoegen_jahr35", "Vermögen Jahr 35", "eur")]:
     je(W, txt, "K:n5." + key + ".{v}", fmt)
+for n, k in [("A", "kdam.A"), ("B", "kdam.B"), ("C", "kdam.C"), ("frei", "kdam.frei_markt")]:
+    z(W, f"kostendeckende Anfangsmiete, DSCR 1,0, {n}", "T:" + k, "eur2")
 W = "A7 Nach der Bindung"
 for key, txt, fmt in [("zue_jahr42", "Zahlungsüberschuss Jahr 42", "eur"), ("zue_summe_36_42", "Zahlungsüberschuss Summe Jahr 36 bis 42", "eur"),
                       ("jahre_fehlbetrag_36_42", "Jahre mit Fehlbetrag 36 bis 42", "int"), ("restschuld_jahr42", "Restschuld Jahr 42", "eur"),

@@ -1,0 +1,4076 @@
+{
+ "folie13": {
+  "annahme.wohnungen": {
+   "blatt": "Eingaben",
+   "zelle": "F9",
+   "datei": ""
+  },
+  "annahme.wohnflaeche": {
+   "blatt": "Eingaben",
+   "zelle": "F8",
+   "datei": ""
+  }
+ },
+ "folie14": {
+  "annahme.hoechstmiete_VI.A": {
+   "blatt": "Tabellen",
+   "zelle": "D14",
+   "datei": ""
+  },
+  "annahme.hoechstmiete_VI.B": {
+   "blatt": "Tabellen",
+   "zelle": "E14",
+   "datei": ""
+  },
+  "annahme.hoechstmiete_VI.C": {
+   "blatt": "Tabellen",
+   "zelle": "F14",
+   "datei": ""
+  },
+  "annahme.wohnungen": {
+   "blatt": "Eingaben",
+   "zelle": "F9",
+   "datei": ""
+  },
+  "annahme.wohnflaeche": {
+   "blatt": "Eingaben",
+   "zelle": "F8",
+   "datei": ""
+  },
+  "annahme.mietenstufe": {
+   "blatt": "Eingaben",
+   "zelle": "F22",
+   "datei": ""
+  },
+  "annahme.bezugsjahr": {
+   "blatt": "Eingaben",
+   "zelle": "F7",
+   "datei": ""
+  },
+  "annahme.herstellungskosten_qm": {
+   "blatt": "Eingaben",
+   "zelle": "F11",
+   "datei": ""
+  },
+  "n4.herstellungskosten.A": {
+   "blatt": "Konzepte",
+   "zelle": "D36",
+   "datei": ""
+  },
+  "annahme.grundstueck": {
+   "blatt": "Eingaben",
+   "zelle": "F13",
+   "datei": ""
+  },
+  "annahme.bodenwertsteigerung": {
+   "blatt": "Eingaben",
+   "zelle": "F44",
+   "datei": ""
+  },
+  "annahme.jahre_ohne_mieterhoehung": {
+   "blatt": "Tabellen",
+   "zelle": "D27",
+   "datei": ""
+  },
+  "annahme.abstand_mieterhoehungen": {
+   "blatt": "Tabellen",
+   "zelle": "D29",
+   "datei": ""
+  },
+  "annahme.mieterhoehung_in_der_bindung": {
+   "blatt": "Tabellen",
+   "zelle": "D28",
+   "datei": ""
+  },
+  "annahme.bindung": {
+   "blatt": "Tabellen",
+   "zelle": "D26",
+   "datei": ""
+  },
+  "annahme.kappungsgrenze": {
+   "blatt": "Eingaben",
+   "zelle": "F27",
+   "datei": ""
+  },
+  "annahme.vergleichsmiete_jahr1": {
+   "blatt": "Eingaben",
+   "zelle": "F24",
+   "datei": ""
+  },
+  "annahme.marktmiete_jahr1": {
+   "blatt": "Eingaben",
+   "zelle": "F25",
+   "datei": ""
+  },
+  "n2.miete_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "D12",
+   "datei": ""
+  },
+  "annahme.mietsteigerung": {
+   "blatt": "Eingaben",
+   "zelle": "F26",
+   "datei": ""
+  },
+  "annahme.mietausfall": {
+   "blatt": "Eingaben",
+   "zelle": "F29",
+   "datei": ""
+  },
+  "annahme.objektverwaltung_je_wohnung": {
+   "blatt": "Eingaben",
+   "zelle": "F30",
+   "datei": ""
+  },
+  "annahme.instandhaltung_je_qm": {
+   "blatt": "Eingaben",
+   "zelle": "F31",
+   "datei": ""
+  },
+  "annahme.kostensteigerung": {
+   "blatt": "Eingaben",
+   "zelle": "F32",
+   "datei": ""
+  },
+  "annahme.quote_zuschuss.A": {
+   "blatt": "Tabellen",
+   "zelle": "D6",
+   "datei": ""
+  },
+  "annahme.quote_darlehen.A": {
+   "blatt": "Tabellen",
+   "zelle": "D5",
+   "datei": ""
+  },
+  "annahme.quote_zuschuss.B": {
+   "blatt": "Tabellen",
+   "zelle": "E6",
+   "datei": ""
+  },
+  "annahme.quote_darlehen.B": {
+   "blatt": "Tabellen",
+   "zelle": "E5",
+   "datei": ""
+  },
+  "annahme.quote_zuschuss.C": {
+   "blatt": "Tabellen",
+   "zelle": "F6",
+   "datei": ""
+  },
+  "annahme.quote_darlehen.C": {
+   "blatt": "Tabellen",
+   "zelle": "F5",
+   "datei": ""
+  },
+  "annahme.eigenmittel_mindestens": {
+   "blatt": "Tabellen",
+   "zelle": "D18",
+   "datei": ""
+  },
+  "annahme.bemessungsgrenze_VI": {
+   "blatt": "Tabellen",
+   "zelle": "C14",
+   "datei": ""
+  },
+  "annahme.zins_nbank_bis_jahr35": {
+   "blatt": "Tabellen",
+   "zelle": "D19",
+   "datei": ""
+  },
+  "annahme.zinsfreie_jahre": {
+   "blatt": "Tabellen",
+   "zelle": "D20",
+   "datei": ""
+  },
+  "annahme.zins_nbank_ab_jahr36": {
+   "blatt": "Eingaben",
+   "zelle": "F19",
+   "datei": ""
+  },
+  "annahme.tilgung_nbank": {
+   "blatt": "Eingaben",
+   "zelle": "F17",
+   "datei": ""
+  },
+  "annahme.laufzeit_hoechstens": {
+   "blatt": "Tabellen",
+   "zelle": "D21",
+   "datei": ""
+  },
+  "annahme.verwaltungskostenbeitrag": {
+   "blatt": "Tabellen",
+   "zelle": "D23",
+   "datei": ""
+  },
+  "annahme.bearbeitungsentgelt_darlehen": {
+   "blatt": "Tabellen",
+   "zelle": "D24",
+   "datei": ""
+  },
+  "annahme.bearbeitungsentgelt_zuschuss": {
+   "blatt": "Tabellen",
+   "zelle": "D25",
+   "datei": ""
+  },
+  "n5.bankdarlehen.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H55",
+   "datei": ""
+  },
+  "annahme.zins_bank": {
+   "blatt": "Eingaben",
+   "zelle": "F35",
+   "datei": ""
+  },
+  "annahme.zinsbindung": {
+   "blatt": "Eingaben",
+   "zelle": "F36",
+   "datei": ""
+  },
+  "annahme.anschlusszins": {
+   "blatt": "Eingaben",
+   "zelle": "F37",
+   "datei": ""
+  },
+  "annahme.laufzeit_bank": {
+   "blatt": "Eingaben",
+   "zelle": "F38",
+   "datei": ""
+  },
+  "n1.dscr_ziel_bank_frei": {
+   "blatt": "Konzepte",
+   "zelle": "D6",
+   "datei": ""
+  },
+  "annahme.dscr_ziel_mappe": {
+   "blatt": "Eingaben",
+   "zelle": "F54",
+   "datei": ""
+  },
+  "annahme.guthabenzins": {
+   "blatt": "Eingaben",
+   "zelle": "F41",
+   "datei": ""
+  },
+  "annahme.sollzins": {
+   "blatt": "Eingaben",
+   "zelle": "F42",
+   "datei": ""
+  },
+  "kern.liegenschaftszins_jahr35.A": {
+   "blatt": "Übersicht",
+   "zelle": "D106",
+   "datei": ""
+  },
+  "annahme.gesamtnutzungsdauer": {
+   "blatt": "Tabellen",
+   "zelle": "D33",
+   "datei": ""
+  },
+  "annahme.veraeusserungskosten": {
+   "blatt": "Eingaben",
+   "zelle": "F46",
+   "datei": ""
+  }
+ },
+ "folie15": {
+  "n5.eigenkapital.A": {
+   "blatt": "Konzepte",
+   "zelle": "D56",
+   "datei": ""
+  },
+  "n5.zuschuss.A": {
+   "blatt": "Konzepte",
+   "zelle": "D53",
+   "datei": ""
+  },
+  "n5.darlehen_nbank.A": {
+   "blatt": "Konzepte",
+   "zelle": "D54",
+   "datei": ""
+  },
+  "kern.eigenmittel.A": {
+   "blatt": "Übersicht",
+   "zelle": "D19",
+   "datei": ""
+  },
+  "n5.bearbeitungsentgelte.A": {
+   "blatt": "Konzepte",
+   "zelle": "D57",
+   "datei": ""
+  },
+  "n5.miete_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D49",
+   "datei": ""
+  },
+  "n5.zuschuss.B": {
+   "blatt": "Konzepte",
+   "zelle": "E53",
+   "datei": ""
+  },
+  "n5.darlehen_nbank.B": {
+   "blatt": "Konzepte",
+   "zelle": "E54",
+   "datei": ""
+  },
+  "kern.eigenmittel.B": {
+   "blatt": "Übersicht",
+   "zelle": "E19",
+   "datei": ""
+  },
+  "n5.bearbeitungsentgelte.B": {
+   "blatt": "Konzepte",
+   "zelle": "E57",
+   "datei": ""
+  },
+  "n5.miete_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E49",
+   "datei": ""
+  },
+  "n5.zuschuss.C": {
+   "blatt": "Konzepte",
+   "zelle": "F53",
+   "datei": ""
+  },
+  "n5.darlehen_nbank.C": {
+   "blatt": "Konzepte",
+   "zelle": "F54",
+   "datei": ""
+  },
+  "kern.eigenmittel.C": {
+   "blatt": "Übersicht",
+   "zelle": "F19",
+   "datei": ""
+  },
+  "n5.bearbeitungsentgelte.C": {
+   "blatt": "Konzepte",
+   "zelle": "F57",
+   "datei": ""
+  },
+  "n5.miete_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F49",
+   "datei": ""
+  },
+  "n5.bankdarlehen.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H55",
+   "datei": ""
+  },
+  "kern.eigenmittel.frei_markt": {
+   "blatt": "Übersicht",
+   "zelle": "G19",
+   "datei": ""
+  },
+  "n5.miete_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H49",
+   "datei": ""
+  },
+  "n2.marktmiete_jahr1": {
+   "blatt": "Konzepte",
+   "zelle": "D13",
+   "datei": ""
+  },
+  "n5.gesamtkosten.A": {
+   "blatt": "Konzepte",
+   "zelle": "D52",
+   "datei": ""
+  },
+  "n5.eigenkapital.B": {
+   "blatt": "Konzepte",
+   "zelle": "E56",
+   "datei": ""
+  },
+  "n5.eigenkapital.C": {
+   "blatt": "Konzepte",
+   "zelle": "F56",
+   "datei": ""
+  },
+  "n5.eigenkapital.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H56",
+   "datei": ""
+  },
+  "annahme.eigenmittel_mindestens": {
+   "blatt": "Tabellen",
+   "zelle": "D18",
+   "datei": ""
+  }
+ },
+ "folie17": {
+  "n5.zue_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D61",
+   "datei": ""
+  },
+  "n5.zue_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E61",
+   "datei": ""
+  },
+  "n5.zue_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F61",
+   "datei": ""
+  },
+  "n5.zue_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H61",
+   "datei": ""
+  },
+  "kern.sollmiete.A": {
+   "blatt": "Übersicht",
+   "zelle": "D29",
+   "datei": ""
+  },
+  "kern.sollmiete.B": {
+   "blatt": "Übersicht",
+   "zelle": "E29",
+   "datei": ""
+  },
+  "kern.sollmiete.C": {
+   "blatt": "Übersicht",
+   "zelle": "F29",
+   "datei": ""
+  },
+  "team2:jr1.frei_dscr.sollmiete": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "E7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "kern.mietausfall.A": {
+   "blatt": "Übersicht",
+   "zelle": "D30",
+   "datei": ""
+  },
+  "kern.mietausfall.B": {
+   "blatt": "Übersicht",
+   "zelle": "E30",
+   "datei": ""
+  },
+  "kern.mietausfall.C": {
+   "blatt": "Übersicht",
+   "zelle": "F30",
+   "datei": ""
+  },
+  "team2:jr1.frei_dscr.mietausfall": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "F7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "kern.objektverwaltung.A": {
+   "blatt": "Übersicht",
+   "zelle": "D31",
+   "datei": ""
+  },
+  "kern.objektverwaltung.B": {
+   "blatt": "Übersicht",
+   "zelle": "E31",
+   "datei": ""
+  },
+  "kern.objektverwaltung.C": {
+   "blatt": "Übersicht",
+   "zelle": "F31",
+   "datei": ""
+  },
+  "team2:jr1.frei_dscr.objektverwaltung": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "G7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "kern.instandhaltung.A": {
+   "blatt": "Übersicht",
+   "zelle": "D32",
+   "datei": ""
+  },
+  "kern.instandhaltung.B": {
+   "blatt": "Übersicht",
+   "zelle": "E32",
+   "datei": ""
+  },
+  "kern.instandhaltung.C": {
+   "blatt": "Übersicht",
+   "zelle": "F32",
+   "datei": ""
+  },
+  "team2:jr1.frei_dscr.instandhaltung": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "H7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "n5.uevk_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D59",
+   "datei": ""
+  },
+  "n5.uevk_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E59",
+   "datei": ""
+  },
+  "n5.uevk_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F59",
+   "datei": ""
+  },
+  "n5.uevk_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H59",
+   "datei": ""
+  },
+  "kern.verwaltungskostenbeitrag.A": {
+   "blatt": "Übersicht",
+   "zelle": "D34",
+   "datei": ""
+  },
+  "kern.verwaltungskostenbeitrag.B": {
+   "blatt": "Übersicht",
+   "zelle": "E34",
+   "datei": ""
+  },
+  "kern.verwaltungskostenbeitrag.C": {
+   "blatt": "Übersicht",
+   "zelle": "F34",
+   "datei": ""
+  },
+  "kern.zins_nbank.A": {
+   "blatt": "Übersicht",
+   "zelle": "D35",
+   "datei": ""
+  },
+  "kern.zins_nbank.B": {
+   "blatt": "Übersicht",
+   "zelle": "E35",
+   "datei": ""
+  },
+  "kern.zins_nbank.C": {
+   "blatt": "Übersicht",
+   "zelle": "F35",
+   "datei": ""
+  },
+  "team2:jr1.frei_dscr.zins": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "J7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "kern.tilgung_nbank.A": {
+   "blatt": "Übersicht",
+   "zelle": "D36",
+   "datei": ""
+  },
+  "kern.tilgung_nbank.B": {
+   "blatt": "Übersicht",
+   "zelle": "E36",
+   "datei": ""
+  },
+  "kern.tilgung_nbank.C": {
+   "blatt": "Übersicht",
+   "zelle": "F36",
+   "datei": ""
+  },
+  "team2:jr1.frei_dscr.tilgung": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "K7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "n5.kapitaldienst_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D60",
+   "datei": ""
+  },
+  "n5.kapitaldienst_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E60",
+   "datei": ""
+  },
+  "n5.kapitaldienst_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F60",
+   "datei": ""
+  },
+  "n5.kapitaldienst_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H60",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D62",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E62",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F62",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H62",
+   "datei": ""
+  },
+  "n5.bearbeitungsentgelte.A": {
+   "blatt": "Konzepte",
+   "zelle": "D57",
+   "datei": ""
+  },
+  "n5.bearbeitungsentgelte.B": {
+   "blatt": "Konzepte",
+   "zelle": "E57",
+   "datei": ""
+  },
+  "n5.bearbeitungsentgelte.C": {
+   "blatt": "Konzepte",
+   "zelle": "F57",
+   "datei": ""
+  }
+ },
+ "folie18": {
+  "n5.zue_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D64",
+   "datei": ""
+  },
+  "zr.zue.A": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "F7:F48",
+   "datei": ""
+  },
+  "zr.zue.B": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "O7:O48",
+   "datei": ""
+  },
+  "zr.zue.C": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "X7:X48",
+   "datei": ""
+  },
+  "zr.zue.frei_dscr": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "AP7:AP48",
+   "datei": ""
+  },
+  "annahme.laufzeit_bank": {
+   "blatt": "Eingaben",
+   "zelle": "F38",
+   "datei": ""
+  },
+  "annahme.bindung": {
+   "blatt": "Tabellen",
+   "zelle": "D26",
+   "datei": ""
+  },
+  "n5.kum_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D66",
+   "datei": ""
+  },
+  "n5.kum_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E66",
+   "datei": ""
+  },
+  "n5.kum_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F66",
+   "datei": ""
+  },
+  "n5.kum_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H66",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D68",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_36_42.A": {
+   "blatt": "Konzepte",
+   "zelle": "D92",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E68",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_36_42.B": {
+   "blatt": "Konzepte",
+   "zelle": "E92",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F68",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_36_42.C": {
+   "blatt": "Konzepte",
+   "zelle": "F92",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H68",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_36_42.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H92",
+   "datei": ""
+  },
+  "n5.projektkonto_tiefststand.A": {
+   "blatt": "Konzepte",
+   "zelle": "D70",
+   "datei": ""
+  },
+  "n5.projektkonto_tiefststand.B": {
+   "blatt": "Konzepte",
+   "zelle": "E70",
+   "datei": ""
+  },
+  "n5.projektkonto_tiefststand.C": {
+   "blatt": "Konzepte",
+   "zelle": "F70",
+   "datei": ""
+  },
+  "n5.projektkonto_tiefststand.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H70",
+   "datei": ""
+  }
+ },
+ "folie19": {
+  "team2:t2.jahr_frei.A": {
+   "blatt": "Team 2",
+   "zelle": "C49",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.jahr_frei.B": {
+   "blatt": "Team 2",
+   "zelle": "D49",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.jahr_frei.C": {
+   "blatt": "Team 2",
+   "zelle": "E49",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.jahr_frei.frei_dscr": {
+   "blatt": "Team 2",
+   "zelle": "G49",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.gebunden.A": {
+   "blatt": "Team 2",
+   "zelle": "C6:C48",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.gebunden.B": {
+   "blatt": "Team 2",
+   "zelle": "D6:D48",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.gebunden.C": {
+   "blatt": "Team 2",
+   "zelle": "E6:E48",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.gebunden.frei_dscr": {
+   "blatt": "Team 2",
+   "zelle": "G6:G48",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "n5.eigenkapital.A": {
+   "blatt": "Konzepte",
+   "zelle": "D56",
+   "datei": ""
+  },
+  "n5.eigenkapital.B": {
+   "blatt": "Konzepte",
+   "zelle": "E56",
+   "datei": ""
+  },
+  "n5.eigenkapital.C": {
+   "blatt": "Konzepte",
+   "zelle": "F56",
+   "datei": ""
+  },
+  "n5.eigenkapital.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H56",
+   "datei": ""
+  },
+  "n5.kum_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D66",
+   "datei": ""
+  },
+  "n5.kum_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E66",
+   "datei": ""
+  },
+  "n5.kum_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F66",
+   "datei": ""
+  },
+  "n5.kum_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H66",
+   "datei": ""
+  }
+ },
+ "folie20": {
+  "zr.dscr.A": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "H7:H48",
+   "datei": ""
+  },
+  "zr.dscr.B": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "Q7:Q48",
+   "datei": ""
+  },
+  "zr.dscr.C": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "Z7:Z48",
+   "datei": ""
+  },
+  "zr.dscr.frei_dscr": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "AR7:AR48",
+   "datei": ""
+  },
+  "n1.dscr_ziel_bank_frei": {
+   "blatt": "Konzepte",
+   "zelle": "D6",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D62",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E62",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F62",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H62",
+   "datei": ""
+  },
+  "n5.dscr_min_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D71",
+   "datei": ""
+  },
+  "n5.dscr_min_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E71",
+   "datei": ""
+  },
+  "n5.dscr_min_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F71",
+   "datei": ""
+  },
+  "n5.dscr_min_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H71",
+   "datei": ""
+  },
+  "n5.jahre_dscr_unter_ziel.A": {
+   "blatt": "Konzepte",
+   "zelle": "D73",
+   "datei": ""
+  },
+  "n5.jahre_dscr_unter_ziel.B": {
+   "blatt": "Konzepte",
+   "zelle": "E73",
+   "datei": ""
+  },
+  "n5.jahre_dscr_unter_ziel.C": {
+   "blatt": "Konzepte",
+   "zelle": "F73",
+   "datei": ""
+  },
+  "n5.jahre_dscr_unter_ziel.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H73",
+   "datei": ""
+  },
+  "n5.dscr_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D72",
+   "datei": ""
+  },
+  "n5.dscr_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E72",
+   "datei": ""
+  },
+  "n5.dscr_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F72",
+   "datei": ""
+  },
+  "tilgung_2_90:tilgung_2_90.eingabe": {
+   "blatt": "Eingaben",
+   "zelle": "E17",
+   "datei": "laeufe/tilgung_2_90.xlsx"
+  },
+  "tilgung_2_90:n6.tilgung_2_90.jahre_dscr_unter_ziel.B": {
+   "blatt": "Konzepte",
+   "zelle": "E73",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.jahre_dscr_unter_ziel.C": {
+   "blatt": "Konzepte",
+   "zelle": "F73",
+   "datei": ""
+  }
+ },
+ "folie21": {
+  "n5.objektrendite.A": {
+   "blatt": "Konzepte",
+   "zelle": "D87",
+   "datei": ""
+  },
+  "n5.objektrendite.B": {
+   "blatt": "Konzepte",
+   "zelle": "E87",
+   "datei": ""
+  },
+  "n5.objektrendite.C": {
+   "blatt": "Konzepte",
+   "zelle": "F87",
+   "datei": ""
+  },
+  "n5.objektrendite.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H87",
+   "datei": ""
+  },
+  "n5.objektrendite_nach_zuschuss.A": {
+   "blatt": "Konzepte",
+   "zelle": "D88",
+   "datei": ""
+  },
+  "n5.objektrendite_nach_zuschuss.B": {
+   "blatt": "Konzepte",
+   "zelle": "E88",
+   "datei": ""
+  },
+  "n5.objektrendite_nach_zuschuss.C": {
+   "blatt": "Konzepte",
+   "zelle": "F88",
+   "datei": ""
+  },
+  "n5.gesamtkosten.A": {
+   "blatt": "Konzepte",
+   "zelle": "D52",
+   "datei": ""
+  },
+  "n5.miete_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D49",
+   "datei": ""
+  },
+  "n5.miete_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E49",
+   "datei": ""
+  },
+  "n5.miete_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F49",
+   "datei": ""
+  },
+  "n5.miete_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H49",
+   "datei": ""
+  },
+  "n5.uevk_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D59",
+   "datei": ""
+  },
+  "n5.uevk_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E59",
+   "datei": ""
+  },
+  "n5.uevk_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F59",
+   "datei": ""
+  },
+  "n5.uevk_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H59",
+   "datei": ""
+  },
+  "n5.zuschuss.A": {
+   "blatt": "Konzepte",
+   "zelle": "D53",
+   "datei": ""
+  },
+  "n5.zuschuss.B": {
+   "blatt": "Konzepte",
+   "zelle": "E53",
+   "datei": ""
+  },
+  "n5.zuschuss.C": {
+   "blatt": "Konzepte",
+   "zelle": "F53",
+   "datei": ""
+  },
+  "n4.abweichung.A": {
+   "blatt": "Konzepte",
+   "zelle": "D44",
+   "datei": ""
+  }
+ },
+ "folie22": {
+  "n5.ek_vofi_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D82",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E82",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F82",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H82",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D81",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E81",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F81",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H81",
+   "datei": ""
+  },
+  "n5.eigenkapital.A": {
+   "blatt": "Konzepte",
+   "zelle": "D56",
+   "datei": ""
+  },
+  "n5.eigenkapital.B": {
+   "blatt": "Konzepte",
+   "zelle": "E56",
+   "datei": ""
+  },
+  "n5.eigenkapital.C": {
+   "blatt": "Konzepte",
+   "zelle": "F56",
+   "datei": ""
+  },
+  "n5.eigenkapital.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H56",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": ""
+  },
+  "n5.restwertanteil.A": {
+   "blatt": "Konzepte",
+   "zelle": "D83",
+   "datei": ""
+  },
+  "n5.restwertanteil.B": {
+   "blatt": "Konzepte",
+   "zelle": "E83",
+   "datei": ""
+  },
+  "n5.restwertanteil.C": {
+   "blatt": "Konzepte",
+   "zelle": "F83",
+   "datei": ""
+  },
+  "n5.restwertanteil.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H83",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H81",
+   "datei": ""
+  }
+ },
+ "folie23": {
+  "n5.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": ""
+  },
+  "n5.restwertanteil.A": {
+   "blatt": "Konzepte",
+   "zelle": "D83",
+   "datei": ""
+  },
+  "n5.restwert_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D76",
+   "datei": ""
+  },
+  "n5.projektkonto_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D77",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D75",
+   "datei": ""
+  },
+  "n5.restwert_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E76",
+   "datei": ""
+  },
+  "n5.projektkonto_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E77",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E75",
+   "datei": ""
+  },
+  "n5.restwert_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F76",
+   "datei": ""
+  },
+  "n5.projektkonto_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F77",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F75",
+   "datei": ""
+  },
+  "n5.restwert_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H76",
+   "datei": ""
+  },
+  "n5.projektkonto_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H77",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H75",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D79",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E79",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F79",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H79",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr42.A": {
+   "blatt": "Konzepte",
+   "zelle": "D94",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr42.B": {
+   "blatt": "Konzepte",
+   "zelle": "E94",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr42.C": {
+   "blatt": "Konzepte",
+   "zelle": "F94",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr42.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H94",
+   "datei": ""
+  },
+  "kern.liegenschaftszins_jahr35.A": {
+   "blatt": "Übersicht",
+   "zelle": "D106",
+   "datei": ""
+  },
+  "team2:rw.abschlag_bindung_35.A": {
+   "blatt": "Gefördert A",
+   "zelle": "I124",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "team2:rw.ertragswert_zielmiete_35.A": {
+   "blatt": "Gefördert A",
+   "zelle": "I122",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  }
+ },
+ "anhangA6": {
+  "n5.miete_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D49",
+   "datei": ""
+  },
+  "n5.miete_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E49",
+   "datei": ""
+  },
+  "n5.miete_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F49",
+   "datei": ""
+  },
+  "n5.miete_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H49",
+   "datei": ""
+  },
+  "team2:kdam.A": {
+   "blatt": "Übersicht",
+   "zelle": "D112",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "team2:kdam.B": {
+   "blatt": "Übersicht",
+   "zelle": "E112",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "team2:kdam.C": {
+   "blatt": "Übersicht",
+   "zelle": "F112",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "team2:kdam.frei_markt": {
+   "blatt": "Übersicht",
+   "zelle": "G112",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "n5.miete_dscr_ziel.A": {
+   "blatt": "Konzepte",
+   "zelle": "D50",
+   "datei": ""
+  },
+  "n5.miete_dscr_ziel.B": {
+   "blatt": "Konzepte",
+   "zelle": "E50",
+   "datei": ""
+  },
+  "n5.miete_dscr_ziel.C": {
+   "blatt": "Konzepte",
+   "zelle": "F50",
+   "datei": ""
+  },
+  "n5.miete_dscr_ziel.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H50",
+   "datei": ""
+  },
+  "n5.eigenkapital.A": {
+   "blatt": "Konzepte",
+   "zelle": "D56",
+   "datei": ""
+  },
+  "n5.eigenkapital.B": {
+   "blatt": "Konzepte",
+   "zelle": "E56",
+   "datei": ""
+  },
+  "n5.eigenkapital.C": {
+   "blatt": "Konzepte",
+   "zelle": "F56",
+   "datei": ""
+  },
+  "n5.eigenkapital.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H56",
+   "datei": ""
+  },
+  "n5.zue_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D61",
+   "datei": ""
+  },
+  "n5.zue_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E61",
+   "datei": ""
+  },
+  "n5.zue_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F61",
+   "datei": ""
+  },
+  "n5.zue_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H61",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D62",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E62",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F62",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H62",
+   "datei": ""
+  },
+  "n5.objektrendite.A": {
+   "blatt": "Konzepte",
+   "zelle": "D87",
+   "datei": ""
+  },
+  "n5.objektrendite.B": {
+   "blatt": "Konzepte",
+   "zelle": "E87",
+   "datei": ""
+  },
+  "n5.objektrendite.C": {
+   "blatt": "Konzepte",
+   "zelle": "F87",
+   "datei": ""
+  },
+  "n5.objektrendite.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H87",
+   "datei": ""
+  },
+  "n5.objektrendite_nach_zuschuss.A": {
+   "blatt": "Konzepte",
+   "zelle": "D88",
+   "datei": ""
+  },
+  "n5.objektrendite_nach_zuschuss.B": {
+   "blatt": "Konzepte",
+   "zelle": "E88",
+   "datei": ""
+  },
+  "n5.objektrendite_nach_zuschuss.C": {
+   "blatt": "Konzepte",
+   "zelle": "F88",
+   "datei": ""
+  },
+  "n5.zue_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D64",
+   "datei": ""
+  },
+  "n5.zue_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E64",
+   "datei": ""
+  },
+  "n5.zue_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F64",
+   "datei": ""
+  },
+  "n5.zue_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H64",
+   "datei": ""
+  },
+  "n5.kum_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D66",
+   "datei": ""
+  },
+  "n5.kum_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E66",
+   "datei": ""
+  },
+  "n5.kum_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F66",
+   "datei": ""
+  },
+  "n5.kum_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H66",
+   "datei": ""
+  },
+  "n5.jahr_ek_erreicht.A": {
+   "blatt": "Konzepte",
+   "zelle": "D67",
+   "datei": ""
+  },
+  "n5.jahr_ek_erreicht.B": {
+   "blatt": "Konzepte",
+   "zelle": "E67",
+   "datei": ""
+  },
+  "n5.jahr_ek_erreicht.C": {
+   "blatt": "Konzepte",
+   "zelle": "F67",
+   "datei": ""
+  },
+  "n5.jahr_ek_erreicht.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H67",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D68",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E68",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F68",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H68",
+   "datei": ""
+  },
+  "n5.projektkonto_tiefststand.A": {
+   "blatt": "Konzepte",
+   "zelle": "D70",
+   "datei": ""
+  },
+  "n5.projektkonto_tiefststand.B": {
+   "blatt": "Konzepte",
+   "zelle": "E70",
+   "datei": ""
+  },
+  "n5.projektkonto_tiefststand.C": {
+   "blatt": "Konzepte",
+   "zelle": "F70",
+   "datei": ""
+  },
+  "n5.projektkonto_tiefststand.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H70",
+   "datei": ""
+  },
+  "n5.dscr_min_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D71",
+   "datei": ""
+  },
+  "n5.dscr_min_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E71",
+   "datei": ""
+  },
+  "n5.dscr_min_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F71",
+   "datei": ""
+  },
+  "n5.dscr_min_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H71",
+   "datei": ""
+  },
+  "n5.jahre_dscr_unter_ziel.A": {
+   "blatt": "Konzepte",
+   "zelle": "D73",
+   "datei": ""
+  },
+  "n5.jahre_dscr_unter_ziel.B": {
+   "blatt": "Konzepte",
+   "zelle": "E73",
+   "datei": ""
+  },
+  "n5.jahre_dscr_unter_ziel.C": {
+   "blatt": "Konzepte",
+   "zelle": "F73",
+   "datei": ""
+  },
+  "n5.jahre_dscr_unter_ziel.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H73",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D75",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E75",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F75",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H75",
+   "datei": ""
+  },
+  "n5.restwert_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D76",
+   "datei": ""
+  },
+  "n5.restwert_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E76",
+   "datei": ""
+  },
+  "n5.restwert_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F76",
+   "datei": ""
+  },
+  "n5.restwert_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H76",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D81",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E81",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F81",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H81",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D82",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E82",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F82",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H82",
+   "datei": ""
+  },
+  "n5.ek_irr_mit_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D84",
+   "datei": ""
+  },
+  "n5.ek_irr_mit_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E84",
+   "datei": ""
+  },
+  "n5.ek_irr_mit_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F84",
+   "datei": ""
+  },
+  "n5.ek_irr_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H84",
+   "datei": ""
+  },
+  "n2.miete_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "D12",
+   "datei": ""
+  },
+  "n2.marktmiete_jahr1": {
+   "blatt": "Konzepte",
+   "zelle": "D13",
+   "datei": ""
+  }
+ },
+ "anhangA7": {
+  "n2.miete_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "D12",
+   "datei": ""
+  },
+  "n2.marktmiete_jahr1": {
+   "blatt": "Konzepte",
+   "zelle": "D13",
+   "datei": ""
+  },
+  "zr.miete.A": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "C7:C48",
+   "datei": ""
+  },
+  "zr.miete.B": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "L7:L48",
+   "datei": ""
+  },
+  "zr.miete.C": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "U7:U48",
+   "datei": ""
+  },
+  "zr.miete.frei_dscr": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "AM7:AM48",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D75",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E75",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F75",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H75",
+   "datei": ""
+  },
+  "zr.zue.A": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "F7:F48",
+   "datei": ""
+  },
+  "zr.zue.B": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "O7:O48",
+   "datei": ""
+  },
+  "zr.zue.C": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "X7:X48",
+   "datei": ""
+  },
+  "zr.zue.frei_dscr": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "AP7:AP48",
+   "datei": ""
+  },
+  "n5.zue_jahr42.A": {
+   "blatt": "Konzepte",
+   "zelle": "D90",
+   "datei": ""
+  },
+  "n5.zue_jahr42.B": {
+   "blatt": "Konzepte",
+   "zelle": "E90",
+   "datei": ""
+  },
+  "n5.zue_jahr42.C": {
+   "blatt": "Konzepte",
+   "zelle": "F90",
+   "datei": ""
+  },
+  "n5.zue_jahr42.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H90",
+   "datei": ""
+  },
+  "n5.zue_summe_36_42.A": {
+   "blatt": "Konzepte",
+   "zelle": "D91",
+   "datei": ""
+  },
+  "n5.zue_summe_36_42.B": {
+   "blatt": "Konzepte",
+   "zelle": "E91",
+   "datei": ""
+  },
+  "n5.zue_summe_36_42.C": {
+   "blatt": "Konzepte",
+   "zelle": "F91",
+   "datei": ""
+  },
+  "n5.zue_summe_36_42.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H91",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_36_42.A": {
+   "blatt": "Konzepte",
+   "zelle": "D92",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_36_42.B": {
+   "blatt": "Konzepte",
+   "zelle": "E92",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_36_42.C": {
+   "blatt": "Konzepte",
+   "zelle": "F92",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_36_42.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H92",
+   "datei": ""
+  },
+  "n5.restschuld_jahr42.A": {
+   "blatt": "Konzepte",
+   "zelle": "D93",
+   "datei": ""
+  },
+  "n5.restschuld_jahr42.B": {
+   "blatt": "Konzepte",
+   "zelle": "E93",
+   "datei": ""
+  },
+  "n5.restschuld_jahr42.C": {
+   "blatt": "Konzepte",
+   "zelle": "F93",
+   "datei": ""
+  },
+  "n5.restschuld_jahr42.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H93",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr42.A": {
+   "blatt": "Konzepte",
+   "zelle": "D94",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr42.B": {
+   "blatt": "Konzepte",
+   "zelle": "E94",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr42.C": {
+   "blatt": "Konzepte",
+   "zelle": "F94",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr42.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H94",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert_jahr42.A": {
+   "blatt": "Konzepte",
+   "zelle": "D95",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert_jahr42.B": {
+   "blatt": "Konzepte",
+   "zelle": "E95",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert_jahr42.C": {
+   "blatt": "Konzepte",
+   "zelle": "F95",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert_jahr42.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H95",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert_jahr42.A": {
+   "blatt": "Konzepte",
+   "zelle": "D96",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert_jahr42.B": {
+   "blatt": "Konzepte",
+   "zelle": "E96",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert_jahr42.C": {
+   "blatt": "Konzepte",
+   "zelle": "F96",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert_jahr42.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H96",
+   "datei": ""
+  }
+ },
+ "anhangA8": {
+  "n2.miete_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "D12",
+   "datei": ""
+  },
+  "n2.marktmiete_jahr1": {
+   "blatt": "Konzepte",
+   "zelle": "D13",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.miete_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H49",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.miete_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H49",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.projektkonto_tiefststand.A": {
+   "blatt": "Konzepte",
+   "zelle": "D70",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.projektkonto_tiefststand.B": {
+   "blatt": "Konzepte",
+   "zelle": "E70",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.projektkonto_tiefststand.C": {
+   "blatt": "Konzepte",
+   "zelle": "F70",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.projektkonto_tiefststand.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H70",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.dscr_min_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D71",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.dscr_min_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E71",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.dscr_min_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F71",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.dscr_min_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H71",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.projektkonto_tiefststand.A": {
+   "blatt": "Konzepte",
+   "zelle": "D70",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.projektkonto_tiefststand.B": {
+   "blatt": "Konzepte",
+   "zelle": "E70",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.projektkonto_tiefststand.C": {
+   "blatt": "Konzepte",
+   "zelle": "F70",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.projektkonto_tiefststand.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H70",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.dscr_min_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D71",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.dscr_min_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E71",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.dscr_min_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F71",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.dscr_min_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H71",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.projektkonto_tiefststand.A": {
+   "blatt": "Konzepte",
+   "zelle": "D70",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.projektkonto_tiefststand.B": {
+   "blatt": "Konzepte",
+   "zelle": "E70",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.projektkonto_tiefststand.C": {
+   "blatt": "Konzepte",
+   "zelle": "F70",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.projektkonto_tiefststand.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H70",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.dscr_min_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D71",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.dscr_min_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E71",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.dscr_min_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F71",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.dscr_min_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H71",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.projektkonto_tiefststand.A": {
+   "blatt": "Konzepte",
+   "zelle": "D70",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.projektkonto_tiefststand.B": {
+   "blatt": "Konzepte",
+   "zelle": "E70",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.projektkonto_tiefststand.C": {
+   "blatt": "Konzepte",
+   "zelle": "F70",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.projektkonto_tiefststand.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H70",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.dscr_min_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D71",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.dscr_min_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E71",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.dscr_min_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F71",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.dscr_min_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H71",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.projektkonto_tiefststand.A": {
+   "blatt": "Konzepte",
+   "zelle": "D70",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.projektkonto_tiefststand.B": {
+   "blatt": "Konzepte",
+   "zelle": "E70",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.projektkonto_tiefststand.C": {
+   "blatt": "Konzepte",
+   "zelle": "F70",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.projektkonto_tiefststand.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H70",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.dscr_min_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D71",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.dscr_min_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E71",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.dscr_min_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F71",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.dscr_min_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H71",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.projektkonto_tiefststand.A": {
+   "blatt": "Konzepte",
+   "zelle": "D70",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.projektkonto_tiefststand.B": {
+   "blatt": "Konzepte",
+   "zelle": "E70",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.projektkonto_tiefststand.C": {
+   "blatt": "Konzepte",
+   "zelle": "F70",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.projektkonto_tiefststand.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H70",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.dscr_min_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D71",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.dscr_min_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E71",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.dscr_min_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F71",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.dscr_min_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H71",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.projektkonto_tiefststand.A": {
+   "blatt": "Konzepte",
+   "zelle": "D70",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.projektkonto_tiefststand.B": {
+   "blatt": "Konzepte",
+   "zelle": "E70",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.projektkonto_tiefststand.C": {
+   "blatt": "Konzepte",
+   "zelle": "F70",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.projektkonto_tiefststand.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H70",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.dscr_min_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D71",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.dscr_min_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E71",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.dscr_min_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F71",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.dscr_min_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H71",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.projektkonto_tiefststand.A": {
+   "blatt": "Konzepte",
+   "zelle": "D70",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.projektkonto_tiefststand.B": {
+   "blatt": "Konzepte",
+   "zelle": "E70",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.projektkonto_tiefststand.C": {
+   "blatt": "Konzepte",
+   "zelle": "F70",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.projektkonto_tiefststand.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H70",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.dscr_min_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D71",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.dscr_min_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E71",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.dscr_min_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F71",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.dscr_min_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H71",
+   "datei": ""
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.projektkonto_tiefststand.A": {
+   "blatt": "Konzepte",
+   "zelle": "D70",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.projektkonto_tiefststand.B": {
+   "blatt": "Konzepte",
+   "zelle": "E70",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.projektkonto_tiefststand.C": {
+   "blatt": "Konzepte",
+   "zelle": "F70",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.projektkonto_tiefststand.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H70",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "tilgung_2_90:n6.tilgung_2_90.ek_vofi_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D82",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.ek_vofi_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E82",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.ek_vofi_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F82",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.ek_vofi_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H82",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.ek_vofi_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D82",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.ek_vofi_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E82",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.ek_vofi_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F82",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.ek_vofi_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H82",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.ek_vofi_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D82",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.ek_vofi_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E82",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.ek_vofi_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F82",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.ek_vofi_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H82",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.ek_vofi_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D82",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.ek_vofi_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E82",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.ek_vofi_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F82",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.ek_vofi_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H82",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D82",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E82",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F82",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H82",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D82",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E82",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F82",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H82",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.ek_vofi_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D82",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.ek_vofi_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E82",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.ek_vofi_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F82",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.ek_vofi_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H82",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.ek_vofi_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D82",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.ek_vofi_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E82",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.ek_vofi_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F82",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.ek_vofi_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H82",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": ""
+  },
+  "anschlusszins_minus_1:n6.anschlusszins_minus_1.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": ""
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.ek_vofi_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D82",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.ek_vofi_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E82",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.ek_vofi_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F82",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.ek_vofi_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H82",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  }
+ },
+ "anhangA10": {
+  "team2:jr1.frei_dscr.zins": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "J7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "team2:jr1.frei_dscr.sollmiete": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "E7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "team2:jr1.frei_dscr.tilgung": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "K7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "team2:jr1.frei_dscr.zue": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "M7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "team2:jr1.frei_dscr.instandhaltung": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "H7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "team2:jr1.frei_dscr.objektverwaltung": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "G7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "team2:jr1.frei_dscr.mietausfall": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "F7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  }
+ },
+ "blatt9": {
+  "n5.eigenkapital.A": {
+   "blatt": "Konzepte",
+   "zelle": "D56",
+   "datei": ""
+  },
+  "annahme.wohnungen": {
+   "blatt": "Eingaben",
+   "zelle": "F9",
+   "datei": ""
+  },
+  "annahme.wohnflaeche": {
+   "blatt": "Eingaben",
+   "zelle": "F8",
+   "datei": ""
+  },
+  "annahme.mietenstufe": {
+   "blatt": "Eingaben",
+   "zelle": "F22",
+   "datei": ""
+  },
+  "annahme.bezugsjahr": {
+   "blatt": "Eingaben",
+   "zelle": "F7",
+   "datei": ""
+  },
+  "annahme.herstellungskosten_qm": {
+   "blatt": "Eingaben",
+   "zelle": "F11",
+   "datei": ""
+  },
+  "annahme.bemessungsgrenze_VI": {
+   "blatt": "Tabellen",
+   "zelle": "C14",
+   "datei": ""
+  },
+  "annahme.hoechstmiete_VI.A": {
+   "blatt": "Tabellen",
+   "zelle": "D14",
+   "datei": ""
+  },
+  "annahme.hoechstmiete_VI.B": {
+   "blatt": "Tabellen",
+   "zelle": "E14",
+   "datei": ""
+  },
+  "annahme.hoechstmiete_VI.C": {
+   "blatt": "Tabellen",
+   "zelle": "F14",
+   "datei": ""
+  },
+  "n4.herstellungskosten.A": {
+   "blatt": "Konzepte",
+   "zelle": "D36",
+   "datei": ""
+  },
+  "annahme.grundstueck": {
+   "blatt": "Eingaben",
+   "zelle": "F13",
+   "datei": ""
+  },
+  "annahme.bodenwertsteigerung": {
+   "blatt": "Eingaben",
+   "zelle": "F44",
+   "datei": ""
+  },
+  "annahme.jahre_ohne_mieterhoehung": {
+   "blatt": "Tabellen",
+   "zelle": "D27",
+   "datei": ""
+  },
+  "annahme.abstand_mieterhoehungen": {
+   "blatt": "Tabellen",
+   "zelle": "D29",
+   "datei": ""
+  },
+  "annahme.mieterhoehung_in_der_bindung": {
+   "blatt": "Tabellen",
+   "zelle": "D28",
+   "datei": ""
+  },
+  "annahme.bindung": {
+   "blatt": "Tabellen",
+   "zelle": "D26",
+   "datei": ""
+  },
+  "annahme.kappungsgrenze": {
+   "blatt": "Eingaben",
+   "zelle": "F27",
+   "datei": ""
+  },
+  "annahme.vergleichsmiete_jahr1": {
+   "blatt": "Eingaben",
+   "zelle": "F24",
+   "datei": ""
+  },
+  "annahme.marktmiete_jahr1": {
+   "blatt": "Eingaben",
+   "zelle": "F25",
+   "datei": ""
+  },
+  "n2.miete_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "D12",
+   "datei": ""
+  },
+  "annahme.mietsteigerung": {
+   "blatt": "Eingaben",
+   "zelle": "F26",
+   "datei": ""
+  },
+  "annahme.mietausfall": {
+   "blatt": "Eingaben",
+   "zelle": "F29",
+   "datei": ""
+  },
+  "annahme.objektverwaltung_je_wohnung": {
+   "blatt": "Eingaben",
+   "zelle": "F30",
+   "datei": ""
+  },
+  "annahme.instandhaltung_je_qm": {
+   "blatt": "Eingaben",
+   "zelle": "F31",
+   "datei": ""
+  },
+  "annahme.kostensteigerung": {
+   "blatt": "Eingaben",
+   "zelle": "F32",
+   "datei": ""
+  },
+  "annahme.quote_zuschuss.A": {
+   "blatt": "Tabellen",
+   "zelle": "D6",
+   "datei": ""
+  },
+  "annahme.quote_darlehen.A": {
+   "blatt": "Tabellen",
+   "zelle": "D5",
+   "datei": ""
+  },
+  "annahme.quote_zuschuss.B": {
+   "blatt": "Tabellen",
+   "zelle": "E6",
+   "datei": ""
+  },
+  "annahme.quote_darlehen.B": {
+   "blatt": "Tabellen",
+   "zelle": "E5",
+   "datei": ""
+  },
+  "annahme.quote_zuschuss.C": {
+   "blatt": "Tabellen",
+   "zelle": "F6",
+   "datei": ""
+  },
+  "annahme.quote_darlehen.C": {
+   "blatt": "Tabellen",
+   "zelle": "F5",
+   "datei": ""
+  },
+  "annahme.eigenmittel_mindestens": {
+   "blatt": "Tabellen",
+   "zelle": "D18",
+   "datei": ""
+  },
+  "annahme.zins_nbank_bis_jahr35": {
+   "blatt": "Tabellen",
+   "zelle": "D19",
+   "datei": ""
+  },
+  "annahme.zinsfreie_jahre": {
+   "blatt": "Tabellen",
+   "zelle": "D20",
+   "datei": ""
+  },
+  "annahme.zins_nbank_ab_jahr36": {
+   "blatt": "Eingaben",
+   "zelle": "F19",
+   "datei": ""
+  },
+  "annahme.tilgung_nbank": {
+   "blatt": "Eingaben",
+   "zelle": "F17",
+   "datei": ""
+  },
+  "annahme.laufzeit_hoechstens": {
+   "blatt": "Tabellen",
+   "zelle": "D21",
+   "datei": ""
+  },
+  "annahme.verwaltungskostenbeitrag": {
+   "blatt": "Tabellen",
+   "zelle": "D23",
+   "datei": ""
+  },
+  "annahme.bearbeitungsentgelt_darlehen": {
+   "blatt": "Tabellen",
+   "zelle": "D24",
+   "datei": ""
+  },
+  "annahme.bearbeitungsentgelt_zuschuss": {
+   "blatt": "Tabellen",
+   "zelle": "D25",
+   "datei": ""
+  },
+  "n5.bankdarlehen.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H55",
+   "datei": ""
+  },
+  "annahme.zins_bank": {
+   "blatt": "Eingaben",
+   "zelle": "F35",
+   "datei": ""
+  },
+  "annahme.zinsbindung": {
+   "blatt": "Eingaben",
+   "zelle": "F36",
+   "datei": ""
+  },
+  "annahme.anschlusszins": {
+   "blatt": "Eingaben",
+   "zelle": "F37",
+   "datei": ""
+  },
+  "annahme.laufzeit_bank": {
+   "blatt": "Eingaben",
+   "zelle": "F38",
+   "datei": ""
+  },
+  "n1.dscr_ziel_bank_frei": {
+   "blatt": "Konzepte",
+   "zelle": "D6",
+   "datei": ""
+  },
+  "annahme.dscr_ziel_mappe": {
+   "blatt": "Eingaben",
+   "zelle": "F54",
+   "datei": ""
+  },
+  "annahme.guthabenzins": {
+   "blatt": "Eingaben",
+   "zelle": "F41",
+   "datei": ""
+  },
+  "annahme.sollzins": {
+   "blatt": "Eingaben",
+   "zelle": "F42",
+   "datei": ""
+  },
+  "kern.liegenschaftszins_jahr35.A": {
+   "blatt": "Übersicht",
+   "zelle": "D106",
+   "datei": ""
+  },
+  "annahme.gesamtnutzungsdauer": {
+   "blatt": "Tabellen",
+   "zelle": "D33",
+   "datei": ""
+  },
+  "annahme.veraeusserungskosten": {
+   "blatt": "Eingaben",
+   "zelle": "F46",
+   "datei": ""
+  },
+  "n5.gesamtkosten.A": {
+   "blatt": "Konzepte",
+   "zelle": "D52",
+   "datei": ""
+  },
+  "n5.zuschuss.A": {
+   "blatt": "Konzepte",
+   "zelle": "D53",
+   "datei": ""
+  },
+  "n5.darlehen_nbank.A": {
+   "blatt": "Konzepte",
+   "zelle": "D54",
+   "datei": ""
+  },
+  "kern.eigenmittel.A": {
+   "blatt": "Übersicht",
+   "zelle": "D19",
+   "datei": ""
+  },
+  "n5.bearbeitungsentgelte.A": {
+   "blatt": "Konzepte",
+   "zelle": "D57",
+   "datei": ""
+  },
+  "n5.miete_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D49",
+   "datei": ""
+  },
+  "n5.zuschuss.B": {
+   "blatt": "Konzepte",
+   "zelle": "E53",
+   "datei": ""
+  },
+  "n5.darlehen_nbank.B": {
+   "blatt": "Konzepte",
+   "zelle": "E54",
+   "datei": ""
+  },
+  "kern.eigenmittel.B": {
+   "blatt": "Übersicht",
+   "zelle": "E19",
+   "datei": ""
+  },
+  "n5.bearbeitungsentgelte.B": {
+   "blatt": "Konzepte",
+   "zelle": "E57",
+   "datei": ""
+  },
+  "n5.miete_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E49",
+   "datei": ""
+  },
+  "n5.zuschuss.C": {
+   "blatt": "Konzepte",
+   "zelle": "F53",
+   "datei": ""
+  },
+  "n5.darlehen_nbank.C": {
+   "blatt": "Konzepte",
+   "zelle": "F54",
+   "datei": ""
+  },
+  "kern.eigenmittel.C": {
+   "blatt": "Übersicht",
+   "zelle": "F19",
+   "datei": ""
+  },
+  "n5.bearbeitungsentgelte.C": {
+   "blatt": "Konzepte",
+   "zelle": "F57",
+   "datei": ""
+  },
+  "n5.miete_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F49",
+   "datei": ""
+  },
+  "kern.eigenmittel.frei_markt": {
+   "blatt": "Übersicht",
+   "zelle": "G19",
+   "datei": ""
+  },
+  "n5.miete_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H49",
+   "datei": ""
+  },
+  "n2.marktmiete_jahr1": {
+   "blatt": "Konzepte",
+   "zelle": "D13",
+   "datei": ""
+  },
+  "n5.gesamtkosten.B": {
+   "blatt": "Konzepte",
+   "zelle": "E52",
+   "datei": ""
+  },
+  "n5.gesamtkosten.C": {
+   "blatt": "Konzepte",
+   "zelle": "F52",
+   "datei": ""
+  },
+  "n5.gesamtkosten.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H52",
+   "datei": ""
+  },
+  "n5.eigenkapital.B": {
+   "blatt": "Konzepte",
+   "zelle": "E56",
+   "datei": ""
+  },
+  "n5.eigenkapital.C": {
+   "blatt": "Konzepte",
+   "zelle": "F56",
+   "datei": ""
+  },
+  "n5.eigenkapital.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H56",
+   "datei": ""
+  }
+ },
+ "blatt10": {
+  "n5.zue_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D61",
+   "datei": ""
+  },
+  "n5.zue_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E61",
+   "datei": ""
+  },
+  "n5.zue_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F61",
+   "datei": ""
+  },
+  "n5.zue_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H61",
+   "datei": ""
+  },
+  "kern.sollmiete.A": {
+   "blatt": "Übersicht",
+   "zelle": "D29",
+   "datei": ""
+  },
+  "kern.sollmiete.B": {
+   "blatt": "Übersicht",
+   "zelle": "E29",
+   "datei": ""
+  },
+  "kern.sollmiete.C": {
+   "blatt": "Übersicht",
+   "zelle": "F29",
+   "datei": ""
+  },
+  "team2:jr1.frei_dscr.sollmiete": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "E7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "kern.mietausfall.A": {
+   "blatt": "Übersicht",
+   "zelle": "D30",
+   "datei": ""
+  },
+  "kern.mietausfall.B": {
+   "blatt": "Übersicht",
+   "zelle": "E30",
+   "datei": ""
+  },
+  "kern.mietausfall.C": {
+   "blatt": "Übersicht",
+   "zelle": "F30",
+   "datei": ""
+  },
+  "team2:jr1.frei_dscr.mietausfall": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "F7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "kern.objektverwaltung.A": {
+   "blatt": "Übersicht",
+   "zelle": "D31",
+   "datei": ""
+  },
+  "kern.objektverwaltung.B": {
+   "blatt": "Übersicht",
+   "zelle": "E31",
+   "datei": ""
+  },
+  "kern.objektverwaltung.C": {
+   "blatt": "Übersicht",
+   "zelle": "F31",
+   "datei": ""
+  },
+  "team2:jr1.frei_dscr.objektverwaltung": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "G7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "kern.instandhaltung.A": {
+   "blatt": "Übersicht",
+   "zelle": "D32",
+   "datei": ""
+  },
+  "kern.instandhaltung.B": {
+   "blatt": "Übersicht",
+   "zelle": "E32",
+   "datei": ""
+  },
+  "kern.instandhaltung.C": {
+   "blatt": "Übersicht",
+   "zelle": "F32",
+   "datei": ""
+  },
+  "team2:jr1.frei_dscr.instandhaltung": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "H7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "n5.uevk_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D59",
+   "datei": ""
+  },
+  "n5.uevk_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E59",
+   "datei": ""
+  },
+  "n5.uevk_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F59",
+   "datei": ""
+  },
+  "n5.uevk_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H59",
+   "datei": ""
+  },
+  "kern.verwaltungskostenbeitrag.A": {
+   "blatt": "Übersicht",
+   "zelle": "D34",
+   "datei": ""
+  },
+  "kern.verwaltungskostenbeitrag.B": {
+   "blatt": "Übersicht",
+   "zelle": "E34",
+   "datei": ""
+  },
+  "kern.verwaltungskostenbeitrag.C": {
+   "blatt": "Übersicht",
+   "zelle": "F34",
+   "datei": ""
+  },
+  "kern.zins_nbank.A": {
+   "blatt": "Übersicht",
+   "zelle": "D35",
+   "datei": ""
+  },
+  "kern.zins_nbank.B": {
+   "blatt": "Übersicht",
+   "zelle": "E35",
+   "datei": ""
+  },
+  "kern.zins_nbank.C": {
+   "blatt": "Übersicht",
+   "zelle": "F35",
+   "datei": ""
+  },
+  "team2:jr1.frei_dscr.zins": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "J7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "kern.tilgung_nbank.A": {
+   "blatt": "Übersicht",
+   "zelle": "D36",
+   "datei": ""
+  },
+  "kern.tilgung_nbank.B": {
+   "blatt": "Übersicht",
+   "zelle": "E36",
+   "datei": ""
+  },
+  "kern.tilgung_nbank.C": {
+   "blatt": "Übersicht",
+   "zelle": "F36",
+   "datei": ""
+  },
+  "team2:jr1.frei_dscr.tilgung": {
+   "blatt": "Frei DSCR 1,2",
+   "zelle": "K7",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "n5.kapitaldienst_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D60",
+   "datei": ""
+  },
+  "n5.kapitaldienst_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E60",
+   "datei": ""
+  },
+  "n5.kapitaldienst_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F60",
+   "datei": ""
+  },
+  "n5.kapitaldienst_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H60",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D62",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E62",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F62",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H62",
+   "datei": ""
+  },
+  "n5.bearbeitungsentgelte.A": {
+   "blatt": "Konzepte",
+   "zelle": "D57",
+   "datei": ""
+  },
+  "n5.bearbeitungsentgelte.B": {
+   "blatt": "Konzepte",
+   "zelle": "E57",
+   "datei": ""
+  },
+  "n5.bearbeitungsentgelte.C": {
+   "blatt": "Konzepte",
+   "zelle": "F57",
+   "datei": ""
+  },
+  "n5.miete_dscr_ziel.A": {
+   "blatt": "Konzepte",
+   "zelle": "D50",
+   "datei": ""
+  },
+  "n5.miete_dscr_ziel.B": {
+   "blatt": "Konzepte",
+   "zelle": "E50",
+   "datei": ""
+  },
+  "n5.miete_dscr_ziel.C": {
+   "blatt": "Konzepte",
+   "zelle": "F50",
+   "datei": ""
+  },
+  "n5.miete_dscr_ziel.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H50",
+   "datei": ""
+  },
+  "n3.hoechstmiete.A": {
+   "blatt": "Konzepte",
+   "zelle": "D19",
+   "datei": ""
+  },
+  "n3.hoechstmiete.B": {
+   "blatt": "Konzepte",
+   "zelle": "E19",
+   "datei": ""
+  },
+  "n3.hoechstmiete.C": {
+   "blatt": "Konzepte",
+   "zelle": "F19",
+   "datei": ""
+  },
+  "n2.marktmiete_jahr1": {
+   "blatt": "Konzepte",
+   "zelle": "D13",
+   "datei": ""
+  },
+  "n2.kapitaldienst_bank_jahr1": {
+   "blatt": "Konzepte",
+   "zelle": "D10",
+   "datei": ""
+  },
+  "n2.bewirtschaftung_jahr1": {
+   "blatt": "Konzepte",
+   "zelle": "D11",
+   "datei": ""
+  },
+  "annahme.mietausfall": {
+   "blatt": "Eingaben",
+   "zelle": "F29",
+   "datei": ""
+  },
+  "annahme.dscr_ziel_mappe": {
+   "blatt": "Eingaben",
+   "zelle": "F54",
+   "datei": ""
+  },
+  "annahme.wohnflaeche": {
+   "blatt": "Eingaben",
+   "zelle": "F8",
+   "datei": ""
+  },
+  "team2:kdam.frei_markt": {
+   "blatt": "Übersicht",
+   "zelle": "G112",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  },
+  "n2.miete_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "D12",
+   "datei": ""
+  },
+  "n3.jahre_dscr_unter_ziel.C": {
+   "blatt": "Konzepte",
+   "zelle": "F26",
+   "datei": ""
+  },
+  "n3.dscr_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F21",
+   "datei": ""
+  },
+  "zr.dscr.C": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "Z7:Z48",
+   "datei": ""
+  }
+ },
+ "blatt11": {
+  "team2:t2.jahr_frei.A": {
+   "blatt": "Team 2",
+   "zelle": "C49",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.jahr_frei.B": {
+   "blatt": "Team 2",
+   "zelle": "D49",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.jahr_frei.C": {
+   "blatt": "Team 2",
+   "zelle": "E49",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.jahr_frei.frei_dscr": {
+   "blatt": "Team 2",
+   "zelle": "G49",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "zr.zue.A": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "F7:F48",
+   "datei": ""
+  },
+  "zr.zue.B": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "O7:O48",
+   "datei": ""
+  },
+  "zr.zue.C": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "X7:X48",
+   "datei": ""
+  },
+  "zr.zue.frei_dscr": {
+   "blatt": "Konzepte Zeitreihe",
+   "zelle": "AP7:AP48",
+   "datei": ""
+  },
+  "team2:t2.gebunden.A": {
+   "blatt": "Team 2",
+   "zelle": "C6:C48",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.gebunden.B": {
+   "blatt": "Team 2",
+   "zelle": "D6:D48",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.gebunden.C": {
+   "blatt": "Team 2",
+   "zelle": "E6:E48",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.gebunden.frei_dscr": {
+   "blatt": "Team 2",
+   "zelle": "G6:G48",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "n5.dscr_jahr1.A": {
+   "blatt": "Konzepte",
+   "zelle": "D62",
+   "datei": ""
+  },
+  "n5.dscr_min_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D71",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.B": {
+   "blatt": "Konzepte",
+   "zelle": "E62",
+   "datei": ""
+  },
+  "n5.dscr_min_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E71",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.C": {
+   "blatt": "Konzepte",
+   "zelle": "F62",
+   "datei": ""
+  },
+  "n5.dscr_min_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F71",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H62",
+   "datei": ""
+  },
+  "n5.dscr_min_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H71",
+   "datei": ""
+  },
+  "n5.jahre_dscr_unter_ziel.A": {
+   "blatt": "Konzepte",
+   "zelle": "D73",
+   "datei": ""
+  },
+  "n5.jahre_dscr_unter_ziel.B": {
+   "blatt": "Konzepte",
+   "zelle": "E73",
+   "datei": ""
+  },
+  "n5.jahre_dscr_unter_ziel.C": {
+   "blatt": "Konzepte",
+   "zelle": "F73",
+   "datei": ""
+  },
+  "n5.jahre_dscr_unter_ziel.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H73",
+   "datei": ""
+  },
+  "n5.objektrendite.A": {
+   "blatt": "Konzepte",
+   "zelle": "D87",
+   "datei": ""
+  },
+  "n5.objektrendite_nach_zuschuss.A": {
+   "blatt": "Konzepte",
+   "zelle": "D88",
+   "datei": ""
+  },
+  "n5.objektrendite.B": {
+   "blatt": "Konzepte",
+   "zelle": "E87",
+   "datei": ""
+  },
+  "n5.objektrendite_nach_zuschuss.B": {
+   "blatt": "Konzepte",
+   "zelle": "E88",
+   "datei": ""
+  },
+  "n5.objektrendite.C": {
+   "blatt": "Konzepte",
+   "zelle": "F87",
+   "datei": ""
+  },
+  "n5.objektrendite_nach_zuschuss.C": {
+   "blatt": "Konzepte",
+   "zelle": "F88",
+   "datei": ""
+  },
+  "n5.objektrendite.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H87",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D82",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D81",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E82",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E81",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F82",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F81",
+   "datei": ""
+  },
+  "n5.ek_vofi_ohne_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H82",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H81",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D75",
+   "datei": ""
+  },
+  "n5.restwert_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D76",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E75",
+   "datei": ""
+  },
+  "n5.restwert_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E76",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F75",
+   "datei": ""
+  },
+  "n5.restwert_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F76",
+   "datei": ""
+  },
+  "n5.restschuld_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H75",
+   "datei": ""
+  },
+  "n5.restwert_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H76",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D78",
+   "datei": ""
+  },
+  "n5.restwertanteil.A": {
+   "blatt": "Konzepte",
+   "zelle": "D83",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E78",
+   "datei": ""
+  },
+  "n5.restwertanteil.B": {
+   "blatt": "Konzepte",
+   "zelle": "E83",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F78",
+   "datei": ""
+  },
+  "n5.restwertanteil.C": {
+   "blatt": "Konzepte",
+   "zelle": "F83",
+   "datei": ""
+  },
+  "n5.vermoegen_jahr35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H78",
+   "datei": ""
+  },
+  "n5.restwertanteil.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H83",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.miete_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H49",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.miete_jahr1.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H49",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.jahre_dscr_unter_ziel.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H73",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D68",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E68",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F68",
+   "datei": ""
+  },
+  "n5.jahre_fehlbetrag_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H68",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.jahre_fehlbetrag_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D68",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.jahre_fehlbetrag_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E68",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.jahre_fehlbetrag_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F68",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.jahre_fehlbetrag_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H68",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.ek_vofi_mit_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D81",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.ek_vofi_mit_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E81",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.ek_vofi_mit_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F81",
+   "datei": ""
+  },
+  "tilgung_2_90:n6.tilgung_2_90.ek_vofi_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H81",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.jahre_fehlbetrag_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D68",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.jahre_fehlbetrag_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E68",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.jahre_fehlbetrag_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F68",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.jahre_fehlbetrag_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H68",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.ek_vofi_mit_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D81",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.ek_vofi_mit_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E81",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.ek_vofi_mit_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F81",
+   "datei": ""
+  },
+  "tilgung_3_65:n6.tilgung_3_65.ek_vofi_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H81",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.jahre_fehlbetrag_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D68",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.jahre_fehlbetrag_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E68",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.jahre_fehlbetrag_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F68",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.jahre_fehlbetrag_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H68",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.ek_vofi_mit_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D81",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.ek_vofi_mit_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E81",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.ek_vofi_mit_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F81",
+   "datei": ""
+  },
+  "kosten_4631:n6.kosten_4631.ek_vofi_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H81",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.jahre_fehlbetrag_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D68",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.jahre_fehlbetrag_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E68",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.jahre_fehlbetrag_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F68",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.jahre_fehlbetrag_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H68",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.ek_vofi_mit_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D81",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.ek_vofi_mit_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E81",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.ek_vofi_mit_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F81",
+   "datei": ""
+  },
+  "kosten_5460:n6.kosten_5460.ek_vofi_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H81",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.jahre_fehlbetrag_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D68",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.jahre_fehlbetrag_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E68",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.jahre_fehlbetrag_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F68",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.jahre_fehlbetrag_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H68",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_mit_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D81",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_mit_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E81",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_mit_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F81",
+   "datei": ""
+  },
+  "mietanpassung_gefoerdert_0:n6.mietanpassung_gefoerdert_0.ek_vofi_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H81",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.jahre_fehlbetrag_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D68",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.jahre_fehlbetrag_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E68",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.jahre_fehlbetrag_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F68",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.jahre_fehlbetrag_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H68",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_mit_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D81",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_mit_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E81",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_mit_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F81",
+   "datei": ""
+  },
+  "mietsteigerung_0:n6.mietsteigerung_0.ek_vofi_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H81",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.jahre_fehlbetrag_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D68",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.jahre_fehlbetrag_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E68",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.jahre_fehlbetrag_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F68",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.jahre_fehlbetrag_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H68",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.ek_vofi_mit_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D81",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.ek_vofi_mit_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E81",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.ek_vofi_mit_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F81",
+   "datei": ""
+  },
+  "anschlusszins_plus_1:n6.anschlusszins_plus_1.ek_vofi_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H81",
+   "datei": ""
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.jahre_fehlbetrag_1_35.A": {
+   "blatt": "Konzepte",
+   "zelle": "D68",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.jahre_fehlbetrag_1_35.B": {
+   "blatt": "Konzepte",
+   "zelle": "E68",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.jahre_fehlbetrag_1_35.C": {
+   "blatt": "Konzepte",
+   "zelle": "F68",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.jahre_fehlbetrag_1_35.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H68",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.ek_vofi_mit_restwert.A": {
+   "blatt": "Konzepte",
+   "zelle": "D81",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.ek_vofi_mit_restwert.B": {
+   "blatt": "Konzepte",
+   "zelle": "E81",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.ek_vofi_mit_restwert.C": {
+   "blatt": "Konzepte",
+   "zelle": "F81",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "liegenschaftszins_plus_0_60:r1.liegenschaftszins_plus_0_60.ek_vofi_mit_restwert.frei_dscr": {
+   "blatt": "Konzepte",
+   "zelle": "H81",
+   "datei": "konzepte/team-2/mappe/laeufe/liegenschaftszins_plus_0_60.xlsx"
+  },
+  "n5.jahre_fehlbetrag_1_35.frei_markt": {
+   "blatt": "Konzepte",
+   "zelle": "G68",
+   "datei": ""
+  },
+  "n5.ek_vofi_mit_restwert.frei_markt": {
+   "blatt": "Konzepte",
+   "zelle": "G81",
+   "datei": ""
+  },
+  "n5.dscr_jahr1.frei_markt": {
+   "blatt": "Konzepte",
+   "zelle": "G62",
+   "datei": ""
+  },
+  "team2:t2.markt_dscr.darlehen_max": {
+   "blatt": "Team 2",
+   "zelle": "C59",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:t2.markt_dscr.mehr_ek": {
+   "blatt": "Team 2",
+   "zelle": "C61",
+   "datei": "konzepte/team-2/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team2.xlsx"
+  },
+  "team2:tilgungsschwelle.C": {
+   "blatt": "Übersicht",
+   "zelle": "F64",
+   "datei": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx"
+  }
+ }
+}

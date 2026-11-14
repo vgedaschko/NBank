@@ -577,302 +577,307 @@ Jede Zahl, die in den Folien, der Broschürenskizze und im Fazit vorkommen soll.
 | 558 | F28 Fazit | 1 Ausgangslage: Aufschlag auf die Marktmiete | 19 % | ganze % | 0.190789 | Konzepte!D14 | Konzepte-Mappe |
 | 559 | F28 Fazit | 2 Programmteil 2.1: Förderung (Darlehen + Zuschuss) | 2,4 Mio. € | 0,1 Mio. € | 2.37073e+06 | Übersicht!D15 | Konzepte-Mappe |
 | 560 | F28 Fazit | 2 Programmteil 2.1: Zuschuss bis | 40 % | ganze % | 0.4 | Tabellen!D6 | Konzepte-Mappe |
-| 561 | F28 Fazit | 2 Programmteil 2.1: zinsfreie Jahre | 35 | ganze Zahl | 35 | Tabellen!D20 | Konzepte-Mappe |
-| 562 | F28 Fazit | 2 Programmteil 2.1: Höchstmiete Mietenstufe VI, A | 6,80 € | 0,01 € | 6.8 | Tabellen!D14 | Konzepte-Mappe |
-| 563 | F28 Fazit | 2 Programmteil 2.1: Höchstmiete Mietenstufe VI, B | 8,20 € | 0,01 € | 8.2 | Tabellen!E14 | Konzepte-Mappe |
-| 564 | F28 Fazit | 2 Programmteil 2.1: Höchstmiete Mietenstufe VI, C | 9,00 € | 0,01 € | 9 | Tabellen!F14 | Konzepte-Mappe |
-| 565 | F28 Fazit | 3 Modellrechnung: Kapitaldienst Jahr 1, A | 34.150 € | ganze € | 34149.8 | Konzepte!D60 | Konzepte-Mappe |
-| 566 | F28 Fazit | 3 Modellrechnung: Kapitaldienst Jahr 1, frei | 134.779 € | ganze € | 134779 | Konzepte!H60 | Konzepte-Mappe |
-| 567 | F28 Fazit | 3 Modellrechnung: Zahlungsüberschuss Jahr 1, A | 15.003 € | ganze € | 15002.5 | Konzepte!D61 | Konzepte-Mappe |
-| 568 | F28 Fazit | 3 Modellrechnung: Zahlungsüberschuss Jahr 1, B | 11.560 € | ganze € | 11559.8 | Konzepte!E61 | Konzepte-Mappe |
-| 569 | F28 Fazit | 3 Modellrechnung: Zahlungsüberschuss Jahr 1, C | 10.812 € | ganze € | 10812.2 | Konzepte!F61 | Konzepte-Mappe |
-| 570 | F28 Fazit | 3 Modellrechnung: Jahre mit Fehlbetrag, A | 0 | ganze Zahl | 0 | Konzepte!D68 | Konzepte-Mappe |
-| 571 | F28 Fazit | 3 Modellrechnung: Jahre mit Fehlbetrag, B | 0 | ganze Zahl | 0 | Konzepte!E68 | Konzepte-Mappe |
-| 572 | F28 Fazit | 3 Modellrechnung: Jahre mit Fehlbetrag, C | 0 | ganze Zahl | 0 | Konzepte!F68 | Konzepte-Mappe |
-| 573 | F28 Fazit | 3 Modellrechnung: Eigenkapital zurück in Jahr, A | 23 | ganze Zahl | 23 | Konzepte!D67 | Konzepte-Mappe |
-| 574 | F28 Fazit | 3 Modellrechnung: Eigenkapital zurück in Jahr, B | 23 | ganze Zahl | 23 | Konzepte!E67 | Konzepte-Mappe |
-| 575 | F28 Fazit | 3 Modellrechnung: Eigenkapital zurück in Jahr, C | 22 | ganze Zahl | 22 | Konzepte!F67 | Konzepte-Mappe |
-| 576 | F28 Fazit | 3 Modellrechnung: Eigenkapitalrendite mit Restwert, A | 7,05 % | 0,01 % | 0.0704541 | Konzepte!D81 | Konzepte-Mappe |
-| 577 | F28 Fazit | 3 Modellrechnung: Eigenkapitalrendite mit Restwert, C | 7,40 % | 0,01 % | 0.0739967 | Konzepte!F81 | Konzepte-Mappe |
-| 578 | F28 Fazit | 3 Modellrechnung: Eigenkapitalrendite ohne Restwert, A | 2,58 % | 0,01 % | 0.0257691 | Konzepte!D82 | Konzepte-Mappe |
-| 579 | F28 Fazit | 3 Modellrechnung: Eigenkapitalrendite ohne Restwert, C | 2,75 % | 0,01 % | 0.0274717 | Konzepte!F82 | Konzepte-Mappe |
-| 580 | F28 Fazit | 4 Umsetzung: Eigenmittel mindestens | 592.682 € | ganze € | 592682 | Übersicht!D19 | Konzepte-Mappe |
-| 581 | F28 Fazit | 4 Umsetzung: Bearbeitungsentgelte A einmalig | 20.744 € | ganze € | 20743.9 | Konzepte!D57 | Konzepte-Mappe |
-| 582 | F28 Fazit | 4 Umsetzung: Bemessungsgrenze | 5.460 € | ganze € | 5460 | Tabellen!C14 | Konzepte-Mappe |
-| 583 | F28 Fazit | Ergebniszeile: Eigenkapitalrendite mit Restwert, frei, frei (18,36 €) | 8,93 % | 0,01 % | 0.089285 | Konzepte!H81 | Konzepte-Mappe |
-| 584 | F28 Fazit | Ergebniszeile: frei ohne Mietsteigerung, Eigenkapitalrendite | 5,81 % | 0,01 % | 0.0581256 | Konzepte!H81 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 585 | F28 Fazit | 4 Umsetzung: Herstellungskosten, bis zu denen A sich trägt | rund 5.150 € | auf 10 € abgerundet | 5151.31 | Konzepte!D155 | Team-1-Mappe |
-| 586 | F28 Fazit | 4 Umsetzung: Herstellungskosten Modellhaus | 3.579 € | ganze € | 3579 | Eingaben!F11 | Konzepte-Mappe |
-| 587 | F28 Fazit | Mietmarke: Miete frei finanziert für DSCR 1,2 | 18,36 € | 0,01 € | 18.362 | Konzepte!H49 | Konzepte-Mappe |
-| 588 | F28 Fazit | Mietmarke: Marktmiete Jahr 1 | 15,42 € | 0,01 € | 15.42 | Eingaben!F25 | Konzepte-Mappe |
-| 589 | A6 Rechenweg Miete für DSCR 1,2 | DSCR-Ziel | 1,20 | 0,01 | 1.2 | Konzepte!D6 | Konzepte-Mappe |
-| 590 | A6 Rechenweg Miete für DSCR 1,2 | Kapitaldienst Jahr 1, A | 34.150 € | ganze € | 34149.8 | Konzepte!D60 | Konzepte-Mappe |
-| 591 | A6 Rechenweg Miete für DSCR 1,2 | Kapitaldienst Jahr 1, B | 51.225 € | ganze € | 51224.7 | Konzepte!E60 | Konzepte-Mappe |
-| 592 | A6 Rechenweg Miete für DSCR 1,2 | Kapitaldienst Jahr 1, C | 59.762 € | ganze € | 59762.1 | Konzepte!F60 | Konzepte-Mappe |
-| 593 | A6 Rechenweg Miete für DSCR 1,2 | Kapitaldienst Jahr 1, frei (18,36 €) | 134.779 € | ganze € | 134779 | Konzepte!H60 | Konzepte-Mappe |
-| 594 | A6 Rechenweg Miete für DSCR 1,2 | Objektverwaltung + Instandhaltung Jahr 1 (alle Varianten gleich) | 17.061 € | ganze € | 17061.2 | Konzepte!D11 | Konzepte-Mappe |
-| 595 | A6 Rechenweg Miete für DSCR 1,2 | Mietausfall | 2 % | ganze % | 0.02 | Eingaben!F29 | Konzepte-Mappe |
-| 596 | A6 Rechenweg Miete für DSCR 1,2 | Wohnfläche | 828 | ganze Zahl | 828 | Eingaben!F8 | Konzepte-Mappe |
-| 597 | A6 Rechenweg Miete für DSCR 1,2 | Ergebnis: Miete für DSCR 1,2, A | 5,96 € | 0,01 € | 5.96069 | Konzepte!D50 | Konzepte-Mappe |
-| 598 | A6 Rechenweg Miete für DSCR 1,2 | Ergebnis: Miete für DSCR 1,2, B | 8,06 € | 0,01 € | 8.06497 | Konzepte!E50 | Konzepte-Mappe |
-| 599 | A6 Rechenweg Miete für DSCR 1,2 | Ergebnis: Miete für DSCR 1,2, C | 9,12 € | 0,01 € | 9.1171 | Konzepte!F50 | Konzepte-Mappe |
-| 600 | A6 Rechenweg Miete für DSCR 1,2 | Ergebnis: Miete für DSCR 1,2, frei (18,36 €) | 18,36 € | 0,01 € | 18.362 | Konzepte!H50 | Konzepte-Mappe |
-| 601 | A6 Rechenweg Miete für DSCR 1,2 | Gegenprobe DSCR zur Miete für DSCR 1,2, A | 1,20 | 0,01 | 1.2 | Konzepte!D27 | Konzepte-Mappe |
-| 602 | A6 Rechenweg Miete für DSCR 1,2 | Gegenprobe DSCR zur Miete für DSCR 1,2, B | 1,20 | 0,01 | 1.2 | Konzepte!E27 | Konzepte-Mappe |
-| 603 | A6 Rechenweg Miete für DSCR 1,2 | Gegenprobe DSCR zur Miete für DSCR 1,2, C | 1,20 | 0,01 | 1.2 | Konzepte!F27 | Konzepte-Mappe |
-| 604 | A6 Rechenweg Miete für DSCR 1,2 | Gegenprobe DSCR frei | 1,20 | 0,01 | 1.2 | Konzepte!D15 | Konzepte-Mappe |
-| 605 | A6 Rechenweg Miete für DSCR 1,2 | Mietmarke: Miete frei finanziert für DSCR 1,2 | 18,36 € | 0,01 € | 18.362 | Konzepte!H49 | Konzepte-Mappe |
-| 606 | A6 Rechenweg Miete für DSCR 1,2 | Mietmarke: Marktmiete Jahr 1 | 15,42 € | 0,01 € | 15.42 | Eingaben!F25 | Konzepte-Mappe |
-| 607 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Zahlungsüberschuss Jahr 1, A | 8.850 € | ganze € | 8849.9 | Konzepte!D61 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 608 | A7 Risiken im Einzelnen | Tilgung 2,90 %: DSCR Minimum, A | 1,21 | 0,01 | 1.21283 | Konzepte!D71 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 609 | A7 Risiken im Einzelnen | Tilgung 2,90 %: tiefster Stand Projektkonto, A | 0 € | ganze € | 0 | Konzepte!D70 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 610 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Eigenkapitalrendite ohne Restwert, A | 2,44 % | 0,01 % | 0.0243808 | Konzepte!D82 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 611 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Jahre DSCR unter 1,2, A | 0 | ganze Zahl | 0 | Konzepte!D73 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 612 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Zahlungsüberschuss Jahr 1, B | 2.331 € | ganze € | 2330.89 | Konzepte!E61 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 613 | A7 Risiken im Einzelnen | Tilgung 2,90 %: DSCR Minimum, B | 1,04 | 0,01 | 1.03599 | Konzepte!E71 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 614 | A7 Risiken im Einzelnen | Tilgung 2,90 %: tiefster Stand Projektkonto, B | 0 € | ganze € | 0 | Konzepte!E70 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 615 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Eigenkapitalrendite ohne Restwert, B | 2,40 % | 0,01 % | 0.0240007 | Konzepte!E82 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 616 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Jahre DSCR unter 1,2, B | 8 | ganze Zahl | 8 | Konzepte!E73 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 617 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Zahlungsüberschuss Jahr 1, C | 45 € | ganze € | 45.1144 | Konzepte!F61 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 618 | A7 Risiken im Einzelnen | Tilgung 2,90 %: DSCR Minimum, C | 1,00 | 0,01 | 0.999391 | Konzepte!F71 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 619 | A7 Risiken im Einzelnen | Tilgung 2,90 %: tiefster Stand Projektkonto, C | 0 € | ganze € | 0 | Konzepte!F70 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 620 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Eigenkapitalrendite ohne Restwert, C | 2,51 % | 0,01 % | 0.0251484 | Konzepte!F82 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 621 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Jahre DSCR unter 1,2, C | 9 | ganze Zahl | 9 | Konzepte!F73 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 622 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 26.956 € | ganze € | 26955.7 | Konzepte!H61 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 623 | A7 Risiken im Einzelnen | Tilgung 2,90 %: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 624 | A7 Risiken im Einzelnen | Tilgung 2,90 %: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 625 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,32 % | 0,01 % | 0.0631984 | Konzepte!H82 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 626 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
-| 627 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Zahlungsüberschuss Jahr 1, A | −40 € | ganze € | -40.3352 | Konzepte!D61 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 628 | A7 Risiken im Einzelnen | Tilgung 3,65 %: DSCR Minimum, A | 0,99 | 0,01 | 0.99391 | Konzepte!D71 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 629 | A7 Risiken im Einzelnen | Tilgung 3,65 %: tiefster Stand Projektkonto, A | −515 € | ganze € | -514.911 | Konzepte!D70 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 630 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Eigenkapitalrendite ohne Restwert, A | 2,26 % | 0,01 % | 0.0226258 | Konzepte!D82 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 631 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Jahre DSCR unter 1,2, A | 9 | ganze Zahl | 9 | Konzepte!D73 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 632 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Zahlungsüberschuss Jahr 1, B | −11.004 € | ganze € | -11004.5 | Konzepte!E61 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 633 | A7 Risiken im Einzelnen | Tilgung 3,65 %: DSCR Minimum, B | 0,85 | 0,01 | 0.848992 | Konzepte!E71 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 634 | A7 Risiken im Einzelnen | Tilgung 3,65 %: tiefster Stand Projektkonto, B | −72.823 € | ganze € | -72823.2 | Konzepte!E70 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 635 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Eigenkapitalrendite ohne Restwert, B | 2,03 % | 0,01 % | 0.0202996 | Konzepte!E82 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 636 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Jahre DSCR unter 1,2, B | 15 | ganze Zahl | 15 | Konzepte!E73 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 637 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Zahlungsüberschuss Jahr 1, C | −15.513 € | ganze € | -15512.8 | Konzepte!F61 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 638 | A7 Risiken im Einzelnen | Tilgung 3,65 %: DSCR Minimum, C | 0,82 | 0,01 | 0.818998 | Konzepte!F71 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 639 | A7 Risiken im Einzelnen | Tilgung 3,65 %: tiefster Stand Projektkonto, C | −128.266 € | ganze € | -128266 | Konzepte!F70 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 640 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Eigenkapitalrendite ohne Restwert, C | 2,01 % | 0,01 % | 0.0200766 | Konzepte!F82 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 641 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Jahre DSCR unter 1,2, C | 18 | ganze Zahl | 18 | Konzepte!F73 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 642 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 26.956 € | ganze € | 26955.7 | Konzepte!H61 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 643 | A7 Risiken im Einzelnen | Tilgung 3,65 %: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 644 | A7 Risiken im Einzelnen | Tilgung 3,65 %: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 645 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,32 % | 0,01 % | 0.0631984 | Konzepte!H82 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 646 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
-| 647 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Zahlungsüberschuss Jahr 1, A | 4.965 € | ganze € | 4964.63 | Konzepte!D61 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 648 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: DSCR Minimum, A | 1,11 | 0,01 | 1.10589 | Konzepte!D71 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 649 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: tiefster Stand Projektkonto, A | 0 € | ganze € | 0 | Konzepte!D70 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 650 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Eigenkapitalrendite ohne Restwert, A | 0,56 % | 0,01 % | 0.00561864 | Konzepte!D82 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 651 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Jahre DSCR unter 1,2, A | 6 | ganze Zahl | 6 | Konzepte!D73 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 652 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Zahlungsüberschuss Jahr 1, B | −3.497 € | ganze € | -3497.02 | Konzepte!E61 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 653 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: DSCR Minimum, B | 0,94 | 0,01 | 0.944648 | Konzepte!E71 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 654 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: tiefster Stand Projektkonto, B | −11.237 € | ganze € | -11236.6 | Konzepte!E70 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 655 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Eigenkapitalrendite ohne Restwert, B | −0,29 % | 0,01 % | -0.00293553 | Konzepte!E82 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 656 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Jahre DSCR unter 1,2, B | 12 | ganze Zahl | 12 | Konzepte!E73 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 657 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Zahlungsüberschuss Jahr 1, C | −6.754 € | ganze € | -6754.12 | Konzepte!F61 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 658 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: DSCR Minimum, C | 0,91 | 0,01 | 0.911274 | Konzepte!F71 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 659 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: tiefster Stand Projektkonto, C | −29.442 € | ganze € | -29441.9 | Konzepte!F70 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 660 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Eigenkapitalrendite ohne Restwert, C | −0,57 % | 0,01 % | -0.00565638 | Konzepte!F82 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 661 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Jahre DSCR unter 1,2, C | 12 | ganze Zahl | 12 | Konzepte!F73 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 662 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 34.879 € | ganze € | 34879 | Konzepte!H61 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 663 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 664 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 665 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,32 % | 0,01 % | 0.0631984 | Konzepte!H82 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 666 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
-| 667 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Zahlungsüberschuss Jahr 1, A | −2.945 € | ganze € | -2945.46 | Konzepte!D61 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 668 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: DSCR Minimum, A | 0,94 | 0,01 | 0.937984 | Konzepte!D71 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 669 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: tiefster Stand Projektkonto, A | −9.677 € | ganze € | -9676.5 | Konzepte!D70 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 670 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Eigenkapitalrendite ohne Restwert, A | −1,53 % | 0,01 % | -0.0152711 | Konzepte!D82 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 671 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Jahre DSCR unter 1,2, A | 12 | ganze Zahl | 12 | Konzepte!D73 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 672 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Zahlungsüberschuss Jahr 1, B | −15.362 € | ganze € | -15362.1 | Konzepte!E61 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 673 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: DSCR Minimum, B | 0,80 | 0,01 | 0.80122 | Konzepte!E71 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 674 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: tiefster Stand Projektkonto, B | −145.957 € | ganze € | -145957 | Konzepte!E70 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 675 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Eigenkapitalrendite ohne Restwert, B | n. v. | 0,01 % | n. v. | Konzepte!E82 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 676 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Jahre DSCR unter 1,2, B | 18 | ganze Zahl | 18 | Konzepte!E73 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 677 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Zahlungsüberschuss Jahr 1, C | −20.597 € | ganze € | -20596.8 | Konzepte!F61 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 678 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: DSCR Minimum, C | 0,77 | 0,01 | 0.772914 | Konzepte!F71 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 679 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: tiefster Stand Projektkonto, C | −239.781 € | ganze € | -239781 | Konzepte!F70 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 680 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Eigenkapitalrendite ohne Restwert, C | n. v. | 0,01 % | n. v. | Konzepte!F82 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 681 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Jahre DSCR unter 1,2, C | 21 | ganze Zahl | 21 | Konzepte!F73 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 682 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 41.123 € | ganze € | 41122.7 | Konzepte!H61 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 683 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 684 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 685 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,32 % | 0,01 % | 0.0631984 | Konzepte!H82 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 686 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
-| 687 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Zahlungsüberschuss Jahr 1, A | 15.003 € | ganze € | 15002.5 | Konzepte!D61 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 688 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: DSCR Minimum, A | 1,12 | 0,01 | 1.11618 | Konzepte!D71 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 689 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: tiefster Stand Projektkonto, A | 0 € | ganze € | 0 | Konzepte!D70 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 690 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Eigenkapitalrendite ohne Restwert, A | −1,67 % | 0,01 % | -0.0166825 | Konzepte!D82 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 691 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Jahre DSCR unter 1,2, A | 6 | ganze Zahl | 6 | Konzepte!D73 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 692 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Zahlungsüberschuss Jahr 1, B | 11.560 € | ganze € | 11559.8 | Konzepte!E61 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 693 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: DSCR Minimum, B | 1,05 | 0,01 | 1.05375 | Konzepte!E71 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 694 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: tiefster Stand Projektkonto, B | 0 € | ganze € | 0 | Konzepte!E70 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 695 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Eigenkapitalrendite ohne Restwert, B | −4,51 % | 0,01 % | -0.0450621 | Konzepte!E82 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 696 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Jahre DSCR unter 1,2, B | 24 | ganze Zahl | 24 | Konzepte!E73 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 697 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Zahlungsüberschuss Jahr 1, C | 10.812 € | ganze € | 10812.2 | Konzepte!F61 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 698 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: DSCR Minimum, C | 1,05 | 0,01 | 1.05487 | Konzepte!F71 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 699 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: tiefster Stand Projektkonto, C | 0 € | ganze € | 0 | Konzepte!F70 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 700 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Eigenkapitalrendite ohne Restwert, C | −6,34 % | 0,01 % | -0.0634278 | Konzepte!F82 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 701 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Jahre DSCR unter 1,2, C | 35 | ganze Zahl | 35 | Konzepte!F73 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 702 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 26.956 € | ganze € | 26955.7 | Konzepte!H61 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 703 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 704 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 705 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,32 % | 0,01 % | 0.0631984 | Konzepte!H82 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 706 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| 707 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Zahlungsüberschuss Jahr 1, A | 15.003 € | ganze € | 15002.5 | Konzepte!D61 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 708 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: DSCR Minimum, A | 1,43 | 0,01 | 1.43096 | Konzepte!D71 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 709 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: tiefster Stand Projektkonto, A | 0 € | ganze € | 0 | Konzepte!D70 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 710 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Eigenkapitalrendite ohne Restwert, A | 2,57 % | 0,01 % | 0.0256945 | Konzepte!D82 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 711 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Jahre DSCR unter 1,2, A | 0 | ganze Zahl | 0 | Konzepte!D73 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 712 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Zahlungsüberschuss Jahr 1, B | 11.560 € | ganze € | 11559.8 | Konzepte!E61 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 713 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: DSCR Minimum, B | 1,22 | 0,01 | 1.22231 | Konzepte!E71 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 714 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: tiefster Stand Projektkonto, B | 0 € | ganze € | 0 | Konzepte!E70 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 715 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Eigenkapitalrendite ohne Restwert, B | 2,27 % | 0,01 % | 0.0226971 | Konzepte!E82 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 716 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Jahre DSCR unter 1,2, B | 0 | ganze Zahl | 0 | Konzepte!E73 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 717 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Zahlungsüberschuss Jahr 1, C | 10.812 € | ganze € | 10812.2 | Konzepte!F61 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 718 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: DSCR Minimum, C | 1,18 | 0,01 | 1.17913 | Konzepte!F71 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 719 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: tiefster Stand Projektkonto, C | 0 € | ganze € | 0 | Konzepte!F70 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 720 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Eigenkapitalrendite ohne Restwert, C | 2,00 % | 0,01 % | 0.0199958 | Konzepte!F82 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 721 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Jahre DSCR unter 1,2, C | 3 | ganze Zahl | 3 | Konzepte!F73 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 722 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 26.956 € | ganze € | 26955.7 | Konzepte!H61 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 723 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: DSCR Minimum, frei (18,36 €) | 1,10 | 0,01 | 1.10179 | Konzepte!H71 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 724 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 725 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 3,11 % | 0,01 % | 0.0310998 | Konzepte!H82 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 726 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Jahre DSCR unter 1,2, frei (18,36 €) | 29 | ganze Zahl | 29 | Konzepte!H73 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
-| 727 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Zahlungsüberschuss Jahr 1, A | 15.003 € | ganze € | 15002.5 | Konzepte!D61 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 728 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: DSCR Minimum, A | 1,43 | 0,01 | 1.43096 | Konzepte!D71 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 729 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: tiefster Stand Projektkonto, A | 0 € | ganze € | 0 | Konzepte!D70 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 730 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Eigenkapitalrendite ohne Restwert, A | 2,58 % | 0,01 % | 0.0257691 | Konzepte!D82 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 731 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Jahre DSCR unter 1,2, A | 0 | ganze Zahl | 0 | Konzepte!D73 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 732 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Zahlungsüberschuss Jahr 1, B | 11.560 € | ganze € | 11559.8 | Konzepte!E61 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 733 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: DSCR Minimum, B | 1,22 | 0,01 | 1.22231 | Konzepte!E71 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 734 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: tiefster Stand Projektkonto, B | 0 € | ganze € | 0 | Konzepte!E70 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 735 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Eigenkapitalrendite ohne Restwert, B | 2,61 % | 0,01 % | 0.0260804 | Konzepte!E82 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 736 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Jahre DSCR unter 1,2, B | 0 | ganze Zahl | 0 | Konzepte!E73 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 737 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Zahlungsüberschuss Jahr 1, C | 10.812 € | ganze € | 10812.2 | Konzepte!F61 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 738 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: DSCR Minimum, C | 1,18 | 0,01 | 1.17913 | Konzepte!F71 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 739 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: tiefster Stand Projektkonto, C | 0 € | ganze € | 0 | Konzepte!F70 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 740 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Eigenkapitalrendite ohne Restwert, C | 2,75 % | 0,01 % | 0.0274717 | Konzepte!F82 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 741 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Jahre DSCR unter 1,2, C | 3 | ganze Zahl | 3 | Konzepte!F73 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 742 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 26.956 € | ganze € | 26955.7 | Konzepte!H61 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 743 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 744 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 745 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,12 % | 0,01 % | 0.0611565 | Konzepte!H82 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 746 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
-| 747 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Zahlungsüberschuss Jahr 1, A | 15.003 € | ganze € | 15002.5 | Konzepte!D61 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 748 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: DSCR Minimum, A | 1,43 | 0,01 | 1.43096 | Konzepte!D71 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 749 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: tiefster Stand Projektkonto, A | 0 € | ganze € | 0 | Konzepte!D70 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 750 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Eigenkapitalrendite ohne Restwert, A | 2,58 % | 0,01 % | 0.0257691 | Konzepte!D82 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 751 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Jahre DSCR unter 1,2, A | 0 | ganze Zahl | 0 | Konzepte!D73 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 752 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Zahlungsüberschuss Jahr 1, B | 11.560 € | ganze € | 11559.8 | Konzepte!E61 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 753 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: DSCR Minimum, B | 1,22 | 0,01 | 1.22231 | Konzepte!E71 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 754 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: tiefster Stand Projektkonto, B | 0 € | ganze € | 0 | Konzepte!E70 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 755 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Eigenkapitalrendite ohne Restwert, B | 2,61 % | 0,01 % | 0.0260804 | Konzepte!E82 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 756 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Jahre DSCR unter 1,2, B | 0 | ganze Zahl | 0 | Konzepte!E73 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 757 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Zahlungsüberschuss Jahr 1, C | 10.812 € | ganze € | 10812.2 | Konzepte!F61 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 758 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: DSCR Minimum, C | 1,18 | 0,01 | 1.17913 | Konzepte!F71 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 759 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: tiefster Stand Projektkonto, C | 0 € | ganze € | 0 | Konzepte!F70 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 760 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Eigenkapitalrendite ohne Restwert, C | 2,75 % | 0,01 % | 0.0274717 | Konzepte!F82 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 761 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Jahre DSCR unter 1,2, C | 3 | ganze Zahl | 3 | Konzepte!F73 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 762 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 26.956 € | ganze € | 26955.7 | Konzepte!H61 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 763 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 764 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 765 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,50 % | 0,01 % | 0.0650317 | Konzepte!H82 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 766 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
-| 767 | A7 Risiken im Einzelnen | Mietmarke: Miete frei finanziert für DSCR 1,2 | 18,36 € | 0,01 € | 18.362 | Konzepte!H49 | Konzepte-Mappe |
-| 768 | A7 Risiken im Einzelnen | Mietmarke: Marktmiete Jahr 1 | 15,42 € | 0,01 € | 15.42 | Eingaben!F25 | Konzepte-Mappe |
-| 769 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 55 | 0,00 % | 0,01 % | 0 | Übersicht!B55 | Konzepte-Mappe (über werte_team.json) |
-| 770 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 55, A | 43.225 € | ganze € | 43225.5 | Übersicht!D55 | Konzepte-Mappe (über werte_team.json) |
-| 771 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 55, B | 53.894 € | ganze € | 53894.3 | Übersicht!E55 | Konzepte-Mappe (über werte_team.json) |
-| 772 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 55, C | 60.202 € | ganze € | 60202.4 | Übersicht!F55 | Konzepte-Mappe (über werte_team.json) |
-| 773 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 56 | 1,00 % | 0,01 % | 0.01 | Übersicht!B56 | Konzepte-Mappe (über werte_team.json) |
-| 774 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 56, A | 31.372 € | ganze € | 31371.8 | Übersicht!D56 | Konzepte-Mappe (über werte_team.json) |
-| 775 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 56, B | 36.114 € | ganze € | 36113.8 | Übersicht!E56 | Konzepte-Mappe (über werte_team.json) |
-| 776 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 56, C | 39.458 € | ganze € | 39458.5 | Übersicht!F56 | Konzepte-Mappe (über werte_team.json) |
-| 777 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 57 | 1,50 % | 0,01 % | 0.015 | Übersicht!B57 | Konzepte-Mappe (über werte_team.json) |
-| 778 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 57, A | 25.445 € | ganze € | 25445 | Übersicht!D57 | Konzepte-Mappe (über werte_team.json) |
-| 779 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 57, B | 27.224 € | ganze € | 27223.6 | Übersicht!E57 | Konzepte-Mappe (über werte_team.json) |
-| 780 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 57, C | 29.087 € | ganze € | 29086.6 | Übersicht!F57 | Konzepte-Mappe (über werte_team.json) |
-| 781 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 58 | 2,00 % | 0,01 % | 0.02 | Übersicht!B58 | Konzepte-Mappe (über werte_team.json) |
-| 782 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 58, A | 19.518 € | ganze € | 19518.2 | Übersicht!D58 | Konzepte-Mappe (über werte_team.json) |
-| 783 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 58, B | 18.333 € | ganze € | 18333.3 | Übersicht!E58 | Konzepte-Mappe (über werte_team.json) |
-| 784 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 58, C | 18.715 € | ganze € | 18714.6 | Übersicht!F58 | Konzepte-Mappe (über werte_team.json) |
-| 785 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 59 | 2,38 % | 0,01 % | 0.0238095 | Übersicht!B59 | Konzepte-Mappe (über werte_team.json) |
-| 786 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 59, A | 15.003 € | ganze € | 15002.5 | Übersicht!D59 | Konzepte-Mappe (über werte_team.json) |
-| 787 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 59, B | 11.560 € | ganze € | 11559.8 | Übersicht!E59 | Konzepte-Mappe (über werte_team.json) |
-| 788 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 59, C | 10.812 € | ganze € | 10812.2 | Übersicht!F59 | Konzepte-Mappe (über werte_team.json) |
-| 789 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 60 | 2,50 % | 0,01 % | 0.025 | Übersicht!B60 | Konzepte-Mappe (über werte_team.json) |
-| 790 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 60, A | 13.591 € | ganze € | 13591.4 | Übersicht!D60 | Konzepte-Mappe (über werte_team.json) |
-| 791 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 60, B | 9.443 € | ganze € | 9443.08 | Übersicht!E60 | Konzepte-Mappe (über werte_team.json) |
-| 792 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 60, C | 8.343 € | ganze € | 8342.67 | Übersicht!F60 | Konzepte-Mappe (über werte_team.json) |
-| 793 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 61 | 3,00 % | 0,01 % | 0.03 | Übersicht!B61 | Konzepte-Mappe (über werte_team.json) |
-| 794 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 61, A | 7.665 € | ganze € | 7664.54 | Übersicht!D61 | Konzepte-Mappe (über werte_team.json) |
-| 795 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 61, B | 553 € | ganze € | 552.844 | Übersicht!E61 | Konzepte-Mappe (über werte_team.json) |
-| 796 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 61, C | −2.029 € | ganze € | -2029.27 | Übersicht!F61 | Konzepte-Mappe (über werte_team.json) |
-| 797 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 62 | 2,38 % | 0,01 % | 0.0238095 | Übersicht!B62 | Konzepte-Mappe (über werte_team.json) |
-| 798 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 62, A | 15.003 € | ganze € | 15002.5 | Übersicht!D62 | Konzepte-Mappe (über werte_team.json) |
-| 799 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 62, B | 11.560 € | ganze € | 11559.8 | Übersicht!E62 | Konzepte-Mappe (über werte_team.json) |
-| 800 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 62, C | 10.812 € | ganze € | 10812.2 | Übersicht!F62 | Konzepte-Mappe (über werte_team.json) |
-| 801 | A8 Tilgungssatz | Tilgungssatz, bei dem der Zahlungsüberschuss null ist, A | 3,65 % | 0,01 % | 0.036466 | Übersicht!D49 | Konzepte-Mappe |
-| 802 | A8 Tilgungssatz | Tilgungssatz, bei dem der Zahlungsüberschuss null ist, B | 3,03 % | 0,01 % | 0.0303109 | Übersicht!E49 | Konzepte-Mappe |
-| 803 | A8 Tilgungssatz | Tilgungssatz, bei dem der Zahlungsüberschuss null ist, C | 2,90 % | 0,01 % | 0.0290217 | Übersicht!F49 | Konzepte-Mappe |
-| 804 | A8 Tilgungssatz | Schwelle C gegenüber A | 1,91 % | 0,01 % | 0.0190961 | Übersicht!F64 | Konzepte-Mappe (über werte_team.json) |
-| 805 | A9 Tilgungsschwelle (heute A7) | Schwelle B gegenüber A, 3.579 € | 1,80 % | 0,01 % | 0.0180008 | Übersicht!E63 | Konzepte-Mappe (über werte_team.json) |
-| 806 | A9 Tilgungsschwelle (heute A7) | Schwelle C gegenüber A, 3.579 € | 1,91 % | 0,01 % | 0.0190961 | Übersicht!F64 | Konzepte-Mappe (über werte_team.json) |
-| 807 | A9 Tilgungsschwelle (heute A7) | Schwelle B gegenüber A, kosten_4631 | 1,28 % | 0,01 % | 0.0127759 | Übersicht!E63 | Lauf kosten_4631 |
-| 808 | A9 Tilgungsschwelle (heute A7) | Schwelle C gegenüber A, kosten_4631 | 1,36 % | 0,01 % | 0.0136223 | Übersicht!F64 | Lauf kosten_4631 |
-| 809 | A9 Tilgungsschwelle (heute A7) | Schwelle B gegenüber A, kosten_5460 | 1,01 % | 0,01 % | 0.0100769 | Übersicht!E63 | Lauf kosten_5460 |
-| 810 | A9 Tilgungsschwelle (heute A7) | Schwelle C gegenüber A, kosten_5460 | 1,08 % | 0,01 % | 0.0107949 | Übersicht!F64 | Lauf kosten_5460 |
-| 811 | A11 Nach der Bindung | Zins NBank-Darlehen ab Jahr 36 | 3,86 % | 0,01 % | 0.0386 | Eingaben!F19 | Konzepte-Mappe |
-| 812 | A11 Nach der Bindung | Kappungsgrenze nach Bindungsende | 20 % | ganze % | 0.2 | Eingaben!F27 | Konzepte-Mappe |
-| 813 | A11 Nach der Bindung | Restschuld Ende Jahr 35, A | 197.561 € | ganze € | 197561 | Konzepte!D75 | Konzepte-Mappe |
-| 814 | A11 Nach der Bindung | Restschuld Ende Jahr 35, B | 296.341 € | ganze € | 296341 | Konzepte!E75 | Konzepte-Mappe |
-| 815 | A11 Nach der Bindung | Restschuld Ende Jahr 35, C | 345.731 € | ganze € | 345731 | Konzepte!F75 | Konzepte-Mappe |
-| 816 | A11 Nach der Bindung | Restschuld Ende Jahr 35, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H75 | Konzepte-Mappe |
-| 817 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 35, A | 64.860 € | ganze € | 64860.1 | Konzepte Zeitreihe!F41 | Konzepte-Mappe |
-| 818 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 36, A | 56.706 € | ganze € | 56706.3 | Konzepte Zeitreihe!F42 | Konzepte-Mappe |
-| 819 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 37, A | 82.787 € | ganze € | 82787.1 | Konzepte Zeitreihe!F43 | Konzepte-Mappe |
-| 820 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 42, A | 115.957 € | ganze € | 115957 | Konzepte Zeitreihe!F48 | Konzepte-Mappe |
-| 821 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 35, B | 76.468 € | ganze € | 76467.8 | Konzepte Zeitreihe!O41 | Konzepte-Mappe |
-| 822 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 36, B | 64.572 € | ganze € | 64571.6 | Konzepte Zeitreihe!O42 | Konzepte-Mappe |
-| 823 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 37, B | 96.524 € | ganze € | 96524.4 | Konzepte Zeitreihe!O43 | Konzepte-Mappe |
-| 824 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 42, B | 139.078 € | ganze € | 139078 | Konzepte Zeitreihe!O48 | Konzepte-Mappe |
-| 825 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 35, C | 84.149 € | ganze € | 84149 | Konzepte Zeitreihe!X41 | Konzepte-Mappe |
-| 826 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 36, C | 70.382 € | ganze € | 70381.7 | Konzepte Zeitreihe!X42 | Konzepte-Mappe |
-| 827 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 37, C | 105.646 € | ganze € | 105646 | Konzepte Zeitreihe!X43 | Konzepte-Mappe |
-| 828 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 42, C | 153.343 € | ganze € | 153343 | Konzepte Zeitreihe!X48 | Konzepte-Mappe |
-| 829 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 35, frei (18,36 €) | 317.109 € | ganze € | 317109 | Konzepte Zeitreihe!AP41 | Konzepte-Mappe |
-| 830 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 36, frei (18,36 €) | 323.451 € | ganze € | 323451 | Konzepte Zeitreihe!AP42 | Konzepte-Mappe |
-| 831 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 37, frei (18,36 €) | 329.920 € | ganze € | 329920 | Konzepte Zeitreihe!AP43 | Konzepte-Mappe |
-| 832 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 42, frei (18,36 €) | 364.258 € | ganze € | 364258 | Konzepte Zeitreihe!AP48 | Konzepte-Mappe |
-| 833 | A11 Nach der Bindung | Zahlungsüberschuss Summe Jahr 36–42, A | 653.081 € | ganze € | 653081 | Konzepte!D91 | Konzepte-Mappe |
-| 834 | A11 Nach der Bindung | Zahlungsüberschuss Summe Jahr 36–42, B | 771.524 € | ganze € | 771524 | Konzepte!E91 | Konzepte-Mappe |
-| 835 | A11 Nach der Bindung | Zahlungsüberschuss Summe Jahr 36–42, C | 847.491 € | ganze € | 847491 | Konzepte!F91 | Konzepte-Mappe |
-| 836 | A11 Nach der Bindung | Zahlungsüberschuss Summe Jahr 36–42, frei (18,36 €) | 2.404.625 € | ganze € | 2.40463e+06 | Konzepte!H91 | Konzepte-Mappe |
-| 837 | A11 Nach der Bindung | Jahre mit Fehlbetrag Jahr 36–42, A | 0 | ganze Zahl | 0 | Konzepte!D92 | Konzepte-Mappe |
-| 838 | A11 Nach der Bindung | Jahre mit Fehlbetrag Jahr 36–42, B | 0 | ganze Zahl | 0 | Konzepte!E92 | Konzepte-Mappe |
-| 839 | A11 Nach der Bindung | Jahre mit Fehlbetrag Jahr 36–42, C | 0 | ganze Zahl | 0 | Konzepte!F92 | Konzepte-Mappe |
-| 840 | A11 Nach der Bindung | Jahre mit Fehlbetrag Jahr 36–42, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H92 | Konzepte-Mappe |
-| 841 | A11 Nach der Bindung | Restschuld Ende Jahr 42, A | 0 € | ganze € | 0 | Konzepte!D93 | Konzepte-Mappe |
-| 842 | A11 Nach der Bindung | Restschuld Ende Jahr 42, B | 0 € | ganze € | 0 | Konzepte!E93 | Konzepte-Mappe |
-| 843 | A11 Nach der Bindung | Restschuld Ende Jahr 42, C | 0 € | ganze € | 0 | Konzepte!F93 | Konzepte-Mappe |
-| 844 | A11 Nach der Bindung | Restschuld Ende Jahr 42, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H93 | Konzepte-Mappe |
-| 845 | A11 Nach der Bindung | Vermögen Ende Jahr 42, A | 8,89 Mio. € | 0,01 Mio. € | 8.888e+06 | Konzepte!D94 | Konzepte-Mappe |
-| 846 | A11 Nach der Bindung | Vermögen Ende Jahr 42, B | 9,60 Mio. € | 0,01 Mio. € | 9.60245e+06 | Konzepte!E94 | Konzepte-Mappe |
-| 847 | A11 Nach der Bindung | Vermögen Ende Jahr 42, C | 9,99 Mio. € | 0,01 Mio. € | 9.9851e+06 | Konzepte!F94 | Konzepte-Mappe |
-| 848 | A11 Nach der Bindung | Vermögen Ende Jahr 42, frei (18,36 €) | 15,57 Mio. € | 0,01 Mio. € | 1.55736e+07 | Konzepte!H94 | Konzepte-Mappe |
-| 849 | A11 Nach der Bindung | Eigenkapitalrendite mit Restwert, Horizont Jahr 42, A | 6,57 % | 0,01 % | 0.0657218 | Konzepte!D95 | Konzepte-Mappe |
-| 850 | A11 Nach der Bindung | Eigenkapitalrendite mit Restwert, Horizont Jahr 42, B | 6,76 % | 0,01 % | 0.0676241 | Konzepte!E95 | Konzepte-Mappe |
-| 851 | A11 Nach der Bindung | Eigenkapitalrendite mit Restwert, Horizont Jahr 42, C | 6,86 % | 0,01 % | 0.0685872 | Konzepte!F95 | Konzepte-Mappe |
-| 852 | A11 Nach der Bindung | Eigenkapitalrendite mit Restwert, Horizont Jahr 42, frei (18,36 €) | 8,09 % | 0,01 % | 0.0809341 | Konzepte!H95 | Konzepte-Mappe |
-| 853 | A11 Nach der Bindung | Eigenkapitalrendite ohne Restwert, Horizont Jahr 42, A | 3,53 % | 0,01 % | 0.0352804 | Konzepte!D96 | Konzepte-Mappe |
-| 854 | A11 Nach der Bindung | Eigenkapitalrendite ohne Restwert, Horizont Jahr 42, B | 3,75 % | 0,01 % | 0.0375484 | Konzepte!E96 | Konzepte-Mappe |
-| 855 | A11 Nach der Bindung | Eigenkapitalrendite ohne Restwert, Horizont Jahr 42, C | 3,94 % | 0,01 % | 0.0393574 | Konzepte!F96 | Konzepte-Mappe |
-| 856 | A11 Nach der Bindung | Eigenkapitalrendite ohne Restwert, Horizont Jahr 42, frei (18,36 €) | 6,51 % | 0,01 % | 0.0650545 | Konzepte!H96 | Konzepte-Mappe |
-| 857 | A11 Nach der Bindung | Mietmarke: Miete frei finanziert für DSCR 1,2 | 18,36 € | 0,01 € | 18.362 | Konzepte!H49 | Konzepte-Mappe |
-| 858 | A11 Nach der Bindung | Mietmarke: Marktmiete Jahr 1 | 15,42 € | 0,01 € | 15.42 | Eingaben!F25 | Konzepte-Mappe |
-| 859 | Broschüre Blatt 9 bis 11 | alle Zahlen der Skizze | wie Folien 14 bis 24 | wie dort |  | siehe Folien | – |
+| 561 | F28 Fazit | 2 Programmteil 2.1: Darlehen A (Kennzahl 80 % = Darlehen + Zuschuss, Tabellen!D5 + D6) | 40 % | ganze % | 0.4 | Tabellen!D5 | Konzepte-Mappe |
+| 562 | F28 Fazit | 2 Programmteil 2.1: Gesamtkosten (Label „von 3,0 Mio. €“) | 3,0 Mio. € | 0,1 Mio. € | 2963412 | Konzepte!D52 | Konzepte-Mappe |
+| 563 | F28 Fazit | 2 Programmteil 2.1: zinsfreie Jahre | 35 | ganze Zahl | 35 | Tabellen!D20 | Konzepte-Mappe |
+| 564 | F28 Fazit | 2 Programmteil 2.1: Höchstmiete Mietenstufe VI, A | 6,80 € | 0,01 € | 6.8 | Tabellen!D14 | Konzepte-Mappe |
+| 565 | F28 Fazit | 2 Programmteil 2.1: Höchstmiete Mietenstufe VI, B | 8,20 € | 0,01 € | 8.2 | Tabellen!E14 | Konzepte-Mappe |
+| 566 | F28 Fazit | 2 Programmteil 2.1: Höchstmiete Mietenstufe VI, C | 9,00 € | 0,01 € | 9 | Tabellen!F14 | Konzepte-Mappe |
+| 567 | F28 Fazit | 3 Modellrechnung: Kapitaldienst Jahr 1, A | 34.150 € | ganze € | 34149.8 | Konzepte!D60 | Konzepte-Mappe |
+| 568 | F28 Fazit | 3 Modellrechnung: Kapitaldienst Jahr 1, frei | 134.779 € | ganze € | 134779 | Konzepte!H60 | Konzepte-Mappe |
+| 569 | F28 Fazit | 3 Modellrechnung: Zahlungsüberschuss Jahr 1, A | 15.003 € | ganze € | 15002.5 | Konzepte!D61 | Konzepte-Mappe |
+| 570 | F28 Fazit | 3 Modellrechnung: Zahlungsüberschuss Jahr 1, B | 11.560 € | ganze € | 11559.8 | Konzepte!E61 | Konzepte-Mappe |
+| 571 | F28 Fazit | 3 Modellrechnung: Zahlungsüberschuss Jahr 1, C | 10.812 € | ganze € | 10812.2 | Konzepte!F61 | Konzepte-Mappe |
+| 572 | F28 Fazit | 3 Modellrechnung: Jahre mit Fehlbetrag, A | 0 | ganze Zahl | 0 | Konzepte!D68 | Konzepte-Mappe |
+| 573 | F28 Fazit | 3 Modellrechnung: Jahre mit Fehlbetrag, B | 0 | ganze Zahl | 0 | Konzepte!E68 | Konzepte-Mappe |
+| 574 | F28 Fazit | 3 Modellrechnung: Jahre mit Fehlbetrag, C | 0 | ganze Zahl | 0 | Konzepte!F68 | Konzepte-Mappe |
+| 575 | F28 Fazit | 3 Modellrechnung: Eigenkapital zurück in Jahr, A | 23 | ganze Zahl | 23 | Konzepte!D67 | Konzepte-Mappe |
+| 576 | F28 Fazit | 3 Modellrechnung: Eigenkapital zurück in Jahr, B | 23 | ganze Zahl | 23 | Konzepte!E67 | Konzepte-Mappe |
+| 577 | F28 Fazit | 3 Modellrechnung: Eigenkapital zurück in Jahr, C | 22 | ganze Zahl | 22 | Konzepte!F67 | Konzepte-Mappe |
+| 578 | F28 Fazit | 3 Modellrechnung: Eigenkapitalrendite mit Restwert, A | 7,05 % | 0,01 % | 0.0704541 | Konzepte!D81 | Konzepte-Mappe |
+| 579 | F28 Fazit | 3 Modellrechnung: Eigenkapitalrendite mit Restwert, C | 7,40 % | 0,01 % | 0.0739967 | Konzepte!F81 | Konzepte-Mappe |
+| 580 | F28 Fazit | 3 Modellrechnung: Eigenkapitalrendite ohne Restwert, A | 2,58 % | 0,01 % | 0.0257691 | Konzepte!D82 | Konzepte-Mappe |
+| 581 | F28 Fazit | 3 Modellrechnung: Eigenkapitalrendite ohne Restwert, C | 2,75 % | 0,01 % | 0.0274717 | Konzepte!F82 | Konzepte-Mappe |
+| 582 | F28 Fazit | 4 Umsetzung: Eigenmittel mindestens | 592.682 € | ganze € | 592682 | Übersicht!D19 | Konzepte-Mappe |
+| 583 | F28 Fazit | 4 Umsetzung: Bearbeitungsentgelte A einmalig | 20.744 € | ganze € | 20743.9 | Konzepte!D57 | Konzepte-Mappe |
+| 584 | F28 Fazit | 4 Umsetzung: Bemessungsgrenze | 5.460 € | ganze € | 5460 | Tabellen!C14 | Konzepte-Mappe |
+| 585 | F28 Fazit | Ergebniszeile: Eigenkapitalrendite mit Restwert, frei, frei (18,36 €) | 8,93 % | 0,01 % | 0.089285 | Konzepte!H81 | Konzepte-Mappe |
+| 586 | F28 Fazit | Ergebniszeile: frei ohne Mietsteigerung, Eigenkapitalrendite | 5,81 % | 0,01 % | 0.0581256 | Konzepte!H81 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 587 | F28 Fazit | Ergebniszeile: gefördert ohne Mieterhöhung, Eigenkapitalrendite, A | 5,08 % | 0,01 % | 0.0508135 | Konzepte!D81 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 588 | F28 Fazit | Ergebniszeile: gefördert ohne Mieterhöhung, Eigenkapitalrendite, B | 5,37 % | 0,01 % | 0.053698 | Konzepte!E81 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 589 | F28 Fazit | Ergebniszeile: gefördert ohne Mieterhöhung, Eigenkapitalrendite, C | 5,54 % | 0,01 % | 0.0554307 | Konzepte!F81 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 590 | F28 Fazit | 4 Umsetzung: Herstellungskosten, bis zu denen A sich trägt | rund 5.150 € | auf 50 € gerundet | 5151.31 | Konzepte!D155 | Team-1-Mappe |
+| 591 | F28 Fazit | 4 Umsetzung: Herstellungskosten Modellhaus | 3.579 € | ganze € | 3579 | Eingaben!F11 | Konzepte-Mappe |
+| 592 | F28 Fazit | Mietmarke: Miete frei finanziert für DSCR 1,2 | 18,36 € | 0,01 € | 18.362 | Konzepte!H49 | Konzepte-Mappe |
+| 593 | F28 Fazit | Mietmarke: Marktmiete Jahr 1 | 15,42 € | 0,01 € | 15.42 | Eingaben!F25 | Konzepte-Mappe |
+| 594 | A6 Rechenweg Miete für DSCR 1,2 | DSCR-Ziel | 1,20 | 0,01 | 1.2 | Konzepte!D6 | Konzepte-Mappe |
+| 595 | A6 Rechenweg Miete für DSCR 1,2 | Kapitaldienst Jahr 1, A | 34.150 € | ganze € | 34149.8 | Konzepte!D60 | Konzepte-Mappe |
+| 596 | A6 Rechenweg Miete für DSCR 1,2 | Kapitaldienst Jahr 1, B | 51.225 € | ganze € | 51224.7 | Konzepte!E60 | Konzepte-Mappe |
+| 597 | A6 Rechenweg Miete für DSCR 1,2 | Kapitaldienst Jahr 1, C | 59.762 € | ganze € | 59762.1 | Konzepte!F60 | Konzepte-Mappe |
+| 598 | A6 Rechenweg Miete für DSCR 1,2 | Kapitaldienst Jahr 1, frei (18,36 €) | 134.779 € | ganze € | 134779 | Konzepte!H60 | Konzepte-Mappe |
+| 599 | A6 Rechenweg Miete für DSCR 1,2 | Objektverwaltung + Instandhaltung Jahr 1 (alle Varianten gleich) | 17.061 € | ganze € | 17061.2 | Konzepte!D11 | Konzepte-Mappe |
+| 600 | A6 Rechenweg Miete für DSCR 1,2 | Mietausfall | 2 % | ganze % | 0.02 | Eingaben!F29 | Konzepte-Mappe |
+| 601 | A6 Rechenweg Miete für DSCR 1,2 | Wohnfläche | 828 | ganze Zahl | 828 | Eingaben!F8 | Konzepte-Mappe |
+| 602 | A6 Rechenweg Miete für DSCR 1,2 | Ergebnis: Miete für DSCR 1,2, A | 5,96 € | 0,01 € | 5.96069 | Konzepte!D50 | Konzepte-Mappe |
+| 603 | A6 Rechenweg Miete für DSCR 1,2 | Ergebnis: Miete für DSCR 1,2, B | 8,06 € | 0,01 € | 8.06497 | Konzepte!E50 | Konzepte-Mappe |
+| 604 | A6 Rechenweg Miete für DSCR 1,2 | Ergebnis: Miete für DSCR 1,2, C | 9,12 € | 0,01 € | 9.1171 | Konzepte!F50 | Konzepte-Mappe |
+| 605 | A6 Rechenweg Miete für DSCR 1,2 | Ergebnis: Miete für DSCR 1,2, frei (18,36 €) | 18,36 € | 0,01 € | 18.362 | Konzepte!H50 | Konzepte-Mappe |
+| 606 | A6 Rechenweg Miete für DSCR 1,2 | Gegenprobe DSCR zur Miete für DSCR 1,2, A | 1,20 | 0,01 | 1.2 | Konzepte!D27 | Konzepte-Mappe |
+| 607 | A6 Rechenweg Miete für DSCR 1,2 | Gegenprobe DSCR zur Miete für DSCR 1,2, B | 1,20 | 0,01 | 1.2 | Konzepte!E27 | Konzepte-Mappe |
+| 608 | A6 Rechenweg Miete für DSCR 1,2 | Gegenprobe DSCR zur Miete für DSCR 1,2, C | 1,20 | 0,01 | 1.2 | Konzepte!F27 | Konzepte-Mappe |
+| 609 | A6 Rechenweg Miete für DSCR 1,2 | Gegenprobe DSCR frei | 1,20 | 0,01 | 1.2 | Konzepte!D15 | Konzepte-Mappe |
+| 610 | A6 Rechenweg Miete für DSCR 1,2 | Mietmarke: Miete frei finanziert für DSCR 1,2 | 18,36 € | 0,01 € | 18.362 | Konzepte!H49 | Konzepte-Mappe |
+| 611 | A6 Rechenweg Miete für DSCR 1,2 | Mietmarke: Marktmiete Jahr 1 | 15,42 € | 0,01 € | 15.42 | Eingaben!F25 | Konzepte-Mappe |
+| 612 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Zahlungsüberschuss Jahr 1, A | 8.850 € | ganze € | 8849.9 | Konzepte!D61 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 613 | A7 Risiken im Einzelnen | Tilgung 2,90 %: DSCR Minimum, A | 1,21 | 0,01 | 1.21283 | Konzepte!D71 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 614 | A7 Risiken im Einzelnen | Tilgung 2,90 %: tiefster Stand Projektkonto, A | 0 € | ganze € | 0 | Konzepte!D70 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 615 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Eigenkapitalrendite ohne Restwert, A | 2,44 % | 0,01 % | 0.0243808 | Konzepte!D82 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 616 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Jahre DSCR unter 1,2, A | 0 | ganze Zahl | 0 | Konzepte!D73 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 617 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Zahlungsüberschuss Jahr 1, B | 2.331 € | ganze € | 2330.89 | Konzepte!E61 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 618 | A7 Risiken im Einzelnen | Tilgung 2,90 %: DSCR Minimum, B | 1,04 | 0,01 | 1.03599 | Konzepte!E71 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 619 | A7 Risiken im Einzelnen | Tilgung 2,90 %: tiefster Stand Projektkonto, B | 0 € | ganze € | 0 | Konzepte!E70 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 620 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Eigenkapitalrendite ohne Restwert, B | 2,40 % | 0,01 % | 0.0240007 | Konzepte!E82 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 621 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Jahre DSCR unter 1,2, B | 8 | ganze Zahl | 8 | Konzepte!E73 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 622 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Zahlungsüberschuss Jahr 1, C | 45 € | ganze € | 45.1144 | Konzepte!F61 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 623 | A7 Risiken im Einzelnen | Tilgung 2,90 %: DSCR Minimum, C | 1,00 | 0,01 | 0.999391 | Konzepte!F71 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 624 | A7 Risiken im Einzelnen | Tilgung 2,90 %: tiefster Stand Projektkonto, C | 0 € | ganze € | 0 | Konzepte!F70 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 625 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Eigenkapitalrendite ohne Restwert, C | 2,51 % | 0,01 % | 0.0251484 | Konzepte!F82 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 626 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Jahre DSCR unter 1,2, C | 9 | ganze Zahl | 9 | Konzepte!F73 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 627 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 26.956 € | ganze € | 26955.7 | Konzepte!H61 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 628 | A7 Risiken im Einzelnen | Tilgung 2,90 %: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 629 | A7 Risiken im Einzelnen | Tilgung 2,90 %: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 630 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,32 % | 0,01 % | 0.0631984 | Konzepte!H82 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 631 | A7 Risiken im Einzelnen | Tilgung 2,90 %: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf tilgung_2_90 (laeufe/tilgung_2_90.xlsx) |
+| 632 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Zahlungsüberschuss Jahr 1, A | −40 € | ganze € | -40.3352 | Konzepte!D61 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 633 | A7 Risiken im Einzelnen | Tilgung 3,65 %: DSCR Minimum, A | 0,99 | 0,01 | 0.99391 | Konzepte!D71 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 634 | A7 Risiken im Einzelnen | Tilgung 3,65 %: tiefster Stand Projektkonto, A | −515 € | ganze € | -514.911 | Konzepte!D70 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 635 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Eigenkapitalrendite ohne Restwert, A | 2,26 % | 0,01 % | 0.0226258 | Konzepte!D82 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 636 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Jahre DSCR unter 1,2, A | 9 | ganze Zahl | 9 | Konzepte!D73 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 637 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Zahlungsüberschuss Jahr 1, B | −11.004 € | ganze € | -11004.5 | Konzepte!E61 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 638 | A7 Risiken im Einzelnen | Tilgung 3,65 %: DSCR Minimum, B | 0,85 | 0,01 | 0.848992 | Konzepte!E71 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 639 | A7 Risiken im Einzelnen | Tilgung 3,65 %: tiefster Stand Projektkonto, B | −72.823 € | ganze € | -72823.2 | Konzepte!E70 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 640 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Eigenkapitalrendite ohne Restwert, B | 2,03 % | 0,01 % | 0.0202996 | Konzepte!E82 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 641 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Jahre DSCR unter 1,2, B | 15 | ganze Zahl | 15 | Konzepte!E73 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 642 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Zahlungsüberschuss Jahr 1, C | −15.513 € | ganze € | -15512.8 | Konzepte!F61 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 643 | A7 Risiken im Einzelnen | Tilgung 3,65 %: DSCR Minimum, C | 0,82 | 0,01 | 0.818998 | Konzepte!F71 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 644 | A7 Risiken im Einzelnen | Tilgung 3,65 %: tiefster Stand Projektkonto, C | −128.266 € | ganze € | -128266 | Konzepte!F70 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 645 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Eigenkapitalrendite ohne Restwert, C | 2,01 % | 0,01 % | 0.0200766 | Konzepte!F82 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 646 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Jahre DSCR unter 1,2, C | 18 | ganze Zahl | 18 | Konzepte!F73 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 647 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 26.956 € | ganze € | 26955.7 | Konzepte!H61 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 648 | A7 Risiken im Einzelnen | Tilgung 3,65 %: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 649 | A7 Risiken im Einzelnen | Tilgung 3,65 %: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 650 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,32 % | 0,01 % | 0.0631984 | Konzepte!H82 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 651 | A7 Risiken im Einzelnen | Tilgung 3,65 %: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf tilgung_3_65 (laeufe/tilgung_3_65.xlsx) |
+| 652 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Zahlungsüberschuss Jahr 1, A | 4.965 € | ganze € | 4964.63 | Konzepte!D61 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 653 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: DSCR Minimum, A | 1,11 | 0,01 | 1.10589 | Konzepte!D71 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 654 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: tiefster Stand Projektkonto, A | 0 € | ganze € | 0 | Konzepte!D70 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 655 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Eigenkapitalrendite ohne Restwert, A | 0,56 % | 0,01 % | 0.00561864 | Konzepte!D82 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 656 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Jahre DSCR unter 1,2, A | 6 | ganze Zahl | 6 | Konzepte!D73 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 657 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Zahlungsüberschuss Jahr 1, B | −3.497 € | ganze € | -3497.02 | Konzepte!E61 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 658 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: DSCR Minimum, B | 0,94 | 0,01 | 0.944648 | Konzepte!E71 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 659 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: tiefster Stand Projektkonto, B | −11.237 € | ganze € | -11236.6 | Konzepte!E70 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 660 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Eigenkapitalrendite ohne Restwert, B | −0,29 % | 0,01 % | -0.00293553 | Konzepte!E82 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 661 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Jahre DSCR unter 1,2, B | 12 | ganze Zahl | 12 | Konzepte!E73 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 662 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Zahlungsüberschuss Jahr 1, C | −6.754 € | ganze € | -6754.12 | Konzepte!F61 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 663 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: DSCR Minimum, C | 0,91 | 0,01 | 0.911274 | Konzepte!F71 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 664 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: tiefster Stand Projektkonto, C | −29.442 € | ganze € | -29441.9 | Konzepte!F70 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 665 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Eigenkapitalrendite ohne Restwert, C | −0,57 % | 0,01 % | -0.00565638 | Konzepte!F82 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 666 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Jahre DSCR unter 1,2, C | 12 | ganze Zahl | 12 | Konzepte!F73 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 667 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 34.879 € | ganze € | 34879 | Konzepte!H61 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 668 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 669 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 670 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,32 % | 0,01 % | 0.0631984 | Konzepte!H82 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 671 | A7 Risiken im Einzelnen | Herstellungskosten 4.631 €: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf kosten_4631 (laeufe/kosten_4631.xlsx) |
+| 672 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Zahlungsüberschuss Jahr 1, A | −2.945 € | ganze € | -2945.46 | Konzepte!D61 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 673 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: DSCR Minimum, A | 0,94 | 0,01 | 0.937984 | Konzepte!D71 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 674 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: tiefster Stand Projektkonto, A | −9.677 € | ganze € | -9676.5 | Konzepte!D70 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 675 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Eigenkapitalrendite ohne Restwert, A | −1,53 % | 0,01 % | -0.0152711 | Konzepte!D82 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 676 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Jahre DSCR unter 1,2, A | 12 | ganze Zahl | 12 | Konzepte!D73 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 677 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Zahlungsüberschuss Jahr 1, B | −15.362 € | ganze € | -15362.1 | Konzepte!E61 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 678 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: DSCR Minimum, B | 0,80 | 0,01 | 0.80122 | Konzepte!E71 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 679 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: tiefster Stand Projektkonto, B | −145.957 € | ganze € | -145957 | Konzepte!E70 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 680 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Eigenkapitalrendite ohne Restwert, B | n. v. | 0,01 % | n. v. | Konzepte!E82 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 681 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Jahre DSCR unter 1,2, B | 18 | ganze Zahl | 18 | Konzepte!E73 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 682 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Zahlungsüberschuss Jahr 1, C | −20.597 € | ganze € | -20596.8 | Konzepte!F61 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 683 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: DSCR Minimum, C | 0,77 | 0,01 | 0.772914 | Konzepte!F71 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 684 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: tiefster Stand Projektkonto, C | −239.781 € | ganze € | -239781 | Konzepte!F70 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 685 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Eigenkapitalrendite ohne Restwert, C | n. v. | 0,01 % | n. v. | Konzepte!F82 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 686 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Jahre DSCR unter 1,2, C | 21 | ganze Zahl | 21 | Konzepte!F73 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 687 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 41.123 € | ganze € | 41122.7 | Konzepte!H61 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 688 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 689 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 690 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,32 % | 0,01 % | 0.0631984 | Konzepte!H82 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 691 | A7 Risiken im Einzelnen | Herstellungskosten 5.460 €: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf kosten_5460 (laeufe/kosten_5460.xlsx) |
+| 692 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Zahlungsüberschuss Jahr 1, A | 15.003 € | ganze € | 15002.5 | Konzepte!D61 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 693 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: DSCR Minimum, A | 1,12 | 0,01 | 1.11618 | Konzepte!D71 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 694 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: tiefster Stand Projektkonto, A | 0 € | ganze € | 0 | Konzepte!D70 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 695 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Eigenkapitalrendite ohne Restwert, A | −1,67 % | 0,01 % | -0.0166825 | Konzepte!D82 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 696 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Jahre DSCR unter 1,2, A | 6 | ganze Zahl | 6 | Konzepte!D73 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 697 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Zahlungsüberschuss Jahr 1, B | 11.560 € | ganze € | 11559.8 | Konzepte!E61 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 698 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: DSCR Minimum, B | 1,05 | 0,01 | 1.05375 | Konzepte!E71 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 699 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: tiefster Stand Projektkonto, B | 0 € | ganze € | 0 | Konzepte!E70 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 700 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Eigenkapitalrendite ohne Restwert, B | −4,51 % | 0,01 % | -0.0450621 | Konzepte!E82 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 701 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Jahre DSCR unter 1,2, B | 24 | ganze Zahl | 24 | Konzepte!E73 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 702 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Zahlungsüberschuss Jahr 1, C | 10.812 € | ganze € | 10812.2 | Konzepte!F61 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 703 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: DSCR Minimum, C | 1,05 | 0,01 | 1.05487 | Konzepte!F71 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 704 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: tiefster Stand Projektkonto, C | 0 € | ganze € | 0 | Konzepte!F70 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 705 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Eigenkapitalrendite ohne Restwert, C | −6,34 % | 0,01 % | -0.0634278 | Konzepte!F82 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 706 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Jahre DSCR unter 1,2, C | 35 | ganze Zahl | 35 | Konzepte!F73 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 707 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 26.956 € | ganze € | 26955.7 | Konzepte!H61 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 708 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 709 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 710 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,32 % | 0,01 % | 0.0631984 | Konzepte!H82 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 711 | A7 Risiken im Einzelnen | keine Mieterhöhung gefördert: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| 712 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Zahlungsüberschuss Jahr 1, A | 15.003 € | ganze € | 15002.5 | Konzepte!D61 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 713 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: DSCR Minimum, A | 1,43 | 0,01 | 1.43096 | Konzepte!D71 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 714 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: tiefster Stand Projektkonto, A | 0 € | ganze € | 0 | Konzepte!D70 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 715 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Eigenkapitalrendite ohne Restwert, A | 2,57 % | 0,01 % | 0.0256945 | Konzepte!D82 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 716 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Jahre DSCR unter 1,2, A | 0 | ganze Zahl | 0 | Konzepte!D73 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 717 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Zahlungsüberschuss Jahr 1, B | 11.560 € | ganze € | 11559.8 | Konzepte!E61 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 718 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: DSCR Minimum, B | 1,22 | 0,01 | 1.22231 | Konzepte!E71 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 719 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: tiefster Stand Projektkonto, B | 0 € | ganze € | 0 | Konzepte!E70 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 720 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Eigenkapitalrendite ohne Restwert, B | 2,27 % | 0,01 % | 0.0226971 | Konzepte!E82 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 721 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Jahre DSCR unter 1,2, B | 0 | ganze Zahl | 0 | Konzepte!E73 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 722 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Zahlungsüberschuss Jahr 1, C | 10.812 € | ganze € | 10812.2 | Konzepte!F61 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 723 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: DSCR Minimum, C | 1,18 | 0,01 | 1.17913 | Konzepte!F71 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 724 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: tiefster Stand Projektkonto, C | 0 € | ganze € | 0 | Konzepte!F70 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 725 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Eigenkapitalrendite ohne Restwert, C | 2,00 % | 0,01 % | 0.0199958 | Konzepte!F82 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 726 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Jahre DSCR unter 1,2, C | 3 | ganze Zahl | 3 | Konzepte!F73 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 727 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 26.956 € | ganze € | 26955.7 | Konzepte!H61 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 728 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: DSCR Minimum, frei (18,36 €) | 1,10 | 0,01 | 1.10179 | Konzepte!H71 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 729 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 730 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 3,11 % | 0,01 % | 0.0310998 | Konzepte!H82 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 731 | A7 Risiken im Einzelnen | keine Mietsteigerung frei: Jahre DSCR unter 1,2, frei (18,36 €) | 29 | ganze Zahl | 29 | Konzepte!H73 | Lauf mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| 732 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Zahlungsüberschuss Jahr 1, A | 15.003 € | ganze € | 15002.5 | Konzepte!D61 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 733 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: DSCR Minimum, A | 1,43 | 0,01 | 1.43096 | Konzepte!D71 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 734 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: tiefster Stand Projektkonto, A | 0 € | ganze € | 0 | Konzepte!D70 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 735 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Eigenkapitalrendite ohne Restwert, A | 2,58 % | 0,01 % | 0.0257691 | Konzepte!D82 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 736 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Jahre DSCR unter 1,2, A | 0 | ganze Zahl | 0 | Konzepte!D73 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 737 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Zahlungsüberschuss Jahr 1, B | 11.560 € | ganze € | 11559.8 | Konzepte!E61 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 738 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: DSCR Minimum, B | 1,22 | 0,01 | 1.22231 | Konzepte!E71 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 739 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: tiefster Stand Projektkonto, B | 0 € | ganze € | 0 | Konzepte!E70 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 740 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Eigenkapitalrendite ohne Restwert, B | 2,61 % | 0,01 % | 0.0260804 | Konzepte!E82 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 741 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Jahre DSCR unter 1,2, B | 0 | ganze Zahl | 0 | Konzepte!E73 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 742 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Zahlungsüberschuss Jahr 1, C | 10.812 € | ganze € | 10812.2 | Konzepte!F61 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 743 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: DSCR Minimum, C | 1,18 | 0,01 | 1.17913 | Konzepte!F71 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 744 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: tiefster Stand Projektkonto, C | 0 € | ganze € | 0 | Konzepte!F70 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 745 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Eigenkapitalrendite ohne Restwert, C | 2,75 % | 0,01 % | 0.0274717 | Konzepte!F82 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 746 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Jahre DSCR unter 1,2, C | 3 | ganze Zahl | 3 | Konzepte!F73 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 747 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 26.956 € | ganze € | 26955.7 | Konzepte!H61 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 748 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 749 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 750 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,12 % | 0,01 % | 0.0611565 | Konzepte!H82 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 751 | A7 Risiken im Einzelnen | Anschlusszins 4,86 %: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf anschlusszins_plus_1 (laeufe/anschlusszins_plus_1.xlsx) |
+| 752 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Zahlungsüberschuss Jahr 1, A | 15.003 € | ganze € | 15002.5 | Konzepte!D61 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 753 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: DSCR Minimum, A | 1,43 | 0,01 | 1.43096 | Konzepte!D71 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 754 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: tiefster Stand Projektkonto, A | 0 € | ganze € | 0 | Konzepte!D70 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 755 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Eigenkapitalrendite ohne Restwert, A | 2,58 % | 0,01 % | 0.0257691 | Konzepte!D82 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 756 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Jahre DSCR unter 1,2, A | 0 | ganze Zahl | 0 | Konzepte!D73 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 757 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Zahlungsüberschuss Jahr 1, B | 11.560 € | ganze € | 11559.8 | Konzepte!E61 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 758 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: DSCR Minimum, B | 1,22 | 0,01 | 1.22231 | Konzepte!E71 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 759 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: tiefster Stand Projektkonto, B | 0 € | ganze € | 0 | Konzepte!E70 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 760 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Eigenkapitalrendite ohne Restwert, B | 2,61 % | 0,01 % | 0.0260804 | Konzepte!E82 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 761 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Jahre DSCR unter 1,2, B | 0 | ganze Zahl | 0 | Konzepte!E73 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 762 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Zahlungsüberschuss Jahr 1, C | 10.812 € | ganze € | 10812.2 | Konzepte!F61 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 763 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: DSCR Minimum, C | 1,18 | 0,01 | 1.17913 | Konzepte!F71 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 764 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: tiefster Stand Projektkonto, C | 0 € | ganze € | 0 | Konzepte!F70 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 765 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Eigenkapitalrendite ohne Restwert, C | 2,75 % | 0,01 % | 0.0274717 | Konzepte!F82 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 766 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Jahre DSCR unter 1,2, C | 3 | ganze Zahl | 3 | Konzepte!F73 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 767 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Zahlungsüberschuss Jahr 1, frei (18,36 €) | 26.956 € | ganze € | 26955.7 | Konzepte!H61 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 768 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: DSCR Minimum, frei (18,36 €) | 1,20 | 0,01 | 1.2 | Konzepte!H71 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 769 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: tiefster Stand Projektkonto, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H70 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 770 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Eigenkapitalrendite ohne Restwert, frei (18,36 €) | 6,50 % | 0,01 % | 0.0650317 | Konzepte!H82 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 771 | A7 Risiken im Einzelnen | Anschlusszins 2,86 %: Jahre DSCR unter 1,2, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H73 | Lauf anschlusszins_minus_1 (laeufe/anschlusszins_minus_1.xlsx) |
+| 772 | A7 Risiken im Einzelnen | Mietmarke: Miete frei finanziert für DSCR 1,2 | 18,36 € | 0,01 € | 18.362 | Konzepte!H49 | Konzepte-Mappe |
+| 773 | A7 Risiken im Einzelnen | Mietmarke: Marktmiete Jahr 1 | 15,42 € | 0,01 € | 15.42 | Eingaben!F25 | Konzepte-Mappe |
+| 774 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 55 | 0,00 % | 0,01 % | 0 | Übersicht!B55 | Konzepte-Mappe (über werte_team.json) |
+| 775 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 55, A | 43.225 € | ganze € | 43225.5 | Übersicht!D55 | Konzepte-Mappe (über werte_team.json) |
+| 776 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 55, B | 53.894 € | ganze € | 53894.3 | Übersicht!E55 | Konzepte-Mappe (über werte_team.json) |
+| 777 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 55, C | 60.202 € | ganze € | 60202.4 | Übersicht!F55 | Konzepte-Mappe (über werte_team.json) |
+| 778 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 56 | 1,00 % | 0,01 % | 0.01 | Übersicht!B56 | Konzepte-Mappe (über werte_team.json) |
+| 779 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 56, A | 31.372 € | ganze € | 31371.8 | Übersicht!D56 | Konzepte-Mappe (über werte_team.json) |
+| 780 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 56, B | 36.114 € | ganze € | 36113.8 | Übersicht!E56 | Konzepte-Mappe (über werte_team.json) |
+| 781 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 56, C | 39.458 € | ganze € | 39458.5 | Übersicht!F56 | Konzepte-Mappe (über werte_team.json) |
+| 782 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 57 | 1,50 % | 0,01 % | 0.015 | Übersicht!B57 | Konzepte-Mappe (über werte_team.json) |
+| 783 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 57, A | 25.445 € | ganze € | 25445 | Übersicht!D57 | Konzepte-Mappe (über werte_team.json) |
+| 784 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 57, B | 27.224 € | ganze € | 27223.6 | Übersicht!E57 | Konzepte-Mappe (über werte_team.json) |
+| 785 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 57, C | 29.087 € | ganze € | 29086.6 | Übersicht!F57 | Konzepte-Mappe (über werte_team.json) |
+| 786 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 58 | 2,00 % | 0,01 % | 0.02 | Übersicht!B58 | Konzepte-Mappe (über werte_team.json) |
+| 787 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 58, A | 19.518 € | ganze € | 19518.2 | Übersicht!D58 | Konzepte-Mappe (über werte_team.json) |
+| 788 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 58, B | 18.333 € | ganze € | 18333.3 | Übersicht!E58 | Konzepte-Mappe (über werte_team.json) |
+| 789 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 58, C | 18.715 € | ganze € | 18714.6 | Übersicht!F58 | Konzepte-Mappe (über werte_team.json) |
+| 790 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 59 | 2,38 % | 0,01 % | 0.0238095 | Übersicht!B59 | Konzepte-Mappe (über werte_team.json) |
+| 791 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 59, A | 15.003 € | ganze € | 15002.5 | Übersicht!D59 | Konzepte-Mappe (über werte_team.json) |
+| 792 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 59, B | 11.560 € | ganze € | 11559.8 | Übersicht!E59 | Konzepte-Mappe (über werte_team.json) |
+| 793 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 59, C | 10.812 € | ganze € | 10812.2 | Übersicht!F59 | Konzepte-Mappe (über werte_team.json) |
+| 794 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 60 | 2,50 % | 0,01 % | 0.025 | Übersicht!B60 | Konzepte-Mappe (über werte_team.json) |
+| 795 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 60, A | 13.591 € | ganze € | 13591.4 | Übersicht!D60 | Konzepte-Mappe (über werte_team.json) |
+| 796 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 60, B | 9.443 € | ganze € | 9443.08 | Übersicht!E60 | Konzepte-Mappe (über werte_team.json) |
+| 797 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 60, C | 8.343 € | ganze € | 8342.67 | Übersicht!F60 | Konzepte-Mappe (über werte_team.json) |
+| 798 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 61 | 3,00 % | 0,01 % | 0.03 | Übersicht!B61 | Konzepte-Mappe (über werte_team.json) |
+| 799 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 61, A | 7.665 € | ganze € | 7664.54 | Übersicht!D61 | Konzepte-Mappe (über werte_team.json) |
+| 800 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 61, B | 553 € | ganze € | 552.844 | Übersicht!E61 | Konzepte-Mappe (über werte_team.json) |
+| 801 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 61, C | −2.029 € | ganze € | -2029.27 | Übersicht!F61 | Konzepte-Mappe (über werte_team.json) |
+| 802 | A8 Tilgungssatz | Tilgungssatz Stützpunkt Zeile 62 | 2,38 % | 0,01 % | 0.0238095 | Übersicht!B62 | Konzepte-Mappe (über werte_team.json) |
+| 803 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 62, A | 15.003 € | ganze € | 15002.5 | Übersicht!D62 | Konzepte-Mappe (über werte_team.json) |
+| 804 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 62, B | 11.560 € | ganze € | 11559.8 | Übersicht!E62 | Konzepte-Mappe (über werte_team.json) |
+| 805 | A8 Tilgungssatz | Zahlungsüberschuss Jahr 1 bei Satz Zeile 62, C | 10.812 € | ganze € | 10812.2 | Übersicht!F62 | Konzepte-Mappe (über werte_team.json) |
+| 806 | A8 Tilgungssatz | Tilgungssatz, bei dem der Zahlungsüberschuss null ist, A | 3,65 % | 0,01 % | 0.036466 | Übersicht!D49 | Konzepte-Mappe |
+| 807 | A8 Tilgungssatz | Tilgungssatz, bei dem der Zahlungsüberschuss null ist, B | 3,03 % | 0,01 % | 0.0303109 | Übersicht!E49 | Konzepte-Mappe |
+| 808 | A8 Tilgungssatz | Tilgungssatz, bei dem der Zahlungsüberschuss null ist, C | 2,90 % | 0,01 % | 0.0290217 | Übersicht!F49 | Konzepte-Mappe |
+| 809 | A8 Tilgungssatz | Schwelle C gegenüber A | 1,91 % | 0,01 % | 0.0190961 | Übersicht!F64 | Konzepte-Mappe (über werte_team.json) |
+| 810 | A9 Tilgungsschwelle (heute A7) | Schwelle B gegenüber A, 3.579 € | 1,80 % | 0,01 % | 0.0180008 | Übersicht!E63 | Konzepte-Mappe (über werte_team.json) |
+| 811 | A9 Tilgungsschwelle (heute A7) | Schwelle C gegenüber A, 3.579 € | 1,91 % | 0,01 % | 0.0190961 | Übersicht!F64 | Konzepte-Mappe (über werte_team.json) |
+| 812 | A9 Tilgungsschwelle (heute A7) | Schwelle B gegenüber A, kosten_4631 | 1,28 % | 0,01 % | 0.0127759 | Übersicht!E63 | Lauf kosten_4631 |
+| 813 | A9 Tilgungsschwelle (heute A7) | Schwelle C gegenüber A, kosten_4631 | 1,36 % | 0,01 % | 0.0136223 | Übersicht!F64 | Lauf kosten_4631 |
+| 814 | A9 Tilgungsschwelle (heute A7) | Schwelle B gegenüber A, kosten_5460 | 1,01 % | 0,01 % | 0.0100769 | Übersicht!E63 | Lauf kosten_5460 |
+| 815 | A9 Tilgungsschwelle (heute A7) | Schwelle C gegenüber A, kosten_5460 | 1,08 % | 0,01 % | 0.0107949 | Übersicht!F64 | Lauf kosten_5460 |
+| 816 | A11 Nach der Bindung | Zins NBank-Darlehen ab Jahr 36 | 3,86 % | 0,01 % | 0.0386 | Eingaben!F19 | Konzepte-Mappe |
+| 817 | A11 Nach der Bindung | Kappungsgrenze nach Bindungsende | 20 % | ganze % | 0.2 | Eingaben!F27 | Konzepte-Mappe |
+| 818 | A11 Nach der Bindung | Restschuld Ende Jahr 35, A | 197.561 € | ganze € | 197561 | Konzepte!D75 | Konzepte-Mappe |
+| 819 | A11 Nach der Bindung | Restschuld Ende Jahr 35, B | 296.341 € | ganze € | 296341 | Konzepte!E75 | Konzepte-Mappe |
+| 820 | A11 Nach der Bindung | Restschuld Ende Jahr 35, C | 345.731 € | ganze € | 345731 | Konzepte!F75 | Konzepte-Mappe |
+| 821 | A11 Nach der Bindung | Restschuld Ende Jahr 35, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H75 | Konzepte-Mappe |
+| 822 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 35, A | 64.860 € | ganze € | 64860.1 | Konzepte Zeitreihe!F41 | Konzepte-Mappe |
+| 823 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 36, A | 56.706 € | ganze € | 56706.3 | Konzepte Zeitreihe!F42 | Konzepte-Mappe |
+| 824 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 37, A | 82.787 € | ganze € | 82787.1 | Konzepte Zeitreihe!F43 | Konzepte-Mappe |
+| 825 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 42, A | 115.957 € | ganze € | 115957 | Konzepte Zeitreihe!F48 | Konzepte-Mappe |
+| 826 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 35, B | 76.468 € | ganze € | 76467.8 | Konzepte Zeitreihe!O41 | Konzepte-Mappe |
+| 827 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 36, B | 64.572 € | ganze € | 64571.6 | Konzepte Zeitreihe!O42 | Konzepte-Mappe |
+| 828 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 37, B | 96.524 € | ganze € | 96524.4 | Konzepte Zeitreihe!O43 | Konzepte-Mappe |
+| 829 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 42, B | 139.078 € | ganze € | 139078 | Konzepte Zeitreihe!O48 | Konzepte-Mappe |
+| 830 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 35, C | 84.149 € | ganze € | 84149 | Konzepte Zeitreihe!X41 | Konzepte-Mappe |
+| 831 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 36, C | 70.382 € | ganze € | 70381.7 | Konzepte Zeitreihe!X42 | Konzepte-Mappe |
+| 832 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 37, C | 105.646 € | ganze € | 105646 | Konzepte Zeitreihe!X43 | Konzepte-Mappe |
+| 833 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 42, C | 153.343 € | ganze € | 153343 | Konzepte Zeitreihe!X48 | Konzepte-Mappe |
+| 834 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 35, frei (18,36 €) | 317.109 € | ganze € | 317109 | Konzepte Zeitreihe!AP41 | Konzepte-Mappe |
+| 835 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 36, frei (18,36 €) | 323.451 € | ganze € | 323451 | Konzepte Zeitreihe!AP42 | Konzepte-Mappe |
+| 836 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 37, frei (18,36 €) | 329.920 € | ganze € | 329920 | Konzepte Zeitreihe!AP43 | Konzepte-Mappe |
+| 837 | A11 Nach der Bindung | Zahlungsüberschuss Jahr 42, frei (18,36 €) | 364.258 € | ganze € | 364258 | Konzepte Zeitreihe!AP48 | Konzepte-Mappe |
+| 838 | A11 Nach der Bindung | Zahlungsüberschuss Summe Jahr 36–42, A | 653.081 € | ganze € | 653081 | Konzepte!D91 | Konzepte-Mappe |
+| 839 | A11 Nach der Bindung | Zahlungsüberschuss Summe Jahr 36–42, B | 771.524 € | ganze € | 771524 | Konzepte!E91 | Konzepte-Mappe |
+| 840 | A11 Nach der Bindung | Zahlungsüberschuss Summe Jahr 36–42, C | 847.491 € | ganze € | 847491 | Konzepte!F91 | Konzepte-Mappe |
+| 841 | A11 Nach der Bindung | Zahlungsüberschuss Summe Jahr 36–42, frei (18,36 €) | 2.404.625 € | ganze € | 2.40463e+06 | Konzepte!H91 | Konzepte-Mappe |
+| 842 | A11 Nach der Bindung | Jahre mit Fehlbetrag Jahr 36–42, A | 0 | ganze Zahl | 0 | Konzepte!D92 | Konzepte-Mappe |
+| 843 | A11 Nach der Bindung | Jahre mit Fehlbetrag Jahr 36–42, B | 0 | ganze Zahl | 0 | Konzepte!E92 | Konzepte-Mappe |
+| 844 | A11 Nach der Bindung | Jahre mit Fehlbetrag Jahr 36–42, C | 0 | ganze Zahl | 0 | Konzepte!F92 | Konzepte-Mappe |
+| 845 | A11 Nach der Bindung | Jahre mit Fehlbetrag Jahr 36–42, frei (18,36 €) | 0 | ganze Zahl | 0 | Konzepte!H92 | Konzepte-Mappe |
+| 846 | A11 Nach der Bindung | Restschuld Ende Jahr 42, A | 0 € | ganze € | 0 | Konzepte!D93 | Konzepte-Mappe |
+| 847 | A11 Nach der Bindung | Restschuld Ende Jahr 42, B | 0 € | ganze € | 0 | Konzepte!E93 | Konzepte-Mappe |
+| 848 | A11 Nach der Bindung | Restschuld Ende Jahr 42, C | 0 € | ganze € | 0 | Konzepte!F93 | Konzepte-Mappe |
+| 849 | A11 Nach der Bindung | Restschuld Ende Jahr 42, frei (18,36 €) | 0 € | ganze € | 0 | Konzepte!H93 | Konzepte-Mappe |
+| 850 | A11 Nach der Bindung | Vermögen Ende Jahr 42, A | 8,89 Mio. € | 0,01 Mio. € | 8.888e+06 | Konzepte!D94 | Konzepte-Mappe |
+| 851 | A11 Nach der Bindung | Vermögen Ende Jahr 42, B | 9,60 Mio. € | 0,01 Mio. € | 9.60245e+06 | Konzepte!E94 | Konzepte-Mappe |
+| 852 | A11 Nach der Bindung | Vermögen Ende Jahr 42, C | 9,99 Mio. € | 0,01 Mio. € | 9.9851e+06 | Konzepte!F94 | Konzepte-Mappe |
+| 853 | A11 Nach der Bindung | Vermögen Ende Jahr 42, frei (18,36 €) | 15,57 Mio. € | 0,01 Mio. € | 1.55736e+07 | Konzepte!H94 | Konzepte-Mappe |
+| 854 | A11 Nach der Bindung | Eigenkapitalrendite mit Restwert, Horizont Jahr 42, A | 6,57 % | 0,01 % | 0.0657218 | Konzepte!D95 | Konzepte-Mappe |
+| 855 | A11 Nach der Bindung | Eigenkapitalrendite mit Restwert, Horizont Jahr 42, B | 6,76 % | 0,01 % | 0.0676241 | Konzepte!E95 | Konzepte-Mappe |
+| 856 | A11 Nach der Bindung | Eigenkapitalrendite mit Restwert, Horizont Jahr 42, C | 6,86 % | 0,01 % | 0.0685872 | Konzepte!F95 | Konzepte-Mappe |
+| 857 | A11 Nach der Bindung | Eigenkapitalrendite mit Restwert, Horizont Jahr 42, frei (18,36 €) | 8,09 % | 0,01 % | 0.0809341 | Konzepte!H95 | Konzepte-Mappe |
+| 858 | A11 Nach der Bindung | Eigenkapitalrendite ohne Restwert, Horizont Jahr 42, A | 3,53 % | 0,01 % | 0.0352804 | Konzepte!D96 | Konzepte-Mappe |
+| 859 | A11 Nach der Bindung | Eigenkapitalrendite ohne Restwert, Horizont Jahr 42, B | 3,75 % | 0,01 % | 0.0375484 | Konzepte!E96 | Konzepte-Mappe |
+| 860 | A11 Nach der Bindung | Eigenkapitalrendite ohne Restwert, Horizont Jahr 42, C | 3,94 % | 0,01 % | 0.0393574 | Konzepte!F96 | Konzepte-Mappe |
+| 861 | A11 Nach der Bindung | Eigenkapitalrendite ohne Restwert, Horizont Jahr 42, frei (18,36 €) | 6,51 % | 0,01 % | 0.0650545 | Konzepte!H96 | Konzepte-Mappe |
+| 862 | A11 Nach der Bindung | Mietmarke: Miete frei finanziert für DSCR 1,2 | 18,36 € | 0,01 € | 18.362 | Konzepte!H49 | Konzepte-Mappe |
+| 863 | A11 Nach der Bindung | Mietmarke: Marktmiete Jahr 1 | 15,42 € | 0,01 € | 15.42 | Eingaben!F25 | Konzepte-Mappe |
+| 864 | Broschüre Blatt 9 bis 11 | alle Zahlen der Skizze | wie Folien 14 bis 24 | wie dort |  | siehe Folien | – |

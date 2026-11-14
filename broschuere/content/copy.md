@@ -1127,15 +1127,15 @@ Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum 
 | Niedersächsisches Ministerium für Wirtschaft, Verkehr und Bauen (2026): Niedersachsen stellt soziale Wohnraumförderung neu auf. Presseinformation vom 03.07.2026, aktualisiert am 09.07.2026. | 1, 5 |
 | NBank (2025): Wohnungsmarktbeobachtung 2025. Zeit umzubauen. S. 33–34 und S. 45, Abb. 19. | 2, 6 |
 | Deutscher Bundestag (2026): Antwort der Bundesregierung auf die Kleine Anfrage „Die mieten- und wohnungspolitische Entwicklung in Niedersachsen“. Drucksache 21/7303 vom 21.07.2026, S. 12. | 2 |
-| NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Neubau, Änderung, Erweiterung und erstmaliger Erwerb), Stand 05.11.2026. S. 3. | 2, 3, 7, 9 |
-| NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Allgemeine Mietwohnraumförderung), Stand 01.04.2026. S. 1–2. | 3 |
+| NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Neubau, Änderung, Erweiterung und erstmaliger Erwerb). Stand 05.11.2026, S. 3. | 2, 3, 7, 9 |
+| NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Allgemeine Mietwohnraumförderung). Stand 01.04.2026, S. 1–2. | 3 |
 | NBank (o. J.): Landkarte Wohnraumförderung, Bedarfsnachweise. Programmseite „Mietwohnungen in Mehrfamilienhäusern“, abgerufen am 21.10.2026. | 3, 16, 19 |
 | NBank (2026): Merkblatt Vorzeitiger Vorhabenbeginn in der Wohnraumförderung. Stand 27.07.2026. | 3, 17, 18 |
 | KfW (2026): Merkblatt Klimafreundlicher Neubau Wohngebäude (297, 298). Stand 07/2026, S. 1–5. | 7, 12, 13 |
 | KfW (2026): Merkblatt Klimafreundlicher Neubau im Niedrigpreissegment (296). Stand 06/2026. | 7, 12, 13 |
 | ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht). S. 32, Abb. 20, und S. 34, Abb. 23. | 9 |
 | Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen bei 10 Jahren Zinsbindung. Wert vom 10.11.2026. | 10 |
-| NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern auf den Ostfriesischen Inseln, Stand 05.11.2026. S. 3. | 13 |
+| NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern auf den Ostfriesischen Inseln. Stand 05.11.2026, S. 3. | 13 |
 | KfW (2026): Merkblatt BEG Wohngebäude (261). Stand 09/2026, S. 5–6. | 14 |
 | Niedersächsische Staatskanzlei (2025): Niedersachsen verlängert die Gebietsbestimmung für Umwandlungsschutz und Mietpreisbremse bis Ende 2029. Presseinformation vom 25.11.2025. | 16 |
 

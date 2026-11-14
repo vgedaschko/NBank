@@ -43,6 +43,18 @@
           "3, 16, 19"
         ],
         [
+          "NBank (2026): Merkblatt Vorzeitiger Vorhabenbeginn in der Wohnraumförderung. Stand 27.07.2026.",
+          "3, 17, 18"
+        ],
+        [
+          "KfW (2026): Merkblatt Klimafreundlicher Neubau Wohngebäude (297, 298). Stand 07/2026, S. 1–5.",
+          "7, 12, 13"
+        ],
+        [
+          "KfW (2026): Merkblatt Klimafreundlicher Neubau im Niedrigpreissegment (296). Stand 06/2026.",
+          "7, 12, 13"
+        ],
+        [
           "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht). S. 32, Abb. 20, und S. 34, Abb. 23.",
           "9"
         ],
@@ -55,17 +67,21 @@
           "13"
         ],
         [
+          "KfW (2026): Merkblatt BEG Wohngebäude (261). Stand 09/2026, S. 5–6.",
+          "14"
+        ],
+        [
           "Niedersächsische Staatskanzlei (2025): Niedersachsen verlängert die Gebietsbestimmung für Umwandlungsschutz und Mietpreisbremse bis Ende 2029. Presseinformation vom 25.11.2025.",
           "16"
         ]
       ],
-      "note": "Änderungsrunde 13.11.2026 (B22.2 mit Rückfrage 8): zehn Quellen, je eine Zeile in der Form „Herausgeber (Jahr): Titel. Fundstelle.“; „Verwendet auf“ nennt gedruckte Seitenzahlen (Verweise auf die Bogenseite), an den fertigen Seiten nachgeprüft. Grundlage Pruefung-Schritt-1.md Abschnitt 4: gestrichen die NBank-Pressemitteilung vom 05.12.2025 (belegte nur den alten Einstieg S. 1); neu BT-Drs. 21/7303, Produktinformation Stand 01.04.2026, zwei Produktinformationen Stand 05.11.2026, Dr. Klein. Reihenfolge nach der ersten Seite, auf der die Quelle verwendet wird. Belege im Projekt: recherche/quellen/ (BT-Drs., Produktinformationen, ARGE, Dr. Klein), factbase F291/G3-01/G3-02 (MW), F306/F307/F311 (Wohnungsmarktbericht), F319/G2-20 (Staatskanzlei), F089/G2-25/G2-26 (Landkarte)."
+      "note": "Änderungsrunde 13.11.2026 (B22.2 mit Rückfrage 8): vierzehn Quellen, je eine Zeile in der Form „Herausgeber (Jahr): Titel. Fundstelle.“; „Verwendet auf“ nennt gedruckte Seitenzahlen (Verweise auf die Bogenseite), an den fertigen Seiten nachgeprüft. Grundlage Pruefung-Schritt-1.md Abschnitt 4: gestrichen die NBank-Pressemitteilung vom 05.12.2025 (belegte nur den alten Einstieg S. 1); neu BT-Drs. 21/7303, Produktinformation Stand 01.04.2026, zwei Produktinformationen Stand 05.11.2026, Dr. Klein. Reihenfolge nach der ersten Seite, auf der die Quelle verwendet wird. Belege im Projekt: recherche/quellen/ (BT-Drs., Produktinformationen, ARGE, Dr. Klein), factbase F291/G3-01/G3-02 (MW), F306/F307/F311 (Wohnungsmarktbericht), F319/G2-20 (Staatskanzlei), F089/G2-25/G2-26 (Landkarte). Nachprüfung B22.2 vom 14.11.2026 (Merkblätter und Förderrichtlinien des Bundes und der NBank an allen Seiten geprüft): neu das NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (F257, F255, F258; S. 3, 17, 18), die KfW-Merkblätter 297/298 (G2-01, G2-03, G2-04, G2-06; S. 7, 12, 13), 296 (G2-07; S. 7, 12, 13) und 261 (G2-09, G2-10; S. 14); Titel, Stand und Seiten nur aus recherche/factbase.md. Bei gleicher erster Seite stehen die nachgetragenen Zeilen hinten. Nicht aufgenommen: die BEG-EM-Förderrichtlinie vom 17.07.2026 (G2-12, S. 14), weil sie als Förderrichtlinie eine Verwaltungsvorschrift ist und ihre BAnz-Fundstelle offen ist; Rechtsquellen auf Blatt 21 nach B22.1 nur mit den vier Einträgen der Datei. Zeilenabstand wie .table--compact, Schrift unverändert; Notizfläche 15 mm statt 45 mm."
     },
     {
       "type": "notes",
       "heading": "Notizen",
       "role_hint": "planraster",
-      "note": "Fläche im 5-mm-Planraster (Vektorzeichnung --planraster) bis zur Satzspiegel-Unterkante, ohne Text."
+      "note": "Fläche im 5-mm-Planraster (Vektorzeichnung --planraster) bis zur Satzspiegel-Unterkante, ohne Text; seit der Nachprüfung B22.2 vom 14.11.2026 15 mm hoch (3 Rasterzeilen)."
     }
   ],
   "footnotes": [],
@@ -80,7 +96,17 @@
     "G2-20",
     "F089",
     "G2-25",
-    "G2-26"
+    "G2-26",
+    "F257",
+    "F255",
+    "F258",
+    "G2-01",
+    "G2-03",
+    "G2-04",
+    "G2-06",
+    "G2-07",
+    "G2-09",
+    "G2-10"
   ],
   "pgn_sources": [
     "Änderungsrunde vom 13.11.2026, B15.1 (Entscheidung mit Rückfrage 8 und 24): neue Seite vor der Rückseite, oben die Quellentabelle über die volle Breite, darunter „Notizen“ mit Planraster; im Inhaltsverzeichnis „22 Quellen und Notizen“. B22.2: Quellen als Tabelle mit den Spalten „Quelle“ und „Verwendet auf“."

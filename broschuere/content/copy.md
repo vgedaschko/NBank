@@ -1112,7 +1112,7 @@ Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum 
 <a id="seite-23"></a>
 ## Seite 23 – PGN · Quellen und Notizen
 
-<sub>U3 · Layout: sources-notes · Kolumnentitel: PGN · Quellen und Notizen · Wörter: Fließtext 0, Tabelle zehn Quellen</sub>
+<sub>U3 · Layout: sources-notes · Kolumnentitel: PGN · Quellen und Notizen · Wörter: Fließtext 0, Tabelle vierzehn Quellen</sub>
 
 *PGN*
 
@@ -1120,7 +1120,7 @@ Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum 
 
 **Quellen** (Tabelle über die volle Breite)
 
-*(Änderungsrunde 13.11.2026, B22.2 mit Rückfrage 8. „Verwendet auf“ nennt die gedruckte Seitenzahl, an den fertigen Seiten nachgeprüft.)*
+*(Änderungsrunde 13.11.2026, B22.2 mit Rückfrage 8. „Verwendet auf“ nennt die gedruckte Seitenzahl, an den fertigen Seiten nachgeprüft. Nachprüfung 14.11.2026: NBank-Merkblatt Vorhabenbeginn und KfW-Merkblätter 297/298, 296 und 261 ergänzt; die BEG-EM-Förderrichtlinie ist Verwaltungsvorschrift und steht nicht in der Tabelle.)*
 
 | Quelle | Verwendet auf |
 |---|---|
@@ -1130,14 +1130,18 @@ Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum 
 | NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Neubau, Änderung, Erweiterung und erstmaliger Erwerb), Stand 05.11.2026. S. 3. | 2, 3, 7, 9 |
 | NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Allgemeine Mietwohnraumförderung), Stand 01.04.2026. S. 1–2. | 3 |
 | NBank (o. J.): Landkarte Wohnraumförderung, Bedarfsnachweise. Programmseite „Mietwohnungen in Mehrfamilienhäusern“, abgerufen am 21.10.2026. | 3, 16, 19 |
+| NBank (2026): Merkblatt Vorzeitiger Vorhabenbeginn in der Wohnraumförderung. Stand 27.07.2026. | 3, 17, 18 |
+| KfW (2026): Merkblatt Klimafreundlicher Neubau Wohngebäude (297, 298). Stand 07/2026, S. 1–5. | 7, 12, 13 |
+| KfW (2026): Merkblatt Klimafreundlicher Neubau im Niedrigpreissegment (296). Stand 06/2026. | 7, 12, 13 |
 | ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht). S. 32, Abb. 20, und S. 34, Abb. 23. | 9 |
 | Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen bei 10 Jahren Zinsbindung. Wert vom 10.11.2026. | 10 |
 | NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern auf den Ostfriesischen Inseln, Stand 05.11.2026. S. 3. | 13 |
+| KfW (2026): Merkblatt BEG Wohngebäude (261). Stand 09/2026, S. 5–6. | 14 |
 | Niedersächsische Staatskanzlei (2025): Niedersachsen verlängert die Gebietsbestimmung für Umwandlungsschutz und Mietpreisbremse bis Ende 2029. Presseinformation vom 25.11.2025. | 16 |
 
 #### Notizen
 
-*[Fläche im 5-mm-Planraster bis zur Satzspiegel-Unterkante, ohne Text]*
+*[Fläche im 5-mm-Planraster bis zur Satzspiegel-Unterkante, ohne Text; 15 mm hoch]*
 
 ---
 

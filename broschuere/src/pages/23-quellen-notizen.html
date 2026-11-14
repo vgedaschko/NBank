@@ -5,7 +5,7 @@
        und 22, Fuß mit Blatt 22. Gemeinsame Horizonte mit S. 22 (feste Kopfhöhe wie dort): Kopfzeile · H1 ab 26 mm · erste
        Bandlinie bei 52,5 mm (Kopf der Quellentabelle = Oberkante Impressum; Prüfrunde 2 zur Änderungsrunde vom 13.11.2026,
        vorher 68,5 mm; die gewonnene Höhe geht an die Notizfläche).
-       Oben die Quellentabelle über die volle Breite (Quelle 9 Spalten | Verwendet auf 3 Spalten, dazwischen ein voller Steg), zehn Quellen, je eine
+       Oben die Quellentabelle über die volle Breite (Quelle 9 Spalten | Verwendet auf 3 Spalten, dazwischen ein voller Steg), vierzehn Quellen, je eine
        Zeile in der Form „Herausgeber (Jahr): Titel. Fundstelle.“, die Seitenzahlen als Verweise. Darunter „Notizen“: Modultitel 12 pt mit Linie wie die
        Modultitel auf S. 22, Fläche im 5-mm-Planraster (Vektorzeichnung --planraster, styles.css; nicht gekachelt) bis zur
        Satzspiegel-Unterkante. Stufen nach styles.css §8b: H1 25 pt, Modultitel 12 pt, Tabellenkopf 8,5 pt Versalien, Text
@@ -17,15 +17,18 @@
     .page[data-page="23"] .p23q-src .p23q-c1 { width: calc(9 * var(--col) + 9 * var(--gutter)); }
     .page[data-page="23"] .p23q-src tr > :first-child { padding-right: var(--gutter); }   /* Quelle endet auf Spalte 9, ein voller Steg bis „Verwendet auf“ (Prüfrunde 2) */
     .page[data-page="23"] .p23q-src thead th { padding-top: 2.4mm; border-top: var(--rule-w) solid var(--rule-strong); }
+    /* Nachprüfung B22.2 (14.11.2026): vierzehn statt zehn Zeilen. Zeilenabstand wie .table--compact (1,2 mm statt 1,7 mm
+       über und unter jeder Zeile), Schrift unverändert 9,5 pt; der Rest der Höhe geht von der Notizfläche ab. */
 
     /* Notizen: Rest der Seite bis 273 mm */
-    .page[data-page="23"] .p23q-notes { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 40mm; margin-top: 10.43mm; padding-top: 2.4mm; border-top: var(--hair) solid var(--rule-strong); }
-    /* Prüfrunde 3: Notizfläche 45 mm hoch (9 × 5 mm), Raster ab der Außenkante des Rahmens (background-origin: border-box).
-       Linien bei 0 und 180 mm fallen auf den Rahmen, das Raster schließt an allen vier Seiten mit vollen Zellen ab.
-       Der frei gewordene Platz steht über den Notizen (margin-top), die Unterkante bleibt bei 273 mm. */
+    .page[data-page="23"] .p23q-notes { flex: 1 1 auto; display: flex; flex-direction: column; margin-top: 6.48mm; padding-top: 2.4mm; border-top: var(--hair) solid var(--rule-strong); }
+    /* Prüfrunde 3: Raster ab der Außenkante des Rahmens (background-origin: border-box). Linien bei 0 und 180 mm fallen
+       auf den Rahmen, das Raster schließt an allen vier Seiten mit vollen Zellen ab. Nachprüfung B22.2 (14.11.2026): Notizfläche
+       15 mm hoch (3 × 5 mm, vorher 45 mm), weil die Quellentabelle vier Zeilen mehr trägt. Der Rest steht über den Notizen
+       (margin-top 6,48 mm), die Unterkante bleibt bei 273 mm. */
     .page[data-page="23"] .p23q-grid {
       flex: none;
-      height: 45mm;
+      height: 15mm;
       background-origin: border-box;
       margin-top: 3mm;
       border: var(--hair) solid var(--rule);
@@ -42,7 +45,7 @@
     <h1 class="h1">Quellen und Notizen</h1>
   </header>
 
-  <table class="table p23q-src">
+  <table class="table table--compact p23q-src">
     <caption class="u-sr">Quellen und die Seiten, auf denen sie verwendet werden</caption>
     <colgroup><col class="p23q-c1"><col></colgroup>
     <thead>
@@ -50,16 +53,22 @@
     </thead>
     <tbody>
       <!-- Zeilen: „Herausgeber (Jahr): Titel. Fundstelle.“ | gedruckte Seitenzahlen (Änderungsrunde 13.11.2026, B22.2 mit
-           Rückfrage 8; Grundlage Pruefung-Schritt-1.md Abschnitt 4). Reihenfolge nach der ersten Seite, auf der die Quelle verwendet wird. -->
+           Rückfrage 8; Grundlage Pruefung-Schritt-1.md Abschnitt 4; Nachprüfung B22.2 am 14.11.2026: Merkblätter
+           der NBank und der KfW ergänzt, Titel und Stand aus recherche/factbase.md). Reihenfolge nach der ersten Seite, auf der die Quelle
+           verwendet wird; bei gleicher erster Seite stehen die nachgetragenen Zeilen hinten. -->
       <tr><td>Niedersächsisches Ministerium für Wirtschaft, Verkehr und Bauen (2026): Niedersachsen stellt soziale Wohnraumförderung neu auf. Presseinformation vom 03.07.2026, aktualisiert am 09.07.2026.</td><td><a href="#seite-02">1</a>, <a href="#seite-06">5</a></td></tr>
       <tr><td>NBank (2025): Wohnungsmarktbeobachtung 2025. Zeit umzubauen. S. 33–34 und S. 45, Abb. 19.</td><td><a href="#seite-03">2</a>, <a href="#seite-07">6</a></td></tr>
       <tr><td>Deutscher Bundestag (2026): Antwort der Bundesregierung auf die Kleine Anfrage „Die mieten- und wohnungspolitische Entwicklung in Niedersachsen“. Drucksache 21/7303 vom 21.07.2026, S. 12.</td><td><a href="#seite-03">2</a></td></tr>
       <tr><td>NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Neubau, Änderung, Erweiterung und erstmaliger Erwerb), Stand 05.11.2026. S. 3.</td><td><a href="#seite-03">2</a>, <a href="#seite-04">3</a>, <a href="#seite-08">7</a>, <a href="#seite-10">9</a></td></tr>
       <tr><td>NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Allgemeine Mietwohnraumförderung), Stand 01.04.2026. S. 1–2.</td><td><a href="#seite-04">3</a></td></tr>
       <tr><td>NBank (o. J.): Landkarte Wohnraumförderung, Bedarfsnachweise. Programmseite „Mietwohnungen in Mehrfamilienhäusern“, abgerufen am 21.10.2026.</td><td><a href="#seite-04">3</a>, <a href="#seite-17">16</a>, <a href="#seite-20">19</a></td></tr>
+      <tr><td>NBank (2026): Merkblatt Vorzeitiger Vorhabenbeginn in der Wohnraumförderung. Stand 27.07.2026.</td><td><a href="#seite-04">3</a>, <a href="#seite-18">17</a>, <a href="#seite-19">18</a></td></tr>
+      <tr><td>KfW (2026): Merkblatt Klimafreundlicher Neubau Wohngebäude (297, 298). Stand&nbsp;07/2026, S. 1–5.</td><td><a href="#seite-08">7</a>, <a href="#seite-13">12</a>, <a href="#seite-14">13</a></td></tr>
+      <tr><td>KfW (2026): Merkblatt Klimafreundlicher Neubau im Niedrigpreissegment (296). Stand&nbsp;06/2026.</td><td><a href="#seite-08">7</a>, <a href="#seite-13">12</a>, <a href="#seite-14">13</a></td></tr>
       <tr><td>ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht). S. 32, Abb.&nbsp;20, und S. 34, Abb.&nbsp;23.</td><td><a href="#seite-10">9</a></td></tr>
       <tr><td>Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen bei 10 Jahren Zinsbindung. Wert vom 10.11.2026.</td><td><a href="#seite-11">10</a></td></tr>
       <tr><td>NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern auf den Ostfriesischen Inseln, Stand 05.11.2026. S. 3.</td><td><a href="#seite-14">13</a></td></tr>
+      <tr><td>KfW (2026): Merkblatt BEG Wohngebäude (261). Stand&nbsp;09/2026, S. 5–6.</td><td><a href="#seite-15">14</a></td></tr>
       <tr><td>Niedersächsische Staatskanzlei (2025): Niedersachsen verlängert die Gebietsbestimmung für Umwandlungsschutz und Mietpreisbremse bis Ende 2029. Presseinformation vom 25.11.2025.</td><td><a href="#seite-17">16</a></td></tr>
     </tbody>
   </table>

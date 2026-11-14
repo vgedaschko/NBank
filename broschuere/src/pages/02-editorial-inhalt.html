@@ -4,7 +4,9 @@
        Stufung nach styles.css §8b: Kopfzeile trägt beide Rubriken der Seite (Editorial | Inhalt; „Inhalt“ dort nur als Sichtform,
        die Überschrift H2 steht unsichtbar in der Navigation, damit die Folge H1 → H2 → H3 hält), H1 25 pt mit zweiter Stimme,
        Zitat 12 pt, Vorwort und Text 9,5 pt, Labels 8,5 pt. Horizonte über die Doppelseite 2|3: Kopfzeile, H1,
-       Zitatlinie = zweite Kachelreihe auf S. 3, Oberkante „Ihr Einstieg“ = Oberkante Marktband auf S. 3. */
+       Zitatlinie = zweite Kachelreihe auf S. 3. Seit dem kürzeren Vorwort (Prüfrunde 1 zur Änderungsrunde vom 13.11.2026)
+       steht das Zitat mittig zwischen Signatur und „Ihr Einstieg“ (je 19,9 mm bis zur Linie), „Ihr Einstieg“ steht unten
+       wie das Marktband auf S. 3 (Kacheltext endet 1,7 mm über dem Satzspiegel, 7,2 mm über dem Fuß). */
     .page[data-page="02"] .p02-inhalt { width: calc(4 * var(--col) + 3 * var(--gutter)); padding-left: 17mm; }   /* steht über der Achse der Liniennamen (Seitenzahl 6,2 + Marke 7,4 + 2 × 1,7 mm) */
     .page[data-page="02"] .p02-top { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); align-items: start; }
     .page[data-page="02"] .p02-main { grid-column: 1 / span 8; }
@@ -17,7 +19,7 @@
     .page[data-page="02"] .p02-sign { display: flex; align-items: center; gap: 2.6mm; margin-top: 6mm; font: 800 var(--fs-micro)/1.25 var(--font-display); letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--fg); }
     .page[data-page="02"] .p02-sign::before { content: ""; flex: none; width: 7mm; height: .6mm; background: var(--fg); }
     .page[data-page="02"] .p02-sign .light { font-weight: 400; color: var(--fg-2); }
-    .page[data-page="02"] .p02-quote { margin-top: 19.9mm; }   /* Zitatlinie auf 139,6 mm = Linie der zweiten Kachelreihe auf S. 3 (seit dem Vorwort vom 13.11.2026 ohne Vorspann: mehr Luft über dem Zitat) */
+    .page[data-page="02"] .p02-quote { margin-top: 19.9mm; }   /* Zitatlinie auf 139,6 mm = Linie der zweiten Kachelreihe auf S. 3; Abstand Signatur → Linie = Zitat → Linie über „Ihr Einstieg“ (19,9 mm) */
     .page[data-page="02"] .p02-quote .quote__text { font-size: var(--fs-lead); }   /* Zitat auf der Vorspannstufe */
 
     /* Inhalt als Linienplan: globale Komponente .lp (styles.css 6.15). Seitenlokal: Seitenzahl auf der Textstufe,
@@ -29,9 +31,10 @@
     .page[data-page="02"] .p02-mk2 { justify-self: center; display: grid; row-gap: .3mm; margin-top: .1mm; }
     .page[data-page="02"] .p02-mk2 .lp__mk--bs { margin-top: 0; padding: .5mm 1.1mm .4mm; }
 
-    /* Ihr Einstieg: drei Blöcke teilen sich die volle Breite (seit 13.11.2026 ohne „Kommunen“, B1.2); Band gleich hoch wie
-       das Marktband auf S. 3 (gemeinsame Oberkante) */
-    .page[data-page="02"] .p02-entry { height: 65mm; }
+    /* Ihr Einstieg: drei Blöcke teilen sich die volle Breite (seit 13.11.2026 ohne „Kommunen“, B1.2). Band unten
+       (Linie bei 220,6 mm), damit unter den Kacheln kein Loch bleibt: Oberkante = Zitatende + 19,9 mm, Kacheltext endet
+       bei 271,3 mm. Die frühere gemeinsame Oberkante mit dem Marktband auf S. 3 (208 mm) entfällt. */
+    .page[data-page="02"] .p02-entry { height: 52.4mm; }
     .page[data-page="02"] .p02-entry__title { border-top: var(--rule-heavy) solid var(--rule-strong); padding-top: 4.6mm; }
     .page[data-page="02"] .p02-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: 4.2mm; }
     .page[data-page="02"] .p02-tile { border-top: var(--rule-w) solid var(--rule-strong); padding-top: 3mm; }

@@ -7,12 +7,16 @@
        LPH 1–9 als Planleiste mit Maßketten (45°-Strich) und der Bewilligungsmarke zwischen LPH 6 und 7; ab LPH 7
        Kontur; der Name jeder Phase steht im Feld unter ihrer Nummer. Unten der Kasten „Schlüsselfertig“ (Anthrazit, volle
        Breite; bis 13.11.2026 daneben „Für Kommunen“). Gemeinsame Horizonte mit S. 18: Kopfzeile, H1,
-       Unterkante 273 mm; erste Bandlinie unter der Unterzeile bei 59,5 mm (S. 18: 50,7 mm). Farben nur über Tokens.
+       erste Bandlinie 50,7 mm (Unterzeile rechts neben dem H1), Unterkante 273 mm. Farben nur über Tokens.
        Stufung und Zuteilung nach styles.css §8b: Rubrik in der Kopfzeile, H1 25 pt, Unterzeile 12 pt gemischt, Titel der
        Stationen und des Kastens unten 12 pt gemischt (arbeiten als Modultitel), Text 9,5 pt, Phasen und Skala 8,5 pt.
        Rot nur: Titellinie, Signaturwort, Bewilligungsmarke. */
 
-    /* Kopf: Titel 7 Spalten (Umbruch nach „Leistungen“), Unterzeile nach den globalen Regeln; kein Vorspann (Korrekturlauf 1: redundant zu Stationen und HOAI-Skala) */
+    /* Kopf: Titel 7 Spalten (Umbruch nach „Leistungen“); kein Vorspann (Korrekturlauf 1: redundant zu Stationen und HOAI-Skala).
+       Unterzeile rechts neben dem H1 in den Spalten 8–12, Grundlinie auf der zweiten H1-Zeile (Prüfrunde 1 zur Änderungsrunde
+       vom 13.11.2026): Damit steht die erste Bandlinie wie auf S. 18 bei 50,7 mm. */
+    .page[data-page="19"] .p20-head > .title-block__main { align-self: last baseline; }
+    .page[data-page="19"] .p20-head > .deck { grid-column: 8 / span 5; align-self: last baseline; }
 
     /* Stationen: Phase (rechtsbündig zur Weglinie) · Marke auf der Weglinie · Titel als Run-in + Text (Spalten 4–12) */
     .page[data-page="19"] .p20-way { margin-top: 6.4mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
@@ -33,7 +37,7 @@
     .page[data-page="19"] .p20-st__text .runin { margin-right: 2.4mm; font: 800 var(--fs-h3)/1 var(--font-display); letter-spacing: 0; text-transform: none; }
 
     /* HOAI-Skala (Inline-SVG, 1 Einheit = 1 mm) ------------------------------------------------------------------- */
-    .page[data-page="19"] .p20-hoai { margin-top: 7.5mm; }
+    .page[data-page="19"] .p20-hoai { margin-top: 12.3mm; }   /* bis Prüfrunde 1 7,5 mm; die 8,8 mm aus dem Kopf gehen über die HOAI-Leiste und über den Kasten: sichtbar gleich viel Luft (letzte Station → Bewilligungsmarke = Leiste → Kasten, je rund 16 mm) */
     .page[data-page="19"] .p20-hoai .chart__svg { margin-top: 0; }
     .page[data-page="19"] .p20-field { fill: var(--surface-2); }
     .page[data-page="19"] .p20-field--after { fill: var(--surface); stroke: var(--fg); stroke-width: .3; }
@@ -60,8 +64,8 @@
   <header class="title-block title-block--split p20-head">
     <div class="title-block__main">
       <h1 class="h1">Unsere Leistungen im <em>Förder&shy;projekt</em></h1>
-      <p class="deck">Ein Ansprechpartner für alles</p>
     </div>
+    <p class="deck">Ein Ansprechpartner für alles</p>
   </header>
 
   <!-- Dominant: sieben Stationen -->

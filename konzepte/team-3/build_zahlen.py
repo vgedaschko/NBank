@@ -82,6 +82,7 @@ FMT = {
     "pct1": (lambda x: de(x * 100, 1) + " %", "%, 1 Stelle"),
     "pct2": (lambda x: de(x * 100, 2) + " %", "%, 2 Stellen"),
     "pp2": (lambda x: de(x, 2) + " %", "Prozent wie in der Mappe, 2 Stellen"),
+    "f1": (lambda x: de(x, 1), "Faktor, 1 Stelle"),
     "f2": (lambda x: de(x, 2), "Faktor, 2 Stellen"),
     "int": (lambda x: de(x, 0), "ganze Zahl"),
     "qm": (lambda x: de(x, 0) + " m²", "m²"),
@@ -299,7 +300,14 @@ ort("Folie 28 · Fazit (vor der Schlussfolie)",
     + je("EK-Rendite mit Restwert", "k:n5.ek_vofi_mit_restwert.{v}", "pct2")
     + einzeln("Tilgung (Bedingung)", "k:annahme.tilgung_nbank", "pct2")
     + einzeln("Herstellungskosten (Bedingung)", "k:annahme.herstellungskosten_qm", "eurqm")
-    + einzeln("Mieterhöhung in 3 Jahren (Bedingung)", "k:annahme.mieterhoehung_in_der_bindung", "pct2"))
+    + einzeln("Mieterhöhung in 3 Jahren (Bedingung)", "k:annahme.mieterhoehung_in_der_bindung", "pct2")
+    + einzeln("Abstand der Mieterhöhungen, Jahre", "k:annahme.abstand_mieterhoehungen", "int")
+    + einzeln("Mietsteigerung frei finanziert", "k:annahme.mietsteigerung", "pct0", "Frei")
+    + einzeln("DSCR-Ziel der Bank (Annahme der PGN)", "k:n1.dscr_ziel_bank_frei", "f1", "Frei")
+    + je("Ohne Mietanpassung: EK-Rendite mit Restwert (gefördert ohne Mieterhöhung)", "r:mietanpassung_gefoerdert_0:ek_vofi_mit_restwert.{v}", "pct2",
+         ["A", "B", "C"])
+    + je("Ohne Mietanpassung: EK-Rendite mit Restwert (frei ohne Mietsteigerung)", "r:mietsteigerung_0:ek_vofi_mit_restwert.{v}", "pct2",
+         ["frei_dscr", "frei_markt"]))
 
 # ---------------- Anhang ----------------
 jr = [("1 Sollmiete", "sollmiete"), ("2 Mietausfall/Leerstand", "mietausfall"), ("3 Objektverwaltung", "objektverwaltung"),

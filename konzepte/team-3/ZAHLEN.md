@@ -1,6 +1,6 @@
 # Zahlen des Konzepts Team 3 (Vergleich)
 
-1015 Einträge.
+1023 Einträge.
 Erzeugt mit `build_zahlen.py` aus `konzepte/mappe/werte_konzepte.json` (Lauf „konzepte“ und Szenario-Läufe N6) und `team-3/mappe/werte_team.json` (Block T3 auf dem Blatt „Team 3 Vergleich“ der Team-Mappe `team-3/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Team3.xlsx`). Spalte „Wert roh“ ungerundet, „gezeigt“ so, wie die Zahl auf Folie oder Seite steht. Lauf „konzepte“: Konzepte-Mappe; Lauf „team3“: Team-Mappe, Blatt „Team 3 Vergleich“; Läufe N6: Kopie `konzepte/mappe/laeufe/<lauf>.xlsx`, Blatt Konzepte. Bestehende Zellen sind in Konzepte-Mappe und Team-Mappe gleich (Vergleich 16.541 Zellen, 0 Abweichungen).
 
 Varianten: A, B, C = Gruppe A, B, C zur Höchstmiete. Frei 18,36 € = frei finanziert zur Miete für DSCR 1,2 (Blatt Frei DSCR 1,2). Frei 15,42 € = frei finanziert zur Marktmiete (Blatt Frei finanziert).
@@ -500,6 +500,14 @@ Zeitreihen: Die Zeile nennt die Zelle des genannten Jahres; die ganze Reihe steh
 | Tilgung (Bedingung) | – | 0.02380952381 | 2,38 % | %, 2 Stellen | Eingaben!F17 | konzepte |
 | Herstellungskosten (Bedingung) | – | 3579 | 3.579 € je m² | € je m², ganze Euro | Eingaben!F11 | konzepte |
 | Mieterhöhung in 3 Jahren (Bedingung) | – | 0.0615 | 6,15 % | %, 2 Stellen | Tabellen!D28 | konzepte |
+| Abstand der Mieterhöhungen, Jahre | – | 3 | 3 | ganze Zahl | Tabellen!D29 | konzepte |
+| Mietsteigerung frei finanziert | Frei | 0.02 | 2 % | %, ganze Zahl | Eingaben!F26 | konzepte |
+| DSCR-Ziel der Bank (Annahme der PGN) | Frei | 1.2 | 1,2 | Faktor, 1 Stelle | Konzepte!D6 | konzepte |
+| Ohne Mietanpassung: EK-Rendite mit Restwert (gefördert ohne Mieterhöhung) | A | 0.05081349494 | 5,08 % | %, 2 Stellen | Konzepte!D81 | mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| Ohne Mietanpassung: EK-Rendite mit Restwert (gefördert ohne Mieterhöhung) | B | 0.05369797754 | 5,37 % | %, 2 Stellen | Konzepte!E81 | mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| Ohne Mietanpassung: EK-Rendite mit Restwert (gefördert ohne Mieterhöhung) | C | 0.05543070611 | 5,54 % | %, 2 Stellen | Konzepte!F81 | mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
+| Ohne Mietanpassung: EK-Rendite mit Restwert (frei ohne Mietsteigerung) | Frei 18,36 € | 0.05812555329 | 5,81 % | %, 2 Stellen | Konzepte!H81 | mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
+| Ohne Mietanpassung: EK-Rendite mit Restwert (frei ohne Mietsteigerung) | Frei 15,42 € | 0.04409294217 | 4,41 % | %, 2 Stellen | Konzepte!G81 | mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
 
 ## Anhang A6 · Jahresrechnung Jahr 1, alle Varianten
 

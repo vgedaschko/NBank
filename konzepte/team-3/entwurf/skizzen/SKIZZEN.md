@@ -10,7 +10,7 @@ Kurzform der Varianten: A, B, C zur Höchstmiete; Frei 18,36 € = Miete für DS
 |---|---|---|---|
 | 13 | `13-trenner.png` | Trenner Modellrechnung, Titel bleibt, Vorspann neu: vier Varianten, 14 Wohnungen, 828 m² | Eingaben F8, F9 |
 | 14 | `14-varianten.png` | Gestapelte Säulen Finanzierung A, B, C, Frei (je 2,96 Mio. €), darunter Tabelle Miete, Herkunft der Miete, Eigenkapital; rechts Stichpunkte gleich/verschieden | Konzepte D49:H57, Übersicht D19:G19 |
-| 15 | `15-annahmen.png` | Vier Tafeln Haus, Förderung, Frei finanziert, Bewirtschaftung mit Wert und Herkunft (R, G, Q, P, A, N); Zeile N grau hinterlegt; Legende im Hinweiskasten | Eingaben, Tabellen, Konzepte D6:D13 |
+| 15 | `15-annahmen.png` | Vier Tafeln Haus, Förderung, Frei finanziert, Betrieb und Restwert mit Wert und Herkunft (R, G, Q, P, A, N), 33 Zeilen; Zeile N grau hinterlegt; Legende im Hinweiskasten | Eingaben F7:F45, Tabellen C14:D33, Übersicht D106, Konzepte D6:D13 |
 | 16 | Entwurf, `../png/folie-01.png` | Jahr 1 je m²: gestapelte Balken für alle fünf Positionen, Marke Marktmiete | Team 3 Vergleich D17:H30, Konzepte D12:D14 |
 | 17 | `17-miete-dscr.png` | Gruppierte Säulen je Variante: kostendeckende Anfangsmiete, Miete für DSCR 1,2, Höchst- bzw. Marktmiete; Zeilen DSCR Jahr 1 und Abstand; rechts für welches Darlehen 1,2 gilt und was die NBank prüft | Team 3 Vergleich D36:G41, Konzepte D62:H62, D14, H55 |
 | 18 | `18-dscr-verlauf.png` | Linien DSCR Jahr 1 bis 35, fünf Positionen, Marke 1,2 und Jahr 30; Hinweis ohne Mieterhöhung | Konzepte Zeitreihe H, Q, Z, AR, AI; Konzepte D71:H73; Lauf mietanpassung_gefoerdert_0 |
@@ -24,7 +24,7 @@ Kurzform der Varianten: A, B, C zur Höchstmiete; Frei 18,36 € = Miete für DS
 | A6 | `A6-jahresrechnung.png` | Jahresrechnung Jahr 1, fünf Spalten, Ergebniszeile rot, Kapitaldienst und DSCR | Team 3 Vergleich D6:H18, Konzepte D57:F57 |
 | A7 | `A7-ende-bindung.png` | Vermögen Ende Jahr 35 als Säulen (Restwert, Projektkonto, Restschuld), Tabelle Jahr 36 bis 42 | Konzepte D75:H96, Konzepte Zeitreihe H42, Q42, Z42 |
 | A8 | `A8-rendite-lesarten.png` | Tabelle Objekt-IRR in fünf Lesarten, EK-Rendite mit/ohne Restwert, statische Objektrendite | Team 3 Vergleich D121:H125, Konzepte D81:H88 |
-| A9 | `A9-risiken-liquiditaet.png` | Tabelle Basis und acht Läufe: Jahre mit Fehlbetrag / Jahre DSCR unter 1,2 je Position, Miete für DSCR 1,2 | Konzepte D61:H73 je Lauf |
+| A9 | `A9-risiken-liquiditaet.png` | Tabelle Basis und acht Läufe: Jahre mit Fehlbetrag / Jahre DSCR unter 1,2 je Position, Miete für DSCR 1,2 (Zahlungsüberschuss Jahr 1, tiefster Stand Projektkonto und DSCR Minimum je Lauf kommen beim Bau dazu) | Konzepte D61:H73 je Lauf |
 | A10 | `A10-risiken-rendite.png` | Tabelle Basis und acht Läufe: Eigenkapitalrendite mit Restwert je Position, Vermögen A | Konzepte D78:H82 je Lauf |
 | A11 | `A11-tilgungssatz-unveraendert.png` | heutige Folie 20, unverändert im Inhalt, im Anhang mit einzeiligem Titel | Übersicht D49:F64 (heutiger Stand) |
 | A12 | – | Quellen wie heute A8, ergänzt um Team-Mappe und Konzepte-Mappe (reiner Text, keine Skizze) | – |
@@ -33,6 +33,6 @@ Broschüre (`../broschuere/`, A4 hoch, Satzspiegel 180 × 259 mm, zwölf Spalten
 
 | Blatt | Datei | Module | Zellen |
 |---|---|---|---|
-| 9 (S. 10) | `blatt-09.png` | Finanzierung vier Säulen (6 Spalten) · Kasten Das Modellhaus (6 Spalten) · Annahmen in vier Tafeln mit Herkunft (2 × 6 Spalten) | Konzepte D52:H57, D6:D13; Übersicht D19:G19 |
-| 10 (S. 11) | `blatt-10.png` | Jahr 1 je m² als Balken (7 Spalten) · Mieten im Vergleich (5 Spalten) · Jahresrechnung fünf Spalten (12) · Kasten DSCR 1,2: für welches Darlehen (12) | Team 3 Vergleich D6:H41; Konzepte D50:H62 |
-| 11 (S. 12) | `blatt-11.png` | Zahlungsüberschuss je Jahr (6) · Eigenkapital zurück (6) · Kennzahlentabelle (12) · Risiken kompakt (12) | Konzepte D61:H88, Zeitreihe; Team 3 Vergleich D66:H101; Läufe N6 |
+| 9 (S. 10) | `blatt-09.png` | Finanzierung vier Säulen (6 Spalten) · Kasten Das Modellhaus (6 Spalten) · Annahmen in vier Tafeln mit Herkunft, 30 Zeilen (2 × 6 Spalten) | Konzepte D52:H57, D6:D13; Übersicht D19:G19, D24:F25, D106 |
+| 10 (S. 11) | `blatt-10.png` | Jahr 1 je m² als Balken mit Legende und Marke Marktmiete (7 Spalten) · Mieten im Vergleich (5 Spalten) · Jahresrechnung fünf Spalten (12) · Kasten DSCR 1,2: für welches Darlehen (12) | Team 3 Vergleich D6:H41; Konzepte D50:H62 |
+| 11 (S. 12) | `blatt-11.png` | Legende über beiden Diagrammen · Zahlungsüberschuss je Jahr (6) · Eigenkapital zurück (6) · Kennzahlentabelle (12) · Risiken kompakt (12) | Konzepte D61:H88, Zeitreihe; Team 3 Vergleich D66:H101; Läufe N6 |

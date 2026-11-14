@@ -403,8 +403,30 @@ Gleichheit aller bestehenden Zellen mit der geprüften Konzepte-Mappe ersetzt di
     die meint Zahlungsüberschuss null. Das Konzept sagt deshalb „Miete für DSCR 1,2“. Das muss der Auftraggeber bestätigen.
 15. **Fazit ohne Bestand.** Die Zahl −40,6 % gebundene Wohnungen (heutige Folie 6) steht nicht in der Mappe und fehlt im Fazit. Der
     Anstieg der Herstellungskosten (+52,9 %) kommt aus den ARGE-Werten in `Tab!D47:E47` (Block für Folie 5).
-16. **Nur Konzept.** Folienentwürfe sind nicht gebaut; geprüft sind die Titelbreiten mit der Schriftmetrik des Vortrags, nicht Diagramme,
-    Tabellenhöhen und Stichpunkte.
+16. **Nur drei Folien gebaut.** Gebaut und mit den Prüfungen des Vortrags geprüft sind 16, 20 und 28. Alle übrigen Folien und die drei
+    Broschürenblätter sind Skizzen (matplotlib, Schrift und Strich angenähert). Ihre Titel sind mit der Schriftmetrik gemessen, Tabellenhöhen,
+    Stichpunkte in 14 pt und native Diagramme aber nicht. Beim Bau können Zeilen umbrechen und Folien voller werden als in der Skizze.
+17. **„Ohne Mietanpassung“ ist nicht ganz symmetrisch.** Die Fazit-Folie stellt gefördert ohne Mieterhöhung (Lauf mietanpassung_gefoerdert_0,
+    5,08 bis 5,54 %) neben frei ohne Mietsteigerung (Lauf mietsteigerung_0, 4,41 bis 5,81 %). Der Lauf frei nimmt aber auch dem Restwert
+    die Steigerung der Marktmiete, der Lauf gefördert nicht. Im Lauf mietsteigerung_0 fällt gefördert auf 5,20 bis 5,42 % (Folie 22, A10).
+    Einen Lauf mit beidem zugleich gibt es in N6 nicht. Folie 22 und Fazit nennen deshalb für gefördert zwei verschiedene „ohne“-Werte;
+    wer beide Folien nebeneinander liest, muss die Läufe kennen.
+18. **Titel Folie 21 mischt zwei Nenner.** „1,7 bis 2,8 %“ reicht von A mit Gesamtkosten (1,7 %) bis A ohne Zuschuss im Nenner (2,8 %).
+    Mit Gesamtkosten allein sind es 1,7 bis 2,4 %. Der Titel ist richtig, aber großzügig gelesen.
+19. **Risikofolie 24 bricht das Raster.** Die Spalten stehen in zwei Gruppen (A, B, C, Frei 15,42 € | Frei 18,36 €: Miete, Jahre unter 1,2),
+    weil frei 18,36 € nie einen Fehlbetrag hat. Damit steht frei 15,42 € vor frei 18,36 €, anders als auf allen anderen Folien.
+    Ebenso hat A7 rechts nur A, B, C (frei ist nach Jahr 30 ohne Darlehen).
+20. **Fazit im Abschnitt 4.** Der Kopf der Fazit-Folie zeigt „4 Umsetzung“, weil die Bibliothek für „Fazit“ kein Zeichen kennt. Wer im Saal
+    auf den Kopf schaut, liest das Fazit als Teil der Umsetzung.
+21. **Annahmen in der Broschüre kürzer als auf Folie 15.** Blatt 9 hat 30 Zeilen; Mietenstufe, Bearbeitungsentgelte, Nutzungsdauer und
+    Kappungsgrenze stehen nur auf Folie 15 (Mietenstufe im Kasten „Das Modellhaus“). Die vollständige Stelle ist Folie 15.
+22. **Leerraum in der Broschüre.** Blatt 10 und 11 haben unten rund ein Viertel der Seite frei, Blatt 9 neben dem Modellhaus. Das Raster der
+    Module ist nicht ausgeglichen; im Satz muss es neu verteilt werden.
+23. **„Frei 18,36“ ohne Erklärung auf einzelnen Skizzen.** Die Bedeutung (Miete für DSCR 1,2, Annahme der PGN) steht auf 15, 16, 17, 20,
+    28 und den Blättern 10 und 11, in den Legenden von 18 und 19 als „(DSCR 1,2)“. Auf 21, 22 und im Anhang steht nur „Frei 18,36“.
+    Wer dort einsteigt, braucht Folie 17.
+24. **Kumuliert nur als Rückflussquote.** Der kumulierte Zahlungsüberschuss erscheint als % des Eigenkapitals (Folie 20) und als Summe
+    bis Jahr 35 in Mio. € (Stichpunkte). Eine Linie in € kumuliert gibt es nicht; das Projektkonto (verzinst) steht nur als Endstand in A7.
 
 ## 8 Änderungen der Gestaltung
 
@@ -434,3 +456,76 @@ Die übrigen Folien des Kapitels und die Broschürenblätter 9 bis 11 stehen als
 Skizzen: Diagramme mit sechsstelligen Beträgen stehen in Tsd. € (Folie 19, Blatt 11). Folie 23 und A11 sind die heutigen Folien 22 und 20
 als Bild. In der Broschüre stehen die Annahmen auf Blatt 9 in 2 × 2 Tafeln über je sechs Spalten statt vier Tafeln über je drei Spalten,
 weil Wert und Herkunft in drei Spalten (42 mm) nicht nebeneinander passen.
+
+## 9 Abgleich am Ende (Rolle Inhalt, 14.11.2026)
+
+Geprüft: Entwürfe 16, 20, 28 (pptx, Belege, Bilder), alle Skizzen und Broschürenblätter gegen Abschnitt 2 bis 5, `ZAHLEN.md`,
+`werte_konzepte.json` und `werte_team.json`. Jede Zahl der pptx steht mit Blatt und Zelle in `entwurf/Entwurf-Team-3.belege.json`
+(117 Werte); jede Zahl auf den drei Entwürfen findet sich gerundet in diesen Werten wieder (Ausnahmen nur Blattnummern, Achsteilung und
+Jahreszahl 2020). Die Skizzen lesen alle Zahlen aus den beiden JSON-Dateien (`skizzen.py`); die Fußzeile jeder Skizze nennt die Zellen.
+Stichproben gegen die Mappe: Übersicht D24:F25, Team 3 Vergleich D55:D62, Status Übersicht D3, Konzepte D3, Team 3 Vergleich D3 = OK.
+Aussagen gegen die Reihen geprüft: C liegt in Jahr 1 bis 3 unter 1,2 (1,181 | 1,180 | 1,179), ab Jahr 4 darüber; frei zur Marktmiete
+erreicht 1,2 in Jahr 11 (1,204); frei 18,36 € hat in keinem Jahr eine DSCR unter 1,2; A liegt beim Rückfluss bis Jahr 17 vor frei
+zur Marktmiete und danach nicht mehr.
+
+### 9.1 Behoben
+
+| Wo | Fehler | Behoben |
+|---|---|---|
+| 16 (Entwurf) | DSCR 1,2 ohne Kennzeichnung als Annahme der PGN | Stichpunkt „Frei: 18,36 € für DSCR 1,2 (Annahme der PGN), 19,1 % über der Marktmiete“; 1,2 aus `Konzepte!D6` |
+| 20 (Entwurf) | Stichpunkt nannte 18,36 € ohne Bedeutung, Marktmiete ohne Betrag | „Frei 4,04 Mio. € zur Miete für DSCR 1,2 (18,36 €, Annahme der PGN), 2,61 Mio. € zur Marktmiete 15,42 €“ |
+| 28 (Entwurf) | Marktmiete nur als „19,1 % über der Marktmiete“, nicht als 15,42 €; DSCR 1,2 ohne Kennzeichnung; „Rendite mit Restwert“ statt des festen Worts; Kapitaldienst ohne „und Monat“ | Zeile Miete: „18,36 € für DSCR 1,2 (Annahme der PGN), Marktmiete 15,42 €“; Zeilen „Eigenkapitalrendite mit Restwert“ und „dieselbe ohne Mietanpassung“; „Kapitaldienst von 7,22 auf 17,55 € je m² und Monat“ (wie heutige Folie 5); Spalten 3,1 / 3,4 / 5,5 Zoll |
+| 15 (Skizze) | Annahmen unvollständig: Mietenstufe, Zins ab Jahr 36, Verwaltungskostenbeitrag, Bearbeitungsentgelte, Eigenmittel, Liegenschaftszins, Nutzungsdauer, Vergleichsmiete, Kappungsgrenze fehlten; „Annuität 30 J.“ fest im Code; Abstand der Mieterhöhungen und Zinsbindung sind Annahmen der PGN, standen als R bzw. Q | ergänzt (33 Zeilen), Laufzeit aus `Eingaben!F38`, Herkunft „R, A“ und „Q, A“; vierte Tafel heißt „Betrieb, Restwert“ |
+| 17 (Skizze) | Legende „kostendeckend“ statt „kostendeckende Anfangsmiete“ | ersetzt |
+| 18, 19 (Skizze) | Legende „Frei 18,36“ ohne Bedeutung | „Frei 18,36 (DSCR 1,2)“, „Frei 15,42 (Markt)“ |
+| 21, 22, A9, A10 (Skizze) | Spaltenköpfe „Fr 18,36“ | „Frei 18,36“, „Frei 15,42“ |
+| 22 (Skizze) | Restwert ohne Einheit; Hinweis „Ohne Mietsteigerung“ verschwieg, dass der Lauf auch den Restwert gefördert senkt | „Restwert J. 35, Mio. €“; „Ohne Steigerung der Marktmiete (wirkt auch auf den Restwert)“ |
+| 24 (Skizze) | Spaltenköpfe „Fr: Miete“, „DSCR<1,2“ | „Frei 18,36: Miete“, „Jahre < 1,2“ |
+| A7 (Skizze) | „Überschuss 36–42“ (Gedankenstrich, anderes Wort), „EK-Rendite“; Beschriftung lief in die Werte | „Zahlungsüberschuss, Tsd. €“ unter dem Kopf „Jahr 36 bis 42“, „Eigenkapitalrendite, 42 Jahre“, Spalten neu |
+| A8, Blatt 11 | „EK-Rendite“ | „Eigenkapitalrendite“ |
+| A9 (Skizze) | Hinweis sprach vom Entwurf („Im Entwurf dazu …“) | Hinweis erklärt die letzte Spalte |
+| A10 (Skizze) | Tabelle sagte nicht, welche Rendite | Hinweis beginnt mit „Eigenkapitalrendite mit Restwert, 35 Jahre, vor Steuern“ |
+| Blatt 9 | Annahmen ohne Zinsen NBank, Verwaltungskostenbeitrag, Eigenmittel, Bindung, Zinsbindung, Tilgung frei, Mietsteigerung, Projektkonto, Restwert, Liegenschaftszins, Vergleichsmiete; Zellen von Zuschuss je Wohnung fehlten | ergänzt (30 Zeilen); Fußzeile mit Übersicht D24:F25, D106 |
+| Blatt 10 | Balken ohne Legende und ohne Beschriftung der Marke 15,42 €; „kostendeckend“ | Legende mit Zahlungsüberschuss, Marke „Marktmiete 15,42 €“, Achsentitel; „kostendeckende Anfangsmiete“ |
+| Blatt 11 | Liniendiagramme ohne Legende; „Frei 18,36“ ohne Bedeutung | Legende über beiden Diagrammen, Marke „Eigenkapital zurück“, Nulllinie; Unterzeile der Kennzahlen erklärt beide Mieten |
+| `ZAHLEN.md` | Fehlten: DSCR-Ziel, Miete und Marktmiete, Bearbeitungsentgelte, Anteil Marktmiete und Aufschlag (16); Annahmen und Lauf mietsteigerung_0 (20); Mietanpassung und beide „ohne“-Läufe (28); DSCR-Ziel stand als „1,20“ | ergänzt in `build_zahlen.py`, neu erzeugt (1.040 Einträge); DSCR-Ziel mit einer Stelle |
+
+Bau nach den Änderungen: `entwurf.cjs` ohne Fehler, `rendern.sh` mit eigenem LibreOffice-Profil, Schemaprüfung bestanden,
+`pruefe_entwurf.py` 0 Fehler, 0 Hinweise. Bilder in `entwurf/png/`, PDF `entwurf/Entwurf-Team-3.pdf`.
+
+### 9.2 Pflichtpunkte des Auftrags
+
+| Nr. | Pflichtpunkt | Erfüllt | Wo |
+|---|---|---|---|
+| 1 | Annahmen vollständig an einer Stelle, je Annahme Wert und Herkunft (Richtlinie, Quelle, Annahme der PGN) | ja | Folie 15 (33 Zeilen, Kürzel R, G, Q, P, A, N); Broschüre Blatt 9 gekürzt |
+| 2 | Liquidität: Zahlungsüberschuss je Jahr | ja | Folie 19, Blatt 11 |
+| 3 | Zahlungsüberschuss kumuliert | ja | Folie 20 (in % des Eigenkapitals, Summe bis Jahr 35 in Mio. €), Blatt 11 |
+| 4 | Jahre mit Fehlbetrag, tiefster Stand des Projektkontos | ja | Folie 19, 24, A9, Blatt 11 |
+| 5 | DSCR je Variante in Jahr 1 und im Zeitverlauf | ja | Folie 17 (Jahr 1), 18 (Jahr 1 bis 35), A6, Blatt 10 und 11 |
+| 6 | Objektrendite = Überschuss vor Kapitaldienst ÷ Gesamtkosten, unabhängig von der Finanzierung | ja | Folie 21 |
+| 7 | Prüfen, ob die Mappe anders definiert | ja | A8 (Mappe: Objekt-IRR über 35 Jahre in drei Lesarten; statische Nettoanfangsrendite gleich Folie 21, Abweichung `K!D44:H44` = 0) |
+| 8 | Objektrendite fair bei gefördertem Wohnraum (mit und ohne Zuschuss) | ja | Folie 21 (zwei Nenner), A8 (nach Förderbarwert) |
+| 9 | Eigenkapitalrendite mit und ohne Restwert | ja | Folie 22, A8, Blatt 11 |
+| 10 | Varianten A, B, C und frei im Zeitverlauf über 35 Jahre | ja | Folie 18, 19, 20, Blatt 11 |
+| 11 | Gebundenes Eigenkapital und Rückfluss | ja | Folie 14, 20 |
+| 12 | Restschuld und Vermögen am Ende der Bindung | ja | A7, Blatt 11 |
+| 13 | Zeit nach Jahr 35 | ja | A7 (Jahr 36 bis 42, A bis C) |
+| 14 | Risiken: Tilgungssatz, Herstellungskosten, Mietanpassung, Anschlusszins frei finanziert | ja | Folie 24, A9, A10, A11 |
+| 15 | DSCR 1,2 als neue Annahme der PGN gekennzeichnet | ja | Folie 15 (N, grau), 16, 17, 20, 28, Blatt 9 und 10 |
+| 16 | Miete für DSCR 1,2 als Formel, nicht Zielwertsuche | ja | gemeinsamer Block N2, `Konzepte!D12` (18,36 €) |
+| 17 | Frei finanziert auf allen Folien dieselbe Miete; Mietanpassung wie in der Mappe | ja | 18,36 € überall, +2 % p. a. (`Eingaben!F26`) |
+| 18 | Jede Folie mit frei finanzierter Zahl nennt 18,36 € und 15,42 € | ja | alle Folien und Blätter; Bedeutung von „Frei 18,36“ nicht auf jeder (Schwäche 23) |
+| 19 | Restwert für alle Varianten aus der Marktmiete 15,42 € | ja | `Konzepte!D76:H76`, Folie 22 |
+| 20 | A, B, C zur Höchstmiete; Miete für DSCR 1,2 von A, B, C als Vergleichszahl | ja | Folie 17, Blatt 10 |
+| 21 | Für welches Darlehen gilt 1,2, was prüft die NBank; C unter 1,2 gezeigt und eingeordnet | ja | Folie 17, Blatt 10 |
+| 22 | Fazit-Folie vor Kontakt über alle vier Abschnitte; Zusammenfassung 24 entfällt | ja | Folie 28 (Entwurf) |
+| 23 | Liegt frei vorn: Annahmen und Risiko auf derselben Folie | ja | 16, 19, 20, 21, 22, 28 |
+| 24 | Vergleiche symmetrisch | teilweise | überall A, B, C, Frei 18,36, Frei 15,42; Ausnahmen Folie 24 und A7 (Schwäche 19), „ohne“-Läufe im Fazit (Schwäche 17) |
+| 25 | Ein Thema je Folie; kein kleiner, frei hängender Text | ja | Entwürfe geprüft; „Rechenbeispiel, keine Förderzusage“ im Modulkopf |
+| 26 | Diagramme als native, editierbare Charts | ja für die Entwürfe | 16, 20 native; Skizzen sind Bilder und werden beim Bau native |
+| 27 | Hinweise im grauen Kasten mit Info-Symbol, Light 12 pt; Stichpunkte 14 pt | ja | Entwürfe (Bausteine des Vortrags) |
+| 28 | Feste Begriffe (Herstellungskosten, kostendeckende Anfangsmiete, jährliche Annuität über 30 Jahre) | ja | 17, Blatt 10, A7; „Förderkonditionen“ kommt im Kapitel nicht vor |
+| 29 | Jede Zahl mit Blatt und Zelle | ja | `ZAHLEN.md` (1.040 Einträge), `Entwurf-Team-3.belege.json` (117), Fußzeilen der Skizzen |
+| 30 | Nur Mappe v3 als Zahlenquelle, DSCR 1,2 einzige neue Annahme, keine Schätzung | ja | Block T3 nur Formeln auf bestehende Zellen |
+| 31 | Mappe unverändert, neue Rechnung in Kopie als neuer Block, Prüfungen OK, Block frei 15,42 € bleibt | ja | Team-Mappe, Abschnitt 6; Status D3 auf Übersicht, Konzepte, Team 3 Vergleich = OK |
+

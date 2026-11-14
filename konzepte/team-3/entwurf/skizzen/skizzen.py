@@ -88,6 +88,7 @@ def bar(werte, f):
 MIETE_D, MIETE_M = K("n2.miete_dscr"), K("n2.marktmiete_jahr1")
 NAME = {"A": "Gruppe A", "B": "Gruppe B", "C": "Gruppe C", "frei_dscr": f"Frei {zahl(MIETE_D, 2)} €",
         "frei_markt": f"Frei {zahl(MIETE_M, 2)} €"}
+LEG = {"A": "A", "B": "B", "C": "C", "frei_dscr": f"Frei {zahl(MIETE_D, 2)} (DSCR 1,2)", "frei_markt": f"Frei {zahl(MIETE_M, 2)} (Markt)"}
 KURZ = {"A": "A", "B": "B", "C": "C", "frei_dscr": f"Frei {zahl(MIETE_D, 2)}", "frei_markt": f"Frei {zahl(MIETE_M, 2)}"}
 
 # ---- Farben und Linien wie im Vortrag -----------------------------------------------------------------------------------
@@ -411,7 +412,7 @@ def folie18():
     f = Folie("18", "3", "Modellrechnung", ["Ab Jahr 4 liegt die DSCR von A bis C", "über 1,2, frei zur Marktmiete ab Jahr 11"], "Jahr 4",
               "DSCR", quelle="Konzepte Zeitreihe H, Q, Z, AR, AI 7:41; Konzepte D71:H73")
     y = f.modulkopf(colX(1), 2.10, span(7), "DSCR je Jahr, Jahr 1 bis 35", "Überschuss vor Kapitaldienst ÷ Kapitaldienst")
-    f.legende(colX(1), y - 0.05, [(KURZ[v], v) for v in V])
+    f.legende(colX(1), y - 0.05, [(LEG[v], v) for v in V])
     ax = linien(f, colX(1) + 0.35, y + 0.30, span(7) - 0.4, 2.35, lambda v: K(f"zr.dscr.{v}"), 0.8, 3.5, fmt=lambda v: zahl(v, 1), marke=1.2)
     ax.axvline(30, color=REF, ls=":", lw=1)
     ax.text(14, 1.13, "1,2: DSCR-Ziel der Bank (frei, Annahme der PGN)", va="top", fontsize=9, family="Work Sans", color=GRAU)
@@ -431,7 +432,7 @@ def folie19():
     f = Folie("19", "3", "Modellrechnung", ["Kein Jahr mit Fehlbetrag in A, B und C,", f"frei zur Marktmiete fehlen {zahl(-K('n5.zue_jahr1.frei_markt'))} €"],
               "Kein Jahr mit Fehlbetrag", "Liquidität", quelle="Konzepte Zeitreihe F, O, X, AP, AG 7:41; Konzepte D61:H70")
     y = f.modulkopf(colX(1), 2.10, span(7), "Zahlungsüberschuss je Jahr, Jahr 1 bis 35", "in Tsd. € p. a., nach Kapitaldienst, vor Steuern")
-    f.legende(colX(1), y - 0.05, [(KURZ[v], v) for v in V])
+    f.legende(colX(1), y - 0.05, [(LEG[v], v) for v in V])
     ax = linien(f, colX(1) + 0.35, y + 0.30, span(7) - 0.4, 2.35, lambda v: [z / 1000 for z in K(f"zr.zue.{v}")], -25, 325, fmt=lambda v: zahl(v), marke=0)
     ax.axvline(30.5, color=REF, ls=":", lw=1)
     ax.text(30, 300, "ab Jahr 31 frei\nohne Kapitaldienst", fontsize=9, family="Work Sans", color=GRAU, ha="right", va="top")

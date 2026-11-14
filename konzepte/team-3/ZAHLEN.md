@@ -1,6 +1,6 @@
 # Zahlen des Konzepts Team 3 (Vergleich)
 
-1023 Einträge.
+1040 Einträge.
 Erzeugt mit `build_zahlen.py` aus `konzepte/mappe/werte_konzepte.json` (Lauf „konzepte“ und Szenario-Läufe N6) und `team-3/mappe/werte_team.json` (Block T3 auf dem Blatt „Team 3 Vergleich“ der Team-Mappe `team-3/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Team3.xlsx`). Spalte „Wert roh“ ungerundet, „gezeigt“ so, wie die Zahl auf Folie oder Seite steht. Lauf „konzepte“: Konzepte-Mappe; Lauf „team3“: Team-Mappe, Blatt „Team 3 Vergleich“; Läufe N6: Kopie `konzepte/mappe/laeufe/<lauf>.xlsx`, Blatt Konzepte. Bestehende Zellen sind in Konzepte-Mappe und Team-Mappe gleich (Vergleich 16.541 Zellen, 0 Abweichungen).
 
 Varianten: A, B, C = Gruppe A, B, C zur Höchstmiete. Frei 18,36 € = frei finanziert zur Miete für DSCR 1,2 (Blatt Frei DSCR 1,2). Frei 15,42 € = frei finanziert zur Marktmiete (Blatt Frei finanziert).
@@ -149,6 +149,15 @@ Zeitreihen: Die Zeile nennt die Zelle des genannten Jahres; die ganze Reihe steh
 | Zahlungsüberschuss Jahr 1 in € p. a. (Hinweiskasten) | Frei 18,36 € | 26955.73 | 26.956 € | €, ganze Euro | Team 3 Vergleich!H17 | team3 |
 | Zahlungsüberschuss Jahr 1 in € p. a. (Hinweiskasten) | Frei 15,42 € | -1690.97 | −1.691 € | €, ganze Euro | Team 3 Vergleich!G17 | team3 |
 | Marktmiete (Marke an der Säule Frei) | Frei | 15.42 | 15,42 € | €, 2 Stellen | Team 3 Vergleich!H39 | team3 |
+| Miete für DSCR 1,2 (Stichpunkt Herein) | Frei | 18.36196062 | 18,36 € | €, 2 Stellen | Konzepte!D12 | konzepte |
+| DSCR-Ziel der Bank (Stichpunkt Herein) | Frei | 1.2 | 1,2 | Faktor, 1 Stelle | Konzepte!D6 | konzepte |
+| Aufschlag auf die Marktmiete (Stichpunkt Herein) | Frei | 0.1907886266 | 19,1 % | %, 1 Stelle | Konzepte!D14 | konzepte |
+| Höchstmiete in % der Marktmiete (Stichpunkt Herein, 44 bis 58 %) | A | 0.4409857328 | 44 % | %, ganze Zahl | Team 3 Vergleich!D44 | team3 |
+| Höchstmiete in % der Marktmiete (Stichpunkt Herein, 44 bis 58 %) | B | 0.5317769131 | 53 % | %, ganze Zahl | Team 3 Vergleich!E44 | team3 |
+| Höchstmiete in % der Marktmiete (Stichpunkt Herein, 44 bis 58 %) | C | 0.5836575875 | 58 % | %, ganze Zahl | Team 3 Vergleich!F44 | team3 |
+| Bearbeitungsentgelte einmalig (Hinweiskasten) | A | 20743.884 | 20.744 € | €, ganze Euro | Konzepte!D57 | konzepte |
+| Bearbeitungsentgelte einmalig (Hinweiskasten) | B | 22225.59 | 22.226 € | €, ganze Euro | Konzepte!E57 | konzepte |
+| Bearbeitungsentgelte einmalig (Hinweiskasten) | C | 22966.443 | 22.966 € | €, ganze Euro | Konzepte!F57 | konzepte |
 
 ## Folie 17 · Miete für DSCR 1,2 gegen Höchstmiete und Marktmiete
 
@@ -312,6 +321,14 @@ Zeitreihen: Die Zeile nennt die Zelle des genannten Jahres; die ganze Reihe steh
 | Linie Rückflussquote Jahr 0 bis 35 (Bereich, Startzelle Jahr 0) | C | 0 | 0 % | %, ganze Zahl | Team 3 Vergleich!F66 | team3 |
 | Linie Rückflussquote Jahr 0 bis 35 (Bereich, Startzelle Jahr 0) | Frei 18,36 € | 0 | 0 % | %, ganze Zahl | Team 3 Vergleich!H66 | team3 |
 | Linie Rückflussquote Jahr 0 bis 35 (Bereich, Startzelle Jahr 0) | Frei 15,42 € | 0 | 0 % | %, ganze Zahl | Team 3 Vergleich!G66 | team3 |
+| Miete für DSCR 1,2 (Legende, Stichpunkt) | Frei | 18.36196062 | 18,36 € | €, 2 Stellen | Konzepte!D12 | konzepte |
+| Marktmiete (Legende, Stichpunkt) | Frei | 15.42 | 15,42 € | €, 2 Stellen | Konzepte!D13 | konzepte |
+| DSCR-Ziel der Bank (Stichpunkt) | Frei | 1.2 | 1,2 | Faktor, 1 Stelle | Konzepte!D6 | konzepte |
+| Laufzeit Bankdarlehen (Marke Jahr 30) | Frei | 30 | 30 | ganze Zahl | Eingaben!F38 | konzepte |
+| Mieterhöhung in der Bindung (Stichpunkt) | – | 0.0615 | 6,15 % | %, 2 Stellen | Tabellen!D28 | konzepte |
+| Abstand der Mieterhöhungen, Jahre (Stichpunkt) | – | 3 | 3 | ganze Zahl | Tabellen!D29 | konzepte |
+| Mietsteigerung frei finanziert (Stichpunkt) | Frei | 0.02 | 2 % | %, ganze Zahl | Eingaben!F26 | konzepte |
+| Ohne Mietsteigerung: Jahre mit Fehlbetrag (Stichpunkt) | Frei 15,42 € | 30 | 30 | ganze Zahl | Konzepte!G68 | mietsteigerung_0 (laeufe/mietsteigerung_0.xlsx) |
 
 ## Folie 21 · Objektrendite
 

@@ -188,7 +188,12 @@ ort("Folie 16 · Jahr 1: was herein kommt, was hinaus geht, was bleibt (je m² u
     + je("Kapitaldienst", "t:t3.qm.kapitaldienst.{v}", "eur2")
     + je("Zahlungsüberschuss", "t:t3.qm.zue.{v}", "eur2")
     + je("Zahlungsüberschuss Jahr 1 in € p. a. (Hinweiskasten)", "t:t3.jr1.zue.{v}", "eur")
-    + einzeln("Marktmiete (Marke an der Säule Frei)", "t:t3.miete.marktmiete.frei_dscr", "eur2", "Frei"))
+    + einzeln("Marktmiete (Marke an der Säule Frei)", "t:t3.miete.marktmiete.frei_dscr", "eur2", "Frei")
+    + einzeln("Miete für DSCR 1,2 (Stichpunkt Herein)", "k:n2.miete_dscr", "eur2", "Frei")
+    + einzeln("DSCR-Ziel der Bank (Stichpunkt Herein)", "k:n1.dscr_ziel_bank_frei", "f1", "Frei")
+    + einzeln("Aufschlag auf die Marktmiete (Stichpunkt Herein)", "k:n2.aufschlag_marktmiete", "pct1", "Frei")
+    + je("Höchstmiete in % der Marktmiete (Stichpunkt Herein, 44 bis 58 %)", "t:t3.miete.anteil_markt.{v}", "pct0", ["A", "B", "C"])
+    + je("Bearbeitungsentgelte einmalig (Hinweiskasten)", "k:n5.bearbeitungsentgelte.{v}", "eur", ["A", "B", "C"]))
 
 ort("Folie 17 · Miete für DSCR 1,2 gegen Höchstmiete und Marktmiete",
     je("Kostendeckende Anfangsmiete (Zahlungsüberschuss Jahr 1 = 0)", "t:t3.miete.kostendeckend.{v}", "eur2", V4)
@@ -240,7 +245,15 @@ ort("Folie 20 · Rückfluss des Eigenkapitals",
     + je("Rückflussquote Ende Jahr 20", "t:t3.rueckfluss.quote_jahr20.{v}", "pct0")
     + je("Rückflussquote Ende Jahr 35", "t:t3.rueckfluss.quote_jahr35.{v}", "pct0")
     + je("Zahlungsüberschuss kumuliert Ende Jahr 35", "k:n5.kum_jahr35.{v}", "mio2")
-    + je("Linie Rückflussquote Jahr 0 bis 35 (Bereich, Startzelle Jahr 0)", "t:t3.zr.rueckfluss.{v}@0", "pct0"))
+    + je("Linie Rückflussquote Jahr 0 bis 35 (Bereich, Startzelle Jahr 0)", "t:t3.zr.rueckfluss.{v}@0", "pct0")
+    + einzeln("Miete für DSCR 1,2 (Legende, Stichpunkt)", "k:n2.miete_dscr", "eur2", "Frei")
+    + einzeln("Marktmiete (Legende, Stichpunkt)", "k:n2.marktmiete_jahr1", "eur2", "Frei")
+    + einzeln("DSCR-Ziel der Bank (Stichpunkt)", "k:n1.dscr_ziel_bank_frei", "f1", "Frei")
+    + einzeln("Laufzeit Bankdarlehen (Marke Jahr 30)", "k:annahme.laufzeit_bank", "int", "Frei")
+    + einzeln("Mieterhöhung in der Bindung (Stichpunkt)", "k:annahme.mieterhoehung_in_der_bindung", "pct2")
+    + einzeln("Abstand der Mieterhöhungen, Jahre (Stichpunkt)", "k:annahme.abstand_mieterhoehungen", "int")
+    + einzeln("Mietsteigerung frei finanziert (Stichpunkt)", "k:annahme.mietsteigerung", "pct0", "Frei")
+    + je("Ohne Mietsteigerung: Jahre mit Fehlbetrag (Stichpunkt)", "r:mietsteigerung_0:jahre_fehlbetrag_1_35.{v}", "int", ["frei_markt"]))
 
 ort("Folie 21 · Objektrendite",
     je("Objektrendite Jahr 1, Nenner Gesamtkosten", "k:n5.objektrendite.{v}", "pct1")

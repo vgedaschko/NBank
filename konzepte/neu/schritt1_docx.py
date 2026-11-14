@@ -14,75 +14,79 @@ ROT = RGBColor(0xC8, 0x10, 0x2E)
 TITEL = "Modellrechnung und Fazit: Aussagen je Folie (Schritt 1)"
 VORSPANN = [
     "Stand 14.11.2026. Zahlen aus der Konzepte-Mappe, Blatt Konzepte (Kopie der Rechenmappe v3, Modellhaus). "
-    "Läufe aus konzepte/mappe/laeufe.",
-    "Frei finanziert rechnet mit 18,36 € Miete. Das ist die Miete für eine DSCR von 1,2 in Jahr 1 (Annahme der PGN). "
-    "Die Marktmiete 15,42 € steht auf jeder dieser Folien dabei.",
+    "Rechenläufe mit je einer geänderten Annahme in Kopien dieser Mappe.",
+    "Frei finanziert wird mit 18,36 € Miete gerechnet. Das ist die Miete für eine DSCR von 1,2 in Jahr 1 (Annahme der PGN). "
+    "Die Marktmiete von 15,42 € wird auf diesen Folien jeweils mit angegeben.",
 ]
 
-# Nr, Frage, Aussage, Zahlen [(Text, Zelle)], Darstellung
+# Nr, Thema, Aussage, Zahlen [(Text, Zelle)], Darstellung
 FOLIEN = [
-    ("1", "Was setze ich ein?",
-     "Ein Haus für 3,0 Mio. €, in jeder Variante rund 0,6 Mio. € Eigenkapital.",
-     [("3,0 Mio. € Gesamtkosten", "D52"),
-      ("rund 0,6 Mio. € Eigenkapital", "D56:H56"),
-      ("Zuschuss bis 1,19 Mio. € in A", "D53")],
-     "Ein Balken je Variante: Eigenkapital, Zuschuss, NBank-Darlehen, Bankdarlehen."),
-    ("2", "Woher kommen die 3,0 Mio. €?",
-     "Herstellungskosten der PGN liegen 22,7 % unter dem ARGE-Median.",
+    ("1", "Investition und Finanzierung",
+     "Die Gesamtkosten betragen 3,0 Mio. €, der Eigenkapitaleinsatz in allen Varianten rund 0,6 Mio. €.",
+     [("Gesamtkosten 3,0 Mio. €", "D52"),
+      ("Eigenkapitaleinsatz rund 0,6 Mio. €", "D56:H56"),
+      ("Zuschuss in Gruppe A 1,19 Mio. €", "D53")],
+     "Je Variante ein Balken: Eigenkapital, Zuschuss, NBank-Darlehen, Bankdarlehen."),
+    ("2", "Kostenbasis",
+     "Die Herstellungskosten der PGN liegen 22,7 % unter dem ARGE-Median.",
      [],
-     "Heutige Folie 22, unverändert. Rückt nach vorn: Auf diesen Kosten steht die ganze Rechnung."),
-    ("3", "Was kommt herein, was geht hinaus, was bleibt?",
-     "Im ersten Jahr bleiben gefördert 10.812 bis 15.003 €, frei finanziert 26.956 €.",
-     [("10.812 bis 15.003 € gefördert", "D61:F61"),
-      ("26.956 € frei finanziert", "H61"),
-      ("Kapitaldienst A 34.150 €, frei 134.779 €", "D60, H60")],
-     "Je Variante ein Balken Miete, geteilt in Bewirtschaftung, Kapitaldienst und was bleibt."),
-    ("4", "Geht die Bank mit?",
-     "Für eine DSCR von 1,2 braucht frei finanziert 18,36 € Miete, der Markt zahlt 15,42 €.",
-     [("18,36 € nötige Miete", "D12"),
-      ("15,42 € Marktmiete", "D13"),
-      ("C braucht 9,12 €, erlaubt sind 9,00 €", "F22, F19")],
-     "Je Variante zwei Balken: Miete für DSCR 1,2 und Miete, die man bekommt. Dazu ein Satz: "
-     "Die 1,2 gilt für das Bankdarlehen frei finanziert. Gefördert gibt es kein Bankdarlehen, "
-     "die NBank prüft Eigenmittel und angemessenen Gewinn."),
-    ("5", "Was bleibt mir über die Jahre?",
-     "Ihr Eigenkapital ist gefördert nach 22 bis 23 Jahren zurück, frei finanziert nach 13.",
-     [("22 bis 23 Jahre gefördert", "D67:F67"),
-      ("13 Jahre frei finanziert", "H67"),
-      ("kein Jahr mit Fehlbetrag", "D68:F68, H68")],
-     "Linien: Zahlungsüberschuss aufsummiert, Jahr 1 bis 35, je Variante. Waagerechte Linie: Eigenkapital."),
-    ("6", "Was bringt mein Eigenkapital?",
-     "Bei der Eigenkapitalrendite liegt frei finanziert vorn: 8,93 % gegen 7,05 bis 7,40 %.",
-     [("8,93 % frei finanziert", "H81"),
-      ("7,05 bis 7,40 % gefördert", "D81:F81"),
-      ("ohne Restwert gefördert 2,58 bis 2,75 %", "D82:F82")],
-     "Je Variante zwei Balken: Eigenkapitalrendite mit und ohne Restwert, 35 Jahre. "
-     "Restwert in allen Varianten aus der Marktmiete."),
-    ("7", "Was kann schiefgehen?",
-     "Mit Herstellungskosten wie im ARGE-Median hätten B und C Jahre mit Fehlbetrag.",
-     [("4.631 €/m²: B 3 und C 6 Jahre mit Fehlbetrag", "E68:F68, Lauf kosten_4631"),
-      ("ohne Mietanpassung: A 5,08 % statt 7,05 %", "D81, Lauf mietanpassung_gefoerdert_0"),
-      ("frei zur Marktmiete, Marktmiete steigt nicht: 30 Jahre mit Fehlbetrag", "G68, Lauf mietsteigerung_0")],
-     "Tabelle: fünf Läufe (Herstellungskosten, Mietanpassung, Marktmiete, Tilgungssatz, Anschlusszins) mal vier "
-     "Varianten. Je Feld die Jahre mit Fehlbetrag, Felder mit Fehlbetrag rot. Erste Zeile greift Folie 2 auf."),
-    ("Fazit", "Was nehme ich aus dem Vortrag mit?",
-     "Geförderter Mietwohnraum rechnet sich, wenn Kosten und Ablauf stimmen.",
-     [("keine Kennzahlen der Modellrechnung", "")],
-     "Vier Felder in der Reihenfolge des Vortrags, je ein Satz. Ausgangslage: Zins und Herstellungskosten sind "
-     "gestiegen, gebundene Wohnungen werden weniger. Programmteil 2.1: Zuschuss und zinsfreies Darlehen senken den "
-     "Kapitaldienst. Modellrechnung: Mit den Kosten der PGN trägt sich das Modellhaus in allen drei Gruppen. "
-     "Umsetzung: Erst die Bewilligung, dann Verträge und Baubeginn."),
+     "Heutige Folie 22, unverändert. Sie wird Folie 2, da alle Ergebnisse der Modellrechnung auf diesen Kosten beruhen."),
+    ("3", "Liquidität im ersten Jahr",
+     "Der Zahlungsüberschuss im ersten Jahr beträgt gefördert 10.812 bis 15.003 €, frei finanziert 26.956 €.",
+     [("gefördert 10.812 bis 15.003 €", "D61:F61"),
+      ("frei finanziert 26.956 €", "H61"),
+      ("Kapitaldienst Gruppe A 34.150 €, frei finanziert 134.779 €", "D60, H60")],
+     "Je Variante ein Balken: Mieteinnahmen, aufgeteilt in Bewirtschaftungskosten, Kapitaldienst und Zahlungsüberschuss."),
+    ("4", "Kapitaldienstdeckung",
+     "Für einen Kapitaldienstdeckungsgrad (DSCR) von 1,2 ist frei finanziert eine Miete von 18,36 € erforderlich, die Marktmiete beträgt 15,42 €.",
+     [("erforderliche Miete 18,36 €", "D12"),
+      ("Marktmiete 15,42 €", "D13"),
+      ("Gruppe C: erforderlich 9,12 €, Höchstmiete 9,00 €", "F22, F19")],
+     "Je Variante zwei Balken: erforderliche Miete für DSCR 1,2 und erzielbare Miete (Höchstmiete bzw. Marktmiete). "
+     "Dazu: Die DSCR von 1,2 bezieht sich auf das Bankdarlehen frei finanziert. Gefördert besteht kein Bankdarlehen. "
+     "Die NBank prüft Eigenmittel und angemessenen Gewinn."),
+    ("5", "Liquidität im Zeitverlauf",
+     "Der Eigenkapitaleinsatz fließt gefördert nach 22 bis 23 Jahren zurück, frei finanziert nach 13 Jahren.",
+     [("gefördert 22 bis 23 Jahre", "D67:F67"),
+      ("frei finanziert 13 Jahre", "H67"),
+      ("0 Jahre mit Fehlbetrag", "D68:F68, H68")],
+     "Kumulierter Zahlungsüberschuss Jahr 1 bis 35 je Variante, Eigenkapitaleinsatz als Bezugslinie."),
+    ("6", "Rendite",
+     "Die Eigenkapitalrendite beträgt frei finanziert 8,93 %, gefördert 7,05 bis 7,40 %.",
+     [("frei finanziert 8,93 %", "H81"),
+      ("gefördert 7,05 bis 7,40 %", "D81:F81"),
+      ("gefördert ohne Restwert 2,58 bis 2,75 %", "D82:F82")],
+     "Je Variante zwei Balken: Eigenkapitalrendite mit und ohne Restwert, Betrachtung über 35 Jahre. "
+     "Restwert in allen Varianten auf Basis der Marktmiete."),
+    ("7", "Risiken",
+     "Bei Herstellungskosten in Höhe des ARGE-Medians entstehen in den Gruppen B und C Jahre mit Fehlbetrag.",
+     [("Herstellungskosten 4.631 €/m²: Gruppe B 3, Gruppe C 6 Jahre mit Fehlbetrag", "E68:F68, Lauf kosten_4631"),
+      ("ohne Mietanpassung in der Bindung: Eigenkapitalrendite Gruppe A 5,08 % statt 7,05 %",
+       "D81, Lauf mietanpassung_gefoerdert_0"),
+      ("frei finanziert zur Marktmiete ohne Mietsteigerung: 30 Jahre mit Fehlbetrag", "G68, Lauf mietsteigerung_0")],
+     "Tabelle: fünf Rechenläufe mit je einer geänderten Annahme (Herstellungskosten, Mietanpassung, Marktmiete, "
+     "Tilgungssatz, Anschlusszins) für alle vier Varianten. Je Feld die Jahre mit Fehlbetrag, Felder mit Fehlbetrag "
+     "rot hinterlegt. Die erste Zeile bezieht sich auf Folie 2."),
+    ("Fazit", "Abschluss des Vortrags",
+     "Mit Programmteil 2.1 ist geförderter Mietwohnungsbau wirtschaftlich darstellbar, sofern die Herstellungskosten "
+     "eingehalten werden und die Bewilligung vor Baubeginn vorliegt.",
+     [("Keine. Kennzahlen der Modellrechnung gelten nur unter ihren Annahmen.", "")],
+     "Vier Felder in der Reihenfolge des Vortrags. Ausgangslage: Herstellungskosten und Zinsen seit 2020 deutlich "
+     "gestiegen, Bestand gebundener Wohnungen gesunken. Programmteil 2.1: Zuschuss und zinsfreies Darlehen senken den "
+     "Kapitaldienst. Modellrechnung: Mit den Herstellungskosten der PGN trägt sich das Modellhaus in allen drei "
+     "Einkommensgruppen. Umsetzung: Verträge und Baubeginn erst nach der Bewilligung."),
 ]
 
-ANHANG = ("Anhang: Annahmen mit Wert und Herkunft · Jahresrechnung Jahr 1 Zeile für Zeile · DSCR je Jahr · "
+ANHANG = ("Anhang: Annahmen mit Wert und Herkunft · Jahresrechnung Jahr 1 im Detail · DSCR je Jahr · "
           "Objektrendite mit und ohne Zuschuss · Vermögen und Restschuld Ende Jahr 35, Jahre 36 bis 42 · "
-          "Risiken im Einzelnen · Wohin die Miete fließt (heute Folie 17 und 18).")
-HEUTE = ("Heutige Folien: 14 geht in 1 auf · 22 wird 2 · 15 und 16 gehen in 3 auf · 19 in 4 · 21 in 5 · A6 in 6 · "
-         "20, 23 und A7 in 7 und den Anhang · 24 entfällt, dafür das Fazit. Kapitel 3 hat dann 8 statt 12 Folien.")
-ENTSCHEIDEN = ("Zu entscheiden: Auf Folie 7 rechnet frei finanziert mit der Marktmiete 15,42 €. Grund: In den Läufen "
-               "rechnet die Mappe die Miete für DSCR 1,2 neu (bei 4.631 €/m²: 23,24 €). Frei hätte dann nie einen "
-               "Fehlbetrag. Einverstanden?")
-BROSCHUERE = "Broschüre Blatt 9 bis 11 folgt in Schritt 4 den freigegebenen Folien."
+          "Risiken im Einzelnen · Verwendung der Miete (heute Folie 17 und 18).")
+HEUTE = ("Heutige Folien: 14 geht in Folie 1 auf, 22 wird Folie 2, 15 und 16 gehen in 3 auf, 19 in 4, 21 in 5, A6 in 6, "
+         "20, 23 und A7 in 7 und den Anhang. 24 entfällt, an ihre Stelle tritt das Fazit. "
+         "Kapitel 3 umfasst danach 8 statt 12 Folien.")
+ENTSCHEIDEN = ("Zu entscheiden: Auf Folie 7 wird frei finanziert mit der Marktmiete von 15,42 € gerechnet. Grund: In den "
+               "Rechenläufen ermittelt die Mappe die Miete für DSCR 1,2 jeweils neu (bei 4.631 €/m²: 23,24 €). "
+               "Frei finanziert wiese dann in keinem Lauf einen Fehlbetrag aus. Bitte bestätigen.")
+BROSCHUERE = "Die Broschüre, Blatt 9 bis 11, wird in Schritt 4 an die freigegebenen Folien angepasst."
 
 
 def zelle_fuellen(cell, teile, groesse=8.5):
@@ -131,14 +135,14 @@ def baue_docx(pfad):
     sec.page_width, sec.page_height = Cm(29.7), Cm(21.0)
     for k in ("left_margin", "right_margin"):
         setattr(sec, k, Cm(1.4))
-    sec.top_margin, sec.bottom_margin = Cm(1.1), Cm(0.9)
+    sec.top_margin, sec.bottom_margin = Cm(0.9), Cm(0.7)
 
     absatz(doc, TITEL, pt=13, fett=True, nach=2)
     for v in VORSPANN:
         absatz(doc, v, pt=8.5, farbe=GRAU, nach=0)
     absatz(doc, "", pt=3, nach=0)
 
-    breiten = [Cm(1.2), Cm(3.0), Cm(7.0), Cm(8.2), Cm(7.5)]
+    breiten = [Cm(1.2), Cm(3.3), Cm(7.2), Cm(7.4), Cm(7.8)]
     tab = doc.add_table(rows=1, cols=5)
     tab.style = "Table Grid"
     tab.alignment = WD_TABLE_ALIGNMENT.CENTER
@@ -147,7 +151,7 @@ def baue_docx(pfad):
     lay = OxmlElement("w:tblLayout")
     lay.set(qn("w:type"), "fixed")
     tblPr.append(lay)
-    kopf = ["Folie", "Frage des Investors", "Aussage (Titel der Folie)", "Zahlen, höchstens drei (Blatt Konzepte)", "Darstellung"]
+    kopf = ["Folie", "Thema", "Aussage (Titel der Folie)", "Zahlen, höchstens drei (Blatt Konzepte)", "Darstellung"]
     for i, k in enumerate(kopf):
         c = tab.rows[0].cells[i]
         zelle_fuellen(c, [(k, {"fett": True, "pt": 8.5})])
@@ -159,11 +163,11 @@ def baue_docx(pfad):
         zelle_fuellen(row[2], [(aussage, {"fett": True, "pt": 9})])
         teile = []
         for j, (t, z) in enumerate(zahlen):
-            teile.append((t, {"neu": True}))
+            teile.append((t, {"neu": True, "pt": 8}))
             if z:
-                teile.append(("  " + z, {"grau": True, "pt": 7.5}))
+                teile.append(("  " + z, {"grau": True, "pt": 7}))
         zelle_fuellen(row[3], teile or [("", {})])
-        zelle_fuellen(row[4], [(darst, {})])
+        zelle_fuellen(row[4], [(darst, {"pt": 8})])
     grid = tab._tbl.tblGrid
     for i, gc in enumerate(grid.findall(qn("w:gridCol"))):
         gc.set(qn("w:w"), str(int(breiten[i].twips)))
@@ -181,7 +185,7 @@ def baue_docx(pfad):
 
 def baue_md(pfad):
     z = [f"# {TITEL}", ""] + VORSPANN + [""]
-    z += ["| Folie | Frage des Investors | Aussage (Titel der Folie) | Zahlen (Blatt Konzepte) | Darstellung |",
+    z += ["| Folie | Thema | Aussage (Titel der Folie) | Zahlen (Blatt Konzepte) | Darstellung |",
           "|---|---|---|---|---|"]
     for nr, frage, aussage, zahlen, darst in FOLIEN:
         zt = "<br>".join(f"{t} ({c})" if c else t for t, c in zahlen)

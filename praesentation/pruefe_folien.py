@@ -449,7 +449,7 @@ KERNSAETZE = [
     ("fazit", "Höchstmiete: {a}.", {"a": ("fin.miete_jahr1.A", "euro2")}),
     ("fazit", "Zahlungsüberschuss in Jahr 1, {a} Jahr mit Fehlbetrag", {"a": ("liq.jahre_mit_fehlbetrag.A", "kein")}),
     ("fazit", "bis rund {a} je m². Modellhaus: {b}.", {"a": (K_NULL, "euro"), "b": ("eingabe.herstellungskosten_qm", "euro")}),
-    ("fazit", "bis {a} p. a. Annahme: {b}.", {"a": ("liq.breakeven_tilgung.A", "prozent2"), "b": ("eingabe.tilgung_nbank", "prozent2")}),
+    ("fazit", "bis rund {a} p. a. Annahme: {b}.", {"a": ("liq.breakeven_tilgung.A", "prozent2"), "b": ("eingabe.tilgung_nbank", "prozent2")}),
     ("fazit", "Alle Zahlen gelten für das Modellhaus in Gruppe A und stehen auf den Folien davor.", {}),
     # Folie 21: Bis 11.11.2026 stand hier die Summe der Fehlbeträge in B und C (Übersicht 3.7). Das neue Modellhaus hat kein Jahr mit Fehlbetrag;
     # gebunden ist jetzt diese Aussage an die Jahre mit Fehlbetrag der drei Gruppen (Übersicht 3.6, Summe 0) und der Titel an den Wert in Jahr 35

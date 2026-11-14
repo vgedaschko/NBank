@@ -59,7 +59,7 @@ module.exports = {
     const kostenA = R.kostenSchwelle(ctx, 'A').rund, yB = +(yE + hE + 0.43).toFixed(3);
     const bedingungen = [
       ['Herstellungskosten', `bis rund ${fmt.euro(kostenA)} je m². Modellhaus: ${fmt.euro(M('eingabe.herstellungskosten_qm'))}.`],
-      ['Tilgungssatz', `bis ${fmt.prozent(M('liq.breakeven_tilgung.A'), 2)} p. a. Annahme: ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)}.\nDen Satz legt die NBank fest.`]];
+      ['Tilgungssatz', `bis rund ${fmt.prozent(M('liq.breakeven_tilgung.A'), 2)} p. a. Annahme: ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)}.\nDen Satz legt die NBank fest.`]];
     R.pruefe(M('eingabe.herstellungskosten_qm') < kostenA && M('eingabe.tilgung_nbank') < M('liq.breakeven_tilgung.A'), 'Das Modellhaus liegt nicht mehr unter den Schwellen der Folie 24.');
     let untenB = 0;
     bedingungen.forEach(([titel, text], i) => {

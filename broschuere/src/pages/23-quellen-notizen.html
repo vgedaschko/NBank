@@ -1,15 +1,13 @@
-<section class="page" data-page="23" id="seite-23" aria-label="Quellen und Notizen">
+<section class="page" data-page="23" id="seite-23" aria-label="Quellen">
   <style>
-    /* Seite 23 · Quellen und Notizen · Planwerk. Rechte Seite der Doppelseite 22|23 (Impressum | Quellen und Notizen), letzte
-       Seite vor der Rückseite (Änderungsrunde 13.11.2026, B15.1 mit Rückfrage 8 und 24). Kopfzeile mit Rubrik „PGN“ wie S. 21
-       und 22, Fuß mit Blatt 22. Gemeinsame Horizonte mit S. 22 (feste Kopfhöhe wie dort): Kopfzeile · H1 ab 26 mm · erste
-       Bandlinie bei 52,5 mm (Kopf der Quellentabelle = Oberkante Impressum; Prüfrunde 2 zur Änderungsrunde vom 13.11.2026,
-       vorher 68,5 mm; die gewonnene Höhe geht an die Notizfläche).
-       Oben die Quellentabelle über die volle Breite (Quelle 9 Spalten | Verwendet auf 3 Spalten, dazwischen ein voller Steg), vierzehn Quellen, je eine
-       Zeile in der Form „Herausgeber (Jahr): Titel. Fundstelle.“, die Seitenzahlen als Verweise. Darunter „Notizen“: Modultitel 12 pt mit Linie wie die
-       Modultitel auf S. 22, Fläche im 5-mm-Planraster (Vektorzeichnung --planraster, styles.css; nicht gekachelt) bis zur
-       Satzspiegel-Unterkante. Stufen nach styles.css §8b: H1 25 pt, Modultitel 12 pt, Tabellenkopf 8,5 pt Versalien, Text
-       9,5 pt. Rot nur: Titellinie. Farben nur über Tokens. */
+    /* Seite 23 · Quellen · Planwerk. Rechte Seite der Doppelseite 22|23 (Impressum | Quellen), letzte Seite vor der
+       Rückseite (Änderungsrunde 13.11.2026, B15.1 mit Rückfrage 8 und 24; seit 14.11.2026 ohne Notizfläche, Überschrift
+       „Quellen“). Kopfzeile mit Rubrik „PGN“ wie S. 21 und 22, Fuß mit Blatt 22. Gemeinsame Horizonte mit S. 22 (feste
+       Kopfhöhe wie dort): Kopfzeile · H1 ab 26 mm · erste Bandlinie bei 52,5 mm (Kopf der Quellentabelle = Oberkante Impressum).
+       Quellentabelle über die volle Breite (Quelle 9 Spalten | Verwendet auf 3 Spalten, dazwischen ein voller Steg), vierzehn
+       Quellen, je eine Zeile in der Form „Herausgeber (Jahr): Titel. Fundstelle.“, die Seitenzahlen als Verweise. Die Fläche
+       unter der Tabelle bleibt frei. Stufen nach styles.css §8b: H1 25 pt, Tabellenkopf 8,5 pt Versalien, Text 9,5 pt.
+       Rot nur: Titellinie. Farben nur über Tokens. */
     .page[data-page="23"] .p23q-head { height: 19.5mm; }   /* H1 ab 26 mm, Tabelle ab 52,5 mm wie das Impressum auf S. 22 */
 
     /* Quellentabelle: volle Breite, Spaltenkopf mit kräftiger Linie oben (= erste Bandlinie, wie das Impressum gegenüber) */
@@ -18,31 +16,13 @@
     .page[data-page="23"] .p23q-src tr > :first-child { padding-right: var(--gutter); }   /* Quelle endet auf Spalte 9, ein voller Steg bis „Verwendet auf“ (Prüfrunde 2) */
     .page[data-page="23"] .p23q-src thead th { padding-top: 2.4mm; border-top: var(--rule-w) solid var(--rule-strong); }
     /* Nachprüfung B22.2 (14.11.2026): vierzehn statt zehn Zeilen. Zeilenabstand wie .table--compact (1,2 mm statt 1,7 mm
-       über und unter jeder Zeile), Schrift unverändert 9,5 pt; der Rest der Höhe geht von der Notizfläche ab. */
+       über und unter jeder Zeile), Schrift unverändert 9,5 pt. */
 
-    /* Notizen: Rest der Seite bis 273 mm */
-    .page[data-page="23"] .p23q-notes { flex: 1 1 auto; display: flex; flex-direction: column; margin-top: 6.48mm; padding-top: 2.4mm; }   /* keine eigene Linie: die Abschlusslinie der Tabelle trennt (Prüfung 14.11.2026) */
-    /* Prüfrunde 3: Raster ab der Außenkante des Rahmens (background-origin: border-box). Linien bei 0 und 180 mm fallen
-       auf den Rahmen, das Raster schließt an allen vier Seiten mit vollen Zellen ab. Nachprüfung B22.2 (14.11.2026): Notizfläche
-       15 mm hoch (3 × 5 mm, vorher 45 mm), weil die Quellentabelle vier Zeilen mehr trägt. Der Rest steht über den Notizen
-       (margin-top 6,48 mm), die Unterkante bleibt bei 273 mm. */
-    .page[data-page="23"] .p23q-grid {
-      flex: none;
-      height: 15mm;
-      background-origin: border-box;
-      margin-top: 3mm;
-      border: var(--hair) solid var(--rule);
-      background-color: var(--surface);
-      background-image: var(--planraster);   /* 5-mm-Planraster als Vektorzeichnung, nicht gekachelt */
-      background-size: 180mm 260mm;
-      background-repeat: no-repeat;
-      background-position: 0 0;
-    }
   </style>
 
   <header class="page__header"><span class="page__section">PGN</span></header>
   <header class="p23q-head">
-    <h1 class="h1">Quellen und Notizen</h1>
+    <h1 class="h1">Quellen</h1>
   </header>
 
   <table class="table table--compact p23q-src">
@@ -73,10 +53,5 @@
     </tbody>
   </table>
 
-  <section class="p23q-notes" aria-labelledby="p23q-notizen">
-    <h2 class="h3" id="p23q-notizen">Notizen</h2>
-    <div class="p23q-grid" aria-hidden="true"></div>
-  </section>
-
-  <footer class="page__foot" aria-hidden="true"><span class="page__folio">22</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>PGN · Quellen und Notizen</b></span></span></footer>
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">22</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>PGN · Quellen</b></span></span></footer>
 </section>

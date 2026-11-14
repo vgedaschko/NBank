@@ -169,3 +169,18 @@ Sicherungsstand vor der ersten Änderung: Commit `8981415`.
 12. **Wohngeld-Novelle:** Wird sie verkündet, ändern sich die Mietenstufen ab 01.01.2027. Den WoGV-Eintrag dann prüfen.
 
 Offen bleibt Blatt 20 (Lindenhof), wie besprochen.
+
+## 4. Korrekturen vom 14.11.2026
+
+Sicherungsstand vor diesen Korrekturen: Commit `e639b38`.
+
+| Nr. | Ergebnis | Anmerkung |
+|---|---|---|
+| 1 | umgesetzt | Folie 24, Block „Tilgungssatz“: „bis rund 3,65 % p. a. Annahme: 2,38 %. Den Satz legt die NBank fest.“ |
+| 2 | umgesetzt | Blatt 22: Notizfläche entfällt, Überschrift „Quellen“. Fußzeile „PGN · Quellen“, Inhaltsverzeichnis „22 Quellen“, PDF-Lesezeichen „S. 22 · Quellen“. Die Fläche unter der Tabelle bleibt frei. |
+| 3 | nicht geändert | Quellenfolie bleibt, wie sie ist. |
+| 4 | umgesetzt | Blatt 7, „Kombinierbar“: Satz zur EH-55-Stufe mit Datum gestrichen. Der Rest der Zeile stimmt laut KfW-Merkblatt 297/298, Stand 07/2026: 298 (Kommunen: 498) oder 296, je Wohneinheit nur eines; Neubau und Ersterwerb bis zwölf Monate nach Bauabnahme; Förderungen zusammen höchstens bis zu den förderfähigen Kosten; Grundstück nicht förderfähig. Das Merkblatt nennt die Stufe Effizienzhaus 55 „befristet“, ohne Datum; die übrigen Stufen der 298 verlangen Effizienzhaus 40. Neu steht deshalb: „Die EH-55-Stufe der 298 ist befristet. Danach fördert die 298 nur noch ab EH 40.“ |
+
+Die Stufen ab EH 40 der 298 verlangen außerdem Anforderungen an die Treibhausgasemissionen im Lebenszyklus. Die Zeile nennt nur die Mindeststufe.
+
+Geprüft: Vortrag neu gebaut, Folienprüfung 34 von 34, Dateiprüfung bestanden, alle 37 Folien angesehen. Broschüre ohne Satzbefund, alle 24 Seiten angesehen, InDesign-Paket in Ordnung. Rechenmappe 618 Prüfungen OK. Abgleich Vortrag, Broschüre und Mappe ohne neue Abweichung.

@@ -2,7 +2,7 @@
 
 Broschüre **Mietwohnraumförderung Niedersachsen 2026** (RL Mietwohnraum 2026), Herausgeber **Planungsgemeinschaft Nord GmbH**
 (PGN Architekten und Ingenieure, Rotenburg (Wümme)). DIN A4 hoch, 24 Seiten, Rückendrahtheftung: U1 Titel · U2 Editorial/Inhalt ·
-20 Innenseiten (S. 3–22, mit dem Impressum auf S. 22) · U3 Quellen und Notizen · U4 Rückseite. Seit der Änderungsrunde vom
+20 Innenseiten (S. 3–22, mit dem Impressum auf S. 22) · U3 Quellen · U4 Rückseite. Seit der Änderungsrunde vom
 13.11.2026 ohne das Blatt „Stichtag 31.12.2026“; Bogenseiten 17–23 heißen seitdem 16–22, S. 23 ist neu.
 
 **Leitidee:** Die Broschüre ist ein **Planwerk**. Die Gestaltung kommt aus dem Handwerk eines Generalplaners: Planrahmen,
@@ -114,7 +114,7 @@ Eigene Rollen neben den Stufen:
 
 In Schwarz stehen: Labels (`.kf__pre`, `.term__label`, `.contact__label`, `.service__phase`, `.audience__label`, `.label--accent`), Einheiten (`.kf__unit`, `.seal__unit`), Aufzählungszeichen und Zähler, Fußnotenziffern, Initiale, Seitenverweise, Angebotssatz `.offer`, Hilfslinien im Diagramm (80-%-Linie `.cap-line`, Maßkette und Achskreis `--acc`) und die Linie links an Zitat, Begriff und Notiz (`.quote::before`, `.term`, `.note`).
 
-**Kopfzeile.** Jede Innenseite S. 2–23 beginnt mit `<header class="page__header">`. Links die Rubrik `.page__section` (Montserrat 700, 8,5 pt Versalien, +0,16 em, Schwarz). Sie ist der erste Teil des Kolumnentitels im Fuß: Editorial (S. 2), Überblick (3–5), Ertragsseite (6–7), Finanzierung (8–9), Modellrechnung (10–12), Neubau (13–14), Bestand (15–16), Umsetzung (17–20), PGN (21–23). Rechts der Schlüsselplan `.keyplan`, nur auf Seiten eines Programmteils (S. 8–16). Höhe 7 mm ohne und 8,5 mm mit Schlüsselplan, darunter Haarlinie und 5 mm Abstand. Innerhalb einer Doppelseite nie gemischt, damit Kopfzeile, H1 und erste Bandlinie links und rechts auf gleicher Höhe stehen. S. 17 (Standort, ohne Schlüsselplan) steht neben S. 16 (2.5 und 2.6) und hält deshalb die Höhe der Kopfzeile mit Schlüsselplan (`min-height: 8.46mm`, seitenlokal). S. 2 trägt rechts „Inhalt“ über dem Inhaltsverzeichnis, S. 21 rechts das Label „45 Jahre PGN“. S. 22 (Impressum) und S. 23 (Quellen und Notizen) tragen die Rubrik „PGN“ mit Linie wie S. 21. Die rote Kicker-Zeile über dem H1 (`.kicker`, `.kicker-row`) gibt es auf den Innenseiten nicht mehr; `.kicker` steht nur noch auf U1. Der Fuß bleibt, wie er ist.
+**Kopfzeile.** Jede Innenseite S. 2–23 beginnt mit `<header class="page__header">`. Links die Rubrik `.page__section` (Montserrat 700, 8,5 pt Versalien, +0,16 em, Schwarz). Sie ist der erste Teil des Kolumnentitels im Fuß: Editorial (S. 2), Überblick (3–5), Ertragsseite (6–7), Finanzierung (8–9), Modellrechnung (10–12), Neubau (13–14), Bestand (15–16), Umsetzung (17–20), PGN (21–23). Rechts der Schlüsselplan `.keyplan`, nur auf Seiten eines Programmteils (S. 8–16). Höhe 7 mm ohne und 8,5 mm mit Schlüsselplan, darunter Haarlinie und 5 mm Abstand. Innerhalb einer Doppelseite nie gemischt, damit Kopfzeile, H1 und erste Bandlinie links und rechts auf gleicher Höhe stehen. S. 17 (Standort, ohne Schlüsselplan) steht neben S. 16 (2.5 und 2.6) und hält deshalb die Höhe der Kopfzeile mit Schlüsselplan (`min-height: 8.46mm`, seitenlokal). S. 2 trägt rechts „Inhalt“ über dem Inhaltsverzeichnis, S. 21 rechts das Label „45 Jahre PGN“. S. 22 (Impressum) und S. 23 (Quellen) tragen die Rubrik „PGN“ mit Linie wie S. 21. Die rote Kicker-Zeile über dem H1 (`.kicker`, `.kicker-row`) gibt es auf den Innenseiten nicht mehr; `.kicker` steht nur noch auf U1. Der Fuß bleibt, wie er ist.
 
 
 **Doppelseiten ab S. 16 (seit 13.11.2026).** Mit dem Blatt „Stichtag“ entfällt eine Seite; ab S. 16 sind die Doppelseiten neu gepaart. Gemeinsame Horizonte je Paar:
@@ -124,7 +124,7 @@ In Schwarz stehen: Labels (`.kf__pre`, `.term__label`, `.contact__label`, `.serv
 | 16 \| 17 Bindungen \| Standort | 8,46 mm (S. 17 ohne Schlüsselplan in derselben Höhe) | H1 27,5 mm · erste Bandlinie 85,8 mm (Spaltenkopf der Vergleichstabelle = Oberkante Leiter und Ring) · Unterkante 273 mm | S. 16 links: Programmnummer, Tags und Register außen links |
 | 18 \| 19 Antragsweg \| Leistungen | 7 mm | H1 26 mm · erste Bandlinie 50,7 mm · Unterkante 273 mm | S. 19: Unterzeile rechts neben dem H1 (Spalten 8–12, Grundlinie auf der zweiten H1-Zeile), damit die Bandlinie auf der Höhe von S. 18 steht (Prüfrunde 1; vorher 59,5 mm) |
 | 20 \| 21 Unterlagen \| Über PGN | 7 mm | H1 26 mm · Unterkante 273 mm | erste Bandlinie 59,5 mm bzw. 68,5 mm: S. 21 trägt einen Vorspann |
-| 22 \| 23 Impressum \| Quellen und Notizen | 7 mm, Rubrik „PGN“ | H1 26 mm · erste Bandlinie 52,5 mm, 7 mm unter dem Vorspann S. 22 (Impressum-Schriftfeld = Kopf der Quellentabelle; Prüfrunde 2, vorher 68,5 mm) · Unterkante 273 mm (Rechtsquellen = Notizfläche) | beide mit Standardfuß (Blatt 21, 22); Impressum und Hinweis in natürlicher Höhe (die festen Zeilen von 61 mm sind entfallen), gleicher Abstand über und unter dem Hinweis (je 16,9 mm); Quellentabelle mit vollem Steg vor „Verwendet auf“, seit der Nachprüfung B22.2 (14.11.2026) vierzehn Zeilen mit Zeilenabstand wie `.table--compact` (Schrift 9,5 pt unverändert), Notizraster 15 mm hoch (vorher 45 mm) |
+| 22 \| 23 Impressum \| Quellen | 7 mm, Rubrik „PGN“ | H1 26 mm · erste Bandlinie 52,5 mm, 7 mm unter dem Vorspann S. 22 (Impressum-Schriftfeld = Kopf der Quellentabelle; Prüfrunde 2, vorher 68,5 mm) · Unterkante 273 mm (Rechtsquellen = Notizfläche) | beide mit Standardfuß (Blatt 21, 22); Impressum und Hinweis in natürlicher Höhe (die festen Zeilen von 61 mm sind entfallen), gleicher Abstand über und unter dem Hinweis (je 16,9 mm); Quellentabelle mit vollem Steg vor „Verwendet auf“, seit der Nachprüfung B22.2 (14.11.2026) vierzehn Zeilen mit Zeilenabstand wie `.table--compact` (Schrift 9,5 pt unverändert), Notizraster 15 mm hoch (vorher 45 mm) |
 
 Die Seiten 19 und 21 standen bis zum 13.11.2026 links; ihre Lage („außen“ = links) ist nicht gespiegelt.
 
@@ -713,7 +713,7 @@ Satzspiegel 180 × 259 mm (14 → 273 mm). Gemessen: Programmkopf (Nummer + H1 m
 | service-checklist | 220–250 | Checkliste 2 Spalten + Kontakte + Verfahrensdetails |
 | about-references | 150–200 | Auftakt mit Raster-Banner + Hauptreferenz + 3 Referenzen oder Werte |
 | imprint (S. 22) | ≤ 200 | Impressum, zentraler Rechtshinweis, Rechtsquellen (drei Gruppen, hängender Einzug) |
-| sources-notes (S. 23, U3) | ≤ 150 | Quellentabelle über die volle Breite, Notizen im 5-mm-Planraster (`--planraster`) |
+| sources (S. 23, U3) | ≤ 150 | Quellentabelle über die volle Breite; die Fläche darunter bleibt frei (seit 14.11.2026 keine Notizfläche) |
 | back-cover (U4) | ≤ 45 | s. 7 |
 
 Harte Obergrenze Fachseite 280 Wörter (Redaktionsregeln). Passt etwas nicht: zuerst Doppelungen streichen, dann Modul verkleinern (`kf--s`, `.table--compact`, Diagramm niedriger), nie unter 8,5 pt, nie Abstände unter die Tokens.

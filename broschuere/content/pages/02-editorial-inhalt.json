@@ -106,7 +106,7 @@
             "stops": [
               { "page": 21, "label": "Über PGN" },
               { "page": 22, "label": "Impressum und Hinweise" },
-              { "page": 23, "label": "Quellen und Notizen" }
+              { "page": 23, "label": "Quellen" }
             ]
           }
         ]

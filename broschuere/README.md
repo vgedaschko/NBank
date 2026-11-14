@@ -17,7 +17,7 @@ Die Broschüre umfasst 24 Seiten im Format DIN A4 hoch und erklärt die **RL Mie
 Zielgruppen sind Wohnungsunternehmen, Genossenschaften, Investorinnen und Investoren, Projektentwicklung und Kommunen.
 Die Broschüre liest die Richtlinie wie ein Investment-Memo: zuerst die Zahlen, dann die Orientierung und die Ertragsseite,
 dann die Finanzierung mit Modellrechnung und Wirtschaftlichkeit, danach die übrigen Programmteile, Standort, Kommune und
-Antragsweg, zuletzt die Leistungen von PGN. Redaktionsstand: **13.11.2026** (Korrekturlauf 1, danach Bemessungsgrenzen seit 01.10.2026, Bankzins und Stand nachgezogen; Änderungsrunde vom 13.11.2026: Blatt „Stichtag 31.12.2026“ gestrichen, neue Seite „Quellen und Notizen“ vor der Rückseite mit der Quellentabelle, Rechtsquellen im Impressum S. 22). Der Stand „11/2026“ steht nur auf U1 und im Impressum (S. 22), nicht in den Fußzeilen. Stand der Gestaltung: **12.11.2026**, Stufung und Zuteilung nach `DESIGN.md` §0a.
+Antragsweg, zuletzt die Leistungen von PGN. Redaktionsstand: **13.11.2026** (Korrekturlauf 1, danach Bemessungsgrenzen seit 01.10.2026, Bankzins und Stand nachgezogen; Änderungsrunde vom 13.11.2026: Blatt „Stichtag 31.12.2026“ gestrichen, neue Seite „Quellen“ vor der Rückseite mit der Quellentabelle, Rechtsquellen im Impressum S. 22). Der Stand „11/2026“ steht nur auf U1 und im Impressum (S. 22), nicht in den Fußzeilen. Stand der Gestaltung: **12.11.2026**, Stufung und Zuteilung nach `DESIGN.md` §0a.
 
 ## Dateien in `dist/`
 
@@ -36,7 +36,7 @@ Arbeitsdateien (nicht versioniert, siehe `.gitignore`): `dist/preview/seite-01.p
 Rückendrahtheftung: Umschlag (4 Seiten) um einen Innenteil von 20 Seiten. Doppelseiten 2|3, 4|5 … 22|23; die
 Doppelseite 10|11 „Modellrechnung“ trägt Finanzierung und Wirtschaftlichkeit, physische Heftmitte ist 12|13.
 Seit der Änderungsrunde vom 13.11.2026 (Regel G1) gibt es das Blatt „Stichtag 31.12.2026“ nicht mehr: Die früheren
-Bogenseiten 17–23 heißen 16–22 (gedruckt 15–21), neu ist S. 23 „Quellen und Notizen“ (gedruckt 22) auf der Innenseite des
+Bogenseiten 17–23 heißen 16–22 (gedruckt 15–21), neu ist S. 23 „Quellen“ (gedruckt 22) auf der Innenseite des
 hinteren Umschlags. Das Impressum steht damit im Innenteil (S. 22, gedruckt 21). Die Doppelseiten ab S. 16 sind neu
 gepaart: 16|17, 18|19, 20|21, 22|23 (Horizonte je Paar: `DESIGN.md` §0a).
 
@@ -52,7 +52,7 @@ Dateinamen, `data-page`, Anker `#seite-NN`, die Vorschaubilder `seite-NN.png` un
 |---:|---|---|---|
 | 1 | U1 | Umschlag · Titel | Wohnraum, der sich rechnet. |
 | 2 | U2 | Editorial | Damit sich Investieren wieder rechnet (Editorial, Inhalt) |
-| 23 | U3 | PGN · Quellen und Notizen | Quellen und Notizen |
+| 23 | U3 | PGN · Quellen | Quellen |
 | 24 | U4 | Umschlag · Rückseite | Aus Ihrer guten Idee machen wir den besten Plan. (seit 13.11.2026 ohne Gedankenstrich, zweite Stimme „Aus Ihrer guten Idee“) |
 
 **Innenteil (S. 3–22)**

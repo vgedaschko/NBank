@@ -1130,7 +1130,7 @@ Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum 
 | NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Neubau, Änderung, Erweiterung und erstmaliger Erwerb), Stand 05.11.2026. S. 3. | 2, 3, 7, 9 |
 | NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Allgemeine Mietwohnraumförderung), Stand 01.04.2026. S. 1–2. | 3 |
 | NBank (o. J.): Landkarte Wohnraumförderung, Bedarfsnachweise. Programmseite „Mietwohnungen in Mehrfamilienhäusern“, abgerufen am 21.10.2026. | 3, 16, 19 |
-| ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 – Bedarf und Erleichterung (Endbericht). S. 32, Abb. 20, und S. 34, Abb. 23. | 9 |
+| ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht). S. 32, Abb. 20, und S. 34, Abb. 23. | 9 |
 | Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen bei 10 Jahren Zinsbindung. Wert vom 10.11.2026. | 10 |
 | NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern auf den Ostfriesischen Inseln, Stand 05.11.2026. S. 3. | 13 |
 | Niedersächsische Staatskanzlei (2025): Niedersachsen verlängert die Gebietsbestimmung für Umwandlungsschutz und Mietpreisbremse bis Ende 2029. Presseinformation vom 25.11.2025. | 16 |

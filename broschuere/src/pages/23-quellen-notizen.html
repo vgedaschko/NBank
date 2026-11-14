@@ -19,9 +19,14 @@
     .page[data-page="23"] .p23q-src thead th { padding-top: 2.4mm; border-top: var(--rule-w) solid var(--rule-strong); }
 
     /* Notizen: Rest der Seite bis 273 mm */
-    .page[data-page="23"] .p23q-notes { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 40mm; margin-top: 9mm; padding-top: 2.4mm; border-top: var(--hair) solid var(--rule-strong); }
+    .page[data-page="23"] .p23q-notes { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 40mm; margin-top: 10.43mm; padding-top: 2.4mm; border-top: var(--hair) solid var(--rule-strong); }
+    /* Prüfrunde 3: Notizfläche 45 mm hoch (9 × 5 mm), Raster ab der Außenkante des Rahmens (background-origin: border-box).
+       Linien bei 0 und 180 mm fallen auf den Rahmen, das Raster schließt an allen vier Seiten mit vollen Zellen ab.
+       Der frei gewordene Platz steht über den Notizen (margin-top), die Unterkante bleibt bei 273 mm. */
     .page[data-page="23"] .p23q-grid {
-      flex: 1 1 auto;
+      flex: none;
+      height: 45mm;
+      background-origin: border-box;
       margin-top: 3mm;
       border: var(--hair) solid var(--rule);
       background-color: var(--surface);
@@ -52,7 +57,7 @@
       <tr><td>NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Neubau, Änderung, Erweiterung und erstmaliger Erwerb), Stand 05.11.2026. S. 3.</td><td><a href="#seite-03">2</a>, <a href="#seite-04">3</a>, <a href="#seite-08">7</a>, <a href="#seite-10">9</a></td></tr>
       <tr><td>NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern (Allgemeine Mietwohnraumförderung), Stand 01.04.2026. S. 1–2.</td><td><a href="#seite-04">3</a></td></tr>
       <tr><td>NBank (o. J.): Landkarte Wohnraumförderung, Bedarfsnachweise. Programmseite „Mietwohnungen in Mehrfamilienhäusern“, abgerufen am 21.10.2026.</td><td><a href="#seite-04">3</a>, <a href="#seite-17">16</a>, <a href="#seite-20">19</a></td></tr>
-      <tr><td>ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 – Bedarf und Erleichterung (Endbericht). S. 32, Abb. 20, und S. 34, Abb. 23.</td><td><a href="#seite-10">9</a></td></tr>
+      <tr><td>ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht). S. 32, Abb.&nbsp;20, und S. 34, Abb.&nbsp;23.</td><td><a href="#seite-10">9</a></td></tr>
       <tr><td>Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen bei 10 Jahren Zinsbindung. Wert vom 10.11.2026.</td><td><a href="#seite-11">10</a></td></tr>
       <tr><td>NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern auf den Ostfriesischen Inseln, Stand 05.11.2026. S. 3.</td><td><a href="#seite-14">13</a></td></tr>
       <tr><td>Niedersächsische Staatskanzlei (2025): Niedersachsen verlängert die Gebietsbestimmung für Umwandlungsschutz und Mietpreisbremse bis Ende 2029. Presseinformation vom 25.11.2025.</td><td><a href="#seite-17">16</a></td></tr>

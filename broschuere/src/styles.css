@@ -1385,7 +1385,7 @@ abbr { text-decoration: none; }
 /* 6.11 bullets --------------------------------------------------------------- */
 .bullets > li { position: relative; padding-left: 4mm; font-size: var(--fs-module); line-height: var(--lh-module); color: var(--fg-2); }
 .bullets > li + li { margin-top: 1.2mm; }
-.bullets > li::before { content: ""; position: absolute; left: 0; top: .5em; width: 1.4mm; height: 1.4mm; background: var(--accent); }   /* eckig, PGN */
+.bullets > li::before { content: ""; position: absolute; left: 0; top: .5em; width: 5px; height: 5px; background: var(--accent); }   /* eckig, PGN; Kante in ganzen CSS-Pixeln (1,32 mm), sonst rundet Chromium je nach Zeilenlage auf 5 oder 6 px (Prüfrunde 3) */
 .bullets > li b { color: var(--fg); }
 .bullets--body > li { font-size: var(--fs-body); line-height: var(--lh-body); }
 .bullets--ruled > li { padding: 1.6mm 0 1.7mm 4mm; border-bottom: var(--hair) solid var(--rule); }

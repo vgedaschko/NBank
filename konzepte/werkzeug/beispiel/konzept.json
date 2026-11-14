@@ -1,0 +1,6 @@
+{
+ "beispiel": {
+  "kicker": "MODELLRECHNUNG · BEISPIEL",
+  "inhalt": "Kicker: „MODELLRECHNUNG · BEISPIEL“. Titelzeilen: „Beispielfolie für Entwürfe“ | „mit Tabelle und Säulendiagramm“ (Signaturwort: „Beispielfolie“). Modultitel links: „Überschuss und Kapitaldienst in Jahr 1“, Untertitel: „in Tsd. € p. a., Platzhalterzahlen“. Achsentitel: „Betrag in Tsd. € p. a.“. Hinweiskasten: „Beispiel für das Entwurfswerkzeug. Alle Zahlen sind Platzhalter, keine Werte der Rechenmappe.“ Modultitel rechts: „Verhältnis je Variante“, Untertitel: „Überschuss in € p. a., Verhältnis zum Kapitaldienst“. Stichpunkte unter „So ist die Folie gebaut“: „Diagramm und Tabelle nativ und editierbar“ · „Zahlen aus einer JSON-Datei über ctx.wert“ · „Hinweis im grauen Kasten, Stichpunkte in 14 pt“."
+ }
+}

@@ -1,0 +1,1001 @@
+
+====================================================================================================
+Abnahmeprüfung PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx (SHA-256 ab4206091019…) gegen KONZEPT-v3.md, referenzrechnung.py, Broschüre S. 10–12
+====================================================================================================
+
+====================================================================================================
+F1, F3–F6, B, C, G: Struktur, Gestaltung, Sprache der gelieferten Mappe
+====================================================================================================
+OK      F1    v2-1 unverändert (SHA-256) (1 Werte)
+FEHLER  F3    Blätter: Anzahl ≤ 9, Namen und Reihenfolge laut A (2 von 3 Werten)
+          - Blattzahl: Ist 12 | Soll '≤ 9'
+          - Reihenfolge: Ist 'Übersicht · Eingaben · Gefördert A · Gefördert B · Gefördert C · Frei finanziert · NBank · Tabellen · Hinweise · Konzepte · Frei DSCR 1,2 · Konzepte Zeitreihe' | Soll 'Übersicht · Eingaben · Gefördert A · Gefördert B · Gefördert C · Frei finanziert · NBank · Tabellen · Hinweise'
+OK      F3    Keine Makros, keine externen Verknüpfungen (4 Werte)
+OK      F3    Verbundene Zellen nur in Zeile 1 (Blatttitel) (22 Werte)
+OK      F3    Definierte Namen: 66, Ziele laut Konzept, kein #REF (145 Werte)
+OK      F3    Funktionen: nur Excel 2016 und LibreOffice (keine verbotenen) (1 Werte)
+OK      F3    Zellhyperlinks mit Sprungziel (keine HYPERLINK-Formeln) (123 Werte)
+OK      F3    Kein Zirkelbezug (Abhängigkeitsgraph aller Formeln) (1 Werte)
+OK      F4    Formeln je Zeitreihenspalte einheitlich (R1C1) (163 Werte)
+OK      F4    Blätter Gefördert A/B/C zellgleich außer A1 und B2 (5 Werte)
+OK      F4    Frei finanziert: Bank, Projektkonto, EK-Reihen, Kennzahlen mit den Formeln von Gefördert A (82 Werte)
+OK      F4    Zahlenkonstanten in Formeln nur 0, 1, 2, 10, 12, 0,03, IRR-Konstanten (E10), 0,00005 (1 Werte)
+FEHLER  F4    Feste Zahlen außerhalb Eingaben/Tabellen nur A6, W6 (Frei Q6), H118 und Raster B55:B61 (4 von 24 Werten)
+          - Konzepte!D6: Ist 1,2 | Soll 'keine feste Zahl'
+          - Frei DSCR 1,2!A6: Ist 0 | Soll 'keine feste Zahl'
+          - Frei DSCR 1,2!Q6: Ist 0 | Soll 'keine feste Zahl'
+          - Frei DSCR 1,2!H118: Ist 0 | Soll 'keine feste Zahl'
+OK      F5    Schrift Arial 10 (Titel A1: 14) (12 Werte)
+FEHLER  F5    Eingabezellen blau auf Gelb, Spalte „verwendet“ grau, sonst keine Eingabeoptik (1 von 122 Werten)
+          - Konzepte!D6: Ist 'Eingabeoptik' | Soll 'keine Eingabe außerhalb Eingaben'
+OK      F5    Formeln schwarz, reine Verweise auf andere Blätter grün (1 Werte)
+OK      F5    Kopfzeilen PGN-Rot/weiß, Gruppenzeilen Hellgrau (608 Werte)
+OK      F5    Druck: A4 quer, Seitenbreite, Ränder 1,5 cm, Fußzeile, Druckbereich, Wiederholzeilen (141 Werte)
+OK      F5    Druck: Seitenreserve nach der Breitenregel von Excel mindestens 10 pt, Abstandszeilen Übersicht 6 pt (42 Werte)
+FEHLER  F5    Gestaltung (abgebrochen) (1 von 1 Werten)
+          - KeyError: Ist "'Konzepte'" | Soll 'Prüfung ohne Abbruch' (    p.gleich(f"{t} Fixierung", ws.freeze_panes, FIXIERUNG[t]))
+OK      F6    Textlängen: Bezeichnung ≤ 45, Quelle ≤ 60, Bemerkung Übersicht L ≤ 40, sonst ≤ 120 (außer Hinweise) (26 Werte)
+OK      F6    Sprache: keine Ausrufezeichen, ACHTUNG, Wichtig:, Belehrungen, Emojis, Werkstattspuren (12 Werte)
+OK      F6    Beschriftungen laut Konzept (Bezeichnungen, Einheiten, Quellen, Hinweise) (1646 Werte)
+OK      B.2   Eingabewerte beider Projekte = RR: parameter_broschuere (Projekt 1, Vergleichshaus) bzw. parameter_referenzprojekt (Projekt 2, Modellhaus) (81 Werte)
+OK      B.1   Spalte „verwendet“: INDEX auf die Projektspalte, Projektwahl über die Position (1/2) (69 Werte)
+OK      B.2   Datenüberprüfung je Eingabe (Typ, Grenzen, Meldung) (186 Werte)
+OK      B.3   Zahlenformate Eingaben (D–F je Einheit, deutsch, ohne Nullabschnitt: 0 bleibt sichtbar) (117 Werte)
+OK      B.2   Keine ungenutzten Eingaben (jeder Eingabe-Name wird in Formeln verwendet) (39 Werte)
+OK      C     Tabellen-Festwerte = RL 2026 / Referenzrechnung, schwarz, nicht gelb (159 Werte)
+OK      C     Tabelle 5 Kapitaldienst je m² (Folie 5): Festwerte, Formeln, Werte nach jährlicher Annuität (54 Werte)
+OK      G.2   Zahlenformate Übersicht (418 Werte)
+
+====================================================================================================
+F2, F7–F13: 70 Testläufe (Kopien in /home/user/NBank/konzepte/mappe/pruef/original, 4 parallel)
+====================================================================================================
+        L4: recalc success in 4 s
+        L2: recalc success in 5 s
+        L1: recalc success in 5 s
+        L3: recalc success in 5 s
+        L5: recalc success in 4 s
+        L7: recalc success in 5 s
+        L6: recalc success in 5 s
+        L8: recalc success in 6 s
+        L10: recalc success in 4 s
+        L12: recalc success in 5 s
+        L9: recalc success in 5 s
+        L11: recalc success in 5 s
+        L13: recalc success in 5 s
+        L14: recalc success in 5 s
+        L16: recalc success in 6 s
+        L15: recalc success in 6 s
+        L17: recalc success in 5 s
+        L18: recalc success in 5 s
+        L20: recalc success in 5 s
+        L19: recalc success in 5 s
+        L23: recalc success in 5 s
+        L24: recalc success in 5 s
+        L22: recalc success in 5 s
+        L21: recalc success in 5 s
+        L26: recalc success in 4 s
+        L27: recalc success in 5 s
+        L28: recalc success in 6 s
+        L25: recalc success in 6 s
+        L30: recalc success in 4 s
+        L29: recalc success in 5 s
+        L32: recalc success in 5 s
+        L31: recalc success in 5 s
+        L36: recalc success in 5 s
+        L34: recalc success in 5 s
+        L33: recalc success in 5 s
+        L35: recalc success in 5 s
+        L37: recalc success in 5 s
+        L39: recalc success in 5 s
+        L38: recalc success in 5 s
+        L40: recalc success in 6 s
+        L43: recalc success in 4 s
+        L44: recalc success in 5 s
+        L41: recalc success in 5 s
+        L45: recalc success in 5 s
+        L47: recalc success in 5 s
+        L46: recalc success in 5 s
+        L48: recalc success in 5 s
+        L49: recalc success in 6 s
+        L51: recalc success in 5 s
+        L50: recalc success in 6 s
+        L52: recalc success in 5 s
+        L53: recalc success in 6 s
+        L56: recalc success in 4 s
+        L57: recalc success in 5 s
+        L54: recalc success in 6 s
+        L55: recalc success in 6 s
+        L58: recalc success in 4 s
+        L59: recalc success in 5 s
+        L60: recalc success in 5 s
+        L61: recalc success in 5 s
+        L62: recalc success in 5 s
+        L64: recalc success in 6 s
+        L63: recalc success in 6 s
+        L65: recalc success in 6 s
+        L67: recalc success in 5 s
+        L66: recalc success in 6 s
+        L68: recalc success in 6 s
+        L69: recalc success in 6 s
+        L70: recalc success in 4 s
+        L42: recalc errors_found in 4 s
+        Testläufe gesamt 135 s
+
+====================================================================================================
+Lauf L1: Projekt 1 (Vergleichshaus, 20 Wohnungen), Standard
+====================================================================================================
+OK      F2    L1 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L1 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L1 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L1 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L1 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L1 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L1 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L1 Identitäten (41 Werte)
+OK      F.3–5 L1 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (393 Werte)
+
+====================================================================================================
+Lauf L2: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Standard
+====================================================================================================
+OK      F2    L2 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L2 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L2 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L2 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L2 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L2 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L2 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L2 Identitäten (41 Werte)
+OK      F.3–5 L2 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (303 Werte)
+
+====================================================================================================
+Lauf L3: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Grundstueck = 354.120,00
+====================================================================================================
+OK      F2    L3 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L3 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L3 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L3 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L3 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L3 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L3 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L3 Identitäten (41 Werte)
+OK      F.3–5 L3 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (21 Werte)
+
+====================================================================================================
+Lauf L4: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Grundstueck = 731.325,00
+====================================================================================================
+OK      F2    L4 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L4 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L4 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L4 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L4 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L4 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L4 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L4 Identitäten (44 Werte)
+OK      F.3–5 L4 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (39 Werte)
+
+====================================================================================================
+Lauf L5: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Grundstueck = 731.325,00, EK_Zusatz = 309.386,40
+====================================================================================================
+OK      F2    L5 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L5 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L5 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L5 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L5 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L5 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L5 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L5 Identitäten (41 Werte)
+OK      F.3–5 L5 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (15 Werte)
+
+====================================================================================================
+Lauf L6: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Grundstueck = 731.325,00, Zins_Bank = 0,045000, Zinsbindung = 15, Zins_Anschluss = 0,055000
+====================================================================================================
+OK      F2    L6 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L6 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L6 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L6 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L6 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L6 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L6 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L6 Identitäten (44 Werte)
+
+====================================================================================================
+Lauf L7: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Grundstueck = 731.325,00, Laufzeit_Bank = 25
+====================================================================================================
+OK      F2    L7 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L7 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L7 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (4026 Werte)
+OK      F8    L7 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L7 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (309 Werte)
+OK      F8    L7 NBank (Lage, Grundlagen) gegen Referenzrechnung (30 Werte)
+HINWEIS F8    L7: Laufzeit Bank 25 Jahre, Zinsbindung 10 Jahre; Bankpfad geschlossen gerechnet, Kapitaldienst-abhängige Größen gefördert nicht gegen die RR (A9)
+OK      F13   L7 Identitäten (44 Werte)
+OK      F.3–5 L7 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (4 Werte)
+
+====================================================================================================
+Lauf L8: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Grundstueck = 731.325,00, Zins_Bank = 0,050000, Zins_Anschluss = 0,050000, Laufzeit_Bank = 42
+====================================================================================================
+OK      F2    L8 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L8 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L8 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (4026 Werte)
+OK      F8    L8 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L8 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (310 Werte)
+OK      F8    L8 NBank (Lage, Grundlagen) gegen Referenzrechnung (30 Werte)
+HINWEIS F8    L8: Laufzeit Bank 42 Jahre, Zinsbindung 10 Jahre; Bankpfad geschlossen gerechnet, Kapitaldienst-abhängige Größen gefördert nicht gegen die RR (A9)
+OK      F13   L8 Identitäten (44 Werte)
+OK      F.3–5 L8 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (5 Werte)
+
+====================================================================================================
+Lauf L9: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Grundstueck = 731.325,00, Bodenrichtwert = 0
+====================================================================================================
+OK      F2    L9 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L9 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L9 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L9 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L9 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L9 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L9 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L9 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L10: Projekt 1 (Vergleichshaus, 20 Wohnungen), Herstellungskosten_qm = 5.660,00
+====================================================================================================
+OK      F2    L10 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L10 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L10 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L10 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L10 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L10 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L10 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L10 Identitäten (44 Werte)
+OK      F.3–5 L10 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (37 Werte)
+
+====================================================================================================
+Lauf L11: Projekt 1 (Vergleichshaus, 20 Wohnungen), Grundstueck = 2.000.000,00
+====================================================================================================
+OK      F2    L11 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L11 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L11 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L11 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L11 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L11 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L11 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L11 Identitäten (35 Werte)
+OK      F.3–5 L11 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (51 Werte)
+
+====================================================================================================
+Lauf L12: Projekt 1 (Vergleichshaus, 20 Wohnungen), KG_800 = 100.000,00
+====================================================================================================
+OK      F2    L12 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L12 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L12 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L12 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L12 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L12 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F13   L12 Identitäten (41 Werte)
+OK      F.3–5 L12 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (2 Werte)
+
+====================================================================================================
+Lauf L13: Projekt 1 (Vergleichshaus, 20 Wohnungen), Bezugsjahr = 2.030,00
+====================================================================================================
+OK      F2    L13 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L13 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L13 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L13 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L13 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L13 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L13 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L13 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L14: Projekt 1 (Vergleichshaus, 20 Wohnungen), Wohnflaeche = 1.000,00, Wohneinheiten = 15
+====================================================================================================
+OK      F2    L14 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L14 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L14 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L14 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L14 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L14 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L14 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L14 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L15: Projekt 1 (Vergleichshaus, 20 Wohnungen), Tilgung_NBank = 0,030303
+====================================================================================================
+OK      F2    L15 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L15 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L15 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L15 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L15 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L15 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L15 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L15 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L16: Projekt 1 (Vergleichshaus, 20 Wohnungen), Tilgungsaufschub = 2
+====================================================================================================
+OK      F2    L16 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L16 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L16 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L16 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L16 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L16 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L16 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L16 Identitäten (38 Werte)
+
+====================================================================================================
+Lauf L17: Projekt 1 (Vergleichshaus, 20 Wohnungen), Zins_NBank_ab36 = 0,050000
+====================================================================================================
+OK      F2    L17 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L17 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L17 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L17 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L17 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L17 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L17 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L17 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L18: Projekt 1 (Vergleichshaus, 20 Wohnungen), Swapsatz_30J = 0,046000
+====================================================================================================
+OK      F2    L18 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L18 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L18 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L18 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L18 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L18 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L18 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L18 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L19: Projekt 1 (Vergleichshaus, 20 Wohnungen), Mietenstufe = 'II'
+====================================================================================================
+OK      F2    L19 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L19 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L19 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L19 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L19 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L19 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L19 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L19 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L20: Projekt 1 (Vergleichshaus, 20 Wohnungen), Effizienz_EH40 = 'ja'
+====================================================================================================
+OK      F2    L20 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L20 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L20 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L20 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L20 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L20 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+HINWEIS F8    L20: Abweichung A2 greift (Gruppe C); Restwert bei Bezug und in Jahr 35 und die Renditen Jahr 35 nach dem Rechenweg der RR mit dem Mietpfad der Mappe geprüft
+OK      F8    L20 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (72 Werte)
+OK      F13   L20 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L21: Projekt 1 (Vergleichshaus, 20 Wohnungen), Vergleichsmiete_1 = 12
+====================================================================================================
+OK      F2    L21 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L21 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L21 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L21 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L21 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L21 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L21 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L21 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L22: Projekt 1 (Vergleichshaus, 20 Wohnungen), Marktmiete_1 = 16
+====================================================================================================
+OK      F2    L22 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L22 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L22 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L22 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L22 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L22 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L22 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L22 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L23: Projekt 1 (Vergleichshaus, 20 Wohnungen), Mietsteigerung = 0,025000
+====================================================================================================
+OK      F2    L23 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L23 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L23 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L23 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L23 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L23 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L23 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L23 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L24: Projekt 1 (Vergleichshaus, 20 Wohnungen), Kappungsgrenze = 0,150000
+====================================================================================================
+OK      F2    L24 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L24 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L24 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L24 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L24 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L24 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L24 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L24 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L25: Projekt 1 (Vergleichshaus, 20 Wohnungen), Mietausfall = 0,040000
+====================================================================================================
+OK      F2    L25 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L25 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L25 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L25 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L25 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L25 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L25 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L25 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L26: Projekt 1 (Vergleichshaus, 20 Wohnungen), Verwaltung_WE = 400
+====================================================================================================
+OK      F2    L26 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L26 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L26 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L26 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L26 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L26 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L26 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L26 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L27: Projekt 1 (Vergleichshaus, 20 Wohnungen), Instandhaltung_qm = 18
+====================================================================================================
+OK      F2    L27 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L27 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L27 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L27 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L27 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L27 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L27 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L27 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L28: Projekt 1 (Vergleichshaus, 20 Wohnungen), Kostensteigerung = 0,025000
+====================================================================================================
+OK      F2    L28 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L28 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L28 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L28 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L28 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L28 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L28 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L28 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L29: Projekt 1 (Vergleichshaus, 20 Wohnungen), Kosten_Vorlauf = 2
+====================================================================================================
+OK      F2    L29 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L29 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L29 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L29 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L29 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L29 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L29 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L29 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L30: Projekt 1 (Vergleichshaus, 20 Wohnungen), Habenzins = 0,030000
+====================================================================================================
+OK      F2    L30 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L30 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L30 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L30 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L30 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L30 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L30 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L30 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L31: Projekt 1 (Vergleichshaus, 20 Wohnungen), Sollzins = 0,070000
+====================================================================================================
+OK      F2    L31 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L31 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L31 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L31 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L31 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L31 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L31 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L31 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L32: Projekt 1 (Vergleichshaus, 20 Wohnungen), Bodenwertsteigerung = 0,010000
+====================================================================================================
+OK      F2    L32 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L32 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L32 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L32 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L32 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L32 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L32 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L32 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L33: Projekt 1 (Vergleichshaus, 20 Wohnungen), Zielmiete = 'Vergleichsmiete'
+====================================================================================================
+OK      F2    L33 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L33 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L33 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L33 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L33 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L33 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L33 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L33 Identitäten (40 Werte)
+
+====================================================================================================
+Lauf L34: Projekt 1 (Vergleichshaus, 20 Wohnungen), Veraeusserungskosten = 0,050000
+====================================================================================================
+OK      F2    L34 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L34 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L34 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L34 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L34 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L34 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L34 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L34 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L35: Projekt 1 (Vergleichshaus, 20 Wohnungen), Stress_KG = 1,1
+====================================================================================================
+OK      F2    L35 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L35 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L35 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L35 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L35 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L35 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L35 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L35 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L36: Projekt 1 (Vergleichshaus, 20 Wohnungen), Stress_Miete = 0,950000
+====================================================================================================
+OK      F2    L36 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L36 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L36 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L36 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L36 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L36 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+HINWEIS F8    L36: Abweichung A2 greift (Gruppe C); Restwert bei Bezug und in Jahr 35 und die Renditen Jahr 35 nach dem Rechenweg der RR mit dem Mietpfad der Mappe geprüft
+OK      F8    L36 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (72 Werte)
+OK      F13   L36 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L37: Projekt 1 (Vergleichshaus, 20 Wohnungen), Stress_LZ = 0,005000
+====================================================================================================
+OK      F2    L37 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L37 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L37 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L37 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L37 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L37 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L37 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L37 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L38: Projekt 1 (Vergleichshaus, 20 Wohnungen), Stress_GebRW = 0,500000
+====================================================================================================
+OK      F2    L38 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L38 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L38 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L38 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L38 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L38 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L38 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L38 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L39: Projekt 1 (Vergleichshaus, 20 Wohnungen), Herstellungskosten_qm = 6.000,00
+====================================================================================================
+OK      F2    L39 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L39 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L39 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L39 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L39 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L39 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L39 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L39 Identitäten (44 Werte)
+
+====================================================================================================
+Lauf L40: Projekt 1 (Vergleichshaus, 20 Wohnungen), Stress_KG = 2
+====================================================================================================
+OK      F2    L40 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L40 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L40 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L40 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L40 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L40 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L40 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L40 Identitäten (44 Werte)
+
+====================================================================================================
+Lauf L41: Projekt 1 (Vergleichshaus, 20 Wohnungen), Mietsteigerung = -0,050000
+====================================================================================================
+OK      F2    L41 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L41 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L41 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L41 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L41 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L41 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+HINWEIS F8    L41: Abweichung A2 greift (Gruppe A, B, C); Restwert bei Bezug und in Jahr 35 und die Renditen Jahr 35 nach dem Rechenweg der RR mit dem Mietpfad der Mappe geprüft
+OK      F8    L41 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L41 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L43: Projekt 1 (Vergleichshaus, 20 Wohnungen), Miete_Frei = 'Miete für DSCR-Ziel'
+====================================================================================================
+OK      F2    L43 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L43 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L43 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L43 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L43 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L43 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L43 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L43 Identitäten (42 Werte)
+
+====================================================================================================
+Lauf L44: Projekt 1 (Vergleichshaus, 20 Wohnungen), Miete_Frei = 'Miete für DSCR-Ziel', DSCR_Ziel = 1,25
+====================================================================================================
+OK      F2    L44 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L44 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L44 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L44 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L44 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L44 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L44 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L44 Identitäten (42 Werte)
+
+====================================================================================================
+Lauf L45: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Miete_Frei = 'Miete für DSCR-Ziel'
+====================================================================================================
+OK      F2    L45 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L45 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L45 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L45 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L45 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L45 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L45 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L45 Identitäten (42 Werte)
+
+====================================================================================================
+Lauf L46: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Miete_Frei = 'Miete für DSCR-Ziel', DSCR_Ziel = 1,25
+====================================================================================================
+OK      F2    L46 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L46 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L46 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L46 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L46 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L46 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L46 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L46 Identitäten (42 Werte)
+
+====================================================================================================
+Lauf L47: Projekt 1 (Vergleichshaus, 20 Wohnungen), Zins_Bank = 0
+====================================================================================================
+OK      F2    L47 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L47 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L47 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L47 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L47 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L47 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L47 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L47 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L48: Projekt 1 (Vergleichshaus, 20 Wohnungen), Zins_Bank = 0,060000, Zins_Anschluss = 0,037400, Zins_NBank_ab36 = 0,037400
+====================================================================================================
+OK      F2    L48 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L48 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L48 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L48 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L48 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L48 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L48 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L48 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L49: Projekt 1 (Vergleichshaus, 20 Wohnungen), Laufzeit_Bank = 20
+====================================================================================================
+OK      F2    L49 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L49 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L49 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L49 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L49 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L49 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L49 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L49 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L50: Projekt 1 (Vergleichshaus, 20 Wohnungen), Laufzeit_Bank = 42
+====================================================================================================
+OK      F2    L50 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L50 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L50 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L50 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L50 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L50 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L50 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L50 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L51: Projekt 1 (Vergleichshaus, 20 Wohnungen), EK_Zusatz = 1.000.000,00
+====================================================================================================
+OK      F2    L51 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L51 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L51 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L51 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L51 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L51 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L51 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L51 Identitäten (38 Werte)
+
+====================================================================================================
+Lauf L52: Projekt 1 (Vergleichshaus, 20 Wohnungen), Grundstueck = 500.000,00
+====================================================================================================
+OK      F2    L52 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L52 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L52 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L52 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L52 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L52 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L52 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L52 Identitäten (41 Werte)
+
+====================================================================================================
+Lauf L53: Projekt 1 (Vergleichshaus, 20 Wohnungen), Laufzeit_Bank = 60
+====================================================================================================
+OK      F2    L53 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L53 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L53 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L53 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L53 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L53 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L53 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L53 Identitäten (40 Werte)
+
+====================================================================================================
+Lauf L54: Projekt 1 (Vergleichshaus, 20 Wohnungen), EK_Zusatz = 6.000.000,00
+====================================================================================================
+OK      F2    L54 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L54 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L54 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L54 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L54 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L54 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L54 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L54 Identitäten (37 Werte)
+
+====================================================================================================
+Lauf L55: Projekt 1 (Vergleichshaus, 20 Wohnungen), Miete_Frei = 'Miete für DSCR-Ziel', Zinsbindung = 1, Zins_Anschluss = 0,060000
+====================================================================================================
+OK      F2    L55 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L55 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L55 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L55 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L55 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L55 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L55 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L55 Identitäten (42 Werte)
+
+====================================================================================================
+Lauf L56: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Miete_Frei = 'Miete für DSCR-Ziel', DSCR_Ziel = 0,500000
+====================================================================================================
+OK      F2    L56 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L56 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L56 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L56 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L56 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L56 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L56 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L56 Identitäten (42 Werte)
+
+====================================================================================================
+Lauf L57: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Miete_Frei = 'Miete für DSCR-Ziel', DSCR_Ziel = 3
+====================================================================================================
+OK      F2    L57 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L57 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L57 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L57 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L57 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L57 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L57 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L57 Identitäten (42 Werte)
+
+====================================================================================================
+Lauf L58: Projekt 1 (Vergleichshaus, 20 Wohnungen), Miete_Frei = 'Miete für DSCR-Ziel', EK_Zusatz = 6.000.000,00
+====================================================================================================
+OK      F2    L58 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L58 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L58 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L58 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L58 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L58 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L58 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L58 Identitäten (36 Werte)
+
+====================================================================================================
+Lauf L59: Projekt 1 (Vergleichshaus, 20 Wohnungen), Laufzeit_Bank = 10
+====================================================================================================
+OK      F2    L59 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L59 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L59 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L59 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L59 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L59 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L59 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L59 Identitäten (45 Werte)
+
+====================================================================================================
+Lauf L60: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Grundstueck = 731.325,00, Laufzeit_Bank = 5
+====================================================================================================
+OK      F2    L60 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L60 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L60 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (4026 Werte)
+OK      F8    L60 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L60 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (309 Werte)
+OK      F8    L60 NBank (Lage, Grundlagen) gegen Referenzrechnung (30 Werte)
+HINWEIS F8    L60: Laufzeit Bank 5 Jahre, Zinsbindung 10 Jahre; Bankpfad geschlossen gerechnet, Kapitaldienst-abhängige Größen gefördert nicht gegen die RR (A9)
+OK      F13   L60 Identitäten (60 Werte)
+
+====================================================================================================
+Lauf L61: Projekt 1 (Vergleichshaus, 20 Wohnungen), Zinsbindung = 30
+====================================================================================================
+OK      F2    L61 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L61 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L61 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L61 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L61 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L61 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L61 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L61 Identitäten (45 Werte)
+
+====================================================================================================
+Lauf L62: Projekt 1 (Vergleichshaus, 20 Wohnungen), Marktmiete_1 = 0, Miete_Frei = 'Miete für DSCR-Ziel'
+====================================================================================================
+OK      F2    L62 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L62 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L62 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L62 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L62 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L62 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L62 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L62 Identitäten (52 Werte)
+
+====================================================================================================
+Lauf L63: Projekt 1 (Vergleichshaus, 20 Wohnungen), Tilgung_NBank = 0,025000, Vergleichsmiete_1 = 12,92, Marktmiete_1 = 14,48, Liegenschaftszins Tabelle 4 = 0,025000 / 0,027000 / 0,027000 / 0,029000 / 0,030000 / 0,031000, Zins_NBank_ab36 = 0,037400, Zins_Bank = 0,037400, Zins_Anschluss = 0,037400
+====================================================================================================
+OK      F2    L63 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L63 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L63 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L63 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L63 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L63 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L63 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L63 Identitäten (41 Werte)
+OK      F.3–5 L63 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (393 Werte)
+
+====================================================================================================
+Lauf L64: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Tilgung_NBank = 0,025000, Zins_NBank_ab36 = 0,037400, Zins_Bank = 0,037400, Zins_Anschluss = 0,037400, Marktmiete_1 = 14,4804
+====================================================================================================
+OK      F2    L64 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L64 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L64 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L64 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L64 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L64 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L64 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L64 Identitäten (41 Werte)
+OK      F.3–5 L64 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (89 Werte)
+
+====================================================================================================
+Lauf L65: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Grundstueck = 354.120,00, Tilgung_NBank = 0,025000, Zins_NBank_ab36 = 0,037400, Zins_Bank = 0,037400, Zins_Anschluss = 0,037400, Marktmiete_1 = 14,4804
+====================================================================================================
+OK      F2    L65 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L65 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L65 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L65 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L65 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L65 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L65 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L65 Identitäten (41 Werte)
+OK      F.3–5 L65 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (21 Werte)
+
+====================================================================================================
+Lauf L66: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Grundstueck = 731.325,00, Tilgung_NBank = 0,025000, Zins_NBank_ab36 = 0,037400, Zins_Bank = 0,037400, Zins_Anschluss = 0,037400, Marktmiete_1 = 14,4804
+====================================================================================================
+OK      F2    L66 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L66 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L66 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L66 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L66 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L66 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L66 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L66 Identitäten (44 Werte)
+OK      F.3–5 L66 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (39 Werte)
+
+====================================================================================================
+Lauf L67: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Grundstueck = 731.325,00, EK_Zusatz = 309.386,40, Tilgung_NBank = 0,025000, Zins_NBank_ab36 = 0,037400, Zins_Bank = 0,037400, Zins_Anschluss = 0,037400, Marktmiete_1 = 14,4804
+====================================================================================================
+OK      F2    L67 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L67 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L67 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L67 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L67 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L67 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L67 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L67 Identitäten (41 Werte)
+OK      F.3–5 L67 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (15 Werte)
+
+====================================================================================================
+Lauf L68: Projekt 1 (Vergleichshaus, 20 Wohnungen), Vergleichsmiete_1 = 12,92, Marktmiete_1 = 14,48, Liegenschaftszins Tabelle 4 = 0,025000 / 0,027000 / 0,027000 / 0,029000 / 0,030000 / 0,031000, Zins_NBank_ab36 = 0,037400, Zins_Bank = 0,037400, Zins_Anschluss = 0,037400
+====================================================================================================
+OK      F2    L68 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L68 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L68 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L68 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L68 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L68 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L68 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L68 Identitäten (41 Werte)
+OK      F.3–5 L68 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (393 Werte)
+
+====================================================================================================
+Lauf L69: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Herstellungskosten_qm = 4.631,00
+====================================================================================================
+OK      F2    L69 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L69 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L69 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L69 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L69 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L69 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L69 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L69 Identitäten (41 Werte)
+OK      F.3–5 L69 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (28 Werte)
+
+====================================================================================================
+Lauf L70: Projekt 2 (Modellhaus, Tarutinoer Str. 4), Herstellungskosten_qm = 5.460,00
+====================================================================================================
+OK      F2    L70 recalc: status = success, total_errors = 0 (2 Werte)
+OK      F7    L70 Projektwahl und gesetzte Eingaben wirken (Spalte „verwendet“) (59 Werte)
+OK      F8    L70 Gefördert A–C (Zeitreihe, Finanzierung, Restwert, Renditen, Liquidität) gegen Referenzrechnung (7473 Werte)
+OK      F8    L70 Frei finanziert gegen Referenzrechnung (1655 Werte)
+OK      F8    L70 Übersicht (Blöcke 1–8, Prüfstatus) gegen Referenzrechnung (478 Werte)
+OK      F8    L70 NBank (Lage, Grundlagen) gegen Referenzrechnung (102 Werte)
+OK      F8    L70 Prüfskript: eigene Zahlungsreihen = RR.kennzahlen (Selbstprüfung) (84 Werte)
+OK      F13   L70 Identitäten (41 Werte)
+OK      F.3–5 L70 Sollwerte laut Konzept (F.3, F.4, F.5, D.2a) (28 Werte)
+
+====================================================================================================
+Lauf L42: Projekt 1 (Vergleichshaus, 20 Wohnungen), Mietenstufe = 'VIII'
+====================================================================================================
+OK      F7    L42 ungültige Mietenstufe: Status „prüfen“, kein „OK“ aus Fehlerwerten (44 Werte)
+
+====================================================================================================
+Laufübergreifend: gelieferte Werte, Broschüre (F9), v2-1 (F10), Textergebnisse
+====================================================================================================
+OK      F2    Gelieferte Mappe neu berechnet, Projekt 2 (Modellhaus) aktiv (Zwischenwerte = Lauf L2) (11064 Werte)
+OK      F9    Broschüre S. 10 (Finanzierung, Rechenweg, Kennzahlen) = Übersicht L2 (Modellhaus, Projekt 2) (21 Werte)
+OK      F9    Broschüre S. 10 Sensitivität Herstellungskosten = Übersicht der Läufe von Projekt 2 (3.579 €/m² L2, 4.631 €/m² L69, 5.460 €/m² L70) (42 Werte)
+OK      F9    Broschüre S. 11 (Finanzierung A/B/C, Jahresrechnung Jahr 1) = Übersicht L2 (Modellhaus, Projekt 2) (77 Werte)
+OK      F9    Broschüre S. 12 (Tilgungsschwellen, Rechenweg, Rechenbasis) = Übersicht L2 (Modellhaus, Projekt 2) (74 Werte)
+OK      F10   L64 Tarutinoer (Tilgung 2,5 %) gegen v2-1-Cache: gleiche Konvention (0,01 €) (32 Werte)
+OK      F10   L64 Abweichungen zu v2-1 erklärt (Entgelte aus EK, Restwert, Vorlaufzeit) (27 Werte)
+OK      E.3   Überleitung v2-1 → v3 Tarutinoer (RR, Schritte kumulativ) = Konzept (39 Werte)
+OK      F7    L13 Ergebnisse Übersicht = L1 (Projekt 1; das Bezugsjahr ändert nur Jahresangaben) (860 Werte)
+OK      N     L63 Regression: Gefördert A/B/C und NBank zellgleich dem Stand vorher (1 Werte)
+OK      N     L63 Regression: Übersicht Spalten D–F und H–J, Prüfstatus (Zuordnung nach Bezeichnung) (2 Werte)
+OK      N     L63 Regression: bisherige Frei-Objektwerte (Zeitreihe, Restwert, Objekt-IRR) (1 Werte)
+OK      N     L64 Regression: Gefördert A/B/C und NBank zellgleich dem Stand vorher (1 Werte)
+OK      N     L64 Regression: Übersicht Spalten D–F und H–J, Prüfstatus (Zuordnung nach Bezeichnung) (2 Werte)
+OK      N     L64 Regression: bisherige Frei-Objektwerte (Zeitreihe, Restwert, Objekt-IRR) (1 Werte)
+OK      F6    Keine Formel-Prosa: Formeln liefern nur Zahlen oder Statuswörter (69 Werte)
+HINWEIS F7    Eingaben ohne eigenen Lauf abseits des Standards: 2.5 (2.5 wirkt in L4 über den Grundstücksdeckel von Projekt 2)
+
+====================================================================================================
+Ergebnis: 610 Prüfungen OK, 4 FEHLER, 7 Hinweise
+Fehlerhaft: F3 Blätter: Anzahl ≤ 9, Namen und Reihenfolge laut A (2); F4 Feste Zahlen außerhalb Eingaben/Tabellen nur A6, W6 (Frei Q6), H118 und Raster B55:B61 (4); F5 Eingabezellen blau auf Gelb, Spalte „verwendet“ grau, sonst keine Eingabeoptik (1); F5 Gestaltung (abgebrochen) (1)
+GESAMT: FEHLER

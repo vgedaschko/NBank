@@ -1,0 +1,4075 @@
+{
+ "meta": {
+  "titel": "Werte des Blocks T1 (Team 1, Geldfluss) und weitere Zellen der Konzepte-Mappe",
+  "mappe": "PGN_VOFI_Mietwohnraum_2026_v3_Konzepte_Team1.xlsx",
+  "grundlage": "konzepte/mappe/PGN_VOFI_Mietwohnraum_2026_v3_Konzepte.xlsx",
+  "erzeugt_mit": "konzepte/team-1/mappe/build_team1.py",
+  "neuberechnung": "recalc.py (LibreOffice)",
+  "vergleich": {
+   "zellen": 16541,
+   "formeln": 13856,
+   "abweichungen": 0
+  },
+  "status": {
+   "Übersicht D3": "OK",
+   "Konzepte D3": "OK",
+   "Konzepte D108 (T1)": "OK",
+   "P1 Jahr 1: T1.6, T1.10, T1.11 gleich N5.10, N5.11, N5.12": "OK",
+   "P2 Jahr 1: Zeile 5 + Kapitaldienst = Zeile 9; Anteile = 100 %": "OK",
+   "P3 Summe Jahr 1–35: Zahlungsüberschuss = N5.16; Anteile = 100 %": "OK",
+   "P4 Rückfluss: erstes Jahr ab null = N5.17": "OK",
+   "P5 Letztes Jahr DSCR unter 1,2 passt zu N5.23 (Jahre unter 1,2)": "OK",
+   "P6 Kostenschwellen liegen unter der Bemessungsgrenze (Formel gilt)": "OK",
+   "P7 Prüfungen der Mappe und des Blocks K weiter OK": "OK"
+  },
+  "recalc": {
+   "status": "success",
+   "total_errors": 0,
+   "total_formulas": 14244
+  },
+  "hinweise": [
+   "Werte roh; Abzüge negativ wie in den Blättern der Varianten; Anteile als Dezimalbruch.",
+   "Neue Zellen nur auf Blatt Konzepte ab Zeile 108; alle anderen Zellen gleich der Konzepte-Mappe.",
+   "Keine neue Annahme: alle Zellen sind Formeln."
+  ]
+ },
+ "werte": {
+  "t1.miete_jahr1.A": {
+   "schluessel": "t1.miete_jahr1.A",
+   "wert": 6.8,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "D111",
+   "bedeutung": "T1.1 Miete Jahr 1; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.miete_jahr1.B": {
+   "schluessel": "t1.miete_jahr1.B",
+   "wert": 8.2,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "E111",
+   "bedeutung": "T1.1 Miete Jahr 1; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.miete_jahr1.C": {
+   "schluessel": "t1.miete_jahr1.C",
+   "wert": 9,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "F111",
+   "bedeutung": "T1.1 Miete Jahr 1; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.miete_jahr1.frei_markt": {
+   "schluessel": "t1.miete_jahr1.frei_markt",
+   "wert": 15.42,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "G111",
+   "bedeutung": "T1.1 Miete Jahr 1; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.miete_jahr1.frei_dscr": {
+   "schluessel": "t1.miete_jahr1.frei_dscr",
+   "wert": 18.3619606229306,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "H111",
+   "bedeutung": "T1.1 Miete Jahr 1; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.sollmiete_jahr1.A": {
+   "schluessel": "t1.sollmiete_jahr1.A",
+   "wert": 67564.8,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "D112",
+   "bedeutung": "T1.2 Zeile 1 Sollmiete; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.sollmiete_jahr1.B": {
+   "schluessel": "t1.sollmiete_jahr1.B",
+   "wert": 81475.2,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "E112",
+   "bedeutung": "T1.2 Zeile 1 Sollmiete; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.sollmiete_jahr1.C": {
+   "schluessel": "t1.sollmiete_jahr1.C",
+   "wert": 89424,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "F112",
+   "bedeutung": "T1.2 Zeile 1 Sollmiete; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.sollmiete_jahr1.frei_markt": {
+   "schluessel": "t1.sollmiete_jahr1.frei_markt",
+   "wert": 153213.12,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "G112",
+   "bedeutung": "T1.2 Zeile 1 Sollmiete; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.sollmiete_jahr1.frei_dscr": {
+   "schluessel": "t1.sollmiete_jahr1.frei_dscr",
+   "wert": 182444.440749439,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "H112",
+   "bedeutung": "T1.2 Zeile 1 Sollmiete; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.mietausfall_jahr1.A": {
+   "schluessel": "t1.mietausfall_jahr1.A",
+   "wert": -1351.296,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "D113",
+   "bedeutung": "T1.3 Zeile 2 Mietausfall/Leerstand (Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.mietausfall_jahr1.B": {
+   "schluessel": "t1.mietausfall_jahr1.B",
+   "wert": -1629.504,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "E113",
+   "bedeutung": "T1.3 Zeile 2 Mietausfall/Leerstand (Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.mietausfall_jahr1.C": {
+   "schluessel": "t1.mietausfall_jahr1.C",
+   "wert": -1788.48,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "F113",
+   "bedeutung": "T1.3 Zeile 2 Mietausfall/Leerstand (Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.mietausfall_jahr1.frei_markt": {
+   "schluessel": "t1.mietausfall_jahr1.frei_markt",
+   "wert": -3064.2624,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "G113",
+   "bedeutung": "T1.3 Zeile 2 Mietausfall/Leerstand (Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.mietausfall_jahr1.frei_dscr": {
+   "schluessel": "t1.mietausfall_jahr1.frei_dscr",
+   "wert": -3648.88881498877,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "H113",
+   "bedeutung": "T1.3 Zeile 2 Mietausfall/Leerstand (Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.objektverwaltung_jahr1.A": {
+   "schluessel": "t1.objektverwaltung_jahr1.A",
+   "wert": -5138,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "D114",
+   "bedeutung": "T1.4 Zeile 3 Objektverwaltung (Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.objektverwaltung_jahr1.B": {
+   "schluessel": "t1.objektverwaltung_jahr1.B",
+   "wert": -5138,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "E114",
+   "bedeutung": "T1.4 Zeile 3 Objektverwaltung (Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.objektverwaltung_jahr1.C": {
+   "schluessel": "t1.objektverwaltung_jahr1.C",
+   "wert": -5138,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "F114",
+   "bedeutung": "T1.4 Zeile 3 Objektverwaltung (Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.objektverwaltung_jahr1.frei_markt": {
+   "schluessel": "t1.objektverwaltung_jahr1.frei_markt",
+   "wert": -5138,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "G114",
+   "bedeutung": "T1.4 Zeile 3 Objektverwaltung (Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.objektverwaltung_jahr1.frei_dscr": {
+   "schluessel": "t1.objektverwaltung_jahr1.frei_dscr",
+   "wert": -5138,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "H114",
+   "bedeutung": "T1.4 Zeile 3 Objektverwaltung (Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.instandhaltung_jahr1.A": {
+   "schluessel": "t1.instandhaltung_jahr1.A",
+   "wert": -11923.2,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "D115",
+   "bedeutung": "T1.5 Zeile 4 Instandhaltung (Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.instandhaltung_jahr1.B": {
+   "schluessel": "t1.instandhaltung_jahr1.B",
+   "wert": -11923.2,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "E115",
+   "bedeutung": "T1.5 Zeile 4 Instandhaltung (Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.instandhaltung_jahr1.C": {
+   "schluessel": "t1.instandhaltung_jahr1.C",
+   "wert": -11923.2,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "F115",
+   "bedeutung": "T1.5 Zeile 4 Instandhaltung (Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.instandhaltung_jahr1.frei_markt": {
+   "schluessel": "t1.instandhaltung_jahr1.frei_markt",
+   "wert": -11923.2,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "G115",
+   "bedeutung": "T1.5 Zeile 4 Instandhaltung (Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.instandhaltung_jahr1.frei_dscr": {
+   "schluessel": "t1.instandhaltung_jahr1.frei_dscr",
+   "wert": -11923.2,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "H115",
+   "bedeutung": "T1.5 Zeile 4 Instandhaltung (Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.uevk_jahr1.A": {
+   "schluessel": "t1.uevk_jahr1.A",
+   "wert": 49152.304,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "D116",
+   "bedeutung": "T1.6 Zeile 5 Überschuss vor Kapitaldienst; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.uevk_jahr1.B": {
+   "schluessel": "t1.uevk_jahr1.B",
+   "wert": 62784.496,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "E116",
+   "bedeutung": "T1.6 Zeile 5 Überschuss vor Kapitaldienst; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.uevk_jahr1.C": {
+   "schluessel": "t1.uevk_jahr1.C",
+   "wert": 70574.32,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "F116",
+   "bedeutung": "T1.6 Zeile 5 Überschuss vor Kapitaldienst; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.uevk_jahr1.frei_markt": {
+   "schluessel": "t1.uevk_jahr1.frei_markt",
+   "wert": 133087.6576,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "G116",
+   "bedeutung": "T1.6 Zeile 5 Überschuss vor Kapitaldienst; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.uevk_jahr1.frei_dscr": {
+   "schluessel": "t1.uevk_jahr1.frei_dscr",
+   "wert": 161734.35193445,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "H116",
+   "bedeutung": "T1.6 Zeile 5 Überschuss vor Kapitaldienst; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.vkb_jahr1.A": {
+   "schluessel": "t1.vkb_jahr1.A",
+   "wert": -5926.824,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "D117",
+   "bedeutung": "T1.7 Zeile 6 Verwaltungskostenbeitrag (Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.vkb_jahr1.B": {
+   "schluessel": "t1.vkb_jahr1.B",
+   "wert": -8890.236,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "E117",
+   "bedeutung": "T1.7 Zeile 6 Verwaltungskostenbeitrag (Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.vkb_jahr1.C": {
+   "schluessel": "t1.vkb_jahr1.C",
+   "wert": -10371.942,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "F117",
+   "bedeutung": "T1.7 Zeile 6 Verwaltungskostenbeitrag (Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.vkb_jahr1.frei_markt": {
+   "schluessel": "t1.vkb_jahr1.frei_markt",
+   "wert": 0,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "G117",
+   "bedeutung": "T1.7 Zeile 6 Verwaltungskostenbeitrag (Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.vkb_jahr1.frei_dscr": {
+   "schluessel": "t1.vkb_jahr1.frei_dscr",
+   "wert": 0,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "H117",
+   "bedeutung": "T1.7 Zeile 6 Verwaltungskostenbeitrag (Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.zins_jahr1.A": {
+   "schluessel": "t1.zins_jahr1.A",
+   "wert": 0,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "D118",
+   "bedeutung": "T1.8 Zeile 7 Zins (NBank-Darlehen bzw. Bankdarlehen, Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.zins_jahr1.B": {
+   "schluessel": "t1.zins_jahr1.B",
+   "wert": 0,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "E118",
+   "bedeutung": "T1.8 Zeile 7 Zins (NBank-Darlehen bzw. Bankdarlehen, Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.zins_jahr1.C": {
+   "schluessel": "t1.zins_jahr1.C",
+   "wert": 0,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "F118",
+   "bedeutung": "T1.8 Zeile 7 Zins (NBank-Darlehen bzw. Bankdarlehen, Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.zins_jahr1.frei_markt": {
+   "schluessel": "t1.zins_jahr1.frei_markt",
+   "wert": -91510.16256,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "G118",
+   "bedeutung": "T1.8 Zeile 7 Zins (NBank-Darlehen bzw. Bankdarlehen, Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.zins_jahr1.frei_dscr": {
+   "schluessel": "t1.zins_jahr1.frei_dscr",
+   "wert": -91510.16256,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "H118",
+   "bedeutung": "T1.8 Zeile 7 Zins (NBank-Darlehen bzw. Bankdarlehen, Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.tilgung_jahr1.A": {
+   "schluessel": "t1.tilgung_jahr1.A",
+   "wert": -28222.9714285714,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "D119",
+   "bedeutung": "T1.9 Zeile 8 Tilgung (NBank-Darlehen bzw. Bankdarlehen, Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.tilgung_jahr1.B": {
+   "schluessel": "t1.tilgung_jahr1.B",
+   "wert": -42334.4571428571,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "E119",
+   "bedeutung": "T1.9 Zeile 8 Tilgung (NBank-Darlehen bzw. Bankdarlehen, Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.tilgung_jahr1.C": {
+   "schluessel": "t1.tilgung_jahr1.C",
+   "wert": -49390.2,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "F119",
+   "bedeutung": "T1.9 Zeile 8 Tilgung (NBank-Darlehen bzw. Bankdarlehen, Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.tilgung_jahr1.frei_markt": {
+   "schluessel": "t1.tilgung_jahr1.frei_markt",
+   "wert": -43268.4640520415,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "G119",
+   "bedeutung": "T1.9 Zeile 8 Tilgung (NBank-Darlehen bzw. Bankdarlehen, Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.tilgung_jahr1.frei_dscr": {
+   "schluessel": "t1.tilgung_jahr1.frei_dscr",
+   "wert": -43268.4640520415,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "H119",
+   "bedeutung": "T1.9 Zeile 8 Tilgung (NBank-Darlehen bzw. Bankdarlehen, Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.kapitaldienst_jahr1.A": {
+   "schluessel": "t1.kapitaldienst_jahr1.A",
+   "wert": -34149.7954285714,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "D120",
+   "bedeutung": "T1.10 Kapitaldienst (Zeilen 6 bis 8, Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.kapitaldienst_jahr1.B": {
+   "schluessel": "t1.kapitaldienst_jahr1.B",
+   "wert": -51224.6931428571,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "E120",
+   "bedeutung": "T1.10 Kapitaldienst (Zeilen 6 bis 8, Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.kapitaldienst_jahr1.C": {
+   "schluessel": "t1.kapitaldienst_jahr1.C",
+   "wert": -59762.142,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "F120",
+   "bedeutung": "T1.10 Kapitaldienst (Zeilen 6 bis 8, Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.kapitaldienst_jahr1.frei_markt": {
+   "schluessel": "t1.kapitaldienst_jahr1.frei_markt",
+   "wert": -134778.626612041,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "G120",
+   "bedeutung": "T1.10 Kapitaldienst (Zeilen 6 bis 8, Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.kapitaldienst_jahr1.frei_dscr": {
+   "schluessel": "t1.kapitaldienst_jahr1.frei_dscr",
+   "wert": -134778.626612041,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "H120",
+   "bedeutung": "T1.10 Kapitaldienst (Zeilen 6 bis 8, Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.zue_jahr1.A": {
+   "schluessel": "t1.zue_jahr1.A",
+   "wert": 15002.5085714286,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "D121",
+   "bedeutung": "T1.11 Zeile 9 Zahlungsüberschuss; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.zue_jahr1.B": {
+   "schluessel": "t1.zue_jahr1.B",
+   "wert": 11559.8028571429,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "E121",
+   "bedeutung": "T1.11 Zeile 9 Zahlungsüberschuss; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.zue_jahr1.C": {
+   "schluessel": "t1.zue_jahr1.C",
+   "wert": 10812.178,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "F121",
+   "bedeutung": "T1.11 Zeile 9 Zahlungsüberschuss; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.zue_jahr1.frei_markt": {
+   "schluessel": "t1.zue_jahr1.frei_markt",
+   "wert": -1690.97,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "G121",
+   "bedeutung": "T1.11 Zeile 9 Zahlungsüberschuss; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.zue_jahr1.frei_dscr": {
+   "schluessel": "t1.zue_jahr1.frei_dscr",
+   "wert": 26955.73,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "H121",
+   "bedeutung": "T1.11 Zeile 9 Zahlungsüberschuss; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.bewirtschaftung_jahr1.A": {
+   "schluessel": "t1.bewirtschaftung_jahr1.A",
+   "wert": -18412.496,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "D122",
+   "bedeutung": "T1.12 Bewirtschaftung (Zeilen 2 bis 4, Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.bewirtschaftung_jahr1.B": {
+   "schluessel": "t1.bewirtschaftung_jahr1.B",
+   "wert": -18690.704,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "E122",
+   "bedeutung": "T1.12 Bewirtschaftung (Zeilen 2 bis 4, Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.bewirtschaftung_jahr1.C": {
+   "schluessel": "t1.bewirtschaftung_jahr1.C",
+   "wert": -18849.68,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "F122",
+   "bedeutung": "T1.12 Bewirtschaftung (Zeilen 2 bis 4, Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.bewirtschaftung_jahr1.frei_markt": {
+   "schluessel": "t1.bewirtschaftung_jahr1.frei_markt",
+   "wert": -20125.4624,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "G122",
+   "bedeutung": "T1.12 Bewirtschaftung (Zeilen 2 bis 4, Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.bewirtschaftung_jahr1.frei_dscr": {
+   "schluessel": "t1.bewirtschaftung_jahr1.frei_dscr",
+   "wert": -20710.0888149888,
+   "einheit": "€ p. a.",
+   "blatt": "Konzepte",
+   "zelle": "H122",
+   "bedeutung": "T1.12 Bewirtschaftung (Zeilen 2 bis 4, Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.anteil_bewirtschaftung_jahr1.A": {
+   "schluessel": "t1.anteil_bewirtschaftung_jahr1.A",
+   "wert": 0.272516103059581,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "D124",
+   "bedeutung": "T1.13 Anteil Bewirtschaftung; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_bewirtschaftung_jahr1.B": {
+   "schluessel": "t1.anteil_bewirtschaftung_jahr1.B",
+   "wert": 0.229403597659165,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "E124",
+   "bedeutung": "T1.13 Anteil Bewirtschaftung; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_bewirtschaftung_jahr1.C": {
+   "schluessel": "t1.anteil_bewirtschaftung_jahr1.C",
+   "wert": 0.210789944533906,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "F124",
+   "bedeutung": "T1.13 Anteil Bewirtschaftung; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_bewirtschaftung_jahr1.frei_markt": {
+   "schluessel": "t1.anteil_bewirtschaftung_jahr1.frei_markt",
+   "wert": 0.131355998755198,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "G124",
+   "bedeutung": "T1.13 Anteil Bewirtschaftung; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.anteil_bewirtschaftung_jahr1.frei_dscr": {
+   "schluessel": "t1.anteil_bewirtschaftung_jahr1.frei_dscr",
+   "wert": 0.113514496412807,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "H124",
+   "bedeutung": "T1.13 Anteil Bewirtschaftung; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.anteil_vkb_jahr1.A": {
+   "schluessel": "t1.anteil_vkb_jahr1.A",
+   "wert": 0.0877205882352942,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "D125",
+   "bedeutung": "T1.14 Anteil Verwaltungskostenbeitrag; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_vkb_jahr1.B": {
+   "schluessel": "t1.anteil_vkb_jahr1.B",
+   "wert": 0.109115853658537,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "E125",
+   "bedeutung": "T1.14 Anteil Verwaltungskostenbeitrag; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_vkb_jahr1.C": {
+   "schluessel": "t1.anteil_vkb_jahr1.C",
+   "wert": 0.115986111111111,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "F125",
+   "bedeutung": "T1.14 Anteil Verwaltungskostenbeitrag; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_vkb_jahr1.frei_markt": {
+   "schluessel": "t1.anteil_vkb_jahr1.frei_markt",
+   "wert": 0,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "G125",
+   "bedeutung": "T1.14 Anteil Verwaltungskostenbeitrag; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.anteil_vkb_jahr1.frei_dscr": {
+   "schluessel": "t1.anteil_vkb_jahr1.frei_dscr",
+   "wert": 0,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "H125",
+   "bedeutung": "T1.14 Anteil Verwaltungskostenbeitrag; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.anteil_zins_jahr1.A": {
+   "schluessel": "t1.anteil_zins_jahr1.A",
+   "wert": 0,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "D126",
+   "bedeutung": "T1.15 Anteil Zins; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_zins_jahr1.B": {
+   "schluessel": "t1.anteil_zins_jahr1.B",
+   "wert": 0,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "E126",
+   "bedeutung": "T1.15 Anteil Zins; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_zins_jahr1.C": {
+   "schluessel": "t1.anteil_zins_jahr1.C",
+   "wert": 0,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "F126",
+   "bedeutung": "T1.15 Anteil Zins; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_zins_jahr1.frei_markt": {
+   "schluessel": "t1.anteil_zins_jahr1.frei_markt",
+   "wert": 0.597273670557717,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "G126",
+   "bedeutung": "T1.15 Anteil Zins; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.anteil_zins_jahr1.frei_dscr": {
+   "schluessel": "t1.anteil_zins_jahr1.frei_dscr",
+   "wert": 0.501578245870896,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "H126",
+   "bedeutung": "T1.15 Anteil Zins; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.anteil_tilgung_jahr1.A": {
+   "schluessel": "t1.anteil_tilgung_jahr1.A",
+   "wert": 0.417717086834734,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "D127",
+   "bedeutung": "T1.16 Anteil Tilgung; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_tilgung_jahr1.B": {
+   "schluessel": "t1.anteil_tilgung_jahr1.B",
+   "wert": 0.519599303135889,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "E127",
+   "bedeutung": "T1.16 Anteil Tilgung; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_tilgung_jahr1.C": {
+   "schluessel": "t1.anteil_tilgung_jahr1.C",
+   "wert": 0.552314814814815,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "F127",
+   "bedeutung": "T1.16 Anteil Tilgung; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_tilgung_jahr1.frei_markt": {
+   "schluessel": "t1.anteil_tilgung_jahr1.frei_markt",
+   "wert": 0.282407042243128,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "G127",
+   "bedeutung": "T1.16 Anteil Tilgung; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.anteil_tilgung_jahr1.frei_dscr": {
+   "schluessel": "t1.anteil_tilgung_jahr1.frei_dscr",
+   "wert": 0.237159673785098,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "H127",
+   "bedeutung": "T1.16 Anteil Tilgung; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.anteil_zue_jahr1.A": {
+   "schluessel": "t1.anteil_zue_jahr1.A",
+   "wert": 0.22204622187039,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "D128",
+   "bedeutung": "T1.17 Anteil Zahlungsüberschuss; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_zue_jahr1.B": {
+   "schluessel": "t1.anteil_zue_jahr1.B",
+   "wert": 0.14188124554641,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "E128",
+   "bedeutung": "T1.17 Anteil Zahlungsüberschuss; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_zue_jahr1.C": {
+   "schluessel": "t1.anteil_zue_jahr1.C",
+   "wert": 0.120909129540168,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "F128",
+   "bedeutung": "T1.17 Anteil Zahlungsüberschuss; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_zue_jahr1.frei_markt": {
+   "schluessel": "t1.anteil_zue_jahr1.frei_markt",
+   "wert": -0.0110367180043067,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "G128",
+   "bedeutung": "T1.17 Anteil Zahlungsüberschuss; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.anteil_zue_jahr1.frei_dscr": {
+   "schluessel": "t1.anteil_zue_jahr1.frei_dscr",
+   "wert": 0.147747609569644,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "H128",
+   "bedeutung": "T1.17 Anteil Zahlungsüberschuss; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.anteil_summe_jahr1.A": {
+   "schluessel": "t1.anteil_summe_jahr1.A",
+   "wert": 1,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "D129",
+   "bedeutung": "T1.18 Summe der Anteile (Probe = 100 %); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_summe_jahr1.B": {
+   "schluessel": "t1.anteil_summe_jahr1.B",
+   "wert": 1,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "E129",
+   "bedeutung": "T1.18 Summe der Anteile (Probe = 100 %); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_summe_jahr1.C": {
+   "schluessel": "t1.anteil_summe_jahr1.C",
+   "wert": 1,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "F129",
+   "bedeutung": "T1.18 Summe der Anteile (Probe = 100 %); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.anteil_summe_jahr1.frei_markt": {
+   "schluessel": "t1.anteil_summe_jahr1.frei_markt",
+   "wert": 0.999999993551737,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "G129",
+   "bedeutung": "T1.18 Summe der Anteile (Probe = 100 %); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.anteil_summe_jahr1.frei_dscr": {
+   "schluessel": "t1.anteil_summe_jahr1.frei_dscr",
+   "wert": 1.00000002563844,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "H129",
+   "bedeutung": "T1.18 Summe der Anteile (Probe = 100 %); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.sollmiete.A": {
+   "schluessel": "t1s.sollmiete.A",
+   "wert": 3319270.32019959,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D132",
+   "bedeutung": "T1.20 Sollmiete, Summe Jahr 1–35; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.sollmiete.B": {
+   "schluessel": "t1s.sollmiete.B",
+   "wert": 4002649.5037701,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E132",
+   "bedeutung": "T1.20 Sollmiete, Summe Jahr 1–35; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.sollmiete.C": {
+   "schluessel": "t1s.sollmiete.C",
+   "wert": 4393151.89438182,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F132",
+   "bedeutung": "T1.20 Sollmiete, Summe Jahr 1–35; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.sollmiete.frei_markt": {
+   "schluessel": "t1s.sollmiete.frei_markt",
+   "wert": 7659809.90094096,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G132",
+   "bedeutung": "T1.20 Sollmiete, Summe Jahr 1–35; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.sollmiete.frei_dscr": {
+   "schluessel": "t1s.sollmiete.frei_dscr",
+   "wert": 9121214.5123354,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H132",
+   "bedeutung": "T1.20 Sollmiete, Summe Jahr 1–35; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.mietausfall.A": {
+   "schluessel": "t1s.mietausfall.A",
+   "wert": -66385.4064039919,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D133",
+   "bedeutung": "T1.21 Mietausfall/Leerstand, Summe (Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.mietausfall.B": {
+   "schluessel": "t1s.mietausfall.B",
+   "wert": -80052.990075402,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E133",
+   "bedeutung": "T1.21 Mietausfall/Leerstand, Summe (Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.mietausfall.C": {
+   "schluessel": "t1s.mietausfall.C",
+   "wert": -87863.0378876363,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F133",
+   "bedeutung": "T1.21 Mietausfall/Leerstand, Summe (Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.mietausfall.frei_markt": {
+   "schluessel": "t1s.mietausfall.frei_markt",
+   "wert": -153196.198018819,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G133",
+   "bedeutung": "T1.21 Mietausfall/Leerstand, Summe (Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.mietausfall.frei_dscr": {
+   "schluessel": "t1s.mietausfall.frei_dscr",
+   "wert": -182424.290246708,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H133",
+   "bedeutung": "T1.21 Mietausfall/Leerstand, Summe (Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.objektverwaltung.A": {
+   "schluessel": "t1s.objektverwaltung.A",
+   "wert": -256871.626078985,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D134",
+   "bedeutung": "T1.22 Objektverwaltung, Summe (Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.objektverwaltung.B": {
+   "schluessel": "t1s.objektverwaltung.B",
+   "wert": -256871.626078985,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E134",
+   "bedeutung": "T1.22 Objektverwaltung, Summe (Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.objektverwaltung.C": {
+   "schluessel": "t1s.objektverwaltung.C",
+   "wert": -256871.626078985,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F134",
+   "bedeutung": "T1.22 Objektverwaltung, Summe (Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.objektverwaltung.frei_markt": {
+   "schluessel": "t1s.objektverwaltung.frei_markt",
+   "wert": -256871.626078985,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G134",
+   "bedeutung": "T1.22 Objektverwaltung, Summe (Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.objektverwaltung.frei_dscr": {
+   "schluessel": "t1s.objektverwaltung.frei_dscr",
+   "wert": -256871.626078985,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H134",
+   "bedeutung": "T1.22 Objektverwaltung, Summe (Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.instandhaltung.A": {
+   "schluessel": "t1s.instandhaltung.A",
+   "wert": -596094.15571525,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D135",
+   "bedeutung": "T1.23 Instandhaltung, Summe (Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.instandhaltung.B": {
+   "schluessel": "t1s.instandhaltung.B",
+   "wert": -596094.15571525,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E135",
+   "bedeutung": "T1.23 Instandhaltung, Summe (Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.instandhaltung.C": {
+   "schluessel": "t1s.instandhaltung.C",
+   "wert": -596094.15571525,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F135",
+   "bedeutung": "T1.23 Instandhaltung, Summe (Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.instandhaltung.frei_markt": {
+   "schluessel": "t1s.instandhaltung.frei_markt",
+   "wert": -596094.15571525,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G135",
+   "bedeutung": "T1.23 Instandhaltung, Summe (Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.instandhaltung.frei_dscr": {
+   "schluessel": "t1s.instandhaltung.frei_dscr",
+   "wert": -596094.15571525,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H135",
+   "bedeutung": "T1.23 Instandhaltung, Summe (Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.uevk.A": {
+   "schluessel": "t1s.uevk.A",
+   "wert": 2399919.13200137,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D136",
+   "bedeutung": "T1.24 Überschuss vor Kapitaldienst, Summe; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.uevk.B": {
+   "schluessel": "t1s.uevk.B",
+   "wert": 3069630.73190046,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E136",
+   "bedeutung": "T1.24 Überschuss vor Kapitaldienst, Summe; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.uevk.C": {
+   "schluessel": "t1s.uevk.C",
+   "wert": 3452323.07469995,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F136",
+   "bedeutung": "T1.24 Überschuss vor Kapitaldienst, Summe; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.uevk.frei_markt": {
+   "schluessel": "t1s.uevk.frei_markt",
+   "wert": 6653647.9211279,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G136",
+   "bedeutung": "T1.24 Überschuss vor Kapitaldienst, Summe; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.uevk.frei_dscr": {
+   "schluessel": "t1s.uevk.frei_dscr",
+   "wert": 8085824.44029446,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H136",
+   "bedeutung": "T1.24 Überschuss vor Kapitaldienst, Summe; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.vkb.A": {
+   "schluessel": "t1s.vkb.A",
+   "wert": -123475.50425,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D137",
+   "bedeutung": "T1.25 Verwaltungskostenbeitrag, Summe (Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.vkb.B": {
+   "schluessel": "t1s.vkb.B",
+   "wert": -185213.2415,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E137",
+   "bedeutung": "T1.25 Verwaltungskostenbeitrag, Summe (Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.vkb.C": {
+   "schluessel": "t1s.vkb.C",
+   "wert": -216082.125,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F137",
+   "bedeutung": "T1.25 Verwaltungskostenbeitrag, Summe (Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.vkb.frei_markt": {
+   "schluessel": "t1s.vkb.frei_markt",
+   "wert": 0,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G137",
+   "bedeutung": "T1.25 Verwaltungskostenbeitrag, Summe (Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.vkb.frei_dscr": {
+   "schluessel": "t1s.vkb.frei_dscr",
+   "wert": 0,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H137",
+   "bedeutung": "T1.25 Verwaltungskostenbeitrag, Summe (Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.zins.A": {
+   "schluessel": "t1s.zins.A",
+   "wert": 0,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D138",
+   "bedeutung": "T1.26 Zins, Summe (Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.zins.B": {
+   "schluessel": "t1s.zins.B",
+   "wert": 0,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E138",
+   "bedeutung": "T1.26 Zins, Summe (Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.zins.C": {
+   "schluessel": "t1s.zins.C",
+   "wert": 0,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F138",
+   "bedeutung": "T1.26 Zins, Summe (Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.zins.frei_markt": {
+   "schluessel": "t1s.zins.frei_markt",
+   "wert": -1672629.181692,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G138",
+   "bedeutung": "T1.26 Zins, Summe (Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.zins.frei_dscr": {
+   "schluessel": "t1s.zins.frei_dscr",
+   "wert": -1672629.181692,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H138",
+   "bedeutung": "T1.26 Zins, Summe (Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.tilgung.A": {
+   "schluessel": "t1s.tilgung.A",
+   "wert": -987804,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D139",
+   "bedeutung": "T1.27 Tilgung, Summe (Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.tilgung.B": {
+   "schluessel": "t1s.tilgung.B",
+   "wert": -1481706,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E139",
+   "bedeutung": "T1.27 Tilgung, Summe (Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.tilgung.C": {
+   "schluessel": "t1s.tilgung.C",
+   "wert": -1728657,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F139",
+   "bedeutung": "T1.27 Tilgung, Summe (Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.tilgung.frei_markt": {
+   "schluessel": "t1s.tilgung.frei_markt",
+   "wert": -2370729.5719852,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G139",
+   "bedeutung": "T1.27 Tilgung, Summe (Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.tilgung.frei_dscr": {
+   "schluessel": "t1s.tilgung.frei_dscr",
+   "wert": -2370729.5719852,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H139",
+   "bedeutung": "T1.27 Tilgung, Summe (Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.kapitaldienst.A": {
+   "schluessel": "t1s.kapitaldienst.A",
+   "wert": -1111279.50425,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D140",
+   "bedeutung": "T1.28 Kapitaldienst, Summe (Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.kapitaldienst.B": {
+   "schluessel": "t1s.kapitaldienst.B",
+   "wert": -1666919.2415,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E140",
+   "bedeutung": "T1.28 Kapitaldienst, Summe (Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.kapitaldienst.C": {
+   "schluessel": "t1s.kapitaldienst.C",
+   "wert": -1944739.125,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F140",
+   "bedeutung": "T1.28 Kapitaldienst, Summe (Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.kapitaldienst.frei_markt": {
+   "schluessel": "t1s.kapitaldienst.frei_markt",
+   "wert": -4043358.7536772,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G140",
+   "bedeutung": "T1.28 Kapitaldienst, Summe (Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.kapitaldienst.frei_dscr": {
+   "schluessel": "t1s.kapitaldienst.frei_dscr",
+   "wert": -4043358.7536772,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H140",
+   "bedeutung": "T1.28 Kapitaldienst, Summe (Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.zue.A": {
+   "schluessel": "t1s.zue.A",
+   "wert": 1288639.62775137,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D141",
+   "bedeutung": "T1.29 Zahlungsüberschuss, Summe Jahr 1–35; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.zue.B": {
+   "schluessel": "t1s.zue.B",
+   "wert": 1402711.49040046,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E141",
+   "bedeutung": "T1.29 Zahlungsüberschuss, Summe Jahr 1–35; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.zue.C": {
+   "schluessel": "t1s.zue.C",
+   "wert": 1507583.94969994,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F141",
+   "bedeutung": "T1.29 Zahlungsüberschuss, Summe Jahr 1–35; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.zue.frei_markt": {
+   "schluessel": "t1s.zue.frei_markt",
+   "wert": 2610289.16,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G141",
+   "bedeutung": "T1.29 Zahlungsüberschuss, Summe Jahr 1–35; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.zue.frei_dscr": {
+   "schluessel": "t1s.zue.frei_dscr",
+   "wert": 4042465.69,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H141",
+   "bedeutung": "T1.29 Zahlungsüberschuss, Summe Jahr 1–35; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.bewirtschaftung.A": {
+   "schluessel": "t1s.bewirtschaftung.A",
+   "wert": -919351.188198226,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D142",
+   "bedeutung": "T1.30 Bewirtschaftung, Summe (Zeilen 2 bis 4, Abzug); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.bewirtschaftung.B": {
+   "schluessel": "t1s.bewirtschaftung.B",
+   "wert": -933018.771869636,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E142",
+   "bedeutung": "T1.30 Bewirtschaftung, Summe (Zeilen 2 bis 4, Abzug); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.bewirtschaftung.C": {
+   "schluessel": "t1s.bewirtschaftung.C",
+   "wert": -940828.819681871,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F142",
+   "bedeutung": "T1.30 Bewirtschaftung, Summe (Zeilen 2 bis 4, Abzug); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.bewirtschaftung.frei_markt": {
+   "schluessel": "t1s.bewirtschaftung.frei_markt",
+   "wert": -1006161.97981305,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G142",
+   "bedeutung": "T1.30 Bewirtschaftung, Summe (Zeilen 2 bis 4, Abzug); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.bewirtschaftung.frei_dscr": {
+   "schluessel": "t1s.bewirtschaftung.frei_dscr",
+   "wert": -1035390.07204094,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H142",
+   "bedeutung": "T1.30 Bewirtschaftung, Summe (Zeilen 2 bis 4, Abzug); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.anteil_bewirtschaftung.A": {
+   "schluessel": "t1s.anteil_bewirtschaftung.A",
+   "wert": 0.276973882664351,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "D144",
+   "bedeutung": "T1.31 Anteil Bewirtschaftung; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_bewirtschaftung.B": {
+   "schluessel": "t1s.anteil_bewirtschaftung.B",
+   "wert": 0.233100292941169,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "E144",
+   "bedeutung": "T1.31 Anteil Bewirtschaftung; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_bewirtschaftung.C": {
+   "schluessel": "t1s.anteil_bewirtschaftung.C",
+   "wert": 0.214158044679732,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "F144",
+   "bedeutung": "T1.31 Anteil Bewirtschaftung; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_bewirtschaftung.frei_markt": {
+   "schluessel": "t1s.anteil_bewirtschaftung.frei_markt",
+   "wert": 0.131355998755198,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "G144",
+   "bedeutung": "T1.31 Anteil Bewirtschaftung; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.anteil_bewirtschaftung.frei_dscr": {
+   "schluessel": "t1s.anteil_bewirtschaftung.frei_dscr",
+   "wert": 0.113514496412807,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "H144",
+   "bedeutung": "T1.31 Anteil Bewirtschaftung; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.anteil_vkb.A": {
+   "schluessel": "t1s.anteil_vkb.A",
+   "wert": 0.0371995927835655,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "D145",
+   "bedeutung": "T1.32 Anteil Verwaltungskostenbeitrag; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_vkb.B": {
+   "schluessel": "t1s.anteil_vkb.B",
+   "wert": 0.0462726604779028,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "E145",
+   "bedeutung": "T1.32 Anteil Verwaltungskostenbeitrag; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_vkb.C": {
+   "schluessel": "t1s.anteil_vkb.C",
+   "wert": 0.0491861265430719,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "F145",
+   "bedeutung": "T1.32 Anteil Verwaltungskostenbeitrag; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_vkb.frei_markt": {
+   "schluessel": "t1s.anteil_vkb.frei_markt",
+   "wert": 0,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "G145",
+   "bedeutung": "T1.32 Anteil Verwaltungskostenbeitrag; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.anteil_vkb.frei_dscr": {
+   "schluessel": "t1s.anteil_vkb.frei_dscr",
+   "wert": 0,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "H145",
+   "bedeutung": "T1.32 Anteil Verwaltungskostenbeitrag; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.anteil_zins.A": {
+   "schluessel": "t1s.anteil_zins.A",
+   "wert": 0,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "D146",
+   "bedeutung": "T1.33 Anteil Zins; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_zins.B": {
+   "schluessel": "t1s.anteil_zins.B",
+   "wert": 0,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "E146",
+   "bedeutung": "T1.33 Anteil Zins; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_zins.C": {
+   "schluessel": "t1s.anteil_zins.C",
+   "wert": 0,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "F146",
+   "bedeutung": "T1.33 Anteil Zins; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_zins.frei_markt": {
+   "schluessel": "t1s.anteil_zins.frei_markt",
+   "wert": 0.21836432017543,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "G146",
+   "bedeutung": "T1.33 Anteil Zins; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.anteil_zins.frei_dscr": {
+   "schluessel": "t1s.anteil_zins.frei_dscr",
+   "wert": 0.183377902079812,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "H146",
+   "bedeutung": "T1.33 Anteil Zins; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.anteil_tilgung.A": {
+   "schluessel": "t1s.anteil_tilgung.A",
+   "wert": 0.297596732025309,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "D147",
+   "bedeutung": "T1.34 Anteil Tilgung; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_tilgung.B": {
+   "schluessel": "t1s.anteil_tilgung.B",
+   "wert": 0.37018130081197,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "E147",
+   "bedeutung": "T1.34 Anteil Tilgung; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_tilgung.C": {
+   "schluessel": "t1s.anteil_tilgung.C",
+   "wert": 0.393489012344575,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "F147",
+   "bedeutung": "T1.34 Anteil Tilgung; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_tilgung.frei_markt": {
+   "schluessel": "t1s.anteil_tilgung.frei_markt",
+   "wert": 0.30950240314632,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "G147",
+   "bedeutung": "T1.34 Anteil Tilgung; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.anteil_tilgung.frei_dscr": {
+   "schluessel": "t1s.anteil_tilgung.frei_dscr",
+   "wert": 0.259913805204237,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "H147",
+   "bedeutung": "T1.34 Anteil Tilgung; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.anteil_zue.A": {
+   "schluessel": "t1s.anteil_zue.A",
+   "wert": 0.388229792526774,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "D148",
+   "bedeutung": "T1.35 Anteil Zahlungsüberschuss; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_zue.B": {
+   "schluessel": "t1s.anteil_zue.B",
+   "wert": 0.350445745768958,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "E148",
+   "bedeutung": "T1.35 Anteil Zahlungsüberschuss; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_zue.C": {
+   "schluessel": "t1s.anteil_zue.C",
+   "wert": 0.343166816432621,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "F148",
+   "bedeutung": "T1.35 Anteil Zahlungsüberschuss; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_zue.frei_markt": {
+   "schluessel": "t1s.anteil_zue.frei_markt",
+   "wert": 0.340777276950351,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "G148",
+   "bedeutung": "T1.35 Anteil Zahlungsüberschuss; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.anteil_zue.frei_dscr": {
+   "schluessel": "t1s.anteil_zue.frei_dscr",
+   "wert": 0.44319379667401,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "H148",
+   "bedeutung": "T1.35 Anteil Zahlungsüberschuss; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1s.anteil_summe.A": {
+   "schluessel": "t1s.anteil_summe.A",
+   "wert": 1,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "D149",
+   "bedeutung": "T1.36 Summe der Anteile (Probe = 100 %); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_summe.B": {
+   "schluessel": "t1s.anteil_summe.B",
+   "wert": 1,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "E149",
+   "bedeutung": "T1.36 Summe der Anteile (Probe = 100 %); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_summe.C": {
+   "schluessel": "t1s.anteil_summe.C",
+   "wert": 1,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "F149",
+   "bedeutung": "T1.36 Summe der Anteile (Probe = 100 %); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1s.anteil_summe.frei_markt": {
+   "schluessel": "t1s.anteil_summe.frei_markt",
+   "wert": 0.9999999990273,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "G149",
+   "bedeutung": "T1.36 Summe der Anteile (Probe = 100 %); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1s.anteil_summe.frei_dscr": {
+   "schluessel": "t1s.anteil_summe.frei_dscr",
+   "wert": 1.00000000037087,
+   "einheit": "Anteil",
+   "blatt": "Konzepte",
+   "zelle": "H149",
+   "bedeutung": "T1.36 Summe der Anteile (Probe = 100 %); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.kostendeckende_anfangsmiete.A": {
+   "schluessel": "t1.kostendeckende_anfangsmiete.A",
+   "wert": 5.25927111355239,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "D152",
+   "bedeutung": "T1.40 Kostendeckende Anfangsmiete (Zahlungsüberschuss Jahr 1 = 0); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.kostendeckende_anfangsmiete.B": {
+   "schluessel": "t1.kostendeckende_anfangsmiete.B",
+   "wert": 7.01283039440759,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "E152",
+   "bedeutung": "T1.40 Kostendeckende Anfangsmiete (Zahlungsüberschuss Jahr 1 = 0); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.kostendeckende_anfangsmiete.C": {
+   "schluessel": "t1.kostendeckende_anfangsmiete.C",
+   "wert": 7.88961003483519,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "F152",
+   "bedeutung": "T1.40 Kostendeckende Anfangsmiete (Zahlungsüberschuss Jahr 1 = 0); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.kostendeckende_anfangsmiete.frei_markt": {
+   "schluessel": "t1.kostendeckende_anfangsmiete.frei_markt",
+   "wert": 15.5936592777492,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "G152",
+   "bedeutung": "T1.40 Kostendeckende Anfangsmiete (Zahlungsüberschuss Jahr 1 = 0); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.kostendeckende_anfangsmiete.frei_dscr": {
+   "schluessel": "t1.kostendeckende_anfangsmiete.frei_dscr",
+   "wert": 15.5936592777492,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "H152",
+   "bedeutung": "T1.40 Kostendeckende Anfangsmiete (Zahlungsüberschuss Jahr 1 = 0); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.abstand_hoechstmiete_kostendeckend.A": {
+   "schluessel": "t1.abstand_hoechstmiete_kostendeckend.A",
+   "wert": 1.54072888644761,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "D153",
+   "bedeutung": "T1.41 Höchstmiete minus kostendeckende Anfangsmiete; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.abstand_hoechstmiete_kostendeckend.B": {
+   "schluessel": "t1.abstand_hoechstmiete_kostendeckend.B",
+   "wert": 1.18716960559241,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "E153",
+   "bedeutung": "T1.41 Höchstmiete minus kostendeckende Anfangsmiete; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.abstand_hoechstmiete_kostendeckend.C": {
+   "schluessel": "t1.abstand_hoechstmiete_kostendeckend.C",
+   "wert": 1.11038996516481,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "F153",
+   "bedeutung": "T1.41 Höchstmiete minus kostendeckende Anfangsmiete; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.abstand_dscr_miete_marktmiete.frei_dscr": {
+   "schluessel": "t1.abstand_dscr_miete_marktmiete.frei_dscr",
+   "wert": 2.94196062293061,
+   "einheit": "€/m² Monat",
+   "blatt": "Konzepte",
+   "zelle": "H154",
+   "bedeutung": "T1.42 Miete für DSCR 1,2 minus Marktmiete; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.kostenschwelle_zue0.A": {
+   "schluessel": "t1.kostenschwelle_zue0.A",
+   "wert": 5151.30746197149,
+   "einheit": "€/m²",
+   "blatt": "Konzepte",
+   "zelle": "D155",
+   "bedeutung": "T1.43 Herstellungskosten je m², bei denen der Zahlungsüberschuss Jahr 1 null ist; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.kostenschwelle_zue0.B": {
+   "schluessel": "t1.kostenschwelle_zue0.B",
+   "wert": 4386.66778456502,
+   "einheit": "€/m²",
+   "blatt": "Konzepte",
+   "zelle": "E155",
+   "bedeutung": "T1.43 Herstellungskosten je m², bei denen der Zahlungsüberschuss Jahr 1 null ist; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.kostenschwelle_zue0.C": {
+   "schluessel": "t1.kostenschwelle_zue0.C",
+   "wert": 4226.5133548928,
+   "einheit": "€/m²",
+   "blatt": "Konzepte",
+   "zelle": "F155",
+   "bedeutung": "T1.43 Herstellungskosten je m², bei denen der Zahlungsüberschuss Jahr 1 null ist; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.kostenschwelle_dscr12.A": {
+   "schluessel": "t1.kostenschwelle_dscr12.A",
+   "wert": 4292.75621830958,
+   "einheit": "€/m²",
+   "blatt": "Konzepte",
+   "zelle": "D156",
+   "bedeutung": "T1.44 Herstellungskosten je m², bei denen die DSCR Jahr 1 genau 1,2 ist; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.kostenschwelle_dscr12.B": {
+   "schluessel": "t1.kostenschwelle_dscr12.B",
+   "wert": 3655.55648713751,
+   "einheit": "€/m²",
+   "blatt": "Konzepte",
+   "zelle": "E156",
+   "bedeutung": "T1.44 Herstellungskosten je m², bei denen die DSCR Jahr 1 genau 1,2 ist; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.kostenschwelle_dscr12.C": {
+   "schluessel": "t1.kostenschwelle_dscr12.C",
+   "wert": 3522.09446241067,
+   "einheit": "€/m²",
+   "blatt": "Konzepte",
+   "zelle": "F156",
+   "bedeutung": "T1.44 Herstellungskosten je m², bei denen die DSCR Jahr 1 genau 1,2 ist; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.letztes_jahr_dscr_unter_ziel.A": {
+   "schluessel": "t1.letztes_jahr_dscr_unter_ziel.A",
+   "wert": 0,
+   "einheit": "Jahr",
+   "blatt": "Konzepte",
+   "zelle": "D157",
+   "bedeutung": "T1.45 Letztes Jahr mit DSCR unter 1,2 (Jahr 1–35; 0 = keins); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.letztes_jahr_dscr_unter_ziel.B": {
+   "schluessel": "t1.letztes_jahr_dscr_unter_ziel.B",
+   "wert": 0,
+   "einheit": "Jahr",
+   "blatt": "Konzepte",
+   "zelle": "E157",
+   "bedeutung": "T1.45 Letztes Jahr mit DSCR unter 1,2 (Jahr 1–35; 0 = keins); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.letztes_jahr_dscr_unter_ziel.C": {
+   "schluessel": "t1.letztes_jahr_dscr_unter_ziel.C",
+   "wert": 3,
+   "einheit": "Jahr",
+   "blatt": "Konzepte",
+   "zelle": "F157",
+   "bedeutung": "T1.45 Letztes Jahr mit DSCR unter 1,2 (Jahr 1–35; 0 = keins); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.letztes_jahr_dscr_unter_ziel.frei_markt": {
+   "schluessel": "t1.letztes_jahr_dscr_unter_ziel.frei_markt",
+   "wert": 10,
+   "einheit": "Jahr",
+   "blatt": "Konzepte",
+   "zelle": "G157",
+   "bedeutung": "T1.45 Letztes Jahr mit DSCR unter 1,2 (Jahr 1–35; 0 = keins); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.letztes_jahr_dscr_unter_ziel.frei_dscr": {
+   "schluessel": "t1.letztes_jahr_dscr_unter_ziel.frei_dscr",
+   "wert": 0,
+   "einheit": "Jahr",
+   "blatt": "Konzepte",
+   "zelle": "H157",
+   "bedeutung": "T1.45 Letztes Jahr mit DSCR unter 1,2 (Jahr 1–35; 0 = keins); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.letztes_jahr_kapitaldienst.A": {
+   "schluessel": "t1.letztes_jahr_kapitaldienst.A",
+   "wert": 42,
+   "einheit": "Jahr",
+   "blatt": "Konzepte",
+   "zelle": "D158",
+   "bedeutung": "T1.46 Letztes Jahr mit Kapitaldienst (Darlehen getilgt); Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.letztes_jahr_kapitaldienst.B": {
+   "schluessel": "t1.letztes_jahr_kapitaldienst.B",
+   "wert": 42,
+   "einheit": "Jahr",
+   "blatt": "Konzepte",
+   "zelle": "E158",
+   "bedeutung": "T1.46 Letztes Jahr mit Kapitaldienst (Darlehen getilgt); Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.letztes_jahr_kapitaldienst.C": {
+   "schluessel": "t1.letztes_jahr_kapitaldienst.C",
+   "wert": 42,
+   "einheit": "Jahr",
+   "blatt": "Konzepte",
+   "zelle": "F158",
+   "bedeutung": "T1.46 Letztes Jahr mit Kapitaldienst (Darlehen getilgt); Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.letztes_jahr_kapitaldienst.frei_markt": {
+   "schluessel": "t1.letztes_jahr_kapitaldienst.frei_markt",
+   "wert": 30,
+   "einheit": "Jahr",
+   "blatt": "Konzepte",
+   "zelle": "G158",
+   "bedeutung": "T1.46 Letztes Jahr mit Kapitaldienst (Darlehen getilgt); frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.letztes_jahr_kapitaldienst.frei_dscr": {
+   "schluessel": "t1.letztes_jahr_kapitaldienst.frei_dscr",
+   "wert": 30,
+   "einheit": "Jahr",
+   "blatt": "Konzepte",
+   "zelle": "H158",
+   "bedeutung": "T1.46 Letztes Jahr mit Kapitaldienst (Darlehen getilgt); frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j00.A": {
+   "schluessel": "t1.rueckfluss.j00.A",
+   "wert": -613426.284,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D161",
+   "bedeutung": "T1.R0 Jahr 0: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j00.B": {
+   "schluessel": "t1.rueckfluss.j00.B",
+   "wert": -614907.99,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E161",
+   "bedeutung": "T1.R0 Jahr 0: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j00.C": {
+   "schluessel": "t1.rueckfluss.j00.C",
+   "wert": -615648.843,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F161",
+   "bedeutung": "T1.R0 Jahr 0: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j00.frei_markt": {
+   "schluessel": "t1.rueckfluss.j00.frei_markt",
+   "wert": -592682.4,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G161",
+   "bedeutung": "T1.R0 Jahr 0: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j00.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j00.frei_dscr",
+   "wert": -592682.4,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H161",
+   "bedeutung": "T1.R0 Jahr 0: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j01.A": {
+   "schluessel": "t1.rueckfluss.j01.A",
+   "wert": -598423.775428571,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D162",
+   "bedeutung": "T1.R1 Jahr 1: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j01.B": {
+   "schluessel": "t1.rueckfluss.j01.B",
+   "wert": -603348.187142857,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E162",
+   "bedeutung": "T1.R1 Jahr 1: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j01.C": {
+   "schluessel": "t1.rueckfluss.j01.C",
+   "wert": -604836.665,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F162",
+   "bedeutung": "T1.R1 Jahr 1: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j01.frei_markt": {
+   "schluessel": "t1.rueckfluss.j01.frei_markt",
+   "wert": -594373.37,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G162",
+   "bedeutung": "T1.R1 Jahr 1: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j01.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j01.frei_dscr",
+   "wert": -565726.67,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H162",
+   "bedeutung": "T1.R1 Jahr 1: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j02.A": {
+   "schluessel": "t1.rueckfluss.j02.A",
+   "wert": -583621.376007143,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D163",
+   "bedeutung": "T1.R2 Jahr 2: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j02.B": {
+   "schluessel": "t1.rueckfluss.j02.B",
+   "wert": -591917.935985714,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E163",
+   "bedeutung": "T1.R2 Jahr 2: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j02.C": {
+   "schluessel": "t1.rueckfluss.j02.C",
+   "wert": -594118.76,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F163",
+   "bedeutung": "T1.R2 Jahr 2: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j02.frei_markt": {
+   "schluessel": "t1.rueckfluss.j02.frei_markt",
+   "wert": -593402.59,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G163",
+   "bedeutung": "T1.R2 Jahr 2: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j02.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j02.frei_dscr",
+   "wert": -535536.26,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H163",
+   "bedeutung": "T1.R2 Jahr 2: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j03.A": {
+   "schluessel": "t1.rueckfluss.j03.A",
+   "wert": -569025.910215714,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D164",
+   "bedeutung": "T1.R3 Jahr 3: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j03.B": {
+   "schluessel": "t1.rueckfluss.j03.B",
+   "wert": -580624.061008571,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E164",
+   "bedeutung": "T1.R3 Jahr 3: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j03.C": {
+   "schluessel": "t1.rueckfluss.j03.C",
+   "wert": -583501.95248,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F164",
+   "bedeutung": "T1.R3 Jahr 3: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j03.frei_markt": {
+   "schluessel": "t1.rueckfluss.j03.frei_markt",
+   "wert": -589716.82,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G164",
+   "bedeutung": "T1.R3 Jahr 3: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j03.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j03.frei_dscr",
+   "wert": -502046.47,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H164",
+   "bedeutung": "T1.R3 Jahr 3: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j04.A": {
+   "schluessel": "t1.rueckfluss.j04.A",
+   "wert": -550572.208527886,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D165",
+   "bedeutung": "T1.R4 Jahr 4: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j04.B": {
+   "schluessel": "t1.rueckfluss.j04.B",
+   "wert": -564563.012877028,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E165",
+   "bedeutung": "T1.R4 Jahr 4: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j04.C": {
+   "schluessel": "t1.rueckfluss.j04.C",
+   "wert": -567603.6189296,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F165",
+   "bedeutung": "T1.R4 Jahr 4: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j04.frei_markt": {
+   "schluessel": "t1.rueckfluss.j04.frei_markt",
+   "wert": -583261.76,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G165",
+   "bedeutung": "T1.R4 Jahr 4: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j04.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j04.frei_dscr",
+   "wert": -465191.31,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H165",
+   "bedeutung": "T1.R4 Jahr 4: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j05.A": {
+   "schluessel": "t1.rueckfluss.j05.A",
+   "wert": -532339.501628649,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D166",
+   "bedeutung": "T1.R5 Jahr 5: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j05.B": {
+   "schluessel": "t1.rueckfluss.j05.B",
+   "wert": -548652.402084078,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E166",
+   "bedeutung": "T1.R5 Jahr 5: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j05.C": {
+   "schluessel": "t1.rueckfluss.j05.C",
+   "wert": -551820.444017792,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F166",
+   "bedeutung": "T1.R5 Jahr 5: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j05.frei_markt": {
+   "schluessel": "t1.rueckfluss.j05.frei_markt",
+   "wert": -573982.03,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G166",
+   "bedeutung": "T1.R5 Jahr 5: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j05.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j05.frei_dscr",
+   "wert": -424903.47,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H166",
+   "bedeutung": "T1.R5 Jahr 5: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j06.A": {
+   "schluessel": "t1.rueckfluss.j06.A",
+   "wert": -514335.031710777,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D167",
+   "bedeutung": "T1.R6 Jahr 6: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j06.B": {
+   "schluessel": "t1.rueckfluss.j06.B",
+   "wert": -532899.470822491,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E167",
+   "bedeutung": "T1.R6 Jahr 6: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j06.C": {
+   "schluessel": "t1.rueckfluss.j06.C",
+   "wert": -536159.669937348,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F167",
+   "bedeutung": "T1.R6 Jahr 6: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j06.frei_markt": {
+   "schluessel": "t1.rueckfluss.j06.frei_markt",
+   "wert": -561821.13,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G167",
+   "bedeutung": "T1.R6 Jahr 6: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j06.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j06.frei_dscr",
+   "wert": -381114.3,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H167",
+   "bedeutung": "T1.R6 Jahr 6: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j07.A": {
+   "schluessel": "t1.rueckfluss.j07.A",
+   "wert": -492243.619289391,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D168",
+   "bedeutung": "T1.R7 Jahr 7: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j07.B": {
+   "schluessel": "t1.rueckfluss.j07.B",
+   "wert": -512099.099441199,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E168",
+   "bedeutung": "T1.R7 Jahr 7: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j07.C": {
+   "schluessel": "t1.rueckfluss.j07.C",
+   "wert": -514907.639799375,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F168",
+   "bedeutung": "T1.R7 Jahr 7: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j07.frei_markt": {
+   "schluessel": "t1.rueckfluss.j07.frei_markt",
+   "wert": -546721.44,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G168",
+   "bedeutung": "T1.R7 Jahr 7: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j07.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j07.frei_dscr",
+   "wert": -333753.78,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H168",
+   "bedeutung": "T1.R7 Jahr 7: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j08.A": {
+   "schluessel": "t1.rueckfluss.j08.A",
+   "wert": -470395.365663356,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D169",
+   "bedeutung": "T1.R8 Jahr 8: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j08.B": {
+   "schluessel": "t1.rueckfluss.j08.B",
+   "wert": -491471.329405258,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E169",
+   "bedeutung": "T1.R8 Jahr 8: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j08.C": {
+   "schluessel": "t1.rueckfluss.j08.C",
+   "wert": -493792.932306753,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F169",
+   "bedeutung": "T1.R8 Jahr 8: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j08.frei_markt": {
+   "schluessel": "t1.rueckfluss.j08.frei_markt",
+   "wert": -528624.18,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G169",
+   "bedeutung": "T1.R8 Jahr 8: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j08.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j08.frei_dscr",
+   "wert": -282750.47,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H169",
+   "bedeutung": "T1.R8 Jahr 8: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j09.A": {
+   "schluessel": "t1.rueckfluss.j09.A",
+   "wert": -448797.95630558,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D170",
+   "bedeutung": "T1.R9 Jahr 9: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j09.B": {
+   "schluessel": "t1.rueckfluss.j09.B",
+   "wert": -471023.846187575,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E170",
+   "bedeutung": "T1.R9 Jahr 9: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j09.C": {
+   "schluessel": "t1.rueckfluss.j09.C",
+   "wert": -472823.232932389,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F170",
+   "bedeutung": "T1.R9 Jahr 9: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j09.frei_markt": {
+   "schluessel": "t1.rueckfluss.j09.frei_markt",
+   "wert": -507469.4,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G170",
+   "bedeutung": "T1.R9 Jahr 9: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j09.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j09.frei_dscr",
+   "wert": -228031.53,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H170",
+   "bedeutung": "T1.R9 Jahr 9: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j10.A": {
+   "schluessel": "t1.rueckfluss.j10.A",
+   "wert": -422870.826035849,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D171",
+   "bedeutung": "T1.R10 Jahr 10: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j10.B": {
+   "schluessel": "t1.rueckfluss.j10.B",
+   "wert": -445231.413121526,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E171",
+   "bedeutung": "T1.R10 Jahr 10: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j10.C": {
+   "schluessel": "t1.rueckfluss.j10.C",
+   "wert": -445933.492731708,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F171",
+   "bedeutung": "T1.R10 Jahr 10: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j10.frei_markt": {
+   "schluessel": "t1.rueckfluss.j10.frei_markt",
+   "wert": -483195.96,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G171",
+   "bedeutung": "T1.R10 Jahr 10: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j10.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j10.frei_dscr",
+   "wert": -169522.63,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H171",
+   "bedeutung": "T1.R10 Jahr 10: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j11.A": {
+   "schluessel": "t1.rueckfluss.j11.A",
+   "wert": -397210.375182755,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D172",
+   "bedeutung": "T1.R11 Jahr 11: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j11.B": {
+   "schluessel": "t1.rueckfluss.j11.B",
+   "wert": -419635.102022112,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E172",
+   "bedeutung": "T1.R11 Jahr 11: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j11.C": {
+   "schluessel": "t1.rueckfluss.j11.C",
+   "wert": -419204.595797663,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F172",
+   "bedeutung": "T1.R11 Jahr 11: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j11.frei_markt": {
+   "schluessel": "t1.rueckfluss.j11.frei_markt",
+   "wert": -455741.47,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G172",
+   "bedeutung": "T1.R11 Jahr 11: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j11.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j11.frei_dscr",
+   "wert": -107147.98,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H172",
+   "bedeutung": "T1.R11 Jahr 11: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j12.A": {
+   "schluessel": "t1.rueckfluss.j12.A",
+   "wert": -371824.759631629,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D173",
+   "bedeutung": "T1.R12 Jahr 12: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j12.B": {
+   "schluessel": "t1.rueckfluss.j12.B",
+   "wert": -394243.068774667,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E173",
+   "bedeutung": "T1.R12 Jahr 12: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j12.C": {
+   "schluessel": "t1.rueckfluss.j12.C",
+   "wert": -392644.698015587,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F173",
+   "bedeutung": "T1.R12 Jahr 12: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j12.frei_markt": {
+   "schluessel": "t1.rueckfluss.j12.frei_markt",
+   "wert": -425042.32,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G173",
+   "bedeutung": "T1.R12 Jahr 12: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j12.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j12.frei_dscr",
+   "wert": -40830.2699999999,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H173",
+   "bedeutung": "T1.R12 Jahr 12: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j13.A": {
+   "schluessel": "t1.rueckfluss.j13.A",
+   "wert": -341851.707154635,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D174",
+   "bedeutung": "T1.R13 Jahr 13: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j13.B": {
+   "schluessel": "t1.rueckfluss.j13.B",
+   "wert": -363190.272368527,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E174",
+   "bedeutung": "T1.R13 Jahr 13: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j13.C": {
+   "schluessel": "t1.rueckfluss.j13.C",
+   "wert": -359815.747641771,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F174",
+   "bedeutung": "T1.R13 Jahr 13: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j13.frei_markt": {
+   "schluessel": "t1.rueckfluss.j13.frei_markt",
+   "wert": -391033.62,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G174",
+   "bedeutung": "T1.R13 Jahr 13: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j13.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j13.frei_dscr",
+   "wert": 29509.3700000001,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H174",
+   "bedeutung": "T1.R13 Jahr 13: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j14.A": {
+   "schluessel": "t1.rueckfluss.j14.A",
+   "wert": -312170.294365749,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D175",
+   "bedeutung": "T1.R14 Jahr 14: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j14.B": {
+   "schluessel": "t1.rueckfluss.j14.B",
+   "wert": -332358.558200495,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E175",
+   "bedeutung": "T1.R14 Jahr 14: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j14.C": {
+   "schluessel": "t1.rueckfluss.j14.C",
+   "wert": -327172.600806064,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F175",
+   "bedeutung": "T1.R14 Jahr 14: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j14.frei_markt": {
+   "schluessel": "t1.rueckfluss.j14.frei_markt",
+   "wert": -353649.17,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G175",
+   "bedeutung": "T1.R14 Jahr 14: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j14.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j14.frei_dscr",
+   "wert": 103951.37,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H175",
+   "bedeutung": "T1.R14 Jahr 14: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j15.A": {
+   "schluessel": "t1.rueckfluss.j15.A",
+   "wert": -282789.176355734,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D176",
+   "bedeutung": "T1.R15 Jahr 15: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j15.B": {
+   "schluessel": "t1.rueckfluss.j15.B",
+   "wert": -301756.581361333,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E176",
+   "bedeutung": "T1.R15 Jahr 15: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j15.C": {
+   "schluessel": "t1.rueckfluss.j15.C",
+   "wert": -294723.912599226,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F176",
+   "bedeutung": "T1.R15 Jahr 15: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j15.frei_markt": {
+   "schluessel": "t1.rueckfluss.j15.frei_markt",
+   "wert": -312821.46,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G176",
+   "bedeutung": "T1.R15 Jahr 15: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j15.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j15.frei_dscr",
+   "wert": 182577.79,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H176",
+   "bedeutung": "T1.R15 Jahr 15: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j16.A": {
+   "schluessel": "t1.rueckfluss.j16.A",
+   "wert": -248547.048725592,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D177",
+   "bedeutung": "T1.R16 Jahr 16: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j16.B": {
+   "schluessel": "t1.rueckfluss.j16.B",
+   "wert": -265158.598389073,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E177",
+   "bedeutung": "T1.R16 Jahr 16: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j16.C": {
+   "schluessel": "t1.rueckfluss.j16.C",
+   "wert": -255635.688666165,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F177",
+   "bedeutung": "T1.R16 Jahr 16: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j16.frei_markt": {
+   "schluessel": "t1.rueckfluss.j16.frei_markt",
+   "wert": -268481.62,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G177",
+   "bedeutung": "T1.R16 Jahr 16: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j16.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j16.frei_dscr",
+   "wert": 265472.31,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H177",
+   "bedeutung": "T1.R16 Jahr 16: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j17.A": {
+   "schluessel": "t1.rueckfluss.j17.A",
+   "wert": -214623.048823326,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D178",
+   "bedeutung": "T1.R17 Jahr 17: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j17.B": {
+   "schluessel": "t1.rueckfluss.j17.B",
+   "wert": -228808.18569469,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E178",
+   "bedeutung": "T1.R17 Jahr 17: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j17.C": {
+   "schluessel": "t1.rueckfluss.j17.C",
+   "wert": -216759.75631098,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F178",
+   "bedeutung": "T1.R17 Jahr 17: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j17.frei_markt": {
+   "schluessel": "t1.rueckfluss.j17.frei_markt",
+   "wert": -220559.41,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G178",
+   "bedeutung": "T1.R17 Jahr 17: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j17.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j17.frei_dscr",
+   "wert": 352720.29,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H178",
+   "bedeutung": "T1.R17 Jahr 17: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j18.A": {
+   "schluessel": "t1.rueckfluss.j18.A",
+   "wert": -181026.361500494,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D179",
+   "bedeutung": "T1.R18 Jahr 18: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j18.B": {
+   "schluessel": "t1.rueckfluss.j18.B",
+   "wert": -192714.528129741,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E179",
+   "bedeutung": "T1.R18 Jahr 18: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j18.C": {
+   "schluessel": "t1.rueckfluss.j18.C",
+   "wert": -178105.300385229,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F179",
+   "bedeutung": "T1.R18 Jahr 18: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j18.frei_markt": {
+   "schluessel": "t1.rueckfluss.j18.frei_markt",
+   "wert": -168983.19,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G179",
+   "bedeutung": "T1.R18 Jahr 18: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j18.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j18.frei_dscr",
+   "wert": 444408.8,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H179",
+   "bedeutung": "T1.R18 Jahr 18: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j19.A": {
+   "schluessel": "t1.rueckfluss.j19.A",
+   "wert": -142278.259559729,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D180",
+   "bedeutung": "T1.R19 Jahr 19: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j19.B": {
+   "schluessel": "t1.rueckfluss.j19.B",
+   "wert": -150268.996431514,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E180",
+   "bedeutung": "T1.R19 Jahr 19: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j19.C": {
+   "schluessel": "t1.rueckfluss.j19.C",
+   "wert": -132418.033303147,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F180",
+   "bedeutung": "T1.R19 Jahr 19: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j19.frei_markt": {
+   "schluessel": "t1.rueckfluss.j19.frei_markt",
+   "wert": -113679.87,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G180",
+   "bedeutung": "T1.R19 Jahr 19: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j19.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j19.frei_dscr",
+   "wert": 540626.65,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H180",
+   "bedeutung": "T1.R19 Jahr 19: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j20.A": {
+   "schluessel": "t1.rueckfluss.j20.A",
+   "wert": -103876.394666547,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D181",
+   "bedeutung": "T1.R20 Jahr 20: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j20.B": {
+   "schluessel": "t1.rueckfluss.j20.B",
+   "wert": -108099.144330871,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E181",
+   "bedeutung": "T1.R20 Jahr 20: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j20.C": {
+   "schluessel": "t1.rueckfluss.j20.C",
+   "wert": -86971.1671186485,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F181",
+   "bedeutung": "T1.R20 Jahr 20: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j20.frei_markt": {
+   "schluessel": "t1.rueckfluss.j20.frei_markt",
+   "wert": -54574.9099999998,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G181",
+   "bedeutung": "T1.R20 Jahr 20: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j20.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j20.frei_dscr",
+   "wert": 641464.43,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H181",
+   "bedeutung": "T1.R20 Jahr 20: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j21.A": {
+   "schluessel": "t1.rueckfluss.j21.A",
+   "wert": -65830.5138588991,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D182",
+   "bedeutung": "T1.R21 Jahr 21: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j21.B": {
+   "schluessel": "t1.rueckfluss.j21.B",
+   "wert": -66214.7188657625,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E182",
+   "bedeutung": "T1.R21 Jahr 21: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j21.C": {
+   "schluessel": "t1.rueckfluss.j21.C",
+   "wert": -41774.4488696846,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F182",
+   "bedeutung": "T1.R21 Jahr 21: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j21.frei_markt": {
+   "schluessel": "t1.rueckfluss.j21.frei_markt",
+   "wert": 8407.72000000021,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G182",
+   "bedeutung": "T1.R21 Jahr 21: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j21.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j21.frei_dscr",
+   "wert": 747014.54,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H182",
+   "bedeutung": "T1.R21 Jahr 21: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j22.A": {
+   "schluessel": "t1.rueckfluss.j22.A",
+   "wert": -22324.9454811651,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D183",
+   "bedeutung": "T1.R22 Jahr 22: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j22.B": {
+   "schluessel": "t1.rueckfluss.j22.B",
+   "wert": -17600.6573382049,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E183",
+   "bedeutung": "T1.R22 Jahr 22: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j22.C": {
+   "schluessel": "t1.rueckfluss.j22.C",
+   "wert": 10872.5504516497,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F183",
+   "bedeutung": "T1.R22 Jahr 22: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j22.frei_markt": {
+   "schluessel": "t1.rueckfluss.j22.frei_markt",
+   "wert": 75345.5800000002,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G183",
+   "bedeutung": "T1.R22 Jahr 22: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j22.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j22.frei_dscr",
+   "wert": 857371.23,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H183",
+   "bedeutung": "T1.R22 Jahr 22: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j23.A": {
+   "schluessel": "t1.rueckfluss.j23.A",
+   "wert": 20804.5560140386,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D184",
+   "bedeutung": "T1.R23 Jahr 23: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j23.B": {
+   "schluessel": "t1.rueckfluss.j23.B",
+   "wert": 30707.8947568224,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E184",
+   "bedeutung": "T1.R23 Jahr 23: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j23.C": {
+   "schluessel": "t1.rueckfluss.j23.C",
+   "wert": 63249.3190404538,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F184",
+   "bedeutung": "T1.R23 Jahr 23: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j23.frei_markt": {
+   "schluessel": "t1.rueckfluss.j23.frei_markt",
+   "wert": 146317.77,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G184",
+   "bedeutung": "T1.R23 Jahr 23: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j23.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j23.frei_dscr",
+   "wert": 972630.62,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H184",
+   "bedeutung": "T1.R23 Jahr 23: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j24.A": {
+   "schluessel": "t1.rueckfluss.j24.A",
+   "wert": 63547.6469920615,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D185",
+   "bedeutung": "T1.R24 Jahr 24: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j24.B": {
+   "schluessel": "t1.rueckfluss.j24.B",
+   "wert": 78700.5937846688,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E185",
+   "bedeutung": "T1.R24 Jahr 24: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j24.C": {
+   "schluessel": "t1.rueckfluss.j24.C",
+   "wert": 115345.513262077,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F185",
+   "bedeutung": "T1.R24 Jahr 24: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j24.frei_markt": {
+   "schluessel": "t1.rueckfluss.j24.frei_markt",
+   "wert": 221404.97,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G185",
+   "bedeutung": "T1.R24 Jahr 24: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j24.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j24.frei_dscr",
+   "wert": 1092890.77,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H185",
+   "bedeutung": "T1.R24 Jahr 24: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j25.A": {
+   "schluessel": "t1.rueckfluss.j25.A",
+   "wert": 112077.665818403,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D186",
+   "bedeutung": "T1.R25 Jahr 25: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j25.B": {
+   "schluessel": "t1.rueckfluss.j25.B",
+   "wert": 133823.931702302,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E186",
+   "bedeutung": "T1.R25 Jahr 25: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j25.C": {
+   "schluessel": "t1.rueckfluss.j25.C",
+   "wert": 175335.141411468,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F186",
+   "bedeutung": "T1.R25 Jahr 25: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j25.frei_markt": {
+   "schluessel": "t1.rueckfluss.j25.frei_markt",
+   "wert": 300689.49,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G186",
+   "bedeutung": "T1.R25 Jahr 25: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j25.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j25.frei_dscr",
+   "wert": 1218251.7,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H186",
+   "bedeutung": "T1.R25 Jahr 25: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j26.A": {
+   "schluessel": "t1.rueckfluss.j26.A",
+   "wert": 160199.96210273,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D187",
+   "bedeutung": "T1.R26 Jahr 26: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j26.B": {
+   "schluessel": "t1.rueckfluss.j26.B",
+   "wert": 188610.10452792,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E187",
+   "bedeutung": "T1.R26 Jahr 26: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j26.C": {
+   "schluessel": "t1.rueckfluss.j26.C",
+   "wert": 235022.883168845,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F187",
+   "bedeutung": "T1.R26 Jahr 26: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j26.frei_markt": {
+   "schluessel": "t1.rueckfluss.j26.frei_markt",
+   "wert": 384255.27,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G187",
+   "bedeutung": "T1.R26 Jahr 26: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j26.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j26.frei_dscr",
+   "wert": 1348815.42,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H187",
+   "bedeutung": "T1.R26 Jahr 26: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j27.A": {
+   "schluessel": "t1.rueckfluss.j27.A",
+   "wert": 207903.559097202,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D188",
+   "bedeutung": "T1.R27 Jahr 27: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j27.B": {
+   "schluessel": "t1.rueckfluss.j27.B",
+   "wert": 243048.135513683,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E188",
+   "bedeutung": "T1.R27 Jahr 27: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j27.C": {
+   "schluessel": "t1.rueckfluss.j27.C",
+   "wert": 294397.761786366,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F188",
+   "bedeutung": "T1.R27 Jahr 27: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j27.frei_markt": {
+   "schluessel": "t1.rueckfluss.j27.frei_markt",
+   "wert": 472187.94,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G188",
+   "bedeutung": "T1.R27 Jahr 27: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j27.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j27.frei_dscr",
+   "wert": 1484685.99,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H188",
+   "bedeutung": "T1.R27 Jahr 27: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j28.A": {
+   "schluessel": "t1.rueckfluss.j28.A",
+   "wert": 261741.458557544,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D189",
+   "bedeutung": "T1.R28 Jahr 28: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j28.B": {
+   "schluessel": "t1.rueckfluss.j28.B",
+   "wert": 305042.478952659,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E189",
+   "bedeutung": "T1.R28 Jahr 28: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j28.C": {
+   "schluessel": "t1.rueckfluss.j28.C",
+   "wert": 362136.490149868,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F189",
+   "bedeutung": "T1.R28 Jahr 28: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j28.frei_markt": {
+   "schluessel": "t1.rueckfluss.j28.frei_markt",
+   "wert": 564574.84,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G189",
+   "bedeutung": "T1.R28 Jahr 28: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j28.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j28.frei_dscr",
+   "wert": 1625969.54,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H189",
+   "bedeutung": "T1.R28 Jahr 28: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j29.A": {
+   "schluessel": "t1.rueckfluss.j29.A",
+   "wert": 315138.042236781,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D190",
+   "bedeutung": "T1.R29 Jahr 29: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j29.B": {
+   "schluessel": "t1.rueckfluss.j29.B",
+   "wert": 366666.064060531,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E190",
+   "bedeutung": "T1.R29 Jahr 29: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j29.C": {
+   "schluessel": "t1.rueckfluss.j29.C",
+   "wert": 429539.738882265,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F190",
+   "bedeutung": "T1.R29 Jahr 29: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j29.frei_markt": {
+   "schluessel": "t1.rueckfluss.j29.frei_markt",
+   "wert": 661505.05,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G190",
+   "bedeutung": "T1.R29 Jahr 29: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j29.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j29.frei_dscr",
+   "wert": 1772774.34,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H190",
+   "bedeutung": "T1.R29 Jahr 29: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j30.A": {
+   "schluessel": "t1.rueckfluss.j30.A",
+   "wert": 368081.66152229,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D191",
+   "bedeutung": "T1.R30 Jahr 30: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j30.B": {
+   "schluessel": "t1.rueckfluss.j30.B",
+   "wert": 427907.242224674,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E191",
+   "bedeutung": "T1.R30 Jahr 30: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j30.C": {
+   "schluessel": "t1.rueckfluss.j30.C",
+   "wert": 496595.859370935,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F191",
+   "bedeutung": "T1.R30 Jahr 30: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j30.frei_markt": {
+   "schluessel": "t1.rueckfluss.j30.frei_markt",
+   "wert": 763069.48,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G191",
+   "bedeutung": "T1.R30 Jahr 30: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j30.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j30.frei_dscr",
+   "wert": 1925210.85,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H191",
+   "bedeutung": "T1.R30 Jahr 30: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j31.A": {
+   "schluessel": "t1.rueckfluss.j31.A",
+   "wert": 427528.33104709,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D192",
+   "bedeutung": "T1.R31 Jahr 31: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j31.B": {
+   "schluessel": "t1.rueckfluss.j31.B",
+   "wert": 497156.594946498,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E192",
+   "bedeutung": "T1.R31 Jahr 31: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j31.C": {
+   "schluessel": "t1.rueckfluss.j31.C",
+   "wert": 572515.185613507,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F192",
+   "bedeutung": "T1.R31 Jahr 31: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j31.frei_markt": {
+   "schluessel": "t1.rueckfluss.j31.frei_markt",
+   "wert": 1004139.35,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G192",
+   "bedeutung": "T1.R31 Jahr 31: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j31.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j31.frei_dscr",
+   "wert": 2218170.24,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H192",
+   "bedeutung": "T1.R31 Jahr 31: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j32.A": {
+   "schluessel": "t1.rueckfluss.j32.A",
+   "wert": 486498.035376716,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D193",
+   "bedeutung": "T1.R32 Jahr 32: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j32.B": {
+   "schluessel": "t1.rueckfluss.j32.B",
+   "wert": 565999.539923147,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E193",
+   "bedeutung": "T1.R32 Jahr 32: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j32.C": {
+   "schluessel": "t1.rueckfluss.j32.C",
+   "wert": 648063.382810904,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F193",
+   "bedeutung": "T1.R32 Jahr 32: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j32.frei_markt": {
+   "schluessel": "t1.rueckfluss.j32.frei_markt",
+   "wert": 1250030.62,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G193",
+   "bedeutung": "T1.R32 Jahr 32: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j32.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j32.frei_dscr",
+   "wert": 2516988.82,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H193",
+   "bedeutung": "T1.R32 Jahr 32: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j33.A": {
+   "schluessel": "t1.rueckfluss.j33.A",
+   "wert": 544978.412910264,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D194",
+   "bedeutung": "T1.R33 Jahr 33: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j33.B": {
+   "schluessel": "t1.rueckfluss.j33.B",
+   "wert": 634423.715553719,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E194",
+   "bedeutung": "T1.R33 Jahr 33: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j33.C": {
+   "schluessel": "t1.rueckfluss.j33.C",
+   "wert": 723228.089362224,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F194",
+   "bedeutung": "T1.R33 Jahr 33: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j33.frei_markt": {
+   "schluessel": "t1.rueckfluss.j33.frei_markt",
+   "wert": 1500839.71,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G194",
+   "bedeutung": "T1.R33 Jahr 33: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j33.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j33.frei_dscr",
+   "wert": 2821783.77,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H194",
+   "bedeutung": "T1.R33 Jahr 33: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j34.A": {
+   "schluessel": "t1.rueckfluss.j34.A",
+   "wert": 610353.276650105,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D195",
+   "bedeutung": "T1.R34 Jahr 34: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j34.B": {
+   "schluessel": "t1.rueckfluss.j34.B",
+   "wert": 711335.72757138,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E195",
+   "bedeutung": "T1.R34 Jahr 34: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j34.C": {
+   "schluessel": "t1.rueckfluss.j34.C",
+   "wert": 807786.078275374,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F195",
+   "bedeutung": "T1.R34 Jahr 34: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j34.frei_markt": {
+   "schluessel": "t1.rueckfluss.j34.frei_markt",
+   "wert": 1756664.98,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G195",
+   "bedeutung": "T1.R34 Jahr 34: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j34.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j34.frei_dscr",
+   "wert": 3132674.62,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H195",
+   "bedeutung": "T1.R34 Jahr 34: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j35.A": {
+   "schluessel": "t1.rueckfluss.j35.A",
+   "wert": 675213.343751367,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D196",
+   "bedeutung": "T1.R35 Jahr 35: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j35.B": {
+   "schluessel": "t1.rueckfluss.j35.B",
+   "wert": 787803.500400462,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E196",
+   "bedeutung": "T1.R35 Jahr 35: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j35.C": {
+   "schluessel": "t1.rueckfluss.j35.C",
+   "wert": 891935.106699945,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F196",
+   "bedeutung": "T1.R35 Jahr 35: kumulierter Zahlungsüberschuss − Eigenkapital; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j35.frei_markt": {
+   "schluessel": "t1.rueckfluss.j35.frei_markt",
+   "wert": 2017606.76,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G196",
+   "bedeutung": "T1.R35 Jahr 35: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.j35.frei_dscr": {
+   "schluessel": "t1.rueckfluss.j35.frei_dscr",
+   "wert": 3449783.29,
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H196",
+   "bedeutung": "T1.R35 Jahr 35: kumulierter Zahlungsüberschuss − Eigenkapital; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "t1.status": {
+   "schluessel": "t1.status",
+   "wert": "OK",
+   "einheit": "Text",
+   "blatt": "Konzepte",
+   "zelle": "D108",
+   "bedeutung": "Gesamtstatus der Prüfungen T1 (P1 bis P7)",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.A": {
+   "schluessel": "t1.rueckfluss.A",
+   "wert": [
+    -613426.284,
+    -598423.775428571,
+    -583621.376007143,
+    -569025.910215714,
+    -550572.208527886,
+    -532339.501628649,
+    -514335.031710777,
+    -492243.619289391,
+    -470395.365663356,
+    -448797.95630558,
+    -422870.826035849,
+    -397210.375182755,
+    -371824.759631629,
+    -341851.707154635,
+    -312170.294365749,
+    -282789.176355734,
+    -248547.048725592,
+    -214623.048823326,
+    -181026.361500494,
+    -142278.259559729,
+    -103876.394666547,
+    -65830.5138588991,
+    -22324.9454811651,
+    20804.5560140386,
+    63547.6469920615,
+    112077.665818403,
+    160199.96210273,
+    207903.559097202,
+    261741.458557544,
+    315138.042236781,
+    368081.66152229,
+    427528.33104709,
+    486498.035376716,
+    544978.412910264,
+    610353.276650105,
+    675213.343751367
+   ],
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "D161:D196",
+   "bedeutung": "Kumulierter Zahlungsüberschuss minus Eigenkapital, Jahr 0 bis 35; Gruppe A, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.B": {
+   "schluessel": "t1.rueckfluss.B",
+   "wert": [
+    -614907.99,
+    -603348.187142857,
+    -591917.935985714,
+    -580624.061008571,
+    -564563.012877028,
+    -548652.402084078,
+    -532899.470822491,
+    -512099.099441199,
+    -491471.329405258,
+    -471023.846187575,
+    -445231.413121526,
+    -419635.102022112,
+    -394243.068774667,
+    -363190.272368527,
+    -332358.558200495,
+    -301756.581361333,
+    -265158.598389073,
+    -228808.18569469,
+    -192714.528129741,
+    -150268.996431514,
+    -108099.144330871,
+    -66214.7188657625,
+    -17600.6573382049,
+    30707.8947568224,
+    78700.5937846688,
+    133823.931702302,
+    188610.10452792,
+    243048.135513683,
+    305042.478952659,
+    366666.064060531,
+    427907.242224674,
+    497156.594946498,
+    565999.539923147,
+    634423.715553719,
+    711335.72757138,
+    787803.500400462
+   ],
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "E161:E196",
+   "bedeutung": "Kumulierter Zahlungsüberschuss minus Eigenkapital, Jahr 0 bis 35; Gruppe B, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.C": {
+   "schluessel": "t1.rueckfluss.C",
+   "wert": [
+    -615648.843,
+    -604836.665,
+    -594118.76,
+    -583501.95248,
+    -567603.6189296,
+    -551820.444017792,
+    -536159.669937348,
+    -514907.639799375,
+    -493792.932306753,
+    -472823.232932389,
+    -445933.492731708,
+    -419204.595797663,
+    -392644.698015587,
+    -359815.747641771,
+    -327172.600806064,
+    -294723.912599226,
+    -255635.688666165,
+    -216759.75631098,
+    -178105.300385229,
+    -132418.033303147,
+    -86971.1671186485,
+    -41774.4488696846,
+    10872.5504516497,
+    63249.3190404538,
+    115345.513262077,
+    175335.141411468,
+    235022.883168845,
+    294397.761786366,
+    362136.490149868,
+    429539.738882265,
+    496595.859370935,
+    572515.185613507,
+    648063.382810904,
+    723228.089362224,
+    807786.078275374,
+    891935.106699945
+   ],
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "F161:F196",
+   "bedeutung": "Kumulierter Zahlungsüberschuss minus Eigenkapital, Jahr 0 bis 35; Gruppe C, Höchstmiete",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.frei_markt": {
+   "schluessel": "t1.rueckfluss.frei_markt",
+   "wert": [
+    -592682.4,
+    -594373.37,
+    -593402.59,
+    -589716.82,
+    -583261.76,
+    -573982.03,
+    -561821.13,
+    -546721.44,
+    -528624.18,
+    -507469.4,
+    -483195.96,
+    -455741.47,
+    -425042.32,
+    -391033.62,
+    -353649.17,
+    -312821.46,
+    -268481.62,
+    -220559.41,
+    -168983.19,
+    -113679.87,
+    -54574.9099999998,
+    8407.72000000021,
+    75345.5800000002,
+    146317.77,
+    221404.97,
+    300689.49,
+    384255.27,
+    472187.94,
+    564574.84,
+    661505.05,
+    763069.48,
+    1004139.35,
+    1250030.62,
+    1500839.71,
+    1756664.98,
+    2017606.76
+   ],
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "G161:G196",
+   "bedeutung": "Kumulierter Zahlungsüberschuss minus Eigenkapital, Jahr 0 bis 35; frei finanziert, Marktmiete 15,42 €",
+   "lauf": "team1"
+  },
+  "t1.rueckfluss.frei_dscr": {
+   "schluessel": "t1.rueckfluss.frei_dscr",
+   "wert": [
+    -592682.4,
+    -565726.67,
+    -535536.26,
+    -502046.47,
+    -465191.31,
+    -424903.47,
+    -381114.3,
+    -333753.78,
+    -282750.47,
+    -228031.53,
+    -169522.63,
+    -107147.98,
+    -40830.2699999999,
+    29509.3700000001,
+    103951.37,
+    182577.79,
+    265472.31,
+    352720.29,
+    444408.8,
+    540626.65,
+    641464.43,
+    747014.54,
+    857371.23,
+    972630.62,
+    1092890.77,
+    1218251.7,
+    1348815.42,
+    1484685.99,
+    1625969.54,
+    1772774.34,
+    1925210.85,
+    2218170.24,
+    2516988.82,
+    2821783.77,
+    3132674.62,
+    3449783.29
+   ],
+   "einheit": "€",
+   "blatt": "Konzepte",
+   "zelle": "H161:H196",
+   "bedeutung": "Kumulierter Zahlungsüberschuss minus Eigenkapital, Jahr 0 bis 35; frei finanziert, Miete für DSCR 1,2 der Bank",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r55.A": {
+   "schluessel": "ue.tilgungsraster.r55.A",
+   "wert": 43225.48,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "D55",
+   "bedeutung": "Übersicht 4.1 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe A",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r55.B": {
+   "schluessel": "ue.tilgungsraster.r55.B",
+   "wert": 53894.26,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "E55",
+   "bedeutung": "Übersicht 4.1 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe B",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r55.C": {
+   "schluessel": "ue.tilgungsraster.r55.C",
+   "wert": 60202.378,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "F55",
+   "bedeutung": "Übersicht 4.1 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe C",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r55.satz": {
+   "schluessel": "ue.tilgungsraster.r55.satz",
+   "wert": 0,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "B55",
+   "bedeutung": "Übersicht 4.1 Tilgungssatz",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r56.A": {
+   "schluessel": "ue.tilgungsraster.r56.A",
+   "wert": 31371.832,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "D56",
+   "bedeutung": "Übersicht 4.2 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe A",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r56.B": {
+   "schluessel": "ue.tilgungsraster.r56.B",
+   "wert": 36113.788,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "E56",
+   "bedeutung": "Übersicht 4.2 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe B",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r56.C": {
+   "schluessel": "ue.tilgungsraster.r56.C",
+   "wert": 39458.494,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "F56",
+   "bedeutung": "Übersicht 4.2 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe C",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r56.satz": {
+   "schluessel": "ue.tilgungsraster.r56.satz",
+   "wert": 0.01,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "B56",
+   "bedeutung": "Übersicht 4.2 Tilgungssatz",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r57.A": {
+   "schluessel": "ue.tilgungsraster.r57.A",
+   "wert": 25445.008,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "D57",
+   "bedeutung": "Übersicht 4.3 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe A",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r57.B": {
+   "schluessel": "ue.tilgungsraster.r57.B",
+   "wert": 27223.552,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "E57",
+   "bedeutung": "Übersicht 4.3 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe B",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r57.C": {
+   "schluessel": "ue.tilgungsraster.r57.C",
+   "wert": 29086.552,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "F57",
+   "bedeutung": "Übersicht 4.3 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe C",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r57.satz": {
+   "schluessel": "ue.tilgungsraster.r57.satz",
+   "wert": 0.015,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "B57",
+   "bedeutung": "Übersicht 4.3 Tilgungssatz",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r58.A": {
+   "schluessel": "ue.tilgungsraster.r58.A",
+   "wert": 19518.184,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "D58",
+   "bedeutung": "Übersicht 4.4 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe A",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r58.B": {
+   "schluessel": "ue.tilgungsraster.r58.B",
+   "wert": 18333.316,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "E58",
+   "bedeutung": "Übersicht 4.4 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe B",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r58.C": {
+   "schluessel": "ue.tilgungsraster.r58.C",
+   "wert": 18714.61,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "F58",
+   "bedeutung": "Übersicht 4.4 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe C",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r58.satz": {
+   "schluessel": "ue.tilgungsraster.r58.satz",
+   "wert": 0.02,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "B58",
+   "bedeutung": "Übersicht 4.4 Tilgungssatz",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r59.A": {
+   "schluessel": "ue.tilgungsraster.r59.A",
+   "wert": 15002.5085714286,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "D59",
+   "bedeutung": "Übersicht 4.5 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe A",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r59.B": {
+   "schluessel": "ue.tilgungsraster.r59.B",
+   "wert": 11559.8028571429,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "E59",
+   "bedeutung": "Übersicht 4.5 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe B",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r59.C": {
+   "schluessel": "ue.tilgungsraster.r59.C",
+   "wert": 10812.178,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "F59",
+   "bedeutung": "Übersicht 4.5 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe C",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r59.satz": {
+   "schluessel": "ue.tilgungsraster.r59.satz",
+   "wert": 0.0238095238095238,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "B59",
+   "bedeutung": "Übersicht 4.5 Tilgungssatz",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r60.A": {
+   "schluessel": "ue.tilgungsraster.r60.A",
+   "wert": 13591.36,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "D60",
+   "bedeutung": "Übersicht 4.6 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe A",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r60.B": {
+   "schluessel": "ue.tilgungsraster.r60.B",
+   "wert": 9443.08,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "E60",
+   "bedeutung": "Übersicht 4.6 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe B",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r60.C": {
+   "schluessel": "ue.tilgungsraster.r60.C",
+   "wert": 8342.66800000001,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "F60",
+   "bedeutung": "Übersicht 4.6 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe C",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r60.satz": {
+   "schluessel": "ue.tilgungsraster.r60.satz",
+   "wert": 0.025,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "B60",
+   "bedeutung": "Übersicht 4.6 Tilgungssatz",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r61.A": {
+   "schluessel": "ue.tilgungsraster.r61.A",
+   "wert": 7664.53599999998,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "D61",
+   "bedeutung": "Übersicht 4.7 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe A",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r61.B": {
+   "schluessel": "ue.tilgungsraster.r61.B",
+   "wert": 552.844000000005,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "E61",
+   "bedeutung": "Übersicht 4.7 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe B",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r61.C": {
+   "schluessel": "ue.tilgungsraster.r61.C",
+   "wert": -2029.27399999999,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "F61",
+   "bedeutung": "Übersicht 4.7 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe C",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r61.satz": {
+   "schluessel": "ue.tilgungsraster.r61.satz",
+   "wert": 0.03,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "B61",
+   "bedeutung": "Übersicht 4.7 Tilgungssatz",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r62.A": {
+   "schluessel": "ue.tilgungsraster.r62.A",
+   "wert": 15002.5085714285,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "D62",
+   "bedeutung": "Übersicht 4.8 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe A",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r62.B": {
+   "schluessel": "ue.tilgungsraster.r62.B",
+   "wert": 11559.8028571429,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "E62",
+   "bedeutung": "Übersicht 4.8 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe B",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r62.C": {
+   "schluessel": "ue.tilgungsraster.r62.C",
+   "wert": 10812.178,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "F62",
+   "bedeutung": "Übersicht 4.8 Zahlungsüberschuss Jahr 1 je Tilgungssatz; Gruppe C",
+   "lauf": "team1"
+  },
+  "ue.tilgungsraster.r62.satz": {
+   "schluessel": "ue.tilgungsraster.r62.satz",
+   "wert": 0.0238095238095238,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "B62",
+   "bedeutung": "Übersicht 4.8 Tilgungssatz",
+   "lauf": "team1"
+  },
+  "ue.tilgungsschwelle.B_gegen_A": {
+   "schluessel": "ue.tilgungsschwelle.B_gegen_A",
+   "wert": 0.0180008382229673,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "E63",
+   "bedeutung": "Übersicht 4.9 Tilgungsschwelle B gegenüber A",
+   "lauf": "team1"
+  },
+  "ue.tilgungsschwelle.C_gegen_A": {
+   "schluessel": "ue.tilgungsschwelle.C_gegen_A",
+   "wert": 0.0190961162335848,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "F64",
+   "bedeutung": "Übersicht 4.10 Tilgungsschwelle C gegenüber A",
+   "lauf": "team1"
+  },
+  "lauf.kosten_4631.tilgungsschwelle.B_gegen_A": {
+   "schluessel": "lauf.kosten_4631.tilgungsschwelle.B_gegen_A",
+   "wert": 0.0127758583459296,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "E63",
+   "bedeutung": "Übersicht 4.9 Tilgungsschwelle B gegenüber A; Lauf kosten_4631 (Datei konzepte/mappe/laeufe/kosten_4631.xlsx)",
+   "lauf": "kosten_4631"
+  },
+  "lauf.kosten_4631.tilgungsschwelle.C_gegen_A": {
+   "schluessel": "lauf.kosten_4631.tilgungsschwelle.C_gegen_A",
+   "wert": 0.0136223277909739,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "F64",
+   "bedeutung": "Übersicht 4.10 Tilgungsschwelle C gegenüber A; Lauf kosten_4631 (Datei konzepte/mappe/laeufe/kosten_4631.xlsx)",
+   "lauf": "kosten_4631"
+  },
+  "lauf.kosten_5460.tilgungsschwelle.B_gegen_A": {
+   "schluessel": "lauf.kosten_5460.tilgungsschwelle.B_gegen_A",
+   "wert": 0.0100769230769231,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "E63",
+   "bedeutung": "Übersicht 4.9 Tilgungsschwelle B gegenüber A; Lauf kosten_5460 (Datei konzepte/mappe/laeufe/kosten_5460.xlsx)",
+   "lauf": "kosten_5460"
+  },
+  "lauf.kosten_5460.tilgungsschwelle.C_gegen_A": {
+   "schluessel": "lauf.kosten_5460.tilgungsschwelle.C_gegen_A",
+   "wert": 0.0107948717948718,
+   "einheit": "Anteil",
+   "blatt": "Übersicht",
+   "zelle": "F64",
+   "bedeutung": "Übersicht 4.10 Tilgungsschwelle C gegenüber A; Lauf kosten_5460 (Datei konzepte/mappe/laeufe/kosten_5460.xlsx)",
+   "lauf": "kosten_5460"
+  },
+  "ue.zue_jahr10.A": {
+   "schluessel": "ue.zue_jahr10.A",
+   "wert": 25927.1302697301,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "D42",
+   "bedeutung": "Übersicht 3.1 Zahlungsüberschuss Jahr 10; A",
+   "lauf": "team1"
+  },
+  "ue.zue_jahr10.B": {
+   "schluessel": "ue.zue_jahr10.B",
+   "wert": 25792.4330660492,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "E42",
+   "bedeutung": "Übersicht 3.1 Zahlungsüberschuss Jahr 10; B",
+   "lauf": "team1"
+  },
+  "ue.zue_jahr10.C": {
+   "schluessel": "ue.zue_jahr10.C",
+   "wert": 26889.7402006805,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "F42",
+   "bedeutung": "Übersicht 3.1 Zahlungsüberschuss Jahr 10; C",
+   "lauf": "team1"
+  },
+  "ue.zue_jahr10.frei_markt": {
+   "schluessel": "ue.zue_jahr10.frei_markt",
+   "wert": 24273.44,
+   "einheit": "€ p. a.",
+   "blatt": "Übersicht",
+   "zelle": "G42",
+   "bedeutung": "Übersicht 3.1 Zahlungsüberschuss Jahr 10; frei_markt",
+   "lauf": "team1"
+  }
+ }
+}

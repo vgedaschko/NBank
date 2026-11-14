@@ -1,0 +1,79 @@
+{
+ "werte_datei": "konzepte/werkzeug/beispiel/werte.json",
+ "folien": {
+  "beispiel": [
+   {
+    "datei": "konzepte/werkzeug/beispiel/werte.json",
+    "schluessel": "beispiel.ueberschuss.A",
+    "lauf": null,
+    "wert": 52000,
+    "einheit": "€ p. a.",
+    "blatt": "Beispiel",
+    "zelle": "C4"
+   },
+   {
+    "datei": "konzepte/werkzeug/beispiel/werte.json",
+    "schluessel": "beispiel.ueberschuss.B",
+    "lauf": null,
+    "wert": 61000,
+    "einheit": "€ p. a.",
+    "blatt": "Beispiel",
+    "zelle": "D4"
+   },
+   {
+    "datei": "konzepte/werkzeug/beispiel/werte.json",
+    "schluessel": "beispiel.ueberschuss.C",
+    "lauf": null,
+    "wert": 66000,
+    "einheit": "€ p. a.",
+    "blatt": "Beispiel",
+    "zelle": "E4"
+   },
+   {
+    "datei": "konzepte/werkzeug/beispiel/werte.json",
+    "schluessel": "beispiel.ueberschuss.Frei",
+    "lauf": null,
+    "wert": 150000,
+    "einheit": "€ p. a.",
+    "blatt": "Beispiel",
+    "zelle": "F4"
+   },
+   {
+    "datei": "konzepte/werkzeug/beispiel/werte.json",
+    "schluessel": "beispiel.kapitaldienst.A",
+    "lauf": null,
+    "wert": 35000,
+    "einheit": "€ p. a.",
+    "blatt": "Beispiel",
+    "zelle": "C5"
+   },
+   {
+    "datei": "konzepte/werkzeug/beispiel/werte.json",
+    "schluessel": "beispiel.kapitaldienst.B",
+    "lauf": null,
+    "wert": 40000,
+    "einheit": "€ p. a.",
+    "blatt": "Beispiel",
+    "zelle": "D5"
+   },
+   {
+    "datei": "konzepte/werkzeug/beispiel/werte.json",
+    "schluessel": "beispiel.kapitaldienst.C",
+    "lauf": null,
+    "wert": 44000,
+    "einheit": "€ p. a.",
+    "blatt": "Beispiel",
+    "zelle": "E5"
+   },
+   {
+    "datei": "konzepte/werkzeug/beispiel/werte.json",
+    "schluessel": "beispiel.kapitaldienst.Frei",
+    "lauf": null,
+    "wert": 125000,
+    "einheit": "€ p. a.",
+    "blatt": "Beispiel",
+    "zelle": "F5"
+   }
+  ]
+ }
+}

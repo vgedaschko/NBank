@@ -4,9 +4,9 @@
   "antragsweg": {
     "_hinweis": "Folie 26. Acht Stationen in zwei Reihen, dazwischen das Warnband zur Bewilligung, darunter der Hinweiskasten zum Vorhabenbeginn.",
     "fristen": {
-      "entscheidung_monate": { "wert": 3, "einheit": "Monate (Ziel für die Entscheidung der NBank, höchstens)", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[3].deadline", "geprueft": true },
-      "baubeginn_monate": { "wert": 4, "einheit": "Monate nach Bekanntgabe der Förderentscheidung (spätestens)", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[4].deadline", "geprueft": true },
-      "verwendungsnachweis_monate": { "wert": 6, "einheit": "Monate nach Erfüllung des Förderzwecks", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[7].deadline", "geprueft": true }
+      "entscheidung_monate": { "wert": 3, "einheit": "Monate (Ziel für die Entscheidung der NBank, höchstens)", "herkunft": "Broschüre S. 18, 18-antragsweg.json, blocks[0].data.stations[3].deadline", "geprueft": true },
+      "baubeginn_monate": { "wert": 4, "einheit": "Monate nach Bekanntgabe der Förderentscheidung (spätestens)", "herkunft": "Broschüre S. 18, 18-antragsweg.json, blocks[0].data.stations[4].deadline", "geprueft": true },
+      "verwendungsnachweis_monate": { "wert": 6, "einheit": "Monate nach Erfüllung des Förderzwecks", "herkunft": "Broschüre S. 18, 18-antragsweg.json, blocks[0].data.stations[7].deadline", "geprueft": true }
     },
     "stationen": {
       "wert": [
@@ -20,29 +20,29 @@
         { "nr": 8, "titel": "Verwendungsnachweis", "zustaendig": "Sie", "text": "innerhalb von {verwendungsnachweis_monate:wort} Monaten nach Erfüllung des Förderzwecks", "zeile": "stations[7]: title, lane, deadline" }
       ],
       "einheit": "Text mit Feldern",
-      "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[0].data.stations[0..7] (title, lane, with, body, deadline), verdichtet wie im Konzept (Folie 26)",
+      "herkunft": "Broschüre S. 18, 18-antragsweg.json, blocks[0].data.stations[0..7] (title, lane, with, body, deadline), verdichtet wie im Konzept (Folie 26)",
       "geprueft": true
     },
     "reihen": { "wert": [4, 4], "einheit": "Stationen je Reihe", "herkunft": "Konzept, Folie antragsweg (darstellung): Die Teilung fällt auf die Bewilligung, Station 4 ist die Förderentscheidung der NBank", "geprueft": true },
     "warnband": {
       "zeichen": { "wert": "±0", "einheit": "Planzeichen", "herkunft": "Konzept, Folie antragsweg (Warnband „±0 BEWILLIGUNG“)", "geprueft": true },
-      "wort": { "wert": "Bewilligung", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].title („Erst Bewilligung, dann Vertrag“); Wortlaut des Konzepts", "geprueft": true },
-      "text": { "wert": "Vor der Bewilligung begonnene Vorhaben werden nicht gefördert.", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[1].body, Satz 1", "geprueft": true }
+      "wort": { "wert": "Bewilligung", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-antragsweg.json, blocks[1].title („Erst Bewilligung, dann Vertrag“); Wortlaut des Konzepts", "geprueft": true },
+      "text": { "wert": "Vor der Bewilligung begonnene Vorhaben werden nicht gefördert.", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-antragsweg.json, blocks[1].body, Satz 1", "geprueft": true }
     },
-    "beginn": { "wert": "Als Vorhabenbeginn gilt ein Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer für das Baugrundstück) oder der erste Spatenstich.", "einheit": "Text (Hinweiskasten unter Reihe 2, seit der Änderungsrunde vom 13.11.2026, F26.1 und G8)", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[1].items[1] (Vertragsarten und Baubeginn), und S. 19, 19-antragsweg.json, blocks[2].data.columns[2].items[0] und [3] (Vertragsarten, erster Spatenstich). Der Satz „Als Beginn gilt …“ im Achtung-Kasten der S. 19 ist seit dem Lektorat der Broschüre vom 11.11.2026 gestrichen; die Liste der Verträge folgt S. 4 und S. 19. Auf der Folie steht der Satz unter Station 5 „Baubeginn“, deshalb „Vorhabenbeginn“ ausgeschrieben", "geprueft": true }
+    "beginn": { "wert": "Als Vorhabenbeginn gilt ein Werk-, Liefer-, Leistungs- oder Kaufvertrag (außer für das Baugrundstück) oder der erste Spatenstich.", "einheit": "Text (Hinweiskasten unter Reihe 2, seit der Änderungsrunde vom 13.11.2026, F26.1 und G8)", "herkunft": "Broschüre S. 4, 04-neu-und-grundcheck.json, blocks[1].items[1] (Vertragsarten und Baubeginn), und S. 18, 18-antragsweg.json, blocks[2].data.columns[2].items[0] und [3] (Vertragsarten, erster Spatenstich). Der Satz „Als Beginn gilt …“ im Achtung-Kasten der S. 19 ist seit dem Lektorat der Broschüre vom 11.11.2026 gestrichen; die Liste der Verträge folgt S. 4 und S. 19. Auf der Folie steht der Satz unter Station 5 „Baubeginn“, deshalb „Vorhabenbeginn“ ausgeschrieben", "geprueft": true }
   },
 
   "leistungen": {
     "_hinweis": "Folie 27. Balkenplan der Leistungen der PGN über die Leistungsphasen 1 bis 9 der HOAI mit der Bewilligung zwischen 6 und 7.",
-    "deck": { "wert": "Leistungen der PGN nach Leistungsphasen 1 bis {phasen} der HOAI", "einheit": "Text mit Feldern", "herkunft": "Änderungsrunde vom 13.11.2026 (F27.2: „der HOAI“ ergänzt). Konzept, Folie pgn-leistungen: Die Unterzeile beschreibt den Plan (Leistungen und Phasen nach Broschüre S. 20, 20-pgn-leistungen.json, blocks[0]). Die Unterzeile der Broschüre („Ein Ansprechpartner für alles“) steht nicht auf der Folie.", "geprueft": true },
-    "kopf": { "wert": "Leistungsphase", "einheit": "Text", "herkunft": "Konzept, Folie pgn-leistungen (Kopfleiste); Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale (kind hoai)", "geprueft": true },
-    "phasen": { "wert": 9, "einheit": "Anzahl Leistungsphasen", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.phases (n 1 bis 9)", "geprueft": true },
+    "deck": { "wert": "Leistungen der PGN nach Leistungsphasen 1 bis {phasen} der HOAI", "einheit": "Text mit Feldern", "herkunft": "Änderungsrunde vom 13.11.2026 (F27.2: „der HOAI“ ergänzt). Konzept, Folie pgn-leistungen: Die Unterzeile beschreibt den Plan (Leistungen und Phasen nach Broschüre S. 19, 19-pgn-leistungen.json, blocks[0]). Die Unterzeile der Broschüre („Ein Ansprechpartner für alles“) steht nicht auf der Folie.", "geprueft": true },
+    "kopf": { "wert": "Leistungsphase", "einheit": "Text", "herkunft": "Konzept, Folie pgn-leistungen (Kopfleiste); Broschüre S. 19, 19-pgn-leistungen.json, blocks[0].scale (kind hoai)", "geprueft": true },
+    "phasen": { "wert": 9, "einheit": "Anzahl Leistungsphasen", "herkunft": "Broschüre S. 19, 19-pgn-leistungen.json, blocks[0].scale.phases (n 1 bis 9)", "geprueft": true },
     "marke": {
-      "nach": { "wert": 6, "einheit": "Leistungsphase, nach der die Bewilligung liegt", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.between[0]", "geprueft": true },
-      "text": { "wert": "Bewilligung", "einheit": "Text", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.label", "geprueft": true },
+      "nach": { "wert": 6, "einheit": "Leistungsphase, nach der die Bewilligung liegt", "herkunft": "Broschüre S. 19, 19-pgn-leistungen.json, blocks[0].scale.marker.between[0]", "geprueft": true },
+      "text": { "wert": "Bewilligung", "einheit": "Text", "herkunft": "Broschüre S. 19, 19-pgn-leistungen.json, blocks[0].scale.marker.label", "geprueft": true },
       "zeichen": { "wert": "±0", "einheit": "Planzeichen im gefüllten Achskreis", "herkunft": "Konzept, Folie antragsweg (Warnband „±0 BEWILLIGUNG“); auf Folie 27 dasselbe Zeichen für dieselbe Stelle", "geprueft": true }
     },
-    "hinweis": { "wert": "Planungsauftrag LPH 1–{lph_vor}: vor der Bewilligung möglich. Ab LPH {lph_nach}: erst nach der Bewilligung.", "einheit": "Text mit Feldern (Hinweiskasten unter dem Plan)", "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].scale.marker.left und .right. Bis zur Prüfrunde 2 der Änderungsrunde vom 13.11.2026 zwei frei hängende Sätze in 12 pt links und rechts der Marke („Planungsauftrag LPH 1–6: vor der Bewilligung möglich“, „ab LPH 7: erst nach der Bewilligung“); seitdem nach G8 ein Hinweiskasten, beide Sätze mit Schlusspunkt, der zweite groß beginnend", "geprueft": true },
+    "hinweis": { "wert": "Planungsauftrag LPH 1–{lph_vor}: vor der Bewilligung möglich. Ab LPH {lph_nach}: erst nach der Bewilligung.", "einheit": "Text mit Feldern (Hinweiskasten unter dem Plan)", "herkunft": "Broschüre S. 19, 19-pgn-leistungen.json, blocks[0].scale.marker.left und .right. Bis zur Prüfrunde 2 der Änderungsrunde vom 13.11.2026 zwei frei hängende Sätze in 12 pt links und rechts der Marke („Planungsauftrag LPH 1–6: vor der Bewilligung möglich“, „ab LPH 7: erst nach der Bewilligung“); seitdem nach G8 ein Hinweiskasten, beide Sätze mit Schlusspunkt, der zweite groß beginnend", "geprueft": true },
     "zeilen": {
       "wert": [
         { "nr": 1, "text": "Förderung und Machbarkeit", "wort": "vor dem Vorgespräch", "zeile": "items[0]: title, phase" },
@@ -54,24 +54,24 @@
         { "nr": 7, "text": "Fertigstellung und Nachweis", "von": 8, "bis": 9, "zeile": "items[6]: title, phase „Leistungsphasen 8–9“" }
       ],
       "einheit": "Leistung mit Leistungsphasen von … bis oder mit ihrer Phase im Wortlaut",
-      "herkunft": "Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].items[0..6] (n, title, phase)",
+      "herkunft": "Broschüre S. 19, 19-pgn-leistungen.json, blocks[0].items[0..6] (n, title, phase)",
       "geprueft": true
     },
     "erste_leistung": {
-      "_hinweis": "Rechte Spalte unter dem Bild. Seit der Änderungsrunde vom 13.11.2026 (F27.1, G9) Stichpunkte unter einer Überschrift; bis dahin Modultitel „Förderung und Machbarkeit“ mit dem Satz „Wir klären Programmteil, Standort und Mieterkreis und ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung.“ (Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].items[0].body ohne den Seitenverweis)",
-      "titel": { "wert": "Erster Schritt: Förderung und Machbarkeit", "einheit": "Text", "herkunft": "Änderungsrunde vom 13.11.2026, F27.1 (Wortlaut der Änderungsdatei); „Förderung und Machbarkeit“ nach Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].items[0].title", "geprueft": true },
-      "punkte": { "wert": ["Programmteil, Standort und Mieterkreis klären", "Flächen und Kosten ermitteln", "Grundlage für Ihre Wirtschaftlichkeitsberechnung"], "einheit": "Stichpunkte", "herkunft": "Änderungsrunde vom 13.11.2026, F27.1 (Wortlaut der Änderungsdatei); Inhalt nach Broschüre S. 20, 20-pgn-leistungen.json, blocks[0].items[0].body", "geprueft": true }
+      "_hinweis": "Rechte Spalte unter dem Bild. Seit der Änderungsrunde vom 13.11.2026 (F27.1, G9) Stichpunkte unter einer Überschrift; bis dahin Modultitel „Förderung und Machbarkeit“ mit dem Satz „Wir klären Programmteil, Standort und Mieterkreis und ermitteln Flächen und Kosten für Ihre Wirtschaftlichkeitsberechnung.“ (Broschüre S. 19, 19-pgn-leistungen.json, blocks[0].items[0].body ohne den Seitenverweis)",
+      "titel": { "wert": "Erster Schritt: Förderung und Machbarkeit", "einheit": "Text", "herkunft": "Änderungsrunde vom 13.11.2026, F27.1 (Wortlaut der Änderungsdatei); „Förderung und Machbarkeit“ nach Broschüre S. 19, 19-pgn-leistungen.json, blocks[0].items[0].title", "geprueft": true },
+      "punkte": { "wert": ["Programmteil, Standort und Mieterkreis klären", "Flächen und Kosten ermitteln", "Grundlage für Ihre Wirtschaftlichkeitsberechnung"], "einheit": "Stichpunkte", "herkunft": "Änderungsrunde vom 13.11.2026, F27.1 (Wortlaut der Änderungsdatei); Inhalt nach Broschüre S. 19, 19-pgn-leistungen.json, blocks[0].items[0].body", "geprueft": true }
     }
   },
 
   "referenz": {
     "_hinweis": "Folie 27, rechte Spalte. Bild assets/ref-brauerstrasse.jpg (Broschüre: src/assets/pgn/img/brauerstrasse-duplex.jpg).",
-    "bild": { "wert": "ref-brauerstrasse.jpg", "einheit": "Datei in assets/", "herkunft": "Broschüre S. 22, 22-ueber-pgn.json, blocks[2].items[0].image; Visualisierung der Planungsgemeinschaft Nord GmbH", "geprueft": true },
+    "bild": { "wert": "ref-brauerstrasse.jpg", "einheit": "Datei in assets/", "herkunft": "Broschüre S. 21, 21-ueber-pgn.json, blocks[2].items[0].image; Visualisierung der Planungsgemeinschaft Nord GmbH", "geprueft": true },
     "alt_text": { "wert": "Visualisierung des Mehrfamilienhauses Brauerstraße in Rotenburg (Wümme): dreigeschossiger Klinkerbau mit Walmdach und Balkonen", "einheit": "Text", "herkunft": "Broschüre S. 1, 01-umschlag-titel.json, image.alt (gekürzt auf das Gebäude)", "geprueft": true },
-    "anschrift": { "wert": "Brauerstraße, Rotenburg (Wümme)", "einheit": "Text", "herkunft": "Broschüre S. 22, 22-ueber-pgn.json, blocks[2].items[0].name und place; S. 1, 01-umschlag-titel.json, image.caption", "geprueft": true },
-    "wohnungen": { "wert": 19, "einheit": "Wohnungen", "herkunft": "Broschüre S. 22, 22-ueber-pgn.json, blocks[2].items[0].units; S. 1, 01-umschlag-titel.json, image.caption", "geprueft": true },
+    "anschrift": { "wert": "Brauerstraße, Rotenburg (Wümme)", "einheit": "Text", "herkunft": "Broschüre S. 21, 21-ueber-pgn.json, blocks[2].items[0].name und place; S. 1, 01-umschlag-titel.json, image.caption", "geprueft": true },
+    "wohnungen": { "wert": 19, "einheit": "Wohnungen", "herkunft": "Broschüre S. 21, 21-ueber-pgn.json, blocks[2].items[0].units; S. 1, 01-umschlag-titel.json, image.caption", "geprueft": true },
     "merkmal": { "wert": "{wohnungen} barrierefreie Wohnungen", "einheit": "Text mit Feldern", "herkunft": "Broschüre S. 1, 01-umschlag-titel.json, image.caption", "geprueft": true },
-    "vermerk": { "wert": "Mit Förderung der NBank", "einheit": "Text", "herkunft": "Broschüre S. 22, 22-ueber-pgn.json, blocks[2].items[0].flag", "geprueft": true }
+    "vermerk": { "wert": "Mit Förderung der NBank", "einheit": "Text", "herkunft": "Broschüre S. 21, 21-ueber-pgn.json, blocks[2].items[0].flag", "geprueft": true }
   },
 
   "voraussetzungen": {
@@ -95,17 +95,17 @@
 
   "bedarf": {
     "_hinweis": "Folie A2, rechte Seite. Ringdiagramm mit zwei Segmenten, in der Mitte der QR-Code zur Karte (seit 13.11.2026); Stand der Karte: abgerufen am 21.10.2026 (Faktenbasis der Broschüre, broschuere/recherche/factbase.md, G2-26; die Broschüre S. 23 nennt die Karte seit ihrem Lektorat vom 11.11.2026 ohne Abrufdatum).",
-    "titel": { "wert": "Bedarfslage auf der NBank-Karte", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].title", "geprueft": true },
-    "bezug": { "wert": "Einheits- und Samtgemeinden", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.unit", "geprueft": true },
-    "gegeben": { "wert": 306, "einheit": "Einheits- und Samtgemeinden", "bezeichnung": "Bedarf gegeben", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.segments[0] (value, label)", "geprueft": true },
-    "nachweis": { "wert": 96, "einheit": "Einheits- und Samtgemeinden", "bezeichnung": "Bedarf gesondert nachweisen", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.segments[1] (value, label)", "geprueft": true },
-    "hinweis": { "wert": "In beiden Fällen nötig: die einfache Bedarfsbestätigung der Wohnraumförderstelle zum Bauort.", "einheit": "Text (Hinweiskasten unter dem Ring seit der Änderungsrunde vom 13.11.2026, G8; bis dahin eine Zeile in 12 pt)", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].note, Satz 1", "geprueft": true },
+    "titel": { "wert": "Bedarfslage auf der NBank-Karte", "einheit": "Text", "herkunft": "Broschüre S. 17, 17-standort-und-kommune.json, blocks[1].title", "geprueft": true },
+    "bezug": { "wert": "Einheits- und Samtgemeinden", "einheit": "Text", "herkunft": "Broschüre S. 17, 17-standort-und-kommune.json, blocks[1].data.unit", "geprueft": true },
+    "gegeben": { "wert": 306, "einheit": "Einheits- und Samtgemeinden", "bezeichnung": "Bedarf gegeben", "herkunft": "Broschüre S. 17, 17-standort-und-kommune.json, blocks[1].data.segments[0] (value, label)", "geprueft": true },
+    "nachweis": { "wert": 96, "einheit": "Einheits- und Samtgemeinden", "bezeichnung": "Bedarf gesondert nachweisen", "herkunft": "Broschüre S. 17, 17-standort-und-kommune.json, blocks[1].data.segments[1] (value, label)", "geprueft": true },
+    "hinweis": { "wert": "In beiden Fällen nötig: die einfache Bedarfsbestätigung der Wohnraumförderstelle zum Bauort.", "einheit": "Text (Hinweiskasten unter dem Ring seit der Änderungsrunde vom 13.11.2026, G8; bis dahin eine Zeile in 12 pt)", "herkunft": "Broschüre S. 17, 17-standort-und-kommune.json, blocks[1].note, Satz 1", "geprueft": true },
     "qr": {
       "_hinweis": "QR-Code zur NBank-Karte in der Mitte des Rings (Änderungsrunde vom 13.11.2026, F32.1). Derselbe Code und dasselbe Ziel wie in der Broschüre: lib/assets.cjs übernimmt die Module aus dem Inline-SVG der Seite und prüft das Ziel gegen den Inhalt der Broschüre (node lib/assets.cjs --nur qr-nbank-karte).",
-      "bild": { "wert": "qr-nbank-karte.png", "einheit": "Datei in assets/", "herkunft": "Broschüre S. 18 (seit 13.11.2026 Blatt 17), src/pages/18-standort-und-kommune.html, a.p18-qr (Inline-SVG, 45 Module); erzeugt mit lib/assets.cjs, Ruhezone vier Module", "geprueft": true },
-      "ziel": { "wert": "https://nbank.de/F%C3%B6rderprogramme/Aktuelle-F%C3%B6rderprogramme/Mietwohnungen-in-Mehrfamilienh%C3%A4usern-(Allgemeine-Mietwohnraumf%C3%B6rderung).html", "einheit": "Adresse", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.qr.url; am 13.11.2026 aus dem gerenderten Folienbild dekodiert und gleich befunden", "geprueft": true },
-      "beschriftung": { "wert": "Aktuelle Karte", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.qr.label", "geprueft": true },
-      "alt_text": { "wert": "QR-Code zur aktuellen Karte: Landkarte Wohnraumförderung auf der NBank-Programmseite „Mietwohnungen in Mehrfamilienhäusern“", "einheit": "Text", "herkunft": "Broschüre S. 18, 18-standort-und-kommune.json, blocks[1].data.qr.target; Wortlaut wie aria-label des Links a.p18-qr", "geprueft": true }
+      "bild": { "wert": "qr-nbank-karte.png", "einheit": "Datei in assets/", "herkunft": "Broschüre S. 18 (seit 13.11.2026 Blatt 17), src/pages/17-standort-und-kommune.html, a.p18-qr (Inline-SVG, 45 Module); erzeugt mit lib/assets.cjs, Ruhezone vier Module", "geprueft": true },
+      "ziel": { "wert": "https://nbank.de/F%C3%B6rderprogramme/Aktuelle-F%C3%B6rderprogramme/Mietwohnungen-in-Mehrfamilienh%C3%A4usern-(Allgemeine-Mietwohnraumf%C3%B6rderung).html", "einheit": "Adresse", "herkunft": "Broschüre S. 17, 17-standort-und-kommune.json, blocks[1].data.qr.url; am 13.11.2026 aus dem gerenderten Folienbild dekodiert und gleich befunden", "geprueft": true },
+      "beschriftung": { "wert": "Aktuelle Karte", "einheit": "Text", "herkunft": "Broschüre S. 17, 17-standort-und-kommune.json, blocks[1].data.qr.label", "geprueft": true },
+      "alt_text": { "wert": "QR-Code zur aktuellen Karte: Landkarte Wohnraumförderung auf der NBank-Programmseite „Mietwohnungen in Mehrfamilienhäusern“", "einheit": "Text", "herkunft": "Broschüre S. 17, 17-standort-und-kommune.json, blocks[1].data.qr.target; Wortlaut wie aria-label des Links a.p18-qr", "geprueft": true }
     }
   },
 
@@ -129,7 +129,7 @@
           "bei 2.5: Mietvertrag oder Überlassung der Wohnung" ], "zeile": "columns[2]" }
       ],
       "einheit": "Text mit Feldern",
-      "herkunft": "Broschüre S. 19, 19-antragsweg.json, blocks[2].data.columns[0..2] (title, items); icon und icon_text: Kopf-Icons nach dem Konzept (Folie A3), Bezeichnung für Vorleseprogramme",
+      "herkunft": "Broschüre S. 18, 18-antragsweg.json, blocks[2].data.columns[0..2] (title, items); icon und icon_text: Kopf-Icons nach dem Konzept (Folie A3), Bezeichnung für Vorleseprogramme",
       "geprueft": true
     }
   }

@@ -466,7 +466,7 @@ ID `antragsweg` · Abschnitt Umsetzung · Layout `PGN_ABLAUF` · Baugruppe umset
 
 **Darstellung:** Dominant: Ablauf aus nativen Formen mit zwei Achsleisten zu je vier Stationen über 12 Spalten: Achskreise M mit 1 bis 8 (bis 13.11.2026 L), Station 4 gefüllt in Dunkelrot 8B2939; je Station Titel (Montserrat Bold 16 pt, gemischt gesetzt wie ein Modultitel, alle acht in Tinte), Zuständigkeit (Work Sans Medium 12 pt, accent6) und eine Textzeile (14 pt), linksbündig ab Kreis. Zwischen den Reihen das Warnband in Dunkelrot über die volle Breite (0,42 hoch, Text weiß 14 pt); die Teilung fällt auf die Bewilligung. Einziges Signalelement des Hauptteils. Unter Reihe 2 der Hinweiskasten zum Vorhabenbeginn über die volle Breite (grau, Info-Symbol, Work Sans Light 12 pt; Änderungsrunde vom 13.11.2026, G8); Dafür stehen Achskreise, Titel, Zuständigkeit und Text enger, und Reihe 1 beginnt 0,08 Zoll höher; die Schriftgrößen bleiben.
 
-**Daten:** Broschüre S. 19 (19-antragsweg.json: blocks[0].data.stations[0..7] mit lane, title, body, deadline; blocks[1] Achtung-Kasten „Erst Bewilligung, dann Vertrag“). Keine Werte der Mappe.
+**Daten:** Broschüre S. 18 (18-antragsweg.json: blocks[0].data.stations[0..7] mit lane, title, body, deadline; blocks[1] Achtung-Kasten „Erst Bewilligung, dann Vertrag“). Keine Werte der Mappe.
 
 **Herkunft:** Broschüre S. 19 (ersetzt Altfassung Folie 15)
 
@@ -482,7 +482,7 @@ ID `pgn-leistungen` · Abschnitt Umsetzung · Layout `PGN_INHALT` · Baugruppe u
 
 **Darstellung:** Dominant: Balkenplan aus nativen Formen über 8 Spalten: Achsleiste mit neun Achskreisen S (Leistungsphase 1 bis 9), die Bezeichnung „Leistungsphase“ rechtsbündig davor; darunter sieben Zeilen mit der Leistung (14 pt, ohne Nummer) und je einem Balken in Tinte über die zugehörigen Leistungsphasen; die erste und die vierte Leistung ohne Balken, mit ihrer Phase im Wortlaut (12 pt, Tinte). Senkrechte Bewilligungsmarke in Dunkelrot 8B2939 zwischen 6 und 7 mit gefülltem Achskreis und dem Wort „Bewilligung“; darunter der Hinweiskasten zum Planungsauftrag (G8, so breit wie der Plan; bis zur Prüfrunde 2 zwei frei hängende Sätze in 12 pt links und rechts der Marke). Rechts über 4 Spalten das Bild ../broschuere/src/assets/pgn/img/brauerstrasse-duplex.jpg (seit 13.11.2026 als Ausschnitt 3,84 × 1,26 Zoll, oben und unten gleich beschnitten, ab dem Kopf der Inhaltszone neben der Unterzeile; Bildecke, Konturstempel in Tinte, altText) und darunter Stichpunkte zur ersten Leistung (Überschrift nach dem Doppelpunkt gebrochen, 14 pt; G9). Die Unterzeile steht über den acht Spalten des Plans.
 
-**Daten:** Broschüre S. 20 (20-pgn-leistungen.json: blocks[0].items[0..6] mit title, phase, body; blocks[0].scale.phases und scale.marker). Referenz: Broschüre S. 22 (22-ueber-pgn.json, blocks[2].items[0]) und S. 1 (image.caption). Keine Werte der Mappe.
+**Daten:** Broschüre S. 19 (19-pgn-leistungen.json: blocks[0].items[0..6] mit title, phase, body; blocks[0].scale.phases und scale.marker). Referenz: Broschüre S. 21 (21-ueber-pgn.json, blocks[2].items[0]) und S. 1 (image.caption). Keine Werte der Mappe.
 
 **Herkunft:** Broschüre S. 20 (Referenz S. 22 und S. 1)
 
@@ -546,7 +546,7 @@ ID `anhang-voraussetzungen` · Abschnitt Anhang · Layout `PGN_ANHANG` · Baugru
 
 **Darstellung:** Dominant: Prüfliste über 7 Spalten mit sechs Achskreisen M (1 bis 6) in zwei Spalten zu je drei Fragen, Frage in Work Sans SemiBold 14 pt, Zusatz 12 pt. Rechts über 5 Spalten ein natives Ringdiagramm (doughnut) mit zwei Segmenten: 306 in Tinte 202020, 96 in 77716B, beide direkt beschriftet (Zahl Montserrat ExtraBold 24, Bezeichnung 12 pt). In der Ringmitte der QR-Code zur aktuellen Karte (seit der Änderungsrunde vom 13.11.2026, F32.1): derselbe Code und dasselbe Ziel wie in der Broschüre, Blatt „Bedarf am Standort und die Rolle der Kommune“, als Bild assets/qr-nbank-karte.png (lib/assets.cjs, Ruhezone vier Module), 1,14 Zoll, ganz im weißen Loch des Rings (Feld des Rings 3,00 Zoll, Loch 71 % wie in der Broschüre; eine weiße Scheibe in Lochgröße hält das Loch auch in LibreOffice); direkt unter dem Ring „Aktuelle Karte“ (12 pt, Versalien, mittig). Darunter der Hinweiskasten (grau, Info-Symbol, Work Sans Light 12 pt, so breit wie die Spalte des Diagramms; G8), unten bündig mit der Prüfliste. Kein Rot, keine Karte.
 
-**Daten:** Broschüre S. 4 (04-neu-und-grundcheck.json, blocks[1].items[0..5]) und S. 18 (18-standort-und-kommune.json, blocks[1]: title, data.unit, data.segments, note). Keine Werte der Mappe.
+**Daten:** Broschüre S. 4 (04-neu-und-grundcheck.json, blocks[1].items[0..5]) und S. 17 (17-standort-und-kommune.json, blocks[1]: title, data.unit, data.segments, note). Keine Werte der Mappe.
 
 **Herkunft:** Broschüre S. 4 und S. 18 (ersetzt die Landkarte der Altfassung Folie 8)
 
@@ -562,7 +562,7 @@ ID `anhang-vertraege` · Abschnitt Anhang · Layout `PGN_ANHANG` · Baugruppe um
 
 **Darstellung:** Dominant: dreispaltige Gegenüberstellung im Raster 4 + 4 + 4 aus nativen Textfeldern mit Modulkopf-Linie und Kopf-Icon je Spalte (ui-check und ui-hinweis in Tinte, ui-stopp in Dunkelrot aus ../broschuere/src/assets/); Text 16 pt mit eckigen Markern; die Spalte „Förderschädlich“ mit Linie und Kopf in Dunkelrot 8B2939. Kein Grün, kein Achtung-Kasten.
 
-**Daten:** Broschüre S. 19 (19-antragsweg.json, blocks[2].data.columns[0..2] mit title und items). Keine Werte der Mappe.
+**Daten:** Broschüre S. 18 (18-antragsweg.json, blocks[2].data.columns[0..2] mit title und items). Keine Werte der Mappe.
 
 **Herkunft:** Broschüre S. 19
 
@@ -642,7 +642,7 @@ ID `quellen` · Abschnitt Anhang · Layout `PGN_ANHANG` · Baugruppe struktur
 
 **Darstellung:** Dominant: native Tabelle (addTable) über 12 Spalten mit zwei Spalten (Folie 1,02 Zoll, Quelle) und acht Zeilen, 12 pt (seit der Änderungsrunde vom 13.11.2026 mit der Zeile „A6“ und engeren Zellrändern; die Schrift bleibt). Direkt anschließend der Hinweis als Kasten auf Papierfläche mit Modulkopf-Linie (Stichwort „HINWEIS“ links in der Spalte „Folie“, Text 14 pt); im selben Kasten als eigene Absätze die Sätze zu Herausgeber und Bildnachweis (seit der Prüfrunde vom 13.11.2026, kein frei hängender kleiner Text). Kein Achtung-Kasten, kein Vermerk zum Prüfstand auf der Folienfläche. Die Folien 3 bis 6 und 22 tragen dazu eine Kurzform ihrer Quelle im Schriftfeld; die volle Angabe steht nur hier.
 
-**Daten:** Broschüre S. 23 (23-impressum-hinweise.json: blocks[2] Hinweis, blocks[3] Rechtsgrundlage, blocks[4] Quellen, blocks[1] mit „Präsentation“ statt „Broschüre“, Bildnachweis aus blocks[0]). Zeilen und Kennungen in daten/rahmen.json (quellen.zeilen). Quellenzeilen der Altfassung laut alt-inventar.md (Altfassung Folien 4, 5, 12, 23 und 24). Stand der Mappe: werte.json, meta.mappe und meta.mappe_stand. Foliennummern beim Bau aus der fertigen Folienliste setzen. Die Foliennummern vor einzelnen Angaben („Folien 22 und 23: …“, „Folie 5: …“, „Folie 6: …“) stehen in daten/rahmen.json als Text; das Modul rechnet sie beim Bau gegen die Quellenzeilen des Konzepts nach (folien/_struktur.cjs, quellenZeilen).
+**Daten:** Broschüre S. 22 (22-impressum-hinweise.json: blocks[2] Hinweis, blocks[3] Rechtsgrundlage, blocks[4] Quellen, blocks[1] mit „Präsentation“ statt „Broschüre“, Bildnachweis aus blocks[0]). Zeilen und Kennungen in daten/rahmen.json (quellen.zeilen). Quellenzeilen der Altfassung laut alt-inventar.md (Altfassung Folien 4, 5, 12, 23 und 24). Stand der Mappe: werte.json, meta.mappe und meta.mappe_stand. Foliennummern beim Bau aus der fertigen Folienliste setzen. Die Foliennummern vor einzelnen Angaben („Folien 22 und 23: …“, „Folie 5: …“, „Folie 6: …“) stehen in daten/rahmen.json als Text; das Modul rechnet sie beim Bau gegen die Quellenzeilen des Konzepts nach (folien/_struktur.cjs, quellenZeilen).
 
 **Herkunft:** Broschüre S. 23; Quellenangaben zu den Folien 3 bis 6, 22 und 23 aus der Altfassung, nicht nachgeprüft
 

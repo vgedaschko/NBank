@@ -109,12 +109,12 @@ async function erzeuge() {
 }
 
 // 8 QR-Code zur NBank-Karte (Folie A2, seit der Änderungsrunde vom 13.11.2026, F32.1): derselbe Code wie in der Broschüre, Blatt „Bedarf am
-// Standort und die Rolle der Kommune“ (src/pages/18-standort-und-kommune.html, Inline-SVG im Link a.p18-qr). Die Module werden unverändert
-// übernommen, nicht neu codiert; das Ziel des Links muss das Ziel im Inhalt der Broschüre sein (content/pages/18-standort-und-kommune.json,
+// Standort und die Rolle der Kommune“ (src/pages/17-standort-und-kommune.html, Inline-SVG im Link a.p18-qr). Die Module werden unverändert
+// übernommen, nicht neu codiert; das Ziel des Links muss das Ziel im Inhalt der Broschüre sein (content/pages/17-standort-und-kommune.json,
 // blocks[1].data.qr.url). Ruhezone vier Module (die Broschüre hat zwei im Bild, den Rest gibt die weiße Ringmitte), Module in Tinte auf Weiß,
 // 20 Pixel je Modul, scharfe Kanten.
 // Aufruf allein: node lib/assets.cjs --nur qr-nbank-karte
-const QR_KARTE = { datei: 'qr-nbank-karte.png', seite: '18-standort-und-kommune', ruhe: 4, px: 20 };
+const QR_KARTE = { datei: 'qr-nbank-karte.png', seite: '17-standort-und-kommune', ruhe: 4, px: 20 };
 async function qrNbankKarte() {
   const sharp = require('sharp');
   const html = fs.readFileSync(path.resolve(SRC, '..', 'pages', QR_KARTE.seite + '.html'), 'utf8');

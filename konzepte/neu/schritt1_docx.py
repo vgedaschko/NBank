@@ -22,23 +22,23 @@ VORSPANN = [
 # Nr, Thema, Aussage, Zahlen [(Text, Zelle)], Darstellung
 FOLIEN = [
     ("1", "Investition und Finanzierung",
-     "Die Gesamtkosten betragen 3,0 Mio. €, der Eigenkapitaleinsatz in allen Varianten rund 0,6 Mio. €.",
+     "3,0 Mio. € Gesamtkosten, rund 0,6 Mio. € Eigenkapital",
      [("Gesamtkosten 3,0 Mio. €", "D52"),
       ("Eigenkapitaleinsatz rund 0,6 Mio. €", "D56:H56"),
       ("Zuschuss in Gruppe A 1,19 Mio. €", "D53")],
      "Je Variante ein Balken: Eigenkapital, Zuschuss, NBank-Darlehen, Bankdarlehen."),
     ("2", "Kostenbasis",
-     "Die Herstellungskosten der PGN liegen 22,7 % unter dem ARGE-Median.",
+     "Herstellungskosten der PGN liegen 22,7 % unter dem ARGE-Median",
      [],
      "Heutige Folie 22, unverändert. Sie wird Folie 2, da alle Ergebnisse der Modellrechnung auf diesen Kosten beruhen."),
     ("3", "Liquidität im ersten Jahr",
-     "Der Zahlungsüberschuss im ersten Jahr beträgt gefördert 10.812 bis 15.003 €, frei finanziert 26.956 €.",
+     "Zahlungsüberschuss Jahr 1: gefördert bis 15.003 €, frei 26.956 €",
      [("gefördert 10.812 bis 15.003 €", "D61:F61"),
       ("frei finanziert 26.956 €", "H61"),
       ("Kapitaldienst Gruppe A 34.150 €, frei finanziert 134.779 €", "D60, H60")],
      "Je Variante ein Balken: Mieteinnahmen, aufgeteilt in Bewirtschaftungskosten, Kapitaldienst und Zahlungsüberschuss."),
     ("4", "Kapitaldienstdeckung",
-     "Für einen Kapitaldienstdeckungsgrad (DSCR) von 1,2 ist frei finanziert eine Miete von 18,36 € erforderlich, die Marktmiete beträgt 15,42 €.",
+     "DSCR 1,2 erfordert frei finanziert 18,36 € Miete",
      [("erforderliche Miete 18,36 €", "D12"),
       ("Marktmiete 15,42 €", "D13"),
       ("Gruppe C: erforderlich 9,12 €, Höchstmiete 9,00 €", "F22, F19")],
@@ -46,20 +46,20 @@ FOLIEN = [
      "Dazu: Die DSCR von 1,2 bezieht sich auf das Bankdarlehen frei finanziert. Gefördert besteht kein Bankdarlehen. "
      "Die NBank prüft Eigenmittel und angemessenen Gewinn."),
     ("5", "Liquidität im Zeitverlauf",
-     "Der Eigenkapitaleinsatz fließt gefördert nach 22 bis 23 Jahren zurück, frei finanziert nach 13 Jahren.",
+     "Eigenkapitalrückfluss nach 13 bis 23 Jahren",
      [("gefördert 22 bis 23 Jahre", "D67:F67"),
       ("frei finanziert 13 Jahre", "H67"),
       ("0 Jahre mit Fehlbetrag", "D68:F68, H68")],
      "Kumulierter Zahlungsüberschuss Jahr 1 bis 35 je Variante, Eigenkapitaleinsatz als Bezugslinie."),
     ("6", "Rendite",
-     "Die Eigenkapitalrendite beträgt frei finanziert 8,93 %, gefördert 7,05 bis 7,40 %.",
+     "Eigenkapitalrendite 7,05 bis 8,93 %",
      [("frei finanziert 8,93 %", "H81"),
       ("gefördert 7,05 bis 7,40 %", "D81:F81"),
       ("gefördert ohne Restwert 2,58 bis 2,75 %", "D82:F82")],
      "Je Variante zwei Balken: Eigenkapitalrendite mit und ohne Restwert, Betrachtung über 35 Jahre. "
      "Restwert in allen Varianten auf Basis der Marktmiete."),
     ("7", "Risiken",
-     "Bei Herstellungskosten in Höhe des ARGE-Medians entstehen in den Gruppen B und C Jahre mit Fehlbetrag.",
+     "Größtes Risiko: die Herstellungskosten",
      [("Herstellungskosten 4.631 €/m²: Gruppe B 3, Gruppe C 6 Jahre mit Fehlbetrag", "E68:F68, Lauf kosten_4631"),
       ("ohne Mietanpassung in der Bindung: Eigenkapitalrendite Gruppe A 5,08 % statt 7,05 %",
        "D81, Lauf mietanpassung_gefoerdert_0"),
@@ -68,8 +68,7 @@ FOLIEN = [
      "Tilgungssatz, Anschlusszins) für alle vier Varianten. Je Feld die Jahre mit Fehlbetrag, Felder mit Fehlbetrag "
      "rot hinterlegt. Die erste Zeile bezieht sich auf Folie 2."),
     ("Fazit", "Abschluss des Vortrags",
-     "Mit Programmteil 2.1 ist geförderter Mietwohnungsbau wirtschaftlich darstellbar, sofern die Herstellungskosten "
-     "eingehalten werden und die Bewilligung vor Baubeginn vorliegt.",
+     "Geförderter Mietwohnungsbau ist wirtschaftlich darstellbar",
      [("Keine. Kennzahlen der Modellrechnung gelten nur unter ihren Annahmen.", "")],
      "Vier Felder in der Reihenfolge des Vortrags. Ausgangslage: Herstellungskosten und Zinsen seit 2020 deutlich "
      "gestiegen, Bestand gebundener Wohnungen gesunken. Programmteil 2.1: Zuschuss und zinsfreies Darlehen senken den "
@@ -142,7 +141,7 @@ def baue_docx(pfad):
         absatz(doc, v, pt=8.5, farbe=GRAU, nach=0)
     absatz(doc, "", pt=3, nach=0)
 
-    breiten = [Cm(1.2), Cm(3.3), Cm(7.2), Cm(7.4), Cm(7.8)]
+    breiten = [Cm(1.2), Cm(3.3), Cm(5.8), Cm(8.0), Cm(8.6)]
     tab = doc.add_table(rows=1, cols=5)
     tab.style = "Table Grid"
     tab.alignment = WD_TABLE_ALIGNMENT.CENTER
@@ -151,7 +150,7 @@ def baue_docx(pfad):
     lay = OxmlElement("w:tblLayout")
     lay.set(qn("w:type"), "fixed")
     tblPr.append(lay)
-    kopf = ["Folie", "Thema", "Aussage (Titel der Folie)", "Zahlen, höchstens drei (Blatt Konzepte)", "Darstellung"]
+    kopf = ["Folie", "Thema", "Titel", "Zahlen, höchstens drei (Blatt Konzepte)", "Darstellung"]
     for i, k in enumerate(kopf):
         c = tab.rows[0].cells[i]
         zelle_fuellen(c, [(k, {"fett": True, "pt": 8.5})])
@@ -185,7 +184,7 @@ def baue_docx(pfad):
 
 def baue_md(pfad):
     z = [f"# {TITEL}", ""] + VORSPANN + [""]
-    z += ["| Folie | Thema | Aussage (Titel der Folie) | Zahlen (Blatt Konzepte) | Darstellung |",
+    z += ["| Folie | Thema | Titel | Zahlen (Blatt Konzepte) | Darstellung |",
           "|---|---|---|---|---|"]
     for nr, frage, aussage, zahlen, darst in FOLIEN:
         zt = "<br>".join(f"{t} ({c})" if c else t for t, c in zahlen)

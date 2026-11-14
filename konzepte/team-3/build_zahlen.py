@@ -162,7 +162,7 @@ ann = [
     ("Zinsbindung (Jahre)", "k:annahme.zinsbindung", "int"),
     ("Anschlusszins nach Jahr 10", "k:annahme.anschlusszins", "pct2"),
     ("Laufzeit Bankdarlehen, jährliche Annuität (Jahre)", "k:annahme.laufzeit_bank", "int"),
-    ("DSCR-Ziel der Bank (neu)", "k:n1.dscr_ziel_bank_frei", "f2"),
+    ("DSCR-Ziel der Bank (neu)", "k:n1.dscr_ziel_bank_frei", "f1"),
     ("Miete für DSCR 1,2 (Ergebnis der neuen Annahme)", "k:n2.miete_dscr", "eur2"),
     ("Marktmiete Jahr 1", "k:annahme.marktmiete_jahr1", "eur2"),
     ("Mietanpassung frei finanziert p. a.", "k:annahme.mietsteigerung", "pct0"),
@@ -216,7 +216,7 @@ ort("Folie 18 · DSCR im Zeitverlauf, Jahr 1 bis 35",
          ["A", "B", "C"])
     + je("Ohne Mieterhöhung gefördert: Jahre unter 1,2", "r:mietanpassung_gefoerdert_0:jahre_dscr_unter_ziel.{v}",
          "int", ["A", "B", "C"])
-    + einzeln("DSCR-Ziel der Bank (Marke)", "k:n1.dscr_ziel_bank_frei", "f2", "Frei"))
+    + einzeln("DSCR-Ziel der Bank (Marke)", "k:n1.dscr_ziel_bank_frei", "f1", "Frei"))
 
 ort("Folie 19 · Zahlungsüberschuss je Jahr (Liquidität)",
     je("Zahlungsüberschuss Jahr 1", "k:n5.zue_jahr1.{v}", "eur")

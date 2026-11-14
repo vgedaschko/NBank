@@ -90,7 +90,7 @@ Zeitreihen: Die Zeile nennt die Zelle des genannten Jahres; die ganze Reihe steh
 | Zinsbindung (Jahre) | – | 10 | 10 | ganze Zahl | Eingaben!F36 | konzepte |
 | Anschlusszins nach Jahr 10 | – | 0.0386 | 3,86 % | %, 2 Stellen | Eingaben!F37 | konzepte |
 | Laufzeit Bankdarlehen, jährliche Annuität (Jahre) | – | 30 | 30 | ganze Zahl | Eingaben!F38 | konzepte |
-| DSCR-Ziel der Bank (neu) | – | 1.2 | 1,20 | Faktor, 2 Stellen | Konzepte!D6 | konzepte |
+| DSCR-Ziel der Bank (neu) | – | 1.2 | 1,2 | Faktor, 1 Stelle | Konzepte!D6 | konzepte |
 | Miete für DSCR 1,2 (Ergebnis der neuen Annahme) | – | 18.36196062 | 18,36 € | €, 2 Stellen | Konzepte!D12 | konzepte |
 | Marktmiete Jahr 1 | – | 15.42 | 15,42 € | €, 2 Stellen | Eingaben!F25 | konzepte |
 | Mietanpassung frei finanziert p. a. | – | 0.02 | 2 % | %, ganze Zahl | Eingaben!F26 | konzepte |
@@ -213,7 +213,7 @@ Zeitreihen: Die Zeile nennt die Zelle des genannten Jahres; die ganze Reihe steh
 | Ohne Mieterhöhung gefördert: Jahre unter 1,2 | A | 6 | 6 | ganze Zahl | Konzepte!D73 | mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
 | Ohne Mieterhöhung gefördert: Jahre unter 1,2 | B | 24 | 24 | ganze Zahl | Konzepte!E73 | mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
 | Ohne Mieterhöhung gefördert: Jahre unter 1,2 | C | 35 | 35 | ganze Zahl | Konzepte!F73 | mietanpassung_gefoerdert_0 (laeufe/mietanpassung_gefoerdert_0.xlsx) |
-| DSCR-Ziel der Bank (Marke) | Frei | 1.2 | 1,20 | Faktor, 2 Stellen | Konzepte!D6 | konzepte |
+| DSCR-Ziel der Bank (Marke) | Frei | 1.2 | 1,2 | Faktor, 1 Stelle | Konzepte!D6 | konzepte |
 
 ## Folie 19 · Zahlungsüberschuss je Jahr (Liquidität)
 

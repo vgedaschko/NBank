@@ -1,7 +1,7 @@
 // Schritt 2 · Fazit, Richtung A „Vier Kennzahlen“: vier Kacheln im Raster 2 × 2, je Grund eine Zahl in 44 pt, darunter der Grund als
 // Label (16 pt) und ein Satz (14 pt). Weißer Grund wie Kapitel 4.
 'use strict';
-const { gruende } = require('./_daten.cjs');
+const { gruende } = require('../folien/_daten.cjs');
 
 module.exports = {
   id: 'fazit-richtung-a',

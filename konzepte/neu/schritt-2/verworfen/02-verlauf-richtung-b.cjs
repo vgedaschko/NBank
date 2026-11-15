@@ -1,7 +1,7 @@
 // Schritt 2 · Folie 3.4, Richtung B „Das Diagramm ist die Folie“: Liniendiagramm über die ganze Breite, Werte für Jahr 1 und Jahr 35 im
 // Diagramm, Marke bei dem Jahr, ab dem C vor A liegt. Der Grund steht in einem Satz im Hinweiskasten darunter.
 'use strict';
-const { verlauf } = require('./_daten.cjs');
+const { verlauf } = require('../folien/_daten.cjs');
 
 module.exports = {
   id: 'verlauf-richtung-b',

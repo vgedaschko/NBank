@@ -219,6 +219,15 @@
     "einheit": "€ p. a.",
     "blatt": "Übersicht",
     "zelle": "D29"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.sollzins",
+    "lauf": "konzepte",
+    "wert": 0.05,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F42"
    }
   ],
   "miete": [

@@ -114,9 +114,9 @@ function zahlungsfluss(ctx, s, o) {
 
   if (o.fehlbetrag) {
     // Fehlbetrag: Knoten unter der Quelle, Bezeichnung und Betrag links davor wie die Quelle (Strom als feine Linie in den Knoten)
-    const fy = L.oben + zoll(o.quelle.wert) + 0.30, fw = L.quelle - 0.10 - (colX(1) - 0.10);
-    B.text(s, wl(o.fehlbetrag.name, 'Fehlbetrag'), { x: colX(1) - 0.10, y: fy - 0.20, w: fw, h: 0.21, rolle: 'kleinText', align: 'right', valign: 'middle', einzeilig: true, name: 'Fehlbetrag Bezeichnung' });
-    B.text(s, wl(fmt.euro(o.fehlbetrag.wert), 'Fehlbetrag'), { x: colX(1) - 0.10, y: fy + 0.01, w: fw, h: 0.21, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Fehlbetrag Betrag' });
+    const fy = L.oben + zoll(o.quelle.wert) + 0.30, fw = L.quelle - 0.10 - colX(1);
+    B.text(s, wl(o.fehlbetrag.name, 'Fehlbetrag'), { x: colX(1), y: fy - 0.20, w: fw, h: 0.21, rolle: 'kleinText', align: 'right', valign: 'middle', einzeilig: true, name: 'Fehlbetrag Bezeichnung' });
+    B.text(s, wl(o.fehlbetrag.betrag || fmt.euro(o.fehlbetrag.wert), 'Fehlbetrag'), { x: colX(1), y: fy + 0.01, w: fw, h: 0.21, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Fehlbetrag Betrag' });
   }
   // Knoten: Bezeichnung und Betrag in einer Zeile, mittig über dem Balken
   const kn = wl(o.knoten.name, 'Knoten'), kw = wl(fmt.euro(o.knoten.anzeige ?? o.knoten.wert), 'Knoten'), bn = breite(nb(kn), semi) + 0.03, bw = breite(nb(kw), fett) + 0.03, steg = 0.10;

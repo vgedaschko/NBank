@@ -1,12 +1,12 @@
 // Folie 3.3: heutige Folie 17 (Zahlungsfluss in Jahr 1, gefördert), unverändert bis auf den Umriss an der Quelle: Er zeigt jetzt die Sollmiete
-// frei finanziert zur Marktmiete (wie auf Folie 3.4), nicht mehr die kostendeckende Sollmiete. So hat frei finanziert im Kapitel eine Miete.
+// frei finanziert zur Marktmiete (wie auf Folie 3.5), nicht mehr die kostendeckende Sollmiete. So hat frei finanziert im Kapitel eine Miete.
 'use strict';
 const Fl = require('./_fluss.cjs');
 const { QUELLE_MARKT } = require('./_daten.cjs');
 
 module.exports = {
   id: 'fluss-gefoerdert',
-  o: { nr: '3.3', abschnitt: 'Modellrechnung', layout: 'PGN_INHALT_MR', kicker: 'MODELLRECHNUNG · ZAHLUNGSFLUSS GEFÖRDERT', rubrik: 'Zahlungsfluss gefördert',
+  o: { nr: '3.4', abschnitt: 'Modellrechnung', layout: 'PGN_INHALT_MR', kicker: 'MODELLRECHNUNG · ZAHLUNGSFLUSS GEFÖRDERT', rubrik: 'Zahlungsfluss gefördert',
     quellen: QUELLE_MARKT },
   bau(ctx) {
     const { B, W, fmt } = ctx, M = k => W('modellhaus', k);
@@ -21,7 +21,7 @@ module.exports = {
     Fl.probe(ctx, 'Sollmiete = Mietausfall + Objektverwaltung + Instandhaltung + Überschuss vor Kapitaldienst', ausfall + verwaltung + instand + vorKd, miete);
     Fl.probe(ctx, 'Überschuss vor Kapitaldienst = Verwaltungskostenbeitrag + Zins + Tilgung + Zahlungsüberschuss', beitrag + zins + tilgung + rest, vorKd);
     Fl.probe(ctx, 'Kapitaldienst = Verwaltungskostenbeitrag + Zins + Tilgung', beitrag + zins + tilgung, kd);
-    // Bezug zur Folie 3.4: Sollmiete frei finanziert zur Marktmiete = Marktmiete × Wohnfläche × 12 (Konzepte G49)
+    // Bezug zur Folie 3.5: Sollmiete frei finanziert zur Marktmiete = Marktmiete × Wohnfläche × 12 (Konzepte G49)
     const frei = ctx.wert('n5.miete_jahr1.frei_markt') * M('eingabe.wohnflaeche') * 12;
     Fl.zahlungsfluss(ctx, s, {
       art: 'gefördert', titel: 'Zahlungsfluss in Jahr 1, gefördert', sub: 'in € p. a. und in % der Sollmiete · Modellhaus, Gruppe A · gleicher Maßstab wie frei finanziert',

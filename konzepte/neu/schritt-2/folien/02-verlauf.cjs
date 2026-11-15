@@ -5,7 +5,7 @@ const { verlauf } = require('./_daten.cjs');
 
 module.exports = {
   id: 'verlauf-richtung-a',
-  o: { nr: '3.6', abschnitt: 'Modellrechnung', layout: 'PGN_DIAGRAMM_MR', kicker: 'MODELLRECHNUNG · VERLAUF',
+  o: { nr: '3.7', abschnitt: 'Modellrechnung', layout: 'PGN_DIAGRAMM_MR', kicker: 'MODELLRECHNUNG · VERLAUF',
     quellen: 'Quelle: Rechenmappe v3, Gefördert A und C, Jahr 1 bis 35; Konzepte D61, F61, D64, F64.' },
   bau(ctx) {
     const { B, D, fmt, ZONE, colX } = ctx, wl = (t, was) => ctx.wortlaut(t, was);

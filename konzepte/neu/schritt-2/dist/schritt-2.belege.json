@@ -1,6 +1,206 @@
 {
  "werte_datei": "konzepte/mappe/werte_konzepte.json",
  "folien": {
+  "annahmen": [
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.hoechstmiete_VI.A",
+    "lauf": "konzepte",
+    "wert": 6.8,
+    "einheit": "€/m² Monat",
+    "blatt": "Tabellen",
+    "zelle": "D14"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.marktmiete_jahr1",
+    "lauf": "konzepte",
+    "wert": 15.42,
+    "einheit": "€/m² Monat",
+    "blatt": "Eingaben",
+    "zelle": "F25"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.jahre_ohne_mieterhoehung",
+    "lauf": "konzepte",
+    "wert": 3,
+    "einheit": "Jahre",
+    "blatt": "Tabellen",
+    "zelle": "D27"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.mieterhoehung_in_der_bindung",
+    "lauf": "konzepte",
+    "wert": 0.0615,
+    "einheit": "Anteil",
+    "blatt": "Tabellen",
+    "zelle": "D28"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.abstand_mieterhoehungen",
+    "lauf": "konzepte",
+    "wert": 3,
+    "einheit": "Jahre",
+    "blatt": "Tabellen",
+    "zelle": "D29"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.mietsteigerung",
+    "lauf": "konzepte",
+    "wert": 0.02,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F26"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.mietausfall",
+    "lauf": "konzepte",
+    "wert": 0.02,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F29"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.objektverwaltung_je_wohnung",
+    "lauf": "konzepte",
+    "wert": 367,
+    "einheit": "€ p. a.",
+    "blatt": "Eingaben",
+    "zelle": "F30"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.instandhaltung_je_qm",
+    "lauf": "konzepte",
+    "wert": 14.4,
+    "einheit": "€/m² p. a.",
+    "blatt": "Eingaben",
+    "zelle": "F31"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.kostensteigerung",
+    "lauf": "konzepte",
+    "wert": 0.02,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F32"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "n5.zuschuss.A",
+    "lauf": "konzepte",
+    "wert": 1185364.8,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D53"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "n5.bankdarlehen.frei_markt",
+    "lauf": "konzepte",
+    "wert": 2370729.6,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "G55"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.zins_nbank_bis_jahr35",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "Anteil",
+    "blatt": "Tabellen",
+    "zelle": "D19"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.zinsfreie_jahre",
+    "lauf": "konzepte",
+    "wert": 35,
+    "einheit": "Jahre",
+    "blatt": "Tabellen",
+    "zelle": "D20"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.zins_bank",
+    "lauf": "konzepte",
+    "wert": 0.0386,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F35"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.zinsbindung",
+    "lauf": "konzepte",
+    "wert": 10,
+    "einheit": "Jahre",
+    "blatt": "Eingaben",
+    "zelle": "F36"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.tilgung_nbank",
+    "lauf": "konzepte",
+    "wert": 0.0238095238095238,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F17"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.laufzeit_bank",
+    "lauf": "konzepte",
+    "wert": 30,
+    "einheit": "Jahre",
+    "blatt": "Eingaben",
+    "zelle": "F38"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.verwaltungskostenbeitrag",
+    "lauf": "konzepte",
+    "wert": 0.005,
+    "einheit": "Anteil",
+    "blatt": "Tabellen",
+    "zelle": "D23"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.sollzins",
+    "lauf": "konzepte",
+    "wert": 0.05,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F42"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.guthabenzins",
+    "lauf": "konzepte",
+    "wert": 0.02,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F41"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "n5.darlehen_nbank.A",
+    "lauf": "konzepte",
+    "wert": 1185364.8,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D54"
+   }
+  ],
   "fluss-gefoerdert": [
    {
     "datei": "praesentation/daten/werte.json",

@@ -6,7 +6,7 @@ const { QUELLE_MARKT } = require('./_daten.cjs');
 
 module.exports = {
   id: 'rendite',
-  o: { nr: '3.7', abschnitt: 'Modellrechnung', layout: 'PGN_DIAGRAMM_MR', kicker: 'MODELLRECHNUNG · RENDITE', quellen: QUELLE_MARKT },
+  o: { nr: '3.8', abschnitt: 'Modellrechnung', layout: 'PGN_DIAGRAMM_MR', kicker: 'MODELLRECHNUNG · RENDITE', quellen: QUELLE_MARKT },
   bau(ctx) {
     const { B, D, fmt, ZONE, Y } = ctx, wl = (t, was) => ctx.wortlaut(t, was), p = t => wl(t, 'Stichpunkt');
     const mitA = ctx.wert('n5.ek_vofi_mit_restwert.A'), ohneA = ctx.wert('n5.ek_vofi_ohne_restwert.A');
@@ -23,7 +23,7 @@ module.exports = {
     B.quelle(s, QUELLE_MARKT);
     B.diagrammkopf(s, { titel: wl('Eigenkapitalrendite über 35 Jahre', 'Diagrammtitel'), sub: wl('VOFI, vor Steuern, in % p. a. · Maßkette: Beitrag des Restwerts in Prozentpunkten', 'Untertitel') });
     B.legende(s, { x: ZONE.diagramm.chart.x, y: ZONE.diagramm.legende, eintraege: [{ text: 'mit Restwert', art: 'tinte' }, { text: 'ohne Restwert', art: 'referenz' }] });
-    const hinweis = wl(`Frei finanziert rechnerisch, bei einer DSCR von ${fmt.dez(dF, 2)}. So gibt die Bank das Darlehen nicht (Folie 3.5).`, 'Hinweiskasten');
+    const hinweis = wl(`Frei finanziert rechnerisch, bei einer DSCR von ${fmt.dez(dF, 2)}. So gibt die Bank das Darlehen nicht (Folie 3.6).`, 'Hinweiskasten');
     const cz = ZONE.diagramm.chart, hH = B.hinweisHoehe(hinweis, { w: cz.w });
     const d = D.gruppierteSaeulen(s, { x: cz.x, y: cz.y, w: cz.w, h: +(Y.inhaltEnde - cz.y - hH - 0.12).toFixed(3), kategorien: ['Gruppe A', 'Frei finanziert'],
       reihen: [{ name: 'mit Restwert', art: 'tinte', werte: [mitA * 100, mitF * 100] }, { name: 'ohne Restwert', art: 'referenz', werte: [ohneA * 100, ohneF * 100] }],

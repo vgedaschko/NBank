@@ -52,6 +52,8 @@ function diagramme(pres, kx) {
     const weg = {}, liste = [];
     for (const r of o.reihen) r.werte.forEach((v, i) => {
       if (v === 0) return;
+      // r.ohneWerte: die Reihe trägt keine Beschriftung (etwa ein Rest bis zur Summe, deren Wert am Balkenende steht)
+      if (r.ohneWerte) { (weg[r.name] = weg[r.name] || []).push(index(i)); return; }
       const g = segment(v), b = labelBreite(v, f);
       const passt = g.quer ? g.laenge >= 0.24 && g.dicke >= b + 0.06 : g.laenge >= b + 0.10 && g.dicke >= 0.22;
       if (!passt) { (weg[r.name] = weg[r.name] || []).push(index(i)); liste.push({ reihe: r.name, i, wert: v }); }

@@ -105,6 +105,12 @@ async function erzeuge() {
   // 7 Referenzbild Brauerstraße (Duplex, 1800 × 740), unverändert
   fs.copyFileSync(path.join(SRC, 'pgn/img/brauerstrasse-duplex.jpg'), path.join(OUT, 'ref-brauerstrasse.jpg'));
   liste.push('ref-brauerstrasse.jpg'.padEnd(36) + ' 1800×740  Kopie');
+  // 7a Visualisierung des Modellhauses (Referenz 02 der Broschüre, PGN-Projekt in Neu Wulmstorf, Folie 14; 1800 × 740), unverändert. Der Name
+  // der Kopie nennt die Straße nicht (Entscheidung 29: die Straße nennt der Vortrag nicht)
+  const ref02 = fs.readdirSync(path.join(SRC, 'pgn/ref')).find(f => /^ref-02-.*\.jpg$/.test(f));
+  if (!ref02) throw new Error('Referenzbild 02 (Modellhaus) fehlt in pgn/ref der Broschüre.');
+  fs.copyFileSync(path.join(SRC, 'pgn/ref', ref02), path.join(OUT, 'modellhaus.jpg'));
+  liste.push('modellhaus.jpg'.padEnd(36) + ' 1800×740  Kopie');
   return liste;
 }
 

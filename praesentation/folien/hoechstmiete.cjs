@@ -71,9 +71,9 @@ module.exports = {
       { titel: wl('Zulässige Mieterhöhung', 'Überschrift'), punkte: [
         wl(`ab Jahr ${erste} höchstens +${fmt.prozent(T('mieterhoehung_in_der_bindung'), 2)} in drei Jahren (Betriebskosten ausgenommen)`, 'Stichpunkt'),
         wl('auch bei Wiedervermietung', 'Stichpunkt'), wl('keine Staffel- oder Indexmiete', 'Stichpunkt')] },
-      { titel: wl('Gruppen', 'Überschrift'), punkte: [
+      { titel: wl('Einkommensgruppen der Mieter', 'Überschrift'), punkte: [
         wl(`A bis Einkommensgrenze, B bis +${fmt.prozent(R('einkommensgrenze.zuschlag_B'))}, C bis +${fmt.prozent(R('einkommensgrenze.zuschlag_C'))}`, 'Stichpunkt'),
-        wl('B und C nur mit Zulassung', 'Stichpunkt')] }] });
+        wl('B und C nur mit Zulassung der NBank', 'Stichpunkt')] }] });
     if (stp.unten > Y.inhaltEnde + 0.005) P.melde(`Stichpunkte enden bei y ${stp.unten.toFixed(2)}, die Inhaltszone bei ${Y.inhaltEnde.toFixed(2)}.`);
 
     // ---- Schriftfeld: Quellenzeile in Kurzform (daten/regeln.json, hoechstmiete.quelle_kurz; F10.3); die volle Angabe steht auf der Quellenfolie ----

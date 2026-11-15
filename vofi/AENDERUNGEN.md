@@ -2,6 +2,16 @@
 
 `PGN_VOFI_Mietwohnraum_2026_v3.xlsx` ersetzt `PGN_NBank_VOFI_Modell_v2-1.xlsx` (v2-1, bleibt unverändert). Stand 11.11.2026; vor Steuern, nominal, Jahr 0 = Bezugsfertigkeit.
 
+## 0. Nachtrag 15.11.2026: Blätter für die Modellrechnung des Vortrags
+
+Hinter den neun Blättern stehen drei weitere, erzeugt von `build_kennzahlen.py`; die neun Blätter bleiben Zelle für Zelle gleich.
+
+- **Kennzahlen:** Gefördert A, B, C und frei finanziert nebeneinander, je Jahr 1 und Jahr 35: Mittelherkunft, Kapitaldienst, Überschuss vor Kapitaldienst, Zahlungsüberschuss, DSCR, Eigenkapitalrendite (VOFI) mit und ohne Restwert, Vermögen und Anteil des Restwerts. Neue Eingabe: D6, DSCR-Ziel der Bank für frei finanziert (1,2, Annahme der PGN). Prüfblock K1 bis K8.
+- **Frei DSCR 1,2:** Kopie des Blatts Frei finanziert; die Miete in Jahr 1 ist so gelöst, dass die DSCR in Jahr 1 genau 1,2 beträgt (18,36 € je m² beim Modellhaus, Marktmiete 15,42 €).
+- **Zeitreihe:** Zahlungsüberschuss je Jahr 0 bis 42 für A, B, C und frei finanziert, als Formeln auf die Blätter der Varianten.
+
+Die Zahlen gehen über `../praesentation/daten/kennzahlen.json` in den Vortrag (Folien 14 bis 22, Fazit, Anhang A4). `pruefe_vofi.py` prüft die neuen Blätter mit der Prüfung „K“ (624 Prüfungen, 0 Fehler).
+
 ## 1. Was ist neu
 
 Neun Blätter: Übersicht · Eingaben · Gefördert A, B, C · Frei finanziert · NBank (intern) · Tabellen (Festwerte RL 2026) · Hinweise. Zwei Projekte, Umschalten mit einer Zelle: Projekt 1 „Vergleichshaus, 20 Wohnungen“ und Projekt 2 „Modellhaus, Tarutinoer Str. 4“ (Neu Wulmstorf, 14 Wohnungen). Projekt 2 ist seit 11.11.2026 das Modellhaus von Broschüre und Präsentation und voreingestellt (Abschnitt 10); bis dahin war es Projekt 1. Vier Ebenen:

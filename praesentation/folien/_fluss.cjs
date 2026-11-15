@@ -9,8 +9,8 @@
 const { breite } = require('../lib/passpruefung.cjs');
 
 // ---- Festlegungen für beide Folien ----------------------------------------------------------------------------------------------------------
-const MASSSTAB = 68000;    // Euro je Zoll Höhe: 154.939 € (Quelle der Folie 18) sind 2,28 Zoll, 67.565 € (Quelle der Folie 17) sind 0,99 Zoll.
-                           // Der Maßstab folgt dem Modellhaus: Die Quelle der Folie 18 füllt die Höhe der Inhaltszone, und das Band der Tilgung
+const MASSSTAB = 68000;    // Euro je Zoll Höhe: 67.565 € (Quelle der Folie 17) sind 0,99 Zoll. Der Maßstab folgt dem Modellhaus: Auf Folie 18 füllen
+                           // Kapitaldienst und Bewirtschaftung die Höhe der Inhaltszone, und das Band der Tilgung
                            // auf Folie 17 ist höher als 0,40 Zoll (Kernwert im Band).
 // Farbrollen wie auf Folie 16: Tilgung in Tinte, Zins im Referenzgrau, Verwaltungskostenbeitrag hell, Bewirtschaftung blass (Töne der
 // Bibliothek, FLUSSART in lib/theme.cjs). Kein Rot.
@@ -37,7 +37,10 @@ function betragUndAnteil(fmt, wert, bezug) {
 //      quelle: { name, wert, zusatz },                          Sollmiete links
 //      marke:  { wert, text: [Bezeichnung, Betrag] } (nur Folie 18)   senkrechte Maßkette links der Quelle von der Oberkante bis zur Höhe dieses Betrags
 //      umriss: { wert, text: [Bezeichnung, …, Betrag] } (nur Folie 17)   gestrichelter Umriss, der den Balken der Quelle bis zur Höhe dieses Betrags fortsetzt
-//      knoten: { name, wert },                                   Überschuss vor Kapitaldienst
+//      knoten: { name, wert, anzeige },                          Überschuss vor Kapitaldienst; anzeige: Betrag an der Beschriftung, wenn der Balken
+//                                                                mit dem Fehlbetrag höher ist als der Überschuss (Folie 18)
+//      fehlbetrag: { name, wert, betrag, zu } (nur Folie 18)     zweiter Zufluss über das Kontokorrent, wenn der Überschuss vor Kapitaldienst den
+//                                                                Kapitaldienst nicht deckt; er läuft in den Strom des Ziels zu (Vorgabe „zins“)
 //      ziele:  [{ id, name, wert, rolle, ueberKnoten }]          von oben; ueberKnoten: Der Strom läuft über den Knoten in der Mitte
 //      klammer: { name, wert, ziele: [id, …] },                  fasst Ziele zum Kapitaldienst
 //      hervor: id }                                               Ziel, dessen Anteil der Folientitel nennt: Der Anteil steht als Kernwert im Band
@@ -68,8 +71,10 @@ function zahlungsfluss(ctx, s, o) {
     'Die Stärke der Bänder entspricht dem Betrag. Die Flussdiagramme für gefördert und frei finanziert haben denselben Maßstab.'].filter(Boolean).join(' ');
   const d = ctx.D.fluss(s, { name: `Flussdiagramm Zahlungsfluss ${o.art}`, altText, massstab: MASSSTAB, knotenBreite: L.knotenBreite,
     knoten: [{ id: 'quelle', x: L.quelle, y: L.oben, name: o.quelle.name, art: art('knoten'), wert: o.quelle.wert }, { id: 'knoten', x: L.knoten, y: L.oben, name: o.knoten.name, art: art('knoten'), wert: o.knoten.wert },
+      ...(o.fehlbetrag ? [{ id: 'fehl', x: L.quelle, y: L.oben - 0.07, name: o.fehlbetrag.name, art: 'blass', wert: o.fehlbetrag.wert }] : []),
       ...ziele.map(z => ({ id: z.id, x: L.ziele, y: z.y, name: z.name, art: art(z.rolle) }))],
-    stroeme: [...ueber.map(z => ({ von: 'quelle', nach: 'knoten', wert: z.wert, art: art(z.rolle), name: `${z.name} bis ${o.knoten.name}` })),
+    stroeme: [...(o.fehlbetrag ? [{ von: 'fehl', nach: 'knoten', wert: o.fehlbetrag.wert, art: 'blass', name: o.fehlbetrag.name }] : []),
+      ...ueber.map((z, i) => ({ von: 'quelle', nach: 'knoten', wert: o.fehlbetrag && z.id === (o.fehlbetrag.zu || 'zins') ? z.wert - o.fehlbetrag.wert : z.wert, art: art(z.rolle), name: `${z.name} bis ${o.knoten.name}` })),
       ...direkt.map(z => ({ von: 'quelle', nach: z.id, wert: z.wert, art: art(z.rolle), name: z.name })),
       ...ueber.map(z => ({ von: 'knoten', nach: z.id, wert: z.wert, art: art(z.rolle), name: z.name }))] });
 
@@ -107,8 +112,15 @@ function zahlungsfluss(ctx, s, o) {
     B.text(s, zeilen[n - 1], { x: lx, y: y1 - 0.21, w: uw, h: 0.21, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Umriss Betrag' });
   }
 
+  if (o.fehlbetrag) {
+    // Fehlbetrag: zweiter Zufluss, Knoten oben in der linken Spalte über der Quelle; sein Strom läuft oben in den Knoten, ohne die Bänder
+    // der Kosten zu kreuzen. Bezeichnung und Betrag links davor, rechts frei für die Maßkette der Quelle
+    const fy = L.oben - 0.07, fw = L.quelle - 0.24 - colX(1);   // Knoten 0,07 über der Quelle: die Linie läuft unter der Beschriftung des Knotens
+    B.text(s, wl(o.fehlbetrag.name, 'Fehlbetrag'), { x: colX(1), y: fy - 0.42, w: fw, h: 0.21, rolle: 'kleinText', align: 'right', valign: 'middle', einzeilig: true, name: 'Fehlbetrag Bezeichnung' });
+    B.text(s, wl(o.fehlbetrag.betrag || fmt.euro(o.fehlbetrag.wert), 'Fehlbetrag'), { x: colX(1), y: fy - 0.21, w: fw, h: 0.21, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Fehlbetrag Betrag' });
+  }
   // Knoten: Bezeichnung und Betrag in einer Zeile, mittig über dem Balken
-  const kn = wl(o.knoten.name, 'Knoten'), kw = wl(fmt.euro(o.knoten.wert), 'Knoten'), bn = breite(nb(kn), semi) + 0.03, bw = breite(nb(kw), fett) + 0.03, steg = 0.10;
+  const kn = wl(o.knoten.name, 'Knoten'), kw = wl(fmt.euro(o.knoten.anzeige ?? o.knoten.wert), 'Knoten'), bn = breite(nb(kn), semi) + 0.03, bw = breite(nb(kw), fett) + 0.03, steg = 0.10;
   const kx = L.knoten + L.knotenBreite / 2 - (bn + steg + bw) / 2, ky = L.oben - 0.30;
   B.bezeichnungMitWert(s, { y: ky + L.betragTiefer, bezeichnung: { text: kn, x: kx, w: bn, name: 'Knoten Bezeichnung' }, wert: { text: kw, x: kx + bn + steg, w: bw, name: 'Knoten Betrag' } });
 
@@ -123,7 +135,7 @@ function zahlungsfluss(ctx, s, o) {
 
   // Ziele: Bezeichnung am Balken, Betrag und Anteil rechtsbündig in einer Spalte. Ziele mit 0 € stehen als Zeile ohne Band in Grau.
   for (const z of ziele) {
-    const null0 = fmt.zahl(z.wert) === '0', wert = wl(betragUndAnteil(fmt, z.wert, o.quelle.wert), `Ziel ${z.name}`), ty = z.mitte - L.zeile / 2;
+    const null0 = fmt.zahl(z.wert) === '0', wert = wl(z.anzeige || betragUndAnteil(fmt, z.wert, o.quelle.wert), `Ziel ${z.name}`), ty = z.mitte - L.zeile / 2;
     const bn = breite(nb(z.name), semi) + 0.03, bw = breite(nb(wert), fett) + 0.03;
     // Bezeichnung und Betrag stehen in einer Zeile: zusammen nicht breiter als die Spalte
     if (bn + 0.10 + bw > L.betrag - L.name) ctx.P.melde(`Ziel „${z.name}“: Bezeichnung und Betrag passen nicht nebeneinander in ${(L.betrag - L.name).toFixed(2)} Zoll.`);

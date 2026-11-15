@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+
+# Arbeitsordner von build_kennzahlen.py (Vergleichsstand, Läufe, Profil von LibreOffice)
+.basis/

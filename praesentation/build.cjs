@@ -14,7 +14,7 @@ const { definiereLayouts, layoutBeschreibung, LAYOUTS } = require('./lib/layouts
 const { bausteine, titelLaeufe, titelPruefzeilen, titelKollisionen, schutz } = require('./lib/bausteine.cjs');
 const { diagramme } = require('./lib/diagramme.cjs');
 const daten = require('./lib/daten.cjs');
-const { Pruefung } = require('./lib/passpruefung.cjs');
+const { Pruefung, breite } = require('./lib/passpruefung.cjs');
 const { ueberwache, pruefeZonen } = require('./lib/zonenpruefung.cjs');
 const { nachbearbeiten } = require('./lib/nachbearbeitung.cjs');
 const { asset } = require('./lib/assets.cjs');
@@ -22,9 +22,10 @@ const { asset } = require('./lib/assets.cjs');
 const ROOT = __dirname;
 const ZIEL = 'dist/PGN-Mietwohnraumfoerderung-Niedersachsen-2026-Vortrag.pptx';
 const BEHALTEN = ['anlass'];   // leere Platzhalter, die als Eingabefeld stehen bleiben (Titelfolie: „Ort, Datum“)
-// E5: Läufe der Rechenmappe, die nur bestimmte Folien lesen dürfen. Der Lauf modellhaus_rendite (Renditen, Restwert, Marktmiete) gehört allein der
-// Anhangfolie zur Eigenkapitalrendite; jede andere Folie bricht den Bau ab.
-const LAUF_NUR_FUER = { modellhaus_rendite: ['anhang-rendite'] };
+// Läufe der Rechenmappe, die nur bestimmte Folien lesen dürfen (Lauf → Folien). Bis 15.11.2026 gehörte der Lauf modellhaus_rendite allein der
+// Anhangfolie zur Eigenkapitalrendite (E5). Seit dem Umbau der Modellrechnung stehen Rendite und Marktmiete im Hauptteil (Folien 18 bis 21);
+// ihre Zahlen kommen aus daten/kennzahlen.json (ctx.wert). Der Lauf modellhaus_rendite liest keine Folie mehr.
+const LAUF_NUR_FUER = { modellhaus_rendite: [] };
 const TITEL_LUFT = 5;          // Zuschlag in pt auf den Schriftgrad für eine Titelzeile, über deren Umlaut ein Zeichen mit Unterlänge steht
 // Zeichen des Abschnitts im Kopf der Inhalts- und Anhangfolien: die Zählung der Agenda und der Trenner (1 bis 4), der Anhang trägt „A“
 const KOPFZEICHEN = 'Abschnitt im Kopf';
@@ -213,11 +214,13 @@ async function main() {
     // Vergleichsform für die Gegenprobe gegen das Konzept: ohne geschützte Leerzeichen und Fettmarken, in Großbuchstaben (Versalien setzt erst die Bibliothek)
     const gross = t => daten.glatt(t).toLocaleUpperCase('de-DE');
     // Zugriff auf die Rechenmappe wie daten.W, mit der Sperre für Läufe, die nur einzelne Folien lesen dürfen (LAUF_NUR_FUER)
-    const erlaubt = lauf => { if (LAUF_NUR_FUER[lauf] && !LAUF_NUR_FUER[lauf].includes(o.id)) throw new Error(`Der Lauf „${lauf}“ der Rechenmappe ist nur für ${LAUF_NUR_FUER[lauf].map(f => '„' + f + '“').join(', ')} freigegeben (E5: keine Renditen und keine Marktmiete des Modellhauses auf anderen Folien).`); return lauf; };
+    const erlaubt = lauf => { if (LAUF_NUR_FUER[lauf] && !LAUF_NUR_FUER[lauf].includes(o.id)) throw new Error(`Der Lauf „${lauf}“ der Rechenmappe ist ${LAUF_NUR_FUER[lauf].length ? 'nur für ' + LAUF_NUR_FUER[lauf].map(f => '„' + f + '“').join(', ') + ' freigegeben' : 'für keine Folie freigegeben (Werte der Modellrechnung: ctx.wert, daten/kennzahlen.json)'}.`); return lauf; };
     const W = Object.assign((lauf, k) => daten.W(erlaubt(lauf), k), { eintrag: (lauf, k) => daten.W.eintrag(erlaubt(lauf), k), reihe: (lauf, ...a) => daten.W.reihe(erlaubt(lauf), ...a), laeufe: daten.W.laeufe, meta: daten.W.meta });
+    // Kennzahlen der Modellrechnung (daten/kennzahlen.json; Blätter Kennzahlen, Frei DSCR 1,2 und Zeitreihe der Rechenmappe): ctx.wert('n5.zue_jahr1.A')
+    const wert = Object.assign(k => daten.K(k), { eintrag: k => daten.K.eintrag(k), meta: daten.K.meta });
     const ctx = {
-      pres, C: T.C, HEX: T.HEX, F: T.F, Raster: T.Raster, colX: T.colX, span: T.span, Y: T.Y, ZONE: T.ZONE,
-      B, D, W, fmt: daten.fmt, X: daten.X, o, outline, asset, P, grund: lay.grund, farben: cs, versal: T.versal, schutz, folie,
+      pres, C: T.C, HEX: T.HEX, F: T.F, Raster: T.Raster, colX: T.colX, span: T.span, Y: T.Y, ZONE: T.ZONE, SKALA: T.SKALA,
+      B, D, W, wert, breite, fmt: daten.fmt, X: daten.X, o, outline, asset, P, grund: lay.grund, farben: cs, versal: T.versal, schutz, folie,
       glatt: daten.glatt, zahlwort: daten.zahlwort, fuelle: daten.fuelle, mittel: daten.mittel,
       // Gegenprobe: Der Text steht so im Feld „inhalt“ des Konzepts (Groß- und Kleinschreibung, Fettmarken und geschützte Leerzeichen zählen nicht).
       // Zahlen aus werte.json und den Datendateien sind damit zugleich gegen das Konzept geprüft. Eine Abweichung bricht den Bau ab. Rückgabe: der Text
@@ -236,6 +239,8 @@ async function main() {
         return { titel: zeilen, akzent };
       },
       // Gegenprobe zweier Zahlen auf nk Nachkommastellen (kaufmännisch gerundet wie die Formatierer). Eine Abweichung bricht den Bau ab
+      // Aussage gegen die Zahlen prüfen: ctx.pruefe(bedingung, 'Meldung'); bricht den Bau ab, wenn die Bedingung nicht gilt
+      pruefe(bedingung, meldung) { if (!bedingung) P.melde(`Aussage stimmt nicht: ${meldung}`); },
       gleich(was, a, b, nk = 2) { if (daten.fmt.zahl(a, nk) !== daten.fmt.zahl(b, nk)) P.melde(`Gegenprobe ${was}: ${daten.fmt.zahl(a, nk)} gegen ${daten.fmt.zahl(b, nk)}.`); },
       // Zugriff auf eine Datendatei mit gefüllten Platzhaltern: const U = ctx.lies('umsetzung', felder); U('antragsweg.beginn'); U(pfad, { weitere: Felder })
       lies(datei, felder = {}) { return (pfad, mehr) => daten.fuelle(daten.X(datei, pfad), mehr ? { ...felder, ...mehr } : felder, `daten/${datei}.json`); },

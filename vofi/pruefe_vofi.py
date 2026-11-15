@@ -1,6 +1,25 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Abnahmeprüfung VOFI Mietwohnraum 2026, Version 3, mit den Blättern Kennzahlen, Frei DSCR 1,2 und Zeitreihe
+===========================================================================================================
+
+Prüft die Mappe PGN_VOFI_Mietwohnraum_2026_v3.xlsx (zwölf Blätter). Die neun Blätter aus build_vofi.py prüft der
+bisherige Teil unverändert. build_kennzahlen.py hängt drei Blätter an (Kennzahlen, Frei DSCR 1,2, Zeitreihe); jede
+Stelle dafür ist im Code mit „KONZEPTE:“ markiert:
+  K-A  F3 Blattzahl ≤ 12 und Reihenfolge = neun Blätter laut Konzept, danach die drei neuen Blätter.
+  K-B  F4 Feste Zahlen: auf Frei DSCR 1,2 dieselben Ausnahmen wie auf Frei finanziert (A6, Q6, H118 = 0);
+       Kennzahlen!D6 ist die neue Eingabe (DSCR-Ziel der Bank) und muss 1,2 sein.
+  K-C  F5 Eingabeoptik: Kennzahlen!D6 ist Eingabezelle (blau auf Gelb), sonst keine Eingabeoptik.
+  K-D  F5 Fixierung: Sollwerte für die drei neuen Blätter (Kennzahlen D5, Frei DSCR 1,2 C6, Zeitreihe C6).
+  K-E  Prüfung „K“: die neun Blätter gegen den Stand aus build_vofi.py (vofi/.basis, Formeln und Werte), Frei DSCR 1,2
+       gegen Frei finanziert (nur die genannten Zellen anders), neue Blöcke nur mit Formeln, Gegenrechnung N2
+       (Miete für DSCR 1,2 frei finanziert = Handrechnung, rund 18,36 €), DSCR Jahr 1 = 1,2, Gegenrechnung N3 und N4,
+       Zeitreihe gleich den Quellblättern, Status der Blöcke K1 bis K8 und der Mappe OK.
+Kein bestehender Prüfpunkt ist schwächer: Sollwerte, Toleranzen und Läufe sind unverändert.
+
+Ursprüngliche Beschreibung:
+
 Abnahmeprüfung VOFI Mietwohnraum 2026, Version 3
 ================================================
 
@@ -193,6 +212,7 @@ from openpyxl.utils.cell import range_boundaries
 # =====================================================================================================
 VOFI_DIR = Path("/home/user/NBank/vofi")
 MAPPE_STANDARD = VOFI_DIR / "PGN_VOFI_Mietwohnraum_2026_v3.xlsx"
+ORIGINAL = VOFI_DIR / ".basis" / "PGN_VOFI_Mietwohnraum_2026_v3_basis.xlsx"   # KENNZAHLEN: neun Blätter aus build_vofi.py (build_kennzahlen.py)
 BROSCH = Path("/home/user/NBank/broschuere")
 V21 = BROSCH / "zulieferungen" / "PGN_NBank_VOFI_Modell_v2-1.xlsx"
 V21_SHA_PREFIX = "11d558b3"
@@ -241,6 +261,11 @@ FREI = "Frei finanziert"
 UEB = "Übersicht"
 BLAETTER = ["Übersicht", "Eingaben", "Gefördert A", "Gefördert B", "Gefördert C", "Frei finanziert",
             "NBank", "Tabellen", "Hinweise"]
+# KONZEPTE: neue Blätter aus build_kennzahlen.py (hinter den neun Blättern)
+BLAETTER_NEU = ["Kennzahlen", "Frei DSCR 1,2", "Zeitreihe"]
+KONZ, FD, ZRB = BLAETTER_NEU
+KONZ_EINGABE = (KONZ, "D6")          # DSCR-Ziel der Bank, frei finanziert (einzige neue Annahme)
+DSCR_BANK = 1.2
 
 ROT, WEISS, GRAU_GRUPPE, ANTHRAZIT = "8B2939", "FFFFFF", "F4F3F2", "3C3C3B"
 BLAU, GELB, GRAU_F, GRUEN, SCHWARZ = "0000FF", "FFF2CC", "EDEDED", "008000", "000000"
@@ -725,6 +750,7 @@ for _z, _t, _a in (("H2", "Übersicht", None), ("I2", "Finanzierung", "A88"), ("
 
 FIXIERUNG = {UEB: "A7", "Eingaben": "D6", "Gefördert A": "C6", "Gefördert B": "C6", "Gefördert C": "C6",
              FREI: "C6", "NBank": "A10", "Tabellen": "A3", "Hinweise": "A3"}
+FIXIERUNG.update({KONZ: "D5", FD: "C6", ZRB: "C6"})          # KONZEPTE: K-D
 TITEL = {UEB: "VOFI Mietwohnraum 2026: Übersicht", "Eingaben": "Eingaben",
          "Gefördert A": "Gefördert A: Zeitreihe und Ergebnisse", "Gefördert B": "Gefördert B: Zeitreihe und Ergebnisse",
          "Gefördert C": "Gefördert C: Zeitreihe und Ergebnisse", FREI: "Frei finanziert: Zeitreihe und Ergebnisse",
@@ -2174,8 +2200,9 @@ def pruefe_v21(b):
 
 def pruefe_f3(b, mappe, wb, xml):
     p = b.pruefung("F3", "Blätter: Anzahl ≤ 9, Namen und Reihenfolge laut A")
-    p.check(len(wb.sheetnames) <= 9, "Blattzahl", len(wb.sheetnames), "≤ 9")
-    p.gleich("Reihenfolge", " · ".join(wb.sheetnames), " · ".join(BLAETTER))
+    # KONZEPTE: K-A neun Blätter laut Konzept, danach die drei neuen Blätter
+    p.check(len(wb.sheetnames) <= 9 + len(BLAETTER_NEU), "Blattzahl", len(wb.sheetnames), f"≤ {9 + len(BLAETTER_NEU)}")
+    p.gleich("Reihenfolge", " · ".join(wb.sheetnames), " · ".join(BLAETTER + BLAETTER_NEU))
     p.gleich("aktives Blatt beim Öffnen", wb.active.title, UEB)
     p.fertig()
 
@@ -2439,11 +2466,16 @@ def pruefe_f4(b, wb):
     p = b.pruefung("F4", "Feste Zahlen außerhalb Eingaben/Tabellen nur A6, W6 (Frei Q6), H118 und Raster B55:B61")
     erlaubt = {(g, z) for g in GEF.values() for z in ("A6", "W6", "H118")} | {(FREI, "A6"), (FREI, "Q6"), (FREI, "H118")}
     erlaubt |= {(UEB, f"B{r}") for r in range(55, 62) if r != 59}
+    erlaubt |= {(FD, "A6"), (FD, "Q6"), (FD, "H118")}            # KONZEPTE: K-B wie Frei finanziert
     for ws in wb.worksheets:
         if ws.title in ("Eingaben", "Tabellen"):
             continue
         for row in ws.iter_rows():
             for c in row:
+                if (ws.title, c.coordinate) == KONZ_EINGABE:        # KONZEPTE: K-B neue Eingabe
+                    p.check(ist_zahl(c.value) and abs(c.value - DSCR_BANK) < 1e-12, f"{KONZ}!D6 DSCR-Ziel der Bank",
+                            c.value, DSCR_BANK)
+                    continue
                 if ist_zahl(c.value) and (ws.title, c.coordinate) not in erlaubt:
                     p.check(False, f"{ws.title}!{c.coordinate}", c.value, "keine feste Zahl")
     for (s, z) in sorted(erlaubt):
@@ -2557,7 +2589,7 @@ def seitenreserve(ws):
 
 
 def pruefe_f5(b, wb, xml, nz):
-    inp = eingabe_zellen()
+    inp = eingabe_zellen() | {KONZ_EINGABE}                          # KONZEPTE: K-C
     p = b.pruefung("F5", "Schrift Arial 10 (Titel A1: 14)")
     for ws in wb.worksheets:
         for row in ws.iter_rows():
@@ -4613,6 +4645,164 @@ def pruefe_broschuere(b, w, sens):
 
 
 # =====================================================================================================
+# KONZEPTE: K-E Prüfung der neuen Blöcke
+# =====================================================================================================
+FD_GEAENDERT = {"A1", "A87", "A109", "H109", "A122", "H122", "I122", "J122", "A181", "H181"}
+
+
+def pruefe_konzepte(b, mappe, wb):
+    w = Werte(mappe)
+    # 1. Bestehende Blätter gegen das Original: Formeln/Konstanten identisch, Werte gleich
+    p = b.pruefung("K", "Bestehende Blätter unverändert: Original gegen Kopie, Formeln und Werte")
+    wo = openpyxl.load_workbook(ORIGINAL)
+    wov = Werte(ORIGINAL)
+    for name in BLAETTER:
+        so, sk = wo[name], wb[name]
+        abw_f, abw_w, n = [], [], 0
+        for row in range(1, max(so.max_row, sk.max_row) + 1):
+            for col in range(1, max(so.max_column, sk.max_column) + 1):
+                a, c = so.cell(row, col).value, sk.cell(row, col).value
+                if a is None and c is None:
+                    continue
+                n += 1
+                k = f"{get_column_letter(col)}{row}"
+                if a != c:
+                    abw_f.append(k)
+                va, vk = wov.get(name, k), w.get(name, k)
+                if ist_zahl(va) and ist_zahl(vk):
+                    if abs(va - vk) > 1e-9 * max(1.0, abs(va), abs(vk)):
+                        abw_w.append(k)
+                elif va != vk:
+                    abw_w.append(k)
+        p.check(not abw_f, f"{name}: {n} Zellen, Formeln und Konstanten", ", ".join(abw_f[:6]) or "gleich", "gleich")
+        p.check(not abw_w, f"{name}: berechnete Werte", ", ".join(abw_w[:6]) or "gleich", "gleich")
+    p.check(len(wo.sheetnames) == 9, "Vergleichsstand vofi/.basis hat die neun Blätter aus build_vofi.py",
+            len(wo.sheetnames), 9)
+    p.fertig()
+
+    # 2. Frei DSCR 1,2 = Kopie von Frei finanziert bis auf die genannten Zellen und die Hilfsspalte AD
+    p = b.pruefung("K", "Frei DSCR 1,2: Zellen wie Frei finanziert, geändert nur Miete, DSCR-Ziel, Restwert")
+    wf, wd = wb[FREI], wb[FD]
+    abw = []
+    for row in range(1, 187):
+        for col in range(1, 29):
+            k = f"{get_column_letter(col)}{row}"
+            if k in FD_GEAENDERT:
+                continue
+            if wf.cell(row, col).value != wd.cell(row, col).value:
+                abw.append(k)
+    p.check(not abw, "übrige Zellen A1:AB186 gleich", ", ".join(abw[:8]) or "gleich", "gleich")
+    p.gleich("H109 Miete Jahr 1", wd["H109"].value, "=H183")
+    p.gleich("H181 DSCR-Ziel", wd["H181"].value, "='Kennzahlen'!$D$6")
+    for sp in "HIJ":
+        p.gleich(f"{sp}122 Ertragswert aus Spalte AD", wd[f"{sp}122"].value,
+                 wf[f"{sp}122"].value.replace("$I$7:$I$86", "$AD$7:$AD$86"))
+    for r in range(7, 87):
+        p.gleich(f"AD{r}", wd[f"AD{r}"].value, f"=C{r}*Wohnflaeche*12-Mietausfall*C{r}*Wohnflaeche*12+G{r}+H{r}")
+    p.fertig()
+
+    # 3. Neue Blöcke nur mit Formeln (außer D6), keine Fehlerwerte
+    p = b.pruefung("K", "Neue Blätter: Zahlen nur als Formel (außer Kennzahlen!D6), keine Fehlerwerte")
+    for name in (KONZ, ZRB):
+        ws = wb[name]
+        for row in ws.iter_rows():
+            for c in row:
+                if ist_zahl(c.value) and (name, c.coordinate) != KONZ_EINGABE:
+                    p.check(False, f"{name}!{c.coordinate}", c.value, "Formel")
+    for name in BLAETTER_NEU:
+        fehler = [k for k, v in w.blatt(name).items() if isinstance(v, str) and v.startswith("#")]
+        p.check(not fehler, f"{name}: Fehlerwerte", ", ".join(fehler[:6]) or "keine", "keine")
+    wk = wb[KONZ]
+    for r in range(48, 97):
+        if wk[f"A{r}"].value and str(wk[f"A{r}"].value).startswith("N5."):
+            for sp in "DEFGH":
+                v = wk[f"{sp}{r}"].value
+                p.check(isinstance(v, str) and (v.startswith("=") or v == "–"), f"{KONZ}!{sp}{r}", v, "Formel oder –")
+    p.fertig()
+
+    # 4. Gegenrechnung von Hand: N2, N3, N4 aus den Eingaben (Werte der Mappe), unabhängig von den Formeln
+    p = b.pruefung("K", "Gegenrechnung N2 (Miete frei für DSCR 1,2), N3 (A, B, C), N4 (Objektrendite), DSCR Jahr 1 = 1,2")
+    e = lambda z: w.get("Eingaben", f"F{z}")
+    t = lambda z: w.get("Tabellen", z)
+    wfl, we_, hk, kg800, grund = e(8), e(9), e(11), e(12), e(13)
+    brw, gfl, tilg, ma, vw_we, ih_qm = e(14), e(15), e(17), e(29), e(30), e(31)
+    ks, vorlauf, zins, lz, ekz, st_kg, stufe = e(32), e(33), e(35), e(38), e(40), e(48), e(22)
+    ziel = w.get(KONZ, "D6")
+    p.zahl("DSCR-Ziel der Bank (Kennzahlen D6)", ziel, DSCR_BANK, 0)
+    zeile = 9 + MIETENSTUFEN.index(stufe)
+    h90 = hk * wfl * st_kg
+    zuw = min(h90, t(f"C{zeile}") * wfl) + (min(grund, brw * gfl) if brw * gfl > 0 else grund)
+    em = max(0.0, t("D18") * zuw - grund)
+    bank = max(0.0, round(h90 - em - ekz, 2))
+    ann = bank * zins / (1 - (1 + zins) ** -lz) if bank > 0 else 0.0
+    vw = vw_we * we_ * (1 + ks) ** vorlauf
+    ih = ih_qm * wfl * (1 + ks) ** vorlauf
+    miete = (DSCR_BANK * ann + vw + ih) / ((1 - ma) * wfl * 12)
+    p.zahl("Kapitaldienst Bank Jahr 1 (Handrechnung = Kennzahlen D10)", w.get(KONZ, "D10"), ann, TOL_EUR)
+    p.zahl("N2.3 Miete frei für DSCR 1,2 (Handrechnung = Kennzahlen D12)", w.get(KONZ, "D12"), miete, 1e-6)
+    p.zahl("N2.3 gerundet auf Cent", round(w.get(KONZ, "D12"), 2), 18.36, 0)
+    p.zahl("Frei DSCR 1,2 H109 = N2.3", w.get(FD, "H109"), miete, 1e-6)
+    i7, l7 = w.get(FD, "I7"), w.get(FD, "L7")
+    p.zahl("DSCR Jahr 1 = I7 ÷ −L7 (Frei DSCR 1,2)", i7 / -l7, DSCR_BANK, 1e-9)
+    p.zahl("DSCR Jahr 1 laut Blatt (H156)", w.get(FD, "H156"), DSCR_BANK, 1e-9)
+    p.zahl("DSCR Jahr 1 laut Kennzahlen N2.6 (D15)", w.get(KONZ, "D15"), DSCR_BANK, 1e-9)
+    gk = h90 + kg800 + grund
+    for i, g in enumerate(GRUPPEN):
+        sp = "DEF"[i]
+        darl = zuw * t(f"{sp}5")
+        zus = zuw * t(f"{sp}6")
+        kd = darl * t("D23") + darl * tilg                     # Verwaltungskostenbeitrag + Tilgung, Zins 0 bis Jahr 35
+        hm = t(f"{sp}{zeile}")
+        m_g = (DSCR_BANK * kd + vw + ih) / ((1 - ma) * wfl * 12)
+        p.zahl(f"N3.2 Kapitaldienst NBank Jahr 1, {g}", w.get(KONZ, f"{sp}20"), kd, TOL_EUR)
+        p.zahl(f"N3.4 Miete für DSCR 1,2, {g}", w.get(KONZ, f"{sp}22"), m_g, 1e-6)
+        p.zahl(f"N3.9 DSCR zur Miete N3.4, {g}", w.get(KONZ, f"{sp}27"), DSCR_BANK, 1e-9)
+        uevk = hm * wfl * 12 * (1 - ma) - vw - ih
+        p.zahl(f"N3.3 DSCR Jahr 1 zur Höchstmiete, {g}", w.get(KONZ, f"{sp}21"), uevk / kd, 1e-9)
+        p.gleich(f"N3.6 DSCR 1,2 erreicht, {g}", w.get(KONZ, f"{sp}24"), "ja" if uevk / kd >= DSCR_BANK else "nein")
+        p.zahl(f"N4.6 Objektrendite, {g}", w.get(KONZ, f"{sp}41"), uevk / gk, 1e-9)
+        p.zahl(f"N4.7 Objektrendite ohne Zuschuss im Nenner, {g}", w.get(KONZ, f"{sp}42"), uevk / (gk - zus), 1e-9)
+    mm = w.get("Eingaben", "F25")
+    for sp, m in (("G", mm), ("H", miete)):
+        uevk = m * wfl * 12 * (1 - ma) - vw - ih
+        p.zahl(f"N4.6 Objektrendite frei, Spalte {sp}", w.get(KONZ, f"{sp}41"), uevk / gk, 1e-9)
+    p.fertig()
+
+    # 5. Zeitreihe gleich den Quellblättern
+    p = b.pruefung("K", "Zeitreihe: Werte gleich den Blättern der Varianten (Jahr 0 bis 42)")
+    quellen = [("Gefördert A", "gef"), ("Gefördert B", "gef"), ("Gefördert C", "gef"), (FREI, "frei"), (FD, "frei")]
+    spg = {"gef": ("F", "K", "Q", "R", "W", "S", ("T", "U"), "V"), "frei": ("D", "I", "L", "M", "Q", "N", ("O",), "P")}
+    for vi, (blatt, art) in enumerate(quellen):
+        abw = []
+        for gi, quelle in enumerate(spg[art]):
+            c = get_column_letter(3 + vi * 9 + gi)
+            for r in range(6, 49):
+                ist = w.get(ZRB, f"{c}{r}")
+                if isinstance(quelle, tuple):
+                    soll = sum((w.get(blatt, f"{x}{r}") or 0) for x in quelle)
+                else:
+                    soll = w.get(blatt, f"{quelle}{r}")
+                if r == 6 and gi in (0, 1, 2, 3, 5):
+                    continue
+                if soll in (None, "") and ist in (None, ""):
+                    continue
+                if not (ist_zahl(ist) and ist_zahl(soll) and abs(ist - soll) <= 1e-6 * max(1, abs(soll))):
+                    abw.append(f"{c}{r}")
+        p.check(not abw, f"{blatt}", ", ".join(abw[:6]) or "gleich", "gleich")
+    p.fertig()
+
+    # 6. Status
+    p = b.pruefung("K", "Status: Prüfungen K1 bis K8 (Kennzahlen) und Prüfungen der Mappe (Übersicht D3) OK")
+    p.gleich("Kennzahlen!D3", w.get(KONZ, "D3"), "OK")
+    for r in range(98, 120):
+        nr = wk[f"A{r}"].value
+        if isinstance(nr, str) and re.fullmatch(r"K\d", nr):
+            p.gleich(f"Kennzahlen {nr}", w.get(KONZ, f"C{r}"), "OK")
+    p.gleich("Übersicht!D3", w.get(UEB, "D3"), "OK")
+    p.fertig()
+
+
+# =====================================================================================================
 # 12. Ablauf
 # =====================================================================================================
 def sicher(b, kz, titel, fn, *args):
@@ -4668,6 +4858,7 @@ def main():
     sicher(b, "C", "Tabellen", pruefe_tabellen, b, wb)
     sicher(b, "C", "Tabelle 5", pruefe_tabellen_kd5, b, wb, Werte(mappe))
     sicher(b, "G.2", "Zahlenformate", pruefe_uebersicht_formate, b, wb)
+    sicher(b, "K", "Kennzahlen-Blöcke", pruefe_konzepte, b, mappe, wb)     # KONZEPTE: K-E
 
     if a.laeufe == "alle":
         laeufe = LAEUFE + LAEUFE_FEHLER

@@ -6,9 +6,11 @@ Wirtschaftlichkeitsmappe für geförderten Mietwohnungsbau nach RL Mietwohnraum 
 
 | Datei | Inhalt |
 |---|---|
-| `PGN_VOFI_Mietwohnraum_2026_v3.xlsx` | Mappe, neu berechnet; aktiv ist Projekt 2, das Modellhaus von Broschüre und Präsentation (Eingaben D3 = 2) |
-| `build_vofi.py` | Generator (openpyxl): Blätter, Formeln, Namen, Formate, Druck |
-| `pruefe_vofi.py` | Abnahmeprüfung: Struktur, Gestaltung, Sprache, Seitenreserve im Druck (gerechnet nach der Breitenregel von Excel), 70 Testläufe gegen Referenzrechnung, Broschüre S. 10–12 (gegen Projekt 2) und v2-1; Regression gegen den Stand vor der Erweiterung „Frei finanziert“. Stand 11.11.2026: 617 Prüfungen |
+| `PGN_VOFI_Mietwohnraum_2026_v3.xlsx` | Mappe, neu berechnet; aktiv ist Projekt 2, das Modellhaus von Broschüre und Präsentation (Eingaben D3 = 2). Zwölf Blätter: die neun aus `build_vofi.py`, dahinter seit 15.11.2026 Kennzahlen, Frei DSCR 1,2 und Zeitreihe |
+| `build_vofi.py` | Generator (openpyxl): die neun Blätter, Formeln, Namen, Formate, Druck |
+| `build_kennzahlen.py` | hängt die Blätter Kennzahlen (frei finanziert zur Marktmiete, Miete für eine DSCR von 1,2 der Bank, Eigenkapitalrendite, Vermögen Jahr 35), Frei DSCR 1,2 (Kopie von Frei finanziert mit gelöster Miete) und Zeitreihe an; die neun Blätter bleiben Zelle für Zelle gleich (Vergleich gegen einen frischen Bau in `.basis/`). Rechnet acht Szenario-Läufe und schreibt `../praesentation/daten/kennzahlen.json` (Zahlen der Modellrechnung im Vortrag, Folien 14 bis 22 und Fazit) und `ANNAHMEN.md` |
+| `ANNAHMEN.md` | Annahmen der Modellrechnung mit Herkunft, aus der Mappe erzeugt |
+| `pruefe_vofi.py` | Abnahmeprüfung: Struktur, Gestaltung, Sprache, Seitenreserve im Druck (gerechnet nach der Breitenregel von Excel), 70 Testläufe gegen Referenzrechnung, Broschüre S. 10–12 (gegen Projekt 2) und v2-1; Regression gegen den Stand vor der Erweiterung „Frei finanziert“; seit 15.11.2026 Prüfung „K“ der drei neuen Blätter (bestehende Blätter unverändert, Gegenrechnung der Miete für DSCR 1,2, Zeitreihe gleich den Quellblättern). Stand 15.11.2026: 624 Prüfungen |
 | `KONZEPT-v3.md` | Sollkonzept (intern): Zelladressen, Namen, Rechenlogik, Sollwerte, Abweichungen, Fundstellen der Eingaben; Abschnitt Q: Bewertungsansätze von Projekt 1 für Rotenburg (Wümme), Liegenschaftszins je Projekt, Lektorat der Texte (11.11.2026); Abschnitt R: Modellhaus ist Projekt 2, Abschnitt T: Kapitaldienst je m² für Folie 5 (13.11.2026), mit den Sollwerten des Modellhauses (11.11.2026) |
 | `AENDERUNGEN.md` | Änderungen gegenüber v2-1, für PGN |
 
@@ -21,9 +23,12 @@ Nur gelesen, nie verändert:
 ## Neuaufbau
 
 ```sh
-python build_vofi.py      # bauen, mit recalc.py neu berechnen, nachbearbeiten
-python pruefe_vofi.py     # Abnahme; Exit-Code 0 = alle Prüfungen OK (einige Minuten)
+python build_vofi.py         # die neun Blätter bauen, mit recalc.py neu berechnen, nachbearbeiten
+python build_kennzahlen.py   # die drei Blätter der Kennzahlen anhängen, neu berechnen, Läufe rechnen, kennzahlen.json schreiben
+python pruefe_vofi.py        # Abnahme; Exit-Code 0 = alle Prüfungen OK (einige Minuten)
 ```
+
+`build_vofi.py` allein liefert die Mappe mit neun Blättern; ohne `build_kennzahlen.py` danach fehlen dem Vortrag die Kennzahlen und `pruefe_vofi.py` meldet die Prüfung „K“ als Fehler. Arbeitsdateien von `build_kennzahlen.py` (Vergleichsstand, Läufe, Profil von LibreOffice) liegen in `.basis/` und stehen nicht im Repository.
 
 Einzelschritte (Abnahmefolge):
 

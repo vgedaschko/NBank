@@ -29,8 +29,8 @@ module.exports = {
     const jahre = `Jahr 1 bis ${T('jahre_ohne_mieterhoehung')}`, stufen = 'Mietenstufe I–III / IV–VII';
     const zeilen = [
       ['Förderquote', `Darlehen bis ${pct(A('darlehen_anteil'))} der Gesamtkosten`, `Darlehen und Zuschuss bis ${pct(quote)} der zuwendungsfähigen Kosten`, `+${pp(quote - A('darlehen_anteil'))} Prozentpunkte`],
-      ['Nicht rückzahlbar', `Tilgungsnachlass ${pct(A('tilgungsnachlass'))} des Darlehens, nur bei geringen Einkommen`,
-        `Zuschuss bis ${G.map(g => `${pct(T('quote_zuschuss.' + g))} (${g})`).join(', ')} der Kosten`,
+      ['Nicht rückzahlbar', `Tilgungsnachlass ${pct(A('tilgungsnachlass'))} des Darlehens, das sind ${fmt.zahl(nachlassAlt * 100, 1)} % der Gesamtkosten. Nur bei geringen Einkommen`,
+        `Zuschuss bis ${G.map(g => pct(T('quote_zuschuss.' + g))).join(', ').replace(/, ([^,]*)$/, ' oder $1')} der zuwendungsfähigen Kosten, je nach Einkommensgruppe ${G.slice(0, -1).join(', ')} oder ${G[G.length - 1]}`,
         `A: von ${fmt.zahl(nachlassAlt * 100, 1)} auf ${pct(T('quote_zuschuss.A'))} der Kosten. B und C: neu`],
       ['Eigenmittel', `${pct(A('eigenmittel'))} der Gesamtkosten`, `${pct(T('eigenmittel_mindestens'))} der zuwendungsfähigen Kosten`,
         `${fmt.MINUS}${pp(T('eigenmittel_mindestens') - A('eigenmittel'))} Prozentpunkte. Geld oder Grundstück weiter mindestens ${pct(A('eigenmittel_geld'))}`],
@@ -52,7 +52,9 @@ module.exports = {
     // Seit der Prüfrunde 2 vom 13.11.2026 folgt jede Zeile ihrem Text, mit demselben Innenabstand unten in allen Zeilen (LUFT_UNTEN zusätzlich zum
     // Zellrand); bis dahin teilten sich die Zeilen die Höhe bis zur Unterkante der Inhaltszone (zielHoehe), und die zweizeiligen standen mit einer
     // leeren Zeile Luft, die dreizeiligen knapp. Die gewonnene Höhe bleibt als Luft über dem Schriftfeld
-    const BREITEN = [2.75, 2.85, 3.30, 3.10], LUFT_UNTEN = 0.06;
+    // Seit 15.11.2026 (Wortlaut des Auftraggebers in der Zeile „Nicht rückzahlbar“, dort drei Zeilen statt zwei) LUFT_UNTEN 0,02 statt 0,06: Mit 0,06
+    // endete die Tabelle 0,15 Zoll unter der Inhaltszone
+    const BREITEN = [2.75, 2.85, 3.30, 3.10], LUFT_UNTEN = 0.02;
     const tab = B.tabelle(s, { x, y: yTab, w, pt: 12, luftUnten: LUFT_UNTEN, name: 'Tabelle Programmteil 2.1 im Vergleich',
       spalten: koepfe.map((k, i) => ({ kopf: k, breite: BREITEN[i], art: 'text', ...(i === koepfe.length - 1 ? { randRechts: 0.02 } : {}) })),
       zeilen: zeilen.map(z => [satz(z[0]).replace(', Mietenstufe', ',\nMietenstufe').split('\n').map(l => `**${l}**`).join('\n'), ...z.slice(1).map(satz)]) });

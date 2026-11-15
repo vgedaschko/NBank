@@ -56,7 +56,7 @@ module.exports = {
     const staende = [K('baukosten.reihen')[0], 'Heute'], x0 = colX(1), w8 = span(7);
     const kopf = B.diagrammkopf(s, { titel: wl('Kapitaldienst je m² und Monat, frei finanziert', 'Diagrammtitel'), sub: wl('in €, ARGE-Median deutscher Großstädte, ohne Grundstück', 'Untertitel') });
     // Hinweiskasten unter dem Diagramm, so breit wie das Diagramm, an der Unterkante der Inhaltszone (G8, F5.6). Das Diagramm endet 0,12 darüber
-    const hinweis = wl(`Kosten ${K('baukosten.reihen')[1]}, Zins ${fmt.monatKurz(K('zinsen.monate').slice(-1)[0])}`, 'Hinweiskasten');
+    const hinweis = wl(`„Heute“: Kosten Stand ${K('baukosten.reihen')[1]}, Zins Stand ${fmt.monatKurz(K('zinsen.monate').slice(-1)[0])}`, 'Hinweiskasten');
     const yHinweis = +(Y.inhaltEnde - B.hinweisHoehe(hinweis, { w: w8 })).toFixed(3);
     // Freie Lage bis über den Hinweiskasten. Das Diagramm beginnt 0,14 höher als die Vorgabe mit Legende: Diese Folie hat keine Legendenzeile.
     // Schmale Säulen (0,68 Zoll) mit feiner Kontur, ohne Größenachse und Gitter (Maßstab 0 bis 20 €); rechts der Plotfläche stehen die Ursachen

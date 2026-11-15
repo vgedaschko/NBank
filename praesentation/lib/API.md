@@ -28,7 +28,8 @@ eine sinnvolle Zusatzprüfung; sie gehört nicht zum Projekt.
 
 Baugruppen: `rahmen`, `einstieg`, `regeln`, `rechnung`, `fluss`, `struktur`, `umsetzung`, `ueberblick` (Zuordnung in
 `daten/outline.json`, Feld `baugruppen`). Hilfsdateien der Baugruppen: `folien/_einstieg.cjs` (Texte der Folien 4 und 6),
-`_fluss.cjs` (gemeinsame Anlage der Folien 17 und 18; dazu die Maßkette an der Quelle der Folie 18 und der Umriss an der Quelle der Folie 17, die auf jeder der beiden Folien den Betrag der anderen im selben Maßstab zeigen), `_struktur.cjs` (Agenda, Texte der Folie 22, Quellentabelle), `_rechnung.cjs`,
+`_fluss.cjs` (gemeinsame Anlage der Folien 17 und 18; dazu die Maßkette an der Quelle der Folie 18 und der Umriss an der Quelle der Folie 17, die auf jeder der beiden Folien den Betrag der anderen im selben Maßstab zeigen), `_struktur.cjs` (Agenda, Texte der Folie 15, Quellentabelle), `_rechnung.cjs` (Kostenschwelle der Folie 22), `_modell.cjs` (Modellhaus,
+Verlauf A und C, vier Gründe des Fazits, Quellenzeile der Marktmiete),
 `_regeln.cjs`, `_umsetzung.cjs`, `_ueberblick.cjs`. Was nur eine Folie braucht, steht in `folien/_fein_<id>.cjs`:
 `_fein_ausgangslage-zinsen.cjs` (Folie 4: Legende mit Werten, Werteblöcke an den Marken, Punkt am Linienende, Jahresstriche).
 Die Folien 3 und 22 teilen sich `folien/_kostengruppen.cjs` (Diagramm der Kostenspannen mit Sockel, Spanne und Median, Legende, Prozentzeile).
@@ -91,7 +92,9 @@ module.exports = {
 | `ctx.o` | Eintrag der Folie aus `outline.json` (`id`, `nr`, `abschnitt`, `layout`, `titel`, `inhalt`, `darstellung`, `daten`, `quellen`); ein Feld `notizen` gibt es nicht mehr |
 | `ctx.outline` | das ganze Konzept (für die Folie „Quellen“: Nummern aller Folien) |
 | `ctx.B`, `ctx.D` | Bausteine und Diagramme, auf den Grund der Folie eingestellt (Abschnitt 5 und 6) |
-| `ctx.W(lauf, schluessel)` | Rohwert aus `werte.json`; bricht mit ähnlichen Schlüsseln in der Meldung ab, wenn er fehlt. Den Lauf `modellhaus_rendite` gibt der Bau nur der Folie `anhang-rendite` frei (`LAUF_NUR_FUER` in `build.cjs`); jede andere Folie bricht den Bau ab. `W.reihe(lauf, schluessel, von = 1, bis = 35)` für Zeitreihen `zr.*`, `W.eintrag(…)` mit Einheit, Blatt, Zelle, Bedeutung |
+| `ctx.W(lauf, schluessel)` | Rohwert aus `werte.json`; bricht mit ähnlichen Schlüsseln in der Meldung ab, wenn er fehlt. Den Lauf `modellhaus_rendite` liest seit 15.11.2026 keine Folie (`LAUF_NUR_FUER` in `build.cjs`). `W.reihe(lauf, schluessel, von = 1, bis = 35)` für Zeitreihen `zr.*`, `W.eintrag(…)` mit Einheit, Blatt, Zelle, Bedeutung |
+| `ctx.wert(schluessel)` | Rohwert aus `daten/kennzahlen.json` (Blätter Kennzahlen, Frei DSCR 1,2 und Zeitreihe der Rechenmappe; `vofi/build_kennzahlen.py`): frei finanziert zur Marktmiete (`…frei_markt`), Miete für DSCR 1,2 (`n2.miete_dscr`), Rendite, Vermögen, Annahmen (`annahme.*`), Läufe `n6.<lauf>.*`. Ohne Lauf wird der Schlüssel in allen Läufen gesucht und muss eindeutig sein; `ctx.wert('lauf:schluessel')` liest einen Lauf; `wert.eintrag(…)` mit Blatt und Zelle |
+| `ctx.pruefe(bedingung, meldung)` | Aussage gegen die Zahlen prüfen; eine falsche Bedingung bricht den Bau ab |
 | `ctx.fmt` | Formatierer (Abschnitt 4) |
 | `ctx.X(datei, pfad)` | Wert aus `daten/<datei>.json` über einen Punktpfad; `ctx.daten.regeln` usw. liefert die ganze Datei (fehlende Datei = `{}`) |
 | `ctx.C`, `ctx.HEX`, `ctx.F` | Schemafarben, feste Hex-Werte, Schriftfamilien (Abschnitt 3) |
@@ -277,8 +280,8 @@ und Einheit schützt die Bibliothek selbst („5,6 Mio. €“, „80 %“, „S
 
 - **E10:** Zahlen der Mappe nur über `W(lauf, schluessel)`. Das Modellhaus ist Projekt 2 der Rechenmappe (PGN-Projekt in Neu Wulmstorf,
   3.579 € je m², Grundstück nicht angesetzt); jeder Lauf setzt Eingaben!D3 auf 2. Läufe: `modellhaus`, `modellhaus_zeitreihe`,
-  `modellhaus_kosten_4631` (ARGE-Median) und `modellhaus_kosten_5460` (Bemessungsgrenze seit 01.10.2026; beide für die Folien 23 und A7),
-  `modellhaus_rendite` (Renditen, Restwert und Marktmiete; nur für die Folie `anhang-rendite`), `projekt2` (Stand der Altfassung mit
+  `modellhaus_kosten_4631` (ARGE-Median) und `modellhaus_kosten_5460` (Bemessungsgrenze seit 01.10.2026; beide für die Folie 22),
+  `modellhaus_rendite` (liest seit 15.11.2026 keine Folie; Renditen kommen aus `daten/kennzahlen.json`), `projekt2` (Stand der Altfassung mit
   Tilgung 2,5 %), `modellhaus_dscr125` (die beiden letzten erscheinen nicht auf Folien).
   Anteile sind Dezimalbrüche (0,025 = 2,5 %). `zr.*` und `frei.*` führen Auszahlungen negativ: Vorzeichen drehen.
 - **Zahlen, die nur Broschüre oder Altfassung haben,** stehen in der Datendatei der Baugruppe, je Eintrag
@@ -497,7 +500,8 @@ Planzeichen und Werte am Balkenende setzt man damit als Formen passgenau darübe
 Was die Bibliothek von selbst tut: Schrift Work Sans 11 pt an den Achsen, Montserrat Bold 12 pt an den Werten; Beschriftung
 im Segment weiß, auf Schraffur und hellem Grau in Tinte; Nullwerte ohne Beschriftung; Minus als U+2212; Fuge 1,5 pt in der
 Grundfarbe zwischen gestapelten Segmenten; Eigenmittel als Schraffur. Beschriftungen, die nicht in ihr Segment passen, werden
-ausgeblendet und stehen in `ohneLabel: [{ reihe, i, wert }]`; wer den Wert braucht, setzt ihn als Form daneben.
+ausgeblendet und stehen in `ohneLabel: [{ reihe, i, wert }]`; wer den Wert braucht, setzt ihn als Form daneben. Eine Reihe mit `ohneWerte: true` trägt keine
+Beschriftung (etwa der Rest bis zu einer Summe, die als Wert am Balkenende steht); sie steht nicht in `ohneLabel`.
 
 ### Flussdiagramm `D.fluss` (Folien 17 und 18, Muster 33)
 
@@ -529,7 +533,7 @@ Transparenz vor dem ersten Vortrag in PowerPoint ansehen.
 
 ## 7 · Assets (`assets/`, nur lesen)
 
-`B.bild` und `B.icon` nehmen den Dateinamen; sonst `ctx.asset('name')`. Vorhanden: `ref-brauerstrasse.jpg` (1800 × 740) ·
+`B.bild` und `B.icon` nehmen den Dateinamen; sonst `ctx.asset('name')`. Vorhanden: `ref-brauerstrasse.jpg` (1800 × 740) · `modellhaus.jpg` (1800 × 740, Visualisierung des Modellhauses) ·
 `axo-hell.png` (Axonometrie, freigestellt, 190 : 165) · `grundriss-hell.png` (186 : 114) · `raster-brauerstrasse-rot.png` ·
 `nordpfeil.png` · `logo-rot.png`, `logo-mark-rot.png` (liegen schon in den Layouts) · `qr-pgn.png` · `qr-nbank-karte.png` (QR-Code zur NBank-Karte, Folie A2: die Module aus dem Inline-SVG der Broschüre, Blatt „Bedarf am Standort“, Ruhezone vier Module; neu erzeugen mit `node lib/assets.cjs --nur qr-nbank-karte`, das Skript prüft das Ziel gegen den Inhalt der Broschüre) · `ui-<name>-<farbe>.png` ·
 `pikto-neubau-mfh.png`, `pikto-eh40-neubau.png`, `pikto-modernisierung.png`, `pikto-inseln.png`, `pikto-bindungserwerb.png`,
@@ -538,19 +542,20 @@ Rot) · `bg-*.png` (Hintergründe der Layouts). Keine Bilder von anderswo, kein 
 
 ## 8 · Vorlagen: die Folien selbst (`folien/`) und die Musterfolien (`probe/`)
 
-Die 37 Folienmodule sind die besten Beispiele. Zum Nachschlagen: Diagramm mit Hauptzahl und zweiter Kennzahl `einstieg-baukosten`,
+Die 35 Folienmodule sind die besten Beispiele. Zum Nachschlagen: Diagramm mit Hauptzahl und zweiter Kennzahl `einstieg-baukosten`,
 `ausgangslage-zinsen`, `einstieg-bestand` · feine Säulenpaare mit Maßkette je Paar `einstieg-baukosten` · feine Linien mit weicher
 Fläche, Legende mit Werten und Werteblöcken an den Marken `ausgangslage-zinsen` · schmale gestapelte Säulen mit feiner Kontur, ohne
 Achse und Gitter, mit senkrechter Maßkette, Zuleitungen und Tabelle `einstieg-kapitaldienst` · feine Säulen mit eigener Farbe je
 Säule und Maßkette über die ganze Reihe `einstieg-bestand` ·
 Achse mit großen Achskreisen und Register der Programmteile `agenda` · Flussdiagramm `rechnung-fluss-gefoerdert`, `rechnung-fluss-frei` ·
 feine Säulenpaare mit Maßzeichen der Spanne `pgn-baukosten` · Vergleich `neu-seit-juli` · Säulen mit Marken `hoechstmiete` ·
-Fördermix `foerdermix` · Zeitstrahl `eckdaten-zeitstrahl` · Balken mit Segmenttext und Rechenblatt `rechnung-finanzierung` ·
-Rechenblatt `rechnung-jahr1` · Summen am Balken `rechnung-kapitaldienst` · Balkenpaar und Vergleichstabelle (Rechenweg der kostendeckenden Anfangsmiete) `rechnung-miete` ·
-Linien mit Marken und Werten `rechnung-tilgung`, `rechnung-verlauf` · Säulen über einer Tabelle `rechnung-kosten` · Ablauf
+Fördermix `foerdermix` · Zeitstrahl `eckdaten-zeitstrahl` · Bild über sieben Spalten mit zwei Kennzahlen `rechnung-modellhaus` ·
+gestapelte Balken mit Maßkette, Hauptzahl und Nebenzahl `rechnung-finanzierung` · Flussdiagramm mit zweitem Zufluss (Fehlbetrag) `rechnung-fluss-frei` ·
+Balkenpaar mit Lücke und Marken `rechnung-miete` · Linien mit Fläche, Marken, Werten an den Linienenden und senkrechter Maßkette `rechnung-verlauf` ·
+gruppierte Säulen mit Maßketten, zwei Kennzahlen und Rechenblatt `rechnung-rendite` · zwei Module mit gestapelten Balken und Marke `rechnung-spielraum` ·
+vier Zeilen mit Nummer `fazit` · Ablauf
 `antragsweg` · Balkenplan und Bild `pgn-leistungen` · dichte Tabelle `anhang-programmteile` · Zeitleiste (Musterfolie 31) ·
-Prüfliste und Ring `anhang-voraussetzungen` · Rechenblatt im Anhang mit Ergebniszeile in der Mitte, Spalten verschiedener Breite und
-Annahmen daneben `anhang-rendite` · Quellenzeile im Schriftfeld `einstieg-baukosten`, `einstieg-bestand` (zwei Zeilen) · Quellentabelle mit
+Prüfliste und Ring `anhang-voraussetzungen` · dichte Tabelle mit Trennlinien der Gruppen `anhang-annahmen` · Quellenzeile im Schriftfeld `einstieg-baukosten`, `einstieg-bestand` (zwei Zeilen) · Quellentabelle mit
 Hinweis-Kasten `quellen`.
 
 Musterfolien für Layouts und Bausteine, die der Vortrag nicht braucht oder anders einsetzt (`node build.cjs --probe`):
@@ -637,16 +642,11 @@ verbotene Wörter, Gedankenstriche und jede Zahl gegen `daten/werte.json`, die D
 5. **Reihenfolge in Diagrammen:** immer Lesereihenfolge (Abschnitt 6). Stricharten nur über `strich` je Reihe, nie `lineDash`.
 6. **Keine Zahl mit Aussage von Hand.** Werte, Maßkettentexte, Markenwerte und Texte wie „20 %“ kommen aus `W` oder `X` und
    `fmt`. Achsgrenzen, Schritte, Lagen und Maße dürfen als Zahlen im Modul stehen.
-7. **E5:** keine Renditen, kein DSCR, keine Marktmiete des Modellhauses, kein „Safe Harbour“. Der Lauf `modellhaus_dscr125`
-   und die Schlüssel `dscr.ziel` und `zr.dscr.*` erscheinen nicht; `dscr.kapitaldienst_jahr1.*` und `dscr.noetige_miete.*`
-   sind erlaubt (Kapitaldienst und nötige Miete bei Überschuss null). **Eine Ausnahme** auf Wunsch des Auftraggebers (11.11.2026):
-   Die Anhangfolie A6 (`anhang-rendite`) zeigt die Eigenkapitalrendite über 35 Jahre und nennt die Marktmiete, als Paar „mit Restwert“
-   und „ohne Restwert“ mit dem Restwertanteil, wie die Rechenmappe es verlangt (ihre Lesart „nur Bodenwert“ rechnet beim Modellhaus ohne
-   Restwert, weil das Grundstück nicht angesetzt ist; das Modul prüft Eingabe 2.3 = 0). Marktmiete und Liegenschaftszins gelten für Neu Wulmstorf;
-   ihre Herkunft steht in `daten/rechnung.json` (Block `marktwerte`), die Annahmen der Folie nennen Wert und Herkunft. Ihre Werte stehen im Lauf `modellhaus_rendite`
-   (`daten/werte_aus_vofi.py`: Katalog `katalog_rendite`, benannte Ausnahme `anhang_rendite` von der Sperrliste). Der Bau gibt den Lauf
-   nur dieser Folie frei, `pruefe_folien.py` lässt „Rendite“ und „Marktmiete“ nur dort zu und nimmt die Zahlen des Laufs nur dort als
-   Beleg. Für alle anderen Folien gilt E5 unverändert.
+7. **E5:** kein „IRR“ und kein „Safe Harbour“. Bis 15.11.2026 galten auch Renditen, DSCR und Marktmiete als gesperrt (mit einer Ausnahme
+   für die damalige Anhangfolie A6). Seit dem Umbau der Modellrechnung zeigen die Folien 17 bis 22 frei finanziert zur Marktmiete, die Miete
+   für eine DSCR von 1,2 und die Eigenkapitalrendite; ihre Zahlen kommen aus `daten/kennzahlen.json` (`ctx.wert`), die Quelle der Marktmiete
+   steht im Schriftfeld (`daten/rechnung.json`, `marktwerte.quelle_kurz`). Der Lauf `modellhaus_rendite` in `werte.json` liest keine Folie.
+   Die Rendite steht nur als Paar „mit Restwert“ und „ohne“ mit dem Anteil des Restwerts (Folie 21).
 8. **Modellrechnung:** `_MR`-Layouts stehen auf Papierton, das Wort steht im Kopf (Abschnittsname), kein Stempel im Kopf (Schalter `STEMPEL_IM_KOPF`). `B.schluesselplan` ist dort gesperrt, die Programmnummer trägt `B.register`.
 9. **Zeilenabstand im Bild:** LibreOffice setzt Text gut 2 % höher als die Schriftmetrik; die Prüfung rechnet das ein.
    Felder nicht bis auf die letzte Zeile füllen: Unter 5 % Luft gibt der Build einen Hinweis.

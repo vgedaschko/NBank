@@ -624,6 +624,7 @@ Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die B
 | `praesentation/assets/pikto-weg-ersterwerb.png` | aktuell | Bauskript Vortrag | Bild oder Symbol für den Bau |
 | `praesentation/assets/qr-pgn.png` | aktuell | Bauskript Vortrag | Bild oder Symbol für den Bau |
 | `praesentation/assets/raster-brauerstrasse-rot.png` | aktuell | Bauskript Vortrag | Bild oder Symbol für den Bau |
+| `praesentation/assets/modellhaus.jpg` | aktuell | Bauskript Vortrag | Bild oder Symbol für den Bau |
 | `praesentation/assets/ref-brauerstrasse.jpg` | aktuell | Bauskript Vortrag | Bild oder Symbol für den Bau |
 | `praesentation/assets/ui-achtung-dunkelrot.png` | aktuell | Bauskript Vortrag | Bild oder Symbol für den Bau |
 | `praesentation/assets/ui-achtung-rot.png` | aktuell | Bauskript Vortrag | Bild oder Symbol für den Bau |
@@ -687,6 +688,7 @@ Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die B
 | `praesentation/assets/wert-vertrauen-weiss.png` | aktuell | Bauskript Vortrag | Bild oder Symbol für den Bau |
 | `praesentation/build.cjs` | aktuell | Bauskript Vortrag | BAUSKRIPT: baut den Vortrag |
 | `praesentation/daten/inhalt_md.py` | aktuell | Bauskript Vortrag | Daten, Konzept oder Belege des Vortrags |
+| `praesentation/daten/kennzahlen.json` | aktuell | Bauskript Vortrag | Zahlen der Modellrechnung aus der Rechenmappe (Blätter Kennzahlen, Frei DSCR 1,2, Zeitreihe; erzeugt von vofi/build_kennzahlen.py) |
 | `praesentation/daten/markt.json` | aktuell | Bauskript Vortrag | Daten, Konzept oder Belege des Vortrags |
 | `praesentation/daten/outline.json` | aktuell | Bauskript Vortrag | Daten, Konzept oder Belege des Vortrags |
 | `praesentation/daten/probe.json` | aktuell | Bauskript Vortrag | Musterfolie der Bausteine (Testbau läuft), kein Ergebnis |
@@ -705,6 +707,7 @@ Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die B
 | `praesentation/folien/_fein_pgn-baukosten.cjs` | veraltet | Bauskript Vortrag | Hilfsmodul der alten Folie 22, von keiner Folie mehr benutzt |
 | `praesentation/folien/_fluss.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/_kostengruppen.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
+| `praesentation/folien/_modell.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/_rechnung.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/_regeln.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/_struktur.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
@@ -715,8 +718,6 @@ Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die B
 | `praesentation/folien/anhang-frist.cjs` | gelöscht am 13.11.2026 | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/anhang-mieterkreis.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/anhang-programmteile.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
-| `praesentation/folien/anhang-rendite.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
-| `praesentation/folien/anhang-tilgungsschwelle.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/anhang-trenner.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/anhang-vertraege.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/anhang-voraussetzungen.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
@@ -735,13 +736,12 @@ Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die B
 | `praesentation/folien/pgn-leistungen.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/quellen.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/rechnung-finanzierung.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
+| `praesentation/folien/rechnung-modellhaus.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
+| `praesentation/folien/rechnung-rendite.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
+| `praesentation/folien/rechnung-spielraum.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/rechnung-fluss-frei.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/rechnung-fluss-gefoerdert.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
-| `praesentation/folien/rechnung-jahr1.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
-| `praesentation/folien/rechnung-kapitaldienst.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
-| `praesentation/folien/rechnung-kosten.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/rechnung-miete.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
-| `praesentation/folien/rechnung-tilgung.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/rechnung-verlauf.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/titel.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
 | `praesentation/folien/trenner-ausgangslage.cjs` | aktuell | Bauskript Vortrag | Modul einer Folie bzw. gemeinsamer Teil |
@@ -828,8 +828,10 @@ Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die B
 | `vofi/AENDERUNGEN.md` | aktuell | Excel | Begleitunterlage zur Rechenmappe v3 |
 | `vofi/KONZEPT-v3.md` | aktuell | Excel | Begleitunterlage zur Rechenmappe v3 |
 | `vofi/PGN_VOFI_Mietwohnraum_2026_v3.xlsx` | aktuell | Excel | ERGEBNIS: Rechenmappe v3 |
+| `vofi/ANNAHMEN.md` | aktuell | Excel | Annahmen der Modellrechnung mit Herkunft (aus der Mappe erzeugt) |
 | `vofi/README.md` | aktuell | Excel | Begleitunterlage zur Rechenmappe v3 |
 | `vofi/build_vofi.py` | aktuell | Bauskript Excel | erzeugt die Rechenmappe |
+| `vofi/build_kennzahlen.py` | aktuell | Bauskript Excel | hängt Kennzahlen, Frei DSCR 1,2 und Zeitreihe an, schreibt praesentation/daten/kennzahlen.json |
 | `vofi/pruefe_vofi.py` | aktuell | Bauskript Excel | prüft die Rechenmappe |
 
 ## Nicht versioniert (entsteht beim Bau, liegt nur auf der Arbeitsmaschine)

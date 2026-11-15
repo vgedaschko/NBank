@@ -1,4 +1,4 @@
-// Zugriff auf die Zahlen der Mappe (daten/werte.json), auf das Folienkonzept (daten/outline.json) und auf die
+// Zugriff auf die Zahlen der Mappe (daten/werte.json und daten/kennzahlen.json), auf das Folienkonzept (daten/outline.json) und auf die
 // Datendateien der Baugruppen (daten/regeln.json, markt.json, umsetzung.json, rahmen.json, rechnung.json). Dazu die Formatierer.
 // Regel E10: Zahlen der Mappe kommen nur über W(lauf, schluessel) auf die Folien, gerundet wird erst beim Formatieren.
 'use strict';
@@ -34,6 +34,34 @@ W.reihe = (lauf, schluessel, von = 1, bis = 35) => {
 };
 W.laeufe = () => Object.keys(werte().laeufe);
 W.meta = () => werte().meta;
+
+// ---- Kennzahlen der Modellrechnung (daten/kennzahlen.json) -------------------------------------------------------------------------------
+// Blätter Kennzahlen, Frei DSCR 1,2 und Zeitreihe der Rechenmappe (vofi/build_kennzahlen.py): frei finanziert zur Marktmiete und zur Miete für
+// eine DSCR von 1,2, Eigenkapitalrendite, Läufe zu Kosten, Tilgung, Zins und Mietanpassung. K('n5.zue_jahr1.A') sucht den Schlüssel in allen
+// Läufen; er muss in genau einem stehen oder überall denselben Wert haben. K('lauf:schluessel') liest einen Lauf.
+let _kennzahlen = null;
+function kennzahlen() { return _kennzahlen || (_kennzahlen = lies('kennzahlen.json')); }
+function kEintrag(schluessel) {
+  const k = kennzahlen(), m = String(schluessel).match(/^([^:]+):(.+)$/);
+  const fehlt = namen => {
+    const stamm = String(schluessel).replace(/^[^:]*:/, '').split('.').slice(0, 2).join('.');
+    const nah = namen.filter(n => n.includes(stamm)).slice(0, 12);
+    return new Error(`kennzahlen.json: Schlüssel „${schluessel}“ fehlt.` + (nah.length ? ` Ähnliche Schlüssel: ${nah.join(', ')}` : ''));
+  };
+  if (m) {
+    const L = k.laeufe[m[1]];
+    if (!L) throw new Error(`kennzahlen.json: Lauf „${m[1]}“ gibt es nicht. Vorhanden: ${Object.keys(k.laeufe).join(', ')}`);
+    if (!L.werte[m[2]]) throw fehlt(Object.keys(L.werte));
+    return L.werte[m[2]];
+  }
+  const treffer = Object.values(k.laeufe).map(L => L.werte[schluessel]).filter(Boolean);
+  if (!treffer.length) throw fehlt(Object.values(k.laeufe).flatMap(L => Object.keys(L.werte)));
+  if (new Set(treffer.map(e => JSON.stringify(e.wert))).size > 1) throw new Error(`kennzahlen.json: Schlüssel „${schluessel}“ steht in mehreren Läufen mit verschiedenen Werten. Schreibweise „lauf:schluessel“.`);
+  return treffer[0];
+}
+function K(schluessel) { return kEintrag(schluessel).wert; }
+K.eintrag = kEintrag;
+K.meta = () => kennzahlen().meta;
 
 // ---- Formatierer (deutsche Schreibweise, U+00A0 vor der Einheit, Minus U+2212) ---------------------------------
 // Kaufmännisch runden über die Dezimalschreibweise (kein Binärfehler bei 1,005). Sehr kleine und sehr große Beträge schreibt JavaScript mit
@@ -140,4 +168,4 @@ function X(name, pfad) {
   return o !== null && typeof o === 'object' && !Array.isArray(o) && 'wert' in o ? o.wert : o;
 }
 
-module.exports = { W, fmt, outline, folieAusKonzept, datei, X, DATEIEN, NBSP, MINUS, glatt, zahlwort, fuelle, mittel };
+module.exports = { W, K, fmt, outline, folieAusKonzept, datei, X, DATEIEN, NBSP, MINUS, glatt, zahlwort, fuelle, mittel };

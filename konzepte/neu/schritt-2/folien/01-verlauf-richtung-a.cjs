@@ -1,0 +1,40 @@
+// Schritt 2 · Folie 3.4, Richtung A „Diagramm und Erklärung“: Liniendiagramm über sieben Spalten (A und C, Jahr 1 bis 35), rechts
+// Stichpunkte in 14 pt unter „Ergebnis“ und „Grund“. Marke bei dem Jahr, ab dem C vor A liegt; Werte für Jahr 35 an den Linienenden.
+'use strict';
+const { verlauf } = require('./_daten.cjs');
+
+module.exports = {
+  id: 'verlauf-richtung-a',
+  o: { nr: '3.4', abschnitt: 'Modellrechnung', layout: 'PGN_DIAGRAMM_MR', kicker: 'MODELLRECHNUNG · VERLAUF',
+    quellen: 'Quelle: Rechenmappe v3, Gefördert A und C, Jahr 1 bis 35; Konzepte D61, F61, D64, F64.' },
+  bau(ctx) {
+    const { B, D, fmt, ZONE, colX } = ctx, wl = (t, was) => ctx.wortlaut(t, was);
+    const { jahre, n, A, C, ab, iAb, M } = verlauf(ctx);
+    const s = ctx.folie(ctx.titelzeilen(['Kein Jahr mit Fehlbetrag,', `ab Jahr ${ab} liegt Gruppe C vor A`], `ab Jahr ${ab}`));
+    B.register(s, '2.1');
+    B.diagrammkopf(s, { titel: wl(`Zahlungsüberschuss je Jahr, Jahr ${jahre[0]} bis ${jahre[n]}`, 'Diagrammtitel'),
+      sub: wl(`in € p. a., nach Kapitaldienst · Miete alle drei Jahre +${fmt.prozent(M('tab.mieterhoehung_in_der_bindung'), 2)}`, 'Untertitel') });
+    B.legende(s, { x: colX(1), y: ZONE.diagramm.legende, eintraege: [{ text: 'Gruppe A', art: 'tinte', strich: 'solid' }, { text: 'Gruppe C', art: 'referenz', strich: 'solid' }] });
+
+    const cz = ZONE.diagramm.chart;
+    const d = D.linien(s, { x: cz.x, y: cz.y, w: cz.w, h: cz.h, kategorien: jahre, katLabels: { formen: [1, 5, 10, 15, 20, 25, 30, 35] },
+      rand: { l: 1.02, r: 1.30, u: 0.50 }, name: 'Diagramm Zahlungsüberschuss A und C',
+      reihen: [{ name: 'Gruppe A', werte: A, art: 'tinte', strich: 'solid' }, { name: 'Gruppe C', werte: C, art: 'referenz', strich: 'solid' }],
+      achse: { min: 0, max: 100000, schritt: 20000, format: 'ganz' } });
+    ctx.pruefe(Math.max(...A, ...C) < 100000, 'Ein Wert reicht über die Größenachse.');
+    B.achstexte(s, d);
+    B.achsentitel(s, d, { y: wl('Zahlungsüberschuss in € p. a.', 'Achsentitel'), x: wl('Jahr', 'Achsentitel'), xAbstand: 0.29, yVon: d.y + 0.04, yBis: d.plot.y + d.plot.h + 0.24 });
+    B.marke(s, { x: d.katMitte(iAb), y: d.plot.y, h: d.plot.h, art: 'mass', text: `Jahr ${ab}`, textSeite: 'rechts', textBreite: 1.3 });
+    B.linienenden(s, { x: d.katMitte(n) + 0.26, abstand: 0.30, eintraege: [
+      { kreis: 'C', y: d.yWert(C[n]), wert: fmt.zahl(C[n]) }, { kreis: 'A', y: d.yWert(A[n]), wert: fmt.zahl(A[n]) }] });
+
+    const kdA = M('dscr.kapitaldienst_jahr1.A'), kdC = M('dscr.kapitaldienst_jahr1.C'), mA = M('fin.miete_jahr1.A'), mC = M('fin.miete_jahr1.C');
+    const p = t => wl(t, 'Stichpunkt');
+    B.stichpunkte(s, { platzhalter: 'kommentar', gruppen: [
+      { titel: wl('Ergebnis', 'Überschrift'), punkte: [p('kein Jahr mit Fehlbetrag'), p(`Jahr ${jahre[0]}: A ${fmt.euro(A[0])}, C ${fmt.euro(C[0])}`),
+        p(`ab Jahr ${ab}: C vorn`)] },
+      { titel: wl('Grund', 'Überschrift'), punkte: [
+        p(`A: mehr Zuschuss, Kapitaldienst ${fmt.euro(kdA)} statt ${fmt.euro(kdC)}. Der Vorteil bleibt etwa gleich.`),
+        p(`C: Miete ${fmt.euroDez(mC)} statt ${fmt.euroDez(mA)}. Der Vorteil wächst mit jeder Mietanpassung.`)] }] });
+  },
+};

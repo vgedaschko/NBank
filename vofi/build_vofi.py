@@ -336,7 +336,7 @@ EINGABEN = [
     ("4.1", 22, "Mietenstufe", "Mietenstufe", "Liste", F_TEXT, "IV", "VI",
      _FM + " / Projektdaten PGN, Broschüre S. 10", ("liste", "Mietenstufen")),
     ("4.2", 23, "Effizienzhaus 40 erreicht", "Effizienz_EH40", "ja/nein", F_TEXT, "nein", "nein",
-     _FM + " / Planung PGN (EH 55), Broschüre S. 11", ("liste", '"ja,nein"')),
+     _FM + " / Planung PGN (EH 55), Broschüre S. 10", ("liste", '"ja,nein"')),
     ("4.3", 24, "Ortsübliche Vergleichsmiete, Jahr 1", "Vergleichsmiete_1", "€/m² Monat", F_EUR2,
      11.87, 12.91774539744, "PGN-Annahme / Mietübersicht Lkr. Harburg 2022, fortgeschr.", ("dez", 0, 50)),
     ("4.4", 25, "Marktmiete Neuvermietung, Jahr 1", "Marktmiete_1", "€/m² Monat", F_EUR2,
@@ -355,7 +355,7 @@ EINGABEN = [
     ("5.4", 32, "Kostensteigerung ab Jahr 2", "Kostensteigerung", "% p. a.", F_PCT, 0.02, 0.02,
      _VG + " Best 1,5 %, Worst 2,5 %", ("dez", -0.05, 0.10)),
     ("5.5", 33, "Kostensätze 2026 fortschreiben um", "Kosten_Vorlauf", "Jahre", F_JAHR, 0, 0,
-     "Broschüre S. 11 (Kostenstand 2026)", ("ganz", 0, 10)),
+     "PGN-Annahme (Kostenstand 2026)", ("ganz", 0, 10)),
     # Block 6 Bankdarlehen und Vergleichszins
     ("6.1", 35, "Zins Bank; Vergleichszins Förderbarwert", "Zins_Bank", "% p. a.", F_PCT, 0.0386, 0.0386,
      "Dr. Klein Wowi, Top-Konditionen 10 Jahre, Stand 10.11.2026", ("dez", 0, 0.15)),
@@ -1411,11 +1411,11 @@ def _diff(z):
     return {"D": STRICH, "E": f"=E{z}-D{z}", "F": f"=F{z}-D{z}"}
 
 
-# Vergleich der Gruppen (Rechenweg Broschüre S. 12): Zeile, Nr., Bezeichnung, Einheit, {Spalte: Formel}, Format,
+# Vergleich der Gruppen (Rechenweg 4.12 bis 4.16; bis 15.11.2026 auch Broschüre S. 12): Zeile, Nr., Bezeichnung, Einheit, {Spalte: Formel}, Format,
 # Bemerkung. Schwellen sichtbar, Rechenweg darunter eingeklappt.
 UEB_BLOCK4_VERGLEICH = [
     (63, "4.9", "Tilgungsschwelle B gegenüber A", "%", {"E": _schwelle("B", "A")}, F_PCT,
-     "Rechenweg wie Broschüre S. 12"),
+     "Rechenweg 4.12 bis 4.16"),
     (64, "4.10", "Tilgungsschwelle C gegenüber A", "%", {"F": _schwelle("C", "A")}, F_PCT, None),
     (65, "4.11", "Tilgungsschwelle C gegenüber B", "%", {"F": _schwelle("C", "B")}, F_PCT, None),
     (66, "4.12", "Mehrschuld gegenüber A", "€",

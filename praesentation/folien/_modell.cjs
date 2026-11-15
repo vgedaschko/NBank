@@ -1,7 +1,7 @@
 // Gemeinsame Teile der Modellrechnung (Folien 14 bis 22) und des Fazits. Kein Folienmodul: Der Build lädt nur folien/<id>.cjs zu den IDs des
 // Konzepts.
 //   fakten(ctx)         Eckdaten des Modellhauses aus der Rechenmappe (Eingaben über daten/kennzahlen.json, annahme.*)
-//   bild(ctx, s, lage)  Visualisierung des Modellhauses, auf den Ausschnitt beschnitten, mit Bildecke
+//   schema(ctx, s, lage)  Schema des Modellhauses aus nativen Formen, ein Fenster je Wohnung
 //   verlauf(ctx)        Zahlungsüberschuss je Jahr in A und C (Jahr 1 bis 35) mit den Aussagen der Folie 20
 //   gruende(ctx)        die vier Gründe des Fazits mit ihren Zahlen
 //   quelleMarkt(ctx)    Quellenzeile der Folien mit der Marktmiete
@@ -19,16 +19,39 @@ function fakten(ctx) {
     standard: 'Effizienzhaus 55', fmt };
 }
 
-// Bild in freier Lage, auf w × h beschnitten (mittig), mit Bildecke wie B.bild. Das Bild hat das Verhältnis 1800 : 740
-function bild(ctx, s, { x, y, w, h, name }) {
-  const hVoll = +(w * 740 / 1800).toFixed(3), hoch = h > hVoll;
-  // Bei einem Ausschnitt höher als das Bildverhältnis wird das Bild in der Höhe gefüllt und seitlich beschnitten
-  const wVoll = hoch ? +(h * 1800 / 740).toFixed(3) : w;
-  if (!hoch && h < hVoll) ctx.zoneAusnahme(name || 'Bild Modellhaus', 'Bild auf einen Ausschnitt beschnitten; sichtbar bis zur Unterkante des Ausschnitts');
-  s.addImage({ path: ctx.asset('modellhaus.jpg'), x, y, w: hoch ? wVoll : w, h: hoch ? h : hVoll, sizing: { type: 'cover', w, h }, objectName: name || 'Bild Modellhaus',
-    altText: 'Visualisierung des Modellhauses: dreigeschossiges Mehrfamilienhaus aus rotem Klinker mit Flachdach und Balkonen, davor Stellplätze und Grün.' });
-  s.addText('Visualisierung', { shape: ctx.pres.ShapeType.rect, x: x + w - 1.25, y: y + h - 0.26, w: 1.25, h: 0.26, margin: 0, align: 'center', valign: 'middle',
-    fontFace: ctx.F.medium, fontSize: 10, color: ctx.C.grau, fill: { color: ctx.C.weiss }, line: { type: 'none' }, objectName: 'Bildecke Visualisierung' });
+// Schema des Modellhauses in freier Lage (seit 15.11.2026 statt der Visualisierung: das Bild der Referenzen zeigt ein anderes PGN-Projekt in
+// Neu Wulmstorf). Native Formen: Baukörper mit Attika, drei Geschosse zu je fünf Achsen, im Erdgeschoss mittig der Eingang; ein Fenster je
+// Wohnung, also so viele Fenster wie Wohnungen. Kein Rot (Rot = Zuschuss). Das Schema zeigt nicht das Gebäude, Geschosszahl und Fassade sind
+// nicht belegt; die Unterzeile sagt das.
+function schema(ctx, s, { x, y, w, h, we, name }) {
+  const ST = ctx.pres.ShapeType, C = ctx.C, wl = (t) => ctx.wortlaut(t, 'Schema');
+  const achsen = 5, geschosse = 3;
+  ctx.pruefe(we === achsen * geschosse - 1, `Das Schema hat ${achsen * geschosse - 1} Fenster, das Modellhaus ${we} Wohnungen.`);
+  const unterH = 0.42, attH = 0.14, gh = Math.min(1.08, (h - unterH - attH - 0.30) / geschosse);
+  const bw = Math.min(w - 1.2, achsen * 1.12), bx = +(x + (w - bw) / 2).toFixed(3);
+  const boden = +(y + h - unterH).toFixed(3), oben = +(boden - geschosse * gh).toFixed(3), ax = bw / achsen;
+  const r = (v) => +v.toFixed(3), n = name || 'Schema Modellhaus';
+  s.addShape(ST.rect, { x: r(bx - 0.06), y: r(oben - attH), w: r(bw + 0.12), h: attH, fill: { color: C.tinte }, line: { type: 'none' }, objectName: `${n} Attika` });
+  s.addShape(ST.rect, { x: bx, y: oben, w: bw, h: r(geschosse * gh), fill: { color: C.weiss }, line: { color: C.tinte, width: 1.5 }, objectName: `${n} Baukörper` });
+  ctx.B.altText(s, `${n} Baukörper`, `Schema des Modellhauses: Mehrfamilienhaus mit ${we} Fenstern, ein Fenster je Wohnung. Keine Ansicht des Gebäudes.`);
+  for (let g = 1; g < geschosse; g++) s.addShape(ST.line, { x: bx, y: r(oben + g * gh), w: bw, h: 0, line: { color: C.grau, width: 0.75 }, objectName: `${n} Geschossdecke ${g}` });
+  const fw = r(Math.min(0.36, ax * 0.30)), fh = r(gh * 0.56);
+  let k = 0;
+  for (let g = 0; g < geschosse; g++) for (let a = 0; a < achsen; a++) {
+    const cx = bx + (a + 0.5) * ax, gy = oben + g * gh;
+    if (g === geschosse - 1 && a === (achsen - 1) / 2) {          // Eingang im Erdgeschoss
+      const tw = r(fw * 1.15), th = r(gh * 0.78);
+      s.addShape(ST.rect, { x: r(cx - tw / 2), y: r(boden - th), w: tw, h: th, fill: { color: C.weiss }, line: { color: C.tinte, width: 1.5 }, objectName: `${n} Eingang` });
+      s.addShape(ST.rect, { x: r(cx - tw / 2 - 0.12), y: r(boden - th - 0.10), w: r(tw + 0.24), h: 0.06, fill: { color: C.tinte }, line: { type: 'none' }, objectName: `${n} Vordach` });
+      continue;
+    }
+    k++;
+    s.addShape(ST.rect, { x: r(cx - fw / 2), y: r(gy + (gh - fh) / 2), w: fw, h: fh, fill: { color: C.tinte }, line: { type: 'none' }, objectName: `${n} Fenster ${k}` });
+  }
+  s.addShape(ST.line, { x, y: boden, w, h: 0, line: { color: C.tinte, width: 1.5 }, objectName: `${n} Gelände` });
+  s.addText(wl('Schema: ein Fenster je Wohnung'), { x, y: r(boden + 0.10), w, h: 0.26, margin: 0, align: 'left', valign: 'top', fontFace: ctx.F.text, fontSize: 12,
+    color: C.grau, objectName: `${n} Unterzeile`, isTextBox: true });
+  return k;
 }
 
 // ---- Verlauf A und C -----------------------------------------------------------------------------------------------------------------------
@@ -78,4 +101,4 @@ function gruende(ctx) {
 // Quellenzeile der Folien mit der Marktmiete (daten/rechnung.json, marktwerte.quelle_kurz), gegen das Konzept geprüft
 const quelleMarkt = ctx => ctx.wortlaut(ctx.X('rechnung', 'marktwerte.quelle_kurz'), 'Quellenzeile');
 
-module.exports = { fakten, bild, verlauf, gruende, quelleMarkt };
+module.exports = { fakten, schema, verlauf, gruende, quelleMarkt };

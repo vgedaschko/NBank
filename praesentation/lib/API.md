@@ -533,7 +533,7 @@ Transparenz vor dem ersten Vortrag in PowerPoint ansehen.
 
 ## 7 · Assets (`assets/`, nur lesen)
 
-`B.bild` und `B.icon` nehmen den Dateinamen; sonst `ctx.asset('name')`. Vorhanden: `ref-brauerstrasse.jpg` (1800 × 740) · `modellhaus.jpg` (1800 × 740, Visualisierung des Modellhauses) ·
+`B.bild` und `B.icon` nehmen den Dateinamen; sonst `ctx.asset('name')`. Vorhanden: `ref-brauerstrasse.jpg` (1800 × 740) ·
 `axo-hell.png` (Axonometrie, freigestellt, 190 : 165) · `grundriss-hell.png` (186 : 114) · `raster-brauerstrasse-rot.png` ·
 `nordpfeil.png` · `logo-rot.png`, `logo-mark-rot.png` (liegen schon in den Layouts) · `qr-pgn.png` · `qr-nbank-karte.png` (QR-Code zur NBank-Karte, Folie A2: die Module aus dem Inline-SVG der Broschüre, Blatt „Bedarf am Standort“, Ruhezone vier Module; neu erzeugen mit `node lib/assets.cjs --nur qr-nbank-karte`, das Skript prüft das Ziel gegen den Inhalt der Broschüre) · `ui-<name>-<farbe>.png` ·
 `pikto-neubau-mfh.png`, `pikto-eh40-neubau.png`, `pikto-modernisierung.png`, `pikto-inseln.png`, `pikto-bindungserwerb.png`,

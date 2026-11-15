@@ -110,7 +110,7 @@ Gültigkeit = Datenüberprüfung. Die Fehlermeldung nennt den zulässigen Bereic
 | Nr. | Zeile | Eingabe (Excel) | Name | Einheit | Vergleichshaus | Tarutinoer | Quelle (Excel) | Fundstelle | Gültigkeit |
 |---|---|---|---|---|---|---|---|---|---|
 | 4.1 | 22 | Mietenstufe | `Mietenstufe` | Liste | IV | VI | früheres Modellhaus / Projektdaten PGN, Broschüre S. 10 | Broschüre S. 10 im Stand bis 11.11.2026 (IV–VII) / v2-1 Eingabe!C36, Broschüre S. 10 (IV–VII) | Liste `=Mietenstufen` |
-| 4.2 | 23 | Effizienzhaus 40 erreicht | `Effizienz_EH40` | ja/nein | nein | nein | früheres Modellhaus / Planung PGN (EH 55), Broschüre S. 11 | Broschüre im Stand bis 11.11.2026 ohne Zuschlag / v2-1 Eingabe!C37 (EH 55), Broschüre S. 11 ohne EH-40-Zuschlag | Liste „ja,nein“ |
+| 4.2 | 23 | Effizienzhaus 40 erreicht | `Effizienz_EH40` | ja/nein | nein | nein | früheres Modellhaus / Planung PGN (EH 55), Broschüre S. 10 | Broschüre im Stand bis 11.11.2026 ohne Zuschlag / v2-1 Eingabe!C37 (EH 55), Broschüre S. 11 ohne EH-40-Zuschlag | Liste „ja,nein“ |
 | 4.3 | 24 | Ortsübliche Vergleichsmiete, Jahr 1 | `Vergleichsmiete_1` | €/m² Monat | 11,87 | 12,92 | PGN-Annahme / Mietübersicht Lkr. Harburg 2022, fortgeschr. | PGN-Annahme: 13,30 × 12,92 ÷ 14,48 (dasselbe Verhältnis zur Marktmiete wie bis 10.11.2026; für Rotenburg (Wümme) gibt es keinen Mietspiegel), Abschnitt Q / v2-1 Basisdaten!C49 | Dezimal 0,00–50,00 |
 | 4.4 | 25 | Marktmiete Neuvermietung, Jahr 1 | `Marktmiete_1` | €/m² Monat | 13,30 | 15,42 | Mietübersicht Lkr. Rotenburg 2026 / Lkr. Harburg 2026 | Gutachterausschuss Otterndorf, Grundstücksmarktdaten 2026, Mietübersicht Landkreis Rotenburg (Wümme), Stichtag 01.01.2026: Baujahr 2020, Wohnung 70 m², Lage (Bodenrichtwert) 160 €/m², zwischen den Tabellenwerten 13,11 € (Lage 150) und 14,04 € (Lage 200) eingerechnet; Bodenrichtwert der Zone „Brauerstraße (MI)“ zum 01.01.2026: 160 €/m²; Abschnitt Q / v2-1 Basisdaten!C48 | Dezimal 0,00–50,00 |
 | 4.5 | 26 | Steigerung Markt- und Vergleichsmiete | `Mietsteigerung` | % p. a. | 2,00 % | 2,00 % | PGN-Annahme | RR `miet_wachstum` / v2-1 Eingabe!C72 | Dezimal −0,05–0,1 |
@@ -124,7 +124,7 @@ Gültigkeit = Datenüberprüfung. Die Fehlermeldung nennt den zulässigen Bereic
 | 5.2 | 30 | Objektverwaltung je Wohnung | `Verwaltung_WE` | € p. a. | 367 | 367 | PGN-Annahme (Broschüre S. 11); ImmoWertV fortgeschrieben | freigegebene Annahme / v2-1 Eingabe!C80 | Dezimal 0–2.000 |
 | 5.3 | 31 | Instandhaltung je m² Wohnfläche | `Instandhaltung_qm` | € p. a. | 14,40 | 14,40 | PGN-Annahme (Broschüre S. 11); ImmoWertV fortgeschrieben | freigegebene Annahme / v2-1 Eingabe!C81 | Dezimal 0,00–100,00 |
 | 5.4 | 32 | Kostensteigerung ab Jahr 2 | `Kostensteigerung` | % p. a. | 2,00 % | 2,00 % | PGN-Annahme; Vorgängermappe Best 1,5 %, Worst 2,5 % | RR `kosten_wachstum` / v2-1 Eingabe!C84 | Dezimal −0,05–0,1 |
-| 5.5 | 33 | Kostensätze 2026 fortschreiben um | `Kosten_Vorlauf` | Jahre | 0 | 0 | Broschüre S. 11 (Kostenstand 2026) | RR `kosten_offset` = 0 / v2-1 wie 0 (B8) | ganze Zahl 0–10 |
+| 5.5 | 33 | Kostensätze 2026 fortschreiben um | `Kosten_Vorlauf` | Jahre | 0 | 0 | PGN-Annahme (Kostenstand 2026) | RR `kosten_offset` = 0 / v2-1 wie 0 (B8) | ganze Zahl 0–10 |
 
 **Block 6 Bankdarlehen und Vergleichszins (4), Gruppenzeile 34**
 
@@ -665,7 +665,7 @@ Vergleich der Gruppen, Schema Broschüre S. 12 (oberer Rahmen Ergebnislinie an Z
 
 | Zeile | Nr. | Inhalt B | C | E / F | H Bemerkung | Gliederung |
 |---|---|---|---|---|---|---|
-| 63 | 4.9 | Tilgungsschwelle B gegenüber A | % | E `=IFERROR(('Gefördert B'!$H$160-'Gefördert A'!$H$160)/('Gefördert B'!$H$99-'Gefördert A'!$H$99),"–")` | Rechenweg wie Broschüre S. 12 | sichtbar |
+| 63 | 4.9 | Tilgungsschwelle B gegenüber A | % | E `=IFERROR(('Gefördert B'!$H$160-'Gefördert A'!$H$160)/('Gefördert B'!$H$99-'Gefördert A'!$H$99),"–")` | Rechenweg 4.12 bis 4.16 | sichtbar |
 | 64 | 4.10 | Tilgungsschwelle C gegenüber A | % | F analog C gegen A |  | sichtbar |
 | 65 | 4.11 | Tilgungsschwelle C gegenüber B | % | F analog C gegen B |  | sichtbar |
 | 66 | 4.12 | Mehrschuld gegenüber A | € | `='Gefördert B'!$H$99-'Gefördert A'!$H$99` / C analog |  | eingeklappt |
@@ -1830,6 +1830,7 @@ Festlegungen bei der Umsetzung:
 - Quelle zu 2.3: „Grundstück im Bestand, Ansatz 0 €“. Der Verkehrswert 731.325 € passt mit dem Eintrag für Projekt 1 nicht in 60 Zeichen; er steht als Vermerk in Hinweis 15 und in der Fundstelle (B.2).
 - Die Bemerkungen der Übersicht „Schema wie Broschüre S. 11“ (Zeile 29) und „Rechenweg wie Broschüre S. 12“ (4.9) bleiben. Sie nennen das Schema und gelten für beide Projekte; im Auslieferungsstand zeigt die Übersicht jetzt auch die Zahlen der Broschüre.
 - Die Quellen „PGN-Annahme (Broschüre S. 11)“ zu 5.1 bis 5.3 und „Broschüre S. 11 (Kostenstand 2026)“ zu 5.5 gelten für beide Projekte und bleiben.
+- Nachtrag 15.11.2026 (Umbau der Broschüre S. 10–12): Quelle 4.2 nennt „Broschüre S. 10“ (Steckbrief), Quelle 5.5 „PGN-Annahme (Kostenstand 2026)“, die Bemerkung zu 4.9 „Rechenweg 4.12 bis 4.16“; die Broschüre zeigt den Rechenweg der Tilgungsschwellen nicht mehr. Rechenwerte unverändert.
 - Hinweis 6 nennt den Abstand „rund 0,4–0,5 Prozentpunkte“ jetzt ausdrücklich für das Vergleichshaus. Für Projekt 2 ist er nicht gerechnet (O22).
 - Kurznamen im Konzept: Vergleichshaus (Projekt 1) und Tarutinoer (Projekt 2), siehe Kopf.
 

@@ -2,9 +2,9 @@
  "meta": {
   "titel": "Werte der Kennzahlen (Modellrechnung, Fazit) für das Modellhaus",
   "mappe": "PGN_VOFI_Mietwohnraum_2026_v3.xlsx",
-  "mappe_sha256": "5047f3df9ce4634c1a17ad41563733360dc4e116dc67baea06f266e5d433ae88",
+  "mappe_sha256": "c57577c19e927d7c39f4d4d9d6da9de1de862218f566a7e5c3704586b31c9ab9",
   "original": "vofi/.basis/PGN_VOFI_Mietwohnraum_2026_v3_basis.xlsx",
-  "original_sha256": "2e4827b429cfc2ec57b41e7444f912b3f379638202b08919ba628d0c328ced57",
+  "original_sha256": "b7de4c1930a78f24db22a8f1193bc1a5ac0498cfa975bc7363090f28b7c050a4",
   "erzeugt_mit": "vofi/build_kennzahlen.py",
   "neuberechnung": "recalc.py (LibreOffice)",
   "aufbau": "laeufe.<lauf>.werte.<schluessel> = {schluessel, wert, einheit, blatt, zelle, bedeutung, lauf[, herkunft]}",
@@ -183,8 +183,8 @@
      "bedeutung": "Eingabe 4.2 Effizienzhaus 40 erreicht",
      "lauf": "modellhaus",
      "herkunft_art": "Projektdaten PGN",
-     "herkunft": "Planung PGN (EH 55), Broschüre S. 11",
-     "quelle_mappe": "Planung PGN (EH 55), Broschüre S. 11"
+     "herkunft": "Planung PGN (EH 55), Broschüre S. 10",
+     "quelle_mappe": "Planung PGN (EH 55), Broschüre S. 10"
     },
     "annahme.vergleichsmiete_jahr1": {
      "schluessel": "annahme.vergleichsmiete_jahr1",
@@ -291,8 +291,8 @@
      "bedeutung": "Eingabe 5.5 Kostensätze 2026 fortschreiben um",
      "lauf": "modellhaus",
      "herkunft_art": "PGN-Annahme",
-     "herkunft": "Broschüre S. 11 (Kostenstand 2026)",
-     "quelle_mappe": "Broschüre S. 11 (Kostenstand 2026)"
+     "herkunft": "PGN-Annahme (Kostenstand 2026)",
+     "quelle_mappe": "PGN-Annahme (Kostenstand 2026)"
     },
     "annahme.zins_bank": {
      "schluessel": "annahme.zins_bank",

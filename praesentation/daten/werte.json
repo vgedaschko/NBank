@@ -2,11 +2,11 @@
  "meta": {
   "titel": "Werte der VOFI-Mappe für die Präsentation Mietwohnraumförderung Niedersachsen 2026",
   "mappe": "PGN_VOFI_Mietwohnraum_2026_v3.xlsx",
-  "mappe_sha256": "b11f36ce0450a65d5dcd6d57240b1ba028ea6d515e6ab073af016f2e7393fca9",
+  "mappe_sha256": "c57577c19e927d7c39f4d4d9d6da9de1de862218f566a7e5c3704586b31c9ab9",
   "mappe_stand": "Version 3.0, Stand 11/2026",
   "auslieferung": {
    "aktives_projekt": 2,
-   "zellen_gleich_neuberechnung": 11684
+   "zellen_gleich_neuberechnung": 16137
   },
   "modellhaus": "Projekt 2 der Mappe; jeder Lauf setzt Eingaben!D3 auf 2",
   "erzeugt_mit": "daten/werte_aus_vofi.py",

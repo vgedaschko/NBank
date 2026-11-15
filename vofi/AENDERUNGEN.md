@@ -12,6 +12,8 @@ Hinter den neun Blättern stehen drei weitere, erzeugt von `build_kennzahlen.py`
 
 Die Zahlen gehen über `../praesentation/daten/kennzahlen.json` in den Vortrag (Folien 14 bis 22, Fazit, Anhang A4). `pruefe_vofi.py` prüft die neuen Blätter mit der Prüfung „K“ (624 Prüfungen, 0 Fehler).
 
+Nachtrag 15.11.2026, Broschüre S. 10–12 neu: Drei Quellenvermerke folgen der neuen Broschüre: Eingabe 4.2 „Planung PGN (EH 55), Broschüre S. 10“ (Steckbrief), Eingabe 5.5 „PGN-Annahme (Kostenstand 2026)“, Übersicht 4.9 „Rechenweg 4.12 bis 4.16“ (die Broschüre zeigt die Tilgungsschwellen nicht mehr). Kein Rechenwert ändert sich.
+
 ## 1. Was ist neu
 
 Neun Blätter: Übersicht · Eingaben · Gefördert A, B, C · Frei finanziert · NBank (intern) · Tabellen (Festwerte RL 2026) · Hinweise. Zwei Projekte, Umschalten mit einer Zelle: Projekt 1 „Vergleichshaus, 20 Wohnungen“ und Projekt 2 „Modellhaus, Tarutinoer Str. 4“ (Neu Wulmstorf, 14 Wohnungen). Projekt 2 ist seit 11.11.2026 das Modellhaus von Broschüre und Präsentation und voreingestellt (Abschnitt 10); bis dahin war es Projekt 1. Vier Ebenen:

@@ -37,6 +37,6 @@ module.exports = {
 
     B.hauptzahl(s, { vorsatz: 'Gefördert, je Wohnung', zahl: fmt.zahl(zu / we), einheit: '€', label: wl('Zuschuss, nicht rückzahlbar', 'Hauptzahl'), gross: true });
     B.nebenzahl(s, { vorsatz: 'Beide, je Wohnung', zahl: fmt.zahl(ekF / we), einheit: '€', label: wl('Eigenkapital', 'Nebenzahl'),
-      text: wl(`${fmt.prozent(qEk, 0)} der Kosten. Gefördert ist das die Mindestquote der Richtlinie.`, 'Nebenzahl') });
+      text: wl(`${fmt.prozent(qEk, 0)} der Kosten.`, 'Nebenzahl') });
   },
 };

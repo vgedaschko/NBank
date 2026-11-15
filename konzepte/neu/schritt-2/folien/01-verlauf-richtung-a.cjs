@@ -13,7 +13,7 @@ module.exports = {
     const s = ctx.folie(ctx.titelzeilen(['Kein Jahr mit Fehlbetrag,', `ab Jahr ${ab} liegt Gruppe C vor A`], `ab Jahr ${ab}`));
     B.register(s, '2.1');
     B.diagrammkopf(s, { titel: wl(`Zahlungsüberschuss je Jahr, Jahr ${jahre[0]} bis ${jahre[n]}`, 'Diagrammtitel'),
-      sub: wl(`in € p. a., nach Kapitaldienst · Miete alle drei Jahre +${fmt.prozent(M('tab.mieterhoehung_in_der_bindung'), 2)}`, 'Untertitel') });
+      sub: wl('in € p. a., nach Kapitaldienst', 'Untertitel') });
     B.legende(s, { x: colX(1), y: ZONE.diagramm.legende, eintraege: [{ text: 'Gruppe A', art: 'tinte', strich: 'solid' }, { text: 'Gruppe C', art: 'referenz', strich: 'solid' }] });
 
     const cz = ZONE.diagramm.chart;
@@ -24,22 +24,22 @@ module.exports = {
     ctx.pruefe(Math.max(...A, ...C) < 100000, 'Ein Wert reicht über die Größenachse.');
     B.achstexte(s, d);
     B.achsentitel(s, d, { y: wl('Zahlungsüberschuss in € p. a.', 'Achsentitel'), x: wl('Jahr', 'Achsentitel'), xAbstand: 0.29, yVon: d.y + 0.04, yBis: d.plot.y + d.plot.h + 0.24 });
+    const band = oben => (d.yWert(oben) + d.yWert(oben - 20000)) / 2;   // Mitte des Bandes unter der Gitterlinie „oben“
+    B.marke(s, { x: d.katMitte(0), y: d.plot.y, h: d.plot.h, art: 'mass', text: 'Jahr ' + jahre[0], textSeite: 'rechts', textBreite: 0.8 });
+    B.wertzeilen(s, { x: d.katMitte(0) + 0.10, mitten: [band(80000), band(60000)], name: 'Jahr ' + jahre[0],
+      eintraege: [{ kreis: 'A', text: fmt.zahl(A[0]) }, { kreis: 'C', text: fmt.zahl(C[0]) }] });
     B.marke(s, { x: d.katMitte(iAb), y: d.plot.y, h: d.plot.h, art: 'mass', text: `Jahr ${ab}`, textSeite: 'rechts', textBreite: 1.3 });
     B.linienenden(s, { x: d.katMitte(n) + 0.26, abstand: 0.30, eintraege: [
       { kreis: 'C', y: d.yWert(C[n]), wert: fmt.zahl(C[n]) }, { kreis: 'A', y: d.yWert(A[n]), wert: fmt.zahl(A[n]) }] });
 
     const kdA = M('dscr.kapitaldienst_jahr1.A'), kdC = M('dscr.kapitaldienst_jahr1.C'), mA = M('fin.miete_jahr1.A'), mC = M('fin.miete_jahr1.C');
     const p = t => wl(t, 'Stichpunkt');
-    // Summe Jahr 1 bis 35 (unverzinst) und Jahr, in dem die Summe das Eigenkapital erreicht: aus der Konzepte-Mappe, gegen die Zeitreihe geprüft
-    const summe = g => ctx.wert(`n5.kum_jahr35.${g}`), ekJahr = g => ctx.wert(`n5.jahr_ek_erreicht.${g}`);
-    ctx.gleich('Summe A gegen Zeitreihe', summe('A'), A.reduce((x, v) => x + v, 0), 0);
-    ctx.gleich('Summe C gegen Zeitreihe', summe('C'), C.reduce((x, v) => x + v, 0), 0);
     B.stichpunkte(s, { platzhalter: 'kommentar', gruppen: [
-      { titel: wl('Ergebnis', 'Überschrift'), punkte: [p('kein Jahr mit Fehlbetrag'), p(`Jahr ${jahre[0]}: A ${fmt.euro(A[0])}, C ${fmt.euro(C[0])}`),
-        p(`Summe Jahr ${jahre[0]} bis ${jahre[n]}: A ${fmt.mio(summe('A'), 2)}, C ${fmt.mio(summe('C'), 2)}`),
-        p(`Eigenkapital zurück: A nach ${ekJahr('A')}, C nach ${ekJahr('C')} Jahren`)] },
       { titel: wl('Grund', 'Überschrift'), punkte: [
         p(`A: mehr Zuschuss, Kapitaldienst ${fmt.euro(kdA)} statt ${fmt.euro(kdC)}. Der Vorteil bleibt etwa gleich.`),
-        p(`C: Miete ${fmt.euroDez(mC)} statt ${fmt.euroDez(mA)}. Der Vorteil wächst mit jeder Mietanpassung.`)] }] });
+        p(`C: Miete ${fmt.euroDez(mC)} statt ${fmt.euroDez(mA)}. Der Vorteil wächst mit jeder Mietanpassung.`)] },
+      { titel: wl('Annahmen', 'Überschrift'), punkte: [
+        p(`Miete alle drei Jahre +${fmt.prozent(M('tab.mieterhoehung_in_der_bindung'), 2)}, Höchstwert`),
+        p(`Tilgung ${fmt.prozent(M('eingabe.tilgung_nbank'), 2)} p. a.`)] }] });
   },
 };

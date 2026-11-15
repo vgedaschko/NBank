@@ -1,4 +1,4 @@
-// Folie 3.3 (neu): Annahmen der Modellrechnung auf einem Blatt, gefördert (Gruppe A) neben frei finanziert, je mit Herkunft. Botschaft: Haus,
+// Anhang (vorher Folie 3.3): Annahmen der Modellrechnung auf einem Blatt, gefördert (Gruppe A) neben frei finanziert, je mit Herkunft. Botschaft: Haus,
 // Bewirtschaftung, Mietausfall, Kontokorrent und Restwert sind gleich angesetzt; verschieden sind nur Miete und Finanzierung. Gleiche Ansätze
 // stehen in der Spalte frei finanziert als „wie gefördert“. Alle Werte aus der Konzepte-Mappe (Eingaben, Tabellen, Konzepte).
 'use strict';
@@ -7,11 +7,10 @@ const QUELLEN = 'Quellen: RL Mietwohnraum 2026; Gutachterausschuss Lüneburg (20
 
 module.exports = {
   id: 'annahmen',
-  o: { nr: '3.3', abschnitt: 'Modellrechnung', layout: 'PGN_INHALT_MR', kicker: 'MODELLRECHNUNG · ANNAHMEN', quellen: QUELLEN },
+  o: { nr: 'A', abschnitt: 'Anhang', layout: 'PGN_ANHANG', kicker: 'ANHANG · ANNAHMEN', titel: 'Annahmen der Modellrechnung mit Herkunft', quellen: QUELLEN },
   bau(ctx) {
     const { B, fmt, colX, span, Y } = ctx, wl = (t, was) => ctx.wortlaut(t, was), a = k => ctx.wert('annahme.' + k);
-    const s = ctx.folie(ctx.titelzeilen(['Gleiche Kosten, verschieden sind', 'nur Miete und Finanzierung'], 'Miete und Finanzierung'));
-    B.register(s, '2.1');
+    const s = ctx.folie();
     B.quelle(s, QUELLEN);
     const p = v => { const h = Math.round(v * 1e4); return fmt.prozent(v, h % 100 === 0 ? 0 : h % 10 === 0 ? 1 : 2); };   // 2 %, 0,5 %, 2,38 %
     const wie = { text: 'wie gefördert', farbe: ctx.HEX.grau600 };
@@ -29,7 +28,7 @@ module.exports = {
       ['Restwert', 'Restwert Ende Jahr 35', 'Ertragswert aus der Marktmiete', wie, 'Gutachterausschuss Nds.'],
     ];
     ctx.gleich('Zuschuss = NBank-Darlehen in A', ctx.wert('n5.zuschuss.A'), ctx.wert('n5.darlehen_nbank.A'), 0);
-    const yT = B.modulkopf(s, { x: colX(1), y: Y.inhalt, w: span(12), titel: wl('Annahmen der Modellrechnung', 'Modultitel'), sub: wl('Modellhaus · Ertrag, Kosten, Finanzierung, Restwert · Herkunft: Richtlinie (RL), Quelle oder Annahme der PGN', 'Untertitel') });
+    const yT = B.modulkopf(s, { x: colX(1), y: Y.anhangInhalt, w: span(12), titel: wl('Gleiche Kosten, verschieden sind nur Miete und Finanzierung', 'Modultitel'), sub: wl('Modellhaus · Ertrag, Kosten, Finanzierung, Restwert · Herkunft: Richtlinie (RL), Quelle oder Annahme der PGN', 'Untertitel') });
     B.tabelle(s, { x: colX(1), y: yT + 0.02, w: span(12), pt: 12, name: 'Tabelle Annahmen',
       dicht: true, zellrand: [0.03, 0.03],
       spalten: [{ kopf: 'Position', breite: 2.45, art: 'text' }, { kopf: 'Gefördert, Gruppe A', breite: 3.80, art: 'text' },

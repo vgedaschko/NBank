@@ -5,7 +5,7 @@
 
 module.exports = {
   id: 'puffer',
-  o: { nr: '3.9', abschnitt: 'Modellrechnung', layout: 'PGN_INHALT_MR', kicker: 'MODELLRECHNUNG · PUFFER',
+  o: { nr: '3.8', abschnitt: 'Modellrechnung', layout: 'PGN_INHALT_MR', kicker: 'MODELLRECHNUNG · PUFFER',
     quellen: 'Quelle: Rechenmappe v3, Kostenläufe 3.579, 4.631 und 5.460 € je m², Übersicht 3.8; Konzepte D68, D81 (Lauf ohne Mietanpassung).' },
   bau(ctx) {
     const { B, D, W, fmt, colX, span, ZONE, Y } = ctx, wl = (t, was) => ctx.wortlaut(t, was), M = k => W('modellhaus', k);

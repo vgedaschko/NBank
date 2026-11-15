@@ -6,7 +6,7 @@ const { QUELLE_MARKT } = require('./_daten.cjs');
 
 module.exports = {
   id: 'miete',
-  o: { nr: '3.6', abschnitt: 'Modellrechnung', layout: 'PGN_DIAGRAMM_MR', kicker: 'MODELLRECHNUNG · MIETE', quellen: QUELLE_MARKT },
+  o: { nr: '3.5', abschnitt: 'Modellrechnung', layout: 'PGN_DIAGRAMM_MR', kicker: 'MODELLRECHNUNG · MIETE', quellen: QUELLE_MARKT },
   bau(ctx) {
     const { B, D, C, fmt, ZONE, Y } = ctx, wl = (t, was) => ctx.wortlaut(t, was);
     const nA = ctx.wert('n3.miete_dscr.A'), hm = ctx.wert('n3.hoechstmiete.A'), nF = ctx.wert('n2.miete_dscr'), markt = ctx.wert('n2.marktmiete_jahr1');

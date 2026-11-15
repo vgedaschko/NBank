@@ -5,7 +5,7 @@
 
 module.exports = {
   id: 'finanzierung',
-  o: { nr: '3.2', abschnitt: 'Modellrechnung', layout: 'PGN_DIAGRAMM_MR', kicker: 'MODELLRECHNUNG · FINANZIERUNG',
+  o: { nr: '3.3', abschnitt: 'Modellrechnung', layout: 'PGN_DIAGRAMM_MR', kicker: 'MODELLRECHNUNG · FINANZIERUNG',
     quellen: 'Quelle: Rechenmappe v3, Konzepte D52 bis D57, G52 bis G56.' },
   bau(ctx) {
     const { B, D, fmt, ZONE, Y } = ctx, wl = (t, was) => ctx.wortlaut(t, was);

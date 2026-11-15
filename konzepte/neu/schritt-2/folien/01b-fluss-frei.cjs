@@ -8,7 +8,7 @@ const { QUELLE_MARKT } = require('./_daten.cjs');
 
 module.exports = {
   id: 'fluss-frei',
-  o: { nr: '3.4', abschnitt: 'Modellrechnung', layout: 'PGN_INHALT_MR', kicker: 'MODELLRECHNUNG · ZAHLUNGSFLUSS FREI FINANZIERT', rubrik: 'Zahlungsfluss frei finanziert',
+  o: { nr: '3.5', abschnitt: 'Modellrechnung', layout: 'PGN_INHALT_MR', kicker: 'MODELLRECHNUNG · ZAHLUNGSFLUSS FREI FINANZIERT', rubrik: 'Zahlungsfluss frei finanziert',
     quellen: QUELLE_MARKT },
   bau(ctx) {
     const { B, W, fmt } = ctx, M = k => W('modellhaus', k);

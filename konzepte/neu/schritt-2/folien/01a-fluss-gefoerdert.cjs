@@ -6,7 +6,7 @@ const { QUELLE_MARKT } = require('./_daten.cjs');
 
 module.exports = {
   id: 'fluss-gefoerdert',
-  o: { nr: '3.3', abschnitt: 'Modellrechnung', layout: 'PGN_INHALT_MR', kicker: 'MODELLRECHNUNG · ZAHLUNGSFLUSS GEFÖRDERT', rubrik: 'Zahlungsfluss gefördert',
+  o: { nr: '3.4', abschnitt: 'Modellrechnung', layout: 'PGN_INHALT_MR', kicker: 'MODELLRECHNUNG · ZAHLUNGSFLUSS GEFÖRDERT', rubrik: 'Zahlungsfluss gefördert',
     quellen: QUELLE_MARKT },
   bau(ctx) {
     const { B, W, fmt } = ctx, M = k => W('modellhaus', k);

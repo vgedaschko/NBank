@@ -1,0 +1,254 @@
+{
+ "werte_datei": "konzepte/mappe/werte_konzepte.json",
+ "folien": {
+  "k1-steckbrief": [
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.wohnungen",
+    "lauf": "konzepte",
+    "wert": 14,
+    "einheit": "Anzahl",
+    "blatt": "Eingaben",
+    "zelle": "F9"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.wohnflaeche",
+    "lauf": "konzepte",
+    "wert": 828,
+    "einheit": "m²",
+    "blatt": "Eingaben",
+    "zelle": "F8"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "n5.gesamtkosten.A",
+    "lauf": "konzepte",
+    "wert": 2963412,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D52"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.herstellungskosten_qm",
+    "lauf": "konzepte",
+    "wert": 3579,
+    "einheit": "€/m²",
+    "blatt": "Eingaben",
+    "zelle": "F11"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.grundstueck",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "€",
+    "blatt": "Eingaben",
+    "zelle": "F13"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.eh40",
+    "lauf": "konzepte",
+    "wert": "nein",
+    "einheit": "Text",
+    "blatt": "Eingaben",
+    "zelle": "F23"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.mietenstufe",
+    "lauf": "konzepte",
+    "wert": "VI",
+    "einheit": "Text",
+    "blatt": "Eingaben",
+    "zelle": "F22"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.bezugsjahr",
+    "lauf": "konzepte",
+    "wert": 2027,
+    "einheit": "Jahr",
+    "blatt": "Eingaben",
+    "zelle": "F7"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.bindung",
+    "lauf": "konzepte",
+    "wert": 35,
+    "einheit": "Jahre",
+    "blatt": "Tabellen",
+    "zelle": "D26"
+   }
+  ],
+  "k2-kennzahlen": [
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.wohnungen",
+    "lauf": "konzepte",
+    "wert": 14,
+    "einheit": "Anzahl",
+    "blatt": "Eingaben",
+    "zelle": "F9"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.wohnflaeche",
+    "lauf": "konzepte",
+    "wert": 828,
+    "einheit": "m²",
+    "blatt": "Eingaben",
+    "zelle": "F8"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "n5.gesamtkosten.A",
+    "lauf": "konzepte",
+    "wert": 2963412,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D52"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.herstellungskosten_qm",
+    "lauf": "konzepte",
+    "wert": 3579,
+    "einheit": "€/m²",
+    "blatt": "Eingaben",
+    "zelle": "F11"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.grundstueck",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "€",
+    "blatt": "Eingaben",
+    "zelle": "F13"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.eh40",
+    "lauf": "konzepte",
+    "wert": "nein",
+    "einheit": "Text",
+    "blatt": "Eingaben",
+    "zelle": "F23"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.mietenstufe",
+    "lauf": "konzepte",
+    "wert": "VI",
+    "einheit": "Text",
+    "blatt": "Eingaben",
+    "zelle": "F22"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.bezugsjahr",
+    "lauf": "konzepte",
+    "wert": 2027,
+    "einheit": "Jahr",
+    "blatt": "Eingaben",
+    "zelle": "F7"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.bindung",
+    "lauf": "konzepte",
+    "wert": 35,
+    "einheit": "Jahre",
+    "blatt": "Tabellen",
+    "zelle": "D26"
+   }
+  ],
+  "k3-schriftfeld": [
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.wohnungen",
+    "lauf": "konzepte",
+    "wert": 14,
+    "einheit": "Anzahl",
+    "blatt": "Eingaben",
+    "zelle": "F9"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.wohnflaeche",
+    "lauf": "konzepte",
+    "wert": 828,
+    "einheit": "m²",
+    "blatt": "Eingaben",
+    "zelle": "F8"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "n5.gesamtkosten.A",
+    "lauf": "konzepte",
+    "wert": 2963412,
+    "einheit": "€",
+    "blatt": "Konzepte",
+    "zelle": "D52"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.herstellungskosten_qm",
+    "lauf": "konzepte",
+    "wert": 3579,
+    "einheit": "€/m²",
+    "blatt": "Eingaben",
+    "zelle": "F11"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.grundstueck",
+    "lauf": "konzepte",
+    "wert": 0,
+    "einheit": "€",
+    "blatt": "Eingaben",
+    "zelle": "F13"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.eh40",
+    "lauf": "konzepte",
+    "wert": "nein",
+    "einheit": "Text",
+    "blatt": "Eingaben",
+    "zelle": "F23"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.mietenstufe",
+    "lauf": "konzepte",
+    "wert": "VI",
+    "einheit": "Text",
+    "blatt": "Eingaben",
+    "zelle": "F22"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.bezugsjahr",
+    "lauf": "konzepte",
+    "wert": 2027,
+    "einheit": "Jahr",
+    "blatt": "Eingaben",
+    "zelle": "F7"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "annahme.bindung",
+    "lauf": "konzepte",
+    "wert": 35,
+    "einheit": "Jahre",
+    "blatt": "Tabellen",
+    "zelle": "D26"
+   }
+  ]
+ }
+}

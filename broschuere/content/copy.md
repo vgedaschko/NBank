@@ -315,7 +315,7 @@ Mieterinnen und Mieter weisen ihre Gruppe mit dem Wohnberechtigungsschein (WBS) 
 
 Es zählt das Gesamtjahreseinkommen. Das ist das Einkommen aller Haushaltsmitglieder, das in den zwölf Monaten nach dem WBS-Antrag zu erwarten ist. Davon gehen je 10 % ab, soweit Steuern, Kranken-/Pflege- oder Rentenbeiträge anfallen, außerdem Freibeträge und Unterhalt. Das Bruttoeinkommen kann daher deutlich über den Grenzen liegen.
 
-*Seitenverweis:* A, B und C im Vergleich → S. 11–12
+*Seitenverweis:* A und C in der Modellrechnung → S. 11–12
 
 **Angemessene Wohnfläche**
 
@@ -492,183 +492,171 @@ Achse: Jahre ab Bezugsfertigkeit, Marken 0 · 35 · 42
 ---
 
 <a id="seite-10"></a>
-## Seite 10 – Modellrechnung · Finanzierung
+## Seite 10 – Modellrechnung · Modellhaus und Finanzierung
 
-<sub>innen · Layout: chart-focus · Kolumnentitel: Modellrechnung · Finanzierung · Wörter: Fließtext 97, Grafik/Tabelle 78</sub>
+<sub>innen · Layout: chart-focus · Akzentseite, dicht · Kolumnentitel: Modellrechnung · Modellhaus und Finanzierung · Wörter: Fließtext 202, Grafik/Tabelle 200</sub>
 
 *Modellrechnung · Schlüsselplan: Programmteil 2.1*
 
-Zweite Stimme: 14 Wohnungen, 3,0 Mio. €
+Zweite Stimme: Modellhaus in Neu Wulmstorf
 
-### bis zu 2,4 Mio. € Förderung
+### Gleiches Eigenkapital, gefördert 40 % Zuschuss
+
+**Grafik (zwei Häuser): Mittelherkunft in Mio. €**
+
+> **[Hinweis am Diagramm]** Gesamtkosten je 2,96 Mio. € · Rechenbeispiel, keine Förderzusage
+
+- Gefördert, Gruppe A: Zuschuss · nicht rückzahlbar · 1,19 Mio. € (40 %)
+- Gefördert, Gruppe A: NBank-Darlehen · 0 % Zins · 1,19 Mio. € (40 %)
+- Gefördert, Gruppe A: Eigenkapital · 0,59 Mio. € (20 %)
+- Frei finanziert: Bankdarlehen · 3,86 % Zins · 2,37 Mio. € (80 %)
+- Frei finanziert: Eigenkapital · 0,59 Mio. € (20 %)
+
+Maßkette links (gilt für beide): Eigenkapital 20 % | Fremdkapital 80 %
 
 #### Das Modellhaus
 
-- **Ort:** Neu Wulmstorf, Landkreis Harburg
-- **Wohnungen:** 14, alle für Einkommensgruppe A (B und C → S. 11)
-- **Wohnfläche:** 828 m², im Schnitt 59 m²
-- **Standard:** Effizienzhaus 55, kein EH-40-Zuschlag
-- **Standort:** Mietenstufe VI, angespannter Wohnungsmarkt per Verordnung
+- **Ort:** Neu Wulmstorf, Landkreis Harburg, Mietenstufe VI
+- **Wohnungen:** 14 für Gruppe A, 828 m², im Schnitt 59 m²
 - **Herstellungskosten:** 3.579 € je m², Median aus fünf PGN-Projekten
-- **Bemessungsgrenze:** 5.460 € je m², eingehalten
-- **Grundstück:** im Bestand, nicht angesetzt
-
-*Steckbrief statt Vorspann und Absatz (Änderungsrunde 13.11.2026, B9.1).*
-
-**Grafik (stacked-bar): Finanzierung 3,0 Mio. €, Höchstsätze**
-
-> **[Hinweis am Diagramm]** Rechenbeispiel, keine Förderzusage
-
-Gesamt 3,0 Mio. € = Darlehen 1,2 (40 %) + Zuschuss 1,2 (40 %) + Eigenmittel 0,6 (mind. 20 %)
-
-Maßkette: Förderung 2,4 Mio. € (80 %) über Zuschuss und Darlehen
-
-**Rechenweg**
-
-|   | Position | € |
-|---|---|---|
-| 1 | Herstellungskosten, 828 m² × 3.579 € | 2.963.412 |
-| 2 | = zuwendungsfähige Kosten | 2.963.412 |
-| 3 | Eigenmittel, mindestens 20 %; davon sollen mindestens 296.341 € Geld oder lastenfreies Grundstück sein | 592.682 |
-
-*Keine Zeile „+ Grundstück“: Das Grundstück ist im Bestand und nicht angesetzt (im Seiten-JSON bleibt die Zeile mit dem Wert 0 für die Prüfskripte stehen).*
+- **Standard:** Effizienzhaus 55, Grundstück nicht angesetzt
+- **Rechnung:** Bezug 2027, betrachtet über 35 Jahre
 
 **Kennzahlen**
 
-| Vorsatz | Wert | Kennzahl | Unterzeile | Chip |
-|---|---|---|---|---|
-| bis zu | **84.669 €** | Ø Zuschuss je Wohnung | plus Darlehen in gleicher Höhe |   |
-| mind. | **42.334 €** | Ø Eigenmittel je Wohnung | 20 % von 211.672 € Gesamtkosten |   |
+| Wert | Kennzahl | Unterzeile |
+|---|---|---|
+| **84.669 €** | Zuschuss je Wohnung | nicht rückzahlbar |
+| **42.334 €** | Eigenkapital je Wohnung | in beiden Fällen gleich; gefördert dazu 20.744 € Bearbeitungsentgelte |
 
-**Sensitivität: Herstellungskosten je m²**
+**Annahmen der Rechnung**
 
-| Kostengruppen 200 bis 700, in € | 3.579 € · Modellhaus, PGN-Median, Kostenstand Q4 2025 | 4.631 € · ARGE-Median deutscher Großstädte, Q4 2025 | 5.460 € · Bemessungsgrenze, Mietenstufe IV–VII |
-|---|---|---|---|
-| Gesamtkosten | 2.963.412 | 3.834.468 | 4.520.880 |
-| Förderung, bis zu 80 % | 2.370.730 | 3.067.574 | 3.616.704 |
-| Eigenmittel, mindestens 20 % | 592.682 | 766.894 | 904.176 |
-| **Zahlungsüberschuss Jahr 1 in A** | **15.003** | **4.965** | **−2.945** |
+*Unterzeile:* Vor Steuern. Gleiche Kosten, verschieden sind nur Miete und Finanzierung.
 
-*Tabellenfuß:* Über der Bemessungsgrenze sinkt die Förderquote auf die Gesamtkosten unter 80 %. Gruppe A hat bis rund 5.150 € je m² einen Zahlungsüberschuss.
+| Position | Gefördert, Gruppe A | Frei finanziert |
+|---|---|---|
+| Miete Jahr 1 | Höchstmiete 6,80 € je m² und Monat | Marktmiete 15,42 € je m² und Monat |
+| Mietanpassung | 3 Jahre fest, dann +6,15 % je 3 Jahre | +2 % p. a. |
+| Mietausfall | 2 % der Sollmiete | wie gefördert |
+| Objektverwaltung | 367 € je Wohnung p. a. | wie gefördert |
+| Instandhaltung | 14,40 € je m² p. a. | wie gefördert |
+| Kostensteigerung | 2 % p. a. ab Jahr 2 | wie gefördert |
+| Zins | 0 % bis Jahr 35 | 3,86 %, 10 Jahre fest |
+| Verwaltungskostenbeitrag | 0,5 % vom Restkapital | entfällt |
+| Tilgung | 2,38 % p. a. | jährliche Annuität über 30 Jahre |
+| Kontokorrent | Soll 5 %, Haben 2 % | wie gefördert |
+| Restwert Ende Jahr 35 | Ertragswert aus der Marktmiete | wie gefördert |
 
-*Werte: VOFI-Mappe v3, Projekt 2, je Spalte ein Lauf mit Eingabe 2.1 (Übersicht 1.1, 1.7, 1.11 und Zeile 9 der Jahresrechnung S. 11).*
+*Werte: Rechenmappe v3, Projekt 2; jede Zahl mit ihrer Zelle im Seiten-JSON („belege“). Dichte Seite (9 pt). Kein Foto: Die Visualisierung der Referenzen zeigt ein anderes PGN-Projekt in Neu Wulmstorf (Bahnhofstraße, 19 Wohnungen); das Modellhaus ist Projekt 2 der Mappe mit 14 Wohnungen.*
 
 ---
 
 <a id="seite-11"></a>
-## Seite 11 – Modellrechnung · Wirtschaftlichkeit
+## Seite 11 – Modellrechnung · Jahr 1
 
-<sub>innen · Layout: chart-focus · Kolumnentitel: Modellrechnung · Wirtschaftlichkeit · Wörter: Fließtext 146, Grafik/Tabelle 154</sub>
+<sub>innen · Layout: chart-focus · Akzentseite · Kolumnentitel: Modellrechnung · Jahr 1 · Wörter: Fließtext 212, Grafik/Tabelle 169</sub>
 
 *Modellrechnung · Schlüsselplan: Programmteil 2.1*
 
-Zweite Stimme: Alle drei Gruppen tragen sich ab Jahr 1
+Zweite Stimme: Der Markt zahlt 15,42 € je m²
 
-### 15.003 € Zahlungsüberschuss in A
+### Frei finanziert braucht das Haus 18,36 €
 
-**Das Modellhaus von S. 10 in drei Varianten, jede mit 80 % Förderung.**
+**Grafik (zwei Balken): Wohin die Miete fließt in % der Sollmiete, Jahr 1, gleiches Haus, gleiche Kosten**
 
-B und C erhalten weniger Zuschuss und mehr Darlehen als A. Die Höchstmiete ist höher. Beide setzen eine Zulassung in der Förderentscheidung voraus (→ S. 6). Im Modell ist sie möglich, weil der Standort per Verordnung als angespannter Wohnungsmarkt gilt.
+*Legende:* Bewirtschaftung, Mietausfall · Verwaltungskostenbeitrag · Zins · Tilgung · Zahlungsüberschuss
 
-**Grafik (stacked-bar): Finanzierung in Mio. €** · Gesamtkosten je 3,0 Mio. € · Höchstsätze
+- Gefördert, Gruppe A: Sollmiete 67.565 € · Bewirtschaftung, Mietausfall 27,3 % · Verwaltungskostenbeitrag 8,8 % · Zins 0 % · Tilgung 41,8 % · Zahlungsüberschuss 22,2 %
+- Frei finanziert: Sollmiete 153.213 € · Bewirtschaftung, Mietausfall 13,1 % · Zins 59,7 % · Tilgung 28,2 % · Fehlbetrag 1,1 %, über das Kontokorrent
 
-Einheit: Mio. €
+**Jahresrechnung Jahr 1, in € p. a.**
 
-| Segment | A | B | C |
+|   | Position | Gefördert, A | Frei finanziert |
 |---|---|---|---|
-| Darlehen | 1,2 | 1,8 | 2,1 |
-| Zuschuss | 1,2 | 0,6 | 0,3 |
-| Eigenmittel, mind. | 0,6 | 0,6 | 0,6 |
-| **Förderung, bis zu 80 %** | **2,4** | **2,4** | **2,4** |
+| 1 | Sollmiete, 828 m² × 6,80 | 15,42 € × 12 | 67.565 | 153.213 |
+| 2 | − Mietausfall/Leerstand, 2 % der Sollmiete | 1.351 | 3.064 |
+| 3 | − Objektverwaltung, 367 € je Wohnung | 5.138 | 5.138 |
+| 4 | − Instandhaltung, 14,40 € je m² | 11.923 | 11.923 |
+| 5 | = Überschuss vor Kapitaldienst | 49.152 | 133.088 |
+| 6 | − Verwaltungskostenbeitrag, 0,5 % des NBank-Darlehens | 5.927 | 0 |
+| 7 | − Zins, NBank 0 % | Bank 3,86 % | 0 | 91.510 |
+| 8 | − Tilgung, NBank 2,38 % | Bank Annuität über 30 Jahre | 28.223 | 43.268 |
+| 9 | = Zahlungsüberschuss p. a. | 15.003 | −1.691 |
+|  | Kapitaldienst, Zeilen 6 bis 8 | 34.150 | 134.779 |
+|  | DSCR, Zeile 5 ÷ Kapitaldienst | 1,44 | 0,99 |
 
-**Jahresrechnung Jahr 1 in € p. a.**
+*Ergebniszeile 9 rot; Kapitaldienst und DSCR als Fußzeilen ohne Nummer.*
 
-|   | Position | A | B | C |
-|---|---|---|---|---|
-| 1 | Sollmiete: Höchstmiete nettokalt, Mietenstufe IV–VII (828 m² × 6,80 \| 8,20 \| 9,00 € × 12) | 67.565 | 81.475 | 89.424 |
-| 2 | − Mietausfall/Leerstand, 2 % der Sollmiete | 1.351 | 1.630 | 1.788 |
-| 3 | − Objektverwaltung, 367 € je Wohnung p. a. (Betriebskosten voll umgelegt) | 5.138 | 5.138 | 5.138 |
-| 4 | − Instandhaltung, 14,40 € je m² p. a. | 11.923 | 11.923 | 11.923 |
-| 5 | = Überschuss vor Kapitaldienst | 49.152 | 62.784 | 70.574 |
-| 6 | − Verwaltungskostenbeitrag, 0,5 % des Restkapitals (Jahr 1, nach Vollauszahlung) | 5.927 | 8.890 | 10.372 |
-| 7 | − Zins NBank-Darlehen, 0 % bis Ende Jahr 35 | 0 | 0 | 0 |
-| 8 | − Tilgung 2,38 % p. a. (Annahme: 42 Jahre) auf 1,2 \| 1,8 \| 2,1 Mio. € Darlehen | 28.223 | 42.334 | 49.390 |
-| 9 | = Zahlungsüberschuss p. a. | 15.003 | 11.560 | 10.812 |
+**Grafik: Miete für eine DSCR von 1,2** (in € je m² und Monat, Jahr 1)
 
-*Zeilen 1 bis 9 (Änderungsrunde 13.11.2026, G2): Mietausfall/Leerstand ist eigene Zeile 2, Erlösschmälerung unter der Sollmiete, keine Aufwandszeile.*
+- Gruppe A 5,96 € · Frei finanziert 18,36 € · Höchstmiete 6,80 € · Marktmiete 15,42 €
 
-*Abgesetzte Zeile:* Einmalig, außerhalb der Jahresrechnung: Bearbeitungsentgelte (1 % des Darlehens + 0,75 % des Zuschusses): 20.744 · 22.226 · 22.966 € (A · B · C)
+*Notiz:* DSCR = Überschuss vor Kapitaldienst ÷ Kapitaldienst; 1,2 verlangt die Bank (Annahme der PGN). Zur Marktmiete fehlen 2,94 € (gestrichelt).
 
-#### Zum Vergleich: frei finanziert
+**Grafik: Spielraum in Jahr 1** (Legende: Modellhaus · bis zur Schwelle)
 
-| Jahr 1 | A | Frei |
-|---|---|---|
-| Zuschuss | 1,2 Mio. € | 0 |
-| Darlehen | 1,2 Mio. € | 2,4 Mio. € |
-| Kapitaldienst p. a. | 34.150 € | 134.779 € |
-| **Kostendeckende Anfangsmiete je m² und Monat (Zeile 9 = null)** | **5,26 €** | **15,59 €** |
+- Herstellungskosten je m²: Modellhaus 3.579 € · Gruppe A 5.150 € · Gruppe C 4.220 € · ARGE-Median 4.631 €
+- Tilgungssatz p. a.: Modellhaus 2,38 % · Gruppe A 3,65 % · Gruppe C 2,90 %
 
-*Werte: VOFI-Mappe v3, Projekt 2, Übersicht 8.2 und 8.3 (DSCR-Ziel 1,0), Eingaben 6.1 und 6.4.*
-
-#### Annahmen
-
-Frei finanziert: gleiches Haus, Eigenmittel 0,6 Mio. €, Bankdarlehen 2,4 Mio. € zu 3,86 % Zins, jährliche Annuität über 30 Jahre. Objektverwaltung und Instandhaltung wie gefördert. Die Rechnung zeigt die Liquidität in Jahr 1 bei Kostenstand 2026, vor Steuern. In den geförderten Varianten ist die Tilgung gleichmäßig auf die Höchstlaufzeit von 42 Jahren verteilt. Den Satz legt die NBank fest (→ S. 9). B und C gegenüber A → S. 12
+*Notiz:* Bis zur Schwelle bleibt in Jahr 1 ein Zahlungsüberschuss.
 
 ---
 
 <a id="seite-12"></a>
-## Seite 12 – Modellrechnung · Mix und Tilgung
+## Seite 12 – Modellrechnung · 35 Jahre
 
-<sub>innen · Layout: chart-focus · Kolumnentitel: Modellrechnung · Mix und Tilgung · Wörter: Fließtext 221, Grafik/Tabelle 114</sub>
+<sub>innen · Layout: chart-focus · Kolumnentitel: Modellrechnung · 35 Jahre · Wörter: Fließtext 264, Grafik/Tabelle 70</sub>
 
 *Modellrechnung · Schlüsselplan: Programmteil 2.1*
 
-### Über 1,91 % Tilgung liegt Gruppe A vorn
+Zweite Stimme: Über 35 Jahre kein Jahr mit Fehlbetrag
 
-**In B und C sind Miete und Darlehen höher als in A. Die Mehrschuld ist bis Ende Jahr 35 zinsfrei, kostet 0,5 % Verwaltungskostenbeitrag im Jahr und wird getilgt.**
+### Eigenkapitalrendite 7,05 % in A
 
-**Grafik (break-even-lines): Mehrüberschuss je Tilgungssatz** · B und C gegenüber A, in € p. a. · Modellhaus (→ S. 10), Jahr 1 nach Vollauszahlung
+#### Grund
 
-| Linie | Mehrschuld | Mehrüberschuss bei 0 % Tilgung | je Prozentpunkt Tilgung | Nulldurchgang (Tilgungsschwelle) | bei 2,38 % (S. 11) | bei 3,0 % |
-|---|---|---|---|---|---|---|
-| B | 592.682 € | 10.669 € | −5.927 € | 1,80 % | −3.443 € | −7.112 € |
-| C | 889.024 € | 16.977 € | −8.890 € | 1,91 % | −4.190 € | −9.694 € |
+- A: mehr Zuschuss, Kapitaldienst 34.150 € statt 59.762 € in C. Der Vorteil bleibt etwa gleich.
+- C: Miete 9,00 € statt 6,80 €. Der Vorteil wächst mit jeder Mietanpassung.
 
-x-Achse: Tilgungssatz p. a. auf das NBank-Darlehen, 0–3,0 % · y-Achse: Mehrüberschuss gegenüber A, −10.000 bis +20.000 € p. a.; Nulllinie
-Maßkette über dem Diagramm: 0–1,91 %: „vorn: Gruppe C“ | 1,91–3,0 %: „vorn: Gruppe A“
-Marke im Diagramm: „S. 11: 2,38 %“ (Tilgungssatz der Jahresrechnung)
-Flächen: „über null: Vorteil gegenüber A“ · „unter null: Nachteil gegenüber A“
+#### Annahmen
 
-*Notiz am Diagramm:* **B** liegt in dieser Rechnung nie vorn. Unter 1,91 % Tilgung liegt C vorn, darüber A. Ein Mix aus A, B und C liegt anteilig dazwischen.
+- Miete alle drei Jahre +6,15 %, Höchstwert
+- Ohne Mietanpassung bleibt in A in jedem Jahr ein Zahlungsüberschuss; die Eigenkapitalrendite sinkt dann auf 5,08 %.
 
-Bei **2,38 %** Tilgung wie auf S. 11 liegt A vorn. B bleibt 3.443 € darunter, C 4.190 €.
+**Grafik (Linien): Zahlungsüberschuss je Jahr in € p. a.** (Legende: Gruppe A · Gruppe C)
 
-Bei 0 % zeigt das Diagramm den Mehrüberschuss vor Tilgung. Jeder Prozentpunkt Tilgung mindert den Mehrüberschuss von B um 5.927 €, von C um 8.890 €.
+- Jahr 1: A 15.003 · C 10.812
+- Jahr 35: A 64.860 · C 84.149
+- Marke: ab Jahr 10 liegt C vorn
 
-**Rechenweg in €**
+**Grafik (Säulen): Eigenkapitalrendite über 35 Jahre** (Legende: mit Restwert · ohne)
 
-|   | B und C gegenüber A | B | C |
+- Gruppe A: mit Restwert 7,05 % · ohne 2,58 %
+- Frei finanziert: mit Restwert 8,36 % · ohne 4,84 %
+
+*Notiz:* Vor Steuern. Frei finanziert rechnerisch, bei einer DSCR von 0,99; so gibt die Bank das Darlehen nicht (→ S. 10).
+
+**Vermögen Ende Jahr 35, in Tsd. €**
+
+|   | Position | A | Frei |
 |---|---|---|---|
-| 1 | Mehrschuld: Darlehen 1,8 \| 2,1 statt 1,2 Mio. € (→ S. 11) | 592.682 | 889.024 |
-| 2 | Mehr-Sollmiete p. a. (828 m² × 1,40 \| 2,20 € × 12) | 13.910 | 21.859 |
-| 3 | − Mietausfall 2 % | 278 | 437 |
-| 4 | − Verwaltungskostenbeitrag, 0,5 % von Zeile 1 | 2.963 | 4.445 |
-| 5 | = Mehrüberschuss vor Tilgung | 10.669 | 16.977 |
-| 6 | Tilgungsschwelle (Zeile 5 ÷ 1) | 1,80 % | 1,91 % |
+| 1 | Projektkonto | 1.692 | 3.096 |
+| 2 | + Restwert | 5.153 | 6.762 |
+| 3 | − Restschuld | 198 | 0 |
+| 4 | = Vermögen | 6.647 | 9.858 |
+|  | Eigenkapital bei Bezug | 613 | 593 |
+|  | Anteil des Restwerts | 78 % | 69 % |
 
-*Zeilen 1 bis 6 (Änderungsrunde 13.11.2026, B11.2): Mietausfall 2 % ist eigene Zeile 3, wie S. 11, Zeile 2.*
+*Ergebniszeile 4 rot.*
 
-*Abgesetzte Zeile:* Einmalig: Mehr an Bearbeitungsentgelten: 1.482 · 2.223 € (B · C)
+#### Vier Gründe für geförderten Mietwohnungsbau
 
-#### Zulassung von B und C
+1. **Planbare Mieterträge:** Höchstmiete 6,80 € in A, drei Jahre fest. Danach höchstens +6,15 % in drei Jahren.
+2. **Gesicherte Nachfrage:** Im Modellhaus liegt die Miete bei 44 % der Marktmiete. Bestand gebundener Wohnungen seit 2016 um 40,6 % gesunken.
+3. **Neubau, der sonst nicht entsteht:** Frei finanziert braucht das Haus 18,36 € Miete, der Markt zahlt 15,42 €.
+4. **Liquidität über 35 Jahre:** In A 15.003 € Zahlungsüberschuss in Jahr 1. Kein Jahr mit Fehlbetrag. Zins 0 % für 35 Jahre.
 
-Grundsatz ist Gruppe A. B und C muss die NBank in der Förderentscheidung zulassen (Voraussetzungen → S. 6).
-
-#### Über die Laufzeit
-
-A trägt 0,6 Mio. € weniger Schulden als B und 0,9 Mio. € weniger als C.
-
-*Abgesetzter Absatz darunter (mit Haarlinie):* Ein Mietausfall über 2 % und höhere zuwendungsfähige Kosten je m² senken beide Schwellen, denn die Mehrmiete je m² ist fest vorgegeben und die Mehrschuld wächst mit den Kosten. Der Zahlungsüberschuss in Jahr 1 wird null bei einer Tilgung von 3,65 % in A, 3,03 % in B und 2,90 % in C.
+*Wortlaut der vier Gründe vom Auftraggeber (15.11.2026), wie das Fazit der Präsentation.*
 
 ---
 
@@ -1112,7 +1100,7 @@ Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum 
 <a id="seite-23"></a>
 ## Seite 23 – PGN · Quellen
 
-<sub>U3 · Layout: sources · Kolumnentitel: PGN · Quellen · Wörter: Fließtext 0, Tabelle vierzehn Quellen</sub>
+<sub>U3 · Layout: sources · Kolumnentitel: PGN · Quellen · Wörter: Fließtext 0, Tabelle sechzehn Quellen</sub>
 
 *PGN*
 
@@ -1133,8 +1121,10 @@ Richtlinie über die Gewährung von Zuwendungen zur Förderung von Mietwohnraum 
 | NBank (2026): Merkblatt Vorzeitiger Vorhabenbeginn in der Wohnraumförderung. Stand 27.07.2026. | 3, 17, 18 |
 | KfW (2026): Merkblatt Klimafreundlicher Neubau Wohngebäude (297, 298). Stand 07/2026, S. 1–5. | 7, 12, 13 |
 | KfW (2026): Merkblatt Klimafreundlicher Neubau im Niedrigpreissegment (296). Stand 06/2026. | 7, 12, 13 |
-| ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht). S. 32, Abb. 20, und S. 34, Abb. 23. | 9 |
-| Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen bei 10 Jahren Zinsbindung. Wert vom 10.11.2026. | 10 |
+| ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht). S. 32, Abb. 20, und S. 34, Abb. 23. | 10 |
+| Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen bei 10 Jahren Zinsbindung. Wert vom 10.11.2026. | 9, 10 |
+| Gutachterausschuss für Grundstückswerte Lüneburg (2026): Mietübersicht Landkreis Harburg, Region Hamburger Umland. Stand 01.01.2026. | 9, 10, 11 |
+| Oberer Gutachterausschuss für Grundstückswerte in Niedersachsen (2026): Landesmodell Mehrfamilienhäuser. Stand 01.01.2026. | 9, 11 |
 | NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern auf den Ostfriesischen Inseln. Stand 05.11.2026, S. 3. | 13 |
 | KfW (2026): Merkblatt BEG Wohngebäude (261). Stand 09/2026, S. 5–6. | 14 |
 | Niedersächsische Staatskanzlei (2025): Niedersachsen verlängert die Gebietsbestimmung für Umwandlungsschutz und Mietpreisbremse bis Ende 2029. Presseinformation vom 25.11.2025. | 16 |
@@ -1197,43 +1187,20 @@ Interne Liste, nicht Teil der Broschüre. Nach der Hinweis-Diät sind diese Punk
 
 Interne Liste, nicht Teil der Broschüre. Alles, was PGN liefern, bestätigen oder freigeben muss. Stand nach Korrekturlauf 1: erledigt und gestrichen sind „Verantwortlich für den Inhalt“, „Druck“ und der Bildnachweis auf U3. Am 09.11.2026 vorläufig eingesetzt: Nr. 1 (Werte der Beispielrechnung S. 11/12); am 11.11.2026 auf das PGN-Projekt in Neu Wulmstorf umgestellt (Schlussabgleich und Freigaben offen).
 
-### 1. Zahlen aus der PGN-Beispiel-Investitionsrechnung (S. 10 „Modellrechnung · Finanzierung“, S. 11 „Wirtschaftlichkeit“, S. 12 „Mix und Tilgung“) – eingesetzt, seit 11.11.2026 mit den Werten des PGN-Projekts
+### 1. Zahlen der Modellrechnung (S. 10 „Modellhaus und Finanzierung“, S. 11 „Jahr 1“, S. 12 „35 Jahre“) – seit 15.11.2026 neu aufgebaut
 
-**Stand:** Der Kunde hat die Werte am 09.11.2026 vorläufig für die Broschüre übernommen. Seit 11.11.2026 (Entscheidung des Auftraggebers) ist das Modellhaus ein PGN-Projekt in Neu Wulmstorf, Landkreis Harburg: Projekt 2 der VOFI-Mappe v3 `vofi/PGN_VOFI_Mietwohnraum_2026_v3.xlsx` (`Eingaben!D3` = 2) mit 14 Wohnungen, 828 m² Wohnfläche, Herstellungskosten 3.579 € je m², Mietenstufe VI, Effizienzhaus 55; das Grundstück ist im Bestand und nicht angesetzt. Die Straße nennt das Heft nicht. Die Annahmen der Jahresrechnung sind unverändert (Eingaben 3.1, 5.1–5.3, 6.1, 6.4). Im Heft stehen keine Platzhalter `[PGN-Rechnung: …]` mehr.
+**Stand:** Am 15.11.2026 ist das Kapitel wie die Präsentation umgebaut (Folien 14 bis 22 und Fazit): gefördert in Gruppe A gegen frei finanziert zur Marktmiete, Gruppe C nur im Verlauf und im Spielraum, B nicht mehr eigens gerechnet. Modellhaus bleibt Projekt 2 der VOFI-Mappe v3 (`vofi/PGN_VOFI_Mietwohnraum_2026_v3.xlsx`, `Eingaben!D3` = 2): 14 Wohnungen, 828 m², 3.579 € je m², Mietenstufe VI, Grundstück im Bestand und nicht angesetzt. Die Zahlen frei finanziert, DSCR, Rendite und Vermögen stehen in den Blättern Kennzahlen, Frei DSCR 1,2 und Zeitreihe der Mappe (seit 15.11.2026, `vofi/build_kennzahlen.py`). Jede Zahl der drei Seiten steht im Seiten-JSON unter „belege“ mit ihrer Formel über Zellen der Mappe; `vofi/pruefe_vofi.py` (F9) rechnet sie nach und prüft, dass sie so im Partial steht. Die frühere Fassung (A, B, C, Rechenweg, Sensitivität, Tilgungsschwelle) ist über Git abrufbar.
 
-| Zeile | Quelle in der Mappe (Projekt 2) | im Heft jetzt (A / B / C, € p. a., Jahr 1) |
-|---|---|---|
-| S. 10, Rechenweg | Gefördert A H90, Übersicht D10, D19 | Herstellungskosten 828 m² × 3.579 € = 2.963.412 = zuwendungsfähige Kosten; Eigenmittel 592.682; keine Zeile Grundstück |
-| S. 10, Sensitivität | drei Läufe mit Eingabe 2.1 = 3.579 / 4.631 / 5.460 € je m²; Übersicht D9, D15, D19, D38 | Gesamtkosten 2.963.412 / 3.834.468 / 4.520.880; Förderung 2.370.730 / 3.067.574 / 3.616.704; Eigenmittel 592.682 / 766.894 / 904.176; Zahlungsüberschuss Jahr 1 in A 15.003 / 4.965 / −2.945 |
-| S. 11, 2 | 2,0 % der Sollmiete (Eingabe 5.1, F29) | − Mietausfall/Leerstand, 2 % der Sollmiete: 1.351 / 1.630 / 1.788 |
-| S. 11, 3 | 367 € je Wohnung p. a., nur Verwaltung; Betriebskosten voll umgelegt (Eingabe 5.2, F30) | − Objektverwaltung, 367 € je Wohnung p. a. (Betriebskosten voll umgelegt): 5.138 je Spalte |
-| S. 11, 4 | 14,40 € je m² Wohnfläche p. a. (Eingabe 5.3, F31) | − Instandhaltung, 14,40 € je m² p. a.: 11.923 je Spalte |
-| S. 11, 5 | Zwischensumme (Übersicht Zeile 33) | 49.152 / 62.784 / 70.574 |
-| S. 11, 8 | 2,38 % p. a. linear (1/42, Höchstlaufzeit) ab Jahr 1 (Eingabe 3.1, F17) – **PGN-Annahme**, keine Projektgröße; den Satz legt die NBank fest (→ Anhang A Nr. 9) | − Tilgung 2,38 % p. a. (Annahme: 42 Jahre): 28.223 / 42.334 / 49.390 |
-| S. 11, 9 | Ergebnis Zeile 5 − 6 − 7 − 8 (Übersicht Zeile 38) | 15.003 / 11.560 / 10.812 |
-| S. 11, Vergleich | Übersicht 8.2, 8.3 (D und G), 1.10 | Kapitaldienst 34.150 / 134.779 € (A / Frei); kostendeckende Anfangsmiete (Zeile 9 = null): 5,26 / 15,59 € je m² |
-| S. 12, Rechenweg | Übersicht 4.9–4.18 | Zeile 3 − Mietausfall 2 %: 278 / 437 (B / C); Tilgungsschwellen 1,80 % (B) / 1,91 % (C); Schnittpunkt C/B 2,13 % |
-| S. 12, Tabellenfuß | Übersicht 3.8 | Zahlungsüberschuss null bei 3,65 % / 3,03 % / 2,90 % Tilgung |
+Neu und vor dem Druck zu bestätigen:
 
-Die Zellen sind einzeln auf volle Euro gerundet; in den Spalten A und C der Jahresrechnung weichen Summen deshalb um 1 € ab (A: 67.565 − 1.351 − 5.138 − 11.923 = 49.153, gezeigt 49.152). Die Werte gelten für Jahr 1; Jahr 2 und 3 laut Mappe: A 14.802 / 14.595 €, B 11.430 / 11.294 €, C 10.718 / 10.617 €. Mehrüberschuss vor Tilgung 10.669 € (B) / 16.977 € (C), beim Tilgungssatz der S. 11 −3.443 € / −4.190 €, bei 3,0 % −7.112 € / −9.694 €. Die Werte des früheren Modellhauses (20 Wohnungen, 1.400 m², 4.500 € je m², Grundstück 700.000 €) stehen in `zulieferungen/vofi-pruefung/PRUEFBERICHT.md` Abschnitt 5 und `referenzrechnung-ergebnis.md` Abschnitt 2.
+- **Marktmiete 15,42 € je m²** (Gutachterausschuss für Grundstückswerte Lüneburg, Mietübersicht Landkreis Harburg, Hamburger Umland, Baualter ab 2023, 40 bis 60 m², Stand 01.01.2026; Eingabe 4.4). Quelle in der Quellentabelle S. 23.
+- **DSCR 1,2** als Anforderung der Bank an frei finanzierte Darlehen ist eine Annahme der PGN (Kennzahlen!D6).
+- **Frei finanziert:** Bankdarlehen 80 % zu 3,86 % Zins, 10 Jahre fest, jährliche Annuität über 30 Jahre; Fehlbetrag in Jahr 1 (1.691 €) über das Kontokorrent zu 5 % Sollzins; Miete +2 % p. a.
+- **Eigenkapitalrendite** (VOFI, vor Steuern, 35 Jahre) nur als Paar mit und ohne Restwert und mit dem Anteil des Restwerts (78 % in A); Restwert als Ertragswert aus der Marktmiete, Liegenschaftszins nach dem Landesmodell des Oberen Gutachterausschusses.
+- **Vier Gründe** S. 12: Wortlaut des Auftraggebers vom 15.11.2026 (wie Fazit der Präsentation).
+- **Bild:** S. 10 zeigt kein Foto. Die Visualisierung „Neu Wulmstorf“ der Referenzen (ref-02) gehört zum Projekt Bahnhofstraße (19 Wohnungen), nicht zum Modellhaus (14 Wohnungen). Falls PGN eine Visualisierung des Modellhauses hat, kann sie auf S. 10 stehen.
 
-Noch zu bestätigen (ohne Platzhalter im Heft):
-
-- **Schlussabgleich:** Die Werte der S. 10–12 sind am 11.11.2026 Zelle für Zelle gegen die Mappe geprüft (Projekt 2; Übersicht Zeilen 9–26, 29–39, 49, 55–72, 111–112; Sensitivität aus zwei weiteren Läufen). Die Prüfung der Mappe (`pruefe_vofi.py`, F9) und der Abgleich der Präsentation lesen die Seiten-JSONs und laufen seit 12.11.2026 ohne Abweichung durch. Ändern sich Annahmen, rechnet die Redaktion S. 10–12 und die Marke auf S. 13 nach.
-- **Angaben zum Projekt:** Ort, 14 Wohnungen, 828 m², Effizienzhaus 55 und „Grundstück im Bestand, nicht angesetzt“ für die Veröffentlichung freigeben. Der Wohnungsmix liegt der Redaktion nicht vor; der Vorspann S. 10 nennt die mittlere Größe (59 m²).
-- **Kostenansätze S. 10:** 3.579 € je m² (Median aus fünf PGN-Projekten, Kostengruppen 200 bis 700, Kostenstand Q4 2025) und 4.631 € je m² (ARGE-Median deutscher Großstädte, Q4 2025) bestätigen. Die Quelle des ARGE-Werts steht seit 12.11.2026 im Impressum (S. 22) unter „Quellen“ (ARGE e. V. (2026): Wohnungsbau in Deutschland 2026, Endbericht, S. 32, Abb. 20, und S. 34, Abb. 23); die Rückfrage dazu ist erledigt.
-- **Betriebskosten voll umgelegt:** Zeile 2 sagt ausdrücklich „(Betriebskosten voll umgelegt)“, die Mappe setzt keine nicht umlagefähigen Betriebskosten an (auch nicht bei Leerstand). Bestätigen, dass das bewusst so ist (PRUEFBERICHT 6 Nr. 3).
-- **Tilgungssatz 2,38 %:** mit der NBank abgestimmt oder eigene PGN-Setzung? (PRUEFBERICHT 6 Nr. 1; → Anhang A Nr. 9). Im Heft als „(Annahme)“ gekennzeichnet.
-- **Preisstand:** 367 € und 14,40 € je m² sind Werte von 2026; auf das erste Bewirtschaftungsjahr 2028 fortgeschrieben (Eingabe 5.5 = 2) sinkt der Zahlungsüberschuss in Jahr 1 um rund 690 € je Gruppe auf 14.313 / 10.871 / 10.123 €.
-- **Bearbeitungsentgelte** sind wie im Heft aus Eigenmitteln gezahlt angesetzt.
-- **Haus-Diagramm S. 10:** 14 Fenster für 14 Wohnungen (vier Geschosse mit drei Fenstern, oben zwei); vorher 5 × 4 = 20. Die Geschosse sind weiter eine Skala in Schritten von 20 %, kein Abbild des Gebäudes.
-
-Zur Entscheidung durch PGN:
-
-- **(a) Tenor S. 11:** erledigt. Mit dem PGN-Projekt schließen A, B und C Jahr 1 mit einem Zahlungsüberschuss (15.003 / 11.560 / 10.812 €); die Mappe zeigt in Jahr 1 bis 35 kein Jahr mit Fehlbetrag (Übersicht 3.6). Headline (Kunde, 11.11.2026): „Alle drei Gruppen tragen sich ab Jahr 1: 15.003 € Zahlungsüberschuss in A“, seit 12.11.2026 als zweite Stimme und Hauptzeile gesetzt, ohne Doppelpunkt. Beim früheren Modellhaus schlossen B und C Jahr 1 mit einem Fehlbetrag.
-- **(b) Tilgungsaufschub:** Bei einem vorübergehenden Fehlbetrag kann die NBank den Beginn der Tilgung bis zu fünf Jahre hinausschieben (RL Nr. 5.3.5, Ermessen, kein Anspruch; im Heft auf S. 20 unter „Tilgungsaufschub“). Für das Modellhaus gibt es dazu keinen Anlass mehr; ein Hinweis auf S. 11 entfällt.
-- **(c) Verweis S. 4 → S. 11:** Der Grundcheck auf S. 4 sagte „die erzielbare Miete muss Finanzierung und Bewirtschaftung auf Dauer decken → S. 11“. Der Verweis ist im Lektorat vom 11.11.2026 gestrichen (Befund Nr. 11), weil B und C das beim früheren Modellhaus in Jahr 1 nicht erfüllten; der Satz selbst bleibt. Mit dem PGN-Projekt erfüllen es alle drei Gruppen. Ob der Verweis zurückkommt, entscheidet PGN; im Heft steht er zurzeit nicht.
-- **(d) Kosten über dem Modellhaus:** Bei 4.631 € je m² bleibt in Jahr 1 nur in A ein Zahlungsüberschuss (4.965 €); an der Bemessungsgrenze von 5.460 € fehlen auch in A 2.945 €. B und C schließen in beiden Fällen mit einem Fehlbetrag (B −3.497 / −15.362 €, C −6.754 / −20.597 €). A trägt sich bis rund 5.150 € je m². Die Tabelle S. 10 zeigt Gruppe A. Soll sie B und C nennen, entscheidet PGN.
+Weiter gültig: **Tilgungssatz 2,38 %** (PGN-Annahme, 1/42; den Satz legt die NBank fest, → Anhang A Nr. 9); **Betriebskosten voll umgelegt**; **Bearbeitungsentgelte** aus dem Eigenkapital (20.744 €); **Preisstand 2026** der Bewirtschaftung; **Angaben zum Projekt** (Ort, 14 Wohnungen, 828 m², Effizienzhaus 55) zur Veröffentlichung freigeben.
 
 ### 2. Impressum und Geschäftsführung (S. 22)
 

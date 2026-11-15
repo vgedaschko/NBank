@@ -1,6 +1,6 @@
 # Offene Punkte bis zur Abstimmung mit der Geschäftsführung
 
-Stand 13.11.2026. Aufgenommen ist nur, was aus dem Verlauf der Arbeit oder aus den Projektdateien hervorgeht
+Stand 15.11.2026. Aufgenommen ist nur, was aus dem Verlauf der Arbeit oder aus den Projektdateien hervorgeht
 (`praesentation/daten/outline.json`: offene Fragen und ungeprüfte Angaben; `praesentation/README.md`;
 `broschuere/content/copy.md`, Anhang A und B). Wichtigkeit: muss / sollte / kann.
 
@@ -33,7 +33,9 @@ Für die Durchsicht liegt `Aenderungsvorschlaege-Broschuere-und-Vortrag.docx` be
 | a16 | Vortrag, `lib/assets.cjs` (QR-Code der Folie A2) | Liest die Broschürenseite `18-standort-und-kommune` (HTML und JSON); sie heißt seit 13.11.2026 `17-standort-und-kommune`. Der Folienbau nutzt nur das fertige Bild; erst ein neuer Lauf von `node lib/assets.cjs` bricht ab. Dateinamen dort nachziehen. | kann |
 | a17 | Broschüre S. 19, 20 | Änderungsrunde 13.11.2026 (B19.1): Der Kasten „Schlüsselfertig“ nennt die Förderbedingungen für einen Generalübernehmer nicht mehr (drei Unternehmen auffordern, erst nach der Bewilligung beauftragen, schriftliche Prüfzustimmung zu Kalkulation, Nachunternehmervergabe und Abrechnung). S. 20 nennt nur die Vergaberegel. Entscheiden, ob die Bedingung für Generalübernehmer auf S. 20 gehört. „Ein fester Vertragspartner für das ganze Vorhaben“ und „aus einer Hand“ stehen nicht wörtlich auf der Website (Freigabe PGN). | sollte |
 | a18 | Broschüre S. 18 (Station 4) | Änderungsrunde 13.11.2026 (B18.1): „Bearbeitungszeit der NBank: Ziel höchstens drei Monate“ steht wie beauftragt. Laut Prüfung (Pruefung-Schritt-1.md, Abschnitt 5) ist das eine Soll-Vorgabe der Richtlinie (RL Nr. 12.2.2) ohne Fristbeginn, kein eigenes Ziel der NBank. | kann |
-| a19 | Broschüre S. 10 bis 12 | Die Modellrechnung des Vortrags ist am 15.11.2026 umgebaut (Modellhaus, Mittelherkunft, frei finanziert zur Marktmiete mit Kontokorrent, Miete für eine DSCR von 1,2, Verlauf A und C, Rendite, Spielraum; Zahlen aus den neuen Blättern der Rechenmappe). Die Broschüre zeigt noch den Stand davor (kostendeckende Anfangsmiete 15,59 € frei finanziert). Seiten nachziehen, damit Broschüre und Vortrag dieselbe Rechnung zeigen. | muss |
+| a19 | Broschüre S. 10 bis 12 | Erledigt am 15.11.2026: Die drei Seiten zeigen dieselbe Rechnung wie der Vortrag (S. 10 Modellhaus und Finanzierung, S. 11 Jahr 1, S. 12 35 Jahre; gefördert A gegen frei finanziert zur Marktmiete). Jede Zahl steht mit ihrer Formel über Zellen der Mappe im Seiten-JSON („belege“); `vofi/pruefe_vofi.py` (F9) und `praesentation/daten/pruefe_werte.py` rechnen sie nach. Zu bestätigen bleibt die Freigabe der Inhalte (Anhang B Nr. 1 in `broschuere/content/copy.md`). | sollte |
+| a20 | Vortrag Folie 14 (Modellhaus) | Das Bild auf der Folie ist die Visualisierung „Neu Wulmstorf“ der Referenzen (Bahnhofstraße, 19 Wohnungen), nicht das Modellhaus (Projekt 2 der Mappe, 14 Wohnungen). Die Broschüre S. 10 zeigt deshalb kein Bild. Entscheiden: Bild auf der Folie streichen, durch eine Visualisierung des Modellhauses ersetzen oder als „Beispiel eines PGN-Projekts in Neu Wulmstorf“ beschriften. | muss |
+| a21 | Rechenmappe, Eingaben (Spalte Quelle) | Die Quellenvermerke der Eingaben nennen noch die Bogenseiten der früheren Broschüre: „Planung PGN (EH 55), Broschüre S. 11“ (jetzt S. 10) und „Rechenweg wie Broschüre S. 12“ (Übersicht 4.9 bis 4.18; die Seite zeigt den Rechenweg nicht mehr). Beim nächsten Bau der Mappe in `vofi/build_vofi.py` und `vofi/pruefe_vofi.py` nachziehen; die Rechenwerte ändern sich nicht. | kann |
 
 ## b) Was die PGN liefern oder entscheiden muss
 

@@ -56,11 +56,19 @@
         ],
         [
           "ARGE e. V. (2026): Wohnungsbau in Deutschland 2026 (Endbericht). S. 32, Abb. 20, und S. 34, Abb. 23.",
-          "9"
+          "10"
         ],
         [
           "Dr. Klein Wowi Finanz AG (2026): Zinsentwicklung für die Wohnungswirtschaft, Top-Konditionen bei 10 Jahren Zinsbindung. Wert vom 10.11.2026.",
-          "10"
+          "9, 10"
+        ],
+        [
+          "Gutachterausschuss für Grundstückswerte Lüneburg (2026): Mietübersicht Landkreis Harburg, Region Hamburger Umland. Stand 01.01.2026.",
+          "9, 10, 11"
+        ],
+        [
+          "Oberer Gutachterausschuss für Grundstückswerte in Niedersachsen (2026): Landesmodell Mehrfamilienhäuser. Stand 01.01.2026.",
+          "9, 11"
         ],
         [
           "NBank (2026): Produktinformation Mietwohnungen in Mehrfamilienhäusern auf den Ostfriesischen Inseln. Stand 05.11.2026, S. 3.",
@@ -75,7 +83,7 @@
           "16"
         ]
       ],
-      "note": "Änderungsrunde 13.11.2026 (B22.2 mit Rückfrage 8): vierzehn Quellen, je eine Zeile in der Form „Herausgeber (Jahr): Titel. Fundstelle.“; „Verwendet auf“ nennt gedruckte Seitenzahlen (Verweise auf die Bogenseite), an den fertigen Seiten nachgeprüft. Grundlage Pruefung-Schritt-1.md Abschnitt 4: gestrichen die NBank-Pressemitteilung vom 05.12.2025 (belegte nur den alten Einstieg S. 1); neu BT-Drs. 21/7303, Produktinformation Stand 01.04.2026, zwei Produktinformationen Stand 05.11.2026, Dr. Klein. Reihenfolge nach der ersten Seite, auf der die Quelle verwendet wird. Belege im Projekt: recherche/quellen/ (BT-Drs., Produktinformationen, ARGE, Dr. Klein), factbase F291/G3-01/G3-02 (MW), F306/F307/F311 (Wohnungsmarktbericht), F319/G2-20 (Staatskanzlei), F089/G2-25/G2-26 (Landkarte). Nachprüfung B22.2 vom 14.11.2026 (Merkblätter und Förderrichtlinien des Bundes und der NBank an allen Seiten geprüft): neu das NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (F257, F255, F258; S. 3, 17, 18), die KfW-Merkblätter 297/298 (G2-01, G2-03, G2-04, G2-06; S. 7, 12, 13), 296 (G2-07; S. 7, 12, 13) und 261 (G2-09, G2-10; S. 14); Titel, Stand und Seiten nur aus recherche/factbase.md. Bei gleicher erster Seite stehen die nachgetragenen Zeilen hinten. Nicht aufgenommen: die BEG-EM-Förderrichtlinie vom 17.07.2026 (G2-12, S. 14), weil sie als Förderrichtlinie eine Verwaltungsvorschrift ist und ihre BAnz-Fundstelle offen ist; Rechtsquellen auf Blatt 21 nach B22.1 nur mit den vier Einträgen der Datei. Zeilenabstand wie .table--compact, Schrift unverändert; Notizfläche 15 mm statt 45 mm."
+      "note": "Änderungsrunde 13.11.2026 (B22.2 mit Rückfrage 8): sechzehn Quellen (seit 15.11.2026; vorher vierzehn), je eine Zeile in der Form „Herausgeber (Jahr): Titel. Fundstelle.“; „Verwendet auf“ nennt gedruckte Seitenzahlen (Verweise auf die Bogenseite), an den fertigen Seiten nachgeprüft. Grundlage Pruefung-Schritt-1.md Abschnitt 4: gestrichen die NBank-Pressemitteilung vom 05.12.2025 (belegte nur den alten Einstieg S. 1); neu BT-Drs. 21/7303, Produktinformation Stand 01.04.2026, zwei Produktinformationen Stand 05.11.2026, Dr. Klein. Reihenfolge nach der ersten Seite, auf der die Quelle verwendet wird. Belege im Projekt: recherche/quellen/ (BT-Drs., Produktinformationen, ARGE, Dr. Klein), factbase F291/G3-01/G3-02 (MW), F306/F307/F311 (Wohnungsmarktbericht), F319/G2-20 (Staatskanzlei), F089/G2-25/G2-26 (Landkarte). Nachprüfung B22.2 vom 14.11.2026 (Merkblätter und Förderrichtlinien des Bundes und der NBank an allen Seiten geprüft): neu das NBank-Merkblatt „Vorzeitiger Vorhabenbeginn in der Wohnraumförderung“ (F257, F255, F258; S. 3, 17, 18), die KfW-Merkblätter 297/298 (G2-01, G2-03, G2-04, G2-06; S. 7, 12, 13), 296 (G2-07; S. 7, 12, 13) und 261 (G2-09, G2-10; S. 14); Titel, Stand und Seiten nur aus recherche/factbase.md. Bei gleicher erster Seite stehen die nachgetragenen Zeilen hinten. Nicht aufgenommen: die BEG-EM-Förderrichtlinie vom 17.07.2026 (G2-12, S. 14), weil sie als Förderrichtlinie eine Verwaltungsvorschrift ist und ihre BAnz-Fundstelle offen ist; Rechtsquellen auf Blatt 21 nach B22.1 nur mit den vier Einträgen der Datei. Zeilenabstand wie .table--compact, Schrift unverändert; Notizfläche 15 mm statt 45 mm. Seit 15.11.2026 (Umbau der Modellrechnung S. 10–12): neu Gutachterausschuss Lüneburg (Marktmiete 15,42 €; S. 9, 10, 11) und Oberer Gutachterausschuss, Landesmodell Mehrfamilienhäuser (Liegenschaftszins des Restwerts; S. 9, 11), beide wie die Quellenfolie des Vortrags; ARGE nur noch S. 10 (Spielraum), Dr. Klein S. 9 und 10."
     }
   ],
   "footnotes": [],

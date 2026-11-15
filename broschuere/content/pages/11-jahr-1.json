@@ -1,0 +1,557 @@
+{
+  "no": 11,
+  "slug": "jahr-1",
+  "layout_type": "chart-focus",
+  "page_variant": "accent",
+  "running_title": "Modellrechnung · Jahr 1",
+  "kicker": "Modellrechnung",
+  "headline_light": "Der Markt zahlt 15,42 € je m²",
+  "headline": "Frei finanziert braucht das Haus 18,36 €",
+  "blocks": [
+    {
+      "type": "chart",
+      "chart": "stacked-bar-share",
+      "title": "Wohin die Miete fließt",
+      "unit": "in % der Sollmiete, Jahr 1, gleiches Haus, gleiche Kosten",
+      "legend": [
+        "Bewirtschaftung, Mietausfall",
+        "Verwaltungskostenbeitrag",
+        "Zins",
+        "Tilgung",
+        "Zahlungsüberschuss"
+      ],
+      "data": {
+        "Gefördert, Gruppe A": {
+          "Sollmiete": "67.565 €",
+          "Bewirtschaftung, Mietausfall": "27,3 %",
+          "Verwaltungskostenbeitrag": "8,8 %",
+          "Zins": "0 %",
+          "Tilgung": "41,8 %",
+          "Zahlungsüberschuss": "22,2 %"
+        },
+        "Frei finanziert": {
+          "Sollmiete": "153.213 €",
+          "Bewirtschaftung, Mietausfall": "13,1 %",
+          "Zins": "59,7 %",
+          "Tilgung": "28,2 %",
+          "Fehlbetrag": "1,1 %, über das Kontokorrent"
+        }
+      }
+    },
+    {
+      "type": "table",
+      "role_hint": "dominant",
+      "caption": "Jahresrechnung Jahr 1, in € p. a.",
+      "columns": [
+        "",
+        "Position",
+        "Gefördert, A",
+        "Frei finanziert"
+      ],
+      "rows": [
+        [
+          "1",
+          "Sollmiete, 828 m² × 6,80 | 15,42 € × 12",
+          "67.565",
+          "153.213"
+        ],
+        [
+          "2",
+          "− Mietausfall/Leerstand, 2 % der Sollmiete",
+          "1.351",
+          "3.064"
+        ],
+        [
+          "3",
+          "− Objektverwaltung, 367 € je Wohnung",
+          "5.138",
+          "5.138"
+        ],
+        [
+          "4",
+          "− Instandhaltung, 14,40 € je m²",
+          "11.923",
+          "11.923"
+        ],
+        [
+          "5",
+          "= Überschuss vor Kapitaldienst",
+          "49.152",
+          "133.088"
+        ],
+        [
+          "6",
+          "− Verwaltungskostenbeitrag, 0,5 % des NBank-Darlehens",
+          "5.927",
+          "0"
+        ],
+        [
+          "7",
+          "− Zins, NBank 0 % | Bank 3,86 %",
+          "0",
+          "91.510"
+        ],
+        [
+          "8",
+          "− Tilgung, NBank 2,38 % | Bank Annuität über 30 Jahre",
+          "28.223",
+          "43.268"
+        ],
+        [
+          "9",
+          "= Zahlungsüberschuss p. a.",
+          "15.003",
+          "−1.691"
+        ]
+      ],
+      "result_row": "9",
+      "footer_rows": [
+        [
+          "Kapitaldienst, Zeilen 6 bis 8",
+          "34.150",
+          "134.779"
+        ],
+        [
+          "DSCR, Zeile 5 ÷ Kapitaldienst",
+          "1,44",
+          "0,99"
+        ]
+      ]
+    },
+    {
+      "type": "chart",
+      "chart": "bar-pair",
+      "title": "Miete für eine DSCR von 1,2",
+      "subtitle": "in € je m² und Monat, Jahr 1",
+      "data": {
+        "Gruppe A": "5,96",
+        "Frei finanziert": "18,36",
+        "Höchstmiete": "6,80",
+        "Marktmiete": "15,42"
+      },
+      "note": "DSCR = Überschuss vor Kapitaldienst ÷ Kapitaldienst; 1,2 verlangt die Bank (Annahme der PGN). Zur Marktmiete fehlen 2,94 € (gestrichelt)."
+    },
+    {
+      "type": "chart",
+      "chart": "stacked-bar",
+      "title": "Spielraum in Jahr 1",
+      "legend": [
+        "Modellhaus",
+        "bis zur Schwelle"
+      ],
+      "data": {
+        "Herstellungskosten je m²": {
+          "Modellhaus": "3.579 €",
+          "Gruppe A": "5.150 €",
+          "Gruppe C": "4.220 €",
+          "ARGE-Median": "4.631 €"
+        },
+        "Tilgungssatz p. a.": {
+          "Modellhaus": "2,38 %",
+          "Gruppe A": "3,65 %",
+          "Gruppe C": "2,90 %"
+        }
+      },
+      "note": "Bis zur Schwelle bleibt in Jahr 1 ein Zahlungsüberschuss."
+    }
+  ],
+  "footnotes": [],
+  "fact_ids": [
+    "F105",
+    "F106",
+    "F107",
+    "F108",
+    "F109",
+    "F112",
+    "F113",
+    "F115",
+    "F116",
+    "F215",
+    "F217",
+    "F276",
+    "F277",
+    "F278",
+    "F279",
+    "F094",
+    "F024",
+    "F040",
+    "G2-31",
+    "G2-20",
+    "G1-29"
+  ],
+  "visual_idea": "Akzentseite, rechte Hälfte der Doppelseite 10|11. H1 mit „Der Markt zahlt 15,42 € je m²“ als zweite Stimme, Rot nur an „18,36 €“. Band 1: „Wohin die Miete fließt“ als zwei Balken in Prozent der Sollmiete über die volle Breite (gefördert und frei finanziert), Fehlbetrag frei finanziert als gestrichelter Umriss hinter der 100-%-Linie. Hauptelement: die Jahresrechnung gefördert gegen frei finanziert, Zeilen 1 bis 9, Ergebniszeile rot, darunter Kapitaldienst und DSCR. Band 3: Miete für eine DSCR von 1,2 (Lücke zur Marktmiete gestrichelt) | Spielraum in Jahr 1 (Herstellungskosten mit Marke beim ARGE-Median, Tilgungssatz). Kein Rot im Diagramm. Umbau der Modellrechnung am 15.11.2026 nach der Präsentation (Folien 14 bis 22 und Fazit)",
+  "belege": [
+    {
+      "text": "15,42",
+      "formel": "Kennzahlen!D13",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "Titel"
+    },
+    {
+      "text": "18,36",
+      "formel": "Kennzahlen!D12",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "Titel, Diagramm"
+    },
+    {
+      "text": "27,3",
+      "formel": "(Übersicht!D30 + Übersicht!D31 + Übersicht!D32) / Übersicht!D29",
+      "art": "prozent",
+      "nk": 1,
+      "wo": "Fluss A"
+    },
+    {
+      "text": "8,8",
+      "formel": "Übersicht!D34 / Übersicht!D29",
+      "art": "prozent",
+      "nk": 1,
+      "wo": "Fluss A"
+    },
+    {
+      "text": "41,8",
+      "formel": "Übersicht!D36 / Übersicht!D29",
+      "art": "prozent",
+      "nk": 1,
+      "wo": "Fluss A"
+    },
+    {
+      "text": "22,2",
+      "formel": "Übersicht!D38 / Übersicht!D29",
+      "art": "prozent",
+      "nk": 1,
+      "wo": "Fluss A"
+    },
+    {
+      "text": "13,1",
+      "formel": "(Eingaben!F29 * (Kennzahlen!G49 * Eingaben!F8 * 12) + Übersicht!G31 + Übersicht!G32) / (Kennzahlen!G49 * Eingaben!F8 * 12)",
+      "art": "prozent",
+      "nk": 1,
+      "wo": "Fluss frei"
+    },
+    {
+      "text": "59,7",
+      "formel": "-'Frei finanziert'!J7 / (Kennzahlen!G49 * Eingaben!F8 * 12)",
+      "art": "prozent",
+      "nk": 1,
+      "wo": "Fluss frei"
+    },
+    {
+      "text": "28,2",
+      "formel": "-'Frei finanziert'!K7 / (Kennzahlen!G49 * Eingaben!F8 * 12)",
+      "art": "prozent",
+      "nk": 1,
+      "wo": "Fluss frei"
+    },
+    {
+      "text": "1,1",
+      "formel": "-Kennzahlen!G61 / (Kennzahlen!G49 * Eingaben!F8 * 12)",
+      "art": "prozent",
+      "nk": 1,
+      "wo": "Fluss frei"
+    },
+    {
+      "text": "67.565",
+      "formel": "Übersicht!D29",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Fluss, Jahresrechnung"
+    },
+    {
+      "text": "153.213",
+      "formel": "(Kennzahlen!G49 * Eingaben!F8 * 12)",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Fluss, Jahresrechnung"
+    },
+    {
+      "text": "828",
+      "formel": "Eingaben!F8",
+      "art": "zahl",
+      "nk": 0,
+      "wo": ""
+    },
+    {
+      "text": "6,80",
+      "formel": "Übersicht!D26",
+      "art": "zahl",
+      "nk": 2,
+      "wo": ""
+    },
+    {
+      "text": "15,42",
+      "formel": "Kennzahlen!G49",
+      "art": "zahl",
+      "nk": 2,
+      "wo": ""
+    },
+    {
+      "text": "2",
+      "formel": "Eingaben!F29",
+      "art": "prozent",
+      "nk": 0,
+      "wo": ""
+    },
+    {
+      "text": "1.351",
+      "formel": "Übersicht!D30",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "3.064",
+      "formel": "Eingaben!F29 * (Kennzahlen!G49 * Eingaben!F8 * 12)",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "367",
+      "formel": "Eingaben!F30",
+      "art": "zahl",
+      "nk": 0,
+      "wo": ""
+    },
+    {
+      "text": "5.138",
+      "formel": "Übersicht!D31",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "5.138",
+      "formel": "Übersicht!G31",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "14,40",
+      "formel": "Eingaben!F31",
+      "art": "zahl",
+      "nk": 2,
+      "wo": ""
+    },
+    {
+      "text": "11.923",
+      "formel": "Übersicht!D32",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "11.923",
+      "formel": "Übersicht!G32",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "49.152",
+      "formel": "Übersicht!D33",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "133.088",
+      "formel": "Kennzahlen!G59",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "0,5",
+      "formel": "Tabellen!D23",
+      "art": "prozent",
+      "nk": 1,
+      "wo": ""
+    },
+    {
+      "text": "5.927",
+      "formel": "Übersicht!D34",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "0",
+      "formel": "Tabellen!D19",
+      "art": "prozent",
+      "nk": 0,
+      "wo": ""
+    },
+    {
+      "text": "3,86",
+      "formel": "Eingaben!F35",
+      "art": "prozent",
+      "nk": 2,
+      "wo": ""
+    },
+    {
+      "text": "0",
+      "formel": "Übersicht!D35",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "91.510",
+      "formel": "-'Frei finanziert'!J7",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "2,38",
+      "formel": "Eingaben!F17",
+      "art": "prozent",
+      "nk": 2,
+      "wo": ""
+    },
+    {
+      "text": "30",
+      "formel": "Eingaben!F38",
+      "art": "zahl",
+      "nk": 0,
+      "wo": ""
+    },
+    {
+      "text": "28.223",
+      "formel": "Übersicht!D36",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "43.268",
+      "formel": "-'Frei finanziert'!K7",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "15.003",
+      "formel": "Übersicht!D38",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "−1.691",
+      "formel": "Kennzahlen!G61",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "34.150",
+      "formel": "Übersicht!D111",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "134.779",
+      "formel": "Kennzahlen!G60",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "1,44",
+      "formel": "Kennzahlen!D62",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "0,99",
+      "formel": "Kennzahlen!G62",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "Jahresrechnung"
+    },
+    {
+      "text": "5,96",
+      "formel": "Kennzahlen!D22",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "DSCR"
+    },
+    {
+      "text": "6,80",
+      "formel": "Kennzahlen!D19",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "DSCR"
+    },
+    {
+      "text": "1,2",
+      "formel": "Kennzahlen!D6",
+      "art": "zahl",
+      "nk": 1,
+      "wo": "DSCR"
+    },
+    {
+      "text": "2,94",
+      "formel": "Kennzahlen!D12 - Kennzahlen!D13",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "DSCR"
+    },
+    {
+      "text": "3.579",
+      "formel": "Eingaben!F11",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Spielraum"
+    },
+    {
+      "text": "5.150",
+      "formel": "abrunden(Eingaben!F11 + Übersicht!D38 * (L70:Eingaben!F11 - Eingaben!F11) / (Übersicht!D38 - L70:Übersicht!D38), 10)",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Spielraum"
+    },
+    {
+      "text": "4.220",
+      "formel": "abrunden(Eingaben!F11 + Übersicht!F38 * (L70:Eingaben!F11 - Eingaben!F11) / (Übersicht!F38 - L70:Übersicht!F38), 10)",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Spielraum"
+    },
+    {
+      "text": "4.631",
+      "formel": "L69:Eingaben!F11",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Spielraum"
+    },
+    {
+      "text": "2,38",
+      "formel": "Eingaben!F17",
+      "art": "prozent",
+      "nk": 2,
+      "wo": "Spielraum"
+    },
+    {
+      "text": "3,65",
+      "formel": "Übersicht!D49",
+      "art": "prozent",
+      "nk": 2,
+      "wo": "Spielraum"
+    },
+    {
+      "text": "2,90",
+      "formel": "Übersicht!F49",
+      "art": "prozent",
+      "nk": 2,
+      "wo": "Spielraum"
+    }
+  ],
+  "belege_hinweis": "Jede Zahl der Seite mit ihrer Formel über Zellen der Rechenmappe v3 (Lauf L2 = Standard, Projekt 2; „L70:“ = Lauf mit 5.460 € je m²). „art“: zahl, prozent (× 100), mio (÷ 1.000.000), tsd (÷ 1.000); „nk“: Nachkommastellen. vofi/pruefe_vofi.py (F9) rechnet jede Formel gegen die Mappe nach und prüft, dass der Text so im Partial steht. Erzeugt aus den Werten der Präsentation (werte.json, kennzahlen.json) am 15.11.2026."
+}

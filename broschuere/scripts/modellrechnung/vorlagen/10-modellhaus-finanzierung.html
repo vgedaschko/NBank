@@ -1,0 +1,108 @@
+<section class="page page--accent page--dicht bs-21" data-page="10" id="seite-10">
+  <style>
+    /* S. 10 · Modellrechnung: Modellhaus und Finanzierung – linke Seite der Mittel-Doppelseite 10|11 (Papier, .page--accent).
+       Neu seit 15.11.2026 (Umbau der Modellrechnung wie im Vortrag): gefördert in Gruppe A gegen frei finanziert zur Marktmiete,
+       B nicht mehr eigens gerechnet, C nur im Verlauf (S. 12). Zahlen aus der Rechenmappe v3, Blatt Kennzahlen (D52 bis D57, G52 bis G56)
+       und Eingaben (praesentation/daten/kennzahlen.json); Generator der Häuser: Geschosse 9,4 mm hoch (Grenzen 5 bis 52 mm), je
+       Geschoss 20 % der Gesamtkosten, 14 Fenster = 14 Wohnungen wie bisher.
+       Hauptelement: zwei Häuser als gestapelte Balken über die volle Breite (gefördert: Zuschuss ab der Grundlinie, NBank-Darlehen,
+       Eigenkapital; frei finanziert: Bankdarlehen, Eigenkapital); die Maßkette links (Fremdkapital 80 %, Eigenkapital 20 %) gilt für beide.
+       Darunter Steckbrief (7, außen) | Kennzahlen je Wohnung (5, am Bund), unten die Annahmen über die volle Breite. Horizonte mit S. 11:
+       Kopfzeile, H1, Oberkante Band 1 und Band 3. */
+    .page[data-page="10"] .p10-band { --row-gap: 0; align-items: start; }
+    .page[data-page="10"] .p10-c { margin-top: 5.4mm; }
+    .page[data-page="10"] .p10-house .chart__svg { margin-top: 3.6mm; }
+    .page[data-page="10"] .p10-d { margin-top: 4.6mm; }
+    .page[data-page="10"] .p10-spec { border-top: var(--hair) solid var(--rule-strong); padding-top: 3mm; }
+    /* Steckbrief „Das Modellhaus“: Zeilen „Bezeichnung: Angabe“, Bezeichnung halbfett in Schwarz als Vorlauf, Haarlinie zwischen den Zeilen */
+    .page[data-page="10"] .p10-steck { margin-top: 2.2mm; }
+    .page[data-page="10"] .p10-steck > div { padding: 1.2mm 0 1.3mm; border-top: var(--hair) solid var(--rule); font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
+    .page[data-page="10"] .p10-steck > div:first-child { border-top: 0; padding-top: 0; }
+    .page[data-page="10"] .p10-steck dt, .page[data-page="10"] .p10-steck dd { display: inline; }
+    .page[data-page="10"] .p10-steck dt { font-weight: 600; color: var(--fg); }
+    /* Häuser */
+    .page[data-page="10"] .p10-win { fill: var(--surface-2); }
+    .page[data-page="10"] .p10-win--eq { stroke: var(--equity-line); stroke-width: .2; }
+    .page[data-page="10"] .p10-ground { stroke: var(--fg); stroke-width: .5; fill: none; }
+    .page[data-page="10"] .chart__svg .p10-lab { fill: var(--fg-2); }
+    .page[data-page="10"] .p10-house__svg .t-num.t-acc { font-weight: 800; }
+    /* Kennzahlen am Bund */
+    .page[data-page="10"] .p10-kf { row-gap: 0; align-content: start; }
+    .page[data-page="10"] .p10-kf > .kf { grid-column: span 6; }
+    .page[data-page="10"] .p10-kf .kf__fig { margin-top: 2.4mm; }
+    .page[data-page="10"] .p10-kf .kf__label { margin-top: 2.2mm; }
+    /* Annahmen: drei Spalten, Positionsspalte 46 mm („Verwaltungskostenbeitrag“ einzeilig), Spalte gefördert 70 mm; je Position eine Zeile.
+       Dichte Seite (.page--dicht, 9 pt): in 9,5 pt läuft die Seite mit Häusern, Steckbrief und Annahmen nicht auf, Werte als Text; gleiche Ansätze „wie gefördert“ in Grau */
+    .page[data-page="10"] .p10-an-t { margin-top: 1.4mm; table-layout: fixed; }
+    .page[data-page="10"] .p10-an-t col.p10-an-pos { width: 46mm; }
+    .page[data-page="10"] .p10-an-t col.p10-an-gef { width: 70mm; }
+    .page[data-page="10"] .p10-an-t th, .page[data-page="10"] .p10-an-t td { padding-top: .6mm; padding-bottom: .6mm; line-height: 1.35; }
+    .page[data-page="10"] .p10-an-t tbody th { font-weight: 600; color: var(--fg); }
+    .page[data-page="10"] .p10-an-t .p10-wie { color: var(--fg-3); }
+  </style>
+
+  <div class="bs-register" data-bleed aria-hidden="true">2.1</div>
+
+  <header class="page__header"><span class="page__section">Modellrechnung</span><div class="keyplan" role="img" aria-label="Programmteil 2.1 von sechs Programmteilen"><span class="keyplan__label">Programmteil</span><ol class="keyplan__list"><li class="bs-21 is-on">2.1</li><li class="bs-22">2.2</li><li class="bs-23">2.3</li><li class="bs-24">2.4</li><li class="bs-25">2.5</li><li class="bs-26">2.6</li></ol></div></header>
+  <h1 class="h1"><span class="light">Modellhaus in Neu Wulmstorf</span> Gleiches Eigenkapital, gefördert <em>40&nbsp;%</em> Zuschuss</h1>
+
+  <!-- Band 1 · Mittelherkunft gefördert und frei finanziert (12, Hauptelement) -->
+  <figure class="chart module p10-house p10-c" role="group" aria-labelledby="p10-house-h">
+    <figcaption class="chart__head">
+      <h2 class="chart__title" id="p10-house-h">Mittelherkunft <span class="chart__unit">in Mio. €</span></h2>
+      <p class="chart__sub">Gesamtkosten je 2,96 Mio. € · Rechenbeispiel, keine Förderzusage</p>
+    </figcaption>
+    %%HAEUSER%%
+  </figure>
+
+  <!-- Band 2 · Das Modellhaus (7, außen) | Kennzahlen je Wohnung (5, am Bund) -->
+  <div class="l-grid p10-band p10-d">
+    <div class="l-span-7 p10-spec">
+      <h2 class="chart__title" id="p10-spec-h">Das Modellhaus</h2>
+      <dl class="p10-steck" aria-labelledby="p10-spec-h">
+        <div><dt>Ort:</dt> <dd>Neu Wulmstorf, <span class="u-nohyphens">Landkreis</span> Harburg, Mietenstufe VI</dd></div>
+        <div><dt>Wohnungen:</dt> <dd>14 für Gruppe&nbsp;A, 828&nbsp;m², im Schnitt 59&nbsp;m²</dd></div>
+        <div><dt>Herstellungskosten:</dt> <dd>3.579&nbsp;€ je&nbsp;m², Median aus fünf <span class="u-nowrap">PGN-Projekten</span></dd></div>
+        <div><dt>Standard:</dt> <dd>Effizienzhaus 55, Grundstück nicht angesetzt</dd></div>
+        <div><dt>Rechnung:</dt> <dd>Bezug 2027, betrachtet über 35 Jahre</dd></div>
+      </dl>
+    </div>
+    <div class="l-span-5 key-figures p10-kf">
+      <div class="kf kf--s">
+        <p class="kf__fig"><span class="kf__num">84.669<span class="kf__unit">€</span></span></p>
+        <p class="kf__label">Zuschuss je Wohnung</p>
+        <p class="kf__text">nicht rückzahlbar</p>
+      </div>
+      <div class="kf kf--s">
+        <p class="kf__fig"><span class="kf__num">42.334<span class="kf__unit">€</span></span></p>
+        <p class="kf__label">Eigenkapital je Wohnung</p>
+        <p class="kf__text">in beiden Fällen gleich; gefördert dazu 20.744&nbsp;€ Bearbeitungsentgelte</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Band 3 · Annahmen (12) -->
+  <section class="module p10-an l-bottom" aria-labelledby="p10-an-h">
+    <h2 class="chart__title" id="p10-an-h">Annahmen der Rechnung</h2>
+    <p class="chart__sub">Vor Steuern. Gleiche Kosten, verschieden sind nur Miete und Finanzierung.</p>
+    <table class="table table--compact p10-an-t" aria-labelledby="p10-an-h">
+      <colgroup><col class="p10-an-pos"><col class="p10-an-gef"><col></colgroup>
+      <thead><tr><th scope="col">Position</th><th scope="col">Gefördert, Gruppe A</th><th scope="col">Frei finanziert</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Miete Jahr 1</th><td>Höchstmiete 6,80&nbsp;€ je&nbsp;m² und Monat</td><td>Marktmiete 15,42&nbsp;€ je&nbsp;m² und Monat</td></tr>
+        <tr><th scope="row">Mietanpassung</th><td>3 Jahre fest, dann +6,15&nbsp;% je 3 Jahre</td><td>+2&nbsp;% p.&nbsp;a.</td></tr>
+        <tr><th scope="row">Mietausfall</th><td>2&nbsp;% der Sollmiete</td><td class="p10-wie">wie gefördert</td></tr>
+        <tr><th scope="row">Objektverwaltung</th><td>367&nbsp;€ je Wohnung p.&nbsp;a.</td><td class="p10-wie">wie gefördert</td></tr>
+        <tr><th scope="row">Instandhaltung</th><td>14,40&nbsp;€ je&nbsp;m² p.&nbsp;a.</td><td class="p10-wie">wie gefördert</td></tr>
+        <tr><th scope="row">Kostensteigerung</th><td>2&nbsp;% p.&nbsp;a. ab Jahr 2</td><td class="p10-wie">wie gefördert</td></tr>
+        <tr><th scope="row">Zins</th><td>0&nbsp;% bis Jahr 35</td><td>3,86&nbsp;%, 10 Jahre fest</td></tr>
+        <tr><th scope="row">Verwaltungskostenbeitrag</th><td>0,5&nbsp;% vom Restkapital</td><td class="p10-wie">entfällt</td></tr>
+        <tr><th scope="row">Tilgung</th><td>2,38&nbsp;% p.&nbsp;a.</td><td>jährliche Annuität über 30 Jahre</td></tr>
+        <tr><th scope="row">Kontokorrent</th><td>Soll 5&nbsp;%, Haben 2&nbsp;%</td><td class="p10-wie">wie gefördert</td></tr>
+        <tr><th scope="row">Restwert Ende Jahr 35</th><td>Ertragswert aus der Marktmiete</td><td class="p10-wie">wie gefördert</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">9</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Modellrechnung · Modellhaus und Finanzierung</b></span></span></footer>
+</section>

@@ -4,6 +4,8 @@
 > nur sachlich genannt, nie als Absender (kein Logo von NBank oder Land). Die Platzhalter `[PGN-Rechnung: …]` auf
 > S. 11/12 sind seit 09.11.2026 vorläufig durch die Werte der PGN-Beispielrechnung ersetzt; seit 11.11.2026 rechnet das
 > Kapitel „Modellrechnung“ (S. 10–12) mit einem PGN-Projekt in Neu Wulmstorf (14 Wohnungen, Projekt 2 der Rechenmappe).
+> Seit 15.11.2026 zeigt es wie das Kapitel 3 der Präsentation gefördert (Gruppe A) gegen frei finanziert zur Marktmiete:
+> S. 10 Modellhaus und Finanzierung, S. 11 Jahr 1, S. 12 35 Jahre.
 > Was PGN vor dem Druck noch bestätigen oder entscheiden muss, steht unter [Platzhalter](#platzhalter--was-pgn-vor-dem-druck-liefert) und in
 > Anhang B von `content/copy.md`.
 >
@@ -34,7 +36,7 @@ Arbeitsdateien (nicht versioniert, siehe `.gitignore`): `dist/preview/seite-01.p
 ## Seitenübersicht (24 Seiten)
 
 Rückendrahtheftung: Umschlag (4 Seiten) um einen Innenteil von 20 Seiten. Doppelseiten 2|3, 4|5 … 22|23; die
-Doppelseite 10|11 „Modellrechnung“ trägt Finanzierung und Wirtschaftlichkeit, physische Heftmitte ist 12|13.
+Doppelseite 10|11 „Modellrechnung“ trägt Modellhaus und Finanzierung | Jahr 1, physische Heftmitte ist 12|13 (35 Jahre | Neubau 2.2).
 Seit der Änderungsrunde vom 13.11.2026 (Regel G1) gibt es das Blatt „Stichtag 31.12.2026“ nicht mehr: Die früheren
 Bogenseiten 17–23 heißen 16–22 (gedruckt 15–21), neu ist S. 23 „Quellen“ (gedruckt 22) auf der Innenseite des
 hinteren Umschlags. Das Impressum steht damit im Innenteil (S. 22, gedruckt 21). Die Doppelseiten ab S. 16 sind neu
@@ -66,9 +68,9 @@ Dateinamen, `data-page`, Anker `#seite-NN`, die Vorschaubilder `seite-NN.png` un
 | 7 | Ertragsseite · Mieten | Höchstmieten und Mietentwicklung |
 | 8 | Finanzierung · Programmteil 2.1 | Neubau, Änderung, Ersterwerb: Bis zu 80 % Förderquote |
 | 9 | Finanzierung · Eckdaten | Konditionen und Kosten |
-| 10 | Modellrechnung · Finanzierung | 14 Wohnungen, 3,0 Mio. €: bis zu 2,4 Mio. € Förderung |
-| 11 | Modellrechnung · Wirtschaftlichkeit | Alle drei Gruppen tragen sich ab Jahr 1: 15.003 € Zahlungsüberschuss in A |
-| 12 | Modellrechnung · Mix und Tilgung | Über 1,91 % Tilgung liegt Gruppe A vorn |
+| 10 | Modellrechnung · Modellhaus und Finanzierung | Modellhaus in Neu Wulmstorf: Gleiches Eigenkapital, gefördert 40 % Zuschuss |
+| 11 | Modellrechnung · Jahr 1 | Der Markt zahlt 15,42 € je m²: Frei finanziert braucht das Haus 18,36 € |
+| 12 | Modellrechnung · 35 Jahre | Über 35 Jahre kein Jahr mit Fehlbetrag: Eigenkapitalrendite 7,05 % in A |
 | 13 | Neubau · Programmteil 2.2 | Energetisch hochwertiger Neubau: Reiner Zuschuss statt Darlehen |
 | 14 | Neubau · Programmteil 2.4 | Ostfriesische Inseln: Höhere Kostengrenze, 10 % Eigenmittel |
 | 15 | Bestand · Programmteil 2.3 | Klimagerechte Modernisierung: Zuschuss nach Effizienzsteigerung |
@@ -97,24 +99,17 @@ Im Heft sichtbar: **keine Felder mehr.** Die 23 Platzhalter auf S. 11 (Jahresrec
 v2-1, `Eingabe!C80–C82`, `Basisdaten!C62`; Prüfung `zulieferungen/vofi-pruefung/PRUEFBERICHT.md` Abschnitt 5). Seit
 11.11.2026 ist das Modellhaus ein PGN-Projekt in Neu Wulmstorf (Projekt 2 der VOFI-Mappe v3: 14 Wohnungen, 828 m²,
 3.579 € je m², Grundstück im Bestand und nicht angesetzt); die Spalte „jetzt“ nennt dessen Werte. Excel-Mappe,
-Präsentation und Broschüre werden am Ende abgeglichen; offene Punkte in Anhang B, Nr. 1:
-
-| S. | früher | jetzt |
-|---:|---|---|
-| 11 | Mietausfall/Leerstand `[… %]` | 2 % der Sollmiete: 1.351 / 1.630 / 1.788 € (A / B / C) |
-| 11 | nicht umlagefähige Bewirtschaftungskosten `[… € je Wohnung p. a.]` | Objektverwaltung 367 € je Wohnung p. a., Betriebskosten voll umgelegt: 5.138 € |
-| 11 | Instandhaltung `[… € je m² p. a.]` | 14,40 € je m² p. a.: 11.923 € |
-| 11 | Tilgung `[Tilgungssatz … %]` | 2,38 % p. a. (Annahme: linear über 42 Jahre): 28.223 / 42.334 / 49.390 € |
-| 11 | Zeilen 4 und 8 `[PGN-Rechnung]` (seit 13.11.2026 Zeilen 5 und 9: Mietausfall ist eigene Zeile 2) | 49.152 / 62.784 / 70.574 € und 15.003 / 11.560 / 10.812 € (Jahr 1) |
-| 12 | Mietausfall `[… %]` im Rechenweg | Zeile 3 (seit 13.11.2026 mit eigener Nummer): 278 / 437 € (B / C); Tilgungsschwellen 1,80 % / 1,91 % |
+Präsentation und Broschüre werden am Ende abgeglichen. Seit 15.11.2026 sind S. 10–12 neu aufgebaut (gefördert A gegen frei
+finanziert, Jahr 1 und 35 Jahre); die Tabelle „früher | jetzt“ der Platzhalter ist damit erledigt und über Git abrufbar.
+Jede Zahl der drei Seiten steht mit ihrer Formel über Zellen der Mappe unter „belege“ im Seiten-JSON; erzeugt werden Grafiken
+und JSON mit `scripts/modellrechnung/` (siehe dort), geprüft mit `vofi/pruefe_vofi.py` (F9). Offene Punkte in Anhang B, Nr. 1.
 
 Das Impressum (S. 22) trägt seit Korrekturlauf 1 keine Platzhalter mehr: „Verantwortlich für den Inhalt“ und „Druck“ entfallen
 (§ 8 Abs. 2, § 7 Abs. 3 NPresseG), der Bildnachweis lautet „Planungsgemeinschaft Nord GmbH“.
 
 Außerdem vor dem Druck zu bestätigen oder freizugeben (ohne Platzhalter im Heft, Details in Anhang B):
-Schlussabgleich S. 10–12 mit VOFI-Mappe und Präsentation, Angaben zum PGN-Projekt und Kostenansätze S. 10 (3.579 € PGN, 4.631 € ARGE),
-Kostenstand 2026, „Betriebskosten voll umgelegt“, Tilgungssatz 2,38 % (NBank abgestimmt?); der Tenor S. 11 ist seit 11.11.2026
-entschieden („Alle drei Gruppen tragen sich ab Jahr 1“), der Verweis S. 4 → S. 11 bleibt gestrichen, bis PGN entscheidet;
+Angaben zum PGN-Projekt S. 10, Marktmiete 15,42 € (Gutachterausschuss Lüneburg), DSCR 1,2 als Anforderung der Bank,
+Kostenstand 2026, „Betriebskosten voll umgelegt“, Tilgungssatz 2,38 % (NBank abgestimmt?), ein Bild des Modellhauses für S. 10 (falls vorhanden);
 Geschäftsführung, Herausgeberzeile und PDF-Metadaten (Impressum S. 22); Formulierung „Seit 1981“ (S. 21); Bildrechte und
 hochaufgelöste Originale (U1, S. 19, 21); Negativ-Logo, CMYK-/Pantone-Werte und CI-Anwendung; Zitate Tonne (S. 2) und
 Kiesewetter (S. 6); PGN-Claims, Leistungsaussagen S. 19, Referenzen S. 21 und eine mögliche Ansprechperson auf U4.

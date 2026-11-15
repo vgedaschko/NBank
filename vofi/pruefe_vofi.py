@@ -178,12 +178,20 @@ Modellhaus ist Projekt 2 (KONZEPT-v3.md, Abschnitt R, Entscheidung des Auftragge
   Größen der Sensitivität; alle aus der Referenzrechnung erzeugt.
   Regression: Die Projektnamen auf den Blättern Gefördert A/B/C und NBank gelten im neuen Wortlaut als gleich.
 
-Broschüre S. 11 und 12 (Änderungsrunde vom 13.11.2026, G2, B10.1–B10.3, B11.2)
+Broschüre S. 11 und 12 (Änderungsrunde vom 13.11.2026, G2, B10.1–B10.3, B11.2; gilt bis 15.11.2026)
   Die Jahresrechnung S. 11 zählt 1 bis 9 (Mietausfall/Leerstand ist eigene Zeile 2), der Rechenweg S. 12 1 bis 6
   (Mietausfall eigene Zeile 3, Schwelle „Zeile 5 ÷ 1“). F9 ordnet die Zeilen wie vorher der Reihe nach der Übersicht zu
   (S. 11: 29–36 und 38; S. 12: 66–70) und prüft zusätzlich die Nummern ohne Lücke, die Zahl der Zeilen, den Bezug der
   Schwelle und des Verwaltungskostenbeitrags S. 12 und den Bezug „(Zeile 9 = null)“ der letzten Vergleichszeile S. 11.
   Die Annahmen S. 11 heißen „jährliche Annuität über 30 Jahre“. Die Mappe zählt ihre Jahresrechnung unverändert.
+
+Broschüre S. 10–12 seit 15.11.2026 (Umbau der Modellrechnung wie im Vortrag: gefördert A gegen frei finanziert)
+  Die Seiten zeigen Modellhaus und Finanzierung, Jahr 1 und 35 Jahre. Jedes Seiten-JSON führt unter „belege“ jede Zahl mit
+  ihrer Formel über Zellen der Mappe (erzeugt von broschuere/scripts/modellrechnung/seiten_json.py). F9 rechnet jede Formel
+  mit den Läufen nach (ohne Vorsatz L2, „L69:“ 4.631 € je m², „L70:“ 5.460 € je m²), rundet wie die Broschüre und
+  vergleicht mit dem Text; Belege mit „kennzahl“ gegen praesentation/daten/kennzahlen.json; jeder Text muss so im Partial
+  stehen. Die bisherigen Einzelprüfungen (Sensitivität S. 10, A/B/C S. 11, Tilgungsschwellen S. 12) entfallen mit den
+  Inhalten. F9 braucht die Läufe L2, L69 und L70.
 """
 import argparse
 import concurrent.futures as cf
@@ -4160,488 +4168,108 @@ def pruefe_v21_abgleich(b, ordner, werte, soll):
 
 
 # =====================================================================================================
-# 11. Broschüre S. 10–12 (F9): Werte zur Laufzeit aus content/pages lesen
+# 11. Broschüre S. 10–12 (F9): Belege der Seiten-JSON gegen die Läufe
 # =====================================================================================================
-# Seit 11.11.2026 zeigen Broschüre und Präsentation das Modellhaus = Projekt 2 (Konzept R). F9 liest dieselben
-# JSON-Schlüssel wie vorher und vergleicht sie mit der Übersicht des Laufs L2 (Projekt 2 im Standard, wie ausgeliefert).
-# Sensitivität S. 10: je Herstellungskostenwert ein Lauf von Projekt 2 (Eingabe 2.1); 3.579 €/m² ist der Standard.
-SENS_LAEUFE = {3579: "L2", 4631: "L69", 5460: "L70"}
-# Bezeichnung in der Sensitivität (Teiltext, klein geschrieben) -> Zellen der Übersicht, Spalte D = Gruppe A. Es gilt der
-# Teiltext, der in der Bezeichnung am weitesten vorn steht („Förderquote auf die Gesamtkosten“ ist die Förderquote), bei
-# gleicher Stelle der frühere Eintrag der Liste. Nennt die Bezeichnung „Gruppe B“ oder „in C“, gilt Spalte E bzw. F.
-SENS_ZIELE = [("mindest-eigenmittel + restfinanzierung", ("D19", "D18")), ("gesamtkosten", ("D9",)),
-              ("über der grenze", ("D11",)), ("nicht zuwendungsfähig", ("D11",)), ("zuwendungsfähig", ("D10",)),
-              ("förderquote", ("D16",)), ("förderung", ("D15",)), ("restfinanzierung", ("D18",)),
-              ("bankdarlehen", ("D18",)), ("darlehen", ("D13",)), ("zuschuss", ("D14",)), ("eigenmittel", ("D19",)),
-              ("zahlungsüberschuss", ("D38",))]
-SENS_BEZEICHNUNGEN = ("Gesamtkosten, zuwendungsfähig, über der Grenze, Förderung, Förderquote, Darlehen, Zuschuss, "
-                      "Eigenmittel, Restfinanzierung, Zahlungsüberschuss")
-KOSTEN_RE = re.compile(r"(\d\.\d{3}) € (?:je|pro) m²")      # Diagramm: Titel oder Bezeichnung „4.631 € je m²“
-KOSTEN_SPALTE_RE = re.compile(r"(\d\.\d{3})\s*€")            # Tabelle: Spaltenkopf „4.631 €“
-ZAHL_RE = re.compile(r"[−-]?\d[\d.]*(?:,\d+)?(?:\s?%)?")
-
-
-def sens_zellen(bez):
-    """Zellen der Übersicht zu einer Bezeichnung der Sensitivität; None, wenn kein Teiltext passt."""
-    klein = bez.lower()
-    treffer = sorted((klein.find(t), k) for k, (t, _z) in enumerate(SENS_ZIELE) if t in klein)
-    if not treffer:
-        return None
-    zellen = SENS_ZIELE[treffer[0][1]][1]
-    m = re.search(r"\b(?:Gruppe|Gruppen|in) ([BC])\b", bez)
-    return tuple({"B": "E", "C": "F"}[m.group(1)] + z[1:] for z in zellen) if m else zellen
+# Seit 15.11.2026 (Umbau der Modellrechnung wie im Vortrag) führt jedes Seiten-JSON S. 10–12 unter „belege“ jede Zahl der
+# Seite mit ihrer Formel über Zellen der Mappe (broschuere/scripts/modellrechnung/seiten_json.py). F9 rechnet jede Formel mit
+# den Werten der Läufe nach (ohne Vorsatz Lauf L2 = Projekt 2 im Standard; „L69:“ und „L70:“ = Projekt 2 mit 4.631 und
+# 5.460 € je m²), rundet wie die Broschüre und vergleicht mit dem Text; Belege mit „kennzahl“ (Läufe nur aus
+# build_kennzahlen.py) vergleicht es mit praesentation/daten/kennzahlen.json. Jeder Text muss so im Partial stehen.
+BRO_LAEUFE = {"": STANDARD_LAUF, "L69": "L69", "L70": "L70"}
+BRO_SEITEN = (10, 11, 12)
+BRO_REF = re.compile(r"(?:(L\d+):)?(?:'([^']+)'|([A-Za-zÄÖÜäöüß]+))!([A-Z]+\d+)")
+BRO_FAKTOR = {"zahl": 1, "prozent": 100, "mio": 1e-6, "tsd": 1e-3, "jahr": 1}
+KENNZAHLEN_JSON = BROSCH.parent / "praesentation" / "daten" / "kennzahlen.json"
 
 
 def seite(nr):
     treffer = sorted(SEITEN_DIR.glob(f"{nr:02d}-*.json"))
-    return json.loads(treffer[0].read_text(encoding="utf-8"))
+    return treffer[0], json.loads(treffer[0].read_text(encoding="utf-8"))
 
 
-def block(s, typ, **kw_):
-    for bl in s["blocks"]:
-        if bl.get("type") == typ and all(bl.get(k) == v or bl.get("data", {}).get(k) == v for k, v in kw_.items()):
-            return bl
-    return None
+def bro_rechne(formel, w):
+    """Formel eines Belegs („Übersicht!D38 / Übersicht!D29“, „L70:Eingaben!F11“, abrunden(x, s)) mit den Läufen w."""
+    import ast
+    import operator
+    namen = {}
+
+    def ersetze(m):
+        lid = BRO_LAEUFE.get(m.group(1) or "")
+        if lid is None or lid not in w:
+            raise KeyError(f"Lauf {m.group(1) or STANDARD_LAUF} fehlt")
+        v = w[lid].get(m.group(2) or m.group(3), m.group(4))
+        if not ist_zahl(v):
+            raise KeyError(f"{m.group(0)} ist keine Zahl ({v!r})")
+        n = f"z{len(namen)}"
+        namen[n] = float(v)
+        return n
+    ops = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv,
+           ast.USub: operator.neg}
+
+    def wert(n):
+        if isinstance(n, ast.Constant):
+            return n.value
+        if isinstance(n, ast.Name):
+            return namen[n.id]
+        if isinstance(n, ast.BinOp):
+            return ops[type(n.op)](wert(n.left), wert(n.right))
+        if isinstance(n, ast.UnaryOp):
+            return ops[type(n.op)](wert(n.operand))
+        if isinstance(n, ast.Call) and n.func.id == "abrunden":
+            x, st = wert(n.args[0]), wert(n.args[1])
+            return math.floor(x / st + 1e-9) * st
+        raise ValueError(f"Formel nicht auswertbar: {formel}")
+    return wert(ast.parse(BRO_REF.sub(ersetze, formel), mode="eval").body)
 
 
-def nk_von(v):
-    t = repr(float(v)) if not isinstance(v, str) else v
-    return len(t.split(".")[1].rstrip("0")) if "." in t else 0
+def bro_text(v, art, nk):
+    """Zahl wie die Broschüre: × Faktor der Art, kaufmännisch gerundet, Tausenderpunkt, Komma, „−“ für negativ."""
+    if art == "jahr":
+        return str(int(round(v)))
+    r = runde(v * BRO_FAKTOR[art], nk)
+    t = f"{abs(r):,.{nk}f}".replace(",", "#").replace(".", ",").replace("#", ".")
+    return ("−" if r < 0 else "") + t
 
 
-def einheit_faktor(text):
-    """Teiler für Beträge der Broschüre: „Mio. €“ 1.000.000, „Tsd. €“ 1.000, sonst 1 (Betrag in €)."""
-    t = str(text or "")
-    return 1e6 if "Mio" in t else 1e3 if "Tsd" in t else 1.0
+def bro_partial_text(pfad_json):
+    """Text des Partials zur Seite (gleicher Dateiname unter src/pages), Leerzeichen vereinheitlicht."""
+    import html
+    t = html.unescape((BROSCH / "src" / "pages" / (pfad_json.stem + ".html")).read_text(encoding="utf-8"))
+    return re.sub(r"[    ]+", " ", t.replace("­", ""))
 
 
-def zahl_text(text):
-    """Erste Zahl eines Broschürentexts in deutscher Schreibweise („bis zu 77,2 %“ -> „77,2 %“); None ohne Zahl."""
-    m = ZAHL_RE.search(str(text))
-    return m.group(0) if m else None
-
-
-def bro(p, was, ist, soll, nk=None, faktor=1.0):
-    """Excel-Wert auf die gezeigte Stelle gerundet = Broschürenwert."""
-    if isinstance(soll, str):
-        soll, nk2 = de_zahl(soll)
-        nk = nk2 if nk is None else nk
-    nk = nk_von(soll) if nk is None else nk
-    if not ist_zahl(ist):
-        return p.check(False, was, ist, soll)
-    return p.check(abs(runde(ist / faktor, nk) - soll) < 1e-9, was, runde(ist / faktor, nk), soll,
-                   f"Excel {fmt(ist)}, gerundet auf {nk} Stellen")
-
-
-def bro_betrag(p, was, ist, text):
-    """Betrag mit Einheit im Text („1,19 Mio. €“, „80.667 €“); ein Text ohne Zahl („–“) steht für 0."""
-    z = zahl_text(text)
-    if z is None:
-        return p.check(ist_zahl(ist) and abs(ist) < 0.005, was, ist, 0, f"Broschüre „{text}“ ohne Zahl")
-    return bro(p, was, ist, z, faktor=einheit_faktor(text))
-
-
-def regex_zahl(p, was, text, muster):
-    m = re.search(muster, text)
-    if not m:
-        p.check(False, was, "nicht im Broschürentext gefunden", muster)
-        return None
-    return m.groups()
-
-
-def sens_knoten(knoten, kosten, pfad, out, ohne=()):
-    """Sensitivität als Diagramm: sammelt alle Angaben mit Bezeichnung und Anzeige oder Wert als (Herstellungskosten je
-    m², JSON-Pfad, Bezeichnung, Anzeige, Wert, Zelle laut Broschüre). Die Herstellungskosten je m² („4.631 € je m²“)
-    stehen im Titel des Blocks oder in der Bezeichnung eines Schritts und gelten für alles darunter. ohne = Schlüssel,
-    die nicht durchsucht werden (Spalten und Zeilen einer Tabelle, sens_tabelle)."""
-    if isinstance(knoten, list):
-        for i, v in enumerate(knoten):
-            sens_knoten(v, kosten, f"{pfad}[{i}]", out, ohne)
-        return
-    if not isinstance(knoten, dict):
-        return
-    text = " ".join(str(knoten.get(k) or "") for k in ("title", "label", "name"))
-    stufen = {int(x.replace(".", "")) for x in KOSTEN_RE.findall(text)}
-    if len(stufen) == 1:
-        kosten = stufen.pop()
-    bez = knoten.get("label") or knoten.get("name")
-    if bez is not None and ("display" in knoten or ist_zahl(knoten.get("value"))):
-        out.append((kosten, pfad, str(bez), knoten.get("display"), knoten.get("value"), knoten.get("zelle")))
-    for k, v in knoten.items():
-        if isinstance(v, (dict, list)) and k not in ohne:
-            sens_knoten(v, kosten, f"{pfad}.{k}", out, ohne)
-
-
-def sens_tabelle(bl, pfad):
-    """Sensitivität als Tabelle: Spalten mit den Herstellungskosten je m² (Objekt mit kosten_je_m2 oder Kopf „4.631 €“),
-    je Zeile eine Bezeichnung und ein Betrag je Kostenspalte. Zeilen als Listen in der Reihenfolge der Spalten oder als
-    Objekte mit label und den Listen display und values (auch cells). Liefert die Angaben wie sens_knoten oder None, wenn
-    der Block keine Tabelle mit Kostenspalten ist."""
-    daten = bl["data"] if isinstance(bl.get("data"), dict) else bl
-    spalten, zeilen = daten.get("columns"), daten.get("rows")
-    if not isinstance(spalten, list) or not isinstance(zeilen, list):
-        return None
-    if daten is not bl:
-        pfad += ".data"
-    kosten = {}
-    for k, sp in enumerate(spalten):
-        if isinstance(sp, dict) and ist_zahl(sp.get("kosten_je_m2")):
-            kosten[k] = int(sp["kosten_je_m2"])
-            continue
-        m = KOSTEN_SPALTE_RE.search(" ".join(str(v) for v in sp.values()) if isinstance(sp, dict) else str(sp))
-        if m:
-            kosten[k] = int(m.group(1).replace(".", ""))
-    if not kosten:
-        return None
-    reihenfolge = sorted(kosten)
-
-    def paare(liste):
-        if len(liste) == len(spalten):
-            return [(kosten[k], liste[k]) for k in reihenfolge]
-        if len(liste) == len(kosten):
-            return [(kosten[k], v) for k, v in zip(reihenfolge, liste)]
-        return [(None, liste)]
-
-    out = []
-    for r, row in enumerate(zeilen):
-        ort = f"{pfad}.rows[{r}]"
-        if isinstance(row, dict):
-            bez, zelle = str(row.get("label") or row.get("name") or ""), row.get("zelle")
-            listen = [(k, row[k]) for k in ("display", "values", "cells") if isinstance(row.get(k), list)]
-            if not listen:
-                out.append((None, ort, bez, None, None, zelle))
-            for k, liste in listen:
-                for kst, v in paare(liste):
-                    out.append((kst, f"{ort}.{k}", bez, None if ist_zahl(v) else v, v if ist_zahl(v) else None, zelle))
-        elif isinstance(row, list) and len(row) == len(spalten):
-            bez = " ".join(str(c) for k, c in enumerate(row) if k not in kosten and c not in (None, "")
-                           and not re.fullmatch(r"\d{1,2}", str(c)))
-            for kst, v in paare(row):
-                out.append((kst, ort, bez, None if ist_zahl(v) else v, v if ist_zahl(v) else None, None))
-        else:
-            out.append((None, ort, str(row)[:40], None, None, None))
-    return out
-
-
-def bro_passt(ist, soll, faktor, nk=None):
-    """Wie bro, ohne Eintrag im Bericht: True, wenn der Excel-Wert auf die gezeigte Stelle gerundet den Wert trifft."""
-    if isinstance(soll, str):
-        soll, nk2 = de_zahl(soll)
-        nk = nk2 if nk is None else nk
-    nk = nk_von(soll) if nk is None else nk
-    return ist_zahl(ist) and abs(runde(ist / faktor, nk) - soll) < 1e-9
-
-
-def pruefe_sensitivitaet(b, s10, sens):
-    """Sensitivität S. 10: jeder Block mit „Sensitivität“ im Titel (title oder caption) und jedes Diagramm „waterfall“.
-    Der Block kann eine Tabelle führen (columns und rows, sens_tabelle), Angaben eines Diagramms (label und display,
-    sens_knoten) oder beides. Jede Angabe wird über ihre Bezeichnung einer Zelle der Übersicht zugeordnet (SENS_ZIELE)
-    und mit dem Lauf von Projekt 2 verglichen, der mit den genannten Herstellungskosten je m² rechnet (SENS_LAEUFE).
-    Angaben eines Diagramms ohne Kostenangabe gehören zu dem Lauf, dessen Gesamtkosten das Diagramm zeigt. Beträge der
-    Tabelle stehen in € oder in der Einheit des Blocks."""
-    stufe = lambda k: fmt(float(k))[:-3]                                       # noqa: E731
-    p = b.pruefung("F9", "Broschüre S. 10 Sensitivität Herstellungskosten = Übersicht der Läufe von Projekt 2 ("
-                         + ", ".join(f"{stufe(k)} €/m² {l}" for k, l in SENS_LAEUFE.items()) + ")")
-    bloecke = [(i, bl) for i, bl in enumerate(s10["blocks"]) if bl.get("chart") == "waterfall"
-               or "Sensitivität" in f"{bl.get('title', '')} {bl.get('caption', '')}"]
-    p.check(bool(bloecke), "S. 10 Block der Sensitivität („Sensitivität“ im Titel oder chart = waterfall)", len(bloecke),
-            "mindestens 1")
-    laeufe_text = ", ".join(f"{stufe(k)} ({l})" for k, l in SENS_LAEUFE.items()) + " € je m²"
-    for i, bl in bloecke:
-        daten = bl["data"] if isinstance(bl.get("data"), dict) else bl
-        fk_block = einheit_faktor(daten.get("unit") or bl.get("unit") or "Mio. €")
-        tab = sens_tabelle(bl, f"blocks[{i}]")
-        diagramm = []
-        sens_knoten(bl, None, f"blocks[{i}]", diagramm, ohne=("columns", "rows") if tab is not None else ())
-        # Diagramm ohne Kostenangabe: der Lauf, dessen Gesamtkosten (D9) die Angabe „Gesamtkosten“ zeigt
-        if any(a[0] is None for a in diagramm):
-            gk = next((a for a in diagramm if a[0] is None and sens_zellen(a[2]) == ("D9",) and zahl_text(a[3])), None)
-            passend = [k for k in SENS_LAEUFE if gk and sens.get(k) is not None
-                       and bro_passt(sens[k].get(UEB, "D9"), zahl_text(gk[3]), fk_block)]
-            if len(passend) == 1:
-                diagramm = [(passend[0] if a[0] is None else a[0],) + a[1:] for a in diagramm]
-        angaben = [(a, (1.0, fk_block)) for a in (tab or [])] + [(a, (fk_block,)) for a in diagramm]
-        p.check(bool(angaben), f"S. 10 blocks[{i}] Angaben mit Bezeichnung und Betrag", len(angaben), "mindestens 1")
-        geprueft = set()
-        for (kosten, pfad, bez, anzeige, wert, zelle_bro), faktoren in angaben:
-            was = f"S. 10 {pfad} „{bez}“" + (f" {stufe(kosten)} €/m²" if kosten else "")
-            if kosten is None:
-                p.check(False, was, "Herstellungskosten je m² nicht erkennbar",
-                        "Tabelle: kosten_je_m2 oder „x.xxx €“ je Spalte; Diagramm: „x.xxx € je m²“ im Titel oder in der "
-                        "Bezeichnung, sonst Gesamtkosten eines der Läufe")
-                continue
-            ws_ = sens.get(kosten)
-            if ws_ is None:
-                p.check(False, was, "kein Lauf von Projekt 2 mit diesen Herstellungskosten", laeufe_text)
-                continue
-            lauf = SENS_LAEUFE[kosten]
-            if kosten not in geprueft:
-                geprueft.add(kosten)
-                p.zahl(f"S. 10 blocks[{i}] {stufe(kosten)} €/m² ↔ {lauf} Eingaben!F11", ws_.get("Eingaben", "F11"),
-                       float(kosten), 1e-9)
-            zellen = sens_zellen(bez)
-            if zellen is None and KOSTEN_RE.search(bez):
-                zellen = ("D9",)                      # der Schritt nennt nur die Kosten je m²: Anzeige = Gesamtkosten
-            if zellen is None:
-                p.check(False, was, "Bezeichnung nicht zugeordnet", SENS_BEZEICHNUNGEN)
-                continue
-            if zelle_bro is not None and str(zelle_bro).replace("Übersicht!", "").replace("$", "") != "+".join(zellen):
-                p.check(False, f"{was} Zelle laut Broschüre", zelle_bro, "Übersicht!" + " + ".join(zellen))
-            ist = [ws_.get(UEB, z) for z in zellen]
-            summe = sum(ist) if all(ist_zahl(x) for x in ist) else None
-            ziel = f"{lauf} " + " + ".join(zellen)
-            quote = zellen[0][1:] == "16"
-            if anzeige is not None:
-                teile = [zahl_text(t) for t in str(anzeige).split("+")]
-                fk = einheit_faktor(anzeige) if "Mio" in str(anzeige) or "Tsd" in str(anzeige) else next(
-                    (f for f in faktoren if len(teile) == 1 and teile[0] and bro_passt(summe, teile[0], f)), faktoren[-1])
-                if quote:
-                    z = teile[0] if teile[0] is None or "%" in teile[0] else teile[0] + " %"
-                    if z is None:
-                        p.check(False, f"{was} ↔ {ziel}", anzeige, "Prozentzahl")
-                    else:
-                        bro(p, f"{was} ↔ {ziel}", ist[0], z)
-                elif len(teile) == len(zellen) and len(teile) > 1:
-                    for z, x, t in zip(zellen, ist, teile):
-                        if t is None:
-                            p.check(ist_zahl(x) and abs(x) < 0.005 * fk, f"{was} ↔ {lauf} {z}", x, 0)
-                        else:
-                            bro(p, f"{was} ↔ {lauf} {z}", x, t, faktor=fk)
-                elif len(teile) == 1 and teile[0] is None:        # „–“: kein Betrag
-                    p.check(summe is not None and abs(summe) < 0.005 * fk, f"{was} ↔ {ziel}", summe, 0)
-                elif len(teile) == 1:
-                    bro(p, f"{was} ↔ {ziel}", summe, teile[0], faktor=fk)
-                else:
-                    p.check(False, was, anzeige, f"{len(zellen)} Betrag/Beträge ({ziel})")
-            if ist_zahl(wert):
-                if quote:                             # Prozentzahl (77,2) oder Anteil (0,772)
-                    v = wert / 100 if abs(wert) > 1.5 else wert
-                    bro(p, f"{was} value ↔ {ziel}", ist[0], v, nk=nk_von(wert) + (2 if abs(wert) > 1.5 else 0))
-                else:
-                    fk = next((f for f in faktoren if bro_passt(summe, wert, f)), faktoren[-1])
-                    bro(p, f"{was} value ↔ {ziel}", summe, wert, faktor=fk)
-    p.fertig()
-
-
-def pruefe_broschuere(b, w, sens):
-    """F9: Broschüre S. 10–12 gegen die Übersicht des Laufs L2 (Modellhaus = Projekt 2 im Standard); sens =
-    {Herstellungskosten je m²: Werte des Laufs} für die Sensitivität S. 10."""
-    u = lambda z: w.get(UEB, z)                                               # noqa: E731
-    lauf = f"{STANDARD_LAUF} (Modellhaus, Projekt 2)"
-    # ---------------- S. 10
-    s10 = seite(10)
-    p = b.pruefung("F9", f"Broschüre S. 10 (Finanzierung, Rechenweg, Kennzahlen) = Übersicht {lauf}")
-    p.gleich(f"{STANDARD_LAUF} rechnet mit Projekt 2", w.get("Eingaben", "F4"), PROJEKT_NAME[PROJEKT_STANDARD])
-    ch = block(s10, "chart", chart="stacked-bar")["data"]
-    fk = einheit_faktor(ch.get("unit", "Mio. €"))
-    ziel = {"Darlehen": "D13", "Zuschuss": "D14", "Eigenmittel": "D19"}
-    for seg in ch["segments"]:
-        z = ziel.get(str(seg["name"]).split(",")[0].strip())
-        if z is None:
-            p.check(False, f"S. 10 segments „{seg['name']}“", seg["name"], "Darlehen, Zuschuss oder Eigenmittel")
-            continue
-        bro(p, f"S. 10 segments[{seg['name']}].display ↔ {z}", u(z), seg["display"], faktor=fk)
-        anteil = seg["share"]
-        if z == "D19":
-            v, _ = de_zahl(anteil.replace("mind.", "").strip())
-            p.check(ist_zahl(u("D20")) and u("D20") >= v - 1e-9 and runde(u("D20"), 2) == v,
-                    "S. 10 segments[Eigenmittel].share (mind. 20 %) ↔ D20", u("D20"), v)
-        else:
-            q = u(z) / u("D10") if ist_zahl(u(z)) and ist_zahl(u("D10")) and u("D10") else None
-            bro(p, f"S. 10 segments[{seg['name']}].share ↔ {z}/D10", q, anteil)
-    bro(p, "S. 10 total.display (Gesamtkosten) ↔ D9", u("D9"), ch["total"]["display"], faktor=fk)
-    bro(p, "S. 10 bracket.display (Förderung) ↔ D15", u("D15"), ch["bracket"]["display"], faktor=fk)
-    bro(p, "S. 10 bracket.share (Förderquote) ↔ D16", u("D16"), ch["bracket"]["share"])
-    # Rechenweg: Zeilen über die Bezeichnung zugeordnet; die Zeile Grundstück darf fehlen oder „–“ zeigen, wenn das
-    # Grundstück nicht angesetzt ist (Modellhaus: Grundstück im Bestand, Ansatz 0 €)
-    tab = block(s10, "table", role_hint="rechenweg")
-    gefunden = {}
-    for row in tab["rows"]:
-        text = str(row[1]).lstrip("+=− ")
-        if text.startswith("Herstellungskosten"):
-            bez, ziel_ = "Herstellungskosten", (GEF["A"], "H90")
-        elif "zuwendungsfähige Kosten" in text:
-            bez, ziel_ = "zuwendungsfähige Kosten", (UEB, "D10")
-        elif text.startswith("Eigenmittel"):
-            bez, ziel_ = "Eigenmittel", (UEB, "D19")
-        elif "Grundstück" in text:
-            bez, ziel_ = "Grundstück", (GEF["A"], "H92")
-        else:
-            p.check(False, f"S. 10 Rechenweg Zeile {row[0]}", row[1],
-                    "Herstellungskosten, Grundstück, zuwendungsfähige Kosten oder Eigenmittel")
-            continue
-        gefunden[bez] = row
-        bro_betrag(p, f"S. 10 Rechenweg {row[0]} {bez} ↔ {ziel_[0]}!{ziel_[1]}", w.get(*ziel_), row[2])
-    for bez in ("Herstellungskosten", "zuwendungsfähige Kosten", "Eigenmittel"):
-        p.check(bez in gefunden, f"S. 10 Rechenweg: Zeile {bez}", bez in gefunden, True)
-    if "Grundstück" not in gefunden:
-        p.check(abs(w.get(GEF["A"], "H92") or 0) < 0.005, "S. 10 Rechenweg ohne Zeile Grundstück ↔ Gefördert A!H92 = 0",
-                w.get(GEF["A"], "H92"), 0)
-    if "Herstellungskosten" in gefunden:
-        g = regex_zahl(p, "S. 10 Rechenweg Herstellungskosten (m² × €)", gefunden["Herstellungskosten"][1],
-                       r"([\d.]+) m² × ([\d.]+) €")
-        if g:
-            bro(p, "S. 10 Wohnfläche ↔ Eingaben!F8", w.get("Eingaben", "F8"), g[0])
-            bro(p, "S. 10 Kosten je m² ↔ Eingaben!F11", w.get("Eingaben", "F11"), g[1])
-    kf = block(s10, "key_figures")["items"]
-    for k, (wort, zelle) in enumerate((("Zuschuss", "D24"), ("Eigenmittel", "D25"))):
-        item = next((x for x in kf if wort in str(x.get("label", ""))), kf[k] if k < len(kf) else None)
-        if item is None:
-            p.check(False, f"S. 10 key_figures Ø {wort} je Wohnung", None, "Kennzahl")
-        else:
-            bro(p, f"S. 10 key_figures Ø {wort} je Wohnung ↔ {zelle}", u(zelle), item["value"])
-    p.fertig()
-    pruefe_sensitivitaet(b, s10, sens)
-    # ---------------- S. 11
-    s11 = seite(11)
-    p = b.pruefung("F9", f"Broschüre S. 11 (Finanzierung A/B/C, Jahresrechnung Jahr 1) = Übersicht {lauf}")
-    ch = block(s11, "chart", chart="stacked-bar")["data"]
-    fk = einheit_faktor(ch.get("unit", "Mio. €"))
-    reihe = {"Darlehen": 13, "Zuschuss": 14, "Eigenmittel, mind.": 19}
-    for ser in ch["series"]:
-        for i, lab in enumerate(ser["labels"]):
-            bro(p, f"S. 11 series[{ser['name']}].labels {GRUPPEN[i]} ↔ {'DEF'[i]}{reihe[ser['name']]}",
-                u(f"{'DEF'[i]}{reihe[ser['name']]}"), lab, faktor=fk)
-    for i, lab in enumerate(ch["totals"]["labels"]):
-        bro(p, f"S. 11 totals.labels (Förderung) {GRUPPEN[i]} ↔ {'DEF'[i]}15", u(f"{'DEF'[i]}15"), lab, faktor=fk)
-    tab = block(s11, "table", role_hint="dominant")
-    # Seit der Änderungsrunde vom 13.11.2026 (G2) zählt die Jahresrechnung des Hefts 1 bis 9: Mietausfall/Leerstand ist eigene Zeile 2
-    # (in der Mappe weiter Zeile 1 mit Unterzeile). Zeile k des Hefts gehört zur k-ten Zelle der Übersicht unten.
-    zeilen = [29, 30, 31, 32, 33, 34, 35, 36, 38]
-    p.check(len(tab["rows"]) == len(zeilen), "S. 11 Jahresrechnung: Zahl der Zeilen", len(tab["rows"]), len(zeilen))
-    p.check([r[0] for r in tab["rows"]] == [str(k + 1) for k in range(len(zeilen))], "S. 11 Jahresrechnung: Zeilennummern",
-            [r[0] for r in tab["rows"]], "1 bis 9 ohne Lücke")
-    for row, z in zip(tab["rows"], zeilen):
-        for i in range(3):
-            bro(p, f"S. 11 Zeile {row[0]} {GRUPPEN[i]} ↔ {'DEF'[i]}{z}", u(f"{'DEF'[i]}{z}"), row[2 + i])
-    for i in range(3):
-        bro(p, f"S. 11 Bearbeitungsentgelte {GRUPPEN[i]} ↔ {'DEF'[i]}39", u(f"{'DEF'[i]}39"), tab["aside_row"][2 + i])
-        p.check(abs(u(f"{'DEF'[i]}37") or 0) < 0.005, f"S. 11 kein Bank-Kapitaldienst {GRUPPEN[i]} ↔ {'DEF'[i]}37",
-                u(f"{'DEF'[i]}37"), 0)
-    lab = [r[1] for r in tab["rows"]]
-    g = regex_zahl(p, "S. 11 Zeile 1 Mieten", lab[0], r"\(([\d.]+) m² × ([\d,]+) \| ([\d,]+) \| ([\d,]+) € × (\d+)\)")
-    if g:
-        bro(p, "S. 11 Wohnfläche ↔ Eingaben!F8", w.get("Eingaben", "F8"), g[0])
-        for i in range(3):
-            bro(p, f"S. 11 Höchstmiete {GRUPPEN[i]} ↔ {'DEF'[i]}26", u(f"{'DEF'[i]}26"), g[1 + i])
-    for k, (muster, zelle, bez) in enumerate(((r"([\d,]+) % der Sollmiete", "C30", "Mietausfall"),
-                                              (r"([\d.]+) € je Wohnung", "C31", "Objektverwaltung"),
-                                              (r"([\d,]+) € je m²", "C32", "Instandhaltung"))):
-        g = regex_zahl(p, f"S. 11 {bez}", lab[1 + k], muster)
-        if g:
-            bro(p, f"S. 11 {bez} ↔ {zelle}", u(zelle), g[0] + (" %" if "%" in muster else ""))
-    g = regex_zahl(p, "S. 11 VKB-Satz", lab[5], r"([\d,]+) % des Restkapitals")
-    if g:
-        bro(p, "S. 11 VKB-Satz ↔ C34", u("C34"), g[0] + " %")
-    g = regex_zahl(p, "S. 11 Zins", lab[6], r"([\d,]+) % bis Ende Jahr (\d+)")
-    if g:
-        bro(p, "S. 11 Zins NBank ↔ C35", u("C35"), g[0] + " %")
-        bro(p, "S. 11 zinsfreie Jahre ↔ Tabellen!D20", w.get("Tabellen", "D20"), g[1])
-    g = regex_zahl(p, "S. 11 Tilgung", lab[7],
-                   r"Tilgung ([\d,]+) % .*auf ([\d.,]+) \| ([\d.,]+) \| ([\d.,]+) (Mio\. €|€)")
-    if g:
-        bro(p, "S. 11 Tilgungssatz ↔ C36", u("C36"), g[0] + " %")
-        for i in range(3):
-            bro(p, f"S. 11 Darlehen {GRUPPEN[i]} ↔ {'DEF'[i]}13", u(f"{'DEF'[i]}13"), g[1 + i], faktor=einheit_faktor(g[4]))
-    g = regex_zahl(p, "S. 11 Entgeltsätze", tab["aside_row"][1], r"\(([\d,]+) % des Darlehens \+ ([\d,]+) % des Zuschusses\)")
-    if g:
-        bro(p, "S. 11 Entgelt Darlehen ↔ Tabellen!D24", w.get("Tabellen", "D24"), g[0] + " %")
-        bro(p, "S. 11 Entgelt Zuschuss ↔ Tabellen!D25", w.get("Tabellen", "D25"), g[1] + " %")
-    # Vergleich frei finanziert (Kasten unten links): Übersicht 1.5, 1.6, 1.10, 8.2, 8.3 bei DSCR-Ziel 1,0
-    vg = block(s11, "table", caption="Zum Vergleich: frei finanziert")
-    if vg is None:
-        p.check(False, "S. 11 Vergleich frei finanziert", "Tabelle fehlt", "Tabelle „Zum Vergleich: frei finanziert“")
-    else:
-        p.check(abs((u("D110") or 0) - 1) < 1e-12, "S. 11 Vergleich: DSCR-Ziel 1,0 ↔ D110", u("D110"), 1)
-        ziele = (("D14", None), ("D13", "G18"), ("D111", "G111"), ("D112", "G112"))
-        # Die letzte Zeile nennt die Zeile der Jahresrechnung, die bei dieser Miete null ist: die Zeile, die zu Übersicht Zeile 38
-        # (Zahlungsüberschuss) gehört
-        nr = tab["rows"][zeilen.index(38)][0] if len(tab["rows"]) == len(zeilen) else None
-        p.check(len(vg["rows"]) == 4 and f"(Zeile {nr} = null)" in str(vg["rows"][-1][0]),
-                "S. 11 Vergleich: letzte Zeile nennt die Zeile des Zahlungsüberschusses", vg["rows"][-1][0] if vg["rows"] else None,
-                f"„… (Zeile {nr} = null)“")
-        for row, (za, zf) in zip(vg["rows"], ziele):
-            bro_betrag(p, f"S. 11 Vergleich {row[0]} A ↔ {za}", u(za), row[1])
-            if zf is None:
-                p.check(row[2] == "0" and not ist_zahl(u("G14")), f"S. 11 Vergleich {row[0]} Frei", row[2], "0")
+def pruefe_broschuere(b, w):
+    """F9: jede Zahl der Broschüre S. 10–12 (Belege im Seiten-JSON) = Formel über die Läufe L2, L69, L70 bzw. Kennzahl."""
+    kz = json.loads(KENNZAHLEN_JSON.read_text(encoding="utf-8")) if KENNZAHLEN_JSON.exists() else None
+    for nr in BRO_SEITEN:
+        pfad, s = seite(nr)
+        p = b.pruefung("F9", f"Broschüre S. {nr} ({pfad.stem}): Belege = Mappe ({', '.join(sorted(set(BRO_LAEUFE.values())))})")
+        p.gleich(f"{STANDARD_LAUF} rechnet mit Projekt 2", w[STANDARD_LAUF].get("Eingaben", "F4"),
+                 PROJEKT_NAME[PROJEKT_STANDARD])
+        belege = s.get("belege") or []
+        p.check(len(belege) > 0, f"S. {nr}: Belege vorhanden", len(belege), "> 0")
+        text = bro_partial_text(pfad)
+        for k, bl in enumerate(belege, start=1):
+            was = f"S. {nr} Beleg {k} „{bl.get('text')}“ ({bl.get('wo', '')})"
+            if "formel" in bl:
+                try:
+                    v = bro_rechne(bl["formel"], w)
+                except (KeyError, ValueError, ZeroDivisionError) as ex:
+                    p.check(False, was, str(ex), bl["formel"])
+                    continue
+                p.gleich(f"{was} = {bl['formel']}", bro_text(v, bl.get("art", "zahl"), bl.get("nk", 0)), bl["text"])
+            elif "kennzahl" in bl:
+                key = bl["kennzahl"]
+                e = (kz or {}).get("laeufe", {}).get(key.split(".")[1], {}).get("werte", {}).get(key) if kz else None
+                if e is None:
+                    p.check(False, was, "fehlt in kennzahlen.json", key)
+                    continue
+                p.gleich(f"{was} = kennzahlen.json {key}", bro_text(e["wert"], bl.get("art", "zahl"), bl.get("nk", 0)),
+                         bl["text"])
             else:
-                bro_betrag(p, f"S. 11 Vergleich {row[0]} Frei ↔ {zf}", u(zf), row[2])
-    txt = block(s11, "text", heading="Annahmen")["body"]
-    g = regex_zahl(p, "S. 11 Annahmen frei", txt,
-                   r"Eigenmittel ([\d.,]+ (?:Mio\. )?€), Bankdarlehen ([\d.,]+ (?:Mio\. )?€) zu ([\d,]+) % Zins, "
-                   r"jährliche Annuität über (\d+) Jahre")
-    if g:
-        bro_betrag(p, "S. 11 Annahmen Eigenmittel frei ↔ G19", u("G19"), g[0])
-        bro_betrag(p, "S. 11 Annahmen Bankdarlehen frei ↔ G18", u("G18"), g[1])
-        bro(p, "S. 11 Annahmen Zins Bank ↔ Eingaben!F35", w.get("Eingaben", "F35"), g[2] + " %")
-        bro(p, "S. 11 Annahmen Laufzeit Bank ↔ Eingaben!F38", w.get("Eingaben", "F38"), g[3])
-    p.fertig()
-    # ---------------- S. 12
-    s12 = seite(12)
-    p = b.pruefung("F9", f"Broschüre S. 12 (Tilgungsschwellen, Rechenweg, Rechenbasis) = Übersicht {lauf}")
-    ch = block(s12, "chart", chart="line")["data"]
-    # Zahlen der Reihen: gerundet auf die Stellenzahl der Broschüre (ganze Euro oder mit Cent); die Schwelle auf
-    # mindestens zwei Stellen in Prozent
-    for ser in ch["series"]:
-        c = {"B": "E", "C": "F"}[ser["name"]]
-        bro(p, f"S. 12 {ser['name']} vor Tilgung ↔ {c}70", u(f"{c}70"), ser["before_repayment"])
-        bro(p, f"S. 12 {ser['name']} Mehrschuld ↔ {c}13−D13", dz(u(f"{c}13"), u("D13")), ser["extra_debt"])
-        bro(p, f"S. 12 {ser['name']} Mehrschuld ↔ {c}66", u(f"{c}66"), ser["extra_debt"])
-        bro(p, f"S. 12 {ser['name']} je Prozentpunkt ↔ −({c}13−D13)/100", (-dz(u(f"{c}13"), u("D13")) / 100 if dz(u(f"{c}13"), u("D13")) is not None else None),
-            ser["per_percentage_point"])
-        bro(p, f"S. 12 {ser['name']} Schwelle ↔ {'E63' if c == 'E' else 'F64'}", u("E63" if c == "E" else "F64"),
-            ser["threshold"] / 100, nk=max(4, nk_von(ser["threshold"]) + 2))
-        # Mehrüberschuss bei einem Rastersatz (Schlüssel at_2_5 = 2,5 %, at_3_0 = 3,0 %) und beim Satz der S. 11: geprüft,
-        # soweit die Broschüre den Schlüssel führt (die Achse des Diagramms reicht seit 11.11.2026 bis 3,0 %)
-        for key in sorted(k_ for k_ in ser if re.fullmatch(r"at_\d+_\d+", k_)):
-            satz = float(key[3:].replace("_", ".")) / 100
-            r_ = next((r for r in range(55, 62) if ist_zahl(u(f"B{r}")) and abs(u(f"B{r}") - satz) < 1e-9), None)
-            if r_ is None:
-                p.check(False, f"S. 12 {ser['name']} {key}", f"Tilgung {fmt(satz)}", "Satz des Rasters Übersicht B55:B61")
-            else:
-                bro(p, f"S. 12 {ser['name']} {key} ↔ {c}{r_}−D{r_}", dz(u(f"{c}{r_}"), u(f"D{r_}")), ser[key])
-        if "at_s11" in ser:
-            bro(p, f"S. 12 {ser['name']} beim Satz der S. 11 ↔ {c}71", u(f"{c}71"), ser["at_s11"])
-    if ch.get("check"):
-        g = regex_zahl(p, "S. 12 Kontrolle C/B", ch["check"], r"= ([\d,]+) %")
-        if g:
-            bro(p, "S. 12 Tilgungsschwelle C gegenüber B ↔ F65", u("F65"), g[0] + " %")
-    grenze = ch["dimension_chain"][0]["to"] / 100
-    links, rechts = ch["dimension_chain"][0]["label"][-1], ch["dimension_chain"][1]["label"][-1]
-    for k in range(8):
-        ts = u(f"B{55 + k}")
-        if ist_zahl(ts) and abs(ts - grenze) > 0.0001:
-            p.gleich(f"S. 12 höchster Überschuss bei {fmt(ts)} ↔ G{55 + k}", u(f"G{55 + k}"), links if ts < grenze else rechts)
-    tab = block(s12, "table", role_hint="rechenweg")
-    # Rechenweg Zeile für Zeile gegen Übersicht 4.12–4.16 (Runde 2, KO3), Schwellen 4.9/4.10, Einmalzeile 4.18. Seit der Änderungsrunde
-    # vom 13.11.2026 (B11.2) zählt der Rechenweg 1 bis 6 (Mietausfall eigene Zeile 3); die Schwelle ist Zeile 5 ÷ Zeile 1
-    rw = tab["rows"]
-    p.check([r[0] for r in rw] == [str(k + 1) for k in range(6)], "S. 12 Rechenweg: Zeilennummern", [r[0] for r in rw],
-            "1 bis 6 ohne Lücke")
-    for row, z in zip(rw, (66, 67, 68, 69, 70)):
-        for i, c in enumerate("EF"):
-            bro(p, f"S. 12 Rechenweg {row[0]} {'BC'[i]} ↔ {c}{z}", u(f"{c}{z}"), row[2 + i])
-    if len(rw) == 6:
-        p.check(f"(Zeile {rw[4][0]} ÷ {rw[0][0]})" in str(rw[5][1]), "S. 12 Rechenweg: Bezug der Tilgungsschwelle", rw[5][1],
-                f"„(Zeile {rw[4][0]} ÷ {rw[0][0]})“ (Mehrüberschuss vor Tilgung ÷ Mehrschuld)")
-        p.check(f"von Zeile {rw[0][0]}" in str(rw[3][1]), "S. 12 Rechenweg: Bezug des Verwaltungskostenbeitrags", rw[3][1],
-                f"„… von Zeile {rw[0][0]}“ (Mehrschuld)")
-    for i, c in enumerate("EF"):
-        bro(p, f"S. 12 Rechenweg 2 {'BC'[i]} ↔ {c}29−D29", dz(u(f"{c}29"), u("D29")), rw[1][2 + i])
-        bro(p, f"S. 12 Rechenweg 6 {'BC'[i]} ↔ {'E63' if c == 'E' else 'F64'}", u("E63" if c == "E" else "F64"),
-            rw[5][2 + i])
-        bro(p, f"S. 12 Mehr-Entgelte {'BC'[i]} ↔ {c}72", u(f"{c}72"), tab["aside_row"][2 + i])
-    calc = s12["calculation"]["A_B_C"]
-    for key, z, fk in (("zuschuss_mio", 14, 1e6), ("darlehen_mio", 13, 1e6), ("hoechstmiete_eur_m2", 26, 1.0),
-                       ("sollmiete_pa", 29, 1.0), ("mietausfall_2_prozent_pa", 30, 1.0),
-                       ("verwaltungskostenbeitrag_pa", 34, 1.0), ("tilgung_pa", 36, 1.0),
-                       ("zahlungsueberschuss_jahr_1", 38, 1.0), ("bearbeitungsentgelte", 21, 1.0)):
-        for i, v in enumerate(calc[key]):
-            bro(p, f"S. 12 Rechenbasis {key} {GRUPPEN[i]} ↔ {'DEF'[i]}{z}", u(f"{'DEF'[i]}{z}"), v, faktor=fk)
-    for i, v in enumerate(calc.get("tragbare_tilgung_prozent", [])):          # seit 11.11.2026, soweit geführt: Übersicht 3.8
-        bro(p, f"S. 12 Rechenbasis tragbare_tilgung_prozent {GRUPPEN[i]} ↔ {'DEF'[i]}49", u(f"{'DEF'[i]}49"), v / 100,
-            nk=max(4, nk_von(v) + 2))
-    p.fertig()
+                p.check(bool(bl.get("herkunft")), f"{was}: Herkunft genannt", bl.get("herkunft"), "Wortlaut ohne Zelle")
+            p.check(str(bl["text"]) in text, f"{was} steht im Partial", bl["text"], f"src/pages/{pfad.stem}.html")
+        p.fertig()
 
 
 # =====================================================================================================
@@ -4907,8 +4535,7 @@ def main():
         b.abschnitt("Laufübergreifend: gelieferte Werte, Broschüre (F9), v2-1 (F10), Textergebnisse")
         if STANDARD_LAUF in w:      # Projekt 2 im Standard = Auslieferungsstand = Modellhaus von Broschüre und Präsentation
             sicher(b, "F2", "gelieferte Werte", pruefe_gelieferte_werte, b, Werte(mappe), w[STANDARD_LAUF])
-            sicher(b, "F9", "Broschüre", pruefe_broschuere, b, w[STANDARD_LAUF],
-                   {kosten: w.get(lid) for kosten, lid in SENS_LAEUFE.items()})
+            sicher(b, "F9", "Broschüre", pruefe_broschuere, b, w)
         if "L64" in w:   # Abgleich mit v2-1 und Überleitung E.3 beim Satz der Vorgängermappe (2,5 %)
             sicher(b, "F10", "v2-1", pruefe_v21_abgleich, b, ordner, w["L64"], None)
         if "L13" in w and "L1" in w:

@@ -1,0 +1,101 @@
+<section class="page page--accent bs-21" data-page="11" id="seite-11">
+  <style>
+    /* S. 11 · Modellrechnung: Jahr 1 – rechte Seite der Mittel-Doppelseite 10|11 (Papier, .page--accent). Neu seit 15.11.2026
+       (Umbau der Modellrechnung wie im Vortrag, Folien 17 bis 19 und 22): gefördert in Gruppe A gegen frei finanziert zur Marktmiete.
+       Zahlen aus der Rechenmappe v3: Jahresrechnung Jahr 1 (Lauf modellhaus, Übersicht Zeilen 29–39; Blatt Frei finanziert),
+       Blatt Kennzahlen (G40, G49, G60, G61; Miete für DSCR 1,2: D12, D13, D19, D22, Blatt Frei DSCR 1,2), Spielraum aus den
+       Kostenläufen 3.579 | 5.460 € je m² (Nullstelle, auf 10 € abgerundet) und Übersicht 3.8.
+       Band 1: „Wohin die Miete fließt“ (ohne Vorspann: der Kopf und die Balken sagen es) als zwei Balken in Prozent der Sollmiete (100 % =
+       136 mm; Fuge 0,7 mm). Hauptelement: die Jahresrechnung gefördert gegen frei finanziert. Band 3: Miete für eine DSCR von 1,2 (6, am Bund) |
+       Spielraum in Jahr 1 (6, außen). Kein Rot im Diagramm (Rot = Zuschuss); Lücke zur Marktmiete und Fehlbetrag als gestrichelter
+       Umriss. Horizonte mit S. 10: Kopfzeile, H1, Oberkante Band 1 und Band 3. */
+    .page[data-page="11"] .p11-fl { margin-top: 5.4mm; }
+    .page[data-page="11"] .p11-fl .chart__head { grid-template-columns: 1fr; }
+    .page[data-page="11"] .p11-fl .chart__head > .legend { grid-column: 1; justify-content: flex-start; max-width: none; margin-top: 1.4mm; }
+    .page[data-page="11"] .p11-fl .chart__svg { margin-top: 3mm; }
+    .page[data-page="11"] .chart__svg .p11-ue { fill: var(--white); stroke: var(--fg); stroke-width: .3; }
+    .page[data-page="11"] .chart__svg .p11-100 { stroke: var(--fg); stroke-width: .3; fill: none; }
+    .page[data-page="11"] .chart__svg .p11-fehl { fill: none; stroke: var(--fg); stroke-width: .3; stroke-dasharray: .9 .6; }
+    .page[data-page="11"] .chart__svg .p11-luecke { fill: none; stroke: var(--fg); stroke-width: .3; stroke-dasharray: .9 .6; }
+    .page[data-page="11"] .chart__svg .p11-mk { stroke: var(--fg); stroke-width: .35; fill: none; }
+    .page[data-page="11"] .chart__svg .p11-arge { stroke: var(--fg-2); stroke-width: .25; stroke-dasharray: 1.2 .8; fill: none; }
+    .page[data-page="11"] .sw--ue { background: var(--white); box-shadow: inset 0 0 0 .3mm var(--fg); }
+    /* Jahresrechnung: Rechenblatt mit Zeilennummern, Wertspalten je 36 mm */
+    .page[data-page="11"] .p11-jr { margin-top: 2.2mm; }
+    .page[data-page="11"] .p11-jr-h { margin-top: 5mm; }
+    .page[data-page="11"] .p11-jr col.p11-c-val { width: 36mm; }   /* Kopf „Frei finanziert“ in Versalien braucht 30 mm Satzbreite (InDesign-Export) */
+    .page[data-page="11"] .p11-jr thead th { padding-top: 1.5mm; padding-bottom: 1.2mm; border-top: var(--rule-heavy) solid var(--rule-strong); }
+    .page[data-page="11"] .p11-jr th, .page[data-page="11"] .p11-jr td { padding-top: .85mm; padding-bottom: .85mm; line-height: 1.3; }
+    .page[data-page="11"] .p11-jr .num { padding-right: 5mm; padding-left: 1mm; }
+    .page[data-page="11"] .p11-jr tfoot td, .page[data-page="11"] .p11-jr tfoot th { padding-top: 1.3mm; padding-bottom: 0; border-bottom: 0; color: var(--fg-2); }
+    .page[data-page="11"] .p11-jr tfoot tr + tr td, .page[data-page="11"] .p11-jr tfoot tr + tr th { padding-top: .6mm; }
+    /* Band 3 */
+    .page[data-page="11"] .p11-e { --row-gap: 0; align-items: start; }
+    .page[data-page="11"] .p11-e .chart__svg { margin-top: 2.6mm; }
+    .page[data-page="11"] .p11-e .chart__note { margin-top: 1.6mm; }
+  </style>
+
+  <div class="bs-register" data-bleed aria-hidden="true">2.1</div>
+
+  <header class="page__header"><span class="page__section">Modellrechnung</span><div class="keyplan" role="img" aria-label="Programmteil 2.1 von sechs Programmteilen"><span class="keyplan__label">Programmteil</span><ol class="keyplan__list"><li class="bs-21 is-on">2.1</li><li class="bs-22">2.2</li><li class="bs-23">2.3</li><li class="bs-24">2.4</li><li class="bs-25">2.5</li><li class="bs-26">2.6</li></ol></div></header>
+  <h1 class="h1"><span class="light">Der Markt zahlt 15,42&nbsp;€ je&nbsp;m²</span> Frei finanziert braucht das Haus <em>18,36&nbsp;€</em></h1>
+
+  <!-- Band 1 · Wohin die Miete fließt (12) -->
+  <figure class="chart module p11-fl" role="group" aria-labelledby="p11-fl-h">
+    <figcaption class="chart__head">
+      <h2 class="chart__title" id="p11-fl-h">Wohin die Miete fließt <span class="chart__unit">in % der Sollmiete, Jahr 1, gleiches Haus, gleiche Kosten</span></h2>
+      <ul class="legend">
+        <li><i class="sw seq-2"></i>Bewirtschaftung, Mietausfall</li>
+        <li><i class="sw seq-3"></i>Verwaltungskostenbeitrag</li>
+        <li><i class="sw seq-4"></i>Zins</li>
+        <li><i class="sw sw--loan"></i>Tilgung</li>
+        <li><i class="sw sw--ue"></i>Zahlungsüberschuss</li>
+      </ul>
+    </figcaption>
+    %%FLUSS%%
+  </figure>
+
+  <!-- Hauptelement · Jahresrechnung Jahr 1, gefördert gegen frei finanziert -->
+  <h2 class="chart__title p11-jr-h" id="p11-jr-h">Jahresrechnung Jahr 1 <span class="chart__unit">in € p. a.</span></h2>
+  <table class="table table--sheet p11-jr u-nohyphens" aria-labelledby="p11-jr-h">
+    <colgroup><col class="col-no"><col><col class="p11-c-val"><col class="p11-c-val"></colgroup>
+    <thead><tr><th scope="col" aria-label="Zeile"></th><th scope="col">Position</th><th scope="col" class="num">Gefördert, A</th><th scope="col" class="num">Frei finanziert</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">1</th><td>Sollmiete, 828 m² × 6,80 | 15,42 € × 12</td><td class="num">67.565</td><td class="num">153.213</td></tr>
+      <tr><th scope="row">2</th><td class="is-hang"><span class="table__op">−</span> Mietausfall/Leerstand, 2 % der Sollmiete</td><td class="num">1.351</td><td class="num">3.064</td></tr>
+      <tr><th scope="row">3</th><td class="is-hang"><span class="table__op">−</span> Objektverwaltung, 367 € je Wohnung</td><td class="num">5.138</td><td class="num">5.138</td></tr>
+      <tr><th scope="row">4</th><td class="is-hang"><span class="table__op">−</span> Instandhaltung, 14,40 € je m²</td><td class="num">11.923</td><td class="num">11.923</td></tr>
+      <tr class="is-sum"><th scope="row">5</th><td class="is-hang"><span class="table__op">=</span> Überschuss vor Kapitaldienst</td><td class="num">49.152</td><td class="num">133.088</td></tr>
+      <tr><th scope="row">6</th><td class="is-hang"><span class="table__op">−</span> Verwaltungskostenbeitrag, 0,5 % des NBank-Darlehens</td><td class="num">5.927</td><td class="num">0</td></tr>
+      <tr><th scope="row">7</th><td class="is-hang"><span class="table__op">−</span> Zins, NBank 0 % | Bank 3,86 %</td><td class="num">0</td><td class="num">91.510</td></tr>
+      <tr><th scope="row">8</th><td class="is-hang"><span class="table__op">−</span> Tilgung, NBank 2,38 % | Bank Annuität über 30 Jahre</td><td class="num">28.223</td><td class="num">43.268</td></tr>
+      <tr class="is-result on-red"><th scope="row">9</th><td class="is-hang"><span class="table__op">=</span> Zahlungsüberschuss p. a.</td><td class="num">15.003</td><td class="num">−1.691</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><th scope="row"></th><td>Kapitaldienst, Zeilen 6 bis 8</td><td class="num">34.150</td><td class="num">134.779</td></tr>
+      <tr><th scope="row"></th><td>DSCR, Zeile 5 ÷ Kapitaldienst</td><td class="num">1,44</td><td class="num">0,99</td></tr>
+    </tfoot>
+  </table>
+
+  <!-- Band 3 · Miete für eine DSCR von 1,2 (6, am Bund) | Spielraum in Jahr 1 (6, außen) -->
+  <div class="l-grid p11-e l-bottom">
+    <figure class="l-span-6 chart module p11-ds" role="group" aria-labelledby="p11-ds-h">
+      <figcaption class="chart__head">
+        <h2 class="chart__title" id="p11-ds-h">Miete für eine DSCR von 1,2</h2>
+        <p class="chart__sub">in € je m² und Monat, Jahr 1</p>
+      </figcaption>
+      %%DSCR%%
+      <p class="chart__note">DSCR = Überschuss vor Kapitaldienst ÷ Kapitaldienst; 1,2 verlangt die Bank (Annahme der PGN). Zur Marktmiete fehlen 2,94&nbsp;€ (gestrichelt).</p>
+    </figure>
+    <figure class="l-span-6 chart module p11-sp" role="group" aria-labelledby="p11-sp-h">
+      <figcaption class="chart__head">
+        <h2 class="chart__title" id="p11-sp-h">Spielraum in Jahr 1</h2>
+        <ul class="legend"><li><i class="sw sw--ink"></i>Modellhaus</li><li><i class="sw seq-2"></i>bis zur Schwelle</li></ul>
+      </figcaption>
+      %%SPIELRAUM%%
+      <p class="chart__note">Bis zur Schwelle bleibt in Jahr 1 ein Zahlungsüberschuss.</p>
+    </figure>
+  </div>
+
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">10</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Modellrechnung · Jahr 1</b></span></span></footer>
+</section>

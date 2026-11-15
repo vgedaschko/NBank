@@ -3,9 +3,11 @@
 
 1. Broschüre S. 10–12: jede dort gezeigte Zahl der Modellrechnung gegen den Wert
    der Mappe, gerundet auf die gezeigte Stelle (Läufe „modellhaus“,
-   „modellhaus_kosten_4631“ und „modellhaus_kosten_5460“). Die Broschüre wird aus
-   content/pages/*.json gelesen. Das Modellhaus ist seit 11.11.2026 Projekt 2 der
-   Mappe (PGN-Projekt in Neu Wulmstorf, Grundstück im Bestand und nicht angesetzt).
+   „modellhaus_zeitreihe“, „modellhaus_kosten_4631“ und „modellhaus_kosten_5460“,
+   dazu kennzahlen.json). Seit 15.11.2026 führt jedes Seiten-JSON unter „belege“
+   die Formel jeder Zahl über Zellen der Mappe; geprüft wird jede Formel. Das
+   Modellhaus ist Projekt 2 der Mappe (PGN-Projekt in Neu Wulmstorf, Grundstück
+   im Bestand und nicht angesetzt).
 2. Altfassung der Präsentation (Folien 11, 13, 14, 17) gegen den Lauf „projekt2“
    (dasselbe Projekt mit Tilgung 2,5 % wie in der Altfassung).
    Abweichungen hier sind Hinweise, kein Fehler: Es gilt die Mappe.
@@ -117,268 +119,96 @@ def seite(nr):
     return json.loads(pfad.read_text(encoding="utf-8"))
 
 
-def stufe_genannt(text, stufe, nur_stufe=False):
-    """Der Text nennt die Mietenstufe der Mappe („Mietenstufe VI“) oder, wo eine Regel für die ganze Klasse gilt, deren Klasse
-    („Mietenstufe IV–VII“: Höchstmiete und Bemessungsgrenze). nur_stufe: Nur die Stufe selbst zählt (Standort des Modellhauses)."""
-    stufen = ("I", "II", "III", "IV", "V", "VI", "VII")
-    if stufe not in stufen:
-        return False
-    if re.search(rf"Mietenstufe {stufe}(?![IV–])", text):
-        return True
-    klasse = "I–III" if stufen.index(stufe) < 3 else "IV–VII"
-    return not nur_stufe and f"Mietenstufe {klasse}" in text
-
-
-def block(s, typ, **merkmale):
-    treffer = [b for b in s["blocks"] if b["type"] == typ and all(b.get(k) == v for k, v in merkmale.items())]
-    if len(treffer) != 1:
-        sys.exit(f"Broschüre S. {s['no']}: Block {typ} {merkmale} nicht eindeutig ({len(treffer)}).")
-    return treffer[0]
-
-
 # ---------------------------------------------------------------- 1 Broschüre
 
+KENNZAHLEN = HIER / "kennzahlen.json"
+BRO_REF = re.compile(r"(?:(L\d+):)?(?:'([^']+)'|([A-Za-zÄÖÜäöüß]+))!([A-Z]+\d+)")
+BRO_LAEUFE = {"": ("modellhaus", "modellhaus_zeitreihe"), "L69": ("modellhaus_kosten_4631",), "L70": ("modellhaus_kosten_5460",)}
+BRO_FAKTOR = {"zahl": 1, "prozent": 100, "mio": Decimal("0.000001"), "tsd": Decimal("0.001"), "jahr": 1}
+
+
+def bro_zellen(w, kz):
+    """Zellen → Wert je Vorsatz („“, „L69“, „L70“) aus werte.json (Läufe wie BRO_LAEUFE) und kennzahlen.json (Lauf modellhaus)."""
+    out = {v: {} for v in BRO_LAEUFE}
+    for vorsatz, laeufe in BRO_LAEUFE.items():
+        for lauf in laeufe:
+            for e in w.daten["laeufe"][lauf]["werte"].values():
+                blatt, zelle, v = e.get("blatt"), e.get("zelle"), e.get("wert")
+                if not blatt or not zelle:
+                    continue
+                if ":" in zelle and isinstance(v, list):
+                    m = re.fullmatch(r"([A-Z]+)(\d+)", zelle.split(":")[0])
+                    for k, x in enumerate(v):
+                        out[vorsatz].setdefault((blatt, f"{m.group(1)}{int(m.group(2)) + k}"), x)
+                elif isinstance(v, (int, float)) and not isinstance(v, bool):
+                    out[vorsatz].setdefault((blatt, zelle), v)
+    for e in kz["laeufe"]["modellhaus"]["werte"].values():
+        blatt, zelle, v = e.get("blatt"), e.get("zelle"), e.get("wert")
+        if blatt and zelle and isinstance(v, (int, float)) and not isinstance(v, bool):
+            out[""].setdefault((blatt, zelle), v)
+    return out
+
+
+def bro_rechne(formel, zellen):
+    import ast
+    import math
+    import operator
+    namen = {}
+
+    def ersetze(m):
+        schl = (m.group(2) or m.group(3), m.group(4))
+        if schl not in zellen[m.group(1) or ""]:
+            raise KeyError(f"{m.group(0)} nicht in werte.json/kennzahlen.json")
+        n = f"z{len(namen)}"
+        namen[n] = D(zellen[m.group(1) or ""][schl])
+        return n
+    ops = {ast.Add: lambda x, y: x + y, ast.Sub: lambda x, y: x - y, ast.Mult: lambda x, y: x * y,
+           ast.Div: lambda x, y: x / y, ast.USub: operator.neg}
+
+    def wert(n):
+        if isinstance(n, ast.Constant):
+            return D(n.value)
+        if isinstance(n, ast.Name):
+            return namen[n.id]
+        if isinstance(n, ast.BinOp):
+            return ops[type(n.op)](wert(n.left), wert(n.right))
+        if isinstance(n, ast.UnaryOp):
+            return ops[type(n.op)](wert(n.operand))
+        if isinstance(n, ast.Call) and n.func.id == "abrunden":
+            x, st = wert(n.args[0]), wert(n.args[1])
+            return D(math.floor(x / st)) * st
+        raise ValueError(formel)
+    return wert(ast.parse(BRO_REF.sub(ersetze, formel), mode="eval").body)
+
+
 def abgleich_broschuere(w, b):
-    m = w.lauf("modellhaus")
-    q = lambda k: "modellhaus: " + k
-
-    # ---- Seite 10
-    T = "Broschüre S. 10"
-    s = seite(10)
-    wfl, we, hk = m("eingabe.wohnflaeche"), m("eingabe.wohnungen"), m("eingabe.herstellungskosten_qm")
-    # Seit 12.11.2026 steht die Überschrift der Seite in zwei Feldern: Wohnungen und Gesamtkosten als zweite Stimme (headline_light), darunter die Förderung
-    kopf = " ".join(t for t in (s.get("headline_light"), s["headline"]) if t)
-    b.enthaelt(T, "Überschrift: Wohnungen", kopf, f"{de(we)} Wohnungen", q("eingabe.wohnungen"))
-    b.enthaelt(T, "Überschrift: Gesamtkosten", kopf, f"{mio(m('fin.gesamtkosten.A'))} Mio. €", q("fin.gesamtkosten.A"))
-    b.enthaelt(T, "Überschrift: Förderung", s["headline"], f"bis zu {mio(m('fin.foerderung.A'))} Mio. € Förderung", q("fin.foerderung.A"))
-    # Seit 13.11.2026 (Änderungsrunde, B9.1) steht das Modellhaus als Steckbrief mit acht Zeilen „Bezeichnung: Angabe“ (profile) statt als Vorspann
-    sb = {z["label"]: z["text"] for z in s["profile"]}
-    b.gleich(T, "Steckbrief: Zeilen", list(sb), ["Ort", "Wohnungen", "Wohnfläche", "Standard", "Standort", "Herstellungskosten", "Bemessungsgrenze", "Grundstück"], "Umsetzung B9.1")
-    b.enthaelt(T, "Steckbrief Wohnungen: Zahl", sb["Wohnungen"], f"{de(we)}, alle für Einkommensgruppe A", q("eingabe.wohnungen"))
-    b.enthaelt(T, "Steckbrief Wohnfläche", sb["Wohnfläche"], f"{de(wfl)} m²", q("eingabe.wohnflaeche"))
-    b.enthaelt(T, "Steckbrief Wohnfläche je Wohnung im Schnitt", sb["Wohnfläche"], f"im Schnitt {de(D(wfl) / D(we))} m²", q("eingabe.wohnflaeche ÷ eingabe.wohnungen"))
-    b.enthaelt(T, "Steckbrief Herstellungskosten je m²", sb["Herstellungskosten"], f"{de(hk)} € je m²", q("eingabe.herstellungskosten_qm"))
-    b.enthaelt(T, "Steckbrief Bemessungsgrenze", sb["Bemessungsgrenze"], f"{de(m('fin.bemessungsgrenze_qm'))} € je m²", q("fin.bemessungsgrenze_qm"))
-    # „eingehalten“ nur, wenn nichts über der Bemessungsgrenze liegt
-    b.gleich(T, "Steckbrief Bemessungsgrenze: eingehalten", "eingehalten" in sb["Bemessungsgrenze"], m("fin.ueber_bemessungsgrenze.A") == 0 and hk <= m("fin.bemessungsgrenze_qm"), q("fin.ueber_bemessungsgrenze.A"))
-    # Grundstück: Ist es nicht angesetzt (Eingabe 2.3 = 0), sagt der Steckbrief das mit diesen Worten; sonst nennt er den Betrag
-    grundstueck = "im Bestand, nicht angesetzt" if m("fin.grundstueck") == 0 and m("eingabe.grundstueck") == 0 else f"{de(m('fin.grundstueck'))} €"
-    b.enthaelt(T, "Steckbrief Grundstück", sb["Grundstück"], grundstueck, q("eingabe.grundstueck, fin.grundstueck"))
-    b.gleich(T, "Steckbrief Standort: nennt die Mietenstufe der Mappe", stufe_genannt(sb["Standort"], m("eingabe.mietenstufe"), nur_stufe=True), True, q("eingabe.mietenstufe"))
-
-    haus = block(s, "chart", chart="stacked-bar")["data"]
-    b.gleich(T, "Haus-Diagramm: Gesamtkosten", haus["total"]["display"], mio(m("fin.gesamtkosten.A")), q("fin.gesamtkosten.A"))
-    seg = {x["name"]: x for x in haus["segments"]}
-    b.gleich(T, "Haus-Diagramm: Darlehen", seg["Darlehen"]["display"], mio(m("fin.darlehen_nbank.A")), q("fin.darlehen_nbank.A"))
-    b.gleich(T, "Haus-Diagramm: Darlehen, Anteil", seg["Darlehen"]["share"], f"{pct(m('fin.darlehensquote.A'))} %", q("fin.darlehensquote.A"))
-    b.gleich(T, "Haus-Diagramm: Zuschuss", seg["Zuschuss"]["display"], mio(m("fin.zuschuss.A")), q("fin.zuschuss.A"))
-    b.gleich(T, "Haus-Diagramm: Zuschuss, Anteil", seg["Zuschuss"]["share"], f"{pct(m('fin.zuschussquote.A'))} %", q("fin.zuschussquote.A"))
-    b.gleich(T, "Haus-Diagramm: Eigenmittel", seg["Eigenmittel"]["display"], mio(m("fin.eigenmittel.A")), q("fin.eigenmittel.A"))
-    b.gleich(T, "Haus-Diagramm: Eigenmittel, Anteil", seg["Eigenmittel"]["share"], f"mind. {pct(m('fin.eigenmittelquote.A'))} %", q("fin.eigenmittelquote.A"))
-    b.gleich(T, "Haus-Diagramm: Förderung", haus["bracket"]["display"], mio(m("fin.foerderung.A")), q("fin.foerderung.A"))
-    b.gleich(T, "Haus-Diagramm: Förderung, Anteil", haus["bracket"]["share"], f"{pct(m('fin.foerderquote.A'))} %", q("fin.foerderquote.A"))
-
-    r = block(s, "table")["rows"]
-    b.enthaelt(T, "Rechenweg 1: Ansatz", r[0][1], f"{de(wfl)} m² × {de(hk)} €", q("eingabe.wohnflaeche, eingabe.herstellungskosten_qm"))
-    b.gleich(T, "Rechenweg 1: Herstellungskosten", r[0][2], de(m("fin.herstellungskosten")), q("fin.herstellungskosten"))
-    b.gleich(T, "Rechenweg 2: Grundstück", r[1][2], de(m("fin.grundstueck")), q("fin.grundstueck"))
-    b.gleich(T, "Rechenweg 3: zuwendungsfähige Kosten", r[2][2], de(m("fin.zuwendungsfaehige_kosten.A")), q("fin.zuwendungsfaehige_kosten.A"))
-    b.gleich(T, "Rechenweg 4: Eigenmittel", r[3][2], de(m("fin.eigenmittel.A")), q("fin.eigenmittel.A"))
-    b.enthaelt(T, "Rechenweg 4: Eigenmittel, Anteil", r[3][1], f"mindestens {pct(m('fin.eigenmittelquote.A'))} %", q("fin.eigenmittelquote.A"))
-
-    kz = block(s, "key_figures")["items"]
-    b.gleich(T, "Kennzahl: Zuschuss je Wohnung", kz[0]["value"], de(m("fin.zuschuss_je_wohnung.A")), q("fin.zuschuss_je_wohnung.A"))
-    b.gleich(T, "Kennzahl: Eigenmittel je Wohnung", kz[1]["value"], de(m("fin.eigenmittel_je_wohnung.A")), q("fin.eigenmittel_je_wohnung.A"))
-    b.enthaelt(T, "Kennzahl: Gesamtkosten je Wohnung", kz[1]["note"], f"{pct(m('fin.eigenmittelquote.A'))} % von {de(m('fin.gesamtkosten.A') / we)} € Gesamtkosten", q("fin.gesamtkosten.A ÷ eingabe.wohnungen"))
-
-    # Sensitivität: drei Spalten (Modellhaus, ARGE-Median, Ausgangswert der Bemessungsgrenze). Die Tabelle des Hefts steht in „columns“ und
-    # „rows“; jede Zeile nennt ihre Zelle der Übersicht. Die Schlüssel „steps“ und „result“ beschreiben die Spalte an der Bemessungsgrenze.
-    T = "Broschüre S. 10, Sensitivität"
-    wf = block(s, "chart", chart="waterfall")
-    laeufe = ("modellhaus", "modellhaus_kosten_4631", "modellhaus_kosten_5460")
-    spalten = wf["data"].get("columns", [])
-    b.gleich(T, "Spalten: Herstellungskosten je m² der drei Läufe", [x.get("kosten_je_m2") for x in spalten],
-             [w.lauf(l)("eingabe.herstellungskosten_qm") for l in laeufe], "eingabe.herstellungskosten_qm je Lauf")
-    b.gleich(T, "Spalten: Beschriftung", [x.get("display") for x in spalten], [f"{de(w.lauf(l)('eingabe.herstellungskosten_qm'))} €" for l in laeufe], "eingabe.herstellungskosten_qm je Lauf")
-    b.gleich(T, "Spalte 3 ist der Ausgangswert der Bemessungsgrenze", w.lauf(laeufe[2])("eingabe.herstellungskosten_qm"), m("fin.bemessungsgrenze_qm"), q("fin.bemessungsgrenze_qm"))
-    zeilen_s = wf["data"].get("rows", [])
-    b.gleich(T, "Tabelle: Zeilen vorhanden", len(zeilen_s) > 0, True, "Broschüre: data.rows")
-    for z in zeilen_s:
-        schl = w.schluessel("modellhaus", z.get("zelle", ""))
-        if not schl:
-            b.zeilen.append((T, f"Zeile „{z.get('label')}“: Zelle {z.get('zelle')!r}", "nicht in werte.json", "Zelle der Übersicht", "Lauf modellhaus", "ABWEICHUNG"))
-            continue
-        ist = [w.lauf(l)(schl) for l in laeufe]
-        stellen = max((len(str(v).split(".")[1]) if isinstance(v, float) and "." in str(v) else 0) for v in z["values"])
-        b.gleich(T, f"Zeile „{z.get('label')}“: Werte", [float(v) for v in z["values"]], [zahl(v, stellen) for v in ist], f"{schl} je Lauf")
-        b.gleich(T, f"Zeile „{z.get('label')}“: Beschriftung", z["display"], [de(v) for v in ist], f"{schl} je Lauf")
-    for l in laeufe[1:]:
-        b.gleich(T, f"{l}: nichts über der Bemessungsgrenze, kein Bankdarlehen, Förderquote wie im Modellhaus",
-                 (w.lauf(l)("fin.ueber_bemessungsgrenze.A"), w.lauf(l)("fin.bankdarlehen.A"), w.lauf(l)("fin.foerderquote.A")), (0, 0, m("fin.foerderquote.A")), f"{l}: fin.*")
-    # Satz unter der Tabelle (seit 13.11.2026, B9.2): Kosten je m², bis zu denen A in Jahr 1 einen Zahlungsüberschuss hat. Bis zur
-    # Bemessungsgrenze ist der Zahlungsüberschuss linear in den Kosten; die Nullstelle folgt aus Modellhaus und ARGE-Lauf und steht auf
-    # volle 10 € abgerundet (wie Folie 23)
-    k0, k1 = (w.lauf(l)("eingabe.herstellungskosten_qm") for l in laeufe[:2])
-    z0, z1 = (w.lauf(l)("jr1.zahlungsueberschuss.A") for l in laeufe[:2])
-    null_a = D(k0) + D(z0) * (D(k1) - D(k0)) / (D(z0) - D(z1))
-    b.gleich(T, "Nullstelle A liegt unter der Bemessungsgrenze (linearer Bereich)", null_a < D(m("fin.bemessungsgrenze_qm")), True, q("fin.bemessungsgrenze_qm"))
-    b.gleich(T, "Satz unter der Tabelle: Kosten, bis zu denen A einen Zahlungsüberschuss hat", wf["data"].get("note_threshold"),
-             f"Gruppe A hat bis rund {de((null_a / 10).to_integral_value(rounding='ROUND_FLOOR') * 10)} € je m² einen Zahlungsüberschuss.",
-             "jr1.zahlungsueberschuss.A, eingabe.herstellungskosten_qm der Läufe modellhaus und modellhaus_kosten_4631")
-    k = w.lauf("modellhaus_kosten_5460")
-    q5 = lambda x: "modellhaus_kosten_5460: " + x
-    st = wf["data"]["steps"]
-    b.enthaelt(T, "Titel: Sensitivität der Herstellungskosten je m²", wf["title"], "Herstellungskosten je m²", q5("eingabe.herstellungskosten_qm"))
-    b.gleich(T, "Gesamtkosten", st[0]["display"], mio(k("fin.gesamtkosten.A"), 2), q5("fin.gesamtkosten.A"))
-    b.gleich(T, "zuwendungsfähig", st[0]["segments"][0]["display"], mio(k("fin.zuwendungsfaehige_kosten.A"), 2), q5("fin.zuwendungsfaehige_kosten.A"))
-    b.gleich(T, "über der Grenze", st[0]["segments"][1]["display"], mio(k("fin.ueber_bemessungsgrenze.A"), 2), q5("fin.ueber_bemessungsgrenze.A"))
-    b.gleich(T, "Förderung", st[1]["display"], mio(k("fin.foerderung.A"), 2), q5("fin.foerderung.A"))
-    b.enthaelt(T, "Förderung: Ansatz", st[1]["label"], f"80 % von {mio(k('fin.zuwendungsfaehige_kosten.A'), 2)}", q5("fin.zuwendungsfaehige_kosten.A"))
-    b.gleich(T, "Mindest-Eigenmittel + Restfinanzierung", st[2]["display"],
-             f"{mio(k('fin.eigenmittel.A'), 2)} + {mio(k('fin.bankdarlehen.A'), 2)}", q5("fin.eigenmittel.A, fin.bankdarlehen.A"))
-    b.gleich(T, "Förderquote auf die Gesamtkosten", wf["data"]["result"]["display"], f"bis zu {pct(k('fin.foerderquote.A'), 1)} %", q5("fin.foerderquote.A"))
-    for g in ("B", "C"):
-        b.gleich(T, f"Gruppe {g}: gleiche Förderung und Eigenmittel wie A",
-                 (k(f"fin.foerderung.{g}"), k(f"fin.eigenmittel.{g}"), k(f"fin.bankdarlehen.{g}")),
-                 (k("fin.foerderung.A"), k("fin.eigenmittel.A"), k("fin.bankdarlehen.A")), q5(f"fin.*.{g}"))
-
-    # ---- Seite 11
-    T = "Broschüre S. 11"
-    s = seite(11)
-    b.enthaelt(T, "Vorspann: Förderquote", s["lead"], f"{pct(m('fin.foerderquote.A'))} % Förderung", q("fin.foerderquote.A"))
-    ch = block(s, "chart")
-    b.enthaelt(T, "Diagramm: Gesamtkosten", ch["subtitle"], f"Gesamtkosten je {mio(m('fin.gesamtkosten.A'))} Mio. €", q("fin.gesamtkosten.A"))
-    reihen = {x["name"]: x for x in ch["data"]["series"]}
-    for name, schl in (("Darlehen", "fin.darlehen_nbank"), ("Zuschuss", "fin.zuschuss"), ("Eigenmittel, mind.", "fin.eigenmittel")):
-        for i, g in enumerate(GRUPPEN):
-            b.gleich(T, f"Diagramm: {name} {g}", reihen[name]["labels"][i], mio(m(f"{schl}.{g}")), q(f"{schl}.{g}"))
-            b.gleich(T, f"Diagramm: {name} {g}, Zahlenwert", reihen[name]["values"][i], zahl(D(m(f"{schl}.{g}")) / 1000000, 1), q(f"{schl}.{g}"))
-    for i, g in enumerate(GRUPPEN):
-        b.gleich(T, f"Diagramm: Förderung {g}", ch["data"]["totals"]["labels"][i], mio(m(f"fin.foerderung.{g}")), q(f"fin.foerderung.{g}"))
-
-    t = block(s, "table", caption="Jahresrechnung Jahr 1, in € p. a.")
-    r = t["rows"]
-    # Seit 13.11.2026 (G2, B10.1) zählt die Jahresrechnung 1 bis 9, Mietausfall/Leerstand ist eigene Zeile 2
-    zeilen = [
-        ("Zeile 1 Sollmiete", "jr1.sollmiete"), ("Zeile 2 Mietausfall/Leerstand", "jr1.mietausfall"),
-        ("Zeile 3 Objektverwaltung", "jr1.objektverwaltung"), ("Zeile 4 Instandhaltung", "jr1.instandhaltung"),
-        ("Zeile 5 Überschuss vor Kapitaldienst", "jr1.ueberschuss_vor_kapitaldienst"),
-        ("Zeile 6 Verwaltungskostenbeitrag", "jr1.verwaltungskostenbeitrag"), ("Zeile 7 Zins NBank", "jr1.zins_nbank"),
-        ("Zeile 8 Tilgung", "jr1.tilgung_nbank"), ("Zeile 9 Zahlungsüberschuss", "jr1.zahlungsueberschuss"),
-    ]
-    b.gleich(T, "Jahresrechnung: Zeilennummern 1 bis 9 ohne Lücke", [z[0] for z in r], [str(i + 1) for i in range(len(zeilen))], "Umsetzung G2")
-    b.gleich(T, "Jahresrechnung: Ergebnis- und Summenzeile", (t.get("result_row"), t.get("subtotal_rows")), (r[8][0], [r[4][0]]), "Umsetzung G2")
-    for i, (name, schl) in enumerate(zeilen):
-        for j, g in enumerate(GRUPPEN):
-            b.gleich(T, f"Jahresrechnung {name}, {g}", r[i][2 + j], de(m(f"{schl}.{g}")), q(f"{schl}.{g}"))
-    for j, g in enumerate(GRUPPEN):
-        b.gleich(T, f"Einmalig: Bearbeitungsentgelte, {g}", t["aside_row"][2 + j], de(m(f"jr1.bearbeitungsentgelte.{g}")), q(f"jr1.bearbeitungsentgelte.{g}"))
-    mieten = " | ".join(de(m(f"fin.miete_jahr1.{g}"), 2) for g in GRUPPEN)
-    darl = " | ".join(mio(m(f"fin.darlehen_nbank.{g}")) for g in GRUPPEN)
-    b.enthaelt(T, "Zeile 1: Ansatz Höchstmieten", r[0][1], f"{de(wfl)} m² × {mieten} € × 12", q("fin.miete_jahr1.A/B/C"))
-    b.gleich(T, "Zeile 1: Mietenstufe der Mappe oder ihre Klasse (I–III, IV–VII)", stufe_genannt(r[0][1], m("eingabe.mietenstufe")), True, q("eingabe.mietenstufe"))
-    b.enthaelt(T, "Zeile 2: Satz Mietausfall", r[1][1], f"{pct(m('jr1.satz.mietausfall'))} % der Sollmiete", q("jr1.satz.mietausfall"))
-    b.enthaelt(T, "Zeile 3: Satz Objektverwaltung", r[2][1], f"{de(m('jr1.satz.objektverwaltung'))} € je Wohnung", q("jr1.satz.objektverwaltung"))
-    b.enthaelt(T, "Zeile 4: Satz Instandhaltung", r[3][1], f"{de(m('jr1.satz.instandhaltung'), 2)} € je m²", q("jr1.satz.instandhaltung"))
-    b.enthaelt(T, "Zeile 6: Satz Verwaltungskostenbeitrag", r[5][1], f"{pct(m('jr1.satz.verwaltungskostenbeitrag'), 1)} % des Restkapitals", q("jr1.satz.verwaltungskostenbeitrag"))
-    b.enthaelt(T, "Zeile 7: Zins und zinsfreie Jahre", r[6][1], f"{pct(m('jr1.satz.zins_nbank'))} % bis Ende Jahr {m('tab.zinsfreie_jahre')}", q("jr1.satz.zins_nbank, tab.zinsfreie_jahre"))
-    b.enthaelt(T, "Zeile 8: Tilgungssatz und Darlehen", r[7][1], f"Tilgung {pct(m('jr1.satz.tilgung_nbank'), 2)} % p. a. (Annahme: {m('tab.laufzeit_hoechstens')} Jahre) auf {darl} Mio. € Darlehen", q("jr1.satz.tilgung_nbank, fin.darlehen_nbank.A/B/C"))
-    b.enthaelt(T, "Einmalig: Sätze der Entgelte", t["aside_row"][1],
-               f"{pct(m('tab.bearbeitungsentgelt_darlehen'))} % des Darlehens + {pct(m('tab.bearbeitungsentgelt_zuschuss'), 2)} % des Zuschusses",
-               q("tab.bearbeitungsentgelt_darlehen, tab.bearbeitungsentgelt_zuschuss"))
-
-    nr_ergebnis = r[8][0]
-    r = block(s, "table", caption="Zum Vergleich: frei finanziert")["rows"]
-    # Die letzte Zeile nennt die Zeile der Jahresrechnung, die bei der kostendeckenden Anfangsmiete null ist (seit 13.11.2026, B10.2)
-    b.gleich(T, "Vergleich frei: Bezeichnung der letzten Zeile", r[3][0], f"Kostendeckende Anfangsmiete je m² und Monat (Zeile {nr_ergebnis} = null)", "Umsetzung B10.2; Zeile Zahlungsüberschuss der Jahresrechnung")
-    b.gleich(T, "Vergleich frei: Zuschuss A", r[0][1], f"{mio(m('fin.zuschuss.A'))} Mio. €", q("fin.zuschuss.A"))
-    b.gleich(T, "Vergleich frei: Darlehen A", r[1][1], f"{mio(m('fin.darlehen_nbank.A'))} Mio. €", q("fin.darlehen_nbank.A"))
-    b.gleich(T, "Vergleich frei: Bankdarlehen frei", r[1][2], f"{mio(m('fin.bankdarlehen.Frei'))} Mio. €", q("fin.bankdarlehen.Frei"))
-    b.gleich(T, "Vergleich frei: Kapitaldienst A", r[2][1], f"{de(m('dscr.kapitaldienst_jahr1.A'))} €", q("dscr.kapitaldienst_jahr1.A"))
-    b.gleich(T, "Vergleich frei: Kapitaldienst frei", r[2][2], f"{de(m('dscr.kapitaldienst_jahr1.Frei'))} €", q("dscr.kapitaldienst_jahr1.Frei"))
-    b.gleich(T, "Vergleich frei: nötige Miete A", r[3][1], f"{de(m('dscr.noetige_miete.A'), 2)} €", q("dscr.noetige_miete.A"))
-    b.gleich(T, "Vergleich frei: nötige Miete frei", r[3][2], f"{de(m('dscr.noetige_miete.Frei'), 2)} €", q("dscr.noetige_miete.Frei"))
-    b.gleich(T, "Vergleich frei: DSCR-Ziel der nötigen Miete", m("dscr.ziel"), 1, q("dscr.ziel"))
-    an = block(s, "text", heading="Annahmen")["body"]
-    b.enthaelt(T, "Annahmen: Eigenmittel frei", an, f"Eigenmittel {mio(m('fin.eigenmittel.Frei'))} Mio. €", q("fin.eigenmittel.Frei"))
-    b.enthaelt(T, "Annahmen: Bankdarlehen und Zins", an, f"Bankdarlehen {mio(m('fin.bankdarlehen.Frei'))} Mio. € zu {pct(m('eingabe.zins_bank'), 2)} % Zins", q("fin.bankdarlehen.Frei, eingabe.zins_bank"))
-    b.enthaelt(T, "Annahmen: Laufzeit", an, f"jährliche Annuität über {m('eingabe.laufzeit_bank')} Jahre", q("eingabe.laufzeit_bank"))
-
-    # ---- Seite 12
-    T = "Broschüre S. 12"
-    s = seite(12)
-    b.enthaelt(T, "Vorspann: Verwaltungskostenbeitrag", s["lead"], f"{pct(m('tab.verwaltungskostenbeitrag'), 1)} % Verwaltungskostenbeitrag", q("tab.verwaltungskostenbeitrag"))
-    b.enthaelt(T, "Vorspann: zinsfreie Jahre", s["lead"], f"bis Ende Jahr {m('tab.zinsfreie_jahre')} zinsfrei", q("tab.zinsfreie_jahre"))
-    ch = block(s, "chart")
-    d = ch["data"]
-    schwelle = {"B": m("tilg.schwelle.B_gegen_A"), "C": m("tilg.schwelle.C_gegen_A")}
-    for x in d["series"]:
-        g = x["name"]
-        b.gleich(T, f"Diagramm {g}: Mehrüberschuss vor Tilgung", x["before_repayment"], zahl(m(f"tilg.mehrueberschuss_vor_tilgung.{g}")), q(f"tilg.mehrueberschuss_vor_tilgung.{g}"))
-        b.gleich(T, f"Diagramm {g}: Mehrschuld", x["extra_debt"], m(f"tilg.mehrschuld.{g}"), q(f"tilg.mehrschuld.{g}"))
-        b.gleich(T, f"Diagramm {g}: je Prozentpunkt Tilgung", x["per_percentage_point"], -zahl(D(m(f"tilg.mehrschuld.{g}")) / 100), q(f"1 % × tilg.mehrschuld.{g}"))
-        b.gleich(T, f"Diagramm {g}: Tilgungsschwelle", x["threshold"], zahl(D(schwelle[g]) * 100, 2), q(f"tilg.schwelle.{g}_gegen_A"))
-        b.gleich(T, f"Diagramm {g}: Mehrüberschuss beim Satz der S. 11", x["at_s11"], zahl(m(f"tilg.mehrueberschuss_bei_tilgung.{g}")), q(f"tilg.mehrueberschuss_bei_tilgung.{g}"))
-        b.gleich(T, f"Diagramm {g}: Beschriftung vor Tilgung", x["labels"][0], de(m(f"tilg.mehrueberschuss_vor_tilgung.{g}")), q(f"tilg.mehrueberschuss_vor_tilgung.{g}"))
-        b.gleich(T, f"Diagramm {g}: Beschriftung Schwelle", x["labels"][1], f"{g}: {pct(schwelle[g], 2)} %", q(f"tilg.schwelle.{g}_gegen_A"))
-    # Der Satz der Jahresrechnung (1/42 = 2,38 %) liegt im Bereich der Achse; ihr Ende ist der Rasterpunkt 2,5 % der Mappe
-    b.gleich(T, "Diagramm: Achsenende ist ein Rasterpunkt der Mappe und nicht kleiner als der Satz der Jahresrechnung",
-             [d["x"]["to"] / 100 in [round(float(x), 6) for x in m("tilg.raster.satz")], d["x"]["to"] / 100 >= float(m("eingabe.tilgung_nbank"))], [True, True], q("tilg.raster.satz, eingabe.tilgung_nbank"))
-    b.gleich(T, "Maßkette: Teilung", d["dimension_chain"][0]["to"], zahl(D(schwelle["C"]) * 100, 2), q("tilg.schwelle.C_gegen_A"))
-    vB, vC = m("tilg.mehrueberschuss_vor_tilgung.B"), m("tilg.mehrueberschuss_vor_tilgung.C")
-    sB, sC = m("tilg.mehrschuld.B"), m("tilg.mehrschuld.C")
-    b.enthaelt(T, "Kontrolle C gegen B: Ansatz", d["check"], f"({de(vC)} − {de(vB)}) ÷ ({de(sC)} − {de(sB)})", q("tilg.mehrueberschuss_vor_tilgung, tilg.mehrschuld"))
-    b.enthaelt(T, "Kontrolle C gegen B: Schwelle", d["check"], f"= {pct(m('tilg.schwelle.C_gegen_B'), 2)} %", q("tilg.schwelle.C_gegen_B"))
-    b.enthaelt(T, "Geometrie: ungerundete Werte", d["geometry"], f"B {de(vB, 1)} €, C {de(vC, 1)} €", q("tilg.mehrueberschuss_vor_tilgung.B/C"))
-    b.enthaelt(T, "Geometrie: Nulldurchgänge", d["geometry"], f"B {pct(schwelle['B'], 4)} %, C {pct(schwelle['C'], 4)} %", q("tilg.schwelle.B_gegen_A, tilg.schwelle.C_gegen_A"))
-    # Die Schwelle C nennt seit 12.11.2026 die Überschrift der Seite; der gleichlautende Satz der Notiz ist dort gestrichen
-    b.enthaelt(T, "Überschrift: Schwelle C", s["headline"], f"Über {pct(schwelle['C'], 2)} % Tilgung", q("tilg.schwelle.C_gegen_A"))
-    # Seit 13.11.2026 (B11.1) nennt die Notiz die Schwelle C gegen A; B liegt bei keinem Satz des Rasters vorn
-    b.enthaelt(T, "Notiz: Schwelle C", ch["note"], f"Unter {pct(schwelle['C'], 2)} % Tilgung liegt C vorn, darüber A", q("tilg.schwelle.C_gegen_A"))
-    b.enthaelt(T, "Notiz: B nie vorn", ch["note"], "B** liegt in dieser Rechnung nie vorn", q("tilg.raster.bester"))
-    b.gleich(T, "Notiz: B hat bei keinem Satz des Rasters den höchsten Überschuss", "B" in m("tilg.raster.bester"), False, q("tilg.raster.bester"))
-    b.enthaelt(T, "Notiz: je Prozentpunkt", ch["note"], f"von B um {de(D(sB) / 100)} €, von C um {de(D(sC) / 100)} €", q("1 % × tilg.mehrschuld.B/C"))
-    raster = dict(zip(m("tilg.raster.satz")[:7], m("tilg.raster.bester")[:7]))
-    b.gleich(T, "Notiz: höchster Überschuss unter und über der Schwelle (Raster 0 bis 3 %)",
-             "".join(raster[x] for x in sorted(raster)),
-             "".join("C" if x < schwelle["C"] else "A" for x in sorted(raster)), q("tilg.raster.bester"))
-
-    t = block(s, "table")
-    r = t["rows"]
-    # Seit 13.11.2026 (B11.2) zählt der Rechenweg 1 bis 6, Mietausfall ist eigene Zeile 3
-    b.gleich(T, "Rechenweg: Zeilennummern 1 bis 6 ohne Lücke", [z[0] for z in r], [str(i + 1) for i in range(6)], "Umsetzung B11.2")
-    zeilen = [
-        (0, "Rechenweg 1 Mehrschuld", "tilg.mehrschuld", de), (1, "Rechenweg 2 Mehr-Sollmiete", "tilg.mehr_sollmiete", de),
-        (2, "Rechenweg 3 Mietausfall", "tilg.mehr_mietausfall", de), (3, "Rechenweg 4 Verwaltungskostenbeitrag", "tilg.mehr_verwaltungskostenbeitrag", de),
-        (4, "Rechenweg 5 Mehrüberschuss vor Tilgung", "tilg.mehrueberschuss_vor_tilgung", de),
-    ]
-    for i, name, schl, f in zeilen:
-        for j, g in enumerate(("B", "C")):
-            b.gleich(T, f"{name}, {g}", r[i][2 + j], f(m(f"{schl}.{g}")), q(f"{schl}.{g}"))
-    for j, g in enumerate(("B", "C")):
-        b.gleich(T, f"Rechenweg 6 Tilgungsschwelle, {g}", r[5][2 + j], f"{pct(schwelle[g], 2)} %", q(f"tilg.schwelle.{g}_gegen_A"))
-        b.gleich(T, f"Einmalig: Mehr an Bearbeitungsentgelten, {g}", t["aside_row"][2 + j], de(m(f"tilg.mehr_bearbeitungsentgelte.{g}")), q(f"tilg.mehr_bearbeitungsentgelte.{g}"))
-    mA = D(m("fin.miete_jahr1.A"))
-    b.enthaelt(T, "Rechenweg 1: Darlehen", r[0][1], f"Darlehen {mio(m('fin.darlehen_nbank.B'))} | {mio(m('fin.darlehen_nbank.C'))} statt {mio(m('fin.darlehen_nbank.A'))} Mio. €", q("fin.darlehen_nbank.A/B/C"))
-    b.enthaelt(T, "Rechenweg 2: Mehrmiete je m²", r[1][1], f"{de(wfl)} m² × {de(D(m('fin.miete_jahr1.B')) - mA, 2)} | {de(D(m('fin.miete_jahr1.C')) - mA, 2)} € × 12", q("fin.miete_jahr1.A/B/C"))
-    b.enthaelt(T, "Rechenweg 3: Satz Mietausfall", r[2][1], f"Mietausfall {pct(m('jr1.satz.mietausfall'))} %", q("jr1.satz.mietausfall"))
-    b.enthaelt(T, "Rechenweg 4: Satz", r[3][1], f"{pct(m('jr1.satz.verwaltungskostenbeitrag'), 1)} % von Zeile {r[0][0]}", q("jr1.satz.verwaltungskostenbeitrag"))
-    b.enthaelt(T, "Rechenweg 6: Bezug der Schwelle", r[5][1], f"(Zeile {r[4][0]} ÷ {r[0][0]})", "Umsetzung B11.2: Mehrüberschuss vor Tilgung ÷ Mehrschuld")
-    lz = block(s, "text", heading="Über die Laufzeit")["body"]
-    b.enthaelt(T, "Über die Laufzeit: Mehrschuld", lz, f"A trägt {mio(sB)} Mio. € weniger Schulden als B und {mio(sC)} Mio. € weniger als C", q("tilg.mehrschuld.B/C"))
-    # Die zinsfreien Jahre nennt auf dieser Seite nur noch der Vorspann (oben geprüft); die Höchstlaufzeit steht seit 12.11.2026 nicht mehr auf S. 12
-    abc = s["calculation"]["A_B_C"]
-    felder = [
-        ("zuschuss_mio", "fin.zuschuss", lambda x: zahl(D(x) / 1000000, 1)), ("darlehen_mio", "fin.darlehen_nbank", lambda x: zahl(D(x) / 1000000, 1)),
-        ("hoechstmiete_eur_m2", "fin.miete_jahr1", lambda x: zahl(x, 2)), ("sollmiete_pa", "jr1.sollmiete", zahl),
-        ("mietausfall_2_prozent_pa", "jr1.mietausfall", zahl), ("verwaltungskostenbeitrag_pa", "jr1.verwaltungskostenbeitrag", zahl),
-        ("tilgung_pa", "jr1.tilgung_nbank", zahl), ("zahlungsueberschuss_jahr_1", "jr1.zahlungsueberschuss", zahl),
-        ("bearbeitungsentgelte", "jr1.bearbeitungsentgelte", zahl),
-    ]
-    for feld, schl, f in felder:
-        b.gleich(T, f"Rechenblock A | B | C: {feld}", [float(x) for x in abc[feld]], [f(m(f"{schl}.{g}")) for g in GRUPPEN], q(f"{schl}.A/B/C"))
-    b.enthaelt(T, "Rechenblock: Basis", s["calculation"]["basis"],
-               f"{de(we)} Wohnungen, {de(wfl)} m² Wohnfläche, zuwendungsfähige Kosten {mio(m('fin.zuwendungsfaehige_kosten.A'))} Mio. €", q("eingabe.*, fin.zuwendungsfaehige_kosten.A"))
+    """Broschüre S. 10–12 (seit 15.11.2026): jeder Beleg im Seiten-JSON (Formel über Zellen der Mappe) mit den Werten der
+    Präsentation (werte.json, kennzahlen.json) nachgerechnet und auf die gezeigte Stelle gerundet."""
+    kz = json.loads(KENNZAHLEN.read_text(encoding="utf-8"))
+    zellen = bro_zellen(w, kz)
+    for nr in (10, 11, 12):
+        T = f"Broschüre S. {nr}"
+        s = seite(nr)
+        belege = s.get("belege") or []
+        b.gleich(T, "Belege vorhanden", len(belege) > 0, True, "belege")
+        for k, bl in enumerate(belege, start=1):
+            stelle = f"Beleg {k} ({bl.get('wo', '')})"
+            if "formel" in bl:
+                try:
+                    v = bro_rechne(bl["formel"], zellen)
+                except (KeyError, ValueError) as ex:
+                    b.gleich(T, stelle, bl["text"], str(ex), bl["formel"])
+                    continue
+                quelle = bl["formel"]
+            elif "kennzahl" in bl:
+                key = bl["kennzahl"]
+                v = D(kz["laeufe"][key.split(".")[1]]["werte"][key]["wert"])
+                quelle = "kennzahlen.json: " + key
+            else:
+                continue                     # Wortlaut ohne Zelle („herkunft“)
+            art = bl.get("art", "zahl")
+            gerechnet = str(int(v)) if art == "jahr" else de(v * BRO_FAKTOR[art], bl.get("nk", 0))
+            b.gleich(T, stelle, bl["text"], gerechnet, quelle)
 
 
 # ---------------------------------------------------------------- 2 Altfassung

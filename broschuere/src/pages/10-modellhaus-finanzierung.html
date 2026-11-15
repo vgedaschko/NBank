@@ -1,0 +1,108 @@
+<section class="page page--accent page--dicht bs-21" data-page="10" id="seite-10">
+  <style>
+    /* S. 10 · Modellrechnung: Modellhaus und Finanzierung – linke Seite der Mittel-Doppelseite 10|11 (Papier, .page--accent).
+       Neu seit 15.11.2026 (Umbau der Modellrechnung wie im Vortrag): gefördert in Gruppe A gegen frei finanziert zur Marktmiete,
+       B nicht mehr eigens gerechnet, C nur im Verlauf (S. 12). Zahlen aus der Rechenmappe v3, Blatt Kennzahlen (D52 bis D57, G52 bis G56)
+       und Eingaben (praesentation/daten/kennzahlen.json); Generator der Häuser: Geschosse 9,4 mm hoch (Grenzen 5 bis 52 mm), je
+       Geschoss 20 % der Gesamtkosten, 14 Fenster = 14 Wohnungen wie bisher.
+       Hauptelement: zwei Häuser als gestapelte Balken über die volle Breite (gefördert: Zuschuss ab der Grundlinie, NBank-Darlehen,
+       Eigenkapital; frei finanziert: Bankdarlehen, Eigenkapital); die Maßkette links (Fremdkapital 80 %, Eigenkapital 20 %) gilt für beide.
+       Darunter Steckbrief (7, außen) | Kennzahlen je Wohnung (5, am Bund), unten die Annahmen über die volle Breite. Horizonte mit S. 11:
+       Kopfzeile, H1, Oberkante Band 1 und Band 3. */
+    .page[data-page="10"] .p10-band { --row-gap: 0; align-items: start; }
+    .page[data-page="10"] .p10-c { margin-top: 5.4mm; }
+    .page[data-page="10"] .p10-house .chart__svg { margin-top: 3.6mm; }
+    .page[data-page="10"] .p10-d { margin-top: 4.6mm; }
+    .page[data-page="10"] .p10-spec { border-top: var(--hair) solid var(--rule-strong); padding-top: 3mm; }
+    /* Steckbrief „Das Modellhaus“: Zeilen „Bezeichnung: Angabe“, Bezeichnung halbfett in Schwarz als Vorlauf, Haarlinie zwischen den Zeilen */
+    .page[data-page="10"] .p10-steck { margin-top: 2.2mm; }
+    .page[data-page="10"] .p10-steck > div { padding: 1.2mm 0 1.3mm; border-top: var(--hair) solid var(--rule); font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
+    .page[data-page="10"] .p10-steck > div:first-child { border-top: 0; padding-top: 0; }
+    .page[data-page="10"] .p10-steck dt, .page[data-page="10"] .p10-steck dd { display: inline; }
+    .page[data-page="10"] .p10-steck dt { font-weight: 600; color: var(--fg); }
+    /* Häuser */
+    .page[data-page="10"] .p10-win { fill: var(--surface-2); }
+    .page[data-page="10"] .p10-win--eq { stroke: var(--equity-line); stroke-width: .2; }
+    .page[data-page="10"] .p10-ground { stroke: var(--fg); stroke-width: .5; fill: none; }
+    .page[data-page="10"] .chart__svg .p10-lab { fill: var(--fg-2); }
+    .page[data-page="10"] .p10-house__svg .t-num.t-acc { font-weight: 800; }
+    /* Kennzahlen am Bund */
+    .page[data-page="10"] .p10-kf { row-gap: 0; align-content: start; }
+    .page[data-page="10"] .p10-kf > .kf { grid-column: span 6; }
+    .page[data-page="10"] .p10-kf .kf__fig { margin-top: 2.4mm; }
+    .page[data-page="10"] .p10-kf .kf__label { margin-top: 2.2mm; }
+    /* Annahmen: drei Spalten, Positionsspalte 46 mm („Verwaltungskostenbeitrag“ einzeilig), Spalte gefördert 70 mm; je Position eine Zeile.
+       Dichte Seite (.page--dicht, 9 pt): in 9,5 pt läuft die Seite mit Häusern, Steckbrief und Annahmen nicht auf, Werte als Text; gleiche Ansätze „wie gefördert“ in Grau */
+    .page[data-page="10"] .p10-an-t { margin-top: 1.4mm; table-layout: fixed; }
+    .page[data-page="10"] .p10-an-t col.p10-an-pos { width: 46mm; }
+    .page[data-page="10"] .p10-an-t col.p10-an-gef { width: 70mm; }
+    .page[data-page="10"] .p10-an-t th, .page[data-page="10"] .p10-an-t td { padding-top: .6mm; padding-bottom: .6mm; line-height: 1.35; }
+    .page[data-page="10"] .p10-an-t tbody th { font-weight: 600; color: var(--fg); }
+    .page[data-page="10"] .p10-an-t .p10-wie { color: var(--fg-3); }
+  </style>
+
+  <div class="bs-register" data-bleed aria-hidden="true">2.1</div>
+
+  <header class="page__header"><span class="page__section">Modellrechnung</span><div class="keyplan" role="img" aria-label="Programmteil 2.1 von sechs Programmteilen"><span class="keyplan__label">Programmteil</span><ol class="keyplan__list"><li class="bs-21 is-on">2.1</li><li class="bs-22">2.2</li><li class="bs-23">2.3</li><li class="bs-24">2.4</li><li class="bs-25">2.5</li><li class="bs-26">2.6</li></ol></div></header>
+  <h1 class="h1"><span class="light">Modellhaus in Neu Wulmstorf</span> Gleiches Eigenkapital, gefördert <em>40&nbsp;%</em> Zuschuss</h1>
+
+  <!-- Band 1 · Mittelherkunft gefördert und frei finanziert (12, Hauptelement) -->
+  <figure class="chart module p10-house p10-c" role="group" aria-labelledby="p10-house-h">
+    <figcaption class="chart__head">
+      <h2 class="chart__title" id="p10-house-h">Mittelherkunft <span class="chart__unit">in Mio. €</span></h2>
+      <p class="chart__sub">Gesamtkosten je 2,96 Mio. € · Rechenbeispiel, keine Förderzusage</p>
+    </figcaption>
+    <svg class="chart__svg p10-house__svg" viewBox="0 0 180 59" width="180mm" height="59mm" role="img" aria-label="Mittelherkunft des Modellhauses, Gesamtkosten je 2,96 Millionen Euro, dargestellt als zwei Häuser mit fünf gleich hohen Geschossen zu je 20 Prozent. Gefördert in Gruppe A: unten zwei Geschosse Zuschuss 1,19 Millionen Euro, nicht rückzahlbar, darüber zwei Geschosse NBank-Darlehen 1,19 Millionen Euro zu 0 Prozent Zins, oben ein Geschoss Eigenkapital 0,59 Millionen Euro. Frei finanziert: vier Geschosse Bankdarlehen 2,37 Millionen Euro zu 3,86 Prozent Zins, oben ein Geschoss Eigenkapital 0,59 Millionen Euro. Maßkette: Fremdkapital 80 Prozent, Eigenkapital 20 Prozent, in beiden Fällen gleich."><rect class="c-muted" x="25.4" y="3.8" width="35.2" height="1.2"/><polygon class="ill-pv" points="27.8,3.8 34.2,3.8 33.4,1.4 27,1.4"/><polygon class="ill-pv" points="35.7,3.8 42.1,3.8 41.3,1.4 34.9,1.4"/><polygon class="ill-pv" points="43.6,3.8 50,3.8 49.2,1.4 42.8,1.4"/><polygon class="ill-pv" points="51.5,3.8 57.9,3.8 57.1,1.4 50.7,1.4"/><rect class="c-equity" x="26" y="5" width="34" height="9.4"/><path class="hatch" data-hatch="26.1 5.1 33.8 9.2" d="M26.1,6.144L27.144,5.1M26.1,7.841L28.841,5.1M26.1,9.538L30.538,5.1M26.1,11.235L32.235,5.1M26.1,12.932L33.932,5.1M26.429,14.3L35.629,5.1M28.126,14.3L37.326,5.1M29.823,14.3L39.023,5.1M31.521,14.3L40.721,5.1M33.218,14.3L42.418,5.1M34.915,14.3L44.115,5.1M36.612,14.3L45.812,5.1M38.309,14.3L47.509,5.1M40.006,14.3L49.206,5.1M41.703,14.3L50.903,5.1M43.4,14.3L52.6,5.1M45.097,14.3L54.297,5.1M46.794,14.3L55.994,5.1M48.491,14.3L57.691,5.1M50.188,14.3L59.388,5.1M51.885,14.3L59.9,6.285M53.582,14.3L59.9,7.982M55.279,14.3L59.9,9.679M56.976,14.3L59.9,11.376M58.673,14.3L59.9,13.073"/><rect class="c-equity-frame" x="26.1" y="5.1" width="33.8" height="9.2"/><rect class="p10-win p10-win--eq" x="35.85" y="6.7" width="4.6" height="6"/><rect class="p10-win p10-win--eq" x="45.55" y="6.7" width="4.6" height="6"/><rect class="c-loan" x="26" y="14.4" width="34" height="9.25"/><rect class="p10-win" x="30.9" y="15.93" width="4.8" height="6.2"/><rect class="p10-win" x="40.6" y="15.93" width="4.8" height="6.2"/><rect class="p10-win" x="50.3" y="15.93" width="4.8" height="6.2"/><rect class="c-loan" x="26" y="23.95" width="34" height="8.9"/><rect class="p10-win" x="30.9" y="25.3" width="4.8" height="6.2"/><rect class="p10-win" x="40.6" y="25.3" width="4.8" height="6.2"/><rect class="p10-win" x="50.3" y="25.3" width="4.8" height="6.2"/><rect class="c-grant" x="26" y="33.55" width="34" height="8.9"/><rect class="p10-win" x="30.9" y="34.9" width="4.8" height="6.2"/><rect class="p10-win" x="40.6" y="34.9" width="4.8" height="6.2"/><rect class="p10-win" x="50.3" y="34.9" width="4.8" height="6.2"/><rect class="c-grant" x="26" y="42.75" width="34" height="9.25"/><rect class="p10-win" x="30.9" y="44.28" width="4.8" height="6.2"/><rect class="p10-win" x="40.6" y="44.28" width="4.8" height="6.2"/><rect class="p10-win" x="50.3" y="44.28" width="4.8" height="6.2"/><rect class="c-muted" x="107.4" y="3.8" width="35.2" height="1.2"/><polygon class="ill-pv" points="109.8,3.8 116.2,3.8 115.4,1.4 109,1.4"/><polygon class="ill-pv" points="117.7,3.8 124.1,3.8 123.3,1.4 116.9,1.4"/><polygon class="ill-pv" points="125.6,3.8 132,3.8 131.2,1.4 124.8,1.4"/><polygon class="ill-pv" points="133.5,3.8 139.9,3.8 139.1,1.4 132.7,1.4"/><rect class="c-equity" x="108" y="5" width="34" height="9.4"/><path class="hatch" data-hatch="108.1 5.1 33.8 9.2" d="M108.1,5.603L108.603,5.1M108.1,7.3L110.3,5.1M108.1,8.997L111.997,5.1M108.1,10.694L113.694,5.1M108.1,12.391L115.391,5.1M108.1,14.088L117.088,5.1M109.585,14.3L118.785,5.1M111.282,14.3L120.482,5.1M112.979,14.3L122.179,5.1M114.676,14.3L123.876,5.1M116.373,14.3L125.573,5.1M118.07,14.3L127.27,5.1M119.767,14.3L128.967,5.1M121.465,14.3L130.665,5.1M123.162,14.3L132.362,5.1M124.859,14.3L134.059,5.1M126.556,14.3L135.756,5.1M128.253,14.3L137.453,5.1M129.95,14.3L139.15,5.1M131.647,14.3L140.847,5.1M133.344,14.3L141.9,5.744M135.041,14.3L141.9,7.441M136.738,14.3L141.9,9.138M138.435,14.3L141.9,10.835M140.132,14.3L141.9,12.532"/><rect class="c-equity-frame" x="108.1" y="5.1" width="33.8" height="9.2"/><rect class="p10-win p10-win--eq" x="117.85" y="6.7" width="4.6" height="6"/><rect class="p10-win p10-win--eq" x="127.55" y="6.7" width="4.6" height="6"/><rect class="c-loan" x="108" y="14.4" width="34" height="9.25"/><rect class="p10-win" x="112.9" y="15.93" width="4.8" height="6.2"/><rect class="p10-win" x="122.6" y="15.93" width="4.8" height="6.2"/><rect class="p10-win" x="132.3" y="15.93" width="4.8" height="6.2"/><rect class="c-loan" x="108" y="23.95" width="34" height="9.1"/><rect class="p10-win" x="112.9" y="25.4" width="4.8" height="6.2"/><rect class="p10-win" x="122.6" y="25.4" width="4.8" height="6.2"/><rect class="p10-win" x="132.3" y="25.4" width="4.8" height="6.2"/><rect class="c-loan" x="108" y="33.35" width="34" height="9.1"/><rect class="p10-win" x="112.9" y="34.8" width="4.8" height="6.2"/><rect class="p10-win" x="122.6" y="34.8" width="4.8" height="6.2"/><rect class="p10-win" x="132.3" y="34.8" width="4.8" height="6.2"/><rect class="c-loan" x="108" y="42.75" width="34" height="9.25"/><rect class="p10-win" x="112.9" y="44.28" width="4.8" height="6.2"/><rect class="p10-win" x="122.6" y="44.28" width="4.8" height="6.2"/><rect class="p10-win" x="132.3" y="44.28" width="4.8" height="6.2"/><path class="p10-ground" d="M20.5,52H64M104,52H146"/><path class="dim-line" stroke-width=".12" d="M25.6,5H20.5M25.6,14.4H20.5M25.6,52H20.5"/><path class="dim-line" d="M21.8,3.7V53.3"/><path class="dim-tick" d="M20.9,5.9L22.7,4.1M20.9,15.3L22.7,13.5M20.9,52.9L22.7,51.1"/><text class="p10-lab t-end" x="20" y="9.1"><tspan class="t-b">Eigenkapital</tspan></text><text class="t-val-ink t-end" x="20" y="13.3">20 %</text><text class="p10-lab t-end" x="20" y="32.6"><tspan class="t-b">Fremdkapital</tspan></text><text class="t-val-ink t-end" x="20" y="36.8">80 %</text><text class="p10-lab" x="62.85" y="7.5"><tspan class="t-b">Eigenkapital</tspan></text><text class="t-num" x="62.6" y="14">0,59<tspan class="t-unit" dx="0.9">Mio. €</tspan></text><text class="p10-lab" x="62.85" y="21.6"><tspan class="t-b">NBank-Darlehen</tspan> · 0 % Zins</text><text class="t-num" x="62.6" y="28.1">1,19<tspan class="t-unit" dx="0.9">Mio. €</tspan></text><text class="p10-lab" x="62.85" y="40.4"><tspan class="t-b">Zuschuss</tspan> · nicht rückzahlbar</text><text class="t-num t-acc" x="62.6" y="46.9">1,19<tspan class="t-unit" dx="0.9">Mio. €</tspan></text><text class="p10-lab" x="144.85" y="7.5"><tspan class="t-b">Eigenkapital</tspan></text><text class="t-num" x="144.6" y="14">0,59<tspan class="t-unit" dx="0.9">Mio. €</tspan></text><text class="p10-lab" x="144.85" y="31"><tspan class="t-b">Bankdarlehen</tspan> · 3,86 % Zins</text><text class="t-num" x="144.6" y="37.5">2,37<tspan class="t-unit" dx="0.9">Mio. €</tspan></text><text class="t-b t-mid" x="43" y="57.6">Gefördert, Gruppe A</text><text class="t-b t-mid" x="125" y="57.6">Frei finanziert</text></svg>
+  </figure>
+
+  <!-- Band 2 · Das Modellhaus (7, außen) | Kennzahlen je Wohnung (5, am Bund) -->
+  <div class="l-grid p10-band p10-d">
+    <div class="l-span-7 p10-spec">
+      <h2 class="chart__title" id="p10-spec-h">Das Modellhaus</h2>
+      <dl class="p10-steck" aria-labelledby="p10-spec-h">
+        <div><dt>Ort:</dt> <dd>Neu Wulmstorf, <span class="u-nohyphens">Landkreis</span> Harburg, Mietenstufe VI</dd></div>
+        <div><dt>Wohnungen:</dt> <dd>14 für Gruppe&nbsp;A, 828&nbsp;m², im Schnitt 59&nbsp;m²</dd></div>
+        <div><dt>Herstellungskosten:</dt> <dd>3.579&nbsp;€ je&nbsp;m², Median aus fünf <span class="u-nowrap">PGN-Projekten</span></dd></div>
+        <div><dt>Standard:</dt> <dd>Effizienzhaus 55, Grundstück nicht angesetzt</dd></div>
+        <div><dt>Rechnung:</dt> <dd>Bezug 2027, betrachtet über 35 Jahre</dd></div>
+      </dl>
+    </div>
+    <div class="l-span-5 key-figures p10-kf">
+      <div class="kf kf--s">
+        <p class="kf__fig"><span class="kf__num">84.669<span class="kf__unit">€</span></span></p>
+        <p class="kf__label">Zuschuss je Wohnung</p>
+        <p class="kf__text">nicht rückzahlbar</p>
+      </div>
+      <div class="kf kf--s">
+        <p class="kf__fig"><span class="kf__num">42.334<span class="kf__unit">€</span></span></p>
+        <p class="kf__label">Eigenkapital je Wohnung</p>
+        <p class="kf__text">in beiden Fällen gleich; gefördert dazu 20.744&nbsp;€ Bearbeitungsentgelte</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Band 3 · Annahmen (12) -->
+  <section class="module p10-an l-bottom" aria-labelledby="p10-an-h">
+    <h2 class="chart__title" id="p10-an-h">Annahmen der Rechnung</h2>
+    <p class="chart__sub">Vor Steuern. Gleiche Kosten, verschieden sind nur Miete und Finanzierung.</p>
+    <table class="table table--compact p10-an-t" aria-labelledby="p10-an-h">
+      <colgroup><col class="p10-an-pos"><col class="p10-an-gef"><col></colgroup>
+      <thead><tr><th scope="col">Position</th><th scope="col">Gefördert, Gruppe A</th><th scope="col">Frei finanziert</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Miete Jahr 1</th><td>Höchstmiete 6,80&nbsp;€ je&nbsp;m² und Monat</td><td>Marktmiete 15,42&nbsp;€ je&nbsp;m² und Monat</td></tr>
+        <tr><th scope="row">Mietanpassung</th><td>3 Jahre fest, dann +6,15&nbsp;% je 3 Jahre</td><td>+2&nbsp;% p.&nbsp;a.</td></tr>
+        <tr><th scope="row">Mietausfall</th><td>2&nbsp;% der Sollmiete</td><td class="p10-wie">wie gefördert</td></tr>
+        <tr><th scope="row">Objektverwaltung</th><td>367&nbsp;€ je Wohnung p.&nbsp;a.</td><td class="p10-wie">wie gefördert</td></tr>
+        <tr><th scope="row">Instandhaltung</th><td>14,40&nbsp;€ je&nbsp;m² p.&nbsp;a.</td><td class="p10-wie">wie gefördert</td></tr>
+        <tr><th scope="row">Kostensteigerung</th><td>2&nbsp;% p.&nbsp;a. ab Jahr 2</td><td class="p10-wie">wie gefördert</td></tr>
+        <tr><th scope="row">Zins</th><td>0&nbsp;% bis Jahr 35</td><td>3,86&nbsp;%, 10 Jahre fest</td></tr>
+        <tr><th scope="row">Verwaltungskostenbeitrag</th><td>0,5&nbsp;% vom Restkapital</td><td class="p10-wie">entfällt</td></tr>
+        <tr><th scope="row">Tilgung</th><td>2,38&nbsp;% p.&nbsp;a.</td><td>jährliche Annuität über 30 Jahre</td></tr>
+        <tr><th scope="row">Kontokorrent</th><td>Soll 5&nbsp;%, Haben 2&nbsp;%</td><td class="p10-wie">wie gefördert</td></tr>
+        <tr><th scope="row">Restwert Ende Jahr 35</th><td>Ertragswert aus der Marktmiete</td><td class="p10-wie">wie gefördert</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">9</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Modellrechnung · Modellhaus und Finanzierung</b></span></span></footer>
+</section>

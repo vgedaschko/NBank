@@ -1,0 +1,109 @@
+<section class="page bs-21" data-page="12" id="seite-12">
+  <style>
+    /* S. 12 · Modellrechnung: 35 Jahre – linke Seite der Doppelseite 12|13 (physische Heftmitte), weiß wie S. 13. Neu seit 15.11.2026
+       (Umbau der Modellrechnung wie im Vortrag, Folien 20, 21 und Fazit): Verlauf A und C, Eigenkapitalrendite, vier Gründe als Abschluss
+       des Kapitels. Zahlen aus der Rechenmappe v3: Zeitreihe (Lauf modellhaus_zeitreihe, Gefördert A und C, Jahr 1 bis 35), Blatt
+       Kennzahlen (Eigenkapitalrendite VOFI mit und ohne Restwert, Vermögen und Anteil des Restwerts Ende Jahr 35, D/G 61 bis 86) und der Lauf
+       ohne Mietanpassung (Kennzahlen, n6). Diagrammgeometrie Verlauf: x = 14 + (Jahr − 1) × 86 ÷ 34, y = 53 − € × 0,00048; Rendite:
+       y = 37 − % × 3,2. Kein Rot im Diagramm; Rot nur am Titel und an der Ergebniszeile des Rechenblatts. */
+    .page[data-page="12"] .p12-b { margin-top: 5.4mm; --row-gap: 0; align-items: start; }
+    .page[data-page="12"] .p12-b .chart__svg { margin-top: 3mm; }
+    .page[data-page="12"] .p12-note { border-top: var(--hair) solid var(--rule-strong); padding-top: 3mm; }
+    .page[data-page="12"] .p12-note .h3 { margin-top: 0; }
+    .page[data-page="12"] .p12-note .h3 + .bullets { margin-top: 1.6mm; }
+    .page[data-page="12"] .p12-note .bullets + .h3 { margin-top: 3.6mm; }
+    .page[data-page="12"] .chart__svg .p12-l { fill: none; stroke-linejoin: round; }
+    .page[data-page="12"] .chart__svg .p12-l--a { stroke: var(--fg); stroke-width: .6; }
+    .page[data-page="12"] .chart__svg .p12-l--c { stroke: var(--seq-4); stroke-width: .6; }
+    .page[data-page="12"] .chart__svg .p12-flaeche { fill: var(--seq-1); }
+    .page[data-page="12"] .chart__svg .p12-mk { stroke: var(--fg-2); stroke-width: .25; stroke-dasharray: 1.2 .8; fill: none; }
+    .page[data-page="12"] .sw--c { background: var(--seq-4); }
+    .page[data-page="12"] .p12-c { margin-top: 7mm; --row-gap: 0; align-items: start; }
+    .page[data-page="12"] .p12-c .chart__note { margin-top: 1.4mm; }
+    /* Rechenblatt Vermögen Ende Jahr 35 in Tsd. € */
+    .page[data-page="12"] .p12-vm { margin-top: 3mm; }
+    .page[data-page="12"] .p12-vm col.p12-c-val { width: 17mm; }
+    .page[data-page="12"] .p12-vm th, .page[data-page="12"] .p12-vm td { padding-top: .9mm; padding-bottom: .9mm; line-height: 1.3; }
+    .page[data-page="12"] .p12-vm .num { padding-right: 3mm; padding-left: 1mm; }
+    .page[data-page="12"] .p12-vm tfoot td, .page[data-page="12"] .p12-vm tfoot th { padding-top: 1.2mm; padding-bottom: 0; border-bottom: 0; color: var(--fg-2); }
+    .page[data-page="12"] .p12-vm tfoot tr + tr td, .page[data-page="12"] .p12-vm tfoot tr + tr th { padding-top: .5mm; }
+    /* Vier Gründe: vier gleich breite Spalten mit Achskreis, Titel als Modultitel, Satz in Textgröße */
+    .page[data-page="12"] .p12-g { border-top: var(--rule-heavy) solid var(--rule-strong); padding-top: 3mm; }
+    .page[data-page="12"] .p12-g__list { margin-top: 3mm; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gutter); }
+    .page[data-page="12"] .p12-g__item { border-top: var(--hair) solid var(--rule); padding-top: 2.4mm; }
+    .page[data-page="12"] .p12-g__head { display: flex; align-items: flex-start; gap: 2mm; min-height: 15.4mm; }   /* drei Titelzeilen: die Sätze beginnen auf einer Höhe */
+    .page[data-page="12"] .p12-g__head .axis-no { margin-top: .2mm; }
+    .page[data-page="12"] .p12-g__title { font: 800 var(--fs-h3)/1.2 var(--font-display); color: var(--fg); }
+    .page[data-page="12"] .p12-g__text { margin-top: 2mm; font-size: var(--fs-body); line-height: var(--lh-body); color: var(--fg-2); }
+  </style>
+
+  <div class="bs-register" data-bleed aria-hidden="true">2.1</div>
+
+  <header class="page__header"><span class="page__section">Modellrechnung</span><div class="keyplan" role="img" aria-label="Programmteil 2.1 von sechs Programmteilen"><span class="keyplan__label">Programmteil</span><ol class="keyplan__list"><li class="bs-21 is-on">2.1</li><li class="bs-22">2.2</li><li class="bs-23">2.3</li><li class="bs-24">2.4</li><li class="bs-25">2.5</li><li class="bs-26">2.6</li></ol></div></header>
+  <h1 class="h1"><span class="light">Über 35 Jahre kein Jahr mit Fehlbetrag</span> Eigenkapitalrendite <em>7,05&nbsp;%</em> in A</h1>
+
+  <!-- Band 1 · Verlauf A und C (8, am Bund) | Grund und Annahmen (4, außen) -->
+  <div class="l-grid p12-b">
+    <aside class="l-span-4 p12-note">
+      <h2 class="h3">Grund</h2>
+      <ul class="bullets">
+        <li>A: mehr Zuschuss, Kapitaldienst 34.150&nbsp;€ statt 59.762&nbsp;€ in C. Der Vorteil bleibt etwa gleich.</li>
+        <li>C: Miete 9,00&nbsp;€ statt 6,80&nbsp;€. Der Vorteil wächst mit jeder Mietanpassung.</li>
+      </ul>
+      <h2 class="h3">Annahmen</h2>
+      <ul class="bullets">
+        <li>Miete alle drei Jahre +6,15&nbsp;%, Höchstwert</li>
+        <li>Ohne Mietanpassung bleibt in A in jedem Jahr ein Zahlungsüberschuss; die Eigenkapitalrendite sinkt dann auf 5,08&nbsp;%.</li>
+      </ul>
+    </aside>
+    <figure class="l-span-8 chart module p12-vl" role="group" aria-labelledby="p12-vl-h">
+      <figcaption class="chart__head">
+        <h2 class="chart__title" id="p12-vl-h">Zahlungsüberschuss je Jahr <span class="chart__unit">in € p. a.</span></h2>
+        <ul class="legend"><li><i class="sw sw--ink"></i>Gruppe A</li><li><i class="sw sw--c"></i>Gruppe C</li></ul>
+      </figcaption>
+      %%VERLAUF%%
+    </figure>
+  </div>
+
+  <!-- Band 2 · Eigenkapitalrendite (6, außen) | Vermögen Ende Jahr 35 (6, am Bund) -->
+  <div class="l-grid p12-c">
+    <figure class="l-span-6 chart module p12-re" role="group" aria-labelledby="p12-re-h">
+      <figcaption class="chart__head">
+        <h2 class="chart__title" id="p12-re-h">Eigenkapitalrendite über 35 Jahre</h2>
+        <ul class="legend"><li><i class="sw sw--ink"></i>mit Restwert</li><li><i class="sw seq-3"></i>ohne</li></ul>
+      </figcaption>
+      %%RENDITE%%
+      <p class="chart__note">Vor Steuern. Frei finanziert rechnerisch, bei einer DSCR von 0,99; so gibt die Bank das Darlehen nicht <span class="u-nowrap">(<a class="pageref" href="#seite-11">→&nbsp;S.&nbsp;10</a>).</span></p>
+    </figure>
+    <section class="l-span-6 module p12-vm-m" aria-labelledby="p12-vm-h">
+      <h2 class="chart__title" id="p12-vm-h">Vermögen Ende Jahr 35 <span class="chart__unit">in Tsd. €</span></h2>
+      <table class="table table--sheet p12-vm u-nohyphens" aria-labelledby="p12-vm-h">
+        <colgroup><col class="col-no"><col><col class="p12-c-val"><col class="p12-c-val"></colgroup>
+        <thead><tr><th scope="col" aria-label="Zeile"></th><th scope="col">Position</th><th scope="col" class="num">A</th><th scope="col" class="num">Frei</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">1</th><td>Projektkonto</td><td class="num">1.692</td><td class="num">3.096</td></tr>
+          <tr><th scope="row">2</th><td class="is-hang"><span class="table__op">+</span> Restwert</td><td class="num">5.153</td><td class="num">6.762</td></tr>
+          <tr><th scope="row">3</th><td class="is-hang"><span class="table__op">−</span> Restschuld</td><td class="num">198</td><td class="num">0</td></tr>
+          <tr class="is-result on-red"><th scope="row">4</th><td class="is-hang"><span class="table__op">=</span> Vermögen</td><td class="num">6.647</td><td class="num">9.858</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><th scope="row"></th><td>Eigenkapital bei Bezug</td><td class="num">613</td><td class="num">593</td></tr>
+          <tr><th scope="row"></th><td>Anteil des Restwerts</td><td class="num">78&nbsp;%</td><td class="num">69&nbsp;%</td></tr>
+        </tfoot>
+      </table>
+    </section>
+  </div>
+
+  <!-- Band 3 · Vier Gründe (12) -->
+  <section class="p12-g l-bottom" aria-labelledby="p12-g-h">
+    <h2 class="chart__title" id="p12-g-h">Vier Gründe für geförderten Mietwohnungsbau</h2>
+    <ol class="p12-g__list">
+      <li class="p12-g__item"><p class="p12-g__head"><span class="axis-no axis-no--s">1</span><span class="p12-g__title u-nohyphens">Planbare Mieterträge</span></p><p class="p12-g__text">Höchstmiete 6,80&nbsp;€ in A, drei Jahre fest. Danach höchstens +6,15&nbsp;% in drei Jahren.</p></li>
+      <li class="p12-g__item"><p class="p12-g__head"><span class="axis-no axis-no--s">2</span><span class="p12-g__title u-nohyphens">Gesicherte Nachfrage</span></p><p class="p12-g__text">Im Modellhaus liegt die Miete bei 44&nbsp;% der Marktmiete. Bestand gebundener Wohnungen seit 2016 um 40,6&nbsp;% gesunken.</p></li>
+      <li class="p12-g__item"><p class="p12-g__head"><span class="axis-no axis-no--s">3</span><span class="p12-g__title u-nohyphens">Neubau, der sonst nicht entsteht</span></p><p class="p12-g__text">Frei finanziert braucht das Haus 18,36&nbsp;€ Miete, der Markt zahlt 15,42&nbsp;€.</p></li>
+      <li class="p12-g__item"><p class="p12-g__head"><span class="axis-no axis-no--s">4</span><span class="p12-g__title u-nohyphens">Liquidität über 35 Jahre</span></p><p class="p12-g__text">In A 15.003&nbsp;€ Zahlungsüberschuss in Jahr 1. Kein Jahr mit Fehlbetrag. Zins 0&nbsp;% für 35 Jahre.</p></li>
+    </ol>
+  </section>
+
+  <footer class="page__foot" aria-hidden="true"><span class="page__folio">11</span><span class="page__running"><span>Mietwohnraumförderung Niedersachsen 2026<span class="sep">·</span><b>Modellrechnung · 35 Jahre</b></span></span></footer>
+</section>

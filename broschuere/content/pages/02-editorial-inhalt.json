@@ -68,9 +68,9 @@
             "label": "Modellrechnung",
             "emphasis": true,
             "stops": [
-              { "page": 10, "label": "Finanzierung" },
-              { "page": 11, "label": "Wirtschaftlichkeit" },
-              { "page": 12, "label": "Mix und Tilgung" }
+              { "page": 10, "label": "Modellhaus und Finanzierung" },
+              { "page": 11, "label": "Jahr 1" },
+              { "page": 12, "label": "35 Jahre" }
             ]
           },
           {

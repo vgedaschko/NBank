@@ -1,0 +1,457 @@
+{
+  "no": 10,
+  "slug": "modellhaus-finanzierung",
+  "layout_type": "chart-focus",
+  "page_variant": "accent",
+  "page_dense": true,
+  "running_title": "Modellrechnung · Modellhaus und Finanzierung",
+  "kicker": "Modellrechnung",
+  "headline_light": "Modellhaus in Neu Wulmstorf",
+  "headline": "Gleiches Eigenkapital, gefördert 40 % Zuschuss",
+  "blocks": [
+    {
+      "type": "chart",
+      "chart": "stacked-house",
+      "title": "Mittelherkunft",
+      "unit": "Mio. €",
+      "subtitle": "Gesamtkosten je 2,96 Mio. € · Rechenbeispiel, keine Förderzusage",
+      "data": {
+        "categories": [
+          "Gefördert, Gruppe A",
+          "Frei finanziert"
+        ],
+        "segments": [
+          {
+            "category": "Gefördert, Gruppe A",
+            "name": "Zuschuss",
+            "note": "nicht rückzahlbar",
+            "display": "1,19",
+            "share": "40 %"
+          },
+          {
+            "category": "Gefördert, Gruppe A",
+            "name": "NBank-Darlehen",
+            "note": "0 % Zins",
+            "display": "1,19",
+            "share": "40 %"
+          },
+          {
+            "category": "Gefördert, Gruppe A",
+            "name": "Eigenkapital",
+            "display": "0,59",
+            "share": "20 %"
+          },
+          {
+            "category": "Frei finanziert",
+            "name": "Bankdarlehen",
+            "note": "3,86 % Zins",
+            "display": "2,37",
+            "share": "80 %"
+          },
+          {
+            "category": "Frei finanziert",
+            "name": "Eigenkapital",
+            "display": "0,59",
+            "share": "20 %"
+          }
+        ],
+        "dimension": [
+          {
+            "name": "Eigenkapital",
+            "share": "20 %"
+          },
+          {
+            "name": "Fremdkapital",
+            "share": "80 %"
+          }
+        ]
+      }
+    },
+    {
+      "type": "profile",
+      "heading": "Das Modellhaus",
+      "rows": [
+        [
+          "Ort",
+          "Neu Wulmstorf, Landkreis Harburg, Mietenstufe VI"
+        ],
+        [
+          "Wohnungen",
+          "14 für Gruppe A, 828 m², im Schnitt 59 m²"
+        ],
+        [
+          "Herstellungskosten",
+          "3.579 € je m², Median aus fünf PGN-Projekten"
+        ],
+        [
+          "Standard",
+          "Effizienzhaus 55, Grundstück nicht angesetzt"
+        ],
+        [
+          "Rechnung",
+          "Bezug 2027, betrachtet über 35 Jahre"
+        ]
+      ]
+    },
+    {
+      "type": "key_figures",
+      "items": [
+        {
+          "value": "84.669",
+          "unit": "€",
+          "label": "Zuschuss je Wohnung",
+          "text": "nicht rückzahlbar"
+        },
+        {
+          "value": "42.334",
+          "unit": "€",
+          "label": "Eigenkapital je Wohnung",
+          "text": "in beiden Fällen gleich; gefördert dazu 20.744 € Bearbeitungsentgelte"
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "role_hint": "annahmen",
+      "caption": "Annahmen der Rechnung",
+      "subtitle": "Vor Steuern. Gleiche Kosten, verschieden sind nur Miete und Finanzierung.",
+      "columns": [
+        "Position",
+        "Gefördert, Gruppe A",
+        "Frei finanziert"
+      ],
+      "rows": [
+        [
+          "Miete Jahr 1",
+          "Höchstmiete 6,80 € je m² und Monat",
+          "Marktmiete 15,42 € je m² und Monat"
+        ],
+        [
+          "Mietanpassung",
+          "3 Jahre fest, dann +6,15 % je 3 Jahre",
+          "+2 % p. a."
+        ],
+        [
+          "Mietausfall",
+          "2 % der Sollmiete",
+          "wie gefördert"
+        ],
+        [
+          "Objektverwaltung",
+          "367 € je Wohnung p. a.",
+          "wie gefördert"
+        ],
+        [
+          "Instandhaltung",
+          "14,40 € je m² p. a.",
+          "wie gefördert"
+        ],
+        [
+          "Kostensteigerung",
+          "2 % p. a. ab Jahr 2",
+          "wie gefördert"
+        ],
+        [
+          "Zins",
+          "0 % bis Jahr 35",
+          "3,86 %, 10 Jahre fest"
+        ],
+        [
+          "Verwaltungskostenbeitrag",
+          "0,5 % vom Restkapital",
+          "entfällt"
+        ],
+        [
+          "Tilgung",
+          "2,38 % p. a.",
+          "jährliche Annuität über 30 Jahre"
+        ],
+        [
+          "Kontokorrent",
+          "Soll 5 %, Haben 2 %",
+          "wie gefördert"
+        ],
+        [
+          "Restwert Ende Jahr 35",
+          "Ertragswert aus der Marktmiete",
+          "wie gefördert"
+        ]
+      ]
+    }
+  ],
+  "footnotes": [],
+  "fact_ids": [
+    "F053",
+    "F079",
+    "F080",
+    "F084",
+    "F052",
+    "F097",
+    "F098",
+    "F100",
+    "F101",
+    "F102",
+    "G1-23",
+    "F105",
+    "F106",
+    "F109",
+    "F094",
+    "F095"
+  ],
+  "visual_idea": "Akzentseite, linke Hälfte der Doppelseite 10|11 (dicht, 9 pt). Kopfzeile mit Rubrik „Modellrechnung“ und Schlüsselplan; H1 in 25 pt mit „Modellhaus in Neu Wulmstorf“ als zweite Stimme, Rot nur an „40 %“. Hauptelement über die volle Breite: zwei Häuser als gestapelte Balken, je fünf Geschosse zu 20 % der Gesamtkosten, 14 Fenster = 14 Wohnungen; gefördert Zuschuss (Rot, ab der Grundlinie), NBank-Darlehen, Eigenkapital (Schraffur); frei finanziert Bankdarlehen und Eigenkapital; Maßkette links Eigenkapital 20 % | Fremdkapital 80 %. Hinweis „Rechenbeispiel, keine Förderzusage“ als Unterzeile des Diagramms. Darunter Steckbrief „Das Modellhaus“ (7, außen) und zwei Kennzahlen je Wohnung (5, am Bund), unten die Annahmen gefördert gegen frei finanziert über die volle Breite. Kein Foto: Die Visualisierung der Referenzen zeigt ein anderes PGN-Projekt in Neu Wulmstorf. Umbau der Modellrechnung am 15.11.2026 nach der Präsentation (Folien 14 bis 22 und Fazit)",
+  "belege": [
+    {
+      "text": "2,96",
+      "formel": "Kennzahlen!D52",
+      "art": "mio",
+      "nk": 2,
+      "wo": "Unterzeile"
+    },
+    {
+      "text": "1,19",
+      "formel": "Kennzahlen!D53",
+      "art": "mio",
+      "nk": 2,
+      "wo": "Haus A"
+    },
+    {
+      "text": "1,19",
+      "formel": "Kennzahlen!D54",
+      "art": "mio",
+      "nk": 2,
+      "wo": "Haus A"
+    },
+    {
+      "text": "2,37",
+      "formel": "Kennzahlen!G55",
+      "art": "mio",
+      "nk": 2,
+      "wo": "Haus frei"
+    },
+    {
+      "text": "0,59",
+      "formel": "Kennzahlen!G56",
+      "art": "mio",
+      "nk": 2,
+      "wo": "Häuser"
+    },
+    {
+      "text": "20",
+      "formel": "Kennzahlen!G56 / Kennzahlen!D52",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Maßkette"
+    },
+    {
+      "text": "80",
+      "formel": "1 - Kennzahlen!G56 / Kennzahlen!D52",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Maßkette"
+    },
+    {
+      "text": "40",
+      "formel": "Kennzahlen!D53 / Kennzahlen!D52",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Titel"
+    },
+    {
+      "text": "0",
+      "formel": "Tabellen!D19",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Haus A, Annahmen"
+    },
+    {
+      "text": "3,86",
+      "formel": "Eingaben!F35",
+      "art": "prozent",
+      "nk": 2,
+      "wo": "Haus frei, Annahmen"
+    },
+    {
+      "text": "14",
+      "formel": "Eingaben!F9",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Steckbrief"
+    },
+    {
+      "text": "828",
+      "formel": "Eingaben!F8",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Steckbrief"
+    },
+    {
+      "text": "59",
+      "formel": "Eingaben!F8 / Eingaben!F9",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Steckbrief"
+    },
+    {
+      "text": "3.579",
+      "formel": "Eingaben!F11",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Steckbrief"
+    },
+    {
+      "text": "2027",
+      "formel": "Eingaben!F7",
+      "art": "jahr",
+      "nk": 0,
+      "wo": "Steckbrief"
+    },
+    {
+      "text": "35",
+      "formel": "Tabellen!D26",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Steckbrief"
+    },
+    {
+      "text": "84.669",
+      "formel": "Kennzahlen!D53 / Eingaben!F9",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Kennzahl"
+    },
+    {
+      "text": "42.334",
+      "formel": "Kennzahlen!G56 / Eingaben!F9",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Kennzahl"
+    },
+    {
+      "text": "20.744",
+      "formel": "Kennzahlen!D57",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Kennzahl"
+    },
+    {
+      "text": "6,80",
+      "formel": "Tabellen!D14",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "15,42",
+      "formel": "Eingaben!F25",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "3",
+      "formel": "Tabellen!D27",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "6,15",
+      "formel": "Tabellen!D28",
+      "art": "prozent",
+      "nk": 2,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "3",
+      "formel": "Tabellen!D29",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "2",
+      "formel": "Eingaben!F26",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "2",
+      "formel": "Eingaben!F29",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "367",
+      "formel": "Eingaben!F30",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "14,40",
+      "formel": "Eingaben!F31",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "2",
+      "formel": "Eingaben!F32",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "35",
+      "formel": "Tabellen!D20",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "10",
+      "formel": "Eingaben!F36",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "0,5",
+      "formel": "Tabellen!D23",
+      "art": "prozent",
+      "nk": 1,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "2,38",
+      "formel": "Eingaben!F17",
+      "art": "prozent",
+      "nk": 2,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "30",
+      "formel": "Eingaben!F38",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "5",
+      "formel": "Eingaben!F42",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "2",
+      "formel": "Eingaben!F41",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Annahmen"
+    }
+  ],
+  "belege_hinweis": "Jede Zahl der Seite mit ihrer Formel über Zellen der Rechenmappe v3 (Lauf L2 = Standard, Projekt 2; „L70:“ = Lauf mit 5.460 € je m²). „art“: zahl, prozent (× 100), mio (÷ 1.000.000), tsd (÷ 1.000); „nk“: Nachkommastellen. vofi/pruefe_vofi.py (F9) rechnet jede Formel gegen die Mappe nach und prüft, dass der Text so im Partial steht. Erzeugt aus den Werten der Präsentation (werte.json, kennzahlen.json) am 15.11.2026."
+}

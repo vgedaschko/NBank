@@ -59,6 +59,7 @@ Externe Bewertung, der der Kunde „fast 1:1“ zustimmt: *gestalterisch sehr st
 Investment-Memo noch nicht eingelöst.* Daraus folgt:
 
 1. **Wirtschaftlichkeit statt nur Förderquote.** Die Mittel-Doppelseite 10|11 heißt künftig „Modellrechnung“ (Kapitel S. 10–12):
+   *(Aufteilung der Seiten seit 15.11.2026: §9.7. Die Punkte hier sind der Stand der v1.)*
    - S. 10 = Finanzierungsaufbau (Kosten → Darlehen/Zuschuss/Eigenmittel).
    - S. 11 = **Wirtschaftlichkeit: von der Förderung zum laufenden Zahlungsüberschuss** – Miete, nicht umlagefähige
      Bewirtschaftungskosten, Instandhaltung, Mietausfallwagnis, Verwaltungskostenbeitrag 0,5 %, Tilgung → Überschuss je Jahr,
@@ -123,9 +124,16 @@ Klar, norddeutsch, verbindlich. Kein KI-Ton, keine Floskeln, keine Prosa.
    Kasten „Schlüsselfertig mit der PGN Projektgesellschaft Nord“, Stichpunkt „Projektentwicklung, Projektmanagement und
    Projektcontrolling aus einer Hand“ (die Website nennt die drei Leistungen). Sonst nirgends.
 6. **Keine Dreierreihen als Stilmittel.** Aufzählungen nur, wenn alle Glieder fachlich nötig sind.
-7. **Modellrechnung S. 11:** Der Vergleich „frei finanziert“ zeigt Darlehen, Kapitaldienst und die Miete, bei der der
-   Zahlungsüberschuss null ist. Keine Renditen, keine Marktmiete, kein Fazit-Satz. Werte aus der VOFI-Mappe v3
-   (Übersicht 8.2, 8.3; Eingaben 6.1, 6.4); `vofi/pruefe_vofi.py` (F9) prüft sie mit.
+7. **Modellrechnung S. 10 bis 12 (Kunde PGN, 15.11.2026; wie das Kapitel 3 der Präsentation):** gefördert in Gruppe A
+   gegen frei finanziert zur Marktmiete 15,42 €, gleiches Haus, gleiche Kosten, gleiches Eigenkapital. S. 10 Modellhaus,
+   Mittelherkunft und Annahmen; S. 11 Jahr 1 (Wohin die Miete fließt, Jahresrechnung, Miete für eine DSCR von 1,2,
+   Spielraum A und C); S. 12 35 Jahre (Zahlungsüberschuss A und C je Jahr, Eigenkapitalrendite, Vermögen Ende Jahr 35,
+   vier Gründe). Eigenkapitalrendite nur vor Steuern, als Paar mit und ohne Restwert, mit dem Anteil des Restwerts.
+   18,36 € nur als „Miete für eine DSCR von 1,2“; frei finanziert sonst immer zur Marktmiete. Gruppe C nur, wo sie das
+   Ergebnis ändert; B wird nicht eigens gerechnet. Die vier Gründe (S. 12) sind Wortlaut des Auftraggebers wie im Fazit des
+   Vortrags. Schwellen heißen „Spielraum“. Werte aus der VOFI-Mappe v3 (Übersicht, Kennzahlen, Frei DSCR 1,2, Zeitreihe);
+   jede Zahl steht mit ihrer Formel unter „belege“ im Seiten-JSON, `vofi/pruefe_vofi.py` (F9) rechnet sie nach. Bis
+   15.11.2026 galt für S. 11: „Keine Renditen, keine Marktmiete, kein Fazit-Satz“; das ist aufgehoben.
 
 ## 10. Seitenzählung (Kunde PGN, 13.11.2026)
 

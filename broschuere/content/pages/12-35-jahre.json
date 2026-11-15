@@ -1,0 +1,405 @@
+{
+  "no": 12,
+  "slug": "35-jahre",
+  "layout_type": "chart-focus",
+  "running_title": "Modellrechnung · 35 Jahre",
+  "kicker": "Modellrechnung",
+  "headline_light": "Über 35 Jahre kein Jahr mit Fehlbetrag",
+  "headline": "Eigenkapitalrendite 7,05 % in A",
+  "blocks": [
+    {
+      "type": "text",
+      "heading": "Grund",
+      "bullets": [
+        "A: mehr Zuschuss, Kapitaldienst 34.150 € statt 59.762 € in C. Der Vorteil bleibt etwa gleich.",
+        "C: Miete 9,00 € statt 6,80 €. Der Vorteil wächst mit jeder Mietanpassung."
+      ]
+    },
+    {
+      "type": "text",
+      "heading": "Annahmen",
+      "bullets": [
+        "Miete alle drei Jahre +6,15 %, Höchstwert",
+        "Ohne Mietanpassung bleibt in A in jedem Jahr ein Zahlungsüberschuss; die Eigenkapitalrendite sinkt dann auf 5,08 %."
+      ]
+    },
+    {
+      "type": "chart",
+      "chart": "line",
+      "title": "Zahlungsüberschuss je Jahr",
+      "unit": "in € p. a.",
+      "legend": [
+        "Gruppe A",
+        "Gruppe C"
+      ],
+      "data": {
+        "Jahr 1": {
+          "A": "15.003",
+          "C": "10.812"
+        },
+        "Jahr 35": {
+          "A": "64.860",
+          "C": "84.149"
+        },
+        "Marke": "ab Jahr 10 liegt C vorn"
+      }
+    },
+    {
+      "type": "chart",
+      "chart": "grouped-bar",
+      "title": "Eigenkapitalrendite über 35 Jahre",
+      "legend": [
+        "mit Restwert",
+        "ohne"
+      ],
+      "data": {
+        "Gruppe A": {
+          "mit Restwert": "7,05 %",
+          "ohne": "2,58 %"
+        },
+        "Frei finanziert": {
+          "mit Restwert": "8,36 %",
+          "ohne": "4,84 %"
+        }
+      },
+      "note": "Vor Steuern. Frei finanziert rechnerisch, bei einer DSCR von 0,99; so gibt die Bank das Darlehen nicht (→ S. 10)."
+    },
+    {
+      "type": "table",
+      "role_hint": "vermoegen",
+      "caption": "Vermögen Ende Jahr 35, in Tsd. €",
+      "columns": [
+        "",
+        "Position",
+        "A",
+        "Frei"
+      ],
+      "rows": [
+        [
+          "1",
+          "Projektkonto",
+          "1.692",
+          "3.096"
+        ],
+        [
+          "2",
+          "+ Restwert",
+          "5.153",
+          "6.762"
+        ],
+        [
+          "3",
+          "− Restschuld",
+          "198",
+          "0"
+        ],
+        [
+          "4",
+          "= Vermögen",
+          "6.647",
+          "9.858"
+        ]
+      ],
+      "result_row": "4",
+      "footer_rows": [
+        [
+          "Eigenkapital bei Bezug",
+          "613",
+          "593"
+        ],
+        [
+          "Anteil des Restwerts",
+          "78 %",
+          "69 %"
+        ]
+      ]
+    },
+    {
+      "type": "reasons",
+      "heading": "Vier Gründe für geförderten Mietwohnungsbau",
+      "items": [
+        {
+          "title": "Planbare Mieterträge",
+          "text": "Höchstmiete 6,80 € in A, drei Jahre fest. Danach höchstens +6,15 % in drei Jahren."
+        },
+        {
+          "title": "Gesicherte Nachfrage",
+          "text": "Im Modellhaus liegt die Miete bei 44 % der Marktmiete. Bestand gebundener Wohnungen seit 2016 um 40,6 % gesunken."
+        },
+        {
+          "title": "Neubau, der sonst nicht entsteht",
+          "text": "Frei finanziert braucht das Haus 18,36 € Miete, der Markt zahlt 15,42 €."
+        },
+        {
+          "title": "Liquidität über 35 Jahre",
+          "text": "In A 15.003 € Zahlungsüberschuss in Jahr 1. Kein Jahr mit Fehlbetrag. Zins 0 % für 35 Jahre."
+        }
+      ]
+    }
+  ],
+  "footnotes": [],
+  "fact_ids": [
+    "F024",
+    "F029",
+    "F040",
+    "F041",
+    "G2-31",
+    "F105",
+    "F106",
+    "F107",
+    "F108",
+    "F109",
+    "F113",
+    "F114",
+    "F115",
+    "F116",
+    "G1-14",
+    "F215",
+    "F216",
+    "F217",
+    "F276",
+    "F277",
+    "F278",
+    "F279"
+  ],
+  "visual_idea": "Linke Seite der Doppelseite 12|13 (Heftmitte), weiß. H1 mit „Über 35 Jahre kein Jahr mit Fehlbetrag“ als zweite Stimme, Rot nur an „7,05 %“. Band 1: Grund und Annahmen als Stichpunkte (4, außen) | Liniendiagramm Zahlungsüberschuss je Jahr A und C, Jahr 1 bis 35, mit Fläche unter C, Werten Jahr 1 oben links, Marke bei Jahr 10 und Werten an den Linienenden (8, am Bund). Band 2: Eigenkapitalrendite mit und ohne Restwert als Säulen (6) | Rechenblatt Vermögen Ende Jahr 35 in Tsd. € mit roter Ergebniszeile (6). Band 3: vier Gründe für geförderten Mietwohnungsbau in vier Spalten, Wortlaut des Auftraggebers. Umbau der Modellrechnung am 15.11.2026 nach der Präsentation (Folien 14 bis 22 und Fazit)",
+  "belege": [
+    {
+      "text": "15.003",
+      "formel": "'Gefördert A'!R7",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Verlauf"
+    },
+    {
+      "text": "10.812",
+      "formel": "'Gefördert C'!R7",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Verlauf"
+    },
+    {
+      "text": "64.860",
+      "formel": "'Gefördert A'!R41",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Verlauf"
+    },
+    {
+      "text": "84.149",
+      "formel": "'Gefördert C'!R41",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Verlauf"
+    },
+    {
+      "text": "34.150",
+      "formel": "Übersicht!D111",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Grund"
+    },
+    {
+      "text": "59.762",
+      "formel": "Übersicht!F111",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Grund"
+    },
+    {
+      "text": "9,00",
+      "formel": "Übersicht!F26",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "Grund"
+    },
+    {
+      "text": "6,80",
+      "formel": "Übersicht!D26",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "Grund"
+    },
+    {
+      "text": "6,15",
+      "formel": "Tabellen!D28",
+      "art": "prozent",
+      "nk": 2,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "5,08",
+      "kennzahl": "n6.mietanpassung_gefoerdert_0.ek_vofi_mit_restwert.A",
+      "art": "prozent",
+      "nk": 2,
+      "wo": "Annahmen"
+    },
+    {
+      "text": "7,05",
+      "formel": "Kennzahlen!D81",
+      "art": "prozent",
+      "nk": 2,
+      "wo": "Rendite"
+    },
+    {
+      "text": "2,58",
+      "formel": "Kennzahlen!D82",
+      "art": "prozent",
+      "nk": 2,
+      "wo": "Rendite"
+    },
+    {
+      "text": "8,36",
+      "formel": "Kennzahlen!G81",
+      "art": "prozent",
+      "nk": 2,
+      "wo": "Rendite"
+    },
+    {
+      "text": "4,84",
+      "formel": "Kennzahlen!G82",
+      "art": "prozent",
+      "nk": 2,
+      "wo": "Rendite"
+    },
+    {
+      "text": "0,99",
+      "formel": "Kennzahlen!G62",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "Rendite"
+    },
+    {
+      "text": "1.692",
+      "formel": "Kennzahlen!D77",
+      "art": "tsd",
+      "nk": 0,
+      "wo": "Vermögen"
+    },
+    {
+      "text": "3.096",
+      "formel": "Kennzahlen!G77",
+      "art": "tsd",
+      "nk": 0,
+      "wo": "Vermögen"
+    },
+    {
+      "text": "5.153",
+      "formel": "Kennzahlen!D76",
+      "art": "tsd",
+      "nk": 0,
+      "wo": "Vermögen"
+    },
+    {
+      "text": "6.762",
+      "formel": "Kennzahlen!G76",
+      "art": "tsd",
+      "nk": 0,
+      "wo": "Vermögen"
+    },
+    {
+      "text": "198",
+      "formel": "Kennzahlen!D75",
+      "art": "tsd",
+      "nk": 0,
+      "wo": "Vermögen"
+    },
+    {
+      "text": "0",
+      "formel": "Kennzahlen!G75",
+      "art": "tsd",
+      "nk": 0,
+      "wo": "Vermögen"
+    },
+    {
+      "text": "6.647",
+      "formel": "Kennzahlen!D78",
+      "art": "tsd",
+      "nk": 0,
+      "wo": "Vermögen"
+    },
+    {
+      "text": "9.858",
+      "formel": "Kennzahlen!G78",
+      "art": "tsd",
+      "nk": 0,
+      "wo": "Vermögen"
+    },
+    {
+      "text": "613",
+      "formel": "Kennzahlen!D56",
+      "art": "tsd",
+      "nk": 0,
+      "wo": "Vermögen"
+    },
+    {
+      "text": "593",
+      "formel": "Kennzahlen!G56",
+      "art": "tsd",
+      "nk": 0,
+      "wo": "Vermögen"
+    },
+    {
+      "text": "78",
+      "formel": "Kennzahlen!D83",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Vermögen"
+    },
+    {
+      "text": "69",
+      "formel": "Kennzahlen!G83",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Vermögen"
+    },
+    {
+      "text": "44",
+      "formel": "Kennzahlen!D19 / Kennzahlen!D13",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Gründe"
+    },
+    {
+      "text": "40,6",
+      "herkunft": "Bestand gebundener Wohnungen 2016 → 2025 (BT-Drs. 21/7303), wie Broschüre S. 3 und Präsentation Folie 6",
+      "wo": "Gründe"
+    },
+    {
+      "text": "15.003",
+      "formel": "Übersicht!D38",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Gründe"
+    },
+    {
+      "text": "0",
+      "formel": "Tabellen!D19",
+      "art": "prozent",
+      "nk": 0,
+      "wo": "Gründe"
+    },
+    {
+      "text": "35",
+      "formel": "Tabellen!D20",
+      "art": "zahl",
+      "nk": 0,
+      "wo": "Gründe, Titel"
+    },
+    {
+      "text": "18,36",
+      "formel": "Kennzahlen!D12",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "Gründe"
+    },
+    {
+      "text": "15,42",
+      "formel": "Kennzahlen!D13",
+      "art": "zahl",
+      "nk": 2,
+      "wo": "Gründe"
+    }
+  ],
+  "belege_hinweis": "Jede Zahl der Seite mit ihrer Formel über Zellen der Rechenmappe v3 (Lauf L2 = Standard, Projekt 2; „L70:“ = Lauf mit 5.460 € je m²). „art“: zahl, prozent (× 100), mio (÷ 1.000.000), tsd (÷ 1.000); „nk“: Nachkommastellen. vofi/pruefe_vofi.py (F9) rechnet jede Formel gegen die Mappe nach und prüft, dass der Text so im Partial steht. Erzeugt aus den Werten der Präsentation (werte.json, kennzahlen.json) am 15.11.2026."
+}

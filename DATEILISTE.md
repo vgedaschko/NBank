@@ -10,6 +10,8 @@ Nachtrag 12.11.2026, Prüfung der Beispielkalkulation: Im Ordner `pruefung-beisp
 
 Nachtrag 13.11.2026, Änderungsrunde (globale Regeln): `praesentation/folien/anhang-frist.cjs` ist gelöscht (Anhangfolie zur Frist 31.12.2026 entfallen). Neu: `praesentation/probe/34-diagramm-hinweis-stichpunkte.cjs` (Musterfolie für Hinweiskasten und Stichpunkte) und unter `broschuere/recherche/quellen/` drei Quellen im Volltext (GdW-Präsentation zur Jahrespressekonferenz 2026, BT-Drs. 21/7303, NBank-Produktinformation Stand 01.04.2026).
 
+Nachtrag 15.11.2026, Broschüre S. 10–12 neu: Die Partials und Seiten-JSON heißen `10-modellhaus-finanzierung`, `11-jahr-1` und `12-35-jahre` (vorher `10-modellrechnung-neubau`, `11-wirtschaftlichkeit`, `12-mix-und-tilgung`; mit `git mv` umbenannt). Neu: `broschuere/scripts/modellrechnung/` mit `bauen.cjs`, `diagramme.cjs`, `seiten_json.py`, `belege.py`, `README.md` und `vorlagen/` (Vorlagen der drei Partials); erzeugt Partials und Seiten-JSON aus `praesentation/daten/werte.json` und `kennzahlen.json`. Alle aktuell, Bauskript Broschüre.
+
 ## Die Ergebnisse, je eine aktuelle Datei
 
 | Ergebnis | Aktuelle Datei | Daraus erzeugt |
@@ -129,9 +131,9 @@ Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die B
 | `broschuere/content/pages/07-ertragsseite-mieten.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
 | `broschuere/content/pages/08-programmteil-2-1.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
 | `broschuere/content/pages/09-konditionen-term-sheet.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
-| `broschuere/content/pages/10-modellrechnung-neubau.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
-| `broschuere/content/pages/11-wirtschaftlichkeit.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
-| `broschuere/content/pages/12-mix-und-tilgung.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
+| `broschuere/content/pages/10-modellhaus-finanzierung.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
+| `broschuere/content/pages/11-jahr-1.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
+| `broschuere/content/pages/12-35-jahre.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
 | `broschuere/content/pages/13-programmteil-2-2-eh40.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
 | `broschuere/content/pages/14-programmteil-2-4-inseln.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
 | `broschuere/content/pages/15-programmteil-2-3-modernisierung.json` | aktuell | Handout (Broschüre) | Textfassung und Redaktionsregeln |
@@ -243,6 +245,14 @@ Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die B
 | `broschuere/scripts/pgn-signatures.cjs` | aktuell | Bauskript Broschüre | BAUSKRIPT bzw. Werkzeug (assemble, render, InDesign, Schriften, Bilder) |
 | `broschuere/scripts/render.cjs` | aktuell | Bauskript Broschüre | BAUSKRIPT bzw. Werkzeug (assemble, render, InDesign, Schriften, Bilder) |
 | `broschuere/scripts/schraffur.cjs` | aktuell | Bauskript Broschüre | BAUSKRIPT bzw. Werkzeug (assemble, render, InDesign, Schriften, Bilder) |
+| `broschuere/scripts/modellrechnung/README.md` | aktuell | Bauskript Broschüre | Modellrechnung S. 10–12: Beschreibung der Erzeuger und der Belege |
+| `broschuere/scripts/modellrechnung/bauen.cjs` | aktuell | Bauskript Broschüre | Modellrechnung S. 10–12: Partials aus Vorlagen und Diagrammen |
+| `broschuere/scripts/modellrechnung/diagramme.cjs` | aktuell | Bauskript Broschüre | Modellrechnung S. 10–12: SVG der Diagramme |
+| `broschuere/scripts/modellrechnung/seiten_json.py` | aktuell | Bauskript Broschüre | Modellrechnung S. 10–12: Seiten-JSON mit Belegen |
+| `broschuere/scripts/modellrechnung/belege.py` | aktuell | Bauskript Broschüre | Modellrechnung S. 10–12: Bausteine für Belege |
+| `broschuere/scripts/modellrechnung/vorlagen/10-modellhaus-finanzierung.html` | aktuell | Bauskript Broschüre | Modellrechnung S. 10–12: Vorlage S. 10 |
+| `broschuere/scripts/modellrechnung/vorlagen/11-jahr-1.html` | aktuell | Bauskript Broschüre | Modellrechnung S. 10–12: Vorlage S. 11 |
+| `broschuere/scripts/modellrechnung/vorlagen/12-35-jahre.html` | aktuell | Bauskript Broschüre | Modellrechnung S. 10–12: Vorlage S. 12 |
 | `broschuere/scripts/specimen.cjs` | veraltet | Bauskript Broschüre | Musterseiten-Skript, noch auf dem Stand vor Muster 2 |
 | `broschuere/src/.measure-tmp.html` | veraltet | Bauskript Broschüre | Messdatei vom 22.10., von nichts benutzt |
 | `broschuere/src/assets/deko-dachlinie.svg` | veraltet | Bauskript Broschüre | Bild oder Symbol, auf keiner Seite eingebunden (Namenssuche) |
@@ -569,9 +579,9 @@ Eine Datei mit dem Namen „Handout“ gibt es nicht; als Handout ist hier die B
 | `broschuere/src/pages/07-ertragsseite-mieten.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
 | `broschuere/src/pages/08-programmteil-2-1.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
 | `broschuere/src/pages/09-konditionen-term-sheet.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
-| `broschuere/src/pages/10-modellrechnung-neubau.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
-| `broschuere/src/pages/11-wirtschaftlichkeit.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
-| `broschuere/src/pages/12-mix-und-tilgung.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
+| `broschuere/src/pages/10-modellhaus-finanzierung.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
+| `broschuere/src/pages/11-jahr-1.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
+| `broschuere/src/pages/12-35-jahre.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
 | `broschuere/src/pages/13-programmteil-2-2-eh40.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
 | `broschuere/src/pages/14-programmteil-2-4-inseln.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |
 | `broschuere/src/pages/15-programmteil-2-3-modernisierung.html` | aktuell | Bauskript Broschüre | Seite der Broschüre |

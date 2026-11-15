@@ -52,3 +52,7 @@ function gruende(ctx) {
 }
 
 module.exports.gruende = gruende;
+
+// Quellenzeile für Folien mit der Marktmiete (wie Anhang A6 des Vortrags)
+const QUELLE_MARKT = 'Quelle Marktmiete: Gutachterausschuss für Grundstückswerte Lüneburg (2026), Mietübersicht Landkreis Harburg';
+module.exports.QUELLE_MARKT = QUELLE_MARKT;

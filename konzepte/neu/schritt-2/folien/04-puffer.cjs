@@ -5,7 +5,7 @@
 
 module.exports = {
   id: 'puffer',
-  o: { nr: '3.6', abschnitt: 'Modellrechnung', layout: 'PGN_INHALT_MR', kicker: 'MODELLRECHNUNG · PUFFER',
+  o: { nr: '3.8', abschnitt: 'Modellrechnung', layout: 'PGN_INHALT_MR', kicker: 'MODELLRECHNUNG · PUFFER',
     quellen: 'Quelle: Rechenmappe v3, Kostenläufe 3.579, 4.631 und 5.460 € je m², Übersicht 3.8; Konzepte D68, D81 (Lauf ohne Mietanpassung).' },
   bau(ctx) {
     const { B, D, W, fmt, colX, span, ZONE, Y } = ctx, wl = (t, was) => ctx.wortlaut(t, was), M = k => W('modellhaus', k);
@@ -22,21 +22,23 @@ module.exports = {
     const hinweis = wl(`Ohne Mietanpassung bleibt in A in jedem Jahr ein Zahlungsüberschuss. Die Eigenkapitalrendite sinkt dann von ${fmt.prozent(mitR, 2)} auf ${fmt.prozent(ohneR, 2)}.`, 'Hinweiskasten');
     const hH = B.hinweisHoehe(hinweis, { w: span(12) });
     const W6 = span(6), yC = ZONE.diagramm.chart.y - 0.26, hC = +(Y.inhaltEnde - hH - 0.16 - yC).toFixed(3);
-    const modul = (x, titel, sub, werte, achse, marken, fmtWert, achsText) => {
+    // Je Modul gestapelte Balken für A und C: bis zur Annahme des Modellhauses in Tinte, darüber der Puffer bis zur Schwelle hell.
+    // Am Balkenende die Schwelle. Beim ARGE-Median eine gestrichelte Marke.
+    const modul = (x, titel, sub, annahme, schwellen, achse, fmtWert, achsText, labelFormat, marke) => {
       B.modulkopf(s, { x, y: ZONE.diagramm.kopf, w: W6, titel: wl(titel, 'Modultitel'), sub: wl(sub, 'Untertitel') });
-      const d = D.balkenpaar(s, { x, y: yC, w: W6, h: hC, kategorien: ['Gruppe A', 'Gruppe C'], werte, arten: ['tinte', 'referenz'], reihenname: titel,
-        achse, katBreite: 1.15, rand: { o: 0.62, r: 1.60, u: 0.50 }, name: 'Diagramm ' + titel });
+      B.legende(s, { x, y: ZONE.diagramm.legende, eintraege: [{ text: 'Modellhaus', art: 'tinte' }, { text: 'Puffer bis zur Schwelle', art: 'bisher' }] });
+      const d = D.stapelBalken(s, { x, y: yC, w: W6, h: hC, kategorien: ['Gruppe A', 'Gruppe C'], katAchse: true, katBreite: 1.15, labelFormat,
+        reihen: [{ name: 'Modellhaus', art: 'tinte', werte: [annahme, annahme] }, { name: 'Puffer', art: 'bisher', werte: schwellen.map(v => v - annahme) }],
+        achse, rand: { o: 0.65, r: 1.60, u: 0.50 }, name: 'Diagramm ' + titel });
       B.achsentitel(s, d, { x: wl(achsText, 'Achsentitel') });
-      // Wert rechts neben dem Balken; liegt eine Marke direkt dahinter, steht der Wert rechts der Marke
-      const xWertText = v => marken.reduce((x0, m) => (d.xWert(m.wert) >= d.xWert(v) && d.xWert(m.wert) < x0 + 1.3 ? d.xWert(m.wert) + 0.12 : x0), d.xWert(v) + 0.12);
-      werte.forEach((v, i) => B.textAufPlot(s, fmtWert(v), { x: xWertText(v), y: d.katMitte(i) - 0.20, w: 1.45, h: 0.40, rolle: 'kernwert', valign: 'middle', name: `Wert ${titel} ${i}` }));
-      marken.forEach(m => B.marke(s, { x: d.xWert(m.wert), y: d.plot.y - 0.34, h: d.plot.h + 0.34, art: m.art || 'mass', strich: m.strich, text: m.text, textSeite: m.seite, textBreite: 2.2 }));
+      schwellen.forEach((v, i) => B.textAufPlot(s, fmtWert(v), { x: (marke && d.xWert(marke.wert) > d.xWert(v) && d.xWert(marke.wert) < d.xWert(v) + 1.3 ? d.xWert(marke.wert) : d.xWert(v)) + 0.12,
+        y: d.katMitte(i) - 0.20, w: 1.45, h: 0.40, rolle: 'kernwert', valign: 'middle', name: `Wert ${titel} ${i}` }));
+      if (marke) B.marke(s, { x: d.xWert(marke.wert), y: d.plot.y - 0.30, h: d.plot.h + 0.30, art: 'referenz', strich: 'dash', text: marke.text, textSeite: 'rechts', textBreite: 2.2 });
     };
-    modul(colX(1), 'Schwelle Herstellungskosten', 'in € je m² Wohnfläche, Zahlungsüberschuss in Jahr 1', [kA, kC], { min: 0, max: 6000, schritt: 2000, format: 'ganz' },
-      [{ wert: kModell, text: `Modellhaus ${fmt.euro(kModell)}`, seite: 'links' }, { wert: kArge, text: `ARGE-Median ${fmt.euro(kArge)}`, seite: 'rechts', art: 'referenz', strich: 'dash' }],
-      v => fmt.euro(v), 'in € je m²');
-    modul(colX(7), 'Schwelle Tilgungssatz', 'in % p. a. auf das NBank-Darlehen, Zahlungsüberschuss in Jahr 1', [tA * 100, tC * 100], { min: 0, max: 4, schritt: 1, format: 'roh' },
-      [{ wert: tAnn * 100, text: `Annahme ${fmt.prozent(tAnn, 2)}`, seite: 'links' }], v => fmt.prozent(v / 100, 2), 'in % p. a.');
+    modul(colX(1), 'Schwelle Herstellungskosten', 'in € je m² Wohnfläche, Zahlungsüberschuss in Jahr 1', kModell, [kA, kC], { min: 0, max: 6000, schritt: 2000, format: 'ganz' },
+      v => fmt.euro(v), 'in € je m²', 'ganz', { wert: kArge, text: `ARGE-Median ${fmt.euro(kArge)}` });
+    modul(colX(7), 'Schwelle Tilgungssatz', 'in % p. a. auf das NBank-Darlehen, Zahlungsüberschuss in Jahr 1', tAnn * 100, [tA * 100, tC * 100], { min: 0, max: 4, schritt: 1, format: 'roh' },
+      v => fmt.prozent(v / 100, 2), 'in % p. a.', 'zwei', null);
     B.hinweis(s, { x: colX(1), y: Y.inhaltEnde, unten: true, w: span(12), name: 'Ohne Mietanpassung', text: hinweis });
   },
 };

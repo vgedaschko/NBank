@@ -1,6 +1,226 @@
 {
  "werte_datei": "konzepte/mappe/werte_konzepte.json",
  "folien": {
+  "fluss-gefoerdert": [
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:jr1.zins_nbank.A",
+    "lauf": "modellhaus",
+    "wert": 0,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "D35"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:jr1.tilgung_nbank.A",
+    "lauf": "modellhaus",
+    "wert": 28222.9714285714,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "D36"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:jr1.sollmiete.A",
+    "lauf": "modellhaus",
+    "wert": 67564.8,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "D29"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:jr1.mietausfall.A",
+    "lauf": "modellhaus",
+    "wert": 1351.296,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "D30"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:jr1.objektverwaltung.A",
+    "lauf": "modellhaus",
+    "wert": 5138,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "D31"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:jr1.instandhaltung.A",
+    "lauf": "modellhaus",
+    "wert": 11923.2,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "D32"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:jr1.ueberschuss_vor_kapitaldienst.A",
+    "lauf": "modellhaus",
+    "wert": 49152.304,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "D33"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:jr1.verwaltungskostenbeitrag.A",
+    "lauf": "modellhaus",
+    "wert": 5926.824,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "D34"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:jr1.zahlungsueberschuss.A",
+    "lauf": "modellhaus",
+    "wert": 15002.5085714286,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "D38"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:dscr.kapitaldienst_jahr1.A",
+    "lauf": "modellhaus",
+    "wert": 34149.7954285714,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "D111"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "n5.miete_jahr1.frei_markt",
+    "lauf": "konzepte",
+    "wert": 15.42,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "G49"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:eingabe.wohnflaeche",
+    "lauf": "modellhaus",
+    "wert": 828,
+    "einheit": "m²",
+    "blatt": "Eingaben",
+    "zelle": "F8"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:fin.miete_jahr1.A",
+    "lauf": "modellhaus",
+    "wert": 6.8,
+    "einheit": "€/m² Monat",
+    "blatt": "Übersicht",
+    "zelle": "D26"
+   }
+  ],
+  "fluss-frei": [
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "n5.miete_jahr1.frei_markt",
+    "lauf": "konzepte",
+    "wert": 15.42,
+    "einheit": "€/m² Monat",
+    "blatt": "Konzepte",
+    "zelle": "G49"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:eingabe.wohnflaeche",
+    "lauf": "modellhaus",
+    "wert": 828,
+    "einheit": "m²",
+    "blatt": "Eingaben",
+    "zelle": "F8"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:eingabe.mietausfall",
+    "lauf": "modellhaus",
+    "wert": 0.02,
+    "einheit": "Anteil",
+    "blatt": "Eingaben",
+    "zelle": "F29"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:jr1.objektverwaltung.Frei",
+    "lauf": "modellhaus",
+    "wert": 5138,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "G31"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:jr1.instandhaltung.Frei",
+    "lauf": "modellhaus",
+    "wert": 11923.2,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "G32"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "n5.kapitaldienst_jahr1.frei_markt",
+    "lauf": "konzepte",
+    "wert": 134778.626612041,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "G60"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:frei.zins_jahr1",
+    "lauf": "modellhaus",
+    "wert": -91510.16256,
+    "einheit": "€ p. a.",
+    "blatt": "Frei finanziert",
+    "zelle": "J7"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:frei.tilgung_jahr1",
+    "lauf": "modellhaus",
+    "wert": -43268.4640520415,
+    "einheit": "€ p. a.",
+    "blatt": "Frei finanziert",
+    "zelle": "K7"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "n5.uevk_jahr1.frei_markt",
+    "lauf": "konzepte",
+    "wert": 133087.6576,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "G59"
+   },
+   {
+    "datei": "konzepte/mappe/werte_konzepte.json",
+    "schluessel": "n5.zue_jahr1.frei_markt",
+    "lauf": "konzepte",
+    "wert": -1690.97,
+    "einheit": "€ p. a.",
+    "blatt": "Konzepte",
+    "zelle": "G61"
+   },
+   {
+    "datei": "praesentation/daten/werte.json",
+    "schluessel": "modellhaus:jr1.sollmiete.A",
+    "lauf": "modellhaus",
+    "wert": 67564.8,
+    "einheit": "€ p. a.",
+    "blatt": "Übersicht",
+    "zelle": "D29"
+   }
+  ],
   "miete": [
    {
     "datei": "konzepte/mappe/werte_konzepte.json",

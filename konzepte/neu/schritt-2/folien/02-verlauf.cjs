@@ -5,7 +5,7 @@ const { verlauf } = require('./_daten.cjs');
 
 module.exports = {
   id: 'verlauf-richtung-a',
-  o: { nr: '3.4', abschnitt: 'Modellrechnung', layout: 'PGN_DIAGRAMM_MR', kicker: 'MODELLRECHNUNG · VERLAUF',
+  o: { nr: '3.6', abschnitt: 'Modellrechnung', layout: 'PGN_DIAGRAMM_MR', kicker: 'MODELLRECHNUNG · VERLAUF',
     quellen: 'Quelle: Rechenmappe v3, Gefördert A und C, Jahr 1 bis 35; Konzepte D61, F61, D64, F64.' },
   bau(ctx) {
     const { B, D, fmt, ZONE, colX } = ctx, wl = (t, was) => ctx.wortlaut(t, was);
@@ -20,6 +20,7 @@ module.exports = {
     const d = D.linien(s, { x: cz.x, y: cz.y, w: cz.w, h: cz.h, kategorien: jahre, katLabels: { formen: [1, 5, 10, 15, 20, 25, 30, 35] },
       rand: { l: 1.02, r: 1.30, u: 0.50 }, name: 'Diagramm Zahlungsüberschuss A und C',
       reihen: [{ name: 'Gruppe A', werte: A, art: 'tinte', strich: 'solid' }, { name: 'Gruppe C', werte: C, art: 'referenz', strich: 'solid' }],
+      flaeche: { reihe: 'Gruppe C', name: 'Fläche Gruppe C', deckung: 26 },
       achse: { min: 0, max: 100000, schritt: 20000, format: 'ganz' } });
     ctx.pruefe(Math.max(...A, ...C) < 100000, 'Ein Wert reicht über die Größenachse.');
     B.achstexte(s, d);
@@ -29,6 +30,8 @@ module.exports = {
     B.wertzeilen(s, { x: d.katMitte(0) + 0.10, mitten: [band(80000), band(60000)], name: 'Jahr ' + jahre[0],
       eintraege: [{ kreis: 'A', text: fmt.zahl(A[0]) }, { kreis: 'C', text: fmt.zahl(C[0]) }] });
     B.marke(s, { x: d.katMitte(iAb), y: d.plot.y, h: d.plot.h, art: 'mass', text: `Jahr ${ab}`, textSeite: 'rechts', textBreite: 1.3 });
+    // Abstand in Jahr 35 als senkrechte Maßkette zwischen den Linienenden, der Wert links davon zwischen den Linien
+    B.massketteSenkrecht(s, { x: d.katMitte(n), y0: d.yWert(C[n]), y1: d.yWert(A[n]), text: `+${fmt.euro(C[n] - A[n])}`, seite: 'links', name: 'Abstand Jahr 35' });
     B.linienenden(s, { x: d.katMitte(n) + 0.26, abstand: 0.30, eintraege: [
       { kreis: 'C', y: d.yWert(C[n]), wert: fmt.zahl(C[n]) }, { kreis: 'A', y: d.yWert(A[n]), wert: fmt.zahl(A[n]) }] });
 

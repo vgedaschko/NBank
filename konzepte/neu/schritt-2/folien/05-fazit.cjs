@@ -1,16 +1,17 @@
 // Schritt 2 · Fazit, Richtung B „Vier Sätze“: vier Zeilen über die ganze Breite, je Zeile Nummer, Grund als Modultitel (16 pt) und der
 // Satz des Auftraggebers in 14 pt. Keine großen Zahlen. Weißer Grund wie Kapitel 4.
 'use strict';
-const { gruende } = require('./_daten.cjs');
+const { gruende, QUELLE_MARKT } = require('./_daten.cjs');
 
 module.exports = {
   id: 'fazit-richtung-b',
   o: { nr: 'F', abschnitt: 'Fazit', zeichen: '✓', layout: 'PGN_INHALT', kicker: 'FAZIT', rubrik: 'Fazit',
-    quellen: 'Quellen: Folien 6, 10, 12, 3.3 und 3.4 dieses Vortrags.' },
+    quellen: QUELLE_MARKT },
   bau(ctx) {
     const { B, colX, span, Y } = ctx, wl = (t, was) => ctx.wortlaut(t, was);
     const g = gruende(ctx);
     const s = ctx.folie({ ...ctx.titelzeilen(['Vier Gründe für geförderten', 'Mietwohnungsbau'], 'Vier Gründe'), kopfzeichen: false });
+    B.quelle(s, QUELLE_MARKT);
     const hoehe = +((Y.inhaltEnde - Y.inhalt) / 4).toFixed(3), kreis = 0.42;
     g.forEach((e, i) => {
       const y = +(Y.inhalt + i * hoehe).toFixed(3);

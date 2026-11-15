@@ -74,6 +74,24 @@ async function erzeuge() {
     const body = resolveVars(inner(axo), neg).replace(/#sig-axo /g, '');
     await png(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb.x} ${vb.y} ${vb.w} ${vb.h}"><defs>${defs}</defs><rect x="${vb.x}" y="${vb.y}" width="${vb.w}" height="${vb.h}" fill="url(#r0)"/>${body}</svg>`, 'bg-titel.png', PXW, PXH);
     await png(resolveVars(axo), 'axo-hell.png', 2400, Math.round(2400 * 165 / 190));   // helle Fassung, freigestellt
+    // Folie 14 (Modellhaus): helle Fassung ohne die Förderkette „24,00 = 80 % FÖRDERUNG | 20 %“ (zweite Maßkette an der Längsseite mit Marke,
+    // Punkt, Strichen und Hilfslinien), ohne Nordpfeil und Maßstab, Maßketten in Grau statt Rot. Jede Streichung muss genau einmal treffen.
+    {
+      let t = axo;
+      const weg = (re, was) => { const n = (t.match(re) || []).length; if (n !== 1) throw new Error(`Axonometrie Folie 14: „${was}“ trifft ${n}-mal`); t = t.replace(re, ''); };
+      weg(/<path class="sig-dim-key"[^>]*\/>/g, 'Marke 24,00');
+      weg(/<circle class="sig-dim-dot"[^>]*\/>/g, 'Punkt 24,00');
+      weg(/<text class="sig-dim-t sig-dim-t--key"[^>]*>[^<]*<\/text>/g, 'Text 80 % Förderung');
+      weg(/<text class="sig-dim-t sig-dim-t--rest"[^>]*>[^<]*<\/text>/g, 'Text 20 %');
+      weg(/<g class="sig-north">[\s\S]*?<\/g>/g, 'Nordpfeil');
+      weg(/<g class="sig-scalebar">[\s\S]*?<\/g>/g, 'Maßstab');
+      for (const sp of ['M11.74,95.74L99.06,146.16', 'M13.12,95.6L13.71,97.82', 'M80.29,134.38L80.88,136.6', 'M97.08,144.08L97.68,146.3',
+        'M87.16,131.69L79.33,136.22', 'M19.99,92.91L12.16,97.44', 'M103.96,141.39L96.12,145.91']) weg(new RegExp(sp.replace(/\./g, '\\.'), 'g'), sp);
+      // Ausschnitt auf die Zeichnung ohne Nordpfeil und Maßstab (gemessen: y 22,7 bis 153,4 von 165), Verhältnis 190 : 134
+      if (!t.includes('viewBox="0 0 190 165"')) throw new Error('Axonometrie Folie 14: viewBox der Vorlage hat sich geändert');
+      t = t.replace('viewBox="0 0 190 165"', 'viewBox="0 21 190 134"');
+      await png(resolveVars(t, { '--sig-accent': '#77716B' }), 'axo-modellhaus.png', 2400, Math.round(2400 * 134 / 190));
+    }
   }
   // 3 Schluss: Verlauf und Grundriss in Weiß (Ausschnitt 8 / 20 / 186 × 114 der A4-Zeichnung); dazu der Grundriss in Tinte, freigestellt
   {
@@ -105,7 +123,7 @@ async function erzeuge() {
   // 7 Referenzbild Brauerstraße (Duplex, 1800 × 740), unverändert
   fs.copyFileSync(path.join(SRC, 'pgn/img/brauerstrasse-duplex.jpg'), path.join(OUT, 'ref-brauerstrasse.jpg'));
   liste.push('ref-brauerstrasse.jpg'.padEnd(36) + ' 1800×740  Kopie');
-  // 7a Die Visualisierung „Neu Wulmstorf“ (Referenz 02) zeigt nicht das Modellhaus; Folie 14 zeigt seit 15.11.2026 ein Schema aus nativen Formen
+  // 7a Die Visualisierung „Neu Wulmstorf“ (Referenz 02) zeigt nicht das Modellhaus; Folie 14 zeigt seit 15.11.2026 die Axonometrie ohne Förderkette (2)
   return liste;
 }
 

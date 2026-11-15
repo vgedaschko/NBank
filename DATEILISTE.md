@@ -12,7 +12,7 @@ Nachtrag 13.11.2026, Änderungsrunde (globale Regeln): `praesentation/folien/anh
 
 Nachtrag 15.11.2026, Broschüre S. 10–12 neu: Die Partials und Seiten-JSON heißen `10-modellhaus-finanzierung`, `11-jahr-1` und `12-35-jahre` (vorher `10-modellrechnung-neubau`, `11-wirtschaftlichkeit`, `12-mix-und-tilgung`; mit `git mv` umbenannt). Neu: `broschuere/scripts/modellrechnung/` mit `bauen.cjs`, `diagramme.cjs`, `seiten_json.py`, `belege.py`, `README.md` und `vorlagen/` (Vorlagen der drei Partials); erzeugt Partials und Seiten-JSON aus `praesentation/daten/werte.json` und `kennzahlen.json`. Alle aktuell, Bauskript Broschüre.
 
-Nachtrag 15.11.2026, Folie 14: `praesentation/assets/modellhaus.jpg` ist gelöscht. Das Bild war die Visualisierung „Neu Wulmstorf“ der Referenzen (Bahnhofstraße, 19 Wohnungen), nicht das Modellhaus; Folie 14 zeigt seit 15.11.2026 ein Schema aus nativen Formen (`praesentation/folien/_modell.cjs`, `schema`).
+Nachtrag 15.11.2026, Folie 14: `praesentation/assets/modellhaus.jpg` ist gelöscht. Das Bild war die Visualisierung „Neu Wulmstorf“ der Referenzen (Bahnhofstraße, 19 Wohnungen), nicht das Modellhaus; Folie 14 zeigt seit 15.11.2026 die Axonometrie des Titels ohne Förderkette: neu `praesentation/assets/axo-modellhaus.png` (aktuell, Bauskript Vortrag; erzeugt von `lib/assets.cjs` aus `broschuere/src/assets/pgn/sig-axo-brauerstrasse.svg`).
 
 ## Die Ergebnisse, je eine aktuelle Datei
 

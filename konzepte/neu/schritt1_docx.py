@@ -16,8 +16,8 @@ VORSPANN = [
     ("Zielgruppe: ", "Wohnungsunternehmen, Genossenschaften, Investoren. Erfahrene Immobilienfachleute, keine Förderfachleute. "
      "Sie kennen DSCR und Rendite, nicht Programmteil 2.1. Ihre Frage: Warum gefördert bauen?"),
     ("Was hängen bleiben soll: ", "die vier Punkte des Fazits. Kapitel 3 belegt sie am Modellhaus (Gruppe A). "
-     "Frei finanziert dient als Maßstab, mit der Marktmiete von 15,42 €. Die Gruppen A, B und C stehen nebeneinander, "
-     "weil sich A und C über die Zeit unterschiedlich entwickeln: A bringt früh Liquidität und Puffer, C mehr über die Laufzeit."),
+     "Frei finanziert dient als Maßstab, mit der Marktmiete von 15,42 €. Wo die Wahl der Gruppe das Ergebnis dreht, "
+     "steht C neben A (3.4 und 3.6): A bringt früh Liquidität und Puffer, C mehr über die Laufzeit. B liegt dazwischen, Anhang."),
     ("Umfang: ", "Kapitel 3 mit 7 statt 12 Folien (Trenner und 6). Jede Folie eine Botschaft, die einen Punkt des Fazits trägt."),
 ]
 
@@ -43,24 +43,24 @@ FOLIEN = [
      [("Jahr 1: A 15.003 €, C 10.812 €", "D61, F61"),
       ("Jahr 10: C 26.890 €, A 25.927 €", "Konzepte Zeitreihe X16, F16"),
       ("Jahr 35: C 84.149 €, A 64.860 €", "D64, F64")],
-     "Linien: Zahlungsüberschuss je Jahr, 1 bis 35, A, B und C. Stufen alle drei Jahre aus der Mietanpassung, "
-     "Schnittpunkt Jahr 10 markiert. Ein Satz zum Grund: Der Vorteil von A ist der niedrigere Kapitaldienst, er bleibt "
-     "gleich. Der Vorteil von C ist die höhere Miete, er wächst mit jeder Mietanpassung. Frei finanziert nicht im "
-     "Diagramm: zur Marktmiete nicht finanzierbar (3.3), ab Jahr 31 ohne Kapitaldienst; im Anhang."),
-    ("3.5", "Eigenkapitalrendite 7,05 bis 7,40 %, überwiegend aus dem Restwert",
+     "Liniendiagramm, Jahr 1 bis 35: Zahlungsüberschuss A in der Hervorhebungsfarbe, C in Tinte. Werte an Jahr 1 und 35, "
+     "senkrechte Linie bei Jahr 10. Die Stufen alle drei Jahre zeigen die Mietanpassung. Ein Satz zum Grund: Der Vorteil "
+     "von A ist der niedrigere Kapitaldienst, er bleibt gleich. Der Vorteil von C ist die höhere Miete, er wächst mit "
+     "jeder Mietanpassung."),
+    ("3.5", "Eigenkapitalrendite in A: 7,05 % mit Restwert, 2,58 % ohne",
      "Frage nach der Rendite",
-     [("mit Restwert: A 7,05 %, C 7,40 %", "D81, F81"),
-      ("ohne Restwert: 2,58 bis 2,75 %", "D82:F82"),
-      ("frei rechnerisch 8,36 %, bei DSCR 0,99 so nicht finanzierbar", "G81, G62")],
-     "Je zwei Balken für A, B, C und frei, mit und ohne Restwert. Frei grau, mit Hinweis auf die DSCR. "
+     [("A 7,05 % mit, 2,58 % ohne Restwert", "D81, D82"),
+      ("frei rechnerisch 8,36 % und 4,84 %", "G81, G82"),
+      ("frei bei DSCR 0,99, so nicht finanzierbar", "G62")],
+     "Je zwei Balken für A und frei, mit und ohne Restwert. Frei grau, mit Hinweis auf die DSCR. "
      "Die Rendite entsteht überwiegend aus dem Vermögensaufbau, nicht aus der laufenden Liquidität."),
     ("3.6", "Gruppe A trägt sich bis rund 5.150 € je m², C bis 4.220 €",
      "Fazit 4, Rückbezug auf 3.2",
-     [("Herstellungskosten: Modellhaus 3.579 €, Schwelle A 5.150 €, B 4.380 €, C 4.220 €", "Eingaben!F11; heute Folie 23"),
-      ("Tilgung: Annahme 2,38 %, Schwelle A 3,65 %, B 3,03 %, C 2,90 %", "Eingaben!F17; heute Folie 20"),
+     [("Herstellungskosten: Modellhaus 3.579 €, Schwelle A 5.150 €, C 4.220 €", "Eingaben!F11; heute Folie 23"),
+      ("Tilgung: Annahme 2,38 %, Schwelle A 3,65 %, C 2,90 %", "Eingaben!F17; heute Folie 20"),
       ("ohne Mietanpassung: A kein Fehlbetrag, Rendite 5,08 %", "D68, D81, Lauf ohne Mietanpassung")],
-     "Zwei Skalen mit Annahme und den Schwellen je Gruppe: Herstellungskosten und Tilgungssatz. Der Abstand ist der "
-     "Puffer, in A am größten, in C am kleinsten. Fasst heute 20, 23 und 24 zusammen."),
+     "Zwei Skalen mit Annahme und den Schwellen für A und C: Herstellungskosten und Tilgungssatz. Der Abstand ist der "
+     "Puffer, in A größer als in C. Fasst heute 20, 23 und 24 zusammen."),
     ("Fazit", "Vier Gründe für geförderten Mietwohnungsbau",
      "Abschluss des Vortrags",
      [("Planbare Mieterträge: Höchstmiete 6,80 € in A, drei Jahre fest. Danach höchstens +6,15 % in drei Jahren.", ""),
@@ -74,7 +74,7 @@ FOLIEN = [
      "15.003 € und kein Fehlbetrag auf 3.4."),
 ]
 
-ANHANG = ("Anhang: frei finanziert im Zeitverlauf · DSCR je Jahr (C 3 Jahre unter 1,2) · Annahmen mit Wert und "
+ANHANG = ("Anhang: Gruppe B · frei finanziert im Zeitverlauf · DSCR je Jahr (C 3 Jahre unter 1,2) · Annahmen mit Wert und "
           "Herkunft · Jahresrechnung im Detail · Verwendung der Miete (heute 17 und 18) · Objektrendite mit und ohne "
           "Zuschuss · Vermögen Ende Jahr 35 und Zeit danach · Risiken aller Varianten · Tilgungsschwelle (heute A7).")
 HEUTE = ("Heutige Folien: 14 und 22 bleiben · 19 geht in 3.3 auf · 15, 16 und 21 in 3.4 · A6 in 3.5 · 20, 23 und 24 in 3.6 · "

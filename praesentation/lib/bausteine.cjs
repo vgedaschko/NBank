@@ -940,6 +940,10 @@ function bausteine(pres, kx) {
   // messen: true     rechnet nur und zeichnet nichts (Höhen vorab, zum Beispiel für zwei Tabellen, die auf gleicher Höhe enden)
   // randRechts       rechter Zellrand einer Spalte in Zoll (Vorgabe 0,08); die letzte Spalte kommt mit weniger aus
   // kopfHervor       (je Spalte) true: Kopf in Tinte statt Grau, wie die hervorgehobene Spalte des Rechenblatts (Betrag des Modellhauses, Folie 23 und A7)
+  // kopf als Objekt  (je Spalte) { text: 'Bis', gross: '30.06.2026', akzent: true }: über dem großen Wert (Montserrat ExtraBold, kopfGross pt,
+  //                  Vorgabe 20) die Bezeichnung in der Schrift der Kopfzeile; akzent: großer Wert in Rot, sonst Grau. Wie der Vergleichskopf der
+  //                  Broschüre S. 4 (seit 15.11.2026, Folie 9)
+  // flaeche          (je Spalte) true: Spalte samt Kopf auf Fläche (Papierton auf Weiß), die neue Fassung im Vergleich (Folie 9)
   // zellrand         [oben, unten]: Zellränder in Zoll (Vorgabe [0,06, 0,05]); enger für Tabellen, unter denen ein Hinweiskasten Platz braucht
   //                  (seit 13.11.2026 Folie A1: [0,04, 0,03], Folie A8: [0,03, 0,03]). Die Schrift bleibt
   // Rückgabe: { x, y, w, h, unten, kopfH, zeilen: [{ y, h, n }], spalten: [{ x, w }], zeilenzahl, zeilenmass, rand: { oben, seite } }
@@ -956,9 +960,22 @@ function bausteine(pres, kx) {
     if (colW.some(w => !(w > 0)) || Math.abs(colW.reduce((a, b) => a + b, 0) - o.w) > 0.01) throw new Error(`B.tabelle: Spaltenbreiten (${colW.join(' + ')}) ergeben nicht die Breite ${o.w}.`);
     const rows = [], rowH = [], rand = i => [OBEN, rechts[i], UNTEN, SEITE];
     if (mitKopf) {
-      rows.push(o.spalten.map((c, i) => { pruefeKopf(c.kopf, colW[i], SEITE + rechts[i] + 0.02); const z = kopfzelle(c.kopf, c.art === 'zahl' ? 'right' : 'left', { farbe: c.kopfHervor ? cs.titel : null }); z.options.margin = rand(i); return z; }));
-      // Kopfzeile aus der Schrift: Montserrat Bold 12 pt (0,203 Zoll je Zeile) und die Zellränder, mit Luft 0,33 Zoll; je weitere Zeile 0,20
-      rowH.push(kopfHoehe(o.spalten.map(c => c.kopf || ''), 0.33));
+      const gp = o.kopfGross || 20, gst = { fontFace: F.xbold, fontSize: gp }, gross = o.spalten.some(c => c.kopf && typeof c.kopf === 'object');
+      rows.push(o.spalten.map((c, i) => {
+        const al = c.art === 'zahl' ? 'right' : 'left', fill = c.flaeche ? cs.kasten : null;
+        if (c.kopf && typeof c.kopf === 'object') {
+          pruefeKopf(c.kopf.text, colW[i], SEITE + rechts[i] + 0.02);
+          if (P) P.zeile('Tabellenkopf, großer Wert', schutz(c.kopf.gross), gst, colW[i] - SEITE - rechts[i] - 0.02);
+          const z = kopfzelle(c.kopf.text, al, { farbe: c.kopfHervor ? cs.titel : null, fill });
+          z.text = [{ text: versal(schutz(c.kopf.text)), options: { breakLine: true } },
+            { text: schutz(c.kopf.gross), options: { fontFace: F.xbold, bold: false, fontSize: gp, charSpacing: 0, color: c.kopf.akzent ? cs.akzent : cs.sekundaer } }];
+          z.options.margin = rand(i); return z;
+        }
+        pruefeKopf(c.kopf, colW[i], SEITE + rechts[i] + 0.02); const z = kopfzelle(c.kopf, al, { farbe: c.kopfHervor ? cs.titel : null, fill }); z.options.margin = rand(i); return z;
+      }));
+      // Kopfzeile aus der Schrift: Montserrat Bold 12 pt (0,203 Zoll je Zeile) und die Zellränder, mit Luft 0,33 Zoll; je weitere Zeile 0,20;
+      // mit großem Wert eine Zeile in Montserrat ExtraBold dazu
+      rowH.push(+(kopfHoehe(o.spalten.map(c => (c.kopf && typeof c.kopf === 'object' ? c.kopf.text : c.kopf) || ''), 0.33) + (gross ? zeilenhoehe(gst) : 0)).toFixed(3));
     }
     const kopfH = mitKopf ? rowH[0] : 0, zahlen = [];
     o.zeilen.forEach((z, zi) => {
@@ -970,10 +987,16 @@ function bausteine(pres, kx) {
         const sp = o.spalten[i], obj = c !== null && typeof c === 'object' ? c : { text: c ?? '' }, zahl = sp.art === 'zahl', stich = sp.art === 'stichwort' || obj.fett;
         const cst = zahl || stich ? { fontFace: F.mont, bold: true, fontSize: pt, zeileMal: st.zeileMal } : st, text = String(obj.text), t = klar(text), feld = colW[i] - SEITE - rechts[i] - 0.01;
         // halbfette Zellen („**…**“) werden mit der halbfetten Schrift gerechnet; ein Wort, das breiter ist als die Zelle, meldet die Prüfung
-        const mst = !zahl && !stich && text.includes('**') ? { ...cst, fontFace: F.semi } : cst, nz = t ? zeilenzahl(t, mst, feld) : 1;
-        if (P && t) P.block(`Tabellenzelle (Zeile ${zi + 1}, Spalte ${i + 1})`, t, mst, feld, nz * zeilenhoehe(mst));
+        // Seit 15.11.2026: Ist nur ein Teil halbfett (Werte in einem Satz, Folie 9), wird der Satz in der Grundschrift gerechnet und die Zelle um
+        // das Mehr an Breite der halbfetten Teile schmaler angesetzt (als stünden alle in einer Zeile); so wächst die Zeile nicht um eine Leerzeile
+        const fettTeile = !zahl && !stich ? [...text.matchAll(/\*\*([^*]+)\*\*/g)].map(m => klar(m[1])) : [];
+        const ganz = fettTeile.length && klar(text.replace(/\*\*/g, '')) === fettTeile.join('');
+        const mst = ganz ? { ...cst, fontFace: F.semi } : cst;
+        const mehr = ganz ? 0 : fettTeile.reduce((a, f) => a + Math.max(0, breite(f, { ...cst, fontFace: F.semi }) - breite(f, cst)), 0), feldM = feld - mehr;
+        const nz = t ? zeilenzahl(t, mst, feldM) : 1;
+        if (P && t) P.block(`Tabellenzelle (Zeile ${zi + 1}, Spalte ${i + 1})`, t, mst, feldM, nz * zeilenhoehe(mst));
         n = Math.max(n, nz);
-        return { text: laeufe(text, cst), options: { fontFace: cst.fontFace, bold: !!cst.bold, fontSize: pt, color: obj.farbe || (zahl || stich ? cs.titel : cs.text), align: obj.align || (zahl ? 'right' : 'left'), valign: 'top', margin: LUFT ? [OBEN, rechts[i], UNTEN + LUFT, SEITE] : rand(i), border: [no(), no(), unten, no()], ...(fl ? { fill: { color: cs.kasten } } : {}) } };
+        return { text: laeufe(text, cst), options: { fontFace: cst.fontFace, bold: !!cst.bold, fontSize: pt, color: obj.farbe || (zahl || stich ? cs.titel : cs.text), align: obj.align || (zahl ? 'right' : 'left'), valign: 'top', margin: LUFT ? [OBEN, rechts[i], UNTEN + LUFT, SEITE] : rand(i), border: [no(), no(), unten, no()], ...(fl || sp.flaeche ? { fill: { color: cs.kasten } } : {}) } };
       });
       rows.push(row); rowH.push(Math.max(o.zeilenH || 0, +(n * zh + zuschlag).toFixed(3))); zahlen.push(n);
     });

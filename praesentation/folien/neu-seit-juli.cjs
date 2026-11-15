@@ -45,19 +45,32 @@ module.exports = {
 
     // Satz: „I–III / IV–VII“ steht in einer Zeile (die Merkmale brechen vor „Mietenstufe“), die Gruppe bleibt an ihrem Satz („40 % (A)“), „B und C“ zusammen
     const NB = fmt.NBSP, satz = t => t.replace(/ \/ /g, `${NB}/${NB}`).replace(/ \(([ABC])\)/g, `${NB}($1)`).replace('B und C: neu', `B${NB}und${NB}C:${NB}neu`);
+    // Seit 15.11.2026 wie die Vergleichstabelle der Broschüre S. 4 (Wunsch des Auftraggebers, besserer Lesefluss): In „Bis“ und „Seit“ stehen die
+    // Werte der Regel halbfett (Quoten, Grenzen, Mieten), der Rest der Zelle normal; die Wirkung bleibt normal. Im Merkmal ist nur die erste Zeile
+    // halbfett, „Mietenstufe I–III / IV–VII“ normal. Die Spalte „Seit“ steht auf Fläche, ihr Kopf trägt das Datum groß in Rot, „Bis“ in Grau.
+    // Fett gesetzt wird jeder genannte Wert einmal, an seiner ersten Stelle; fehlt er im Text, bricht der Bau ab
+    const fett = (t, ...werte) => werte.reduce((acc, v) => { const i = acc.indexOf(v); if (i < 0) throw new Error(`Folie 9: „${v}“ steht nicht in „${acc}“`); return acc.slice(0, i) + `**${v}**` + acc.slice(i + v.length); }, t);
+    const q = k => pct(T('quote_zuschuss.' + k));
+    const FETT = [
+      [[pct(A('darlehen_anteil'))], [pct(quote)]],
+      [[pct(A('tilgungsnachlass'))], G.map(q)],
+      [[pct(A('eigenmittel'))], [pct(T('eigenmittel_mindestens'))]],
+      [[paar(A('bemessung.I'), A('bemessung.IV'))], [paar(T('bemessungsgrenze.I'), T('bemessungsgrenze.IV'))]],
+      [[paar(mieteAlt[0], mieteAlt[1], 2)], [paar(mieteNeu[0], mieteNeu[1], 2)]]];
+    const merkmal = t => satz(t).replace(', Mietenstufe', ',\nMietenstufe').split('\n').map((l, i) => (i ? l : `**${l}**`)).join('\n');
     const x = colX(1), w = Raster.CW;
     const yTab = B.modulkopf(s, { x, y: Y.inhalt, w, titel: wl('Programmteil 2.1 im Vergleich', 'Tabellentitel') });
-    // Spaltenbreiten in Zoll (zusammen 12,00), so gewählt, dass die fünf Zeilen mit den wenigsten Textzeilen auskommen (2, 2, 2, 3, 3).
+    // Spaltenbreiten in Zoll (zusammen 12,00), so gewählt, dass die fünf Zeilen mit den wenigsten Textzeilen auskommen.
     // 12 pt wie die Tabellen der Folien 15 und A1: In 14 pt bräuchte die Tabelle 4,3 Zoll, die Inhaltszone hat unter dem Modulkopf 3,9.
-    // Seit der Prüfrunde 2 vom 13.11.2026 folgt jede Zeile ihrem Text, mit demselben Innenabstand unten in allen Zeilen (LUFT_UNTEN zusätzlich zum
-    // Zellrand); bis dahin teilten sich die Zeilen die Höhe bis zur Unterkante der Inhaltszone (zielHoehe), und die zweizeiligen standen mit einer
-    // leeren Zeile Luft, die dreizeiligen knapp. Die gewonnene Höhe bleibt als Luft über dem Schriftfeld
-    // Seit 15.11.2026 (Wortlaut des Auftraggebers in der Zeile „Nicht rückzahlbar“, dort drei Zeilen statt zwei) LUFT_UNTEN 0,02 statt 0,06: Mit 0,06
-    // endete die Tabelle 0,15 Zoll unter der Inhaltszone
+    // Jede Zeile folgt ihrem Text, mit demselben Innenabstand unten in allen Zeilen (LUFT_UNTEN zusätzlich zum Zellrand; Prüfrunde 2 vom 13.11.2026).
+    // Seit 15.11.2026 trägt der Kopf das Datum groß (0,33 Zoll höher). Dafür steht die Tabelle im dichten Satz (Zeilenmaß ohne Zuschlag) mit
+    // Zellrändern 0,05 | 0,04 statt 0,06 | 0,05; die Spaltenbreiten bleiben
     const BREITEN = [2.75, 2.85, 3.30, 3.10], LUFT_UNTEN = 0.02;
-    const tab = B.tabelle(s, { x, y: yTab, w, pt: 12, luftUnten: LUFT_UNTEN, name: 'Tabelle Programmteil 2.1 im Vergleich',
-      spalten: koepfe.map((k, i) => ({ kopf: k, breite: BREITEN[i], art: 'text', ...(i === koepfe.length - 1 ? { randRechts: 0.02 } : {}) })),
-      zeilen: zeilen.map(z => [satz(z[0]).replace(', Mietenstufe', ',\nMietenstufe').split('\n').map(l => `**${l}**`).join('\n'), ...z.slice(1).map(satz)]) });
+    const spalten = koepfe.map((k, i) => ({ kopf: k, breite: BREITEN[i], art: 'text', ...(i === koepfe.length - 1 ? { randRechts: 0.02 } : {}) }));
+    spalten[1].kopf = { text: 'Bis', gross: R('stichtage.alt_bis') };
+    spalten[2].kopf = { text: 'Seit', gross: R('stichtage.neu_seit'), akzent: true }; spalten[2].flaeche = true;
+    const tab = B.tabelle(s, { x, y: yTab, w, pt: 12, dicht: true, zellrand: [0.05, 0.04], luftUnten: LUFT_UNTEN, name: 'Tabelle Programmteil 2.1 im Vergleich', spalten,
+      zeilen: zeilen.map((z, zi) => [merkmal(z[0]), satz(fett(z[1], ...FETT[zi][0])), satz(fett(z[2], ...FETT[zi][1])), satz(z[3])]) });
     if (tab.unten > Y.inhaltEnde + 0.005) P.melde(`Tabelle endet bei y ${tab.unten.toFixed(2)}, die Inhaltszone bei ${Y.inhaltEnde.toFixed(2)}.`);
   },
 };

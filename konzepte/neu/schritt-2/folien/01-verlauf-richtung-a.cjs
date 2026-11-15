@@ -30,9 +30,14 @@ module.exports = {
 
     const kdA = M('dscr.kapitaldienst_jahr1.A'), kdC = M('dscr.kapitaldienst_jahr1.C'), mA = M('fin.miete_jahr1.A'), mC = M('fin.miete_jahr1.C');
     const p = t => wl(t, 'Stichpunkt');
+    // Summe Jahr 1 bis 35 (unverzinst) und Jahr, in dem die Summe das Eigenkapital erreicht: aus der Konzepte-Mappe, gegen die Zeitreihe geprüft
+    const summe = g => ctx.wert(`n5.kum_jahr35.${g}`), ekJahr = g => ctx.wert(`n5.jahr_ek_erreicht.${g}`);
+    ctx.gleich('Summe A gegen Zeitreihe', summe('A'), A.reduce((x, v) => x + v, 0), 0);
+    ctx.gleich('Summe C gegen Zeitreihe', summe('C'), C.reduce((x, v) => x + v, 0), 0);
     B.stichpunkte(s, { platzhalter: 'kommentar', gruppen: [
       { titel: wl('Ergebnis', 'Überschrift'), punkte: [p('kein Jahr mit Fehlbetrag'), p(`Jahr ${jahre[0]}: A ${fmt.euro(A[0])}, C ${fmt.euro(C[0])}`),
-        p(`ab Jahr ${ab}: C vorn`)] },
+        p(`Summe Jahr ${jahre[0]} bis ${jahre[n]}: A ${fmt.mio(summe('A'), 2)}, C ${fmt.mio(summe('C'), 2)}`),
+        p(`Eigenkapital zurück: A nach ${ekJahr('A')}, C nach ${ekJahr('C')} Jahren`)] },
       { titel: wl('Grund', 'Überschrift'), punkte: [
         p(`A: mehr Zuschuss, Kapitaldienst ${fmt.euro(kdA)} statt ${fmt.euro(kdC)}. Der Vorteil bleibt etwa gleich.`),
         p(`C: Miete ${fmt.euroDez(mC)} statt ${fmt.euroDez(mA)}. Der Vorteil wächst mit jeder Mietanpassung.`)] }] });

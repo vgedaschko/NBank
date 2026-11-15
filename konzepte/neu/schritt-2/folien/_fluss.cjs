@@ -71,10 +71,10 @@ function zahlungsfluss(ctx, s, o) {
     'Die Stärke der Bänder entspricht dem Betrag. Die Flussdiagramme für gefördert und frei finanziert haben denselben Maßstab.'].filter(Boolean).join(' ');
   const d = ctx.D.fluss(s, { name: `Flussdiagramm Zahlungsfluss ${o.art}`, altText, massstab: MASSSTAB, knotenBreite: L.knotenBreite,
     knoten: [{ id: 'quelle', x: L.quelle, y: L.oben, name: o.quelle.name, art: art('knoten'), wert: o.quelle.wert }, { id: 'knoten', x: L.knoten, y: L.oben, name: o.knoten.name, art: art('knoten'), wert: o.knoten.wert },
-      ...(o.fehlbetrag ? [{ id: 'fehl', x: L.quelle, y: L.oben + zoll(o.quelle.wert) + 0.30, name: o.fehlbetrag.name, art: 'blass', wert: o.fehlbetrag.wert }] : []),
+      ...(o.fehlbetrag ? [{ id: 'fehl', x: L.quelle, y: L.oben - 0.07, name: o.fehlbetrag.name, art: 'blass', wert: o.fehlbetrag.wert }] : []),
       ...ziele.map(z => ({ id: z.id, x: L.ziele, y: z.y, name: z.name, art: art(z.rolle) }))],
-    stroeme: [...ueber.map((z, i) => ({ von: 'quelle', nach: 'knoten', wert: o.fehlbetrag && z.id === (o.fehlbetrag.zu || 'zins') ? z.wert - o.fehlbetrag.wert : z.wert, art: art(z.rolle), name: `${z.name} bis ${o.knoten.name}` })),
-      ...(o.fehlbetrag ? [{ von: 'fehl', nach: 'knoten', wert: o.fehlbetrag.wert, art: 'blass', name: o.fehlbetrag.name }] : []),
+    stroeme: [...(o.fehlbetrag ? [{ von: 'fehl', nach: 'knoten', wert: o.fehlbetrag.wert, art: 'blass', name: o.fehlbetrag.name }] : []),
+      ...ueber.map((z, i) => ({ von: 'quelle', nach: 'knoten', wert: o.fehlbetrag && z.id === (o.fehlbetrag.zu || 'zins') ? z.wert - o.fehlbetrag.wert : z.wert, art: art(z.rolle), name: `${z.name} bis ${o.knoten.name}` })),
       ...direkt.map(z => ({ von: 'quelle', nach: z.id, wert: z.wert, art: art(z.rolle), name: z.name })),
       ...ueber.map(z => ({ von: 'knoten', nach: z.id, wert: z.wert, art: art(z.rolle), name: z.name }))] });
 
@@ -113,10 +113,11 @@ function zahlungsfluss(ctx, s, o) {
   }
 
   if (o.fehlbetrag) {
-    // Fehlbetrag: Knoten unter der Quelle, Bezeichnung und Betrag links davor wie die Quelle (Strom als feine Linie in den Knoten)
-    const fy = L.oben + zoll(o.quelle.wert) + 0.30, fw = L.quelle - 0.10 - colX(1);
-    B.text(s, wl(o.fehlbetrag.name, 'Fehlbetrag'), { x: colX(1), y: fy - 0.20, w: fw, h: 0.21, rolle: 'kleinText', align: 'right', valign: 'middle', einzeilig: true, name: 'Fehlbetrag Bezeichnung' });
-    B.text(s, wl(o.fehlbetrag.betrag || fmt.euro(o.fehlbetrag.wert), 'Fehlbetrag'), { x: colX(1), y: fy + 0.01, w: fw, h: 0.21, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Fehlbetrag Betrag' });
+    // Fehlbetrag: zweiter Zufluss, Knoten oben in der linken Spalte über der Quelle; sein Strom läuft oben in den Knoten, ohne die Bänder
+    // der Kosten zu kreuzen. Bezeichnung und Betrag links davor, rechts frei für die Maßkette der Quelle
+    const fy = L.oben - 0.07, fw = L.quelle - 0.24 - colX(1);   // Knoten 0,07 über der Quelle: die Linie läuft unter der Beschriftung des Knotens
+    B.text(s, wl(o.fehlbetrag.name, 'Fehlbetrag'), { x: colX(1), y: fy - 0.42, w: fw, h: 0.21, rolle: 'kleinText', align: 'right', valign: 'middle', einzeilig: true, name: 'Fehlbetrag Bezeichnung' });
+    B.text(s, wl(o.fehlbetrag.betrag || fmt.euro(o.fehlbetrag.wert), 'Fehlbetrag'), { x: colX(1), y: fy - 0.21, w: fw, h: 0.21, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Fehlbetrag Betrag' });
   }
   // Knoten: Bezeichnung und Betrag in einer Zeile, mittig über dem Balken
   const kn = wl(o.knoten.name, 'Knoten'), kw = wl(fmt.euro(o.knoten.anzeige ?? o.knoten.wert), 'Knoten'), bn = breite(nb(kn), semi) + 0.03, bw = breite(nb(kw), fett) + 0.03, steg = 0.10;

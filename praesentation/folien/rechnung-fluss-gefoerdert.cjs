@@ -31,9 +31,9 @@ module.exports = {
         { id: 'ausfall', name: 'Mietausfall/Leerstand', wert: ausfall, rolle: 'bewirtschaftung' },
         { id: 'verwaltung', name: 'Objektverwaltung', wert: verwaltung, rolle: 'bewirtschaftung' },
         { id: 'instand', name: 'Instandhaltung', wert: instand, rolle: 'bewirtschaftung' },
-        { id: 'beitrag', name: 'Verwaltungskostenbeitrag', wert: beitrag, rolle: 'beitrag', ueberKnoten: true },
-        { id: 'zins', name: 'Zins NBank-Darlehen', wert: zins, rolle: 'zins', ueberKnoten: true },
         { id: 'tilgung', name: 'Tilgung', wert: tilgung, rolle: 'tilgung', ueberKnoten: true },
+        { id: 'zins', name: 'Zins NBank-Darlehen', wert: zins, rolle: 'zins', ueberKnoten: true },
+        { id: 'beitrag', name: 'Verwaltungskostenbeitrag', wert: beitrag, rolle: 'beitrag', ueberKnoten: true },
         { id: 'rest', name: 'Zahlungsüberschuss', wert: rest, rolle: 'ueberschuss', ueberKnoten: true }],
       klammer: { name: 'Kapitaldienst', wert: kd, ziele: ['tilgung', 'zins', 'beitrag'] }, hervor: 'tilgung' });
   },

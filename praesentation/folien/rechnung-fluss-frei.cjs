@@ -32,8 +32,8 @@ module.exports = {
         { id: 'ausfall', name: 'Mietausfall/Leerstand', wert: ausfall, rolle: 'bewirtschaftung' },
         { id: 'verwaltung', name: 'Objektverwaltung', wert: verwaltung, rolle: 'bewirtschaftung' },
         { id: 'instand', name: 'Instandhaltung', wert: instand, rolle: 'bewirtschaftung' },
-        { id: 'zins', name: 'Zins Bankdarlehen', wert: zins, rolle: 'zins', ueberKnoten: true },
         { id: 'tilgung', name: 'Tilgung', wert: tilgung, rolle: 'tilgung', ueberKnoten: true },
+        { id: 'zins', name: 'Zins Bankdarlehen', wert: zins, rolle: 'zins', ueberKnoten: true },
         { id: 'rest', name: 'Zahlungsüberschuss', wert: 0, anzeige: fmt.euro(rest), rolle: 'ueberschuss', ueberKnoten: true }],
       klammer: { name: 'Kapitaldienst', wert: kd, ziele: ['tilgung', 'zins'] }, hervor: 'zins' });
   },

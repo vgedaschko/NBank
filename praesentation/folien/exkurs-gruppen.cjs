@@ -11,14 +11,16 @@ module.exports = {
     const { B, colX, span, Y, P } = ctx, s = ctx.folie(), wl = (t, was) => ctx.wortlaut(t, was);
     B.register(s, '2.1');
     const gruppen = [
-      { titel: 'Gruppe A ist der Grundsatz', punkte: ['Einkommen bis 21.250 € für eine Person, 28.750 € für zwei Erwachsene (§ 3 NWoFG)'] },
-      { titel: 'B (bis +40 %) und C (bis +60 %), wenn eines zutrifft', punkte: [
-        'kommunales Wohnraumversorgungs- oder städtebauliches Entwicklungskonzept',
-        'kommunale Festlegung von gefördertem Wohnraum',
-        'Gemeindeverordnung zu erhöhtem Wohnungsbedarf',
-        'angespannter Wohnungsmarkt per Verordnung',
-        'Wohnraum nur für Ältere, Menschen mit Behinderungen, Hilfe- oder Pflegebedürftige'] },
-      { titel: 'Sonst nur bis +20 %', punkte: ['ab zwölf zusammenhängenden Wohnungen, für höchstens die Hälfte davon; Gruppe C entfällt'] }];
+      { titel: 'Gruppe A: immer möglich', punkte: ['Einkommen bis zur Grenze, zum Beispiel 21.250 € im Jahr für eine Person'] },
+      { titel: 'B (+40 %) und C (+60 %): nur, wenn eine Bedingung erfüllt ist', punkte: [
+        'Konzept der Gemeinde zur Wohnraumversorgung oder Stadtentwicklung',
+        'Gemeinde schreibt geförderten Wohnraum vor (Bebauungsplan, Baulandmodell)',
+        'Verordnung stellt erhöhten Wohnungsbedarf in der Gemeinde fest',
+        'Verordnung stuft den Wohnungsmarkt als angespannt ein',
+        'Wohnungen nur für Ältere, Menschen mit Behinderungen, Hilfe- oder Pflegebedürftige'] },
+      { titel: 'Ist keine Bedingung erfüllt: Ausnahme nur ab zwölf Wohnungen', punkte: [
+        'Die Hälfte der Wohnungen darf an Haushalte gehen, deren Einkommen bis zu 20 % über der Grenze liegt.',
+        'Unter zwölf Wohnungen: nur Gruppe A.'] }];
     gruppen.forEach(g => { wl(g.titel, 'Gruppentitel'); g.punkte.forEach(t => wl(t, 'Stichpunkt')); });
     const stp = B.stichpunkte(s, { x: colX(1), y: Y.inhalt, w: span(8), linie: true, titelAbstand: 6, punktAbstand: 1, name: 'Stichpunkte Zulassung', gruppen });
     if (stp.unten > Y.inhaltEnde + 0.005) P.melde(`Stichpunkte enden bei y ${stp.unten.toFixed(2)}, die Inhaltszone bei ${Y.inhaltEnde.toFixed(2)}.`);
@@ -26,13 +28,13 @@ module.exports = {
     // Rechts: Bedarf am Standort, eigene Voraussetzung auch für A; QR-Code zur Karte der NBank
     const x = colX(9) + 0.12, w = span(4) - 0.12, QR = 1.25;
     const yT = B.modulkopf(s, { x, y: Y.inhalt, w, titel: wl('Bedarf am Standort', 'Modultitel') });
-    const text = wl('Eigene Voraussetzung, auch für Gruppe A. Die Wohnraumförderstelle bestätigt den Bedarf am Bauort; die Karte der NBank zeigt die Lage je Gemeinde.', 'Text Bedarf');
+    const text = wl('Gilt zusätzlich für jede Gruppe: Gefördert wird nur, wo Bedarf besteht. Die Wohnraumförderstelle bestätigt ihn. Die Karte der NBank zeigt den Bedarf je Gemeinde.', 'Text Bedarf');
     const t = B.text(s, text, { x, y: yT + 0.10, w, rolle: 'dicht', name: 'Text Bedarf' });
     const yQ = +((t && t.unten ? t.unten : yT + 1.5) + 0.22).toFixed(3);
     s.addImage({ path: ctx.asset('qr-nbank-karte.png'), x, y: yQ, w: QR, h: QR, altText: 'QR-Code: Karte der NBank zur Wohnraumförderung mit den Bedarfsnachweisen je Gemeinde', objectName: 'QR-Code Karte der NBank' });
     B.text(s, wl('Aktuelle Karte', 'Beschriftung des QR-Codes'), { x: x + QR + 0.16, y: yQ + QR - 0.52, w: w - QR - 0.16, h: 0.22, rolle: 'vorsatz', valign: 'middle', einzeilig: true, name: 'Beschriftung QR-Code' });
     B.text(s, wl('nbank.de', 'Beschriftung des QR-Codes'), { x: x + QR + 0.16, y: yQ + QR - 0.28, w: w - QR - 0.16, h: 0.22, rolle: 'klein', valign: 'middle', einzeilig: true, name: 'Ziel QR-Code' });
-    const hinweis = wl('Kein Anspruch: B und C lässt die NBank in der Förderentscheidung zu (§ 4 DVO-NWoFG).', 'Hinweiskasten');
+    const hinweis = wl('Kein Anspruch auf B und C: Die NBank entscheidet im Einzelfall (§ 4 DVO-NWoFG).', 'Hinweiskasten');
     B.hinweis(s, { x, y: Y.inhaltEnde, unten: true, w, name: 'Zulassung', text: hinweis });
     if (yQ + QR > Y.inhaltEnde - B.hinweisHoehe(hinweis, { w }) - 0.08) P.melde(`QR-Code endet bei y ${(yQ + QR).toFixed(2)} und stößt an den Hinweiskasten.`);
     if (yQ + QR > Y.inhaltEnde + 0.005) P.melde(`QR-Code endet bei y ${(yQ + QR).toFixed(2)}, die Inhaltszone bei ${Y.inhaltEnde.toFixed(2)}.`);

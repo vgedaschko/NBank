@@ -648,7 +648,7 @@ EINGABEN = [
     ("7.2", 41, "Habenzins", "Guthabenzins Projektkonto (VOFI)", "% p. a.", "pct", ("decimal", 0, 0.10),
      "PGN-Annahme (Vorgängermappe)", _g("haben"), _g("haben")),
     ("7.3", 42, "Sollzins", "Sollzins Projektkonto (VOFI)", "% p. a.", "pct", ("decimal", 0, 0.20),
-     "PGN-Annahme (Vorgängermappe)", _g("soll"), _g("soll")),
+     "PGN-Annahme (Vorgängermappe) / PGN-Annahme 16.11.2026", _g("soll"), _g("soll")),
     ("8.1", 44, "Bodenwertsteigerung", "Bodenwertsteigerung", "% p. a.", "pct", ("decimal", -0.05, 0.10),
      "PGN-Annahme (Vorgängermappe)", _g("bodenwert_wachstum"), _g("bodenwert_wachstum")),
     ("8.2", 45, "Zielmiete", "Zielmiete nach Jahr 42", "Liste", "text", ("list", "Marktmiete,Vergleichsmiete"),
@@ -724,6 +724,7 @@ T4 = "T4"                                                 # Schlüssel in den Te
 # für den Landkreis Rotenburg (Wümme), Vergleichsmiete als PGN-Annahme im Verhältnis 12,92 ÷ 14,48. Bis 10.11.2026 standen
 # dort die Platzhalter 12,92 / 14,48 €/m² (Abweichung A7) und die Kurve Neu Wulmstorf.
 OVM_ROTENBURG, MARKT_ROTENBURG = 11.87, 13.30
+SOLLZINS_T = 0.10   # Eingabe 7.3 für Projekt 2 seit 16.11.2026; Projekt 1 bleibt bei 5 % laut Referenzrechnung
 ZINS_BANK = 0.0386
 BEMESSUNG_2026_10 = {4800: 5250, 5000: 5460}     # Ausgangswert der Richtlinie -> Wert seit 01.10.2026
 # Marktmiete des Modellhauses (Projekt 2) seit 12.11.2026: 15,42 €/m², Mietübersicht des Gutachterausschusses Lüneburg für den
@@ -1225,6 +1226,7 @@ def lade_referenz():
     for _p in BASIS.values():
         _p["zins_bank"] = _p["zins_anschluss"] = _p["zins_ab36"] = ZINS_BANK    # 3.3 folgt 6.1 (Auftrag vom 12.11.2026)
     BASIS["T"]["markt_start"] = MARKT_HARBURG_2026
+    BASIS["T"]["soll"] = SOLLZINS_T   # seit 16.11.2026: Sollzins des Projektkontos für das Modellhaus 10 % (Eingabe 7.3, Vorgabe der Geschäftsleitung)
     # Bemessungsgrenzen seit 01.10.2026 (NBank-Produktinformation, Stand 05.11.2026): 5.250 €/m² in Mietenstufe I bis III,
     # 5.460 €/m² in IV bis VII; die RR-Annahmen führen die Ausgangswerte 4.800 / 5.000 €/m² (RL Nr. 5.3.2.2).
     for _p in BASIS.values():

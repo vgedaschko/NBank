@@ -54,7 +54,7 @@ VARIANTEN = [
     ("A", "D", "Gefördert A", "gef", "Gruppe A, Höchstmiete"),
     ("B", "E", "Gefördert B", "gef", "Gruppe B, Höchstmiete"),
     ("C", "F", "Gefördert C", "gef", "Gruppe C, Höchstmiete"),
-    ("frei_markt", "G", "Frei finanziert", "frei", "frei finanziert, Marktmiete 15,42 € (Eingabe 10.1)"),
+    ("frei_markt", "G", "Frei finanziert", "frei", "frei finanziert, Marktmiete 11,75 € (Eingabe 10.1)"),
     ("frei_dscr", "H", FD, "frei", "frei finanziert, Miete für DSCR 1,2 der Bank"),
 ]
 # Spalten der Zeitreihe je Blattart (Zeile 6 = Jahr 0, Zeile 7 bis 48 = Jahr 1 bis 42)

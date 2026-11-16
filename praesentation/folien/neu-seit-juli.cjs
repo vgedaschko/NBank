@@ -26,7 +26,7 @@ module.exports = {
     if (!ctx.glatt(ctx.o.titel).includes(`bis zu ${ctx.glatt(pct(T('quote_zuschuss.A')))}`) || !ctx.o.titel.includes(R('stichtage.neu_seit'))) P.melde('Titel der Folie nennt den Zuschuss in A oder den Stichtag nicht.');
 
     // ---- Kopf und Tabelle ---------------------------------------------------------------------------------------------------------
-    const jahre = `Jahr 1 bis ${T('jahre_ohne_mieterhoehung')}`, stufen = 'Mietenstufe I–III / IV–VII';
+    const jahre = `Jahr 1 bis ${T('jahre_ohne_mieterhoehung')}`, stufen = 'Mietenstufe I–III / IV–VII', bindung = ctx.wert('annahme.bindung');
     const zeilen = [
       ['Förderquote', `Darlehen bis ${pct(A('darlehen_anteil'))} der Gesamtkosten`, `Darlehen und Zuschuss bis ${pct(quote)} der zuwendungsfähigen Kosten`, `+${pp(quote - A('darlehen_anteil'))} Prozentpunkte`],
       ['Nicht rückzahlbar', `Tilgungsnachlass ${pct(A('tilgungsnachlass'))} des Darlehens, das sind ${fmt.zahl(nachlassAlt * 100, 1)} % der Gesamtkosten. Nur bei geringen Einkommen`,
@@ -37,7 +37,11 @@ module.exports = {
       [`Bemessungsgrenze je m², ${stufen}`, `${paar(A('bemessung.I'), A('bemessung.IV'))}, Gesamtkosten mit Grundstück`,
         `${paar(T('bemessungsgrenze.I'), T('bemessungsgrenze.IV'))} (Stand ${R('bemessungsgrenze.gilt_seit')}), nur Herstellungskosten. Grundstück zusätzlich bis zum Bodenrichtwert`,
         'Das Grundstück zählt nicht mehr auf die Grenze'],
-      [`Höchstmiete ${jahre} je m², ${stufen}`, `${paar(mieteAlt[0], mieteAlt[1], 2)} (geringe Einkommen)`, `${paar(mieteNeu[0], mieteNeu[1], 2)} (Gruppe A)`, `+${fmt.euroDez(mieteNeu[0] - mieteAlt[0])}`]];
+      [`Höchstmiete ${jahre} je m², ${stufen}`, `${paar(mieteAlt[0], mieteAlt[1], 2)} (geringe Einkommen)`, `${paar(mieteNeu[0], mieteNeu[1], 2)} (Gruppe A)`, `+${fmt.euroDez(mieteNeu[0] - mieteAlt[0])}`],
+      // Seit 16.11.2026 (Frage aus dem Kundengespräch): Bindung. Bis 30.06.2026 35 Jahre bei geringen und 30 Jahre bei mittleren Einkommen
+      // (NBank-Produktinformation Stand 01.04.2026, „Zweckbestimmung“; WFB 2024 Nr. 19.2, 20.2), seit 01.07.2026 35 Jahre für alle Gruppen (RL Nr. 5.4.1, 5.4.2)
+      ['Belegungs- und Mietbindung', `${bindung} Jahre bei geringen, 30 Jahre bei mittleren Einkommen`, `${bindung} Jahre in allen Einkommensgruppen`, 'A: unverändert. B und C: +5 Jahre']];
+    if (bindung !== 35) P.melde('Bindung: Die Zeile der Folie 9 nennt 35 Jahre; die Mappe führt einen anderen Wert.');
     if (A('eigenmittel') - T('eigenmittel_mindestens') <= 0 || quote - A('darlehen_anteil') <= 0) P.melde('Die Vorzeichen der Wirkung (Förderquote, Eigenmittel) stimmen nicht mehr.');
     const koepfe = ['Merkmal', `Bis ${R('stichtage.alt_bis')}`, `Seit ${R('stichtage.neu_seit')}`, 'Wirkung'];
     wl(`Spalten: ${koepfe.map(k => `„${k}“`).join(' · ')}`, 'Spaltenköpfe');
@@ -56,7 +60,8 @@ module.exports = {
       [[pct(A('tilgungsnachlass'))], G.map(q)],
       [[pct(A('eigenmittel'))], [pct(T('eigenmittel_mindestens'))]],
       [[paar(A('bemessung.I'), A('bemessung.IV'))], [paar(T('bemessungsgrenze.I'), T('bemessungsgrenze.IV'))]],
-      [[paar(mieteAlt[0], mieteAlt[1], 2)], [paar(mieteNeu[0], mieteNeu[1], 2)]]];
+      [[paar(mieteAlt[0], mieteAlt[1], 2)], [paar(mieteNeu[0], mieteNeu[1], 2)]],
+      [[`${bindung} Jahre`, '30 Jahre'], [`${bindung} Jahre`]]];
     const merkmal = t => satz(t).replace(', Mietenstufe', ',\nMietenstufe').split('\n').map((l, i) => (i ? l : `**${l}**`)).join('\n');
     const x = colX(1), w = Raster.CW;
     const yTab = B.modulkopf(s, { x, y: Y.inhalt, w, titel: wl('Programmteil 2.1 im Vergleich', 'Tabellentitel') });
@@ -69,7 +74,7 @@ module.exports = {
     const spalten = koepfe.map((k, i) => ({ kopf: k, breite: BREITEN[i], art: 'text', ...(i === koepfe.length - 1 ? { randRechts: 0.02 } : {}) }));
     spalten[1].kopf = { text: 'Bis', gross: R('stichtage.alt_bis') };
     spalten[2].kopf = { text: 'Seit', gross: R('stichtage.neu_seit'), akzent: true }; spalten[2].flaeche = true;
-    const tab = B.tabelle(s, { x, y: yTab, w, pt: 12, dicht: true, zellrand: [0.05, 0.04], luftUnten: LUFT_UNTEN, name: 'Tabelle Programmteil 2.1 im Vergleich', spalten,
+    const tab = B.tabelle(s, { x, y: yTab, w, pt: 11, minPt: 11, kopfGross: 18, dicht: true, zellrand: [0.04, 0.03], luftUnten: 0, name: 'Tabelle Programmteil 2.1 im Vergleich', spalten,
       zeilen: zeilen.map((z, zi) => [merkmal(z[0]), satz(fett(z[1], ...FETT[zi][0])), satz(fett(z[2], ...FETT[zi][1])), satz(z[3])]) });
     if (tab.unten > Y.inhaltEnde + 0.005) P.melde(`Tabelle endet bei y ${tab.unten.toFixed(2)}, die Inhaltszone bei ${Y.inhaltEnde.toFixed(2)}.`);
   },

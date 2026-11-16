@@ -82,7 +82,7 @@ function spannen(ctx, s, o) {
     if (!v) { B.text(s, '–', { x: cx - 0.20, y: unten - 0.27, w: 0.40, h: 0.22, rolle: 'wert', farbe: 'sekundaer', align: 'center', valign: 'middle', einzeilig: true, name: `Wert ${g.name} ${r.key} leer` }); return; }
     const ym = d.yWert(v.median), hoch = d.yWert(v.min) - d.yWert(v.max), tw = 0.54;
     B.linie(s, { x: links - 0.04, y: ym, w: d.saeulenBreite + 0.08, art: 'tinte', pt: 2, farbe: C.tinte, name: `Medianstrich ${g.name} ${r.key}` });
-    if (r.art === 'tinte' && hoch >= 0.16) B.linie(s, { x: links + 0.015, y: ym, w: d.saeulenBreite - 0.03, art: 'tinte', pt: 1, farbe: 'FFFFFF', name: `Medianlinie ${g.name} ${r.key}` });
+    if (r.art === 'tinte' && hoch >= 0.03) B.linie(s, { x: links + 0.015, y: ym, w: d.saeulenBreite - 0.03, art: 'tinte', pt: 1, farbe: 'FFFFFF', name: `Medianlinie ${g.name} ${r.key}` });
     B.textAufPlot(s, z(v.median), { x: cx - tw / 2, y: d.yWert(v.max) - 0.25, w: tw, h: 0.22, rolle: 'wert', farbe: D.ART[r.art].wert, align: 'center', valign: 'middle', name: `Median ${g.name} ${r.key}` });
   });
   return d;

@@ -951,10 +951,11 @@ function bausteine(pres, kx) {
     brauche('B.tabelle', o, ['x', 'y', 'w']);
     if (!Array.isArray(o.spalten) || !o.spalten.length || !Array.isArray(o.zeilen) || !o.zeilen.length) throw new Error('B.tabelle: spalten und zeilen fehlen.');
     const dicht = !!o.dicht, pt = o.pt || 12, [OBEN, UNTEN] = o.zellrand || [0.06, 0.05], SEITE = 0.08, mitKopf = o.kopf !== false && o.spalten.some(c => c.kopf);
-    if (dicht && pt !== 12) throw new Error('B.tabelle: dicht gibt es nur in 12 pt.');
+    if (dicht && pt !== 12 && pt !== 11) throw new Error('B.tabelle: dicht gibt es nur in 12 pt (11 pt mit minPt: 11).');
     // dicht: Zellränder und 0,01 Zoll Zuschlag je Zeile (ohne ihn füllt die Schrift die Zeile bis auf 2 %, und die Zeile wüchse in PowerPoint)
     const LUFT = o.luftUnten || 0, st = { fontFace: F.text, fontSize: pt, ...(dicht ? {} : { zeileMal: 1.08 }) }, zh = zeilenhoehe(st), zuschlag = (dicht ? OBEN + UNTEN + 0.01 : 0.13) + LUFT;
-    if (P) P.mindest('Tabelle', pt, 12);
+    // minPt: 11 nur auf ausdrücklichen Wunsch des Auftraggebers (seit 16.11.2026 Folie 9: sechs Zeilen, „Schrift etwas kleiner“)
+    if (P) P.mindest('Tabelle', pt, o.minPt || 12);
     const fest = o.spalten.reduce((a, c) => a + (c.breite || 0), 0), offen = o.spalten.filter(c => !c.breite).length;
     const colW = o.spalten.map(c => +(c.breite || (o.w - fest) / offen).toFixed(3)), rechts = o.spalten.map(c => (typeof c.randRechts === 'number' ? c.randRechts : SEITE));
     if (colW.some(w => !(w > 0)) || Math.abs(colW.reduce((a, b) => a + b, 0) - o.w) > 0.01) throw new Error(`B.tabelle: Spaltenbreiten (${colW.join(' + ')}) ergeben nicht die Breite ${o.w}.`);

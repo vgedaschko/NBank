@@ -17,7 +17,8 @@ const MASSSTAB = 68000;    // Euro je Zoll Höhe: 67.565 € (Quelle der Folie 1
 const ROLLEN = { tilgung: 'tinte', zins: 'referenz', beitrag: 'hell', bewirtschaftung: 'blass', ueberschuss: 'tinte', knoten: 'tinte' };
 // Lagen in Zoll. Drei Knotenspalten (Quelle, Knoten, Ziele), rechts die Zeilen der Ziele mit Betrag und Anteil, ganz rechts die Klammer.
 const LAGE = {
-  oben: 3.24,            // Oberkante von Quelle, Knoten und erstem Ziel
+  oben: 2.94,            // Oberkante von Quelle und erstem Ziel (seit 16.11.2026 0,30 höher: über dem Diagramm steht keine Beschriftung mehr)
+  gasse: 0.26,           // freie Zeile zwischen den Kosten und den Zielen hinter dem Knoten: dort steht die Beschriftung des Knotens
   quelle: 3.07, knoten: 5.235, ziele: 7.40, knotenBreite: 0.12,
   name: 7.60,            // Beginn der Bezeichnungen der Ziele
   betrag: 11.36,         // rechte Kante von Betrag und Anteil
@@ -51,9 +52,16 @@ function zahlungsfluss(ctx, s, o) {
   B.modulkopf(s, { x: colX(1), y: Y.inhalt, w: Raster.CW, titel: wl(o.titel, 'Modultitel'), sub: wl(o.sub, 'Untertitel') });
 
   // Zeilen der Ziele: das erste Ziel an der Oberkante, die übrigen mit festem Abstand darunter; jedes Band steht mittig in seiner Zeile
-  let y = L.oben;
+  // Seit 16.11.2026 (Wunsch des Auftraggebers, Leserichtung der Jahresrechnung): oben die Kosten, die vor dem Überschuss abgehen (Mietausfall,
+  // Objektverwaltung, Instandhaltung), darunter der Überschuss vor Kapitaldienst mit Verwaltungskostenbeitrag, Zins, Tilgung und zuletzt dem
+  // Zahlungsüberschuss. Der Knoten steht auf der Höhe seines ersten Ziels; in der Gasse darüber steht seine Beschriftung.
+  const ersterUeber = o.ziele.findIndex(z => z.ueberKnoten);
+  if (ersterUeber < 1 || o.ziele.slice(ersterUeber).some(z => !z.ueberKnoten)) throw new Error('zahlungsfluss: Reihenfolge der Ziele: erst die Kosten (ohne ueberKnoten), dann die Ziele hinter dem Knoten.');
+  let y = L.oben, knotenY = L.oben;
   const ziele = o.ziele.map((z, i) => {
-    const h = zoll(z.wert), zeile = Math.max(h, L.zeile), r = { ...z, h, zeileOben: y, zeileUnten: y + zeile, y: i === 0 ? y : y + (zeile - h) / 2, mitte: i === 0 ? y + Math.max(h, L.zeile) / 2 : y + zeile / 2 };
+    if (i === ersterUeber) { y += L.gasse; knotenY = y; }
+    const obenBuendig = i === 0 || i === ersterUeber;   // das erste Band jeder Gruppe schließt oben an Quelle bzw. Knoten an
+    const h = zoll(z.wert), zeile = Math.max(h, L.zeile), r = { ...z, h, zeileOben: y, zeileUnten: y + zeile, y: obenBuendig ? y : y + (zeile - h) / 2, mitte: obenBuendig ? y + Math.max(h, L.zeile) / 2 : y + zeile / 2 };
     y += zeile + L.abstand;
     return r;
   });
@@ -65,17 +73,18 @@ function zahlungsfluss(ctx, s, o) {
   // Alternativtext des Diagramms: jeder Strom mit Betrag und Anteil, in der Reihenfolge der Zeichnung
   const mitAnteil = z => (fmt.zahl(z.wert) === '0' ? `${z.name} ${fmt.euro(0)}` : `${z.name} ${fmt.euro(z.wert)} (${fmt.prozent(z.wert / o.quelle.wert, 1)})`);
   const altText = [`Flussdiagramm: ${o.titel}, in € p. a. und in % der Sollmiete.`, `${o.quelle.name} ${fmt.euro(o.quelle.wert)} (${o.quelle.zusatz}).`,
-    `Davon ${o.knoten.name} ${fmt.euro(o.knoten.wert)}: ${ueber.map(mitAnteil).join(', ')}.`, `Vorher gehen ab: ${direkt.map(mitAnteil).join(', ')}.`,
+    `Zuerst gehen ab: ${direkt.map(mitAnteil).join(', ')}.`, `Es bleibt ${o.knoten.name} ${fmt.euro(o.knoten.wert)}: ${ueber.map(mitAnteil).join(', ')}.`,
     o.klammer ? `${o.klammer.name} ${fmt.euro(o.klammer.wert)}.` : '', o.marke ? `${o.marke.text.join(' ')}.` : '',
     o.umriss ? `Umriss an der Quelle im selben Maßstab, ${o.umriss.text.join(' ')}.` : '',
     'Die Stärke der Bänder entspricht dem Betrag. Die Flussdiagramme für gefördert und frei finanziert haben denselben Maßstab.'].filter(Boolean).join(' ');
+  const fehlY = L.oben + zoll(o.quelle.wert) + 0.07;   // Fehlbetrag: zweiter Zufluss unter der Quelle, läuft unten in den Knoten
   const d = ctx.D.fluss(s, { name: `Flussdiagramm Zahlungsfluss ${o.art}`, altText, massstab: MASSSTAB, knotenBreite: L.knotenBreite,
-    knoten: [{ id: 'quelle', x: L.quelle, y: L.oben, name: o.quelle.name, art: art('knoten'), wert: o.quelle.wert }, { id: 'knoten', x: L.knoten, y: L.oben, name: o.knoten.name, art: art('knoten'), wert: o.knoten.wert },
-      ...(o.fehlbetrag ? [{ id: 'fehl', x: L.quelle, y: L.oben - 0.07, name: o.fehlbetrag.name, art: 'blass', wert: o.fehlbetrag.wert }] : []),
+    knoten: [{ id: 'quelle', x: L.quelle, y: L.oben, name: o.quelle.name, art: art('knoten'), wert: o.quelle.wert }, { id: 'knoten', x: L.knoten, y: knotenY, name: o.knoten.name, art: art('knoten'), wert: o.knoten.wert },
+      ...(o.fehlbetrag ? [{ id: 'fehl', x: L.quelle, y: fehlY, name: o.fehlbetrag.name, art: 'blass', wert: o.fehlbetrag.wert }] : []),
       ...ziele.map(z => ({ id: z.id, x: L.ziele, y: z.y, name: z.name, art: art(z.rolle) }))],
-    stroeme: [...(o.fehlbetrag ? [{ von: 'fehl', nach: 'knoten', wert: o.fehlbetrag.wert, art: 'blass', name: o.fehlbetrag.name }] : []),
+    stroeme: [...direkt.map(z => ({ von: 'quelle', nach: z.id, wert: z.wert, art: art(z.rolle), name: z.name })),
       ...ueber.map((z, i) => ({ von: 'quelle', nach: 'knoten', wert: o.fehlbetrag && z.id === (o.fehlbetrag.zu || 'zins') ? z.wert - o.fehlbetrag.wert : z.wert, art: art(z.rolle), name: `${z.name} bis ${o.knoten.name}` })),
-      ...direkt.map(z => ({ von: 'quelle', nach: z.id, wert: z.wert, art: art(z.rolle), name: z.name })),
+      ...(o.fehlbetrag ? [{ von: 'fehl', nach: 'knoten', wert: o.fehlbetrag.wert, art: 'blass', name: o.fehlbetrag.name }] : []),
       ...ueber.map(z => ({ von: 'knoten', nach: z.id, wert: z.wert, art: art(z.rolle), name: z.name }))] });
 
   // ---- Beschriftung in Leserichtung: Quelle, Marke, Knoten, Ziele, Klammer ----------------------------------------------------------------
@@ -115,13 +124,14 @@ function zahlungsfluss(ctx, s, o) {
   if (o.fehlbetrag) {
     // Fehlbetrag: zweiter Zufluss, Knoten oben in der linken Spalte über der Quelle; sein Strom läuft oben in den Knoten, ohne die Bänder
     // der Kosten zu kreuzen. Bezeichnung und Betrag links davor, rechts frei für die Maßkette der Quelle
-    const fy = L.oben - 0.07, fw = L.quelle - 0.24 - colX(1);   // Knoten 0,07 über der Quelle: die Linie läuft unter der Beschriftung des Knotens
+    // zwei Zeilen links vom Zufluss, mittig zu seinem Band, aber nicht höher als 0,08 unter dem Zusatz der Quelle
+    const fy = Math.max(fehlY + zoll(o.fehlbetrag.wert) / 2, qy + 0.79 + 0.08 + 0.21) + 0.21, fw = L.quelle - 0.24 - colX(1);
     B.text(s, wl(o.fehlbetrag.name, 'Fehlbetrag'), { x: colX(1), y: fy - 0.42, w: fw, h: 0.21, rolle: 'kleinText', align: 'right', valign: 'middle', einzeilig: true, name: 'Fehlbetrag Bezeichnung' });
     B.text(s, wl(o.fehlbetrag.betrag || fmt.euro(o.fehlbetrag.wert), 'Fehlbetrag'), { x: colX(1), y: fy - 0.21, w: fw, h: 0.21, rolle: 'wert', align: 'right', valign: 'middle', einzeilig: true, name: 'Fehlbetrag Betrag' });
   }
   // Knoten: Bezeichnung und Betrag in einer Zeile, mittig über dem Balken
   const kn = wl(o.knoten.name, 'Knoten'), kw = wl(fmt.euro(o.knoten.anzeige ?? o.knoten.wert), 'Knoten'), bn = breite(nb(kn), semi) + 0.03, bw = breite(nb(kw), fett) + 0.03, steg = 0.10;
-  const kx = L.knoten + L.knotenBreite / 2 - (bn + steg + bw) / 2, ky = L.oben - 0.30;
+  const kx = L.knoten, ky = knotenY - 0.25;   // in der Gasse über dem Knoten, linksbündig mit ihm
   B.bezeichnungMitWert(s, { y: ky + L.betragTiefer, bezeichnung: { text: kn, x: kx, w: bn, name: 'Knoten Bezeichnung' }, wert: { text: kw, x: kx + bn + steg, w: bw, name: 'Knoten Betrag' } });
 
   // Anteil des Ziels aus dem Folientitel: als Kernwert weiß im Band, rechtsbündig vor dem Balken des Ziels (wie die Werte in den Balken der Folie 19)

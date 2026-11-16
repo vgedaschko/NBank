@@ -29,12 +29,12 @@ module.exports = {
       // Der Fehlbetrag läuft in der Mappe über das Projektkonto (VOFI) zum Sollzins der Eingabe 7.3, wie ein Kontokorrentkredit
       fehlbetrag: { name: 'Fehlbetrag, Kontokorrent', wert: -rest, betrag: `${fmt.euro(-rest)} zu ${fmt.prozent(ctx.wert('annahme.sollzins'), 0)} Sollzins` },
       ziele: [
-        { id: 'tilgung', name: 'Tilgung', wert: tilgung, rolle: 'tilgung', ueberKnoten: true },
-        { id: 'zins', name: 'Zins Bankdarlehen', wert: zins, rolle: 'zins', ueberKnoten: true },
-        { id: 'rest', name: 'Zahlungsüberschuss', wert: 0, anzeige: fmt.euro(rest), rolle: 'ueberschuss', ueberKnoten: true },
-        { id: 'instand', name: 'Instandhaltung', wert: instand, rolle: 'bewirtschaftung' },
+        { id: 'ausfall', name: 'Mietausfall/Leerstand', wert: ausfall, rolle: 'bewirtschaftung' },
         { id: 'verwaltung', name: 'Objektverwaltung', wert: verwaltung, rolle: 'bewirtschaftung' },
-        { id: 'ausfall', name: 'Mietausfall/Leerstand', wert: ausfall, rolle: 'bewirtschaftung' }],
+        { id: 'instand', name: 'Instandhaltung', wert: instand, rolle: 'bewirtschaftung' },
+        { id: 'zins', name: 'Zins Bankdarlehen', wert: zins, rolle: 'zins', ueberKnoten: true },
+        { id: 'tilgung', name: 'Tilgung', wert: tilgung, rolle: 'tilgung', ueberKnoten: true },
+        { id: 'rest', name: 'Zahlungsüberschuss', wert: 0, anzeige: fmt.euro(rest), rolle: 'ueberschuss', ueberKnoten: true }],
       klammer: { name: 'Kapitaldienst', wert: kd, ziele: ['tilgung', 'zins'] }, hervor: 'zins' });
   },
 };

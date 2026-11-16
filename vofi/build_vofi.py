@@ -338,9 +338,9 @@ EINGABEN = [
     ("4.2", 23, "Effizienzhaus 40 erreicht", "Effizienz_EH40", "ja/nein", F_TEXT, "nein", "nein",
      _FM + " / Planung PGN (EH 55), Broschüre S. 10", ("liste", '"ja,nein"')),
     ("4.3", 24, "Ortsübliche Vergleichsmiete, Jahr 1", "Vergleichsmiete_1", "€/m² Monat", F_EUR2,
-     11.87, 12.91774539744, "PGN-Annahme / Mietübersicht Lkr. Harburg 2022, fortgeschr.", ("dez", 0, 50)),
+     11.87, 9.19, "PGN-Annahme / Angebotsmiete Bestand Nds., Median 2024, fortgeschr.", ("dez", 0, 50)),
     ("4.4", 25, "Marktmiete Neuvermietung, Jahr 1", "Marktmiete_1", "€/m² Monat", F_EUR2,
-     13.30, 15.42, "Mietübersicht Lkr. Rotenburg 2026 / Lkr. Harburg 2026", ("dez", 0, 50)),
+     13.30, 11.75, "Mietübersicht Lkr. Rotenburg 2026 / Angebotsmiete Neubau Nds., Median 2024, fortgeschr.", ("dez", 0, 50)),
     ("4.5", 26, "Steigerung Markt- und Vergleichsmiete", "Mietsteigerung", "% p. a.", F_PCT, 0.02, 0.02,
      "PGN-Annahme", ("dez", -0.05, 0.10)),
     ("4.6", 27, "Kappungsgrenze nach Bindungsende", "Kappungsgrenze", "% in 3 Jahren", F_PCT, 0.20, 0.20,
@@ -1829,10 +1829,10 @@ HINWEISE = [
     "Nach außen: Jahresrechnung, Tilgungsvergleich, Annahmen. Renditen nur in der Beratung, je mit Restwert und nur "
     "Bodenwert, dazu Restwertanteil.",
     "Bandbreite je Rendite, Beratung: Eingabe 9.3 ±0,5 Prozentpunkte, 9.4 = 0,50, 8.3 = 5 %, 8.2 = Vergleichsmiete.",
-    "Nicht nach außen: Blatt NBank. Standortwerte Modellhaus (Projekt 2): Marktmiete (Eingabe 4.4) aus der Mietübersicht "
-    "des Gutachterausschusses Lüneburg für den Landkreis Harburg, Hamburger Umland, Baualter ab 2023, 40–60 m², Stand "
-    "01.01.2026; Vergleichsmiete (4.3) aus der Übersicht zum 01.01.2022 (11,70 €), fortgeschrieben mit Eingabe 4.5; "
-    "Liegenschaftszins (Tabellen, Tabelle 4) für Neu Wulmstorf. Vergleichshaus "
+    "Nicht nach außen: Blatt NBank. Mieten Modellhaus (Projekt 2) seit 16.11.2026: Median der Angebotsmieten in "
+    "Niedersachsen 2024 (Neubau 11,22 €, Bestand 8,78 €; NBank-Wohnungsmarktbericht 2025, S. 45), mit dem Index der "
+    "Nettokaltmiete des LSN auf 10/2026 fortgeschrieben (110,9 ÷ 105,9): Marktmiete (4.4) 11,75 €, Vergleichsmiete (4.3) "
+    "9,19 €; Liegenschaftszins (Tabellen, Tabelle 4) unverändert für Neu Wulmstorf, Annahme der PGN. Vergleichshaus "
     "(Projekt 1, Modellhaus bis 11.11.2026): Marktmiete und Liegenschaftszins sind amtliche Werte der "
     "Gutachterausschüsse für Rotenburg (Wümme), Stand 01.01.2026; die Vergleichsmiete ist eine Annahme der PGN. Für "
     "einen anderen Standort ersetzen.",

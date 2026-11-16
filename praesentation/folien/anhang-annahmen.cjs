@@ -13,7 +13,7 @@ module.exports = {
     const p = v => { const h = Math.round(v * 1e4); return fmt.prozent(v, h % 100 === 0 ? 0 : h % 10 === 0 ? 1 : 2); };   // 2 %, 0,5 %, 2,38 %
     const wie = { text: 'wie gefördert', farbe: ctx.HEX.grau600 };
     const zeilen = [
-      ['Ertrag', 'Miete Jahr 1 je m²', `Höchstmiete ${fmt.euroDez(a('hoechstmiete_VI.A'))}`, `Marktmiete ${fmt.euroDez(a('marktmiete_jahr1'))}`, 'RL 5.4.4 · Mietübersicht'],
+      ['Ertrag', 'Miete Jahr 1 je m²', `Höchstmiete ${fmt.euroDez(a('hoechstmiete_VI.A'))}`, `Marktmiete ${fmt.euroDez(a('marktmiete_jahr1'))}`, 'RL 5.4.4 · NBank, LSN'],
       ['', 'Mietanpassung', `${a('jahre_ohne_mieterhoehung')} Jahre fest, dann +${p(a('mieterhoehung_in_der_bindung'))} je ${a('abstand_mieterhoehungen')} Jahre`, `+${p(a('mietsteigerung'))} p. a.`, 'RL 5.4.5 · PGN'],
       ['', 'Mietausfall, Leerstand', `${p(a('mietausfall'))} der Sollmiete`, wie, 'PGN'],
       ['Kosten', 'Verwaltung, Instandhaltung', `${fmt.euro(a('objektverwaltung_je_wohnung'))} je Wohnung, ${fmt.euroDez(a('instandhaltung_je_qm'))} je m² p. a.`, wie, 'PGN'],
@@ -23,7 +23,7 @@ module.exports = {
       ['', 'Tilgung', `${p(a('tilgung_nbank'))} p. a. linear`, `jährliche Annuität über ${a('laufzeit_bank')} Jahre`, 'PGN'],
       ['', 'Verwaltungskostenbeitrag', `${p(a('verwaltungskostenbeitrag'))} vom Restkapital`, { text: 'entfällt', farbe: ctx.HEX.grau600 }, 'RL 12.7.1'],
       ['', 'Kontokorrent', `Soll ${p(a('sollzins'))}, Haben ${p(a('guthabenzins'))}`, wie, 'PGN'],
-      ['Restwert', 'Restwert Ende Jahr 35', 'Ertragswert aus der Marktmiete', wie, 'Gutachterausschuss Nds.'],
+      ['Restwert', 'Restwert Ende Jahr 35', 'Ertragswert (Miete nach der Bindung) gem. ImmoWertV', 'Ertragswert (Marktmiete) gem. ImmoWertV', 'PGN'],
     ];
     ctx.gleich('Zuschuss = NBank-Darlehen in A', ctx.wert('n5.zuschuss.A'), ctx.wert('n5.darlehen_nbank.A'), 0);
     zeilen.forEach(z => z.slice(1).forEach(t => wl(typeof t === 'string' ? t : t.text, 'Tabelle')));
@@ -31,7 +31,7 @@ module.exports = {
     B.tabelle(s, { x: colX(1), y: yT + 0.02, w: span(12), pt: 12, name: 'Tabelle Annahmen',
       dicht: true, zellrand: [0.03, 0.03],
       spalten: [{ kopf: 'Position', breite: 2.45, art: 'text' }, { kopf: 'Gefördert, Gruppe A', breite: 3.80, art: 'text' },
-        { kopf: 'Frei finanziert', breite: 3.15, art: 'text' }, { kopf: 'Herkunft', art: 'text' }],
+        { kopf: 'Frei finanziert', breite: 3.15, art: 'text' }, { kopf: 'Quelle', art: 'text' }],
       // Gruppen (Ertrag, Kosten, Finanzierung, Restwert) durch eine Linie: Die Trennlinie steht unter einer Zeile, also an der letzten Zeile vor
       // einer neuen Gruppe; der Name der Gruppe entfällt
       zeilen: zeilen.map((z, i) => ({ zellen: z.slice(1), trennlinie: i < zeilen.length - 1 && zeilen[i + 1][0] !== '' })) });

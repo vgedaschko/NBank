@@ -18,7 +18,7 @@ module.exports = {
     B.quelle(s, quelleMarkt(ctx));
     B.diagrammkopf(s, { titel: wl(`Miete für eine DSCR von ${fmt.dez(ziel, 1)} in Jahr 1`, 'Diagrammtitel'), sub: wl('in € je m² und Monat · Linie: erzielbare Miete', 'Untertitel') });
     B.legende(s, { x: ZONE.diagramm.chart.x, y: ZONE.diagramm.legende, eintraege: [{ text: 'Gruppe A', art: 'tinte' }, { text: 'Frei finanziert', art: 'referenz' }, { text: 'Lücke zur Marktmiete', art: 'signal' }] });
-    const hinweis = wl(`DSCR = Überschuss vor Kapitaldienst ÷ Kapitaldienst. ${fmt.dez(ziel, 1)} verlangt die Bank für ihr Darlehen, Annahme der PGN. Gefördert gilt die DSCR für das NBank-Darlehen.`, 'Hinweiskasten');
+    const hinweis = wl(`DSCR = Überschuss vor Kapitaldienst ÷ Kapitaldienst.\nDSCR = ${fmt.dez(ziel, 1)} verlangt die Bank mindestens für ihr Darlehen, Annahme.\nGefördert gilt die DSCR für das NBank-Darlehen.`, 'Hinweiskasten');
     const cz = ZONE.diagramm.chart, hH = B.hinweisHoehe(hinweis, { w: cz.w });
     const d = D.balkenpaar(s, { x: cz.x, y: cz.y, w: cz.w, h: +(Y.inhaltEnde - cz.y - hH - 0.12).toFixed(3), kategorien: ['Gruppe A', 'Frei finanziert'], werte: [nA, nF], arten: ['tinte', 'referenz'],
       reihenname: 'Miete für DSCR 1,2', achse: { min: 0, max: 21, schritt: 3, format: 'roh' }, katBreite: 1.55, rand: { o: 0.50, r: 1.20, u: 0.50 }, name: 'Diagramm Miete für DSCR 1,2' });
@@ -32,8 +32,9 @@ module.exports = {
     B.marke(s, { x: d.xWert(markt), y: d.katMitte(1) - bh / 2 - 0.32, h: bh + 0.44, art: 'mass', text: `Marktmiete ${fmt.euroDez(markt)}`, textSeite: 'rechts', textBreite: 2.0 });   // rechts der Linie: oben läge die Zeile unter dem Wert von A
     B.hinweis(s, { x: cz.x, y: Y.inhaltEnde, unten: true, w: cz.w, name: 'DSCR', text: hinweis });
 
-    B.hauptzahl(s, { vorsatz: 'Frei finanziert', zahl: fmt.dez(luecke, 2), einheit: '€ je m²', label: wl('fehlen am Markt', 'Hauptzahl'), gross: true });
-    B.nebenzahl(s, { vorsatz: 'Gruppe A', zahl: fmt.dez(luft, 2), einheit: '€ je m²', label: wl('Luft unter der Höchstmiete', 'Nebenzahl'),
+    // Seit 16.11.2026 (Wunsch des Auftraggebers): rechts dieselbe Reihenfolge wie im Diagramm, erst Gruppe A, dann frei finanziert; beide in 44 pt
+    B.hauptzahl(s, { vorsatz: 'Gruppe A', zahl: fmt.dez(luft, 2), einheit: '€ je m²', label: wl('Luft unter der Höchstmiete', 'Nebenzahl'),
       text: wl(`DSCR ${fmt.dez(dA, 2)} zur Höchstmiete, die bei ${fmt.prozent(anteil, 0)} der Marktmiete liegt.`, 'Nebenzahl') });
+    B.nebenzahl(s, { vorsatz: 'Frei finanziert', zahl: fmt.dez(luecke, 2), einheit: '€ je m²', label: wl('fehlen am Markt', 'Hauptzahl') });
   },
 };

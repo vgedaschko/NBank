@@ -705,6 +705,10 @@ def lies(wb, eintrag, lauf=None):
     for v in (wert if isinstance(wert, list) else [wert]):
         if v is None and eintrag["leer"]:
             continue
+        # Seit 16.11.2026: „n. v.“ ist das Statuswort der Mappe für eine nicht definierte Rendite (Endvermögen nicht positiv; frei finanziert
+        # ohne Restwert bei der Marktmiete 11,75 €). Im Lauf der Renditen bleibt es als Text stehen; die Folien lesen die Renditen aus kennzahlen.json
+        if isinstance(v, str) and v == "n. v." and eintrag["schluessel"].startswith("rendite."):
+            continue
         if v is None or (isinstance(v, str) and (v.startswith("#") or eintrag["einheit"] != "Text")):
             sys.exit(f"Kein gültiger Wert: {eintrag['schluessel']} → {blatt}!{zelle} = {v!r}")
         if eintrag["einheit"] == "Text" and not isinstance(v, str):

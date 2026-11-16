@@ -39,8 +39,8 @@ module.exports = {
       return { nr: f.nr, name: namen.get(f.nr), verweis: f.verweis };
     });
     // Der Satz unter dem Modultitel nennt die Anhangfolie der Programmteile mit ihrer Blattnummer
-    const satz = wl(X('rahmen', 'agenda.register.untertitel'), 'Untertitel'), a1 = outline.folien.find(f => f.id === 'anhang-programmteile');
-    if (!a1 || !satz.includes(`Anhang ${a1.nr}`)) P.melde(`Agenda: Der Satz zum Register nennt die Anhangfolie der Programmteile nicht mit ihrer Blattnummer (${a1 ? a1.nr : 'fehlt im Konzept'}).`);
+    // Seit 16.11.2026 (Notfassung): Verweis auf Richtlinie und Produktinformationen der NBank statt auf Broschüre und Anhang A1 (beide entfallen)
+    const satz = wl(X('rahmen', 'agenda.register.untertitel'), 'Untertitel');
     const yKopf = achse.unten + 0.20;
     B.modulkopf(s, { x: colX(1), y: yKopf, w: Raster.CW, titel: wl(X('rahmen', 'agenda.register.titel'), 'Modultitel') });
     B.text(s, satz, { x: colX(1), y: yKopf + 0.37, w: Raster.CW, h: 0.26, rolle: 'dicht', valign: 'middle', einzeilig: true, name: 'Untertitel Register' });

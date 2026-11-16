@@ -69,7 +69,7 @@ module.exports = {
     // sind, steht hier zum ersten Mal auf einer Folie; die Zuschläge kommen aus daten/regeln.json (Broschüre S. 6)
     const stp = B.stichpunkte(s, { x: kx, y: pfad.unten + 0.10, w: kw, titelAbstand: 6, punktAbstand: 1, name: 'Stichpunkte', gruppen: [
       { titel: wl('Zulässige Mieterhöhung', 'Überschrift'), punkte: [
-        wl(`ab Jahr ${erste} höchstens +${fmt.prozent(T('mieterhoehung_in_der_bindung'), 2)} in drei Jahren (Betriebskosten ausgenommen)`, 'Stichpunkt'),
+        wl(`ab Jahr ${erste} höchstens +${fmt.prozent(T('mieterhoehung_in_der_bindung'), 2)} alle drei Jahre (Betriebskosten ausgenommen)`, 'Stichpunkt'),
         wl('auch bei Wiedervermietung', 'Stichpunkt'), wl('keine Staffel- oder Indexmiete', 'Stichpunkt')] },
       { titel: wl('Einkommensgruppen der Mieter', 'Überschrift'), punkte: [
         wl(`A bis Einkommensgrenze, B bis +${fmt.prozent(R('einkommensgrenze.zuschlag_B'))}, C bis +${fmt.prozent(R('einkommensgrenze.zuschlag_C'))}`, 'Stichpunkt'),

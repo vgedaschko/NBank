@@ -41,11 +41,12 @@ function argumente(argv) {
     const k = argv[i];
     if (k === '--probe') a.probe = true;
     else if (k === '--trotzdem') a.trotzdem = true;
+    else if (k === '--ohne-wortlaut') a.ohneWortlaut = true;   // Notfassung: Abweichungen vom Feld „inhalt“ des Konzepts als Hinweis
     else if (k === '--nur' || k === '--aus' || k === '--gruppe') {
       const v = argv[++i];
       if (!v) throw new Error(`${k} braucht einen Wert.`);
       if (k === '--nur') a.nur = v.split(',').map(s => s.trim()).filter(Boolean); else a[k.slice(2)] = v;
-    } else throw new Error(`Unbekanntes Argument „${k}“. Erlaubt: --nur id1,id2 · --gruppe name · --aus datei.pptx · --probe · --trotzdem`);
+    } else throw new Error(`Unbekanntes Argument „${k}“. Erlaubt: --nur id1,id2 · --gruppe name · --aus datei.pptx · --probe · --trotzdem · --ohne-wortlaut`);
   }
   return a;
 }
@@ -117,6 +118,7 @@ async function main() {
   pres.author = T.FIRMA; pres.company = T.FIRMA; pres.revision = '1';
   definiereLayouts(pres);
 
+  const wortlautAbweichungen = [];
   const P = new Pruefung(), anweisungen = {}, leer = {}, tabellen = {}, altTexte = {}, lagen = {}, warnungen = [];
   const warnAlt = console.warn;
   console.warn = (...a) => { warnungen.push(a.join(' ')); };
@@ -225,7 +227,8 @@ async function main() {
       // Gegenprobe: Der Text steht so im Feld „inhalt“ des Konzepts (Groß- und Kleinschreibung, Fettmarken und geschützte Leerzeichen zählen nicht).
       // Zahlen aus werte.json und den Datendateien sind damit zugleich gegen das Konzept geprüft. Eine Abweichung bricht den Bau ab. Rückgabe: der Text
       wortlaut(text, was) {
-        if (!gross(inh).includes(gross(text))) P.melde(`Wortlautprobe${was ? ' ' + was : ''}: „${daten.glatt(text)}“ steht so nicht im Feld „inhalt“ des Konzepts (outline.json, Folie ${o.id}).`);
+        // --ohne-wortlaut (Notfassung vom 16.11.2026): Abweichungen vom Konzept zählen als Hinweis, der Bau läuft durch
+        if (!gross(inh).includes(gross(text))) (process.argv.includes('--ohne-wortlaut') ? (t => { wortlautAbweichungen.push(t); }) : (t => P.melde(t)))(`Wortlautprobe${was ? ' ' + was : ''}: „${daten.glatt(text)}“ steht so nicht im Feld „inhalt“ des Konzepts (outline.json, Folie ${o.id}).`);
         return text;
       },
       // Titelzeilen mit Werten aus der Rechenmappe: Das Modul baut die Zeilen aus W und fmt, hier die Gegenprobe gegen das Konzept (Feld „titel“ und
@@ -267,6 +270,7 @@ async function main() {
   });
   // ---- Prüfen, schreiben, nachbearbeiten ------------------------------------------------------------------------------
   for (const h of P.hinweise) console.log(`Hinweis · Folie „${h.folie}“ – ${h.text}`);
+  if (wortlautAbweichungen.length) console.log(`Notfassung (--ohne-wortlaut): ${wortlautAbweichungen.length} Texte weichen vom Feld „inhalt“ des Konzepts ab; outline.json ist nachzuziehen.`);
   if (P.fehler.length) console.error(`Passprüfung: ${P.fehler.length} Fehler\n` + P.bericht());
   if (P.fehler.length && !arg.trotzdem) { console.warn = warnAlt; console.error('Abbruch: Die Mappe wurde nicht geschrieben. Zum Ansehen trotz Fehlern: --trotzdem'); process.exit(1); }
 

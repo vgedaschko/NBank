@@ -66,15 +66,19 @@ function gruende(ctx) {
   const ue1 = M('jr1.zahlungsueberschuss.A'), zinsfrei = M('tab.zinsfreie_jahre');
   ctx.pruefe(M('liq.jahre_mit_fehlbetrag.A') === 0 && M('tab.zins_nbank_bis_jahr35') === 0, 'A hat ein Jahr mit Fehlbetrag oder das Darlehen ist nicht zinsfrei.');
   ctx.pruefe(fest === 3 && takt === 3, '„drei Jahre fest“ oder „in drei Jahren“ stimmt nicht mehr.');
+  // Seit 16.11.2026 (Wunsch der Geschäftsleitung): je Grund nur die Kernbotschaft und eine kurze Zeile mit der Zahl dahinter. Grund 2 sagt
+  // ausdrücklich, dass die Wohnungen dauerhaft vermietbar sind (Abstand zur Marktmiete, sinkender Bestand gebundener Wohnungen)
+  const luecke = noetig - markt;
+  ctx.pruefe(anteil < 1 && luecke > 0, 'Höchstmiete liegt nicht unter der Marktmiete oder frei finanziert fehlt keine Miete.');
   return [
     { titel: 'Planbare Mieterträge',
-      satz: `Höchstmiete ${fmt.euroDez(miete)} in A, drei Jahre fest. Danach höchstens +${fmt.prozent(erh, 2)} in drei Jahren.` },
+      satz: `Höchstmiete ${fmt.euroDez(miete)}, höchstens +${fmt.prozent(erh, 2)} alle drei Jahre` },
     { titel: 'Gesicherte Nachfrage',
-      satz: `Im Modellhaus liegt die Miete bei ${fmt.prozent(anteil, 0)} der Marktmiete. Bestand gebundener Wohnungen seit ${jahre[0]} um ${fmt.prozent(rueckgang, 1)} gesunken.` },
+      satz: `Dauerhaft vermietbar: Miete ${fmt.prozent(1 - anteil, 0)} unter der Marktmiete` },
     { titel: 'Neubau, der sonst nicht entsteht',
-      satz: `Frei finanziert braucht das Haus ${fmt.euroDez(noetig)} Miete, der Markt zahlt ${fmt.euroDez(markt)}.` },
+      satz: `Frei finanziert fehlen ${fmt.euroDez(luecke)} Miete je m²` },
     { titel: 'Liquidität über 35 Jahre',
-      satz: `In A ${fmt.euro(ue1)} Zahlungsüberschuss in Jahr 1. Kein Jahr mit Fehlbetrag. Zins 0 % für ${zinsfrei} Jahre.` }];
+      satz: `Kein Jahr mit Fehlbetrag, Zins 0 % für ${zinsfrei} Jahre` }];
 }
 
 // Quellenzeile der Folien mit der Marktmiete (daten/rechnung.json, marktwerte.quelle_kurz), gegen das Konzept geprüft

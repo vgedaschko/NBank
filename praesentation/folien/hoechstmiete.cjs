@@ -44,12 +44,15 @@ module.exports = {
       if (dy >= 0.30) return null;                                                                  // Säule und Beschriftung enden unter der Linie
       return dy > 0.02 ? [d.reiheMitte(i, j) - halb, d.reiheMitte(i, j) + halb] : [d.reiheLinks(i, j) - 0.02, d.reiheLinks(i, j) + breite + 0.02];
     })).filter(Boolean);
-    const jahr = R('angebotsmiete.jahr'), mittel = R('angebotsmiete.mittel'), neubau = R('angebotsmiete.neubau_median');
+    // Notfassung vom 16.11.2026: Angebotsmieten 2024 mit dem Index der Nettokaltmiete (LSN) auf 10/2026 hochgerechnet, auf den Cent gerundet
+    const hoch = v => Math.round(v * R('angebotsmiete.index_ziel') / R('angebotsmiete.index_basis') * 100) / 100;
+    const stand = R('angebotsmiete.stand'), mittel = hoch(R('angebotsmiete.mittel')), neubau = hoch(R('angebotsmiete.neubau_median'));
+    ctx.gleich('Angebotsmiete Neubau, hochgerechnet = Marktmiete der Modellrechnung', neubau, ctx.wert('n2.marktmiete_jahr1'), 0.005);
     const xText = d.plot.x + d.plot.w + 0.10, x1 = d.x + d.w;
     B.markeMitLuecken(s, { y: d.yWert(neubau), x0: d.plot.x, x1, luecken: luecken(neubau), textX: xText, textBreite: x1 - xText, lage: 'ueber', name: 'Marke Angebotsmiete Neubau',
-      text: `Angebotsmiete Neubau\nNiedersachsen ${jahr},\nMedian (landesweit): **${fmt.dez(neubau)}**` });
+      text: `Angebotsmiete Neubau,\nMedian Niedersachsen,\nStand ${stand}: **${fmt.dez(neubau)}**` });
     B.markeMitLuecken(s, { y: d.yWert(mittel), x0: d.plot.x, x1, luecken: luecken(mittel), textX: xText, textBreite: x1 - xText, lage: 'unter', name: 'Marke Angebotsmiete',
-      text: `Angebotsmiete\nNiedersachsen ${jahr},\nMittel (landesweit): **${fmt.dez(mittel)}**` });
+      text: `Angebotsmiete,\nMittel Niedersachsen,\nStand ${stand}: **${fmt.dez(mittel)}**` });
 
     B.hinweis(s, { x: colX(1), y: Y.inhaltEnde, w: WD, text: hinweis, unten: true });
 

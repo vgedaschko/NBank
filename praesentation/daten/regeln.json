@@ -33,12 +33,15 @@
   },
   "hoechstmiete": {
     "_hinweis": "Folie 10 (hoechstmiete): Quellenzeile im Schriftfeld (Änderungsrunde vom 13.11.2026, F10.3). Die Folie zeigt neben den Höchstmieten der Richtlinie die Angebotsmieten 2024 aus dem NBank-Wohnungsmarktbericht 2025, deren Quelle bis dahin auf der Folie fehlte.",
-    "quelle_kurz": { "wert": "Quellen: RL Mietwohnraum 2026; NBank-Wohnungsmarktbericht 2025", "einheit": "Quellenangabe, Kurzform für das Schriftfeld der Folie", "herkunft": "Änderungsrunde vom 13.11.2026, F10.3 (Wortlaut der Umsetzungsliste); die volle Angabe steht auf der Quellenfolie im Anhang", "geprueft": true }
+    "quelle_kurz": { "wert": "Quellen: RL Mietwohnraum 2026; NBank-Wohnungsmarktbericht 2025 (Angebotsmieten 2024); eigene Hochrechnung auf 10/2026 mit dem LSN-Mietenindex", "einheit": "Quellenangabe, Kurzform für das Schriftfeld der Folie", "herkunft": "Änderungsrunde vom 13.11.2026, F10.3 (Wortlaut der Umsetzungsliste); die volle Angabe steht auf der Quellenfolie im Anhang", "geprueft": true }
   },
   "angebotsmiete": {
     "jahr": { "wert": 2024, "einheit": "Jahr", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.reference_lines[0].label", "geprueft": true },
     "mittel": { "wert": 9.00, "einheit": "€/m² Monat, Niedersachsen, Mittel (landesweit)", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.reference_lines[0].value", "geprueft": true },
-    "neubau_median": { "wert": 11.22, "einheit": "€/m² Monat, Neubau Niedersachsen, Median (landesweit)", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.reference_lines[1].value", "geprueft": true }
+    "neubau_median": { "wert": 11.22, "einheit": "€/m² Monat, Neubau Niedersachsen, Median (landesweit)", "herkunft": "Broschüre S. 7, 07-ertragsseite-mieten.json, blocks[1].data.reference_lines[1].value", "geprueft": true },
+    "index_basis": { "wert": 105.9, "einheit": "Index der Nettokaltmiete Niedersachsen, Jahresdurchschnitt 2024 (2020 = 100)", "herkunft": "Landesamt für Statistik Niedersachsen, Verbraucherpreisindex, Nettokaltmiete; Notfassung vom 16.11.2026", "geprueft": true },
+    "index_ziel": { "wert": 110.9, "einheit": "Index der Nettokaltmiete Niedersachsen, Oktober 2026 (2020 = 100)", "herkunft": "Landesamt für Statistik Niedersachsen, Verbraucherpreisindex, Nettokaltmiete; Notfassung vom 16.11.2026", "geprueft": true },
+    "stand": { "wert": "10/2026", "einheit": "Stand der Hochrechnung", "herkunft": "Notfassung vom 16.11.2026: Angebotsmieten 2024 mit dem Index der Nettokaltmiete auf Oktober 2026 hochgerechnet", "geprueft": true }
   },
   "bemessungsgrenze": {
     "fortschreibung": { "wert": ["01.04.", "01.10."], "einheit": "Stichtage im Jahr", "herkunft": "Broschüre S. 8, 08-programmteil-2-1.json, blocks[1].body", "geprueft": true },

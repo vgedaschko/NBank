@@ -16,7 +16,7 @@ function fakten(ctx) {
   ctx.gleich('Gesamtkosten = Herstellungskosten je m² × Wohnfläche (Grundstück 0, KG 800 0)', a('herstellungskosten_qm') * wf, gk, 0);
   ctx.pruefe(a('grundstueck') === 0 && a('eh40') === 'nein' && a('mietenstufe') === 'VI', 'Grundstück, Standard oder Mietenstufe stimmen nicht mehr.');
   return { we, wf, schnitt: wf / we, kostenQm: a('herstellungskosten_qm'), gk, bezug: a('bezugsjahr'), bindung: a('bindung'), mietenstufe: a('mietenstufe'),
-    standard: 'Effizienzhaus 55', fmt };
+    standard: 'Energiestandard gemäß GModG', fmt };
 }
 
 // Axonometrie in freier Lage (seit 15.11.2026, Wunsch des Auftraggebers): die Linienzeichnung des Titels nach dem Referenzprojekt Brauerstraße,

@@ -13,7 +13,7 @@ module.exports = {
     const p = v => { const h = Math.round(v * 1e4); return fmt.prozent(v, h % 100 === 0 ? 0 : h % 10 === 0 ? 1 : 2); };   // 2 %, 0,5 %, 2,38 %
     const wie = { text: 'wie gefördert', farbe: ctx.HEX.grau600 };
     const zeilen = [
-      ['Ertrag', 'Miete Jahr 1 je m²', `Höchstmiete ${fmt.euroDez(a('hoechstmiete_VI.A'))}`, `Marktmiete ${fmt.euroDez(a('marktmiete_jahr1'))}`, 'RL 5.4.4 · NBank, LSN'],
+      ['Ertrag', 'Miete Jahr 1 je m²', `Höchstmiete ${fmt.euroDez(a('hoechstmiete_VI.A'))}`, `Marktmiete ${fmt.euroDez(a('marktmiete_jahr1'))}`, 'RL 5.4.4 · Mietübersicht'],
       ['', 'Mietanpassung', `${a('jahre_ohne_mieterhoehung')} Jahre fest, dann +${p(a('mieterhoehung_in_der_bindung'))} je ${a('abstand_mieterhoehungen')} Jahre`, `+${p(a('mietsteigerung'))} p. a.`, 'RL 5.4.5 · PGN'],
       ['', 'Mietausfall, Leerstand', `${p(a('mietausfall'))} der Sollmiete`, wie, 'PGN'],
       ['Kosten', 'Verwaltung, Instandhaltung', `${fmt.euro(a('objektverwaltung_je_wohnung'))} je Wohnung, ${fmt.euroDez(a('instandhaltung_je_qm'))} je m² p. a.`, wie, 'PGN'],

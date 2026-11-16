@@ -16,8 +16,8 @@ Erzeugt von `build_kennzahlen.py` aus `PGN_VOFI_Mietwohnraum_2026_v3.xlsx`. Wert
 | Eingabe 3.3 Zins NBank-Darlehen ab Jahr 36 p. a. | 3,86 % |  | PGN-Annahme | PGN-Annahme: wie Eingabe 6.1 (Rahmen RL Nr. 5.3.4) | Eingaben!F19 |
 | Eingabe 4.1 Mietenstufe | VI | Text | Projektdaten PGN | Projektdaten PGN, Broschüre S. 10 | Eingaben!F22 |
 | Eingabe 4.2 Effizienzhaus 40 erreicht | nein | Text | Projektdaten PGN | Planung PGN (EH 55), Broschüre S. 10 | Eingaben!F23 |
-| Eingabe 4.3 Ortsübliche Vergleichsmiete Jahr 1 | 9,19 | €/m² Monat | Quelle | Angebotsmiete Bestand Nds., Median 2024, fortgeschr. | Eingaben!F24 |
-| Eingabe 4.4 Marktmiete Neuvermietung Jahr 1 | 11,75 | €/m² Monat | Quelle | Gutachterausschuss Lüneburg, Mietübersicht Landkreis Harburg, Hamburger Umland, Baualter ab 2023, 40–60 m², Stand 01.01.2026 | Eingaben!F25 |
+| Eingabe 4.3 Ortsübliche Vergleichsmiete Jahr 1 | 12,9177 | €/m² Monat | Quelle | Mietübersicht Lkr. Harburg 2022, fortgeschr. | Eingaben!F24 |
+| Eingabe 4.4 Marktmiete Neuvermietung Jahr 1 | 15,42 | €/m² Monat | Quelle | Gutachterausschuss Lüneburg, Mietübersicht Landkreis Harburg, Hamburger Umland, Baualter ab 2023, 40–60 m², Stand 01.01.2026 | Eingaben!F25 |
 | Eingabe 4.5 Steigerung Markt- und Vergleichsmiete p. a. (Mietanpassung frei finanziert) | 2 % |  | PGN-Annahme | PGN-Annahme | Eingaben!F26 |
 | Eingabe 4.6 Kappungsgrenze nach Bindungsende, in 3 Jahren | 20 % |  | Gesetz | § 558 Abs. 3 BGB | Eingaben!F27 |
 | Eingabe 5.1 Mietausfall/Leerstand, Anteil der Sollmiete | 2 % |  | PGN-Annahme | PGN-Annahme (Broschüre S. 11) | Eingaben!F29 |
@@ -31,7 +31,7 @@ Erzeugt von `build_kennzahlen.py` aus `PGN_VOFI_Mietwohnraum_2026_v3.xlsx`. Wert
 | Eingabe 6.4 Laufzeit Bankdarlehen (jährliche Annuität über 30 Jahre) | 30 | Jahre | PGN-Annahme | PGN-Annahme (Vorgängermappe) | Eingaben!F38 |
 | Eingabe 7.1 Zusätzliches Eigenkapital bar | 0 | € | PGN-Annahme | PGN-Annahme | Eingaben!F40 |
 | Eingabe 7.2 Guthabenzins Projektkonto (VOFI) p. a. | 2 % |  | PGN-Annahme | PGN-Annahme (Vorgängermappe) | Eingaben!F41 |
-| Eingabe 7.3 Sollzins Projektkonto (VOFI) p. a. | 5 % |  | PGN-Annahme | PGN-Annahme (Vorgängermappe) | Eingaben!F42 |
+| Eingabe 7.3 Sollzins Projektkonto (VOFI) p. a. | 10 % |  | PGN-Annahme | PGN-Annahme 16.11.2026 | Eingaben!F42 |
 | Eingabe 8.1 Bodenwertsteigerung p. a. | 1,5 % |  | PGN-Annahme | PGN-Annahme (Vorgängermappe) | Eingaben!F44 |
 | Eingabe 8.2 Zielmiete nach Jahr 42 (Restwert) | Marktmiete | Text | PGN-Annahme | PGN-Annahme | Eingaben!F45 |
 | Eingabe 8.3 Veräußerungskosten, Anteil des Restwerts | 0 % |  | PGN-Annahme | PGN-Annahme | Eingaben!F46 |

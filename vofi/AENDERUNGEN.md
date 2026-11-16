@@ -2,6 +2,10 @@
 
 `PGN_VOFI_Mietwohnraum_2026_v3.xlsx` ersetzt `PGN_NBank_VOFI_Modell_v2-1.xlsx` (v2-1, bleibt unverändert). Stand 11.11.2026; vor Steuern, nominal, Jahr 0 = Bezugsfertigkeit.
 
+## 0. Nachtrag 16.11.2026: Sollzins des Projektkontos für das Modellhaus
+
+Eingabe 7.3 (Sollzins Projektkonto, VOFI) steht für das Modellhaus (Projekt 2) auf 10 % statt 5 %, Vorgabe der Geschäftsleitung; das Vergleichshaus (Projekt 1) bleibt bei 5 %. Alle übrigen Eingaben sind unverändert, die Mieten des Modellhauses bleiben die für Neu Wulmstorf (4.3 und 4.4). Betroffen sind nur Läufe von Projekt 2, in denen das Projektkonto ins Soll gerät (frei finanziert). `pruefe_vofi.py` führt noch die Sollwerte mit 5 %.
+
 ## 0. Nachtrag 15.11.2026: Blätter für die Modellrechnung des Vortrags
 
 Hinter den neun Blättern stehen drei weitere, erzeugt von `build_kennzahlen.py`; die neun Blätter bleiben Zelle für Zelle gleich.
@@ -13,8 +17,6 @@ Hinter den neun Blättern stehen drei weitere, erzeugt von `build_kennzahlen.py`
 Die Zahlen gehen über `../praesentation/daten/kennzahlen.json` in den Vortrag (Folien 14 bis 22, Fazit, Anhang A4). `pruefe_vofi.py` prüft die neuen Blätter mit der Prüfung „K“ (624 Prüfungen, 0 Fehler).
 
 Nachtrag 15.11.2026, Broschüre S. 10–12 neu: Drei Quellenvermerke folgen der neuen Broschüre: Eingabe 4.2 „Planung PGN (EH 55), Broschüre S. 10“ (Steckbrief), Eingabe 5.5 „PGN-Annahme (Kostenstand 2026)“, Übersicht 4.9 „Rechenweg 4.12 bis 4.16“ (die Broschüre zeigt die Tilgungsschwellen nicht mehr). Kein Rechenwert ändert sich.
-
-Nachtrag 16.11.2026, Mieten des Modellhauses: Projekt 2 rechnet mit dem Median der Angebotsmieten in Niedersachsen 2024 (Neubau 11,22 €, Bestand 8,78 €; NBank-Wohnungsmarktbericht 2025, S. 45), auf 10/2026 fortgeschrieben mit dem Index der Nettokaltmiete des LSN (110,9 ÷ 105,9), statt mit den Mieten für Neu Wulmstorf: Marktmiete (Eingabe 4.4) 11,75 statt 15,42 €/m², Vergleichsmiete (4.3) 9,19 statt 12,92 €/m²; dazu neue Quellen beider Eingaben und ein neuer Hinweis 14. Frei finanziert: Zahlungsüberschuss Jahr 1 −37.427 statt −1.691 €, DSCR Jahr 1 0,72 statt 0,99, nötige Miete für das DSCR-Ziel 1,0 weiter 15,59 €/m² (jetzt 32,7 % über der Marktmiete), für DSCR 1,2 weiter 18,36 €/m². Gefördert: Finanzierung und Jahr 1 bleiben, der Restwert sinkt (Jahr 35, A: 4.273.372 statt 5.152.780 €), VOFI-EK-Rendite mit Restwert A / B / C 6,61 / 6,71 / 6,75 % statt 7,05 / 7,28 / 7,40 %; nach der Bindung begrenzt jetzt die Vergleichsmiete die Miete der Gruppen B und C. Die Abschnitte 10 bis 12 nennen den Stand bis 15.11.2026. Die Broschüre S. 10–12 bleibt vorerst auf diesem Stand; `pruefe_vofi.py` prüft sie mit eigenen Läufen (L71 bis L73, frühere Mieten).
 
 ## 1. Was ist neu
 

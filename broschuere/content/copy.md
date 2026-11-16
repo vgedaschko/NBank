@@ -545,7 +545,7 @@ Maßkette links (gilt für beide): Eigenkapital 20 % | Fremdkapital 80 %
 | Verwaltungskostenbeitrag | 0,5 % vom Restkapital | entfällt |
 | Tilgung | 2,38 % p. a. | jährliche Annuität über 30 Jahre |
 | Kontokorrent | Soll 5 %, Haben 2 % | wie gefördert |
-| Restwert Ende Jahr 35 | Ertragswert aus der Marktmiete | wie gefördert |
+| Restwert Ende Jahr 35 | Ertragswert, Miete nach der Bindung | Ertragswert, Marktmiete |
 
 *Werte: Rechenmappe v3, Projekt 2; jede Zahl mit ihrer Zelle im Seiten-JSON („belege“). Dichte Seite (9 pt). Kein Foto: Die Visualisierung der Referenzen zeigt ein anderes PGN-Projekt in Neu Wulmstorf (Bahnhofstraße, 19 Wohnungen); das Modellhaus ist Projekt 2 der Mappe mit 14 Wohnungen.*
 
@@ -609,9 +609,9 @@ Zweite Stimme: Der Markt zahlt 15,42 € je m²
 
 *Modellrechnung · Schlüsselplan: Programmteil 2.1*
 
-Zweite Stimme: Über 35 Jahre kein Jahr mit Fehlbetrag
+Zweite Stimme: Gruppe A und C über 35 Jahre
 
-### Eigenkapitalrendite 7,05 % in A
+### Kein Jahr mit Fehlbetrag
 
 #### Grund
 
@@ -648,6 +648,8 @@ Zweite Stimme: Über 35 Jahre kein Jahr mit Fehlbetrag
 |  | Anteil des Restwerts | 78 % | 69 % |
 
 *Ergebniszeile 4 rot.*
+
+*Notiz unter dem Rechenblatt (seit 16.11.2026, nach der Prüfung des Restwerts, `pruefung-restwert/BERICHT.md`):* Restwert: Ertragswert Ende Jahr 35 mit dem Liegenschaftszins von 2026, in Preisen des Jahres 35. Nach der Bindung steigt die Miete in A um höchstens 20 % in drei Jahren. Mit 15 % wie heute in Neu Wulmstorf beträgt die Rendite 6,75 %, mit dem halben Restwert 5,56 %.
 
 #### Vier Gründe für geförderten Mietwohnungsbau
 

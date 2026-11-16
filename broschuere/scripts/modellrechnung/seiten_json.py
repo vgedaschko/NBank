@@ -70,7 +70,7 @@ d10 = {
       ['Verwaltungskostenbeitrag', f'{vkb} % vom Restkapital', 'entfällt'],
       ['Tilgung', f'{tilg} % p. a.', f'jährliche Annuität über {lz} Jahre'],
       ['Kontokorrent', f'Soll {soll} %, Haben {haben} %', 'wie gefördert'],
-      ['Restwert Ende Jahr 35', 'Ertragswert aus der Marktmiete', 'wie gefördert']]}],
+      ['Restwert Ende Jahr 35', 'Ertragswert, Miete nach der Bindung', 'Ertragswert, Marktmiete']]}],
   'footnotes': [], 'fact_ids': ALT['10']['fact_ids'],
   'visual_idea': ('Akzentseite, linke Hälfte der Doppelseite 10|11 (dicht, 9 pt). Kopfzeile mit Rubrik „Modellrechnung“ und Schlüsselplan; H1 in 25 pt mit '
                   '„Modellhaus in Neu Wulmstorf“ als zweite Stimme, Rot nur an „40 %“. Hauptelement über die volle Breite: zwei Häuser als gestapelte '
@@ -162,7 +162,7 @@ zue1 = s.n(U('D38'), wo='Gründe'); z0 = s.n(Z('annahme.zins_nbank_bis_jahr35'),
 d12 = {
   'no': 12, 'slug': '35-jahre', 'layout_type': 'chart-focus',
   'running_title': 'Modellrechnung · 35 Jahre', 'kicker': 'Modellrechnung',
-  'headline_light': f'Über {zf} Jahre kein Jahr mit Fehlbetrag', 'headline': f'Eigenkapitalrendite {rA} % in A',
+  'headline_light': f'Gruppe A und C über {zf} Jahre', 'headline': 'Kein Jahr mit Fehlbetrag',
   'blocks': [
     {'type': 'text', 'heading': 'Grund', 'bullets': [f'A: mehr Zuschuss, Kapitaldienst {kdA} € statt {kdC} € in C. Der Vorteil bleibt etwa gleich.',
                                                      f'C: Miete {mC} € statt {mA} €. Der Vorteil wächst mit jeder Mietanpassung.']},
@@ -173,7 +173,12 @@ d12 = {
     {'type': 'chart', 'chart': 'grouped-bar', 'title': 'Eigenkapitalrendite über 35 Jahre', 'legend': ['mit Restwert', 'ohne'],
      'data': {'Gruppe A': {'mit Restwert': f'{rA} %', 'ohne': f'{rA0} %'}, 'Frei finanziert': {'mit Restwert': f'{rF} %', 'ohne': f'{rF0} %'}},
      'note': f'Vor Steuern. Frei finanziert rechnerisch, bei einer DSCR von {dF}; so gibt die Bank das Darlehen nicht (→ S. 10).'},
-    {'type': 'table', 'role_hint': 'vermoegen', 'caption': 'Vermögen Ende Jahr 35, in Tsd. €', 'columns': ['', 'Position', 'A', 'Frei'], 'rows': vm, 'result_row': '4', 'footer_rows': vf},
+    {'type': 'table', 'role_hint': 'vermoegen', 'caption': 'Vermögen Ende Jahr 35, in Tsd. €', 'columns': ['', 'Position', 'A', 'Frei'], 'rows': vm, 'result_row': '4', 'footer_rows': vf,
+     'note': (f'Restwert: Ertragswert Ende Jahr {zf} mit dem Liegenschaftszins von {s.frei("2026", "Stichtag des Liegenschaftszinses (Tabellen, Tabelle 4: Landesmodell 01.01.2026)", "Notiz Restwert")}, in Preisen des Jahres {zf}. '
+              f'Nach der Bindung steigt die Miete in A um höchstens {s.frei("20", "Eingabe 4.6 Kappungsgrenze nach Bindungsende (Eingaben!F27), § 558 Abs. 3 Satz 1 BGB", "Notiz Restwert")} % in drei Jahren. '
+              f'Mit {s.frei("15", "§ 2 Nr. 7 NMiSchuV vom 20.12.2024, gültig bis 31.12.2029 (pruefung-restwert/BERICHT.md, Befund 3)", "Notiz Restwert")} % wie heute in Neu Wulmstorf beträgt die Rendite '
+              f'{s.frei("6,75", "Mappe neu berechnet mit Eingabe 4.6 = 15 %: Gefördert A I143 = 6,754 % (16.11.2026)", "Notiz Restwert")} %, mit dem halben Restwert '
+              f'{s.frei("5,56", "Mappe neu berechnet mit Eingabe 9.4 = 0,5: Gefördert A I143 = 5,556 % (16.11.2026)", "Notiz Restwert")} %.')},
     {'type': 'reasons', 'heading': 'Vier Gründe für geförderten Mietwohnungsbau', 'items': [
       {'title': 'Planbare Mieterträge', 'text': f'Höchstmiete {mA} € in A, drei Jahre fest. Danach höchstens +{erh} % in drei Jahren.'},
       {'title': 'Gesicherte Nachfrage', 'text': f'Im Modellhaus liegt die Miete bei {anteil} % der Marktmiete. Bestand gebundener Wohnungen seit 2016 um {bestand} % gesunken.'},

@@ -1,6 +1,6 @@
 # Offene Punkte bis zur Abstimmung mit der Geschäftsführung
 
-Stand 15.11.2026. Aufgenommen ist nur, was aus dem Verlauf der Arbeit oder aus den Projektdateien hervorgeht
+Stand 16.11.2026. Aufgenommen ist nur, was aus dem Verlauf der Arbeit oder aus den Projektdateien hervorgeht
 (`praesentation/daten/outline.json`: offene Fragen und ungeprüfte Angaben; `praesentation/README.md`;
 `broschuere/content/copy.md`, Anhang A und B). Wichtigkeit: muss / sollte / kann.
 
@@ -36,6 +36,8 @@ Für die Durchsicht liegt `Aenderungsvorschlaege-Broschuere-und-Vortrag.docx` be
 | a19 | Broschüre S. 10 bis 12 | Erledigt am 15.11.2026: Die drei Seiten zeigen dieselbe Rechnung wie der Vortrag (S. 10 Modellhaus und Finanzierung, S. 11 Jahr 1, S. 12 35 Jahre; gefördert A gegen frei finanziert zur Marktmiete). Jede Zahl steht mit ihrer Formel über Zellen der Mappe im Seiten-JSON („belege“); `vofi/pruefe_vofi.py` (F9) und `praesentation/daten/pruefe_werte.py` rechnen sie nach. Zu bestätigen bleibt die Freigabe der Inhalte (Anhang B Nr. 1 in `broschuere/content/copy.md`). | sollte |
 | a20 | Vortrag Folie 14 (Modellhaus) | Erledigt am 15.11.2026: Das Bild der Folie war die Visualisierung „Neu Wulmstorf“ der Referenzen (Bahnhofstraße, 19 Wohnungen), nicht das Modellhaus (14 Wohnungen). Die Folie zeigt jetzt auf Wunsch des Auftraggebers die Axonometrie des Titels ohne Förderkette, Nordpfeil und Maßstab, mit der Unterzeile „Illustration: Referenzprojekt Brauerstraße, Rotenburg (Wümme)“. Hat die PGN eine Visualisierung des Modellhauses, kann sie die Zeichnung ersetzen (Folie 14 und Broschüre S. 10). | kann |
 | a21 | Rechenmappe, Eingaben (Spalte Quelle) | Erledigt am 15.11.2026: Quelle 4.2 „Broschüre S. 10“, Quelle 5.5 „PGN-Annahme (Kostenstand 2026)“, Bemerkung 4.9 „Rechenweg 4.12 bis 4.16“. Mappe neu gebaut, kein Rechenwert geändert. | erledigt |
+| a22 | Vortrag Folie 21 und A4; Rechenmappe | Nach der Prüfung des Restwerts (`pruefung-restwert/BERICHT.md`, 16.11.2026) ist die Broschüre berichtigt: Titel S. 12 ohne die Rendite, Zeile „Restwert“ der Annahmen (A: Miete nach der Bindung, frei finanziert: Marktmiete), Notiz zum Restwert mit den Vergleichswerten 6,75 % (Kappungsgrenze 15 %) und 5,56 % (halber Restwert). Der Vortrag zeigt noch den alten Stand: Titel der Folie 21 mit 7,05 %, Zeile „Restwert“ auf A4 „Ertragswert aus der Marktmiete, wie gefördert“. Nachziehen. Die Mappe rechnet weiter mit Kappungsgrenze 20 % (gesetzlicher Regelfall); in Neu Wulmstorf gelten bis 31.12.2029 15 %. Entscheiden, ob die Mappe auf 15 % umgestellt wird. | muss vor dem Vortrag |
+| a23 | Prüfung Restwert | Nicht mehr geprüft: Quelle und Modellansätze des Liegenschaftszinses, Modernisierungsbedarf nach 35 Jahren, Behandlung des Restwerts in der Überkompensationsprüfung der NBank, Beleihungswert. Offen aus der Prüfung: Marktmiete für Neubau bei einem dann 35 bis 80 Jahre alten Haus, Grundstück mit 0 € im Eigenkapital. | sollte |
 
 ## b) Was die PGN liefern oder entscheiden muss
 

@@ -562,18 +562,18 @@
     {
       "no": 12,
       "file": "12-35-jahre.json",
-      "title": "Eigenkapitalrendite 7,05 % in A",
+      "title": "Kein Jahr mit Fehlbetrag",
       "role": "innen",
       "source": "12-35-jahre.json (seit 15.11.2026; vorher 12-mix-und-tilgung.json)",
       "purpose": "Modellrechnung, Teil 3 (wie Folien 20, 21 und Fazit des Vortrags): 35 Jahre in A und C ohne Fehlbetrag, Eigenkapitalrendite und Vermögen Ende Jahr 35 gegen frei finanziert, vier Gründe als Abschluss des Kapitels.",
-      "content_outline": "Zweite Stimme „Über 35 Jahre kein Jahr mit Fehlbetrag“, Headline „Eigenkapitalrendite 7,05 % in A“. Band 1: Grund und Annahmen (4) | Zahlungsüberschuss je Jahr A und C (8). Band 2: Eigenkapitalrendite mit und ohne Restwert, A | C | frei finanziert (Notiz: frei finanziert nur rechnerisch bei DSCR 0,99) | Rechenblatt Vermögen Ende Jahr 35 in Tsd. € (Projektkonto, Restwert, Restschuld, Vermögen; Eigenkapital bei Bezug, Anteil des Restwerts). Band 3: Vier Gründe für geförderten Mietwohnungsbau (Wortlaut des Auftraggebers wie Fazit). ENTFÄLLT (15.11.2026): Tilgungsschwellen B und C, Rechenweg, Zulassung von B und C.",
+      "content_outline": "Zweite Stimme „Gruppe A und C über 35 Jahre“, Headline „Kein Jahr mit Fehlbetrag“ (seit 16.11.2026 ohne die Rendite im Titel; unter dem Rechenblatt eine Notiz zum Restwert: Liegenschaftszins von 2026, Preise des Jahres 35, Miete nach der Bindung, Rendite bei Kappungsgrenze 15 % und bei halbem Restwert). Band 1: Grund und Annahmen (4) | Zahlungsüberschuss je Jahr A und C (8). Band 2: Eigenkapitalrendite mit und ohne Restwert, A | C | frei finanziert (Notiz: frei finanziert nur rechnerisch bei DSCR 0,99) | Rechenblatt Vermögen Ende Jahr 35 in Tsd. € (Projektkonto, Restwert, Restschuld, Vermögen; Eigenkapital bei Bezug, Anteil des Restwerts). Band 3: Vier Gründe für geförderten Mietwohnungsbau (Wortlaut des Auftraggebers wie Fazit). ENTFÄLLT (15.11.2026): Tilgungsschwellen B und C, Rechenweg, Zulassung von B und C.",
       "word_budget": 240,
       "layout_type": "chart-focus",
       "visual_idea": "Weiße linke Seite der Heftmitte 12|13. Liniendiagramm A in Tinte, C in seq-4, Fläche unter A hell; Säulen der Rendite in Tinte und seq-3; Rechenblatt mit roter Ergebniszeile; vier gleich breite Spalten mit Achskreisen unten.",
       "slug": "35-jahre",
       "running_title": "Modellrechnung · 35 Jahre",
       "spread": "12|13 (physische Heftmitte, ein Druckbogen): Modellrechnung | Neubau",
-      "title_light": "Über 35 Jahre kein Jahr mit Fehlbetrag"
+      "title_light": "Gruppe A und C über 35 Jahre"
     },
     {
       "no": 13,

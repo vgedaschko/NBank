@@ -128,7 +128,8 @@ Klar, norddeutsch, verbindlich. Kein KI-Ton, keine Floskeln, keine Prosa.
    gegen frei finanziert zur Marktmiete 15,42 €, gleiches Haus, gleiche Kosten, gleiches Eigenkapital. S. 10 Modellhaus,
    Mittelherkunft und Annahmen; S. 11 Jahr 1 (Wohin die Miete fließt, Jahresrechnung, Miete für eine DSCR von 1,2,
    Spielraum A und C); S. 12 35 Jahre (Zahlungsüberschuss A und C je Jahr, Eigenkapitalrendite, Vermögen Ende Jahr 35,
-   vier Gründe). Eigenkapitalrendite nur vor Steuern, als Paar mit und ohne Restwert, mit dem Anteil des Restwerts.
+   vier Gründe). Eigenkapitalrendite nur vor Steuern, als Paar mit und ohne Restwert, mit dem Anteil des Restwerts;
+   seit 16.11.2026 nicht im Titel und mit der Notiz zum Restwert (Annahmen und zwei Vergleichswerte).
    18,36 € nur als „Miete für eine DSCR von 1,2“; frei finanziert sonst immer zur Marktmiete. Gruppe C nur, wo sie das
    Ergebnis ändert; B wird nicht eigens gerechnet. Die vier Gründe (S. 12) sind Wortlaut des Auftraggebers wie im Fazit des
    Vortrags. Schwellen heißen „Spielraum“. Werte aus der VOFI-Mappe v3 (Übersicht, Kennzahlen, Frei DSCR 1,2, Zeitreihe);

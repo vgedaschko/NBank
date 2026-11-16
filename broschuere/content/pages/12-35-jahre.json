@@ -4,8 +4,8 @@
   "layout_type": "chart-focus",
   "running_title": "Modellrechnung · 35 Jahre",
   "kicker": "Modellrechnung",
-  "headline_light": "Über 35 Jahre kein Jahr mit Fehlbetrag",
-  "headline": "Eigenkapitalrendite 7,05 % in A",
+  "headline_light": "Gruppe A und C über 35 Jahre",
+  "headline": "Kein Jahr mit Fehlbetrag",
   "blocks": [
     {
       "type": "text",
@@ -112,7 +112,8 @@
           "78 %",
           "69 %"
         ]
-      ]
+      ],
+      "note": "Restwert: Ertragswert Ende Jahr 35 mit dem Liegenschaftszins von 2026, in Preisen des Jahres 35. Nach der Bindung steigt die Miete in A um höchstens 20 % in drei Jahren. Mit 15 % wie heute in Neu Wulmstorf beträgt die Rendite 6,75 %, mit dem halben Restwert 5,56 %."
     },
     {
       "type": "reasons",
@@ -385,6 +386,31 @@
       "art": "zahl",
       "nk": 0,
       "wo": "Gründe, Titel"
+    },
+    {
+      "text": "2026",
+      "herkunft": "Stichtag des Liegenschaftszinses (Tabellen, Tabelle 4: Landesmodell 01.01.2026)",
+      "wo": "Notiz Restwert"
+    },
+    {
+      "text": "20",
+      "herkunft": "Eingabe 4.6 Kappungsgrenze nach Bindungsende (Eingaben!F27), § 558 Abs. 3 Satz 1 BGB",
+      "wo": "Notiz Restwert"
+    },
+    {
+      "text": "15",
+      "herkunft": "§ 2 Nr. 7 NMiSchuV vom 20.12.2024, gültig bis 31.12.2029 (pruefung-restwert/BERICHT.md, Befund 3)",
+      "wo": "Notiz Restwert"
+    },
+    {
+      "text": "6,75",
+      "herkunft": "Mappe neu berechnet mit Eingabe 4.6 = 15 %: Gefördert A I143 = 6,754 % (16.11.2026)",
+      "wo": "Notiz Restwert"
+    },
+    {
+      "text": "5,56",
+      "herkunft": "Mappe neu berechnet mit Eingabe 9.4 = 0,5: Gefördert A I143 = 5,556 % (16.11.2026)",
+      "wo": "Notiz Restwert"
     },
     {
       "text": "18,36",

@@ -70,7 +70,7 @@ Dateinamen, `data-page`, Anker `#seite-NN`, die Vorschaubilder `seite-NN.png` un
 | 9 | Finanzierung · Eckdaten | Konditionen und Kosten |
 | 10 | Modellrechnung · Modellhaus und Finanzierung | Modellhaus in Neu Wulmstorf: Gleiches Eigenkapital, gefördert 40 % Zuschuss |
 | 11 | Modellrechnung · Jahr 1 | Der Markt zahlt 15,42 € je m²: Frei finanziert braucht das Haus 18,36 € |
-| 12 | Modellrechnung · 35 Jahre | Über 35 Jahre kein Jahr mit Fehlbetrag: Eigenkapitalrendite 7,05 % in A |
+| 12 | Modellrechnung · 35 Jahre | Gruppe A und C über 35 Jahre: Kein Jahr mit Fehlbetrag |
 | 13 | Neubau · Programmteil 2.2 | Energetisch hochwertiger Neubau: Reiner Zuschuss statt Darlehen |
 | 14 | Neubau · Programmteil 2.4 | Ostfriesische Inseln: Höhere Kostengrenze, 10 % Eigenmittel |
 | 15 | Bestand · Programmteil 2.3 | Klimagerechte Modernisierung: Zuschuss nach Effizienzsteigerung |

@@ -192,6 +192,23 @@ Broschüre S. 10–12 seit 15.11.2026 (Umbau der Modellrechnung wie im Vortrag: 
   vergleicht mit dem Text; Belege mit „kennzahl“ gegen praesentation/daten/kennzahlen.json; jeder Text muss so im Partial
   stehen. Die bisherigen Einzelprüfungen (Sensitivität S. 10, A/B/C S. 11, Tilgungsschwellen S. 12) entfallen mit den
   Inhalten. F9 braucht die Läufe L2, L69 und L70.
+
+Mieten des Modellhauses aus dem Landesmedian (16.11.2026) und eingefrorene Broschüre
+  Eingaben 4.3 und 4.4 von Projekt 2 stehen auf 9,19 und 11,75 €/m² (vorher 12,92 und 15,42 €/m²): Median der Angebotsmieten
+  in Niedersachsen 2024 (Bestand 8,78 €, Neubau 11,22 €; NBank-Wohnungsmarktbericht 2025, S. 45), mit dem Index der
+  Nettokaltmiete des LSN auf 10/2026 fortgeschrieben (110,9 ÷ 105,9). Das Skript führt beide Werte als OVM_NDS_2026 und
+  MARKT_NDS_2026, rechnet sie in B.2 aus den Ausgangswerten nach und übergibt sie der RR als ovm_start und markt_start von
+  Projekt 2. Die geänderten Sollwerte von L2 bis L5 und L70 stehen in _MIETEN_NDS (aus der Referenzrechnung erzeugt; L69
+  behält seine Werte). Mit der Vergleichsmiete 9,19 €/m² greift die Obergrenze Vergleichsmiete beim Modellhaus für Gruppe B
+  und C in den Jahren 36 bis 42 (Abweichung A2); jeder Lauf von Projekt 2 im neuen Stand meldet dazu den Hinweis F8.
+  Läufe, die frühere Stände tragen (L64 bis L67: Regression, v2-1, Überleitung E.3), setzen jetzt auch 4.3 ausdrücklich auf
+  den Wert der RR (12,91774539744; STAND_T_VORHER), ebenso basis_v21().
+  Broschüre S. 10–12: eingefroren auf dem Stand vom 16.11.2026 mit den Mieten 12,91774539744 und 15,42 €/m²; sie wird vorerst
+  nicht nachgezogen. F9 rechnet die Belege deshalb mit den Läufen L71 (Standard), L72 (4.631 € je m²) und L73 (5.460 € je m²),
+  je mit 4.3 = 12,91774539744 und 4.4 = 15,42 (BRO_MIETEN); der Vorsatz der Belege bleibt „L69:“ und „L70:“ (BRO_LAEUFE).
+  L71 bis L73 tragen die Sollwerte, die bis 15.11.2026 für L2, L69 und L70 galten, und laufen sonst durch alle Prüfungen
+  eines Laufs (F2, F7, F8, F13). Belege mit „kennzahl“ rechnet F9 nicht nach (kennzahlen.json hat den neuen Stand): je Seite
+  ein HINWEIS „Broschüre eingefroren, Kennzahl nicht nachgerechnet“; dass der Text im Partial steht, prüft F9 weiter.
 """
 import argparse
 import concurrent.futures as cf
@@ -262,7 +279,7 @@ PROJEKT_SPALTE = {"V": "D", "T": "E"}
 PROJEKT_NR = {"V": 1, "T": 2}
 PROJEKT_KURZ = {"V": "Projekt 1", "T": "Projekt 2"}
 PROJEKT_STANDARD = "T"                                  # aktiv im Auslieferungsstand (Eingaben!D3 = 2)
-STANDARD_LAUF = "L2"                                    # Projekt 2 im Standard: gelieferte Werte (F2), Broschüre (F9)
+STANDARD_LAUF = "L2"                                    # Projekt 2 im Standard: gelieferte Werte (F2); F9: BRO_LAEUFE
 GRUPPEN = ("A", "B", "C")
 GEF = {g: f"Gefördert {g}" for g in GRUPPEN}
 FREI = "Frei finanziert"
@@ -617,10 +634,10 @@ EINGABEN = [
      _FM + " / Planung PGN (EH 55), Broschüre S. 10", lambda P: "ja" if P["effizienz"] in ("EH 40", "EH 40 QNG") else "nein",
      lambda P: "ja" if P["effizienz"] in ("EH 40", "EH 40 QNG") else "nein"),
     ("4.3", 24, "Vergleichsmiete_1", "Ortsübliche Vergleichsmiete, Jahr 1", "€/m² Monat", "eur2",
-     ("decimal", 0, 50), "PGN-Annahme / Mietübersicht Lkr. Harburg 2022, fortgeschr.", lambda P: OVM_ROTENBURG,
+     ("decimal", 0, 50), "PGN-Annahme / Angebotsmiete Bestand Nds. 2024, fortgeschr.", lambda P: OVM_ROTENBURG,
      _g("ovm_start")),
     ("4.4", 25, "Marktmiete_1", "Marktmiete Neuvermietung, Jahr 1", "€/m² Monat", "eur2", ("decimal", 0, 50),
-     "Mietübersicht Lkr. Rotenburg 2026 / Lkr. Harburg 2026", lambda P: MARKT_ROTENBURG, _g("markt_start")),
+     "Mietübersicht Lkr. ROW 2026 / Neubau Nds. 2024, fortgeschr.", lambda P: MARKT_ROTENBURG, _g("markt_start")),
     ("4.5", 26, "Mietsteigerung", "Steigerung Markt- und Vergleichsmiete", "% p. a.", "pct", ("decimal", -0.05, 0.10),
      "PGN-Annahme", _g("miet_wachstum"), _g("miet_wachstum")),
     ("4.6", 27, "Kappungsgrenze", "Kappungsgrenze nach Bindungsende", "% in 3 Jahren", "pct", ("decimal", 0, 0.20),
@@ -726,10 +743,19 @@ T4 = "T4"                                                 # Schlüssel in den Te
 OVM_ROTENBURG, MARKT_ROTENBURG = 11.87, 13.30
 ZINS_BANK = 0.0386
 BEMESSUNG_2026_10 = {4800: 5250, 5000: 5460}     # Ausgangswert der Richtlinie -> Wert seit 01.10.2026
-# Marktmiete des Modellhauses (Projekt 2) seit 12.11.2026: 15,42 €/m², Mietübersicht des Gutachterausschusses Lüneburg für den
-# Landkreis Harburg, Hamburger Umland, Baualter ab 2023, 40–60 m², Stand 01.01.2026 (Entscheidung des Auftraggebers). Bis dahin
-# 14,48 €/m² (Mittel zweier fortgeschriebener Werte, RR-Parameter); die Vergleichsmiete bleibt.
+# Marktmiete des Modellhauses (Projekt 2) vom 12.11. bis 15.11.2026: 15,42 €/m², Mietübersicht des Gutachterausschusses Lüneburg
+# für den Landkreis Harburg, Hamburger Umland, Baualter ab 2023, 40–60 m², Stand 01.01.2026 (Entscheidung des Auftraggebers). Bis
+# 11.11.2026 14,48 €/m² (Mittel zweier fortgeschriebener Werte, RR-Parameter). Die Vergleichsmiete war bis 15.11.2026 der
+# RR-Parameter ovm_start (12,91774539744 €/m²; lade_referenz prüft die Gleichheit).
 MARKT_HARBURG_2026, MARKT_T_BIS_12_11 = 15.42, 14.48035669872
+OVM_T_BIS_15_11 = 12.91774539744
+# Mieten des Modellhauses (Projekt 2) seit 16.11.2026: Median der Angebotsmieten in Niedersachsen 2024 (Neubau 11,22 €, Bestand
+# 8,78 €; NBank-Wohnungsmarktbericht 2025, S. 45), mit dem Index der Nettokaltmiete des LSN auf 10/2026 fortgeschrieben
+# (110,9 ÷ 105,9) und auf Cent gerundet: Marktmiete 11,75 €/m² (Eingabe 4.4), Vergleichsmiete 9,19 €/m² (Eingabe 4.3). B.2 rechnet
+# beide Werte aus den Ausgangswerten nach.
+ANGEBOTSMIETE_NDS_2024 = {"Neubau": 11.22, "Bestand": 8.78}
+INDEX_NETTOKALTMIETE_LSN = (110.9, 105.9)                 # Stand 10/2026, Stand der Angebotsmieten 2024
+MARKT_NDS_2026, OVM_NDS_2026 = 11.75, 9.19
 OVM_PLATZHALTER, MARKT_PLATZHALTER = 12.92, 14.48
 
 NAMEN = {"Aktives_Projekt": "Eingaben!$F$4", "Projekt_Nr": "Eingaben!$D$3", "Projektliste": "Eingaben!$D$4:$E$4",
@@ -1070,10 +1096,10 @@ HINWEISE = [
     "Nach außen: Jahresrechnung, Tilgungsvergleich, Annahmen. Renditen nur in der Beratung, je mit Restwert und nur "
     "Bodenwert, dazu Restwertanteil.",
     "Bandbreite je Rendite, Beratung: Eingabe 9.3 ±0,5 Prozentpunkte, 9.4 = 0,50, 8.3 = 5 %, 8.2 = Vergleichsmiete.",
-    "Nicht nach außen: Blatt NBank. Standortwerte Modellhaus (Projekt 2): Marktmiete (Eingabe 4.4) aus der Mietübersicht "
-    "des Gutachterausschusses Lüneburg für den Landkreis Harburg, Hamburger Umland, Baualter ab 2023, 40–60 m², Stand "
-    "01.01.2026; Vergleichsmiete (4.3) aus der Übersicht zum 01.01.2022 (11,70 €), fortgeschrieben mit Eingabe 4.5; "
-    "Liegenschaftszins (Tabellen, Tabelle 4) für Neu Wulmstorf. Vergleichshaus "
+    "Nicht nach außen: Blatt NBank. Mieten Modellhaus (Projekt 2) seit 16.11.2026: Median der Angebotsmieten in "
+    "Niedersachsen 2024 (Neubau 11,22 €, Bestand 8,78 €; NBank-Wohnungsmarktbericht 2025, S. 45), mit dem Index der "
+    "Nettokaltmiete des LSN auf 10/2026 fortgeschrieben (110,9 ÷ 105,9): Marktmiete (4.4) 11,75 €, Vergleichsmiete (4.3) "
+    "9,19 €; Liegenschaftszins (Tabellen, Tabelle 4) unverändert für Neu Wulmstorf, Annahme der PGN. Vergleichshaus "
     "(Projekt 1, Modellhaus bis 11.11.2026): Marktmiete und Liegenschaftszins sind amtliche Werte der "
     "Gutachterausschüsse für Rotenburg (Wümme), Stand 01.01.2026; die Vergleichsmiete ist eine Annahme der PGN. Für "
     "einen anderen Standort ersetzen.",
@@ -1224,7 +1250,11 @@ def lade_referenz():
     # statt 3,74 % der RR-Annahmen (Wert vom 21.07.2026). Gilt für beide Projekte; die RR bleibt unverändert.
     for _p in BASIS.values():
         _p["zins_bank"] = _p["zins_anschluss"] = _p["zins_ab36"] = ZINS_BANK    # 3.3 folgt 6.1 (Auftrag vom 12.11.2026)
-    BASIS["T"]["markt_start"] = MARKT_HARBURG_2026
+    # Mieten von Projekt 2 seit 16.11.2026 (Landesmedian der Angebotsmieten, fortgeschrieben): Die RR rechnet damit; ihr eigener
+    # Wert der Vergleichsmiete (Stand bis 15.11.2026) gilt weiter für die Läufe L64 bis L67 und L71 bis L73 und für basis_v21().
+    if abs(BASIS["T"]["ovm_start"] - OVM_T_BIS_15_11) > 1e-12:
+        raise ValueError("RR parameter_referenzprojekt: ovm_start ungleich OVM_T_BIS_15_11")
+    BASIS["T"]["ovm_start"], BASIS["T"]["markt_start"] = OVM_NDS_2026, MARKT_NDS_2026
     # Bemessungsgrenzen seit 01.10.2026 (NBank-Produktinformation, Stand 05.11.2026): 5.250 €/m² in Mietenstufe I bis III,
     # 5.460 €/m² in IV bis VII; die RR-Annahmen führen die Ausgangswerte 4.800 / 5.000 €/m² (RL Nr. 5.3.2.2).
     for _p in BASIS.values():
@@ -1234,9 +1264,10 @@ def lade_referenz():
 
 def basis_v21():
     """Parameter von Projekt 2 für den Abgleich mit v2-1 und die Überleitung E.3: Bankzins und Anschlusszins wie in der
-    Vorgängermappe (3,74 %, ZINS_BIS_11_11), sonst der Standard."""
+    Vorgängermappe (3,74 %, ZINS_BIS_11_11), Markt- und Vergleichsmiete wie in der Vorgängermappe (14,48 und 12,92 €/m²,
+    die Parameter der RR), sonst der Standard."""
     return {**BASIS["T"], "zins_bank": ZINS_BIS_11_11["6.1"], "zins_anschluss": ZINS_BIS_11_11["6.3"],
-            "zins_ab36": ZINS_BIS_11_11["3.3"], "markt_start": MARKT_T_BIS_12_11}
+            "zins_ab36": ZINS_BIS_11_11["3.3"], "markt_start": MARKT_T_BIS_12_11, "ovm_start": OVM_T_BIS_15_11}
 
 
 def standard_eingaben(proj):
@@ -2006,8 +2037,11 @@ BEWERTUNG_BIS_10_11 = {"4.3": OVM_PLATZHALTER, "4.4": MARKT_PLATZHALTER, T4: LZ_
 # Bankzins und Anschlusszins bis 11.11.2026: 3,74 % (Wert vom 21.07.2026, RR-Annahmen und v2-1). Die Läufe, die frühere
 # Stände tragen (L63 bis L68: Regression, Abgleich mit v2-1, Überleitung E.3, frühere Sollwerte), rechnen damit weiter.
 ZINS_BIS_11_11 = {"3.3": 0.0374, "6.1": 0.0374, "6.3": 0.0374}
-# Projekt 2 im Stand vor dem 12.11.2026: dazu die frühere Marktmiete
-STAND_T_VORHER = {**ZINS_BIS_11_11, "4.4": MARKT_T_BIS_12_11}
+# Projekt 2 im Stand vor dem 12.11.2026: dazu die frühere Marktmiete und (seit 16.11.2026 ausdrücklich, vorher der Standard) die
+# frühere Vergleichsmiete
+STAND_T_VORHER = {**ZINS_BIS_11_11, "4.3": OVM_T_BIS_15_11, "4.4": MARKT_T_BIS_12_11}
+# Mieten von Projekt 2 im Stand der Broschüre S. 10–12 (eingefroren am 16.11.2026): Vergleichsmiete und Marktmiete bis 15.11.2026
+BRO_MIETEN = {"4.3": OVM_T_BIS_15_11, "4.4": MARKT_HARBURG_2026}
 # Projekt "V" = Projekt 1 (Vergleichshaus, früheres Modellhaus): der Lauf setzt Eingaben!D3 = 1 ausdrücklich. Projekt "T" =
 # Projekt 2 (Modellhaus, Tarutinoer): der Lauf rechnet im Auslieferungsstand (D3 = 2), das Skript setzt D3 nicht.
 LAEUFE = [
@@ -2061,6 +2095,10 @@ LAEUFE = [
     # 4.631 €/m² (ARGE-Median) und 5.460 €/m² (Bemessungsgrenze seit 01.10.2026, bis 12.11.2026 der Ausgangswert 5.000 €/m²);
     # 3.579 €/m² ist der Standard (L2)
     ("L69", "T", {"2.1": 4631}), ("L70", "T", {"2.1": 5460}),
+    # Broschüre S. 10–12, eingefroren auf dem Stand vom 16.11.2026: Modellhaus (Projekt 2) mit den Mieten bis 15.11.2026
+    # (4.3 = 12,91774539744, 4.4 = 15,42 €/m²) im Standard und mit Herstellungskosten 4.631 und 5.460 €/m². L71 bis L73 tragen F9
+    # und die Sollwerte, die bis 15.11.2026 für L2, L69 und L70 galten
+    ("L71", "T", {**BRO_MIETEN}), ("L72", "T", {"2.1": 4631, **BRO_MIETEN}), ("L73", "T", {"2.1": 5460, **BRO_MIETEN}),
 ]
 # Fehlerlauf (Runde 2, R1): ungültige Mietenstufe per Einfügen (die Datenüberprüfung greift dabei nicht). Erwartet:
 # Fehlerwerte in der Mappe, aber Gesamtstatus und Prüfungen „prüfen“ (nie „OK“ aus Fehlerwerten), NBank-Lage „prüfen“.
@@ -2938,6 +2976,13 @@ def pruefe_eingaben(b, wb, nz):
                 p.gleich(f"{e[0]} {e[2]} ({PROJEKT_KURZ[proj]})", ist, s)
             else:
                 p.zahl(f"{e[0]} {e[2]} ({PROJEKT_KURZ[proj]})", ist, float(s), 1e-9 * max(1.0, abs(s)))
+    # Mieten von Projekt 2 seit 16.11.2026: Median der Angebotsmieten Nds. 2024 × Index 10/2026 ÷ Index 2024, auf Cent gerundet
+    faktor = INDEX_NETTOKALTMIETE_LSN[0] / INDEX_NETTOKALTMIETE_LSN[1]
+    for nr, art, konstante in (("4.3", "Bestand", OVM_NDS_2026), ("4.4", "Neubau", MARKT_NDS_2026)):
+        hergeleitet = runde(ANGEBOTSMIETE_NDS_2024[art] * faktor, 2)
+        p.zahl(f"{nr} {EIN[nr][2]} (Projekt 2) = Angebotsmiete {art} Nds. 2024 × 110,9 ÷ 105,9, auf Cent gerundet",
+               we[f"E{EIN[nr][1]}"].value, hergeleitet, 1e-9)
+        p.zahl(f"{nr} Konstante des Prüfskripts = Herleitung", konstante, hergeleitet, 1e-9)
     p.check(we["D3"].value == PROJEKT_NR[PROJEKT_STANDARD], "D3 Aktives Projekt (Auslieferungsstand: Projekt 2, Modellhaus)",
             we["D3"].value, PROJEKT_NR[PROJEKT_STANDARD])
     p.gleich("D4 Projektname 1", we["D4"].value, PROJEKT_NAME["V"])
@@ -4074,6 +4119,75 @@ for _lid, _neu in _ZINS_386.items():
     KONZEPT[_lid] = [(_bl, _z, _neu.get((_bl, _z), _v)) for _bl, _z, _v in KONZEPT[_lid]]
 
 
+# ---- Mieten des Modellhauses seit 16.11.2026: Vergleichsmiete 9,19 statt 12,92, Marktmiete 11,75 statt 15,42 €/m² ---------------
+# Die Werte bis hier (Projekt 2 mit 4.3 = 12,91774539744 und 4.4 = 15,42 €/m², Stand 12.11. bis 15.11.2026) gelten unverändert
+# für L71 (Standard, bisher L2), L72 (4.631 €/m², bisher L69) und L73 (5.460 €/m², bisher L70): die Läufe der eingefrorenen
+# Broschüre (BRO_MIETEN).
+for _neu, _alt in (("L71", "L2"), ("L72", "L69"), ("L73", "L70")):
+    KONZEPT[_neu] = list(KONZEPT[_alt])
+# Für die Läufe im Standard (L2 bis L5, L70) weichen die folgenden Zellen ab: die Spalte Frei (Miete, Jahresrechnung, Liquidität,
+# Renditen), der Restwert und alle Größen mit Restwert, dazu bei Gruppe B und C die Jahre 36 bis 42 (dort greift jetzt die
+# Obergrenze Vergleichsmiete, Abweichung A2; F8 meldet den Hinweis). Finanzierung, Jahresrechnung Jahr 1 und Liquidität der
+# Gruppen A, B und C in der Bindung, Förderbarwert und nötige Miete hängen nicht an den beiden Mieten und bleiben; L69 behält
+# alle 28 Werte. Die Werte kommen aus der Referenzrechnung, nicht aus der Mappe: je Lauf Soll("T", …).alle() mit den neuen und mit
+# den bisherigen Mieten (BRO_MIETEN); aufgenommen ist jede Zelle der Tabellen oben, deren Wert der Referenzrechnung sich in der
+# Schreibweise des Konzepts ändert (L2 77, L3 6, L4 13, L5 6, L70 1 Zelle), mit dem neuen Wert der Referenzrechnung in derselben
+# Stellenzahl („=…“: Text in der Zelle). F8 prüft dieselben Zellen in jedem Lauf gegen die Referenzrechnung.
+# L70 (5.460 €/m²): Frei finanziert erreicht mit 11,75 €/m² kein positives Endvermögen, die VOFI-EK-Rendite mit Restwert ist
+# „n. v.“; P4 und der Gesamtstatus lauten dort „prüfen“ (Referenzrechnung und Mappe gleich).
+_MIETEN_NDS = {
+    "L2": {
+        ("Gefördert A", "I123"): "4.273.372,01", ("Gefördert B", "I123"): "4.447.949,74",
+        ("Gefördert C", "I123"): "4.462.559,89", ("Gefördert A", "J123"): "5.004.304,67",
+        ("Gefördert B", "J123"): "5.071.854,10", ("Gefördert C", "J123"): "5.071.854,10", ("Gefördert A", "J143"): "6,188 %",
+        ("Gefördert B", "J143"): "6,258 %", ("Gefördert C", "J143"): "6,287 %", ("Gefördert A", "J140"): "7,481 %",
+        ("Gefördert B", "J140"): "7,531 %", ("Gefördert C", "J140"): "7,615 %", ("Übersicht", "D78"): "5,02 %",
+        ("Übersicht", "E78"): "4,46 %", ("Übersicht", "F78"): "4,27 %", ("Übersicht", "H78"): "5,02 %",
+        ("Übersicht", "I78"): "4,52 %", ("Übersicht", "J78"): "4,34 %", ("Übersicht", "G78"): "5,00 %",
+        ("Übersicht", "K78"): "5,00 %", ("Übersicht", "I82"): "2,39 %", ("Übersicht", "J82"): "2,32 %",
+        ("Übersicht", "D79"): "2,93 %", ("Übersicht", "E79"): "3,51 %", ("Übersicht", "F79"): "3,80 %",
+        ("Übersicht", "H79"): "3,17 %", ("Übersicht", "I79"): "3,67 %", ("Übersicht", "J79"): "3,92 %",
+        ("Übersicht", "G79"): "5,00 %", ("Übersicht", "K79"): "5,00 %", ("Übersicht", "D76"): "6,58 %",
+        ("Übersicht", "E76"): "6,30 %", ("Übersicht", "F76"): "6,21 %", ("Übersicht", "H76"): "6,43 %",
+        ("Übersicht", "I76"): "6,18 %", ("Übersicht", "J76"): "6,10 %", ("Übersicht", "G76"): "5,00 %",
+        ("Übersicht", "K76"): "5,00 %", ("Übersicht", "I94"): "4,95 %", ("Übersicht", "J94"): "5,13 %",
+        ("Übersicht", "I95"): "3,67 %", ("Übersicht", "J95"): "3,76 %", ("Übersicht", "G26"): "11,75",
+        ("Übersicht", "G29"): "116.748,00", ("Übersicht", "G30"): "2.334,96", ("Übersicht", "G33"): "97.351,84",
+        ("Übersicht", "G38"): "−37.426,79", ("Übersicht", "G42"): "−18.434", ("Übersicht", "G43"): "190.875",
+        ("Übersicht", "E44"): "111.108", ("Übersicht", "F44"): "103.745", ("Übersicht", "G44"): "219.256",
+        ("Übersicht", "G45"): "0,7223", ("Übersicht", "G46"): "0,7223", ("Übersicht", "G47"): "17",
+        ("Übersicht", "G48"): "−343.025", ("Übersicht", "D89"): "7,80 %", ("Übersicht", "E89"): "7,84 %",
+        ("Übersicht", "F89"): "7,93 %", ("Übersicht", "G89"): "5,99 %", ("Übersicht", "G90"): "0,76 %",
+        ("Übersicht", "D91"): "6,61 %", ("Übersicht", "E91"): "6,71 %", ("Übersicht", "F91"): "6,75 %",
+        ("Übersicht", "G91"): "6,24 %", ("Übersicht", "G92"): "=n. v.", ("Übersicht", "D93"): "74,09 %",
+        ("Übersicht", "E93"): "74,60 %", ("Übersicht", "F93"): "73,74 %", ("Übersicht", "G93"): "100,37 %",
+        ("Übersicht", "G94"): "0,76 %", ("Übersicht", "G95"): "=n. v.", ("Übersicht", "G96"): "−807.548",
+        ("Übersicht", "D100"): "4.273.372", ("Übersicht", "E100"): "4.447.950", ("Übersicht", "F100"): "4.462.560",
+        ("Übersicht", "G100"): "4.946.529",
+    },
+    "L3": {
+        ("Übersicht", "H91"): "5,8996 %", ("Übersicht", "I91"): "5,9298 %", ("Übersicht", "J91"): "5,9385 %",
+        ("Übersicht", "H89"): "6,8392 %", ("Übersicht", "I89"): "6,7668 %", ("Übersicht", "J89"): "6,7778 %",
+    },
+    "L4": {
+        ("Übersicht", "H91"): "5,4304 %", ("Übersicht", "I91"): "5,4469 %", ("Übersicht", "J91"): "5,4529 %",
+        ("Übersicht", "H89"): "5,6274 %", ("Übersicht", "I89"): "5,6007 %", ("Übersicht", "J89"): "5,6163 %",
+        ("Übersicht", "I92"): "3,18 %", ("Übersicht", "J92"): "3,20 %", ("Übersicht", "I90"): "3,36 %",
+        ("Übersicht", "J90"): "3,40 %", ("Übersicht", "H78"): "4,08 %", ("Übersicht", "I78"): "3,71 %",
+        ("Übersicht", "J78"): "3,57 %",
+    },
+    "L5": {
+        ("Übersicht", "H91"): "4,8839 %", ("Übersicht", "I91"): "4,9148 %", ("Übersicht", "J91"): "4,9241 %",
+        ("Übersicht", "H89"): "5,4487 %", ("Übersicht", "I89"): "5,4297 %", ("Übersicht", "J89"): "5,4442 %",
+    },
+    "L70": {
+        ("Übersicht", "D3"): "=prüfen",
+    },
+}
+for _lid, _neu in _MIETEN_NDS.items():
+    KONZEPT[_lid] = [(_bl, _z, _neu.get((_bl, _z), _v)) for _bl, _z, _v in KONZEPT[_lid]]
+
+
 def pruefe_konzeptwerte(b, lid, werte, specs):
     if lid not in KONZEPT or not KONZEPT[lid]:
         return
@@ -4172,10 +4286,15 @@ def pruefe_v21_abgleich(b, ordner, werte, soll):
 # =====================================================================================================
 # Seit 15.11.2026 (Umbau der Modellrechnung wie im Vortrag) führt jedes Seiten-JSON S. 10–12 unter „belege“ jede Zahl der
 # Seite mit ihrer Formel über Zellen der Mappe (broschuere/scripts/modellrechnung/seiten_json.py). F9 rechnet jede Formel mit
-# den Werten der Läufe nach (ohne Vorsatz Lauf L2 = Projekt 2 im Standard; „L69:“ und „L70:“ = Projekt 2 mit 4.631 und
-# 5.460 € je m²), rundet wie die Broschüre und vergleicht mit dem Text; Belege mit „kennzahl“ (Läufe nur aus
-# build_kennzahlen.py) vergleicht es mit praesentation/daten/kennzahlen.json. Jeder Text muss so im Partial stehen.
-BRO_LAEUFE = {"": STANDARD_LAUF, "L69": "L69", "L70": "L70"}
+# den Werten der Läufe nach, rundet wie die Broschüre und vergleicht mit dem Text. Jeder Text muss so im Partial stehen.
+# Seit 16.11.2026 ist die Broschüre eingefroren (Stand BRO_STAND, Mieten von Projekt 2 bis 15.11.2026: 4.3 = 12,91774539744,
+# 4.4 = 15,42 €/m²) und wird vorerst nicht nachgezogen. Die Belege rechnet F9 deshalb mit Läufen, die genau diese beiden
+# Eingaben setzen (BRO_MIETEN): ohne Vorsatz L71 (Projekt 2 im Standard, bis 15.11.2026 L2), „L69:“ = L72 (4.631 € je m²),
+# „L70:“ = L73 (5.460 € je m²). Belege mit „kennzahl“ (Werte der Blätter aus build_kennzahlen.py über
+# praesentation/daten/kennzahlen.json, das den neuen Stand der Mappe hat) rechnet F9 nicht nach; je Seite meldet es dazu
+# einen HINWEIS.
+BRO_LAEUFE = {"": "L71", "L69": "L72", "L70": "L73"}
+BRO_STAND = "16.11.2026"
 BRO_SEITEN = (10, 11, 12)
 BRO_REF = re.compile(r"(?:(L\d+):)?(?:'([^']+)'|([A-Za-zÄÖÜäöüß]+))!([A-Z]+\d+)")
 BRO_FAKTOR = {"zahl": 1, "prozent": 100, "mio": 1e-6, "tsd": 1e-3, "jahr": 1}
@@ -4196,7 +4315,7 @@ def bro_rechne(formel, w):
     def ersetze(m):
         lid = BRO_LAEUFE.get(m.group(1) or "")
         if lid is None or lid not in w:
-            raise KeyError(f"Lauf {m.group(1) or STANDARD_LAUF} fehlt")
+            raise KeyError(f"Lauf {lid or m.group(1)} fehlt")
         v = w[lid].get(m.group(2) or m.group(3), m.group(4))
         if not ist_zahl(v):
             raise KeyError(f"{m.group(0)} ist keine Zahl ({v!r})")
@@ -4239,16 +4358,24 @@ def bro_partial_text(pfad_json):
 
 
 def pruefe_broschuere(b, w):
-    """F9: jede Zahl der Broschüre S. 10–12 (Belege im Seiten-JSON) = Formel über die Läufe L2, L69, L70 bzw. Kennzahl."""
+    """F9: jede Zahl der Broschüre S. 10–12 (Belege im Seiten-JSON) = Formel über die Läufe mit den Mieten der eingefrorenen
+    Broschüre (L71, L72, L73). Belege mit „kennzahl“: HINWEIS statt Vergleich (kennzahlen.json hat den neuen Stand)."""
     kz = json.loads(KENNZAHLEN_JSON.read_text(encoding="utf-8")) if KENNZAHLEN_JSON.exists() else None
+    basis = BRO_LAEUFE[""]
     for nr in BRO_SEITEN:
         pfad, s = seite(nr)
-        p = b.pruefung("F9", f"Broschüre S. {nr} ({pfad.stem}): Belege = Mappe ({', '.join(sorted(set(BRO_LAEUFE.values())))})")
-        p.gleich(f"{STANDARD_LAUF} rechnet mit Projekt 2", w[STANDARD_LAUF].get("Eingaben", "F4"),
-                 PROJEKT_NAME[PROJEKT_STANDARD])
+        p = b.pruefung("F9", f"Broschüre S. {nr} ({pfad.stem}), Stand {BRO_STAND}: Belege = Mappe mit den Mieten der Broschüre "
+                             f"({', '.join(sorted(set(BRO_LAEUFE.values())))})")
+        p.gleich(f"{basis} rechnet mit Projekt 2", w[basis].get("Eingaben", "F4"), PROJEKT_NAME[PROJEKT_STANDARD])
+        for lid in sorted(set(BRO_LAEUFE.values())):          # die Läufe rechnen mit den Mieten der Broschüre
+            if lid in w:
+                for e_nr, v in BRO_MIETEN.items():
+                    p.zahl(f"{lid} Eingaben!F{EIN[e_nr][1]} ({EIN[e_nr][2]}, Stand der Broschüre)",
+                           w[lid].get("Eingaben", f"F{EIN[e_nr][1]}"), v, 1e-9)
         belege = s.get("belege") or []
         p.check(len(belege) > 0, f"S. {nr}: Belege vorhanden", len(belege), "> 0")
         text = bro_partial_text(pfad)
+        eingefroren = []
         for k, bl in enumerate(belege, start=1):
             was = f"S. {nr} Beleg {k} „{bl.get('text')}“ ({bl.get('wo', '')})"
             if "formel" in bl:
@@ -4259,17 +4386,23 @@ def pruefe_broschuere(b, w):
                     continue
                 p.gleich(f"{was} = {bl['formel']}", bro_text(v, bl.get("art", "zahl"), bl.get("nk", 0)), bl["text"])
             elif "kennzahl" in bl:
+                # Broschüre eingefroren: kennzahlen.json führt den neuen Stand der Mappe, die Kennzahl wird nicht nachgerechnet
                 key = bl["kennzahl"]
                 e = (kz or {}).get("laeufe", {}).get(key.split(".")[1], {}).get("werte", {}).get(key) if kz else None
-                if e is None:
-                    p.check(False, was, "fehlt in kennzahlen.json", key)
-                    continue
-                p.gleich(f"{was} = kennzahlen.json {key}", bro_text(e["wert"], bl.get("art", "zahl"), bl.get("nk", 0)),
-                         bl["text"])
+                heute = bro_text(e["wert"], bl.get("art", "zahl"), bl.get("nk", 0)) if e is not None else None
+                eingefroren.append((k, bl.get("text"), key, heute))
             else:
                 p.check(bool(bl.get("herkunft")), f"{was}: Herkunft genannt", bl.get("herkunft"), "Wortlaut ohne Zelle")
             p.check(str(bl["text"]) in text, f"{was} steht im Partial", bl["text"], f"src/pages/{pfad.stem}.html")
         p.fertig()
+        if eingefroren:
+            anders = [f"Beleg {k} „{t}“ ({key}: heute {heute if heute is not None else 'nicht geführt'})"
+                      for k, t, key, heute in eingefroren if heute != str(t)]
+            n = len(eingefroren)
+            b.hinweis("F9", f"Broschüre S. {nr}: Broschüre eingefroren, Kennzahl nicht nachgerechnet ({n} "
+                            f"{'Beleg' if n == 1 else 'Belege'} mit „kennzahl“, Stand der Broschüre {BRO_STAND}; kennzahlen.json "
+                            f"führt den neuen Stand, dort anders: {len(anders)}" + (": " + "; ".join(anders) if anders else "")
+                            + ")")
 
 
 # =====================================================================================================
@@ -4535,6 +4668,7 @@ def main():
         b.abschnitt("Laufübergreifend: gelieferte Werte, Broschüre (F9), v2-1 (F10), Textergebnisse")
         if STANDARD_LAUF in w:      # Projekt 2 im Standard = Auslieferungsstand = Modellhaus von Broschüre und Präsentation
             sicher(b, "F2", "gelieferte Werte", pruefe_gelieferte_werte, b, Werte(mappe), w[STANDARD_LAUF])
+        if BRO_LAEUFE[""] in w:     # Broschüre S. 10–12 (eingefroren): Projekt 2 mit den Mieten bis 15.11.2026 (L71 bis L73)
             sicher(b, "F9", "Broschüre", pruefe_broschuere, b, w)
         if "L64" in w:   # Abgleich mit v2-1 und Überleitung E.3 beim Satz der Vorgängermappe (2,5 %)
             sicher(b, "F10", "v2-1", pruefe_v21_abgleich, b, ordner, w["L64"], None)

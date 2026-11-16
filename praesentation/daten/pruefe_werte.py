@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Abgleich von werte.json mit der Broschüre, der Altfassung und einer Handrechnung.
+"""Abgleich von werte.json mit der Altfassung und einer Handrechnung.
 
-1. Broschüre S. 10–12: jede dort gezeigte Zahl der Modellrechnung gegen den Wert
-   der Mappe, gerundet auf die gezeigte Stelle (Läufe „modellhaus“,
-   „modellhaus_zeitreihe“, „modellhaus_kosten_4631“ und „modellhaus_kosten_5460“,
-   dazu kennzahlen.json). Seit 15.11.2026 führt jedes Seiten-JSON unter „belege“
-   die Formel jeder Zahl über Zellen der Mappe; geprüft wird jede Formel. Das
-   Modellhaus ist Projekt 2 der Mappe (PGN-Projekt in Neu Wulmstorf, Grundstück
-   im Bestand und nicht angesetzt).
+1. Broschüre S. 10–12: hier nicht mehr geprüft. Die Broschüre ist eingefroren
+   auf dem Stand vom 16.11.2026 (Modellhaus mit Vergleichsmiete 12,92 und
+   Marktmiete 15,42 €/m²); werte.json und kennzahlen.json führen seit 16.11.2026
+   den neuen Stand der Mappe (9,19 und 11,75 €/m²). Den Abgleich der Belege der
+   Broschüre mit der Mappe führt vofi/pruefe_vofi.py, Prüfung F9, mit Läufen der
+   Mappe, die die beiden früheren Mieten setzen. Das Skript gibt dazu eine Zeile
+   aus; sie zählt nicht als Abweichung. Das Modellhaus ist Projekt 2 der Mappe
+   (PGN-Projekt in Neu Wulmstorf, Grundstück im Bestand und nicht angesetzt).
 2. Altfassung der Präsentation (Folien 11, 13, 14, 17) gegen den Lauf „projekt2“
    (dasselbe Projekt mit Tilgung 2,5 % wie in der Altfassung).
    Abweichungen hier sind Hinweise, kein Fehler: Es gilt die Mappe.
@@ -22,7 +23,7 @@
 Aufruf (im Ordner praesentation):
     python daten/pruefe_werte.py [--bericht DATEI.md]
 
-Rückgabewert 0, wenn 1, 3 und 4 ohne Abweichung sind.
+Rückgabewert 0, wenn 3 und 4 ohne Abweichung sind.
 """
 
 import argparse
@@ -34,7 +35,6 @@ from pathlib import Path
 
 HIER = Path(__file__).resolve().parent
 WERTE = HIER / "werte.json"
-BROSCHUERE = HIER.parent.parent / "broschuere" / "content" / "pages"
 GRUPPEN = ("A", "B", "C")
 
 
@@ -114,101 +114,10 @@ class Bericht:
         return len(z), sum(1 for x in z if x[5] != "gleich")
 
 
-def seite(nr):
-    (pfad,) = sorted(BROSCHUERE.glob(f"{nr:02d}-*.json"))
-    return json.loads(pfad.read_text(encoding="utf-8"))
-
-
 # ---------------------------------------------------------------- 1 Broschüre
 
-KENNZAHLEN = HIER / "kennzahlen.json"
-BRO_REF = re.compile(r"(?:(L\d+):)?(?:'([^']+)'|([A-Za-zÄÖÜäöüß]+))!([A-Z]+\d+)")
-BRO_LAEUFE = {"": ("modellhaus", "modellhaus_zeitreihe"), "L69": ("modellhaus_kosten_4631",), "L70": ("modellhaus_kosten_5460",)}
-BRO_FAKTOR = {"zahl": 1, "prozent": 100, "mio": Decimal("0.000001"), "tsd": Decimal("0.001"), "jahr": 1}
-
-
-def bro_zellen(w, kz):
-    """Zellen → Wert je Vorsatz („“, „L69“, „L70“) aus werte.json (Läufe wie BRO_LAEUFE) und kennzahlen.json (Lauf modellhaus)."""
-    out = {v: {} for v in BRO_LAEUFE}
-    for vorsatz, laeufe in BRO_LAEUFE.items():
-        for lauf in laeufe:
-            for e in w.daten["laeufe"][lauf]["werte"].values():
-                blatt, zelle, v = e.get("blatt"), e.get("zelle"), e.get("wert")
-                if not blatt or not zelle:
-                    continue
-                if ":" in zelle and isinstance(v, list):
-                    m = re.fullmatch(r"([A-Z]+)(\d+)", zelle.split(":")[0])
-                    for k, x in enumerate(v):
-                        out[vorsatz].setdefault((blatt, f"{m.group(1)}{int(m.group(2)) + k}"), x)
-                elif isinstance(v, (int, float)) and not isinstance(v, bool):
-                    out[vorsatz].setdefault((blatt, zelle), v)
-    for e in kz["laeufe"]["modellhaus"]["werte"].values():
-        blatt, zelle, v = e.get("blatt"), e.get("zelle"), e.get("wert")
-        if blatt and zelle and isinstance(v, (int, float)) and not isinstance(v, bool):
-            out[""].setdefault((blatt, zelle), v)
-    return out
-
-
-def bro_rechne(formel, zellen):
-    import ast
-    import math
-    import operator
-    namen = {}
-
-    def ersetze(m):
-        schl = (m.group(2) or m.group(3), m.group(4))
-        if schl not in zellen[m.group(1) or ""]:
-            raise KeyError(f"{m.group(0)} nicht in werte.json/kennzahlen.json")
-        n = f"z{len(namen)}"
-        namen[n] = D(zellen[m.group(1) or ""][schl])
-        return n
-    ops = {ast.Add: lambda x, y: x + y, ast.Sub: lambda x, y: x - y, ast.Mult: lambda x, y: x * y,
-           ast.Div: lambda x, y: x / y, ast.USub: operator.neg}
-
-    def wert(n):
-        if isinstance(n, ast.Constant):
-            return D(n.value)
-        if isinstance(n, ast.Name):
-            return namen[n.id]
-        if isinstance(n, ast.BinOp):
-            return ops[type(n.op)](wert(n.left), wert(n.right))
-        if isinstance(n, ast.UnaryOp):
-            return ops[type(n.op)](wert(n.operand))
-        if isinstance(n, ast.Call) and n.func.id == "abrunden":
-            x, st = wert(n.args[0]), wert(n.args[1])
-            return D(math.floor(x / st)) * st
-        raise ValueError(formel)
-    return wert(ast.parse(BRO_REF.sub(ersetze, formel), mode="eval").body)
-
-
-def abgleich_broschuere(w, b):
-    """Broschüre S. 10–12 (seit 15.11.2026): jeder Beleg im Seiten-JSON (Formel über Zellen der Mappe) mit den Werten der
-    Präsentation (werte.json, kennzahlen.json) nachgerechnet und auf die gezeigte Stelle gerundet."""
-    kz = json.loads(KENNZAHLEN.read_text(encoding="utf-8"))
-    zellen = bro_zellen(w, kz)
-    for nr in (10, 11, 12):
-        T = f"Broschüre S. {nr}"
-        s = seite(nr)
-        belege = s.get("belege") or []
-        b.gleich(T, "Belege vorhanden", len(belege) > 0, True, "belege")
-        for k, bl in enumerate(belege, start=1):
-            stelle = f"Beleg {k} ({bl.get('wo', '')})"
-            if "formel" in bl:
-                try:
-                    v = bro_rechne(bl["formel"], zellen)
-                except (KeyError, ValueError) as ex:
-                    b.gleich(T, stelle, bl["text"], str(ex), bl["formel"])
-                    continue
-                quelle = bl["formel"]
-            elif "kennzahl" in bl:
-                key = bl["kennzahl"]
-                v = D(kz["laeufe"][key.split(".")[1]]["werte"][key]["wert"])
-                quelle = "kennzahlen.json: " + key
-            else:
-                continue                     # Wortlaut ohne Zelle („herkunft“)
-            art = bl.get("art", "zahl")
-            gerechnet = str(int(v)) if art == "jahr" else de(v * BRO_FAKTOR[art], bl.get("nk", 0))
-            b.gleich(T, stelle, bl["text"], gerechnet, quelle)
+# Seit 16.11.2026 kein Abgleich mehr an dieser Stelle (siehe Kopf der Datei): eine Zeile im Ergebnis, keine Abweichung.
+BROSCHUERE_MELDUNG = "Broschüre eingefroren auf Stand 16.11.2026; Abgleich über vofi/pruefe_vofi.py F9"
 
 
 # ---------------------------------------------------------------- 2 Altfassung
@@ -419,7 +328,7 @@ def abgleich_sperre(w, b):
 # ---------------------------------------------------------------- Ausgabe
 
 def markdown(b):
-    aus = []
+    aus = [f"### Broschüre S. 10–12: {BROSCHUERE_MELDUNG}\n"]
     for teil in dict.fromkeys(z[0] for z in b.zeilen):
         n, abw = b.anzahl(teil)
         aus.append(f"### {teil}: {n} Prüfungen, Abweichungen: {abw}\n")
@@ -439,13 +348,13 @@ def main():
     a = p.parse_args()
     w = Werte(json.loads(a.werte.read_text(encoding="utf-8")))
     b = Bericht()
-    abgleich_broschuere(w, b)
     abgleich_altfassung(w, b)
     abgleich_handrechnung(w, b)
     abgleich_sperre(w, b)
     if a.bericht:
         a.bericht.write_text(markdown(b), encoding="utf-8")
     fehler = 0
+    print(f"Broschüre S. 10–12: {BROSCHUERE_MELDUNG}")
     for teil in dict.fromkeys(z[0] for z in b.zeilen):
         n, abw = b.anzahl(teil)
         print(f"{teil}: {n} Prüfungen, Abweichungen: {abw}")

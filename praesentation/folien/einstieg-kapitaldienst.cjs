@@ -96,10 +96,12 @@ module.exports = {
     const sp = ZONE.diagramm.kommentar;
     B.text(s, wl('Rechenweg je m² Wohnfläche', 'Modultitel'), { x: sp.x, y: ZONE.diagramm.titel, w: sp.w, h: 0.30, rolle: 'modultitel', valign: 'middle', einzeilig: true, name: 'Modultitel Rechenweg' });
     B.text(s, wl(`jährliche Annuität über ${T('laufzeit', 'heute')} Jahre`, 'Unterzeile Rechenweg'), { x: sp.x, y: ZONE.diagramm.sub, w: sp.w, h: 0.22, rolle: 'sub', einzeilig: true, name: 'Modul-Untertitel Rechenweg' });
-    // Designtest 17.11.2026: ohne den Formelblock; die Tabelle zeigt den Rechenweg mit ihren Rechenzeichen
+    const formel = ['Kapitaldienst je m² und Monat', '= Herstellungskosten × Fremdkapitalanteil', '× Kapitaldienstsatz ÷ 12'];
+    wl(formel.join(' '), 'Formel');
+    const f = B.text(s, formel.join('\n'), { x: sp.x, y: ZONE.diagramm.legende + 0.02, w: sp.w, rolle: 'dicht', name: 'Formel' });
     const proz3 = v => fmt.prozent(v, 3), proz2 = v => fmt.prozent(v, 2);
     const zeile = (text, werte, opt = {}) => ({ zellen: [wl(text, 'Rechenweg'), ...werte.map(v => wl(v, 'Rechenweg'))], ...opt });
-    const tab = B.tabelle(s, { x: sp.x, y: ZONE.diagramm.legende + 0.02, w: sp.w, pt: 14, name: 'Tabelle Rechenweg',
+    const tab = B.tabelle(s, { x: sp.x, y: f.unten + 0.12, w: sp.w, pt: 14, name: 'Tabelle Rechenweg',
       spalten: [{ kopf: '', art: 'text', randRechts: 0.02 }, { kopf: staende[0], breite: 0.92, art: 'zahl', randRechts: 0.04 }, { kopf: staende[1], breite: 0.92, art: 'zahl', randRechts: 0.02 }], zeilen: [
         zeile('Herstellungskosten je m²', Q.map(q => fmt.euro(T('herstellungskosten_qm', q)))),
         zeile('× Fremdkapitalanteil', Q.map(q => fmt.prozent(T('fremdkapitalanteil', q)))),

@@ -30,8 +30,8 @@ const HEX = {
   gruppe: { A: '2A2826', B: '77716B', C: 'D8D4CF' },
   gruppeText: { A: 'FFFFFF', B: 'FFFFFF', C: '202020' },
   dunkel: { flaeche2: '4A4948', linie: '5E5D5C', text: 'EDEBE8', text2: 'E2DFDB', zuschuss: 'E36A82', darlehen: 'F4F3F2', eigenmittel: '5E5D5C' },
-  bs: { '2.1': 'B71E3F', '2.2': '3C3C3B', '2.3': '3C3C3B', '2.4': '3C3C3B', '2.5': '3C3C3B', '2.6': '3C3C3B' },   // Designtest 17.11.2026: nur 2.1 farbig; bis dahin 3A62A6, A0581A, 0A5372, 9A52AE
-  bsTon: { '2.1': 'F7E3E7', '2.2': 'E9E7E4', '2.3': 'E9E7E4', '2.4': 'E9E7E4', '2.5': 'E9E7E4', '2.6': 'E9E7E4' },
+  bs: { '2.1': 'B71E3F', '2.2': '3A62A6', '2.3': 'A0581A', '2.4': '0A5372', '2.5': '9A52AE', '2.6': '3C3C3B' },
+  bsTon: { '2.1': 'F7E3E7', '2.2': 'E4EAF4', '2.3': 'F4E7DB', '2.4': 'DFEBF0', '2.5': 'F1E6F4', '2.6': 'E9E7E4' },
   matrix23: ['F4E7DB', 'E7CEBB', 'DAB79D', 'CC9F7E', 'BD875F', 'A0581A', '7E4A22'],
 };
 

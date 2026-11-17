@@ -35,9 +35,9 @@ module.exports = {
 
     // ---- Kopf, Legende, Diagramm ---------------------------------------------------------------------------------------------------------
     B.modulkopf(s, { x: colX(1), y: ZONE.diagramm.kopf, w: span(12), titel: wl('Herstellungs- und Grundstückskosten je m² Wohnfläche', 'Diagrammtitel'),
-      sub: wl('in €, Bruttokosten, deutsche Großstädte · KG: Kostengruppe nach DIN 276', 'Untertitel') });   // „Minimum, Median und Maximum“ nennt die Legende (F3.2)
+      sub: wl('in €, Bruttokosten, deutsche Großstädte', 'Untertitel') });   // „Minimum, Median und Maximum“ nennt die Legende (F3.2)
     KG.legende(ctx, s, { eintraege: [{ text: wl(staende[0], 'Legende'), art: 'bezug' }, { text: wl(staende[1], 'Legende'), art: 'tinte' }],
-      spanne: wl('Kasten: Minimum bis Maximum · Strich und Wert: Median · Sockel: bis zum Minimum', 'Legende') });
+      spanne: wl('Säule: Minimum bis Maximum · Strich und Wert: Median', 'Legende') });
     KG.spannen(ctx, s, { name: 'Diagramm Herstellungskosten', achse: { min: 0, max: 10000, schritt: 2000, format: 'ganz' }, achsentitel: wl('€ je m² Wohnfläche', 'Achsentitel'), label: wl('Veränderung', 'Prozentzeile'),
       reihen: [{ key: staende[0], name: staende[0], art: 'bezug' }, { key: staende[1], name: staende[1], art: 'tinte' }], gruppen,
       altText: `Säulen mit Spanne: Kosten je m² Wohnfläche in €, kleinster bis größter Wert mit Median, ${staende.join(' und ')}, deutsche Großstädte. ` +

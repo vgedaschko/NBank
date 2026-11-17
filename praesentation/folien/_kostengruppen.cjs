@@ -94,7 +94,7 @@ function legende(ctx, s, o) {
   const leg = B.legende(s, { x: colX(1), y: yL, fein: true, eintraege: o.eintraege }), gx = leg.rechts + 0.30;
   s.addShape(ctx.pres.ShapeType.rect, { x: gx + 0.08, y: yL + 0.01, w: 0.12, h: 0.22, fill: { color: HEX.papier }, line: { color: HEX.tinte, width: 0.5 }, objectName: 'Legende Spanne' });
   B.linie(s, { x: gx + 0.04, y: yL + 0.10, w: 0.20, art: 'tinte', pt: 2, name: 'Legende Medianlinie' });
-  B.text(s, o.spanne, { x: gx + 0.36, y: yL, w: 6.6, h: 0.24, rolle: 'legende', valign: 'middle', einzeilig: true, name: 'Legendentext Spanne' });
+  B.text(s, o.spanne, { x: gx + 0.36, y: yL, w: 5.0, h: 0.24, rolle: 'legende', valign: 'middle', einzeilig: true, name: 'Legendentext Spanne' });
 }
 
 module.exports = { LAGE, prozentzeile, kategorien, trenner, spannen, legende };

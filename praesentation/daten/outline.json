@@ -315,9 +315,9 @@
       "nr": "23",
       "abschnitt": "Modellrechnung",
       "layout": "PGN_DIAGRAMM_MR",
-      "titel": "Kein Jahr mit Fehlbetrag, jede Mietanpassung hebt den Überschuss",
+      "titel": "Kein Jahr mit Fehlbetrag, ab Jahr 10 liegt Gruppe C vor A",
       "aussage": "In Gruppe A und C bleibt in jedem Jahr bis 35 ein Zahlungsüberschuss. A liegt anfangs vorn (mehr Zuschuss, weniger Kapitaldienst); ab Jahr 10 liegt C vorn, weil ihre höhere Miete mit jeder Mietanpassung stärker wächst.",
-      "inhalt": "Kicker: „MODELLRECHNUNG · VERLAUF“. Titelzeilen: „Kein Jahr mit Fehlbetrag,“ | „jede Mietanpassung hebt den Überschuss“ (Signaturwort: „Kein Jahr“). Diagrammtitel: „Zahlungsüberschuss je Jahr, Jahr 1 bis 35“. Untertitel: „in € p. a., nach Kapitaldienst“. Legende: „Gruppe A“ · „Gruppe C“. Marken: „Jahr 1“ mit 15.003 und 10.812 · „Jahr 10“. Linienenden Jahr 35: C 84.149 · A 64.860, dazwischen „+19.289 €“. Achsentitel y: „Zahlungsüberschuss in € p. a.“, x: „Jahr“. Stichpunkte unter „Grund“: „A: mehr Zuschuss, Kapitaldienst 34.150 € statt 59.762 €. Der Vorteil bleibt etwa gleich.“ · „C: Miete 9,00 € statt 6,80 €. Der Vorteil wächst mit jeder Mietanpassung.“ Unter „Annahmen“: „Miete alle drei Jahre +6,15 %, Höchstwert“ · „Tilgung 2,38 % p. a.“",
+      "inhalt": "Kicker: „MODELLRECHNUNG · VERLAUF“. Titelzeilen: „Kein Jahr mit Fehlbetrag,“ | „ab Jahr 10 liegt Gruppe C vor A“ (Signaturwort: „ab Jahr 10“). Diagrammtitel: „Zahlungsüberschuss je Jahr, Jahr 1 bis 35“. Untertitel: „in € p. a., nach Kapitaldienst“. Legende: „Gruppe A“ · „Gruppe C“. Marken: „Jahr 1“ mit 15.003 und 10.812 · „Jahr 10“. Linienenden Jahr 35: C 84.149 · A 64.860, dazwischen „+19.289 €“. Achsentitel y: „Zahlungsüberschuss in € p. a.“, x: „Jahr“. Stichpunkte unter „Grund“: „A: mehr Zuschuss, Kapitaldienst 34.150 € statt 59.762 €. Der Vorteil bleibt etwa gleich.“ · „C: Miete 9,00 € statt 6,80 €. Der Vorteil wächst mit jeder Mietanpassung.“ Unter „Annahmen“: „Miete alle drei Jahre +6,15 %, Höchstwert“ · „Tilgung 2,38 % p. a.“",
       "darstellung": "Liniendiagramm über sieben Spalten (D.linien): A in Tinte, C im Referenzgrau mit heller Fläche darunter. Marken bei Jahr 1 (mit den Werten A und C in Achskreiszeilen) und bei dem Jahr, ab dem C in jedem folgenden Jahr vor A liegt. An den Linienenden Jahr 35 die Werte, dazwischen der Abstand als senkrechte Maßkette. Rechts Stichpunkte in 14 pt unter „Grund“ und „Annahmen“ (G9). Papierton, Daumenregister 2.1. Gruppe B steht nicht im Hauptteil.",
       "daten": "werte.json, Lauf modellhaus_zeitreihe: zr.jahr, zr.zahlungsueberschuss.A/C (Jahr 1 bis 35); Lauf modellhaus: liq.jahre_mit_fehlbetrag.A/C, dscr.kapitaldienst_jahr1.A/C, fin.miete_jahr1.A/C, tab.mieterhoehung_in_der_bindung, eingabe.tilgung_nbank. Gegenproben gegen daten/kennzahlen.json n5.zue_jahr1.A/C und n5.zue_jahr35.A/C (Kennzahlen D61, F61, D64, F64). Das Jahr der Marke rechnet das Modul aus der Zeitreihe.",
       "herkunft": "ersetzt die bisherige Folie 21 (Verlauf A, B, C) (15.11.2026, Umbau der Modellrechnung nach Abstimmung mit dem Auftraggeber (Entwürfe konzepte/neu, Schritt 1 und 2))",
@@ -423,22 +423,8 @@
       "baugruppe": "regeln"
     },
     {
-      "id": "anhang-vergleich",
-      "nr": "A2",
-      "abschnitt": "Anhang",
-      "layout": "PGN_ANHANG",
-      "titel": "Programmteil 2.1 im Vergleich",
-      "aussage": "Alle sechs Merkmale im Vergleich: Förderkonditionen bis 30.06.2026 gegen die RL Mietwohnraum 2026.",
-      "inhalt": "Kicker: „ANHANG · VERGLEICH“. Tabelle wie Folie 9 mit allen sechs Zeilen.",
-      "darstellung": "Native Tabelle wie Folie 9, alle sechs Zeilen in 11 pt (Designtest vom 17.11.2026).",
-      "daten": "Werte bis 30.06.2026: daten/regeln.json, Block bis_2026_06_30 (darlehen_anteil, tilgungsnachlass, eigenmittel, eigenmittel_geld, bemessung.I/IV, hoechstmiete_geringe_einkommen.I/IV; NBank-Produktinformation „Allgemeine Mietwohnraumförderung“, Stand 01.04.2026) und stichtage. Werte seit 01.07.2026: werte.json, Lauf modellhaus, tab.quote_darlehen.A, tab.quote_zuschuss.A/B/C, tab.eigenmittel_mindestens, tab.bemessungsgrenze.I, tab.bemessungsgrenze.IV, tab.hoechstmiete.I.A, tab.hoechstmiete.IV.A, tab.jahre_ohne_mieterhoehung; regeln.json bemessungsgrenze.gilt_seit und eigenmittel_neu.geld_anteil. Im Modul gerechnet und gegengeprüft: Förderquote +5 Prozentpunkte, 22,5 % (Tilgungsnachlass × Darlehensanteil), Eigenmittel −5 Prozentpunkte, Geld oder Grundstück 10 % alt und neu (20 % × die Hälfte), Höchstmiete +0,20 € in beiden Mietenstufen; Belege mit Formel in daten/pruefung.json („Folie 9“).",
-      "herkunft": "Designtest vom 17.11.2026",
-      "quellen": "Quellen: NBank-Produktinformation „Allgemeine Mietwohnraumförderung“, Stand 01.04.2026 (Förderkonditionen bis 30.06.2026); RL Mietwohnraum 2026, RdErl. d. MW v. 25.06.2026 (Nds. MBl. 2026 Nr. 319); NBank-Produktinformation „Mietwohnungen in Mehrfamilienhäusern“, Stand 05.11.2026.",
-      "baugruppe": "regeln"
-    },
-    {
       "id": "anhang-annahmen",
-      "nr": "A3",
+      "nr": "A2",
       "abschnitt": "Anhang",
       "layout": "PGN_ANHANG",
       "titel": "Annahmen der Modellrechnung mit Herkunft",
@@ -452,7 +438,7 @@
     },
     {
       "id": "anhang-voraussetzungen",
-      "nr": "A4",
+      "nr": "A3",
       "abschnitt": "Anhang",
       "layout": "PGN_ANHANG",
       "titel": "Voraussetzungen, darunter Bedarf am Standort",
@@ -466,7 +452,7 @@
     },
     {
       "id": "anhang-vertraege",
-      "nr": "A5",
+      "nr": "A4",
       "abschnitt": "Anhang",
       "layout": "PGN_ANHANG",
       "titel": "Rücktrittsklauseln prüft die NBank im Einzelfall",
@@ -480,7 +466,7 @@
     },
     {
       "id": "quellen",
-      "nr": "A6",
+      "nr": "A5",
       "abschnitt": "Anhang",
       "layout": "PGN_ANHANG",
       "titel": "Quellen und Hinweis",

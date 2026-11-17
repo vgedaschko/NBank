@@ -9,7 +9,7 @@ module.exports = {
     // A1 heißt „Programmteile“, A4 wie ihr Kopf „Annahmen der Modellrechnung“, A7 wie ihr Titel „Quellen und Hinweis“. Die Anhangfolien zu Rendite
     // und Tilgungsschwelle sind mit dem Umbau der Modellrechnung entfallen (Rendite: Folie 21, Spielraum beim Tilgungssatz: Folie 22)
     // Seit 16.11.2026 (Notfassung): ohne Programmteile und Mieterkreis; A1 Eckdaten, A2 Annahmen, A3 und A4 Voraussetzungen und Verträge, A5 Quellen
-    const themen = ['Eckdaten und Vergleich', 'Annahmen der Modellrechnung', 'Voraussetzungen und Verträge', 'Quellen und Hinweis'];
+    const themen = ['Eckdaten', 'Annahmen der Modellrechnung', 'Voraussetzungen und Verträge', 'Quellen und Hinweis'];
     ctx.wortlaut(themen.join(' · '), 'Vorspann');
     ctx.folie({ lead: `${themen[0]} · ${themen[1]}\n${themen[2]} · ${themen[3]}` });
   },

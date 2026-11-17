@@ -9,7 +9,7 @@ module.exports = {
   bau(ctx) {
     const { B, D, fmt, ZONE, colX } = ctx, wl = (t, was) => ctx.wortlaut(t, was);
     const { jahre, n, A, C, ab, iAb, M } = verlauf(ctx);
-    const s = ctx.folie(ctx.titelzeilen(['Kein Jahr mit Fehlbetrag,', 'jede Mietanpassung hebt den Überschuss'], 'Kein Jahr'));
+    const s = ctx.folie(ctx.titelzeilen(['Kein Jahr mit Fehlbetrag,', `ab Jahr ${ab} liegt Gruppe C vor A`], `ab Jahr ${ab}`));
     B.register(s, '2.1');
     B.diagrammkopf(s, { titel: wl(`Zahlungsüberschuss je Jahr, Jahr ${jahre[0]} bis ${jahre[n]}`, 'Diagrammtitel'),
       sub: wl('in € p. a., nach Kapitaldienst', 'Untertitel') });

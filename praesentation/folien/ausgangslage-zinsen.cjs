@@ -16,7 +16,7 @@ module.exports = {
   bau(ctx) {
     const { B, D, X, W, fmt, colX, span, ZONE, P, mittel } = ctx, { monatKurz, monatWort } = fmt, s = ctx.folie(), U = E.lies(ctx), T = k => ctx.wortlaut(U('zinsen.texte.' + k), k);
     const monate = X('markt', 'zinsen.monate'), n = monate.length - 1, K = ['z10', 'z20', 'z30'];
-    const reihen = [{ k: 'z10', art: 'akzent' }, { k: 'z20', art: 'bisher' }, { k: 'z30', art: 'referenz' }]
+    const reihen = [{ k: 'z10', art: 'akzent' }, { k: 'z20', art: 'referenz' }, { k: 'z30', art: 'tinte' }]
       .map(r => ({ ...r, name: ctx.wortlaut(X('markt', `zinsen.${r.k}.name`), 'Legende'), werte: X('markt', `zinsen.${r.k}`) }));
     const wert = v => ctx.wortlaut(fmt.prozentWert(v, 2), 'Wert');
     if (!monate[0].endsWith('-01')) throw new Error('Zinsreihe: Der erste Monat muss ein Januar sein, sonst trägt nicht jeder zwölfte Punkt die Jahreszahl.');
@@ -31,7 +31,7 @@ module.exports = {
     const kat = monate.map(m => (m.endsWith('-01') ? m.slice(0, 4) : monatKurz(m))), jahre = kat.filter(k => /^\d{4}$/.test(k));
     const d = D.linien(s, { x: colX(1), y: ZONE.diagramm.chart.y, w: span(12), h: ZONE.diagramm.chart.h, kategorien: kat, katLabels: { formen: jahre }, staerke: FEIN.STRICH, rand: { l: 0.52, r: 0.14, o: 0.20, u: 0.46 }, achse: { min: 0, max: 5, schritt: 1, format: 'roh' },
       name: 'Diagramm Sollzins nach Zinsbindung', altText: `Liniendiagramm: Sollzins p. a. für ${reihen.map(r => r.name).join(', ')} Zinsbindung, Monatswerte ${monatKurz(monate[0])} bis ${monatKurz(monate[n])}`,
-      reihen: reihen.map(r => ({ name: r.name, werte: r.werte, art: r.art })) });
+      reihen: reihen.map(r => ({ name: r.name, werte: r.werte, art: r.art })), flaeche: { reihe: reihen[0].name, name: `${reihen[0].name}, Fläche`, deckung: 26 } });
 
     B.achsentitel(s, d, { y: ctx.wortlaut('Sollzins in % p. a.', 'Achsentitel') });
     FEIN.jahresstriche(ctx, s, d);

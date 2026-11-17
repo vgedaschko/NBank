@@ -35,7 +35,7 @@ module.exports = {
     zeilen.forEach((z, i) => wl(`„${z[0].replace(/\*\*/g, '')}“ · „${z[1]}“`, `Anforderung ${i + 1}`));
     const NB = fmt.NBSP, satz = t => t.replace(/ \/ /g, `${NB}/${NB}`);
     const tr = B.tabelle(s, { x: rx, y: yR, w: rw, pt: 12, dicht: true, zellrand: [0.05, 0.04], name: 'Tabelle Bauliche Anforderungen',
-      spalten: [{ kopf: 'Anforderung', art: 'text' }, { kopf: 'Fundstelle', breite: 1.75, art: 'text', randRechts: 0.02 }], zeilen: zeilen.map(z => [satz(z[0]), z[1]]) });
+      spalten: [{ kopf: 'Anforderung', art: 'text' }, { kopf: 'Quelle', breite: 1.75, art: 'text', randRechts: 0.02 }], zeilen: zeilen.map(z => [satz(z[0]), z[1]]) });
     if (tr.unten > Y.inhaltEnde + 0.005) P.melde(`Tabelle Bauliche Anforderungen endet bei y ${tr.unten.toFixed(2)}, die Inhaltszone bei ${Y.inhaltEnde.toFixed(2)}.`);
   },
 };

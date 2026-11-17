@@ -1049,22 +1049,25 @@ function bausteine(pres, kx) {
   B.hinweis = (s, o) => {
     brauche('B.hinweis', o, ['x', 'y', 'w']);
     if (!o.text || !String(o.text).trim()) throw new Error('B.hinweis: text fehlt.');
-    const H = HINWEIS, st = stil('hinweis'), tx = o.x + H.innen + H.icon + H.steg, tw = +(o.x + o.w - H.innen - tx).toFixed(3);
-    const th = B.hoehe(o.text, { rolle: 'hinweis', w: tw }), h = +Math.max(th + 2 * H.rand, H.icon + 2 * H.rand).toFixed(3);
+    // wichtig: true (Designtest 17.11.2026): Vorbehalt mit eigenem Gewicht, Text in 14 pt (Rolle dicht) und Tintenlinie auf der Oberkante
+    const rolleH = o.wichtig ? 'dicht' : 'hinweis';
+    const H = HINWEIS, st = stil(rolleH), tx = o.x + H.innen + H.icon + H.steg, tw = +(o.x + o.w - H.innen - tx).toFixed(3);
+    const th = B.hoehe(o.text, { rolle: rolleH, w: tw }), h = +Math.max(th + 2 * H.rand, H.icon + 2 * H.rand).toFixed(3);
     const y = o.unten ? +(o.y - h).toFixed(3) : o.y, name = 'Hinweiskasten' + (o.name ? ' ' + o.name : '');   // Formnamen „Hinweiskasten …“: pruefe_folien.py prüft Schrift und Größe
     // Längere Texte sind Fließtext (14 pt, pruefe_folien.py): Ein Hinweis bleibt kurz
     if (P && klar(o.text).length > H.max) P.melde(`${name}: Der Hinweis hat ${klar(o.text).length} Zeichen (höchstens ${H.max}); kürzen oder als Text der Folie setzen.`);
     B.kasten(s, { x: o.x, y, w: o.w, h, farbe: H.farbe, name: name + ' Fläche' });
     // Symbol auf der Höhe der ersten Zeile
     B.icon(s, { name: 'hinweis', farbe: 'tinte', x: o.x + H.innen, y: +(y + H.rand + (zeilenhoehe(st) - H.icon) / 2 + 0.01).toFixed(3), d: H.icon, altText: 'Symbol: Hinweis' });
-    B.text(s, o.text, { x: tx, y: y + H.rand, w: tw, h: th, rolle: 'hinweis', name: name + ' Text' });
+    if (o.wichtig) B.linie(s, { x: o.x, y, w: o.w, art: 'modul', name: name + ' Linie' });
+    B.text(s, o.text, { x: tx, y: y + H.rand, w: tw, h: th, rolle: rolleH, name: name + ' Text' });
     return { x: o.x, y, w: o.w, h, unten: +(y + h).toFixed(3) };
   };
   // Höhe eines Hinweiskastens bei gegebener Breite, ohne zu zeichnen (zum Ausrichten: das Diagramm endet h + Abstand über der Inhaltszone)
   B.hinweisHoehe = (text, o) => {
     brauche('B.hinweisHoehe', o, ['w']);
     const H = HINWEIS, tw = +(o.w - 2 * H.innen - H.icon - H.steg).toFixed(3);
-    return +Math.max(B.hoehe(text, { rolle: 'hinweis', w: tw }) + 2 * H.rand, H.icon + 2 * H.rand).toFixed(3);
+    return +Math.max(B.hoehe(text, { rolle: o.wichtig ? 'dicht' : 'hinweis', w: tw }) + 2 * H.rand, H.icon + 2 * H.rand).toFixed(3);
   };
 
   // Stichpunkte rechts neben Diagrammen und Tabellen (G9, Änderungsrunde vom 13.11.2026): je Gruppe eine Überschrift wie ein Modultitel

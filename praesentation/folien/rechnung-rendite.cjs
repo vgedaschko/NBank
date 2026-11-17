@@ -28,7 +28,7 @@ module.exports = {
     B.diagrammkopf(s, { titel: wl('Eigenkapitalrendite über 35 Jahre', 'Diagrammtitel'), sub: wl('VOFI, vor Steuern, in % p. a. · Maßkette: Beitrag des Restwerts in Prozentpunkten', 'Untertitel') });
     B.legende(s, { x: ZONE.diagramm.chart.x, y: ZONE.diagramm.legende, eintraege: [{ text: 'mit Restwert', art: 'tinte' }, { text: 'ohne Restwert', art: 'referenz' }] });
     const hinweis = wl(`Frei finanziert rechnerisch, bei einer DSCR von ${fmt.dez(dF, 2)}.\nFinanzierung unter diesen Gesichtspunkten unrealistisch.`, 'Hinweiskasten');
-    const cz = ZONE.diagramm.chart, hH = B.hinweisHoehe(hinweis, { w: cz.w });
+    const cz = ZONE.diagramm.chart, hH = B.hinweisHoehe(hinweis, { w: cz.w, wichtig: true });
     const d = D.gruppierteSaeulen(s, { x: cz.x, y: cz.y, w: cz.w, h: +(Y.inhaltEnde - cz.y - hH - 0.12).toFixed(3), kategorien: ['Gruppe A', 'Frei finanziert'],
       reihen: [{ name: 'mit Restwert', art: 'tinte', werte: [mitA * 100, mitF * 100] }, { name: 'ohne Restwert', art: 'referenz', werte: [ohneA * 100, zahl(ohneF) ? ohneF * 100 : 0] }],
       achse: { min: 0, max: 10, schritt: 2, format: 'roh' }, labels: false, rand: { l: 0.80, r: 0.95 }, name: 'Diagramm Eigenkapitalrendite' });
@@ -40,7 +40,7 @@ module.exports = {
     [[mitA, ohneA], [mitF, ohneF]].forEach(([mit, ohne], i) => { if (zahl(ohne)) B.massketteSenkrecht(s, { x: d.reiheMitte(i, 1) + d.saeulenBreite / 2 + 0.16, y0: d.yWert(mit * 100), y1: d.yWert(ohne * 100),
       text: `+${fmt.dez((mit - ohne) * 100, 2)}`, seite: 'rechts', name: 'Restwert ' + (i ? 'frei finanziert' : 'Gruppe A') }); });
     B.achsentitel(s, d, { y: wl('in % p. a.', 'Achsentitel') });
-    B.hinweis(s, { x: cz.x, y: Y.inhaltEnde, unten: true, w: cz.w, name: 'Frei finanziert', text: hinweis });
+    B.hinweis(s, { x: cz.x, y: Y.inhaltEnde, unten: true, w: cz.w, name: 'Frei finanziert', text: hinweis, wichtig: true });
 
     // Rechts: Anteil des Restwerts am Vermögen für A und frei finanziert nebeneinander, darunter ab y 4,40 der Weg zum Vermögen für beide
     const sp = ZONE.diagramm.spalte, wK = (sp.w - 0.30) / 2;

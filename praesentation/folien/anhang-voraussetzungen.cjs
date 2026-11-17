@@ -27,24 +27,13 @@ module.exports = {
     // der Unterkante der Prüfliste, die Beschriftung steht direkt unter dem Ring. Feld des Rings 3,00 statt 2,90 Zoll (seit 13.11.2026): Der
     // QR-Code in der Mitte braucht die Fläche
     const hinweis = ctx.wortlaut(U('bedarf.hinweis'), 'Hinweiskasten unter dem Ring');
-    const RING = 3.00, LOCH = 71, H_KARTE = 0.22, hHinweis = B.hinweisHoehe(hinweis, { w }), yHinweis = +(liste.unten - hHinweis).toFixed(3);
-    const yKarte = +(yHinweis - 0.16 - H_KARTE).toFixed(3), ringD = RING * 0.80;   // D.ring: Ringdurchmesser 80 % des Felds (Rand 10 % je Seite)
-    const yRing = +(yKarte - 0.08 - RING * 0.90).toFixed(3);
-    if (yRing + RING * 0.10 < yKopf + 0.15) ctx.P.melde(`Ring: Er beginnt bei y ${(yRing + RING * 0.10).toFixed(2)} und rückt an den Modulkopf (bis y ${yKopf.toFixed(2)}).`);
-    // Die Reihe heißt nach dem, was sie zählt (Einheits- und Samtgemeinden); der Name steht im Datenblatt von PowerPoint. Loch 71 % wie in der
-    // Broschüre (bis 13.11.2026 62 %): Der QR-Code braucht die Fläche
-    const ring = D.ring(s, { x, y: yRing, w: RING, h: RING, loch: LOCH, segmente: seg, name: 'Ringdiagramm Bedarfslage', reihenname: U('bedarf.bezug'),
-      altText: `Ringdiagramm: ${seg.map(g => `${fmt.zahl(g.wert)} ${g.name}`).join(', ')}` });
-    B.ringWerte(s, { x: x + RING + 0.10, cy: ring.cy, w: w - RING - 0.10, eintraege: seg.map(g => ({ wert: fmt.zahl(g.wert), text: g.name, art: g.art })) });
-    // Weiße Scheibe in der Größe des Lochs: In PowerPoint deckt sie sich mit dem Loch des Diagramms; Programme, die die Lochgröße des Diagramms
-    // nicht lesen (LibreOffice zeichnet immer 50 %), zeigen so denselben Ring. Sie trägt keinen Text und gilt als Schmuck
-    const loch = ringD * LOCH / 100, QR = 1.14;
-    s.addShape(ctx.pres.ShapeType.ellipse, { x: +(ring.cx - loch / 2).toFixed(3), y: +(ring.cy - loch / 2).toFixed(3), w: +loch.toFixed(3), h: +loch.toFixed(3), fill: { color: ctx.HEX.weiss }, line: { type: 'none' }, objectName: 'Ringmitte' });
-    // QR-Code in der Ringmitte: Das Bild (mit Ruhezone) steht ganz im weißen Loch, auch mit seinen Ecken (halbe Diagonale unter dem Lochradius)
-    if (QR * Math.SQRT2 / 2 > loch / 2 - 0.02) ctx.P.melde(`QR-Code: ${QR} Zoll Kante passen nicht in das Loch des Rings (${loch.toFixed(2)} Zoll).`);
-    s.addImage({ path: ctx.asset(U('bedarf.qr.bild')), x: +(ring.cx - QR / 2).toFixed(3), y: +(ring.cy - QR / 2).toFixed(3), w: QR, h: QR, altText: U('bedarf.qr.alt_text'), objectName: 'QR-Code Aktuelle Karte' });
-    // Beschriftung unter dem Ring, mittig (wie die Broschüre)
-    B.text(s, ctx.wortlaut(U('bedarf.qr.beschriftung'), 'Beschriftung des QR-Codes'), { x: +(ring.cx - ringD / 2).toFixed(3), y: yKarte, w: ringD, h: H_KARTE, rolle: 'vorsatz', align: 'center', valign: 'middle', einzeilig: true, name: 'Beschriftung QR-Code' });
+    // Designtest 17.11.2026: zwei Kennzahlen statt des Rings mit zwei Segmenten; der QR-Code steht rechts daneben mit seiner Beschriftung
+    const QR = 1.50, wZ = +(w - QR - 0.30).toFixed(3), yZ = +(yKopf + 0.20).toFixed(3);
+    let yy = yZ;
+    seg.forEach(g => { const k = B.kennzahl(s, { x, y: yy, w: wZ, zahl: fmt.zahl(g.wert), label: g.name, kompakt: true }); yy = +(k.unten + 0.14).toFixed(3); });
+    const qx = +(x + w - QR).toFixed(3);
+    s.addImage({ path: ctx.asset(U('bedarf.qr.bild')), x: qx, y: yZ, w: QR, h: QR, altText: U('bedarf.qr.alt_text'), objectName: 'QR-Code Aktuelle Karte' });
+    B.text(s, ctx.wortlaut(U('bedarf.qr.beschriftung'), 'Beschriftung des QR-Codes'), { x: +(qx - 0.40).toFixed(3), y: +(yZ + QR + 0.06).toFixed(3), w: QR + 0.40, h: 0.22, rolle: 'vorsatz', align: 'right', valign: 'middle', einzeilig: true, name: 'Beschriftung QR-Code' });
     B.hinweis(s, { x, y: liste.unten, w, text: hinweis, unten: true, name: 'Bedarfsbestätigung' });
   },
 };

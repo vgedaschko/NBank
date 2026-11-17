@@ -24,18 +24,19 @@ module.exports = {
     // ---- rechts: bauliche Anforderungen mit Fundstelle ------------------------------------------------------------------------------
     const rx = colX(6) + 0.12, rw = span(7) - 0.12;
     const yR = B.modulkopf(s, { x: rx, y: Y.inhalt, w: rw, titel: wl('Bauliche Anforderungen', 'Modultitel'), sub: wl('Programmteil 2.1, Neubau', 'Untertitel') });
-    const grenze = `${fmt.zahl(T('bemessungsgrenze.I'))} / ${fmt.zahl(T('bemessungsgrenze.IV'))} €`;
-    const zeilen = [
-      ['Mehrfamilienhaus ab **drei Wohnungen**; je Gebäude mindestens **zwei gebundene** Wohnungen, keine Eigentumswohnungen', 'RL Nr. 1.5, 5.2.5'],
-      ['Grundrisse zweckmäßig, keine Durchgangsräume; Kinderzimmer mindestens **10 m²**, für zwei Kinder **15 m²**', 'RL Nr. 5.1.2'],
-      ['Balkon, Loggia, Terrasse: höchstens **ein Zehntel** der angemessenen Wohnfläche', 'RL Nr. 5.1.3'],
-      [`Herstellungskosten bis **${grenze}** je m², Mietenstufe I–III / IV–VII; Grundstück zusätzlich`, 'RL Nr. 5.3.2.2'],
-      ['Barrierefrei nach Bauordnung: über vier Wohnungen alle barrierefrei, **jede achte** rollstuhlgerecht', '§ 49 NBauO'],
-      ['Energie: gesetzlicher Neubaustandard; Mietzuschlag erst ab **KfW-Effizienzhaus 40**', '§ 15 GModG, RL Nr. 5.4.4']];
-    zeilen.forEach((z, i) => wl(`„${z[0].replace(/\*\*/g, '')}“ · „${z[1]}“`, `Anforderung ${i + 1}`));
-    const NB = fmt.NBSP, satz = t => t.replace(/ \/ /g, `${NB}/${NB}`);
-    const tr = B.tabelle(s, { x: rx, y: yR, w: rw, pt: 12, dicht: true, zellrand: [0.05, 0.04], name: 'Tabelle Bauliche Anforderungen',
-      spalten: [{ kopf: 'Anforderung', art: 'text' }, { kopf: 'Quelle', breite: 1.75, art: 'text', randRechts: 0.02 }], zeilen: zeilen.map(z => [satz(z[0]), z[1]]) });
-    if (tr.unten > Y.inhaltEnde + 0.005) P.melde(`Tabelle Bauliche Anforderungen endet bei y ${tr.unten.toFixed(2)}, die Inhaltszone bei ${Y.inhaltEnde.toFixed(2)}.`);
+    // Designtest 17.11.2026: Stichpunkte in 14 pt statt der Tabelle mit Quellenspalte; die Fundstellen stehen in der Quellenzeile
+    const gruppen = [
+      { titel: 'Gebäude und Grundriss', punkte: [
+        'Mehrfamilienhaus ab drei Wohnungen, je Gebäude mindestens zwei gebunden',
+        'Kinderzimmer mindestens 10 m², keine Durchgangsräume',
+        'Balkon höchstens ein Zehntel der Wohnfläche'] },
+      { titel: 'Kosten, Barrierefreiheit, Energie', punkte: [
+        `Herstellungskosten bis ${fmt.zahl(T('bemessungsgrenze.I'))} € je m², in Mietenstufe IV bis VII bis ${fmt.zahl(T('bemessungsgrenze.IV'))} €`,
+        'Über vier Wohnungen alle barrierefrei, jede achte rollstuhlgerecht',
+        'Energie: gesetzlicher Standard (GModG)'] }];
+    gruppen.forEach(g => { wl(g.titel, 'Gruppentitel'); g.punkte.forEach(t => wl(t, 'Stichpunkt')); });
+    const stp = B.stichpunkte(s, { x: rx, y: yR + 0.06, w: rw, titelAbstand: 8, punktAbstand: 3, name: 'Stichpunkte Bauliche Anforderungen', gruppen });
+    if (stp.unten > Y.inhaltEnde + 0.005) P.melde(`Stichpunkte enden bei y ${stp.unten.toFixed(2)}, die Inhaltszone bei ${Y.inhaltEnde.toFixed(2)}.`);
+    B.quelle(s, wl('Quellen: RL Mietwohnraum 2026, Nr. 1.5 und 5.1 bis 5.3; § 49 NBauO; § 15 GModG', 'Quellenzeile'));
   },
 };

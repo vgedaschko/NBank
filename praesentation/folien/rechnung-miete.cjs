@@ -17,7 +17,7 @@ module.exports = {
     B.register(s, '2.1');
     B.quelle(s, quelleMarkt(ctx));
     B.diagrammkopf(s, { titel: wl(`Miete für eine DSCR von ${fmt.dez(ziel, 1)} in Jahr 1`, 'Diagrammtitel'), sub: wl('in € je m² und Monat · Linie: erzielbare Miete', 'Untertitel') });
-    B.legende(s, { x: ZONE.diagramm.chart.x, y: ZONE.diagramm.legende, eintraege: [{ text: 'Gruppe A', art: 'tinte' }, { text: 'Frei finanziert', art: 'referenz' }, { text: 'Lücke zur Marktmiete', art: 'signal' }] });
+    B.legende(s, { x: ZONE.diagramm.chart.x, y: ZONE.diagramm.legende, eintraege: [{ text: 'Gruppe A', art: 'tinte' }, { text: 'Frei finanziert', art: 'referenz' }, { text: 'Lücke zur Marktmiete', art: 'bisher' }] });
     const hinweis = wl(`DSCR = Überschuss vor Kapitaldienst ÷ Kapitaldienst.\nDSCR = ${fmt.dez(ziel, 1)} verlangt die Bank mindestens für ihr Darlehen, Annahme.\nGefördert gilt die DSCR für das NBank-Darlehen.`, 'Hinweiskasten');
     const cz = ZONE.diagramm.chart, hH = B.hinweisHoehe(hinweis, { w: cz.w });
     const d = D.balkenpaar(s, { x: cz.x, y: cz.y, w: cz.w, h: +(Y.inhaltEnde - cz.y - hH - 0.12).toFixed(3), kategorien: ['Gruppe A', 'Frei finanziert'], werte: [nA, nF], arten: ['tinte', 'referenz'],
@@ -25,11 +25,11 @@ module.exports = {
     B.achsentitel(s, d, { x: wl('Miete in € je m² und Monat', 'Achsentitel') });
     const bh = d.balkenHoehe;
     // Lücke: der Teil des Balkens frei finanziert über der Marktmiete, als Fläche in Dunkelrot über dem Balken
-    B.kasten(s, { x: d.xWert(markt), y: d.katMitte(1) - bh / 2, w: d.xWert(nF) - d.xWert(markt), h: bh, farbe: C.dunkelrot, name: 'Lücke zur Marktmiete' });
+    B.kasten(s, { x: d.xWert(markt), y: d.katMitte(1) - bh / 2, w: d.xWert(nF) - d.xWert(markt), h: bh, farbe: ctx.HEX.grau300, name: 'Lücke zur Marktmiete' });
     B.textAufPlot(s, fmt.euroDez(nA), { x: Math.max(d.xWert(nA), d.xWert(hm)) + 0.12, y: d.katMitte(0) - 0.20, w: 1.3, h: 0.40, rolle: 'kernwert', valign: 'middle', name: 'Wert Gruppe A' });
     B.textAufPlot(s, fmt.euroDez(nF), { x: d.xWert(nF) + 0.12, y: d.katMitte(1) - 0.20, w: 1.3, h: 0.40, rolle: 'kernwert', valign: 'middle', name: 'Wert frei finanziert' });
     B.marke(s, { x: d.xWert(hm), y: d.katMitte(0) - bh / 2 - 0.32, h: bh + 0.44, art: 'mass', text: `Höchstmiete ${fmt.euroDez(hm)}`, textSeite: 'oben', textBreite: 2.0 });
-    B.marke(s, { x: d.xWert(markt), y: d.katMitte(1) - bh / 2 - 0.32, h: bh + 0.44, art: 'mass', text: `Marktmiete ${fmt.euroDez(markt)}`, textSeite: 'rechts', textBreite: 2.0 });   // rechts der Linie: oben läge die Zeile unter dem Wert von A
+    B.marke(s, { x: d.xWert(markt), y: d.katMitte(1) - bh / 2 - 0.32, h: bh + 0.44, art: 'mass', text: `Marktmiete Neu Wulmstorf ${fmt.euroDez(markt)}`, textSeite: 'rechts', textBreite: 2.9 });   // rechts der Linie: oben läge die Zeile unter dem Wert von A
     B.hinweis(s, { x: cz.x, y: Y.inhaltEnde, unten: true, w: cz.w, name: 'DSCR', text: hinweis });
 
     // Seit 16.11.2026 (Wunsch des Auftraggebers): rechts dieselbe Reihenfolge wie im Diagramm, erst Gruppe A, dann frei finanziert; beide in 44 pt

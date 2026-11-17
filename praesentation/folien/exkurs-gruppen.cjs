@@ -26,7 +26,7 @@ module.exports = {
     if (stp.unten > Y.inhaltEnde + 0.005) P.melde(`Stichpunkte enden bei y ${stp.unten.toFixed(2)}, die Inhaltszone bei ${Y.inhaltEnde.toFixed(2)}.`);
 
     // Rechts: Bedarf am Standort, eigene Voraussetzung auch für A; QR-Code zur Karte der NBank
-    const x = colX(9) + 0.12, w = span(4) - 0.12, QR = 1.25;
+    const x = colX(9) + 0.12, w = span(4) - 0.12, QR = 1.05;
     const yT = B.modulkopf(s, { x, y: Y.inhalt, w, titel: wl('Bedarf am Standort', 'Modultitel') });
     const text = wl('Gilt zusätzlich für jede Gruppe: Gefördert wird nur, wo Bedarf besteht. Die Wohnraumförderstelle bestätigt ihn. Die Karte der NBank zeigt den Bedarf je Gemeinde.', 'Text Bedarf');
     const t = B.text(s, text, { x, y: yT + 0.10, w, rolle: 'dicht', name: 'Text Bedarf' });
@@ -35,8 +35,8 @@ module.exports = {
     B.text(s, wl('Aktuelle Karte', 'Beschriftung des QR-Codes'), { x: x + QR + 0.16, y: yQ + QR - 0.52, w: w - QR - 0.16, h: 0.22, rolle: 'vorsatz', valign: 'middle', einzeilig: true, name: 'Beschriftung QR-Code' });
     B.text(s, wl('nbank.de', 'Beschriftung des QR-Codes'), { x: x + QR + 0.16, y: yQ + QR - 0.28, w: w - QR - 0.16, h: 0.22, rolle: 'klein', valign: 'middle', einzeilig: true, name: 'Ziel QR-Code' });
     const hinweis = wl('Kein Anspruch auf B und C: Die NBank entscheidet im Einzelfall (§ 4 DVO-NWoFG).', 'Hinweiskasten');
-    B.hinweis(s, { x, y: Y.inhaltEnde, unten: true, w, name: 'Zulassung', text: hinweis });
-    if (yQ + QR > Y.inhaltEnde - B.hinweisHoehe(hinweis, { w }) - 0.08) P.melde(`QR-Code endet bei y ${(yQ + QR).toFixed(2)} und stößt an den Hinweiskasten.`);
+    B.hinweis(s, { x, y: Y.inhaltEnde, unten: true, w, name: 'Zulassung', text: hinweis, wichtig: true });
+    if (yQ + QR > Y.inhaltEnde - B.hinweisHoehe(hinweis, { w, wichtig: true }) - 0.08) P.melde(`QR-Code endet bei y ${(yQ + QR).toFixed(2)} und stößt an den Hinweiskasten.`);
     if (yQ + QR > Y.inhaltEnde + 0.005) P.melde(`QR-Code endet bei y ${(yQ + QR).toFixed(2)}, die Inhaltszone bei ${Y.inhaltEnde.toFixed(2)}.`);
   },
 };

@@ -14,7 +14,7 @@ const MASSSTAB = 68000;    // Euro je Zoll Höhe: 67.565 € (Quelle der Folie 1
                            // auf Folie 17 ist höher als 0,40 Zoll (Kernwert im Band).
 // Farbrollen wie auf Folie 16: Tilgung in Tinte, Zins im Referenzgrau, Verwaltungskostenbeitrag hell, Bewirtschaftung blass (Töne der
 // Bibliothek, FLUSSART in lib/theme.cjs). Kein Rot.
-const ROLLEN = { tilgung: 'tinte', zins: 'referenz', beitrag: 'hell', bewirtschaftung: 'blass', ueberschuss: 'tinte', knoten: 'tinte' };
+const ROLLEN = { tilgung: 'tinte', zins: 'referenz', beitrag: 'referenz', bewirtschaftung: 'blass', ueberschuss: 'tinte', knoten: 'tinte' };
 // Lagen in Zoll. Drei Knotenspalten (Quelle, Knoten, Ziele), rechts die Zeilen der Ziele mit Betrag und Anteil, ganz rechts die Klammer.
 const LAGE = {
   oben: 2.94,            // Oberkante von Quelle und erstem Ziel (seit 16.11.2026 0,30 höher: über dem Diagramm steht keine Beschriftung mehr)

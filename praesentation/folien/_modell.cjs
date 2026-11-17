@@ -71,14 +71,14 @@ function gruende(ctx) {
   const luecke = noetig - markt;
   ctx.pruefe(anteil < 1 && luecke > 0, 'Höchstmiete liegt nicht unter der Marktmiete oder frei finanziert fehlt keine Miete.');
   return [
-    { titel: 'Planbare Mieterträge',
-      satz: `Höchstmiete ${fmt.euroDez(miete)}, höchstens +${fmt.prozent(erh, 2)} alle drei Jahre` },
-    { titel: 'Gesicherte Nachfrage',
-      satz: `Dauerhaft vermietbar: Miete ${fmt.prozent(1 - anteil, 0)} unter der Marktmiete` },
-    { titel: 'Neubau, der sonst nicht entsteht',
-      satz: `Frei finanziert fehlen ${fmt.euroDez(luecke)} Miete je m²` },
-    { titel: 'Liquidität über 35 Jahre',
-      satz: `Kein Jahr mit Fehlbetrag, Zins 0 % für ${zinsfrei} Jahre` }];
+    { titel: 'Planbare Mieterträge', zahl: fmt.euroDez(miete),
+      satz: `Höchstmiete, höchstens +${fmt.prozent(erh, 2)} alle drei Jahre` },
+    { titel: 'Gesicherte Nachfrage', zahl: fmt.prozent(1 - anteil, 0),
+      satz: 'unter der Marktmiete: dauerhaft vermietbar' },
+    { titel: 'Neubau, der sonst nicht entsteht', zahl: fmt.euroDez(luecke),
+      satz: 'Miete je m² fehlen frei finanziert' },
+    { titel: 'Liquidität über 35 Jahre', zahl: fmt.prozent(0, 0),
+      satz: `Zins für ${zinsfrei} Jahre, kein Jahr mit Fehlbetrag` }];
 }
 
 // Quellenzeile der Folien mit der Marktmiete (daten/rechnung.json, marktwerte.quelle_kurz), gegen das Konzept geprüft

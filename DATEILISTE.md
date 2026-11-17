@@ -16,6 +16,8 @@ Nachtrag 15.11.2026, Folie 14: `praesentation/assets/modellhaus.jpg` ist gelösc
 
 Nachtrag 16.11.2026, Notfassung des Vortrags: Die aktuelle Ausgabe unter `praesentation/dist/` ist die Notfassung (34 Folien, gebaut mit `node build.cjs --ohne-wortlaut`). Die Fassung davor liegt als Sicherung unter `praesentation/dist/archiv/PGN-Vortrag-Stand-2026-11-16-vor-Notfassung.pptx` und `.pdf`. Neu: `praesentation/folien/exkurs-gruppen.cjs` (Folie 12) und `praesentation/folien/anforderungen.cjs` (Folie 14). Nicht mehr im Vortrag, aber für die Rückkehr zur alten Fassung behalten: `praesentation/folien/rechnung-spielraum.cjs`, `anhang-programmteile.cjs`, `anhang-mieterkreis.cjs`. `praesentation/INHALT.md` und `praesentation/pruefe_folien.py` stehen noch auf der Fassung davor (siehe OFFENE-PUNKTE a24). Die Broschüre unter `broschuere/dist/` ist unverändert (a26). Seit dem Abend des 16.11.2026 rechnet das Modellhaus wieder mit den Mieten für Neu Wulmstorf, dazu mit 10 % Sollzins auf dem Projektkonto (a25).
 
+Nachtrag 17.11.2026, Designtest des Vortrags: Die Ausgabe unter `praesentation/dist/` ist die Testfassung nach der Gestaltungskritik (35 Folien, OFFENE-PUNKTE a31). Die Fassung davor liegt unter `praesentation/dist/archiv/PGN-Vortrag-Stand-2026-11-17-vor-Designtest.pptx` und `.pdf`. Neu: `praesentation/folien/_vergleich.cjs` (Tabelle der Folie 9 und des Anhangs) und `praesentation/folien/anhang-vergleich.cjs` (Anhang A2). Der Skill Impeccable unter `.claude/skills/impeccable/` steht auf v4.9.1; die Aktualisierung hat `.claude/agents/` und `.claude/settings.local.json` angelegt.
+
 ## Die Ergebnisse, je eine aktuelle Datei
 
 | Ergebnis | Aktuelle Datei | Daraus erzeugt |
